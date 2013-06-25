@@ -161,6 +161,7 @@ li {
 	
 	.nav a.active:after {
 		
+/*
 		position: absolute;
 		bottom: -14px;
 		content: "";
@@ -170,6 +171,7 @@ li {
 		background: url(../images/subnav-arrow.png) no-repeat center center;
 		height: 12px;
 		z-index: 9999;
+*/
 		
 	}
 
@@ -213,6 +215,7 @@ li {
 	display: inline-block;
 	text-shadow: 0 1px 1px #fff;
 	border: 1px solid #bbb;
+	background: #eee;
 
 }
 	.button:after {
