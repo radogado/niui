@@ -178,12 +178,15 @@ li {
 .subnav {
 	
 	background: #e6e6e6 url(../images/subnav.png) top repeat-x;
+/* 	line-height: 2em; */
 	
 }
 	.subnav a:link, .subnav a:visited {
 
 		color: #727272;
 		font-size: .9em;
+		display: inline-block;
+		padding: .3em;
 
 	}
 	.subnav li:not(:first-child):before, #footer li:not(:first-child):before {
@@ -451,29 +454,22 @@ input {
 
 #footer {
 
-	text-align: center;
 	background: #b0238c url(../images/footer.png) top left repeat-x;
-	padding: 1em 0 3em 0;
-	color: #400e33;
+	color: #eee;
 	
 }
 	
-	#footer ul {
+	#footer .social {
 		
-		margin: 1em 10% 2em 10%;
-		
+		text-align: right;
 		
 	}
-		#footer ul li a:link, #footer ul li a:visited {
-
-			color: #fff;
-			
-		}
-		#footer li {
-			
-			line-height: 2em;
-			
-		}
+	
+	#footer .subnav {
+		
+		margin-bottom: 1em;
+		
+	}
 
 
 @media screen and (max-width: 768px) {
