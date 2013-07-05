@@ -104,6 +104,8 @@ p:first-child {
 a:link, a:visited {
 
 	color: #862165;
+/* 	vertical-align: top; */
+	line-height: 0;
 
 }
 	a:hover {
@@ -131,7 +133,9 @@ li {
 .nav {
 	
 	font-size: 1.4em;
-	
+	display: inline-block; 
+	line-height: 0.8;
+
 }
 
 	.nav a:link, .nav a:visited {
@@ -178,7 +182,6 @@ li {
 .subnav {
 	
 	background: #e6e6e6 url(../images/subnav.png) top repeat-x;
-/* 	line-height: 2em; */
 	
 }
 	.subnav a:link, .subnav a:visited {
@@ -201,13 +204,8 @@ li {
 		color: #bbb;
 	
 	}
-/*
-	.subnav .column4, .subnav .column34 {
-		margin: 5px 10px;
-	}
-*/
 
-.button {
+a.button {
 
 	text-decoration: none;
 	font-weight: bold;
@@ -219,6 +217,7 @@ li {
 	text-shadow: 0 1px 1px #fff;
 	border: 1px solid #bbb;
 	background: #eee;
+	line-height: 1.5;
 
 }
 	.button:after {
