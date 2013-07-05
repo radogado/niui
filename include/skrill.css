@@ -82,7 +82,7 @@ body {
 
 	font-family: 'Open Sans', Arial, sans-serif;
 	color: #4b4b4b;
-	background: url(../images/bg.png);
+	background: #862165 url(../images/scanlines.png);
 	margin: 0;
 	font-size: 15px;
 
@@ -190,6 +190,7 @@ li {
 		font-size: .9em;
 		display: inline-block;
 		padding: .3em;
+		text-shadow: 0 1px 1px #fff;
 
 	}
 	.subnav li:not(:first-child):before, #footer li:not(:first-child):before {
@@ -214,7 +215,7 @@ a.button {
 	padding: .5em .8em .6em .8em;
 	font-size: .7em;
 	display: inline-block;
-	text-shadow: 0 1px 1px #fff;
+	text-shadow: 0 1px 1px #ddd;
 	border: 1px solid #bbb;
 	background: #eee;
 	line-height: 1.5;
@@ -238,12 +239,17 @@ a.button {
 		background: linear-gradient(to bottom,  rgba(0,221,240,1) 0%,rgba(0,177,227,1) 100%); /* W3C */
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ddf0', endColorstr='#00b1e3',GradientType=0 ); /* IE6-9 */
 		font-size: 1.2em;
-		border-left: 1px solid #000;
-		border-right: 1px solid #000;
-		border-bottom: 2px solid #000;
-		box-shadow: 0 2px 1px #222;
+		border: none;
+		box-shadow: 0 1px 2px #333;
+		color: #fff;
+		text-shadow: 0 -1px 1px #333;
 
 	}
+	a.button.big:hover, a.button.big:active {
+		
+		color: #eee !important;
+		
+		}
 	.button.yellow {
 
 		background: rgb(251,222,4); /* Old browsers */
@@ -259,18 +265,25 @@ a.button {
 
 #head {
 
-	background: url(../images/head.png) top left;
-	
+/* 	background: url(../images/head.png) top left; */
+	background: url(../images/header-circle.png) center top no-repeat;
 }
 
 	#head h1, #head p {
 		color: #fff;
 	}
+	
+	#head .button {
+		
+		margin-top: 1em;
+		
+	}
 
 #main {
 	
 	padding: 1em 0;
-	
+	background: #fff url(../images/bg.png);
+		
 }
 
 	#main h3 {
@@ -453,7 +466,7 @@ input {
 
 #footer {
 
-	background: #b0238c url(../images/footer.png) top left repeat-x;
+/* 	background: #b0238c url(../images/footer.png) top left repeat-x; */
 	color: #eee;
 	
 }
