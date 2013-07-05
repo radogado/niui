@@ -283,6 +283,7 @@ a.button {
 	
 	padding: 1em 0;
 	background: #fff url(../images/bg.png);
+	border-top: .8em #e6e6e6 solid;
 		
 }
 
