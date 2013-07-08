@@ -285,7 +285,6 @@ h1, h2, h3, h4 {
 
 #head {
 
-/* 	background: url(../images/head.png) top left; */
 	background: url(../images/header-circle.png) center top no-repeat;
 }
 
@@ -323,6 +322,11 @@ h1, h2, h3, h4 {
 		font-size: 1.4em;
 		color: #862165;
 	
+	}
+	
+	#main .row + .row { /* Every .row appearing right after another .row */
+		
+		border-top: 1px dotted #ccc;
 	}
 
 #top {
