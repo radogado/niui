@@ -78,6 +78,18 @@ ul {
 
 }
 
+
+@font-face {
+    font-family: 'Open Sans Condensed Bold';
+    src: url('opensans-condbold-webfont.eot');
+    src: url('opensans-condbold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('opensans-condbold-webfont.woff') format('woff'),
+         url('opensans-condbold-webfont.ttf') format('truetype'),
+         url('opensans-condbold-webfont.svg#open_sans_condensedbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
 
 	font-family: 'Open Sans', Arial, sans-serif;
@@ -142,8 +154,8 @@ li {
 		
 		color: #666666;
 		text-transform: uppercase;
-		font-weight: bold;
 		text-decoration: none;
+		font-family: 'Open Sans Condensed Bold', sans-serif;
 		
 	}
 	
@@ -263,6 +275,14 @@ a.button {
 		
 	}
 
+h1, h2, h3, h4 {
+	
+	font-weight: bolder;
+	line-height: 1.3;
+	margin: .5em 0;
+
+}
+
 #head {
 
 /* 	background: url(../images/head.png) top left; */
@@ -278,6 +298,10 @@ a.button {
 		margin-top: 1em;
 		
 	}
+	#head h1 {
+		
+		font-size: 3em;
+	}
 
 #main {
 	
@@ -287,8 +311,16 @@ a.button {
 		
 }
 
+	#main h2 {
+	
+		font-size: 2em;
+		color: #862165;
+	
+	}
+
 	#main h3 {
 	
+		font-size: 1.4em;
 		color: #862165;
 	
 	}
