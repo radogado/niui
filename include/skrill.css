@@ -144,7 +144,7 @@ li {
 
 .nav {
 	
-	font-size: 1.4em;
+	font-size: 1.6em;
 	display: inline-block; 
 	line-height: 0.8;
 
@@ -201,21 +201,27 @@ li {
 		color: #727272;
 		font-size: .9em;
 		display: inline-block;
-		padding: .3em;
+		padding: .3em .5em;
 		text-shadow: 0 1px 1px #fff;
+		line-height: 1.2;
 
 	}
 	.subnav li:not(:first-child):before, #footer li:not(:first-child):before {
 
 		content: "|";
 		color: #aaa;
-		margin: 0 .8em;
 
 	}
 	#footer li:not(:first-child):before {
 		
 		color: #bbb;
 	
+	}
+	.subnav .column34, .subnav .column4, .subnav .column3, .subnav .column2, .subnav .column1 {
+		
+		padding-top: .5%;
+		padding-bottom: .5%;
+		
 	}
 
 a.button {
@@ -242,11 +248,11 @@ a.button {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f1f1', endColorstr='#cbcbcb',GradientType=0 ); /* IE6-9 */
 
 }
-	.button:after, p a:link:after, p a:visited:after {
+	.button.big:after {
 	
-		content: " ▹";
+		content: " ►";
 /* 		font-size: .8em; */
-/* 		padding-left: .6em; */
+		padding-left: .3em;
 	
 	}
 	.button.big {
@@ -287,7 +293,7 @@ a.button {
 
 h1, h2, h3, h4 {
 	
-	font-weight: bolder;
+	font-weight: 900;
 	line-height: 1.3;
 	margin: .5em 0;
 
@@ -311,7 +317,7 @@ h1, h2, h3, h4 {
 	
 	padding: 1em 0;
 	background: #fff url(../images/bg.png);
-	border-top: .8em #e6e6e6 solid;
+/* 	border-top: .8em #e6e6e6 solid; */
 		
 }
 
@@ -366,6 +372,10 @@ h1, h2, h3, h4 {
 	display: inline-block;
 			
 }
+	#language:before {
+		
+		content: "🌍";
+	}
 
 input {
 	
