@@ -422,6 +422,11 @@ input {
 	background-image: -o-radial-gradient(50% 75%, circle farthest-side, #c02499, rgba(192, 36, 153, 0) 75%);
 	
 }
+	.container.banner .button {
+
+		margin: 1em 0;
+		
+	}
 
 #footer {
 
