@@ -147,6 +147,7 @@ li {
 	font-size: 1.6em;
 	display: inline-block; 
 	line-height: 0.8;
+	vertical-align: baseline;
 
 }
 
@@ -156,6 +157,7 @@ li {
 		text-transform: uppercase;
 		text-decoration: none;
 		font-family: 'Open Sans Condensed Bold', sans-serif;
+		font-size: 1em;
 		
 	}
 	
