@@ -203,14 +203,14 @@ li {
 		color: #727272;
 		font-size: .9em;
 		display: inline-block;
-		padding: .3em .5em;
+		padding: .3em 0 .3em 0;
 		text-shadow: 0 1px 1px #fff;
 		line-height: 1.2;
 
 	}
 	.subnav li:not(:first-child):before, #footer li:not(:first-child):before {
 
-		content: "|";
+		content: "| ";
 		color: #aaa;
 
 	}
