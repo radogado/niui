@@ -389,17 +389,16 @@ select {
 	border:none;
 	padding:0;
 	margin:0;	
-/* 	font-size: .8em; */
 	font-family: inherit;
 	background: transparent;
 	-webkit-appearance: none;
 	-moz-appearance: window;
 	display:block;
-	line-height: 3;
+/* 	line-height: 3; */
 }
 
 #language select {
-	font-size: .6em;
+	font-size: .66em;
 }
 
 input {
