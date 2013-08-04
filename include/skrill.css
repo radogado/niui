@@ -372,13 +372,30 @@ h1, h2, h3, h4 {
 #language {
 
 	display: inline-block;
-	height: 1em;
-			
+	height: .8em;
+	overflow: hidden;			
 }
 	#language:before {
 		
 		content: "🌍";
+		font-size: .7em;
 	}
+
+select {
+	border:none;
+	padding:0;
+	margin:0;	
+	font-size: .8em;
+	font-family: inherit;
+	background: transparent;
+	-webkit-appearance: none;
+	-moz-appearance: window;
+
+}
+
+#language select {
+	font-size: .6em;
+}
 
 input {
 	
