@@ -372,25 +372,30 @@ h1, h2, h3, h4 {
 #language {
 
 	display: inline-block;
-	height: .8em;
-	overflow: hidden;			
+/* 	height: .6em; */
+	overflow: hidden;
+	position: relative;
+	background: #eee;
 }
 	#language:before {
-		
+		float: left;
+/*
 		content: "🌍";
 		font-size: .7em;
+*/
 	}
 
 select {
 	border:none;
 	padding:0;
 	margin:0;	
-	font-size: .8em;
+/* 	font-size: .8em; */
 	font-family: inherit;
 	background: transparent;
 	-webkit-appearance: none;
 	-moz-appearance: window;
-
+	display:block;
+	line-height: 3;
 }
 
 #language select {
@@ -467,6 +472,15 @@ input {
 		
 	}
 
+table {
+	border-collapse: collapse;
+}
+
+tr, td {
+	
+	border: none;
+	
+}
 
 @media screen and (max-width: 768px) {
 
