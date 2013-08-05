@@ -5,12 +5,6 @@
 	margin: 0 auto;
 }
 
-.container#head, .container#footer {
-
-	max-width: 100%;
-
-}
-
 .row {
 
 	clear: both;
@@ -116,7 +110,6 @@ p:first-child {
 a:link, a:visited {
 
 	color: #862165;
-/* 	vertical-align: top; */
 	line-height: 0;
 
 }
@@ -174,22 +167,6 @@ li {
 	.nav a.active {
 		
 		position: relative;
-		
-	}
-	
-	.nav a.active:after {
-		
-/*
-		position: absolute;
-		bottom: -14px;
-		content: "";
-		display: block;
-		left: 0;
-		right: 0;
-		background: url(../images/subnav-arrow.png) no-repeat center center;
-		height: 12px;
-		z-index: 9999;
-*/
 		
 	}
 
@@ -253,7 +230,6 @@ a.button {
 	.button.big:after {
 	
 		content: " ►";
-/* 		font-size: .8em; */
 		padding-left: .3em;
 	
 	}
@@ -319,7 +295,6 @@ h1, h2, h3, h4 {
 	
 	padding: 1em 0;
 	background: #fff url(../images/bg.png);
-/* 	border-top: .8em #e6e6e6 solid; */
 		
 }
 
@@ -372,18 +347,10 @@ h1, h2, h3, h4 {
 #language {
 
 	display: inline-block;
-/* 	height: .6em; */
 	overflow: hidden;
 	position: relative;
 	background: #eee;
 }
-	#language:before {
-		float: left;
-/*
-		content: "🌍";
-		font-size: .7em;
-*/
-	}
 
 select {
 	border:none;
@@ -393,8 +360,7 @@ select {
 	background: transparent;
 	-webkit-appearance: none;
 	-moz-appearance: window;
-	display:block;
-/* 	line-height: 3; */
+	display: inline-block;
 }
 
 #language select {
@@ -454,7 +420,7 @@ input {
 
 #footer {
 
-/* 	background: #b0238c url(../images/footer.png) top left repeat-x; */
+	background: #b0238c url(../images/footer.png) top left repeat-x;
 	color: #eee;
 	
 }
@@ -488,18 +454,6 @@ tr, td {
 		font-size: .7em;		
 		
 	}
-	
-	.nav a.active:after {
-		
-		bottom: -10px;
-		
-	}
-	
-	#login-form input {
-		
-		width: 32%;
-		
-	}
 
 }
 
@@ -510,41 +464,9 @@ tr, td {
 		width: 98%;
 	}
 
-	.nav a.active:after {
-		
-		display: none;
-		
-	}
-
 	#top .row:first-child .column2:first-child, .subnav .column4 {
 		
 		position: absolute; /* Hide the empty .column2 on top */
-		
-	}
-
-	#login-form input {
-	
-		width: 34%;
-	
-	}
-
-	#top .row .row .column34, #top .row .row .column4 {
-		
-		padding: 2% 0;
-		width: 100%;
-		
-	}
-	
-	#login-form input[type="submit"] {
-	
-		float: right;
-	
-	}
-	
-	.column23 .column1, .column23 .column2 {
-		
-		padding-left: 0;
-		padding-right: 0;
 		
 	}
 
