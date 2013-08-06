@@ -157,7 +157,20 @@ li {
 	.nav a.active:link, .nav a.active:visited {
 	
 		color: #862165;
+		position: relative;
 	
+	}
+	
+	.nav .active:after {
+		
+		content: ".";
+		display: block;
+		width: 100%;
+		text-align: center;
+		position: absolute;
+		bottom: -.6em;
+		color: #999;
+		
 	}
 	
 	.nav li:not(:last-child) {
@@ -323,12 +336,12 @@ h1, h2, h3, h4 {
 	box-shadow: 0 2px 3px #333;
 	
 }
-	#top .column2 {
+	#top .row:first-child .column2, #top .row:first-child .column34, #top .row:first-child .column4 {
 		
-		margin-bottom: 0;
+		padding-bottom: 0;
 				
 	}
-	#top .column2:last-child {
+	#top .column2:last-child, #top .column4:last-child {
 		
 		vertical-align: top;
 		text-align: right;		
@@ -355,6 +368,12 @@ select {
 	padding-left: 2em;
 	background: url(../images/country_select_globes.png) top left no-repeat;
 	min-height: 1.5em
+}
+
+select:hover {
+	
+	cursor: pointer;
+	
 }
 
 input {
