@@ -160,7 +160,7 @@ li {
 	
 	}
 	
-	.nav li {
+	.nav li:not(:last-child) {
 		margin-right: .6em;
 	}
 
@@ -417,6 +417,12 @@ input {
 		
 	}
 
+	.container.banner .column2:first-child {
+
+		vertical-align: bottom;
+		
+	}
+
 #footer {
 
 	background: #b0238c url(../images/footer.png) top left repeat-x;
@@ -456,7 +462,7 @@ tr, td {
 
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 512px) {
 
 	.column1, .column2, .column3, .column23, .column4, .column34 {
 		display: block;
