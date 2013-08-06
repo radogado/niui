@@ -209,7 +209,7 @@ a.button {
 	font-weight: bold;
 	color: #555;
 	border-radius: 3px;
-	padding: .5em .8em .5em .8em;
+	padding: .4em .8em .4em .8em;
 	font-size: .8em;
 	display: inline-block;
 	text-shadow: 0 1px 1px #fff;
@@ -347,24 +347,26 @@ h1, h2, h3, h4 {
 #language {
 
 	display: inline-block;
-	overflow: hidden;
-	position: relative;
-	background: #eee;
+
+}
+
+#language:before {
+	
+	content: "🌍";
+	font-size: .5em;
 }
 
 select {
-	border:none;
-	padding:0;
-	margin:0;	
+	border: none;
+	padding: 0;
+	margin: 0;	
 	font-family: inherit;
 	background: transparent;
 	-webkit-appearance: none;
 	-moz-appearance: window;
 	display: inline-block;
-}
-
-#language select {
-	font-size: .66em;
+	color: #555;
+	font-size: .5em;
 }
 
 input {
