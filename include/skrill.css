@@ -350,12 +350,6 @@ h1, h2, h3, h4 {
 
 }
 
-#language:before {
-	
-	content: "🌍";
-	font-size: .5em;
-}
-
 select {
 	border: none;
 	padding: 0;
@@ -367,6 +361,9 @@ select {
 	display: inline-block;
 	color: #555;
 	font-size: .5em;
+	padding-left: 2em;
+	background: url(../images/country_select_globes.png) top left no-repeat;
+	min-height: 1.5em
 }
 
 input {
