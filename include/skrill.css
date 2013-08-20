@@ -113,22 +113,17 @@ a:link, a:visited {
 	line-height: 0;
 
 }
-	a:hover {
+	a:hover, input[type="submit"]:hover {
 
 		color: #222 !important;
 
 	}
-	a:active {
+	a:active, input[type="submit"]:hover {
 
 		color: #000 !important;
 
 	}
 
-li {
-
-	display: inline;
-
-}
 	li a:link, li a:visited {
 		
 		text-decoration: none;
@@ -183,6 +178,12 @@ li {
 		
 	}
 
+	.nav li, .subnav li {
+	
+		display: inline;
+	
+	}
+
 .subnav {
 	
 	background: #e6e6e6 url(../images/subnav.png) top repeat-x;
@@ -216,7 +217,7 @@ li {
 		
 	}
 
-a.button {
+a.button, input[type="submit"] {
 
 	text-decoration: none;
 	font-weight: bold;
@@ -229,6 +230,8 @@ a.button {
 	border: 1px solid #bbb;
 	background: #eee;
 	line-height: 1.5;
+	box-shadow: none;
+	cursor: pointer;
 
 	background: #f1f1f1; /* Old browsers */
 	background: -moz-linear-gradient(top,  #f1f1f1 0%, #cbcbcb 100%); /* FF3.6+ */
@@ -365,17 +368,20 @@ select {
 	-moz-appearance: window;
 	display: inline-block;
 	color: #555;
-	font-size: .5em;
-	padding-left: 2em;
-	background: url(../images/country_select_globes.png) top left no-repeat;
 	min-height: 1.5em
 }
 
-select:hover {
+	select:hover {
+		
+		cursor: pointer;
+		
+	}
 	
-	cursor: pointer;
-	
-}
+	#language select {
+		background: url(../images/country_select_globes.png) top left no-repeat;
+		padding-left: 2em;
+		font-size: .5em;
+	}
 
 input {
 	
@@ -388,31 +394,6 @@ input {
 	margin: 0;
 	
 }
-
-	input[type="submit"] {
-	
-		font-weight: bold;
-		color: #676767;
-		box-shadow: none;
-		cursor: pointer;
-		text-shadow: 0 1px 1px #fff;
-		background: rgb(204,204,204); /* Old browsers */
-		background: -moz-linear-gradient(top,  rgba(204,204,204,1) 0%, rgba(182,182,182,1) 100%); /* FF3.6+ */
-		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(204,204,204,1)), color-stop(100%,rgba(182,182,182,1))); /* Chrome,Safari4+ */
-		background: -webkit-linear-gradient(top,  rgba(204,204,204,1) 0%,rgba(182,182,182,1) 100%); /* Chrome10+,Safari5.1+ */
-		background: -o-linear-gradient(top,  rgba(204,204,204,1) 0%,rgba(182,182,182,1) 100%); /* Opera 11.10+ */
-		background: -ms-linear-gradient(top,  rgba(204,204,204,1) 0%,rgba(182,182,182,1) 100%); /* IE10+ */
-		background: linear-gradient(to bottom,  rgba(204,204,204,1) 0%,rgba(182,182,182,1) 100%); /* W3C */
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', endColorstr='#b6b6b6',GradientType=0 ); /* IE6-9 */
-		box-shadow: none;
-	
-	}
-	
-	input[type="submit"]:hover {
-	
-		color: #000;
-	
-	}
 
 .container.banner {
 
@@ -617,7 +598,7 @@ html>/**/body ol { /* Won't be interpreted by IE6/7. */
 		padding-left: 20px;
 		}
 	ol > li {
-		padding-bottom: .5em;
+		padding-bottom: 1em;
 		}
 	ol ul {
 		text-indent: .1em;
