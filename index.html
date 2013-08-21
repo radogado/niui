@@ -255,31 +255,31 @@
 		
 		<div class="row">
 		
-			<div class="column1">
+			<div class="column3">
 			
 				<form onsubmit="return check_partner_form()" action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" name="salesforce_form" id="salesforce_form" method="post">
 						
 						<h2>SalesForce Form</h2>
 				
 						<label id="last_name_label" class="tool">Name:
+							<input name="last_name" id="last_name" type="text" placeholder="What is your name?" class="icon">
+				
 							<span class="tip">Type a valid name.</span>
 						</label> 
 						
-						<input name="last_name" id="last_name" type="text" placeholder="What is your name?" class="icon">
-				
 						<label id="email_label" class="tool">Email:
+							<input name="email" id="email" type="email" placeholder="Your Email address.">
 							<span class="tip">Type a valid Email address.</span>
 						</label> 
-						
-						<input name="email" id="email" type="email" placeholder="Your Email address.">
-				
+										
 						<label id="URL_label" class="tool">Website:
+							<input name="URL" id="URL" type="url" placeholder="URL of your website.">
 							<span class="tip">Type a valid URL.</span>
-						</label> 
-						
-						<input name="URL" id="URL" type="url" placeholder="URL of your website.">
+						</label>					
 				
-						<label id="phone_label">Telephone:</label> <input name="phone" id="phone" type="tel" placeholder="Your phone number.">
+						<label id="phone_label">Telephone:
+							<input name="phone" id="phone" type="tel" placeholder="Your phone number.">
+						</label> 
 				
 						<label>Monthly Sales:</label> 
 				
@@ -316,6 +316,10 @@
 					</form>
 					<br>
 					<a href="#" class="button">Log in</a>
+				</div>
+				
+				<div class="column23">
+				
 				</div>
 		
 		</div>
