@@ -506,10 +506,12 @@ $(document).ready(function() {
 
 /* Select: wrap in a div for better styling */
 
+/*
 	$('select').before('<div class="select-container"></div>');
 	$('.select-container').each ( function () { 
 		$(this).append( $(this).next() ); 
 	} );
+*/
 	
 /* Hide Mobile Safari head */
 

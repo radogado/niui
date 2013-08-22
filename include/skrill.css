@@ -242,6 +242,7 @@ a.button, input[type="submit"] {
 	background: linear-gradient(to bottom,  #f1f1f1 0%,#cbcbcb 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f1f1', endColorstr='#cbcbcb',GradientType=0 ); /* IE6-9 */
 
+	width: auto;
 }
 	.button.big:after {
 	
@@ -358,32 +359,16 @@ h1, h2, h3, h4 {
 
 }
 
-select {
-	border: none;
-	padding: 0;
-	margin: 0;	
-	font-family: inherit;
-	background: transparent;
-	-webkit-appearance: none;
-	-moz-appearance: window;
-	display: inline-block;
-	color: #555;
-	min-height: 1.5em
-}
-
-	select:hover {
-		
-		cursor: pointer;
-		
-	}
-	
 	#language select {
 		background: url(../images/country_select_globes.png) top left no-repeat;
 		padding-left: 2em;
 		font-size: .5em;
+		-webkit-appearance: none;
+		border: none;
+		font-family: inherit;
 	}
 
-input {
+input, #main select {
 	
 	background: #f5f5f5;
 	font-family: inherit;
@@ -393,8 +378,26 @@ input {
 	padding: .5em .8em .6em .8em;
 	box-shadow: 0px 1px 2px #999 inset;
 	margin: 0;
+	width: 200px;
+	display: inline-block;
 	
 }
+
+#main select {
+	
+	width: 226px;
+	-webkit-appearance: none;
+/* 	-moz-appearance: window; */
+	box-shadow: none;
+	border: 1px solid rgba(0,0,0,0);
+	background: #f5f5f5 url(../images/country_select_globes.png) center right no-repeat;
+	
+}
+	select:hover {
+		
+		cursor: pointer;
+		
+	}
 
 .container.banner {
 

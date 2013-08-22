@@ -281,25 +281,30 @@
 							<input name="phone" id="phone" type="tel" placeholder="Your phone number.">
 						</label> 
 				
-						<label>Monthly Sales:</label> 
+						<label>Monthly Sales:
 				
-				        <div class="select-container"><select id="00N20000001ACXL" name="00N20000001ACXL" title="Monthly Sales" class="chzn-select">
-				          <option>Monthly Sales →</option> <option>£0 - £1000</option> <option>£1001 – £10,000</option> <option>£10,001 – £50,000</option> <option>£50,000 – £100,000</option> <option>£100,001 +</option>
-				        </select></div>
+					        <select id="00N20000001ACXL" name="00N20000001ACXL" title="Monthly Sales">
+					        	  <option>Monthly Sales →</option> <option>£0 - £1000</option> <option>£1001 – £10,000</option> <option>£10,001 – £50,000</option> <option>£50,000 – £100,000</option> <option>£100,001 +</option>
+					        </select>
+					        
+				        </label>
 				
-						<label>Shop System:</label>
+						<label>Shop System:
 				
-						<div class="select-container"><select id="shop_system" name="shop_system" title="Shop System" onchange="document.getElementById('description').value = document.getElementById('marketing').value = document.getElementById('lead_source_detail').value = document.getElementById('00N20000001ACYD').value = this.options[this.selectedIndex].value" class="chzn-select">
-							<option value="NGP_no_shopsystem_EN">Shop System →</option><option value="NGP_ekmPowershop_EN">ekmPowershop</option><option value="NGP_RomanCart_uk_EN">RomanCart</option><option value="NGP_ZenCart_EN">Zen Cart</option>
-						</select></div>
+							<select id="shop_system" name="shop_system" title="Shop System" onchange="document.getElementById('description').value = document.getElementById('marketing').value = document.getElementById('lead_source_detail').value = document.getElementById('00N20000001ACYD').value = this.options[this.selectedIndex].value">
+								<option value="NGP_no_shopsystem_EN">Shop System →</option><option value="NGP_ekmPowershop_EN">ekmPowershop</option><option value="NGP_RomanCart_uk_EN">RomanCart</option><option value="NGP_ZenCart_EN">Zen Cart</option>
+								</select>
+						
+						</label>
 				
 						<label for="country">
 							Country of residence*
-						</label>
 				
-						<div class="select-container"><select id="country" maxlength="40" name="country" class="chzn-select">
-							<option value="" selected="selected">Country of residence →</option><option value="United Kingdom">United Kingdom</option><option value="Afghanistan">Afghanistan</option><option value="Aland Islands">Aland Islands</option><option value="Albania">Albania</option><option value="Algeria">Algeria</option><option value="American Samoa">American Samoa</option><option value="Andorra">Andorra</option><option value="Angola">Angola</option><option value="Anguilla">Anguilla</option><option value="Antarctica">Antarctica</option><option value="Antigua And Barbuda">Antigua And Barbuda</option><option value="Argentina">Argentina</option>
-						</select></div>
+							<select id="country" maxlength="40" name="country">
+								<option value="" selected="selected">Country of residence →</option><option value="United Kingdom">United Kingdom</option><option value="Afghanistan">Afghanistan</option><option value="Aland Islands">Aland Islands</option><option value="Albania">Albania</option><option value="Algeria">Algeria</option><option value="American Samoa">American Samoa</option><option value="Andorra">Andorra</option><option value="Angola">Angola</option><option value="Anguilla">Anguilla</option><option value="Antarctica">Antarctica</option><option value="Antigua And Barbuda">Antigua And Barbuda</option><option value="Argentina">Argentina</option>
+							</select>
+
+						</label>
 				
 						<input type="submit" value="Request more info »" title="Request more info" onclick="return customTracker_Page('/internal-links/ecommerce/en/merchant-account/mp/signup');">
 						
