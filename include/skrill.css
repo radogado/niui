@@ -386,6 +386,7 @@ select {
 		-moz-appearance: none;
 	    text-indent: 0.01px;
 	    text-overflow: '';	
+	    margin: 0;
 
 }
 
