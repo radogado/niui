@@ -368,6 +368,18 @@ h1, h2, h3, h4 {
 		font-family: inherit;
 	}
 
+
+/* Form */
+
+label {
+	
+	display: block;
+	text-align: right;
+	margin: 1em 0;
+	font-weight: bold;
+	
+}
+
 input, #main select {
 	
 	background: #f5f5f5;
@@ -387,11 +399,14 @@ input, #main select {
 	
 	width: 226px;
 	-webkit-appearance: none;
-/* 	-moz-appearance: window; */
+	-moz-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: '';	
+
 	box-shadow: none;
 	border: 1px solid rgba(0,0,0,0);
-	background: #f5f5f5 url(../images/country_select_globes.png) center right no-repeat;
-	
+	background: #f5f5f5 url(../images/select-arrow.svg) center right no-repeat;
+	background-position: 96% 50%;
 }
 	select:hover {
 		
@@ -610,17 +625,6 @@ html>/**/body ol { /* Won't be interpreted by IE6/7. */
 	ol p {
 		text-indent: 0;
 		}
-
-/* Form */
-
-label {
-	
-	display: block;
-	text-align: right;
-	margin: 1em 0;
-	font-weight: bold;
-	
-}
 
 /* Media Queries */
 
