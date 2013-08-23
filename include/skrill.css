@@ -395,6 +395,12 @@ input, #main select {
 	
 }
 
+label input,  #main label select {
+
+	margin-left: 1em;
+
+}
+
 #main select {
 	
 	width: 226px;
@@ -403,10 +409,11 @@ input, #main select {
     text-indent: 0.01px;
     text-overflow: '';	
 
-	box-shadow: none;
+	box-shadow: 0 1px 2px #999;
 	border: 1px solid rgba(0,0,0,0);
 	background: #f5f5f5 url(../images/select-arrow.svg) center right no-repeat;
 	background-position: 96% 50%;
+	
 }
 	select:hover {
 		
