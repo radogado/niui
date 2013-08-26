@@ -246,6 +246,22 @@ a.button, input[type="submit"] {
 
 	width: auto;
 }
+
+	a.button:active, input[type="submit"]:active {
+		-webkit-transform: translate3d(0px,2px,0);
+		-moz-transform: translate3d(0px,2px,0);
+		transform: translate3d(0px,2px,0);
+
+		background: -moz-linear-gradient(top,  #cbcbcb 0%, #f1f1f1 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cbcbcb), color-stop(100%,#f1f1f1)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  #cbcbcb 0%,#f1f1f1 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  #cbcbcb 0%,#f1f1f1 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  #cbcbcb 0%,#f1f1f1 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  #cbcbcb 0%,#f1f1f1 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cbcbcb', endColorstr='#f1f1f1',GradientType=0 ); /* IE6-9 */
+
+	}
+
 	.button.big:after {
 	
 		content: " ►";
@@ -269,11 +285,23 @@ a.button, input[type="submit"] {
 		text-shadow: 0 -1px 1px #333;
 
 	}
-	a.button.big:hover, a.button.big:active {
+	a.button.big:hover {
 		
 		color: #eee !important;
 		
 		}
+	.button.big:active {
+
+		background: -moz-linear-gradient(top, rgba(0,177,227,1) 0%, rgba(0,221,240,1) 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,177,227,1)), color-stop(100%,rgba(0,221,240,1))); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  rgba(0,177,227,1) 0%, rgba(0,221,240,1) 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  rgba(0,177,227,1) 0%, rgba(0,221,240,1) 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  rgba(0,177,227,1) 0%, rgba(0,221,240,1) 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  rgba(0,177,227,1) 0%, rgba(0,221,240,1) 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b1e3', endColorstr='#00ddf0',GradientType=0 ); /* IE6-9 */
+
+	}
+
 	.button.yellow {
 		
 		color: #862165;
