@@ -118,6 +118,11 @@ p:first-child {
 
 }
 
+.centered {
+	text-align: center; 
+	vertical-align: middle;
+}
+
 a:link, a:visited {
 
 	color: #862165;
