@@ -84,6 +84,17 @@ ul {
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'open_sansextrabold';
+    src: url('opensans-extrabold-webfont.eot');
+    src: url('opensans-extrabold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('opensans-extrabold-webfont.woff') format('woff'),
+         url('opensans-extrabold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 body {
 
 	font-family: 'Open Sans', Arial, sans-serif;
@@ -331,10 +342,14 @@ a.button, input[type="submit"] {
 
 h1, h2, h3, h4 {
 	
-	font-weight: 900;
 	line-height: 1.3;
 	margin: .5em 0;
+	font-family: open_sansextrabold, Arial, sans-serif;
 
+}
+
+#main h1 {
+	color: #862165;
 }
 
 #head {
@@ -673,6 +688,8 @@ html>/**/body ol { /* Won't be interpreted by IE6/7. */
 		}
 	ol > li {
 		padding-bottom: 1em;
+		text-indent: -2.3em;
+		margin-left: 2.3em;
 		}
 	ol ul {
 		text-indent: .1em;
