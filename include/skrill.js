@@ -393,6 +393,7 @@ $(document).ready(function() {
 		
 		$('#blackbox').click( function () {
 			$('html').css('background-color','#fff');
+			$('body').css('overflow', 'auto');
 			$('#blackbox').remove();
 		});
 
@@ -401,7 +402,7 @@ $(document).ready(function() {
 			$('#blackbox').remove();
 		});
 	
-		$('#blackbox .modal-box').css('margin-top', $(window).scrollTop() + 16 + 'px').click( function (e) { // Show the box from browser's top
+		$('#blackbox .modal-box')./* css('margin-top', $(window).scrollTop() + 16 + 'px'). */click( function (e) { // Show the box from browser's top
 			e.stopPropagation();
 		});
 		
@@ -410,7 +411,8 @@ $(document).ready(function() {
 			$('#blackbox .modal-box').prepend('<img src="' + image_url + '" alt="Lightbox">',
 				
 				function () {
-					$('#blackbox').height( $(document).height() + 32 );
+/* 					$('#blackbox').height( $(document).height() + 32 ); */
+					$('body').css('overflow', 'hidden');
 					$('#blackbox .modal-box > div:first-child').prepend('<div class="close"> × </div>');
 					$('#blackbox .modal-box .close').click( function () {
 						$('html').css('background-color','#fff');
@@ -440,7 +442,8 @@ $(document).ready(function() {
 				( ($(this).attr('href').split('#')[1] ) ? ($(this).attr('href').split('#')[0] + ' #' + $(this).attr('href').split('#')[1]) : ( $(this).attr('href') ) ),
 				
 				function () { // After content has been loaded
-					$('#blackbox').height( $(document).height() + 32 );
+/* 					$('#blackbox').height( $(document).height() + 32 ); */
+					$('body').css('overflow', 'hidden');
 					$('#blackbox .modal-box > div:first-child').prepend('<div class="close"> × </div>');
 					$('#blackbox .modal-box .close').click( function () {
 							$('html').css('background-color','#fff');

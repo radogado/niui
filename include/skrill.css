@@ -102,6 +102,7 @@ body {
 	background: #862165 url(../images/scanlines.png);
 	margin: 0;
 	font-size: 15px;
+	position: relative;
 
 }
 
@@ -541,12 +542,15 @@ tr, td {
 /* Modal window */
 
 #blackbox {
-	width: 100%;
-	position: absolute;
-	top: 0;
-	bottom: 0;
 	z-index: 9999;
 	background: rgba(0,0,0,.8);
+	overflow-y: scroll;
+	position:fixed;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+
 	}
 	#blackbox .modal-box {
 		width: 640px;
