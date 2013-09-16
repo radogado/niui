@@ -103,6 +103,8 @@ body {
 	margin: 0;
 	font-size: 15px;
 	position: relative;
+	width: 100%; 
+	margin: 0 auto;
 
 }
 

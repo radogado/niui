@@ -393,7 +393,7 @@ $(document).ready(function() {
 		
 		$('#blackbox').click( function () {
 			$('html').css('background-color','#fff');
-			$('body').css('overflow', 'auto');
+			$('body').css({'overflow': 'auto', 'position': 'static'});
 			$('#blackbox').remove();
 		});
 
@@ -412,7 +412,7 @@ $(document).ready(function() {
 				
 				function () {
 /* 					$('#blackbox').height( $(document).height() + 32 ); */
-					$('body').css('overflow', 'hidden');
+					$('body').css({'overflow': 'hidden', 'position': 'fixed'});
 					$('#blackbox .modal-box > div:first-child').prepend('<div class="close"> × </div>');
 					$('#blackbox .modal-box .close').click( function () {
 						$('html').css('background-color','#fff');
@@ -443,7 +443,7 @@ $(document).ready(function() {
 				
 				function () { // After content has been loaded
 /* 					$('#blackbox').height( $(document).height() + 32 ); */
-					$('body').css('overflow', 'hidden');
+					$('body').css({'overflow': 'hidden', 'position': 'fixed'});
 					$('#blackbox .modal-box > div:first-child').prepend('<div class="close"> × </div>');
 					$('#blackbox .modal-box .close').click( function () {
 							$('html').css('background-color','#fff');
