@@ -475,6 +475,10 @@ label input,  #main label select {
 
 }
 
+label input[type="submit"] {
+	min-width: 226px;
+}
+
 #main select {
 	
 	width: 226px;

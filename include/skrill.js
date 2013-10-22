@@ -475,7 +475,7 @@ $(document).ready(function() {
 		
 	$('.tool').click ( show_tip );
 
-	if (!is_touch_device()) $('.tool:not(label)').hover ( show_tip, hide_tip );
+	if (!is_touch_device()) $('.tool').hover ( show_tip, hide_tip );
 
 	$('.tip').touchwipe({ // Swipe left/right to close the modal window.
 	     wipeLeft: function() {
