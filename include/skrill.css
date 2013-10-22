@@ -479,6 +479,23 @@ label input[type="submit"] {
 	min-width: 226px;
 }
 
+label span {
+	
+	position: relative;
+	
+}
+
+label .mandatory:after {
+	
+	content: "*";
+	color: #a00;
+	position: absolute;
+	right: -.6em;
+	top: 0;
+	font-size: .8em;
+	
+}
+
 #main select {
 	
 	width: 226px;
