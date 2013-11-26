@@ -182,70 +182,6 @@ function show_tip (e) {
 	
 }
 
-/* Slider */
-
-var transitiontime = 400;
-
-function slide (slider, destination) {
-
-	clearTimeout( $(slider).attr('timeout') );
-	
-	var slider_index = $(slider).attr('index');
-	
-	if ( typeof destination == "undefined") { // auto slide or slide to a specific slide #
-		destination = slider_index;
-
-		if ( (++destination) > ($(slider).children(':not(".noslide")').length) ) { // reaching the last slide?
-			destination = 1;
-			$(slider).find('.column2:last-child').removeClass('playing');
-			$(slider).attr('timeout','0');
-		} else {
-			$(slider).attr('timeout', setTimeout( function () { slide ( slider ); }, 4000) );
-		}
-	} else { // setup destination as previous or next to i, according to -2 "left" or -3 "right" value
-		$(slider).attr('timeout', '0');
-		destination++;
-		if ( destination == -1 ) {
-			destination = slider_index+1;
-			if ( destination > $(slider).children(':not(".noslide")').length ) {
-				$(slider).children(':nth-child(' + slider_index + '):not(".noslide")').animate( {'margin-left': '-5em'}, 200, function () {
-					$(this).animate({'margin-left':'0'},200);
-				});
-				return;
-			}
-		}
-		if ( destination == -2 ) {
-			destination = slider_index-1;
-			if ( destination < 1 ) {
-				$(slider).children(':nth-child(' + slider_index + '):not(".noslide")').animate( {'margin-left': '5em'}, 200, function () {
-					$(this).animate({'margin-left':'0'},200);
-				});
-				return;
-			}
-		}
-		if ( destination == slider_index) return;
-	}
-	
-	// if destination < i, reverse direction		
-	if ( destination < slider_index ) { direction = 1 } else { direction = -1 };
-
-	$(slider).children(':nth-child(' + slider_index + '):not(".noslide")').animate( {'margin-left': direction * ($(slider).width()) + 'px'}, transitiontime, function () { 
-
-		$(this).hide().css('margin-left','0'); 
-
-	}); // hiding the current slide
-
-	$(slider).children(':nth-child(' + destination + '):not(".noslide")').css({'margin-left': ( direction * -1 * $(slider).width()) + 'px', 'opacity': '1'}).show().animate( { 'margin-left': '0'}, transitiontime ); // showing the next slide
-
-
-	$(slider).children('.controls').find('a.active').removeClass('active');
-	$(slider).children('.controls').find('a:nth-child(' + destination + ')').addClass('active');
-
-	$(slider).attr('index', destination);
-
-}
-
-
 /* Google Analytics - To do: fix script embedding */
 
 var 
@@ -333,6 +269,53 @@ function relay_parameters () {
 		} 
 	});
 
+}
+
+/* Slider */
+
+var scrollTimer;
+var slider;
+	
+function scrollslider() {
+
+    if (scrollTimer != -1)
+        clearTimeout(scrollTimer);
+
+    scrollTimer = window.setTimeout("scrollFinished()", 50);
+
+};
+
+function scrollFinished() { // center the nearest scrolling item
+
+	$(slider).animate ( { 'scrollLeft': Math.round ( $(slider).scrollLeft() / $(slider).width() ) * $(slider).width() }, 100, function () {
+		move_index();
+	});
+
+}
+
+function move_index() {
+
+	$(slider).parent().find('.slider-nav a.active').removeClass();
+	var index = $(slider).scrollLeft() / $(slider).width() + 1;
+
+	if ( index > $(slider).parent().find('.slider-nav a').length ) { 
+		index = $(slider).parent().find('.slider-nav a').length; 
+	}
+
+	$(slider).parent().find('.slider-nav a:nth-child(' + index + ')').addClass('active');
+	
+}
+
+function slide(e, direction ) {
+	
+	e.stopPropagation();
+    clearTimeout(scrollTimer);
+	
+	$(slider).stop( true, true ).off('scroll', scrollslider ).animate ( { 'scrollLeft': $(slider).scrollLeft() + direction * $(slider).width() }, 'fast', function () { 
+		$(slider).on('scroll', scrollslider ); 
+		move_index();
+	});
+	
 }
 
 /* ███████████████████ After DOM is created ███████████████████ */
@@ -507,15 +490,6 @@ $(document).ready(function() {
 		$(this).append( $(this).next() ); 
 	} );
 
-/* Select: wrap in a div for better styling */
-
-/*
-	$('select').before('<div class="select-container"></div>');
-	$('.select-container').each ( function () { 
-		$(this).append( $(this).next() ); 
-	} );
-*/
-	
 /* Hide Mobile Safari head */
 
 	if ( is_touch_device() ) {
@@ -526,36 +500,6 @@ $(document).ready(function() {
 	    window.scrollTo(0, 1);
 	  }, 0);
 	}
-
-/* 	IE fixes. IE fix for Nested Ordered Lists, etc. */
-    
-/*
-    if ($.browser.msie) {
-
-	    if ($('ol:first').css('list-style-type') != 'none') { // For IE6/7 only.
-	        $('ol ol').each(function(i, ol) {
-	            ol = $(ol);
-	            var level1 = ol.closest('li').index() + 1;
-	            ol.children('li').each(function(i, li) {
-	                li = $(li);
-	                var level2 = level1 + '.' + (li.index() + 1);
-	                li.prepend('<span>' + level2 + '</span> ');
-	            });
-	        });
-	    }
-	    
-	    $('.concertina > *:not(h3)').hide();
-	    $('.concertina :nth-child(1), .concertina :nth-child(2)').show();
-	    $('.titledbox h1, .titledbox h2, .titledbox h3, .titledbox h4').css('top','-1.7em');
-	    $('#nav a, #nav a:link, #nav a:visited').css('background','url("images/skrill_nav_btn_bgr.png")');
-
-	    $('#nav a.active, #nav a.active:link, #nav a.active:visited').css('background','url("images/skrill_nav_btn_bgr.png") 0 29px');
-	    $('a.button, a.button.active').css('background','url("images/bg-purple.png")');
-	    $('a.button.yellow, a.button.yellow.active').css('background','url("images/bg-yellow.png")');
-	    $('a.button.white, a.button.white.active').css('background','url("images/bg-white.png")');
-
-   	}
-*/
    	
    	// Activate date picker
 /*
@@ -563,6 +507,89 @@ $(document).ready(function() {
 		formatSubmit: 'yyyy/mm/dd'
 	})
 */
+
+/* Slider */
+
+	$('.slider').on('scroll', function () { 
+		slider = $(this); 
+		scrollslider(); 
+	});
+	
+	$(document).keyup(function(e){
+
+		/* Detect a slider into view and control it */
+
+	    var docViewTop = $(window).scrollTop();
+	    var docViewBottom = docViewTop + $(window).height();
+
+		$('.slider').each( function (n) {
+
+		    var elemTop = $(this).offset().top;
+		    var elemBottom = elemTop + $(this).height();
+
+			if ((elemBottom <= docViewBottom) && (elemTop >= docViewTop)) {
+				slider = this; 
+				return;
+			}			
+
+		});
+		
+	    if (e.keyCode == 37) { // left
+	    	
+			slide(e, -1);
+	    }
+	    if (e.keyCode == 39) { // right
+	
+			slide(e, 1);
+			
+	    }
+	});
+	
+	/* Initialise JS extras: arrows/numbers navigation */
+
+	$('.slider').each ( function (n) {
+		
+		$(this).before('<div class="slider-container"></div>').appendTo( $(this).prev() );
+		
+		$(this).parent().prepend('<a class="slider-arrow left">←</a>').append('<a class="slider-arrow right">→</a>').append('<div class="slider-nav"></div>');
+		
+		$(this).children().each ( function (n) {
+		
+			$(this).parent().parent().find('.slider-nav').append('<a>' + (n + 1) + '</a>');
+			
+		});
+		
+		$(this).parent().find('.slider-nav a:first-child').addClass('active');
+
+		$(this).siblings('.slider-arrow.left').click ( function (e) {  
+			
+			slider = $(this).siblings('.slider');
+			slide(e, -1);
+				
+		});
+		
+		$(this).siblings('.slider-arrow.right').click ( function (e) {
+			
+			slider = $(this).siblings('.slider');
+			slide(e, 1);	
+
+		});
+		
+		$(this).siblings('.slider-nav').children('a').click ( function (e) {  
+
+			e.stopPropagation();
+			var n = $(this).index();
+			$(this).siblings('a.active').removeClass();
+			$(this).addClass('active');
+			slider = $(this).parent().siblings('.slider');
+						
+			$(slider).stop( true, true ).off('scroll', scrollslider ).animate ( { 'scrollLeft': n * $(slider).width() }, 'fast', function () { 
+				$(slider).on('scroll', scrollslider );
+			});
+		
+		});
+		
+	});
 
 
 });
@@ -573,59 +600,17 @@ $(window).load(function() {
 
 /* Slider */
 	
-	$('.slider > :nth-child(1):not(".noslide")').show().css('opacity', '1');
-	
-	$('.slider').each ( function () {
-		var controls = '';
-		var slider = this;
-		$(this).children('*:not(".noslide")').each( function (n) {
-			controls += '<a>' + (n+1) + '</a>';
-			if ( $(this).height() > $(slider).height() ) {
-				$(slider).height( $(this).height() );
-			}
-		});
-		$(this).append ( '<div class="noslide controls">' + controls + '</div>' );
-		$(this).children('.controls').css('top', ( $(this).height() - $(this).children('.controls').height() - 8 ) + 'px' );
-		$(this).attr('index','1');
-	});
+	// Get scrollbar width and hide it by reducing the .slider-container height proportiobally
 
-	$('.controls a:first-child').addClass('active');
+	$('.slider').css('overflow-x', 'hidden');
+	var height_scroll = $('.slider').height();
+	$('.slider').css('overflow-x', 'scroll');
+	height_scroll = $('.slider').height() - height_scroll;
 	
-	$('.controls a').click ( function (e) {
-		e.stopPropagation();
-		slide( $(this).parent().parent(), $(this).index() );
-	});
-	
-	$('.slider > div').click ( function (e) {
-		if ( (typeof $(this).parent().attr('timeout') != "undefined") && ($(this).parent().attr('timeout')>0) ) {
-			clearTimeout($(this).parent().attr('timeout'));
-			$(this).parent().attr('timeout','0');
-			$(this).parent().find('.column2:last-child').removeClass('playing');
-			return false;
-		}
-		slider = $(this).parent();
-		$(this).parent().attr('timeout', setTimeout( function () { slide ( slider ); }, 100) );
-		$(this).parent().find('.column2:last-child').addClass('playing');
-		e.stopPropagation();
-		return false;
-	});
-	
-	$('.slider').each ( function (n) {
-		slider = this;
-		$(this).attr('timeout', setTimeout( function () { slide ( slider ); }, 4000) );
-	});
-	
+	$('.slider-container').each ( function () { 
 
-	$('.slider > *:not(".noslide")').touchwipe({ 
-	     wipeLeft: function() {
-	     	slide($(this).parent(),-2);
-	     },
-	     wipeRight: function() { 
-	     	slide($(this).parent(),-3);
-	     },
-	     min_move_x: 20,
-	     min_move_y: 20,
-	     preventDefaultEvents: true
+		$(this).height( $(this).height() - height_scroll );
+		
 	});
 
 });
