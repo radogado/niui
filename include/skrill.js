@@ -8,13 +8,6 @@ function is_touch_device() {
   return !!('ontouchstart' in window);
 }
 
-function isiphone(){
-    return (
-        (navigator.platform.indexOf("iPhone") != -1) ||
-        (navigator.platform.indexOf("iPod") != -1)
-    );
-}
-
 /*! jQuery Retina Plugin - v1.0 - 3/25/2012
 * https://github.com/tylercraft/jQuery-Retina
 * Copyright (c) 2012 Tyler Craft; Licensed MIT, GPL */

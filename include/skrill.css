@@ -840,22 +840,11 @@ html>/**/body ol { /* Won't be interpreted by IE6/7. */
 /* Accordion */
 
 .accordion label {
-	padding: 5px 20px;
+	padding: .5em 1em;
 	position: relative;
-	z-index: 20;
-	display: block;
 	cursor: pointer;
 	color: #777;
-	text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
-	line-height: 33px;
-	font-size: 19px;
 	background: #ffffff;
-	background: -moz-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#ffffff), color-stop(100%,#eaeaea));
-	background: -webkit-linear-gradient(top, #ffffff 1%,#eaeaea 100%);
-	background: -o-linear-gradient(top, #ffffff 1%,#eaeaea 100%);
-	background: -ms-linear-gradient(top, #ffffff 1%,#eaeaea 100%);
-	background: linear-gradient(top, #ffffff 1%,#eaeaea 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eaeaea',GradientType=0 );
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
@@ -866,44 +855,32 @@ html>/**/body ol { /* Won't be interpreted by IE6/7. */
 	text-align: left;
 	
 }
-.accordion label:hover {
-	background: #fff;
-}
-.accordion input:checked + label,
-.accordion input:checked + label:hover{
-	background: #c6e1ec;
-	color: #3d7489;
-	text-shadow: 0px 1px 1px rgba(255,255,255, 0.6);
+.accordion input:checked + label {
+	background: #862165;
+	color: #ddd;
 	box-shadow: 
 		0px 0px 0px 1px rgba(155,155,155,0.3), 
 		0px 2px 2px rgba(0,0,0,0.1);
 }
 .accordion label:hover:after,
-.accordion input:checked + label:hover:after{
-	content: '';
+.accordion input:checked + label:after{
+	content: '|';
 	position: absolute;
 	width: 24px;
 	height: 24px;
 	right: 13px;
 	top: 7px;
-/* 	background: transparent url(../images/arrow_down.png) no-repeat center center;	 */
 }
 .accordion input:checked + label:hover:after{
-/* 	background-image: url(../images/arrow_up.png); */
+	content: '+';
 }
 .accordion input {
 	display: none;
 }
 .accordion > *:not(label) {
-	background: rgba(255, 255, 255, 0.5);
-	margin-top: -1px;
-	overflow: hidden;
 	display: none;
-	position: relative;
-	z-index: 10;
 }
 .accordion input:checked ~ *:not(label) {
-	box-shadow: 0px 0px 0px 1px rgba(155,155,155,0.3);
 	display: block;
 }
 
