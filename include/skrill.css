@@ -302,7 +302,7 @@ a.button, input[type="submit"] {
 		padding-left: .3em;
 	
 	}
-	.button.big {
+	.button.big, #main input[type="submit"] {
 
 		background: rgb(0,221,240); /* Old browsers */
 		background: -moz-linear-gradient(top,  rgba(0,221,240,1) 0%, rgba(0,177,227,1) 100%); /* FF3.6+ */
@@ -319,12 +319,13 @@ a.button, input[type="submit"] {
 		text-shadow: 0 -1px 1px #333;
 
 	}
-	a.button.big:hover {
+	a.button.big:hover, #main input[type="submit"]:hover {
 		
 		color: #eee !important;
 		
 		}
-	.button.big:active {
+
+	.button.big:active, #main input[type="submit"]:active {
 
 		background: -moz-linear-gradient(top, rgba(0,177,227,1) 0%, rgba(0,221,240,1) 100%); /* FF3.6+ */
 		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,177,227,1)), color-stop(100%,rgba(0,221,240,1))); /* Chrome,Safari4+ */
@@ -725,11 +726,10 @@ html>/**/body ol { /* Won't be interpreted by IE6/7. */
 	    counter-increment: level3;
 		}
 	ol ol > li {
-		text-indent: -3.25em;
+		text-indent: -3em;
 		}
 	ol ol ol > li {
-		text-indent: -39px;
-		text-indent: -4.2em;
+		text-indent: -3.9em;
 		}
 	.rightcolumn > ol {
 		padding-left: 20px;
@@ -837,6 +837,11 @@ html>/**/body ol { /* Won't be interpreted by IE6/7. */
 	display: block; /* Fix image bottom padding */
 }
 
+.disable-hover,
+.disable-hover * {
+  pointer-events: none !important;
+}
+
 /* Accordion */
 
 .accordion label {
@@ -863,16 +868,20 @@ html>/**/body ol { /* Won't be interpreted by IE6/7. */
 		0px 2px 2px rgba(0,0,0,0.1);
 }
 .accordion label:hover:after,
-.accordion input:checked + label:after{
-	content: '|';
+.accordion input:checked + label:after {
+	content: '';
+	background: url('../images/select-arrow.svg?colour=red') center right no-repeat;
+	background-size: auto 66%;
 	position: absolute;
-	width: 24px;
+	width: 8px;
 	height: 24px;
 	right: 13px;
 	top: 7px;
 }
-.accordion input:checked + label:hover:after{
-	content: '+';
+.accordion input:checked + label:hover:after {
+	opacity: .5;
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg);
 }
 .accordion input {
 	display: none;

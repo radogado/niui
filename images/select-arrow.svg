@@ -6,11 +6,13 @@
 <g>
 	<defs>
 		<rect id="SVGID_1_" x="-274.179" y="-389.603" width="451" height="63.14"/>
+		<ref id="colour" param="colour" default="white"/>
 	</defs>
 	<clipPath id="SVGID_2_">
 		<use xlink:href="#SVGID_1_"  overflow="visible"/>
 	</clipPath>
 </g>
+
 <path d="M7.222,14.926h4.971L6.09,21.029L0,14.926h4.971v-2.564h2.251V14.926z M7.222,10.111H4.971l0.013-3.93h2.238V10.111z
-	 M7.235,3.93H4.984V0h2.251V3.93z"/>
+	 M7.235,3.93H4.984V0h2.251V3.93z" style="fill: #colour"/>
 </svg>

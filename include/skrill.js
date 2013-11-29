@@ -304,9 +304,11 @@ function slide(e, direction ) {
 	e.stopPropagation();
     clearTimeout(scrollTimer);
 	
+	$('body').addClass('disable-hover');
 	$(slider).stop( true, true ).off('scroll', scrollslider ).animate ( { 'scrollLeft': $(slider).scrollLeft() + direction * $(slider).width() }, 'fast', function () { 
 		$(slider).on('scroll', scrollslider ); 
 		move_index();
+		$('body').removeClass('disable-hover');
 	});
 	
 }
@@ -576,8 +578,10 @@ $(document).ready(function() {
 			$(this).addClass('active');
 			slider = $(this).parent().siblings('.slider');
 						
+			$('body').addClass('disable-hover');
 			$(slider).stop( true, true ).off('scroll', scrollslider ).animate ( { 'scrollLeft': n * $(slider).width() }, 'fast', function () { 
 				$(slider).on('scroll', scrollslider );
+				$('body').removeClass('disable-hover');
 			});
 		
 		});
