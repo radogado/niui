@@ -470,6 +470,12 @@ select {
 
 }
 
+select::-ms-expand {
+
+    display: none;
+
+}
+
 input, #main select {
 	
 	background: #f5f5f5;
