@@ -153,7 +153,7 @@ var tip;
 
 function hide_tip (e) {
 
-	$(tip).stop().animate({/* 'left': '-100px', */ 'opacity':'0' }, 200, function () { $(tip).hide() });
+	$(tip).stop().animate({ 'opacity':'0' }, 200, function () { $(tip).hide() });
 
 }
 
@@ -163,13 +163,17 @@ function show_tip (e) {
 	
 	$(tip).stop().css({'top': $(this).height() + 'px' } ).show().animate({'opacity': '1'}, 200);
 	
+/*
 	if ( ( $(tip).offset().left - $('body').offset().left + $(tip).width() ) > $('body').width() ) { // horizontal overflow?
 		$(tip).css('left', parseInt ( $(tip).css('left') ) + ( $('body').width() - ( $(tip).offset().left - $('body').offset().left + $(tip).width() ) ) - 16 + 'px' );
 	}
+*/
 	
+/*
 	if ( $(tip).width() > $('body').width() ) {
 		$(tip).css( 'left', parseInt($(tip).css('left')) + 26 + ( $(tip).width() - $('body').width() ) ).width( $('body').width() - 26 );
 	}
+*/
 	
 	// Add the close button
 	
