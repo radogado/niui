@@ -10,6 +10,7 @@
 	overflow-x: scroll;
 	overflow-y: hidden;
 	white-space: nowrap;
+	-webkit-overflow-scrolling: touch; /* fast, hardware-accelerated scrolling */
 
 }
 
