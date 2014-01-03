@@ -658,7 +658,7 @@ a.backtotop {
 .tool {
 	border-bottom: 1px dotted rgba(255,255,255,.2);
 	cursor: help;
-	position: relative;
+/* 	position: relative; */
 	font-weight: bold;
 	}
 .tip {
@@ -672,9 +672,9 @@ a.backtotop {
 	position: absolute;
 	top: auto;
 	left: 0;
+	right: 0;
 	display: none;
 	cursor: default;
-	width: auto;
 	overflow: hidden;
 	line-height: 1.5em;
 	z-index: 999;

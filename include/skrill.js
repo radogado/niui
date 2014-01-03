@@ -161,21 +161,13 @@ function show_tip (e) {
 
 	tip = $(this).find('.tip');
 	
-	$(tip).stop().css({'top': $(this).height() + 'px' } ).show().animate({'opacity': '1'}, 200);
+	$(tip).parent().parent().css('position','relative'); // dangerous with absolutely-positioned containers, which should be avoided anyway
 	
-/*
-	if ( ( $(tip).offset().left - $('body').offset().left + $(tip).width() ) > $('body').width() ) { // horizontal overflow?
-		$(tip).css('left', parseInt ( $(tip).css('left') ) + ( $('body').width() - ( $(tip).offset().left - $('body').offset().left + $(tip).width() ) ) - 16 + 'px' );
-	}
-*/
+	$(tip).css('top', $(tip).parent().position().top + $(tip).parent().height() );
+		
+	$(tip).stop().show().animate({'opacity': '1'}, 200);
 	
-/*
-	if ( $(tip).width() > $('body').width() ) {
-		$(tip).css( 'left', parseInt($(tip).css('left')) + 26 + ( $(tip).width() - $('body').width() ) ).width( $('body').width() - 26 );
-	}
-*/
-	
-	// Add the close button
+	// Add the close button (for touchscreens)
 	
 }
 
