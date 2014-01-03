@@ -29,7 +29,7 @@
 	position: absolute;
 	top: 45%;
 	left: 1em;
-	z-index: 9999; /* Stay on top of slider-nav if they are aligned vertically */
+	z-index: 999; /* Stay on top of slider-nav if they are aligned vertically */
 	
 }
 .slider-arrow.right {

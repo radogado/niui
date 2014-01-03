@@ -1,9 +1,3 @@
-
-/* jQuery Plugin to obtain touch gestures from iPhone, iPod Touch and iPad, should also work with Android mobile phones (not tested yet!)
- * @author Andreas Waltl, netCU Internetagentur (http://www.netcu.de) */
- 
-(function($){$.fn.touchwipe=function(settings){var config={min_move_x:20,min_move_y:20,wipeLeft:function(){},wipeRight:function(){},wipeUp:function(){},wipeDown:function(){},preventDefaultEvents:true};if(settings)$.extend(config,settings);this.each(function(){var startX;var startY;var isMoving=false;function cancelTouch(){this.removeEventListener('touchmove',onTouchMove);startX=null;isMoving=false}function onTouchMove(e){if(config.preventDefaultEvents){e.preventDefault()}if(isMoving){var x=e.touches[0].pageX;var y=e.touches[0].pageY;var dx=startX-x;var dy=startY-y;if(Math.abs(dx)>=config.min_move_x){cancelTouch();if(dx>0){config.wipeLeft()}else{config.wipeRight()}}else if(Math.abs(dy)>=config.min_move_y){cancelTouch();if(dy>0){config.wipeDown()}else{config.wipeUp()}}}}function onTouchStart(e){if(e.touches.length==1){startX=e.touches[0].pageX;startY=e.touches[0].pageY;isMoving=true;this.addEventListener('touchmove',onTouchMove,false)}}if('ontouchstart'in document.documentElement){this.addEventListener('touchstart',onTouchStart,false)}});return this}})(jQuery);
-
 function is_touch_device() {
   return !!('ontouchstart' in window);
 }
@@ -310,73 +304,45 @@ $(document).ready(function() {
 	
 /* Modal window: open a link inside it */
 
+	function add_blackbox () {
+
+		$('#blackbox .modal-box > div:first-child').prepend('<div class="close"> × </div>');
+		$('#blackbox .modal-box .close').click( close_blackbox );
+		$('.modal-box').on('touchmove', close_blackbox );
+		if ( $('#blackbox .modal-box').height() < window.innerHeight ) { // Center it vertically
+			$('#blackbox .modal-box').css('margin', (( window.innerHeight - $('#blackbox .modal-box').height() ) /2 + window.scrollY ) + 'px auto' );
+		}
+		relay_parameters();
+	}
+
+	function close_blackbox () {
+		$('html').css('background-color','#fff');
+		$('#blackbox').remove();
+	}
+
 	$('a.modal-link, a.lightbox').click ( function () {
 	
 		$('body').prepend('<div id="blackbox"> <div class="modal-box"> <div> </div>');
 		
 		$('html').css('background-color','#333');
 		
-		$('#blackbox').click( function () {
-			$('html').css('background-color','#fff');
-			$('body').css({'overflow': 'auto', 'position': 'static'});
-			$('#blackbox').remove();
-		});
+		$('#blackbox').click( close_blackbox );
 
-		$('html').click( function () {
-			$('html').css('background-color','#fff');
-			$('#blackbox').remove();
-		});
+		$('html').click( close_blackbox );
 	
-		$('#blackbox .modal-box')./* css('margin-top', $(window).scrollTop() + 16 + 'px'). */click( function (e) { // Show the box from browser's top
+		$('#blackbox .modal-box').click( function (e) {
 			e.stopPropagation();
 		});
-		
+
 		if ( $(this).hasClass('lightbox') ) { // Show an image lightbox...
 			var image_url = $(this).attr('href');
-			$('#blackbox .modal-box').prepend('<img src="' + image_url + '" alt="Lightbox">',
-				
-				function () {
-					$('body').css({'overflow': 'hidden', 'position': 'fixed'});
-					$('#blackbox .modal-box > div:first-child').prepend('<div class="close"> × </div>');
-					$('#blackbox .modal-box .close').click( function () {
-						$('html').css('background-color','#fff');
-					    $('body').css({'overflow': 'auto', 'position': 'static'});
-						$('#blackbox').remove();
-					});
-					$('.modal-box').on('touchmove', function () {
-					    $('html').css('background-color','#fff');
-					    $('body').css({'overflow': 'auto', 'position': 'static'});
-					    $('#blackbox').remove();
-					});
-					if ( $('#blackbox .modal-box').height() < window.innerHeight ) { // Center it vertically
-						$('#blackbox .modal-box').css('margin', (( window.innerHeight - $('#blackbox .modal-box').height() ) /2 + window.scrollY ) + 'px auto' );
-					}
-				});
+			$('#blackbox .modal-box').prepend('<img src="' + image_url + '" alt="Lightbox">', add_blackbox );
 			
-		} else {
+		} else // ... or load external content in a modal window 
+		{
 			
-			$('#blackbox .modal-box').load ( // ... or load external content in a modal window
-				( ($(this).attr('href').split('#')[1] ) ? ($(this).attr('href').split('#')[0] + ' #' + $(this).attr('href').split('#')[1]) : ( $(this).attr('href') ) ),
-				
-				function () { // After content has been loaded
-/* 					$('#blackbox').height( $(document).height() + 32 ); */
-					$('body').css({'overflow': 'hidden', 'position': 'fixed'});
-					$('#blackbox .modal-box > div:first-child').prepend('<div class="close"> × </div>');
-					$('#blackbox .modal-box .close').click( function () {
-							$('html').css('background-color','#fff');
-							$('body').css({'overflow': 'auto', 'position': 'static'});
-							$('#blackbox').remove();
-					});
-					$('.modal-box').on('touchmove', function () {
-					    $('html').css('background-color','#fff');
-					    $('body').css({'overflow': 'auto', 'position': 'static'});
-					    $('#blackbox').remove();
-					});
-					if ( $('#blackbox .modal-box').height() < window.innerHeight ) { // Center it vertically
-						$('#blackbox .modal-box').css('margin', (( window.innerHeight - $('#blackbox .modal-box').height() ) /2 + window.scrollY ) + 'px auto' );
-					}
-					relay_parameters();
-				});
+			$('#blackbox .modal-box').load (
+				( ($(this).attr('href').split('#')[1] ) ? ($(this).attr('href').split('#')[0] + ' #' + $(this).attr('href').split('#')[1]) : ( $(this).attr('href') ) ), add_blackbox );
 			
 		}
 		
