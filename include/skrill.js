@@ -336,25 +336,17 @@ $(document).ready(function() {
 			$('#blackbox .modal-box').prepend('<img src="' + image_url + '" alt="Lightbox">',
 				
 				function () {
-/* 					$('#blackbox').height( $(document).height() + 32 ); */
 					$('body').css({'overflow': 'hidden', 'position': 'fixed'});
 					$('#blackbox .modal-box > div:first-child').prepend('<div class="close"> × </div>');
 					$('#blackbox .modal-box .close').click( function () {
 						$('html').css('background-color','#fff');
+					    $('body').css({'overflow': 'auto', 'position': 'static'});
 						$('#blackbox').remove();
 					});
-					$('.modal-box').touchwipe({ // Swipe left/right to close the modal window. BUG: opening the next tip closes it immediately, after which it works normally.
-					     wipeLeft: function() {
-						    $('html').css('background-color','#fff');
-						    $('#blackbox').remove();
-					     },
-					     wipeRight: function() { 
-						    $('html').css('background-color','#fff');
-						 	$('#blackbox').remove();
-					     },
-					     min_move_x: 40,
-					     min_move_y: 40,
-					     preventDefaultEvents: false
+					$('.modal-box').on('touchmove', function () {
+					    $('html').css('background-color','#fff');
+					    $('body').css({'overflow': 'auto', 'position': 'static'});
+					    $('#blackbox').remove();
 					});
 					if ( $('#blackbox .modal-box').height() < window.innerHeight ) { // Center it vertically
 						$('#blackbox .modal-box').css('margin', (( window.innerHeight - $('#blackbox .modal-box').height() ) /2 + window.scrollY ) + 'px auto' );
@@ -372,18 +364,13 @@ $(document).ready(function() {
 					$('#blackbox .modal-box > div:first-child').prepend('<div class="close"> × </div>');
 					$('#blackbox .modal-box .close').click( function () {
 							$('html').css('background-color','#fff');
+							$('body').css({'overflow': 'auto', 'position': 'static'});
 							$('#blackbox').remove();
 					});
-					$('.modal-box').touchwipe({ // Swipe left/right to close the modal window. BUG: opening the next tip closes it immediately, after which it works normally.
-					     wipeLeft: function() {
-						    $('#blackbox').remove();
-					     },
-					     wipeRight: function() { 
-						 	$('#blackbox').remove();
-					     },
-					     min_move_x: 40,
-					     min_move_y: 40,
-					     preventDefaultEvents: false
+					$('.modal-box').on('touchmove', function () {
+					    $('html').css('background-color','#fff');
+					    $('body').css({'overflow': 'auto', 'position': 'static'});
+					    $('#blackbox').remove();
 					});
 					if ( $('#blackbox .modal-box').height() < window.innerHeight ) { // Center it vertically
 						$('#blackbox .modal-box').css('margin', (( window.innerHeight - $('#blackbox .modal-box').height() ) /2 + window.scrollY ) + 'px auto' );
@@ -402,17 +389,7 @@ $(document).ready(function() {
 
 	if (!is_touch_device()) $('.tool').hover ( show_tip, hide_tip );
 
-	$('.tip').touchwipe({ // Swipe left/right to close the modal window.
-	     wipeLeft: function() {
-	     	hide_tip();
-	     },
-	     wipeRight: function() { 
-	     	hide_tip();
-	     },
-	     min_move_x: 40,
-	     min_move_y: 40,
-	     preventDefaultEvents: false
-	});
+	$('.tool').on('touchmove', hide_tip);
 	
 /* Retina images replacement */
 
