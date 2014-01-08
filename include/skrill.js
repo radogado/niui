@@ -393,6 +393,19 @@ $(document).ready(function() {
 	})
 */
 
+	$('textarea').keyup ( function () {
+		textArea = this;
+		while (
+			textArea.rows > 1 &&
+			textArea.scrollHeight < textArea.offsetHeight
+		)
+		{	textArea.rows--}
+		
+		while (textArea.scrollHeight > textArea.offsetHeight)
+		{	textArea.rows++ }
+		textArea.rows++
+		
+	});
 });
 
 /* ███████████████████ After everything is loaded, including images ███████████████████ */
