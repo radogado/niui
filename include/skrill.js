@@ -322,8 +322,10 @@ $(document).ready(function() {
 
 	$('a.modal-link, a.lightbox').click ( function () {
 	
-		$('body').prepend('<div id="blackbox"> <div class="modal-box"> <div> </div>');
+		$('body').prepend('<div id="blackbox"> <div class="modal-box"><progress></progress> <div> </div>');
 		
+		$('#blackbox .modal-box').css('margin', (( window.innerHeight - $('#blackbox .modal-box').height() ) /2 + window.scrollY ) + 'px auto' );
+
 		$('html').css('background-color','#333');
 		
 		$('#blackbox').click( close_blackbox );
@@ -341,8 +343,38 @@ $(document).ready(function() {
 		} else // ... or load external content in a modal window 
 		{
 			
-			$('#blackbox .modal-box').load (
-				( ($(this).attr('href').split('#')[1] ) ? ($(this).attr('href').split('#')[0] + ' #' + $(this).attr('href').split('#')[1]) : ( $(this).attr('href') ) ), add_blackbox );
+			url = $(this).attr('href');
+			container = 0;
+			if ( typeof $(this).attr('href').split('#')[1] != 'undefined') {
+				container = $(this).attr('href').split('#')[1];
+			};
+			
+			var progressBar = $('#blackbox progress'), client = new XMLHttpRequest();
+
+			client.open("GET", url);
+			if (container) { 
+				client.responseType = "document"; 
+			}
+			client.onprogress = function(pe) {
+				if(pe.lengthComputable) {
+					progressBar.max = pe.total;
+					progressBar.value = pe.loaded;
+					$('#blackbox .modal-box').text( pe.loaded + ' of ' + pe.total );
+				}
+			}
+			client.onloadend = function(pe) {
+
+				$('#blackbox .modal-box').html( container ? $(client.response).find('#' + container) : client.response );
+				
+				$('#blackbox .modal-box > div:first-child').prepend('<div class="close"> × </div>');
+				$('#blackbox .modal-box .close').click( close_blackbox );
+				$('.modal-box').on('touchmove', close_blackbox );
+				if ( $('#blackbox .modal-box').height() < window.innerHeight ) { // Center it vertically
+					$('#blackbox .modal-box').css('margin', (( window.innerHeight - $('#blackbox .modal-box').height() ) /2 + window.scrollY ) + 'px auto' );
+				}
+				relay_parameters();
+			}
+			client.send();
 			
 		}
 		
