@@ -785,11 +785,13 @@ html>/**/body ol { /* Won't be interpreted by IE6/7. */
 .accordion input {
 	display: none;
 }
-.accordion > *:not(label) {
-	display: none;
+.accordion > *:not(label) { /* hidden accordion item */
+	overflow: hidden;
+	-webkit-transition: all .4s ease-in-out;
+	max-height: 0;
 }
-.accordion input:checked ~ *:not(label) {
-	display: block;
+.accordion input:checked ~ *:not(label) { /* visible accordion item */
+	max-height: 999px;
 }
 
 /* Media Queries */
