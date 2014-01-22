@@ -745,11 +745,12 @@ html>/**/body ol { /* Won't be interpreted by IE6/7. */
 /* Accordion */
 
 .accordion label {
-	padding: .5em 1em;
+	background: #fff url(../images/accordion-m.png) bottom repeat-x;
 	position: relative;
+	margin-bottom: 2em;
+	padding: .6em 1em 1em 1em;
 	cursor: pointer;
 	color: #777;
-	background: #ffffff;
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eaeaea',GradientType=0 );
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
@@ -758,39 +759,52 @@ html>/**/body ol { /* Won't be interpreted by IE6/7. */
 	-ms-user-select: none;
 	user-select: none;
 	text-align: left;
+	font-weight: normal;
 	
 }
-.accordion input:checked + label {
-	background: #862165;
-	color: #ddd;
-	box-shadow: 
-		0px 0px 0px 1px rgba(155,155,155,0.3), 
-		0px 2px 2px rgba(0,0,0,0.1);
-}
-.accordion label:hover:after,
-.accordion input:checked + label:after {
+.accordion label:before {
+	display: block;
 	content: '';
-	background: url('../images/select-arrow.svg?colour=red') center right no-repeat;
-	background-size: auto 66%;
+	width: 110px;
+	height: 46px;
+	bottom: -21px;
+	left: -12px;
+	background: url(../images/accordion-l.png);
 	position: absolute;
-	width: 8px;
-	height: 24px;
-	right: 13px;
-	top: 7px;
 }
-.accordion input:checked + label:hover:after {
-	opacity: .5;
-	-webkit-transform: rotate(180deg);
-	transform: rotate(180deg);
+.accordion label:after {
+	display: block;
+	content: '';
+	width: 10px;
+	height: 80px;
+	bottom: -21px;
+	right: -10px;
+	background: url(../images/accordion-r.png);
+	position: absolute;
 }
+
 .accordion input {
 	display: none;
 }
-.accordion > *:not(label) {
-	display: none;
+.accordion label > div { /* hidden accordion item */
+    overflow: hidden;
+    transition: all .4s ease-in-out;
+    max-height: 0;
 }
-.accordion input:checked ~ *:not(label) {
-	display: block;
+.accordion input:checked ~ label > div { /* visible accordion item */
+    max-height: 999px;
+}
+.accordion input:checked ~ label:before { /* visible accordion item */
+	background: url(../images/accordion_expanded-l.png);
+	left: -11px;
+}
+.accordion label > h3 {
+	margin-left: 110px;
+    transition: all .4s ease-in-out;
+    font-weight: normal;
+}
+.accordion input:checked ~ label > h3 {
+	margin-left: 0px;
 }
 
 /* Media Queries */

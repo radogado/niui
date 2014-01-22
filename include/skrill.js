@@ -260,13 +260,12 @@ $(document).ready(function() {
 
 /* Click events for Concertina/Accordion */
 
-	$('.concertina h3').click ( function () { // Concertina rule: The element between two h3 is the content of the first h3
-		if ( $(this).next().css('display') == 'none' ) 
-			$(this).next().show('fast');
-		else
-			$(this).next().hide('fast');
+/*
+	$('.accordion').click ( function (e) {
+		$(this).children('input').click();
 	});
-	
+*/
+
 /* Prizes slider: Randomize prizes */
 
 	$('body').append("<div id=\"dummy\"></div>");
