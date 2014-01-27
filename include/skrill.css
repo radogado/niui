@@ -786,17 +786,21 @@ html>/**/body ol { /* Won't be interpreted by IE6/7. */
 .accordion input {
 	display: none;
 }
+
 .accordion label > div { /* hidden accordion item */
     overflow: hidden;
     transition: all .4s ease-in-out;
     max-height: 0;
+	height: 0;
 }
 .accordion input:checked ~ label > div { /* visible accordion item */
     max-height: 999px;
+    height: auto;
 }
 .accordion input:checked ~ label:before { /* visible accordion item */
 	background: url(../images/accordion_expanded-l.png);
 	left: -11px;
+    transition: height .4s ease-in-out;
 }
 .accordion label > h3 {
 	margin-left: 110px;

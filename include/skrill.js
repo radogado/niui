@@ -261,10 +261,20 @@ $(document).ready(function() {
 /* Click events for Concertina/Accordion */
 
 /*
-	$('.accordion').click ( function (e) {
-		$(this).children('input').click();
+	$('.accordion label').click ( function (e) {
+		e.stopPropagation();
+		$(this).stop();
+		el = $(this).children('div');
+		if ( el.height() ) {
+			el.animate({height: 0}, 200);
+		} else {
+			h = el.css('height', 'auto').height();
+			el.height(0).animate({height: h}, 200);
+		}
 	});
 */
+
+/* 	$('.accordion input:checked ~ label > div').css('max-height','100px'); */
 
 /* Prizes slider: Randomize prizes */
 
