@@ -350,6 +350,13 @@ a.button, input[type="submit"] {
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6c100', endColorstr='#fbde04',GradientType=0 ); /* IE6-9 */
 		
 	}
+	
+	noscript input[type="submit"] {
+		
+		max-height: 1em;
+		line-height: 1;
+		padding: .1em;
+	}
 
 h1, h2, h3, h4 {
 	
