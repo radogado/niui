@@ -561,7 +561,7 @@ label .mandatory:after {
 
 #footer {
 
-	background: #b0238c url(../images/footer.png) top left repeat-x;
+/* 	background: #b0238c url(../images/footer.png) top left repeat-x; */
 	color: #eee;
 	
 }
@@ -577,12 +577,6 @@ label .mandatory:after {
 		margin-bottom: 1em;
 		
 	}
-
-tr, td {
-	
-	border: none;
-	
-}
 
 /* Modal window */
 
@@ -831,6 +825,12 @@ table {
 	overflow: auto;
 	border-collapse: collapse;
 	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+	}
+	tr, td {
+		
+		border: none;
+		
 	}
 	table td {
 		padding: .4em;
