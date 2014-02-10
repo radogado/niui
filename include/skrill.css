@@ -578,10 +578,6 @@ label .mandatory:after {
 		
 	}
 
-table {
-	border-collapse: collapse;
-}
-
 tr, td {
 	
 	border: none;
@@ -824,6 +820,54 @@ html>/**/body ol { /* Won't be interpreted by IE6/7. */
 .accordion input:checked ~ label > h3 {
 	margin-left: 0px;
 }
+
+/* Tables */
+
+table {
+	margin: 1em auto;
+	margin-right: auto !important;
+	display: block;
+	width: 100%;
+	overflow: auto;
+	border-collapse: collapse;
+	overflow: auto;
+	}
+	table td {
+		padding: .4em;
+		border-bottom: 1px solid #797979;
+		border-right: 1px solid #797979;
+		vertical-align: middle;
+		}
+	table tr:first-child {
+		border-radius: 5px 5px 0 0;
+		font-size: 1.1em;
+		}
+	table tr:first-child a {
+		display: block;
+		}
+	table tr:first-child td {
+		border-left: 1px solid #797979;
+		}
+	table tr:last-child td {
+		border-right: 1px solid #797979;
+		}
+	table tr td:first-child {
+		border-left: 1px solid #797979;
+		line-height: 2em;
+		vertical-align: middle;
+		}
+	table tr:first-child td {
+		border-top: 1px solid #797979;
+		border-bottom: 1px solid #797979;
+		color: #fff;
+		font-weight: bold;
+		}
+	table tr:nth-child(2n+1) {
+		background: #f4f4f4;
+		}
+	table tr:first-child {
+		background: #292b2e;
+		}
 
 /* Media Queries */
 

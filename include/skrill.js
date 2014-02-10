@@ -409,13 +409,6 @@ $(document).ready(function() {
 		$('body,html').animate( { scrollTop: 0 }, 400 );
 	});
 
-/* Tables: Embed in a scrollable container */
-	
-	$('table').before('<div class="table-container"></div>');
-	$('.table-container').each ( function () { 
-		$(this).append( $(this).next() ); 
-	} );
-
 /* Hide Mobile Safari head */
 
 	if ( is_touch_device() ) {
