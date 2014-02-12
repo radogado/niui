@@ -584,48 +584,27 @@ label .mandatory:after {
 	z-index: 9999;
 	background: rgba(0,0,0,.8);
 	overflow-y: scroll;
-	position:fixed;
+	position: fixed;
 	top:0;
 	right:0;
 	bottom:0;
 	left:0;
-
+	border: 3em solid rgba(0,0,0,.3);
+	border-top: none;
 	}
-	#blackbox .modal-box {
-		width: 640px;
-		max-width: 90%;
-		background: #fff;
-		box-shadow: 0 0 15px #862165;
+	#blackbox .close {
+		display: block;
+		content: "";
+		color: #fff;
+		cursor: pointer;
+		padding: 1em;
+		font-weight: bold;
+		position: fixed;
+		background: #000;
+		width: 100%;
 		z-index: 99999;
-		margin: 1em auto;
-		border-radius: 8px;
-		border: 2px solid #862165;
-		overflow: hidden;
-		padding: .5em;
-		}
-		#blackbox .modal-box:after {
-			display: block;
-			content: "";
-			clear: both;
-			}
-		#blackbox .modal-box h1 {
-			color: #222;
-			}
-		#tip-close {
-			float: right;
-			cursor: pointer;
-			width: 1em;
-			height: 1em;
-			padding: .2em;
-			color: #862165;
-			font-size: 2em;
-			}
-		#blackbox .modal-box > div {
-			position: relative;
-			}
-		#blackbox .modal-box > * {
-			max-width: 100%;
-		}
+		box-shadow: 0 1px 2px #000;
+	}
 
 /* Back to top button */
 
@@ -652,7 +631,6 @@ a.backtotop {
 .tool {
 	border-bottom: 1px dotted rgba(255,255,255,.2);
 	cursor: help;
-/* 	position: relative; */
 	font-weight: bold;
 	}
 .tip {

@@ -258,24 +258,6 @@ function relay_parameters () {
 
 $(document).ready(function() {
 
-/* Click events for Concertina/Accordion */
-
-/*
-	$('.accordion label').click ( function (e) {
-		e.stopPropagation();
-		$(this).stop();
-		el = $(this).children('div');
-		if ( el.height() ) {
-			el.animate({height: 0}, 200);
-		} else {
-			h = el.css('height', 'auto').height();
-			el.height(0).animate({height: h}, 200);
-		}
-	});
-*/
-
-/* 	$('.accordion input:checked ~ label > div').css('max-height','100px'); */
-
 /* Prizes slider: Randomize prizes */
 
 	$('body').append("<div id=\"dummy\"></div>");
@@ -313,41 +295,14 @@ $(document).ready(function() {
 	
 /* Modal window: open a link inside it */
 
-	function add_blackbox () {
-
-		$('#blackbox .modal-box > div:first-child').prepend('<div class="close"> × </div>');
-		$('#blackbox .modal-box .close').click( close_blackbox );
-		$('.modal-box').on('touchmove', close_blackbox );
-		if ( $('#blackbox .modal-box').height() < window.innerHeight ) { // Center it vertically
-			$('#blackbox .modal-box').css('margin', (( window.innerHeight - $('#blackbox .modal-box').height() ) /2 + window.scrollY ) + 'px auto' );
-		}
-		relay_parameters();
-	}
-
-	function close_blackbox () {
-		$('html').css('background-color','#fff');
-		$('#blackbox').remove();
-	}
-
 	$('a.modal-link, a.lightbox').click ( function () {
 	
-		$('body').prepend('<div id="blackbox"> <div class="modal-box"><progress></progress> <div> </div>');
+		$('body').prepend('<div id="blackbox"> <progress></progress> </div>');
 		
-		$('#blackbox .modal-box').css('margin', (( window.innerHeight - $('#blackbox .modal-box').height() ) /2 + window.scrollY ) + 'px auto' );
-
-		$('html').css('background-color','#333');
-		
-		$('#blackbox').click( close_blackbox );
-
-		$('html').click( close_blackbox );
-	
-		$('#blackbox .modal-box').click( function (e) {
-			e.stopPropagation();
-		});
-
 		if ( $(this).hasClass('lightbox') ) { // Show an image lightbox...
+
 			var image_url = $(this).attr('href');
-			$('#blackbox .modal-box').prepend('<img src="' + image_url + '" alt="Lightbox">', add_blackbox );
+			$('#blackbox').prepend('<img src="' + image_url + '" alt="Lightbox">' );
 			
 		} else // ... or load external content in a modal window 
 		{
@@ -368,19 +323,18 @@ $(document).ready(function() {
 				if(pe.lengthComputable) {
 					progressBar.max = pe.total;
 					progressBar.value = pe.loaded;
-					$('#blackbox .modal-box').text( pe.loaded + ' of ' + pe.total );
+					$('#blackbox').text( pe.loaded + ' of ' + pe.total );
 				}
 			}
 			client.onloadend = function(pe) {
 
-				$('#blackbox .modal-box').html( container ? $(client.response).find('#' + container) : client.response );
+				$('#blackbox').html( container ? $(client.response).find('#' + container) : client.response );
 				
-				$('#blackbox .modal-box > div:first-child').prepend('<div class="close"> × </div>');
-				$('#blackbox .modal-box .close').click( close_blackbox );
-				$('.modal-box').on('touchmove', close_blackbox );
-				if ( $('#blackbox .modal-box').height() < window.innerHeight ) { // Center it vertically
-					$('#blackbox .modal-box').css('margin', (( window.innerHeight - $('#blackbox .modal-box').height() ) /2 + window.scrollY ) + 'px auto' );
-				}
+				$('#blackbox').prepend('<div class="close"> ← ' + document.title + '</div>');
+				$('#blackbox .close').click( function (e) {
+					e.stopPropagation();
+					$('#blackbox').remove();
+				});
 				relay_parameters();
 			}
 			client.send();
