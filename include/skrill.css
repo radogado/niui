@@ -599,7 +599,7 @@ label .mandatory:after {
 		content: "";
 		color: #fff;
 		cursor: pointer;
-		padding: 1em;
+		padding: 1em 0;
 		font-weight: bold;
 		position: fixed;
 		background: #000;

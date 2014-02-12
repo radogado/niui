@@ -299,6 +299,18 @@ $(document).ready(function() {
 	
 		$('body').prepend('<div id="blackbox"> <progress></progress> </div>');
 		$('body').css('overflow', 'hidden');
+
+		$(document).keyup(function(e){
+	
+		    if (e.keyCode == 27) { // left
+		    	
+				e.stopPropagation();
+				$('#blackbox').remove();
+				$('body').css('overflow', 'auto');
+
+		    }
+
+		});
 		
 		if ( $(this).hasClass('lightbox') ) { // Show an image lightbox...
 
