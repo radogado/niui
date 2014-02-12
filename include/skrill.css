@@ -591,6 +591,7 @@ label .mandatory:after {
 	left:0;
 	border: 3em solid rgba(0,0,0,.3);
 	border-top: none;
+	padding-top: 3em;
 	-webkit-overflow-scrolling: touch;
 	}
 	#blackbox .close {
@@ -605,6 +606,7 @@ label .mandatory:after {
 		width: 100%;
 		z-index: 99999;
 		box-shadow: 0 1px 2px #000;
+		top: 0;
 	}
 
 /* Back to top button */
