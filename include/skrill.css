@@ -591,6 +591,7 @@ label .mandatory:after {
 	left:0;
 	border: 3em solid rgba(0,0,0,.3);
 	border-top: none;
+	-webkit-overflow-scrolling: touch;
 	}
 	#blackbox .close {
 		display: block;
