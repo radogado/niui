@@ -298,6 +298,7 @@ $(document).ready(function() {
 	$('a.modal-link, a.lightbox').click ( function () {
 	
 		$('body').prepend('<div id="blackbox"> <progress></progress> </div>');
+		$('body').css('overflow', 'hidden');
 		
 		if ( $(this).hasClass('lightbox') ) { // Show an image lightbox...
 
@@ -334,6 +335,7 @@ $(document).ready(function() {
 				$('#blackbox .close').click( function (e) {
 					e.stopPropagation();
 					$('#blackbox').remove();
+					$('body').css('overflow', 'auto');
 				});
 				relay_parameters();
 			}
