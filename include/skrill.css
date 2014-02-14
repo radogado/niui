@@ -502,8 +502,7 @@ label input[type="submit"] {
 label span {
 	
 	position: relative;
-	padding-right: 1%;
-	padding-top: 3%;
+	padding: 2.5% 1% 2.5% 0;
 	display: inline-block;
 	width: 50%;
 	
