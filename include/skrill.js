@@ -89,6 +89,7 @@ var tip;
 function hide_tip (e) {
 
 	tip.style.display = 'none';
+	tip.style.opacity = 0;
 
 }
 
@@ -116,7 +117,7 @@ var
         || document.location.hostname == 'www.skrill.com'
         || document.location.hostname == 'skrill.com'
     ) ? 1 : 0,
-    _uacct = 'UA-820357-1',
+    _uacct = 'UA-39489651-1',
     _upage = null,
     _uanch = false,
     _ucche = {}

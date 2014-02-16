@@ -653,6 +653,8 @@ a.backtotop {
 	line-height: 1.5em;
 	z-index: 999;
 	text-align: left;
+	opacity: 0;
+    transition: all .4s ease-in-out;
 	}
 
 /* Deeply-nested Ordered Lists */
