@@ -88,19 +88,20 @@ var tip;
 
 function hide_tip (e) {
 
-	$(tip).stop().animate({ 'opacity':'0' }, 200, function () { $(tip).hide() });
+	tip.style.display = 'none';
 
 }
 
 function show_tip (e) {
 
-	tip = $(this).find('.tip');
+	tip = e.target.querySelector('.tip');
 	
-	$(tip).parent().parent().css('position','relative'); // dangerous with absolutely-positioned containers, which should be avoided anyway
+	tip.parentNode.parentNode.style.position = 'relative'; // dangerous with absolutely-positioned containers, which should be avoided anyway
 	
 	$(tip).css('top', $(tip).parent().position().top + $(tip).parent().height() );
 		
-	$(tip).stop().show().animate({'opacity': '1'}, 200);
+	tip.style.opacity = 1;
+	tip.style.display = 'block';
 	
 	// Add the close button (for touchscreens)
 	
