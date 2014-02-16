@@ -97,9 +97,9 @@ function show_tip (e) {
 	tip = e.target.querySelector('.tip');
 	
 	tip.parentNode.parentNode.style.position = 'relative'; // dangerous with absolutely-positioned containers, which should be avoided anyway
-	
-	$(tip).css('top', $(tip).parent().position().top + $(tip).parent().height() );
-		
+
+	tip.style.top = (tip.parentNode.offsetTop + tip.parentNode.offsetHeight) + 'px';
+			
 	tip.style.opacity = 1;
 	tip.style.display = 'block';
 	
