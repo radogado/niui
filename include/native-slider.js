@@ -31,9 +31,8 @@ function move_index() {
 	
 }
 
-function slide(e, direction ) {
+function slide( direction ) {
 	
-	e.stopPropagation();
     clearTimeout(scrollTimer);
 	
 	$('body').addClass('disable-hover');
@@ -43,7 +42,55 @@ function slide(e, direction ) {
 		$('body').removeClass('disable-hover');
 	});
 	
-	// Set active index button
+}
+
+function slide_end () {
+
+	$(slider).on('scroll', scrollslider );
+	document.body.classList.remove('disable-hover');
+  	
+}
+
+/* Make slide_native universal with parameter specifying target scroll */
+
+function slide_native (e) {
+
+	el = e.target; // Activated button
+	n = el.innerHTML - 1;
+	$(el).siblings('a.active').removeClass();
+	$(el).addClass('active');
+	slider = $(el).parent().siblings('.slider');
+				
+/* 	$('body').addClass('disable-hover'); */
+	if (document.body.classList)
+	  document.body.classList.add('disable-hover');
+	else
+	  document.body.className += ' ' + 'disable-hover';
+	
+	el = $(slider).get(0);
+	start = el.scrollLeft,
+	change = ( n * $(slider).width() ) - start,
+	currentTime = 0,
+	increment = 20;
+	duration = 500;
+	var animateScroll = function(){
+	// increment the time
+	currentTime += increment;
+	// find the value with the quadratic in-out easing function
+	var val = Math.easeInOutQuad(currentTime, start, change, duration);
+	// move the document.body
+	el.scrollLeft = val;
+	// do the animation unless its over
+	if(currentTime < duration) {
+	  requestAnimFrame(animateScroll);
+	} else {
+	  if (slide_end && typeof(slide_end) === 'function') {
+	    // the animation is done so lets callback
+	    slide_end();
+	  }
+	}
+	};
+	animateScroll();
 }
 
 $(document).ready(function() {
@@ -60,7 +107,7 @@ $(document).ready(function() {
 	    var docViewTop = $(window).scrollTop();
 	    var docViewBottom = docViewTop + $(window).height();
 
-		$('.slider').each( function (n) {
+		$('.slider').each( function (n) { // Make the nearest slider active (for keyboard control)
 
 		    var elemTop = $(this).offset().top;
 		    var elemBottom = elemTop + $(this).height();
@@ -74,58 +121,49 @@ $(document).ready(function() {
 		
 	    if (e.keyCode == 37) { // left
 	    	
-			slide(e, -1);
+			slide(-1);
 	    }
 	    if (e.keyCode == 39) { // right
 	
-			slide(e, 1);
+			slide(1);
 			
 	    }
 	});
 	
-	/* Initialise JS extras: arrows/numbers navigation */
+	/* Initialise JS extras: create arrows/numbers navigation */
 
-	$('.slider').each ( function (n) {
+	var elements = document.querySelectorAll('.slider');
+	Array.prototype.forEach.call(elements, function(el, i) {
 		
-		$(this).before('<div class="slider-container"></div>').appendTo( $(this).prev() );
+		el.insertAdjacentHTML('beforebegin', '<div class="slider-container"></div>'); // Create a container and move the slider in it
 		
-		$(this).parent().prepend('<a class="slider-arrow left">←</a>').append('<a class="slider-arrow right">→</a>').append('<div class="slider-nav"></div>');
+		el.previousElementSibling.appendChild(el);
 		
-		$(this).children().each ( function (n) {
+		el.insertAdjacentHTML('beforebegin', '<a class="slider-arrow left">←</a>');
+
+		el.insertAdjacentHTML('afterend', '<a class="slider-arrow right">→</a><div class="slider-nav"></div>');
 		
-			$(this).parent().parent().find('.slider-nav').append('<a>' + (n + 1) + '</a>');
+		Array.prototype.forEach.call(el.children, function(el, i) { // Populate the numbered control buttons
+
+			el.parentNode.nextElementSibling.nextElementSibling.insertAdjacentHTML('beforeend', '<a>' + (i + 1) + '</a>');
 			
 		});
 		
-		$(this).parent().find('.slider-nav a:first-child').addClass('active');
+		el.parentNode.lastChild.firstChild.classList.add('active');
 
-		$(this).siblings('.slider-arrow.left').click ( function (e) {  
-			
-			slider = $(this).siblings('.slider');
-			slide(e, -1);
-				
-		});
+		el.parentNode.childNodes[0].onclick = function () {
+			slider = this.nextSibling;
+			slide(-1);
+		}
 		
-		$(this).siblings('.slider-arrow.right').click ( function (e) {
-			
-			slider = $(this).siblings('.slider');
-			slide(e, 1);	
-
-		});
+		el.parentNode.childNodes[2].onclick = function () {
+			slider = this.previousSibling;
+			slide(1);
+		}
 		
-		$(this).siblings('.slider-nav').children('a').click ( function (e) {  
-
-			e.stopPropagation();
-			var n = $(this).index();
-			$(this).siblings('a.active').removeClass();
-			$(this).addClass('active');
-			slider = $(this).parent().siblings('.slider');
-						
-			$('body').addClass('disable-hover');
-			$(slider).stop( true, true ).off('scroll', scrollslider ).animate ( { 'scrollLeft': n * $(slider).width() }, 'fast', function () { 
-				$(slider).on('scroll', scrollslider );
-				$('body').removeClass('disable-hover');
-			});
+		Array.prototype.forEach.call( el.nextElementSibling.nextElementSibling.children, function(el, i) { // Bind event handler to all numbered buttons
+			
+			this.onclick = slide_native;
 		
 		});
 		
@@ -135,7 +173,7 @@ $(document).ready(function() {
 
 $(window).load(function() {
 	
-	// Get scrollbar width and hide it by reducing the .slider-container height proportiobally
+	// Get scrollbar width and hide it by reducing the .slider-container height proportionally
 
 	$('.slider').css('overflow-x', 'hidden');
 	var height_scroll = $('.slider').height();

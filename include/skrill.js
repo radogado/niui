@@ -334,11 +334,8 @@ $(document).ready(function() {
 	
 /* Add 'Back to top' button */
 
-	var el = document.createElement('a');
-	el.innerHTML = ' ⬆ ';
-	el.onclick = function(){ scrollTo(0); return false; };
-	el.classList.add('backtotop');
-	document.body.appendChild(el);
+	document.body.insertAdjacentHTML('beforeend', '<a class="backtotop"> ⬆ </a>');
+	document.getElementsByClassName('backtotop')[0].onclick = function() { scrollTo(0); return false; };
 
 /* Auto textarea height */
    	
