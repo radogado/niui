@@ -15,7 +15,7 @@
 
 }
 
-.row.padded { /* When the columns need to be centered with padding on left and right */
+.row.padded { /* When the columns need to be centered with padding on the left and right */
 
 	padding: 0 15%;
 	width: 70%;	
@@ -51,11 +51,6 @@
 	width: 73%;
 }
 
-ul {
-	margin: 0;
-	padding: 0;
-}
-
 /* Basic elements */
 
 body {
@@ -82,6 +77,11 @@ p:first-child {
 
 	margin-top: 0;
 
+}
+
+ul {
+	margin: 0;
+	padding: 0;
 }
 
 .centered {
@@ -320,7 +320,9 @@ h1, h2, h3, h4 {
 }
 
 #main h1 {
+
 	color: #862165;
+
 }
 
 #head {
@@ -373,6 +375,7 @@ h1, h2, h3, h4 {
 	box-shadow: 0 2px 3px #333;
 	
 }
+
 	#top .row:first-child .column2, #top .row:first-child .column34, #top .row:first-child .column4 {
 		
 		padding-bottom: 0;
@@ -513,7 +516,6 @@ label .mandatory:after {
 
 #footer {
 
-/* 	background: #b0238c url(../images/footer.png) top left repeat-x; */
 	color: #eee;
 	
 }
@@ -632,16 +634,6 @@ html>/**/body ol { /* Won't be interpreted by IE6/7. */
 	    margin-right: .5em;
 	    color: #fff;
 		}
-	ol.icon > li:before {
-	    content: counter(level1);
-	    font-weight: bold;
-	    background: #999;
-	    color: #fff;
-	    padding: .3em .6em;
-	    border-radius: 1em;
-	    margin-right: .5em;
-	    width: 30px;
-		}
 	ol > li ol {
 	    list-style-type: none;
 	    counter-reset: level2;
@@ -706,54 +698,54 @@ html>/**/body ol { /* Won't be interpreted by IE6/7. */
 	font-weight: normal;
 	
 }
-.accordion label:before {
-	display: block;
-	content: '';
-	width: 110px;
-	height: 46px;
-	bottom: -21px;
-	left: -12px;
-	background: url(../images/accordion-l.png);
-	position: absolute;
-}
-.accordion label:after {
-	display: block;
-	content: '';
-	width: 10px;
-	height: 80px;
-	bottom: -21px;
-	right: -10px;
-	background: url(../images/accordion-r.png);
-	position: absolute;
-}
-
-.accordion input {
-	display: none;
-}
-
-.accordion label > div { /* hidden accordion item */
-    overflow: hidden;
-    transition: all .4s ease-in-out;
-    max-height: 0;
-	height: 0;
-}
-.accordion input:checked ~ label > div { /* visible accordion item */
-    max-height: 999px;
-    height: auto;
-}
-.accordion input:checked ~ label:before { /* visible accordion item */
-	background: url(../images/accordion_expanded-l.png);
-	left: -11px;
-    transition: height .4s ease-in-out;
-}
-.accordion label > h3 {
-	margin-left: 110px;
-    transition: all .4s ease-in-out;
-    font-weight: normal;
-}
-.accordion input:checked ~ label > h3 {
-	margin-left: 0px;
-}
+	.accordion label:before {
+		display: block;
+		content: '';
+		width: 110px;
+		height: 46px;
+		bottom: -21px;
+		left: -12px;
+		background: url(../images/accordion-l.png);
+		position: absolute;
+	}
+	.accordion label:after {
+		display: block;
+		content: '';
+		width: 10px;
+		height: 80px;
+		bottom: -21px;
+		right: -10px;
+		background: url(../images/accordion-r.png);
+		position: absolute;
+	}
+	
+	.accordion input {
+		display: none;
+	}
+	
+	.accordion label > div { /* hidden accordion item */
+	    overflow: hidden;
+	    transition: all .4s ease-in-out;
+	    max-height: 0;
+		height: 0;
+	}
+	.accordion input:checked ~ label > div { /* visible accordion item */
+	    max-height: 999px;
+	    height: auto;
+	}
+	.accordion input:checked ~ label:before { /* visible accordion item */
+		background: url(../images/accordion_expanded-l.png);
+		left: -11px;
+	    transition: height .4s ease-in-out;
+	}
+	.accordion label > h3 {
+		margin-left: 110px;
+	    transition: all .4s ease-in-out;
+	    font-weight: normal;
+	}
+	.accordion input:checked ~ label > h3 {
+		margin-left: 0px;
+	}
 
 /* Tables */
 
