@@ -249,6 +249,8 @@ a.button, input[type="submit"] {
 	line-height: 1.5;
 	box-shadow: none;
 	cursor: pointer;
+	margin-bottom: .5em;
+	width: auto;
 
 	background: #f1f1f1; /* Old browsers */
 	background: -moz-linear-gradient(top,  #f1f1f1 0%, #cbcbcb 100%); /* FF3.6+ */
@@ -258,8 +260,6 @@ a.button, input[type="submit"] {
 	background: -ms-linear-gradient(top,  #f1f1f1 0%,#cbcbcb 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  #f1f1f1 0%,#cbcbcb 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f1f1', endColorstr='#cbcbcb',GradientType=0 ); /* IE6-9 */
-
-	width: auto;
 
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
