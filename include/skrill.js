@@ -96,6 +96,7 @@ function hide_tip (e) {
 function show_tip (e) {
 
 	tip = e.target.querySelector('.tip');
+	if (!tip) return; //  fix it not to log error in console
 	
 	tip.parentNode.parentNode.style.position = 'relative'; // dangerous with absolutely-positioned containers, which should be avoided anyway
 
@@ -186,13 +187,16 @@ function relay_parameters () {
 
 	parameters = getURLParameters();
 	
-	$('a[href]:not(a[href^="javascript"]):not(a[href^="mailto"])').each( function () {
-		
+	elements = document.querySelectorAll('a[href]');
+	Array.prototype.forEach.call(elements, function(el, i){
+	
 		for (var name in parameters) {
-			var hash = $(this).attr('href').split('#')[1] ? ( '#' + $(this).attr('href').split('#')[1] ) : '';
-			$(this).attr('href', updateURLParameter( $(this).attr('href').split('#')[0], name, parameters[name] ) + hash );
+			if ( !el.href.indexOf('javascript') || (!el.href.indexOf('mailto') ) ) continue;
+			var hash = el.href.split('#')[1] ? ( '#' + el.href.split('#')[1] ) : '';
+			el.href = updateURLParameter( el.href.split('#')[0], name, parameters[name] ) + hash;
 	
 		} 
+
 	});
 
 }
@@ -253,7 +257,7 @@ function scrollTo(to, callback, duration) {
 
 /* ███████████████████ After DOM is created ███████████████████ */
 
-$(document).ready(function() {
+document.addEventListener("DOMContentLoaded", function() { // IE9+, check IE8
 
 /* Relay URI parameters to links */
 
@@ -326,12 +330,22 @@ $(document).ready(function() {
 
 /* Tooltip */
 		
-	$('.tool').click ( show_tip );
-
-	if (!is_touch_device()) $('.tool').hover ( show_tip, hide_tip );
-
-	$('.tool').on('touchmove', hide_tip);
+   	elements = document.querySelectorAll('.tool');
+	Array.prototype.forEach.call(elements, function(el, i){
+		
+		el.onclick = show_tip;
+			
+		if (!is_touch_device()) {
+			
+			el.onmouseover = show_tip;
+			el.onmouseout = hide_tip;
+			
+		}
 	
+		el.addEventListener('touchmove', hide_tip, false);
+				
+	});
+
 /* Add 'Back to top' button */
 
 	document.body.insertAdjacentHTML('beforeend', '<a class="backtotop"> ⬆ </a>');
@@ -339,23 +353,29 @@ $(document).ready(function() {
 
 /* Auto textarea height */
    	
-	$('textarea').keyup ( function () {
-		textArea = this;
-		while (
-			textArea.rows > 1 &&
-			textArea.scrollHeight < textArea.offsetHeight
-		)
-		{	textArea.rows--}
-		
-		while (textArea.scrollHeight > textArea.offsetHeight)
-		{	textArea.rows++ }
-		textArea.rows++
-		
+   	elements = document.querySelectorAll('textarea');
+	Array.prototype.forEach.call(elements, function(el, i){
+	
+		el.onkeyup = function () {
+			textArea = this;
+			while (
+				textArea.rows > 1 &&
+				textArea.scrollHeight < textArea.offsetHeight
+			)
+			{	textArea.rows--}
+			
+			while (textArea.scrollHeight > textArea.offsetHeight)
+			{	textArea.rows++ }
+			textArea.rows++
+			
+		};
+
 	});
+	
 });
 
 /* ███████████████████ After everything is loaded, including images ███████████████████ */
 
-$(window).load(function() {
+document.addEventListener("load", function() { // IE9+, check IE8
 
 });

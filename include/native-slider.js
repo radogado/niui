@@ -61,7 +61,6 @@ function slide_native (e) {
 	$(el).addClass('active');
 	slider = $(el).parent().siblings('.slider');
 				
-/* 	$('body').addClass('disable-hover'); */
 	if (document.body.classList)
 	  document.body.classList.add('disable-hover');
 	else
