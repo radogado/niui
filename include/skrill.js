@@ -255,6 +255,68 @@ function scrollTo(to, callback, duration) {
   animateScroll();
 }
 
+function modal_window (e) {
+
+	document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> <progress></progress> </div>');
+	document.body.style.overflow = 'hidden';
+
+	document.body.onkeyup = function(e) {
+
+	    if (e.keyCode == 27) { // esc
+
+			document.body.removeChild( document.getElementById('blackbox') );
+			document.body.style.overflow = 'auto';
+
+	    }
+
+	};
+	
+	if ( e.target.classList && e.target.classList.contains('lightbox') ) { // Show an image lightbox...
+
+		var image_url = e.target.href;
+		document.getElementById('blackbox').insertAdjacentHTML('afterbegin', '<img src="' + image_url + '" alt="Lightbox">');
+		
+	} else // ... or load external content in a modal window 
+	{
+		
+		container = 0;
+		if ( typeof e.target.href.split('#')[1] != 'undefined') {
+			container = e.target.href.split('#')[1];
+		};
+		
+		blackbox = document.getElementById('blackbox');
+
+		var progressBar = blackbox.querySelector('progress'), client = new XMLHttpRequest();
+
+		client.open("GET", e.target.href);
+		if (container) { 
+			client.responseType = "document"; 
+		}
+		client.onprogress = function(pe) {
+			if(pe.lengthComputable) {
+				progressBar.max = pe.total;
+				progressBar.value = pe.loaded;
+				blackbox.textContent = (pe.loaded + ' of ' + pe.total);
+			}
+		}
+		client.onloadend = function(pe) {
+			console.log(client.response);
+			blackbox.innerHTML = container ? client.response.querySelector('#' + container).innerHTML : client.response;
+			
+			blackbox.insertAdjacentHTML('afterbegin', '<div class="close"> ← ' + document.title + '</div>');
+			blackbox.querySelector('.close').onclick = function (e) {
+				document.body.removeChild( document.getElementById('blackbox') );
+				document.body.style.overflow = 'auto';
+			};
+			relay_parameters();
+		}
+		client.send();
+		
+	}
+	
+	return false;
+}
+
 /* ███████████████████ After DOM is created ███████████████████ */
 
 document.addEventListener("DOMContentLoaded", function() { // IE9+, check IE8
@@ -265,67 +327,11 @@ document.addEventListener("DOMContentLoaded", function() { // IE9+, check IE8
 	
 /* Modal window: open a link inside it */
 
-	$('a.modal-link, a.lightbox').click ( function () {
-	
-		$('body').prepend('<div id="blackbox"> <progress></progress> </div>');
-		$('body').css('overflow', 'hidden');
-
-		$(document).keyup(function(e){
-	
-		    if (e.keyCode == 27) { // left
-		    	
-				e.stopPropagation();
-				$('#blackbox').remove();
-				$('body').css('overflow', 'auto');
-
-		    }
-
-		});
+   	elements = document.querySelectorAll('a.modal-link, a.lightbox');
+	Array.prototype.forEach.call(elements, function(el, i){
 		
-		if ( $(this).hasClass('lightbox') ) { // Show an image lightbox...
-
-			var image_url = $(this).attr('href');
-			$('#blackbox').prepend('<img src="' + image_url + '" alt="Lightbox">' );
-			
-		} else // ... or load external content in a modal window 
-		{
-			
-			url = $(this).attr('href');
-			container = 0;
-			if ( typeof $(this).attr('href').split('#')[1] != 'undefined') {
-				container = $(this).attr('href').split('#')[1];
-			};
-			
-			var progressBar = $('#blackbox progress'), client = new XMLHttpRequest();
-
-			client.open("GET", url);
-			if (container) { 
-				client.responseType = "document"; 
-			}
-			client.onprogress = function(pe) {
-				if(pe.lengthComputable) {
-					progressBar.max = pe.total;
-					progressBar.value = pe.loaded;
-					$('#blackbox').text( pe.loaded + ' of ' + pe.total );
-				}
-			}
-			client.onloadend = function(pe) {
-
-				$('#blackbox').html( container ? $(client.response).find('#' + container) : client.response );
-				
-				$('#blackbox').prepend('<div class="close"> ← ' + document.title + '</div>');
-				$('#blackbox .close').click( function (e) {
-					e.stopPropagation();
-					$('#blackbox').remove();
-					$('body').css('overflow', 'auto');
-				});
-				relay_parameters();
-			}
-			client.send();
-			
-		}
+		el.onclick = modal_window;
 		
-		return false;
 	});
 
 /* Tooltip */
