@@ -87,7 +87,8 @@ function getURLParameters () { // return all URL parameters in an array
 var tip;
 
 function hide_tip (e) {
-
+	
+	if (!tip) return;
 	tip.style.display = 'none';
 	tip.style.opacity = 0;
 
