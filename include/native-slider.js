@@ -1,21 +1,17 @@
 var scrollTimer;
 var slider;
+var slider_event;
 	
-function scrollslider() {
+function scrollslider(e) {
+
+	slider_event = e;
 
     if (scrollTimer != -1)
         clearTimeout(scrollTimer);
 
-    scrollTimer = window.setTimeout("scrollFinished()", 50);
+    scrollTimer = window.setTimeout("slide (slider_event, 'snap');", 50);
 
 };
-
-function scrollFinished() { // center the nearest scrolling item
-
-	slider.scrollLeft = Math.round ( slider.scrollLeft / slider.offsetWidth ) * slider.offsetWidth; // animate this
-	move_index();
-	
-}
 
 function move_index() {
 
@@ -30,19 +26,6 @@ function move_index() {
 	
 }
 
-function slide( direction ) {
-	
-    clearTimeout(scrollTimer);
-	
-	document.body.classList.add('disable-hover');
-	slider.onscroll = function (e) {};
-	slider.scrollLeft = slider.scrollLeft + direction * slider.offsetWidth; // animate this
-	slider.onscroll = scrollslider;
-	move_index();
-	document.body.classList.remove('disable-hover');
-	
-}
-
 function slide_end () {
 
 	slider.onscroll = scrollslider;
@@ -50,27 +33,55 @@ function slide_end () {
   	
 }
 
-/* Make slide_native universal with parameter specifying target scroll */
+/* Make slide universal with parameter specifying target scroll */
 
-function slide_native (e) {
+function slide (e, target) {
 
 	e.stopPropagation();
 	el = e.target; // Activated button
-	n = el.innerHTML - 1;
-	el.parentNode.querySelector('a.active').classList.remove('active');
-	el.classList.add('active');
-	slider = el.parentNode.parentNode.querySelector('.slider');
 
 	if (document.body.classList)
 	  document.body.classList.add('disable-hover');
 	else
 	  document.body.className += ' ' + 'disable-hover';
 	
-	start = slider.scrollLeft,
-	change = n * slider.offsetWidth - start,
+	if (target == 'index') {
+
+		slider = el.parentNode.parentNode.querySelector('.slider');
+		start = slider.scrollLeft;
+		change = (el.innerHTML - 1) * slider.offsetWidth - start;
+		el.parentNode.querySelector('a.active').classList.remove('active');
+		el.classList.add('active');
+		
+	}
+	
+	if ( target == 'left') {
+
+		slider = el.parentNode.querySelector('.slider');
+		start = slider.scrollLeft;
+		change = slider.scrollLeft - slider.offsetWidth - start;
+
+	}
+	
+	if ( target == 'right') {
+
+		slider = el.parentNode.querySelector('.slider');
+		start = slider.scrollLeft;
+		change = slider.scrollLeft + slider.offsetWidth - start;
+
+	}
+	
+	if ( target == 'snap') {
+
+		start = slider.scrollLeft;
+		change = Math.round ( slider.scrollLeft / slider.offsetWidth ) * slider.offsetWidth - start;
+
+	}
+	
 	currentTime = 0,
 	increment = 20;
 	duration = 500;
+	
 	var animateScroll = function(){
 	// increment the time
 	currentTime += increment;
@@ -89,16 +100,18 @@ function slide_native (e) {
 	}
 	};
 	animateScroll();
+	move_index();
+
 }
 
 document.addEventListener("DOMContentLoaded", function() {
 	
 	document.onkeyup = function(e){
 
-		/* Detect a slider into view and control it */
+		/* Detect a slider into view and control it - not working el.offsetTop */
 
 	    var docViewTop = window.scrollY;
-	    var docViewBottom = docViewTop + window.offsetHeight;
+	    var docViewBottom = docViewTop + document.body.offsetHeight;
 
 		var elements = document.querySelectorAll('.slider');
 		Array.prototype.forEach.call(elements, function(el, i) {
@@ -115,11 +128,12 @@ document.addEventListener("DOMContentLoaded", function() {
 			
 	    if (e.keyCode == 37) { // left
 	    	
-			slide(-1);
+			slide(e, 'left');
+
 	    }
 	    if (e.keyCode == 39) { // right
 	
-			slide(1);
+			slide(e, 'right');
 			
 	    }
 
@@ -147,26 +161,28 @@ document.addEventListener("DOMContentLoaded", function() {
 		el.parentNode.lastChild.firstChild.classList.add('active');
 
 		el.parentNode.childNodes[0].onclick = function (e) {
-			e.stopPropagation();
-			slider = e.target.nextSibling;
-			slide(-1);
+
+			slide(e, 'left');
+
 		}
 		
 		el.parentNode.childNodes[2].onclick = function (e) {
-			e.stopPropagation();
-			slider = e.target.previousSibling;
-			slide(1);
+
+			slide(e, 'right');
+
 		}
 		
 		Array.prototype.forEach.call( el.nextElementSibling.nextElementSibling.children, function(el, i) { // Bind event handler to all numbered buttons
 			
-			el.onclick = slide_native;
+			el.onclick = function (e) {
+				slide(e, 'index');
+			};
 		
 		});
 		
 		el.onscroll = function (e) {
 			slider = e.target;
-			scrollslider(); 
+			scrollslider(e); 
 		};
 		
 	});
