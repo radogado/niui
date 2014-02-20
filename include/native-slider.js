@@ -1,9 +1,10 @@
+// Fix events while sliding, snap to direction instead of middle point
+
 var scrollTimer;
 var slider;
 var slider_event;
 	
 function scrollslider(e) {
-	
 	e.stopPropagation();
 	slider_event = e;
 	slider = e.target;

@@ -170,7 +170,7 @@ a:link, a:visited {
 		color: #727272;
 		font-size: .9em;
 		display: inline-block;
-		padding: .3em 0 .3em 0;
+		padding: .3em 0;
 		text-shadow: 0 1px 1px #fff;
 		line-height: 1.2;
 
@@ -403,7 +403,7 @@ h1, h2, h3, h4 {
 }
 
 	#language select {
-		background: url(../images/country_select_globes.png) top left no-repeat;
+		background: url(../images/country_select_globes.png) center left no-repeat;
 		padding-left: 2em;
 		font-size: .5em;
 		border: none;
