@@ -3,8 +3,10 @@ var slider;
 var slider_event;
 	
 function scrollslider(e) {
-
+	
+	e.stopPropagation();
 	slider_event = e;
+	slider = e.target;
 
     if (scrollTimer != -1)
         clearTimeout(scrollTimer);
