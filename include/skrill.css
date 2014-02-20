@@ -321,7 +321,7 @@ a.button, input[type="submit"] {
 
 h1, h2, h3, h4 {
 	
-	line-height: 1.3;
+	line-height: 1.2;
 	margin: .5em 0;
 
 }
@@ -519,6 +519,12 @@ label .mandatory:after {
 
 		vertical-align: bottom;
 		
+	}
+	.container.banner img {
+
+		 display: block; margin: 0 auto;
+		 margin-bottom: -1em; /* Glued to bottom element */
+
 	}
 
 #footer {
