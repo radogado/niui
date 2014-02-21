@@ -186,16 +186,22 @@ function scrollTo(to, callback, duration) {
   animateScroll();
 }
 
+function remove_blackbox () {
+
+	blackbox = document.querySelector('#blackbox');
+	if (blackbox) document.body.removeChild( blackbox );
+	document.body.style.overflow = 'auto';
+
+}
+
 function modal_window (e) {
 
 	document.body.onkeyup = function(e) {
 
 	    if (e.keyCode == 27) { // esc
 			
-			blackbox = document.querySelector('#blackbox');
-			if (blackbox) document.body.removeChild( blackbox );
-			document.body.style.overflow = 'auto';
-
+			remove_blackbox ();
+			
 	    }
 
 	};
@@ -228,16 +234,13 @@ function modal_window (e) {
 		}
 */
 		client.onload = function(pe) {
+
 			document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> <progress></progress> </div>');
 			document.body.style.overflow = 'hidden';
-		
 
 			if (!client.response) {
 			
-				alert(client.response + ' ' + client.status);
-				blackbox = document.querySelector('#blackbox');
-				if (blackbox) document.body.removeChild( blackbox );
-				document.body.style.overflow = 'auto';
+				remove_blackbox();
 
 			}
 			
@@ -245,11 +248,7 @@ function modal_window (e) {
 			blackbox.innerHTML = container ? client.response.querySelector('#' + container).innerHTML : client.response;
 			
 			blackbox.insertAdjacentHTML('afterbegin', '<div class="close"> ← ' + document.title + '</div>');
-			blackbox.querySelector('.close').onclick = function (e) {
-				blackbox = document.querySelector('#blackbox');
-				if (blackbox) document.body.removeChild( blackbox );
-				document.body.style.overflow = 'auto';
-			};
+			blackbox.querySelector('.close').onclick = remove_blackbox;
 			relay_parameters();
 		}
 		client.open("GET", e.target.href);
