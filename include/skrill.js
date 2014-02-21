@@ -225,7 +225,6 @@ function modal_window (e) {
 		if (container) { 
 			client.responseType = "document"; 
 		}
-/*
 		client.onprogress = function(pe) {
 			if(pe.lengthComputable) {
 				progressBar.max = pe.total;
@@ -233,7 +232,6 @@ function modal_window (e) {
 				blackbox.textContent = (pe.loaded + ' of ' + pe.total);
 			}
 		}
-*/
 		client.onloadend = function(pe) {
 			if (!client.response) {
 			
