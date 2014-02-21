@@ -188,9 +188,6 @@ function scrollTo(to, callback, duration) {
 
 function modal_window (e) {
 
-	document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> <progress></progress> </div>');
-	document.body.style.overflow = 'hidden';
-
 	document.body.onkeyup = function(e) {
 
 	    if (e.keyCode == 27) { // esc
@@ -211,20 +208,17 @@ function modal_window (e) {
 	} else // ... or load external content in a modal window 
 	{
 		
-		container = 0;
-		if ( typeof e.target.href.split('#')[1] != 'undefined') {
-			container = e.target.href.split('#')[1];
-		};
+		container = (typeof e.target.href.split('#')[1] != 'undefined') ? e.target.href.split('#')[1] : 0;
 		
-		blackbox = document.getElementById('blackbox');
-
-		progressBar = blackbox.querySelector('progress');
 		client = new XMLHttpRequest();
 		
-		client.open("GET", e.target.href);
 		if (container) { 
 			client.responseType = "document"; 
 		}
+/*
+
+		progressBar = document.querySelector('#blackbox > progress');
+
 		client.onprogress = function(pe) {
 			if(pe.lengthComputable) {
 				progressBar.max = pe.total;
@@ -232,15 +226,22 @@ function modal_window (e) {
 				blackbox.textContent = (pe.loaded + ' of ' + pe.total);
 			}
 		}
-		client.onloadend = function(pe) {
+*/
+		client.onload = function(pe) {
+			document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> <progress></progress> </div>');
+			document.body.style.overflow = 'hidden';
+		
+
 			if (!client.response) {
 			
-				alert('Unable to load external content.');
+				alert(client.response + ' ' + client.status);
 				blackbox = document.querySelector('#blackbox');
 				if (blackbox) document.body.removeChild( blackbox );
 				document.body.style.overflow = 'auto';
 
 			}
+			
+			blackbox = document.getElementById('blackbox');
 			blackbox.innerHTML = container ? client.response.querySelector('#' + container).innerHTML : client.response;
 			
 			blackbox.insertAdjacentHTML('afterbegin', '<div class="close"> ← ' + document.title + '</div>');
@@ -251,6 +252,7 @@ function modal_window (e) {
 			};
 			relay_parameters();
 		}
+		client.open("GET", e.target.href);
 		client.send();
 		
 	}
