@@ -218,12 +218,14 @@ function modal_window (e) {
 		
 		blackbox = document.getElementById('blackbox');
 
-		var progressBar = blackbox.querySelector('progress'), client = new XMLHttpRequest();
-
+		progressBar = blackbox.querySelector('progress');
+		client = new XMLHttpRequest();
+		
 		client.open("GET", e.target.href);
 		if (container) { 
 			client.responseType = "document"; 
 		}
+/*
 		client.onprogress = function(pe) {
 			if(pe.lengthComputable) {
 				progressBar.max = pe.total;
@@ -231,8 +233,16 @@ function modal_window (e) {
 				blackbox.textContent = (pe.loaded + ' of ' + pe.total);
 			}
 		}
+*/
 		client.onloadend = function(pe) {
-			console.log(client.response);
+			if (!client.response) {
+			
+				alert('Unable to load external content.');
+				blackbox = document.querySelector('#blackbox');
+				if (blackbox) document.body.removeChild( blackbox );
+				document.body.style.overflow = 'auto';
+
+			}
 			blackbox.innerHTML = container ? client.response.querySelector('#' + container).innerHTML : client.response;
 			
 			blackbox.insertAdjacentHTML('afterbegin', '<div class="close"> ← ' + document.title + '</div>');
