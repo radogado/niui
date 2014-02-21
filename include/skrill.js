@@ -194,8 +194,9 @@ function modal_window (e) {
 	document.body.onkeyup = function(e) {
 
 	    if (e.keyCode == 27) { // esc
-
-			document.body.removeChild( document.getElementById('blackbox') );
+			
+			blackbox = document.querySelector('#blackbox');
+			if (blackbox) document.body.removeChild( blackbox );
 			document.body.style.overflow = 'auto';
 
 	    }
@@ -236,7 +237,8 @@ function modal_window (e) {
 			
 			blackbox.insertAdjacentHTML('afterbegin', '<div class="close"> ← ' + document.title + '</div>');
 			blackbox.querySelector('.close').onclick = function (e) {
-				document.body.removeChild( document.getElementById('blackbox') );
+				blackbox = document.querySelector('#blackbox');
+				if (blackbox) document.body.removeChild( blackbox );
 				document.body.style.overflow = 'auto';
 			};
 			relay_parameters();
