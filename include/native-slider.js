@@ -1,18 +1,16 @@
 // Fix events while sliding, snap to direction instead of middle point
 
-var scrollTimer;
+var scrollTimer = null;
 var slider;
 var slider_event;
 	
 function scrollslider(e) {
-	e.stopPropagation();
-	slider_event = e;
+
 	slider = e.target;
-
-    if (scrollTimer != -1)
-        clearTimeout(scrollTimer);
-
-    scrollTimer = window.setTimeout("slide (slider_event, 'snap');", 50);
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(function(){
+        slide (e, 'snap');
+    },50);
 
 };
 
@@ -83,7 +81,7 @@ function slide (e, target) {
 	
 	currentTime = 0,
 	increment = 20;
-	duration = 500;
+	duration = 400;
 	
 	var animateScroll = function(){
 	// increment the time
