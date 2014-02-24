@@ -344,6 +344,31 @@ document.addEventListener("DOMContentLoaded", function() { // IE9+, check IE8
 		};
 
 	});
+
+/* Form validation */
+
+	elements = document.querySelectorAll('form');
+	Array.prototype.forEach.call(elements, function (el, i) {
+		
+		el.onsubmit = function () {
+			mandatory = true;
+			elements = el.querySelectorAll('.mandatory');
+			Array.prototype.forEach.call(elements, function (el, i) {
+				
+				if (!el.querySelector('input, select, textarea').value) { 
+
+					mandatory = false;
+					el.style.backgroundColor = '#999999';
+
+				}
+
+			});
+
+			return mandatory;
+			
+		};
+		
+	});
 	
 });
 

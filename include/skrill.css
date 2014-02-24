@@ -427,11 +427,11 @@ select {
 
 }
 
-select::-ms-expand {
-
-    display: none;
-
-}
+	select::-ms-expand {
+	
+	    display: none;
+	
+	}
 
 input, #main select, textarea {
 	
@@ -468,7 +468,7 @@ label span {
 	
 }
 
-label .mandatory:after {
+label.mandatory span:after {
 	
 	content: "*";
 	color: #a00;
@@ -499,6 +499,8 @@ label .mandatory:after {
 		
 	}
 
+/* Banner */
+
 .container.banner {
 
 	background-image: -webkit-radial-gradient(50% 100%, circle farthest-side, #c02499, rgba(192, 36, 153, 0) 80%);
@@ -524,6 +526,8 @@ label .mandatory:after {
 		 margin-bottom: -1em; /* Glued to bottom element */
 
 	}
+
+/* Footer */
 
 #footer {
 
@@ -628,7 +632,7 @@ a.backtotop {
     transition: all .4s ease-in-out;
 	}
 
-/* Deeply-nested Ordered Lists */
+/* Nested Ordered Lists */
 
 html>/**/body ol { /* Won't be interpreted by IE6/7. */
     list-style-type: none;
