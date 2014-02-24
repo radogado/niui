@@ -1,5 +1,40 @@
+/* natUIve Framework for Chrome, Firefox, Safari, IE9+, phones, tablets */
+
 function is_touch_device() {
   return !!('ontouchstart' in window);
+}
+
+function addclass ( el, className ) {
+
+	if (el.classList)
+	  el.classList.add(className);
+	else
+	  el.className += ' ' + className;
+  	
+}
+
+function removeclass ( el, className ) {
+
+	if (el.classList)
+	  el.classList.remove(className);
+	else
+	  el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+  	
+}
+
+var parseHTML = function (str) {
+  var tmp = document.implementation.createHTMLDocument('Parsed');
+  tmp.body.innerHTML = str;
+  return tmp.body;
+}
+
+function hasclass (el, className) {
+
+	if (el.classList)
+	  return el.classList.contains(className);
+	else
+	  return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
+
 }
 
 /* URI parameters */
@@ -155,26 +190,25 @@ Math.inOutQuintic = function(t, b, c, d) {
 
 // requestAnimationFrame for Smart Animating http://goo.gl/sx5sts
 var requestAnimFrame = (function(){
-  return  window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function( callback ){ window.setTimeout(callback, 1000 / 60); };
+  return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function( callback ){ window.setTimeout(callback, 1000 / 60); };
 })();
 
-function scrollTo(to, callback, duration) {
+function scrollTo(to, callback) {
   // figure out if this is moz || IE because they use documentElement
-  var doc = (navigator.userAgent.indexOf('Firefox') != -1 || navigator.userAgent.indexOf('MSIE') != -1) ? document.documentElement : document.body,
+  var doc = (navigator.userAgent.indexOf('Firefox') != -1 || navigator.userAgent.indexOf('Trident') != -1) ? document.documentElement : document.body,
   start = doc.scrollTop,
   change = to - start,
   currentTime = 0,
-  increment = 20;
-  duration = (typeof(duration) === 'undefined') ? 500: duration;
+  increment = 20; console.log(doc.innerHTML);
   var animateScroll = function(){
     // increment the time
     currentTime += increment;
     // find the value with the quadratic in-out easing function
-    var val = Math.easeInOutQuad(currentTime, start, change, duration);
+    var val = Math.easeInOutQuad(currentTime, start, change, 400);
     // move the document.body
     doc.scrollTop = val;
     // do the animation unless its over
-    if(currentTime < duration) {
+    if(currentTime < 400) {
       requestAnimFrame(animateScroll);
     } else {
       if (callback && typeof(callback) === 'function') {
@@ -206,53 +240,44 @@ function modal_window (e) {
 
 	};
 	
-	if ( e.target.classList && e.target.classList.contains('lightbox') ) { // Show an image lightbox...
+	if ( hasclass( e.target, 'lightbox') ) { // Show an image lightbox...
 
-		var image_url = e.target.href;
-		document.getElementById('blackbox').insertAdjacentHTML('afterbegin', '<img src="' + image_url + '" alt="Lightbox">');
+		document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> </div>');
+		document.body.style.overflow = 'hidden';
+		document.getElementById('blackbox').insertAdjacentHTML('afterbegin', '<img src="' + e.target.href + '" alt="Lightbox">');
+		blackbox.insertAdjacentHTML('afterbegin', '<div class="close"> ← ' + document.title + '</div>');
+		blackbox.querySelector('.close').onclick = remove_blackbox;
 		
 	} else // ... or load external content in a modal window 
 	{
 		
-		container = (typeof e.target.href.split('#')[1] != 'undefined') ? e.target.href.split('#')[1] : 0;
+		request = new XMLHttpRequest;
+		request.open('GET', e.target.href.split('#')[0], true);
 		
-		client = new XMLHttpRequest();
+		request.onload = function() {
+
+			if (request.status >= 200 && request.status < 400){
+			// Success!
+				container = (typeof e.target.href.split('#')[1] != 'undefined') ? ( '#' + e.target.href.split('#')[1] ) : 0;
+				document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> </div>');
+				document.body.style.overflow = 'hidden';
+				blackbox = document.getElementById('blackbox');
+				blackbox.innerHTML = container ? parseHTML(request.responseText).querySelector(container).innerHTML : request.responseText;
+				blackbox.insertAdjacentHTML('afterbegin', '<div class="close"> ← ' + document.title + '</div>');
+				blackbox.querySelector('.close').onclick = remove_blackbox;
+				relay_parameters();
+			
+			} else {
+			// We reached our target server, but it returned an error
+			}
+
+		};
 		
-		if (container) { 
-			client.responseType = "document"; 
-		}
-/*
-
-		progressBar = document.querySelector('#blackbox > progress');
-
-		client.onprogress = function(pe) {
-			if(pe.lengthComputable) {
-				progressBar.max = pe.total;
-				progressBar.value = pe.loaded;
-				blackbox.textContent = (pe.loaded + ' of ' + pe.total);
-			}
-		}
-*/
-		client.onload = function(pe) {
-
-			document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> <progress></progress> </div>');
-			document.body.style.overflow = 'hidden';
-
-			if (!client.response) {
-			
-				remove_blackbox();
-
-			}
-			
-			blackbox = document.getElementById('blackbox');
-			blackbox.innerHTML = container ? client.response.querySelector('#' + container).innerHTML : client.response;
-			
-			blackbox.insertAdjacentHTML('afterbegin', '<div class="close"> ← ' + document.title + '</div>');
-			blackbox.querySelector('.close').onclick = remove_blackbox;
-			relay_parameters();
-		}
-		client.open("GET", e.target.href);
-		client.send();
+		request.onerror = function() {
+		  // There was a connection error of some sort
+		};
+		
+		request.send();
 		
 	}
 	
@@ -297,7 +322,7 @@ document.addEventListener("DOMContentLoaded", function() { // IE9+, check IE8
 /* Add 'Back to top' button */
 
 	document.body.insertAdjacentHTML('beforeend', '<a class="backtotop"> ⬆ </a>');
-	document.getElementsByClassName('backtotop')[0].onclick = function() { scrollTo(0); return false; };
+	document.body.querySelector('.backtotop').onclick = function() { scrollTo(0); return false; };
 
 /* Auto textarea height */
    	

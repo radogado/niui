@@ -84,14 +84,9 @@ ul {
 	padding: 0;
 }
 
-#main ul {
-	padding: 1.3em;
-}
-
-.centered {
-	text-align: center; 
-	vertical-align: middle;
-}
+	#main ul {
+		padding: 1.3em;
+	}
 
 a:link, a:visited {
 
@@ -317,6 +312,7 @@ a.button, input[type="submit"] {
 		max-height: 1em;
 		line-height: 1;
 		padding: .1em;
+
 	}
 
 h1, h2, h3, h4 {
@@ -449,6 +445,7 @@ input, #main select, textarea {
 	width: 41%;
 	display: inline-block;
 	vertical-align: top;
+	overflow: hidden;
 	
 }
 
@@ -491,10 +488,11 @@ label .mandatory:after {
 	background-position: 96% 50%;
 	background-size: 10px;
 	margin-top: 2px;
-	padding-right: 6%;
-	
+	padding-right: 6%; /* Prevent overlapping */
 	
 }
+	:root #main select { padding-right: 2% \0/IE9; }  /* Disable the custom arrow in IE9 */
+
 	select:hover {
 		
 		cursor: pointer;
@@ -709,6 +707,7 @@ html>/**/body ol { /* Won't be interpreted by IE6/7. */
 	user-select: none;
 	text-align: left;
 	font-weight: normal;
+	display: table; /* IE9 fix */
 	
 }
 	.accordion label:before {
@@ -822,8 +821,10 @@ table {
 @media screen and (max-width: 512px) {
 
 	.column1, .column2, .column3, .column23, .column4, .column34 {
+
 		display: block;
 		width: 98%;
+
 	}
 	
 	#top .column2 {
@@ -841,7 +842,9 @@ table {
 	}
 	
 	#main select, input[type="submit"] {
+
 		width: 100%;
+
 	}
 	
 	label {

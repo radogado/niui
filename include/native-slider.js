@@ -16,21 +16,21 @@ function scrollslider(e) {
 
 function move_index() {
 
-	slider.parentNode.querySelector('.slider-nav a.active').classList.remove('active');
+	if ( slider.parentNode.querySelector('.slider-nav a.active') ) removeclass ( slider.parentNode.querySelector('.slider-nav a.active'), 'active' );
 	var index = Math.round( slider.scrollLeft / slider.offsetWidth ) + 1;
 
 	if ( index > slider.parentNode.querySelector('.slider-nav').childNodes.length ) {
 		index = slider.parentNode.querySelector('.slider-nav').childNodes.length;
 	}
 
-	slider.parentNode.querySelector('.slider-nav').childNodes[index-1].classList.add('active');
+	addclass( slider.parentNode.querySelector('.slider-nav').childNodes[index-1], 'active');
 	
 }
 
 function slide_end () {
 
 	slider.onscroll = scrollslider;
-	document.body.classList.remove('disable-hover');
+	removeclass( document.body, 'disable-hover' );
   	
 }
 
@@ -41,18 +41,15 @@ function slide (e, target) {
 	e.stopPropagation();
 	el = e.target; // Activated button
 
-	if (document.body.classList)
-	  document.body.classList.add('disable-hover');
-	else
-	  document.body.className += ' ' + 'disable-hover';
+	addclass( document.body, 'disable-hover');
 	
 	if (target == 'index') {
 
 		slider = el.parentNode.parentNode.querySelector('.slider');
 		start = slider.scrollLeft;
 		change = (el.innerHTML - 1) * slider.offsetWidth - start;
-		el.parentNode.querySelector('a.active').classList.remove('active');
-		el.classList.add('active');
+		removeclass( el.parentNode.querySelector('a.active'), 'active' );
+		addclass( el, 'active');
 		
 	}
 	
@@ -142,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	
 	/* Initialise JS extras: create arrows/numbers navigation */
 
-	var elements = document.querySelectorAll('.slider');
+	elements = document.querySelectorAll('.slider');
 	Array.prototype.forEach.call(elements, function(el, i) {
 		
 		el.insertAdjacentHTML('beforebegin', '<div class="slider-container"></div>'); // Create a container and move the slider in it
@@ -155,11 +152,9 @@ document.addEventListener("DOMContentLoaded", function() {
 		
 		Array.prototype.forEach.call(el.children, function(el, i) { // Populate the numbered control buttons
 
-			el.parentNode.nextElementSibling.nextElementSibling.insertAdjacentHTML('beforeend', '<a>' + (i + 1) + '</a>');
+			el.parentNode.nextElementSibling.nextElementSibling.insertAdjacentHTML('beforeend', ( !i ? '<a class="active">' : '<a>' ) + (i + 1) + '</a>');
 			
 		});
-		
-		el.parentNode.lastChild.firstChild.classList.add('active');
 
 		el.parentNode.childNodes[0].onclick = function (e) {
 
