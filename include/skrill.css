@@ -57,7 +57,7 @@ body {
 
 	font-family: 'Helvetica Neue', Arial, sans-serif;
 	color: #555;
-	background: #862165 url(../images/scanlines.png);
+/* 	background: url(../images/scanlines.png); */
 	margin: 0;
 	font-size: 15px;
 	position: relative;
@@ -96,7 +96,7 @@ ul {
 
 a:link, a:visited {
 
-	color: #862165;
+	color: #333;
 	line-height: 0;
 
 }
@@ -140,7 +140,7 @@ a:link, a:visited {
 	
 	.nav a.active:link, .nav a.active:visited {
 	
-		color: #862165;
+		color: #333;
 		position: relative;
 	
 	}
@@ -339,23 +339,11 @@ h1, h2, h3, h4 {
 
 }
 
-#main h1 {
+#head h1, #head p {
 
-	color: #862165;
-
-}
-
-#head {
-
-	background: url(../images/header-circle.png) center top no-repeat;
+	color: #333;
 
 }
-
-	#head h1, #head p {
-
-		color: #fff;
-
-	}
 	
 	#head h1 {
 		
@@ -369,20 +357,6 @@ h1, h2, h3, h4 {
 	background: #fff url(../images/bg.png);
 		
 }
-
-	#main h2 {
-	
-		font-size: 2em;
-		color: #862165;
-	
-	}
-
-	#main h3 {
-	
-		font-size: 1.4em;
-		color: #862165;
-	
-	}
 	
 	#main .row + .row { /* Every .row appearing right after another .row */
 		
@@ -391,8 +365,7 @@ h1, h2, h3, h4 {
 
 #top {
 
-	background: #fff;
-	box-shadow: 0 2px 3px #333;
+	background: #f9f9f9;
 	
 }
 
@@ -528,19 +501,11 @@ label input[type="submit"] {
 
 /* Banner */
 
-.container.banner {
+.container.banner .button {
 
-	background-image: -webkit-radial-gradient(50% 100%, circle farthest-side, #c02499, rgba(192, 36, 153, 0) 80%);
-	background-image: -moz-radial-gradient(50% 75%, circle farthest-side, #c02499, rgba(192, 36, 153, 0) 75%);
-	background-image: -ms-radial-gradient(50% 75%, circle farthest-side, #c02499, rgba(192, 36, 153, 0) 75%);
-	background-image: -o-radial-gradient(50% 75%, circle farthest-side, #c02499, rgba(192, 36, 153, 0) 75%);
+	margin: 1.5em 0;
 	
 }
-	.container.banner .button {
-
-		margin: 1.5em 0;
-		
-	}
 
 	.container.banner .column2:first-child {
 
@@ -564,7 +529,7 @@ label input[type="submit"] {
 
 #footer {
 
-	color: #eee;
+/* 	color: #666; */
 	
 }
 	
@@ -626,7 +591,7 @@ a.backtotop {
 	line-height: 2em;
 	margin: .5em auto;
 	font-weight: bold;
-	background: #862165;
+	background: #333;
 	color: #fff;
 	border-radius: 2em;
 	font-family: "Hiragino Mincho ProN"; /* fix for iOS */
