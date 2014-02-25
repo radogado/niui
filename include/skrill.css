@@ -3,7 +3,7 @@
 .container {
 	max-width: 1216px;
 	margin: 0 auto;
-	overflow: hidden;
+
 }
 
 .row {
@@ -26,7 +26,7 @@
 
 	display: table-cell;
 	vertical-align: top;
-	padding: 1%;
+	padding: .8em;
 	width: 98%;
 	
 }
@@ -72,6 +72,12 @@ img {
 	border: none;
 	
 }
+
+	#main img {
+		
+		display: block; margin: 0 auto;
+		
+	}
 
 p:first-child {
 
@@ -139,8 +145,12 @@ a:link, a:visited {
 	
 	}
 	
-	.nav li:not(:last-child) {
-		margin-right: .6em;
+	.nav li {
+		margin-left: .6em;
+	}
+
+	.nav li:first-child {
+		margin-left: 0;
 	}
 
 	.nav a.active {
@@ -170,12 +180,19 @@ a:link, a:visited {
 		line-height: 1.2;
 
 	}
-	.subnav li:not(:first-child):before, #footer li:not(:first-child):before {
+	.subnav li:before, #footer li:before {
 
 		content: "| ";
 		color: #aaa;
 
 	}
+
+	.subnav li:first-child:before, #footer li:first-child:before {
+
+		display: none;
+
+	}
+
 	#footer li:not(:first-child):before {
 		
 		color: #bbb;
@@ -384,10 +401,11 @@ h1, h2, h3, h4 {
 		padding-bottom: 0;
 				
 	}
-	#top .column2:last-child, #top .column4:last-child {
+
+	#top .column2 > div, #top .column4 {
 		
 		vertical-align: top;
-		text-align: right;		
+		text-align: right;
 
 	}
 
@@ -459,25 +477,33 @@ label input[type="submit"] {
 	min-width: 44.5%;
 }
 
-label span {
+	label span {
+		
+		position: relative;
+		padding: 2.5% 1% 2.5% 0;
+		display: inline-block;
+		width: 50%;
+		border-radius: 4px;
+		
+	}
 	
-	position: relative;
-	padding: 2.5% 1% 2.5% 0;
-	display: inline-block;
-	width: 50%;
+	label.mandatory span:after {
+		
+		content: "*";
+		color: #a00;
+		position: absolute;
+		right: 0;
+		top: 20%;
+		font-size: .8em;
+		
+	}
 	
-}
-
-label.mandatory span:after {
-	
-	content: "*";
-	color: #a00;
-	position: absolute;
-	right: 0;
-	top: 20%;
-	font-size: .8em;
-	
-}
+	label.mandatory.alert span {
+		
+		background: #666;
+		color: #eee;
+		
+	}
 
 #main select {
 	
@@ -489,9 +515,10 @@ label.mandatory span:after {
 	background-size: 10px;
 	margin-top: 2px;
 	padding-right: 6%; /* Prevent overlapping */
+	padding-right: 2%\9; /* IE8 */
 	
 }
-	:root #main select { padding-right: 2% \0/IE9; }  /* Disable the custom arrow in IE9 */
+	:root #main select { padding-right: 2% \0/IE9; background: #fff; }  /* Disable the custom arrow in IE9 */
 
 	select:hover {
 		
@@ -519,6 +546,12 @@ label.mandatory span:after {
 
 		vertical-align: bottom;
 		
+	}
+	.container.banner img {
+
+		 display: block; margin: 0 auto;
+		 margin-bottom: -1em; /* Glued to bottom element */
+
 	}
 	.container.banner img {
 
@@ -611,8 +644,7 @@ a.backtotop {
 	font-weight: bold;
 	}
 .tip {
-	background: #666;
-	background: rgba(0,0,0,.9);
+	background: #333 !important;
 	color: #ddd;
 	padding: .5em;
 	border-radius: 4px;
@@ -745,7 +777,11 @@ html>/**/body ol { /* Won't be interpreted by IE6/7. */
 	    max-height: 0;
 		height: 0;
 	}
-	.accordion input:checked ~ label > div { /* visible accordion item */
+	.accordion input:checked ~ label > div, .accordion label.open > div { /* visible accordion item */
+	    max-height: 999px;
+	    height: auto;
+	}
+	.accordion label.open > div { /* IE8 */
 	    max-height: 999px;
 	    height: auto;
 	}
@@ -828,6 +864,7 @@ table {
 
 		display: block;
 		width: 98%;
+		padding: 1%;
 
 	}
 	
@@ -847,7 +884,7 @@ table {
 	
 	#main select, input[type="submit"] {
 
-		width: 100%;
+		width: 97.3%;
 
 	}
 	
@@ -861,6 +898,12 @@ table {
 		
 		padding-top: 0;
 		width: 100%;
+		
+	}
+	
+	.accordion {
+		
+		overflow: hidden;
 		
 	}
 

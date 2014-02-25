@@ -7,6 +7,7 @@ var slider_event;
 function scrollslider(e) {
 
 	slider = e.target;
+   	console.log(slider.scrollLeft);
     clearTimeout(scrollTimer);
     scrollTimer = setTimeout(function(){
         slide (e, 'snap');

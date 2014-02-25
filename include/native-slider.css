@@ -11,6 +11,7 @@
 	overflow-y: hidden;
 	white-space: nowrap;
 	-webkit-overflow-scrolling: touch; /* fast, hardware-accelerated scrolling */
+	background: #ddd;
 
 }
 
@@ -88,8 +89,9 @@
 	
 }
 
-.slider img {
+.slider > * > img {
 	display: block; /* Fix image bottom padding */
+	margin: 0 auto;
 }
 
 .disable-hover,

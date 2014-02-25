@@ -1,5 +1,6 @@
-/* natUIve Framework for Chrome, Firefox, Safari, IE9+, phones, tablets */
+/* natUIve Framework for Chrome, Firefox, Safari, IE8+, phones, tablets */
 
+	
 function is_touch_device() {
   return !!('ontouchstart' in window);
 }
@@ -34,6 +35,39 @@ function hasclass (el, className) {
 	  return el.classList.contains(className);
 	else
 	  return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
+
+}
+
+/* IE8 */
+
+function forEachElement(selector, fn) {
+  var elements = document.querySelectorAll(selector);
+  for (var i = 0; i < elements.length; i++)
+    fn(elements[i], i);
+}
+	
+function addEventListener(el, eventName, handler) {
+  if (el.addEventListener) {
+    el.addEventListener(eventName, handler);
+  } else {
+    el.attachEvent('on' + eventName, handler);
+  }
+}
+
+if ( navigator.userAgent.indexOf('MSIE 8') != -1 ) {
+
+	forEachElement('.accordion label', function(el, i){
+	
+			el.onclick = function (e){ // Works only on the arrow, not the whole label
+			
+				if ( hasclass ( window.event.srcElement, 'open' ) ) {
+					removeclass ( window.event.srcElement, 'open' )
+				} else {
+					addclass ( window.event.srcElement, 'open' )
+				}
+				
+			};
+	});
 
 }
 
@@ -131,7 +165,10 @@ function hide_tip (e) {
 
 function show_tip (e) {
 
-	tip = e.target.querySelector('.tip');
+var event = e || window.event;
+var target = event.target || event.srcElement;
+
+	tip = target.querySelector('.tip');
 	if (!tip) return; //  fix it not to log error in console
 	
 	tip.parentNode.parentNode.style.position = 'relative'; // dangerous with absolutely-positioned containers, which should be avoided anyway
@@ -152,19 +189,18 @@ function show_tip (e) {
 function relay_parameters () {
 
 	parameters = getURLParameters();
-	
-	elements = document.querySelectorAll('a[href]');
-	Array.prototype.forEach.call(elements, function(el, i){
-	
+
+	forEachElement('a[href]', function(el, i){
+
 		for (var name in parameters) {
 			if ( !el.href.indexOf('javascript') || (!el.href.indexOf('mailto') ) ) continue;
 			var hash = el.href.split('#')[1] ? ( '#' + el.href.split('#')[1] ) : '';
 			el.href = updateURLParameter( el.href.split('#')[0], name, parameters[name] ) + hash;
 	
 		} 
-
+	
 	});
-
+	
 }
 
 // easing functions http://goo.gl/5HLl8
@@ -222,7 +258,7 @@ function scrollTo(to, callback) {
 
 function remove_blackbox () {
 
-	blackbox = document.querySelector('#blackbox');
+	var blackbox = document.getElementById('blackbox');
 	if (blackbox) document.body.removeChild( blackbox );
 	document.body.style.overflow = 'auto';
 
@@ -232,7 +268,9 @@ function modal_window (e) {
 
 	document.body.onkeyup = function(e) {
 
-	    if (e.keyCode == 27) { // esc
+		var event = e || window.event;
+
+	    if (event.keyCode == 27) { // esc
 			
 			remove_blackbox ();
 			
@@ -240,25 +278,35 @@ function modal_window (e) {
 
 	};
 	
-	if ( hasclass( e.target, 'lightbox') ) { // Show an image lightbox...
+	var event = e || window.event;
+	var target = event.target || event.srcElement;
+
+	if ( hasclass( target, 'lightbox') ) { // Show an image lightbox...
 
 		document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> </div>');
 		document.body.style.overflow = 'hidden';
-		document.getElementById('blackbox').insertAdjacentHTML('afterbegin', '<img src="' + e.target.href + '" alt="Lightbox">');
+		document.getElementById('blackbox').innerHTML = '<img src="' + target.href + '" alt="Lightbox">';
 		blackbox.insertAdjacentHTML('afterbegin', '<div class="close"> ← ' + document.title + '</div>');
 		blackbox.querySelector('.close').onclick = remove_blackbox;
 		
 	} else // ... or load external content in a modal window 
 	{
 		
-		request = new XMLHttpRequest;
-		request.open('GET', e.target.href.split('#')[0], true);
-		
+		if ( navigator.userAgent.indexOf('MSIE 8') != -1 ) {
+			
+			window.open (target.href, "_blank");
+			return;
+
+		}
+
+		request = new XMLHttpRequest();
+		request.open('GET', target.href.split('#')[0], true);
+
 		request.onload = function() {
 
 			if (request.status >= 200 && request.status < 400){
-			// Success!
-				container = (typeof e.target.href.split('#')[1] != 'undefined') ? ( '#' + e.target.href.split('#')[1] ) : 0;
+			// Success
+				container = (typeof target.href.split('#')[1] != 'undefined') ? ( '#' + target.href.split('#')[1] ) : 0;
 				document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> </div>');
 				document.body.style.overflow = 'hidden';
 				blackbox = document.getElementById('blackbox');
@@ -268,13 +316,13 @@ function modal_window (e) {
 				relay_parameters();
 			
 			} else {
-			// We reached our target server, but it returned an error
+			// Error
 			}
 
 		};
 		
 		request.onerror = function() {
-		  // There was a connection error of some sort
+		  // Error
 		};
 		
 		request.send();
@@ -286,7 +334,7 @@ function modal_window (e) {
 
 /* ███████████████████ After DOM is created ███████████████████ */
 
-document.addEventListener("DOMContentLoaded", function() { // IE9+, check IE8
+window.onload = function() {
 
 /* Relay URI parameters to links */
 
@@ -294,17 +342,16 @@ document.addEventListener("DOMContentLoaded", function() { // IE9+, check IE8
 	
 /* Modal window: open a link inside it */
 
-   	elements = document.querySelectorAll('a.modal-link, a.lightbox');
-	Array.prototype.forEach.call(elements, function(el, i){
+   	forEachElement('a.modal-link, a.lightbox', function(el, i){
 		
 		el.onclick = modal_window;
 		
 	});
 
 /* Tooltip */
-		
-   	elements = document.querySelectorAll('.tool');
-	Array.prototype.forEach.call(elements, function(el, i){
+
+	
+	forEachElement('.tool', function(el, i){
 		
 		el.onclick = show_tip;
 			
@@ -315,7 +362,7 @@ document.addEventListener("DOMContentLoaded", function() { // IE9+, check IE8
 			
 		}
 	
-		el.addEventListener('touchmove', hide_tip, false);
+		addEventListener(el, 'touchmove', hide_tip, false);
 				
 	});
 
@@ -326,8 +373,7 @@ document.addEventListener("DOMContentLoaded", function() { // IE9+, check IE8
 
 /* Auto textarea height */
    	
-   	elements = document.querySelectorAll('textarea');
-	Array.prototype.forEach.call(elements, function(el, i){
+   	forEachElement('textarea', function(el, i){
 	
 		el.onkeyup = function () {
 			textArea = this;
@@ -347,33 +393,39 @@ document.addEventListener("DOMContentLoaded", function() { // IE9+, check IE8
 
 /* Form validation */
 
-	elements = document.querySelectorAll('form');
-	Array.prototype.forEach.call(elements, function (el, i) {
+	forEachElement('form', function (el, i) {
 		
 		el.onsubmit = function () {
-			mandatory = true;
+			ready_to_submit = true;
 			elements = el.querySelectorAll('.mandatory');
 			Array.prototype.forEach.call(elements, function (el, i) {
 				
 				if (!el.querySelector('input, select, textarea').value) { 
 
-					mandatory = false;
-					el.style.backgroundColor = '#999999';
+					ready_to_submit = false;
+					addclass (el, 'alert');
 
+				} else {
+					
+					removeclass (el, 'alert');
+					
 				}
 
 			});
 
-			return mandatory;
+			return ready_to_submit;
 			
 		};
 		
 	});
-	
-});
+
+};
 
 /* ███████████████████ After everything is loaded, including images ███████████████████ */
 
+/*
 document.addEventListener("load", function() { // IE9+, check IE8
 
 });
+*/
+
