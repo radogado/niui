@@ -489,9 +489,10 @@ label input[type="submit"] {
 	margin-top: 2px;
 	padding-right: 6%; /* Prevent overlapping */
 	padding-right: 2%\9; /* IE8 */
+	background: #fff\9; /* IE8 */
 	
 }
-	:root #main select { padding-right: 2% \0/IE9; background: #fff; }  /* Disable the custom arrow in IE9 */
+	:root #main select { padding-right: 2% \0/IE9; background: #fff \0/IE9; }  /* Disable the custom arrow in IE9 */
 
 	select:hover {
 		
@@ -693,7 +694,8 @@ html>/**/body ol { /* Won't be interpreted by IE6/7. */
 /* Accordion */
 
 .accordion label {
-	background: #fff url(../images/accordion-m.png) bottom repeat-x;
+/* 	background: #fff url(../images/accordion-m.png) bottom repeat-x; */
+	background: #fff;
 	position: relative;
 	margin-bottom: 2em;
 	padding: .6em 1em 1em 1em;
@@ -720,6 +722,7 @@ html>/**/body ol { /* Won't be interpreted by IE6/7. */
 		left: -12px;
 		background: url(../images/accordion-l.png);
 		position: absolute;
+		background: url(../images/select-arrow.svg) center right no-repeat;
 	}
 	.accordion label:after {
 		display: block;
@@ -728,7 +731,7 @@ html>/**/body ol { /* Won't be interpreted by IE6/7. */
 		height: 80px;
 		bottom: -21px;
 		right: -10px;
-		background: url(../images/accordion-r.png);
+/* 		background: url(../images/accordion-r.png); */
 		position: absolute;
 	}
 	
@@ -751,7 +754,7 @@ html>/**/body ol { /* Won't be interpreted by IE6/7. */
 	    height: auto;
 	}
 	.accordion input:checked ~ label:before { /* visible accordion item */
-		background: url(../images/accordion_expanded-l.png);
+		-webkit-transform: scaleY(-1);
 		left: -11px;
 	    transition: height .4s ease-in-out;
 	}
