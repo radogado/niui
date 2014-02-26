@@ -1,5 +1,4 @@
-/* natUIve Framework for Chrome, Firefox, Safari, IE8+, phones, tablets */
-
+/* natUIve */
 	
 function is_touch_device() {
   return !!('ontouchstart' in window);
@@ -44,15 +43,12 @@ function forEachElement(selector, fn) {
     fn(elements[i], i);
 }
 	
-/*
-function addEventListener(el, eventName, handler) {
-  if (el.addEventListener) {
-    el.addEventListener(eventName, handler);
-  } else {
-    el.attachEvent('on' + eventName, handler);
-  }
+function addEventHandler(elem,eventType,handler) {
+ if (elem.addEventListener)
+     elem.addEventListener (eventType,handler,false);
+ else if (elem.attachEvent)
+     elem.attachEvent ('on'+eventType,handler); 
 }
-*/
 
 if ( navigator.userAgent.indexOf('MSIE 8') != -1 ) {
 
@@ -293,7 +289,7 @@ function modal_window (e) {
 
 /* ███ After DOM is created ███ */
 
-window.onload = function() {
+addEventHandler(window, 'load', function() {
 
 /* Relay URI parameters to links */
 
@@ -308,7 +304,6 @@ window.onload = function() {
 	});
 
 /* Tooltip */
-
 	
 	forEachElement('.tool', function(el, i){
 		
@@ -379,4 +374,4 @@ window.onload = function() {
 		
 	});
 
-};
+});

@@ -97,7 +97,7 @@ a:link, a:visited {
 }
 	a:hover, input[type="submit"]:hover {
 
-		color: #222;
+		color: #000 !important;
 
 	}
 	li a:link, li a:visited {

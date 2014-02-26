@@ -107,8 +107,8 @@ function slide (e, target) {
 
 }
 
-window.onload = function() {
-	
+addEventHandler(window, 'load', function() {
+
 	document.onkeyup = function(e){
 
 		/* Detect a slider into view and control it - not working el.offsetTop */
@@ -147,7 +147,7 @@ window.onload = function() {
 	/* Initialise JS extras: create arrows/numbers navigation */
 
 	forEachElement('.slider', function(el, i) {
-		console.log(el.offsetHeight);
+
 		if (!i) {
 			slider = el;
 		}
@@ -193,4 +193,4 @@ window.onload = function() {
 		
 	});
 	
-};
+});
