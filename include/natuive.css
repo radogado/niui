@@ -69,6 +69,11 @@ img {
 	
 	max-width: 100%;
 	border: none;
+	
+}
+
+#main img {
+	
 	display: block;
 	margin: 0 auto;
 	
@@ -170,24 +175,19 @@ a:link, a:visited {
 	line-height: 1.2;
 
 }
-	.subnav li:before, #footer li:before {
+	.subnav li:before {
 
 		content: "| ";
 		color: #ddd;
 
 	}
 
-	.subnav li:first-child:before, #footer li:first-child:before {
+	.subnav li:first-child:before {
 
 		display: none;
 
 	}
 
-	#footer li:not(:first-child):before {
-		
-		color: #bbb;
-	
-	}
 	.subnav .column34, .subnav .column4, .subnav .column3, .subnav .column2, .subnav .column1 {
 		
 		padding-top: .5%;
@@ -449,26 +449,11 @@ label input[type="submit"] {
 		
 	}
 
-/* Footer */
-
-#footer .social {
+.social {
 	
 	text-align: right;
 	
 }
-
-	#footer .subnav {
-		
-		margin-bottom: 1em;
-		
-	}
-	
-	#footer img {
-		
-		margin: 0;
-		display: inline;
-		
-	}
 
 /* Modal window */
 
