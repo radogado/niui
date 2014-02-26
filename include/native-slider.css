@@ -50,8 +50,6 @@
 	border-radius: 50%;
 	background: #bbb;
 	color: #fff;
-	text-shadow: 0 -1px 1px #333;
-	box-shadow: 0 1px 1px #666;
 	transition: background-color .2s linear;
 	line-height: .9em;
 

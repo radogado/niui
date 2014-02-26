@@ -38,8 +38,6 @@ function hasclass (el, className) {
 
 }
 
-/* IE8 */
-
 function forEachElement(selector, fn) {
   var elements = document.querySelectorAll(selector);
   for (var i = 0; i < elements.length; i++)
@@ -73,45 +71,7 @@ if ( navigator.userAgent.indexOf('MSIE 8') != -1 ) {
 
 /* URI parameters */
 
-function GetURLParameter( name, source ) // if 'source' is missing, get it from the URI.
-{
-  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
-  if ( name.split('?')[1] ) {
-	  name = name.split('?')[1];
-  }
-  var regexS = "[\\?&]"+name+"=([^&#]*)";
-  var regex = new RegExp( regexS );
-  var results = regex.exec( source ? source : window.location.href );
-  if( results == null )
-    return "";
-  else
-    return results[1];
-}	
-
-function SetURLParameter( name, value, source ) // if 'source' is missing, get it from the URI.
-{
-    name = escape(name); value = escape(value);
-
-    var s = source ? source : window.location.href;
-    var kvp = name+"="+value;
-    
-    if ( !GetURLParameter(name, s) ) { // fix the source in case it doesn't have a parameter
-    	s += ( ( ( s.indexOf('?') >= 0 ) ? '&' : '?' ) + name + '=0');
-    }
-
-    var r = new RegExp("(&|\\?)"+name+"=[^\&]*");
-
-    s = s.replace(r,"$1"+kvp);
-
-    if(!RegExp.$1) {s += (s.length>0 ? '&' : '?') + kvp;}
-
-    // Fix hash in URI
-
-    return s;
-    
-}
-
-function updateURLParameter(url, param, paramVal){ // return input string with updated/added URL parameter
+function updateURLParameter (url, param, paramVal){ // return input string with updated/added URL parameter
     var newAdditionalURL = "";
     var tempArray = url.split("?");
     var baseURL = tempArray[0];
@@ -182,9 +142,7 @@ var target = event.target || event.srcElement;
 	
 }
 
-/* RID relay. Omit links starting with "javascript", "mailto" */
-
-// get all URL parameters and relay them to all links on the page
+/* URI parameters relay. Omit links starting with "javascript", "mailto" */
 
 function relay_parameters () {
 
@@ -285,8 +243,7 @@ function modal_window (e) {
 
 		document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> </div>');
 		document.body.style.overflow = 'hidden';
-		document.getElementById('blackbox').innerHTML = '<img src="' + target.href + '" alt="Lightbox">';
-		blackbox.insertAdjacentHTML('afterbegin', '<div class="close"> ← ' + document.title + '</div>');
+		document.getElementById('blackbox').innerHTML = '<div class="close"> ← ' + document.title + '</div><img src="' + target.href + '" alt="Lightbox">';
 		blackbox.querySelector('.close').onclick = remove_blackbox;
 		
 	} else // ... or load external content in a modal window 
@@ -332,7 +289,7 @@ function modal_window (e) {
 	return false;
 }
 
-/* ███████████████████ After DOM is created ███████████████████ */
+/* ███ After DOM is created ███ */
 
 window.onload = function() {
 
@@ -420,12 +377,3 @@ window.onload = function() {
 	});
 
 };
-
-/* ███████████████████ After everything is loaded, including images ███████████████████ */
-
-/*
-document.addEventListener("load", function() { // IE9+, check IE8
-
-});
-*/
-
