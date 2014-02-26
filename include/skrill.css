@@ -670,6 +670,11 @@ ol {
 	.accordion input:checked ~ label > h3 {
 		margin-left: 0px;
 	}
+	.accordion h3 {
+		
+		font-weight: normal;
+		
+	}
 
 /* Tables */
 

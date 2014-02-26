@@ -328,12 +328,13 @@ window.onload = function() {
 	document.body.insertAdjacentHTML('beforeend', '<a class="backtotop"> ⬆ </a>');
 	document.body.querySelector('.backtotop').onclick = function() { scrollTo(0); return false; };
 
-/* Auto textarea height */
+/* Auto textarea height - fix bug after manually resize in Safari*/
    	
    	forEachElement('textarea', function(el, i){
 	
-		el.onkeyup = function () {
-			textArea = this;
+		el.onkeyup = function (e) {
+			var event = e || window.event;
+			var textArea = event.target || event.srcElement;
 			while (
 				textArea.rows > 1 &&
 				textArea.scrollHeight < textArea.offsetHeight
