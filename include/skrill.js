@@ -44,6 +44,7 @@ function forEachElement(selector, fn) {
     fn(elements[i], i);
 }
 	
+/*
 function addEventListener(el, eventName, handler) {
   if (el.addEventListener) {
     el.addEventListener(eventName, handler);
@@ -51,6 +52,7 @@ function addEventListener(el, eventName, handler) {
     el.attachEvent('on' + eventName, handler);
   }
 }
+*/
 
 if ( navigator.userAgent.indexOf('MSIE 8') != -1 ) {
 

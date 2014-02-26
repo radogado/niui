@@ -382,6 +382,7 @@ input, #main select, textarea {
 	display: inline-block;
 	vertical-align: top;
 	overflow: hidden;
+	resize: none;
 	
 }
 
@@ -392,7 +393,10 @@ label input,  #main label select, textarea {
 }
 
 label input[type="submit"] {
-	min-width: 44.5%;
+	
+	margin-right: 0;
+	min-width: 45%;
+	
 }
 
 	label span {
@@ -634,13 +638,13 @@ ol {
 }
 	.accordion label:before {
 		display: block;
-		content: '';
+		content: '⇣';
 		width: 12px;
 		height: 24px;
 		bottom: .8em;
 		left: 1em;
 		position: absolute;
-		background: url(../images/select-arrow.svg) center right no-repeat;
+/* 		background: url(../images/select-arrow.svg) center right no-repeat; */
 		transition: all .4s ease-in-out;
 	}
 

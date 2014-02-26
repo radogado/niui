@@ -3,14 +3,16 @@
 var scrollTimer = null;
 var slider;
 var slider_event;
+var eventCopy = {};
 	
 function scrollslider(e) {
 
-	slider = e.target;
-   	console.log(slider.scrollLeft);
+	var event = e || window.event;
+	slider = event.target || event.srcElement;
+
     clearTimeout(scrollTimer);
     scrollTimer = setTimeout(function(){
-        slide (e, 'snap');
+        slide (event, 'snap');
     },50);
 
 };
@@ -38,9 +40,11 @@ function slide_end () {
 /* Make slide universal with parameter specifying target scroll */
 
 function slide (e, target) {
+    clearTimeout(scrollTimer);
+	var event = e || window.event;
+	var el = event.target || event.srcElement;
 
-	e.stopPropagation();
-	el = e.target; // Activated button
+/* 	event.stopPropagation(); */
 
 	addclass( document.body, 'disable-hover');
 	
@@ -103,7 +107,7 @@ function slide (e, target) {
 
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+window.onload = function() {
 	
 	document.onkeyup = function(e){
 
@@ -112,8 +116,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	    var docViewTop = window.scrollY;
 	    var docViewBottom = docViewTop + document.body.offsetHeight;
 
-		var elements = document.querySelectorAll('.slider');
-		Array.prototype.forEach.call(elements, function(el, i) {
+		forEachElement('.slider', function(el, i) {
 	
 		    var elemTop = el.offsetTop;
 		    var elemBottom = elemTop + el.offsetHeight;
@@ -125,6 +128,9 @@ document.addEventListener("DOMContentLoaded", function() {
 	
 		});
 			
+		var event = e || window.event;
+		var e = event.target || event.srcElement;
+
 	    if (e.keyCode == 37) { // left
 	    	
 			slide(e, 'left');
@@ -140,67 +146,51 @@ document.addEventListener("DOMContentLoaded", function() {
 	
 	/* Initialise JS extras: create arrows/numbers navigation */
 
-	elements = document.querySelectorAll('.slider');
-	Array.prototype.forEach.call(elements, function(el, i) {
-		
+	forEachElement('.slider', function(el, i) {
+		console.log(el.offsetHeight);
+		if (!i) {
+			slider = el;
+		}
 		el.insertAdjacentHTML('beforebegin', '<div class="slider-container"></div>'); // Create a container and move the slider in it
+		container = el.previousSibling;
+		container.insertAdjacentHTML('afterbegin', '<a class="slider-arrow left">←</a>' + el.outerHTML + '<a class="slider-arrow right">→</a><div class="slider-nav"></div>');
+		container.nextSibling.outerHTML = '';
+		el = container.querySelector('.slider');
 		
-		el.previousElementSibling.appendChild(el);
-		
-		el.insertAdjacentHTML('beforebegin', '<a class="slider-arrow left">←</a>');
+		for (var i = 0; i < el.children.length; i++) {
+			container.querySelector('.slider-nav').insertAdjacentHTML('beforeend', ( !i ? '<a class="active">' : '<a>' ) + (i + 1) + '</a>');
+			container.querySelector('.slider-nav').lastChild.onclick = function (e) {
+				slide(e, 'index');
+			};
+		}
 
-		el.insertAdjacentHTML('afterend', '<a class="slider-arrow right">→</a><div class="slider-nav"></div>');
-		
-		Array.prototype.forEach.call(el.children, function(el, i) { // Populate the numbered control buttons
-
-			el.parentNode.nextElementSibling.nextElementSibling.insertAdjacentHTML('beforeend', ( !i ? '<a class="active">' : '<a>' ) + (i + 1) + '</a>');
-			
-		});
-
-		el.parentNode.childNodes[0].onclick = function (e) {
+		container.childNodes[0].onclick = function (e) {
 
 			slide(e, 'left');
 
 		}
 		
-		el.parentNode.childNodes[2].onclick = function (e) {
+		container.childNodes[2].onclick = function (e) {
 
 			slide(e, 'right');
 
 		}
 		
-		Array.prototype.forEach.call( el.nextElementSibling.nextElementSibling.children, function(el, i) { // Bind event handler to all numbered buttons
-			
-			el.onclick = function (e) {
-				slide(e, 'index');
-			};
-		
-		});
-		
 		el.onscroll = function (e) {
-			slider = e.target;
-			scrollslider(e); 
+			var event = e || window.event;
+			var target = event.target || event.srcElement;
+			slider = target;
+			scrollslider(event); 
 		};
+
+		// Get scrollbar width and hide it by reducing the .slider-container height proportionally
+
+		el.style.overflowX = 'hidden';
+		var height_scroll = el.offsetHeight;
+		el.style.overflowX = 'scroll';
+		height_scroll = el.offsetHeight - height_scroll;
+		container.style.height = (container.offsetHeight - height_scroll) + 'px';
 		
 	});
 	
-});
-
-document.addEventListener("load", function() {
-	
-	// Get scrollbar width and hide it by reducing the .slider-container height proportionally
-
-	el = document.body.querySelector('.slider');
-	el.style.overflow = 'hidden';
-	var height_scroll = slider.offsetHeight;
-	el.style.overflow = 'scroll';
-	height_scroll = slider.offsetHeight - height_scroll;
-
-	var elements = document.querySelectorAll('slider-container');
-	Array.prototype.forEach.call(elements, function(el, i) {
-		
-		el.style.height = el.offsetHeight - height_scroll;
-		
-	});
-	
-});
+};
