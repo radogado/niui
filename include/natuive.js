@@ -207,7 +207,7 @@ function scrollTo(to, callback) {
   start = doc.scrollTop,
   change = to - start,
   currentTime = 0,
-  increment = 20; console.log(doc.innerHTML);
+  increment = 20;
   var animateScroll = function(){
     // increment the time
     currentTime += increment;

@@ -80,6 +80,13 @@ img {
 	float: right;
 	
 }
+	.banner .button:after {
+	
+		content: "";
+		display: block;
+		clear: both;
+	
+	}
 
 p:first-child {
 
