@@ -28,7 +28,7 @@
 		
 	}
 
-.column1, .column2, .column3, .column23, .column4, .column34 {
+.column, .column2, .column3, .column23, .column4, .column34 {
 
 	display: table-cell;
 	vertical-align: top;
@@ -195,7 +195,7 @@ a:link, a:visited {
 
 	}
 
-	.subnav .column34, .subnav .column4, .subnav .column3, .subnav .column2, .subnav .column1 {
+	.subnav .column34, .subnav .column4, .subnav .column3, .subnav .column2, .subnav .column {
 		
 		padding-top: .5%;
 		padding-bottom: .5%;
@@ -732,7 +732,7 @@ table {
 
 @media screen and (max-width: 512px) {
 
-	.column1, .column2, .column3, .column23, .column4, .column34 {
+	.column, .column2, .column3, .column23, .column4, .column34 {
 
 		display: block;
 		width: 98%;
