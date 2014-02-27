@@ -75,19 +75,6 @@ img {
 	
 }
 
-.banner .button {
-	
-	float: right;
-	
-}
-	.banner .button:after {
-	
-		content: "";
-		display: block;
-		clear: both;
-	
-	}
-
 p:first-child {
 
 	margin-top: 0;
