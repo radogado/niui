@@ -147,11 +147,11 @@ a:link, a:visited {
 	}
 	
 	.nav li {
-		margin-left: .6em;
+		margin-right: .6em;
 	}
 
-	.nav li:first-child {
-		margin-left: 0;
+	.nav li:last-child {
+		margin-right: 0;
 	}
 
 	.nav a.active {
@@ -352,6 +352,11 @@ h1, h2, h3, h4 {
 
 /* Form */
 
+form {
+	
+	overflow: hidden;
+	
+}
 label {
 	
 	display: block;
@@ -508,7 +513,7 @@ a.backtotop {
 	width: 2em;
 	height: 2em;
 	line-height: 2em;
-	margin: .5em auto;
+	margin: .5em auto 1.5em auto;
 	font-weight: bold;
 	background: #333;
 	color: #fff;
@@ -768,7 +773,7 @@ table {
 	
 	label span {
 		
-		padding-top: 0;
+		padding: 0;
 		width: 100%;
 		
 	}
