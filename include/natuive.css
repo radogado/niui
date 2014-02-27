@@ -75,6 +75,12 @@ img {
 	
 }
 
+.alignright {
+
+	 text-align: right;
+
+}
+
 p:first-child {
 
 	margin-top: 0;
