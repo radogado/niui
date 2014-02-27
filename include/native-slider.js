@@ -2,8 +2,6 @@
 
 var scrollTimer = null;
 var slider;
-var slider_event;
-var eventCopy = {};
 	
 function scrollslider(e) {
 
@@ -19,12 +17,8 @@ function scrollslider(e) {
 
 function move_index() {
 
-	if ( slider.parentNode.querySelector('.slider-nav a.active') ) removeclass ( slider.parentNode.querySelector('.slider-nav a.active'), 'active' );
+	removeclass ( slider.parentNode.querySelector('.slider-nav a.active'), 'active' );
 	var index = Math.round( slider.scrollLeft / slider.offsetWidth ) + 1;
-
-	if ( index > slider.parentNode.querySelector('.slider-nav').childNodes.length ) {
-		index = slider.parentNode.querySelector('.slider-nav').childNodes.length;
-	}
 
 	addclass( slider.parentNode.querySelector('.slider-nav').childNodes[index-1], 'active');
 	
@@ -34,17 +28,21 @@ function slide_end () {
 
 	slider.onscroll = scrollslider;
 	removeclass( document.body, 'disable-hover' );
-  	
+  	move_index();
+	
 }
 
 /* Make slide universal with parameter specifying target scroll */
 
 function slide (e, target) {
-    clearTimeout(scrollTimer);
-	var event = e || window.event;
-	var el = event.target || event.srcElement;
 
-/* 	event.stopPropagation(); */
+    clearTimeout(scrollTimer);
+	slider.onscroll = function () {
+		return false;
+	};
+	stopEvent(e);
+	var event = e || window.event;
+	el = event.target || event.srcElement;
 
 	addclass( document.body, 'disable-hover');
 	
@@ -53,8 +51,6 @@ function slide (e, target) {
 		slider = el.parentNode.parentNode.querySelector('.slider');
 		start = slider.scrollLeft;
 		change = (el.innerHTML - 1) * slider.offsetWidth - start;
-		removeclass( el.parentNode.querySelector('a.active'), 'active' );
-		addclass( el, 'active');
 		
 	}
 	
@@ -103,7 +99,6 @@ function slide (e, target) {
 	}
 	};
 	animateScroll();
-	move_index();
 
 }
 
@@ -111,32 +106,16 @@ addEventHandler(window, 'load', function() {
 
 	document.onkeyup = function(e){
 
-		/* Detect a slider into view and control it - not working el.offsetTop */
-
-	    var docViewTop = window.scrollY;
-	    var docViewBottom = docViewTop + document.body.offsetHeight;
-
-		forEachElement('.slider', function(el, i) {
-	
-		    var elemTop = el.offsetTop;
-		    var elemBottom = elemTop + el.offsetHeight;
-
-			if ((elemBottom <= docViewBottom) && (elemTop >= docViewTop)) {
-				slider = el;
-				return;
-			}
-	
-		});
-			
+		slider = document.querySelector('.slider'); // Move slider #1; to do: select nearest slider
+		
 		var event = e || window.event;
-		var e = event.target || event.srcElement;
-
-	    if (e.keyCode == 37) { // left
+		
+	    if (event.keyCode == 37) { // left
 	    	
 			slide(e, 'left');
 
 	    }
-	    if (e.keyCode == 39) { // right
+	    if (event.keyCode == 39) { // right
 	
 			slide(e, 'right');
 			
@@ -164,24 +143,19 @@ addEventHandler(window, 'load', function() {
 			};
 		}
 
-		container.childNodes[0].onclick = function (e) {
+		container.querySelector('.slider-arrow.left').onclick = function (e) {
 
 			slide(e, 'left');
 
 		}
 		
-		container.childNodes[2].onclick = function (e) {
+		container.querySelector('.slider-arrow.right').onclick = function (e) {
 
 			slide(e, 'right');
 
 		}
 		
-		el.onscroll = function (e) {
-			var event = e || window.event;
-			var target = event.target || event.srcElement;
-			slider = target;
-			scrollslider(event); 
-		};
+		el.onscroll = scrollslider;
 
 		// Get scrollbar width and hide it by reducing the .slider-container height proportionally
 

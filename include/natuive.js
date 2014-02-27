@@ -50,6 +50,22 @@ function addEventHandler(elem,eventType,handler) {
      elem.attachEvent ('on'+eventType,handler); 
 }
 
+function stopEvent(e) {
+ 
+	if(!e) var e = window.event;
+ 
+	//e.cancelBubble is supported by IE -
+        // this will kill the bubbling process.
+	e.cancelBubble = true;
+	e.returnValue = false;
+ 
+	//e.stopPropagation works only in Firefox.
+	if ( e.stopPropagation ) e.stopPropagation();
+	if ( e.preventDefault ) e.preventDefault();		
+ 
+       return false;
+}
+
 if ( navigator.userAgent.indexOf('MSIE 8') != -1 ) {
 
 	forEachElement('.accordion label', function(el, i){
@@ -242,7 +258,7 @@ function modal_window (e) {
 		document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> </div>');
 		document.body.style.overflow = 'hidden';
 		document.getElementById('blackbox').innerHTML = '<div class="close"> ← ' + document.title + '</div><img src="' + target.href + '" alt="Lightbox">';
-		blackbox.querySelector('.close').onclick = remove_blackbox;
+		document.getElementById('blackbox').querySelector('.close').onclick = remove_blackbox;
 		
 	} else // ... or load external content in a modal window 
 	{
@@ -265,9 +281,16 @@ function modal_window (e) {
 				document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> </div>');
 				document.body.style.overflow = 'hidden';
 				blackbox = document.getElementById('blackbox');
-				blackbox.innerHTML = container ? parseHTML(request.responseText).querySelector(container).innerHTML : request.responseText;
 				blackbox.insertAdjacentHTML('afterbegin', '<div class="close"> ← ' + document.title + '</div>');
 				blackbox.querySelector('.close').onclick = remove_blackbox;
+				if (container) {
+					parsed = parseHTML(request.responseText);
+					if ( !parsed.querySelector(container) ) { remove_blackbox (); return false; }
+					blackbox.insertAdjacentHTML('beforeend', parsed.querySelector(container).innerHTML);
+						
+				} else {
+					blackbox.insertAdjacentHTML('beforeend', request.responseText);
+				}
 				relay_parameters();
 			
 			} else {
@@ -316,7 +339,7 @@ addEventHandler(window, 'load', function() {
 			
 		}
 	
-		addEventListener(el, 'touchmove', hide_tip, false);
+		addEventHandler(el, 'touchmove', hide_tip, false);
 				
 	});
 

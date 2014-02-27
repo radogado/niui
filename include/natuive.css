@@ -107,15 +107,15 @@ a:link, a:visited {
 	line-height: 0;
 
 }
-	a:hover, input[type="submit"]:hover {
-
-		color: #000 !important;
-
-	}
 	li a:link, li a:visited {
 		
 		text-decoration: none;
 		
+	}
+	a[href]:hover, input[type="submit"]:hover {
+
+		color: #ff6600 !important;
+
 	}
 	li, p {
 		line-height: 1.4;
@@ -528,7 +528,7 @@ a.backtotop {
 	font-weight: bold;
 	}
 .tip {
-	background: #333 !important;
+	background: #333;
 	color: #ddd;
 	padding: .5em;
 	border-radius: 4px;
@@ -614,7 +614,6 @@ ol {
 .accordion label {
 	background: #fafafa;
 	position: relative;
-	margin-bottom: 2em;
 	padding: .9em 1em .6em 3em;
 	cursor: pointer;
 	color: #777;
@@ -677,8 +676,6 @@ ol {
 /* Tables */
 
 table {
-	margin: 1em auto;
-	margin-right: auto !important;
 	display: block;
 	width: 100%;
 	overflow: auto;
@@ -728,7 +725,7 @@ table {
 		background: #292b2e;
 		}
 	table tr:first-child a:hover {
-		color: #fff !important;
+		color: #fff;
 	}
 
 /* Media Queries */
@@ -752,7 +749,7 @@ table {
 	input, #main select, textarea {
 		
 		width: 96%;
-		margin-left: 0 !important;
+		margin-left: 0;
 		margin-top: .5em;
 			
 	}
