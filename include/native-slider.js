@@ -1,5 +1,3 @@
-// Fix events while sliding, snap to direction instead of middle point
-
 var scrollTimer = null;
 var slider;
 	
