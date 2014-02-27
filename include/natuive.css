@@ -15,12 +15,18 @@
 
 }
 
-.row.padded { /* When the columns need to be centered with padding on the left and right */
-
-	padding: 0 15%;
-	width: 70%;	
-
-}
+	.row.padded { /* When the columns need to be centered with padding on the left and right */
+	
+		padding: 0 15%;
+		width: 70%;	
+	
+	}
+	
+	#main .row {
+		
+		padding: 1em 0;
+		
+	}
 
 .column1, .column2, .column3, .column23, .column4, .column34 {
 
@@ -62,6 +68,7 @@ body {
 	position: relative;
 	width: 100%; 
 	margin: 0 auto;
+	background: #fff;
 
 }
 
@@ -72,7 +79,7 @@ img {
 	
 }
 
-#main img {
+#main img, #head img {
 	
 	display: block;
 	margin: 0 auto;
@@ -161,7 +168,7 @@ a:link, a:visited {
 
 .subnav {
 	
-	background: #eee;
+/* 	background: #eee; */
 	
 }
 
@@ -221,6 +228,8 @@ a.button, input[type="submit"] {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+	
+	-webkit-appearance: none;
 
 }
 
@@ -293,7 +302,7 @@ h1, h2, h3, h4 {
 #main {
 	
 	padding: 1em 0;
-	background: #fff url(../images/bg.png);
+/* 	background: #fff url(../images/bg.png); */
 		
 }
 	
@@ -304,7 +313,7 @@ h1, h2, h3, h4 {
 
 #top {
 
-	background: #f9f9f9;
+/* 	background: #f9f9f9; */
 	margin-bottom: 2em;
 	
 }
@@ -603,7 +612,7 @@ ol {
 /* Accordion */
 
 .accordion label {
-	background: #fff;
+	background: #fafafa;
 	position: relative;
 	margin-bottom: 2em;
 	padding: .9em 1em .6em 3em;
