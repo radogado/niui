@@ -7,9 +7,9 @@ function is_touch_device() {
 function addclass ( el, className ) {
 
 	if (el.classList)
-	  el.classList.add(className);
+		el.classList.add(className);
 	else
-	  el.className += ' ' + className;
+		el.className += ' ' + className;
   	
 }
 
@@ -22,12 +22,6 @@ function removeclass ( el, className ) {
   	
 }
 
-var parseHTML = function (str) {
-  var tmp = document.implementation.createHTMLDocument('Parsed');
-  tmp.body.innerHTML = str;
-  return tmp.body;
-}
-
 function hasclass (el, className) {
 
 	if (el.classList)
@@ -35,6 +29,12 @@ function hasclass (el, className) {
 	else
 	  return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
 
+}
+
+var parseHTML = function (str) {
+  var tmp = document.implementation.createHTMLDocument('Parsed');
+  tmp.body.innerHTML = str;
+  return tmp.body;
 }
 
 function forEachElement(selector, fn) {
@@ -105,24 +105,15 @@ function updateURLParameter (url, param, paramVal){ // return input string with 
     return baseURL + "?" + newAdditionalURL + rows_txt;
 }
 
-function getURLParameters () { // return all URL parameters in an array
-	
-	var p = {};
-	
-	var match = location.href.match(/[^=&?]+\s*=\s*[^&#]*/g);
+function getURLParameters() { // return all URL parameters in an array
 
-	if (match) {
-		for ( var i = match.length; i--; ) {
-		  var spl = match[i].split("=");
-		  var name = spl[0];
-		  var value = spl[1];
-		
-		  p[name] = p[name] || [];
-		  p[name].push(value);
-		}
-	}
-	
-	return p;
+	var res = {},
+	    re = /[?&]([^?&]+)=([^?&]+)/g;
+	location.href.replace(re, function(_,k,v) {
+		res[k] = v;
+	});
+	return res;
+
 }
 
 /* Tooltip */
