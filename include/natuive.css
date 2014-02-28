@@ -58,6 +58,7 @@
 body {
 
 	font-family: 'Helvetica Neue', Arial, sans-serif;
+	font-weight: 300;
 	color: #555;
 	margin: 0;
 	font-size: 15px;
@@ -275,6 +276,7 @@ h1, h2, h3, h4 {
 	
 	line-height: 1.1;
 	margin: 0 0 .5em 0;
+	font-weight: 500;
 
 }
 
