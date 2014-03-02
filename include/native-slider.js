@@ -1,7 +1,9 @@
+/* natUIve by rado.bg */
+
 var scrollTimer = null;
 var slider;
 	
-function scrollslider(e) {
+function scrollSlider (e) {
 
 	var event = e || window.event;
 	slider = event.target || event.srcElement;
@@ -9,40 +11,38 @@ function scrollslider(e) {
     clearTimeout(scrollTimer);
     scrollTimer = setTimeout(function(){
         slide (event, 'snap');
-    },50);
+    }, 50);
 
 };
 
-function move_index() {
+function moveIndex() {
 
-	removeclass ( slider.parentNode.querySelector('.slider-nav a.active'), 'active' );
+	removeClass ( slider.parentNode.querySelector('.slider-nav a.active'), 'active' );
 	var index = Math.round( slider.scrollLeft / slider.offsetWidth ) + 1;
 
-	addclass( slider.parentNode.querySelector('.slider-nav').childNodes[index-1], 'active');
+	addClass( slider.parentNode.querySelector('.slider-nav').childNodes[index-1], 'active');
 	
 }
 
-function slide_end () {
+function slideEnd () {
 
-	slider.onscroll = scrollslider;
-	removeclass( document.body, 'disable-hover' );
-  	move_index();
+	slider.onscroll = scrollSlider;
+	removeClass( document.body, 'disable-hover' );
+  	moveIndex();
 	
 }
 
 /* Make slide universal with parameter specifying target scroll */
 
-function slide (e, target) {
+function slide ( e, target ) {
 
     clearTimeout(scrollTimer);
-	slider.onscroll = function () {
-		return false;
-	};
+	slider.onscroll = function () {};
 	stopEvent(e);
 	var event = e || window.event;
 	el = event.target || event.srcElement;
 
-	addclass( document.body, 'disable-hover');
+	addClass( document.body, 'disable-hover');
 	
 	if (target == 'index') {
 
@@ -79,30 +79,29 @@ function slide (e, target) {
 	increment = 20;
 	duration = 400;
 	
-	var animateScroll = function(){
-	// increment the time
-	currentTime += increment;
-	// find the value with the quadratic in-out easing function
-	var val = Math.easeInOutQuad(currentTime, start, change, duration);
-	// move the document.body
-	slider.scrollLeft = val;
-	// do the animation unless its over
-	if(currentTime < duration) {
-	  requestAnimFrame(animateScroll);
-	} else {
-	  if (slide_end && typeof(slide_end) === 'function') {
-	    // the animation is done so lets callback
-	    slide_end();
-	  }
-	}
+	var animateScroll = function() {
+		// increment the time
+		currentTime += increment;
+		// find the value with the quadratic in-out easing function
+		var val = Math.easeInOutQuad(currentTime, start, change, duration);
+		// move the document.body
+		slider.scrollLeft = val;
+		// do the animation unless its over
+		if(currentTime < duration) {
+			requestAnimFrame(animateScroll);
+		} else {
+			if (slideEnd && typeof(slideEnd) === 'function') { // the animation is done so lets callback
+				slideEnd();
+			}
+		}
 	};
 	animateScroll();
 
 }
 
-addEventHandler(window, 'load', function() {
+addEventHandler ( window, 'load', function() {
 
-	document.onkeyup = function(e){
+	document.onkeyup = function(e) {
 
 		slider = document.querySelector('.slider'); // Move slider #1; to do: select nearest slider
 		
@@ -122,7 +121,6 @@ addEventHandler(window, 'load', function() {
 	};
 	
 	/* Initialise JS extras: create arrows/numbers navigation */
-
 	forEachElement('.slider', function(el, i) {
 
 		if (!i) {
@@ -153,7 +151,7 @@ addEventHandler(window, 'load', function() {
 
 		}
 		
-		el.onscroll = scrollslider;
+		el.onscroll = scrollSlider;
 
 		// Get scrollbar width and hide it by reducing the .slider-container height proportionally
 

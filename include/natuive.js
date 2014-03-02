@@ -1,114 +1,135 @@
-/* natUIve */
+/* natUIve by rado.bg */
 	
-function is_touch_device() {
-  return !!('ontouchstart' in window);
+function isTouchDevice () {
+
+	return !!('ontouchstart' in window);
+
 }
 
-function addclass ( el, className ) {
+function addClass ( el, className ) {
 
-	if (el.classList)
+	if (el.classList) {
 		el.classList.add(className);
-	else
+	} else {
 		el.className += ' ' + className;
+	}
   	
 }
 
-function removeclass ( el, className ) {
+function removeClass ( el, className ) {
 
-	if (el.classList)
-	  el.classList.remove(className);
-	else
-	  el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+	if (el.classList) {
+		el.classList.remove(className);
+	} else {
+		el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+	}
   	
 }
 
-function hasclass (el, className) {
+function hasClass ( el, className ) {
 
-	if (el.classList)
-	  return el.classList.contains(className);
-	else
-	  return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
+	if (el.classList) {
+		return el.classList.contains(className);
+	} else {
+		return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
+	}
 
 }
 
-var parseHTML = function (str) {
-  var tmp = document.implementation.createHTMLDocument('Parsed');
-  tmp.body.innerHTML = str;
-  return tmp.body;
+var parseHTML = function ( str ) {
+
+	tmp = document.implementation.createHTMLDocument('Parsed');
+	tmp.body.innerHTML = str;
+	return tmp.body;
+
 }
 
-function forEachElement(selector, fn) {
-  var elements = document.querySelectorAll(selector);
-  for (var i = 0; i < elements.length; i++)
-    fn(elements[i], i);
+function forEachElement( selector, fn ) {
+
+	elements = document.querySelectorAll(selector);
+	for (var i = 0; i < elements.length; i++) {
+		fn(elements[i], i);
+	}
 }
 	
-function addEventHandler(elem,eventType,handler) {
- if (elem.addEventListener)
-     elem.addEventListener (eventType,handler,false);
- else if (elem.attachEvent)
-     elem.attachEvent ('on'+eventType,handler); 
+function addEventHandler( elem,eventType,handler ) {
+
+	if (elem.addEventListener) {
+	     elem.addEventListener (eventType,handler,false);
+	} else {
+		if (elem.attachEvent) {
+	    	elem.attachEvent ('on'+eventType,handler);
+		}
+	}     
+
 }
 
-function stopEvent(e) {
+function stopEvent( e ) {
  
 	if(!e) var e = window.event;
  
-	//e.cancelBubble is supported by IE -
-        // this will kill the bubbling process.
+	//e.cancelBubble is supported by IE, this will kill the bubbling process.
 	e.cancelBubble = true;
 	e.returnValue = false;
  
 	//e.stopPropagation works only in Firefox.
-	if ( e.stopPropagation ) e.stopPropagation();
-	if ( e.preventDefault ) e.preventDefault();		
+	if ( e.stopPropagation ) {
+		e.stopPropagation();
+	}
+	if ( e.preventDefault ) {
+		e.preventDefault();
+	}
  
-       return false;
+	return false;
+
 }
 
 if ( navigator.userAgent.indexOf('MSIE 8') != -1 ) {
 
-	forEachElement('.accordion label', function(el, i){
+	forEachElement('.accordion label', function(el, i) {
 	
-			el.onclick = function (e){ // Works only on the arrow, not the whole label
+		el.onclick = function (e){ // Works only on the arrow, not the whole label
+		
+			if ( hasClass ( window.event.srcElement, 'open' ) ) {
+				removeClass ( window.event.srcElement, 'open' )
+			} else {
+				addClass ( window.event.srcElement, 'open' )
+			}
 			
-				if ( hasclass ( window.event.srcElement, 'open' ) ) {
-					removeclass ( window.event.srcElement, 'open' )
-				} else {
-					addclass ( window.event.srcElement, 'open' )
-				}
-				
-			};
+		};
+
 	});
 
 }
 
 /* URI parameters */
 
-function updateURLParameter (url, param, paramVal){ // return input string with updated/added URL parameter
+function updateURLParameter ( url, param, paramVal ) { // return input string with updated/added URL parameter
+
     var newAdditionalURL = "";
     var tempArray = url.split("?");
     var baseURL = tempArray[0];
     var additionalURL = tempArray[1];
     var temp = "";
     if (additionalURL) {
-        tempArray = additionalURL.split("&");
-        for (i=0; i<tempArray.length; i++){
-            if(tempArray[i].split('=')[0] != param){
-                newAdditionalURL += temp + tempArray[i];
-                temp = "&";
+		tempArray = additionalURL.split("&");
+		for (i=0; i<tempArray.length; i++){
+			if(tempArray[i].split('=')[0] != param){
+				newAdditionalURL += temp + tempArray[i];
+				temp = "&";
             }
         }
     }
 
     var rows_txt = temp + "" + param + "=" + paramVal;
     return baseURL + "?" + newAdditionalURL + rows_txt;
+
 }
 
-function getURLParameters() { // return all URL parameters in an array
+function getURLParameters () { // return all URL parameters in an array
 
 	var res = {},
-	    re = /[?&]([^?&]+)=([^?&]+)/g;
+		re = /[?&]([^?&]+)=([^?&]+)/g;
 	location.href.replace(re, function(_,k,v) {
 		res[k] = v;
 	});
@@ -120,7 +141,7 @@ function getURLParameters() { // return all URL parameters in an array
 
 var tip;
 
-function hide_tip (e) {
+function hideTip (e) {
 	
 	if (!tip) return;
 	tip.style.display = 'none';
@@ -128,10 +149,10 @@ function hide_tip (e) {
 
 }
 
-function show_tip (e) {
+function showTip (e) {
 
-var event = e || window.event;
-var target = event.target || event.srcElement;
+	var event = e || window.event;
+	var target = event.target || event.srcElement;
 
 	tip = target.querySelector('.tip');
 	if (!tip) return; //  fix it not to log error in console
@@ -143,17 +164,15 @@ var target = event.target || event.srcElement;
 	tip.style.opacity = 1;
 	tip.style.display = 'block';
 	
-	// Add the close button (for touchscreens)
-	
 }
 
 /* URI parameters relay. Omit links starting with "javascript", "mailto" */
 
-function relay_parameters () {
+function relayParameters () {
 
 	parameters = getURLParameters();
 
-	forEachElement('a[href]', function(el, i){
+	forEachElement('a[href]', function(el, i) {
 
 		for (var name in parameters) {
 			if ( !el.href.indexOf('javascript') || (!el.href.indexOf('mailto') ) ) continue;
@@ -163,63 +182,74 @@ function relay_parameters () {
 		} 
 	
 	});
-	
+
 }
 
-// easing functions http://goo.gl/5HLl8
-Math.easeInOutQuad = function (t, b, c, d) {
-  t /= d/2;
-  if (t < 1) {
-    return c/2*t*t + b
-  }
-  t--;
-  return -c/2 * (t*(t-2) - 1) + b;
+Math.easeInOutQuad = function ( t, b, c, d ) {
+
+	t /= d/2;
+	if (t < 1) {
+		return c/2*t*t + b
+	}
+	t--;
+	return -c/2 * (t*(t-2) - 1) + b;
+
 };
 
-Math.easeInCubic = function(t, b, c, d) {
-  var tc = (t/=d)*t*t;
-  return b+c*(tc);
+Math.easeInCubic = function( t, b, c, d ) {
+
+	var tc = (t/=d)*t*t;
+	return b+c*(tc);
+
 };
 
-Math.inOutQuintic = function(t, b, c, d) {
-  var ts = (t/=d)*t,
-  tc = ts*t;
-  return b+c*(6*tc*ts + -15*ts*ts + 10*tc);
+Math.inOutQuintic = function( t, b, c, d ) {
+
+	var ts = (t/=d)*t,
+	tc = ts*t;
+	return b+c*(6*tc*ts + -15*ts*ts + 10*tc);
+
 };
 
 // requestAnimationFrame for Smart Animating http://goo.gl/sx5sts
-var requestAnimFrame = (function(){
-  return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function( callback ){ window.setTimeout(callback, 1000 / 60); };
+var requestAnimFrame = (function() {
+	
+	return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function( callback ) {
+		window.setTimeout(callback, 1000 / 60); 
+	};
+	
 })();
 
-function scrollTo(to, callback) {
-  // figure out if this is moz || IE because they use documentElement
-  var doc = (navigator.userAgent.indexOf('Firefox') != -1 || navigator.userAgent.indexOf('Trident') != -1) ? document.documentElement : document.body,
-  start = doc.scrollTop,
-  change = to - start,
-  currentTime = 0,
-  increment = 20;
-  var animateScroll = function(){
-    // increment the time
-    currentTime += increment;
-    // find the value with the quadratic in-out easing function
-    var val = Math.easeInOutQuad(currentTime, start, change, 400);
-    // move the document.body
-    doc.scrollTop = val;
-    // do the animation unless its over
-    if(currentTime < 400) {
-      requestAnimFrame(animateScroll);
-    } else {
-      if (callback && typeof(callback) === 'function') {
-        // the animation is done so lets callback
-        callback();
-      }
-    }
-  };
-  animateScroll();
+function scrollTo( to, callback ) {
+
+	// figure out if this is moz || IE because they use documentElement
+	var doc = (navigator.userAgent.indexOf('Firefox') != -1 || navigator.userAgent.indexOf('Trident') != -1) ? document.documentElement : document.body,
+	start = doc.scrollTop,
+	change = to - start,
+	currentTime = 0,
+	increment = 20;
+	var animateScroll = function(){
+	    // increment the time
+	    currentTime += increment;
+	    // find the value with the quadratic in-out easing function
+	    var val = Math.easeInOutQuad(currentTime, start, change, 400);
+	    // move the document.body
+	    doc.scrollTop = val;
+	    // do the animation unless its over
+	    if(currentTime < 400) {
+			requestAnimFrame(animateScroll);
+	    } else {
+			if (callback && typeof(callback) === 'function') {
+				// the animation is done so lets callback
+				callback();
+			}
+	    }
+	};
+	animateScroll();
+
 }
 
-function remove_blackbox () {
+function removeBlackbox () {
 
 	var blackbox = document.getElementById('blackbox');
 	if (blackbox) document.body.removeChild( blackbox );
@@ -227,7 +257,7 @@ function remove_blackbox () {
 
 }
 
-function modal_window (e) {
+function modalWindow (e) {
 
 	document.body.onkeyup = function(e) {
 
@@ -235,7 +265,7 @@ function modal_window (e) {
 
 	    if (event.keyCode == 27) { // esc
 			
-			remove_blackbox ();
+			removeBlackbox ();
 			
 	    }
 
@@ -244,19 +274,18 @@ function modal_window (e) {
 	var event = e || window.event;
 	var target = event.target || event.srcElement;
 
-	if ( hasclass( target, 'lightbox') ) { // Show an image lightbox...
+	if ( hasClass( target, 'lightbox') ) { // Show an image lightbox...
 
 		document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> </div>');
 		document.body.style.overflow = 'hidden';
 		document.getElementById('blackbox').innerHTML = '<div class="close"> ← ' + document.title + '</div><img src="' + target.href + '" alt="Lightbox">';
-		document.getElementById('blackbox').querySelector('.close').onclick = remove_blackbox;
+		document.getElementById('blackbox').querySelector('.close').onclick = removeBlackbox;
 		
-	} else // ... or load external content in a modal window 
-	{
+	} else { // ... or load external content in a modal window 
 		
 		if ( navigator.userAgent.indexOf('MSIE 8') != -1 ) {
 			
-			window.open (target.href, "_blank");
+			window.open (target.href, '_blank');
 			return;
 
 		}
@@ -273,16 +302,16 @@ function modal_window (e) {
 				document.body.style.overflow = 'hidden';
 				blackbox = document.getElementById('blackbox');
 				blackbox.insertAdjacentHTML('afterbegin', '<div class="close"> ← ' + document.title + '</div>');
-				blackbox.querySelector('.close').onclick = remove_blackbox;
+				blackbox.querySelector('.close').onclick = removeBlackbox;
 				if (container) {
 					parsed = parseHTML(request.responseText);
-					if ( !parsed.querySelector(container) ) { remove_blackbox (); return false; }
+					if ( !parsed.querySelector(container) ) { removeBlackbox (); return false; }
 					blackbox.insertAdjacentHTML('beforeend', parsed.querySelector(container).innerHTML);
 						
 				} else {
 					blackbox.insertAdjacentHTML('beforeend', request.responseText);
 				}
-				relay_parameters();
+				relayParameters();
 			
 			} else {
 			// Error
@@ -299,6 +328,7 @@ function modal_window (e) {
 	}
 	
 	return false;
+
 }
 
 /* ███ After DOM is created ███ */
@@ -307,30 +337,30 @@ addEventHandler(window, 'load', function() {
 
 /* Relay URI parameters to links */
 
-	relay_parameters();
+	relayParameters();
 	
 /* Modal window: open a link inside it */
 
-   	forEachElement('a.modal-link, a.lightbox', function(el, i){
+   	forEachElement('a.modal-link, a.lightbox', function(el, i) {
 		
-		el.onclick = modal_window;
+		el.onclick = modalWindow;
 		
 	});
 
 /* Tooltip */
 	
-	forEachElement('.tool', function(el, i){
+	forEachElement('.tool', function(el, i) {
 		
-		el.onclick = show_tip;
+		el.onclick = showTip;
 			
-		if (!is_touch_device()) {
+		if (!isTouchDevice()) {
 			
-			el.onmouseover = show_tip;
-			el.onmouseout = hide_tip;
+			el.onmouseover = showTip;
+			el.onmouseout = hideTip;
 			
 		}
 	
-		addEventHandler(el, 'touchmove', hide_tip, false);
+		addEventHandler(el, 'touchmove', hideTip, false);
 				
 	});
 
@@ -372,11 +402,11 @@ addEventHandler(window, 'load', function() {
 				if (!el.querySelector('input, select, textarea').value) { 
 
 					ready_to_submit = false;
-					addclass (el, 'alert');
+					addClass (el, 'alert');
 
 				} else {
 					
-					removeclass (el, 'alert');
+					removeClass (el, 'alert');
 					
 				}
 

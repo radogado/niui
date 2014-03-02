@@ -1,7 +1,7 @@
 natUIve: mostly native front-end framework
 ===
 
-A 7 KB framework focused on the browsers' built-in capabilities with smart customisation in the right places. ([Live demo](http://radogado.github.io/natuive/))
+A 7 KB framework focused on browsers' built-in capabilities with smart customisation in the right places. ([Live demo](http://radogado.github.io/natuive/))
 ---
 
 - Unbreakable, flexible and responsive grid

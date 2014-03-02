@@ -1,3 +1,5 @@
+/* natUIve by rado.bg */
+
 .slider-container {
 	
 	position: relative;
@@ -88,11 +90,14 @@
 }
 
 .slider > * > img {
+
 	display: block; /* Fix image bottom padding */
 	margin: 0 auto;
+
 }
 
-.disable-hover,
-.disable-hover * {
-  pointer-events: none !important;
+.disable-hover, .disable-hover * {
+
+	pointer-events: none !important;
+
 }
