@@ -363,6 +363,7 @@ h1, h2, h3, h4 {
 form {
 	
 	overflow: hidden;
+	text-align: right;
 	
 }
 label {
@@ -416,7 +417,7 @@ label input,  #main label select, textarea {
 
 }
 
-label input[type="submit"] {
+form input[type="submit"] {
 	
 	margin-right: 0;
 	min-width: 45%;
