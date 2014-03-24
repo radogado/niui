@@ -2,20 +2,22 @@
 
 var scrollTimer = null;
 var slider;
+var scroll_start = 0;
+var original_scroll = 0;
 	
 function scrollSlider (e) {
 
 	var event = e || window.event;
 	slider = event.target || event.srcElement;
-
     clearTimeout(scrollTimer);
-    scrollTimer = setTimeout(function(){
-        slide (event, 'snap');
+    scrollTimer = setTimeout(function() {
+		scroll_start = slider.scrollLeft;
+        if ((slider.scrollLeft - original_scroll) > 50) slide (event, 'snap');
     }, 50);
 
 };
 
-function moveIndex() {
+function moveIndex () {
 
 	removeClass ( slider.parentNode.querySelector('.slider-nav a.active'), 'active' );
 	var index = Math.round( slider.scrollLeft / slider.offsetWidth ) + 1;
@@ -27,8 +29,10 @@ function moveIndex() {
 function slideEnd () {
 
 	slider.onscroll = scrollSlider;
+	clearTimeout(scrollTimer);
 	removeClass( document.body, 'disable-hover' );
   	moveIndex();
+  	original_scroll = slider.scrollLeft;
 	
 }
 
@@ -37,11 +41,12 @@ function slideEnd () {
 function slide ( e, target ) {
 
     clearTimeout(scrollTimer);
-	slider.onscroll = function () {};
+	slider.onscroll = function () { return false; };
 	stopEvent(e);
 	var event = e || window.event;
 	el = event.target || event.srcElement;
-
+	var change = 0;
+	
 	addClass( document.body, 'disable-hover');
 	
 	if (target == 'index') {
@@ -70,8 +75,36 @@ function slide ( e, target ) {
 	
 	if ( target == 'snap') {
 
+		console.log('From ' + original_scroll + ' to ' + slider.scrollLeft);
+
+/*
 		start = slider.scrollLeft;
-		change = Math.round ( slider.scrollLeft / slider.offsetWidth ) * slider.offsetWidth - start;
+		if ((scroll_start - slider.scrollLeft) > 0 ) {
+			change = (Math.round ( slider.scrollLeft / slider.offsetWidth) * slider.offsetWidth) - slider.offsetWidth - scroll_start;
+		} else {
+			change = (Math.round ( slider.scrollLeft / slider.offsetWidth) * slider.offsetWidth) + slider.offsetWidth - scroll_start;
+		}
+		clearTimeout(scrollTimer);
+		if ( !(scroll_start % change) ) {
+			slideEnd ();
+			return false;
+		}
+*/
+
+/* 		if (slider.scrollLeft > original_scroll) {  */
+			change = slider.offsetWidth - (slider.scrollLeft % slider.offsetWidth);
+			start = original_scroll + (slider.scrollLeft % slider.offsetWidth);
+/*
+		} else {
+			
+		}
+*/
+		
+		console.log(start + ' ' + change); 
+/*
+		slideEnd ();
+		return false;
+*/
 
 	}
 	

@@ -89,12 +89,17 @@ p:first-child {
 
 }
 
-ul {
+ul, #top ul, .subnav ul {
 
 	margin: 0;
 	padding: 0;
 
 }
+
+	ul {
+		
+		margin: 1em 0 1em 2em;
+	}
 
 a:link, a:visited {
 
@@ -312,7 +317,7 @@ h1, h2, h3, h4 {
 
 	#main img, #head img {
 		
-		display: block;
+/* 		display: block; */
 		margin: 0 auto;
 		
 	}

@@ -28,6 +28,7 @@ A 7 KB framework focused on browsers' built-in capabilities with smart customisa
 - No jQuery or anything
 - Column content can be aligned vertically on top/middle/bottom
 - Supporting IE8+, Safari, Chrome, Firefox, Opera, phones, tablets
+- Graceful degradation
 - Includes a FREE picture of a cat
 
 2014 [rado.bg](http://rado.bg)
