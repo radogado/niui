@@ -12,7 +12,7 @@ function scrollSlider (e) {
     clearTimeout(scrollTimer);
     scrollTimer = setTimeout(function() {
 		scroll_start = slider.scrollLeft;
-        if ((slider.scrollLeft - original_scroll) > 50) slide (event, 'snap');
+        if ( ((slider.scrollLeft - original_scroll) > 1) || ((original_scroll - slider.scrollLeft) > 1) ) slide (event, 'snap');
     }, 50);
 
 };
@@ -77,34 +77,15 @@ function slide ( e, target ) {
 
 		console.log('From ' + original_scroll + ' to ' + slider.scrollLeft);
 
-/*
-		start = slider.scrollLeft;
-		if ((scroll_start - slider.scrollLeft) > 0 ) {
-			change = (Math.round ( slider.scrollLeft / slider.offsetWidth) * slider.offsetWidth) - slider.offsetWidth - scroll_start;
+		if (slider.scrollLeft > original_scroll) { 
+			change = slider.offsetWidth - slider.scrollLeft % slider.offsetWidth;
 		} else {
-			change = (Math.round ( slider.scrollLeft / slider.offsetWidth) * slider.offsetWidth) + slider.offsetWidth - scroll_start;
+			change = slider.scrollLeft % slider.offsetWidth - slider.offsetWidth;
+			change = -1 * (slider.offsetWidth + change);
 		}
-		clearTimeout(scrollTimer);
-		if ( !(scroll_start % change) ) {
-			slideEnd ();
-			return false;
-		}
-*/
-
-/* 		if (slider.scrollLeft > original_scroll) {  */
-			change = slider.offsetWidth - (slider.scrollLeft % slider.offsetWidth);
-			start = original_scroll + (slider.scrollLeft % slider.offsetWidth);
-/*
-		} else {
-			
-		}
-*/
 		
+		start = slider.scrollLeft;
 		console.log(start + ' ' + change); 
-/*
-		slideEnd ();
-		return false;
-*/
 
 	}
 	
