@@ -12,7 +12,7 @@ function scrollSlider (e) {
     clearTimeout(scrollTimer);
     scrollTimer = setTimeout(function() {
 		scroll_start = slider.scrollLeft;
-        if ( ((slider.scrollLeft - original_scroll) > 1) || ((original_scroll - slider.scrollLeft) > 1) ) slide (event, 'snap');
+        slide (event, 'snap');
     }, 50);
 
 };
