@@ -313,3 +313,14 @@ a.button.big {
 	color: #666;
 	
 }
+
+@media screen and (max-width: 512px) {
+
+	#main .column3 {
+
+		padding: 1%;
+		margin: 3% 0;
+
+	}
+	
+}
