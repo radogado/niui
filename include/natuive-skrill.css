@@ -1,0 +1,88 @@
+#main {
+	
+	background: #f6f6f6 url(../images/content.gif);
+
+}
+
+.slider {
+	
+	background: transparent;
+
+}
+
+.center {
+	
+	text-align: center;
+	
+}
+
+/*
+.row .row .column, .row .row .column2, .row .row .column3, .row .row .column23, .row .row .column4, .row .row .column34 {
+
+	padding: 0;
+
+}
+*/
+
+.row > * {
+	
+	position: relative;
+	
+}
+
+.banner {
+	
+/* 	background: transparent url(../images/scanlines.png), transparent url(../images/header_circle_1280.png) left 1em no-repeat; */
+	background-color: #862165;
+	background: url(../images/scanlines.png), #862165 url(../images/header_circle_1280.png) no-repeat 5% 0;
+	
+}
+
+.banner, #head .banner p, #footer {
+	
+	color: #eee;
+	
+}
+.banner .column, .banner .column2, .banner .column2 {
+	
+	padding-bottom: 0;
+	
+}
+#head img {
+	
+	display: block;
+	
+}
+
+
+.subnav a:link {
+	
+	text-shadow: none;
+	color: #fff;
+	
+}
+
+#footer {
+	
+	background-color: #801866;
+	background-image: -webkit-linear-gradient(top, #661351, #801866, #c02499);
+	background-image: -moz-linear-gradient(top, #661351, #801866, #c02499);
+	background-image: -ms-linear-gradient(top, #661351, #801866, #c02499);
+	background-image: -o-linear-gradient(top, #661351, #801866, #c02499);
+	background-image: linear-gradient(top, #661351, #801866, #c02499);
+
+}
+
+.slider-nav {
+	
+	text-align: right;
+	top: 1em;
+	bottom: auto;
+	right: 1em;
+	
+}
+.slider-nav a {
+	
+	text-align: center;
+
+}
