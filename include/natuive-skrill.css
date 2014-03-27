@@ -222,12 +222,18 @@ html {
 	background: #c02499;
 }
 
-#top .row:first-child .column2, #top .row:first-child .column34, #top .row:first-child .column4 {
+#top {
 	
-	padding-bottom: .5em;
-	vertical-align: bottom;
-			
+	overflow: hidden;
+	
 }
+
+	#top .row:first-child .column2, #top .row:first-child .column34, #top .row:first-child .column4 {
+		
+		padding-bottom: .5em;
+		vertical-align: bottom;
+				
+	}
 
 	#top .column2 > div, #top .column4 {
 		
@@ -321,6 +327,57 @@ a.button.big {
 		padding: 1%;
 		margin: 3% 0;
 
+	}
+	
+	#head {
+		
+		padding-top: 3.5em;
+		
+	}
+	
+	#top {
+		
+		position: fixed;
+		top: 0;
+		background: #fff;
+		z-index: 99999;
+		box-shadow: 0 2px 3px #666;
+		
+	}
+	
+	#top .column34 {
+		
+		text-align: center;
+		background: #fff;
+		padding-bottom: 0;
+		
+	}
+	
+	#top .column4 {
+
+		right: 1em;
+		display: table-cell;
+		width: 25%;
+		vertical-align: middle;
+		padding-bottom: 0;
+
+	}	
+	
+	#top .nav {
+		
+		display: none;
+	}
+	
+	#top a:link ~ a:link {
+		
+		display: none;
+		
+	}
+	
+	#top .row {
+		
+		border-spacing: 0;
+		
 	}
 	
 }
