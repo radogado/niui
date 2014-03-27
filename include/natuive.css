@@ -231,6 +231,7 @@ a.button, input[type="submit"] {
 	cursor: pointer;
 	margin-bottom: .5em;
 	width: auto;
+	word-break: break-word;
 
 	background: #f1f1f1;
 
@@ -759,7 +760,7 @@ ol {
 	    height: auto;
 
 	}
-	.accordion input:checked ~ label:before { /* visible accordion item */
+	.accordion input:checked ~ label:before { /* invert the arrow */
 
 		-webkit-transform: scaleY(-1);
 		transform: scaleY(-1);
