@@ -448,7 +448,7 @@ a.button.big {
 		position: fixed;
 		top: 0;
 		left: 0;
-		padding: .3em;
+		padding: .3em .5em;
 		-webkit-touch-callout: none;
 		-webkit-user-select: none;
 		-khtml-user-select: none;
