@@ -123,7 +123,7 @@ a:link, a:visited {
 
 	a.mega-link {
 		
-		position: absolute;
+		/* position: absolute; */ /* Not working in Firefox because table-cell can't have position: relative */
 		display: block;
 		top: 0;
 		right: 0;

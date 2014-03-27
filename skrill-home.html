@@ -27,19 +27,59 @@
 			
 				<div class="column4"> </div> <!-- For narrow screens -->
 				
-				<div class="column34">
+				<div class="column34" style="vertical-align: bottom;">
 				
 					<a href="#"><img src="images/skrill-logo.png" alt="Logo"></a>
-
-					<ul class="nav">
 					
-						<li> <a href="#">Personal</a> </li>
-
-						<li> <a href="#">Business</a> </li>
-
-						<li> <a href="about-us/">About us</a> </li>
+					<div id="nav-main">
 					
-					</ul>
+						<input type="checkbox" unchecked id="nav-trigger" style="display: none">
+					
+						<label for="nav-trigger"> Nav </label>
+					
+						<ul class="nav">
+						
+							<li> <a href="#">Personal</a> </li>
+	
+							<li> <a href="#">Business</a> </li>
+	
+							<li> <a href="about-us/">About us</a> </li>
+						
+						</ul>
+	
+						<div class="narrow-screen">
+							
+							<form class="nav" id="language" action="." method="get">
+							
+								<select name="l">
+									
+									<option value="en">English</option>
+									<option value="fr">Français</option>
+									<option value="cn">中文</option>
+		
+								</select>
+		
+								<noscript>
+								
+									<input type="submit" value="▶">
+								
+								</noscript>
+							
+							</form>
+													
+							<ul class="nav">
+		
+								<li> 
+									
+									<a href="#">Help</a> 
+									
+								</li>
+							
+							</ul>
+						
+						</div>
+						
+					</div>
 
 				</div>
 
@@ -53,7 +93,7 @@
 						
 					</div>
 					
-					<div>
+					<div class="wide-screen">
 						
 						<form class="nav" id="language" action="." method="get">
 						

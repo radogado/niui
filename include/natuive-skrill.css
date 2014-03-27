@@ -234,7 +234,7 @@ html {
 
 	#top .row:first-child .column2, #top .row:first-child .column34, #top .row:first-child .column4 {
 		
-		vertical-align: bottom;
+		vertical-align: top;
 				
 	}
 
@@ -325,6 +325,24 @@ a.button.big {
 	
 }
 
+.wide-screen {
+	
+	display: block;
+	
+}
+
+.narrow-screen {
+	
+	display: none;
+	
+}
+
+#nav-main label {
+	
+	display: none;
+	
+}
+
 @media screen and (max-width: 512px) {
 
 	#main .column3 {
@@ -403,6 +421,69 @@ a.button.big {
 		
 		padding-bottom: .5em;
 				
+	}
+	
+	.wide-screen {
+		
+		display: none;
+		
+	}
+
+	.narrow-screen {
+		
+		display: block;
+		
+	}
+
+	#top #nav-main > input:checked ~ .nav, #top #nav-main > input:checked ~ div .nav {
+		
+		display: block;
+		
+	}
+
+	
+	#nav-main {
+		
+		background: #fff;
+		position: fixed;
+		top: 0;
+		left: 0;
+		padding: .3em;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		
+		
+	}
+	
+	#nav-main label {
+		
+		cursor: pointer;
+		margin: .5em 0;
+		display: block;
+		
+	}
+	
+	#nav-main .nav li, #nav-main .subnav li {
+		
+		display: block;
+		text-align: left;
+			
+	}
+	
+	#nav-main form {
+		
+		text-align: left;
+	}
+	
+	#nav-main li a {
+		
+		display: block;
+		padding: .3em 0;
+		
 	}
 
 }
