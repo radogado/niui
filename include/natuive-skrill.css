@@ -190,7 +190,7 @@ body {
 	
 	text-shadow: none;
 	color: #333;
-	padding: 0;
+	padding: .5em 0;
 	
 }
 
@@ -337,6 +337,12 @@ a.button.big {
 	
 }
 
+#nav-main {
+	
+	display: inline-block;
+
+}
+
 #nav-main label {
 	
 	display: none;
@@ -455,7 +461,6 @@ a.button.big {
 		-moz-user-select: none;
 		-ms-user-select: none;
 		user-select: none;
-		
 		
 	}
 	

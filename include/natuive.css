@@ -211,13 +211,21 @@ li, p {
 		display: none;
 
 	}
+	
+	.subnav.row > .container {
+		
+		border-spacing: 0;
+		
+	}
 
+/*
 	.subnav .column34, .subnav .column4, .subnav .column3, .subnav .column2, .subnav .column {
 		
 		padding-top: .5%;
 		padding-bottom: .5%;
 		
 	}
+*/
 
 /* Buttons */
 
@@ -371,6 +379,7 @@ h1, h2, h3, h4 {
 
 	display: inline-block;
 	font-size: 1.6em;
+	white-space: nowrap;
 
 }
 
