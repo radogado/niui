@@ -186,6 +186,25 @@ body {
 	
 }
 
+.nav .active {
+	
+	position: relative;
+	
+}
+
+.nav .active:after {
+	
+	content: "";
+	left: 0;  
+	right: 0;
+	height: 14px;
+	display: block;
+	position: absolute;
+	bottom: -10px;
+	background: transparent url(../images/nav-arrow.png) center center no-repeat;
+	
+}
+
 .subnav a:link, .subnav a:visited {
 	
 	text-shadow: none;
@@ -197,6 +216,7 @@ body {
 .subnav {
 
 	background: #ddd;
+	border-top: 1px solid #b2b2b2;
 	
 }
 .subnav li::before {
@@ -224,12 +244,6 @@ body {
 html {
 	
 	background: #c02499;
-}
-
-#top {
-	
-	overflow: hidden;
-	
 }
 
 	#top .row:first-child .column2, #top .row:first-child .column34, #top .row:first-child .column4 {
@@ -349,9 +363,47 @@ a.button.big {
 	
 }
 
-#nav-main ul ul {
+#nav-main li ul {
 	
 	display: none;
+	
+}
+
+#top li ul {
+	
+	display: none;
+	
+}
+
+#top .subnav li.active {
+
+	position: relative;
+	color: #000;
+	
+}
+
+#top .subnav li.active li {
+
+	display: block;
+	white-space: nowrap;
+	
+}
+
+#top .subnav li.active li:before {
+
+	display: none;
+	
+}
+
+#top .subnav li.active ul {
+	
+	display: inline-block;
+	position: absolute;
+	top: 2em;
+	left: 0;
+	z-index: 99999;
+	background: #ddd;
+	padding: .5em;
 	
 }
 
