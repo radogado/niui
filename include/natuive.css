@@ -18,6 +18,15 @@
 	border-spacing: .4em;
 	border-collapse: separate;
 
+/*
+display: -webkit-flex;
+display: -moz-flex;
+display: flex;
+-webkit-flex-flow: row wrap;
+-moz-flex-flow: row wrap;
+flex-flow: row wrap;
+*/
+
 }
 
 	.row.padded { /* When the columns need to be centered with padding on the left and right */
@@ -27,12 +36,18 @@
 	
 	}
 	
-.column, .column2, .column3, .column23, .column4, .column34 {
+.column, .column1, .column2, .column3, .column23, .column4, .column34 {
 
 	display: table-cell;
 	vertical-align: top;
 /* 	padding: .8em; */
 	width: 98%;
+
+/*
+-webkit-flex: 1 auto;
+-moz-flex: 1 auto;
+flex: 1 auto;
+*/
 	
 }
 
@@ -95,6 +110,7 @@ ul, #top ul, .subnav ul {
 
 	margin: 0;
 	padding: 0;
+	display: inline-block;
 
 }
 

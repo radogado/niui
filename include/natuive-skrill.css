@@ -349,6 +349,12 @@ a.button.big {
 	
 }
 
+#nav-main ul ul {
+	
+	display: none;
+	
+}
+
 @media screen and (max-width: 512px) {
 
 	#main .column3 {
@@ -490,5 +496,10 @@ a.button.big {
 		padding: .3em 0;
 		
 	}
-
+	
+	.nav ul {
+		
+		display: none;
+	}
+	
 }
