@@ -404,6 +404,7 @@ a.button.big {
 	z-index: 99999;
 	background: #ddd;
 	padding: .5em;
+	margin-left: -.5em;
 	
 }
 
@@ -449,6 +450,9 @@ a.button.big {
 	#top .nav {
 		
 		display: none;
+		background: #fff;
+		overflow: scroll;
+
 	}
 	
 	#top a:link ~ a:link {
@@ -508,7 +512,7 @@ a.button.big {
 	
 	#nav-main {
 		
-		background: #fff;
+		background: transparent;
 		position: fixed;
 		top: 0;
 		left: 0;
@@ -554,4 +558,16 @@ a.button.big {
 		display: none;
 	}
 	
+	.nav .active:after {
+	
+		display: none;
+	
+	}
+	
+	#top li ul {
+		
+		display: block;
+		margin-left: 1em;
+	}
+
 }
