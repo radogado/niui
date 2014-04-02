@@ -347,7 +347,7 @@ a.button.big {
 
 .narrow-screen {
 	
-	display: none;
+	display: none !important;
 	
 }
 
@@ -449,9 +449,15 @@ a.button.big {
 	
 	#top .nav {
 		
-		display: none;
 		background: #fff;
+		position: fixed;
+		top: 2em;
+		left: 0;
+		right: 0;
+		bottom: 0;
 		overflow: scroll;
+		padding: .3em .5em;
+		display: none;
 
 	}
 	
@@ -465,7 +471,6 @@ a.button.big {
 		
 		border-spacing: 0;
 		position: fixed;
-		top: 0;
 		background: #fff;
 		z-index: 99999;
 		box-shadow: 0 2px 3px #666;
@@ -499,7 +504,7 @@ a.button.big {
 
 	.narrow-screen {
 		
-		display: block;
+		display: block !important;
 		
 	}
 
@@ -512,17 +517,14 @@ a.button.big {
 	
 	#nav-main {
 		
-		background: transparent;
-		position: fixed;
-		top: 0;
-		left: 0;
-		padding: .3em .5em;
 		-webkit-touch-callout: none;
 		-webkit-user-select: none;
 		-khtml-user-select: none;
 		-moz-user-select: none;
 		-ms-user-select: none;
 		user-select: none;
+		position: fixed;
+		left: .5em;
 		
 	}
 	
