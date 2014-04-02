@@ -375,7 +375,7 @@ a.button.big {
 	
 }
 
-#top .subnav li.active {
+#top .subnav li {
 
 	position: relative;
 	color: #000;
@@ -385,7 +385,6 @@ a.button.big {
 #top .subnav li.active li {
 
 	display: block;
-	white-space: nowrap;
 	
 }
 
@@ -395,9 +394,9 @@ a.button.big {
 	
 }
 
-#top .subnav li.active ul {
+#top .subnav li ul {
 	
-	display: inline-block;
+	display: none;
 	position: absolute;
 	top: 2em;
 	left: 0;
@@ -408,6 +407,53 @@ a.button.big {
 	
 }
 
+#top .subnav li input:checked + * {
+	
+	display: block;
+	
+}
+
+label.trigger {
+	
+	display: inline-block;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	margin: 0;
+	cursor: pointer;
+	width: 1em;
+	height: 1em;
+	
+}
+
+label.trigger:hover {
+
+	color: red;
+	
+}
+
+label.trigger:before {
+	
+	content: "≣";
+	display: inline;
+	font-size: 2em;
+	line-height: .4;
+	text-align: center;
+	width: 1em;
+	height: 1em;
+	overflow: hidden;	
+	
+}
+
+input.trigger {
+	
+	display: none;
+	
+}
+
 @media screen and (max-width: 512px) {
 
 	#main .column3 {
@@ -415,10 +461,6 @@ a.button.big {
 		padding: 3% 1%;
 		margin: 5% 0;
 
-	}
-	
-	#head {
-				
 	}
 	
 	#top {
@@ -552,6 +594,17 @@ a.button.big {
 		
 		display: block;
 		padding: .3em 0;
+		
+	}
+
+	#nav-main li li a {
+		
+		display: block;
+		padding: .2em 0;
+		text-transform: none;
+		font-weight: 100;
+		font-size: .7em;
+	font-family: 'open_sansregular', 'Helvetica Neue', sans-serif; 
 		
 	}
 	
