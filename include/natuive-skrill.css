@@ -424,8 +424,12 @@ label.trigger {
 	user-select: none;
 	margin: 0;
 	cursor: pointer;
-	width: 1em;
-	height: 1em;
+	width: 1.2em;
+	height: 1.1em;
+	line-height: .3;
+	overflow: hidden;
+	-webkit-transform: translateY(.1em);
+	transform: translateY(.1em);
 	
 }
 
@@ -438,14 +442,15 @@ label.trigger:hover {
 label.trigger:before {
 	
 	content: "≣";
-	display: inline;
-	font-size: 2em;
-	line-height: .4;
-	text-align: center;
-	width: 1em;
-	height: 1em;
-	overflow: hidden;	
+	font-size: 3em;
+/* 	background: red; */
 	
+}
+
+ul label.trigger:before {
+
+	font-size: 2em;
+
 }
 
 input.trigger {
@@ -497,7 +502,7 @@ input.trigger {
 		left: 0;
 		right: 0;
 		bottom: 0;
-		overflow: scroll;
+		overflow: hidden;
 		padding: .3em .5em;
 		display: none;
 
@@ -573,8 +578,8 @@ input.trigger {
 	#nav-main label {
 		
 		cursor: pointer;
-		margin: .5em 0;
-		display: block;
+		margin: 0;
+		display: inline-block;
 		
 	}
 	
@@ -582,6 +587,7 @@ input.trigger {
 		
 		display: block;
 		text-align: left;
+		position: relative;
 			
 	}
 	
@@ -592,14 +598,14 @@ input.trigger {
 	
 	#nav-main li a {
 		
-		display: block;
+		display: inline-block;
 		padding: .3em 0;
 		
 	}
 
 	#nav-main li li a {
 		
-		display: block;
+		display: inline-block;
 		padding: .2em 0;
 		text-transform: none;
 		font-weight: 100;
@@ -620,6 +626,13 @@ input.trigger {
 	}
 	
 	#top li ul {
+		
+		display: none;
+		background: #fff;
+		z-index: 99999;
+	}
+
+	#top li input:checked + ul {
 		
 		display: block;
 		margin-left: 1em;
