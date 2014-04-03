@@ -133,11 +133,9 @@ body {
 
 .banner {
 	
-/* 	background: transparent url(../images/scanlines.png), transparent url(../images/header_circle_1280.png) left 1em no-repeat; */
 	background-color: #862165;
 	background: url(../images/scanlines.png), #862165 url(../images/header_circle_1280.png) no-repeat 5% 0;
 	font-size: 20px;
-/* 	padding-top: 1em; */
 	
 }
 
@@ -213,13 +211,26 @@ body {
 	
 }
 
+.subnav ul ul a:link, .subnav ul ul a:visited {
+
+	display: block;	
+	
+}
+
+.subnav ul ul li:before {
+
+	display: none;
+
+}
+
 .subnav {
 
 	background: #ddd;
 	border-top: 1px solid #b2b2b2;
 	
 }
-.subnav li::before {
+
+.subnav li:before {
 	
 	color: #aaa;
 	
@@ -362,14 +373,7 @@ a.button.big {
 	display: none;
 	
 }
-
 #nav-main li ul {
-	
-	display: none;
-	
-}
-
-#top li ul {
 	
 	display: none;
 	
@@ -379,6 +383,7 @@ a.button.big {
 
 	position: relative;
 	color: #000;
+/* 	white-space: nowrap; */
 	
 }
 
@@ -407,7 +412,7 @@ a.button.big {
 	
 }
 
-#top .subnav li input:checked + * {
+input.trigger:checked + *, #top input.trigger:checked + ul.nav, #top .subnav li input.trigger:checked + ul {
 	
 	display: block;
 	
@@ -424,12 +429,19 @@ label.trigger {
 	user-select: none;
 	margin: 0;
 	cursor: pointer;
-	width: 1.2em;
-	height: 1.1em;
+	width: 2em;
+	height: 2em;
 	line-height: .3;
 	overflow: hidden;
 	-webkit-transform: translateY(.1em);
 	transform: translateY(.1em);
+	
+}
+
+ul label.trigger {
+	
+	width: 1.2em;
+	height: 1.1em;
 	
 }
 
@@ -443,7 +455,6 @@ label.trigger:before {
 	
 	content: "≣";
 	font-size: 3em;
-/* 	background: red; */
 	
 }
 
@@ -501,8 +512,9 @@ input.trigger {
 		top: 2em;
 		left: 0;
 		right: 0;
+		box-shadow: 0 2px 3px #666;
 		bottom: 0;
-		overflow: hidden;
+		overflow-y: scroll;
 		padding: .3em .5em;
 		display: none;
 
@@ -552,12 +564,6 @@ input.trigger {
 	.narrow-screen {
 		
 		display: block !important;
-		
-	}
-
-	#top #nav-main > input:checked ~ .nav, #top #nav-main > input:checked ~ div .nav {
-		
-		display: block;
 		
 	}
 
@@ -627,15 +633,20 @@ input.trigger {
 	
 	#top li ul {
 		
-		display: none;
 		background: #fff;
 		z-index: 99999;
+		margin-left: 1em;
+		margin-bottom: .5em;
 	}
 
-	#top li input:checked + ul {
+	#top ul {
+		
+		display: none;
+	}
+
+	#top input.trigger:checked + ul {
 		
 		display: block;
-		margin-left: 1em;
 	}
 
 }
