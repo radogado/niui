@@ -404,12 +404,18 @@ a.button.big {
 	display: none;
 	position: absolute;
 	top: 2em;
-	left: 0;
+	left: 1em;
 	z-index: 99999;
 	background: #ddd;
 	padding: .5em;
 	margin-left: -.5em;
 	
+}
+
+#top .subnav li:first-child ul {
+
+	left: 0;
+
 }
 
 input.trigger:checked + *, #top input.trigger:checked + ul.nav, #top .subnav li input.trigger:checked + ul {
