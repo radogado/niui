@@ -401,14 +401,17 @@ a.button.big {
 
 #top .subnav li ul {
 	
-	display: none;
+	display: block;
 	position: absolute;
 	top: 2em;
 	left: 1em;
 	z-index: 99999;
 	background: #ddd;
-	padding: .5em;
+	padding: 0 .5em;
 	margin-left: -.5em;
+	max-height: 0;
+	overflow: hidden;
+	-webkit-transition: max-height .2s ease-in-out;
 	
 }
 
@@ -427,8 +430,11 @@ input.trigger:checked + *, #top input.trigger:checked + ul.nav, #top .subnav li 
 
 #top .subnav li input.trigger:checked + ul {
 	
+	display: block;
 	height: auto;
-	
+	max-height: 500px;
+	transition: max-height .2s ease-in-out;
+
 }
 
 label.trigger {
