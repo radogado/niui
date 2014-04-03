@@ -421,6 +421,13 @@ a.button.big {
 input.trigger:checked + *, #top input.trigger:checked + ul.nav, #top .subnav li input.trigger:checked + ul {
 	
 	display: block;
+	height: 100%;
+	
+}
+
+#top .subnav li input.trigger:checked + ul {
+	
+	height: auto;
 	
 }
 
@@ -521,8 +528,11 @@ input.trigger {
 		box-shadow: 0 2px 3px #666;
 		bottom: 0;
 		overflow-y: scroll;
-		padding: .3em .5em;
-		display: none;
+		padding: 0 .5em;
+		display: block;
+		height: 0%;
+		-webkit-transition: height .2s ease-in-out;
+		transition: height .2s ease-in-out;
 
 	}
 	
@@ -643,6 +653,12 @@ input.trigger {
 		z-index: 99999;
 		margin-left: 1em;
 		margin-bottom: .5em;
+		max-height: 0;
+		display: block;
+		overflow: hidden;
+		-webkit-transition: max-height .2s ease-in-out;
+		transition: max-height .2s ease-in-out;
+		
 	}
 
 	#top ul {
@@ -650,9 +666,13 @@ input.trigger {
 		display: none;
 	}
 
-	#top input.trigger:checked + ul {
+	#top li input.trigger:checked + ul {
 		
 		display: block;
+		height: auto;
+		transition: max-height .2s ease-in-out;
+		max-height: 500px;
+
 	}
 
 }
