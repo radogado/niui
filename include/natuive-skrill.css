@@ -190,6 +190,13 @@ body {
 	
 }
 
+.nav > li.active > a:link, .nav > li.active  > a:visited {
+
+	color: #801866;
+	
+}
+
+
 .nav .active:after {
 	
 	content: "";
@@ -198,16 +205,16 @@ body {
 	height: 14px;
 	display: block;
 	position: absolute;
-	bottom: -10px;
+	bottom: -.3em;
 	background: transparent url(../images/nav-arrow.png) center center no-repeat;
 	
 }
 
 .subnav a:link, .subnav a:visited {
 	
-	text-shadow: none;
-	color: #333;
 	padding: .5em 0;
+	text-shadow: 1px 1px #eee;
+	color: #666;
 	
 }
 
@@ -230,11 +237,34 @@ body {
 	
 }
 
+#top .row {
+	
+	border-spacing: .2em;
+	
+}
+
 .subnav li:before {
 	
 	color: #aaa;
 	
 }
+
+.subnav label.trigger {
+
+	width: 16px;
+	height: 15px;
+	border: 1px solid #999;
+	border-radius: 2px;
+	background: url(../images/triangle-subnav.png) center center no-repeat;
+
+}
+
+.subnav label.trigger:before {
+	
+	display: none;
+	
+}
+
 #footer .subnav {
 	
 	margin-bottom: 1em;
@@ -317,18 +347,21 @@ font-family: 'open_sansbold', 'Helvetica Neue', Arial, sans-serif;
 	  #f1f1f1,
 	  #cbcbcb
 	);
+	border: 1px solid #c0c0c0;
 
 }
 a.button.yellow {
-		background-image: -webkit-gradient(
-  linear,
-  left top, left bottom,
-  from(#f6d31c),
-  to(#F4AA00)
-);
-	
+
+	border: 1px solid #F4AA00;
+	background-image: -webkit-gradient(
+		linear,
+		left top, left bottom,
+		from(#f6d31c),
+		to(#F4AA00)
+	);
 
 }
+
 a.button.big {
 	
 	font-size: .9em;
@@ -373,6 +406,37 @@ a.button.big {
 	display: none;
 	
 }
+
+#nav-main label[for="nav-narrow"] {
+	
+	border: 1px solid #c0c0c0;
+	border-radius: 2px;
+	position: relative;
+	width: 2.4em;
+	background: #d6d6d6; /* Old browsers */
+	background: -moz-linear-gradient(top,  #eeeeee 0%, #d7d7d7 99%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(99%,#d7d7d7)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #eeeeee 0%,#d7d7d7 99%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #eeeeee 0%,#d7d7d7 99%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #eeeeee 0%,#d7d7d7 99%); /* IE10+ */
+	background: linear-gradient(to bottom,  #eeeeee 0%,#d7d7d7 99%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#d7d7d7',GradientType=0 ); /* IE6-9 */	
+
+}
+
+#nav-main label[for="nav-narrow"]:before {
+
+	content: "";
+	position: absolute;
+	top: .1em;
+	left: .14em;
+	width: .6em;
+	height: 0.13em;
+	border-top: 0.35em double #801866;
+	border-bottom: 0.12em solid #801866;
+ 	
+}
+
 #nav-main li ul {
 	
 	display: none;
@@ -403,16 +467,19 @@ a.button.big {
 	
 	display: block;
 	position: absolute;
-	top: 2em;
+	top: 1.7em;
 	left: 1em;
 	z-index: 99999;
 	background: #ddd;
 	padding: 0 .5em;
-	margin-left: -.5em;
+	margin-left: -.7em;
 	max-height: 0;
 	overflow: hidden;
 	-webkit-transition: max-height .2s ease-in-out;
-	
+	border: 1px solid rgba(0,0,0,0);
+	border-top: none;
+	border-bottom: none;
+
 }
 
 #top .subnav li:first-child ul {
@@ -434,6 +501,7 @@ input.trigger:checked + *, #top input.trigger:checked + ul.nav, #top .subnav li 
 	height: auto;
 	max-height: 500px;
 	transition: max-height .2s ease-in-out;
+	border-color: #c1bfbf;
 
 }
 
@@ -526,7 +594,7 @@ input.trigger {
 	
 	#top .nav {
 		
-		background: #fff;
+		background: transparent;
 		position: fixed;
 		top: 2em;
 		left: 0;
@@ -534,7 +602,7 @@ input.trigger {
 		box-shadow: 0 2px 3px #666;
 		bottom: 0;
 		overflow-y: scroll;
-		padding: 0 .5em;
+/* 		padding: 0 .5em; */
 		display: block;
 		height: 0%;
 		-webkit-transition: height .2s ease-in-out;
@@ -616,7 +684,10 @@ input.trigger {
 		display: block;
 		text-align: left;
 		position: relative;
-			
+		background: #fff;
+		padding: 0 .5em;			
+		margin-right: 0;
+
 	}
 	
 	#nav-main form {
@@ -658,7 +729,7 @@ input.trigger {
 		background: #fff;
 		z-index: 99999;
 		margin-left: 1em;
-		margin-bottom: .5em;
+/* 		margin-bottom: .5em; */
 		max-height: 0;
 		display: block;
 		overflow: hidden;
