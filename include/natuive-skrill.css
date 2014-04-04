@@ -55,7 +55,22 @@
 body {
 	
 	font-size: 16px;
-	font-family: 'open_sansregular', 'Helvetica Neue', sans-serif; 
+	font-family: 'open_sansregular', 'Helvetica Neue', sans-serif;
+	
+}
+
+body.lock-position {
+
+	height: 100%;
+	overflow: hidden;
+	width: 100%;
+/* 	position: fixed; */
+
+}
+
+body.lock-position .backtotop {
+	
+	display: none;
 	
 }
 
@@ -205,7 +220,7 @@ body {
 	height: 14px;
 	display: block;
 	position: absolute;
-	bottom: -.3em;
+	bottom: -.293em;
 	background: transparent url(../images/nav-arrow.png) center center no-repeat;
 	
 }
@@ -570,6 +585,23 @@ input.trigger {
 	
 }
 
+.slider-arrow, .slider-nav a {
+	
+	background: #fff;
+	text-indent: -999em;
+	width: 1.2em;
+	height: 1.2em;
+	padding: 0;
+	margin: .3em;
+		
+}
+
+.slider-nav a.active {
+	
+	background: orange;
+
+}
+
 @media screen and (max-width: 640px) {
 
 	#main .column3 {
@@ -766,6 +798,12 @@ input.trigger {
 		transition: max-height .2s ease-in-out;
 		max-height: 999px;
 
+	}
+
+	#top input.trigger:checked ~ ul.nav {
+
+		box-shadow: 0px 1px 4px;
+	
 	}
 
 }

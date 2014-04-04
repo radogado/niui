@@ -33,7 +33,7 @@
 					
 					<div id="nav-main">
 					
-						<input type="checkbox" unchecked id="nav-narrow" class="trigger">
+						<input type="checkbox" unchecked id="nav-narrow" class="trigger" onchange="if (this.checked) addClass(document.body, 'lock-position'); else removeClass(document.body, 'lock-position');">
 					
 						<label for="nav-narrow" class="trigger"></label>
 					

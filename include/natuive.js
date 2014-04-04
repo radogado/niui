@@ -368,8 +368,8 @@ addEventHandler(window, 'load', function() {
 
 /* Add 'Back to top' button */
 
-	document.body.insertAdjacentHTML('beforeend', '<a class="backtotop"> ⬆ </a>');
-	document.body.querySelector('.backtotop').onclick = function() { scrollTo(0); return false; };
+	document.body.insertAdjacentHTML('beforeend', '<a class="backtotop" href="#"> ⬆ </a>');
+/* 	document.body.querySelector('.backtotop').onclick = function() { scrollTo(0); return false; }; */ /* Not working in Chrome */
 
 /* Auto textarea height - fix bug after manually resize in Safari*/
    	
