@@ -212,9 +212,10 @@ body {
 
 .subnav a:link, .subnav a:visited {
 	
-	padding: .5em 0;
+	padding: .5em;
 	text-shadow: 1px 1px #eee;
 	color: #666;
+	border-left: 1px solid rgba(0,0,0,0);
 	
 }
 
@@ -240,6 +241,12 @@ body {
 #top .row {
 	
 	border-spacing: .2em;
+	
+}
+
+#top .subnav .row {
+	
+	border-spacing: 0;
 	
 }
 
@@ -447,8 +454,14 @@ a.button.big {
 
 	position: relative;
 	color: #000;
-/* 	white-space: nowrap; */
 	
+}
+
+#top .subnav li ul li:not(:first-child) a {
+
+	border-bottom: 1px solid #c1bfbf;
+	border-top: 1px solid #fff;
+
 }
 
 #top .subnav li.active li {
@@ -467,12 +480,12 @@ a.button.big {
 	
 	display: block;
 	position: absolute;
-	top: 1.7em;
-	left: 1em;
+	top: 1.6em;
+	left: .85em;
 	z-index: 99999;
 	background: #ddd;
-	padding: 0 .5em;
-	margin-left: -.7em;
+	padding: 0;
+/* 	margin-left: -.7em; */
 	max-height: 0;
 	overflow: hidden;
 	-webkit-transition: max-height .2s ease-in-out;
@@ -488,21 +501,29 @@ a.button.big {
 
 }
 
-input.trigger:checked + *, #top input.trigger:checked + ul.nav, #top .subnav li input.trigger:checked + ul {
+li ul input.trigger:checked + *, #top li ul input.trigger:checked + ul.nav, #top .subnav li input.trigger:checked + ul {
 	
 	display: block;
 	height: 100%;
 	
 }
 
-#top .subnav li input.trigger:checked + ul {
+#top .subnav li input.trigger:checked ~ ul {
 	
 	display: block;
 	height: auto;
 	max-height: 500px;
 	transition: max-height .2s ease-in-out;
-	border-color: #c1bfbf;
+/* 	border-color: #c1bfbf; */
+	box-shadow: -1px 1px 1px #999999, 1px 1px 1px rgba(0, 0, 0, .3);
 
+}
+
+#top .subnav li input.trigger:checked ~ a {
+	
+/* 	border-left: 1px solid #c1bfbf; */
+	box-shadow: -1px 1px 1px #999999, 1px 1px 1px rgba(0, 0, 0, .3);
+	
 }
 
 label.trigger {
