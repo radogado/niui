@@ -17,7 +17,6 @@
 	width: 100%;
 	border-spacing: .4em;
 	border-collapse: separate;
-	height: 100%;
 
 /*
 display: -webkit-flex;
@@ -46,7 +45,6 @@ flex-flow: row wrap;
 	vertical-align: top;
 /* 	padding: .8em; */
 	width: 98%;
-	height: 100%;
 
 /*
 -webkit-flex: 0 1 auto;
@@ -904,6 +902,12 @@ table {
 		color: #fff;
 
 	}
+
+	@-moz-document url-prefix()
+	{
+		.row, .column, .column1, .column2, .column3, .column23, .column4, .column34 { height: 100%; }
+	}
+
 
 /* Media Queries */
 
