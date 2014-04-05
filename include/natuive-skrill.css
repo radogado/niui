@@ -80,7 +80,7 @@ body.lock-position .backtotop {
 	box-shadow: 0 1px 2px #333;
 
 }
-#main .main-teasers .column {
+#main .main-teasers > * {
 	
 	box-shadow: 0 0 5px #666;
 	padding: 2em 1em;
@@ -134,7 +134,7 @@ body.lock-position .backtotop {
 
 }
 
-.column, .column2, .column3, .column23, .column4, .column34 {
+.row > *, .column, .column2, .column3, .column23, .column4, .column34 {
 
 	padding: 0;
 
@@ -309,7 +309,7 @@ html {
 	background: #c02499;
 }
 
-	#top .column2 > div, #top .column4 {
+	#top .column > div, #top .column {
 		
 		vertical-align: bottom;
 
@@ -392,11 +392,13 @@ a.button.big {
 	
 }
 
-#top .row > .column4:first-child {
+/*
+#top .row > .column:first-child {
 	
 	display: none;
 	
 }
+*/
 
 .wide-screen {
 	
@@ -627,7 +629,7 @@ input.trigger {
 		
 	}
 	
-	#top .column4 {
+	#top .column {
 
 		right: 1em;
 		display: table-cell;
@@ -676,7 +678,7 @@ input.trigger {
 		
 	}
 	
-	#top .row > .column4:first-child {
+	#top .row > .column:first-child {
 		
 		display: table-cell;
 		
@@ -688,7 +690,7 @@ input.trigger {
 		
 	}
 
-	#top .row:first-child .column2, #top .row:first-child .column34, #top .row:first-child .column4 {
+	#top .row:first-child .column, #top .row:first-child .column34, #top .row:first-child .column {
 		
 		padding-bottom: .5em;
 				
