@@ -44,7 +44,7 @@ flex-flow: row wrap;
 	display: table-cell;
 	vertical-align: top;
 /* 	padding: .8em; */
-	width: 98%;
+/* 	width: 98%; */
 
 /*
 -webkit-flex: 0 1 auto;
@@ -54,6 +54,7 @@ flex: 0 1 auto;
 	
 }
 
+/*
 	.column2 {
 		width: 48%;
 	}
@@ -65,13 +66,14 @@ flex: 0 1 auto;
 	.column4 {
 		width: 23%;
 	}
+*/
 	
 	.column23 {
-		width: 64.666%;
+		width: 66.666%;
 	}
 	
 	.column34 {
-		width: 73%;
+		width: 75%;
 	}
 
 /* Basic elements */
@@ -907,7 +909,6 @@ table {
 	{
 		.row, .column, .column1, .column2, .column3, .column23, .column4, .column34 { height: 100%; }
 	}
-
 
 /* Media Queries */
 

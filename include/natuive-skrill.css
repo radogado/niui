@@ -80,7 +80,7 @@ body.lock-position .backtotop {
 	box-shadow: 0 1px 2px #333;
 
 }
-#main .column3 {
+#main .main-teasers .column {
 	
 	box-shadow: 0 0 5px #666;
 	padding: 2em 1em;
@@ -328,7 +328,7 @@ html {
 	
 }
 
-#main .row {
+#main .row.main-teasers {
 
 	margin-top: -6em;
 
@@ -604,7 +604,7 @@ input.trigger {
 
 @media screen and (max-width: 640px) {
 
-	#main .column3 {
+	#main .main-teasers .column {
 
 		padding: 3% 1%;
 		margin: 5% 0;
