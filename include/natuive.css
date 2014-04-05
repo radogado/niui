@@ -103,7 +103,7 @@ a:link, a:visited {
 
 	div.mega-link {
 		
-		position: relative;
+/* 		position: relative; */
 		height: 100%;
 /* 		overflow: auto; */
 
@@ -867,6 +867,9 @@ table {
 	@-moz-document url-prefix()
 	{
 		.row, .row > * { height: 100%; }
+		
+		div.mega-link { position: relative; }
+
 	}
 
 /* Media Queries */
