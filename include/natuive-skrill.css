@@ -64,7 +64,6 @@ body.lock-position {
 	height: 100%;
 	overflow: hidden;
 	width: 100%;
-/* 	position: fixed; */
 
 }
 
@@ -134,7 +133,7 @@ body.lock-position .backtotop {
 
 }
 
-.row > *, .column, .column2, .column3, .column23, .column4, .column34 {
+.row > * {
 
 	padding: 0;
 
@@ -163,11 +162,6 @@ body.lock-position .backtotop {
 .banner, #head .banner p, #footer {
 	
 	color: #fff;
-	
-}
-.banner .column, .banner .column2, .banner .column2 {
-	
-	padding-bottom: 0;
 	
 }
 
@@ -253,6 +247,12 @@ body.lock-position .backtotop {
 	
 }
 
+#top .subnav .row > div:last-child {
+	
+	text-align: left;
+	
+}
+
 #top .row {
 	
 	border-spacing: .2em;
@@ -309,24 +309,18 @@ html {
 	background: #c02499;
 }
 
-	#top .column > div, #top .column {
-		
-		vertical-align: bottom;
-
-	}
+#top .row > * {
 	
-	#top .row > * {
-		
-		padding-bottom: 0;
-		
-	}
-
-
-#top img {
-	
-	margin-right: 1em;
+	padding-bottom: 0;
 	
 }
+
+
+	#top img {
+		
+		margin-right: 1em;
+		
+	}
 
 #main .row.main-teasers {
 
@@ -391,14 +385,6 @@ a.button.big {
 	color: #666;
 	
 }
-
-/*
-#top .row > .column:first-child {
-	
-	display: none;
-	
-}
-*/
 
 .wide-screen {
 	
@@ -606,7 +592,7 @@ input.trigger {
 
 @media screen and (max-width: 640px) {
 
-	#main .main-teasers .column {
+	#main .row.main-teasers > * {
 
 		padding: 3% 1%;
 		margin: 5% 0;
