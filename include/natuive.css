@@ -17,11 +17,15 @@
 	width: 100%;
 	border-spacing: .4em;
 	border-collapse: separate;
+	height: 100%;
 
 /*
 display: -webkit-flex;
 display: -moz-flex;
 display: flex;
+*/
+
+/*
 -webkit-flex-flow: row wrap;
 -moz-flex-flow: row wrap;
 flex-flow: row wrap;
@@ -42,11 +46,12 @@ flex-flow: row wrap;
 	vertical-align: top;
 /* 	padding: .8em; */
 	width: 98%;
+	height: 100%;
 
 /*
--webkit-flex: 1 auto;
--moz-flex: 1 auto;
-flex: 1 auto;
+-webkit-flex: 0 1 auto;
+-moz-flex: 0 1 auto;
+flex: 0 1 auto;
 */
 	
 }
@@ -140,6 +145,9 @@ a:link, a:visited {
 	div.mega-link {
 		
 		position: relative;
+		height: 100%;
+		overflow: auto;
+
 	}
 	
 	div.mega-link > a:link, div.mega-link > a:visited {
