@@ -79,21 +79,21 @@ body.lock-position .backtotop {
 	box-shadow: 0 1px 2px #333;
 
 }
-#main .main-teasers > * {
+
+#main .main-teasers > div {
 	
 	box-shadow: 0 0 5px #666;
-	padding: 2em 1em;
+/* 	padding: 2em 1em; */
 	border-radius: 2px;
 	text-align: center;
 	background: #f6f6f6 radial-gradient(ellipse at center,  #ffffff 51%,#d6d6d6 100%);
 	
 }
+
 #main h3 {
 	
 	color: #801866;
 }
-
-
 
 .slider-container .slider-arrow {
 	
@@ -182,8 +182,16 @@ body.lock-position .backtotop {
 	margin-top: .6em;
 	
 }
-.banner.row {
+
+.banner.row, .banner .row {
 	
+	border-spacing: 0;	
+	
+}
+
+.banner .slider img {
+	
+	max-width: none;
 	
 }
 
@@ -593,6 +601,36 @@ input.trigger {
 .slider-nav a.active {
 	
 	background: orange;
+
+}
+
+.main-teasers-arrow {
+
+	width: 50px;
+	height: 50px;
+	margin: 0 auto;
+	
+	box-shadow: inset 0 6px 4px -4px #666;
+	
+	-moz-border-radius: 25px;
+	-webkit-border-radius: 25px;
+	border-radius: 25px;
+	background: url("../images/content.gif") center top repeat;  
+	
+	position: absolute;
+	display: inline-block;
+	bottom: -30px;
+	left: 50%;
+	margin: 0 -25px;
+
+}
+
+.main-teasers-arrow span {
+	
+	display: block;
+	width: 100%;
+	height: 100%;  
+	background: url("../images/arrow-multi_teaser_yellow.png") 15px center no-repeat;  	
 
 }
 
