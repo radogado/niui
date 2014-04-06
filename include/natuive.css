@@ -35,6 +35,18 @@
 		width: 75%;
 	}
 
+	.row > .column4 {
+		width: 25%;
+	}
+
+	.row > .column3 {
+		width: 33.333%;
+	}
+
+	.row > .column2 {
+		width: 50%;
+	}
+
 /* Basic elements */
 
 body {
@@ -332,17 +344,19 @@ h1, h2, h3, h4 {
 	}
 
 
+/*
 	#top .row > * {
 		
 		vertical-align: top;
 
 	}
+*/
 	
-	#top .row > div:last-child {
+	#top .row > div.column4 {
 		
 		text-align: right;
-		width: 25%;
 		padding-right: .5em;
+		vertical-align: bottom;
 		
 	}
 
@@ -887,7 +901,7 @@ table {
 	#top .row > * {
 		
 		display: table-cell;
-		width: 48%;
+/* 		width: 50%; */
 	}
 
 	label input, #main label select, textarea {

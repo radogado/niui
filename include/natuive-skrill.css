@@ -256,11 +256,13 @@ body.lock-position .backtotop {
 	
 }
 
+/*
 #top .subnav .row > div:last-child {
 	
 	text-align: left;
 	
 }
+*/
 
 #top .row {
 	
@@ -268,7 +270,7 @@ body.lock-position .backtotop {
 	
 }
 
-#top .column34 {
+#top .column2 {
 	
 	vertical-align: bottom;
 	
@@ -655,16 +657,17 @@ input.trigger {
 
 	}
 	
-	#top .column34 {
+	#top .column2 {
 		
 		text-align: center;
-		background: #fff;
-		padding-bottom: 0;
-		height: 20px;
+/* 		background: #fff; */
+/* 		padding-bottom: 0; */
+/* 		height: 20px; */
 		
 	}
 	
-	#top .column {
+/*
+	#top .row > * {
 
 		right: 1em;
 		display: table-cell;
@@ -673,6 +676,7 @@ input.trigger {
 		padding-bottom: 0;
 
 	}	
+*/
 	
 	#top .nav {
 		
@@ -703,7 +707,7 @@ input.trigger {
 		background: #fff;
 		z-index: 99999;
 		box-shadow: 0 2px 3px #666;
-		padding-top: .5em;
+		padding: .5em 0;
 		
 	}
 	
@@ -727,7 +731,7 @@ input.trigger {
 	
 	.wide-screen {
 		
-		display: none;
+		display: none !important;
 		
 	}
 
