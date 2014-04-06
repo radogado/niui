@@ -86,6 +86,7 @@ body.lock-position .backtotop {
 /* 	padding: 2em 1em; */
 	border-radius: 2px;
 	text-align: center;
+	background: #f6f6f6 url(../images/content.gif);
 	background: #f6f6f6 radial-gradient(ellipse at center,  #ffffff 51%,#d6d6d6 100%);
 	
 }
