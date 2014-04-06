@@ -6,7 +6,7 @@ function isTouchDevice () {
 
 }
 
-function addClass ( el, className ) {
+function addClass ( el, className ) { // To do: fix unnecessary spaces
 
 	if (el.classList) {
 		el.classList.add(className);
@@ -109,7 +109,7 @@ if ( typeof document.body.style.textShadow == 'undefined' ) { // Old browsers wi
 			var event = e || window.event;
 			var target = event.target || event.srcElement;
 			
-			if (target.checked ) {
+			if ( target.checked || (target.value == 'on') ) {
 				addClass ( target.parentNode.querySelector('ul'), 'open' );
 			} else {
 				removeClass ( target.parentNode.querySelector('ul'), 'open' );
