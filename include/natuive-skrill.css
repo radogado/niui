@@ -521,7 +521,13 @@ a.button.big {
 
 }
 
-#top .subnav li ul.open, #top .subnav li input.trigger:checked ~ ul {
+#top .subnav li ul.open {
+	
+	max-height: 500px;
+
+}
+
+#top .subnav li input.trigger:checked ~ ul {
 	
 	max-height: 500px;
 
