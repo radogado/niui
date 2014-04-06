@@ -83,7 +83,6 @@ body.lock-position .backtotop {
 #main .main-teasers > div {
 	
 	box-shadow: 0 0 5px #666;
-/* 	padding: 2em 1em; */
 	border-radius: 2px;
 	text-align: center;
 	background: #f6f6f6 url(../images/content.gif);
@@ -255,14 +254,6 @@ body.lock-position .backtotop {
 	border-top: 1px solid #b2b2b2;
 	
 }
-
-/*
-#top .subnav .row > div:last-child {
-	
-	text-align: left;
-	
-}
-*/
 
 #top .row {
 	
@@ -660,23 +651,8 @@ input.trigger {
 	#top .column2 {
 		
 		text-align: center;
-/* 		background: #fff; */
-/* 		padding-bottom: 0; */
-/* 		height: 20px; */
 		
 	}
-	
-/*
-	#top .row > * {
-
-		right: 1em;
-		display: table-cell;
-		width: 25%;
-		vertical-align: middle;
-		padding-bottom: 0;
-
-	}	
-*/
 	
 	#top .nav {
 		
@@ -702,9 +678,10 @@ input.trigger {
 	
 	#top .row {
 		
+		background: #fff;
 		border-spacing: 0;
 		position: fixed;
-		background: #fff;
+		height: auto;
 		z-index: 99999;
 		box-shadow: 0 2px 3px #666;
 		padding: .5em 0;

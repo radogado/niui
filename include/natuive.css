@@ -115,9 +115,7 @@ a:link, a:visited {
 
 	div.mega-link {
 		
-/* 		position: relative; */
 		height: 100%;
-/* 		overflow: auto; */
 
 	}
 	
@@ -343,15 +341,6 @@ h1, h2, h3, h4 {
 
 	}
 
-
-/*
-	#top .row > * {
-		
-		vertical-align: top;
-
-	}
-*/
-	
 	#top .row > div.column4 {
 		
 		text-align: right;
@@ -901,7 +890,7 @@ table {
 	#top .row > * {
 		
 		display: table-cell;
-/* 		width: 50%; */
+
 	}
 
 	label input, #main label select, textarea {
