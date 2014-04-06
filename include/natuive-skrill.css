@@ -109,7 +109,7 @@ body.lock-position .backtotop {
 .slider-nav {
 	
 	text-align: right;
-	top: 0;
+	top: 1em;
 	bottom: auto;
 	right: 1em;
 	
@@ -287,8 +287,8 @@ body.lock-position .backtotop {
 
 .subnav label.trigger {
 
-	width: 16px;
-	height: 15px;
+	width: 12px;
+	height: 12px;
 	border: 1px solid #999;
 	border-radius: 2px;
 	background: url(../images/triangle-subnav.png) center center no-repeat;
@@ -471,8 +471,13 @@ a.button.big {
 
 #top .subnav li ul li:not(:first-child) a {
 
-	border-bottom: 1px solid #c1bfbf;
 	border-top: 1px solid #fff;
+
+}
+
+#top .subnav li ul li:not(:last-child) a {
+
+	border-bottom: 1px solid #c1bfbf;
 
 }
 
