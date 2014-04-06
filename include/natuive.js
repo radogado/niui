@@ -84,7 +84,7 @@ function stopEvent( e ) {
 
 }
 
-if ( typeof document.body.style.textShadow == 'undefined' ) { // Browsers without (good) CSS3 support
+if ( typeof document.body.style.textShadow == 'undefined' ) { // Old browsers without (good) CSS3 support
 
 	forEachElement('.accordion label', function(el, i) {
 		
@@ -101,6 +101,23 @@ if ( typeof document.body.style.textShadow == 'undefined' ) { // Browsers withou
 		};
 
 	});
+
+	forEachElement('input.trigger', function (el, i) {
+		
+		el.onchange = function (e) {
+
+			var event = e || window.event;
+			var target = event.target || event.srcElement;
+			
+			if (target.checked ) {
+				addClass ( target.parentNode.querySelector('ul'), 'open' );
+			} else {
+				removeClass ( target.parentNode.querySelector('ul'), 'open' );
+			}
+			
+		}
+
+	});	
 
 }
 

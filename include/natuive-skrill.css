@@ -517,14 +517,14 @@ a.button.big {
 
 }
 
-li ul input.trigger:checked ~ ul, #top li ul input.trigger:checked ~ ul.nav, #top .subnav li input.trigger:checked ~ ul {
+li ul input.trigger:checked ~ ul, #top li ul input.trigger:checked ~ ul.nav, #top .subnav li input.trigger:checked ~ ul, li ul ul.open, #top li ul ul.nav.open, #top .subnav li ul.open {
 	
 	display: block;
 	height: 100%;
 	
 }
 
-#top .subnav li input.trigger:checked ~ ul {
+#top .subnav li input.trigger:checked ~ ul, #top .subnav li ul.open {
 	
 	display: block;
 	height: auto;
@@ -534,7 +534,7 @@ li ul input.trigger:checked ~ ul, #top li ul input.trigger:checked ~ ul.nav, #to
 
 }
 
-#top .subnav li input.trigger:checked ~ a {
+#top .subnav li input.trigger:checked ~ a, #top .subnav li input.trigger:checked ~ a {
 	
 	box-shadow: -1px 1px 1px #999999, 1px 1px 1px rgba(0, 0, 0, .3);
 	
@@ -696,12 +696,6 @@ input.trigger {
 		
 	}
 	
-	#top a:link ~ a:link {
-		
-		display: none;
-		
-	}
-	
 	#top .row {
 		
 		border-spacing: 0;
@@ -828,7 +822,7 @@ input.trigger {
 		display: none;
 	}
 
-	#top input.trigger:checked ~ ul {
+	#top input.trigger:checked ~ ul, #top ul.open {
 		
 		display: block;
 		height: auto;
@@ -837,7 +831,7 @@ input.trigger {
 
 	}
 
-	#top input.trigger:checked ~ ul.nav {
+	#top input.trigger:checked ~ ul.nav, #top ul.nav.open {
 
 		box-shadow: 0px 1px 4px;
 	
