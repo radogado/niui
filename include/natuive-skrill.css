@@ -610,8 +610,6 @@ input.trigger {
 	
 	box-shadow: inset 0 6px 4px -4px #666;
 	
-	-moz-border-radius: 25px;
-	-webkit-border-radius: 25px;
 	border-radius: 25px;
 	background: url("../images/content.gif") center top repeat;  
 	
