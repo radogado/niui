@@ -102,17 +102,18 @@ if ( typeof document.body.style.textShadow == 'undefined' ) { // Old browsers wi
 
 	});
 
-	forEachElement('input.trigger', function (el, i) {
+	forEachElement('label.trigger', function (el, i) {
 		
-		el.onchange = function (e) {
+		el.onclick = function (e) {
 
 			var event = e || window.event;
 			var target = event.target || event.srcElement;
-			
-			if ( target.checked || (target.value == 'on') ) {
-				addClass ( target.parentNode.querySelector('ul'), 'open' );
+			el = target.parentNode.querySelector('ul');
+
+			if ( hasClass ( el, 'open' ) ) {
+				removeClass ( el, 'open' );
 			} else {
-				removeClass ( target.parentNode.querySelector('ul'), 'open' );
+				addClass ( el, 'open' );
 			}
 			
 		}
