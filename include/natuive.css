@@ -125,10 +125,11 @@ a:link, a:visited {
 		display: block;
 		top: 0;
 		right: 0;
-		bottom: 0;
+		bottom: -1.7em;
 		left: 0;
 		z-index: 9;
-		
+		background: url(../images/transparent.png); /* IE8,9,10 */
+
 	}
 
 li, p {
@@ -884,7 +885,6 @@ table {
 	.row > * {
 
 		display: block;
-/* 		width: 98%; */
 		padding: 1%;
 
 	}

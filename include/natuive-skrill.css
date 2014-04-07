@@ -89,6 +89,13 @@ body.lock-position .backtotop {
 	background: #f6f6f6 radial-gradient(ellipse at center,  #ffffff 51%,#d6d6d6 100%);
 	border: 1px solid #ccc;
 	padding: 1em .5em 2em .5em;
+	transition: box-shadow .2s linear;
+	
+}
+
+#main .main-teasers:hover > div {
+	
+	box-shadow: 0 0 2px #666;
 	
 }
 
@@ -632,13 +639,13 @@ input.trigger {
 
 }
 
-	@-moz-document url-prefix()
-	{
-		.main-teasers > div { padding-bottom: 0 !important; }
+@-moz-document url-prefix()
+{
+	.main-teasers > div { padding-bottom: 0 !important; }
 
-		.main-teasers > div:after { content: ""; display: block; height: 3em; }
+	.main-teasers > div:after { content: ""; display: block; height: 3em; }
 
-	}
+}
 
 @media screen and (max-width: 640px) {
 
@@ -822,12 +829,6 @@ input.trigger {
 		transition: max-height .2s ease-in-out;
 		max-height: 999px;
 
-	}
-
-	#top input.trigger:checked ~ ul.nav, #top ul.nav.open {
-
-		box-shadow: 0px 1px 4px;
-	
 	}
 
 	#top .column34 {
