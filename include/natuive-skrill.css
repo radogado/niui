@@ -87,6 +87,8 @@ body.lock-position .backtotop {
 	text-align: center;
 	background: #f6f6f6 url(../images/content.gif);
 	background: #f6f6f6 radial-gradient(ellipse at center,  #ffffff 51%,#d6d6d6 100%);
+	border: 1px solid #ccc;
+	padding: 1em .5em 2em .5em;
 	
 }
 
@@ -332,8 +334,7 @@ html {
 
 #main .row.main-teasers {
 
-	margin-top: -6em;
-
+	margin: -6em 0 1.5em 0;
 }
 
 h1, h2, h3, h4, h5, a.button {
@@ -630,12 +631,24 @@ input.trigger {
 
 }
 
+	@-moz-document url-prefix()
+	{
+		.main-teasers > div { padding-bottom: 0 !important; }
+
+		.main-teasers > div:after { content: ""; display: block; height: 3em; }
+
+	}
+
 @media screen and (max-width: 640px) {
+
+	@-moz-document url-prefix() 	
+	{ 		 		
+		div.mega-link { position: static; }  	
+	}
 
 	#main .row.main-teasers > * {
 
-		padding: 3% 1%;
-		margin: 5% 0;
+		margin: 2em 0;
 
 	}
 	

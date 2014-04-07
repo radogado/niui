@@ -316,11 +316,13 @@ h1, h2, h3, h4 {
 		
 }
 	
+/*
 	#main .row {
 		
 		padding: 1em 0;
 		
 	}
+*/
 
 	#main .row + .row { /* Every .row appearing right after another .row */
 		
@@ -882,7 +884,7 @@ table {
 	.row > * {
 
 		display: block;
-		width: 98%;
+/* 		width: 98%; */
 		padding: 1%;
 
 	}
