@@ -22,9 +22,10 @@
 	width: 100%;
 	display: inline-block;
 	white-space: normal;
-	margin: 0 -4px 0 0; /* Fix inline-block right padding */
+	margin: 0 -5px 0 0; /* Fix inline-block right padding */
 	vertical-align: top;
 	overflow: hidden;
+	padding: 0;
 
 }
 

@@ -33,6 +33,7 @@ function slideEnd () {
 	removeClass( document.body, 'disable-hover' );
   	moveIndex();
   	original_scroll = slider.scrollLeft;
+	document.onkeyup = sliderKeyboard;
 	
 }
 
@@ -113,26 +114,33 @@ function slide ( e, target ) {
 
 }
 
+function sliderKeyboard (e) {
+
+
+/*
+	slider = document.querySelector('.slider'); // Move slider #1; to do: select nearest slider
+	
+	var event = e || window.event;
+	stopEvent(event);
+    if (event.keyCode == 37) { // left
+    	
+	document.onkeyup = function (e) { return false; };
+		slide(e, 'left');
+
+    }
+    if (event.keyCode == 39) { // right
+
+	document.onkeyup = function (e) { return false; };
+		slide(e, 'right');
+		
+    }
+*/
+
+};
+
 addEventHandler ( window, 'load', function() {
 
-	document.onkeyup = function(e) {
-
-		slider = document.querySelector('.slider'); // Move slider #1; to do: select nearest slider
-		
-		var event = e || window.event;
-		
-	    if (event.keyCode == 37) { // left
-	    	
-			slide(e, 'left');
-
-	    }
-	    if (event.keyCode == 39) { // right
-	
-			slide(e, 'right');
-			
-	    }
-
-	};
+	document.onkeyup = sliderKeyboard;
 	
 	/* Initialise JS extras: create arrows/numbers navigation */
 	forEachElement('.slider', function(el, i) {
