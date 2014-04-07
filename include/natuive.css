@@ -113,25 +113,6 @@ a:link, a:visited {
 
 	}
 
-	div.mega-link {
-		
-		height: 100%;
-
-	}
-	
-	div.mega-link > a:link, div.mega-link > a:visited {
-		
-		position: absolute;
-		display: block;
-		top: 0;
-		right: 0;
-		bottom: -1.7em;
-		left: 0;
-		z-index: 9;
-		background: url(../images/transparent.png); /* IE8,9,10 */
-
-	}
-
 li, p {
 
 	line-height: 1.4;
@@ -874,8 +855,6 @@ table {
 	{
 		.row, .row > * { height: 100%; }
 		
-		div.mega-link { position: relative; }
-
 	}
 
 /* Media Queries */

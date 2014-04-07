@@ -80,7 +80,9 @@ body.lock-position .backtotop {
 
 }
 
-#main .main-teasers > div {
+/* Teaser Box */
+
+.teaser {
 	
 	box-shadow: 0 0 5px #666;
 	border-radius: 2px;
@@ -93,12 +95,34 @@ body.lock-position .backtotop {
 	
 }
 
-#main .main-teasers > div:hover {
+	.teaser:hover {
+		
+		box-shadow: 0 0 2px #666;
+		border: 1px solid #eee;
+		
+	}
 	
-	box-shadow: 0 0 2px #666;
-	border: 1px solid #eee;
+	.teaser > div {
+		
+		content: "";
+		display: block;
+		position: static;
+		height: 100%;
+		
+	}
 	
-}
+	.teaser > div > a:link, .teaser > div > a:visited {
+		
+		position: absolute;
+		display: block;
+		top: 0;
+		right: 0;
+		bottom: -1.7em;
+		left: 0;
+		z-index: 9;
+		background: url(../images/transparent.png); /* IE8,9,10 */
+
+	}
 
 #main h3 {
 	
@@ -141,12 +165,6 @@ body.lock-position .backtotop {
 #main .row {
 	
 	border-spacing: 1em;
-
-}
-
-.row > * {
-
-	padding: 0;
 
 }
 
@@ -341,9 +359,9 @@ html {
 		
 	}
 
-#main .row.main-teasers {
+#main > .row:first-child { /* Homepage teasers' overlap */
 
-	margin: -6em auto 1.5em auto;
+	margin: -5em auto 1.5em auto;
 
 }
 
@@ -613,7 +631,7 @@ input.trigger {
 
 }
 
-.main-teasers-arrow {
+.teaser-arrow {
 
 	width: 50px;
 	height: 50px;
@@ -632,7 +650,7 @@ input.trigger {
 
 }
 
-.main-teasers-arrow span {
+.teaser-arrow span {
 	
 	display: block;
 	width: 100%;
@@ -643,9 +661,11 @@ input.trigger {
 
 @-moz-document url-prefix()
 {
-	.main-teasers > div { padding-bottom: 0 !important; }
+	.teaser { padding-bottom: 0 !important; }
+	
+	.teaser > div { position: relative; }
 
-	.main-teasers > div:after { content: ""; display: block; height: 3em; }
+	.teaser:after { content: ""; display: block; height: 3em; }
 
 }
 
@@ -653,10 +673,10 @@ input.trigger {
 
 	@-moz-document url-prefix() 	
 	{ 		 		
-		div.mega-link { position: static; }  	
+		.teaser > div { position: static; }  	
 	}
 
-	#main .row.main-teasers > * {
+	.teaser {
 
 		margin: 2em 0;
 
