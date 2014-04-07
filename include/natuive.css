@@ -2,7 +2,7 @@
 	
 /* Grid */
 
-.container {
+.contain {
 
 	max-width: 1216px;
 	margin: 0 auto;
@@ -20,10 +20,15 @@
 
 }
 
+	@-moz-document url-prefix()	{
+		.row, .row > * { height: 100%; }		
+	}
+
 	.row > * {
 	
 		display: table-cell;
 		vertical-align: top;
+		position: relative;
 		
 	}
 
@@ -63,17 +68,19 @@ body {
 
 }
 
+h1, h2, h3, h4 {
+	
+	line-height: 1.1;
+	margin: 0 0 .5em 0;
+	font-weight: 500;
+
+}
+
 img {
 	
 	max-width: 100%;
 	border: none;
 	
-}
-
-.alignright {
-
-	 text-align: right;
-
 }
 
 p:first-child {
@@ -82,19 +89,6 @@ p:first-child {
 
 }
 
-ul, #top ul, .subnav ul {
-
-	margin: 0;
-	padding: 0;
-	display: inline-block;
-
-}
-
-	ul {
-		
-		margin: 1em 0 1em 2em;
-	}
-
 a:link, a:visited {
 
 	color: #333;
@@ -102,11 +96,6 @@ a:link, a:visited {
 
 }
 
-	li a:link, li a:visited {
-		
-		text-decoration: none;
-		
-	}
 	a[href]:hover, input[type="submit"]:hover {
 
 		color: #ff6600 !important;
@@ -117,6 +106,34 @@ li, p {
 
 	line-height: 1.4;
 
+}
+
+.wide-screen {
+	
+	display: block;
+	
+}
+
+.narrow-screen {
+	
+	display: none !important;
+	
+}
+
+/* Navigation */
+
+ul, #top ul, .subnav ul {
+
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+
+}
+
+li a:link, li a:visited {
+	
+	text-decoration: none;
+	
 }
 
 .nav {
@@ -187,10 +204,27 @@ li, p {
 
 	}
 	
-	.subnav.row > .container {
+	.subnav.row > .contain {
 		
 		border-spacing: 0;
 		
+	}
+
+#language {
+
+	display: inline-block;
+	font-size: 1.6em;
+	white-space: nowrap;
+
+}
+
+	#language select {
+
+		background: url(../images/country_select_globes.png) center left no-repeat;
+		padding-left: 2em;
+		font-size: .5em;
+		border: none;
+
 	}
 
 /* Buttons */
@@ -237,6 +271,7 @@ a.button, input[type="submit"] {
 		padding-left: .3em;
 	
 	}
+
 	.button.big, #main input[type="submit"] {
 
 		background: rgb(0,221,240);
@@ -245,6 +280,7 @@ a.button, input[type="submit"] {
 		color: #fff;
 
 	}
+
 	.button.big:active, #main input[type="submit"]:active {
 
 		background: rgb(0,121,140);
@@ -264,21 +300,29 @@ a.button, input[type="submit"] {
 		
 	}
 	
-	noscript input[type="submit"] {
-		
-		max-height: 1em;
-		line-height: 1;
-		padding: .1em;
+/* Top Area */
 
+#top .row > div.column4 {
+	
+	text-align: right;
+	padding-right: .5em;
+	vertical-align: bottom;
+	
+}
+
+	#top .subnav.row > div:last-child {
+		
+		text-align: left;
+		
+	}
+	
+	#top img {
+		
+		margin: 0;
+		
 	}
 
-h1, h2, h3, h4 {
-	
-	line-height: 1.1;
-	margin: 0 0 .5em 0;
-	font-weight: 500;
-
-}
+/* Head Area */
 
 #head h1, #head p {
 
@@ -292,20 +336,14 @@ h1, h2, h3, h4 {
 
 	}
 
+/* Main Area */
+
 #main {
 	
 	padding: 1em 0;
 		
 }
 	
-/*
-	#main .row {
-		
-		padding: 1em 0;
-		
-	}
-*/
-
 	#main .row + .row { /* Every .row appearing right after another .row */
 		
 		border-top: 1px dotted #ccc;
@@ -325,44 +363,8 @@ h1, h2, h3, h4 {
 
 	}
 
-	#top .row > div.column4 {
-		
-		text-align: right;
-		padding-right: .5em;
-		vertical-align: bottom;
-		
-	}
 
-	#top .subnav.row > div:last-child {
-		
-		text-align: left;
-		
-	}
-
-	#top img {
-		
-		margin: 0;
-		
-	}
-
-#language {
-
-	display: inline-block;
-	font-size: 1.6em;
-	white-space: nowrap;
-
-}
-
-	#language select {
-
-		background: url(../images/country_select_globes.png) center left no-repeat;
-		padding-left: 2em;
-		font-size: .5em;
-		border: none;
-
-	}
-
-/* Form */
+/* Forms */
 
 form {
 	
@@ -371,27 +373,27 @@ form {
 	
 }
 
-label {
+	label {
+		
+		display: block;
+		text-align: right;
+		margin: 1em 0;
+		font-weight: bold;
+		max-width: 100%;
+		padding: 1px;
+		
+	}
 	
-	display: block;
-	text-align: right;
-	margin: 1em 0;
-	font-weight: bold;
-	max-width: 100%;
-	padding: 1px;
+	select {
+		
+			-webkit-appearance: none;
+			font-family: inherit;
+			-moz-appearance: none;
+		    text-indent: 0.01px;
+		    text-overflow: '';	
+		    margin: 0;
 	
-}
-
-select {
-	
-		-webkit-appearance: none;
-		font-family: inherit;
-		-moz-appearance: none;
-	    text-indent: 0.01px;
-	    text-overflow: '';	
-	    margin: 0;
-
-}
+	}
 
 	select::-ms-expand {
 	
@@ -399,35 +401,35 @@ select {
 	
 	}
 
-input, #main select, textarea {
+	input, #main select, textarea {
+		
+		background: #fff;
+		font-family: inherit;
+		font-size: 1em;
+		border-radius: 3px;
+		border: 1px solid #bbb;
+		padding: 2.2% 2%;
+		box-shadow: 0px 1px 1px #bbb inset;
+		width: 41%;
+		display: inline-block;
+		vertical-align: top;
+		overflow: hidden;
+		resize: none;
+		
+	}
 	
-	background: #fff;
-	font-family: inherit;
-	font-size: 1em;
-	border-radius: 3px;
-	border: 1px solid #bbb;
-	padding: 2.2% 2%;
-	box-shadow: 0px 1px 1px #bbb inset;
-	width: 41%;
-	display: inline-block;
-	vertical-align: top;
-	overflow: hidden;
-	resize: none;
+	label input,  #main label select, textarea {
 	
-}
-
-label input,  #main label select, textarea {
-
-	margin-left: 1%;
-
-}
-
-form input[type="submit"] {
+		margin-left: 1%;
 	
-	margin-right: 0;
-	min-width: 45%;
+	}
 	
-}
+	form input[type="submit"] {
+		
+		margin-right: 0;
+		min-width: 45%;
+		
+	}
 
 	label span {
 		
@@ -457,20 +459,21 @@ form input[type="submit"] {
 		
 	}
 
-#main select {
-	
-	width: 45%;
-	box-shadow: 0 1px 2px #999;
-	border: 1px solid rgba(0,0,0,0);
-	background: #fff url(../images/select-arrow.svg) center right no-repeat;
-	background-position: 96% 50%;
-	background-size: 10px;
-	margin-top: 2px;
-	padding-right: 1.3em; /* Prevent overlapping */
-	padding-right: 2%\9; /* IE8 */
-	background: #fff\9; /* IE8 */
-	
-}
+	#main select {
+		
+		width: 45%;
+		box-shadow: 0 1px 2px #999;
+		border: 1px solid rgba(0,0,0,0);
+		background: #fff url(../images/select-arrow.svg) center right no-repeat;
+		background-position: 96% 50%;
+		background-size: 10px;
+		margin-top: 2px;
+		padding-right: 1.3em; /* Prevent overlapping */
+		padding-right: 2%\9; /* IE8 */
+		background: #fff\9; /* IE8 */
+		
+	}
+
 	:root #main select { padding-right: 2% \0/IE9; background: #fff \0/IE9; }  /* Disable the custom arrow in IE9 */
 
 	select:hover {
@@ -479,11 +482,13 @@ form input[type="submit"] {
 		
 	}
 
-.social {
-	
-	text-align: right;
-	
-}
+	noscript input[type="submit"] {
+		
+		max-height: 1em;
+		line-height: 1;
+		padding: .1em;
+
+	}
 
 /* Modal window */
 
@@ -590,7 +595,13 @@ a.backtotop {
 
 }
 
-/* Nested Ordered Lists */
+/* Lists */
+
+
+ul {
+	
+	margin: 1em 0 1em 2em;
+}
 
 ol {
 
@@ -706,6 +717,7 @@ ol {
 	display: table; /* IE9 fix */
 	
 }
+
 	.accordion label:before {
 
 		display: block;
@@ -733,18 +745,21 @@ ol {
 		height: 0;
 
 	}
+
 	.accordion input:checked ~ label > div, .accordion label.open > div { /* visible accordion item */
 
 	    max-height: 999px;
 	    height: auto;
 
 	}
+
 	.accordion label.open > div { /* IE8 */
 
 	    max-height: 999px;
 	    height: auto;
 
 	}
+
 	.accordion input:checked ~ label:before { /* invert the arrow */
 
 		-webkit-transform: scaleY(-1);
@@ -776,12 +791,6 @@ table {
 	overflow: auto;
 	-webkit-overflow-scrolling: touch;
 
-	}
-
-	tr, td {
-		
-		border: none;
-		
 	}
 
 	table td {
@@ -851,13 +860,19 @@ table {
 
 	}
 
-	@-moz-document url-prefix()
-	{
-		.row, .row > * { height: 100%; }
-		
-	}
+tr, td {
+	
+	border: none;
+	
+}
 
-/* Media Queries */
+.social {
+	
+	text-align: right;
+	
+}
+
+/* Narrow Screens */
 
 @media screen and (max-width: 640px) {
 
@@ -874,7 +889,7 @@ table {
 
 	}
 
-	label input, #main label select, textarea {
+	#main label select, label input, textarea {
 		
 		width: 96%;
 		margin: 0;
@@ -882,35 +897,40 @@ table {
 			
 	}
 	
-	#main label select, input[type="submit"] {
-
-		width: 100%;
-
-	}
+		#main label select, input[type="submit"] {
 	
+			width: 100%;
+	
+		}
+		
 	label {
 
 		text-align: left;
 
 	}
 	
-	label span {
+		label span {
+			
+			padding: 0;
+			width: 100%;
+			
+		}
 		
-		padding: 0;
-		width: 100%;
+		label.mandatory span:after {
+			
+			right: 0;
+			
+		}
+
+	.wide-screen {
 		
-	}
-	
-	label.mandatory span:after {
-		
-		right: 0;
-		
-	}
-	
-	.accordion {
-		
-		overflow: hidden;
+		display: none !important;
 		
 	}
 
+	.narrow-screen {
+		
+		display: block !important;
+		
+	}
 }
