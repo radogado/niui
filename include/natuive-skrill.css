@@ -89,13 +89,14 @@ body.lock-position .backtotop {
 	background: #f6f6f6 radial-gradient(ellipse at center,  #ffffff 51%,#d6d6d6 100%);
 	border: 1px solid #ccc;
 	padding: 1em .5em 2em .5em;
-	transition: box-shadow .2s linear;
+	transition: all .2s linear;
 	
 }
 
-#main .main-teasers:hover > div {
+#main .main-teasers > div:hover {
 	
 	box-shadow: 0 0 2px #666;
+	border: 1px solid #eee;
 	
 }
 
