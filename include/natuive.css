@@ -15,13 +15,12 @@
 	display: table;
 	table-layout: fixed;
 	width: 100%;
-	border-spacing: .4em;
 	border-collapse: separate;
 
 }
 
 	@-moz-document url-prefix()	{
-		.row, .row > * { height: 100%; }		
+/* 		.row, .row > * { height: 100%; }		 */
 	}
 
 	.row > * {
@@ -29,6 +28,7 @@
 		display: table-cell;
 		vertical-align: top;
 		position: relative;
+		padding: .5em;
 		
 	}
 
