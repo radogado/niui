@@ -361,7 +361,7 @@ addEventHandler(window, 'load', function() {
 	
 /* Modal window: open a link inside it */
 
-   	forEachElement('a.modal-link, a.lightbox', function(el, i) {
+   	forEachElement('a.modal, a.lightbox', function(el, i) {
 		
 		el.onclick = modalWindow;
 		
