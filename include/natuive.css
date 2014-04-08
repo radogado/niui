@@ -743,21 +743,18 @@ ol {
 	    overflow: hidden;
 	    transition: all .4s ease-in-out;
 	    max-height: 0;
-		height: 0;
 
 	}
 
 	.accordion input:checked ~ label > div, .accordion label.open > div { /* visible accordion item */
 
 	    max-height: 999px;
-	    height: auto;
 
 	}
 
 	.accordion label.open > div { /* IE8 */
 
 	    max-height: 999px;
-	    height: auto;
 
 	}
 

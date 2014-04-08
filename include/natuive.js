@@ -86,22 +86,6 @@ function stopEvent( e ) {
 
 if ( typeof document.body.style.textShadow == 'undefined' ) { // Old browsers without (good) CSS3 support
 
-	forEachElement('.accordion label', function(el, i) {
-		
-		el.onclick = function (e){ // To fix: Works only on the arrow, not the whole label
-		
-			if ( hasClass ( window.event.srcElement, 'open' ) ) {
-				removeClass ( window.event.srcElement, 'open' )
-			} else {
-				addClass ( window.event.srcElement, 'open' )
-			}
-			
-			return false;
-			
-		};
-
-	});
-
 	forEachElement('label.trigger', function (el, i) {
 		
 		el.onclick = function (e) {
@@ -436,6 +420,20 @@ addEventHandler(window, 'load', function() {
 			
 		};
 		
+	});
+
+	forEachElement('.accordion label', function(el, i) {
+		
+		el.onclick = function (e){ // To fix: Works only on the arrow, not the whole label
+			
+			stopEvent( e );
+					
+			el.querySelector('div').style.maxHeight = ((el.querySelector('div').style.maxHeight == '') ?(el.querySelector('div').scrollHeight + 'px') : '');
+			
+			return false;
+			
+		};
+
 	});
 
 });
