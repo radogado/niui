@@ -116,7 +116,7 @@ h1, h2, h3, h4, h5, a.button {
 	
 	#main > .row:first-child { /* Homepage teasers' overlap */
 	
-		margin: -5em auto 1.5em auto;
+		margin: -5em auto 0 auto;
 	
 	}
 
@@ -772,6 +772,7 @@ label.trigger {
 		user-select: none;
 		position: fixed;
 		left: .5em;
+		top: .5em;
 		
 	}
 	

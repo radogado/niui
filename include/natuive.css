@@ -698,25 +698,31 @@ ol {
 
 /* Accordion */
 
-.accordion label {
-
-	background: #fafafa;
-	position: relative;
-	padding: .9em 1em .6em 3em;
-	cursor: pointer;
-	color: #777;
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eaeaea',GradientType=0 );
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	text-align: left;
-	font-weight: normal;
-	display: table; /* IE9 fix */
+.accordion {
+	
+	overflow: hidden;
 	
 }
+
+	.accordion label {
+	
+		background: #fafafa;
+		position: relative;
+		padding: .9em 1em .6em 3em;
+		cursor: pointer;
+		color: #777;
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eaeaea',GradientType=0 );
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		text-align: left;
+		font-weight: normal;
+		display: table; /* IE9 fix */
+		
+	}
 
 	.accordion label:before {
 
@@ -869,6 +875,10 @@ tr, td {
 		display: block;
 		padding: 1%;
 
+	}
+	
+	.row > *, .row > .column23, .row > .column2, .row > .column3, .row > .column4, .row > .column34 {
+		width: auto;
 	}
 	
 	#top .row > * {
