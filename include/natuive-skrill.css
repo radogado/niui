@@ -120,7 +120,8 @@ h1, h2, h3, h4, h5 {
 
 .teasers {
 	
-	border-spacing: 1em;	
+	border-spacing: 1em;
+	padding-bottom: 1em;
 	
 }
 
@@ -248,7 +249,7 @@ h1, h2, h3, h4, h5 {
 
 #top .row {
 	
-/* 	border-spacing: .2em; */
+	border-spacing: .2em;
 	
 }
 
@@ -258,15 +259,9 @@ h1, h2, h3, h4, h5 {
 		
 	}
 	
-	#top .subnav .row {
+	#top .row > *, #footer .row > * {
 		
-/* 		border-spacing: 0; */
-		
-	}
-	
-	#top .row > * {
-		
-		padding-bottom: 0;
+		padding: 0 .5em;
 		
 	}
 
@@ -313,12 +308,6 @@ h1, h2, h3, h4, h5 {
 	
 		margin-top: .6em;
 		color: #fff;
-		
-	}
-	
-	.banner.row, .banner .row {
-		
-/* 		border-spacing: 0;	 */
 		
 	}
 	
@@ -559,12 +548,6 @@ h1, h2, h3, h4, h5 {
 	background-image: -o-linear-gradient(top, #661351, #801866, #c02499);
 	background-image: linear-gradient(top, #661351, #801866, #c02499);
 
-}
-
-#footer .subnav.row {
-	
-/* 	border-spacing: .1em */
-	
 }
 
 a.button {
