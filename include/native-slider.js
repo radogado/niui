@@ -184,6 +184,8 @@ addEventHandler ( window, 'load', function() {
 		height_scroll = el.offsetHeight - height_scroll;
 		container.style.height = (container.offsetHeight - height_scroll) + 'px';
 		
+		el.style.width = el.offsetWidth + 'px'; // Chrome fix
+		
 	});
 	
 });

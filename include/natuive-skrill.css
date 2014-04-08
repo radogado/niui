@@ -360,7 +360,7 @@ h1, h2, h3, h4, h5, a.button {
 	
 	.subnav a:link, .subnav a:visited {
 		
-		padding: .5em;
+		padding: .6em .5em;
 		text-shadow: 1px 1px #eee;
 		color: #666;
 		border-left: 1px solid rgba(0,0,0,0);
