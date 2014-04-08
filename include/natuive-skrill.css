@@ -560,6 +560,12 @@ h1, h2, h3, h4, h5, a.button {
 
 }
 
+#footer .subnav.row {
+	
+	border-spacing: .1em
+	
+}
+
 a.button {
 	
 font-family: 'open_sansbold', 'Helvetica Neue', Arial, sans-serif;
