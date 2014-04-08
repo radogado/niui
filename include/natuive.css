@@ -21,7 +21,6 @@
 
 	@-moz-document url-prefix()	{
 		.row, .row > * { height: 100%; }
-		.row { table-layout: initial; }
 	}
 
 	.row > * {
@@ -30,6 +29,7 @@
 		vertical-align: top;
 		position: relative;
 		padding: .5em;
+	    -moz-box-sizing: border-box;
 
 	}
 
