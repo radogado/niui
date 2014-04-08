@@ -110,12 +110,6 @@ h1, h2, h3, h4, h5 {
 
 	}
 	
-	#main .row {
-		
-/* 		border-spacing: 1em; */
-	
-	}
-	
 	#main > .row:first-child { /* Homepage teasers' overlap */
 	
 		margin: -5em auto 0 auto;
@@ -124,36 +118,40 @@ h1, h2, h3, h4, h5 {
 
 /* Teaser Box */
 
-.teaser {
+.teasers {
 	
+	border-spacing: 1em;	
 	
 }
 
-	.teaser > div:hover {
+	.teasers > div {
+		
+			box-shadow: 0 0 5px #666;
+			border-radius: 2px;
+			background: #f6f6f6 url(../images/content.gif);
+			background: #f6f6f6 radial-gradient(ellipse at center,  #ffffff 51%,#d6d6d6 100%);
+			border: 1px solid #ccc;
+			transition: all .2s linear;
+		
+	}
+
+	.teasers > div:hover {
 		
 		box-shadow: 0 0 2px #666;
-		border: 1px solid #eee;
+		border: 1px solid #aaa;
 		
 	}
 	
-	.teaser > div {
+	.teasers > div > div {
 		
-		content: "";
-		display: block;
 		position: static;
 		height: 100%;
-		box-shadow: 0 0 5px #666;
-		border-radius: 2px;
 		text-align: center;
-		background: #f6f6f6 url(../images/content.gif);
-		background: #f6f6f6 radial-gradient(ellipse at center,  #ffffff 51%,#d6d6d6 100%);
-		border: 1px solid #ccc;
 		padding: 1em .5em 2em .5em;
-		transition: all .2s linear;
 		
 	}
 	
-	.teaser > div > a:link, .teaser > div > a:visited {
+	.teasers > div > div > a:link, .teasers > div > div > a:visited {
 		
 		position: absolute;
 		display: block;
@@ -167,7 +165,7 @@ h1, h2, h3, h4, h5 {
 
 	}
 
-	.teaser > div:before, .teaser > div:after {
+	.teasers > div > div:before, .teasers > div > div:after {
 	
 		content: "";
 		width: 50px;
@@ -187,20 +185,20 @@ h1, h2, h3, h4, h5 {
 	
 	}
 	
-	.teaser > div:after {
+	.teasers > div > div:after {
 
 		background: url(../images/arrow-multi_teaser_yellow.png) 15px center no-repeat;  	
 	
 	}
 
 	@-moz-document url-prefix() {
-	
-		.teaser { padding-bottom: 0 !important; }
 		
-		.teaser > div { position: relative; }
+		.teasers > div > div { position: relative; height: 100%; padding-bottom: 1em; }
 	
-		.teaser:after { content: ""; display: block; height: 3em; }
-	
+		.teasers > div > div:before, .teasers > div > div:after { bottom: -.2em; }
+		
+		.teasers > div > div > a:link, .teasers > div > div > a:visited { bottom: -.2em; }
+
 	}
 
 /* Slider Tweaks */
@@ -250,7 +248,7 @@ h1, h2, h3, h4, h5 {
 
 #top .row {
 	
-	border-spacing: .2em;
+/* 	border-spacing: .2em; */
 	
 }
 
@@ -262,7 +260,7 @@ h1, h2, h3, h4, h5 {
 	
 	#top .subnav .row {
 		
-		border-spacing: 0;
+/* 		border-spacing: 0; */
 		
 	}
 	
@@ -320,7 +318,7 @@ h1, h2, h3, h4, h5 {
 	
 	.banner.row, .banner .row {
 		
-		border-spacing: 0;	
+/* 		border-spacing: 0;	 */
 		
 	}
 	
@@ -565,7 +563,7 @@ h1, h2, h3, h4, h5 {
 
 #footer .subnav.row {
 	
-	border-spacing: .1em
+/* 	border-spacing: .1em */
 	
 }
 
@@ -658,10 +656,10 @@ label.trigger {
 
 	@-moz-document url-prefix() 	
 	{ 		 		
-		.teaser > div { position: static; }  	
+		.teasers > div > div { position: static; }  	
 	}
 
-	.teaser {
+	.teasers > div {
 
 		margin: 2em 0;
 
@@ -705,7 +703,7 @@ label.trigger {
 		#top .row {
 			
 			background: #fff;
-			border-spacing: 0;
+/* 			border-spacing: 0; */
 			position: fixed;
 			height: auto;
 			z-index: 99999;

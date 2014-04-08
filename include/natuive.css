@@ -13,14 +13,14 @@
 
 	clear: both;
 	display: table;
-	table-layout: fixed;
+	table-layout: initial;
 	width: 100%;
 	border-collapse: separate;
 
 }
 
 	@-moz-document url-prefix()	{
-/* 		.row, .row > * { height: 100%; }		 */
+		.row, .row > * { height: 100%; }		
 	}
 
 	.row > * {
@@ -206,7 +206,7 @@ li a:link, li a:visited {
 	
 	.subnav.row > .contain {
 		
-		border-spacing: 0;
+/* 		border-spacing: 0; */
 		
 	}
 
