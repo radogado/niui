@@ -706,6 +706,38 @@ label.trigger {
 		color: #444;
 		
 	}
+	
+/* Accordion */
+
+	
+.accordion:before, .accordion:after {
+
+	display: block;
+	content: '';
+	width: 110px;
+	height: 80px;
+	bottom: -26px;
+	left: -12px;
+	position: absolute;
+	background: url(../images/accordion-l.png) no-repeat left bottom;
+
+}
+
+.accordion:before {
+	
+	left: auto;
+	right: -12px;
+	width: 100%;
+	background: url(../images/accordion-r.png) no-repeat right bottom;
+	
+}
+
+.accordion.open:after { /* invert the arrow */
+
+	background: url(../images/accordion-expanded-l.png) no-repeat left bottom;
+
+}
+
 
 @media screen and (max-width: 640px) {
 
@@ -758,7 +790,6 @@ label.trigger {
 		#top .row {
 			
 			background: #fff;
-/* 			border-spacing: 0; */
 			position: fixed;
 			height: auto;
 			z-index: 99999;
@@ -772,12 +803,7 @@ label.trigger {
 			display: table-cell;
 			
 		}
-		
-		#top img {
-			
-			height: 2em;
-			
-		}
+
 	
 		#top .row:first-child .column, #top .row:first-child .column34, #top .row:first-child .column {
 			
