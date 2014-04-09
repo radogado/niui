@@ -694,32 +694,30 @@ ol {
 /* Accordion */
 
 .accordion {
-	
+
 	overflow: hidden;
+	background: #fafafa;
+	position: relative;
+	padding: .9em 1em .6em 3em;
+	cursor: pointer;
+	color: #777;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eaeaea',GradientType=0 );
+	font-weight: normal;
+	display: table; /* IE9 fix */
+	margin: 1em 0;
+	text-align: left;
+	cursor: pointer;
 	
 }
 
-	.accordion label {
-	
-		background: #fafafa;
-		position: relative;
-		padding: .9em 1em .6em 3em;
-		cursor: pointer;
-		color: #777;
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eaeaea',GradientType=0 );
-		-webkit-touch-callout: none;
-		-webkit-user-select: none;
-		-khtml-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-		user-select: none;
+	.accordion > label {
+		
 		text-align: left;
-		font-weight: normal;
-		display: table; /* IE9 fix */
+		cursor: pointer;
 		
 	}
-
-	.accordion label:before {
+	
+	.accordion:before {
 
 		display: block;
 		content: '⇣';
@@ -732,33 +730,16 @@ ol {
 
 	}
 
-	.accordion input {
-
-		display: none;
-
-	}
-	
-	.accordion label > div { /* hidden accordion item */
+	.accordion > div { /* hidden accordion item */
 
 	    overflow: hidden;
 	    transition: all .4s ease-in-out;
 	    max-height: 0;
+	    cursor: auto;
 
 	}
 
-	.accordion input:checked ~ label > div, .accordion label.open > div { /* visible accordion item */
-
-	    max-height: 999px;
-
-	}
-
-	.accordion label.open > div { /* IE8 */
-
-	    max-height: 999px;
-
-	}
-
-	.accordion input:checked ~ label:before { /* invert the arrow */
+	.accordion.open:before { /* invert the arrow */
 
 		-webkit-transform: scaleY(-1);
 		transform: scaleY(-1);

@@ -86,7 +86,7 @@ function stopEvent( e ) {
 
 if ( typeof document.body.style.textShadow == 'undefined' ) { // Old browsers without (good) CSS3 support
 
-	forEachElement('label.trigger', function (el, i) {
+	forEachElement('label.trigger', function (el, i) { // Sub-navigation trigger
 		
 		el.onclick = function (e) {
 
@@ -421,17 +421,33 @@ addEventHandler(window, 'load', function() {
 		};
 		
 	});
+	
+/* Accordion */
 
-	forEachElement('.accordion label', function(el, i) {
+	forEachElement('.accordion', function(el, i) {
 		
-		el.onclick = function (e){ // To fix: Works only on the arrow, not the whole label
+		el.onclick = function (e) {
 			
 			stopEvent( e );
 					
-			el.querySelector('div').style.maxHeight = ((el.querySelector('div').style.maxHeight == '') ?(el.querySelector('div').scrollHeight + 'px') : '');
+			el.querySelector('div').style.maxHeight = ((el.querySelector('div').style.maxHeight == '') ? (el.querySelector('div').scrollHeight + 'px') : '');
 			
+			if ( hasClass ( el, 'open' ) ) {
+				removeClass ( el, 'open' );
+			} else {
+				addClass ( el, 'open' );
+			}
+			
+			if ( hasClass ( el.parentNode.parentNode, 'accordion' ) ) { // Embedded accordion
+				el.parentNode.style.maxHeight = el.querySelector('div').scrollHeight + el.parentNode.scrollHeight + 'px';
+			}
+
 			return false;
 			
+		};
+		
+		el.querySelector('div').onclick = function (e) {  
+			var event = e || window.event; event.cancelBubble = true; 
 		};
 
 	});
