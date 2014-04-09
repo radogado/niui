@@ -117,24 +117,19 @@ a:link, a:visited {
 
 	}
 	
-	#main > .row:first-child { /* Homepage teasers' overlap */
-	
-		margin: -5em auto 0 auto;
-	
-	}
-	
-	#main .row > * {
-		
-		vertical-align: middle;
-		
-	}
-
 /* Teaser Box */
 
 .teasers {
 	
 	border-spacing: 1em;
 	padding-bottom: 1em;
+	margin-top: -5em;
+	
+}
+
+.teasers.contain {
+	
+	overflow: visible;
 	
 }
 
@@ -313,7 +308,7 @@ a:link, a:visited {
 	
 	.banner.row .contain {
 		
-		padding: 0 6%;
+		padding: 0;
 		
 	}
 	
@@ -329,7 +324,7 @@ a:link, a:visited {
 		
 	}
 	
-	.banner h2 {
+	#head .banner h2, #head .banner h1 {
 	
 		margin-top: .6em;
 		color: #fff;
@@ -738,6 +733,13 @@ label.trigger {
 
 }
 
+/* Single Text */
+
+.row.single-text > * {
+	
+	vertical-align: middle;
+	
+}
 
 @media screen and (max-width: 640px) {
 

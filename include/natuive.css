@@ -16,6 +16,7 @@
 	table-layout: fixed;
 	width: 100%;
 	border-collapse: separate;
+	overflow:hidden;
 
 }
 
@@ -537,7 +538,7 @@ a.backtotop {
 	line-height: 2em;
 	margin: .5em auto;
 	font-weight: bold;
-	background: #333;
+	background: rgba(0,0,0,.2);
 	color: #fff;
 	border-radius: 2em;
 	font-family: "Hiragino Mincho ProN"; /* fix for iOS */
