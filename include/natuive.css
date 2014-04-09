@@ -695,18 +695,19 @@ ol {
 
 .accordion {
 
-	overflow: hidden;
-	background: #fafafa;
 	position: relative;
-	padding: .9em 1em .6em 3em;
+	padding: .2em .5em .1em 1em;
 	cursor: pointer;
 	color: #777;
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eaeaea',GradientType=0 );
 	font-weight: normal;
-	display: table; /* IE9 fix */
-	margin: 1em 0;
+	margin: 2em 1em;
 	text-align: left;
 	cursor: pointer;
+	background: #fff;
+	max-width: 100%;
+	display: table\o/;
+	display: table\9;
 	
 }
 
@@ -714,20 +715,36 @@ ol {
 		
 		text-align: left;
 		cursor: pointer;
+		padding-left: 7em;
+		background: inherit;
+		-webkit-transition: padding 0.25s ;
+		-moz-transition: padding 0.25s ;
+		-ms-transition: padding 0.25s ;
+		-o-transition: padding 0.25s ;
+		transition: padding 0.25s ;  
 		
 	}
 	
-	.accordion:before {
+	.accordion:before, .accordion:after {
 
 		display: block;
-		content: '⇣';
-		width: 12px;
-		height: 24px;
-		bottom: .8em;
-		left: 1em;
+		content: '';
+		width: 110px;
+		height: 80px;
+		bottom: -26px;
+		left: -12px;
 		position: absolute;
-		transition: all .4s ease-in-out;
+		background: url(../images/accordion-l.png) no-repeat left bottom;
 
+	}
+	
+	.accordion:before {
+		
+		left: auto;
+		right: -12px;
+		width: 100%;
+		background: url(../images/accordion-r.png) no-repeat right bottom;
+		
 	}
 
 	.accordion > div { /* hidden accordion item */
@@ -739,11 +756,21 @@ ol {
 
 	}
 
-	.accordion.open:before { /* invert the arrow */
+	.accordion.open { 
 
-		-webkit-transform: scaleY(-1);
-		transform: scaleY(-1);
-	    transition: all .4s ease-in-out;
+		padding-bottom: 3em;
+		
+	}
+
+	.accordion.open > label{ 
+
+		padding-left: 0;
+		
+	}
+
+	.accordion.open:after { /* invert the arrow */
+
+		background: url(../images/accordion-expanded-l.png) no-repeat left bottom;
 
 	}
 
