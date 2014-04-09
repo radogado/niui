@@ -16,7 +16,7 @@
 	table-layout: fixed;
 	width: 100%;
 	border-collapse: separate;
-	overflow:hidden;
+	overflow: hidden;
 
 }
 
@@ -67,7 +67,8 @@ body {
 	width: 100%; 
 	margin: 0 auto;
 	background: #fff;
-
+	-webkit-text-size-adjust: none;
+	
 }
 
 h1, h2, h3, h4 {
@@ -732,7 +733,7 @@ ol {
 
 	.accordion.open { 
 
-		padding-bottom: 3em;
+		padding-bottom: 1em;
 		
 	}
 
@@ -746,12 +747,12 @@ ol {
 
 table {
 
-	display: block;
 	width: 100%;
 	overflow: auto;
 	border-collapse: collapse;
 	overflow: auto;
 	-webkit-overflow-scrolling: touch;
+	table-layout: fixed;
 
 	}
 
@@ -761,19 +762,19 @@ table {
 		border-bottom: 1px solid #797979;
 		border-right: 1px solid #797979;
 		vertical-align: middle;
-
-	}
-
-	table tr:first-child {
-
-		border-radius: 5px 5px 0 0;
-		font-size: 1.1em;
+		word-break: break-word;
 
 	}
 
 	table tr:first-child a {
 
 		display: block;
+	}
+
+	table tr:first-child a:hover {
+
+		color: #fff;
+
 	}
 
 	table tr:first-child td {
@@ -791,8 +792,6 @@ table {
 	table tr td:first-child {
 
 		border-left: 1px solid #797979;
-		line-height: 2em;
-		vertical-align: middle;
 
 	}
 
@@ -812,13 +811,9 @@ table {
 
 	table tr:first-child {
 
+		border-radius: 5px 5px 0 0;
+		font-size: 1.1em;
 		background: #292b2e;
-
-	}
-
-	table tr:first-child a:hover {
-
-		color: #fff;
 
 	}
 
@@ -827,6 +822,8 @@ tr, td {
 	border: none;
 	
 }
+
+/* Etc */
 
 .social {
 	
@@ -899,4 +896,11 @@ tr, td {
 		display: block !important;
 		
 	}
+
+	table {
+		
+		display: block;
+		
+	}
+
 }

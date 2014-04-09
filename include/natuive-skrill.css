@@ -411,7 +411,13 @@ a:link, a:visited {
 		background: url(../images/triangle-subnav.png) center center no-repeat;
 	
 	}
-	
+
+	.subnav .row {
+		
+		overflow: visible;
+		
+	}
+		
 	.subnav label.trigger:before {
 		
 		display: none;
@@ -740,6 +746,50 @@ label.trigger {
 	vertical-align: middle;
 	
 }
+
+/* Table */
+
+	table {
+		
+		border-radius: .4em;
+	}
+	
+	table tr:first-child td {
+		
+		border-radius: .4em .4em 0 0;
+		
+	}
+	
+	table tr:last-child td {
+		
+		border-radius: 0 0 .4em .4em;
+		
+	}
+
+	table tr {
+		
+		background: #fff;
+			
+	}
+	
+	table tr:nth-child(2n+1) {
+
+		background: #ccc;
+	}
+
+	table tr:first-child {
+	
+		background: #801866;
+	
+	}
+	
+	table td, table tr td:first-child {
+		
+		border: none;
+		
+	}
+
+/* Narrow Screens */
 
 @media screen and (max-width: 640px) {
 
