@@ -99,9 +99,9 @@ a:link, a:visited {
 
 }
 
-	a[href]:hover, input[type="submit"]:hover {
+	a[href]:hover {
 
-		color: #ff6600 !important;
+		color: #ff6600;
 
 	}
 
@@ -256,6 +256,12 @@ a.button, input[type="submit"] {
 
 }
 
+	a.button:hover, #main input[type='submit']:hover {
+		
+		color: #333;
+			
+	}
+	
 	a.button:active, input[type="submit"]:active {
 
 		background: #ccc;
@@ -698,7 +704,7 @@ ol {
 .accordion {
 
 	position: relative;
-	padding: .2em .5em .1em 1em;
+	padding: .2em .5em 0 1em;
 	cursor: pointer;
 	color: #777;
 	font-weight: normal;

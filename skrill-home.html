@@ -198,7 +198,7 @@
 
 						<a href="#" style="float: left; height: 0; overflow: hidden; padding-top: 1px; padding-bottom: 0; padding-right: 0;"><img src="images/skrill-logo.png" alt="Logo"></a>
 					
-						<ul style="margin-left: -.35em;">
+						<ul style="margin-left: -.5em;">
 							<li class="active">
 								<input type="checkbox" id="nav-1" unchecked class="trigger">
 								<a href="/en/business/products/">Accept Payments</a>
@@ -259,7 +259,7 @@
 							<li>Spend only what you load, top up instantly 24/7</li>
 						</ul>
 						
-						<a class="button yellow big" href="#">Get my Skrill Prepaid MasterCard</a>
+						<a class="button blue big" href="#">Get my Skrill Prepaid MasterCard</a>
 
                 	</div>
                 	
@@ -272,7 +272,7 @@
 		<div class="banner row">
 			
 			<div>
-				<div class="contain" style="padding: 0 6%;">
+				<div class="contain">
 					<div class="slider">
 						<div>
 							<div class="row">
@@ -379,10 +379,8 @@
 
 	<!-- Main - Start -->
 	
-	<div id="main">
+	<div id="main" class="contain">
 	
-		<div class="contain">
-
 			<div class="row teasers">
 				
 				<div>
@@ -479,9 +477,9 @@
 	                    		
 			<div class="row">
 				
-				<div class="column34">
+				<div>
 				
-					<h2>3/4 Column Accordion</h2>
+					<h2>Accordion</h2>
 				
 					<div class="accordion">
 	
@@ -537,9 +535,48 @@
 	
 				<div>
 				
-					<h2>1/4 Column</h2>
+					<h2>Form</h2>
 					
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					<form action="#" method="post">
+							
+						<label id="last_name_label" class="mandatory">
+							<span class="tool">Name <span class="tip">Type a valid name.</span> </span>
+							<input name="last_name" id="last_name" type="text" placeholder="What is your name?">
+						</label> 
+						
+						<label id="email_label" class="mandatory">
+							<span class="tool">Email <span class="tip">Type a valid Email address.</span> </span>
+							<input name="email" id="email" type="email" placeholder="Your Email address.">
+						</label> 
+										
+						<label id="URL_label">
+							<span class="tool">Website <span class="tip">Type a valid URL.</span> </span>
+							<input name="URL" id="URL" type="url" placeholder="URL of your website.">
+						</label>					
+				
+						<label id="phone_label">
+							<span class="tool">Telephone <span class="tip">Enter a valid phone number.</span> </span>
+							<input name="phone" id="phone" type="tel" placeholder="Your phone number.">
+						</label> 
+				
+						<label id="text_area_label">
+							<span class="tool">Enter text here <span class="tip">Say anything.</span> </span>
+							<textarea placeholder="How are you today?"></textarea>
+						</label> 
+				
+						<label for="country">
+	
+							<span>Country of residence</span>
+				
+							<select id="country" maxlength="40" name="country">
+								<option value="" selected="selected">Country of residence →</option><option value="United Kingdom">United Kingdom</option><option value="Afghanistan">Afghanistan</option><option value="Aland Islands">Aland Islands</option><option value="Albania">Albania</option><option value="Algeria">Algeria</option><option value="American Samoa">American Samoa</option><option value="Andorra">Andorra</option><option value="Angola">Angola</option><option value="Anguilla">Anguilla</option><option value="Antarctica">Antarctica</option><option value="Antigua And Barbuda">Antigua And Barbuda</option><option value="Argentina">Argentina</option>
+							</select>
+	
+						</label>
+						
+						<input type="submit" value="Request more info" title="Request more info">
+						
+					</form>
 							
 				</div>
 				
@@ -592,8 +629,6 @@
 				
 			</div>
 			
-		</div>		
-
 	</div>
 
 	<!-- Main - End -->
