@@ -881,6 +881,33 @@ label.trigger {
 		border: none;
 		
 	}
+	
+/* Lists */
+
+ul {
+	
+	margin-left: 0;
+}
+
+ul li {
+	
+	background: url(../images/checklist-yellow.png) left .2em no-repeat;
+	list-style: none;
+	padding-left: 2em;
+}
+
+.blue li {
+	
+	background: url(../images/checklist-blue.png) left .2em no-repeat;
+	list-style: none;
+	padding-left: 2em;
+}
+
+#top ul li, .subnav ul li {
+	
+	background-image: none;
+	padding-left: 0;
+}
 
 /* Narrow Screens */
 
