@@ -288,6 +288,12 @@ a:link, a:visited {
 		
 	}
 
+#head {
+	
+	background: #fff;
+	
+}
+
 .banner {
 	
 	background-color: #862165;
@@ -378,7 +384,13 @@ a:link, a:visited {
 		border-left: 1px solid rgba(0,0,0,0);
 		
 	}
-	
+
+	.subnav a:hover {
+		
+		color: #333;
+		
+	}
+		
 	.subnav ul ul a:link, .subnav ul ul a:visited {
 	
 		display: block;	
@@ -626,7 +638,6 @@ a.button, #main input[type='submit'] {
 	a.button.big {
 		
 		font-size: .9em;
-/* 		background-image: -webkit-linear-gradient( top, #f6d31c, #F4AA00 ); */
 		
 	}
 	
@@ -636,9 +647,9 @@ a.button, #main input[type='submit'] {
 		
 	}
 
-	#main a.button:link, #main a.button:visited, #main a.button.big:link, #main a.button.big:visited, #top a.button.yellow:link, #top a.button:visited {
+	#top a.button.yellow:link, #top a.button.yellow:visited {
 		
-		color: #801866
+		color: #801866;
 		
 	}
 
@@ -654,7 +665,7 @@ a.button, #main input[type='submit'] {
 		
 	}
 
-	a.button:active {
+	a.button:active, #main input[type='submit']:active {
 		
 		border-color: transparent;
 		text-shadow: none;		
@@ -662,7 +673,13 @@ a.button, #main input[type='submit'] {
 		
 	}
 
-	#main a.button:hover, .banner a.button.big:hover, #main input[type='submit']:hover {
+	#main input[type="submit"]:active {
+
+		background: none repeat scroll 0% 0% #977A00;
+
+	}
+
+	#main a.button:hover, #head a.button:hover, #top a.button:hover, #main input[type='submit']:hover, #top a.button.yellow:hover {
 		
 		color: #333;
 		
@@ -765,6 +782,11 @@ label.trigger {
 		
 		color: #444;
 		
+	}
+	
+	.panel a.button {
+		
+		font-size: 1.2em;
 	}
 	
 /* Accordion */
