@@ -462,6 +462,12 @@ form {
 		
 	}
 
+	label.mandatory.alert span.tip {
+		
+		background: #222;
+		
+	}
+	
 	#main select {
 		
 		width: 45%;
@@ -561,6 +567,12 @@ a.backtotop {
 	.backtotop:hover {
 
 		color: #000;
+
+	}
+
+	a.backtotop:link, a.backtotop:visited {
+
+		color: #aaa;
 
 	}
 

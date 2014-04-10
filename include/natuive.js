@@ -452,4 +452,24 @@ addEventHandler(window, 'load', function() {
 
 	});
 
+/* Fixed position top offset */
+	
+	document.querySelector('#top').style.minHeight = document.querySelector('#top .row').scrollHeight + 'px';
+	
+/* Prevent body scroll when mobile navigation is open */
+
+	if ( document.querySelector('#nav-main > input.trigger') ) {
+	
+		document.querySelector('#nav-main > input.trigger').onchange = function (e) {
+	
+			 if (document.querySelector('#nav-main > input.trigger').checked) {
+			 	addClass(document.body, 'lock-position'); 
+			 } else {
+			 	removeClass(document.body, 'lock-position');
+			 }
+	
+		};
+	
+	}
+
 });

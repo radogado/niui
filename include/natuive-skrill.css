@@ -287,7 +287,7 @@ a:link, a:visited {
 		margin-right: 1em;
 		
 	}
-
+	
 #head {
 	
 	background: #fff;
@@ -438,6 +438,18 @@ a:link, a:visited {
 		
 	}
 	
+	#top .subnav.wide-screen div > ul {
+		
+		 margin-left: -.5em;
+
+	}
+	
+	.subnav a.logo {
+		
+		float: left; height: 0; overflow: hidden; padding-top: 1px; padding-bottom: 0; padding-right: 0;		
+		
+	}
+	
 	#language select {
 		
 		font-weight: normal;
@@ -479,14 +491,14 @@ a:link, a:visited {
 	
 		content: "";
 		position: absolute;
-		top: .1em;
-		left: .14em;
+		top: 0.08em;
+		left: 0.13em;
 		width: .6em;
 		height: 0.13em;
 		border-top: 0.35em double #801866;
 		border-bottom: 0.12em solid #801866;
 		-webkit-transform: scale(1,.8);
-		transform: scale(1,.8);
+		transform: scale(.9,.8);
 	 	
 	}
 	
@@ -902,7 +914,7 @@ label.trigger {
 			
 			background: transparent;
 			position: fixed;
-			top: 2em;
+			top: 2.1em;
 			left: 0;
 			right: 0;
 			bottom: 0;
@@ -971,12 +983,24 @@ label.trigger {
 	
 		}
 	
-		#top .column34 {
+		#top .column4, #top .column2 {
+			
+			vertical-align: top;
+			
+		}
+		
+		#top .row > div.column4 {
 			
 			vertical-align: top;
 			
 		}
 	
+	#top a.button {
+		
+		margin-bottom: 0;
+		
+	}
+
 	#nav-main {
 		
 		-webkit-touch-callout: none;
