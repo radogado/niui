@@ -1094,5 +1094,11 @@ ul li {
 			display: none;
 		
 		}
+		
+		.slider-container img {
+			
+			display: none;
+			
+		}
 	
 }
