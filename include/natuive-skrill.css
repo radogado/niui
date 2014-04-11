@@ -803,6 +803,11 @@ label.trigger {
 	
 /* Accordion */
 
+.accordion {
+	
+	margin: 2em 0;
+	
+}
 	
 .accordion:before, .accordion:after {
 
@@ -830,6 +835,12 @@ label.trigger {
 
 	background: url(../images/accordion-expanded-l.png) no-repeat left bottom;
 
+}
+
+.accordion > label {
+
+	padding-left: 7em;
+	
 }
 
 /* Single Text */

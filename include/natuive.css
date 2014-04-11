@@ -720,7 +720,7 @@ ol {
 	cursor: pointer;
 	color: #777;
 	font-weight: normal;
-	margin: 2em 1em;
+	margin: 0;
 	text-align: left;
 	cursor: pointer;
 	background: #fff;
@@ -732,7 +732,6 @@ ol {
 		
 		text-align: left;
 		cursor: pointer;
-		padding-left: 7em;
 		-webkit-transition: padding 0.25s ;
 		-moz-transition: padding 0.25s ;
 		-ms-transition: padding 0.25s ;
@@ -758,6 +757,13 @@ ol {
 	.accordion.open > label{ 
 
 		padding-left: 0;
+		
+	}
+	
+	.accordion .accordion:first-child {
+		
+		padding-top: 0;
+		margin-top: 0;
 		
 	}
 
