@@ -95,7 +95,15 @@ $(document).ready(function() {
 		
 		$(this).children().each ( function (n) {
 		
-			$(this).parent().parent().find('.slider-nav').append('<a>' + (n + 1) + '</a>');
+			if ( $(this).parent().find('.thumbnail').length ) {
+				
+				$(this).parent().parent().find('.slider-nav').addClass('thumbnails row').append( '<a>' + $(this).find('.thumbnail').html() + '</a>' );
+	
+			} else {
+	
+				$(this).parent().parent().find('.slider-nav').append('<a>' + (n + 1) + '</a>');
+	
+			}
 			
 		});
 		

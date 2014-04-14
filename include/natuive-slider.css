@@ -101,3 +101,23 @@
 	pointer-events: none !important;
 
 }
+
+.slider-nav.thumbnails {
+	
+	right: auto;
+	
+}
+
+.slider-nav.thumbnails a {
+	
+	text-indent: 0;
+	width: auto;
+	height: auto;
+	display: table-cell;
+	text-align: left;
+	border: 1px solid #999;
+	color: #333;
+	border-radius: 0;
+	line-height: 1.2;
+	padding: .5em;	
+}
