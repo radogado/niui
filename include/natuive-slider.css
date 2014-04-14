@@ -105,6 +105,8 @@
 .slider-nav.thumbnails {
 	
 	right: auto;
+	position: static;
+/* 	margin-top: -17px; */
 	
 }
 

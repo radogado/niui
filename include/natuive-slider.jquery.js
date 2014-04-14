@@ -1,5 +1,6 @@
 var scrollTimer;
 var slider;
+var height_scroll;
 	
 function scrollslider() {
 
@@ -97,8 +98,8 @@ $(document).ready(function() {
 		
 			if ( $(this).parent().find('.thumbnail').length ) {
 				
-				$(this).parent().parent().find('.slider-nav').addClass('thumbnails row').append( '<a>' + $(this).find('.thumbnail').html() + '</a>' );
-	
+				$(this).parent().parent().find('.slider-nav').addClass('thumbnails row').append( '<a>' + ( $(this).find('.thumbnail').html() ? $(this).find('.thumbnail').html() : (n+1) ) + '</a>' );
+				
 			} else {
 	
 				$(this).parent().parent().find('.slider-nav').append('<a>' + (n + 1) + '</a>');
@@ -148,13 +149,14 @@ $(window).load(function() {
 	// Get scrollbar width and hide it by reducing the .slider-container height proportiobally
 
 	$('.slider').css('overflow-x', 'hidden');
-	var height_scroll = $('.slider').height();
+	height_scroll = $('.slider').height();
 	$('.slider').css('overflow-x', 'scroll');
 	height_scroll = $('.slider').height() - height_scroll;
 	
 	$('.slider-container').each ( function () { 
 
 		$(this).height( $(this).height() - height_scroll );
+		$(this).find('.slider-nav.thumbnails').css('margin-top', (-1 * height_scroll) + 'px');
 		
 	});
 
