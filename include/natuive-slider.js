@@ -54,7 +54,7 @@ function slide ( e, target ) {
 
 		slider = el.parentNode.parentNode.querySelector('.slider');
 		start = slider.scrollLeft;
-		change = (el.innerHTML - 1) * slider.offsetWidth - start;
+		change = thisIndex(el) * slider.offsetWidth - start;
 		
 	}
 	
@@ -156,10 +156,24 @@ addEventHandler ( window, 'load', function() {
 		el = container.querySelector('.slider');
 		
 		for (var i = 0; i < el.children.length; i++) {
-			container.querySelector('.slider-nav').insertAdjacentHTML('beforeend', ( !i ? '<a class="active">' : '<a>' ) + (i + 1) + '</a>');
+			
+			if ( el.children[i].querySelector('.thumbnail') ) {
+				
+				addClass( el.parentNode.querySelector('.slider-nav'), 'thumbnails' );
+				addClass( el.parentNode.querySelector('.slider-nav'), 'row' );
+				el.parentNode.querySelector('.slider-nav').insertAdjacentHTML('beforeend', ( !i ? '<a class="active">' : '<a>' ) + el.children[i].querySelector('.thumbnail').innerHTML + '</a>' );
+				
+							
+			} else {
+				
+				container.querySelector('.slider-nav').insertAdjacentHTML('beforeend', ( !i ? '<a class="active">' : '<a>' ) + (i + 1) + '</a>');
+
+			}
+			
 			container.querySelector('.slider-nav').lastChild.onclick = function (e) {
 				slide(e, 'index');
 			};
+
 		}
 
 		container.querySelector('.slider-arrow.left').onclick = function (e) {

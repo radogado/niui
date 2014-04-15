@@ -84,6 +84,14 @@ function stopEvent( e ) {
 
 }
 
+function thisIndex (elm) {
+    var nodes = elm.parentNode.childNodes, node;
+    var i = count = 0;
+    while( (node=nodes.item(i++)) && node!=elm )
+        if( node.nodeType==1 ) count++;
+    return (count);
+}
+
 if ( typeof document.body.style.textShadow == 'undefined' ) { // Old browsers without (good) CSS3 support
 
 	forEachElement('label.trigger', function (el, i) { // Sub-navigation trigger
