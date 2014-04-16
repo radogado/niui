@@ -15,7 +15,7 @@ A 7 KB framework focused on browsers' built-in capabilities with smart customisa
 - Nested ordered lists
 - Forms with validation
 - Auto-expanding textarea to save space
-- Native sliders
+- Native sliders with optional .thumbnail
 - Accordions
 - Tables
 - Footer
