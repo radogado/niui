@@ -1,11 +1,5 @@
 /* natUIve by rado.bg */
 	
-function isTouchDevice () {
-
-	return !!('ontouchstart' in window);
-
-}
-
 function addClass ( el, className ) { // To do: fix unnecessary spaces
 
 	if (el.classList) {
@@ -44,7 +38,7 @@ var parseHTML = function ( str ) {
 
 }
 
-function forEachElement( selector, fn ) {
+function forEach( selector, fn ) {
 
 	elements = document.querySelectorAll(selector);
 	for (var i = 0; i < elements.length; i++) {
@@ -94,7 +88,7 @@ function thisIndex (elm) {
 
 if ( typeof document.body.style.textShadow == 'undefined' ) { // Old browsers without (good) CSS3 support
 
-	forEachElement('label.trigger', function (el, i) { // Sub-navigation trigger
+	forEach('label.trigger', function (el, i) { // Sub-navigation trigger
 		
 		el.onclick = function (e) {
 
@@ -184,7 +178,7 @@ function relayParameters () {
 
 	parameters = getURLParameters();
 
-	forEachElement('a[href]', function(el, i) {
+	forEach('a[href]', function(el, i) {
 
 		for (var name in parameters) {
 			if ( !el.href.indexOf('javascript') || (!el.href.indexOf('mailto') ) ) continue;
@@ -353,7 +347,7 @@ addEventHandler(window, 'load', function() {
 	
 /* Modal window: open a link inside it */
 
-   	forEachElement('a.modal, a.lightbox', function(el, i) {
+   	forEach('a.modal, a.lightbox', function(el, i) {
 		
 		el.onclick = modalWindow;
 		
@@ -361,11 +355,11 @@ addEventHandler(window, 'load', function() {
 
 /* Tooltip */
 	
-	forEachElement('.tool', function(el, i) {
+	forEach('.tool', function(el, i) {
 		
 		el.onclick = showTip;
 			
-		if (!isTouchDevice()) {
+		if ('ontouchstart' in window) {
 			
 			el.onmouseover = showTip;
 			el.onmouseout = hideTip;
@@ -383,7 +377,7 @@ addEventHandler(window, 'load', function() {
 
 /* Auto textarea height - fix bug after manually resize in Safari*/
    	
-   	forEachElement('textarea', function(el, i){
+   	forEach('textarea', function(el, i){
 	
 		el.onkeyup = function (e) {
 			var event = e || window.event;
@@ -404,7 +398,7 @@ addEventHandler(window, 'load', function() {
 
 /* Form validation */
 
-	forEachElement('form', function (el, i) {
+	forEach('form', function (el, i) {
 		
 		el.onsubmit = function () {
 			ready_to_submit = true;
@@ -434,7 +428,7 @@ addEventHandler(window, 'load', function() {
 	
 /* Accordion */
 
-	forEachElement('.accordion', function(el, i) {
+	forEach('.accordion', function(el, i) {
 		
 		el.onclick = function (e) {
 			

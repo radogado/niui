@@ -143,7 +143,7 @@ addEventHandler ( window, 'load', function() {
 	document.onkeyup = sliderKeyboard;
 	
 	/* Initialise JS extras: create arrows/numbers navigation */
-	forEachElement('.slider', function(el, i) {
+	forEach('.slider', function(el, i) {
 
 		if (!i) {
 			slider = el;
