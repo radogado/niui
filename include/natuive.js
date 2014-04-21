@@ -423,6 +423,8 @@ addEventHandler(window, 'load', function() {
 				}
 
 			});
+			
+			if (!ready_to_submit) el.scrollIntoView();
 
 			return ready_to_submit;
 			
