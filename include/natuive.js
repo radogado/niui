@@ -359,7 +359,7 @@ addEventHandler(window, 'load', function() {
 		
 		el.onclick = showTip;
 			
-		if ('ontouchstart' in window) {
+		if (!('ontouchstart' in window)) {
 			
 			el.onmouseover = showTip;
 			el.onmouseout = hideTip;
