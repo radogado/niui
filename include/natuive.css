@@ -534,7 +534,7 @@ form {
 
 	}
 
-	#blackbox > *:not('.lightbox') {
+	#blackbox > * {
 		
 		background: #fff;
 		
