@@ -534,9 +534,15 @@ form {
 
 	}
 
-	#blackbox > * {
+	#blackbox > *:not('.lightbox') {
 		
 		background: #fff;
+		
+	}
+
+	#blackbox .slider {
+		
+		background: transparent;
 		
 	}
 

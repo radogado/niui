@@ -195,7 +195,22 @@ $(document).ready(function() {
             // Show an image lightbox...
             var image_url = $(this).attr('href');
             add_blackbox();
-            $('#blackbox').prepend('<img src="' + image_url + '" alt="Lightbox">' );
+
+			/* Add any <a><img> siblings with description to a .slider and initialise its controls */
+			images = '';
+	
+/*
+			elements = target.parentNode.querySelectorAll('.lightbox');
+			for (var i = 0; i < elements.length; i++) {
+				images += '<div><img src="' + elements[i].href + '"></div>';
+			}
+			
+*/
+			$(this).parent().find('.lightbox').each ( function (n) {
+				images += '<div><img src="' + $(this).attr('href') + '"></div>';
+			} );
+	
+            $('#blackbox').prepend( '<div class="slider lightbox">' + images + '</div>' );
 
         } else // ... or load external content in a modal window 
         {

@@ -44,6 +44,7 @@ function forEach( selector, fn ) {
 	for (var i = 0; i < elements.length; i++) {
 		fn(elements[i], i);
 	}
+
 }
 	
 function addEventHandler( elem,eventType,handler ) {
@@ -284,7 +285,15 @@ function modalWindow (e) {
 
 		document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> </div>');
 		document.body.style.overflow = 'hidden';
-		document.getElementById('blackbox').innerHTML = '<div class="close"> ← ' + document.title + '</div><img src="' + target.href + '" alt="Lightbox">';
+		/* Add any <a><img> siblings with description to a .slider and initialise its controls */
+		images = '';
+
+		elements = target.parentNode.querySelectorAll('.lightbox');
+		for (var i = 0; i < elements.length; i++) {
+			images += '<div><img src="' + elements[i].href + '"></div>';
+		}
+
+		document.getElementById('blackbox').innerHTML = '<div class="close"> ← ' + document.title + '</div><div class="slider lightbox">' + images + '</div>';
 		document.getElementById('blackbox').querySelector('.close').onclick = removeBlackbox;
 		
 	} else { // ... or load external content in a modal window 
