@@ -47,6 +47,62 @@ function slide(e, direction ) {
 	// Set active index button
 }
 
+function makeSlider ( el ) {
+	
+	$(el).html( $(el).html().replace( new RegExp( "\>[\n\t ]+\<" , "g" ) , "><" ) );
+	
+	$(el).before('<div class="slider-container"></div>').appendTo( $(el).prev() );
+	
+	$(el).parent().prepend('<a class="slider-arrow left">←</a>').append('<a class="slider-arrow right">→</a>').append('<div class="slider-nav"></div>');
+	
+	$(el).children().each ( function (n) {
+	
+		if ( $(this).parent().find('.thumbnail').length ) {
+			
+			$(this).parent().parent().find('.slider-nav').addClass('thumbnails row').append( '<a>' + ( $(this).find('.thumbnail').html() ? $(this).find('.thumbnail').html() : (n+1) ) + '</a>' );
+			
+		} else {
+
+			$(this).parent().parent().find('.slider-nav').append('<a>' + (n + 1) + '</a>');
+
+		}
+		
+	});
+	
+	$(el).parent().find('.slider-nav a:first-child').addClass('active');
+
+	$(el).siblings('.slider-arrow.left').click ( function (e) {  
+		
+		slider = $(this).siblings('.slider');
+		slide(e, -1);
+			
+	});
+	
+	$(el).siblings('.slider-arrow.right').click ( function (e) {
+		
+		slider = $(this).siblings('.slider');
+		slide(e, 1);	
+
+	});
+	
+	$(el).siblings('.slider-nav').children('a').click ( function (e) {  
+
+		e.stopPropagation();
+		var n = $(this).index();
+		$(this).siblings('a.active').removeClass();
+		$(this).addClass('active');
+		slider = $(this).parent().siblings('.slider');
+					
+		$('body').addClass('disable-hover');
+		$(slider).stop( true, true ).off('scroll', scrollslider ).animate ( { 'scrollLeft': n * $(slider).width() }, 'fast', function () { 
+			$(slider).on('scroll', scrollslider );
+			$('body').removeClass('disable-hover');
+		});
+	
+	});
+	
+}
+
 $(document).ready(function() {
 	
 	$('.slider').on('scroll', function () { 
@@ -88,57 +144,7 @@ $(document).ready(function() {
 
 	$('.slider').each ( function (n) {
 		
-		$(this).html( $(this).html().replace( new RegExp( "\>[\n\t ]+\<" , "g" ) , "><" ) );
-		
-		$(this).before('<div class="slider-container"></div>').appendTo( $(this).prev() );
-		
-		$(this).parent().prepend('<a class="slider-arrow left">←</a>').append('<a class="slider-arrow right">→</a>').append('<div class="slider-nav"></div>');
-		
-		$(this).children().each ( function (n) {
-		
-			if ( $(this).parent().find('.thumbnail').length ) {
-				
-				$(this).parent().parent().find('.slider-nav').addClass('thumbnails row').append( '<a>' + ( $(this).find('.thumbnail').html() ? $(this).find('.thumbnail').html() : (n+1) ) + '</a>' );
-				
-			} else {
-	
-				$(this).parent().parent().find('.slider-nav').append('<a>' + (n + 1) + '</a>');
-	
-			}
-			
-		});
-		
-		$(this).parent().find('.slider-nav a:first-child').addClass('active');
-
-		$(this).siblings('.slider-arrow.left').click ( function (e) {  
-			
-			slider = $(this).siblings('.slider');
-			slide(e, -1);
-				
-		});
-		
-		$(this).siblings('.slider-arrow.right').click ( function (e) {
-			
-			slider = $(this).siblings('.slider');
-			slide(e, 1);	
-
-		});
-		
-		$(this).siblings('.slider-nav').children('a').click ( function (e) {  
-
-			e.stopPropagation();
-			var n = $(this).index();
-			$(this).siblings('a.active').removeClass();
-			$(this).addClass('active');
-			slider = $(this).parent().siblings('.slider');
-						
-			$('body').addClass('disable-hover');
-			$(slider).stop( true, true ).off('scroll', scrollslider ).animate ( { 'scrollLeft': n * $(slider).width() }, 'fast', function () { 
-				$(slider).on('scroll', scrollslider );
-				$('body').removeClass('disable-hover');
-			});
-		
-		});
+		makeSlider(this);
 		
 	});
 	

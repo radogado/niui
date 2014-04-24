@@ -296,6 +296,8 @@ function modalWindow (e) {
 		document.getElementById('blackbox').innerHTML = '<div class="close"> ← ' + document.title + '</div><div class="slider lightbox">' + images + '</div>';
 		document.getElementById('blackbox').querySelector('.close').onclick = removeBlackbox;
 		
+		if ( makeSlider ) makeSlider( document.getElementById('blackbox').querySelector('.slider') );
+		
 	} else { // ... or load external content in a modal window 
 		
 		if ( navigator.userAgent.indexOf('MSIE 8') != -1 ) {

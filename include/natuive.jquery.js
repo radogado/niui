@@ -199,18 +199,13 @@ $(document).ready(function() {
 			/* Add any <a><img> siblings with description to a .slider and initialise its controls */
 			images = '';
 	
-/*
-			elements = target.parentNode.querySelectorAll('.lightbox');
-			for (var i = 0; i < elements.length; i++) {
-				images += '<div><img src="' + elements[i].href + '"></div>';
-			}
-			
-*/
 			$(this).parent().find('.lightbox').each ( function (n) {
 				images += '<div><img src="' + $(this).attr('href') + '"></div>';
 			} );
 	
             $('#blackbox').prepend( '<div class="slider lightbox">' + images + '</div>' );
+            
+            if (makeSlider) makeSlider( $('#blackbox .slider') );
 
         } else // ... or load external content in a modal window 
         {

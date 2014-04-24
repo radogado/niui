@@ -138,6 +138,61 @@ function sliderKeyboard (e) {
 
 };
 
+function makeSlider (el) {
+
+	el.insertAdjacentHTML('beforebegin', '<div class="slider-container"></div>'); // Create a container and move the slider in it
+	container = el.previousSibling;
+	container.insertAdjacentHTML('afterbegin', '<a class="slider-arrow left">←</a>' + el.outerHTML.replace( new RegExp( "\>[\n\t ]+\<" , "g" ) , "><" ) + '<a class="slider-arrow right">→</a><div class="slider-nav"></div>'); // 'replace' function removes spaces between slides to glue them together
+	container.nextSibling.outerHTML = '';
+	el = container.querySelector('.slider');
+	
+	for (var i = 0; i < el.children.length; i++) {
+		
+		if ( el.children[i].querySelector('.thumbnail') ) {
+			
+			addClass( el.parentNode.querySelector('.slider-nav'), 'thumbnails' );
+			addClass( el.parentNode.querySelector('.slider-nav'), 'row' );
+			el.parentNode.querySelector('.slider-nav').insertAdjacentHTML('beforeend', ( !i ? '<a class="active">' : '<a>' ) + el.children[i].querySelector('.thumbnail').innerHTML + '</a>' );
+			
+						
+		} else {
+			
+			container.querySelector('.slider-nav').insertAdjacentHTML('beforeend', ( !i ? '<a class="active">' : '<a>' ) + (i + 1) + '</a>');
+
+		}
+		
+		container.querySelector('.slider-nav').lastChild.onclick = function (e) {
+			slide(e, 'index');
+		};
+
+	}
+
+	container.querySelector('.slider-arrow.left').onclick = function (e) {
+
+		slide(e, 'left');
+
+	}
+	
+	container.querySelector('.slider-arrow.right').onclick = function (e) {
+
+		slide(e, 'right');
+
+	}
+	
+	el.onscroll = scrollSlider;
+
+	// Get scrollbar width and hide it by reducing the .slider-container height proportionally
+
+	el.style.overflowX = 'hidden';
+	var height_scroll = el.offsetHeight;
+	el.style.overflowX = 'scroll';
+	height_scroll = el.offsetHeight - height_scroll;
+	container.style.height = (container.offsetHeight - height_scroll) + 'px';
+	
+	el.style.width = el.offsetWidth + 'px'; // Chrome fix
+	
+}
+
 addEventHandler ( window, 'load', function() {
 
 	document.onkeyup = sliderKeyboard;
@@ -149,56 +204,7 @@ addEventHandler ( window, 'load', function() {
 			slider = el;
 		}
 		
-		el.insertAdjacentHTML('beforebegin', '<div class="slider-container"></div>'); // Create a container and move the slider in it
-		container = el.previousSibling;
-		container.insertAdjacentHTML('afterbegin', '<a class="slider-arrow left">←</a>' + el.outerHTML.replace( new RegExp( "\>[\n\t ]+\<" , "g" ) , "><" ) + '<a class="slider-arrow right">→</a><div class="slider-nav"></div>'); // 'replace' function removes spaces between slides to glue them together
-		container.nextSibling.outerHTML = '';
-		el = container.querySelector('.slider');
-		
-		for (var i = 0; i < el.children.length; i++) {
-			
-			if ( el.children[i].querySelector('.thumbnail') ) {
-				
-				addClass( el.parentNode.querySelector('.slider-nav'), 'thumbnails' );
-				addClass( el.parentNode.querySelector('.slider-nav'), 'row' );
-				el.parentNode.querySelector('.slider-nav').insertAdjacentHTML('beforeend', ( !i ? '<a class="active">' : '<a>' ) + el.children[i].querySelector('.thumbnail').innerHTML + '</a>' );
-				
-							
-			} else {
-				
-				container.querySelector('.slider-nav').insertAdjacentHTML('beforeend', ( !i ? '<a class="active">' : '<a>' ) + (i + 1) + '</a>');
-
-			}
-			
-			container.querySelector('.slider-nav').lastChild.onclick = function (e) {
-				slide(e, 'index');
-			};
-
-		}
-
-		container.querySelector('.slider-arrow.left').onclick = function (e) {
-
-			slide(e, 'left');
-
-		}
-		
-		container.querySelector('.slider-arrow.right').onclick = function (e) {
-
-			slide(e, 'right');
-
-		}
-		
-		el.onscroll = scrollSlider;
-
-		// Get scrollbar width and hide it by reducing the .slider-container height proportionally
-
-		el.style.overflowX = 'hidden';
-		var height_scroll = el.offsetHeight;
-		el.style.overflowX = 'scroll';
-		height_scroll = el.offsetHeight - height_scroll;
-		container.style.height = (container.offsetHeight - height_scroll) + 'px';
-		
-		el.style.width = el.offsetWidth + 'px'; // Chrome fix
+		makeSlider(el);
 		
 	});
 	
