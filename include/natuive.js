@@ -289,8 +289,10 @@ function modalWindow (e) {
 		images = '';
 
 		elements = target.parentNode.querySelectorAll('.lightbox');
+		index = 0;
 		for (var i = 0; i < elements.length; i++) {
 			images += '<div><img src="' + elements[i].href + '"></div>';
+			if ( elements[i] == target ) { index = i; }
 		}
 
 		document.getElementById('blackbox').innerHTML = '<div class="close"> ← ' + document.title + '</div><div class="slider lightbox">' + images + '</div>';
@@ -299,7 +301,7 @@ function modalWindow (e) {
 		if ( makeSlider ) { 
 		
 			makeSlider( document.getElementById('blackbox').querySelector('.slider') );
-			document.querySelector('#blackbox .slider').scrollLeft = thisIndex (target) *  document.querySelector('#blackbox .slider').offsetWidth;
+			document.querySelector('#blackbox .slider').scrollLeft = index *  document.querySelector('#blackbox .slider').offsetWidth;
 		
 		}
 		

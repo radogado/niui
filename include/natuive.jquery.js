@@ -198,9 +198,10 @@ $(document).ready(function() {
 
 			/* Add any <a><img> siblings with description to a .slider and initialise its controls */
 			images = '';
-	
+			index = 0; current_item = this;
 			$(this).parent().find('.lightbox').each ( function (n) {
 				images += '<div><img src="' + $(this).attr('href') + '"></div>';
+				if ( this == current_item ) { index = n; }
 			} );
 	
             $('#blackbox').prepend( '<div class="slider lightbox">' + images + '</div>' );
@@ -208,7 +209,7 @@ $(document).ready(function() {
             if (makeSlider) {
             	
             	makeSlider( $('#blackbox .slider') );
-				document.querySelector('#blackbox .slider').scrollLeft = $(this).index() *  document.querySelector('#blackbox .slider').offsetWidth;
+				document.querySelector('#blackbox .slider').scrollLeft = index * document.querySelector('#blackbox .slider').offsetWidth;
             					
             }
 
