@@ -205,7 +205,12 @@ $(document).ready(function() {
 	
             $('#blackbox').prepend( '<div class="slider lightbox">' + images + '</div>' );
             
-            if (makeSlider) makeSlider( $('#blackbox .slider') );
+            if (makeSlider) {
+            	
+            	makeSlider( $('#blackbox .slider') );
+				document.querySelector('#blackbox .slider').scrollLeft = $(this).index() *  document.querySelector('#blackbox .slider').offsetWidth;
+            					
+            }
 
         } else // ... or load external content in a modal window 
         {

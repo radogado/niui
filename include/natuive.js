@@ -296,7 +296,12 @@ function modalWindow (e) {
 		document.getElementById('blackbox').innerHTML = '<div class="close"> ← ' + document.title + '</div><div class="slider lightbox">' + images + '</div>';
 		document.getElementById('blackbox').querySelector('.close').onclick = removeBlackbox;
 		
-		if ( makeSlider ) makeSlider( document.getElementById('blackbox').querySelector('.slider') );
+		if ( makeSlider ) { 
+		
+			makeSlider( document.getElementById('blackbox').querySelector('.slider') );
+			document.querySelector('#blackbox .slider').scrollLeft = thisIndex (target) *  document.querySelector('#blackbox .slider').offsetWidth;
+		
+		}
 		
 	} else { // ... or load external content in a modal window 
 		
