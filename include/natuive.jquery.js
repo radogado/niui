@@ -175,11 +175,11 @@ $(document).ready(function() {
 		document.body.style.overflow = 'auto';
     }
 
-    $('a.modal-link, a.lightbox').click ( function () {
+    $('a.modal, a.lightbox').click ( function () {
 
 		document.body.style.overflow = 'hidden';
 
-        $('body').prepend('<div id="blackbox"> <div class="modal-box"> </div> </div>');
+        $('body').prepend('<div id="blackbox"> <div class="modal"> </div> </div>');
 
         $('html').css('background-color', '#333');
 
@@ -215,7 +215,7 @@ $(document).ready(function() {
         } else // ... or load external content in a modal window 
         {
 
-            $('#blackbox .modal-box').load (
+            $('#blackbox .modal').load (
             ( ($(this).attr('href').split('#')[1] ) ? ($(this).attr('href').split('#')[0] + ' #' + $(this).attr('href').split('#')[1]) : ( $(this).attr('href') ) ), add_blackbox );
 
         }
