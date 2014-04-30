@@ -472,7 +472,7 @@ form {
 		
 		width: 45%;
 		box-shadow: 0 1px 2px #999;
-		border: 1px solid rgba(0,0,0,0);
+		border: 1px solid transparent;
 		background: #fff url(../images/select-arrow.svg) center right no-repeat;
 		background-position: 96% 50%;
 		background-size: 10px;
@@ -504,6 +504,7 @@ form {
 #blackbox {
 
 	z-index: 9999;
+	background: #000;
 	background: rgba(0,0,0,.9);
 	overflow-y: scroll;
 	position: fixed;
@@ -511,7 +512,7 @@ form {
 	right:0;
 	bottom:0;
 	left:0;
-	border: 3em solid rgba(0,0,0,.0);
+	border: 3em solid transparent;
 	border-top: none;
 	padding-top: 3.6em;
 	-webkit-overflow-scrolling: touch;
@@ -527,6 +528,7 @@ form {
 		padding: 1em 0;
 		font-weight: bold;
 		position: fixed;
+		background: #000;
 		background: rgba(0,0,0,.5);
 		width: 100%;
 		z-index: 99999;
@@ -557,6 +559,7 @@ a.backtotop {
 	line-height: 2em;
 	margin: .5em auto;
 	font-weight: bold;
+	background: transparent;
 	background: rgba(0,0,0,.2);
 	color: #fff;
 	border-radius: 2em;
@@ -586,6 +589,7 @@ a.backtotop {
 
 .tool {
 
+	border-bottom: 1px dotted #fff;
 	border-bottom: 1px dotted rgba(255,255,255,.2);
 	cursor: help;
 	font-weight: bold;
