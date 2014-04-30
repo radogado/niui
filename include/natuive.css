@@ -793,6 +793,7 @@ table {
 		border-right: 1px solid #797979;
 		vertical-align: middle;
 		word-break: break-word;
+		word-break: break-all;
 
 	}
 

@@ -4,6 +4,7 @@ var scrollTimer = null;
 var slider;
 var scroll_start = 0;
 var original_scroll = 0;
+var height_scroll = 0;
 	
 function scrollSlider (e) {
 
@@ -146,6 +147,15 @@ function makeSlider (el) {
 	container.nextSibling.outerHTML = '';
 	el = container.querySelector('.slider');
 	
+	// Get scrollbar width and hide it by reducing the .slider-container height proportionally
+
+	el.style.overflowX = 'hidden';
+	height_scroll = el.offsetHeight;
+	el.style.overflowX = 'scroll';
+	height_scroll = el.offsetHeight - height_scroll;
+	
+	// Generate controls
+
 	for (var i = 0; i < el.children.length; i++) {
 		
 		if ( el.children[i].querySelector('.thumbnail') ) {
@@ -153,11 +163,13 @@ function makeSlider (el) {
 			addClass( el.parentNode.querySelector('.slider-nav'), 'thumbnails' );
 			addClass( el.parentNode.querySelector('.slider-nav'), 'row' );
 			el.parentNode.querySelector('.slider-nav').insertAdjacentHTML('beforeend', ( !i ? '<a class="active">' : '<a>' ) + el.children[i].querySelector('.thumbnail').innerHTML + '</a>' );
+			el.parentNode.querySelector('.slider-nav').style.marginTop = (-1 * height_scroll) + 'px';
 			
 						
 		} else {
 			
 			container.querySelector('.slider-nav').insertAdjacentHTML('beforeend', ( !i ? '<a class="active">' : '<a>' ) + (i + 1) + '</a>');
+			container.style.height = (container.offsetHeight - height_scroll) + 'px';
 
 		}
 		
@@ -180,14 +192,6 @@ function makeSlider (el) {
 	}
 	
 	el.onscroll = scrollSlider;
-
-	// Get scrollbar width and hide it by reducing the .slider-container height proportionally
-
-	el.style.overflowX = 'hidden';
-	var height_scroll = el.offsetHeight;
-	el.style.overflowX = 'scroll';
-	height_scroll = el.offsetHeight - height_scroll;
-	container.style.height = (container.offsetHeight - height_scroll) + 'px';
 	
 	el.style.width = el.offsetWidth + 'px'; // Chrome fix
 	
