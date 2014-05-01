@@ -113,7 +113,7 @@ a:link, a:visited {
 
 }
 
-	a[href]:hover {
+	a[href]:hover, #main input[type='submit']:hover {
 
 		color: #ee8822;
 
@@ -133,20 +133,6 @@ a:link, a:visited {
 
 /* Navigation */
 
-ul, #top ul, .nav ul {
-
-	margin: 0;
-	padding: 0;
-	display: inline-block;
-
-}
-
-li a:link, li a:visited {
-	
-	text-decoration: none;
-	
-}
-
 .nav {
 	
 	font-size: 1.6em;
@@ -156,68 +142,64 @@ li a:link, li a:visited {
 
 }
 
-	.nav a:link, .nav a:visited {
+	ul.nav, .nav ul {
+	
+		margin: 0;
+		padding: 0;
+		display: inline-block;
+	
+	}
+	
+	.nav a {
 		
-		color: #666666;
+		color: #666;
 		text-transform: uppercase;
 		text-decoration: none;
 		font-size: 1em;
 		line-height: 1;	
+		position: relative;
+
 	}
 	
 	.nav a.active:link, .nav a.active:visited {
 	
 		color: #ee8822;
-		position: relative;
 	
 	}
 	
-	.nav li {
-		margin-right: .6em;
-	}
-
-	.nav li:last-child {
-		margin-right: 0;
-	}
-
-	.nav a.active {
-		
-		position: relative;
-		
-	}
-
 	.nav li {
 	
 		display: inline;
 	
 	}
 
-.sub.nav {
+	.nav li:not(:last-child) {
 
-	font-size: .9em;
+		margin-right: .6em;
 
-}
+	}
 
-.sub.nav a:link, .sub.nav a:visited {
+	.sub.nav {
+	
+		font-size: .9em;
+	
+	}
+	
+	.sub.nav a {
+	
+		color: #727272;
+		display: inline-block;
+		padding: .3em 0;
+		line-height: 1.2;
+		text-transform: none;
+	
+	}
 
-	color: #727272;
-	display: inline-block;
-	padding: .3em 0;
-	line-height: 1.2;
-	text-transform: none;
-
-}
-	.sub.nav li:before {
+	.sub.nav li:not(:first-child):before {
 
 		content: "|";
 		color: #ddd;
 		padding-right: .5em;
-
-	}
-
-	.sub.nav li:first-child:before {
-
-		display: none;
 
 	}
 	
@@ -227,15 +209,15 @@ li a:link, li a:visited {
 		
 	}
 
-#language {
+	form.nav {
+	
+		display: inline-block;
+		font-size: 1.6em;
+		white-space: nowrap;
+	
+	}
 
-	display: inline-block;
-	font-size: 1.6em;
-	white-space: nowrap;
-
-}
-
-	#language select {
+	form.nav select {
 
 		background: url(../images/country_select_globes.png) center left no-repeat;
 		padding-left: 2em;
@@ -246,13 +228,13 @@ li a:link, li a:visited {
 
 /* Buttons */
 
-a.button, input[type="submit"] {
+.button, input[type="submit"] {
 
 	text-decoration: none;
 	font-weight: bold;
 	color: #555;
 	border-radius: 3px;
-	padding: .4em .8em .4em .8em;
+	padding: .4em .8em;
 	font-size: .8em;
 	display: inline-block;
 	background: #eee;
@@ -264,25 +246,23 @@ a.button, input[type="submit"] {
 	word-break: break-word;
 
 	background: #f1f1f1;
-
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
 	
 	-webkit-appearance: none;
 
 }
 
-	a.button:hover, #main input[type='submit']:hover {
-		
-		color: #333;
-			
-	}
+	.button, input[type="submit"], .accordion > label {
 	
-	a.button:active, input[type="submit"]:active {
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+
+	}
+
+	.button:active, input[type="submit"]:active {
 
 		background: #ccc;
 		
@@ -323,7 +303,7 @@ a.button, input[type="submit"] {
 		
 	}
 	
-/* Top Area */
+/* Top */
 
 #top .row > div.column4 {
 	
@@ -345,7 +325,7 @@ a.button, input[type="submit"] {
 		
 	}
 
-/* Head Area */
+/* Head */
 
 #head h1, #head p {
 
@@ -359,15 +339,15 @@ a.button, input[type="submit"] {
 
 	}
 
-/* Main Area */
+/* Main */
 
-#main {
-	
-	padding: 1em 0;
-		
-}
-	
-	#main .row + .row { /* Every .row appearing right after another .row */
+	#main ul {
+
+		padding: 1.3em;
+
+	}
+
+	#main .row + .row { /* Every subsequent .row */
 		
 		border-top: 1px dotted #ccc;
 
@@ -379,13 +359,6 @@ a.button, input[type="submit"] {
 		margin: 0 auto;
 		
 	}
-
-	#main ul {
-
-		padding: 1.3em;
-
-	}
-
 
 /* Forms */
 
@@ -410,8 +383,9 @@ form {
 	select {
 		
 			-webkit-appearance: none;
-			font-family: inherit;
 			-moz-appearance: none;
+			appearance: none;
+			font-family: inherit;
 		    text-indent: 0.01px;
 		    text-overflow: '';	
 		    margin: 0;
@@ -528,10 +502,10 @@ form {
 	background: rgba(0,0,0,.9);
 	overflow-y: scroll;
 	position: fixed;
-	top:0;
-	right:0;
-	bottom:0;
-	left:0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
 	border: 3em solid transparent;
 	border-top: none;
 	padding-top: 3.6em;
@@ -562,7 +536,7 @@ form {
 		
 	}
 
-	#blackbox .slider, #blackbox > .slider-container {
+	#blackbox .slider, #blackbox .slider-container {
 		
 		background: transparent;
 		
@@ -570,7 +544,7 @@ form {
 
 /* Back to top button */
 
-a.backtotop {
+.backtotop {
 
 	text-align: center;
 	display: block;
@@ -593,17 +567,6 @@ a.backtotop {
 
 	}
 
-	.backtotop:hover {
-
-		color: #000;
-
-	}
-
-	a.backtotop:link, a.backtotop:visited {
-
-		color: #aaa;
-
-	}
 
 /* Tooltip */
 
@@ -616,29 +579,29 @@ a.backtotop {
 
 }
 
-.tip, label span .tip {
-
-	background: #333;
-	color: #ddd;
-	padding: .5em;
-	border-radius: 4px;
-	font-size: 12px;
-	font-weight: normal;
-	position: absolute;
-	top: auto;
-	left: 0;
-	right: 0;
-	display: none;
-	cursor: default;
-	overflow: hidden;
-	line-height: 1.5em;
-	z-index: 999;
-	text-align: left;
-	opacity: 0;
-    transition: all .4s ease-in-out;
-    width: 98%;
-
-}
+	.tip, label span .tip {
+	
+		background: #333;
+		color: #ddd;
+		padding: .5em;
+		border-radius: 4px;
+		font-size: 12px;
+		font-weight: normal;
+		position: absolute;
+		top: auto;
+		left: 0;
+		right: 0;
+		display: none;
+		cursor: default;
+		overflow: hidden;
+		line-height: 1.5em;
+		z-index: 999;
+		text-align: left;
+		opacity: 0;
+	    transition: all .4s ease-in-out;
+	    width: 98%;
+	
+	}
 
 /* Lists */
 
@@ -648,11 +611,19 @@ ul {
 	margin: 1em 0 1em 2em;
 }
 
-ol {
+	ol {
+	
+	    list-style-type: none;
+	    counter-reset: level1;
+		margin-left: -2em;
+	
+		}
+	
+	ol > li {
 
-    list-style-type: none;
-    counter-reset: level1;
-	margin-left: -2em;
+		padding-bottom: 1em;
+		text-indent: -2.3em;
+		margin-left: 2.3em;
 
 	}
 
@@ -716,19 +687,6 @@ ol {
 
 	}
 
-	.rightcolumn > ol {
-
-		padding-left: 20px;
-	}
-
-	ol > li {
-
-		padding-bottom: 1em;
-		text-indent: -2.3em;
-		margin-left: 2.3em;
-
-	}
-
 	ol ul {
 
 		text-indent: .1em;
@@ -767,14 +725,9 @@ ol {
 		-ms-transition: padding 0.25s ;
 		-o-transition: padding 0.25s ;
 		transition: padding 0.25s ;  
-		-webkit-touch-callout: none;
-		-webkit-user-select: none;
-		-khtml-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-		user-select: none;
 		
 	}
+
 	.accordion > div { /* hidden accordion item */
 
 	    overflow: hidden;
@@ -821,17 +774,6 @@ table {
 
 	}
 
-	table tr:first-child a {
-
-		display: block;
-	}
-
-	table tr:first-child a:hover {
-
-		color: #fff;
-
-	}
-
 	table tr:first-child td {
 
 		border-left: 1px solid #797979;
@@ -872,11 +814,11 @@ table {
 
 	}
 
-tr, td {
-	
-	border: none;
-	
-}
+	tr, td {
+		
+		border: none;
+		
+	}
 
 /* Etc */
 
@@ -898,7 +840,9 @@ tr, td {
 	}
 	
 	.row > *, .row > .column23, .row > .column2, .row > .column3, .row > .column4, .row > .column34 {
+
 		width: auto;
+
 	}
 	
 	#top .row > * {
@@ -907,20 +851,6 @@ tr, td {
 
 	}
 
-	#main label select, label input, textarea {
-		
-		width: 96%;
-		margin: 0;
-		margin-top: .5em;
-			
-	}
-	
-		#main label select, input[type="submit"] {
-	
-			width: 100%;
-	
-		}
-		
 	label {
 
 		text-align: left;
@@ -940,6 +870,20 @@ tr, td {
 			
 		}
 
+		#main label select, label input, textarea {
+			
+			width: 96%;
+			margin: 0;
+			margin-top: .5em;
+				
+		}
+	
+		#main label select, input[type="submit"] {
+	
+			width: 100%;
+	
+		}
+		
 	.wide-screen {
 		
 		display: none !important;

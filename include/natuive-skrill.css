@@ -376,7 +376,7 @@ a:link, a:visited {
 		
 	}
 	
-	.subnav a:link, .subnav a:visited {
+	.sub.nav a:link, .sub.nav a:visited {
 		
 		padding: .5em;
 		text-shadow: 1px 1px #eee;
@@ -385,38 +385,38 @@ a:link, a:visited {
 		
 	}
 
-	.subnav a:hover {
+	.sub.nav a:hover {
 		
 		color: #333;
 		
 	}
 		
-	.subnav ul ul a:link, .subnav ul ul a:visited {
+	.sub.nav ul ul a:link, .sub.nav ul ul a:visited {
 	
 		display: block;	
 		
 	}
 	
-	.subnav ul ul li:before {
+	.sub.nav ul ul li:before {
 	
 		display: none;
 	
 	}
 	
-	.subnav {
+	.sub.nav {
 	
 		background: #ddd;
 		border-top: 1px solid #b2b2b2;
 		
 	}
 	
-	.subnav li:before {
+	.sub.nav li:before {
 		
 		color: #aaa;
 		
 	}
 	
-	.subnav label.trigger {
+	.sub.nav label.trigger {
 	
 		width: 12px;
 		height: 12px;
@@ -426,25 +426,25 @@ a:link, a:visited {
 	
 	}
 
-	.subnav .row {
+	.sub.nav .row {
 		
 		overflow: visible;
 		
 	}
 		
-	.subnav label.trigger:before {
+	.sub.nav label.trigger:before {
 		
 		display: none;
 		
 	}
 	
-	#top .subnav.wide-screen div > ul {
+	#top .sub.nav.wide-screen div > ul {
 		
 		 margin-left: -.5em;
 
 	}
 	
-	.subnav a.logo {
+	.sub.nav a.logo {
 		
 		float: left; height: 0; overflow: hidden; padding-top: 1px; padding-bottom: 0; padding-right: 0;		
 		
@@ -508,32 +508,32 @@ a:link, a:visited {
 		
 	}
 	
-	#top .subnav li {
+	#top .sub.nav li {
 	
 		position: relative;
 		color: #000;
 		
 	}
 	
-	#top .subnav li ul li:not(:first-child) a {
+	#top .sub.nav li ul li:not(:first-child) a {
 	
 		border-top: 1px solid #fff;
 	
 	}
 	
-	#top .subnav li ul li:not(:last-child) a {
+	#top .sub.nav li ul li:not(:last-child) a {
 	
 		border-bottom: 1px solid #c1bfbf;
 	
 	}
 	
-	#top .subnav li.active li {
+	#top .sub.nav li.active li {
 	
 		display: block;
 		
 	}
 	
-	#top .subnav li.active li:before {
+	#top .sub.nav li.active li:before {
 	
 		display: none;
 		
@@ -541,7 +541,7 @@ a:link, a:visited {
 	
 	/* 3rd level navigation dropdown on wide screens */
 	
-	#top .subnav li ul {
+	#top .sub.nav li ul {
 		
 		display: block;
 		position: absolute;
@@ -561,31 +561,31 @@ a:link, a:visited {
 	
 	}
 	
-	#top .subnav li:first-child ul {
+	#top .sub.nav li:first-child ul {
 	
 		left: 0;
 	
 	}
 	
-	#top .subnav li ul.open {
+	#top .sub.nav li ul.open {
 		
 		max-height: 500px;
 	
 	}
 	
-	#top .subnav li input.trigger:checked ~ ul {
+	#top .sub.nav li input.trigger:checked ~ ul {
 		
 		max-height: 500px;
 	
 	}
 	
-	#top .subnav li input.trigger:checked ~ a, #top .subnav li input.trigger:checked ~ a {
+	#top .sub.nav li input.trigger:checked ~ a, #top .sub.nav li input.trigger:checked ~ a {
 		
 		box-shadow: -1px 1px 1px #999999, 1px 1px 1px rgba(0, 0, 0, .3);
 		
 	}
 	
-	#footer .subnav {
+	#footer .sub.nav {
 		
 		margin-bottom: 1em;
 		
@@ -914,7 +914,7 @@ ul li {
 	padding-left: 2em;
 }
 
-#top ul li, .subnav ul li {
+#top ul li, .sub.nav ul li {
 	
 	background-image: none;
 	padding-left: 0;
@@ -1061,7 +1061,7 @@ ul li {
 			
 		}
 		
-		#nav-main .nav li, #nav-main .subnav li {
+		#nav-main .nav li, #nav-main .sub.nav li {
 			
 			display: block;
 			text-align: left;
