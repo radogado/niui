@@ -363,7 +363,7 @@ addEventHandler(window, 'load', function() {
 
 	relayParameters();
 	
-/* Modal window: open a link inside it */
+/* Modal window: open a link inside it. Also lightbox with images */
 
    	forEach('a.modal, a.lightbox', function(el, i) {
 		
@@ -393,7 +393,7 @@ addEventHandler(window, 'load', function() {
 	document.body.insertAdjacentHTML('beforeend', '<a class="backtotop" href="#"> ⬆ </a>');
 /* 	document.body.querySelector('.backtotop').onclick = function() { scrollTo(0); return false; }; */ /* Not working in Chrome */
 
-/* Auto textarea height - fix bug after manually resize in Safari*/
+/* Auto textarea height */
    	
    	forEach('textarea', function(el, i){
 	
