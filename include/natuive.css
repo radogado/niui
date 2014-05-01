@@ -101,7 +101,7 @@ a:link, a:visited {
 
 	a[href]:hover {
 
-		color: #333;
+		color: #ee8822;
 
 	}
 
@@ -205,6 +205,12 @@ li a:link, li a:visited {
 
 		display: none;
 
+	}
+	
+	.subnav a[href]:hover, .nav a[href]:hover {
+		
+		color: #ee8822;
+		
 	}
 
 #language {
