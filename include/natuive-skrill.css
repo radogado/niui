@@ -375,7 +375,13 @@ a:link, a:visited {
 		background: transparent url(../images/nav-arrow.png) center center no-repeat;
 		
 	}
+
+	.nav .active:after {
 	
+		display: none;
+
+	}
+		
 	.sub.nav a:link, .sub.nav a:visited {
 		
 		padding: .5em;

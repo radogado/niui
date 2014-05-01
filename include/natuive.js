@@ -161,7 +161,7 @@ function showTip (e) {
 	var event = e || window.event;
 	var target = event.target || event.srcElement;
 
-	tip = target.querySelector('.tip');
+	tip = target.getElementsByClassName('tip')[0];
 	if (!tip) return; //  fix it not to log error in console
 	
 	tip.parentNode.parentNode.style.position = 'relative'; // dangerous with absolutely-positioned containers, which should be avoided anyway
@@ -288,7 +288,7 @@ function modalWindow (e) {
 		/* Add any <a><img> siblings with description to a .slider and initialise its controls */
 		images = '';
 
-		elements = target.parentNode.querySelectorAll('.lightbox');
+		elements = target.parentNode.getElementsByClassName('lightbox');
 		index = 0;
 		for (var i = 0; i < elements.length; i++) {
 			images += '<div><img src="' + elements[i].href + '"></div>';
@@ -296,12 +296,13 @@ function modalWindow (e) {
 		}
 
 		document.getElementById('blackbox').innerHTML = '<div class="close"> ← ' + document.title + '</div><div class="slider lightbox">' + images + '</div>';
-		document.getElementById('blackbox').querySelector('.close').onclick = removeBlackbox;
+		document.querySelector('#blackbox > .close').onclick = removeBlackbox;
 		
 		if ( makeSlider ) { 
-		
-			makeSlider( document.getElementById('blackbox').querySelector('.slider') );
-			document.querySelector('#blackbox .slider').scrollLeft = index *  document.querySelector('#blackbox .slider').offsetWidth;
+
+			new_slider = document.querySelector('#blackbox .slider');
+			makeSlider( new_slider );
+			new_slider.scrollLeft = index * new_slider.offsetWidth;
 		
 		}
 		
@@ -326,7 +327,7 @@ function modalWindow (e) {
 				document.body.style.overflow = 'hidden';
 				blackbox = document.getElementById('blackbox');
 				blackbox.insertAdjacentHTML('afterbegin', '<div class="close"> ← ' + document.title + '</div>');
-				blackbox.querySelector('.close').onclick = removeBlackbox;
+				blackbox.getElementsByClassName('close')[0].onclick = removeBlackbox;
 				if (container) {
 					parsed = parseHTML(request.responseText);
 					if ( !parsed.querySelector(container) ) { removeBlackbox (); return false; }
@@ -420,7 +421,7 @@ addEventHandler(window, 'load', function() {
 		
 		el.onsubmit = function () {
 			ready_to_submit = true;
-			elements = el.querySelectorAll('.mandatory');
+			elements = el.getElementsByClassName('mandatory');
 			Array.prototype.forEach.call(elements, function (el, i) {
 				
 				if (!el.querySelector('input, select, textarea').value) { 
@@ -476,7 +477,7 @@ addEventHandler(window, 'load', function() {
 
 /* Fixed position top offset */
 	
-	document.querySelector('#top').style.minHeight = document.querySelector('#top .row').scrollHeight + 'px';
+	document.getElementById('top').style.minHeight = document.querySelector('#top .row').scrollHeight + 'px';
 	
 /* Prevent body scroll when mobile navigation is open */
 
