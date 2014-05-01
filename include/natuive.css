@@ -11,7 +11,6 @@
 
 .row {
 
-	clear: both;
 	display: table;
 	table-layout: fixed;
 	width: 100%;
@@ -19,10 +18,6 @@
 	overflow: hidden;
 
 }
-
-	@-moz-document url-prefix()	{
-		.row, .row > * { height: 100%; }
-	}
 
 	.row > * {
 	
@@ -34,24 +29,38 @@
 
 	}
 
+	@-moz-document url-prefix()	{
+		.row, .row > * { height: 100%; }
+	}
+
 	.row > .column23 {
-		width: 66.666%;
+
+		width: 66.6%;
+
 	}
 	
 	.row > .column34 {
+
 		width: 75%;
+
 	}
 
 	.row > .column4 {
+
 		width: 25%;
+
 	}
 
 	.row > .column3 {
+
 		width: 33.333%;
+
 	}
 
 	.row > .column2 {
+
 		width: 50%;
+
 	}
 
 /* Basic elements */
@@ -86,16 +95,21 @@ img {
 	
 }
 
-p:first-child {
+p, li {
 
-	margin-top: 0;
+	line-height: 1.4;
 
 }
 
+	p:first-child {
+	
+		margin-top: 0;
+	
+	}
+	
 a:link, a:visited {
 
 	color: #333;
-	line-height: 0;
 
 }
 
@@ -104,12 +118,6 @@ a:link, a:visited {
 		color: #ee8822;
 
 	}
-
-li, p {
-
-	line-height: 1.4;
-
-}
 
 .wide-screen {
 	
@@ -125,7 +133,7 @@ li, p {
 
 /* Navigation */
 
-ul, #top ul, .subnav ul {
+ul, #top ul, .nav ul {
 
 	margin: 0;
 	padding: 0;
@@ -157,7 +165,7 @@ li a:link, li a:visited {
 		line-height: 1;	
 	}
 	
-	.nav a.active:link, .nav a.active:visited, .subnav a.active:link, .subnav a.active:visited {
+	.nav a.active:link, .nav a.active:visited {
 	
 		color: #ee8822;
 		position: relative;
@@ -178,36 +186,42 @@ li a:link, li a:visited {
 		
 	}
 
-	.nav li, .subnav li {
+	.nav li {
 	
 		display: inline;
 	
 	}
 
-.subnav a:link, .subnav a:visited {
+.sub.nav {
 
-	color: #727272;
 	font-size: .9em;
-	display: inline-block;
-	padding: .3em 0;
-	text-shadow: 0 1px 1px #fff;
-	line-height: 1.2;
 
 }
-	.subnav li:before {
 
-		content: "| ";
+.sub.nav a:link, .sub.nav a:visited {
+
+	color: #727272;
+	display: inline-block;
+	padding: .3em 0;
+	line-height: 1.2;
+	text-transform: none;
+
+}
+	.sub.nav li:before {
+
+		content: "|";
 		color: #ddd;
+		padding-right: .5em;
 
 	}
 
-	.subnav li:first-child:before {
+	.sub.nav li:first-child:before {
 
 		display: none;
 
 	}
 	
-	.subnav a[href]:hover, .nav a[href]:hover {
+	.nav a[href]:hover {
 		
 		color: #ee8822;
 		
@@ -319,7 +333,7 @@ a.button, input[type="submit"] {
 	
 }
 
-	#top .subnav.row > div:last-child {
+	#top .sub.nav.row > div:last-child {
 		
 		text-align: left;
 		
@@ -753,6 +767,12 @@ ol {
 		-ms-transition: padding 0.25s ;
 		-o-transition: padding 0.25s ;
 		transition: padding 0.25s ;  
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
 		
 	}
 	.accordion > div { /* hidden accordion item */
@@ -770,12 +790,6 @@ ol {
 		
 	}
 
-	.accordion.open > label { 
-
-		padding-left: 0;
-		
-	}
-	
 	.accordion .accordion:first-child {
 		
 		padding-top: 0;
