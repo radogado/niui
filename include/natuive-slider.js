@@ -169,7 +169,7 @@ function makeSlider (el) {
 		} else {
 			
 			container.querySelector('.slider-nav').insertAdjacentHTML('beforeend', ( !i ? '<a class="active">' : '<a>' ) + (i + 1) + '</a>');
-			container.style.height = (container.offsetHeight - height_scroll) + 'px';
+/* 			container.style.height = (container.offsetHeight - height_scroll) + 'px'; */
 
 		}
 		
@@ -193,7 +193,7 @@ function makeSlider (el) {
 	
 	el.onscroll = scrollSlider;
 	
-	el.style.width = el.offsetWidth + 'px'; // Chrome fix
+/* 	el.style.width = el.offsetWidth + 'px'; // Chrome fix */
 	
 }
 
@@ -211,5 +211,11 @@ addEventHandler ( window, 'load', function() {
 		makeSlider(el);
 		
 	});
+	
+	window.onresize = function () { 
+
+		slide( slider, 'snap' ); 
+
+	}
 	
 });
