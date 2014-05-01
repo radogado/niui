@@ -203,21 +203,6 @@ Math.easeInOutQuad = function ( t, b, c, d ) {
 
 };
 
-Math.easeInCubic = function( t, b, c, d ) {
-
-	var tc = (t/=d)*t*t;
-	return b+c*(tc);
-
-};
-
-Math.inOutQuintic = function( t, b, c, d ) {
-
-	var ts = (t/=d)*t,
-	tc = ts*t;
-	return b+c*(6*tc*ts + -15*ts*ts + 10*tc);
-
-};
-
 // requestAnimationFrame for Smart Animating http://goo.gl/sx5sts
 var requestAnimFrame = (function() {
 	
@@ -392,7 +377,7 @@ addEventHandler(window, 'load', function() {
 /* Add 'Back to top' button */
 
 	document.body.insertAdjacentHTML('beforeend', '<a class="backtotop" href="#"> ⬆ </a>');
-/* 	document.body.querySelector('.backtotop').onclick = function() { scrollTo(0); return false; }; */ /* Not working in Chrome */
+	document.body.getElementsByClassName('backtotop')[0].onclick = function() { window.scrollTo(0); return false; };
 
 /* Auto textarea height */
    	

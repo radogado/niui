@@ -100,7 +100,7 @@ function slide ( e, target ) {
 		currentTime += increment;
 		// find the value with the quadratic in-out easing function
 		var val = Math.easeInOutQuad(currentTime, start, change, duration);
-		// move the document.body
+		// slide
 		slider.scrollLeft = val;
 		// do the animation unless its over
 		if(currentTime < duration) {
