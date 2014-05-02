@@ -69,7 +69,8 @@
 
 .slider-nav a.active {
 
-	background: #666;
+	background: #fff;
+	color: #666;
 
 }
 
@@ -116,7 +117,6 @@
 	height: auto;
 	display: table-cell;
 	text-align: left;
-	border: 1px solid #999;
 	color: #333;
 	border-radius: 0;
 	line-height: 1.2;

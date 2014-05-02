@@ -9,7 +9,13 @@ var height_scroll = 0;
 function scrollSlider (e) {
 
 	var event = e || window.event;
-	slider = event.target || event.srcElement;
+	s = event.target || event.srcElement;
+	if ( s != slider ) {
+		
+		slider = s;
+		original_scroll = slider.scrollLeft;
+		
+	}
     clearTimeout(scrollTimer);
     scrollTimer = setTimeout(function() {
 		scroll_start = slider.scrollLeft;
@@ -18,12 +24,17 @@ function scrollSlider (e) {
 
 };
 
-function moveIndex () {
+function moveIndex (el) {
+	
+	if (!el) {
+		
+		el = slider;
+	
+	}
+	removeClass ( el.parentNode.querySelector('.slider-nav a.active'), 'active' );
+	var index = Math.round( el.scrollLeft / el.offsetWidth ) + 1;
 
-	removeClass ( slider.parentNode.querySelector('.slider-nav a.active'), 'active' );
-	var index = Math.round( slider.scrollLeft / slider.offsetWidth ) + 1;
-
-	addClass( slider.parentNode.getElementsByClassName('slider-nav')[0].childNodes[index-1], 'active');
+	addClass( el.parentNode.getElementsByClassName('slider-nav')[0].childNodes[index-1], 'active');
 	
 }
 
@@ -46,7 +57,12 @@ function slide ( e, target ) {
 	var event = e || window.event;
 	el = event.target || event.srcElement;
 	slider = el;
-	slider.onscroll = function () { return false; };
+	if (slider) {
+	
+		slider.onscroll = function () { return false; };
+
+	}
+	
 	stopEvent(e);
 	var change = 0;
 	
@@ -78,7 +94,7 @@ function slide ( e, target ) {
 	
 	if ( target == 'snap') {
 
-		console.log('From ' + original_scroll + ' to ' + slider.scrollLeft);
+/* 		console.log('From ' + original_scroll + ' to ' + slider.scrollLeft); */
 
 		if (slider.scrollLeft > original_scroll) { 
 			change = slider.offsetWidth - slider.scrollLeft % slider.offsetWidth;
@@ -195,7 +211,7 @@ function makeSlider (el) {
 	
 	el.onscroll = scrollSlider;
 	
-/* 	el.style.width = el.offsetWidth + 'px'; // Chrome fix */
+/* 	el.style.width = el.offsetWidth + 'px'; // Chrome fix, now obsolete? */
 	
 }
 
@@ -215,9 +231,12 @@ addEventHandler ( window, 'load', function() {
 	});
 	
 	window.onresize = function () { 
-
-		slide( slider, 'snap' ); 
-
+		
+		forEach('.slider', function (el,i) {
+			el.scrollLeft = 0;
+			moveIndex (el);
+		});
+		
 	}
 	
 });
