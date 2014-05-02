@@ -43,10 +43,11 @@ function slideEnd () {
 function slide ( e, target ) {
 
     clearTimeout(scrollTimer);
-	slider.onscroll = function () { return false; };
-	stopEvent(e);
 	var event = e || window.event;
 	el = event.target || event.srcElement;
+	slider = el;
+	slider.onscroll = function () { return false; };
+	stopEvent(e);
 	var change = 0;
 	
 	addClass( document.body, 'disable-hover');
