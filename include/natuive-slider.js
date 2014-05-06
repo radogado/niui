@@ -34,7 +34,7 @@ function moveIndex (el) {
 	removeClass ( el.parentNode.querySelector('.slider-nav a.active'), 'active' );
 	var index = Math.round( el.scrollLeft / el.offsetWidth ) + 1;
 
-	addClass( el.parentNode.getElementsByClassName('slider-nav')[0].childNodes[index-1], 'active');
+	addClass( el.parentNode.querySelector('.slider-nav').childNodes[index-1], 'active');
 	
 }
 
@@ -54,7 +54,8 @@ function slideEnd () {
 function slide ( e, target ) {
 
     clearTimeout(scrollTimer);
-	var event = e || window.event;
+	var event = e || window.event; 
+	if ( typeof event.srcElement == 'unknown' ) { return; } // IE8
 	el = event.target || event.srcElement;
 	slider = el;
 	if (slider) {
@@ -70,7 +71,7 @@ function slide ( e, target ) {
 	
 	if (target == 'index') {
 
-		slider = el.parentNode.parentNode.getElementsByClassName('slider')[0];
+		slider = el.parentNode.parentNode.querySelector('.slider');
 		start = slider.scrollLeft;
 		change = thisIndex(el) * slider.offsetWidth - start;
 		
@@ -78,7 +79,7 @@ function slide ( e, target ) {
 	
 	if ( target == 'left') {
 
-		slider = el.parentNode.getElementsByClassName('slider')[0];
+		slider = el.parentNode.querySelector('.slider');
 		start = slider.scrollLeft;
 		change = slider.scrollLeft - slider.offsetWidth - start;
 
@@ -86,7 +87,7 @@ function slide ( e, target ) {
 	
 	if ( target == 'right') {
 
-		slider = el.parentNode.getElementsByClassName('slider')[0];
+		slider = el.parentNode.querySelector('.slider');
 		start = slider.scrollLeft;
 		change = slider.scrollLeft + slider.offsetWidth - start;
 
@@ -162,7 +163,7 @@ function makeSlider (el) {
 	container = el.previousSibling;
 	container.insertAdjacentHTML('afterbegin', '<a class="slider-arrow left">←</a>' + el.outerHTML.replace( new RegExp( "\>[\n\t ]+\<" , "g" ) , "><" ) + '<a class="slider-arrow right">→</a><div class="slider-nav"></div>'); // 'replace' function removes spaces between slides to glue them together
 	container.nextSibling.outerHTML = '';
-	el = container.getElementsByClassName('slider')[0];
+	el = container.querySelector('.slider');
 	
 	// Get scrollbar width and hide it by reducing the .slider-container height proportionally
 
@@ -175,23 +176,23 @@ function makeSlider (el) {
 
 	for (var i = 0; i < el.children.length; i++) {
 		
-		if ( el.children[i].getElementsByClassName('thumbnail')[0] ) {
+		if ( el.children[i].querySelector('.thumbnail') ) {
 
-			slider_nav = el.parentNode.getElementsByClassName('slider-nav')[0];
+			slider_nav = el.parentNode.querySelector('.slider-nav');
 			addClass( slider_nav, 'thumbnails' );
 			addClass( slider_nav, 'row' );
-			slider_nav.insertAdjacentHTML('beforeend', ( !i ? '<a class="active">' : '<a>' ) + el.children[i].getElementsByClassName('thumbnail')[0].innerHTML + '</a>' );
+			slider_nav.insertAdjacentHTML('beforeend', ( !i ? '<a class="active">' : '<a>' ) + el.children[i].querySelector('.thumbnail').innerHTML + '</a>' );
 			slider_nav.style.marginTop = (-1 * height_scroll) + 'px';
 			
 						
 		} else {
 			
-			container.getElementsByClassName('slider-nav')[0].insertAdjacentHTML('beforeend', ( !i ? '<a class="active">' : '<a>' ) + (i + 1) + '</a>');
-/* 			container.style.height = (container.offsetHeight - height_scroll) + 'px'; */
+			container.querySelector('.slider-nav').insertAdjacentHTML('beforeend', ( !i ? '<a class="active">' : '<a>' ) + (i + 1) + '</a>');
+			container.style.height = (container.offsetHeight - height_scroll) + 'px';
 
 		}
 		
-		container.getElementsByClassName('slider-nav')[0].lastChild.onclick = function (e) {
+		container.querySelector('.slider-nav').lastChild.onclick = function (e) {
 			slide(e, 'index');
 		};
 

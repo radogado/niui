@@ -161,7 +161,7 @@ function showTip (e) {
 	var event = e || window.event;
 	var target = event.target || event.srcElement;
 
-	tip = target.getElementsByClassName('tip')[0];
+	tip = target.querySelector('.tip');
 	if (!tip) return; //  fix it not to log error in console
 	
 	tip.parentNode.parentNode.style.position = 'relative'; // dangerous with absolutely-positioned containers, which should be avoided anyway
@@ -273,7 +273,7 @@ function modalWindow (e) {
 		/* Add any <a><img> siblings with description to a .slider and initialise its controls */
 		images = '';
 
-		elements = target.parentNode.getElementsByClassName('lightbox');
+		elements = target.parentNode.querySelectorAll('.lightbox');
 		current_slide = 0;
 		for (var i = 0; i < elements.length; i++) {
 			images += '<div><img src="' + elements[i].href + '"></div>';
@@ -313,7 +313,7 @@ function modalWindow (e) {
 				document.body.style.overflow = 'hidden';
 				blackbox = document.getElementById('blackbox');
 				blackbox.insertAdjacentHTML('afterbegin', '<div class="close"> ← ' + document.title + '</div>');
-				blackbox.getElementsByClassName('close')[0].onclick = removeBlackbox;
+				blackbox.querySelector('.close').onclick = removeBlackbox;
 				if (container) {
 					parsed = parseHTML(request.responseText);
 					if ( !parsed.querySelector(container) ) { removeBlackbox (); return false; }
@@ -378,7 +378,7 @@ addEventHandler(window, 'load', function() {
 /* Add 'Back to top' button */
 
 	document.body.insertAdjacentHTML('beforeend', '<a class="backtotop" href="#"> ⬆ </a>');
-	document.body.getElementsByClassName('backtotop')[0].onclick = function() { window.scrollTo(0); return false; };
+	document.body.querySelector('.backtotop').onclick = function() { window.scrollTo(0); return false; };
 
 /* Auto textarea height */
    	
@@ -407,7 +407,7 @@ addEventHandler(window, 'load', function() {
 		
 		el.onsubmit = function () {
 			ready_to_submit = true;
-			elements = el.getElementsByClassName('mandatory');
+			elements = el.querySelectorAll('.mandatory');
 			Array.prototype.forEach.call(elements, function (el, i) {
 				
 				if (!el.querySelector('input, select, textarea').value) { 

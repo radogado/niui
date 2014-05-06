@@ -172,9 +172,15 @@ a:link, a:visited {
 	
 	}
 
-	.nav li:not(:last-child) {
+	.nav li {
 
 		margin-right: .6em;
+
+	}
+
+	.nav li:last-child {
+
+		margin-right: 0;
 
 	}
 
