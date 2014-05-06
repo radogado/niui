@@ -89,23 +89,22 @@ function thisIndex (elm) {
 
 if ( typeof document.body.style.textShadow == 'undefined' ) { // Old browsers without (good) CSS3 support
 
-	forEach('label.trigger', function (el, i) { // Sub-navigation trigger
-		
-		el.onclick = function (e) {
+/*
 
-			var event = e || window.event;
-			var target = event.target || event.srcElement;
-			el = target.parentNode.querySelector('ul');
+// To do: Define getElementsByClassName for IE8 and use it instead of querySelectorAll for speed
 
-			if ( hasClass ( el, 'open' ) ) {
-				removeClass ( el, 'open' );
-			} else {
-				addClass ( el, 'open' );
-			}
-			
-		}
-
-	});	
+document.getElementsByClassName = Element.prototype.getElementsByClassName = function(class_names) {
+    // Turn input in a string, prefix space for later space-dot substitution
+    class_names = (' ' + class_names)
+        // Escape special characters
+        .replace(/[~!@$%^&*()_+\-=,./';:"?><[\]{}|`#]/g, '\\$&');
+        // Normalize whitespace, right-trim
+        .replace(/\s*(\s|$)/g, '$1')
+        // Replace spaces with dots for querySelectorAll
+        .replace(/\s/g, '.');
+    return this.querySelectorAll(class_names);
+};
+*/
 
 }
 
