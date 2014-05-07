@@ -511,7 +511,7 @@ form {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	border: 3em solid transparent;
+/* 	border: 3em solid transparent; */
 	border-top: none;
 	padding-top: 3.6em;
 	-webkit-overflow-scrolling: touch;
@@ -520,11 +520,9 @@ form {
 
 	#blackbox .close {
 
-		display: block;
-		content: "";
 		color: #fff;
 		cursor: pointer;
-		padding: 1em 0;
+		padding: 1em;
 		font-weight: bold;
 		position: fixed;
 		background: #000;
