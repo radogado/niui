@@ -135,8 +135,7 @@ var tip;
 function hideTip (e) {
 	
 	if (!tip) return;
-	tip.style.display = 'none';
-	tip.style.opacity = 0;
+	removeClass ( tip, 'open' );
 
 }
 
@@ -149,11 +148,8 @@ function showTip (e) {
 	if (!tip) return; //  fix it not to log error in console
 	
 	tip.parentNode.parentNode.style.position = 'relative'; // dangerous with absolutely-positioned containers, which should be avoided anyway
-
 	tip.style.top = (tip.parentNode.offsetTop + tip.parentNode.offsetHeight) + 'px';
-			
-	tip.style.opacity = 1;
-	tip.style.display = 'block';
+	addClass ( tip, 'open' );
 	
 }
 
@@ -187,7 +183,6 @@ Math.easeInOutQuad = function ( t, b, c, d ) {
 
 };
 
-// requestAnimationFrame for Smart Animating http://goo.gl/sx5sts
 var requestAnimFrame = (function() {
 	
 	return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function( callback ) {

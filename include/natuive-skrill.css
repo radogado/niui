@@ -98,7 +98,7 @@ h1, h2, h3, h4, h5 {
 		
 	}
 	
-a:link, a:visited {
+#main a:link, #main a:visited {
 
 	color: #801866;
 	text-decoration: none;
@@ -446,7 +446,7 @@ a:link, a:visited {
 	
 	#top .sub.nav.wide-screen div > ul {
 		
-		 margin-left: -.5em;
+		 margin-left: -.8em;
 
 	}
 	
@@ -552,7 +552,7 @@ a:link, a:visited {
 		display: block;
 		position: absolute;
 		top: 1.6em;
-		left: .85em;
+		left: 1px;
 		z-index: 99999;
 		background: #ddd;
 		padding: 0;
@@ -591,6 +591,13 @@ a:link, a:visited {
 		
 	}
 	
+
+	#top .sub.nav li:first-child a {
+		
+		padding-left: .5em;
+
+	}
+
 	#footer .sub.nav {
 		
 		margin-bottom: 1em;

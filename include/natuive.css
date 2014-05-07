@@ -15,7 +15,6 @@
 	table-layout: fixed;
 	width: 100%;
 	border-collapse: separate;
-	overflow: hidden;
 
 }
 
@@ -157,6 +156,7 @@ a:link, a:visited {
 		font-size: 1em;
 		line-height: 1;	
 		position: relative;
+		padding: .3em .3em .3em .5em;
 
 	}
 	
@@ -172,12 +172,6 @@ a:link, a:visited {
 	
 	}
 
-	.nav li {
-
-		margin-right: .6em;
-
-	}
-
 	.nav li:last-child {
 
 		margin-right: 0;
@@ -186,7 +180,7 @@ a:link, a:visited {
 
 	.sub.nav {
 	
-		font-size: .9em;
+		font-size: 1em;
 	
 	}
 	
@@ -194,17 +188,21 @@ a:link, a:visited {
 	
 		color: #727272;
 		display: inline-block;
-		padding: .3em 0;
 		line-height: 1.2;
 		text-transform: none;
 	
 	}
 
+	.nav li:first-child a {
+		
+		padding-left: 0;
+
+	}
+	
 	.sub.nav li:not(:first-child):before {
 
-		content: "|";
-		color: #ddd;
-		padding-right: .5em;
+		content: "";
+		border-left: 1px solid #ddd;
 
 	}
 	
@@ -605,13 +603,20 @@ form {
 	    width: 98%;
 	
 	}
+	
+	.tip.open {
+		
+		opacity: 1;
+		display: block;
+		
+	}
 
 /* Lists */
 
 
 ul {
 	
-	margin: 1em 0 1em 2em;
+	margin: 1em 0 1em 0;
 }
 
 	ol {
@@ -760,9 +765,8 @@ table {
 	width: 100%;
 	overflow: auto;
 	border-collapse: collapse;
-	overflow: auto;
+	display: block;s
 	-webkit-overflow-scrolling: touch;
-	table-layout: fixed;
 
 	}
 
@@ -772,8 +776,6 @@ table {
 		border-bottom: 1px solid #797979;
 		border-right: 1px solid #797979;
 		vertical-align: middle;
-		word-break: break-word;
-		word-break: break-all;
 
 	}
 
@@ -822,7 +824,21 @@ table {
 		border: none;
 		
 	}
+	
+	table.scroll {
+		
+		display: block;
+		overflow: scroll;
+		table-layout: auto;
+		
+	}
 
+	table.scroll td {
+		
+		word-break: normal;
+	
+	}
+	
 /* Etc */
 
 .social {
@@ -902,7 +918,15 @@ table {
 	table {
 		
 		display: block;
+		overflow: scroll;
+		table-layout: auto;
 		
+	}
+
+	table td {
+		
+		word-break: normal;
+	
 	}
 
 }
