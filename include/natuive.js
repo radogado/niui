@@ -89,22 +89,7 @@ function thisIndex (elm) {
 
 if ( typeof document.body.style.textShadow == 'undefined' ) { // Old browsers without (good) CSS3 support
 
-/*
-
 // To do: Define getElementsByClassName for IE8 and use it instead of querySelectorAll for speed
-
-document.getElementsByClassName = Element.prototype.getElementsByClassName = function(class_names) {
-    // Turn input in a string, prefix space for later space-dot substitution
-    class_names = (' ' + class_names)
-        // Escape special characters
-        .replace(/[~!@$%^&*()_+\-=,./';:"?><[\]{}|`#]/g, '\\$&');
-        // Normalize whitespace, right-trim
-        .replace(/\s*(\s|$)/g, '$1')
-        // Replace spaces with dots for querySelectorAll
-        .replace(/\s/g, '.');
-    return this.querySelectorAll(class_names);
-};
-*/
 
 }
 

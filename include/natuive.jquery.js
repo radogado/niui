@@ -308,6 +308,12 @@ $(document).ready(function() {
 		};
 	
 	}
+	
+	$('label.trigger').click ( function (e) { // For IE8
+		
+		$(this).siblings('ul').toggleClass('open');
+		
+	});
 
 });
 
