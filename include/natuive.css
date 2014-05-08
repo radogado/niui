@@ -767,7 +767,7 @@ table {
 	width: 100%;
 	overflow: auto;
 	border-collapse: collapse;
-	display: block;s
+	display: block;
 	-webkit-overflow-scrolling: touch;
 
 	}
@@ -778,6 +778,7 @@ table {
 		border-bottom: 1px solid #797979;
 		border-right: 1px solid #797979;
 		vertical-align: middle;
+	    word-break: break-word;
 
 	}
 
