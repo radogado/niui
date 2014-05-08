@@ -317,13 +317,13 @@ a:link, a:visited {
 	vertical-align: bottom;
 	
 }
-
-	#top .sub.nav.row > div:last-child {
+	
+	#top .row > div.column4 .nav a {
 		
-		text-align: left;
+		padding-right: 0;
 		
 	}
-	
+
 	#top img {
 		
 		margin: 0;
