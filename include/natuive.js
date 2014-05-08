@@ -87,9 +87,17 @@ function thisIndex (elm) {
     return (count);
 }
 
-if ( typeof document.body.style.textShadow == 'undefined' ) { // Old browsers without (good) CSS3 support
+if ( typeof document.body.style.textShadow == 'undefined' ) { // Old browsers without (good) CSS3 support. IE9- detector
 
-// To do: Define getElementsByClassName for IE8 and use it instead of querySelectorAll for speed
+	// To do: Define getElementsByClassName for IE8 and use it instead of querySelectorAll for speed
+
+	forEach( 'table', function (el, i) {
+		
+		el.insertAdjacentHTML('beforebegin', '<div style="overflow-x: scroll"></div>');
+		el.previousSibling.insertAdjacentHTML('beforeend', el.outerHTML);
+		el.outerHTML = '';
+		
+	});
 
 }
 

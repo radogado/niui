@@ -17,7 +17,7 @@ A 7 KB framework focused on browsers' built-in capabilities with smart customisa
 - Auto-expanding textarea to save space
 - Native sliders with optional .thumbnail
 - Accordions
-- Tables
+- Accessible tables
 - Footer
 - 'Back to top' button
 - Language selector

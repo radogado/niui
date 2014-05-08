@@ -15,6 +15,7 @@
 	table-layout: fixed;
 	width: 100%;
 	border-collapse: separate;
+	overflow-x: hidden;
 
 }
 
@@ -156,7 +157,7 @@ a:link, a:visited {
 		font-size: 1em;
 		line-height: 1;	
 		position: relative;
-		padding: .3em .3em .3em .5em;
+		padding: .3em .5em .3em 0;
 
 	}
 	
@@ -190,6 +191,7 @@ a:link, a:visited {
 		display: inline-block;
 		line-height: 1.2;
 		text-transform: none;
+		padding: .3em .3em .3em .5em;
 	
 	}
 
