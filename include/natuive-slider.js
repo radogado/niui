@@ -1,4 +1,5 @@
 /* natUIve by rado.bg */
+/* To do: fix slider on mobile. Jumping back-forth (iPhone only on portrait orientation) – 4px inline-block bug? Very slow animation on Android. */
 
 var scrollTimer = null;
 var slider;
@@ -188,7 +189,7 @@ function makeSlider (el) {
 		} else {
 			
 			container.querySelector('.slider-nav').insertAdjacentHTML('beforeend', ( !i ? '<a class="active">' : '<a>' ) + (i + 1) + '</a>');
-			container.style.height = (container.offsetHeight - height_scroll) + 'px';
+/* 			container.style.height = (container.offsetHeight - height_scroll) + 'px'; */
 
 		}
 		
