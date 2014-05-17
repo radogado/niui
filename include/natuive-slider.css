@@ -1,9 +1,5 @@
 /* natUIve by rado.bg */
 
-*:not(html) {
-    -webkit-transform: translate3d(0, 0, 0);
-}
-
 .slider-container {
 	
 	position: relative;
@@ -17,6 +13,7 @@
 	overflow-y: hidden;
 	white-space: nowrap;
 	-webkit-overflow-scrolling: touch; /* fast, hardware-accelerated scrolling */
+    -webkit-transform: translate3d(0, 0, 0);
 	background: #fafafa;
 
 }
