@@ -15,6 +15,7 @@
 	-webkit-overflow-scrolling: touch; /* fast, hardware-accelerated scrolling */
     -webkit-transform: translate3d(0, 0, 0);
 	background: #fafafa;
+	font-size: 0;
 
 }
 
@@ -26,6 +27,7 @@
 	vertical-align: top;
 	overflow: hidden;
 	padding: 0;
+	font-size: 16px;
 
 }
 
