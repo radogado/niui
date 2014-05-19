@@ -41,13 +41,12 @@ function moveIndex (el) {
 
 function slideEnd () {
 
+	original_scroll = slider.scrollLeft;
 	slider.onscroll = scrollSlider;
-	clearTimeout(scrollTimer);
-	removeClass( document.body, 'disable-hover' );
-  	moveIndex();
-  	original_scroll = slider.scrollLeft;
+	moveIndex();
 	document.onkeyup = sliderKeyboard;
-	
+	return false;	
+
 }
 
 /* Make slide universal with parameter specifying target scroll */
@@ -56,24 +55,24 @@ function slide ( e, target ) {
 
     clearTimeout(scrollTimer);
 	var event = e || window.event; 
+
 	if ( typeof event.srcElement == 'unknown' ) { return; } // IE8
 	el = event.target || event.srcElement;
 	slider = el;
 	if (slider) {
 	
-		slider.onscroll = function () { return false; };
+		slider.onscroll = function () { };
 
 	}
 	
-	stopEvent(e);
+	stopEvent(event);
 	var change = 0;
-	
-	addClass( document.body, 'disable-hover');
 	
 	if (target == 'index') {
 
 		slider = el.parentNode.parentNode.querySelector('.slider');
 		start = slider.scrollLeft;
+		slider.onscroll = function () { };
 		change = thisIndex(el) * slider.offsetWidth - start;
 		
 	}
@@ -95,8 +94,6 @@ function slide ( e, target ) {
 	}
 	
 	if ( target == 'snap') {
-
-/* 		console.log('From ' + original_scroll + ' to ' + slider.scrollLeft); */
 
 		if (slider.scrollLeft > original_scroll) { 
 			change = slider.offsetWidth - slider.scrollLeft % slider.offsetWidth;
@@ -122,12 +119,13 @@ function slide ( e, target ) {
 		// slide
 		slider.scrollLeft = val;
 		// do the animation unless its over
-		if(currentTime < duration) {
+		if( (currentTime < duration) ) {
 			requestAnimFrame(animateScroll);
 		} else {
-			if (slideEnd && typeof(slideEnd) === 'function') { // the animation is done so lets callback
+			if (slideEnd && typeof(slideEnd) === 'function') { // the animation is done so let's callback
 				slideEnd();
 			}
+
 		}
 	};
 	animateScroll();
@@ -162,7 +160,7 @@ function makeSlider (el) {
 
 	el.insertAdjacentHTML('beforebegin', '<div class="slider-container"></div>'); // Create a container and move the slider in it
 	container = el.previousSibling;
-	container.insertAdjacentHTML('afterbegin', '<a class="slider-arrow left">←</a>' + el.outerHTML + '<a class="slider-arrow right">→</a><div class="slider-nav"></div>');
+	container.insertAdjacentHTML('afterbegin', '<a class="slider-arrow left">←</a>' + el.outerHTML/* .replace( new RegExp( "\>[\n\t ]+\<" , "g" ) , "><" ) */ + '<a class="slider-arrow right">→</a><div class="slider-nav"></div>');
 	container.nextSibling.outerHTML = '';
 	el = container.querySelector('.slider');
 	
@@ -194,7 +192,9 @@ function makeSlider (el) {
 		}
 		
 		container.querySelector('.slider-nav').lastChild.onclick = function (e) {
+
 			slide(e, 'index');
+
 		};
 
 	}
