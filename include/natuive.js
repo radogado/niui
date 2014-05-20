@@ -272,8 +272,7 @@ function modalWindow (e) {
 		
 		if ( makeSlider ) { 
 
-			makeSlider( document.querySelector('#blackbox .slider') );
-			new_slider = document.querySelector('#blackbox .slider');
+			new_slider = makeSlider( document.querySelector('#blackbox .slider') );
 			new_slider.scrollLeft = current_slide * new_slider.offsetWidth;
 			moveIndex ( new_slider );
 
