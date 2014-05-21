@@ -6,7 +6,7 @@ var slider;
 var scroll_start = 0;
 var original_scroll = 0;
 var height_scroll = 0;
-	
+
 function scrollSlider (e) {
 
 	var event = e || window.event;
@@ -41,11 +41,14 @@ function moveIndex (el) {
 
 function slideEnd () {
 
+/*
 	original_scroll = slider.scrollLeft;
 	slider.onscroll = scrollSlider;
 	moveIndex();
+
 	document.onkeyup = sliderKeyboard;
-	return false;	
+*/
+	return false;
 
 }
 
@@ -58,7 +61,11 @@ function slide ( e, target ) {
 
 	if ( typeof event.srcElement == 'unknown' ) { return; } // IE8
 	el = event.target || event.srcElement;
-	slider = el;
+/* alert(el.outerHTML); */
+	slider = el; // on 'index' this is the index not the slider - bug
+
+/* 	addClass (slider, 'disable-hover'); */
+
 	if (slider) {
 	
 		slider.onscroll = function () { };
@@ -69,12 +76,12 @@ function slide ( e, target ) {
 	var change = 0;
 	
 	if (target == 'index') {
-
+			
 		slider = el.parentNode.parentNode.querySelector('.slider');
 		start = slider.scrollLeft;
 		slider.onscroll = function () { };
 		change = thisIndex(el) * slider.offsetWidth - start;
-		
+
 	}
 	
 	if ( target == 'left') {
@@ -103,10 +110,11 @@ function slide ( e, target ) {
 		}
 		
 		start = slider.scrollLeft;
-		console.log(start + ' ' + change); 
 
 	}
 	
+		console.log(start + ' ' + change); 
+		
 	currentTime = 0,
 	increment = 20;
 	duration = 400;
@@ -122,6 +130,9 @@ function slide ( e, target ) {
 		if( (currentTime < duration) ) {
 			requestAnimFrame(animateScroll);
 		} else {
+/* 	removeClass (slider, 'disable-hover'); */
+	moveIndex();
+
 			if (slideEnd && typeof(slideEnd) === 'function') { // the animation is done so let's callback
 				slideEnd();
 			}
