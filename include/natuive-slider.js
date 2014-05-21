@@ -61,20 +61,9 @@ function slide ( e, target ) {
 
 	if ( typeof event.srcElement == 'unknown' ) { return; } // IE8
 	el = event.target || event.srcElement;
-/* alert(el.outerHTML); */
-	slider = el; // on 'index' this is the index not the slider - bug
 
-/* 	addClass (slider, 'disable-hover'); */
-
-	if (slider) {
-	
-		slider.onscroll = function () { };
-
-	}
-	
-	stopEvent(event);
 	var change = 0;
-	
+
 	if (target == 'index') {
 			
 		slider = el.parentNode.parentNode.querySelector('.slider');
@@ -112,6 +101,19 @@ function slide ( e, target ) {
 		start = slider.scrollLeft;
 
 	}
+
+/* alert(el.outerHTML); */
+
+/* 	addClass (slider, 'disable-hover'); */
+
+	if (slider) {
+	
+		slider.onscroll = function () { };
+
+	}
+	
+	stopEvent(event);
+	
 	
 		console.log(start + ' ' + change); 
 		
