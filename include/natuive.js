@@ -449,7 +449,7 @@ addEventHandler(window, 'load', function() {
 
 /* Fixed position top offset */
 	
-	document.getElementById('top').style.minHeight = document.querySelector('#head .row').scrollHeight + 'px';
+	document.getElementById('head').style.minHeight = document.querySelector('#head .row').scrollHeight + 'px';
 	
 /* Prevent body scroll when mobile navigation is open */
 
