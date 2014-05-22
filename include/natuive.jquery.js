@@ -291,7 +291,7 @@ $(document).ready(function() {
 
 /* Fixed position top offset */
 	
-	document.querySelector('#top').style.minHeight = document.querySelector('#top .row').scrollHeight + 'px';
+	document.querySelector('#head').style.minHeight = document.querySelector('#head .row').scrollHeight + 'px';
 	
 /* Prevent body scroll when mobile navigation is open */
 

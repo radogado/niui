@@ -98,14 +98,14 @@ h1, h2, h3, h4, h5 {
 		
 	}
 	
-#main a:link, #main a:visited {
+#content a:link, #content a:visited {
 
 	color: #801866;
 	text-decoration: none;
 
 }
 
-#main h3 {
+#content h3 {
 	
 	color: #801866;
 
@@ -262,27 +262,27 @@ h1, h2, h3, h4, h5 {
 		
 	}
 
-#top .row {
+#head .row {
 	
 	border-spacing: .2em;
 	overflow: visible;
 	
 }
 
-	#top .column2 {
+	#head .column2 {
 		
 		vertical-align: bottom;
 		
 	}
 	
-	#top .row > *, #footer .row > * {
+	#head .row > *, #footer .row > * {
 		
 		padding: 0 .5em;
 		
 	}
 
 
-	#top img {
+	#head img {
 		
 		margin-right: 1em;
 		
@@ -308,7 +308,7 @@ h1, h2, h3, h4, h5 {
 		
 	}
 	
-	.banner, #head .banner p, #footer {
+	.banner, .banner p, #footer {
 		
 		color: #fff;
 		
@@ -332,7 +332,7 @@ h1, h2, h3, h4, h5 {
 		
 	}
 	
-	#head .banner h2, #head .banner h1 {
+	.banner h2, .banner h1 {
 	
 		margin-top: .6em;
 		color: #fff;
@@ -444,7 +444,7 @@ h1, h2, h3, h4, h5 {
 		
 	}
 	
-	#top .sub.nav.wide-screen div > ul {
+	#head .sub.nav.wide-screen div > ul {
 		
 		 margin-left: -.8em;
 
@@ -514,32 +514,32 @@ h1, h2, h3, h4, h5 {
 		
 	}
 	
-	#top .sub.nav li {
+	#head .sub.nav li {
 	
 		position: relative;
 		color: #000;
 		
 	}
 	
-	#top .sub.nav li ul li:not(:first-child) a {
+	#head .sub.nav li ul li:not(:first-child) a {
 	
 		border-top: 1px solid #fff;
 	
 	}
 	
-	#top .sub.nav li ul li:not(:last-child) a {
+	#head .sub.nav li ul li:not(:last-child) a {
 	
 		border-bottom: 1px solid #c1bfbf;
 	
 	}
 	
-	#top .sub.nav li.active li {
+	#head .sub.nav li.active li {
 	
 		display: block;
 		
 	}
 	
-	#top .sub.nav li.active li:before {
+	#head .sub.nav li.active li:before {
 	
 		display: none;
 		
@@ -547,7 +547,7 @@ h1, h2, h3, h4, h5 {
 	
 	/* 3rd level navigation dropdown on wide screens */
 	
-	#top .sub.nav li ul {
+	#head .sub.nav li ul {
 		
 		display: block;
 		position: absolute;
@@ -567,32 +567,32 @@ h1, h2, h3, h4, h5 {
 	
 	}
 	
-	#top .sub.nav li:first-child ul {
+	#head .sub.nav li:first-child ul {
 	
 		left: 0;
 	
 	}
 	
-	#top .sub.nav li ul.open {
+	#head .sub.nav li ul.open {
 		
 		max-height: 500px;
 	
 	}
 	
-	#top .sub.nav li input.trigger:checked ~ ul {
+	#head .sub.nav li input.trigger:checked ~ ul {
 		
 		max-height: 500px;
 	
 	}
 	
-	#top .sub.nav li input.trigger:checked ~ a, #top .sub.nav li input.trigger:checked ~ a {
+	#head .sub.nav li input.trigger:checked ~ a, #head .sub.nav li input.trigger:checked ~ a {
 		
 		box-shadow: -1px 1px 1px #999999, 1px 1px 1px rgba(0, 0, 0, .3);
 		
 	}
 	
 
-	#top .sub.nav li:first-child a {
+	#head .sub.nav li:first-child a {
 		
 		padding-left: .5em;
 
@@ -615,7 +615,7 @@ h1, h2, h3, h4, h5 {
 
 }
 
-a.button, #main input[type='submit'] {
+a.button, #content input[type='submit'] {
 	
 	font-family: 'open_sansbold', 'Helvetica Neue', Arial, sans-serif;
 	font-weight: normal;
@@ -633,7 +633,7 @@ a.button, #main input[type='submit'] {
 
 }
 
-	a.button.yellow, #main input[type='submit'] {
+	a.button.yellow, #content input[type='submit'] {
 	
 		border: 1px solid #F4AA00;
 		background: #f6d31c; /* Old browsers */
@@ -666,19 +666,19 @@ a.button, #main input[type='submit'] {
 		
 	}
 	
-	#top a.button:link, #top a.button:visited {
+	#head a.button:link, #head a.button:visited {
 		
 		color: #555;
 		
 	}
 
-	#top a.button.yellow:link, #top a.button.yellow:visited {
+	#head a.button.yellow:link, #head a.button.yellow:visited {
 		
 		color: #801866;
 		
 	}
 
-	.button.big, #main input[type="submit"] {
+	.button.big, #content input[type="submit"] {
 
 		color: #801866;
 
@@ -690,7 +690,7 @@ a.button, #main input[type='submit'] {
 		
 	}
 
-	a.button:active, #main input[type='submit']:active {
+	a.button:active, #content input[type='submit']:active {
 		
 		border-color: transparent;
 		text-shadow: none;		
@@ -698,13 +698,13 @@ a.button, #main input[type='submit'] {
 		
 	}
 
-	#main input[type="submit"]:active {
+	#content input[type="submit"]:active {
 
 		background: none repeat scroll 0% 0% #977A00;
 
 	}
 
-	#main a.button:hover, #head a.button:hover, #top a.button:hover, #main input[type='submit']:hover, #top a.button.yellow:hover {
+	#content a.button:hover, #head a.button:hover, #head a.button:hover, #content input[type='submit']:hover, #head a.button.yellow:hover {
 		
 		color: #333;
 		
@@ -911,6 +911,7 @@ label.trigger {
 ul {
 	
 	margin-left: 0;
+
 }
 
 ul li {
@@ -918,6 +919,7 @@ ul li {
 	background: url(../images/checklist-yellow.png) left .2em no-repeat;
 	list-style: none;
 	padding-left: 2em;
+
 }
 
 .blue li {
@@ -925,12 +927,14 @@ ul li {
 	background: url(../images/checklist-blue.png) left .2em no-repeat;
 	list-style: none;
 	padding-left: 2em;
+
 }
 
-#top ul li, .sub.nav ul li {
+#head ul li, .sub.nav ul li {
 	
 	background-image: none;
 	padding-left: 0;
+
 }
 
 /* Narrow Screens */
@@ -948,20 +952,20 @@ ul li {
 
 	}
 	
-	#top {
+	#head {
 		
 		z-index: 99999;
 		min-height: 3.3em;		
 
 	}
 	
-		#top .column2 {
+		#head .column2 {
 			
 			text-align: center;
 			
 		}
 		
-		#top .nav {
+		#head .nav {
 			
 			background: transparent;
 			position: fixed;
@@ -977,13 +981,13 @@ ul li {
 	
 		}
 		
-		#top .nav li:last-child {
+		#head .nav li:last-child {
 			
 			box-shadow: 0 4px 3px #666;
 			
 		}
 		
-		#top .row {
+		#head .row {
 			
 			background: #fff;
 			position: fixed;
@@ -994,20 +998,20 @@ ul li {
 			
 		}
 		
-		#top .row > .column:first-child {
+		#head .row > .column:first-child {
 			
 			display: table-cell;
 			
 		}
 
 	
-		#top .row:first-child .column, #top .row:first-child .column34, #top .row:first-child .column {
+		#head .row:first-child .column, #head .row:first-child .column34, #head .row:first-child .column {
 			
 			padding-bottom: .5em;
 					
 		}
 		
-		#top li ul {
+		#head li ul {
 			
 			background: #fff;
 			z-index: 99999;
@@ -1020,12 +1024,12 @@ ul li {
 			
 		}
 	
-		#top ul {
+		#head ul {
 			
 			display: none;
 		}
 	
-		#top input.trigger:checked ~ ul, #top ul.open {
+		#head input.trigger:checked ~ ul, #head ul.open {
 			
 			display: block;
 			height: auto;
@@ -1034,19 +1038,19 @@ ul li {
 	
 		}
 	
-		#top .column4, #top .column2 {
+		#head .column4, #head .column2 {
 			
 			vertical-align: top;
 			
 		}
 		
-		#top .row > div.column4 {
+		#head .row > div.column4 {
 			
 			vertical-align: top;
 			
 		}
 	
-	#top a.button {
+	#head a.button {
 		
 		margin-bottom: 0;
 		

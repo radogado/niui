@@ -113,7 +113,7 @@ a:link, a:visited {
 
 }
 
-	a[href]:hover, #main input[type='submit']:hover {
+	a[href]:hover, #content input[type='submit']:hover {
 
 		color: #ee8822;
 
@@ -280,7 +280,7 @@ a:link, a:visited {
 	
 	}
 
-	.button.big, #main input[type="submit"] {
+	.button.big, #content input[type="submit"] {
 
 		background: rgb(0,221,240);
 		font-size: 1.2em;
@@ -289,7 +289,7 @@ a:link, a:visited {
 
 	}
 
-	.button.big:active, #main input[type="submit"]:active {
+	.button.big:active, #content input[type="submit"]:active {
 
 		background: rgb(0,121,140);
 
@@ -310,7 +310,7 @@ a:link, a:visited {
 	
 /* Top */
 
-#top .row > div.column4 {
+#head .row > div.column4 {
 	
 	text-align: right;
 	padding-right: .5em;
@@ -318,13 +318,13 @@ a:link, a:visited {
 	
 }
 	
-	#top .row > div.column4 .nav a {
+	#head .row > div.column4 .nav a {
 		
 		padding-right: 0;
 		
 	}
 
-	#top img {
+	#head img {
 		
 		margin: 0;
 		
@@ -346,19 +346,19 @@ a:link, a:visited {
 
 /* Main */
 
-	#main ul {
+	#content ul {
 
 		padding: 1.3em;
 
 	}
 
-	#main .row + .row { /* Every subsequent .row */
+	#content .row + .row { /* Every subsequent .row */
 		
 		border-top: 1px dotted #ccc;
 
 	}
 
-	#main img, .banner img {
+	#content img, .banner img {
 		
 		display: block;
 		margin: 0 auto;
@@ -403,7 +403,7 @@ form {
 	
 	}
 
-	input, #main select, textarea {
+	input, #content select, textarea {
 		
 		background: #fff;
 		font-family: inherit;
@@ -420,7 +420,7 @@ form {
 		
 	}
 	
-	label input,  #main label select, textarea {
+	label input,  #content label select, textarea {
 	
 		margin-left: 1%;
 	
@@ -467,7 +467,7 @@ form {
 		
 	}
 	
-	#main select {
+	#content select {
 		
 		width: 45%;
 		box-shadow: 0 1px 2px #999;
@@ -482,7 +482,7 @@ form {
 		
 	}
 
-	:root #main select { padding-right: 2% \0/IE9; background: #fff \0/IE9; }  /* Disable the custom arrow in IE9 */
+	:root #content select { padding-right: 2% \0/IE9; background: #fff \0/IE9; }  /* Disable the custom arrow in IE9 */
 
 	select:hover {
 		
@@ -511,7 +511,6 @@ form {
 	right: 0;
 	bottom: 0;
 	left: 0;
-/* 	border: 3em solid transparent; */
 	border-top: none;
 	padding-top: 3.6em;
 	-webkit-overflow-scrolling: touch;
@@ -866,7 +865,7 @@ table {
 
 	}
 	
-	#top .row > * {
+	#head .row > * {
 		
 		display: table-cell;
 
@@ -891,7 +890,7 @@ table {
 			
 		}
 
-		#main label select, label input, textarea {
+		#head label select, label input, textarea {
 			
 			width: 96%;
 			margin: 0;
@@ -899,7 +898,7 @@ table {
 				
 		}
 	
-		#main label select, input[type="submit"] {
+		#head label select, input[type="submit"] {
 	
 			width: 100%;
 	
