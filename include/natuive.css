@@ -29,6 +29,12 @@
 
 	}
 
+	.row .row > * {
+		
+		padding-left: 0;
+		
+	}
+	
 	@-moz-document url-prefix()	{
 		.row, .row > * { height: 100%; }
 	}
