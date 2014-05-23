@@ -4,7 +4,8 @@ natUIve: mostly native front-end framework
 A 7 KB framework focused on browsers' built-in capabilities with smart customisation in the right places. ([Live demo](http://radogado.github.io/natuive/))
 ---
 
-- Unbreakable, flexible and responsive grid
+- Unbreakable, flexible, responsive, embeddable grid
+- Column content can be aligned vertically on top/middle/bottom
 - CSS reset
 - Semantic structure
 - Navigations
@@ -17,7 +18,7 @@ A 7 KB framework focused on browsers' built-in capabilities with smart customisa
 - Auto-expanding textarea to save space
 - Native sliders with optional .thumbnail
 - Accordions
-- Accessible tables
+- Tables accessible on all screens
 - Footer
 - 'Back to top' button
 - Language selector
@@ -26,7 +27,6 @@ A 7 KB framework focused on browsers' built-in capabilities with smart customisa
 - Functional and accessible without JS/CSS
 - No IE conditional operators
 - No jQuery or anything
-- Column content can be aligned vertically on top/middle/bottom
 - Supporting IE8+, Safari, Chrome, Firefox, Opera, phones, tablets
 - Graceful degradation
 - Embeddable elements
