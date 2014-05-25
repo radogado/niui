@@ -3,23 +3,24 @@
 
 var scrollTimer = null;
 var slider;
-var scroll_start = 0;
 var original_scroll = 0;
-var height_scroll = 0;
 
 function scrollSlider (e) {
 
 	var event = e || window.event;
 	s = event.target || event.srcElement;
+
+	s.onscroll = function (e) {};
+
 	if ( s != slider ) {
 		
 		slider = s;
 		original_scroll = slider.scrollLeft;
 		
 	}
+
     clearTimeout(scrollTimer);
     scrollTimer = setTimeout(function() {
-		scroll_start = slider.scrollLeft;
         slide (event, 'snap');
     }, 50);
 
@@ -41,13 +42,11 @@ function moveIndex (el) {
 
 function slideEnd () {
 
-/*
 	original_scroll = slider.scrollLeft;
 	slider.onscroll = scrollSlider;
 	moveIndex();
 
 	document.onkeyup = sliderKeyboard;
-*/
 	return false;
 
 }
@@ -56,7 +55,7 @@ function slideEnd () {
 
 function slide ( e, target ) {
 
-    clearTimeout(scrollTimer);
+/*     clearTimeout(scrollTimer); */
 	var event = e || window.event; 
 
 	if ( typeof event.srcElement == 'unknown' ) { return; } // IE8
