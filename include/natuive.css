@@ -882,6 +882,12 @@ table {
 		display: table-cell;
 
 	}
+	
+	.row .row > * {
+		
+		padding-left: 0;
+		
+	}
 
 	label {
 
@@ -902,7 +908,7 @@ table {
 			
 		}
 
-		#head label select, label input, textarea {
+		#content label select, label input, textarea {
 			
 			width: 96%;
 			margin: 0;
@@ -910,7 +916,7 @@ table {
 				
 		}
 	
-		#head label select, input[type="submit"] {
+		#content label select, input[type="submit"] {
 	
 			width: 100%;
 	

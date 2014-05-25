@@ -8,21 +8,23 @@ var original_scroll = 0;
 function scrollSlider (e) {
 
 	var event = e || window.event;
-	s = event.target || event.srcElement;
+	el = event.target || event.srcElement;
 
-/*
-	s.onscroll = function (e) { return false; };
+	if ( el != slider ) {
+		
+		slider = el;
+		
+	}
 
-*/
-	if ( s != slider ) {
-		
-		slider = s;
-		original_scroll = slider.scrollLeft;
-		
+	if ( original_scroll == slider.scrollLeft ) {
+
+		return false;
+
 	}
 
     clearTimeout(scrollTimer);
     scrollTimer = setTimeout(function() {
+		console.log ('scroll end: ' + original_scroll + ' ' + slider.scrollLeft);
         slide (event, 'snap');
     }, 50);
 
@@ -47,7 +49,7 @@ function slideEnd () {
 	original_scroll = slider.scrollLeft;
 	slider.onscroll = scrollSlider;
 	moveIndex();
-	removeClass (slider, 'disable-hover');
+/* 	removeClass (slider, 'disable-hover'); */
 
 	document.onkeyup = sliderKeyboard;
 	return false;
@@ -64,7 +66,7 @@ function slide ( e, target ) {
 
 	}
 	
-	addClass (slider, 'disable-hover');
+/* 	addClass (slider, 'disable-hover'); */
 
 /*     clearTimeout(scrollTimer); */
 	var event = e || window.event; 
@@ -80,7 +82,6 @@ function slide ( e, target ) {
 			
 		slider = el.parentNode.parentNode.querySelector('.slider');
 		start = slider.scrollLeft;
-/* 		slider.onscroll = function () { return false; }; */
 		change = thisIndex(el) * slider.offsetWidth - start;
 
 	}
