@@ -10,8 +10,10 @@ function scrollSlider (e) {
 	var event = e || window.event;
 	s = event.target || event.srcElement;
 
-	s.onscroll = function (e) {};
+/*
+	s.onscroll = function (e) { return false; };
 
+*/
 	if ( s != slider ) {
 		
 		slider = s;
@@ -45,6 +47,7 @@ function slideEnd () {
 	original_scroll = slider.scrollLeft;
 	slider.onscroll = scrollSlider;
 	moveIndex();
+	removeClass (slider, 'disable-hover');
 
 	document.onkeyup = sliderKeyboard;
 	return false;
@@ -55,11 +58,21 @@ function slideEnd () {
 
 function slide ( e, target ) {
 
+	if (slider) {
+	
+		slider.onscroll = function () { return false; };
+
+	}
+	
+	addClass (slider, 'disable-hover');
+
 /*     clearTimeout(scrollTimer); */
 	var event = e || window.event; 
 
 	if ( typeof event.srcElement == 'unknown' ) { return; } // IE8
 	el = event.target || event.srcElement;
+
+	stopEvent(event);
 
 	var change = 0;
 
@@ -67,7 +80,7 @@ function slide ( e, target ) {
 			
 		slider = el.parentNode.parentNode.querySelector('.slider');
 		start = slider.scrollLeft;
-		slider.onscroll = function () { };
+/* 		slider.onscroll = function () { return false; }; */
 		change = thisIndex(el) * slider.offsetWidth - start;
 
 	}
@@ -103,19 +116,12 @@ function slide ( e, target ) {
 
 /* alert(el.outerHTML); */
 
-/* 	addClass (slider, 'disable-hover'); */
-
-	if (slider) {
-	
-		slider.onscroll = function () { };
-
-	}
-	
-	stopEvent(event);
-	
-	
 		console.log(start + ' ' + change); 
 		
+	if ( !change ) {
+		return;
+		}
+
 	currentTime = 0,
 	increment = 20;
 	duration = 400;

@@ -61,7 +61,7 @@ function addEventHandler( elem,eventType,handler ) {
 
 function stopEvent( e ) {
  
-	if(!e) var e = window.event;
+	if (!e) var e = window.event;
  
 	//e.cancelBubble is supported by IE, this will kill the bubbling process.
 	e.cancelBubble = true;
