@@ -1,12 +1,11 @@
 /* natUIve by rado.bg */
-/* To do: fix slider on mobile. Jumping back-forth (iPhone only on portrait orientation) – 4px inline-block bug? Very slow animation on Android. */
 
 var scrollTimer = null;
 var slider;
 var original_scroll = 0;
 
 function scrollSlider (e) {
-console.log('scroll event');
+
 	var event = e || window.event;
 	el = event.target || event.srcElement;
 
@@ -24,7 +23,6 @@ console.log('scroll event');
 
     clearTimeout(scrollTimer);
     scrollTimer = setTimeout(function() {
-		console.log ('scroll end: ' + original_scroll + ' ' + slider.scrollLeft);
         slide (event, 'snap');
     }, 50);
 
@@ -50,10 +48,8 @@ function slideEnd () {
 	
 	original_scroll = slider.scrollLeft;
 	moveIndex(slider);
-console.log('slide end');
-	document.onkeyup = sliderKeyboard;
 
-/* 	return false; */
+	document.onkeyup = sliderKeyboard;
 
 }
 
@@ -113,8 +109,6 @@ function slide ( e, target ) {
 
 	}
 
-		console.log(start + ' ' + change); 
-		
 	if ( !change ) {
 		slider.onscroll = scrollSlider;
 		return;
