@@ -12,7 +12,7 @@ function scrollSlider (e) {
 	if ( el != slider ) {
 		
 		slider = el;
-/* 		original_scroll = slider.scrollLeft; */
+		original_scroll = slider.scrollLeft;
 		
 	}
 
