@@ -16,13 +16,11 @@ function scrollSlider (e) {
 		
 	}
 
-/*
 	if ( original_scroll == slider.scrollLeft ) {
 
 		return false;
 
 	}
-*/
 
     clearTimeout(scrollTimer);
     scrollTimer = setTimeout(function() {
