@@ -9,12 +9,14 @@ function scrollSlider (e) {
 	var event = e || window.event;
 	el = event.target || event.srcElement;
 
+/*
 	if ( el != slider ) {
-		
+
 		slider = el;
-/* 		original_scroll = slider.scrollLeft; */
+		original_scroll = slider.scrollLeft;
 		
 	}
+*/
 
 /*
 	if ( original_scroll == slider.scrollLeft ) {
@@ -77,7 +79,6 @@ function slide ( e, target ) {
 
 	if (target == 'index') {
 			
-		slider = el.parentNode.parentNode.querySelector('.slider');
 		start = slider.scrollLeft;
 		change = thisIndex(el) * slider.offsetWidth - start;
 
@@ -85,7 +86,6 @@ function slide ( e, target ) {
 	
 	if ( target == 'left') {
 
-		slider = el.parentNode.querySelector('.slider');
 		start = slider.scrollLeft;
 		change = slider.scrollLeft - slider.offsetWidth - start;
 
@@ -93,7 +93,6 @@ function slide ( e, target ) {
 	
 	if ( target == 'right') {
 
-		slider = el.parentNode.querySelector('.slider');
 		start = slider.scrollLeft;
 		change = slider.scrollLeft + slider.offsetWidth - start;
 
@@ -107,7 +106,7 @@ function slide ( e, target ) {
 			change = slider.scrollLeft % slider.offsetWidth - slider.offsetWidth;
 			change = -1 * (slider.offsetWidth + change);
 		}
-		
+		slider.scrollLeft = slider.scrollLeft + change; slideEnd (); return false;
 		start = slider.scrollLeft;
 
 	}
@@ -209,6 +208,9 @@ function makeSlider (el) {
 		
 		container.querySelector('.slider-nav').lastChild.onclick = function (e) {
 
+	var event = e || window.event;
+	el = event.target || event.srcElement;
+	slider = el.parentNode.parentNode.querySelector('.slider');
 			slide(e, 'index');
 
 		};
@@ -217,12 +219,18 @@ function makeSlider (el) {
 
 	container.querySelector('.slider-arrow.left').onclick = function (e) {
 
+	var event = e || window.event;
+	el = event.target || event.srcElement;
+	slider = el.parentNode.parentNode.querySelector('.slider');
 		slide(e, 'left');
 
 	}
 	
 	container.querySelector('.slider-arrow.right').onclick = function (e) {
 
+	var event = e || window.event;
+	el = event.target || event.srcElement;
+	slider = el.parentNode.parentNode.querySelector('.slider');
 		slide(e, 'right');
 
 	}
@@ -240,13 +248,11 @@ addEventHandler ( window, 'load', function() {
 	/* Initialise JS extras: create arrows/numbers navigation */
 	forEach('.slider', function(el, i) {
 
-		if (!i) {
-			slider = el;
-		}
-		
 		makeSlider(el);
 		
 	});
+	
+	slider = document.querySelector('.slider');
 	
 	window.onresize = function () { 
 		
