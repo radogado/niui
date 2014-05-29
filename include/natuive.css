@@ -899,14 +899,21 @@ table {
 	
 		label span {
 			
-			padding: 0;
+			padding: 2% 0;
 			width: 100%;
+			
+		}
+		
+		label.mandatory.alert > span {
+			
+			padding: 2%;
+			width: 96%;
 			
 		}
 		
 		label.mandatory span:after {
 			
-			right: 0;
+			right: 2%;
 			
 		}
 
