@@ -12,6 +12,7 @@ function scrollSlider (e) {
 	if ( el != slider ) {
 		
 		slider = el;
+		original_scroll = slider.scrollLeft;
 		
 	}
 
@@ -110,7 +111,11 @@ function slide ( e, target ) {
 	}
 
 	if ( !change ) {
-		slider.onscroll = scrollSlider;
+		forEach('.slider', function(el, i) {
+	
+			el.onscroll = scrollSlider;
+			
+		});
 		return;
 		}
 
