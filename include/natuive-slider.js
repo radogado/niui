@@ -72,6 +72,8 @@ function slide ( e, target ) {
 
 	if ( typeof event.srcElement == 'unknown' ) { return; } // IE8
 	el = event.target || event.srcElement;
+	slider = el;
+
 	el.onscroll = null;
 	stopEvent(event);
 
