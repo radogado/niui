@@ -184,10 +184,10 @@ function makeSlider (el) {
 			slider_nav.insertAdjacentHTML('beforeend', ( !i ? '<a class="active">' : '<a>' ) + el.children[i].querySelector('.thumbnail').innerHTML + '</a>' );
 			slider_nav.style.marginTop = (-1 * height_scroll) + 'px';
 			
-						
 		} else {
 			
 			container.querySelector('.slider-nav').insertAdjacentHTML('beforeend', ( !i ? '<a class="active">' : '<a>' ) + (i + 1) + '</a>');
+ 			container.style.height = (container.offsetHeight - height_scroll) + 'px';
 
 		}
 		
