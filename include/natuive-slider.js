@@ -8,24 +8,21 @@ function scrollSlider (e) {
 
 	var event = e || window.event;
 	el = event.target || event.srcElement;
-	if ( slider != el ) { original_scroll = el.scrollLeft; }
+	if ( slider != el ) { // on switching to another slider
+		original_scroll = el.scrollLeft; 
+	}
 	slider = el;
     clearTimeout(scrollTimer);
     scrollTimer = setTimeout(function() {
+    
         slide (event, 'snap');
+
     }, 50);
 
 };
 
 function moveIndex () {
 
-/*
-	if (!el) {
-		
-		el = slider;
-	
-	}
-*/
 	removeClass ( slider.parentNode.querySelector('.slider-nav a.active'), 'active' );
 	var index = Math.round( slider.scrollLeft / slider.offsetWidth ) + 1;
 
@@ -37,20 +34,18 @@ function moveIndex () {
 
 function slideEnd () {
 
+	original_scroll = slider.scrollLeft;
+	moveIndex();
+
+	document.onkeyup = sliderKeyboard;
+
 	forEach('.slider', function(el, i) {
 
 		el.onscroll = scrollSlider;
 		
 	});
 	
-	original_scroll = slider.scrollLeft;
-	moveIndex();
-
-	document.onkeyup = sliderKeyboard;
-
 }
-
-/* Make slide universal with parameter specifying target scroll */
 
 function slide ( e, target ) {
 
@@ -90,16 +85,20 @@ function slide ( e, target ) {
 	}
 	
 	if ( target == 'snap') {
+
 		slider = el;
+
 		if (slider.scrollLeft > original_scroll) { 
 			change = slider.offsetWidth - slider.scrollLeft % slider.offsetWidth;
 		} else {
 			change = slider.scrollLeft % slider.offsetWidth - slider.offsetWidth;
 			change = -1 * (slider.offsetWidth + change);
 		}
-
+		
+		if ( original_scroll == slider.scrollLeft ) change = 0;
+				
 		start = slider.scrollLeft;
-
+		
 	}
 
 	if ( !change ) {
@@ -189,7 +188,6 @@ function makeSlider (el) {
 		} else {
 			
 			container.querySelector('.slider-nav').insertAdjacentHTML('beforeend', ( !i ? '<a class="active">' : '<a>' ) + (i + 1) + '</a>');
-/* 			container.style.height = (container.offsetHeight - height_scroll) + 'px'; */
 
 		}
 		
