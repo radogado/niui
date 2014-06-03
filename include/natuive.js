@@ -11,7 +11,7 @@ function addClass ( el, className ) { // To do: fix unnecessary spaces
 }
 
 function removeClass ( el, className ) {
-
+	if (!el) return;
 	if (el.classList) {
 		el.classList.remove(className);
 	} else {

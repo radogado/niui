@@ -8,24 +8,8 @@ function scrollSlider (e) {
 
 	var event = e || window.event;
 	el = event.target || event.srcElement;
-
-/*
-	if ( el != slider ) {
-
-		slider = el;
-		original_scroll = slider.scrollLeft;
-		
-	}
-*/
-
-/*
-	if ( original_scroll == slider.scrollLeft ) {
-
-		return false;
-
-	}
-*/
-
+	if ( slider != el ) { original_scroll = el.scrollLeft; }
+	slider = el;
     clearTimeout(scrollTimer);
     scrollTimer = setTimeout(function() {
         slide (event, 'snap');
@@ -33,26 +17,34 @@ function scrollSlider (e) {
 
 };
 
-function moveIndex (el) {
-	
+function moveIndex () {
+
+/*
 	if (!el) {
 		
 		el = slider;
 	
 	}
-	removeClass ( el.parentNode.querySelector('.slider-nav a.active'), 'active' );
-	var index = Math.round( el.scrollLeft / el.offsetWidth ) + 1;
+*/
+	removeClass ( slider.parentNode.querySelector('.slider-nav a.active'), 'active' );
+	var index = Math.round( slider.scrollLeft / slider.offsetWidth ) + 1;
 
-	addClass( el.parentNode.querySelector('.slider-nav').childNodes[index-1], 'active');
+	if ( slider.parentNode.querySelector('.slider-nav').childNodes[index-1] ) {
+		addClass( slider.parentNode.querySelector('.slider-nav').childNodes[index-1], 'active');
+	}
 	
 }
 
 function slideEnd () {
 
-	slider.onscroll = scrollSlider;
+	forEach('.slider', function(el, i) {
+
+		el.onscroll = scrollSlider;
+		
+	});
 	
 	original_scroll = slider.scrollLeft;
-	moveIndex(slider);
+	moveIndex();
 
 	document.onkeyup = sliderKeyboard;
 
@@ -62,63 +54,56 @@ function slideEnd () {
 
 function slide ( e, target ) {
 
-	if (slider) {
-	
-		slider.onscroll = null;
+	forEach('.slider', function(el, i) {
 
-	}
+		el.onscroll = null;
+		
+	});
 	
 	var event = e || window.event; 
 
 	if ( typeof event.srcElement == 'unknown' ) { return; } // IE8
 	el = event.target || event.srcElement;
-	slider = el;
 
-	el.onscroll = null;
 	stopEvent(event);
 
 	var change = 0;
 
 	if (target == 'index') {
 			
+		slider = el.parentNode.parentNode.querySelector('.slider');
 		start = slider.scrollLeft;
 		change = thisIndex(el) * slider.offsetWidth - start;
 
 	}
 	
-	if ( target == 'left') {
+	if ( target == 'arrow') {
 
+		slider = el.parentNode.querySelector('.slider');
 		start = slider.scrollLeft;
-		change = slider.scrollLeft - slider.offsetWidth - start;
-
-	}
-	
-	if ( target == 'right') {
-
-		start = slider.scrollLeft;
-		change = slider.scrollLeft + slider.offsetWidth - start;
+		if ( hasClass(el, 'left') ) {
+			change = slider.scrollLeft - slider.offsetWidth - start;
+		} else {
+			change = slider.scrollLeft + slider.offsetWidth - start;
+		}
 
 	}
 	
 	if ( target == 'snap') {
-
+		slider = el;
 		if (slider.scrollLeft > original_scroll) { 
 			change = slider.offsetWidth - slider.scrollLeft % slider.offsetWidth;
 		} else {
 			change = slider.scrollLeft % slider.offsetWidth - slider.offsetWidth;
 			change = -1 * (slider.offsetWidth + change);
 		}
-		slider.scrollLeft = slider.scrollLeft + change; slideEnd (); return false;
+
 		start = slider.scrollLeft;
 
 	}
 
 	if ( !change ) {
-		forEach('.slider', function(el, i) {
-	
-			el.onscroll = scrollSlider;
-			
-		});
+		slideEnd();
 		return;
 		}
 
@@ -139,7 +124,7 @@ function slide ( e, target ) {
 		} else {
 
 			if (slideEnd && typeof(slideEnd) === 'function') { // the animation is done so let's callback
-				slideEnd(slider);
+				slideEnd();
 			}
 
 		}
@@ -210,30 +195,15 @@ function makeSlider (el) {
 		
 		container.querySelector('.slider-nav').lastChild.onclick = function (e) {
 
-	var event = e || window.event;
-	el = event.target || event.srcElement;
-	slider = el.parentNode.parentNode.querySelector('.slider');
 			slide(e, 'index');
 
 		};
 
 	}
 
-	container.querySelector('.slider-arrow.left').onclick = function (e) {
+	container.querySelector('.slider-arrow.left').onclick = container.querySelector('.slider-arrow.right').onclick = function (e) {
 
-	var event = e || window.event;
-	el = event.target || event.srcElement;
-	slider = el.parentNode.parentNode.querySelector('.slider');
-		slide(e, 'left');
-
-	}
-	
-	container.querySelector('.slider-arrow.right').onclick = function (e) {
-
-	var event = e || window.event;
-	el = event.target || event.srcElement;
-	slider = el.parentNode.parentNode.querySelector('.slider');
-		slide(e, 'right');
+		slide(e, 'arrow');
 
 	}
 	
@@ -260,7 +230,7 @@ addEventHandler ( window, 'load', function() {
 		
 		forEach('.slider', function (el,i) {
 			el.scrollLeft = 0;
-			moveIndex (el);
+			moveIndex ();
 		});
 		
 	}
