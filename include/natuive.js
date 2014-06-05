@@ -161,7 +161,9 @@ function showTip (e) {
 	
 }
 
-/* URI parameters relay. Omit links starting with "javascript", "mailto" */
+/* URI parameters relay. Omit links starting with "javascript", "mailto", skip parameters not listed in the array */
+
+var parameters_list = new Array ('parameter1','parameter2' );
 
 function relayParameters () {
 
@@ -170,6 +172,9 @@ function relayParameters () {
 	forEach('a[href]', function(el, i) {
 
 		for (var name in parameters) {
+
+			if ( parameters_list.indexOf(name) == -1 ) continue;
+
 			if ( !el.href.indexOf('javascript') || (!el.href.indexOf('mailto') ) ) continue;
 			var hash = el.href.split('#')[1] ? ( '#' + el.href.split('#')[1] ) : '';
 			el.href = updateURLParameter( el.href.split('#')[0], name, parameters[name] ) + hash;
