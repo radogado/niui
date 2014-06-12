@@ -29,13 +29,13 @@
 
 	}
 
-	.row .row > * {
+	.row .row > :last-child {
 		
 		padding-right: 0;
 		
 	}
 
-	.row .row > *:first-child {
+	.row .row > :first-child {
 		
 		padding-left: 0;
 		
