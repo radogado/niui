@@ -77,18 +77,25 @@
 
 /* Basic elements */
 
+html, body {
+	
+	height: 100%;
+	margin: 0 auto;
+	
+}
+
 body {
 
 	font-family: 'Helvetica Neue', Arial, sans-serif;
 	font-weight: 300;
 	color: #555;
-	margin: 0;
 	font-size: 15px;
 	position: relative;
 	width: 100%; 
 	margin: 0 auto;
 	background: #fff;
 	-webkit-text-size-adjust: none;
+	display: table;
 	
 }
 
@@ -376,6 +383,22 @@ a:link, a:visited {
 		margin: 0 auto;
 		
 	}
+
+/* Footer */
+
+#footer {
+	
+	display: table-row;
+	
+}
+
+	#footer > * {
+		
+		vertical-align: bottom; 
+		display: table-cell;
+			
+	}
+
 
 /* Forms */
 
