@@ -287,7 +287,7 @@ function modalWindow (e) {
 		
 		if ( navigator.userAgent.indexOf('MSIE 8') != -1 ) {
 			
-			window.open (target.href, '_blank');
+			window.open (target.href, '_blank'); 
 			return;
 
 		}
@@ -315,7 +315,7 @@ function modalWindow (e) {
 				}
 				relayParameters();
 			
-			} else {
+			} else { 
 			// Error
 			}
 
