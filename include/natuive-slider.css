@@ -31,6 +31,12 @@
 
 }
 
+.slider::-webkit-scrollbar {
+
+    height: 1em;
+
+}
+
 .slider-arrow {
 	
 	position: absolute;
