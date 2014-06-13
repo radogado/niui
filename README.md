@@ -19,7 +19,7 @@ A 7 KB framework focused on browsers' built-in capabilities with smart customisa
 - Native sliders with optional .thumbnail
 - Accordions
 - Tables accessible on all screens
-- Footer
+- Footer sticking to the bottom on short pages
 - 'Back to top' button
 - Language selector
 - Balanced functional layout
