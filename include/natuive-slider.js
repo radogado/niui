@@ -3,15 +3,17 @@
 var scrollTimer = null;
 var slider;
 var original_scroll = 0;
+var slider_animation = 0;
 
 function scrollSlider (e) {
-
+if (slider_animation) return;
 	var event = e || window.event;
 	el = event.target || event.srcElement;
 	if ( slider != el ) { // on switching to another slider
 		original_scroll = el.scrollLeft; 
 	}
 	slider = el;
+	
     clearTimeout(scrollTimer);
     scrollTimer = setTimeout(function() {
     
@@ -35,7 +37,10 @@ function moveIndex () {
 function slideEnd () {
 
 	original_scroll = slider.scrollLeft;
+
 	moveIndex();
+	
+	slider_animation = 0;
 
 	document.onkeyup = sliderKeyboard;
 
@@ -49,12 +54,15 @@ function slideEnd () {
 
 function slide ( e, target ) {
 
+	if (slider_animation) return;
+
+	slider_animation = 1;
+	
 	forEach('.slider', function(el, i) {
 
 		el.onscroll = null;
 		
 	});
-	
 	var event = e || window.event; 
 
 	if ( typeof event.srcElement == 'unknown' ) { return; } // IE8
