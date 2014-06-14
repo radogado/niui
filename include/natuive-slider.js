@@ -187,7 +187,11 @@ function makeSlider (el) {
 		} else {
 			
 			container.querySelector('.slider-nav').insertAdjacentHTML('beforeend', ( !i ? '<a class="active">' : '<a>' ) + (i + 1) + '</a>');
- 			container.style.height = (container.offsetHeight - height_scroll) + 'px';
+
+ 			if (!i) {
+ 				
+ 				container.style.height = (container.offsetHeight - height_scroll) + 'px';
+ 			}
 
 		}
 		
