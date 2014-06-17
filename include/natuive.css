@@ -889,6 +889,50 @@ table {
 	
 }
 
+/* Checkbox trigger */
+
+input.trigger, [for="nav-trigger"] {
+	
+	display: none;
+	
+}
+
+.trigger {
+	
+	cursor: pointer;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	
+}
+
+input.trigger + * {
+	
+	display: none;
+	
+}
+
+input.trigger:checked + * {
+	
+	display: inline-block;
+	
+}
+
+input.trigger#nav-trigger + * {
+	
+	display: block;
+	
+}
+
+.nav-main {
+	
+	z-index: 0;
+
+}
+
 /* Narrow Screens */
 
 @media screen and (max-width: 640px) {
@@ -985,6 +1029,50 @@ table {
 		
 		word-break: normal;
 	
+	}
+	
+	.button.big {
+		
+		display: block;
+		text-align: center;
+		
+	}
+
+	[for="nav-trigger"] {
+		
+		display: inline-block;
+		
+	}
+	
+	input.trigger#nav-trigger + * {
+		
+		margin-left: -100%;
+		transition: all .2s ease-in-out;
+		width: 100%;
+		background: #fff;
+		
+	}
+
+	input.trigger#nav-trigger:checked + * {
+		
+		margin-left: 0;
+		
+	}
+	
+	.nav-main {
+		
+		position: fixed;
+		top: 0;
+		left: 0;
+		background: transparent;
+		z-index: 9999;
+		
+	}
+	
+	.nav-main .row * {
+
+		background: #fff;
+		
 	}
 
 }
