@@ -332,7 +332,7 @@ a:link, a:visited {
 #head .row > div.column4 {
 	
 	text-align: right;
-	padding-right: .5em;
+/* 	padding-right: .5em; */
 	vertical-align: bottom;
 	
 }
@@ -1038,27 +1038,6 @@ input.trigger#nav-trigger + * {
 		
 	}
 
-	[for="nav-trigger"] {
-		
-		display: inline-block;
-		
-	}
-	
-	input.trigger#nav-trigger + * {
-		
-		margin-left: -100%;
-		transition: all .2s ease-in-out;
-		width: 100%;
-		background: #fff;
-		
-	}
-
-	input.trigger#nav-trigger:checked + * {
-		
-		margin-left: 0;
-		
-	}
-	
 	.nav-main {
 		
 		position: fixed;
@@ -1066,12 +1045,37 @@ input.trigger#nav-trigger + * {
 		left: 0;
 		background: transparent;
 		z-index: 9999;
+		width: 0;
+		height: 0;
 		
 	}
 	
 	.nav-main .row * {
 
 		background: #fff;
+		
+	}
+	
+	.nav-main > div {
+		
+		transition: all .2s ease-in-out;
+		width: 100%;
+		background: #fff;
+		position: fixed;
+		left: -100%;
+		
+	}
+
+	[for="nav-trigger"] {
+		
+		display: inline-block;
+		
+	}
+	
+	input.trigger#nav-trigger:checked + * {
+		
+		left: 0;
+		box-shadow: 0 1px 5px #333;
 		
 	}
 
