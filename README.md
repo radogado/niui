@@ -8,7 +8,7 @@ A 7 KB framework focused on browsers' built-in capabilities with smart customisa
 - Column content can be aligned vertically on top/middle/bottom
 - CSS reset
 - Semantic structure
-- Navigations
+- Navigations with mobile tranformation
 - Buttons
 - Modal windows
 - Lightbox
