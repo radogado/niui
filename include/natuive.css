@@ -956,6 +956,12 @@ input.trigger#nav-trigger + * {
 
 	}
 	
+	#head > .row:first-child div {
+		
+		text-align: right;
+		
+	} 
+	
 	.row .row > * {
 		
 		padding-left: 0;
@@ -1068,7 +1074,18 @@ input.trigger#nav-trigger + * {
 
 	[for="nav-trigger"] {
 		
-		display: inline-block;
+		display: block;
+		width: 1em;
+		height: 1em;
+		font-size: 3em;
+		line-height: .7em;
+		margin: 0;
+		text-align: center;
+		max-width: none;
+		overflow: hidden;
+		background: #fff;
+		box-shadow: 0 0 3px #000;
+		border-radius: 0 0 3px 0;
 		
 	}
 	
