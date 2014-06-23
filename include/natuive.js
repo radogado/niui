@@ -368,12 +368,8 @@ addEventHandler(window, 'load', function() {
 
 /* Add 'Back to top' button */
 
-	if ( document.getElementById('footer') ) {
-
-		document.getElementById('footer').insertAdjacentHTML('beforeend', '<a class="backtotop" href="#"> ⬆ </a>');
+		document.querySelector(	document.querySelector('#footer > div > div') ? '#footer > div > div' : 'body' ).insertAdjacentHTML('beforeend', '<a class="backtotop" href="#"> ⬆ </a>');
 		document.body.querySelector('.backtotop').onclick = function() { window.scrollTo(0); return false; };
-
-	}
 
 /* Auto textarea height */
    	
