@@ -518,6 +518,12 @@ form {
 		background: #fff\9; /* IE8 */
 		
 	}
+	
+	@-moz-document url-prefix() {
+
+		#content select { background: none; } /* FF30 can't hide the arrow */
+
+	}
 
 	:root #content select { padding-right: 2% \0/IE9; background: #fff \0/IE9; }  /* Disable the custom arrow in IE9 */
 
