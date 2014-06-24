@@ -42,7 +42,7 @@
 	}
 
 	@-moz-document url-prefix()	{
-		.row, .row > * { height: 100%; }
+/* 		.row, .row > * { height: 100%; } */
 	}
 
 	.row > .column23 {
@@ -426,10 +426,10 @@ form {
 			-moz-appearance: none;
 			appearance: none;
 			font-family: inherit;
-		    text-indent: 0.01px;
+		    text-indent: -1px;
 		    text-overflow: '';	
 		    margin: 0;
-	
+
 	}
 
 	select::-ms-expand {
