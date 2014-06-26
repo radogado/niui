@@ -142,8 +142,11 @@ var tip;
 
 function hideTip (e) {
 	
-	if (!tip) return;
-	removeClass ( tip, 'open' );
+	if (tip) {
+
+		removeClass ( tip, 'open' );
+
+	}
 
 }
 
@@ -212,6 +215,14 @@ function scrollTo( to, callback ) {
 	change = to - start,
 	currentTime = 0,
 	increment = 20;
+
+	if ( (navigator.userAgent.indexOf('Trident') ) != -1 ) { // Turn off animation for IE; WP8 animates by itself
+		
+		doc.scrollTop = to;
+		return;
+		
+	}
+
 	var animateScroll = function(){
 	    // increment the time
 	    currentTime += increment;
@@ -223,6 +234,7 @@ function scrollTo( to, callback ) {
 	    if(currentTime < 400) {
 			requestAnimFrame(animateScroll);
 	    } else {
+	    	
 			if (callback && typeof(callback) === 'function') {
 				// the animation is done so lets callback
 				callback();
@@ -355,12 +367,8 @@ addEventHandler(window, 'load', function() {
 		
 		el.onclick = showTip;
 			
-		if (!('ontouchstart' in window)) {
-			
 			el.onmouseover = showTip;
 			el.onmouseout = hideTip;
-			
-		}
 	
 		addEventHandler(el, 'touchmove', hideTip, false);
 				
@@ -369,7 +377,7 @@ addEventHandler(window, 'load', function() {
 /* Add 'Back to top' button */
 
 		document.querySelector(	document.querySelector('#footer > div > div') ? '#footer > div > div' : 'body' ).insertAdjacentHTML('beforeend', '<a class="backtotop" href="#"> ⬆ </a>');
-		document.body.querySelector('.backtotop').onclick = function() { window.scrollTo(0); return false; };
+		document.querySelector('.backtotop').onclick = function() { scrollTo(0); return false; };
 
 /* Auto textarea height */
    	
