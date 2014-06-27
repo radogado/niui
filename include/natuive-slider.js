@@ -6,14 +6,20 @@ var original_scroll = 0;
 var slider_animation = 0;
 
 function scrollSlider (e) {
-if (slider_animation) return;
+
+	if (slider_animation) return;
+
 	var event = e || window.event;
 	el = event.target || event.srcElement;
+
 	if ( slider != el ) { // on switching to another slider
-		original_scroll = el.scrollLeft; 
+
+		original_scroll = el.attributes['original_scroll'];
+
 	}
+
 	slider = el;
-	
+
     clearTimeout(scrollTimer);
     scrollTimer = setTimeout(function() {
     
@@ -36,7 +42,7 @@ function moveIndex () {
 
 function slideEnd () {
 
-	original_scroll = slider.scrollLeft;
+	el.attributes['original_scroll'] = original_scroll = slider.scrollLeft;
 
 	moveIndex();
 	
@@ -106,7 +112,7 @@ function slide ( e, target ) {
 		if ( original_scroll == slider.scrollLeft ) change = 0;
 				
 		start = slider.scrollLeft;
-		
+/* 		alert(start + ' ' + original_scroll + ' ' + change); */
 	}
 
 	if ( !change ) {
@@ -219,7 +225,9 @@ function makeSlider (el) {
 	
 	el.onscroll = scrollSlider;
 	
-	return el;	
+	el.attributes['original_scroll'] = 0;
+
+	return el;
 	
 }
 

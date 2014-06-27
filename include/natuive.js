@@ -479,5 +479,11 @@ addEventHandler(window, 'load', function() {
 		};
 	
 	}
+	
+	if ('ontouchstart' in window) { /* iOS: remove sticky hover state */
+	
+		document.body.insertAdjacentHTML('beforeend', '<style> a[href]:hover { color: inherit; } </style>');
+	
+	}
 
 });
