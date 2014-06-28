@@ -7,7 +7,7 @@ var slider_animation = 0;
 
 function scrollSlider (e) {
 
-	if (slider_animation) return;
+	if (slider_animation || ('ontouchstart' in window)) return;
 
 	var event = e || window.event;
 	el = event.target || event.srcElement;
@@ -78,7 +78,7 @@ function slide ( e, target ) {
 
 	var change = 0;
 
-	if (target == 'index') {
+	if ( target == 'index' ) {
 			
 		slider = el.parentNode.parentNode.querySelector('.slider');
 		start = slider.scrollLeft;
@@ -92,8 +92,22 @@ function slide ( e, target ) {
 		start = slider.scrollLeft;
 		if ( hasClass(el, 'left') ) {
 			change = slider.scrollLeft - slider.offsetWidth - start;
+
+			if ( slider.scrollLeft % slider.offsetWidth ) {
+
+				change = -1 * (slider.scrollLeft % slider.offsetWidth);
+
+			}
+
 		} else {
+
 			change = slider.scrollLeft + slider.offsetWidth - start;
+
+			if ( slider.scrollLeft % slider.offsetWidth ) {
+
+				change -= slider.scrollLeft % slider.offsetWidth;
+
+			}
 		}
 
 	}
@@ -112,7 +126,7 @@ function slide ( e, target ) {
 		if ( original_scroll == slider.scrollLeft ) change = 0;
 				
 		start = slider.scrollLeft;
-/* 		alert(start + ' ' + original_scroll + ' ' + change); */
+
 	}
 
 	if ( !change ) {
