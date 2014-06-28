@@ -12,9 +12,12 @@
 	overflow-x: scroll;
 	overflow-y: hidden;
 	white-space: nowrap;
-	-webkit-overflow-scrolling: touch; /* fast, hardware-accelerated scrolling */
-    -webkit-transform: translate3d(0, 0, 0);
+/* 	-webkit-overflow-scrolling: touch; */ /* momentum scrolling */
+	-webkit-overflow-scrolling: none;
+    -webkit-transform: translate3d(0, 0, 0); /* fast, hardware-accelerated scrolling */
+    -webkit-transform: translateZ(0);
 	font-size: 0;
+	z-index: 0;
 
 }
 

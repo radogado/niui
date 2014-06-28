@@ -5,9 +5,12 @@ var slider;
 var original_scroll = 0;
 var slider_animation = 0;
 
+var ua = navigator.userAgent.toLowerCase();
+var is_android = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
+
 function scrollSlider (e) {
 
-	if (slider_animation || ('ontouchstart' in window)) return;
+	if ( slider_animation || is_android ) return; // Android can't turn off momentum scrolling
 
 	var event = e || window.event;
 	el = event.target || event.srcElement;
@@ -69,6 +72,7 @@ function slide ( e, target ) {
 		el.onscroll = null;
 		
 	});
+	
 	var event = e || window.event; 
 
 	if ( typeof event.srcElement == 'unknown' ) { return; } // IE8
@@ -238,6 +242,26 @@ function makeSlider (el) {
 	}
 	
 	el.onscroll = scrollSlider;
+	
+/*
+	el.ontouchend = function (e) { 
+	
+		alert('a');
+		
+		el = e.target;
+		
+		while ( !hasClass(el, 'slider') ) {
+			
+			el = el.parentNode;
+			
+		}
+		
+		e.target = el;
+		
+		slide( e, 'snap'); 
+	
+	};
+*/
 	
 	el.attributes['original_scroll'] = 0;
 
