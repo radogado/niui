@@ -4,13 +4,15 @@ var scrollTimer = null;
 var slider;
 var original_scroll = 0;
 var slider_animation = 0;
+var touchmovex = 0;
+var current_scroll = 0;
 
 var ua = navigator.userAgent.toLowerCase();
 var is_android = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
 
 function scrollSlider (e) {
 
-	if ( slider_animation || is_android ) return; // Android can't turn off momentum scrolling
+	if ( slider_animation ) return;
 
 	var event = e || window.event;
 	el = event.target || event.srcElement;
@@ -24,9 +26,14 @@ function scrollSlider (e) {
 	slider = el;
 
     clearTimeout(scrollTimer);
+    current_scroll = slider.scrollLeft;
     scrollTimer = setTimeout(function() {
-    
-        slide (event, 'snap');
+		
+		if ( current_scroll == slider.scrollLeft ) {
+		
+			slide (event, 'snap');
+		
+		}
 
     }, 50);
 
@@ -242,26 +249,6 @@ function makeSlider (el) {
 	}
 	
 	el.onscroll = scrollSlider;
-	
-/*
-	el.ontouchend = function (e) { 
-	
-		alert('a');
-		
-		el = e.target;
-		
-		while ( !hasClass(el, 'slider') ) {
-			
-			el = el.parentNode;
-			
-		}
-		
-		e.target = el;
-		
-		slide( e, 'snap'); 
-	
-	};
-*/
 	
 	el.attributes['original_scroll'] = 0;
 
