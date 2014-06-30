@@ -24,7 +24,7 @@
 		display: table-cell;
 		vertical-align: top;
 		position: relative;
-		padding: .5em;
+		padding: 7px; /* instead of em, because of Chrome subpixel rendering */
 	    -moz-box-sizing: border-box;
 
 	}
@@ -371,11 +371,11 @@ a:link, a:visited {
 
 /* Main */
 
-	#content ul {
+#content ul {
 
-		padding: 1.3em;
+	padding: 1.3em;
 
-	}
+}
 
 	#content .row + .row { /* Every subsequent .row */
 		
@@ -616,8 +616,7 @@ form {
 	right: 0;
 	text-decoration: none;
 
-	}
-
+}
 
 /* Tooltip */
 
@@ -952,10 +951,10 @@ input.trigger#nav-trigger + * {
 	.row > * {
 
 		display: block;
-		padding: 1%;
+		padding: 5px; /* Becaue percentage leads to Android Chrome inline-block bug */
 
 	}
-	
+
 	.row > *, .row > .column23, .row > .column2, .row > .column3, .row > .column4, .row > .column34 {
 
 		width: auto;

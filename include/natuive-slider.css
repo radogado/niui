@@ -9,16 +9,16 @@
 	
 .slider {
 
-	overflow-x: visible;
+	overflow-x: scroll;
 	overflow-y: hidden;
 	white-space: nowrap;
 	-webkit-overflow-scrolling: touch; /* momentum scrolling */
     -webkit-transform: translate3d(0, 0, 0); /* fast, hardware-accelerated scrolling */
     -webkit-transform: translateZ(0);
-/* 	font-size: 0; */
+	font-size: 0;
 	z-index: 0;
 	-ms-overflow-style: none; /* No scrollbars on IE10+ */
-
+	
 }
 
 .slider > * {
@@ -29,8 +29,9 @@
 	vertical-align: top;
 	overflow: hidden;
 	padding: 0;
-/* 	font-size: 15px; */
-
+	font-size: 15px;
+	zoom: 1;
+	
 }
 
 .slider::-webkit-scrollbar {

@@ -29,7 +29,7 @@ function scrollSlider (e) {
     current_scroll = slider.scrollLeft;
     scrollTimer = setTimeout(function() {
 		
-		if ( current_scroll == slider.scrollLeft ) {
+		if ( current_scroll == slider.scrollLeft ) { /* If all scroll, including inertia, has ended */
 		
 			slide (event, 'snap');
 		
@@ -173,7 +173,6 @@ function slide ( e, target ) {
 
 function sliderKeyboard (e) {
 
-
 /*
 	slider = document.querySelector('.slider'); // Move slider #1; to do: select nearest slider
 	
@@ -200,7 +199,7 @@ function makeSlider (el) {
 	addClass (el, 'slider');
 	el.insertAdjacentHTML('beforebegin', '<div class="slider-container"></div>'); // Create a container and move the slider in it
 	container = el.previousSibling;
-	container.insertAdjacentHTML('afterbegin', '<a class="slider-arrow left">←</a>' + el.outerHTML.replace( new RegExp( "\>[\n\t ]+\<" , "g" ) , "><" ) + '<a class="slider-arrow right">→</a><div class="slider-nav"></div>');
+	container.insertAdjacentHTML('afterbegin', '<a class="slider-arrow left">←</a>' + el.outerHTML/* .replace( new RegExp( "\>[\n\t ]+\<" , "g" ) , "><" ) */ + '<a class="slider-arrow right">→</a><div class="slider-nav"></div>');
 	container.nextSibling.outerHTML = '';
 	el = container.querySelector('.slider');
 	
@@ -251,7 +250,7 @@ function makeSlider (el) {
 	el.onscroll = scrollSlider;
 	
 	el.attributes['original_scroll'] = 0;
-
+	
 	return el;
 	
 }
