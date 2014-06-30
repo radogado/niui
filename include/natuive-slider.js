@@ -12,7 +12,7 @@ var is_android = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
 
 function scrollSlider (e) {
 
-	if ( slider_animation ) return;
+	if ( slider_animation || is_android ) return;
 
 	var event = e || window.event;
 	el = event.target || event.srcElement;
