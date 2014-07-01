@@ -247,12 +247,23 @@ a:link, a:visited {
 	
 	}
 
+	form.nav .selector {
+
+		background: url('../images/country_select_globes.png') center left no-repeat;
+		padding-left: 0;
+		border: none;
+		box-shadow: none;
+
+	}
+
 	form.nav select {
 
-		background: url(../images/country_select_globes.png) center left no-repeat;
-		padding-left: 2em;
 		font-size: .5em;
 		border: none;
+		-moz-appearance: window;
+		vertical-align: middle;
+		padding-left: 2em;
+		background: transparent;
 
 	}
 
@@ -428,13 +439,12 @@ form {
 	
 	select {
 		
-			-webkit-appearance: none;
-			-moz-appearance: none;
-			appearance: none;
-			font-family: inherit;
-		    text-indent: -1px;
-		    text-overflow: '';	
-		    margin: 0;
+		-webkit-appearance: none;
+		appearance: none;
+		font-family: inherit;
+	    text-indent: -1px;
+	    text-overflow: '';	
+	    margin: 0;
 
 	}
 
@@ -455,15 +465,18 @@ form {
 		border-bottom: 1px solid #ddd;
 		padding: 2.2% 2%;
 		box-shadow: 0px 1px 1px #999 inset;
-		width: 41%;
+		width: 45%;
 		display: inline-block;
 		vertical-align: top;
 		overflow: hidden;
 		resize: none;
 		border: 1px solid #bbb;
+		box-sizing: border-box;
+		vertical-align:top;
+
 	}
 	
-	label input,  #content label select, textarea {
+	label input,  #content label .selector, textarea {
 	
 		margin-left: 1%;
 	
@@ -514,23 +527,31 @@ form {
 		
 		width: 45%;
 		box-shadow: 0 1px 2px #999;
-		border: 1px solid transparent;
-		background: #fff url(../images/select-arrow.svg) center right no-repeat;
-		background-position: 96% 50%;
-		background-size: 10px;
-		margin-top: 2px;
+		padding: 5% 4%;
 		padding-right: 1.3em; /* Prevent overlapping */
 		padding-right: 2%\9; /* IE8 */
 		background: #fff\9; /* IE8 */
+		width: 100%;
+		background: transparent;
+		-moz-appearance: window;
+		box-shadow: none;
+		border: 0;
+		text-indent: 0px;
 		
 	}
 	
-	@-moz-document url-prefix() {
+	form .selector {
 
-		#content select { background: none; } /* FF30 can't hide the arrow */
+		width: 45%;
+		background: url('../images/select-arrow.svg') no-repeat scroll 96% 50% / 10px auto #FFF;
+		padding: 0;	
+		box-sizing: border-box;
+		box-shadow: 0px 1px 1px #999;
+		vertical-align: top;
+		border: 1px solid #ccc;
 
 	}
-
+	
 	:root #content select { padding-right: 2% \0/IE9; background: #fff \0/IE9; }  /* Disable the custom arrow in IE9 */
 
 	select:hover {
@@ -1005,7 +1026,7 @@ input.trigger#nav-trigger + * {
 			
 		}
 
-		#content label select, label input, textarea {
+		#content label .selector, label input, textarea {
 			
 			-webkit-box-sizing: border-box;
 			-moz-box-sizing: border-box;
@@ -1020,6 +1041,12 @@ input.trigger#nav-trigger + * {
 	
 			width: 100%;
 	
+		}
+		
+		#content select {
+			
+			padding: 2.2% 1.3em 2.2% 2%;
+			
 		}
 		
 	.wide-screen {

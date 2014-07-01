@@ -69,14 +69,18 @@
 					<div class="column4">
 						
 						<form class="nav" action="." method="get">
-						
-							<select name="l">
-								
-								<option value="en">English</option>
-								<option value="fr">Français</option>
-								<option value="cn">中文</option>
-		
-							</select>
+							
+							<span class="selector">
+							
+								<select name="l">
+									
+									<option value="en">English</option>
+									<option value="fr">Français</option>
+									<option value="cn">中文</option>
+			
+								</select>
+							
+							</span>
 		
 							<noscript>
 							
@@ -331,16 +335,30 @@
 							<textarea placeholder="How are you today?"></textarea>
 						</label> 
 				
+						<label id="phone_label3">
+							<span class="tool">Telephone <span class="tip">Enter a valid phone number.</span> </span>
+							<input name="phone" id="phone" type="tel" placeholder="Your phone number.">
+						</label> 
+				
 						<label for="country">
 	
 							<span>Country of residence</span>
-				
-							<select id="country" maxlength="40" name="country">
-								<option value="" selected="selected">Country of residence →</option><option value="United Kingdom">United Kingdom</option><option value="Afghanistan">Afghanistan</option><option value="Aland Islands">Aland Islands</option><option value="Albania">Albania</option><option value="Algeria">Algeria</option><option value="American Samoa">American Samoa</option><option value="Andorra">Andorra</option><option value="Angola">Angola</option><option value="Anguilla">Anguilla</option><option value="Antarctica">Antarctica</option><option value="Antigua And Barbuda">Antigua And Barbuda</option><option value="Argentina">Argentina</option>
-							</select>
+							
+							<span class="selector">
+							
+								<select id="country" maxlength="40" name="country">
+									<option value="" selected="selected">Country of residence →</option><option value="United Kingdom">United Kingdom</option><option value="Afghanistan">Afghanistan</option><option value="Aland Islands">Aland Islands</option><option value="Albania">Albania</option><option value="Algeria">Algeria</option><option value="American Samoa">American Samoa</option><option value="Andorra">Andorra</option><option value="Angola">Angola</option><option value="Anguilla">Anguilla</option><option value="Antarctica">Antarctica</option><option value="Antigua And Barbuda">Antigua And Barbuda</option><option value="Argentina">Argentina</option>
+								</select>
+							
+							</span>
 	
 						</label>
 						
+						<label id="phone_label2">
+							<span class="tool">Telephone <span class="tip">Enter a valid phone number.</span> </span>
+							<input name="phone" id="phone" type="tel" placeholder="Your phone number.">
+						</label> 
+				
 						<input type="submit" value="Request more info" title="Request more info">
 						
 					</form>
@@ -420,13 +438,13 @@
 	
 					<div class="accordion">
 	
-						<label> <h3>Nested Accordions</h3> </label>
+						<h3>Nested Accordions</h3>
 						
 						<div>
 	
 							<div class="accordion">
 		
-								<label> <h3>About Inner Accordion</h3> </label>
+								<h3>About Inner Accordion</h3>
 			
 								<div>
 									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -436,7 +454,7 @@
 		
 							<div class="accordion">
 		
-								<label> <h3>About Inner Accordion 2</h3> </label>
+								<h3>About Inner Accordion 2</h3>
 			
 								<div>
 									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -450,7 +468,7 @@
 					
 					<div class="accordion">
 	
-						<label> <h3>How it works</h3> </label>
+						<h3>How it works</h3>
 	
 						<div>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
@@ -460,7 +478,11 @@
 	
 					<div class="accordion">
 	
-						<label> <h3>Questions</h3> </label>
+						<h3>Questions</h3>
+						
+						<label for="accordion1"></label>
+						
+						<input type="checkbox" style="display: none;">
 	
 						<div>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
