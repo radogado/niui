@@ -1,4 +1,4 @@
-/* natUIve by rado.bg */
+/* natUIve Slider */
 
 var scrollTimer = null;
 var slider;
@@ -12,7 +12,7 @@ var is_android = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
 
 function scrollSlider (e) {
 
-	if ( slider_animation || is_android ) return;
+	if ( slider_animation /* || is_android */ ) return;
 
 	var event = e || window.event;
 	el = event.target || event.srcElement;
@@ -55,7 +55,7 @@ function slideEnd () {
 	el.attributes['original_scroll'] = original_scroll = slider.scrollLeft;
 
 	moveIndex();
-	
+
 	slider_animation = 0;
 
 	document.onkeyup = sliderKeyboard;
@@ -90,10 +90,10 @@ function slide ( e, target ) {
 	var change = 0;
 
 	if ( target == 'index' ) {
-			
+		
 		slider = el.parentNode.parentNode.querySelector('.slider');
 		start = slider.scrollLeft;
-		change = thisIndex(el) * slider.offsetWidth - start;
+		change = slider.children[thisIndex(el)].offsetLeft - start;
 
 	}
 	
@@ -101,22 +101,26 @@ function slide ( e, target ) {
 
 		slider = el.parentNode.querySelector('.slider');
 		start = slider.scrollLeft;
-		if ( hasClass(el, 'left') ) {
-			change = slider.scrollLeft - slider.offsetWidth - start;
+		
+		var current_index = thisIndex(slider.parentNode.querySelector('a.active'));
 
-			if ( slider.scrollLeft % slider.offsetWidth ) {
+		if ( hasClass(el, 'left') ) { // left arrow
+			
+			change = (current_index ? slider.children[ current_index-1 ].offsetLeft : 0) - slider.children[ current_index ].offsetLeft;
 
-				change = -1 * (slider.scrollLeft % slider.offsetWidth);
+			if ( slider.scrollLeft % slider.offsetWidth ) { /* not snapped into position */
+
+/* 				change = -1 * (slider.scrollLeft % slider.offsetWidth); */
 
 			}
 
-		} else {
+		} else { // right arrow
 
-			change = slider.scrollLeft + slider.offsetWidth - start;
+			change = (slider.children.length-1 > current_index) ? slider.children[ current_index+1 ].offsetLeft - slider.children[ current_index ].offsetLeft : 0;
 
-			if ( slider.scrollLeft % slider.offsetWidth ) {
+			if ( slider.scrollLeft % slider.offsetWidth ) { /* not snapped into position */
 
-				change -= slider.scrollLeft % slider.offsetWidth;
+/* 				change -= slider.scrollLeft % slider.offsetWidth; */
 
 			}
 		}
@@ -126,17 +130,30 @@ function slide ( e, target ) {
 	if ( target == 'snap') {
 
 		slider = el;
+		start = slider.scrollLeft;
 
-		if (slider.scrollLeft > original_scroll) { 
+		if (slider.scrollLeft > original_scroll) { // Going left
+
 			change = slider.offsetWidth - slider.scrollLeft % slider.offsetWidth;
-		} else {
+			var current_index = Math.round( (change+start) / slider.offsetWidth );
+			if (current_index >= slider.children.length) current_index = slider.children.length-1;
+			change = slider.children[current_index].offsetLeft - slider.scrollLeft;
+
+		} else { // Going right
 			change = slider.scrollLeft % slider.offsetWidth - slider.offsetWidth;
 			change = -1 * (slider.offsetWidth + change);
+
+			var current_index = Math.round( (change+start) / slider.offsetWidth );
+			if ( current_index < 0 ) current_index = 0;
+			change = -1 * (start - slider.children[current_index].offsetLeft);
+
 		}
 		
-		if ( original_scroll == slider.scrollLeft ) change = 0;
-				
-		start = slider.scrollLeft;
+		if ( original_scroll == slider.scrollLeft ) {
+			
+			change = 0;
+
+		}
 
 	}
 
@@ -144,7 +161,7 @@ function slide ( e, target ) {
 		slideEnd();
 		return;
 		}
-
+	
 	currentTime = 0,
 	increment = 20;
 	duration = 400;
@@ -158,11 +175,15 @@ function slide ( e, target ) {
 		slider.scrollLeft = val;
 		// do the animation unless its over
 		if( (currentTime < duration) ) {
+
 			requestAnimFrame(animateScroll);
+
 		} else {
 
 			if (slideEnd && typeof(slideEnd) === 'function') { // the animation is done so let's callback
+
 				slideEnd();
+
 			}
 
 		}
@@ -210,6 +231,8 @@ function makeSlider (el) {
 	el.style.overflowX = 'scroll';
 	height_scroll = el.offsetHeight - height_scroll;
 	
+	var inlineBlockOffset = document.querySelector('.slider > *:nth-child(2)').offsetLeft - document.querySelector('.slider > *').offsetWidth;
+	
 	// Generate controls
 
 	for (var i = 0; i < el.children.length; i++) {
@@ -238,6 +261,8 @@ function makeSlider (el) {
 			slide(e, 'index');
 
 		};
+		
+/* 		el.children[i].style.marginRight = '-' + (inlineBlockOffset - (is_android ? 1 : 0)) + 'px'; */
 
 	}
 
@@ -250,6 +275,9 @@ function makeSlider (el) {
 	el.onscroll = scrollSlider;
 	
 	el.attributes['original_scroll'] = 0;
+	
+	
+	
 	
 	return el;
 	
