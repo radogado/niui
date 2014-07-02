@@ -7,12 +7,9 @@ var slider_animation = 0;
 var touchmovex = 0;
 var current_scroll = 0;
 
-var ua = navigator.userAgent.toLowerCase();
-var is_android = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
-
 function scrollSlider (e) {
 
-	if ( slider_animation /* || is_android */ ) return;
+	if ( slider_animation ) return;
 
 	var event = e || window.event;
 	el = event.target || event.srcElement;
@@ -108,21 +105,10 @@ function slide ( e, target ) {
 			
 			change = (current_index ? slider.children[ current_index-1 ].offsetLeft : 0) - slider.children[ current_index ].offsetLeft;
 
-			if ( slider.scrollLeft % slider.offsetWidth ) { /* not snapped into position */
-
-/* 				change = -1 * (slider.scrollLeft % slider.offsetWidth); */
-
-			}
-
 		} else { // right arrow
 
 			change = (slider.children.length-1 > current_index) ? slider.children[ current_index+1 ].offsetLeft - slider.children[ current_index ].offsetLeft : 0;
 
-			if ( slider.scrollLeft % slider.offsetWidth ) { /* not snapped into position */
-
-/* 				change -= slider.scrollLeft % slider.offsetWidth; */
-
-			}
 		}
 
 	}
@@ -140,9 +126,9 @@ function slide ( e, target ) {
 			change = slider.children[current_index].offsetLeft - slider.scrollLeft;
 
 		} else { // Going right
+
 			change = slider.scrollLeft % slider.offsetWidth - slider.offsetWidth;
 			change = -1 * (slider.offsetWidth + change);
-
 			var current_index = Math.round( (change+start) / slider.offsetWidth );
 			if ( current_index < 0 ) current_index = 0;
 			change = -1 * (start - slider.children[current_index].offsetLeft);
@@ -158,9 +144,11 @@ function slide ( e, target ) {
 	}
 
 	if ( !change ) {
+
 		slideEnd();
 		return;
-		}
+
+	}
 	
 	currentTime = 0,
 	increment = 20;
@@ -262,8 +250,6 @@ function makeSlider (el) {
 
 		};
 		
-/* 		el.children[i].style.marginRight = '-' + (inlineBlockOffset - (is_android ? 1 : 0)) + 'px'; */
-
 	}
 
 	container.querySelector('.slider-arrow.left').onclick = container.querySelector('.slider-arrow.right').onclick = function (e) {
@@ -275,9 +261,6 @@ function makeSlider (el) {
 	el.onscroll = scrollSlider;
 	
 	el.attributes['original_scroll'] = 0;
-	
-	
-	
 	
 	return el;
 	
