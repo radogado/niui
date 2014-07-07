@@ -29,20 +29,16 @@
 
 	}
 
-	.row .row > :last-child {
+	.row .row:not(.slider-nav) > :last-child {
 		
 		padding-right: 0;
 		
 	}
 
-	.row .row > :first-child {
+	.row .row:not(.slider-nav) > :first-child {
 		
 		padding-left: 0;
 		
-	}
-
-	@-moz-document url-prefix()	{
-/* 		.row, .row > * { height: 100%; } */
 	}
 
 	.row > .column23 {
@@ -349,7 +345,6 @@ a:link, a:visited {
 #head .row > div.column4 {
 	
 	text-align: right;
-/* 	padding-right: .5em; */
 	vertical-align: bottom;
 	
 }
@@ -384,13 +379,25 @@ a:link, a:visited {
 
 #content ul {
 
-	padding: 1.3em;
+	padding-left: 1.3em;
 
 }
+	
+	#content ul li {
+		
+		margin: .5em 0;
+
+	}
 
 	#content .row + .row { /* Every subsequent .row */
 		
 		border-top: 1px dotted #ccc;
+
+	}
+
+	#content .row .row + .row {
+		
+		border-top: none;
 
 	}
 
