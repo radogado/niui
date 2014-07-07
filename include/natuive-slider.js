@@ -6,6 +6,7 @@ var original_scroll = 0;
 var slider_animation = 0;
 var touchmovex = 0;
 var current_scroll = 0;
+var height_scroll = 0;
 
 function scrollSlider (e) {
 
@@ -83,6 +84,12 @@ function slide ( e, target ) {
 	el = event.target || event.srcElement;
 
 	stopEvent(event);
+
+	if (typeof el == 'undefined' ) { 
+
+		el = e; 
+
+	}
 
 	var change = 0;
 
@@ -284,6 +291,11 @@ addEventHandler ( window, 'load', function() {
 		forEach('.slider', function (el,i) {
 			el.scrollLeft = 0;
 			moveIndex ();
+/* 			slide(el, 'index'); */
+
+ 			el.parentNode.style.height = 'auto';
+ 			el.parentNode.style.height = (el.parentNode.offsetHeight - height_scroll) + 'px';
+
 		});
 		
 	}
