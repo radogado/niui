@@ -518,6 +518,12 @@ form {
 		
 	}
 	
+	label.mandatory span.checkbox:after, label.mandatory span.tip:after {
+	
+		display: none;		
+		
+	}
+
 	label.mandatory span:after {
 		
 		content: "*";
@@ -1108,7 +1114,7 @@ input.trigger#nav-trigger + * {
 		
 		label.mandatory span:after {
 			
-			right: 2%;
+			right: 0;
 			
 		}
 
@@ -1138,6 +1144,7 @@ input.trigger#nav-trigger + * {
 		span.checkbox {
 			
 			width: 100%;
+			margin-left: 0;
 
 		}
 		
