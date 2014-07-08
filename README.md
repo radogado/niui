@@ -12,7 +12,7 @@ A 7 KB framework focused on browsers' built-in capabilities with smart customisa
 - Buttons
 - Modal windows
 - Lightbox
-- Tooltips
+- Tooltips with full HTML content
 - Nested ordered lists
 - Forms with validation, full style customisation and keyboard accessibility
 - Auto-expanding textarea to save space
