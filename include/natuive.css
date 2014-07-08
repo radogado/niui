@@ -116,6 +116,12 @@ img {
 	
 }
 
+b {
+	
+	font-weight: bold;
+
+}
+
 p, li {
 
 	line-height: 1.4;
@@ -630,7 +636,8 @@ form {
 		position: absolute;
 		background: transparent;
 		cursor: pointer;
-		opacity: 0; /* Because of IE */
+		opacity: 0;
+		padding: 0;
 
 	}
 
