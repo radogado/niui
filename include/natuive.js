@@ -376,8 +376,7 @@ addEventHandler(window, 'load', function() {
 
 /* Add 'Back to top' button */
 
-		document.querySelector(	document.querySelector('#footer > div > div') ? '#footer > div > div' : 'body' ).insertAdjacentHTML('beforeend', '<a class="backtotop" href="#"> ⬆ </a>');
-		document.querySelector('.backtotop').onclick = function() { scrollTo(0); return false; };
+		document.querySelector(	document.querySelector('#footer > div > div') ? '#footer > div > div' : 'body' ).insertAdjacentHTML('beforeend', '<a class="backtotop" href="#head"> ⬆ </a>');
 
 /* Auto textarea height */
    	
@@ -485,5 +484,22 @@ addEventHandler(window, 'load', function() {
 		document.body.insertAdjacentHTML('beforeend', '<style> a[href]:hover { color: inherit; } </style>');
 	
 	}
+	
+	forEach( 'a[href*="#"]:not([href="#"])', function (el, i) {
+		
+		el.onclick = function (e) {
+			
+			var event = e || window.event;
+			var target = event.target || event.srcElement;
+			
+			hash = document.getElementById( target.href.split('#')[1] );
+
+			scrollTo( (hash == null) ? 0 : hash.offsetTop );
+			
+			return false;
+			
+		};
+		
+	});
 
 });
