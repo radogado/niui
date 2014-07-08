@@ -409,7 +409,7 @@ addEventHandler(window, 'load', function() {
 			elements = el.querySelectorAll('.mandatory');
 			Array.prototype.forEach.call(elements, function (el, i) {
 				
-				if (!el.querySelector('input, select, textarea').value) { 
+				if (!el.querySelector('input, select, textarea').value || !el.querySelector('input[type="checkbox"]').checked ) { 
 
 					ready_to_submit = false;
 					addClass (el, 'alert');

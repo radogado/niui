@@ -523,7 +523,7 @@ form {
 		
 	}
 	
-	label.mandatory.alert span {
+	label.mandatory.alert span:not(.checkbox) {
 		
 		background: #666;
 		color: #eee;
@@ -581,13 +581,57 @@ form {
 
 	}
 	
+	span.checkbox {
+
+		width: 44%;
+		text-align: left;
+		margin-left: 1%;
+		vertical-align: top;
+		font-weight: normal;
+		cursor: pointer;
+
+	}
+	
+	b.checkbox {
+		
+		width: 1em;
+		height: 1em;
+		display: inline-block;
+		background: rgb(0,221,240);
+		vertical-align: middle;
+		margin-top: -.5em;
+		border-radius: 3px;
+		text-align: center;
+		line-height: 1;
+		color: #333;
+
+	}
+
+	input[type="checkbox"]:checked + b.checkbox:before {
+		
+		content: "✓";
+
+	}
+
+	input[type="checkbox"]:focus + b.checkbox {
+		
+		box-shadow: 0 0 2px #000;
+
+	}
+		
 	input[type="checkbox"] {
 		
-		vertical-align: middle;
-		margin-top: -2px;
-		width: auto;
-		margin-right: 42.8%;
-		
+		-webkit-appearance: none;
+		-moz-appearance: window;
+		-ms-appearance: none;
+		width: .7em;
+		border: none;
+		box-shadow: none;
+		position: absolute;
+		background: transparent;
+		cursor: pointer;
+		opacity: 0; /* Because of IE */
+
 	}
 
 /* Modal window */
@@ -1075,6 +1119,12 @@ input.trigger#nav-trigger + * {
 			
 			padding: 2.2% 1.3em 2.2% 2%;
 			
+		}
+		
+		span.checkbox {
+			
+			width: 100%;
+
 		}
 		
 	.wide-screen {

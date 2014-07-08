@@ -14,7 +14,7 @@ A 7 KB framework focused on browsers' built-in capabilities with smart customisa
 - Lightbox
 - Tooltips
 - Nested ordered lists
-- Forms with validation
+- Forms with validation, full style customisation and keyboard accessibility
 - Auto-expanding textarea to save space
 - Native sliders, swipeable on mobile and desktop, with optional .thumbnail navigation
 - Accordions
