@@ -544,6 +544,9 @@ form {
 	
 	#content select {
 		
+		-moz-appearance: none;
+		text-indent: 0.01px;
+		text-overflow: '';
 		width: 45%;
 		box-shadow: 0 1px 2px #999;
 		padding: 5% 4%;
@@ -552,12 +555,17 @@ form {
 		background: #fff\9; /* IE8 */
 		width: 100%;
 		background: transparent;
-		-moz-appearance: window;
 		box-shadow: none;
 		border: 0;
 		text-indent: 0px;
 		
 	}
+
+	@-moz-document url-prefix()
+	{
+		#content select { width: 110%; }
+	}
+
 	
 	form .selector {
 
