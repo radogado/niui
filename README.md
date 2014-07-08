@@ -21,6 +21,7 @@ A 7 KB framework focused on browsers' built-in capabilities with smart customisa
 - Tables accessible on all screens
 - Footer sticking to the bottom on short pages
 - 'Back to top' button
+- Animated anchor links
 - Language selector
 - Balanced functional layout
 - URI parameters relay to links
