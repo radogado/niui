@@ -403,15 +403,19 @@ addEventHandler(window, 'load', function() {
 
 	forEach('form', function (el, i) {
 		
-		el.onsubmit = function () {
+		el.onsubmit = function (e) {
 			ready_to_submit = true;
-			elements = el.querySelectorAll('.mandatory');
-			Array.prototype.forEach.call(elements, function (el, i) {
+
+			forEach('.mandatory', function (el, i) {
 				
-				if (!el.querySelector('input, select, textarea').value || !el.querySelector('input[type="checkbox"]').checked ) { 
+				if ( 
+					( el.querySelector('input, select, textarea') && !el.querySelector('input, select, textarea').value ) || 
+					( el.querySelector('input[type="checkbox"]') && !el.querySelector('input[type="checkbox"]').checked ) 
+				   ) { 
 
 					ready_to_submit = false;
 					addClass (el, 'alert');
+					return;
 
 				} else {
 					
@@ -420,8 +424,8 @@ addEventHandler(window, 'load', function() {
 				}
 
 			});
-			
-			if (!ready_to_submit) el.scrollIntoView();
+
+			if (!ready_to_submit) scrollTo(el.parentNode.offsetTop);
 
 			return ready_to_submit;
 			
