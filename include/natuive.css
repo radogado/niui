@@ -794,6 +794,13 @@ ul {
 		margin-left: 2.3em;
 
 	}
+	
+	ol li > * {
+		
+		text-indent: 0;
+		display: inline-block;
+
+	}
 
 	ol > li:before {
 
@@ -1055,6 +1062,14 @@ input.trigger#nav-trigger + * {
 	
 	z-index: 0;
 
+}
+
+.quote {
+	
+	margin-left: 1em;
+	border-left: 1px solid #bbb;
+	padding-left: 1em;
+	
 }
 
 /* Narrow Screens */
