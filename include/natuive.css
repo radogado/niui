@@ -918,12 +918,24 @@ ul {
 	.accordion > div { /* hidden accordion item */
 
 	    overflow: hidden;
-	    transition: all .4s ease-in-out;
 	    max-height: 0;
 	    cursor: auto;
+	    transition: max-height .4s ease-in-out;
 
 	}
 
+	.accordion input.trigger:checked + div {
+		
+		max-height: none;
+
+	}
+	
+	.accordion.open input.trigger + * {
+		
+		display: inline-block;
+		
+	}
+	
 	.accordion.open { 
 
 		padding-bottom: 1em;
@@ -937,7 +949,7 @@ ul {
 		
 	}
 	
-	.accordion > h3 {
+	.accordion > label {
 		
 		margin: 1em 0;
 		

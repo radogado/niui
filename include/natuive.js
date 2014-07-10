@@ -461,6 +461,12 @@ addEventHandler(window, 'load', function() {
 
 	forEach('.accordion', function(el, i) {
 		
+		if ( el.querySelector('input.trigger') ) {
+		
+			el.querySelector('input.trigger').outerHTML = '';
+		
+		}
+		
 		el.onclick = function (e) {
 			
 			stopEvent( e );
