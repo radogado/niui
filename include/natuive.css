@@ -699,6 +699,18 @@ form {
 		background: transparent;
 		
 	}
+	
+	#blackbox-bg {
+		
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: -1;
+		cursor: crosshair;
+
+	}
 
 /* Back to top button */
 
@@ -1161,6 +1173,13 @@ input.trigger#nav-trigger + * {
 			width: 100%;
 			margin-left: 0;
 
+		}
+
+		form label span .tip {
+			
+			position: static;
+			margin-top: 1em;
+			
 		}
 		
 	.wide-screen {

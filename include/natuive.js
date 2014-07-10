@@ -284,7 +284,7 @@ function modalWindow (e) {
 			if ( elements[i] == target ) { current_slide = i; }
 		}
 
-		document.getElementById('blackbox').innerHTML = '<div class="close"> ← ' + document.title + '</div><div class="slider lightbox">' + images + '</div>';
+		document.getElementById('blackbox').innerHTML = '<div class="close"> ← ' + document.title + '</div><div class="slider lightbox">' + images + '</div><div id="blackbox-bg"></div>';
 		document.querySelector('#blackbox > .close').onclick = removeBlackbox;
 		
 		if ( makeSlider ) { 
@@ -325,6 +325,9 @@ function modalWindow (e) {
 				} else {
 					blackbox.insertAdjacentHTML('beforeend', request.responseText);
 				}
+				
+				blackbox.insertAdjacentHTML('beforeend', '<div id="blackbox-bg"></div>');
+				
 				relayParameters();
 			
 			} else { 
@@ -341,6 +344,8 @@ function modalWindow (e) {
 		
 	}
 	
+	document.getElementById('blackbox-bg').onclick = removeBlackbox;
+	
 	return false;
 
 }
@@ -353,6 +358,25 @@ addEventHandler(window, 'load', function() {
 
 	relayParameters();
 	
+/* Animate anchor links */
+
+	forEach( 'a[href*="#"]:not([href="#"])', function (el, i) {
+		
+		el.onclick = function (e) {
+			
+			var event = e || window.event;
+			var target = event.target || event.srcElement;
+			
+			hash = document.getElementById( target.href.split('#')[1] );
+
+			scrollTo( (hash == null) ? 0 : hash.offsetTop );
+			
+			return false;
+			
+		};
+		
+	});
+
 /* Modal window: open a link inside it. Also lightbox with images */
 
    	forEach('a.modal, a.lightbox', function(el, i) {
@@ -488,22 +512,5 @@ addEventHandler(window, 'load', function() {
 		document.body.insertAdjacentHTML('beforeend', '<style> a[href]:hover { color: inherit; } </style>');
 	
 	}
-	
-	forEach( 'a[href*="#"]:not([href="#"])', function (el, i) {
-		
-		el.onclick = function (e) {
-			
-			var event = e || window.event;
-			var target = event.target || event.srcElement;
-			
-			hash = document.getElementById( target.href.split('#')[1] );
-
-			scrollTo( (hash == null) ? 0 : hash.offsetTop );
-			
-			return false;
-			
-		};
-		
-	});
 
 });
