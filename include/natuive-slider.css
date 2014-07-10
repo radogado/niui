@@ -16,6 +16,7 @@
     -webkit-transform: translate3d(0, 0, 0); /* fast, hardware-accelerated scrolling */
     -webkit-transform: translateZ(0);
 	-ms-overflow-style: none; /* No scrollbars on IE10+ */
+	word-spacing: -.25em;
 
 }
 
@@ -27,6 +28,7 @@
 	vertical-align: top;
 	overflow: hidden;
 	padding: 0;
+	word-spacing: normal;
 
 }
 
@@ -61,7 +63,7 @@
 	background: #bbb;
 	color: #fff;
 	transition: background-color .2s linear;
-	line-height: .9em;
+	line-height: .7em;
 
 }
 .slider-arrow, .slider-nav {

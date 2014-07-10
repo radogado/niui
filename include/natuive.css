@@ -140,7 +140,7 @@ a:link, a:visited {
 
 }
 
-	a[href]:hover, #content input[type='submit']:hover {
+	a[href]:hover, #content input[type='submit']:hover, a.button:hover {
 
 		color: #ee8822;
 
