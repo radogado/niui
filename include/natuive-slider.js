@@ -228,8 +228,6 @@ function makeSlider (el) {
 	el.style.overflowX = 'scroll';
 	height_scroll = el.offsetHeight - height_scroll;
 	
-	var inlineBlockOffset = document.querySelector('.slider > *:nth-child(2)').offsetLeft - document.querySelector('.slider > *').offsetWidth;
-	
 	// Generate controls
 
 	for (var i = 0; i < el.children.length; i++) {
