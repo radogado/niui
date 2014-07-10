@@ -10,10 +10,12 @@ var height_scroll = 0;
 
 function scrollSlider (e) {
 
-	if ( slider_animation ) return;
-
 	var event = e || window.event;
 	el = event.target || event.srcElement;
+
+	stopEvent(e);
+
+	if ( slider_animation ) return;
 
 	if ( slider != el ) { // on switching to another slider
 
@@ -25,10 +27,10 @@ function scrollSlider (e) {
 
     clearTimeout(scrollTimer);
     current_scroll = slider.scrollLeft;
-    scrollTimer = setTimeout(function() {
+    scrollTimer = setTimeout( function(e) {
 		
 		if ( current_scroll == slider.scrollLeft ) { /* If all scroll, including inertia, has ended */
-		
+
 			slide (event, 'snap');
 		
 		}
