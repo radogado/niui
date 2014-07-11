@@ -15,8 +15,7 @@
 	table-layout: fixed;
 	width: 100%;
 	border-collapse: separate;
-	overflow-x: hidden;
-
+	
 }
 
 	.row > * {
@@ -1100,6 +1099,12 @@ input.trigger#nav-trigger + * {
 /* Narrow Screens */
 
 @media screen and (max-width: 640px) {
+
+	.row {
+		
+		overflow-x: hidden;
+
+	}
 
 	.row > * {
 
