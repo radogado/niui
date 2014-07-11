@@ -709,6 +709,7 @@ form {
 		left: 0;
 		z-index: -1;
 		cursor: crosshair;
+		background: transparent;
 
 	}
 

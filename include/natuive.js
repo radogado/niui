@@ -285,7 +285,7 @@ function modalWindow (e) {
 		}
 
 		document.getElementById('blackbox').innerHTML = '<div class="close"> ← ' + document.title + '</div><div class="slider lightbox">' + images + '</div><div id="blackbox-bg"></div>';
-		document.querySelector('#blackbox > .close').onclick = removeBlackbox;
+		document.querySelector('#blackbox > .close').onclick = document.getElementById('blackbox-bg').onclick = removeBlackbox;
 		
 		if ( makeSlider ) { 
 
@@ -298,9 +298,9 @@ function modalWindow (e) {
 	} else { // ... or load external content in a modal window 
 		
 		if ( navigator.userAgent.indexOf('MSIE 8') != -1 ) {
-			
+alert('ie8');			
 			window.open (target.href, '_blank'); 
-			return;
+			return false;
 
 		}
 
@@ -316,7 +316,6 @@ function modalWindow (e) {
 				document.body.style.overflow = 'hidden';
 				blackbox = document.getElementById('blackbox');
 				blackbox.insertAdjacentHTML('afterbegin', '<div class="close"> ← ' + document.title + '</div>');
-				blackbox.querySelector('.close').onclick = removeBlackbox;
 				if (container) {
 					parsed = parseHTML(request.responseText);
 					if ( !parsed.querySelector(container) ) { removeBlackbox (); return false; }
@@ -327,11 +326,13 @@ function modalWindow (e) {
 				}
 				
 				blackbox.insertAdjacentHTML('beforeend', '<div id="blackbox-bg"></div>');
+				blackbox.querySelector('.close').onclick = document.getElementById('blackbox-bg').onclick = removeBlackbox;
 				
 				relayParameters();
 			
 			} else { 
 			// Error
+				
 			}
 
 		};
@@ -343,8 +344,6 @@ function modalWindow (e) {
 		request.send();
 		
 	}
-	
-	document.getElementById('blackbox-bg').onclick = removeBlackbox;
 	
 	return false;
 
