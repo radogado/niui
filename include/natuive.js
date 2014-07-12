@@ -230,11 +230,12 @@ function scrollTo( to, callback ) {
 	    var val = Math.easeInOutQuad(currentTime, start, change, 400);
 	    // move the document.body
 	    doc.scrollTop = val;
+		document.documentElement.scrollTop = val;
 	    // do the animation unless its over
 	    if(currentTime < 400) {
 			requestAnimFrame(animateScroll);
 	    } else {
-	    	
+
 			if (callback && typeof(callback) === 'function') {
 				// the animation is done so lets callback
 				callback();
@@ -361,25 +362,6 @@ addEventHandler(window, 'load', function() {
 
 	relayParameters();
 	
-/* Animate anchor links */
-
-	forEach( 'a[href*="#"]:not([href="#"])', function (el, i) {
-		
-		el.onclick = function (e) {
-			
-			var event = e || window.event;
-			var target = event.target || event.srcElement;
-			
-			hash = document.getElementById( target.href.split('#')[1] );
-
-			scrollTo( (hash == null) ? 0 : hash.offsetTop );
-			
-			return false;
-			
-		};
-		
-	});
-
 /* Modal window: open a link inside it. Also lightbox with images */
 
    	forEach('a.modal, a.lightbox', function(el, i) {
@@ -403,7 +385,26 @@ addEventHandler(window, 'load', function() {
 
 /* Add 'Back to top' button */
 
-		document.querySelector(	document.querySelector('#footer > div > div') ? '#footer > div > div' : 'body' ).insertAdjacentHTML('beforeend', '<a class="backtotop" href="#head"> ⬆ </a>');
+	document.querySelector(	document.querySelector('#footer > div > div') ? '#footer > div > div' : 'body' ).insertAdjacentHTML('beforeend', '<a class="backtotop" href="#head"> ⬆ </a>');
+
+/* Animate anchor links */
+
+	forEach( 'a[href*="#"]:not([href="#"])', function (el, i) {
+		
+		el.onclick = function (e) {
+			
+			var event = e || window.event;
+			var target = event.target || event.srcElement;
+
+			hash = document.getElementById( target.href.split('#')[1] );
+
+			scrollTo( (hash == null) ? 0 : hash.offsetTop );
+			
+			return false;
+			
+		};
+		
+	});
 
 /* Auto textarea height */
    	
