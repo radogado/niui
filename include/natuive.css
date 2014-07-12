@@ -24,8 +24,14 @@
 		vertical-align: top;
 		position: relative;
 		padding: 7px; /* instead of em, because of Chrome subpixel rendering */
-	    -moz-box-sizing: border-box;
+		word-wrap: break-word;
 
+	}
+	
+	.row > * > * {
+		
+		max-width: 100%; /* instead of overflow-x:hidden, which would also activate overflow-y:hidden and clip the tooltip */
+		
 	}
 
 	.row .row:not(.slider-nav) > :last-child {
