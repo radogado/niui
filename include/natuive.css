@@ -79,6 +79,12 @@ html, body {
 	
 }
 
+html.nooverflow, html.nooverflow body {
+	
+	overflow: hidden;
+
+}
+
 body {
 
 	font-family: 'Helvetica Neue', Arial, sans-serif;

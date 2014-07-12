@@ -249,7 +249,8 @@ function removeBlackbox () {
 
 	var blackbox = document.getElementById('blackbox');
 	if (blackbox) document.body.removeChild( blackbox );
-	document.body.style.overflow = 'auto';
+/* 	document.body.style.overflow = 'auto'; */
+	removeClass ( document.querySelector('html'), 'nooverflow' );
 
 }
 
@@ -273,7 +274,9 @@ function modalWindow (e) {
 	if ( hasClass( target, 'lightbox') ) { // Show an image lightbox...
 
 		document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> </div>');
-		document.body.style.overflow = 'hidden';
+/* 		document.body.style.overflow = 'hidden'; */
+		addClass ( document.querySelector('html'), 'nooverflow' );
+		
 		/* Add any <a><img> siblings with description to a .slider and initialise its controls */
 		images = '';
 
@@ -313,7 +316,8 @@ alert('ie8');
 			// Success
 				container = (typeof target.href.split('#')[1] != 'undefined') ? ( '#' + target.href.split('#')[1] ) : 0;
 				document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> </div>');
-				document.body.style.overflow = 'hidden';
+/* 				document.body.style.overflow = 'hidden'; */
+				addClass ( document.querySelector('html'), 'nooverflow' );
 				blackbox = document.getElementById('blackbox');
 				blackbox.insertAdjacentHTML('afterbegin', '<div class="close"> ← ' + document.title + '</div>');
 				if (container) {
