@@ -11,6 +11,7 @@ function addClass ( el, className ) { // To do: fix unnecessary spaces
 }
 
 function removeClass ( el, className ) {
+
 	if (!el) return;
 	if (el.classList) {
 		el.classList.remove(className);
@@ -250,7 +251,6 @@ function removeBlackbox () {
 
 	var blackbox = document.getElementById('blackbox');
 	if (blackbox) document.body.removeChild( blackbox );
-/* 	document.body.style.overflow = 'auto'; */
 	removeClass ( document.querySelector('html'), 'nooverflow' );
 
 }
@@ -275,7 +275,6 @@ function modalWindow (e) {
 	if ( hasClass( target, 'lightbox') ) { // Show an image lightbox...
 
 		document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> </div>');
-/* 		document.body.style.overflow = 'hidden'; */
 		addClass ( document.querySelector('html'), 'nooverflow' );
 		
 		/* Add any <a><img> siblings with description to a .slider and initialise its controls */
@@ -302,7 +301,7 @@ function modalWindow (e) {
 	} else { // ... or load external content in a modal window 
 		
 		if ( navigator.userAgent.indexOf('MSIE 8') != -1 ) {
-alert('ie8');			
+
 			window.open (target.href, '_blank'); 
 			return false;
 
@@ -317,7 +316,6 @@ alert('ie8');
 			// Success
 				container = (typeof target.href.split('#')[1] != 'undefined') ? ( '#' + target.href.split('#')[1] ) : 0;
 				document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> </div>');
-/* 				document.body.style.overflow = 'hidden'; */
 				addClass ( document.querySelector('html'), 'nooverflow' );
 				blackbox = document.getElementById('blackbox');
 				blackbox.insertAdjacentHTML('afterbegin', '<div class="close"> ← ' + document.title + '</div>');
@@ -389,7 +387,7 @@ addEventHandler(window, 'load', function() {
 
 /* Animate anchor links */
 
-	forEach( 'a[href*="#"]:not([href="#"])', function (el, i) {
+	forEach( 'a[href*="#"]', function (el, i) {
 		
 		el.onclick = function (e) {
 			

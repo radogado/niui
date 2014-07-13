@@ -6,7 +6,7 @@ var original_scroll = 0;
 var slider_animation = 0;
 var touchmovex = 0;
 var current_scroll = 0;
-var height_scroll = 0;
+/* var height_scroll = 0; */
 
 function scrollSlider (e) {
 
@@ -19,7 +19,7 @@ function scrollSlider (e) {
 
 	if ( slider != el ) { // on switching to another slider
 
-		original_scroll = el.attributes['original_scroll'];
+		original_scroll = el.getAttribute('data-original-scroll'); // Because IE8 doesn't support the hidden and more elegant .attributes['name'] property
 
 	}
 
@@ -52,7 +52,8 @@ function moveIndex () {
 
 function slideEnd () {
 
-	el.attributes['original_scroll'] = original_scroll = slider.scrollLeft;
+	original_scroll = slider.scrollLeft;
+	el.setAttribute('data-original-scroll', original_scroll);
 
 	moveIndex();
 
@@ -223,10 +224,12 @@ function makeSlider (el) {
 	
 	// Get scrollbar width and hide it by reducing the .slider-container height proportionally
 
+/*
 	el.style.overflowX = 'hidden';
 	height_scroll = el.offsetHeight;
 	el.style.overflowX = 'scroll';
 	height_scroll = el.offsetHeight - height_scroll;
+*/
 	
 	// Generate controls
 
@@ -238,16 +241,18 @@ function makeSlider (el) {
 			addClass( slider_nav, 'thumbnails' );
 			addClass( slider_nav, 'row' );
 			slider_nav.insertAdjacentHTML('beforeend', ( !i ? '<a class="active">' : '<a>' ) + el.children[i].querySelector('.thumbnail').innerHTML + '</a>' );
-			slider_nav.style.marginTop = (-1 * height_scroll) + 'px';
+/* 			slider_nav.style.marginTop = (-1 * height_scroll) + 'px'; */
 			
 		} else {
 			
 			container.querySelector('.slider-nav').insertAdjacentHTML('beforeend', ( !i ? '<a class="active">' : '<a>' ) + (i + 1) + '</a>');
 
+/*
  			if (!i) {
  				
  				container.style.height = (container.offsetHeight - height_scroll) + 'px';
  			}
+*/
 
 		}
 		
@@ -267,7 +272,7 @@ function makeSlider (el) {
 	
 	el.onscroll = scrollSlider;
 	
-	el.attributes['original_scroll'] = 0;
+	el.setAttribute('data-original-scroll', 0);
 	
 	return el;
 	
@@ -291,10 +296,11 @@ addEventHandler ( window, 'load', function() {
 		forEach('.slider', function (el,i) {
 			el.scrollLeft = 0;
 			moveIndex ();
-/* 			slide(el, 'index'); */
 
+/*
  			el.parentNode.style.height = 'auto';
  			el.parentNode.style.height = (el.parentNode.offsetHeight - height_scroll) + 'px';
+*/
 
 		});
 		

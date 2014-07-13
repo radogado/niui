@@ -662,6 +662,9 @@ form {
 		cursor: pointer;
 		opacity: 0;
 		padding: 0;
+		border: 1px solid transparent;
+		width: 1em;
+		left: -3px;
 
 	}
 
