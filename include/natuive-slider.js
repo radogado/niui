@@ -222,15 +222,6 @@ function makeSlider (el) {
 	container.nextSibling.outerHTML = '';
 	el = container.querySelector('.slider');
 	
-	// Get scrollbar width and hide it by reducing the .slider-container height proportionally
-
-/*
-	el.style.overflowX = 'hidden';
-	height_scroll = el.offsetHeight;
-	el.style.overflowX = 'scroll';
-	height_scroll = el.offsetHeight - height_scroll;
-*/
-	
 	// Generate controls
 
 	for (var i = 0; i < el.children.length; i++) {
@@ -241,18 +232,10 @@ function makeSlider (el) {
 			addClass( slider_nav, 'thumbnails' );
 			addClass( slider_nav, 'row' );
 			slider_nav.insertAdjacentHTML('beforeend', ( !i ? '<a class="active">' : '<a>' ) + el.children[i].querySelector('.thumbnail').innerHTML + '</a>' );
-/* 			slider_nav.style.marginTop = (-1 * height_scroll) + 'px'; */
 			
 		} else {
 			
 			container.querySelector('.slider-nav').insertAdjacentHTML('beforeend', ( !i ? '<a class="active">' : '<a>' ) + (i + 1) + '</a>');
-
-/*
- 			if (!i) {
- 				
- 				container.style.height = (container.offsetHeight - height_scroll) + 'px';
- 			}
-*/
 
 		}
 		
@@ -296,11 +279,6 @@ addEventHandler ( window, 'load', function() {
 		forEach('.slider', function (el,i) {
 			el.scrollLeft = 0;
 			moveIndex ();
-
-/*
- 			el.parentNode.style.height = 'auto';
- 			el.parentNode.style.height = (el.parentNode.offsetHeight - height_scroll) + 'px';
-*/
 
 		});
 		

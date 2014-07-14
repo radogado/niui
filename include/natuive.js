@@ -521,4 +521,23 @@ addEventHandler(window, 'load', function() {
 	
 	}
 
+	/* Align images vertically. Using hard-coded line height at 22px */
+	
+	var line_height = 22;
+	
+	forEach('#content img', function (el) {
+		
+		extra_padding = ((Math.round(el.height/line_height)+1)*line_height - el.height);
+		
+		if ( extra_padding > line_height ) { 
+		
+			extra_padding -= line_height; 
+		
+		}
+		
+		el.style.paddingBottom = extra_padding + 'px';
+		
+	});
+
 });
+

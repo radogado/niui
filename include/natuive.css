@@ -97,10 +97,9 @@ body {
 	font-weight: 300;
 	color: #555;
 	font-size: .9375em; /* 15px */
-	line-height: 1.4667em; /* 22px */
+	line-height: 1.4667em; /* = 22px (actual line height) / 15px (font size) */
 	position: relative;
 	width: 100%; 
-	margin: 0 auto;
 	background: #fff;
 	-webkit-text-size-adjust: none;
 	display: table;
@@ -113,7 +112,7 @@ body * {
 
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5 {
 	
 	margin: 0;
 	font-weight: 500;
@@ -143,7 +142,13 @@ h3 {
 h4 {
 	
 	font-size: 1.2em; /* 18px */
-	line-height: 2.444em;
+	line-height: 1.222em;
+
+}
+
+h5 {
+	
+	font-size: 1em; /* 15px */
 
 }
 
@@ -316,7 +321,7 @@ a:link, a:visited {
 	font-weight: bold;
 	color: #555;
 	border-radius: 3px;
-	padding: 0 .7em;
+	padding: 0 .5em;
 	line-height: 1.46667em;
 	font-size: .86667em;
 	display: inline-block;
