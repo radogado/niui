@@ -96,7 +96,8 @@ body {
 	font-family: 'Helvetica Neue', Arial, sans-serif;
 	font-weight: 300;
 	color: #555;
-	font-size: 15px;
+	font-size: .9375em; /* 15px */
+	line-height: 1.4667em; /* 22px */
 	position: relative;
 	width: 100%; 
 	margin: 0 auto;
@@ -114,7 +115,6 @@ body * {
 
 h1, h2, h3, h4 {
 	
-	line-height: 1.5em;
 	margin: 0;
 	font-weight: 500;
 
@@ -122,25 +122,28 @@ h1, h2, h3, h4 {
 
 h1 {
 	
-	font-size: 2.96em;
-
+	font-size: 2.667em; /* 40px */
+	line-height: 1.1em;
 }
 
 h2 {
 	
-	font-size: 1.98em;
+	font-size: 2.1333em; /* 32px */
+	line-height: 1.375;
 
 }
 
 h3 {
 	
-	font-size: 1.02em;
+	font-size: 1.6em; /* 24px */
+	line-height: 1.8333em;
 
 }
 
 h4 {
 	
-	font-size: 1em;
+	font-size: 1.2em; /* 18px */
+	line-height: 2.444em;
 
 }
 
@@ -159,16 +162,17 @@ b {
 
 p, li {
 
-	line-height: 1.5em;
-	margin: 1.5em 0;
+	margin: 1.4667em 0;
 
 }
 
+/*
 br {
 	
 	line-height: 1.5em;
 }
 
+*/
 a:link, a:visited {
 
 	color: #333;
@@ -312,9 +316,9 @@ a:link, a:visited {
 	font-weight: bold;
 	color: #555;
 	border-radius: 3px;
-	padding: .2em .7em;
-	line-height: 1.5em;
-	font-size: .8em;
+	padding: 0 .7em;
+	line-height: 1.46667em;
+	font-size: .86667em;
 	display: inline-block;
 	background: #eee;
 	box-shadow: none;
@@ -356,8 +360,8 @@ a:link, a:visited {
 
 		background: rgb(0,221,240);
 		font-size: 1.2em;
-		padding: 0 .8em;
-		line-height: 2.45em;
+		line-height: 2.444em;
+		padding: 0 1em;
 		border: none;
 		color: #fff;
 
