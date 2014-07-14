@@ -114,34 +114,33 @@ body * {
 
 h1, h2, h3, h4 {
 	
-	line-height: 1;
+	line-height: 1.5em;
 	margin: 0;
 	font-weight: 500;
-	margin-bottom: 1.03em;
 
 }
 
 h1 {
 	
-	line-height: 1.6;
+	font-size: 2.96em;
 
 }
 
 h2 {
 	
-	line-height: 1.07;
+	font-size: 1.98em;
 
 }
 
 h3 {
 	
-	line-height: 1.37;
+	font-size: 1.02em;
 
 }
 
 h4 {
 	
-	line-height: 1.6;
+	font-size: 1em;
 
 }
 
@@ -160,17 +159,16 @@ b {
 
 p, li {
 
-	line-height: 1.6;
-	margin: 0 0 1.6em 0;
+	line-height: 1.5em;
+	margin: 1.5em 0;
 
 }
 
-	p {
+br {
 	
-		margin-top: 1.6em;
-	
-	}
-	
+	line-height: 1.5em;
+}
+
 a:link, a:visited {
 
 	color: #333;
@@ -314,11 +312,11 @@ a:link, a:visited {
 	font-weight: bold;
 	color: #555;
 	border-radius: 3px;
-	padding: .33em .8em;
+	padding: .2em .7em;
+	line-height: 1.5em;
 	font-size: .8em;
 	display: inline-block;
 	background: #eee;
-	line-height: 1.5;
 	box-shadow: none;
 	cursor: pointer;
 	width: auto;
@@ -358,10 +356,10 @@ a:link, a:visited {
 
 		background: rgb(0,221,240);
 		font-size: 1.2em;
+		padding: 0 .8em;
+		line-height: 2.45em;
 		border: none;
 		color: #fff;
-		line-height: 2.7;
-		padding: 0 .8em;
 
 	}
 
@@ -429,7 +427,7 @@ a:link, a:visited {
 	
 	#content ul li {
 		
-		margin: 1.6em 0 0 0;
+		margin: 1.5em 0 0 0;
 
 	}
 
