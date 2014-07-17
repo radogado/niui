@@ -64,6 +64,7 @@
 	color: #fff;
 	transition: background-color .2s linear;
 	line-height: .7em;
+	box-sizing: content-box;
 
 }
 .slider-arrow, .slider-nav {

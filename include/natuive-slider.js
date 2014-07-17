@@ -4,7 +4,6 @@ var scrollTimer = null;
 var slider;
 var original_scroll = 0;
 var slider_animation = 0;
-var touchmovex = 0;
 var current_scroll = 0;
 /* var height_scroll = 0; */
 
@@ -69,7 +68,7 @@ function slideEnd () {
 	
 }
 
-function slide ( e, target ) {
+function slide ( e, method ) {
 
 	if (slider_animation) return;
 
@@ -96,7 +95,7 @@ function slide ( e, target ) {
 
 	var change = 0;
 
-	if ( target == 'index' ) {
+	if ( method == 'index' ) {
 		
 		slider = el.parentNode.parentNode.querySelector('.slider');
 		start = slider.scrollLeft;
@@ -104,7 +103,7 @@ function slide ( e, target ) {
 
 	}
 	
-	if ( target == 'arrow') {
+	if ( method == 'arrow') {
 
 		slider = el.parentNode.querySelector('.slider');
 		start = slider.scrollLeft;
@@ -123,7 +122,7 @@ function slide ( e, target ) {
 
 	}
 	
-	if ( target == 'snap') {
+	if ( method == 'snap') {
 
 		slider = el;
 		start = slider.scrollLeft;

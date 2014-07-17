@@ -80,12 +80,14 @@ function stopEvent( e ) {
 
 }
 
-function thisIndex (elm) {
-    var nodes = elm.parentNode.childNodes, node;
+function thisIndex (el) {
+
+    var nodes = el.parentNode.childNodes, node;
     var i = count = 0;
-    while( (node=nodes.item(i++)) && node!=elm )
+    while( (node=nodes.item(i++)) && node!=el )
         if( node.nodeType==1 ) count++;
     return (count);
+
 }
 
 if ( typeof document.body.style.textShadow == 'undefined' ) { // Old browsers without (good) CSS3 support. IE9- detector
@@ -154,9 +156,9 @@ function hideTip (e) {
 function showTip (e) {
 
 	var event = e || window.event;
-	var target = event.target || event.srcElement;
+	var el = event.target || event.srcElement;
 
-	tip = target.querySelector('.tip');
+	tip = el.querySelector('.tip');
 	if (!tip) return; //  fix it not to log error in console
 	
 	tip.parentNode.parentNode.style.position = 'relative'; // dangerous with absolutely-positioned containers, which should be avoided anyway
@@ -270,9 +272,9 @@ function modalWindow (e) {
 	};
 	
 	var event = e || window.event;
-	var target = event.target || event.srcElement;
+	var el = event.target || event.srcElement;
 
-	if ( hasClass( target, 'lightbox') ) { // Show an image lightbox...
+	if ( hasClass( el, 'lightbox') ) { // Show an image lightbox...
 
 		document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> </div>');
 		addClass ( document.querySelector('html'), 'nooverflow' );
@@ -280,11 +282,11 @@ function modalWindow (e) {
 		/* Add any <a><img> siblings with description to a .slider and initialise its controls */
 		images = '';
 
-		elements = target.parentNode.querySelectorAll('.lightbox');
+		elements = el.parentNode.querySelectorAll('.lightbox');
 		current_slide = 0;
 		for (var i = 0; i < elements.length; i++) {
 			images += '<div><img src="' + elements[i].href + '"></div>';
-			if ( elements[i] == target ) { current_slide = i; }
+			if ( elements[i] == el ) { current_slide = i; }
 		}
 
 		document.getElementById('blackbox').innerHTML = '<div class="close"> ← ' + document.title + '</div><div class="slider lightbox">' + images + '</div><div id="blackbox-bg"></div>';
@@ -302,19 +304,19 @@ function modalWindow (e) {
 		
 		if ( navigator.userAgent.indexOf('MSIE 8') != -1 ) {
 
-			window.open (target.href, '_blank'); 
+			window.open (el.href, '_blank'); 
 			return false;
 
 		}
 
 		request = new XMLHttpRequest();
-		request.open('GET', target.href.split('#')[0], true);
+		request.open('GET', el.href.split('#')[0], true);
 
 		request.onload = function() {
 
 			if (request.status >= 200 && request.status < 400){
 			// Success
-				container = (typeof target.href.split('#')[1] != 'undefined') ? ( '#' + target.href.split('#')[1] ) : 0;
+				container = (typeof el.href.split('#')[1] != 'undefined') ? ( '#' + el.href.split('#')[1] ) : 0;
 				document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> </div>');
 				addClass ( document.querySelector('html'), 'nooverflow' );
 				blackbox = document.getElementById('blackbox');
@@ -360,14 +362,6 @@ addEventHandler(window, 'load', function() {
 
 	relayParameters();
 	
-/* Modal window: open a link inside it. Also lightbox with images */
-
-   	forEach('a.modal, a.lightbox', function(el, i) {
-		
-		el.onclick = modalWindow;
-		
-	});
-
 /* Tooltip */
 	
 	forEach('.tool', function(el, i) {
@@ -392,9 +386,9 @@ addEventHandler(window, 'load', function() {
 		el.onclick = function (e) {
 			
 			var event = e || window.event;
-			var target = event.target || event.srcElement;
-
-			hash = document.getElementById( target.href.split('#')[1] );
+			var el = event.target || event.srcElement;
+			
+			hash = document.getElementById( el.href.split('#')[1] );
 
 			scrollTo( (hash == null) ? 0 : hash.offsetTop );
 			
@@ -404,22 +398,32 @@ addEventHandler(window, 'load', function() {
 		
 	});
 
+/* Modal window: open a link inside it. Also lightbox with images */
+
+   	forEach('a.modal, a.lightbox', function(el, i) {
+		
+		el.onclick = modalWindow;
+		
+	});
+
 /* Auto textarea height */
    	
    	forEach('textarea', function(el, i){
 	
 		el.onkeyup = function (e) {
+
 			var event = e || window.event;
-			var textArea = event.target || event.srcElement;
+			var el = event.target || event.srcElement;
+
 			while (
-				textArea.rows > 1 &&
-				textArea.scrollHeight < textArea.offsetHeight
+				el.rows > 1 &&
+				el.scrollHeight < el.offsetHeight
 			)
-			{	textArea.rows--}
+			{	el.rows--; }
 			
-			while (textArea.scrollHeight > textArea.offsetHeight)
-			{	textArea.rows++ }
-			textArea.rows++
+			while (el.scrollHeight > el.offsetHeight)
+			{	el.rows++; }
+			el.rows++
 			
 		};
 
@@ -430,6 +434,7 @@ addEventHandler(window, 'load', function() {
 	forEach('form', function (el, i) {
 		
 		el.onsubmit = function (e) {
+
 			ready_to_submit = true;
 
 			forEach('.mandatory', function (el, i) {
