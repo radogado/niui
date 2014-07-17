@@ -475,17 +475,24 @@ form {
 	
 	overflow: hidden;
 	text-align: right;
-	
+
+	font-size: 1em;
+	padding-top: 22px;	
+
 }
 
 	label {
 		
 		display: block;
 		text-align: right;
-		margin: 1em 0;
+		margin: 1.4667em 0;
 		font-weight: bold;
 		max-width: 100%;
 		padding: 1px;
+		
+		padding: 0;
+		margin: 0;
+		line-height: 43px;
 		
 	}
 	
@@ -523,6 +530,12 @@ form {
 		border: 1px solid #bbb;
 		vertical-align: top;
 
+		padding: 12px 8px 8px 8px;
+		margin-top: -11px;
+		line-height: 22px;
+		border: none;
+		background: #eee;
+
 	}
 	
 	label input,  #content label .selector, textarea {
@@ -544,6 +557,8 @@ form {
 		padding: 2.7% 1% 2.5% 0;
 		display: inline-block;
 		width: 50%;
+		
+		padding: 0;
 		
 	}
 	
@@ -614,6 +629,8 @@ form {
 		vertical-align: top;
 		border: 1px solid #ccc;
 		margin-top: .15em;
+		
+		border: none;
 
 	}
 	
