@@ -100,6 +100,7 @@ function slide ( e, method ) {
 		slider = el.parentNode.parentNode.querySelector('.slider');
 		start = slider.scrollLeft;
 		change = slider.children[thisIndex(el)].offsetLeft - start;
+		console.log( slider.children[thisIndex(el)].offsetLeft );
 
 	}
 	

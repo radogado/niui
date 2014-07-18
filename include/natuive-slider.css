@@ -12,6 +12,7 @@
 	overflow-x: visible;
 	overflow-y: hidden;
 	white-space: nowrap;
+	position: relative;
 	-webkit-overflow-scrolling: auto; /* momentum scrolling off because of iOS 8 new behaviour */
     -webkit-transform: translate3d(0, 0, 0); /* fast, hardware-accelerated scrolling */
     -webkit-transform: translateZ(0);
