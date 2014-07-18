@@ -96,8 +96,8 @@ body {
 	font-family: 'Helvetica Neue', Arial, sans-serif;
 	font-weight: 300;
 	color: #555;
-	font-size: .9375em; /* 15px */
-	line-height: 1.4667em; /* = 22px (actual line height) / 15px (font size) */
+	font-size: 15px; /* 15px */
+	line-height: 22px; /* 1.4666em = 22px (actual line height) / 15px (font size) */
 	position: relative;
 	width: 100%; 
 	background: #fff;
@@ -124,34 +124,35 @@ h1, h2, h3, h4, h5 {
 
 h1 {
 	
-	font-size: 2.667em; /* 40px */
+	font-size: 2.67em; /* 2.666em 40px */
 	line-height: 1.1em;
 }
 
 h2 {
 	
-	font-size: 2.1333em; /* 32px */
-	line-height: 1.375;
+	font-size: 2.134em; /* 2.1333em 32px */
+	line-height: 1.375em;
 
 }
 
 h3 {
 	
-	font-size: 1.6em; /* 24px */
-	line-height: 1.8333em;
+	font-size: 1.6em; /* 1.6em 24px */
+	line-height: 1.834em;
 
 }
 
 h4 {
 	
-	font-size: 1.2em; /* 18px */
-	line-height: 1.222em;
+	font-size: 1.2em; /* 1.222em 18px */
+	line-height: 1.23em;
 
 }
 
 h5 {
 	
-	font-size: 1em; /* 15px */
+	font-size: 1em; /* 1em 15px */
+	line-height: 1.467em;
 
 }
 
@@ -170,7 +171,7 @@ b {
 
 p, li {
 
-	margin: 1.4667em 0;
+	margin: 22px 0;
 
 }
 
@@ -316,8 +317,8 @@ a:link, a:visited {
 	font-weight: bold;
 	color: #555;
 	padding: 0 .5em;
-	line-height: 1.46667em;
-	font-size: .86667em;
+	line-height: 1.4666em;
+	font-size: .8666em;
 	display: inline-block;
 	background: #eee;
 	cursor: pointer;
@@ -358,9 +359,9 @@ a:link, a:visited {
 
 		background: rgb(0,221,240);
 		font-size: 1.2em;
-		line-height: 2.444em;
+		line-height: 2.45em;
 		padding: 0 1em;
-		margin: 1.222em 0;
+		margin: 1.23em 0;
 		border: none;
 		color: #fff;
 
@@ -430,7 +431,7 @@ a:link, a:visited {
 	
 	#content ul li {
 		
-		margin: 1.5em 0 0 0;
+		margin: 1.4666em 0 0 0;
 
 	}
 
@@ -485,7 +486,7 @@ form {
 		
 		display: block;
 		text-align: right;
-		margin: 1.4667em 0;
+		margin: 1.4666em 0;
 		font-weight: bold;
 		max-width: 100%;
 		padding: 1px;
@@ -493,6 +494,7 @@ form {
 		padding: 0;
 		margin: 0;
 		line-height: 43px;
+		margin-top: 22px;
 		
 	}
 	
@@ -530,7 +532,7 @@ form {
 		border: 1px solid #bbb;
 		vertical-align: top;
 
-		padding: 12px 8px 8px 8px;
+		padding: 12px;
 		margin-top: -11px;
 		line-height: 22px;
 		border: none;
@@ -550,6 +552,13 @@ form {
 		min-width: 45%;
 		
 	}
+	
+	textarea {
+		
+		border: 1px solid transparent; /* border:none breaks auto-expanding script */
+		margin: -12px 0 -1px 0;
+		
+	}
 
 	label span {
 		
@@ -558,7 +567,10 @@ form {
 		display: inline-block;
 		width: 50%;
 		
-		padding: 0;
+		padding: 0 .7em 0 0;
+		-webkit-transform: translateY(-10px);
+		-moz-transform: translateY(-10px);
+		transform: translateY(-10px);
 		
 	}
 	
@@ -844,7 +856,8 @@ ul {
 	
 	    list-style-type: none;
 	    counter-reset: level1;
-		margin-left: -2em;
+		padding: 0;
+		margin: 0;
 	
 		}
 	
@@ -899,7 +912,6 @@ ul {
 	    list-style-type: none;
 	    counter-reset: level3;
 	    margin-left: 1em;
-		margin-top: 1.5em;
 
 	}
 
@@ -933,6 +945,18 @@ ul {
 		text-indent: 0;
 
 	}
+	
+	li h4 {
+		
+		line-height: 1.111em;
+	}
+	
+	@-moz-document url-prefix() {
+
+		li h4 { line-height: 1.2em; }
+
+	}
+	
 
 /* Accordion */
 
