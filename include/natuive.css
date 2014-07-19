@@ -16,6 +16,8 @@
 	width: 100%;
 	border-collapse: separate;
 	
+/* 	display: -webkit-flex; */
+
 }
 
 	.row > * {
@@ -138,7 +140,7 @@ h2 {
 h3 {
 	
 	font-size: 1.6em; /* 1.6em 24px */
-	line-height: 1.834em;
+	line-height: .9167em;
 
 }
 
@@ -359,13 +361,21 @@ a:link, a:visited {
 
 		background: rgb(0,221,240);
 		font-size: 1.2em;
-		line-height: 2.45em;
+		line-height: 2.44444444444em;
 		padding: 0 1em;
-		margin: 1.23em 0;
+		margin: 1.2333em 0;
 		border: none;
 		color: #fff;
 
 	}
+	
+	@-moz-document url-prefix() {
+
+		#content input[type="submit"] { line-height: 2.333em; }
+		.button.big { margin: 1.22em 0; }
+		
+	}
+	
 
 	.button.big:active, #content input[type="submit"]:active {
 
@@ -487,12 +497,32 @@ form {
 		font-weight: bold;
 		max-width: 100%;
 		padding: 1px;
+		position: relative;
 		
 		padding: 0;
 		margin: 0;
-		line-height: 43px; /* 1px difference */
+		line-height: 1.467em; /* 1px difference */
 		margin-top: 1.467em;
+
+	}
+	
+	#content form label:before {
 		
+		content: "";
+		display: block;
+		position: absolute;
+		right: 0;
+		width: 45%;
+		height: 6px;
+		top: -6px;
+		background: #eee;
+		
+	}
+	
+	#content form label.checkbox:before {
+		
+		display: none;
+
 	}
 	
 	select {
@@ -529,11 +559,18 @@ form {
 		border: 1px solid #bbb;
 		vertical-align: top;
 
-		padding: .8em;
-		margin-top: -11px;
+		padding: .7333em;
+		margin-top: -10px;
 		line-height: 1.467em;
 		border: 0;
 		background: #eee;
+
+		padding: 0 .5em;
+		line-height: 1.375em;
+		border: 0;
+		background: #eee;
+		font-size: 1.0666em;
+		margin: 0;
 
 	}
 	
@@ -552,8 +589,13 @@ form {
 	
 	textarea {
 		
-		border: 1px solid transparent; /* border:none breaks auto-expanding script */
+		/* border:none breaks auto-expanding script */
+/*
+		border: 1px solid transparent; 
 		margin: -12px 0 -1px 0;
+*/
+		margin: 0;
+		line-height: 22px;
 		
 	}
 
@@ -565,9 +607,6 @@ form {
 		width: 50%;
 		
 		padding: 0 .7em 0 0;
-		-webkit-transform: translateY(-10px);
-		-moz-transform: translateY(-10px);
-		transform: translateY(-10px);
 		
 	}
 	
@@ -583,7 +622,7 @@ form {
 		color: #a00;
 		position: absolute;
 		right: -2%;
-		top: 20%;
+		top: 0;
 		font-size: .8em;
 		
 	}
@@ -623,6 +662,8 @@ form {
 		border: 0;
 		text-indent: 0px;
 		
+		padding: 0 1.1em 0 .5em;
+		
 	}
 
 	@-moz-document url-prefix()
@@ -633,13 +674,14 @@ form {
 	form .selector {
 
 		width: 45%;
-		background: url('../images/select-arrow.svg') no-repeat scroll 96% 50% / 10px auto #FFF;
+		background: url('../images/select-arrow.svg') no-repeat scroll 96% 50% / 10px auto #eee;
 		padding: 0;
 		vertical-align: top;
 		border: 1px solid #ccc;
-		margin-top: .15em;
 		
 		border: none;
+		height: 22px;
+		overflow: hidden;
 
 	}
 	
@@ -667,7 +709,6 @@ form {
 		vertical-align: top;
 		font-weight: normal;
 		cursor: pointer;
-		margin-top: .1em;
 
 	}
 	
@@ -803,8 +844,6 @@ form {
 
 .tool {
 
-	border-bottom: 1px dotted #fff;
-	border-bottom: 1px dotted rgba(255,255,255,.2);
 	cursor: help;
 	font-weight: bold;
 
@@ -1257,6 +1296,13 @@ input.trigger#nav-trigger + * {
 			margin-top: 1em;
 			
 		}
+
+		#content form label:before {
+			
+			display: none;
+	
+		}
+		
 		
 	.wide-screen {
 		

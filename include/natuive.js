@@ -410,7 +410,7 @@ addEventHandler(window, 'load', function() {
    	
    	forEach('textarea', function(el, i){
 	
-		el.onkeyup = function (e) {
+		el.onkeyup = function (e) { /* To fix */
 
 			var event = e || window.event;
 			var el = event.target || event.srcElement;
