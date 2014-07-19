@@ -987,13 +987,6 @@ ul {
 		line-height: 1.111em;
 	}
 	
-	@-moz-document url-prefix() {
-
-		li h4 { line-height: 1.2em; }
-
-	}
-	
-
 /* Accordion */
 
 .accordion {
