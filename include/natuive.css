@@ -992,7 +992,7 @@ ul {
 .accordion {
 
 	position: relative;
-	padding: .2em .5em 0 1em;
+	padding: 0 .5em 0 1em;
 	cursor: pointer;
 	color: #777;
 	font-weight: normal;
@@ -1025,6 +1025,12 @@ ul {
 
 	}
 
+	.accordion:first-of-type > div { /* hidden accordion item */
+
+		padding-top: 1px; /* baseline fix */
+	
+	}
+	
 	.accordion input.trigger:checked + div {
 		
 		max-height: none;
@@ -1037,11 +1043,13 @@ ul {
 		
 	}
 	
+/*
 	.accordion.open { 
 
-		padding-bottom: 1em;
+		padding-bottom: 0;
 		
 	}
+*/
 
 	.accordion .accordion:first-child {
 		
@@ -1052,7 +1060,7 @@ ul {
 	
 	.accordion > label {
 		
-		margin: 1em 0;
+		margin: 1.467em 0 0 0;
 		
 	}
 
