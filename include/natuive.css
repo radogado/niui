@@ -30,6 +30,12 @@
 
 	}
 	
+	.row .row > * {
+	
+		padding: 22px 0;
+
+	}
+	
 	.row > * > * {
 		
 		max-width: 100%; /* instead of overflow-x:hidden, which would also activate overflow-y:hidden and clip the tooltip */
@@ -224,10 +230,10 @@ a:link, a:visited {
 		color: #666;
 		text-transform: uppercase;
 		text-decoration: none;
-		font-size: 1em;
-		line-height: 1;	
+/* 		font-size: 1em; */
+		line-height: 44px;
 		position: relative;
-		padding: .3em .5em .3em 0;
+		padding: 0 .5em 0 0;
 
 	}
 	
@@ -259,9 +265,9 @@ a:link, a:visited {
 	
 		color: #727272;
 		display: inline-block;
-		line-height: 1.2;
+		line-height: 22px;
 		text-transform: none;
-		padding: .3em .3em .3em .5em;
+		padding: 0 .3em 0 .5em;
 	
 	}
 
@@ -295,8 +301,7 @@ a:link, a:visited {
 	form.nav .selector {
 
 		background: url('../images/country_select_globes.png') center left no-repeat;
-		padding-left: 0;
-		border: none;
+		padding-left: .8em;
 
 	}
 
@@ -306,7 +311,6 @@ a:link, a:visited {
 		border: none;
 		-moz-appearance: window;
 		vertical-align: middle;
-		padding-left: 2em;
 		background: transparent;
 
 	}
@@ -589,11 +593,6 @@ form {
 	
 	textarea {
 		
-		/* border:none breaks auto-expanding script */
-/*
-		border: 1px solid transparent; 
-		margin: -12px 0 -1px 0;
-*/
 		margin: 0;
 		line-height: 22px;
 		
@@ -928,7 +927,6 @@ ul {
 
 	    list-style-type: none;
 	    counter-reset: level2;
-	    padding-left: 1em;
 
 	}
 
@@ -1025,12 +1023,6 @@ ul {
 
 	}
 
-	.accordion:first-of-type > div { /* hidden accordion item */
-
-		padding-top: 1px; /* baseline fix */
-	
-	}
-	
 	.accordion input.trigger:checked + div {
 		
 		max-height: none;
@@ -1043,14 +1035,6 @@ ul {
 		
 	}
 	
-/*
-	.accordion.open { 
-
-		padding-bottom: 0;
-		
-	}
-*/
-
 	.accordion .accordion:first-child {
 		
 		padding-top: 0;
@@ -1078,35 +1062,13 @@ table {
 
 	table td {
 
-		padding: .4em;
-		border-bottom: 1px solid #797979;
-		border-right: 1px solid #797979;
+		padding: 0 .5em;
 		vertical-align: middle;
 
 	}
 
 	table tr:first-child td {
 
-		border-left: 1px solid #797979;
-
-	}
-
-	table tr:last-child td {
-
-		border-right: 1px solid #797979;
-
-	}
-
-	table tr td:first-child {
-
-		border-left: 1px solid #797979;
-
-	}
-
-	table tr:first-child td {
-
-		border-top: 1px solid #797979;
-		border-bottom: 1px solid #797979;
 		color: #fff;
 		font-weight: bold;
 
@@ -1268,7 +1230,6 @@ input.trigger#nav-trigger + * {
 			
 			width: 100%;
 			margin: 0;
-			margin-top: .5em;
 				
 		}
 	
@@ -1304,6 +1265,11 @@ input.trigger#nav-trigger + * {
 	
 		}
 		
+		form .selector {
+			
+			height: auto;
+
+		}
 		
 	.wide-screen {
 		
