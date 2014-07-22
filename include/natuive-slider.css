@@ -21,6 +21,13 @@
 
 }
 
+		@-moz-document url-prefix() {
+
+			.slider { margin-bottom: -16px; }
+
+		}
+
+
 .slider > * {
 
 	width: 100%;

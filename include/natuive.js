@@ -213,16 +213,18 @@ var requestAnimFrame = (function() {
 function scrollTo( to, callback ) {
 
 	// figure out if this is moz || IE because they use documentElement
-	var doc = (navigator.userAgent.indexOf('Firefox') != -1 || navigator.userAgent.indexOf('Trident') != -1) ? document.documentElement : document.body,
+	var doc = (navigator.userAgent.indexOf('Chrome') != -1 || navigator.userAgent.indexOf('Firefox') != -1 || navigator.userAgent.indexOf('Trident') != -1) ? document.documentElement : document.body,
 	start = doc.scrollTop,
 	change = to - start,
 	currentTime = 0,
 	increment = 20;
 
+console.log ( start + ' ' + change );
+
 	if ( (navigator.userAgent.indexOf('Trident') ) != -1 ) { // Turn off animation for IE; WP8 animates by itself
 		
 		doc.scrollTop = to;
-		return;
+		return false;
 		
 	}
 
@@ -354,180 +356,180 @@ function modalWindow (e) {
 
 }
 
-/* ███ After DOM is created ███ */
-
-addEventHandler(window, 'load', function() {
+/* Start */
 
 /* Relay URI parameters to links */
 
-	relayParameters();
-	
+relayParameters();
+
 /* Tooltip */
+
+forEach('.tool', function(el, i) {
 	
-	forEach('.tool', function(el, i) {
+	el.onclick = showTip;
 		
-		el.onclick = showTip;
+		el.onmouseover = showTip;
+		el.onmouseout = hideTip;
+
+	addEventHandler(el, 'touchmove', hideTip, false);
 			
-			el.onmouseover = showTip;
-			el.onmouseout = hideTip;
-	
-		addEventHandler(el, 'touchmove', hideTip, false);
-				
-	});
+});
 
 /* Add 'Back to top' button */
 
-	document.querySelector(	document.querySelector('#footer > div > div') ? '#footer > div > div' : 'body' ).insertAdjacentHTML('beforeend', '<a class="backtotop" href="#head"> ⬆ </a>');
+document.querySelector(	document.querySelector('#footer > div > div') ? '#footer > div > div' : 'body' ).insertAdjacentHTML('beforeend', '<a class="backtotop" href="#head"> ⬆ </a>');
 
 /* Animate anchor links */
 
-	forEach( 'a[href*="#"]', function (el, i) {
+forEach( 'a[href*="#"]', function (el, i) {
+	
+	el.onclick = function (e) {
 		
-		el.onclick = function (e) {
-			
-			var event = e || window.event;
-			var el = event.target || event.srcElement;
-			
-			hash = document.getElementById( el.href.split('#')[1] );
+		var event = e || window.event;
+		var el = event.target || event.srcElement;
+		
+		hash = document.getElementById( el.href.split('#')[1] );
 
-			scrollTo( (hash == null) ? 0 : hash.offsetTop );
-			
-			return false;
-			
-		};
+		scrollTo( (hash == null) ? 0 : hash.offsetTop );
 		
-	});
+		return false;
+		
+	};
+	
+});
 
 /* Modal window: open a link inside it. Also lightbox with images */
 
-   	forEach('a.modal, a.lightbox', function(el, i) {
-		
-		el.onclick = modalWindow;
-		
-	});
+	forEach('a.modal, a.lightbox', function(el, i) {
+	
+	el.onclick = modalWindow;
+	
+});
 
 /* Auto textarea height */
-   	
-   	forEach('textarea', function(el, i){
 	
-		el.onkeyup = function (e) { /* To fix */
+	forEach('textarea', function(el, i){
 
-			var event = e || window.event;
-			var el = event.target || event.srcElement;
+	el.onkeyup = function (e) { /* To fix */
 
-			while (
-				el.rows > 1 &&
-				el.scrollHeight < el.offsetHeight
-			)
-			{	el.rows--; }
-			
-			while (el.scrollHeight > el.offsetHeight)
-			{	el.rows++; }
-			el.rows++
-			
-		};
+		var event = e || window.event;
+		var el = event.target || event.srcElement;
 
-	});
+		while (
+			el.rows > 1 &&
+			el.scrollHeight < el.offsetHeight
+		)
+		{	el.rows--; }
+		
+		while (el.scrollHeight > el.offsetHeight)
+		{	el.rows++; }
+		el.rows++
+		
+	};
+
+});
 
 /* Form validation */
 
-	forEach('form', function (el, i) {
-		
-		el.onsubmit = function (e) {
-
-			ready_to_submit = true;
-
-			forEach('.mandatory', function (el, i) {
-				
-				if ( 
-					( el.querySelector('input, select, textarea') && !el.querySelector('input, select, textarea').value ) || 
-					( el.querySelector('input[type="checkbox"]') && !el.querySelector('input[type="checkbox"]').checked ) 
-				   ) { 
-
-					ready_to_submit = false;
-					addClass (el, 'alert');
-					return;
-
-				} else {
-					
-					removeClass (el, 'alert');
-					
-				}
-
-			});
-
-			if (!ready_to_submit) scrollTo(el.parentNode.offsetTop);
-
-			return ready_to_submit;
-			
-		};
-		
-	});
+forEach('form', function (el, i) {
 	
+	el.onsubmit = function (e) {
+
+		ready_to_submit = true;
+
+		forEach('.mandatory', function (el, i) {
+			
+			if ( 
+				( el.querySelector('input, select, textarea') && !el.querySelector('input, select, textarea').value ) || 
+				( el.querySelector('input[type="checkbox"]') && !el.querySelector('input[type="checkbox"]').checked ) 
+			   ) { 
+
+				ready_to_submit = false;
+				addClass (el, 'alert');
+				return;
+
+			} else {
+				
+				removeClass (el, 'alert');
+				
+			}
+
+		});
+
+		if (!ready_to_submit) scrollTo(el.parentNode.offsetTop);
+
+		return ready_to_submit;
+		
+	};
+	
+});
+
 /* Accordion */
 
-	forEach('.accordion', function(el, i) {
+forEach('.accordion', function(el, i) {
+	
+	if ( el.querySelector('input.trigger') ) {
+	
+		el.querySelector('input.trigger').outerHTML = '';
+	
+	}
+	
+	el.onclick = function (e) {
 		
-		if ( el.querySelector('input.trigger') ) {
+		stopEvent( e );
+				
+		el.querySelector('div').style.maxHeight = ((el.querySelector('div').style.maxHeight == '') ? (el.querySelector('div').scrollHeight + 'px') : '');
 		
-			el.querySelector('input.trigger').outerHTML = '';
-		
+		if ( hasClass ( el, 'open' ) ) {
+			removeClass ( el, 'open' );
+		} else {
+			addClass ( el, 'open' );
 		}
 		
-		el.onclick = function (e) {
-			
-			stopEvent( e );
-					
-			el.querySelector('div').style.maxHeight = ((el.querySelector('div').style.maxHeight == '') ? (el.querySelector('div').scrollHeight + 'px') : '');
-			
-			if ( hasClass ( el, 'open' ) ) {
-				removeClass ( el, 'open' );
-			} else {
-				addClass ( el, 'open' );
-			}
-			
-			if ( hasClass ( el.parentNode.parentNode, 'accordion' ) ) { // Embedded accordion
-				el.parentNode.style.maxHeight = el.querySelector('div').scrollHeight + el.parentNode.scrollHeight + 'px';
-			}
+		if ( hasClass ( el.parentNode.parentNode, 'accordion' ) ) { // Embedded accordion
+			el.parentNode.style.maxHeight = el.querySelector('div').scrollHeight + el.parentNode.scrollHeight + 'px';
+		}
 
-			return false;
-			
-		};
+		return false;
 		
-		el.querySelector('div').onclick = function (e) {  
-			var event = e || window.event; event.cancelBubble = true; 
-		};
+	};
+	
+	el.querySelector('div').onclick = function (e) {  
+		var event = e || window.event; event.cancelBubble = true; 
+	};
 
-	});
+});
 
 /* Fixed position top offset */
-	
-	document.getElementById('head').style.minHeight = document.querySelector('#head .row').scrollHeight + 'px';
-	
+
+document.getElementById('head').style.minHeight = document.querySelector('#head .row').scrollHeight + 'px';
+
 /* Prevent body scroll when mobile navigation is open */
 
-	if ( document.querySelector('#nav-main > input.trigger') ) {
-	
-		document.querySelector('#nav-main > input.trigger').onchange = function (e) {
-	
-			 if (document.querySelector('#nav-main > input.trigger').checked) {
-			 	addClass(document.body, 'lock-position'); 
-			 } else {
-			 	removeClass(document.body, 'lock-position');
-			 }
-	
-		};
-	
-	}
-	
-	if ('ontouchstart' in window) { /* iOS: remove sticky hover state */
-	
-		document.body.insertAdjacentHTML('beforeend', '<style> a[href]:hover { color: inherit; } </style>');
-	
-	}
+if ( document.querySelector('#nav-main > input.trigger') ) {
 
-	/* Align images vertically. Using hard-coded line height at 22px */
-	
+	document.querySelector('#nav-main > input.trigger').onchange = function (e) {
+
+		 if (document.querySelector('#nav-main > input.trigger').checked) {
+		 	addClass(document.body, 'lock-position'); 
+		 } else {
+		 	removeClass(document.body, 'lock-position');
+		 }
+
+	};
+
+}
+
+if ('ontouchstart' in window) { /* iOS: remove sticky hover state */
+
+	document.body.insertAdjacentHTML('beforeend', '<style> a[href]:hover { color: inherit; } </style>');
+
+}
+
+addEventHandler(window, 'load', function() {
+
+/* Align images vertically. Using hard-coded line height at 22px */
+
 	var line_height = 22;
 	
 	forEach('#content img', function (el) {
@@ -545,4 +547,3 @@ addEventHandler(window, 'load', function() {
 	});
 
 });
-

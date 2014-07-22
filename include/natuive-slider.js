@@ -58,8 +58,6 @@ function slideEnd () {
 
 	slider_animation = 0;
 
-	document.onkeyup = sliderKeyboard;
-
 	forEach('.slider', function(el, i) {
 
 		el.onscroll = scrollSlider;
@@ -192,26 +190,31 @@ function slide ( e, method ) {
 
 function sliderKeyboard (e) {
 
-/*
-	slider = document.querySelector('.slider'); // Move slider #1; to do: select nearest slider
-	
-	var event = e || window.event;
-	stopEvent(event);
     if (event.keyCode == 37) { // left
     	
-	document.onkeyup = function (e) { return false; };
-		slide(e, 'left');
+		slide(slider, 'left');
 
     }
+
     if (event.keyCode == 39) { // right
 
-	document.onkeyup = function (e) { return false; };
-		slide(e, 'right');
+		slide(slider, 'right');
 		
     }
-*/
 
 };
+
+window.scrollBarWidth = function() {
+
+	document.body.style.overflow = 'hidden'; 
+	var width = document.body.clientWidth;
+	document.body.style.overflow = 'scroll'; 
+	width -= document.body.clientWidth; 
+	if(!width) width = document.body.offsetWidth - document.body.clientWidth;
+	document.body.style.overflow = ''; 
+	return width; 
+
+}
 
 function makeSlider (el) {
 	
@@ -236,6 +239,7 @@ function makeSlider (el) {
 		} else {
 			
 			container.querySelector('.slider-nav').insertAdjacentHTML('beforeend', ( !i ? '<a class="active">' : '<a>' ) + (i + 1) + '</a>');
+			container.style.marginBottom = '-' + window.scrollBarWidth() + 'px';
 
 		}
 		
@@ -254,34 +258,31 @@ function makeSlider (el) {
 	}
 	
 	el.onscroll = scrollSlider;
-	
 	el.setAttribute('data-original-scroll', 0);
 	
 	return el;
 	
 }
 
-addEventHandler ( window, 'load', function() {
+/* Start */
 
-	document.onkeyup = sliderKeyboard;
-	
-	/* Initialise JS extras: create arrows/numbers navigation */
-	forEach('.slider', function(el, i) {
+document.onkeyup = sliderKeyboard;
 
-		makeSlider(el);
-		
-	});
-	
-	slider = document.querySelector('.slider');
-	
-	window.onresize = function () { 
-		
-		forEach('.slider', function (el,i) {
-			el.scrollLeft = 0;
-			moveIndex ();
+/* Initialise JS extras: create arrows/numbers navigation */
+forEach('.slider', function(el, i) {
 
-		});
-		
-	}
+	makeSlider(el);
 	
 });
+
+slider = document.querySelector('.slider');
+
+window.onresize = function () { 
+	
+	forEach('.slider', function (el,i) {
+		el.scrollLeft = 0;
+		moveIndex ();
+
+	});
+	
+}
