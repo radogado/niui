@@ -1220,6 +1220,12 @@ input.trigger#nav-trigger + * {
 			
 		}
 		
+		label.mandatory.alert > span.checkbox {
+			
+			padding: 2% 0;
+
+		}
+		
 		label.mandatory span:after {
 			
 			right: 0;
@@ -1254,8 +1260,7 @@ input.trigger#nav-trigger + * {
 
 		form label span .tip {
 			
-			position: static;
-			margin-top: 1em;
+			visibility: hidden;
 			
 		}
 
