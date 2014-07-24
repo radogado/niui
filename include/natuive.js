@@ -219,8 +219,6 @@ function scrollTo( to, callback ) {
 	currentTime = 0,
 	increment = 20;
 
-console.log ( start + ' ' + change );
-
 	if ( (navigator.userAgent.indexOf('Trident') ) != -1 ) { // Turn off animation for IE; WP8 animates by itself
 		
 		doc.scrollTop = to;

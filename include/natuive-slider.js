@@ -219,7 +219,7 @@ function scrollBarWidth() {
 
 	}
 
-	var doc = (navigator.userAgent.indexOf('Chrome') != -1 || navigator.userAgent.indexOf('Firefox') != -1 || navigator.userAgent.indexOf('Trident') != -1) ? document.documentElement : document.body;
+	var doc = (navigator.userAgent.indexOf('Chrome') != -1 || navigator.userAgent.indexOf('Firefox') != -1 || navigator.userAgent.indexOf('Trident') != -1) ? document.documentElement.querySelector('body') : document.body;
 
     doc.insertAdjacentHTML('beforeend', '<div style="width:200px;height:150px; position: absolute; top: 0; left: 0; visibility: hidden; overflow:hidden;" id="outer"><div style="width: 100%; height:200px;" id="inner">test</div></div>');
     inner = document.getElementById('inner');
