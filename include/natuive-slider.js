@@ -5,7 +5,6 @@ var slider;
 var original_scroll = 0;
 var slider_animation = 0;
 var current_scroll = 0;
-/* var height_scroll = 0; */
 
 function scrollSlider (e) {
 
@@ -80,7 +79,13 @@ function slide ( e, method ) {
 	
 	var event = e || window.event; 
 
-	if ( typeof event.srcElement == 'unknown' ) { return; } // IE8
+	if ( typeof event.srcElement == 'unknown' ) {  // IE8
+		
+		slideEnd(); 
+		return; 
+	
+	}
+
 	el = event.target || event.srcElement;
 
 	stopEvent(event);
@@ -98,7 +103,6 @@ function slide ( e, method ) {
 		slider = el.parentNode.parentNode.querySelector('.slider');
 		start = slider.scrollLeft;
 		change = slider.children[thisIndex(el)].offsetLeft - start;
-		console.log( slider.children[thisIndex(el)].offsetLeft );
 
 	}
 	
@@ -190,29 +194,42 @@ function slide ( e, method ) {
 
 function sliderKeyboard (e) {
 
+	var event = e || window.event;
+	el = event.target || event.srcElement;
+
     if (event.keyCode == 37) { // left
     	
-		slide(slider, 'left');
+		slide(el, 'left');
 
     }
 
     if (event.keyCode == 39) { // right
 
-		slide(slider, 'right');
+		slide(el, 'right');
 		
     }
 
 };
 
-window.scrollBarWidth = function() {
+function scrollBarWidth() {
 
-	document.body.style.overflow = 'hidden'; 
-	var width = document.body.clientWidth;
-	document.body.style.overflow = 'scroll'; 
-	width -= document.body.clientWidth; 
-	if(!width) width = document.body.offsetWidth - document.body.clientWidth;
-	document.body.style.overflow = ''; 
-	return width; 
+	if ( navigator.userAgent.indexOf('MSIE 8') != -1 )	{ 
+		
+		return 17;
+
+	}
+
+	var doc = (navigator.userAgent.indexOf('Chrome') != -1 || navigator.userAgent.indexOf('Firefox') != -1 || navigator.userAgent.indexOf('Trident') != -1) ? document.documentElement : document.body;
+
+    doc.insertAdjacentHTML('beforeend', '<div style="width:200px;height:150px; position: absolute; top: 0; left: 0; visibility: hidden; overflow:hidden;" id="outer"><div style="width: 100%; height:200px;" id="inner">test</div></div>');
+    inner = document.getElementById('inner');
+    outer = document.getElementById('outer');
+    var width1 = inner.offsetWidth;
+    outer.style.overflow = 'scroll';
+    var width2 = outer.clientWidth;
+    outer.parentNode.removeChild( outer );
+ 
+    return (width1 - width2);
 
 }
 
@@ -227,6 +244,8 @@ function makeSlider (el) {
 	
 	// Generate controls
 
+			el.style.marginBottom = '-' + scrollBarWidth() + 'px';
+
 	for (var i = 0; i < el.children.length; i++) {
 		
 		if ( el.children[i].querySelector('.thumbnail') ) {
@@ -239,7 +258,6 @@ function makeSlider (el) {
 		} else {
 			
 			container.querySelector('.slider-nav').insertAdjacentHTML('beforeend', ( !i ? '<a class="active">' : '<a>' ) + (i + 1) + '</a>');
-			container.style.marginBottom = '-' + window.scrollBarWidth() + 'px';
 
 		}
 		

@@ -16,7 +16,11 @@
 	width: 100%;
 	border-collapse: separate;
 	
-/* 	display: -webkit-flex; */
+/*
+	display: -webkit-flex;
+	-webkit-flex-wrap: wrap;
+	-webkit-justify-content: space-around;
+*/
 
 }
 
@@ -27,6 +31,11 @@
 		position: relative;
 		padding: 7px; /* instead of em, because of Chrome subpixel rendering */
 		word-wrap: break-word;
+
+/*
+		-webkit-flex: 1 0 auto;
+		min-width: 200px;
+*/
 
 	}
 	

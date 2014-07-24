@@ -17,16 +17,9 @@
     -webkit-transform: translate3d(0, 0, 0); /* fast, hardware-accelerated scrolling */
     -webkit-transform: translateZ(0);
 	-ms-overflow-style: none; /* No scrollbars on IE10+ */
-	word-spacing: -.25em;
+/* 	word-spacing: -.25em; */
 
 }
-
-		@-moz-document url-prefix() {
-
-			.slider { margin-bottom: -16px; }
-
-		}
-
 
 .slider > * {
 
