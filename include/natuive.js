@@ -144,27 +144,39 @@ function getURLParameters () { // return all URL parameters in an array
 var tip;
 
 function hideTip (e) {
-	
+
+	stopEvent( e );
+
 	if (tip) {
 
 		removeClass ( tip, 'open' );
+		tip = 0;
 
 	}
+	
+	return false;
 
 }
 
 function showTip (e) {
 
+	stopEvent( e );
+	
+	if (tip) return;
+	
 	var event = e || window.event;
 	var el = event.target || event.srcElement;
-
+	
 	tip = el.querySelector('.tip');
+
 	if (!tip) return; //  fix it not to log error in console
 	
 	tip.parentNode.parentNode.style.position = 'relative'; // dangerous with absolutely-positioned containers, which should be avoided anyway
 	tip.style.top = (tip.parentNode.offsetTop + tip.parentNode.offsetHeight) + 'px';
 	addClass ( tip, 'open' );
 	
+	return false;
+
 }
 
 /* URI parameters relay. Omit links starting with "javascript", "mailto", skip parameters not listed in the array */
@@ -225,6 +237,8 @@ function scrollTo( to, callback ) {
 		return false;
 		
 	}
+
+    /* doc.scrollTop not working in Android Chrome */
 
 	var animateScroll = function(){
 	    // increment the time
@@ -366,10 +380,10 @@ forEach('.tool', function(el, i) {
 	
 	el.onclick = showTip;
 		
-		el.onmouseover = showTip;
-		el.onmouseout = hideTip;
+	el.onmouseover = showTip;
+	el.onmouseout = hideTip;
 
-	addEventHandler(el, 'touchmove', hideTip, false);
+	addEventHandler(el.querySelector('.tip'), 'touchmove', hideTip, false);
 			
 });
 

@@ -571,6 +571,7 @@ form {
 		resize: none;
 		border: 1px solid #bbb;
 		vertical-align: top;
+		border-radius: 0;
 
 		padding: .7333em;
 		margin-top: -10px;
@@ -578,18 +579,18 @@ form {
 		border: 0;
 		background: #eee;
 
-		padding: 0 .5em;
-		line-height: 1.375em;
+		padding: 0 .7em;
+		line-height: 44px;
 		border: 0;
 		background: #eee;
 		font-size: 1.0666em;
-		margin: 0;
+		margin: -11px 0 11px 0;
 
 	}
 	
 	label input,  #content label .selector, textarea {
 	
-		margin-left: 1%;
+		margin-left: 2%;
 	
 	}
 	
@@ -602,9 +603,10 @@ form {
 	
 	textarea {
 		
-		margin: 0 0 -1px 0;
+		margin: -11px 0 -1px 0;
 		line-height: 22px;
 		border-bottom: 1px solid transparent;
+		padding-top: 11px;
 
 	}
 
@@ -615,7 +617,7 @@ form {
 		display: inline-block;
 		width: 50%;
 		
-		padding: 0 .7em 0 0;
+		padding: 0 1% 0 0;
 		
 	}
 	
@@ -677,7 +679,7 @@ form {
 
 	@-moz-document url-prefix()
 	{
-		#content select { width: 110%; }
+		#content select { width: 110%; padding-top: 11px; }
 	}
 	
 	form .selector {
@@ -714,12 +716,12 @@ form {
 
 		width: 45%;
 		text-align: left;
-		margin-left: 1%;
+		margin-left: 2%;
 		vertical-align: top;
 		font-weight: normal;
 		cursor: pointer;
 		-webkit-transform: translateY(1px);
-		transform: translateY(1px);
+		-moz-transform: translateY(-1px);
 
 	}
 	
@@ -784,6 +786,12 @@ form {
 	padding-top: 3.6em;
 	-webkit-overflow-scrolling: touch;
 
+	}
+
+	#blackbox::-webkit-scrollbar {
+	
+	    display: none;
+	
 	}
 
 	#blackbox .close {
@@ -1072,6 +1080,12 @@ table {
 
 	}
 
+	table::-webkit-scrollbar {
+	
+	    display: none;
+	
+	}
+
 	table td {
 
 		padding: 0 .5em;
@@ -1254,7 +1268,8 @@ input.trigger#nav-trigger + * {
 		
 		#content select {
 			
-			padding: 2.2% 1.3em 2.2% 2%;
+			padding: 2.2% 1.3em 0 2%;
+			margin-bottom: 0;
 			
 		}
 		
