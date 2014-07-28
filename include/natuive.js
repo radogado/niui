@@ -238,8 +238,6 @@ function scrollTo( to, callback ) {
 		
 	}
 
-    /* doc.scrollTop not working in Android Chrome */
-
 	var animateScroll = function(){
 	    // increment the time
 	    currentTime += increment;
@@ -247,12 +245,11 @@ function scrollTo( to, callback ) {
 	    var val = Math.easeInOutQuad(currentTime, start, change, 400);
 	    // move the document.body
 	    doc.scrollTop = val;
-		document.documentElement.scrollTop = val;
+/* 		document.documentElement.scrollTop = val; */
 	    // do the animation unless its over
 	    if(currentTime < 400) {
 			requestAnimFrame(animateScroll);
 	    } else {
-
 			if (callback && typeof(callback) === 'function') {
 				// the animation is done so lets callback
 				callback();
@@ -391,28 +388,32 @@ forEach('.tool', function(el, i) {
 
 document.querySelector(	document.querySelector('#footer > div > div') ? '#footer > div > div' : 'body' ).insertAdjacentHTML('beforeend', '<a class="backtotop" href="#head"> ⬆ </a>');
 
-/* Animate anchor links */
+/* Animate anchor links. No doc.scrollTop on Android */
 
-forEach( 'a[href*="#"]', function (el, i) {
-	
-	el.onclick = function (e) {
-		
-		var event = e || window.event;
-		var el = event.target || event.srcElement;
-		
-		hash = document.getElementById( el.href.split('#')[1] );
+if ( navigator.userAgent.indexOf('Android') == -1) {
 
-		scrollTo( (hash == null) ? 0 : hash.offsetTop );
+	forEach( 'a[href*="#"]', function (el, i) {
 		
-		return false;
-		
-	};
+		el.onclick = function (e) {
+			
+			var event = e || window.event;
+			var el = event.target || event.srcElement;
+			
+			hash = document.getElementById( el.href.split('#')[1] );
 	
-});
+			scrollTo( (hash == null) ? 0 : hash.offsetTop );
+			
+			return false;
+			
+		};
+		
+	});
+
+}
 
 /* Modal window: open a link inside it. Also lightbox with images */
 
-	forEach('a.modal, a.lightbox', function(el, i) {
+forEach('a.modal, a.lightbox', function(el, i) {
 	
 	el.onclick = modalWindow;
 	
@@ -420,7 +421,7 @@ forEach( 'a[href*="#"]', function (el, i) {
 
 /* Auto textarea height */
 	
-	forEach('textarea', function(el, i){
+forEach('textarea', function(el, i){
 
 	el.onkeyup = function (e) { /* To fix */
 

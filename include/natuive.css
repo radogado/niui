@@ -24,6 +24,8 @@
 	-webkit-flex-wrap: wrap;
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
+	
+	display: table\0; /* Disable Flexbox on IE, because of problem with column fallback to table-cell */
 
 }
 
@@ -32,7 +34,7 @@
 		.row { display: table; }
 	
 	}
-
+	
 	.row > * {
 	
 		display: table-cell;
@@ -581,6 +583,7 @@ form {
 
 		padding: 0 .7em;
 		line-height: 44px;
+		min-height: 44px;
 		border: 0;
 		background: #eee;
 		font-size: 1.0666em;
@@ -1040,6 +1043,12 @@ ul {
 	    max-height: 0;
 	    cursor: auto;
 	    transition: max-height .4s ease-in-out;
+
+	}
+
+	.accordion:first-of-type > div {
+		
+		margin-top: 1px;
 
 	}
 
