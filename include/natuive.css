@@ -75,30 +75,40 @@
 	.row > .column23 {
 
 		width: 66.6%;
+		-webkit-flex: 66.6%;
+		flex: 66.6%;
 
 	}
 	
 	.row > .column34 {
 
 		width: 75%;
+		-webkit-flex: 75%;
+		flex: 75%;
 
 	}
 
 	.row > .column4 {
 
 		width: 25%;
+		-webkit-flex: 25%;
+		flex: 25%;
 
 	}
 
 	.row > .column3 {
 
 		width: 33.333%;
+		-webkit-flex: 33.333%;
+		flex: 33.333%;
 
 	}
 
 	.row > .column2 {
 
 		width: 50%;
+		-webkit-flex: 50%;
+		flex: 50%;
 
 	}
 
@@ -528,25 +538,6 @@ form {
 
 	}
 	
-	#content form label:before {
-		
-		content: "";
-		display: block;
-		position: absolute;
-		right: 0;
-		width: 45%;
-		height: 6px;
-		top: -6px;
-		background: #eee;
-		
-	}
-	
-	#content form label.checkbox:before {
-		
-		display: none;
-
-	}
-	
 	select {
 		
 		-webkit-appearance: none;
@@ -611,9 +602,10 @@ form {
 	
 	textarea {
 		
-		margin: 0;
+		margin: 0 0 -1px 0;
 		line-height: 22px;
-		
+		border-bottom: 1px solid transparent;
+
 	}
 
 	label span {
@@ -726,6 +718,8 @@ form {
 		vertical-align: top;
 		font-weight: normal;
 		cursor: pointer;
+		-webkit-transform: translateY(1px);
+		transform: translateY(1px);
 
 	}
 	
