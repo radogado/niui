@@ -16,13 +16,22 @@
 	width: 100%;
 	border-collapse: separate;
 	
-/*
+	/* Flexbox grid */	
 	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	
 	-webkit-flex-wrap: wrap;
-	-webkit-justify-content: space-around;
-*/
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
 
 }
+
+	@-moz-document url-prefix() { /* Disable Flexbox on FF because of problems with old FF and columns with display: table-cell */
+	
+		.row { display: table; }
+	
+	}
 
 	.row > * {
 	
@@ -31,11 +40,11 @@
 		position: relative;
 		padding: 7px; /* instead of em, because of Chrome subpixel rendering */
 		word-wrap: break-word;
-
-/*
-		-webkit-flex: 1 0 auto;
-		min-width: 200px;
-*/
+		
+		/* Flexbox grid with minimum column width */
+		-webkit-flex: 300px;
+		-ms-flex: 300px;
+		flex: 300px;
 
 	}
 	
@@ -1176,25 +1185,20 @@ input.trigger#nav-trigger + * {
 	.row {
 		
 		overflow-x: hidden;
+		display: table;
 
 	}
 
 	.row > * {
 
 		display: block;
-		padding: 5px; /* Becaue percentage leads to Android Chrome inline-block bug */
+		padding: 5px; /* Because percentage leads to Android Chrome inline-block bug */
 
 	}
 
 	.row > *, .row > .column23, .row > .column2, .row > .column3, .row > .column4, .row > .column34 {
 
 		width: auto;
-
-	}
-	
-	#head .row > * {
-		
-		display: table-cell;
 
 	}
 	

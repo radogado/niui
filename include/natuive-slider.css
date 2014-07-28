@@ -133,5 +133,9 @@
 	border-radius: 0;
 	line-height: 22px;
 	padding: 0 .5em;
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+	margin: 0;
 
 }
