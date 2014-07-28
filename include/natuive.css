@@ -15,6 +15,7 @@
 	table-layout: fixed;
 	width: 100%;
 	border-collapse: separate;
+	padding: 7px;
 	
 	/* Flexbox grid */	
 	display: -webkit-flex;
@@ -40,7 +41,7 @@
 		display: table-cell;
 		vertical-align: top;
 		position: relative;
-		padding: 7px; /* instead of em, because of Chrome subpixel rendering */
+		padding: 0 7px; /* instead of em, because of Chrome subpixel rendering */
 		word-wrap: break-word;
 		
 		/* Flexbox grid with minimum column width */
@@ -50,9 +51,9 @@
 
 	}
 	
-	.row .row > * {
-	
-		padding: 22px 0;
+	.row .row {
+		
+		padding: 0;
 
 	}
 	
@@ -62,13 +63,13 @@
 		
 	}
 
-	.row .row:not(.slider-nav) > :last-child {
+	.row:not(.slider-nav) > :last-child {
 		
 		padding-right: 0;
 		
 	}
 
-	.row .row:not(.slider-nav) > :first-child {
+	.row:not(.slider-nav) > :first-child {
 		
 		padding-left: 0;
 		
