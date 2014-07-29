@@ -676,6 +676,8 @@ form {
 		padding-right: 1.3em; /* Prevent overlapping */
 		padding-right: 2%\9; /* IE8 */
 		background: #fff\9; /* IE8 */
+		margin-top: 0px\9; /* IE8 fix */
+		min-height: 0px\9; /* IE8 fix */
 		width: 100%;
 		background: transparent;
 		border: 0;
@@ -773,7 +775,6 @@ form {
 		border: 1px solid transparent;
 		width: 1em;
 		left: -3px;
-		top: .8em;
 
 	}
 
