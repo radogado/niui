@@ -18,6 +18,7 @@
 	padding: 7px;
 	
 	/* Flexbox grid */	
+/*
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
@@ -25,8 +26,9 @@
 	-webkit-flex-wrap: wrap;
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
+*/
 	
-	display: table\0; /* Disable Flexbox on IE, because of problem with column fallback to table-cell */
+	/* display: table\0; */ /* Disable Flexbox on IE, because of problem with column fallback to table-cell */
 
 }
 
@@ -45,9 +47,11 @@
 		word-wrap: break-word;
 		
 		/* Flexbox grid with minimum column width */
+/*
 		-webkit-flex: 300px;
 		-ms-flex: 300px;
 		flex: 300px;
+*/
 
 	}
 	
