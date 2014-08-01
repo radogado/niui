@@ -740,8 +740,8 @@ form {
 		width: 1em;
 		height: 1em;
 		display: inline-block;
-		background: rgb(0,221,240);
-		background: transparent\9;
+		background: rgba(0,221,240,1);
+/* 		background: transparent\9; */
 		vertical-align: middle;
 		margin-top: -.5em;
 		text-align: center;
@@ -775,6 +775,7 @@ form {
 		border: 1px solid transparent;
 		width: 1em;
 		left: -3px;
+		outline: none;
 
 	}
 
