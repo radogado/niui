@@ -30,7 +30,7 @@ A 7 KB framework focused on browsers' built-in capabilities with smart customisa
 - Functional and accessible without JS/CSS\*
 - No IE conditional operators\*
 - No jQuery or other dependencies\*
-- Supporting IE8+, Safari, Chrome, Firefox, Opera, phones, tablets
+- Supporting IE8+, Safari, Chrome, Firefox, Opera, Android 2.3+, iOS, Windows Phone
 - Graceful degradation
 - Includes a FREE picture of a cat
 

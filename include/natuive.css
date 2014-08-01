@@ -1196,6 +1196,12 @@ input.trigger#nav-trigger + * {
 	
 }
 
+.nav-main input.trigger#nav-trigger + * {
+	
+	display: none;
+	
+}
+
 .nav-main {
 	
 	z-index: 0;
@@ -1358,10 +1364,10 @@ input.trigger#nav-trigger + * {
 	.nav-main {
 		
 		position: fixed;
-		top: 0;
+		top: 1em;
 		left: 0;
 		background: transparent;
-		z-index: 9999;
+		z-index: 999;
 		width: 0;
 		height: 0;
 		
@@ -1375,17 +1381,22 @@ input.trigger#nav-trigger + * {
 	
 	.nav-main > div {
 		
+		-webkit-transition: all .2s ease-in-out;
 		transition: all .2s ease-in-out;
 		width: 100%;
 		background: #fff;
 		position: fixed;
-		left: -100%;
-		
-	}
+		margin-top: 0;
+		left: 0;
+		display: none;
+		z-index: 9999;
 
-	[for="nav-trigger"] {
+	}
+	
+	label[for="nav-trigger"] {
 		
 		display: block;
+		left: 15px;
 		width: 1em;
 		height: 1em;
 		font-size: 3em;
@@ -1394,16 +1405,16 @@ input.trigger#nav-trigger + * {
 		text-align: center;
 		max-width: none;
 		overflow: hidden;
-		background: #fff;
+		background: grey;
 		
 	}
 	
-	input.trigger#nav-trigger:checked + * {
+	.nav-main input.trigger#nav-trigger:checked + * {
 		
-		left: 0;
+		display: block;
 		
 	}
-	
+
 	#blackbox .close {
 		
 		padding-left: 4em;
