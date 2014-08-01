@@ -66,14 +66,14 @@
 		max-width: 100%; /* instead of overflow-x:hidden, which would also activate overflow-y:hidden and clip the tooltip */
 		
 	}
-
-	.row:not(.slider-nav) > :last-child {
+	/* Embedded grid */
+	.row .row:not(.slider-nav) > :last-child {
 		
 		padding-right: 0;
 		
 	}
 
-	.row:not(.slider-nav) > :first-child {
+	.row .row:not(.slider-nav) > :first-child {
 		
 		padding-left: 0;
 		
@@ -611,7 +611,7 @@ form {
 	
 	textarea {
 		
-		margin: -11px 0 -1px 0;
+		margin: -11px 0 -1px 2%;
 		line-height: 22px;
 		border-bottom: 1px solid transparent;
 		padding-top: 11px;
@@ -776,6 +776,14 @@ form {
 		width: 1em;
 		left: -3px;
 		outline: none;
+
+	}
+
+	input[type="radio"] {
+	
+		margin: 2px 0 5px 0;
+		width: 1em;
+		height: 1em;
 
 	}
 
