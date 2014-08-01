@@ -1196,12 +1196,6 @@ input.trigger#nav-trigger + * {
 	
 }
 
-.nav-main input.trigger#nav-trigger + * {
-	
-	display: none;
-	
-}
-
 .nav-main {
 	
 	z-index: 0;
@@ -1367,12 +1361,17 @@ input.trigger#nav-trigger + * {
 		top: 1em;
 		left: 0;
 		background: transparent;
-		z-index: 999;
-		width: 0;
-		height: 0;
-		
+		z-index: 99999;
+		width: 100%;
+
 	}
 	
+	.nav-main input.trigger#nav-trigger + * {
+		
+		display: none;
+		
+	}
+
 	.nav-main .row * {
 
 		background: #fff;
@@ -1383,13 +1382,9 @@ input.trigger#nav-trigger + * {
 		
 		-webkit-transition: all .2s ease-in-out;
 		transition: all .2s ease-in-out;
-		width: 100%;
 		background: #fff;
-		position: fixed;
-		margin-top: 0;
-		left: 0;
 		display: none;
-		z-index: 9999;
+		margin-top: 2em;
 
 	}
 	
@@ -1406,10 +1401,12 @@ input.trigger#nav-trigger + * {
 		max-width: none;
 		overflow: hidden;
 		background: grey;
+		position: fixed;
+		z-index: 99999;
 		
 	}
 	
-	.nav-main input.trigger#nav-trigger:checked + * {
+	.nav-main input.trigger#nav-trigger:checked + div {
 		
 		display: block;
 		
