@@ -781,7 +781,7 @@ form {
 
 	input[type="radio"] {
 	
-		margin: 2px 0 5px 0;
+		margin: 2px 0 2px 0;
 		width: 1em;
 		height: 1em;
 
@@ -1032,7 +1032,7 @@ ul {
 	cursor: pointer;
 	color: #777;
 	font-weight: normal;
-	margin: 0;
+	margin: 0 0 21px 0;
 	text-align: left;
 	cursor: pointer;
 	background: #fff;
