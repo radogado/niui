@@ -367,6 +367,9 @@ a:link, a:visited {
 	word-break: break-word;
 
 	background: #f1f1f1;
+	padding: 3px .5em;
+	line-height: 1.067em;
+	margin-top: -2px;
 	
 	-webkit-appearance: none;
 
