@@ -169,10 +169,8 @@ function showTip (e) {
 	
 	tip = el.querySelector('.tip');
 
-	if (!tip) return; //  fix it not to log error in console
+	if (!tip) return; // fix it not to log error in console
 	
-	tip.parentNode.parentNode.style.position = 'relative'; // dangerous with absolutely-positioned containers, which should be avoided anyway
-	tip.style.top = (tip.parentNode.offsetTop + tip.parentNode.offsetHeight) + 'px';
 	addClass ( tip, 'open' );
 	
 	return false;
@@ -379,8 +377,15 @@ forEach('.tool', function(el, i) {
 		
 	el.onmouseover = showTip;
 	el.onmouseout = hideTip;
-
-	addEventHandler(el.querySelector('.tip'), 'touchmove', hideTip, false);
+	
+	tip = el.querySelector('.tip');
+	if (!tip) return;
+	
+	addEventHandler(tip, 'touchmove', hideTip, false);
+	el.style.position = 'static'; // dangerous with absolutely-positioned containers, which should be avoided anyway
+	el.parentNode.style.position = 'relative'; // dangerous with absolutely-positioned containers, which should be avoided anyway
+	tip.style.top = (tip.parentNode.offsetTop + tip.parentNode.offsetHeight) + 'px';
+	tip.style.width = '100%';
 			
 });
 

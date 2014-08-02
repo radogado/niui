@@ -883,6 +883,7 @@ form {
 
 	cursor: help;
 	font-weight: bold;
+	position: relative;
 
 }
 
@@ -905,15 +906,16 @@ form {
 		text-align: left;
 		opacity: 0;
 	    transition: all .4s ease-in-out;
-	    width: 100%;
+	    width: 300px;
 	    
 	
 	}
 	
-	.tip.open {
+	.tip.open, .tool:hover .tip {
 		
 		opacity: 1;
 		display: block;
+		top: 2em;
 		
 	}
 
