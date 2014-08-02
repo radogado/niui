@@ -402,7 +402,7 @@ if ( navigator.userAgent.indexOf('Android') == -1) {
 			hash = document.getElementById( el.href.split('#')[1] );
 	
 			scrollTo( (hash == null) ? 0 : hash.offsetTop );
-			
+			document.querySelector('#nav-trigger').checked = false;
 			return false;
 			
 		};
