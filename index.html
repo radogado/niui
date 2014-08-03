@@ -411,32 +411,32 @@
 			
 				<form action="#" method="post" target="_blank">
 						
-					<label id="last_name_label" class="mandatory">
+					<span class="label mandatory" id="last_name_label">
 						<span class="tool">Excepteur sint occaecat cupidatat non proident <span class="tip">Type a valid name.</span> </span>
 						<input name="last_name" id="last_name" type="text" placeholder="What is your name?">
-					</label> 
+					</span>
 					
-					<label id="email_label" class="mandatory">
+					<span class="label mandatory" id="email_label">
 						<span class="tool">Email <span class="tip">Type a valid Email address.</span> </span>
 						<input name="email" id="email" type="email" placeholder="Your Email address.">
-					</label> 
+					</span> 
 									
-					<label id="URL_label">
+					<span class="label" id="URL_label">
 						<span class="tool">Website <span class="tip">Type a valid URL.</span> </span>
 						<input name="URL" id="URL" type="url" placeholder="URL of your website.">
-					</label>					
+					</span>
 			
-					<label id="phone_label">
+					<span class="label" id="phone_label">
 						<span class="tool">Telephone <span class="tip">Enter a valid phone number.</span> </span>
 						<input name="phone" id="phone" type="tel" placeholder="Your phone number.">
-					</label> 
+					</span>
 			
-					<label id="text_area_label">
+					<span class="label" id="text_area_label">
 						<span class="tool">Enter text here <span class="tip">Say anything.</span> </span>
 						<textarea placeholder="How are you today?"></textarea>
-					</label> 
+					</span>
 			
-					<label for="country">
+					<span class="label">
 
 						<span>Country of residence</span>
 						
@@ -448,41 +448,36 @@
 						
 						</span>
 
-					</label>
+					</span>
 					
-					<label id="checkbox" class="mandatory checkbox">
+					<span class="label mandatory">
 
 						<span class="tool">Check this<span class="tip">Mandatory check box.</span> </span>
-						<span class="checkbox"> 
+						<label class="checkbox"> 
 							<input name="checkbox" id="checkbox" type="checkbox"> <b class="checkbox"></b> I accept the <a href="#">Terms and Conditions</a>.
-						</span>
+						</label>
 
-					</label>
+					</span>
 					
-					<label>
+					<span class="label">
 						
-						<span>Radio buttons</span>
-						<span class="checkbox">
-							<input type="radio" name="radiodemo"> First<br>
-							<input type="radio" name="radiodemo"> Second<br>
-							<input type="radio" name="radiodemo"> Third<br>
-							<input type="radio" name="radiodemo"> Fourth<br>
-						</span>
+						<span>Radio buttons demo</span>
+						<label class="checkbox"> <input type="radio" name="radiodemo"> First </label>
 
-					</label>
+					</span>
+
+					<span class="label">
+						
+						<label class="checkbox"> <input type="radio" name="radiodemo"> First </label>
+
+					</span>
+
+					<span class="label">
+						
+						<label class="checkbox"> <input type="radio" name="radiodemo"> First </label>
+
+					</span>
 			
-					<label>
-						
-						<span>Radio buttons in progress with long description</span>
-						<span class="checkbox">
-							<input type="radio" name="radio2"> First
-							<input type="radio" name="radio2"> Second
-							<input type="radio" name="radio2"> Third
-							<input type="radio" name="radio2"> Fourth
-						</span>
-
-					</label>
-
 					<label id="file_label">
 						<span class="tool">File <span class="tip">Choose a file.</span> </span>
 						<input name="file" id="file" type="file">

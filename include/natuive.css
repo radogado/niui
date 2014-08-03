@@ -531,7 +531,7 @@ form {
 
 }
 
-	label {
+	label, span.label {
 		
 		display: block;
 		text-align: right;
@@ -548,6 +548,18 @@ form {
 
 	}
 	
+	span.label {
+		
+		text-align: right;
+		
+	}
+
+	span.label label {
+		
+		display: inline-block;
+
+	}
+		
 	select {
 		
 		-webkit-appearance: none;
@@ -599,7 +611,7 @@ form {
 
 	}
 	
-	label input,  #content label .selector, textarea {
+	label input, span.label input, #content label .selector, textarea {
 	
 		margin-left: 2%;
 	
@@ -621,24 +633,24 @@ form {
 
 	}
 
-	label span {
+	label span, span.label span {
 		
 		position: relative;
 		padding: 2.7% 1% 2.5% 0;
 		display: inline-block;
-		width: 50%;
+		width: 46%;
 		
 		padding: 0 1% 0 0;
 		
 	}
 	
-	label.mandatory span.checkbox:after, label.mandatory span.tip:after {
+	form .mandatory span.checkbox:after, form .mandatory span.tip:after {
 	
 		display: none;		
 		
 	}
 
-	label.mandatory span:after {
+	form .mandatory span:after {
 		
 		content: "*";
 		color: #a00;
@@ -649,21 +661,21 @@ form {
 		
 	}
 	
-	label.mandatory.alert span {
+	form .mandatory.alert span {
 		
 		background: #666;
 		color: #eee;
 		
 	}
 
-	label.mandatory.alert span.checkbox {
+	form .mandatory.alert span.checkbox {
 		
 		background: transparent;
 		color: #555;
 		
 	}
 
-	label.mandatory.alert span.tip {
+	form .mandatory.alert span.tip {
 		
 		background: #222;
 		
@@ -690,9 +702,10 @@ form {
 		
 	}
 
-	@-moz-document url-prefix()
-	{
+	@-moz-document url-prefix()	{
+
 		#content select { width: 110%; padding-top: 11px; }
+
 	}
 	
 	form .selector {
@@ -738,13 +751,22 @@ form {
 
 	}
 	
+	label.checkbox {
+		
+		text-align: left;
+		width: 45%;
+		margin-top: 0;
+		font-weight: normal;
+		margin-left: 2%;
+		
+	}
+	
 	b.checkbox {
 		
 		width: 1em;
 		height: 1em;
 		display: inline-block;
 		background: rgba(0,221,240,1);
-/* 		background: transparent\9; */
 		vertical-align: middle;
 		margin-top: -.5em;
 		text-align: center;
@@ -782,7 +804,7 @@ form {
 
 	}
 
-	input[type="radio"] {
+	span.label input[type="radio"] {
 	
 		margin: 2px 0 2px 0;
 		width: 1em;
@@ -908,7 +930,6 @@ form {
 		z-index: 999;
 		text-align: left;
 		opacity: 0;
-	    transition: all .4s ease-in-out;
 	    width: 300px;
 	    
 	
@@ -1264,19 +1285,19 @@ input.trigger#nav-trigger + * {
 			
 		}
 		
-		label.mandatory.alert > span {
+		form .mandatory.alert > span {
 			
 			padding: 2%;
 			
 		}
 		
-		label.mandatory.alert > span.checkbox {
+		form .mandatory.alert > span.checkbox {
 			
 			padding: 2% 0;
 
 		}
 		
-		label.mandatory span:after {
+		form .mandatory span:after {
 			
 			right: 0;
 			
