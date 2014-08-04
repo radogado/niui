@@ -411,35 +411,62 @@
 			
 				<form action="#" method="post" target="_blank">
 						
-					<span class="label mandatory" id="last_name_label">
-						<span class="tool">Excepteur sint occaecat cupidatat non proident <span class="tip">Type a valid name.</span> </span>
+					<label>
+
+						<span>Excepteur sint occaecat cupidatat non proident</span>
 						<input name="last_name" id="last_name" type="text" placeholder="What is your name?">
-					</span>
+
+					</label>
 					
-					<span class="label mandatory" id="email_label">
+					<div>
+
+						<p>Please choose: Please choose: Please choose:</p>
+						<label class="checkbox"> 
+							<input type="radio" name="radiodemo"> 
+							First First First
+						</label>
+						<label class="checkbox"> 
+							<input type="radio" name="radiodemo"> 
+							First First First FirstFirst
+						</label>
+						<label class="checkbox"> 
+							<input type="radio" name="radiodemo"> 
+							First
+						</label>
+
+					</div>
+
+					<label class="mandatory" id="email_label">
+
 						<span class="tool">Email <span class="tip">Type a valid Email address.</span> </span>
 						<input name="email" id="email" type="email" placeholder="Your Email address.">
-					</span> 
+
+					</label> 
 									
-					<span class="label" id="URL_label">
+					<label id="URL_label">
+
 						<span class="tool">Website <span class="tip">Type a valid URL.</span> </span>
 						<input name="URL" id="URL" type="url" placeholder="URL of your website.">
-					</span>
+
+					</label>
 			
-					<span class="label" id="phone_label">
+					<label id="phone_label">
+
 						<span class="tool">Telephone <span class="tip">Enter a valid phone number.</span> </span>
 						<input name="phone" id="phone" type="tel" placeholder="Your phone number.">
-					</span>
+
+					</label>
 			
-					<span class="label" id="text_area_label">
+					<label id="text_area_label">
+
 						<span class="tool">Enter text here <span class="tip">Say anything.</span> </span>
 						<textarea placeholder="How are you today?"></textarea>
-					</span>
+
+					</label>
 			
-					<span class="label">
+					<label>
 
 						<span>Country of residence</span>
-						
 						<span class="selector">
 						
 							<select id="country" maxlength="40" name="country">
@@ -448,39 +475,33 @@
 						
 						</span>
 
-					</span>
+					</label>
 					
-					<span class="label mandatory">
+					<div>
 
-						<span class="tool">Check this<span class="tip">Mandatory check box.</span> </span>
-						<label class="checkbox"> 
-							<input name="checkbox" id="checkbox" type="checkbox"> <b class="checkbox"></b> I accept the <a href="#">Terms and Conditions</a>.
+						<p class="tool">Check this<span class="tip">Mandatory check box.</span> </p>
+						<label class="checkbox">
+							<input name="checkbox" id="checkbox" type="checkbox"> <b class="checkbox"></b>
+							I accept the <a href="#">Terms and Conditions</a>.
 						</label>
 
-					</span>
+					</div>
 					
-					<span class="label">
+					<div>
 						
-						<span>Radio buttons demo</span>
-						<label class="checkbox"> <input type="radio" name="radiodemo"> First </label>
+						<p>Radio buttons demo</p>
+						<label class="checkbox"> 
+							<input type="radio" name="radiodemo">
+							First First First
+						</label>
 
-					</span>
+					</div>
 
-					<span class="label">
-						
-						<label class="checkbox"> <input type="radio" name="radiodemo"> First </label>
-
-					</span>
-
-					<span class="label">
-						
-						<label class="checkbox"> <input type="radio" name="radiodemo"> First </label>
-
-					</span>
-			
 					<label id="file_label">
+
 						<span class="tool">File <span class="tip">Choose a file.</span> </span>
 						<input name="file" id="file" type="file">
+
 					</label> 
 			
 					<input type="submit" value="Request more info" title="Request more info">

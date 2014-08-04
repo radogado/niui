@@ -531,9 +531,9 @@ form {
 
 }
 
-	label, span.label {
+	label {
 		
-		display: block;
+		display: inline-block;
 		text-align: right;
 		margin: 1.467em 0;
 		font-weight: bold;
@@ -545,18 +545,15 @@ form {
 		margin: 0;
 		line-height: 1.467em; /* 1px difference */
 		margin-top: 1.467em;
+		width: 100%;
 
 	}
 	
-	span.label {
+	form div:after {
 		
-		text-align: right;
-		
-	}
-
-	span.label label {
-		
-		display: inline-block;
+		content: "";
+		display: block;
+		clear: both;
 
 	}
 		
@@ -608,10 +605,22 @@ form {
 		background: #eee;
 		font-size: 1.0666em;
 		margin: -11px 0 11px 0;
+		width: 47%;
+		float: right;
 
 	}
 	
-	label input, span.label input, #content label .selector, textarea {
+	form p {
+		
+		display: inline-block;
+		font-weight: bold;
+		text-align: right;
+		width: 51%;
+		float: left;
+
+	}
+	
+	label input, #content label .selector, textarea {
 	
 		margin-left: 2%;
 	
@@ -620,7 +629,7 @@ form {
 	form input[type="submit"] {
 		
 		margin-right: 0;
-		min-width: 45%;
+		min-width: 47%;
 		
 	}
 	
@@ -633,15 +642,21 @@ form {
 
 	}
 
-	label span, span.label span {
+	label span {
 		
 		position: relative;
 		padding: 2.7% 1% 2.5% 0;
 		display: inline-block;
-		width: 46%;
+		width: 49%;
 		
-		padding: 0 1% 0 0;
+		padding: 0;
 		
+	}
+	
+	form div label span {
+		
+		width: auto;
+
 	}
 	
 	form .mandatory span.checkbox:after, form .mandatory span.tip:after {
@@ -710,7 +725,7 @@ form {
 	
 	form .selector {
 
-		width: 45%;
+		width: 47%;
 		background: url('../images/select-arrow.svg') no-repeat scroll 96% 50% / 10px auto #eee;
 		padding: 0;
 		vertical-align: top;
@@ -754,13 +769,22 @@ form {
 	label.checkbox {
 		
 		text-align: left;
-		width: 45%;
+		width: 47%;
 		margin-top: 0;
 		font-weight: normal;
-		margin-left: 2%;
+		margin-left: 0;
+		float: right;
+		clear: right;
+		margin-top: 23px;
 		
 	}
-	
+
+	label.checkbox + label.checkbox {
+		
+		margin-top: 0;
+
+	}
+		
 	b.checkbox {
 		
 		width: 1em;
@@ -804,14 +828,16 @@ form {
 
 	}
 
-	span.label input[type="radio"] {
-	
-		margin: 2px 0 2px 0;
-		width: 1em;
-		height: 1em;
+	input[type="checkbox"], input[type="radio"] {
+
+		float: left;
+		margin-top: 0;
+		width: auto;
+		margin-right: .5em;
+		min-height: 0;
 
 	}
-
+	
 /* Modal window */
 
 #blackbox {
@@ -1346,6 +1372,26 @@ input.trigger#nav-trigger + * {
 			
 			height: auto;
 
+		}
+		
+		form p, label.checkbox {
+			
+			display: block;
+			width: 100%;
+			text-align: left;
+
+		}
+		
+		label.checkbox {
+		
+			margin-top: 0;
+
+		}
+		
+		input[type="radio"] {
+			
+			margin-left: 2px;
+			
 		}
 		
 	.wide-screen {
