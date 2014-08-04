@@ -661,11 +661,11 @@ form {
 	
 	form .mandatory span.checkbox:after, form .mandatory span.tip:after {
 	
-		display: none;		
+		display: none;
 		
 	}
 
-	form .mandatory span:after {
+	form .mandatory span:after, form .mandatory p:after {
 		
 		content: "*";
 		color: #a00;
@@ -675,8 +675,20 @@ form {
 		font-size: .8em;
 		
 	}
+
+	form .mandatory span.tool:after, form .mandatory p.tool:after {
+		
+		right: 48%;
+		
+	}
+
+	form .mandatory p.tool:after {
+		
+		top: 1.5em;
+		
+	}
 	
-	form .mandatory.alert span {
+	form .mandatory.alert span, form .mandatory.alert p {
 		
 		background: #666;
 		color: #eee;
@@ -714,6 +726,7 @@ form {
 		text-indent: 0px;
 		
 		padding: 0 1.1em 0 .5em;
+		float: none;
 		
 	}
 
@@ -784,6 +797,12 @@ form {
 		margin-top: 0;
 
 	}
+
+	label.checkbox:last-child {
+		
+		margin-bottom: -1px;
+
+	}
 		
 	b.checkbox {
 		
@@ -805,13 +824,25 @@ form {
 
 	}
 
-	input[type="checkbox"]:focus + b.checkbox {
+	input[type="radio"] + b.checkbox {
+		
+		border-radius: 50%;
+
+	}
+
+	input[type="radio"]:checked + b.checkbox:before {
+		
+		content: "●";
+
+	}
+
+	input[type="checkbox"]:focus + b.checkbox, input[type="radio"]:focus + b.checkbox {
 		
 		box-shadow: 0 0 1px #000;
 
 	}
 		
-	input[type="checkbox"] {
+	input[type="checkbox"], input[type="radio"] {
 		
 		-webkit-appearance: none;
 		-moz-appearance: window;
@@ -835,7 +866,17 @@ form {
 		width: auto;
 		margin-right: .5em;
 		min-height: 0;
+		opacity: 0;
+		margin-left: -1.5em;
+		margin-left: 0\9; /* IE8 */
 
+	}
+	
+	input[type="file"] {
+		
+		padding-top: 11px;
+		line-height: 22px;
+		
 	}
 	
 /* Modal window */

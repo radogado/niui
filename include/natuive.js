@@ -459,10 +459,12 @@ forEach('form', function (el, i) {
 			
 			if ( 
 				( el.querySelector('input, select, textarea') && !el.querySelector('input, select, textarea').value ) || 
-				( el.querySelector('input[type="checkbox"]') && !el.querySelector('input[type="checkbox"]').checked ) 
+				( el.querySelector('input[type="checkbox"]') && !el.querySelector('input[type="checkbox"]').checked ) ||
+				( el.querySelector('input[type="radio"]') && !el.querySelector('input[type="radio"]').checked )
 			   ) { 
 
 				ready_to_submit = false;
+				el.querySelector('input').focus();
 				addClass (el, 'alert');
 				return;
 
