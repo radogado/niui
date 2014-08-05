@@ -66,9 +66,12 @@
 	color: #fff;
 	transition: background-color .2s linear;
 	line-height: .7em;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
 	box-sizing: content-box;
 
 }
+
 .slider-arrow, .slider-nav {
 
 	-webkit-touch-callout: none;
