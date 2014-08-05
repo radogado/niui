@@ -299,7 +299,6 @@ function modalWindow (e) {
 		}
 
 		document.getElementById('blackbox').innerHTML = '<div class="close"> ← ' + document.title + '</div><div class="slider lightbox">' + images + '</div><div id="blackbox-bg"></div>';
-		document.querySelector('#blackbox > .close').onclick = document.getElementById('blackbox-bg').onclick = removeBlackbox;
 		
 		if ( makeSlider ) { 
 
@@ -308,6 +307,8 @@ function modalWindow (e) {
 			moveIndex ( new_slider );
 
 		}
+
+		document.getElementById('blackbox-bg').onclick = document.querySelector('#blackbox .close').onclick = removeBlackbox;
 		
 	} else { // ... or load external content in a modal window 
 		
@@ -338,9 +339,18 @@ function modalWindow (e) {
 				} else {
 					blackbox.insertAdjacentHTML('beforeend', request.responseText);
 				}
+
+				blackbox.querySelector('.close').onclick = removeBlackbox;
+/*
+				blackbox.style.bottom = 'auto';
+				if ( blackbox.offsetHeight < window.scrollY ) {
+
+					blackbox.insertAdjacentHTML('beforeend', '<div id="blackbox-bg"></div>');
+					document.getElementById('blackbox-bg').onclick = removeBlackbox;
 				
-				blackbox.insertAdjacentHTML('beforeend', '<div id="blackbox-bg"></div>');
-				blackbox.querySelector('.close').onclick = document.getElementById('blackbox-bg').onclick = removeBlackbox;
+				}
+				blackbox.style.bottom = '0';
+*/
 				
 				relayParameters();
 			

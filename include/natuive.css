@@ -885,8 +885,8 @@ form {
 #blackbox {
 
 	z-index: 9999;
-	background: #000;
-	background: rgba(0,0,0,.9);
+	background: #fff;
+	background: rgba(255,255,255,.9);
 	overflow-y: scroll;
 	position: fixed;
 	top: 0;
@@ -1152,12 +1152,6 @@ ul {
 	    max-height: 0;
 	    cursor: auto;
 	    transition: max-height .4s ease-in-out;
-
-	}
-
-	.accordion:first-of-type > div {
-		
-		margin-top: 1px;
 
 	}
 
