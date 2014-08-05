@@ -25,6 +25,7 @@ function scrollSlider (e) {
 
     clearTimeout(scrollTimer);
     current_scroll = slider.scrollLeft;
+
     scrollTimer = setTimeout( function(e) {
 		
 		if ( current_scroll == slider.scrollLeft ) { /* If all scroll, including inertia, has ended */
@@ -152,7 +153,7 @@ function slide ( e, method ) {
 			change = 0;
 
 		}
-
+		
 	}
 
 	if ( !change ) {
@@ -179,6 +180,7 @@ function slide ( e, method ) {
 			requestAnimFrame(animateScroll);
 
 		} else {
+
 
 			if (slideEnd && typeof(slideEnd) === 'function') { // the animation is done so let's callback
 

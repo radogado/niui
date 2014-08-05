@@ -1122,14 +1122,27 @@ ul {
 	cursor: pointer;
 	color: #777;
 	font-weight: normal;
-	margin: 0 0 21px 0;
+	margin: 0;
 	text-align: left;
 	cursor: pointer;
 	background: #fff;
 	max-width: 100%;
+	margin-top: 1px;
 	
 }
 
+	@-moz-document url-prefix() {
+
+		.accordion { margin-top: 0; }
+
+	}
+	
+	.accordion ~ .accordion {
+		
+		margin-top: 0;
+		
+	}
+	
 	.accordion > label {
 		
 		text-align: left;
@@ -1151,6 +1164,12 @@ ul {
 
 	}
 
+	.accordion > div > * {
+		
+		margin-top: 0;
+
+	}
+
 	.accordion input.trigger:checked + div {
 		
 		max-height: none;
@@ -1163,16 +1182,10 @@ ul {
 		
 	}
 	
-	.accordion .accordion:first-child {
-		
-		padding-top: 0;
-		margin-top: -1px;
-		
-	}
-	
 	.accordion > label {
 		
-		margin: 1.467em 0 0 0;
+		margin: 0;
+		line-height: 44px;
 		
 	}
 

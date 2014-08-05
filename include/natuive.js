@@ -406,30 +406,34 @@ document.querySelector(	document.querySelector('#footer > div > div') ? '#footer
 
 /* Animate anchor links. */
 
+function animateAnchors (e) {
+	
+	var event = e || window.event;
+	var el = event.target || event.srcElement;
+	
+	hash = document.getElementById( el.href.split('#')[1] );
+
+	document.querySelector('#nav-trigger').checked = false; 
+	removeClass ( document.querySelector('#nav-main > div'), 'open' );
+
+	if ( navigator.userAgent.indexOf('Android') == -1) { // No doc.scrollTop on Android
+	
+		scrollTo( (hash == null) ? 0 : hash.offsetTop, function (e) { 
+			window.location = el.href; 
+		});
+		return false;
+
+	} else {
+
+		window.location = el.href;
+
+	}
+	
+};
+	
 forEach( 'a[href*="#"]', function (el, i) {
 	
-	el.onclick = function (e) {
-		
-		var event = e || window.event;
-		var el = event.target || event.srcElement;
-		
-		hash = document.getElementById( el.href.split('#')[1] );
-
-		document.querySelector('#nav-trigger').checked = false; 
-		removeClass ( document.querySelector('#nav-main > div'), 'open' );
-
-		/* No doc.scrollTop on Android */
-		
-		if ( navigator.userAgent.indexOf('Android') == -1) {
-		
-			scrollTo( (hash == null) ? 0 : hash.offsetTop, function (e) { 
-				window.location = el.href; 
-			});
-			return false;
-
-		}
-		
-	};
+	el.onclick = animateAnchors;
 	
 });
 
