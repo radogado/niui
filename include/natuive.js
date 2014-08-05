@@ -232,6 +232,7 @@ function scrollTo( to, callback ) {
 	if ( (navigator.userAgent.indexOf('Trident') ) != -1 ) { // Turn off animation for IE; WP8 animates by itself
 		
 		doc.scrollTop = to;
+		callback();
 		return false;
 		
 	}
@@ -403,28 +404,34 @@ forEach('.tool', function(el, i) {
 
 document.querySelector(	document.querySelector('#footer > div > div') ? '#footer > div > div' : 'body' ).insertAdjacentHTML('beforeend', '<a class="backtotop" href="#head"> ⬆ </a>');
 
-/* Animate anchor links. No doc.scrollTop on Android */
+/* Animate anchor links. */
 
-if ( navigator.userAgent.indexOf('Android') == -1) {
-
-	forEach( 'a[href*="#"]', function (el, i) {
-		
-		el.onclick = function (e) {
-			
-			var event = e || window.event;
-			var el = event.target || event.srcElement;
-			
-			hash = document.getElementById( el.href.split('#')[1] );
+forEach( 'a[href*="#"]', function (el, i) {
 	
-			scrollTo( (hash == null) ? 0 : hash.offsetTop, function (e) { window.location = el.href } );
-			document.querySelector('#nav-trigger').checked = false;
-			return false;
-			
-		};
+	el.onclick = function (e) {
 		
-	});
+		var event = e || window.event;
+		var el = event.target || event.srcElement;
+		
+		hash = document.getElementById( el.href.split('#')[1] );
 
-}
+		document.querySelector('#nav-trigger').checked = false; 
+		removeClass ( document.querySelector('#nav-main > div'), 'open' );
+
+		/* No doc.scrollTop on Android */
+		
+		if ( navigator.userAgent.indexOf('Android') == -1) {
+		
+			scrollTo( (hash == null) ? 0 : hash.offsetTop, function (e) { 
+				window.location = el.href; 
+			});
+			return false;
+
+		}
+		
+	};
+	
+});
 
 /* Modal window: open a link inside it. Also lightbox with images */
 
@@ -529,26 +536,6 @@ forEach('.accordion', function(el, i) {
 	};
 
 });
-
-/* Fixed position top offset */
-
-document.getElementById('head').style.minHeight = document.querySelector('#head .row').scrollHeight + 'px';
-
-/* Prevent body scroll when mobile navigation is open */
-
-if ( document.querySelector('#nav-main > input.trigger') ) {
-
-	document.querySelector('#nav-main > input.trigger').onchange = function (e) {
-
-		 if (document.querySelector('#nav-main > input.trigger').checked) {
-		 	addClass(document.body, 'lock-position'); 
-		 } else {
-		 	removeClass(document.body, 'lock-position');
-		 }
-
-	};
-
-}
 
 if ('ontouchstart' in window) { /* iOS: remove sticky hover state */
 
