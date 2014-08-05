@@ -30,6 +30,8 @@ function scrollSlider (e) {
 		
 		if ( current_scroll == slider.scrollLeft ) { /* If all scroll, including inertia, has ended */
 
+			slider.style.overflow = 'hidden';
+
 			slide (event, 'snap');
 		
 		}
@@ -63,7 +65,8 @@ function slideEnd () {
 		el.onscroll = scrollSlider;
 		
 	});
-	
+
+	slider.style.overflow = 'scroll';	
 }
 
 function slide ( e, method ) {
