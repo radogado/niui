@@ -402,7 +402,7 @@ forEach('.tool', function(el, i) {
 
 /* Add 'Back to top' button */
 
-document.querySelector(	document.querySelector('#footer > div > div') ? '#footer > div > div' : 'body' ).insertAdjacentHTML('beforeend', '<a class="backtotop" href="#head"> ⬆ </a>');
+document.querySelector(	document.querySelector('#footer > div > div') ? '#footer > div > div' : 'body' ).insertAdjacentHTML('beforeend', '<a class="backtotop" href="#head"> ↑ </a>');
 
 /* Animate anchor links. */
 

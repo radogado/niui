@@ -61,6 +61,7 @@
 	padding: .6em;
 	width: 1em;
 	height: 1em;
+	-webkit-border-radius: 50px;
 	border-radius: 50%;
 	background: #bbb;
 	color: #fff;

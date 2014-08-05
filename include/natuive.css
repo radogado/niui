@@ -390,7 +390,7 @@ a:link, a:visited {
 	
 	.button.big:after {
 	
-		content: " ►";
+		content: "►";
 		padding-left: .3em;
 	
 	}
@@ -1514,7 +1514,8 @@ input.trigger#nav-trigger + * {
 	label[for="nav-trigger"] {
 		
 		display: block;
-		left: 15px;
+		left: 0;
+		top: 0;
 		width: 1em;
 		height: 1em;
 		font-size: 3em;
