@@ -5,6 +5,7 @@ A 7 KB framework focused on browsers' built-in capabilities with smart customisa
 ---
 
 - Unbreakable, flexible, responsive, baseline aligned\* grid
+- Flexbox grid for WebKit with minimum column width
 - Embeddable grid/elements\*
 - Column content can be aligned vertically on top/middle/bottom\*
 - CSS reset
