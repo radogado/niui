@@ -505,6 +505,15 @@ forEach('form', function (el, i) {
 	
 });
 
+document.querySelector('input[type="file"]').onchange = function (e) {
+	
+	var event = e || window.event;
+	el = event.target || event.srcElement;
+	
+	el.parentNode.innerText = el.value;	
+	
+};
+
 /* Accordion */
 
 forEach('.accordion', function(el, i) {

@@ -871,8 +871,19 @@ form {
 	
 	input[type="file"] {
 		
-		padding-top: 11px;
-		line-height: 22px;
+		position: absolute;
+
+	}
+	
+	form .file-input {
+
+		float: right;
+		position: relative;
+		height: 44px;
+		background: #eee;
+		cursor: pointer;
+		overflow: hidden;
+		background: #eee;
 		
 	}
 	
