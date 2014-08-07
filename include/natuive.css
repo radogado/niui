@@ -669,17 +669,24 @@ form {
 		
 	}
 
-	form .mandatory span:after, form .mandatory p:after {
+	form .mandatory {
+		
+		position: relative;
+		
+	}
+
+	form .mandatory:after {
 		
 		content: "*";
 		color: #a00;
 		position: absolute;
-		right: -2%;
+		left: 51.5%;
 		top: 0;
-		font-size: .8em;
+		font-weight: bold;
 		
 	}
 
+/*
 	form .mandatory span.tool:after, form .mandatory p.tool:after {
 		
 		right: 48%;
@@ -691,6 +698,7 @@ form {
 		top: 1.5em;
 		
 	}
+*/
 	
 	form .mandatory.alert span, form .mandatory.alert p {
 		
@@ -755,7 +763,7 @@ form {
 
 	}
 	
-	form .selector {
+	#content form .selector {
 		
 		padding-top: 11px;
 		height: 44px;
@@ -1410,9 +1418,10 @@ input.trigger#nav-trigger + * {
 
 		}
 		
-		form .mandatory span:after {
+		form .mandatory:after {
 			
 			right: 0;
+			left: auto;
 			
 		}
 
