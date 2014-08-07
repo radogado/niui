@@ -141,28 +141,30 @@ function getURLParameters () { // return all URL parameters in an array
 
 /* Tooltip */
 
-var tip;
+/*
+var tip = 0;
 
 function hideTip (e) {
-
-	stopEvent( e );
-
+	
 	if (tip) {
 
 		removeClass ( tip, 'open' );
 		tip = 0;
-
+		return false;
 	}
 	
-	return false;
+		alert(tip.className);
 
 }
 
 function showTip (e) {
-
-	stopEvent( e );
+stopEvent( e );
+	if (tip) {
+		removeClass ( tip, 'open' );
+		alert('a');
+		hideTip(e);
 	
-	if (tip) return;
+	}
 	
 	var event = e || window.event;
 	var el = event.target || event.srcElement;
@@ -173,9 +175,8 @@ function showTip (e) {
 	
 	addClass ( tip, 'open' );
 	
-	return false;
-
 }
+*/
 
 /* URI parameters relay. Omit links starting with "javascript", "mailto", skip parameters not listed in the array */
 
@@ -384,25 +385,27 @@ relayParameters();
 
 forEach('.tool', function(el, i) {
 	
+/*
 	el.onclick = showTip;
 		
 	el.onmouseover = showTip;
 	el.onmouseout = hideTip;
+*/
 	
-	tip = el.querySelector('.tip');
-	if (!tip) return;
+	t = el.querySelector('.tip');
+	if (!t) return;
 	
-	addEventHandler(tip, 'touchmove', hideTip, false);
+/* 	addEventHandler(t, 'touchmove', function (e) { document.querySelector('.tip.open').removeClass('open'); }, false); */
 	el.style.position = 'static'; // dangerous with absolutely-positioned containers, which should be avoided anyway
 	el.parentNode.style.position = 'relative'; // dangerous with absolutely-positioned containers, which should be avoided anyway
-	tip.style.top = (tip.parentNode.offsetTop + tip.parentNode.offsetHeight) + 'px';
-	tip.style.width = '100%';
+	t.style.top = (t.parentNode.offsetTop + t.parentNode.offsetHeight) + 'px';
+	t.style.width = '100%';
 			
 });
 
 /* Add 'Back to top' button */
 
-document.querySelector(	document.querySelector('#footer > div > div') ? '#footer > div > div' : 'body' ).insertAdjacentHTML('beforeend', '<a class="backtotop" href="#head"> ↑ </a>');
+document.querySelector(	document.querySelector('#footer > div > div') ? '#footer > div > div' : 'body' ).insertAdjacentHTML('beforeend', '<a class="backtotop" href="#"> ↑ </a>');
 
 /* Animate anchor links. */
 
