@@ -8,6 +8,12 @@ var current_scroll = 0;
 
 function scrollSlider (e) {
 
+	if ( navigator.userAgent.indexOf('Android') != -1 )	{ // To fix later
+		
+		return;
+
+	}
+
 	var event = e || window.event;
 	el = event.target || event.srcElement;
 

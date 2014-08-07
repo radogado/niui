@@ -611,12 +611,12 @@ form {
 		display: inline-block;
 		font-weight: bold;
 		text-align: right;
-		width: 51%;
+		width: 51.7%;
 		float: left;
 
 	}
 	
-	label input, #content label .selector, textarea {
+	label input, textarea, form .file-input {
 	
 		margin-left: 2%;
 	
@@ -635,8 +635,16 @@ form {
 		line-height: 22px;
 		border-bottom: 1px solid transparent;
 		padding-top: 11px;
+		margin-bottom: 21px;
 
 	}
+	
+		@-moz-document url-prefix() {
+	
+			textarea { margin-bottom: 22px; }
+	
+		}
+	
 
 	label span {
 		
@@ -732,7 +740,7 @@ form {
 
 	}
 	
-	form .selector {
+	form .selector, form .file-input {
 
 		width: 47%;
 		background: url('../images/select-arrow.svg') no-repeat scroll 96% 50% / 10px auto #eee;
@@ -743,7 +751,17 @@ form {
 		border: none;
 		height: 22px;
 		overflow: hidden;
+		margin-left: 1%;
 
+	}
+	
+	form .selector {
+		
+		padding-top: 11px;
+		height: 44px;
+		margin-top: -11px;
+		margin-bottom: 11px
+		
 	}
 	
 	:root #content select { padding-right: 2% \0/IE9; background: #fff \0/IE9; }  /* Disable the custom arrow in IE9 */
@@ -812,6 +830,7 @@ form {
 		line-height: 1;
 		color: #333;
 		margin-right: .5em;
+		width: .5em\9; /* IE8 */
 
 	}
 
@@ -872,21 +891,33 @@ form {
 	input[type="file"] {
 		
 		position: absolute;
+		right: 110%;
 
 	}
 	
 	form .file-input {
 
-		float: right;
-		position: relative;
+		padding-left: .7em;
+		font-weight: normal;
+		background: #eee;
 		height: 44px;
-		background: #eee;
+		line-height: 45px;
+		margin-top: -11px;
+		margin-bottom: 11px;
 		cursor: pointer;
-		overflow: hidden;
-		background: #eee;
+		font-style: italic;
+		border-right: .7em solid transparent;
 		
 	}
-	
+
+	form .file-input span {
+
+		width: 100%;
+		text-align: left;
+		white-space: nowrap;
+
+	}
+		
 /* Modal window */
 
 #blackbox {
@@ -1385,7 +1416,7 @@ input.trigger#nav-trigger + * {
 			
 		}
 
-		#content label .selector, label input, textarea {
+		#content label .selector, label input, textarea, form .file-input {
 			
 			width: 100%;
 			margin: 0;
@@ -1424,7 +1455,7 @@ input.trigger#nav-trigger + * {
 	
 		}
 		
-		form .selector {
+		form .selector, form .file-input {
 			
 			height: auto;
 

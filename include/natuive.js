@@ -509,8 +509,7 @@ document.querySelector('input[type="file"]').onchange = function (e) {
 	
 	var event = e || window.event;
 	el = event.target || event.srcElement;
-	
-	el.parentNode.innerText = el.value;	
+	el.parentNode.querySelector('span').innerHTML = el.value.substring(el.value.lastIndexOf('\\') +1)
 	
 };
 
