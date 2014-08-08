@@ -8,7 +8,7 @@ var current_scroll = 0;
 
 function scrollSlider (e) {
 
-	if ( navigator.userAgent.indexOf('Android') != -1 )	{ // To fix later
+	if ( navigator.userAgent.indexOf('Android') != -1 )	{ // To fix
 		
 		return;
 
@@ -105,7 +105,7 @@ function slide ( e, method ) {
 		el = e; 
 
 	}
-
+	
 	var change = 0;
 
 	if ( method == 'index' ) {
@@ -125,11 +125,45 @@ function slide ( e, method ) {
 
 		if ( hasClass(el, 'left') ) { // left arrow
 			
-			change = (current_index ? slider.children[ current_index-1 ].offsetLeft : 0) - slider.children[ current_index ].offsetLeft;
+/* 			change = (current_index ? slider.children[ current_index-1 ].offsetLeft : 0) - slider.children[ current_index ].offsetLeft; */
+			i = 0;
+
+			while ( i < slider.children.length ) {
+				
+				el = slider.children[i++];
+				if ( el.offsetLeft >= slider.scrollLeft ) {
+
+					if (i>1) {
+						change = -1 * ( slider.scrollLeft - el.previousSibling.offsetLeft );
+					}
+					break;
+				
+				}
+				
+			}
 
 		} else { // right arrow
 
-			change = (slider.children.length-1 > current_index) ? slider.children[ current_index+1 ].offsetLeft - slider.children[ current_index ].offsetLeft : 0;
+/* 			change = (slider.children.length-1 > current_index) ? slider.children[ current_index+1 ].offsetLeft - slider.children[ current_index ].offsetLeft : 0; */
+			i = 0;
+			
+			while ( i < slider.children.length ) {
+				
+				el = slider.children[i++];
+				if ( el.offsetLeft >= slider.scrollLeft ) {
+
+					change = el.offsetLeft - slider.scrollLeft;
+					break;
+				
+				}
+				
+			}
+			
+			if (!change) {
+				
+				change = (slider.children.length-1 > current_index) ? slider.children[ current_index+1 ].offsetLeft - slider.children[ current_index ].offsetLeft : 0;
+
+			}
 
 		}
 
@@ -306,6 +340,7 @@ forEach('.slider', function(el, i) {
 
 slider = document.querySelector('.slider');
 
+/*
 window.onresize = function () { 
 	
 	forEach('.slider', function (el,i) {
@@ -315,3 +350,4 @@ window.onresize = function () {
 	});
 	
 }
+*/

@@ -923,6 +923,7 @@ form {
 		width: 100%;
 		text-align: left;
 		white-space: nowrap;
+		padding: 0;
 
 	}
 		
@@ -1435,12 +1436,12 @@ input.trigger#nav-trigger + * {
 		#content label select, input[type="submit"] {
 	
 			width: 100%;
-	
+
 		}
 		
 		#content select {
 			
-			padding: 2.2% 1.3em 0 2%;
+			padding: 0 1.3em 0 2%;
 			margin-bottom: 0;
 			
 		}
