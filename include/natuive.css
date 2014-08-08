@@ -728,7 +728,6 @@ form {
 		width: 45%;
 		padding: 5% 4%;
 		padding-right: 1.3em; /* Prevent overlapping */
-		padding-right: 2%\9; /* IE8 */
 		background: #fff\9; /* IE8 */
 		margin-top: 0px\9; /* IE8 fix */
 		min-height: 0px\9; /* IE8 fix */
@@ -738,6 +737,7 @@ form {
 		text-indent: 0px;
 		
 		padding: 0 1.1em 0 .5em;
+		padding-right: 0\9; /* IE8 */
 		float: none;
 		
 	}
@@ -838,7 +838,6 @@ form {
 		line-height: 1;
 		color: #333;
 		margin-right: .5em;
-		width: .5em\9; /* IE8 */
 
 	}
 
@@ -1063,7 +1062,8 @@ form {
 
 ul {
 	
-	margin: 1em 0 1em .3em;
+	margin: 22px 0 22px .3em;
+
 }
 
 	ol {
