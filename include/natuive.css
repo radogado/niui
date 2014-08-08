@@ -547,7 +547,7 @@ form {
 	
 	form div {
 	
-		margin-top: 22px;		
+		margin-top: 17px;
 
 	}
 
@@ -607,7 +607,7 @@ form {
 		background: #eee;
 		font-size: 1.0666em;
 		margin: -11px 0 11px 0;
-		width: 47%;
+		width: 50%;
 		float: right;
 
 	}
@@ -617,28 +617,31 @@ form {
 		display: inline-block;
 		font-weight: bold;
 		text-align: right;
-		width: 49.7%;
+		width: 50%;
 		float: left;
 		margin-top: 0;
+		padding-right: 3%;
 
 	}
 	
+/*
 	label input, textarea, form .file-input {
 	
 		margin-left: 2%;
 	
 	}
+*/
 	
 	form input[type="submit"] {
 		
 		margin-right: 0;
-		min-width: 47%;
+		min-width: 50%;
 		
 	}
 	
 	textarea {
 		
-		margin: -11px 0 -1px 2%;
+		margin: -33px 0 -1px 2%;
 		line-height: 22px;
 		border-bottom: 1px solid transparent;
 		padding-top: 11px;
@@ -652,17 +655,17 @@ form {
 			textarea { margin-bottom: 12px; }
 	
 		}
-	
 
 	label span {
 		
 		position: relative;
 		padding: 2.7% 1% 2.5% 0;
 		display: inline-block;
-		width: 48%;
+		width: 50%;
 		
-		padding: 0 2% 0 0;
-		
+		padding: 0 3% 0 0;
+		float: left;		
+
 	}
 	
 	form div label span {
@@ -688,7 +691,7 @@ form {
 		content: "*";
 		color: #a00;
 		position: absolute;
-		left: 50%;
+		left: 47.5%;
 		top: 0;
 		font-weight: bold;
 		
@@ -759,7 +762,7 @@ form {
 	
 	form .selector, form .file-input {
 
-		width: 47%;
+		width: 50%;
 		background: url('../images/select-arrow.svg') no-repeat scroll 96% 50% / 10px auto #eee;
 		padding: 0;
 		vertical-align: top;
@@ -768,7 +771,7 @@ form {
 		border: none;
 		height: 22px;
 		overflow: hidden;
-		margin-left: 1%;
+		margin-left: 0;
 		background-color: #eee;
 
 	}
@@ -778,7 +781,8 @@ form {
 		padding-top: 0;
 		height: 44px;
 		margin-top: -11px;
-		margin-bottom: 11px
+		margin-bottom: 11px;
+		margin-left: 0;
 		
 	}
 	
@@ -814,7 +818,7 @@ form {
 	label.checkbox {
 		
 		text-align: left;
-		width: 47%;
+		width: 50%;
 		margin-top: 0;
 		font-weight: normal;
 		margin-left: 0;
