@@ -527,27 +527,32 @@ form {
 
 }
 
+	#content form {
+		
+		padding-top: 22px;
+
+	}
+
 	label {
 		
 		display: inline-block;
 		text-align: right;
-		margin: 1.467em 0;
 		font-weight: bold;
 		max-width: 100%;
-		padding: 1px;
 		position: relative;
 		
 		padding: 0;
-		margin: 0;
 		line-height: 1.467em; /* 1px difference */
-		margin-top: 1.467em;
+		margin: 0 0 22px 0;
 		width: 100%;
+		float: left;
 
 	}
 	
 	form div {
 	
-		margin-top: 17px;
+		margin-bottom: 22px;
+		clear: both;
 
 	}
 
@@ -580,26 +585,11 @@ form {
 		
 		background: #fff;
 		font-family: inherit;
-		font-size: 1em;
-		border: none;
-		border-top: 1px solid #ddd;
-		border-bottom: 1px solid #ddd;
-		padding: 2.2% 2%;
-		width: 45%;
 		display: inline-block;
-		vertical-align: top;
 		overflow: hidden;
 		resize: none;
-		border: 1px solid #bbb;
 		vertical-align: top;
 		border-radius: 0;
-
-		padding: .7333em;
-		margin-top: -10px;
-		line-height: 1.467em;
-		border: 0;
-		background: #eee;
-
 		padding: 0 .7em;
 		line-height: 22px;
 		min-height: 44px;
@@ -611,6 +601,12 @@ form {
 		float: right;
 
 	}
+	
+		@-moz-document url-prefix() {
+
+			input { border-bottom: 1px solid transparent; }
+
+		}
 	
 	form p {
 		
@@ -624,14 +620,6 @@ form {
 
 	}
 	
-/*
-	label input, textarea, form .file-input {
-	
-		margin-left: 2%;
-	
-	}
-*/
-	
 	form input[type="submit"] {
 		
 		margin-right: 0;
@@ -641,28 +629,19 @@ form {
 	
 	textarea {
 		
-		margin: -33px 0 -1px 2%;
+		margin: -11px 0 11px 0;
 		line-height: 22px;
 		border-bottom: 1px solid transparent;
 		padding-top: 11px;
-		margin-bottom: 11px;
 		min-height: 66px;
 
 	}
 	
-		@-moz-document url-prefix() {
-	
-			textarea { margin-bottom: 12px; }
-	
-		}
-
 	label span {
 		
 		position: relative;
-		padding: 2.7% 1% 2.5% 0;
 		display: inline-block;
 		width: 50%;
-		
 		padding: 0 3% 0 0;
 		float: left;		
 
@@ -697,20 +676,6 @@ form {
 		
 	}
 
-/*
-	form .mandatory span.tool:after, form .mandatory p.tool:after {
-		
-		right: 48%;
-		
-	}
-
-	form .mandatory p.tool:after {
-		
-		top: 1.5em;
-		
-	}
-*/
-	
 	form .mandatory.alert span, form .mandatory.alert p {
 		
 		background: #666;
@@ -737,8 +702,6 @@ form {
 		text-indent: 0.01px;
 		text-overflow: '';
 		width: 45%;
-		padding: 5% 4%;
-		padding-right: 1.3em; /* Prevent overlapping */
 		background: #fff\9; /* IE8 */
 		margin-top: 0px\9; /* IE8 fix */
 		min-height: 0px\9; /* IE8 fix */
@@ -746,7 +709,6 @@ form {
 		background: transparent;
 		border: 0;
 		text-indent: 0px;
-		
 		padding: 11px 1.3em 11px .7em;
 		padding-right: 0\9; /* IE8 */
 		float: none;
@@ -756,7 +718,7 @@ form {
 
 	@-moz-document url-prefix()	{
 
-		#content select { width: 110%; padding-top: 21px; padding-left: .5em;}
+		#content select { width: 110%; padding-top: 22px; padding-left: .5em;}
 
 	}
 	
@@ -766,8 +728,6 @@ form {
 		background: url('../images/select-arrow.svg') no-repeat scroll 96% 50% / 10px auto #eee;
 		padding: 0;
 		vertical-align: top;
-		border: 1px solid #ccc;
-		
 		border: none;
 		height: 22px;
 		overflow: hidden;
@@ -780,9 +740,7 @@ form {
 		
 		padding-top: 0;
 		height: 44px;
-		margin-top: -11px;
-		margin-bottom: 11px;
-		margin-left: 0;
+		margin: -11px 0 11px 0;
 		
 	}
 	
@@ -802,32 +760,18 @@ form {
 
 	}
 	
-	span.checkbox {
-
-		width: 45%;
-		text-align: left;
-		margin-left: 2%;
-		vertical-align: top;
-		font-weight: normal;
-		cursor: pointer;
-		-webkit-transform: translateY(1px);
-		-moz-transform: translateY(-1px);
-
-	}
-	
 	label.checkbox {
 		
 		text-align: left;
 		width: 50%;
-		margin-top: 0;
 		font-weight: normal;
-		margin-left: 0;
 		float: right;
 		clear: right;
-		margin-top: 1px;
+		margin: 1px 0 0 0;
+		cursor: pointer;
 		
 	}
-
+	
 	label.checkbox + label.checkbox {
 		
 		margin-top: 0;
@@ -890,25 +834,17 @@ form {
 		opacity: 0;
 		padding: 0;
 		border: 1px solid transparent;
-		width: 1em;
 		left: -3px;
 		outline: none;
-
-	}
-
-	input[type="checkbox"], input[type="radio"] {
-
 		float: left;
-		margin-top: 0;
 		width: auto;
-		margin-right: .5em;
 		min-height: 0;
 		opacity: 0;
-		margin-left: -1.5em;
+		margin: 0 .5em 0 -1.5em;
 		margin-left: 0\9; /* IE8 */
 
 	}
-	
+
 	input[type="file"] {
 		
 		position: absolute;
@@ -923,8 +859,7 @@ form {
 		background: #eee;
 		height: 44px;
 		line-height: 45px;
-		margin-top: -11px;
-		margin-bottom: 11px;
+		margin: -11px 0 11px 0;
 		cursor: pointer;
 		font-style: italic;
 		border-right: .7em solid transparent;
