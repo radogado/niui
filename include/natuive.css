@@ -769,7 +769,7 @@ form {
 		height: 22px;
 		overflow: hidden;
 		margin-left: 1%;
-		background: #eee;
+		background-color: #eee;
 
 	}
 	
@@ -1451,7 +1451,7 @@ input.trigger#nav-trigger + * {
 				
 		#content select {
 			
-			padding: 11px 1.3em 0 2%;
+			padding: 11px 1.3em 0 .5em;
 			margin-bottom: 0;
 			
 		}
