@@ -545,6 +545,12 @@ form {
 
 	}
 	
+	form div {
+	
+		margin-top: 22px;		
+
+	}
+
 	form div:after {
 		
 		content: "";
@@ -595,7 +601,7 @@ form {
 		background: #eee;
 
 		padding: 0 .7em;
-		line-height: 44px;
+		line-height: 22px;
 		min-height: 44px;
 		border: 0;
 		background: #eee;
@@ -611,8 +617,9 @@ form {
 		display: inline-block;
 		font-weight: bold;
 		text-align: right;
-		width: 51.7%;
+		width: 49.7%;
 		float: left;
+		margin-top: 0;
 
 	}
 	
@@ -635,13 +642,14 @@ form {
 		line-height: 22px;
 		border-bottom: 1px solid transparent;
 		padding-top: 11px;
-		margin-bottom: 21px;
+		margin-bottom: 11px;
+		min-height: 66px;
 
 	}
 	
 		@-moz-document url-prefix() {
 	
-			textarea { margin-bottom: 22px; }
+			textarea { margin-bottom: 12px; }
 	
 		}
 	
@@ -651,9 +659,9 @@ form {
 		position: relative;
 		padding: 2.7% 1% 2.5% 0;
 		display: inline-block;
-		width: 49%;
+		width: 48%;
 		
-		padding: 0;
+		padding: 0 2% 0 0;
 		
 	}
 	
@@ -680,7 +688,7 @@ form {
 		content: "*";
 		color: #a00;
 		position: absolute;
-		left: 51.5%;
+		left: 50%;
 		top: 0;
 		font-weight: bold;
 		
@@ -736,15 +744,16 @@ form {
 		border: 0;
 		text-indent: 0px;
 		
-		padding: 0 1.1em 0 .5em;
+		padding: 11px 1.3em 11px .7em;
 		padding-right: 0\9; /* IE8 */
 		float: none;
+		line-height: 44px;
 		
 	}
 
 	@-moz-document url-prefix()	{
 
-		#content select { width: 110%; padding-top: 11px; }
+		#content select { width: 110%; padding-top: 21px; padding-left: .5em;}
 
 	}
 	
@@ -760,12 +769,13 @@ form {
 		height: 22px;
 		overflow: hidden;
 		margin-left: 1%;
+		background: #eee;
 
 	}
 	
 	#content form .selector {
 		
-		padding-top: 11px;
+		padding-top: 0;
 		height: 44px;
 		margin-top: -11px;
 		margin-bottom: 11px
@@ -810,7 +820,7 @@ form {
 		margin-left: 0;
 		float: right;
 		clear: right;
-		margin-top: 23px;
+		margin-top: 1px;
 		
 	}
 
@@ -1438,12 +1448,18 @@ input.trigger#nav-trigger + * {
 			width: 100%;
 
 		}
-		
+				
 		#content select {
 			
-			padding: 0 1.3em 0 2%;
+			padding: 11px 1.3em 0 2%;
 			margin-bottom: 0;
 			
+		}
+		
+		@-moz-document url-prefix() {
+
+			#content label select { width: 110%; padding-top: 22px; }
+
 		}
 		
 		span.checkbox {

@@ -39,9 +39,9 @@ var parseHTML = function ( str ) {
 
 }
 
-function forEach( selector, fn ) {
+function forEach( selector, fn ) { // Accepts both an array and a selector
 
-	elements = document.querySelectorAll(selector);
+	elements = (typeof selector == 'object') ? selector : document.querySelectorAll(selector);
 	for (var i = 0; i < elements.length; i++) {
 		fn(elements[i], i);
 	}
@@ -477,9 +477,12 @@ forEach('form', function (el, i) {
 	
 	el.onsubmit = function (e) {
 
+		var event = e || window.event;
+		el = event.target || event.srcElement;
+
 		ready_to_submit = true;
 
-		forEach('.mandatory', function (el, i) {
+		forEach(el.querySelectorAll('.mandatory'), function (el, i) {
 			
 			if ( 
 				( el.querySelector('input, select, textarea') && !el.querySelector('input, select, textarea').value ) || 
@@ -500,7 +503,7 @@ forEach('form', function (el, i) {
 
 		});
 
-		if (!ready_to_submit) scrollTo(el.parentNode.offsetTop);
+		if (!ready_to_submit) scrollTo(el.offsetTop + el.parentNode.offsetTop);
 
 		return ready_to_submit;
 		
