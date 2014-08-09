@@ -479,7 +479,7 @@ forEach('form', function (el, i) {
 
 		ready_to_submit = true;
 
-		forEach(el.querySelectorAll('.mandatory'), function (el, i) {
+		forEach( el.querySelectorAll('.mandatory'), function (el, i) {
 			
 			if ( 
 				( el.querySelector('input, select, textarea') && !el.querySelector('input, select, textarea').value ) || 
@@ -508,17 +508,21 @@ forEach('form', function (el, i) {
 	
 });
 
-document.querySelector('input[type="file"]').onchange = function (e) {
+forEach( 'input[type="file"]', function (el, i ) {
 	
-	var event = e || window.event;
-	el = event.target || event.srcElement;
-	el.parentNode.querySelector('span').innerHTML = el.value.substring(el.value.lastIndexOf('\\') +1)
+	el.onchange = function (e) {
+		
+		var event = e || window.event;
+		el = event.target || event.srcElement;
+		el.parentNode.querySelector('span').innerHTML = el.value.substring(el.value.lastIndexOf('\\') +1)
+		
+	};
 	
-};
+});
 
 /* Accordion */
 
-forEach('.accordion', function(el, i) {
+forEach( '.accordion', function(el, i) {
 	
 	if ( el.querySelector('input.trigger') ) { // Remove CSS-only triggers
 	
@@ -548,19 +552,19 @@ forEach('.accordion', function(el, i) {
 
 });
 
-if ('ontouchstart' in window) { /* iOS: remove sticky hover state */
+if ( 'ontouchstart' in window ) { /* iOS: remove sticky hover state */
 
 	document.body.insertAdjacentHTML('beforeend', '<style> a[href]:hover { color: inherit; } </style>');
 
 }
 
-addEventHandler(window, 'load', function() {
+addEventHandler( window, 'load', function() {
 
-/* Align images vertically. Using hard-coded line height at 22px */
+/* Baseline align images vertically. Using standard line height at 22px */
 
 	var line_height = 22;
 	
-	forEach('#content img', function (el) {
+	forEach( '#content img', function (el) {
 		
 		extra_padding = ((Math.round(el.height/line_height)+1)*line_height - el.height);
 		

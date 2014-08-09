@@ -676,7 +676,7 @@ form {
 		padding-right: 0\9; /* IE8 */
 		float: none;
 		line-height: 44px;
-		
+
 	}
 
 	@-moz-document url-prefix()	{
@@ -720,6 +720,9 @@ form {
 		max-height: 1em;
 		line-height: 1;
 		padding: .1em;
+		min-width: 0;
+		margin-top: 0;
+		min-height: 0;
 
 	}
 	
@@ -852,7 +855,7 @@ form {
 	bottom: 0;
 	left: 0;
 	border-top: none;
-	padding-top: 3.6em;
+	padding-top: 3em;
 	-webkit-overflow-scrolling: touch;
 
 	}
@@ -867,11 +870,12 @@ form {
 
 		color: #fff;
 		cursor: pointer;
-		padding: 1em;
+		padding: .6em;
+		height: 3em;
 		font-weight: bold;
 		position: fixed;
 		background: #000;
-		background: rgba(0,0,0,.5);
+		background: rgba(0,0,0,.7);
 		width: 100%;
 		z-index: 99999;
 		top: 0;
