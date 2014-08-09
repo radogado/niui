@@ -15,27 +15,10 @@
 	table-layout: fixed;
 	width: 100%;
 	border-collapse: separate;
-	padding: 7px;
+	padding: 7px 0;
 	
-	/* Flexbox grid */	
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	
-	-webkit-flex-wrap: wrap;
-	-ms-flex-wrap: wrap;
-	flex-wrap: wrap;
-	
-	display: table\0; /* Disable Flexbox on IE, because of problem with column fallback to table-cell */
-
 }
 
-	@-moz-document url-prefix() { /* Disable Flexbox on FF because of problems with old FF and columns with display: table-cell */
-	
-		.row { display: table; }
-	
-	}
-	
 	.row > * {
 	
 		display: table-cell;
@@ -43,17 +26,6 @@
 		position: relative;
 		padding: 0 7px; /* instead of em, because of Chrome subpixel rendering */
 		word-wrap: break-word;
-		
-		/* Flexbox grid with minimum column width */
-		-webkit-flex: 300px;
-		-ms-flex: 300px;
-		flex: 300px;
-
-	}
-	
-	.row .row {
-		
-		padding: 0;
 
 	}
 	
@@ -63,13 +35,13 @@
 		
 	}
 	/* Embedded grid */
-	.row .row:not(.slider-nav) > :last-child {
+	.row .row > :last-child {
 		
 		padding-right: 0;
 		
 	}
 
-	.row .row:not(.slider-nav) > :first-child {
+	.row .row > :first-child {
 		
 		padding-left: 0;
 		
@@ -78,40 +50,30 @@
 	.row > .column23 {
 
 		width: 66.6%;
-		-webkit-flex: 66.6%;
-		flex: 66.6%;
 
 	}
 	
 	.row > .column34 {
 
 		width: 75%;
-		-webkit-flex: 75%;
-		flex: 75%;
 
 	}
 
 	.row > .column4 {
 
 		width: 25%;
-		-webkit-flex: 25%;
-		flex: 25%;
 
 	}
 
 	.row > .column3 {
 
 		width: 33.333%;
-		-webkit-flex: 33.333%;
-		flex: 33.333%;
 
 	}
 
 	.row > .column2 {
 
 		width: 50%;
-		-webkit-flex: 50%;
-		flex: 50%;
 
 	}
 
@@ -617,6 +579,7 @@ form {
 		float: left;
 		margin-top: 0;
 		padding-right: 3%;
+		cursor: default;
 
 	}
 	
@@ -1186,6 +1149,7 @@ ul {
 		
 		margin: 0;
 		line-height: 44px;
+		float: none;
 		
 	}
 

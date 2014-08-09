@@ -1,6 +1,6 @@
 /* natUIve by rado.bg */
 	
-function addClass ( el, className ) { // To do: fix unnecessary spaces
+function addClass ( el, className ) {
 
 	if (el.classList) {
 		el.classList.add(className);
@@ -31,6 +31,16 @@ function hasClass ( el, className ) {
 
 }
 
+function toggleClass ( el, className ) {
+
+	if ( hasClass ( el, className ) ) {
+		removeClass ( el, className );
+	} else {
+		addClass ( el, className );
+	}
+	
+}
+
 var parseHTML = function ( str ) {
 
 	tmp = document.implementation.createHTMLDocument('Parsed');
@@ -48,13 +58,13 @@ function forEach( selector, fn ) { // Accepts both an array and a selector
 
 }
 	
-function addEventHandler( elem,eventType,handler ) {
+function addEventHandler( el, eventType, handler ) {
 
-	if (elem.addEventListener) {
-	     elem.addEventListener (eventType,handler,false);
+	if (el.addEventListener) {
+	     el.addEventListener ( eventType, handler, false );
 	} else {
-		if (elem.attachEvent) {
-	    	elem.attachEvent ('on'+eventType,handler);
+		if (el.attachEvent) {
+	    	el.attachEvent ( 'on'+eventType, handler);
 		}
 	}     
 
@@ -91,8 +101,6 @@ function thisIndex (el) {
 }
 
 if ( typeof document.body.style.textShadow == 'undefined' ) { // Old browsers without (good) CSS3 support. IE9- detector
-
-	// To do: Define getElementsByClassName for IE8 and use it instead of querySelectorAll for speed
 
 	forEach( 'table', function (el, i) {
 		
@@ -139,6 +147,30 @@ function getURLParameters () { // return all URL parameters in an array
 
 }
 
+/* URI parameters relay. Omit links starting with "javascript", "mailto", skip parameters not listed in the array */
+
+var parameters_list = new Array ('parameter1','parameter2' );
+
+function relayParameters () {
+
+	parameters = getURLParameters();
+
+	forEach('a[href]', function(el, i) {
+
+		for (var name in parameters) {
+
+			if ( parameters_list.indexOf(name) == -1 ) continue;
+
+			if ( !el.href.indexOf('javascript') || (!el.href.indexOf('mailto') ) ) continue;
+			var hash = el.href.split('#')[1] ? ( '#' + el.href.split('#')[1] ) : '';
+			el.href = updateURLParameter( el.href.split('#')[0], name, parameters[name] ) + hash;
+	
+		} 
+	
+	});
+
+}
+
 /* Tooltip */
 
 /*
@@ -177,30 +209,6 @@ stopEvent( e );
 	
 }
 */
-
-/* URI parameters relay. Omit links starting with "javascript", "mailto", skip parameters not listed in the array */
-
-var parameters_list = new Array ('parameter1','parameter2' );
-
-function relayParameters () {
-
-	parameters = getURLParameters();
-
-	forEach('a[href]', function(el, i) {
-
-		for (var name in parameters) {
-
-			if ( parameters_list.indexOf(name) == -1 ) continue;
-
-			if ( !el.href.indexOf('javascript') || (!el.href.indexOf('mailto') ) ) continue;
-			var hash = el.href.split('#')[1] ? ( '#' + el.href.split('#')[1] ) : '';
-			el.href = updateURLParameter( el.href.split('#')[0], name, parameters[name] ) + hash;
-	
-		} 
-	
-	});
-
-}
 
 Math.easeInOutQuad = function ( t, b, c, d ) {
 
@@ -245,7 +253,6 @@ function scrollTo( to, callback ) {
 	    var val = Math.easeInOutQuad(currentTime, start, change, 400);
 	    // move the document.body
 	    doc.scrollTop = val;
-/* 		document.documentElement.scrollTop = val; */
 	    // do the animation unless its over
 	    if(currentTime < 400) {
 			requestAnimFrame(animateScroll);
@@ -343,16 +350,6 @@ function modalWindow (e) {
 				}
 
 				blackbox.querySelector('.close').onclick = removeBlackbox;
-/*
-				blackbox.style.bottom = 'auto';
-				if ( blackbox.offsetHeight < window.scrollY ) {
-
-					blackbox.insertAdjacentHTML('beforeend', '<div id="blackbox-bg"></div>');
-					document.getElementById('blackbox-bg').onclick = removeBlackbox;
-				
-				}
-				blackbox.style.bottom = '0';
-*/
 				
 				relayParameters();
 			
@@ -375,7 +372,7 @@ function modalWindow (e) {
 
 }
 
-/* Start */
+/*** Start ***/
 
 /* Relay URI parameters to links */
 
@@ -523,7 +520,7 @@ document.querySelector('input[type="file"]').onchange = function (e) {
 
 forEach('.accordion', function(el, i) {
 	
-	if ( el.querySelector('input.trigger') ) {
+	if ( el.querySelector('input.trigger') ) { // Remove CSS-only triggers
 	
 		el.querySelector('input.trigger').outerHTML = '';
 	
@@ -532,14 +529,10 @@ forEach('.accordion', function(el, i) {
 	el.onclick = function (e) {
 		
 		stopEvent( e );
-				
+
 		el.querySelector('div').style.maxHeight = ((el.querySelector('div').style.maxHeight == '') ? (el.querySelector('div').scrollHeight + 'px') : '');
 		
-		if ( hasClass ( el, 'open' ) ) {
-			removeClass ( el, 'open' );
-		} else {
-			addClass ( el, 'open' );
-		}
+		toggleClass(el, 'open');		
 		
 		if ( hasClass ( el.parentNode.parentNode, 'accordion' ) ) { // Embedded accordion
 			el.parentNode.style.maxHeight = el.querySelector('div').scrollHeight + el.parentNode.scrollHeight + 'px';

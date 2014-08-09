@@ -8,7 +8,7 @@ A 7* KB framework focused on browsers' built-in capabilities with smart customis
 - Baseline-aligned elements*
 - Flexbox grid for WebKit with minimum column width
 - Embeddable grid and elements*
-- Column content can be aligned vertically on top/middle/bottom*
+- Vertically aligned column content*
 - CSS reset
 - Semantic structure
 - Balanced functional layout
@@ -24,7 +24,7 @@ A 7* KB framework focused on browsers' built-in capabilities with smart customis
 - Accordions
 - Quote block
 - Tables accessible on narrow screens by scrolling*
-- Footer sticking to the browser bottom on short pages*
+- Footer sticking to the very bottom on short pages*
 - 'Back to top' button
 - Animated anchor links
 - Language selector
@@ -36,6 +36,6 @@ A 7* KB framework focused on browsers' built-in capabilities with smart customis
 - Graceful degradation
 - Includes a FREE picture of a cat
 
-\* exclusive features
+\* exclusive features, missing in popular frameworks
 
 2014 [rado.bg](http://rado.bg)
