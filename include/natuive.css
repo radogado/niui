@@ -666,7 +666,7 @@ form {
 		text-overflow: '';
 		width: 45%;
 		background: #fff\9; /* IE8 */
-		margin-top: 0px\9; /* IE8 fix */
+		margin-top: 0;
 		min-height: 0px\9; /* IE8 fix */
 		width: 100%;
 		background: transparent;
@@ -675,13 +675,14 @@ form {
 		padding: 11px 1.3em 11px .7em;
 		padding-right: 0\9; /* IE8 */
 		float: none;
-		line-height: 44px;
+		line-height: 22px;
+		height: 22px;
 
 	}
 
 	@-moz-document url-prefix()	{
 
-		#content select { width: 110%; padding-top: 22px; padding-left: .5em;}
+		#content select { width: 110%; padding-left: .5em;}
 
 	}
 	
@@ -1358,14 +1359,14 @@ input.trigger#nav-trigger + * {
 				
 		#content select {
 			
-			padding: 11px 1.3em 0 .5em;
+			padding: 0 1.3em 0 .5em;
 			margin-bottom: 0;
 			
 		}
 		
 		@-moz-document url-prefix() {
 
-			#content label select { width: 110%; padding-top: 22px; }
+			#content label select { width: 110%; }
 
 		}
 		
@@ -1386,12 +1387,6 @@ input.trigger#nav-trigger + * {
 			
 			display: none;
 	
-		}
-		
-		form .selector, form .file-input {
-			
-			height: auto;
-
 		}
 		
 		form p, label.checkbox {
