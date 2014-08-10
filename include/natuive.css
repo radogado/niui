@@ -689,14 +689,13 @@ form {
 	form .selector, form .file-input {
 
 		width: 50%;
-		background: url('../images/select-arrow.svg') no-repeat scroll 96% 50% / 10px auto #eee;
+		background: #eee url('../images/select-arrow.svg') no-repeat 96% 50%;
 		padding: 0;
 		vertical-align: top;
 		border: none;
 		height: 22px;
 		overflow: hidden;
 		margin-left: 0;
-		background-color: #eee;
 
 	}
 	
@@ -1359,14 +1358,14 @@ input.trigger#nav-trigger + * {
 				
 		#content select {
 			
-			padding: 0 1.3em 0 .5em;
+			padding: 0 1.3em 0 .7em;
 			margin-bottom: 0;
 			
 		}
 		
 		@-moz-document url-prefix() {
 
-			#content label select { width: 110%; }
+			#content label select { width: 110%; padding-left: .5em; }
 
 		}
 		
@@ -1486,17 +1485,19 @@ input.trigger#nav-trigger + * {
 		display: block;
 		left: 0;
 		top: 0;
-		width: 1em;
+		width: 1.1em;
 		height: 1em;
 		font-size: 3em;
-		line-height: .7em;
+		line-height: .95em;
 		margin: 0;
 		text-align: center;
 		max-width: none;
 		overflow: hidden;
-		background: grey;
+		background: #fff;
 		position: fixed;
 		z-index: 99999;
+		-webkit-box-shadow: 1px 1px 2px #333;
+		box-shadow: 1px 1px 2px #333;
 		
 	}
 	
