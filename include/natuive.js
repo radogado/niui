@@ -460,8 +460,15 @@ forEach('textarea', function(el, i){
 		)
 		{	el.rows--; }
 		
-		while (el.scrollHeight > el.offsetHeight)
-		{	el.rows++; }
+		while (el.scrollHeight > el.offsetHeight) {	
+
+			if (el.rows > 20) {
+				break;
+			}
+			el.rows++;
+
+		}
+
 		el.rows++
 		
 	};
