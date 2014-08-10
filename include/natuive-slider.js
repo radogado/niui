@@ -36,8 +36,12 @@ function scrollSlider (e) {
 		
 		if ( current_scroll == slider.scrollLeft ) { /* If all scroll, including inertia, has ended */
 
-			slider.style.overflow = 'hidden';
-
+			if ( navigator.userAgent.indexOf('Android') != -1 )	{ 
+		
+				slider.style.overflow = 'hidden';
+			
+			}
+			
 			slide (event, 'snap');
 		
 		}
@@ -72,7 +76,12 @@ function slideEnd () {
 		
 	});
 
-	slider.style.overflow = 'scroll';	
+	if ( navigator.userAgent.indexOf('Android') != -1 )	{ 
+
+		slider.style.overflow = 'scroll';
+	
+	}
+
 }
 
 function slide ( e, method ) {
@@ -289,7 +298,7 @@ function makeSlider (el) {
 	
 	// Generate controls
 
-			el.style.marginBottom = '-' + scrollBarWidth() + 'px';
+	el.style.marginBottom = '-' + scrollBarWidth() + 'px';
 
 	for (var i = 0; i < el.children.length; i++) {
 		
