@@ -223,7 +223,6 @@ a:link, a:visited {
 		color: #666;
 		text-transform: uppercase;
 		text-decoration: none;
-/* 		font-size: 1em; */
 		line-height: 44px;
 		position: relative;
 		padding: 0 .5em 0 0;
@@ -316,15 +315,11 @@ a:link, a:visited {
 	text-decoration: none;
 	font-weight: bold;
 	color: #555;
-	padding: 0 .5em;
-	line-height: 1.4666em;
 	font-size: .8666em;
 	display: inline-block;
-	background: #eee;
 	cursor: pointer;
 	width: auto;
 	word-break: break-word;
-
 	background: #f1f1f1;
 	padding: 3px .5em;
 	line-height: 1.067em;
@@ -376,7 +371,6 @@ a:link, a:visited {
 		.button.big { margin: 1.22em 0; }
 		
 	}
-	
 
 	.button.big:active, #content input[type="submit"]:active {
 
@@ -509,9 +503,8 @@ form {
 		font-weight: bold;
 		max-width: 100%;
 		position: relative;
-		
 		padding: 0;
-		line-height: 1.467em; /* 1px difference */
+		line-height: 1.467em;
 		margin: 0 0 22px 0;
 		width: 100%;
 		float: left;
@@ -571,11 +564,11 @@ form {
 
 	}
 	
-	input:focus {
-		
-		line-height: 44px\9;
-
-	}
+		input:focus {
+			
+			line-height: 44px\9; /* IE8 input vertical alignment */
+	
+		}
 	
 		@-moz-document url-prefix() {
 
@@ -974,7 +967,6 @@ form {
 		text-align: left;
 		opacity: 0;
 	    width: 300px;
-	    
 	
 	}
 	
