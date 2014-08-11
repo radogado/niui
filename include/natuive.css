@@ -564,12 +564,18 @@ form {
 
 	}
 	
+	input:focus {
+		
+		line-height: 44px\9;
+
+	}
+	
 		@-moz-document url-prefix() {
 
 			input { border-bottom: 1px solid transparent; }
 
 		}
-	
+
 	form p {
 		
 		display: inline-block;
