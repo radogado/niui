@@ -560,7 +560,7 @@ forEach( '.accordion', function(el, i) {
 
 if ( 'ontouchstart' in window ) { /* iOS: remove sticky hover state */
 
-	document.body.insertAdjacentHTML('beforeend', '<style> a[href]:hover { color: inherit; } </style>');
+	document.body.insertAdjacentHTML('beforeend', '<style> a[href]:hover { color: inherit; } .tool:hover .tip { display: none; } </style>');
 
 }
 
