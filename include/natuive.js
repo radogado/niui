@@ -104,7 +104,7 @@ if ( typeof document.body.style.textShadow == 'undefined' ) { // Old browsers wi
 
 	forEach( 'table', function (el, i) {
 		
-		el.insertAdjacentHTML('beforebegin', '<div style="overflow-x: scroll"></div>');
+		el.insertAdjacentHTML('beforebegin', '<div class="table-container"></div>');
 		el.previousSibling.insertAdjacentHTML('beforeend', el.outerHTML);
 		el.outerHTML = '';
 		

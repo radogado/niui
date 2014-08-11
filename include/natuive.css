@@ -440,6 +440,12 @@ a:link, a:visited {
 
 }
 	
+	#content .nav ul {
+	
+		padding-left: 0;
+	
+	}
+
 	#content ul li {
 		
 		margin: 1.4666em 0 0 0;
@@ -1224,6 +1230,19 @@ table {
 	table.scroll td {
 		
 		word-break: normal;
+	
+	}
+	
+	.table-container {
+		
+		overflow-x: scroll;
+	    scrollbar-3dlight-color:grey;
+	    scrollbar-arrow-color:grey;
+	    scrollbar-base-color:;
+	    scrollbar-darkshadow-color:grey;
+	    scrollbar-face-color:;
+	    scrollbar-highlight-color:;
+	    scrollbar-shadow-color:
 	
 	}
 	
