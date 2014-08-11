@@ -50,13 +50,13 @@ function scrollSlider (e) {
 
 };
 
-function moveIndex () {
+function moveIndex (i) {
 
 	removeClass ( slider.parentNode.querySelector('.slider-nav a.active'), 'active' );
-	var index = Math.round( slider.scrollLeft / slider.offsetWidth ) + 1;
+	var index = (typeof i == 'undefined' ) ? (Math.round( slider.scrollLeft / slider.offsetWidth )) : (i);
 
-	if ( slider.parentNode.querySelector('.slider-nav').childNodes[index-1] ) {
-		addClass( slider.parentNode.querySelector('.slider-nav').childNodes[index-1], 'active');
+	if ( slider.parentNode.querySelector('.slider-nav').children[index] ) {
+		addClass( slider.parentNode.querySelector('.slider-nav').children[index], 'active');
 	}
 	
 }
