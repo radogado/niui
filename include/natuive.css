@@ -1245,7 +1245,7 @@ table {
 
 input.trigger, [for="nav-trigger"] {
 	
-	display: none;
+/* 	display: none; */
 	
 }
 
@@ -1264,12 +1264,6 @@ input.trigger + * {
 input.trigger:checked + * {
 	
 	display: inline-block;
-	
-}
-
-input.trigger#nav-trigger + * {
-	
-	display: block;
 	
 }
 
@@ -1470,6 +1464,12 @@ input.trigger#nav-trigger + * {
 		
 	}
 
+	.nav-main input.trigger#nav-trigger:checked + div {
+		
+		display: block;
+		
+	}
+
 	.nav-main .row * {
 
 		background: #fff;
@@ -1505,12 +1505,6 @@ input.trigger#nav-trigger + * {
 		
 	}
 	
-	.nav-main input.trigger#nav-trigger:checked + div {
-		
-		display: block;
-		
-	}
-
 	#blackbox .close {
 		
 		padding-left: 4em;
