@@ -1305,6 +1305,12 @@ input.trigger#nav-trigger + * {
 
 	}
 
+	.row .row > * {
+
+		padding: 0;
+
+	}
+
 	.row > *, .row > .column23, .row > .column2, .row > .column3, .row > .column4, .row > .column34 {
 
 		width: auto;
@@ -1317,12 +1323,6 @@ input.trigger#nav-trigger + * {
 		
 	} 
 	
-	.row .row > * {
-		
-		padding-left: 0;
-		
-	}
-
 	label {
 
 		text-align: left;
@@ -1523,6 +1523,12 @@ input.trigger#nav-trigger + * {
 		
 		padding-left: 4em;
 		
+	}
+
+	.embed-row {
+		
+		margin: 0;
+
 	}
 
 }
