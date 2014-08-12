@@ -1273,12 +1273,6 @@ input.trigger#nav-trigger + * {
 	
 }
 
-.nav-main {
-	
-	z-index: 0;
-
-}
-
 .quote {
 	
 	margin-left: 1em;
@@ -1470,7 +1464,7 @@ input.trigger#nav-trigger + * {
 
 	}
 	
-	.nav-main input.trigger#nav-trigger + * {
+	.nav-main input.trigger#nav-trigger + div {
 		
 		display: none;
 		
@@ -1484,8 +1478,6 @@ input.trigger#nav-trigger + * {
 	
 	.nav-main > div {
 		
-		-webkit-transition: all .2s ease-in-out;
-		transition: all .2s ease-in-out;
 		background: #fff;
 		display: none;
 		margin-top: 2em;

@@ -414,7 +414,7 @@ function animateAnchors (e) {
 	hash = document.getElementById( el.href.split('#')[1] );
 
 	document.querySelector('#nav-trigger').checked = false; 
-	removeClass ( document.querySelector('#nav-main > div'), 'open' );
+	removeClass ( document.querySelector('.nav-main > div'), 'open' );
 
 	if ( navigator.userAgent.indexOf('Android') == -1) { // No doc.scrollTop on Android
 	
@@ -477,53 +477,57 @@ forEach('textarea', function(el, i){
 
 /* Form validation */
 
+function submitForm (e) {
+
+	var event = e || window.event;
+	el = event.target || event.srcElement;
+
+	ready_to_submit = true;
+
+	forEach( el.querySelectorAll('.mandatory'), function (el, i) {
+		
+		if ( 
+			( el.querySelector('input, select, textarea') && !el.querySelector('input, select, textarea').value ) || 
+			( el.querySelector('input[type="checkbox"]') && !el.querySelector('input[type="checkbox"]').checked ) ||
+			( el.querySelector('input[type="radio"]') && !el.querySelector('input[type="radio"]').checked )
+		   ) { 
+
+			ready_to_submit = false;
+			el.querySelector('input').focus();
+			addClass (el, 'alert');
+			return;
+
+		} else {
+			
+			removeClass (el, 'alert');
+			
+		}
+
+	});
+
+	if (!ready_to_submit) scrollTo(el.offsetTop + el.parentNode.offsetTop);
+
+	return ready_to_submit;
+	
+}
+	
 forEach('form', function (el, i) {
 	
-	el.onsubmit = function (e) {
-
-		var event = e || window.event;
-		el = event.target || event.srcElement;
-
-		ready_to_submit = true;
-
-		forEach( el.querySelectorAll('.mandatory'), function (el, i) {
-			
-			if ( 
-				( el.querySelector('input, select, textarea') && !el.querySelector('input, select, textarea').value ) || 
-				( el.querySelector('input[type="checkbox"]') && !el.querySelector('input[type="checkbox"]').checked ) ||
-				( el.querySelector('input[type="radio"]') && !el.querySelector('input[type="radio"]').checked )
-			   ) { 
-
-				ready_to_submit = false;
-				el.querySelector('input').focus();
-				addClass (el, 'alert');
-				return;
-
-			} else {
-				
-				removeClass (el, 'alert');
-				
-			}
-
-		});
-
-		if (!ready_to_submit) scrollTo(el.offsetTop + el.parentNode.offsetTop);
-
-		return ready_to_submit;
-		
-	};
+	el.onsubmit = submitForm;
 	
 });
+	
+function updateFileInput (e) {
+	
+	var event = e || window.event;
+	el = event.target || event.srcElement;
+	el.parentNode.querySelector('span').innerHTML = el.value.substring(el.value.lastIndexOf('\\') +1)
+	
+}
 
 forEach( 'input[type="file"]', function (el, i ) {
 	
-	el.onchange = function (e) {
-		
-		var event = e || window.event;
-		el = event.target || event.srcElement;
-		el.parentNode.querySelector('span').innerHTML = el.value.substring(el.value.lastIndexOf('\\') +1)
-		
-	};
+	el.onchange = updateFileInput;
 	
 });
 
