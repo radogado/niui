@@ -29,21 +29,16 @@
 
 	}
 	
+	.embed-row {
+		
+		margin: 0 -7px;
+		max-width: none !important;
+
+	}
+	
 	.row > * > * {
 		
 		max-width: 100%; /* instead of overflow-x:hidden, which would also activate overflow-y:hidden and clip the tooltip */
-		
-	}
-	/* Embedded grid */
-	.row .row > :last-child {
-		
-		padding-right: 0;
-		
-	}
-
-	.row .row > :first-child {
-		
-		padding-left: 0;
 		
 	}
 
