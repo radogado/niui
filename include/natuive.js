@@ -528,30 +528,37 @@ forEach( 'input[type="file"]', function (el, i ) {
 });
 
 /* Accordion */
-
-forEach( '.accordion', function(el, i) {
 	
+function toggleAccordion (e) {
+	
+	var event = e || window.event;
+	el = event.target || event.srcElement;
+	stopEvent( e );
+	el = el.parentNode;
+	toggleClass(el, 'open');
+
+	el.querySelector('div').style.maxHeight = ((el.querySelector('div').style.maxHeight == '') ? (el.querySelector('div').scrollHeight + 'px') : '');
+	
+	
+	if ( hasClass ( el.parentNode.parentNode, 'accordion' ) ) { // Embedded accordion
+		el.parentNode.style.maxHeight = el.querySelector('div').scrollHeight + el.parentNode.scrollHeight + 'px';
+	}
+
+	return false;
+	
+}
+
+forEach( '.accordion > label', function(el, i) {
+	
+	el.onclick = toggleAccordion;
+	
+	el = el.parentNode;
+
 	if ( el.querySelector('input.trigger') ) { // Remove CSS-only triggers
 	
 		el.querySelector('input.trigger').outerHTML = '';
 	
 	}
-	
-	el.onclick = function (e) {
-		
-		stopEvent( e );
-
-		el.querySelector('div').style.maxHeight = ((el.querySelector('div').style.maxHeight == '') ? (el.querySelector('div').scrollHeight + 'px') : '');
-		
-		toggleClass(el, 'open');		
-		
-		if ( hasClass ( el.parentNode.parentNode, 'accordion' ) ) { // Embedded accordion
-			el.parentNode.style.maxHeight = el.querySelector('div').scrollHeight + el.parentNode.scrollHeight + 'px';
-		}
-
-		return false;
-		
-	};
 	
 	el.querySelector('div').onclick = function (e) {  
 		var event = e || window.event; event.cancelBubble = true; 
@@ -559,7 +566,7 @@ forEach( '.accordion', function(el, i) {
 
 });
 
-if ( 'ontouchstart' in window ) { /* iOS: remove sticky hover state */
+if ( 'ontouchstart' in window ) { // iOS: remove sticky hover state
 
 	document.body.insertAdjacentHTML('beforeend', '<style> a[href]:hover { color: inherit; } .tool:hover .tip { display: none; } </style>');
 
