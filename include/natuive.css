@@ -540,7 +540,6 @@ form {
 
 	input, #content select, textarea {
 		
-		background: #fff;
 		font-family: inherit;
 		display: inline-block;
 		overflow: hidden;
@@ -1245,25 +1244,13 @@ table {
 
 input.trigger, [for="nav-trigger"] {
 	
-/* 	display: none; */
+	display: none;
 	
 }
 
 .trigger {
 	
 	cursor: pointer;
-	
-}
-
-input.trigger + * {
-	
-	display: none;
-	
-}
-
-input.trigger:checked + * {
-	
-	display: inline-block;
 	
 }
 
