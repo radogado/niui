@@ -941,6 +941,18 @@ form {
 	position: relative;
 
 }
+	
+	.tool:after {
+		
+		content: " ?";
+		display: inline-block;
+		background: #444;
+		border-radius: 100%;
+		color: #ddd;
+		width: 1.5em;
+		text-align: center;
+
+	}
 
 	.tip, label span .tip {
 	
