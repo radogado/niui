@@ -291,6 +291,11 @@ function modalWindow (e) {
 	var event = e || window.event;
 	var el = event.target || event.srcElement;
 
+	if (el.tagName == 'IMG' ) {
+		
+		el = el.parentNode;
+	}
+	
 	if ( hasClass( el, 'lightbox') ) { // Show an image lightbox...
 
 		document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> </div>');
@@ -588,7 +593,7 @@ addEventHandler( window, 'load', function() {
 		
 		extra_padding = ((Math.round(el.height/line_height)+1)*line_height - el.height);
 		
-		if ( extra_padding > line_height ) { 
+		if ( extra_padding >= line_height ) { 
 		
 			extra_padding -= line_height; 
 		

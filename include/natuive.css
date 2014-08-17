@@ -183,6 +183,19 @@ a:link, a:visited {
 
 	}
 
+	a.lightbox {
+		
+		display: inline-block;
+		vertical-align: bottom;
+		
+	}
+	
+	a.lightbox img {
+		
+		display: block;
+		
+	}
+
 .wide-screen {
 	
 	display: block;
@@ -310,15 +323,14 @@ a:link, a:visited {
 	text-decoration: none;
 	font-weight: bold;
 	color: #555;
-	font-size: .8666em;
+/* 	font-size: .8666em; */
 	display: inline-block;
 	cursor: pointer;
 	width: auto;
 	word-break: break-word;
 	background: #f1f1f1;
-	padding: 3px .5em;
-	line-height: 1.067em;
-	margin-top: -2px;
+	padding: 0 .5em;
+	line-height: 22px;
 	
 	-webkit-appearance: none;
 
@@ -441,19 +453,7 @@ a:link, a:visited {
 
 	}
 
-	#content .row + .row { /* Every subsequent .row */
-		
-		border-top: 1px dotted #ccc;
-
-	}
-
-	#content .row .row + .row {
-		
-		border-top: none;
-
-	}
-
-	#content img, .banner img {
+	.row > * > img {
 		
 		display: block;
 		margin: 0 auto;
