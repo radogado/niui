@@ -93,7 +93,6 @@ body {
 	font-weight: 300;
 	color: #555;
 	font-size: 15px; /* 15px */
-	line-height: 22px; /* 1.4666em = 22px (actual line height) / 15px (font size) */
 	position: relative;
 	width: 100%; 
 	background: #fff;
@@ -121,35 +120,42 @@ h1, h2, h3, h4, h5 {
 h1 {
 	
 	font-size: 2.67em; /* 2.666em 40px */
-	line-height: 1.1em;
 }
 
 h2 {
 	
 	font-size: 2.134em; /* 2.1333em 32px */
-	line-height: 1.375em;
 
 }
 
 h3 {
 	
 	font-size: 1.6em; /* 1.6em 24px */
-	line-height: .9167em;
 
 }
 
 h4 {
 	
 	font-size: 1.2em; /* 1.222em 18px */
-	line-height: 1.23em;
 
 }
 
 h5 {
 	
 	font-size: 1em; /* 1em 15px */
-	line-height: 1.467em;
 
+}
+
+body, h3, h4, h5, .sub.nav a, .button, input[type="submit"], label, input, #content select, textarea {
+	
+	line-height: 22px; /* 1.4666em = 22px (actual line height) / 15px (font size) */
+	
+}
+
+h1, h2, .nav a, .accordion > label {
+	
+	line-height: 44px;
+	
 }
 
 img {
@@ -231,7 +237,6 @@ a:link, a:visited {
 		color: #666;
 		text-transform: uppercase;
 		text-decoration: none;
-		line-height: 44px;
 		position: relative;
 		padding: 0 .5em 0 0;
 
@@ -265,7 +270,6 @@ a:link, a:visited {
 	
 		color: #727272;
 		display: inline-block;
-		line-height: 22px;
 		text-transform: none;
 		padding: 0 .3em 0 0;
 	
@@ -330,7 +334,6 @@ a:link, a:visited {
 	word-break: break-word;
 	background: #f1f1f1;
 	padding: 0 .5em;
-	line-height: 22px;
 	
 	-webkit-appearance: none;
 
@@ -499,7 +502,6 @@ form {
 		max-width: 100%;
 		position: relative;
 		padding: 0;
-		line-height: 1.467em;
 		margin: 0 0 22px 0;
 		width: 100%;
 		float: left;
@@ -547,7 +549,6 @@ form {
 		vertical-align: top;
 		border-radius: 0;
 		padding: 0 .7em;
-		line-height: 22px;
 		min-height: 44px;
 		border: 0;
 		background: #eee;
@@ -593,7 +594,6 @@ form {
 	textarea {
 		
 		margin: -11px 0 11px 0;
-		line-height: 22px;
 		border-bottom: 1px solid transparent;
 		padding-top: 11px;
 		min-height: 66px;
@@ -675,7 +675,6 @@ form {
 		padding: 11px 1.3em 11px .7em;
 		padding-right: 0\9; /* IE8 */
 		float: none;
-		line-height: 22px;
 		height: 22px;
 
 	}
@@ -1162,7 +1161,6 @@ ul {
 	.accordion > label {
 		
 		margin: 0;
-		line-height: 44px;
 		float: none;
 		
 	}
