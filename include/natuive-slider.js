@@ -287,7 +287,7 @@ function scrollBarWidth() {
 
 }
 
-function makeSlider (el) {
+function makeSlider (el, current_slide) {
 	
 	addClass (el, 'slider');
 	el.insertAdjacentHTML('beforebegin', '<div class="slider-container"></div>'); // Create a container and move the slider in it
@@ -295,6 +295,7 @@ function makeSlider (el) {
 	container.insertAdjacentHTML('afterbegin', '<a class="slider-arrow left">←</a>' + el.outerHTML.replace( new RegExp( "\>[\n\t ]+\<" , "g" ) , "><" ) + '<a class="slider-arrow right">→</a><div class="slider-nav"></div>');
 	container.nextSibling.outerHTML = '';
 	el = container.querySelector('.slider');
+	el.scrollLeft = (current_slide) ? (current_slide * el.offsetWidth) : 0;
 	
 	// Generate controls
 
@@ -330,7 +331,7 @@ function makeSlider (el) {
 	}
 	
 	el.onscroll = scrollSlider;
-	el.setAttribute('data-original-scroll', 0);
+	el.setAttribute('data-original-scroll', el.scrollLeft);
 	el.style.maxHeight = window.innerHeight + 'px';
 	
 	return el;

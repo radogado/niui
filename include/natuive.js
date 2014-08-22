@@ -315,12 +315,9 @@ function modalWindow (e) {
 		
 		if ( makeSlider ) { 
 
-			new_slider = makeSlider( document.querySelector('#blackbox .slider') );
-			new_slider.scrollLeft = current_slide * new_slider.offsetWidth;
-			slider = new_slider;
-			moveIndex ( current_slide );
-			slider.parentNode.insertAdjacentHTML('beforeend','<style> .slider > * > img { max-height: ' + slider.style.maxHeight + '; } </style>' );
+			slider = makeSlider( document.querySelector('#blackbox .slider'), current_slide );
 			slider.style.maxHeight = (parseInt(slider.style.maxHeight) - document.querySelector('#blackbox .close').offsetHeight) + 'px';
+			slider.parentNode.insertAdjacentHTML('beforeend','<style> .slider > * > img { max-height: ' + slider.style.maxHeight + '; } </style>' );
 
 		}
 
