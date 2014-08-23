@@ -3,7 +3,7 @@
 var scrollTimer = null;
 var slider;
 var original_scroll = 0;
-/* var slider_animation = 0; */
+var slider_animation = 0;
 var current_scroll = 0;
 
 function scrollSlider (e) {
@@ -19,7 +19,7 @@ function scrollSlider (e) {
 
 	stopEvent(e);
 
-/* 	if ( slider_animation ) return; */
+	if ( slider_animation ) return;
 
 	slider = el;
 
@@ -64,7 +64,7 @@ function slideEnd () {
 
 	moveIndex();
 
-/* 	slider_animation = 0; */
+	slider_animation = 0;
 
 	forEach('.slider', function(el, i) {
 
@@ -82,12 +82,8 @@ function slideEnd () {
 
 function slide ( e, method ) {
 
-/*
 	if (slider_animation) return;
 
-	slider_animation = 1;
-*/
-	
 	forEach('.slider', function(el, i) {
 
 		el.onscroll = null;
@@ -211,6 +207,7 @@ function slide ( e, method ) {
 
 	}
 	
+	slider_animation = 1;
 	currentTime = 0,
 	increment = 20;
 	duration = 400;
