@@ -403,12 +403,18 @@ a:link, a:visited {
 	
 /* Top */
 
-#head .row > div.column4 {
+#head {
 	
-	text-align: right;
-	vertical-align: bottom;
+	margin: 22px 0;	
 	
 }
+
+	#head .row > div.column4 {
+		
+		text-align: right;
+		vertical-align: top;
+		
+	}
 	
 	#head .row > div.column4 .nav a {
 		
@@ -419,6 +425,18 @@ a:link, a:visited {
 	#head img {
 		
 		margin: 0;
+		
+	}
+	
+	#head .logo {
+		
+		height: 40px;
+
+	}
+	
+	#head .row {
+		
+		padding: 0;
 		
 	}
 
@@ -1098,7 +1116,6 @@ ul {
 	padding: 0 .5em 0 1em;
 	cursor: pointer;
 	color: #777;
-	font-weight: normal;
 	margin: 0;
 	text-align: left;
 	cursor: pointer;
@@ -1511,6 +1528,14 @@ input.trigger, [for="nav-trigger"] {
 	.embed-row {
 		
 		margin: 0;
+
+	}
+	
+	/* Termporarily disabled tooltip on mobile */
+	
+	.tool:after {
+	
+		display: none;
 
 	}
 
