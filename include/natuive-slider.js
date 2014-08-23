@@ -8,7 +8,7 @@ var current_scroll = 0;
 
 function scrollSlider (e) {
 
-	if ( navigator.userAgent.indexOf('Android') != -1 )	{ // To fix
+	if ( navigator.userAgent.indexOf('Android') != -1 )	{ // Fix Android snapping
 		
 		return;
 
@@ -21,13 +21,9 @@ function scrollSlider (e) {
 
 	if ( slider_animation ) return;
 
-	if ( slider != el ) { // on switching to another slider
-
-		original_scroll = el.getAttribute('data-original-scroll'); // Because IE8 doesn't support the hidden and more elegant .attributes['name'] property
-
-	}
-
 	slider = el;
+
+	original_scroll = el.getAttribute('data-original-scroll');
 
     clearTimeout(scrollTimer);
     current_scroll = slider.scrollLeft;
@@ -64,7 +60,7 @@ function moveIndex (i) {
 function slideEnd () {
 
 	original_scroll = slider.scrollLeft;
-	el.setAttribute('data-original-scroll', original_scroll);
+	slider.setAttribute('data-original-scroll', original_scroll);
 
 	moveIndex();
 
@@ -134,7 +130,6 @@ function slide ( e, method ) {
 
 		if ( hasClass(el, 'left') ) { // left arrow
 			
-/* 			change = (current_index ? slider.children[ current_index-1 ].offsetLeft : 0) - slider.children[ current_index ].offsetLeft; */
 			i = 0;
 
 			while ( i < slider.children.length ) {
@@ -153,7 +148,6 @@ function slide ( e, method ) {
 
 		} else { // right arrow
 
-/* 			change = (slider.children.length-1 > current_index) ? slider.children[ current_index+1 ].offsetLeft - slider.children[ current_index ].offsetLeft : 0; */
 			i = 0;
 			
 			while ( i < slider.children.length ) {
@@ -295,7 +289,7 @@ function makeSlider (el, current_slide) {
 	container.insertAdjacentHTML('afterbegin', '<a class="slider-arrow left">←</a>' + el.outerHTML.replace( new RegExp( "\>[\n\t ]+\<" , "g" ) , "><" ) + '<a class="slider-arrow right">→</a><div class="slider-nav"></div>');
 	container.nextSibling.outerHTML = '';
 	el = container.querySelector('.slider');
-	el.scrollLeft = (current_slide) ? (current_slide * el.offsetWidth) : 0;
+	el.scrollLeft = (current_slide) ? (el.children[current_slide].offsetLeft) : 0;
 	
 	// Generate controls
 
@@ -330,8 +324,8 @@ function makeSlider (el, current_slide) {
 
 	}
 	
-	el.onscroll = scrollSlider;
 	el.setAttribute('data-original-scroll', el.scrollLeft);
+	el.onscroll = scrollSlider;
 	el.style.maxHeight = window.innerHeight + 'px';
 	
 	return el;
