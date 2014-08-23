@@ -269,7 +269,15 @@ function scrollTo( to, callback ) {
 function removeBlackbox () {
 
 	var blackbox = document.getElementById('blackbox');
-	if (blackbox) document.body.removeChild( blackbox );
+	if (blackbox) {
+		if ( blackbox.querySelector('.slider')) { // Lightbox
+			
+			removeClass( blackbox.querySelector('.slider'), 'slider');
+			slider = document.querySelector('.slider'); // Make another slider active, if any
+			
+		}
+		document.body.removeChild( blackbox );
+	}
 	removeClass ( document.querySelector('html'), 'nooverflow' );
 
 }
