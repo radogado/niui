@@ -846,7 +846,7 @@ form {
 
 	z-index: 9999;
 	background: #fff;
-	background: rgba(255,255,255,.9);
+	background: rgba(255,255,255,.97);
 	overflow-y: scroll;
 	position: fixed;
 	top: 0;
