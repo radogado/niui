@@ -5,6 +5,10 @@ var slider;
 var original_scroll = 0;
 var slider_animation = 0;
 var current_scroll = 0;
+var	currentTime = 0;
+var	increment = 20;
+var	duration = 400;
+var slider_change = 0;
 
 function scrollSlider (e) {
 
@@ -80,6 +84,29 @@ function slideEnd () {
 
 }
 
+function animateScroll () {
+	// increment the time
+	currentTime += increment;
+	// find the value with the quadratic in-out easing function
+	var val = Math.easeInOutQuad(currentTime, start, slider_change, duration);
+	// slide
+	slider.scrollLeft = val;
+	// do the animation unless its over
+	if( (currentTime < duration) ) {
+
+		requestAnimFrame(animateScroll);
+
+	} else {
+
+		if (slideEnd && typeof(slideEnd) === 'function') { // the animation is done so let's callback
+
+			slideEnd();
+
+		}
+
+	}
+}
+
 function slide ( e, method ) {
 
 	if (slider_animation) return;
@@ -109,13 +136,13 @@ function slide ( e, method ) {
 
 	}
 	
-	var change = 0;
+	slider_change = 0;
 
 	if ( method == 'index' ) {
 		
 		slider = el.parentNode.parentNode.querySelector('.slider');
 		start = slider.scrollLeft;
-		change = slider.children[thisIndex(el)].offsetLeft - start;
+		slider_change = slider.children[thisIndex(el)].offsetLeft - start;
 
 	}
 	
@@ -136,7 +163,7 @@ function slide ( e, method ) {
 				if ( el.offsetLeft >= slider.scrollLeft ) {
 
 					if (i>1) {
-						change = -1 * ( slider.scrollLeft - el.previousSibling.offsetLeft );
+						slider_change = -1 * ( slider.scrollLeft - el.previousSibling.offsetLeft );
 					}
 					break;
 				
@@ -153,16 +180,16 @@ function slide ( e, method ) {
 				el = slider.children[i++];
 				if ( el.offsetLeft >= slider.scrollLeft ) {
 
-					change = el.offsetLeft - slider.scrollLeft;
+					slider_change = el.offsetLeft - slider.scrollLeft;
 					break;
 				
 				}
 				
 			}
 			
-			if (!change) {
+			if (!slider_change) {
 				
-				change = (slider.children.length-1 > current_index) ? slider.children[ current_index+1 ].offsetLeft - slider.children[ current_index ].offsetLeft : 0;
+				slider_change = (slider.children.length-1 > current_index) ? slider.children[ current_index+1 ].offsetLeft - slider.children[ current_index ].offsetLeft : 0;
 
 			}
 
@@ -177,30 +204,30 @@ function slide ( e, method ) {
 
 		if (slider.scrollLeft > original_scroll) { // Going left
 
-			change = slider.offsetWidth - slider.scrollLeft % slider.offsetWidth;
-			var current_index = Math.round( (change+start) / slider.offsetWidth );
+			slider_change = slider.offsetWidth - slider.scrollLeft % slider.offsetWidth;
+			var current_index = Math.round( (slider_change+start) / slider.offsetWidth );
 			if (current_index >= slider.children.length) current_index = slider.children.length-1;
-			change = slider.children[current_index].offsetLeft - slider.scrollLeft;
+			slider_change = slider.children[current_index].offsetLeft - slider.scrollLeft;
 
 		} else { // Going right
 
-			change = slider.scrollLeft % slider.offsetWidth - slider.offsetWidth;
-			change = -1 * (slider.offsetWidth + change);
-			var current_index = Math.round( (change+start) / slider.offsetWidth );
+			slider_change = slider.scrollLeft % slider.offsetWidth - slider.offsetWidth;
+			slider_change = -1 * (slider.offsetWidth + slider_change);
+			var current_index = Math.round( (slider_change+start) / slider.offsetWidth );
 			if ( current_index < 0 ) current_index = 0;
-			change = -1 * (start - slider.children[current_index].offsetLeft);
+			slider_change = -1 * (start - slider.children[current_index].offsetLeft);
 
 		}
 		
 		if ( original_scroll == slider.scrollLeft ) {
 			
-			change = 0;
+			slider_change = 0;
 
 		}
 		
 	}
 
-	if ( !change ) {
+	if ( !slider_change ) {
 
 		slideEnd();
 		return;
@@ -208,33 +235,10 @@ function slide ( e, method ) {
 	}
 	
 	slider_animation = 1;
-	currentTime = 0,
+	currentTime = 0;
 	increment = 20;
 	duration = 400;
 	
-	var animateScroll = function() {
-		// increment the time
-		currentTime += increment;
-		// find the value with the quadratic in-out easing function
-		var val = Math.easeInOutQuad(currentTime, start, change, duration);
-		// slide
-		slider.scrollLeft = val;
-		// do the animation unless its over
-		if( (currentTime < duration) ) {
-
-			requestAnimFrame(animateScroll);
-
-		} else {
-
-
-			if (slideEnd && typeof(slideEnd) === 'function') { // the animation is done so let's callback
-
-				slideEnd();
-
-			}
-
-		}
-	};
 	animateScroll();
 
 }
