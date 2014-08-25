@@ -329,7 +329,6 @@ function makeSlider (el, current_slide) {
 	
 	el.setAttribute('data-original-scroll', el.scrollLeft);
 	el.onscroll = scrollSlider;
-	el.style.maxHeight = window.innerHeight + 'px';
 	
 	return el;
 	

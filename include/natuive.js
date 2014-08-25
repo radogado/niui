@@ -324,7 +324,7 @@ function modalWindow (e) {
 		if ( makeSlider ) { 
 
 			slider = makeSlider( document.querySelector('#blackbox .slider'), current_slide );
-			slider.style.maxHeight = (parseInt(slider.style.maxHeight) - document.querySelector('#blackbox .close').offsetHeight) + 'px';
+			slider.style.maxHeight = (document.querySelector('#blackbox').offsetHeight - document.querySelector('#blackbox .close').offsetHeight) + 'px';
 			slider.parentNode.insertAdjacentHTML('beforeend','<style> .slider > * > img { max-height: ' + slider.style.maxHeight + '; } </style>' );
 
 		}
