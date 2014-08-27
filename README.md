@@ -17,7 +17,7 @@ natUIve: mostly native front-end framework
 - Lightbox gallery
 - Tooltips with full HTML content*
 - Nested ordered lists*
-- Forms with validation, full style customisation and full accessibility, including native file drop
+- Forms with validation, full customisation and accessibility, including native file drop
 - Auto-expanding textarea*
 - Native sliders*, swipeable on mobile and desktop, with numbered or thumbnail navigation
 - Accordions
@@ -28,8 +28,8 @@ natUIve: mostly native front-end framework
 - Animated anchor links
 - Language selector
 - URI parameters relay to links*
-- Functional and accessible without JS or CSS*
-- Less than 9 KB gzipped
+- Functional without JS and accessible without CSS*
+- Less than 9 KB effective weight
 - No IE conditional operators*
 - No jQuery or other dependencies*
 - Supporting IE8+, Safari, Chrome, Firefox, Opera, Android 2.3+, iOS, Windows Phone
