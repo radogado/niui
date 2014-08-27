@@ -17,7 +17,7 @@ natUIve: mostly native front-end framework
 - Lightbox gallery
 - Tooltips with full HTML content*
 - Nested ordered lists*
-- Forms with validation, total style customisation and full accessibility
+- Forms with validation, full style customisation and full accessibility, including native file drop
 - Auto-expanding textarea*
 - Native sliders*, swipeable on mobile and desktop, with numbered or thumbnail navigation
 - Accordions

@@ -832,13 +832,18 @@ form {
 	input[type="file"] {
 		
 		position: absolute;
-		right: 110%;
+		left: 0;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		opacity: 0;
+		cursor: pointer;
+		text-indent: -10em;
 
 	}
 	
 	form .file-input {
 
-		padding-left: .7em;
 		font-weight: normal;
 		background: #eee;
 		height: 44px;
@@ -846,7 +851,6 @@ form {
 		margin: -11px 0 11px 0;
 		cursor: pointer;
 		font-style: italic;
-		border-right: .7em solid transparent;
 		
 	}
 
@@ -855,7 +859,7 @@ form {
 		width: 100%;
 		text-align: left;
 		white-space: nowrap;
-		padding: 0;
+		padding: 0 0 0 .8em;
 
 	}
 		
