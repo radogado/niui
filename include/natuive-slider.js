@@ -165,13 +165,13 @@ function slide ( e, method ) {
 				if ( el.offsetLeft >= slider.scrollLeft ) {
 
 					if (i>1) {
-						slider_change = -1 * ( slider.scrollLeft - el.previousSibling.offsetLeft );
+						slider_change = -1 * ( slider.scrollLeft - el.parentNode.children[i-2].offsetLeft );
 					}
 					break;
 				
 				}
 				
-			}
+			} 
 
 		} else { // right arrow
 
