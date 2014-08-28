@@ -1,5 +1,52 @@
 /* natUIve Slider */
 
+_swipeEvents = function(el){
+	var startX,
+		startY;
+
+	el.addEventListener("touchstart", touchstart);  
+	
+		function touchstart(event) {
+			var touches = event.touches;
+			if (touches && touches.length) {
+				startX = touches[0].pageX;
+				startY = touches[0].pageY;
+				el.addEventListener("touchmove", touchmove);
+			}
+		}
+
+	function touchmove(event) {
+		var touches = event.touches;
+		if (touches && touches.length) {
+		  event.preventDefault();
+			var deltaX = startX - touches[0].pageX;
+			var deltaY = startY - touches[0].pageY;
+
+			if (deltaX >= 50) {
+			  var event = new Event('swipeLeft');
+			  el.dispatchEvent(event);
+			}
+			if (deltaX <= -50) {
+			  var event = new Event('swipeRight');
+			  el.dispatchEvent(event);
+			}
+			if (deltaY >= 50) {
+			  var event = new Event('swipeUp');
+			  el.dispatchEvent(event);
+			}
+			if (deltaY <= -50) {
+			  var event = new Event('swipeDown');
+			  el.dispatchEvent(event);
+			}
+
+			if (Math.abs(deltaX) >= 50 || Math.abs(deltaY) >= 50) {
+				el.removeEventListener('touchmove', touchmove);
+			}
+		}
+	}
+
+};
+
 function slide ( e, method ) {
 
 	var event = e || window.event; 
@@ -115,6 +162,22 @@ function makeSlider (el, current_slide) {
 
 	}
 	
+	if (current_slide) {
+		
+		removeClass(el.parentNode.querySelector('.slider-nav .active'), 'active');
+		addClass(el.parentNode.querySelector('.slider-nav').children[current_slide], 'active');
+		slide(el, 'index');
+		
+	}
+	
+  	_swipeEvents(el);
+  	el.addEventListener("swipeLeft",  function(event){
+  		slide(event, 'left');
+  	});
+  	el.addEventListener("swipeRight", function(event){
+  		slide(event, 'right');
+  	});
+
 	return el;
 	
 }
@@ -129,17 +192,3 @@ forEach('.slider', function(el, i) {
 	makeSlider(el);
 	
 });
-
-slider = document.querySelector('.slider');
-
-/*
-window.onresize = function () { 
-	
-	forEach('.slider', function (el,i) {
-		el.scrollLeft = 0;
-		moveIndex ();
-
-	});
-	
-}
-*/
