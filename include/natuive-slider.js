@@ -1,8 +1,5 @@
 /* natUIve Slider */
 
-var animationTime = 400;
-var easing = 'ease';
-
 function slide ( e, method ) {
 
 	var event = e || window.event; 
@@ -23,7 +20,7 @@ function slide ( e, method ) {
 		
 		index = thisIndex(el);
 
-		pos = index * -100;
+		pos = index * 100;
 
 	}
 	
@@ -33,14 +30,22 @@ function slide ( e, method ) {
 		
 		var index = thisIndex ( slider.parentNode.querySelector('.slider-nav a.active') );
 
-		pos = ( hasClass(el, 'left') ? index-- : index++ ) * -100;
+		pos = ( hasClass(el, 'left') ? --index : ++index ) * 100;
 
+		if ( (index<0) || (index >= slider.children.length) ) {
+			
+			return;
+	
+		}
+	
 	}
 	
+	console.log( 'new index: ' + index + ', pos: ' + pos );
+
     removeClass( slider.parentNode.querySelector('.slider-nav .active'), 'active');
     addClass( slider.parentNode.querySelector('.slider-nav').children[index], 'active');
 
-    slider.style.cssText = "overflow-y: visible; -webkit-transform: translate3d(" + pos + "%, 0, 0); -webkit-transition: -webkit-transform " + animationTime + "ms " + easing + "; -moz-transform: translate3d(" + pos + "%, 0, 0); -moz-transition: -moz-transform " + animationTime + "ms " + easing + "; -ms-transform: translate3d(" + pos + "%, 0, 0); -ms-transition: -ms-transform " + animationTime + "ms " + easing + "; transform: translate3d(" + pos + "%, 0, 0); transition: transform " + animationTime + "ms " + easing + ";";
+    slider.style.cssText = "overflow-y: visible; -webkit-transform: translate3d(-" + pos + "%, 0, 0); -webkit-transition: -webkit-transform 400ms ease; -moz-transform: translate3d(-" + pos + "%, 0, 0); -moz-transition: -moz-transform 400ms ease; -ms-transform: translate3d(-" + pos + "%, 0, 0); -ms-transition: -ms-transform 400ms ease; transform: translate3d(-" + pos + "%, 0, 0); transition: transform 400ms ease;";
 
 }
 
@@ -71,12 +76,9 @@ function makeSlider (el, current_slide) {
 	container.insertAdjacentHTML('afterbegin', '<a class="slider-arrow left">←</a>' + el.outerHTML/* .replace( new RegExp( "\>[\n\t ]+\<" , "g" ) , "><" ) */ + '<a class="slider-arrow right">→</a><div class="slider-nav"></div>');
 	container.nextSibling.outerHTML = '';
 	el = container.querySelector('.slider');
-	el.scrollLeft = (current_slide) ? (el.children[current_slide].offsetLeft) : 0;
 	el.style.overflowY = 'visible';
 	
 	// Generate controls
-
-	el.style.marginBottom = '-' + scrollBarWidth() + 'px';
 
 	for (var i = 0; i < el.children.length; i++) {
 		
@@ -106,9 +108,6 @@ function makeSlider (el, current_slide) {
 		slide(e, 'arrow');
 
 	}
-	
-	el.setAttribute('data-original-scroll', el.scrollLeft);
-/* 	el.onscroll = scrollSlider; */
 	
 	return el;
 	
