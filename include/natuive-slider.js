@@ -24,13 +24,13 @@ function slide ( e, method ) {
 
 	}
 	
-	if ( method == 'arrow') {
+	if ( method == 'left' || method == 'right' ) {
 
 		slider = el.parentNode.querySelector('.slider');
 		
 		var index = thisIndex ( slider.parentNode.querySelector('.slider-nav a.active') );
 
-		pos = ( hasClass(el, 'left') ? --index : ++index ) * 100;
+		pos = ( method == 'left' ? --index : ++index ) * 100;
 
 		if ( (index<0) || (index >= slider.children.length) ) {
 			
@@ -54,17 +54,17 @@ function sliderKeyboard (e) {
 	var event = e || window.event;
 	el = event.target || event.srcElement;
 
-    if (event.keyCode == 37) { // left
-    	
-		slide(el, 'left');
+	var tag = e.target.tagName.toLowerCase();
 
-    }
-
-    if (event.keyCode == 39) { // right
-
-		slide(el, 'right');
-		
-    }
+	switch(e.which) {
+		case 37:
+			if (tag != 'input' && tag != 'textarea') slide(e, 'left');
+			break;
+		case 39:
+			if (tag != 'input' && tag != 'textarea') slide(e, 'right');
+			break;
+		default: return;
+	}
 
 };
 
@@ -103,9 +103,15 @@ function makeSlider (el, current_slide) {
 		
 	}
 
-	container.querySelector('.slider-arrow.left').onclick = container.querySelector('.slider-arrow.right').onclick = function (e) {
+	container.querySelector('.slider-arrow.left').onclick = function (e) {
 
-		slide(e, 'arrow');
+		slide(e, 'left');
+
+	}
+	
+	container.querySelector('.slider-arrow.right').onclick = function (e) {
+
+		slide(e, 'right');
 
 	}
 	
@@ -115,7 +121,7 @@ function makeSlider (el, current_slide) {
 
 /* Start */
 
-document.onkeyup = sliderKeyboard;
+document.onkeydown = sliderKeyboard;
 
 /* Initialise JS extras: create arrows/numbers navigation */
 forEach('.slider', function(el, i) {
