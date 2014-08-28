@@ -20,6 +20,7 @@
     -webkit-transform: translateZ(0);
 	-ms-overflow-style: none; /* No scrollbars on IE10+ */
 	font-size: 0; /* no space between inline-block */
+  -webkit-transform-style: preserve-3d;
 
 }
 
