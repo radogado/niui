@@ -1,5 +1,6 @@
 /* natUIve Slider */
 
+/*
 _swipeEvents = function(el){
 	var startX,
 		startY;
@@ -46,6 +47,7 @@ _swipeEvents = function(el){
 	}
 
 };
+*/
 
 function slide ( e, method ) {
 
@@ -59,7 +61,7 @@ function slide ( e, method ) {
 
 	}
 
-	var index = 0;
+	var index = 0, slider = 0;
 	
 	if ( method == 'index' ) {
 		
@@ -103,9 +105,9 @@ function sliderKeyboard (e) {
 	var event = e || window.event;
 	el = event.target || event.srcElement;
 
-	var tag = e.target.tagName.toLowerCase();
+	var tag = el.tagName.toLowerCase();
 
-	switch(e.which) {
+	switch(event.which) {
 		case 37:
 			if (tag != 'input' && tag != 'textarea') slide(e, 'left');
 			break;
@@ -172,6 +174,7 @@ function makeSlider (el, current_slide) {
 		
 	}
 	
+/*
   	_swipeEvents(el);
   	el.addEventListener("swipeLeft",  function(event){
   		slide(event, 'left');
@@ -179,6 +182,7 @@ function makeSlider (el, current_slide) {
   	el.addEventListener("swipeRight", function(event){
   		slide(event, 'right');
   	});
+*/
 
 	return el;
 	
