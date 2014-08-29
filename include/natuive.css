@@ -215,6 +215,12 @@ a:link, a:visited {
 	
 }
 
+.semi-transparent {
+	
+	opacity: .1;
+
+}
+
 /* Navigation */
 
 .nav {

@@ -427,6 +427,9 @@ function animateAnchors (e) {
 
 	document.querySelector('#nav-trigger').checked = false; 
 	removeClass ( document.querySelector('.nav-main > div'), 'open' );
+	toggleClass ( document.getElementById('content'), 'semi-transparent' );
+	toggleClass ( document.getElementById('footer'), 'semi-transparent' );
+	toggleClass ( document.querySelector('#head > .row'), 'semi-transparent' );
 
 	if ( navigator.userAgent.indexOf('Android') == -1) { // No doc.scrollTop on Android
 	
@@ -597,6 +600,14 @@ if ( 'ontouchstart' in window ) { // iOS: remove sticky hover state
 	document.body.insertAdjacentHTML('beforeend', '<style> a[href]:hover { color: inherit; } .tool:hover .tip { display: none; } </style>');
 
 }
+
+document.getElementById('nav-trigger').onchange = function (e) {
+	
+	toggleClass ( document.getElementById('content'), 'semi-transparent' );
+	toggleClass ( document.getElementById('footer'), 'semi-transparent' );
+	toggleClass ( document.querySelector('#head > .row'), 'semi-transparent' );
+
+};
 
 addEventHandler( window, 'load', function() {
 
