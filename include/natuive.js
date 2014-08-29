@@ -543,6 +543,16 @@ forEach( 'input[type="file"]', function (el, i ) {
 	
 });
 
+if ( document.getElementById('language-selector') ) {
+
+	document.querySelector('#language-selector select').onchange = function (e) { 
+	
+		document.getElementById('language-selector').submit(); 
+
+	};
+
+}
+
 /* Accordion */
 	
 function toggleAccordion (e) {

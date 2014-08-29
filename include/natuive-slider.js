@@ -93,6 +93,8 @@ function slide ( e, method ) {
     addClass( slider.parentNode.querySelector('.slider-nav').children[index], 'active');
 
     slider.style.cssText = "overflow-y: visible; -webkit-transform: translateX(-" + pos + "%); -webkit-transition: -webkit-transform 400ms ease; -moz-transform: translateX(-" + pos + "%); -moz-transition: -moz-transform 400ms ease; -ms-transform: translateX(-" + pos + "%); -ms-transition: -ms-transform 400ms ease; transform: translateX(-" + pos + "%); transition: transform 400ms ease;";
+    
+    /* Use 'left' for IE8 */
 
 }
 
