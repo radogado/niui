@@ -92,7 +92,7 @@ function slide ( e, method ) {
     removeClass( slider.parentNode.querySelector('.slider-nav .active'), 'active');
     addClass( slider.parentNode.querySelector('.slider-nav').children[index], 'active');
 
-    slider.style.cssText = "overflow-y: visible; -webkit-transform: translate3d(-" + pos + "%, 0, 0); -webkit-transition: -webkit-transform 400ms ease; -moz-transform: translate3d(-" + pos + "%, 0, 0); -moz-transition: -moz-transform 400ms ease; -ms-transform: translate3d(-" + pos + "%, 0, 0); -ms-transition: -ms-transform 400ms ease; transform: translate3d(-" + pos + "%, 0, 0); transition: transform 400ms ease;";
+    slider.style.cssText = "overflow-y: visible; -webkit-transform: translateX(-" + pos + "%); -webkit-transition: -webkit-transform 400ms ease; -moz-transform: translateX(-" + pos + "%); -moz-transition: -moz-transform 400ms ease; -ms-transform: translateX(-" + pos + "%); -ms-transition: -ms-transform 400ms ease; transform: translateX(-" + pos + "%); transition: transform 400ms ease;";
 
 }
 
