@@ -282,7 +282,7 @@ function removeBlackbox () {
 
 }
 
-function modalWindow (e) {
+function modalWindow (e, html) {
 
 	document.body.onkeyup = function(e) {
 
@@ -299,16 +299,23 @@ function modalWindow (e) {
 	var event = e || window.event;
 	var el = event.target || event.srcElement;
 
-	if (el.tagName == 'IMG' ) {
+	document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> </div>');
+	addClass ( document.querySelector('html'), 'nooverflow' );
+
+	if (html == 'html') {
+
+		document.getElementById('blackbox').innerHTML = '<div class="close"> ← ' + document.title + '</div>' + e + '<div id="blackbox-bg"></div>';
+
+		document.getElementById('blackbox-bg').onclick = document.querySelector('#blackbox .close').onclick = removeBlackbox;
+
+		return false;
 		
-		el = el.parentNode;
 	}
 	
-	if ( hasClass( el, 'lightbox') ) { // Show an image lightbox...
-
-		document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> </div>');
-		addClass ( document.querySelector('html'), 'nooverflow' );
+	if (el && el.tagName == 'IMG' ) { // Show an image lightbox
 		
+		el = el.parentNode;
+
 		/* Add any <a><img> siblings with description to a .slider and initialise its controls */
 		images = '';
 
@@ -331,55 +338,57 @@ function modalWindow (e) {
 
 		document.getElementById('blackbox-bg').onclick = document.querySelector('#blackbox .close').onclick = removeBlackbox;
 		
-	} else { // ... or load external content in a modal window 
-		
-		if ( navigator.userAgent.indexOf('MSIE 8') != -1 ) {
-
-			window.open (el.href, '_blank'); 
-			return false;
-
-		}
-
-		request = new XMLHttpRequest();
-		request.open('GET', el.href.split('#')[0], true);
-
-		request.onload = function() {
-
-			if (request.status >= 200 && request.status < 400){
-			// Success
-				container = (typeof el.href.split('#')[1] != 'undefined') ? ( '#' + el.href.split('#')[1] ) : 0;
-				document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> </div>');
-				addClass ( document.querySelector('html'), 'nooverflow' );
-				blackbox = document.getElementById('blackbox');
-				blackbox.insertAdjacentHTML('afterbegin', '<div class="close"> ← ' + document.title + '</div>');
-				if (container) {
-					parsed = parseHTML(request.responseText);
-					if ( !parsed.querySelector(container) ) { removeBlackbox (); return false; }
-					blackbox.insertAdjacentHTML('beforeend', parsed.querySelector(container).innerHTML);
-						
-				} else {
-					blackbox.insertAdjacentHTML('beforeend', request.responseText);
-				}
-
-				blackbox.querySelector('.close').onclick = removeBlackbox;
-				
-				relayParameters();
-			
-			} else { 
-			// Error
-				
-			}
-
-		};
-		
-		request.onerror = function() {
-		  // Error
-		};
-		
-		request.send();
+		return false;
 		
 	}
 	
+	// Load an external file 
+		
+	if ( navigator.userAgent.indexOf('MSIE 8') != -1 ) {
+
+		window.open (el.href, '_blank'); 
+		return false;
+
+	}
+
+	request = new XMLHttpRequest();
+	request.open('GET', el.href.split('#')[0], true);
+
+	request.onload = function() {
+
+		if (request.status >= 200 && request.status < 400){
+		// Success
+			container = (typeof el.href.split('#')[1] != 'undefined') ? ( '#' + el.href.split('#')[1] ) : 0;
+
+			blackbox = document.getElementById('blackbox');
+			blackbox.insertAdjacentHTML('afterbegin', '<div class="close"> ← ' + document.title + '</div>');
+			if (container) {
+				parsed = parseHTML(request.responseText);
+				if ( !parsed.querySelector(container) ) { removeBlackbox (); return false; }
+				blackbox.insertAdjacentHTML('beforeend', parsed.querySelector(container).innerHTML);
+					
+			} else {
+				blackbox.insertAdjacentHTML('beforeend', request.responseText);
+			}
+
+			blackbox.querySelector('.close').onclick = removeBlackbox;
+			
+			relayParameters();
+		
+		} else { 
+			// Error
+			removeBlackbox();
+		}
+
+	};
+	
+	request.onerror = function() {
+	  // Error
+	  removeBlackbox();
+	};
+	
+	request.send();
+		
 	return false;
 
 }
