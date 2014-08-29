@@ -296,13 +296,10 @@ function modalWindow (e, html) {
 
 	};
 	
-	var event = e || window.event;
-	var el = event.target || event.srcElement;
-
 	document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> </div>');
 	addClass ( document.querySelector('html'), 'nooverflow' );
 
-	if (html == 'html') {
+	if ( typeof e == 'string') {
 
 		document.getElementById('blackbox').innerHTML = '<div class="close"> ← ' + document.title + '</div>' + e + '<div id="blackbox-bg"></div>';
 
@@ -312,6 +309,9 @@ function modalWindow (e, html) {
 		
 	}
 	
+	var event = e || window.event;
+	var el = event.target || event.srcElement;
+
 	if (el && el.tagName == 'IMG' ) { // Show an image lightbox
 		
 		el = el.parentNode;
