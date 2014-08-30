@@ -221,6 +221,12 @@ a:link, a:visited {
 
 }
 
+#content.semi-transparent, #footer.semi-transparent, #head > .row.semi-transparent {
+	
+	opacity: 1;
+
+}
+
 /* Navigation */
 
 .nav {
@@ -1549,6 +1555,12 @@ input.trigger, [for="nav-trigger"] {
 	
 		display: none;
 
+	}
+
+	#content.semi-transparent, #footer.semi-transparent, #head > .row.semi-transparent {
+		
+		opacity: .1;
+	
 	}
 
 }

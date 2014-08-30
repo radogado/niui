@@ -273,7 +273,7 @@ function removeBlackbox () {
 		if ( blackbox.querySelector('.slider')) { // Lightbox
 			
 			removeClass( blackbox.querySelector('.slider'), 'slider');
-			slider = document.querySelector('.slider'); // Make another slider active, if any
+			var slider = document.querySelector('.slider'); // Make another slider active, if any
 			
 		}
 		document.body.removeChild( blackbox );
@@ -330,7 +330,7 @@ function modalWindow (e, html) {
 		
 		if ( makeSlider ) { 
 
-			slider = makeSlider( document.querySelector('#blackbox .slider'), current_slide );
+			var slider = makeSlider( document.querySelector('#blackbox .slider'), current_slide );
 			slider.style.maxHeight = (document.querySelector('#blackbox').offsetHeight - document.querySelector('#blackbox .close').offsetHeight) + 'px';
 			slider.parentNode.insertAdjacentHTML('beforeend','<style> .slider > * > img { max-height: ' + slider.style.maxHeight + '; } </style>' );
 

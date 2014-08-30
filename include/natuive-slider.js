@@ -94,7 +94,7 @@ function slide ( e, method ) {
     removeClass( slider.parentNode.querySelector('.slider-nav .active'), 'active');
     addClass( slider.parentNode.querySelector('.slider-nav').children[index], 'active');
 
-    slider.style.cssText = "overflow-y: visible; -webkit-transform: translateX(-" + pos + "%); -webkit-transition: -webkit-transform 400ms ease; -moz-transform: translateX(-" + pos + "%); -moz-transition: -moz-transform 400ms ease; -ms-transform: translateX(-" + pos + "%); -ms-transition: -ms-transform 400ms ease; transform: translateX(-" + pos + "%); transition: transform 400ms ease;";
+    slider.style.cssText = ( navigator.userAgent.indexOf('MSIE 8') != -1 ) ? ("overflow-y: visible; left: -" + pos + "%;") : ("overflow-y: visible; -webkit-transform: translateX(-" + pos + "%); -webkit-transition: -webkit-transform 400ms ease; -moz-transform: translateX(-" + pos + "%); -moz-transition: -moz-transform 400ms ease; -ms-transform: translateX(-" + pos + "%); -ms-transition: -ms-transform 400ms ease; transform: translateX(-" + pos + "%); transition: transform 400ms ease;");
     
     /* Use 'left' for IE8 */
 
@@ -132,6 +132,12 @@ function makeSlider (el, current_slide) {
 	// Generate controls
 
 	for (var i = 0; i < el.children.length; i++) {
+		
+		if ( el.children[i].nodeName == '#comment' ) {
+			
+			continue;
+		
+		}
 		
 		if ( el.children[i].querySelector('.thumbnail') ) {
 
