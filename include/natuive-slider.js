@@ -49,6 +49,43 @@ _swipeEvents = function(el){
 };
 */
 
+var lastAnimation = 0;
+
+_init_scroll = function(event, delta) {
+
+	var deltaOfInterest = delta,
+		timeNow = new Date().getTime();
+
+	// Cancel scroll if currently animating or within quiet period
+	if( (timeNow - lastAnimation) < 500) {
+		event.preventDefault();
+		return;
+	}
+	
+	el = event.target;	
+	while ( !hasClass(el,'slider') ) {
+		
+		el = el.parentNode;
+		
+	}
+	
+	if (deltaOfInterest < 0) {
+		slide(el, 'right');
+	} else {
+		slide(el, 'left');
+	}
+	
+	lastAnimation = timeNow;
+}
+
+_mouseWheelHandler = function(event) {
+
+	var delta = event.wheelDelta || -event.detail;
+	if ( Math.abs(event.wheelDeltaX) < 9 ) return;
+	event.preventDefault();
+	_init_scroll(event, delta);
+}
+
 function slide ( e, method ) {
 
 	var event = e || window.event; 
@@ -189,6 +226,9 @@ function makeSlider (el, current_slide) {
   		slide(event, 'right');
   	});
 */
+
+	el.addEventListener('mousewheel', _mouseWheelHandler);
+	el.addEventListener('DOMMouseScroll', _mouseWheelHandler);
 
 	return el;
 	
