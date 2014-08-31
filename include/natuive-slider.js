@@ -1,27 +1,29 @@
 /* natUIve Slider */
 
-/*
 _swipeEvents = function(el){
 	var startX,
 		startY;
 
 	el.addEventListener("touchstart", touchstart);  
 	
-		function touchstart(event) {
-			var touches = event.touches;
-			if (touches && touches.length) {
-				startX = touches[0].pageX;
-				startY = touches[0].pageY;
-				el.addEventListener("touchmove", touchmove);
-			}
+	function touchstart(event) {
+
+		var touches = event.touches;
+		if (touches && touches.length) {
+			startX = touches[0].pageX;
+			startY = touches[0].pageY;
+			el.addEventListener("touchmove", touchmove);
 		}
+	}
 
 	function touchmove(event) {
 		var touches = event.touches;
 		if (touches && touches.length) {
-		  event.preventDefault();
+
 			var deltaX = startX - touches[0].pageX;
 			var deltaY = startY - touches[0].pageY;
+
+			event.preventDefault();
 
 			if (deltaX >= 50) {
 			  var event = new Event('swipeLeft');
@@ -47,7 +49,6 @@ _swipeEvents = function(el){
 	}
 
 };
-*/
 
 var lastAnimation = 0;
 
@@ -176,6 +177,14 @@ function makeSlider (el, current_slide) {
 		
 		}
 		
+	  	_swipeEvents(el.children[i]);
+	  	el.children[i].addEventListener("swipeLeft",  function(event){
+	  		slide(el, 'right');
+	  	});
+	  	el.children[i].addEventListener("swipeRight", function(event){
+	  		slide(el, 'left');
+	  	});
+
 		if ( el.children[i].querySelector('.thumbnail') ) {
 
 			slider_nav = el.parentNode.querySelector('.slider-nav');
@@ -216,16 +225,6 @@ function makeSlider (el, current_slide) {
 		slide(el, 'index');
 		
 	}
-	
-/*
-  	_swipeEvents(el);
-  	el.addEventListener("swipeLeft",  function(event){
-  		slide(event, 'left');
-  	});
-  	el.addEventListener("swipeRight", function(event){
-  		slide(event, 'right');
-  	});
-*/
 
 	el.addEventListener('mousewheel', _mouseWheelHandler);
 	el.addEventListener('DOMMouseScroll', _mouseWheelHandler);
