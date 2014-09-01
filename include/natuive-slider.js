@@ -1,6 +1,7 @@
 /* natUIve Slider */
 
-_swipeEvents = function(el){
+_swipeEvents = function(el) {
+
 	var startX,
 		startY;
 
@@ -33,18 +34,14 @@ _swipeEvents = function(el){
 			  var event = new Event('swipeRight');
 			  el.dispatchEvent(event);
 			}
-			if (deltaY >= 50) {
-			  var event = new Event('swipeUp');
-			  el.dispatchEvent(event);
-			}
-			if (deltaY <= -50) {
-			  var event = new Event('swipeDown');
-			  el.dispatchEvent(event);
+			if (Math.abs(deltaY) >= 10) {
+				document.body.scrollTop += deltaY;
 			}
 
 			if (Math.abs(deltaX) >= 50 || Math.abs(deltaY) >= 50) {
 				el.removeEventListener('touchmove', touchmove);
 			}
+
 		}
 	}
 
