@@ -50,6 +50,29 @@ _swipeEvents = function(el){
 
 };
 
+function sliderElement (e) {
+	
+	var event = e || window.event; 
+	el = event.target || event.srcElement;
+
+	if ( hasClass(el, 'slider-container')) {
+
+		el = el.querySelector('.slider');
+
+	} else {
+
+		while ( !hasClass(el,'slider') ) {
+			
+			el = el.parentNode;
+			
+		}
+
+	}
+	
+	return el;
+	
+}
+
 var lastAnimation = 0;
 
 _init_scroll = function(event, delta) {
@@ -62,22 +85,8 @@ _init_scroll = function(event, delta) {
 		event.preventDefault();
 		return;
 	}
-	
-	el = event.target;
 
-	if ( hasClass(el, 'slider-container')) {
-
-		el = el.querySelector('.slider');
-
-	} else {
-		
-		while ( !hasClass(el,'slider') ) {
-			
-			el = el.parentNode;
-			
-		}
-
-	}
+	var el = sliderElement (event);
 
 	if (deltaOfInterest < 0) {
 		slide(el, 'right');
@@ -151,7 +160,12 @@ function sliderKeyboard (e) {
 
 	var event = e || window.event;
 	el = event.target || event.srcElement;
-
+	if (document.querySelector('.slider') == null ) {
+	
+		return;
+		
+	}
+	
 	var tag = el.tagName.toLowerCase();
 
 	switch(event.which) {
@@ -186,14 +200,6 @@ function makeSlider (el, current_slide) {
 		
 		}
 		
-	  	_swipeEvents(el.children[i]);
-	  	el.children[i].addEventListener("swipeLeft",  function(event){
-	  		slide(el, 'right');
-	  	});
-	  	el.children[i].addEventListener("swipeRight", function(event){
-	  		slide(el, 'left');
-	  	});
-
 		if ( el.children[i].querySelector('.thumbnail') ) {
 
 			slider_nav = el.parentNode.querySelector('.slider-nav');
@@ -238,13 +244,27 @@ function makeSlider (el, current_slide) {
 	el.parentNode.addEventListener('mousewheel', _mouseWheelHandler);
 	el.parentNode.addEventListener('DOMMouseScroll', _mouseWheelHandler);
 
+	_swipeEvents(el.parentNode);
+  	el.parentNode.addEventListener("swipeLeft",  function(event){
+
+	  	el = sliderElement(event);
+  		slide(el, 'right');
+
+  	});
+
+  	el.parentNode.addEventListener("swipeRight", function(event){
+
+	  	el = sliderElement(event);
+  		slide(el, 'left');
+
+  	});
+
+	document.onkeydown = sliderKeyboard;
 	return el;
 	
 }
 
 /* Start */
-
-document.onkeydown = sliderKeyboard;
 
 /* Initialise JS extras: create arrows/numbers navigation */
 forEach('.slider', function(el, i) {
