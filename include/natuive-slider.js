@@ -142,15 +142,11 @@ function slide ( e, method ) {
 	
 	}
 	
-	console.log( 'new index: ' + index + ', pos: ' + pos );
-
     removeClass( slider.parentNode.querySelector('.slider-nav .active'), 'active');
     addClass( slider.parentNode.querySelector('.slider-nav').children[index], 'active');
 
     slider.style.cssText = ( navigator.userAgent.indexOf('MSIE 8') != -1 ) ? ("overflow-y: visible; left: -" + pos + "%;") : ("overflow-y: visible; -webkit-transform: translateX(-" + pos + "%); -webkit-transition: -webkit-transform 400ms ease; -moz-transform: translateX(-" + pos + "%); -moz-transition: -moz-transform 400ms ease; -ms-transform: translateX(-" + pos + "%); -ms-transition: -ms-transform 400ms ease; transform: translateX(-" + pos + "%); transition: transform 400ms ease;");
     
-    /* Use 'left' for IE8 */
-
 }
 
 function sliderKeyboard (e) {
@@ -178,7 +174,7 @@ function sliderKeyboard (e) {
 };
 
 function makeSlider (el, current_slide) {
-	
+
 	addClass (el, 'slider');
 	el.insertAdjacentHTML('beforebegin', '<div class="slider-container"></div>'); // Create a container and move the slider in it
 	container = el.previousSibling;
@@ -234,8 +230,17 @@ function makeSlider (el, current_slide) {
 		
 		removeClass(el.parentNode.querySelector('.slider-nav .active'), 'active');
 		addClass(el.parentNode.querySelector('.slider-nav').children[current_slide], 'active');
-		slide(el, 'index');
+		pos = current_slide*100;
+		el.style.cssText = ( navigator.userAgent.indexOf('MSIE 8') != -1 ) ? ("overflow-y: visible; left: -" + pos + "%;") : ("overflow-y: visible; -webkit-transform: translateX(-" + pos + "%); -moz-transform: translateX(-" + pos + "%);-ms-transform: translateX(-" + pos + "%);transform: translateX(-" + pos + "%);");
 		
+	}
+	
+	document.onkeydown = sliderKeyboard;
+
+	if ( navigator.userAgent.indexOf('MSIE 8') != -1 ) {
+	
+		return el;
+	
 	}
 
 	el.parentNode.addEventListener('mousewheel', _mouseWheelHandler);
@@ -256,7 +261,6 @@ function makeSlider (el, current_slide) {
 
   	});
 
-	document.onkeydown = sliderKeyboard;
 	return el;
 	
 }
