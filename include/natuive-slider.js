@@ -63,13 +63,22 @@ _init_scroll = function(event, delta) {
 		return;
 	}
 	
-	el = event.target;	
-	while ( !hasClass(el,'slider') ) {
+	el = event.target;
+
+	if ( hasClass(el, 'slider-container')) {
+
+		el = el.querySelector('.slider');
+
+	} else {
 		
-		el = el.parentNode;
-		
+		while ( !hasClass(el,'slider') ) {
+			
+			el = el.parentNode;
+			
+		}
+
 	}
-	
+
 	if (deltaOfInterest < 0) {
 		slide(el, 'right');
 	} else {
@@ -114,7 +123,7 @@ function slide ( e, method ) {
 	if ( method == 'left' || method == 'right' ) {
 
 		slider = el.parentNode.querySelector('.slider');
-		
+
 		var index = thisIndex ( slider.parentNode.querySelector('.slider-nav a.active') );
 
 		pos = ( method == 'left' ? --index : ++index ) * 100;
@@ -226,8 +235,8 @@ function makeSlider (el, current_slide) {
 		
 	}
 
-	el.addEventListener('mousewheel', _mouseWheelHandler);
-	el.addEventListener('DOMMouseScroll', _mouseWheelHandler);
+	el.parentNode.addEventListener('mousewheel', _mouseWheelHandler);
+	el.parentNode.addEventListener('DOMMouseScroll', _mouseWheelHandler);
 
 	return el;
 	
