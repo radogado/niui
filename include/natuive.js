@@ -312,28 +312,30 @@ function modalWindow (e, html) {
 	var event = e || window.event;
 	var el = event.target || event.srcElement;
 
-	if (el && el.tagName == 'IMG' ) { // Show an image lightbox
+	if ( el && el.tagName == 'IMG' ) { // Show an image lightbox
 		
 		el = el.parentNode;
 
+		document.getElementById('blackbox').innerHTML = '<div class="close"> ← ' + document.title + '</div><div class="slider lightbox"></div><div id="blackbox-bg"></div>';
+		
+		var imagesMaxHeight = (document.querySelector('#blackbox').offsetHeight - document.querySelector('#blackbox .close').offsetHeight) + 'px';
+
 		/* Add any <a><img> siblings with description to a .slider and initialise its controls */
 		images = '';
-
 		elements = el.parentNode.querySelectorAll('.lightbox');
 		current_slide = 0;
 		for (var i = 0; i < elements.length; i++) {
-			images += '<div><img src="' + elements[i].href + '"></div>';
+			images += '<div><img style="max-height: ' + imagesMaxHeight + ';" src="' + elements[i].href + '"></div>';
 			if ( elements[i] == el ) { current_slide = i; }
 		}
-
-		document.getElementById('blackbox').innerHTML = '<div class="close"> ← ' + document.title + '</div><div class="slider lightbox">' + images + '</div><div id="blackbox-bg"></div>';
 		
+		document.querySelector('.slider.lightbox').innerHTML = images;
+
 		if ( makeSlider ) { 
 
 			var slider = makeSlider( document.querySelector('#blackbox .slider'), current_slide );
-			slider.style.maxHeight = (document.querySelector('#blackbox').offsetHeight - document.querySelector('#blackbox .close').offsetHeight) + 'px';
-			slider.parentNode.insertAdjacentHTML('beforeend','<style> .slider > * > img { max-height: ' + slider.style.maxHeight + '; } </style>' );
-
+			slider.style.maxHeight = imagesMaxHeight;
+			
 		}
 
 		document.getElementById('blackbox-bg').onclick = document.querySelector('#blackbox .close').onclick = removeBlackbox;

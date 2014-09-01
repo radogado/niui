@@ -78,26 +78,22 @@ _init_scroll = function(event, delta) {
 		timeNow = new Date().getTime();
 
 	// Cancel scroll if currently animating or within quiet period
-	if( (timeNow - lastAnimation) < 500) {
+	if( (timeNow - lastAnimation) < 700) {
 		event.preventDefault();
 		return;
 	}
 
 	var el = sliderElement (event);
 
-	if (deltaOfInterest < 0) {
-		slide(el, 'right');
-	} else {
-		slide(el, 'left');
-	}
+	slide(el, (deltaOfInterest < 0) ? 'right' : 'left' );
 	
 	lastAnimation = timeNow;
 }
 
 _mouseWheelHandler = function(event) {
 
-	var delta = event.wheelDelta || -event.detail;
-	if ( Math.abs(event.wheelDeltaX) < 9 ) return;
+	var delta = event.wheelDeltaX || -event.detail;
+	if ( Math.abs(delta) < 9 ) return;
 	event.preventDefault();
 	_init_scroll(event, delta);
 }
