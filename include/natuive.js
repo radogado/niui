@@ -279,7 +279,20 @@ function removeBlackbox () {
 		document.body.removeChild( blackbox );
 	}
 	removeClass ( document.querySelector('html'), 'nooverflow' );
+	window.onresize = null;
 
+}
+
+function resizeLightbox () {
+	
+	var imagesMaxHeight = (document.querySelector('#blackbox').offsetHeight - document.querySelector('#blackbox .close').offsetHeight) + 'px';
+	forEach( '.slider.lightbox > div > img', function (el,i) {
+		
+		el.style.maxHeight = imagesMaxHeight;
+		
+	});
+	document.querySelector('#blackbox .slider').style.maxHeight = imagesMaxHeight;
+	
 }
 
 function modalWindow (e, html) {
@@ -312,20 +325,18 @@ function modalWindow (e, html) {
 	var event = e || window.event;
 	var el = event.target || event.srcElement;
 
-	if ( el && el.tagName == 'IMG' ) { // Show an image lightbox
+	if ( el && hasClass(el.parentNode, 'lightbox' ) ) { // Show an image lightbox
 		
 		el = el.parentNode;
 
 		document.getElementById('blackbox').innerHTML = '<div class="close"> ← ' + document.title + '</div><div class="slider lightbox"></div><div id="blackbox-bg"></div>';
 		
-		var imagesMaxHeight = (document.querySelector('#blackbox').offsetHeight - document.querySelector('#blackbox .close').offsetHeight) + 'px';
-
 		/* Add any <a><img> siblings with description to a .slider and initialise its controls */
 		images = '';
 		elements = el.parentNode.querySelectorAll('.lightbox');
 		current_slide = 0;
 		for (var i = 0; i < elements.length; i++) {
-			images += '<div><img style="max-height: ' + imagesMaxHeight + ';" src="' + elements[i].href + '"></div>';
+			images += '<div><img src="' + elements[i].href + '"></div>';
 			if ( elements[i] == el ) { current_slide = i; }
 		}
 		
@@ -334,11 +345,13 @@ function modalWindow (e, html) {
 		if ( makeSlider ) { 
 
 			var slider = makeSlider( document.querySelector('#blackbox .slider'), current_slide );
-			slider.style.maxHeight = imagesMaxHeight;
 			
 		}
 
 		document.getElementById('blackbox-bg').onclick = document.querySelector('#blackbox .close').onclick = removeBlackbox;
+		
+		resizeLightbox();
+		window.onresize = resizeLightbox;
 		
 		return false;
 		
