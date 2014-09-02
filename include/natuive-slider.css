@@ -20,7 +20,10 @@
     -webkit-transform: translateZ(0);
 	-ms-overflow-style: none; /* No scrollbars on IE10+ */
 	font-size: 0; /* no space between inline-block */
-  -webkit-transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+	-webkit-transition: -webkit-transform 400ms ease;
+	-moz-transition: -moz-transform 400ms ease;
+	-ms-transition: -ms-transform 400ms ease;
 
 }
 

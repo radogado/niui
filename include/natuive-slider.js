@@ -98,6 +98,13 @@ _mouseWheelHandler = function(event) {
 	_init_scroll(event, delta);
 }
 
+function isAndroidBrowser() {
+
+	ua = navigator.userAgent.toLowerCase();
+	return ((ua.indexOf("android") != -1) && (ua.indexOf("mobile") != -1) && (ua.indexOf("crmo") == -1));
+
+}
+
 function slide ( e, method ) {
 
 	var event = e || window.event; 
@@ -141,7 +148,8 @@ function slide ( e, method ) {
     removeClass( slider.parentNode.querySelector('.slider-nav .active'), 'active');
     addClass( slider.parentNode.querySelector('.slider-nav').children[index], 'active');
 
-    slider.style.cssText = ( navigator.userAgent.indexOf('MSIE 8') != -1 ) ? ("overflow-y: visible; left: -" + pos + "%;") : ("overflow-y: visible; -webkit-transform: translateX(-" + pos + "%); -webkit-transition: -webkit-transform 400ms ease; -moz-transform: translateX(-" + pos + "%); -moz-transition: -moz-transform 400ms ease; -ms-transform: translateX(-" + pos + "%); -ms-transition: -ms-transform 400ms ease; transform: translateX(-" + pos + "%); transition: transform 400ms ease;");
+
+    slider.style.cssText = ( navigator.userAgent.indexOf('MSIE 8') != -1 || isAndroidBrowser() ) ? ("overflow-y: visible; left: -" + pos + "%;") : ("overflow-y: visible; -webkit-transform: translateX(-" + pos + "%); -moz-transform: translateX(-" + pos + "%); -ms-transform: translateX(-" + pos + "%); transform: translateX(-" + pos + "%);");
     
 }
 
