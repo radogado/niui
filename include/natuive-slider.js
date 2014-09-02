@@ -149,7 +149,7 @@ function slide ( e, method ) {
     addClass( slider.parentNode.querySelector('.slider-nav').children[index], 'active');
 
 
-    slider.style.cssText = ( navigator.userAgent.indexOf('MSIE 8') != -1 || isAndroidBrowser() ) ? ("overflow-y: visible; left: -" + pos + "%;") : ("overflow-y: visible; -webkit-transform: translateX(-" + pos + "%); -moz-transform: translateX(-" + pos + "%); -ms-transform: translateX(-" + pos + "%); transform: translateX(-" + pos + "%);");
+    slider.style.cssText = ( navigator.userAgent.indexOf('MSIE 8') != -1 || isAndroidBrowser() ) ? ("overflow-y: visible; left: -" + pos + "%;") : ("overflow-y: visible; -webkit-transform: translateX(-" + pos + "%); -moz-transform: translateX(-" + pos + "%); -ms-transform: translateX(-" + pos + "%); transform: translateX(-" + pos + "%); -webkit-transition: -webkit-transform 400ms ease;	-moz-transition: -moz-transform 400ms ease;	-ms-transition: -ms-transform 400ms ease;");
     
 }
 
