@@ -101,7 +101,7 @@ _mouseWheelHandler = function(event) {
 function isAndroidBrowser() {
 
 	ua = navigator.userAgent.toLowerCase();
-	return ((ua.indexOf("android") != -1) && (ua.indexOf("mobile") != -1) && (ua.indexOf("crmo") == -1));
+	return ((ua.indexOf("android") != -1) && (ua.indexOf("mobile") != -1) && (ua.indexOf("chrome") == -1));
 
 }
 
@@ -125,7 +125,13 @@ function slide ( e, method ) {
 		
 		index = thisIndex(el);
 
-		pos = index * 100;
+		pos = (index * 100) + '%';
+		
+		if ( isAndroidBrowser() ) {
+			
+			pos = ( index * slider.offsetWidth ) + 'px';
+			
+		}
 
 	}
 	
@@ -135,8 +141,14 @@ function slide ( e, method ) {
 
 		var index = thisIndex ( slider.parentNode.querySelector('.slider-nav a.active') );
 
-		pos = ( method == 'left' ? --index : ++index ) * 100;
+		pos = (( method == 'left' ? --index : ++index ) * 100) + '%';
 
+		if ( isAndroidBrowser() ) {
+			
+			pos = (index * slider.offsetWidth) + 'px';
+
+		}
+		
 		if ( (index<0) || (index >= slider.children.length) ) {
 			
 			return;
@@ -148,8 +160,9 @@ function slide ( e, method ) {
     removeClass( slider.parentNode.querySelector('.slider-nav .active'), 'active');
     addClass( slider.parentNode.querySelector('.slider-nav').children[index], 'active');
 
-
-    slider.style.cssText = ( navigator.userAgent.indexOf('MSIE 8') != -1 || isAndroidBrowser() ) ? ("overflow-y: visible; left: -" + pos + "%;") : ("overflow-y: visible; -webkit-transform: translateX(-" + pos + "%); -moz-transform: translateX(-" + pos + "%); -ms-transform: translateX(-" + pos + "%); transform: translateX(-" + pos + "%); -webkit-transition: -webkit-transform 400ms ease;	-moz-transition: -moz-transform 400ms ease;	-ms-transition: -ms-transform 400ms ease;");
+    slider.style.cssText = ( navigator.userAgent.indexOf('MSIE 8') != -1 ) ? 
+    	("overflow-y: visible; left: -" + pos + ";") : 
+    	("overflow-y: visible; -webkit-transform: translateX(-" + pos + "); -moz-transform: translateX(-" + pos + "); -ms-transform: translateX(-" + pos + "); transform: translateX(-" + pos + "); -webkit-transition: -webkit-transform 400ms ease; -moz-transition: -moz-transform 400ms ease; -ms-transition: -ms-transform 400ms ease;");
     
 }
 
