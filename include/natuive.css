@@ -1358,6 +1358,7 @@ input.trigger, [for="nav-trigger"] {
 			
 			padding: 2% 0;
 			width: 100%;
+			text-align: left;
 			
 		}
 		
@@ -1425,7 +1426,7 @@ input.trigger, [for="nav-trigger"] {
 	
 		}
 		
-		form p, label.checkbox {
+		form div p, label.checkbox {
 			
 			display: block;
 			width: 100%;
