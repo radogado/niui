@@ -515,9 +515,14 @@ a:link, a:visited {
 form {
 	
 	overflow: hidden;
-	text-align: right;
 
 }
+
+	form label {
+		
+		text-align: right;
+		
+	}
 
 	#content form {
 		
@@ -602,7 +607,7 @@ form {
 
 		}
 
-	form p {
+	form div p {
 		
 		display: inline-block;
 		font-weight: bold;
