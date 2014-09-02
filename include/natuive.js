@@ -442,6 +442,21 @@ document.querySelector(	document.querySelector('#footer > div > div') ? '#footer
 
 /* Animate anchor links. */
 
+var getCumulativeOffset = function (obj) {
+    var left, top;
+    left = top = 0;
+    if (obj.offsetParent) {
+        do {
+            left += obj.offsetLeft;
+            top  += obj.offsetTop;
+        } while (obj = obj.offsetParent);
+    }
+    return {
+        x : left,
+        y : top
+    };
+};
+
 function animateAnchors (e) {
 	
 	var event = e || window.event;
@@ -457,7 +472,7 @@ function animateAnchors (e) {
 
 	if ( navigator.userAgent.indexOf('Android') == -1) { // No doc.scrollTop on Android
 	
-		scrollTo( (hash == null) ? 0 : hash.offsetTop, function (e) { 
+		scrollTo( (hash == null) ? 0 : getCumulativeOffset(hash).y, function (e) { 
 			window.location = el.href; 
 		});
 		return false;
