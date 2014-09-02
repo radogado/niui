@@ -156,13 +156,15 @@ function sliderKeyboard (e) {
 	}
 	
 	var tag = el.tagName.toLowerCase();
-
+	
+	el = document.querySelector('.slider.lightbox') || document.querySelector('.slider');
+	
 	switch(event.which) {
 		case 37:
-			if (tag != 'input' && tag != 'textarea') slide(e, 'left');
+			if (tag != 'input' && tag != 'textarea') slide(el, 'left');
 			break;
 		case 39:
-			if (tag != 'input' && tag != 'textarea') slide(e, 'right');
+			if (tag != 'input' && tag != 'textarea') slide(el, 'right');
 			break;
 		default: return;
 	}
