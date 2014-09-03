@@ -856,7 +856,9 @@ form {
 		padding: 0;
 		opacity: 0;
 		cursor: pointer;
-		text-indent: -10em;
+		filter: alpha(opacity=0);
+		z-index: 9;
+		font-size: 200px;
 
 	}
 	
@@ -878,6 +880,7 @@ form {
 		text-align: left;
 		white-space: nowrap;
 		padding: 0 0 0 .8em;
+		z-index: 0;
 
 	}
 		
