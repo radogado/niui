@@ -712,7 +712,7 @@ form {
 		padding: 11px 1.3em 11px .7em;
 		padding-right: 0\9; /* IE8 */
 		float: none;
-		height: 22px;
+		height: 44px;
 
 	}
 
@@ -855,11 +855,12 @@ form {
 		width: 100%;
 		margin: 0;
 		padding: 0;
-		opacity: 0;
 		cursor: pointer;
 		filter: alpha(opacity=0);
-		z-index: 9;
+		opacity: 0;
 		font-size: 200px;
+		height: 44px;
+		margin-left: -100%\9;
 
 	}
 	
@@ -881,7 +882,6 @@ form {
 		text-align: left;
 		white-space: nowrap;
 		padding: 0 0 0 .8em;
-		z-index: 0;
 
 	}
 		
