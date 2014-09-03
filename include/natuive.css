@@ -548,6 +548,7 @@ form {
 	
 		margin-bottom: 22px;
 		clear: both;
+		min-height: 22px;
 
 	}
 
@@ -607,7 +608,7 @@ form {
 
 		}
 
-	form div.checkbox p {
+	form div.checkbox span {
 		
 		display: inline-block;
 		font-weight: bold;
@@ -782,7 +783,7 @@ form {
 
 	div.checkbox label:last-child {
 		
-		margin-bottom: -1px;
+		margin-bottom: 21px;
 
 	}
 		
@@ -1422,12 +1423,18 @@ input.trigger, [for="nav-trigger"] {
 	
 		}
 		
-		form div.checkbox p, div.checkbox label {
+		form div.checkbox span, div.checkbox label {
 			
 			display: block;
 			width: 100%;
 			text-align: left;
 
+		}
+
+		form div.checkbox span {
+			
+			margin-bottom: 22px;			
+			
 		}
 		
 		div.checkbox label {
