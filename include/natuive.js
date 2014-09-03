@@ -171,45 +171,6 @@ function relayParameters () {
 
 }
 
-/* Tooltip */
-
-/*
-var tip = 0;
-
-function hideTip (e) {
-	
-	if (tip) {
-
-		removeClass ( tip, 'open' );
-		tip = 0;
-		return false;
-	}
-	
-		alert(tip.className);
-
-}
-
-function showTip (e) {
-stopEvent( e );
-	if (tip) {
-		removeClass ( tip, 'open' );
-		alert('a');
-		hideTip(e);
-	
-	}
-	
-	var event = e || window.event;
-	var el = event.target || event.srcElement;
-	
-	tip = el.querySelector('.tip');
-
-	if (!tip) return; // fix it not to log error in console
-	
-	addClass ( tip, 'open' );
-	
-}
-*/
-
 Math.easeInOutQuad = function ( t, b, c, d ) {
 
 	t /= d/2;
@@ -418,17 +379,9 @@ relayParameters();
 
 forEach('.tool', function(el, i) {
 	
-/*
-	el.onclick = showTip;
-		
-	el.onmouseover = showTip;
-	el.onmouseout = hideTip;
-*/
-	
 	t = el.querySelector('.tip');
 	if (!t) return;
 	
-/* 	addEventHandler(t, 'touchmove', function (e) { document.querySelector('.tip.open').removeClass('open'); }, false); */
 	el.style.position = 'static'; // dangerous with absolutely-positioned containers, which should be avoided anyway
 	el.parentNode.style.position = 'relative'; // dangerous with absolutely-positioned containers, which should be avoided anyway
 	t.style.top = (t.parentNode.offsetTop + t.parentNode.offsetHeight) + 'px';

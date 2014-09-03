@@ -34,7 +34,7 @@ _swipeEvents = function(el) {
 			  var event = new Event('swipeRight');
 			  el.dispatchEvent(event);
 			}
-			if (Math.abs(deltaY) >= 10) {
+			if ( (Math.abs(deltaY) >= 10) && !document.querySelector('.slider.lightbox') && ((document.body.scrollTop + window.innerHeight + deltaY) < document.body.scrollHeight)) {
 				document.body.scrollTop += deltaY;
 			}
 
