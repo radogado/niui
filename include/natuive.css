@@ -544,14 +544,14 @@ form {
 
 	}
 	
-	form div {
+	form div.checkbox {
 	
 		margin-bottom: 22px;
 		clear: both;
 
 	}
 
-	form div:after {
+	form div.checkbox:after {
 		
 		content: "";
 		display: block;
@@ -607,7 +607,7 @@ form {
 
 		}
 
-	form div p {
+	form div.checkbox p {
 		
 		display: inline-block;
 		font-weight: bold;
@@ -646,7 +646,7 @@ form {
 
 	}
 	
-	form div label span {
+	form div.checkbox label span {
 		
 		width: auto;
 
@@ -762,7 +762,7 @@ form {
 
 	}
 	
-	label.checkbox {
+	div.checkbox label {
 		
 		text-align: left;
 		width: 50%;
@@ -774,13 +774,13 @@ form {
 		
 	}
 	
-	label.checkbox + label.checkbox {
+	div.checkbox label + label {
 		
 		margin-top: 0;
 
 	}
 
-	label.checkbox:last-child {
+	div.checkbox label:last-child {
 		
 		margin-bottom: -1px;
 
@@ -1410,13 +1410,6 @@ input.trigger, [for="nav-trigger"] {
 
 		}
 		
-		span.checkbox {
-			
-			width: 100%;
-			margin-left: 0;
-
-		}
-
 		form label span .tip {
 			
 			visibility: hidden;
@@ -1429,7 +1422,7 @@ input.trigger, [for="nav-trigger"] {
 	
 		}
 		
-		form div p, label.checkbox {
+		form div.checkbox p, div.checkbox label {
 			
 			display: block;
 			width: 100%;
@@ -1437,7 +1430,7 @@ input.trigger, [for="nav-trigger"] {
 
 		}
 		
-		label.checkbox {
+		div.checkbox label {
 		
 			margin-top: 0;
 
