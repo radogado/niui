@@ -520,7 +520,7 @@ function submitForm (e) {
 	
 forEach('form', function (el, i) {
 	
-	el.onsubmit = submitForm;
+		el.onsubmit = el.onsubmit || submitForm;
 	
 });
 	
