@@ -3,9 +3,13 @@
 function addClass ( el, className ) {
 
 	if (el.classList) {
+
 		el.classList.add(className);
+
 	} else {
+
 		el.className += ' ' + className;
+
 	}
   	
 }
@@ -14,9 +18,13 @@ function removeClass ( el, className ) {
 
 	if (!el) return;
 	if (el.classList) {
+
 		el.classList.remove(className);
+
 	} else {
+
 		el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+
 	}
   	
 }
@@ -24,9 +32,13 @@ function removeClass ( el, className ) {
 function hasClass ( el, className ) {
 
 	if (el.classList) {
+
 		return el.classList.contains(className);
+
 	} else {
+
 		return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
+
 	}
 
 }
@@ -34,9 +46,13 @@ function hasClass ( el, className ) {
 function toggleClass ( el, className ) {
 
 	if ( hasClass ( el, className ) ) {
+
 		removeClass ( el, className );
+
 	} else {
+
 		addClass ( el, className );
+
 	}
 	
 }
@@ -53,7 +69,9 @@ function forEach( selector, fn ) { // Accepts both an array and a selector
 
 	elements = (typeof selector == 'object') ? selector : document.querySelectorAll(selector);
 	for (var i = 0; i < elements.length; i++) {
+
 		fn(elements[i], i);
+
 	}
 
 }
@@ -61,11 +79,17 @@ function forEach( selector, fn ) { // Accepts both an array and a selector
 function addEventHandler( el, eventType, handler ) {
 
 	if (el.addEventListener) {
+
 	     el.addEventListener ( eventType, handler, false );
+
 	} else {
+
 		if (el.attachEvent) {
+
 	    	el.attachEvent ( 'on'+eventType, handler);
+
 		}
+
 	}     
 
 }
@@ -80,10 +104,15 @@ function stopEvent( e ) {
  
 	//e.stopPropagation works only in Firefox.
 	if ( e.stopPropagation ) {
+
 		e.stopPropagation();
+
 	}
+
 	if ( e.preventDefault ) {
+
 		e.preventDefault();
+
 	}
  
 	return false;
@@ -94,8 +123,17 @@ function thisIndex (el) {
 
     var nodes = el.parentNode.childNodes, node;
     var i = count = 0;
-    while( (node=nodes.item(i++)) && node!=el )
-        if( node.nodeType==1 ) count++;
+
+    while( (node=nodes.item(i++)) && node!=el ) {
+    
+        if ( node.nodeType==1 ) {
+        	
+        	count++;
+		
+		}
+       
+    }
+
     return (count);
 
 }
@@ -140,9 +178,13 @@ function getURLParameters () { // return all URL parameters in an array
 
 	var res = {},
 		re = /[?&]([^?&]+)=([^?&]+)/g;
+
 	location.href.replace(re, function(_,k,v) {
+
 		res[k] = v;
+
 	});
+
 	return res;
 
 }
@@ -174,9 +216,13 @@ function relayParameters () {
 Math.easeInOutQuad = function ( t, b, c, d ) {
 
 	t /= d/2;
+
 	if (t < 1) {
+
 		return c/2*t*t + b
+
 	}
+
 	t--;
 	return -c/2 * (t*(t-2) - 1) + b;
 
@@ -185,7 +231,9 @@ Math.easeInOutQuad = function ( t, b, c, d ) {
 var requestAnimFrame = (function() {
 	
 	return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function( callback ) {
+
 		window.setTimeout(callback, 1000 / 60); 
+
 	};
 	
 })();
@@ -215,13 +263,18 @@ function scrollTo( to, callback ) {
 	    doc.scrollTop = val;
 	    // do the animation unless its over
 	    if(currentTime < 400) {
+
 			requestAnimFrame(animateScroll);
+
 	    } else {
+
 			if (callback && typeof(callback) === 'function') {
 				// the animation is done so lets callback
 				callback();
 			}
+
 	    }
+
 	};
 	animateScroll();
 
@@ -231,6 +284,7 @@ function removeBlackbox () {
 
 	var blackbox = document.getElementById('blackbox');
 	if (blackbox) {
+
 		if ( blackbox.querySelector('.slider')) { // Lightbox
 			
 			removeClass( blackbox.querySelector('.slider'), 'slider');
@@ -238,6 +292,7 @@ function removeBlackbox () {
 			
 		}
 		document.body.removeChild( blackbox );
+
 	}
 	removeClass ( document.querySelector('html'), 'nooverflow' );
 	window.onresize = null;
@@ -273,7 +328,7 @@ function modalWindow (e, html) {
 	document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> </div>');
 	addClass ( document.querySelector('html'), 'nooverflow' );
 
-	if ( typeof e == 'string') {
+	if ( typeof e == 'string') { // HTML input
 
 		document.getElementById('blackbox').innerHTML = '<div class="close"> ← ' + document.title + '</div>' + e + '<div id="blackbox-bg"></div>';
 
@@ -339,12 +394,16 @@ function modalWindow (e, html) {
 			blackbox = document.getElementById('blackbox');
 			blackbox.insertAdjacentHTML('afterbegin', '<div class="close"> ← ' + document.title + '</div>');
 			if (container) {
+
 				parsed = parseHTML(request.responseText);
 				if ( !parsed.querySelector(container) ) { removeBlackbox (); return false; }
 				blackbox.insertAdjacentHTML('beforeend', parsed.querySelector(container).innerHTML);
 					
+
 			} else {
+
 				blackbox.insertAdjacentHTML('beforeend', request.responseText);
+
 			}
 
 			blackbox.querySelector('.close').onclick = removeBlackbox;
@@ -354,6 +413,7 @@ function modalWindow (e, html) {
 		} else { 
 			// Error
 			removeBlackbox();
+
 		}
 
 	};
@@ -395,19 +455,24 @@ document.querySelector(	document.querySelector('#footer > div > div') ? '#footer
 
 /* Animate anchor links. */
 
-var getCumulativeOffset = function (obj) {
+var getCumulativeOffset = function (obj) { // Offset from element to top of page
     var left, top;
     left = top = 0;
     if (obj.offsetParent) {
+
         do {
             left += obj.offsetLeft;
             top  += obj.offsetTop;
         } while (obj = obj.offsetParent);
+
     }
     return {
+
         x : left,
         y : top
+
     };
+
 };
 
 function animateAnchors (e) {
@@ -426,7 +491,9 @@ function animateAnchors (e) {
 	if ( navigator.userAgent.indexOf('Android') == -1) { // No doc.scrollTop on Android
 	
 		scrollTo( (hash == null) ? 0 : getCumulativeOffset(hash).y, function (e) { 
+
 			window.location = el.href; 
+
 		});
 		return false;
 
@@ -456,21 +523,23 @@ forEach('a.modal, a.lightbox', function(el, i) {
 	
 forEach('textarea', function(el, i){
 
-	el.onkeyup = function (e) { /* To fix */
+	el.onkeyup = function (e) {
 
 		var event = e || window.event;
 		var el = event.target || event.srcElement;
 
-		while (
-			el.rows > 1 &&
-			el.scrollHeight < el.offsetHeight
-		)
-		{	el.rows--; }
+		while ( el.rows > 1 && el.scrollHeight < el.offsetHeight ) {	
+			
+			el.rows--; 
+		
+		}
 		
 		while (el.scrollHeight > el.offsetHeight) {	
 
 			if (el.rows > 20) {
+
 				break;
+
 			}
 			el.rows++;
 
@@ -520,7 +589,7 @@ function submitForm (e) {
 	
 forEach('form', function (el, i) {
 	
-		el.onsubmit = el.onsubmit || submitForm;
+	el.onsubmit = el.onsubmit || submitForm;
 	
 });
 	
@@ -562,7 +631,9 @@ function toggleAccordion (e) {
 	
 	
 	if ( hasClass ( el.parentNode.parentNode, 'accordion' ) ) { // Embedded accordion
+
 		el.parentNode.style.maxHeight = el.querySelector('div').scrollHeight + el.parentNode.scrollHeight + 'px';
+
 	}
 
 	return false;
@@ -582,7 +653,9 @@ forEach( '.accordion > label', function(el, i) {
 	}
 	
 	el.querySelector('div').onclick = function (e) {  
+
 		var event = e || window.event; event.cancelBubble = true; 
+
 	};
 
 });
@@ -603,7 +676,7 @@ document.getElementById('nav-trigger').onchange = function (e) {
 
 addEventHandler( window, 'load', function() {
 
-/* Baseline align images vertically. Using standard line height at 22px */
+/* Baseline-align images. Using standard line height at 22px */
 
 	var line_height = 22;
 	
