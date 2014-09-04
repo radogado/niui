@@ -203,6 +203,12 @@ a:link, a:visited {
 		
 	}
 
+	a.lightbox {
+	
+		margin: .5em;
+
+	}
+	
 .wide-screen {
 	
 	display: block;
@@ -350,6 +356,12 @@ a:link, a:visited {
 	-webkit-appearance: none;
 
 }
+	
+	a.button + a.button {
+		
+		margin-left: .5em;
+		
+	}
 
 	.button, input[type="submit"], label, .trigger {
 	
@@ -545,7 +557,6 @@ form {
 	
 	form div.checkbox {
 	
-		margin-bottom: 22px;
 		clear: both;
 		min-height: 22px;
 
@@ -1291,6 +1302,12 @@ table {
 	
 	text-align: right;
 	
+}
+
+.social a + a {
+	
+	margin-left: 1em;
+
 }
 
 /* Checkbox trigger */
