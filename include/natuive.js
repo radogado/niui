@@ -453,7 +453,7 @@ forEach('.tool', function(el, i) {
 
 document.querySelector(	document.querySelector('#footer > div > div') ? '#footer > div > div' : 'body' ).insertAdjacentHTML('beforeend', '<a class="backtotop" href="#"> ↑ </a>');
 
-/* Animate anchor links. */
+/* Animate anchor links */
 
 var getCumulativeOffset = function (obj) { // Offset from element to top of page
     var left, top;
@@ -484,9 +484,9 @@ function animateAnchors (e) {
 
 	document.querySelector('#nav-trigger').checked = false; 
 	removeClass ( document.querySelector('.nav-main > div'), 'open' );
-	toggleClass ( document.getElementById('content'), 'semi-transparent' );
-	toggleClass ( document.getElementById('footer'), 'semi-transparent' );
-	toggleClass ( document.querySelector('#head > .row'), 'semi-transparent' );
+	removeClass ( document.getElementById('content'), 'semi-transparent' );
+	removeClass ( document.getElementById('footer'), 'semi-transparent' );
+	removeClass ( document.querySelector('#head > .row'), 'semi-transparent' );
 
 	if ( navigator.userAgent.indexOf('Android') == -1) { // No doc.scrollTop on Android
 	
