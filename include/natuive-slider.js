@@ -193,7 +193,12 @@ function sliderKeyboard (e) {
 };
 
 function makeSlider (el, current_slide) {
-
+	
+	if (el.children.length < 2) {
+		
+		return el;
+		
+	}
 	addClass (el, 'slider');
 	el.insertAdjacentHTML('beforebegin', '<div class="slider-container"></div>'); // Create a container and move the slider in it
 	container = el.previousSibling;
