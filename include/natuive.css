@@ -190,23 +190,18 @@ a:link, a:visited {
 
 	}
 
-	a.lightbox {
+	.lightbox a {
 		
 		display: inline-block;
 		vertical-align: bottom;
+		margin: .5em;
 		
 	}
 	
-	a.lightbox img {
+	.lightbox a img {
 		
 		display: block;
-		
-	}
-
-	a.lightbox {
 	
-		margin: .5em;
-
 	}
 	
 .wide-screen {

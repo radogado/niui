@@ -341,7 +341,7 @@ function modalWindow (e, html) {
 	var event = e || window.event;
 	var el = event.target || event.srcElement;
 
-	if ( el && hasClass(el.parentNode, 'lightbox' ) ) { // Show an image lightbox
+	if ( el && hasClass(el.parentNode.parentNode, 'lightbox' ) ) { // Show an image lightbox
 		
 		el = el.parentNode;
 
@@ -349,18 +349,19 @@ function modalWindow (e, html) {
 		
 		/* Add any <a><img> siblings with description to a .slider and initialise its controls */
 		images = '';
-		elements = el.parentNode.querySelectorAll('.lightbox');
-		current_slide = 0;
+		elements = el.parentNode.querySelectorAll('a img');
+
 		for (var i = 0; i < elements.length; i++) {
-			images += '<div><img src="' + elements[i].href + '"></div>';
-			if ( elements[i] == el ) { current_slide = i; }
+
+			images += '<div><img src="' + elements[i].parentNode.href + '"></div>';
+
 		}
-		
+
 		document.querySelector('.slider.lightbox').innerHTML = images;
 
 		if ( makeSlider ) { 
 
-			var slider = makeSlider( document.querySelector('#blackbox .slider'), current_slide );
+			var slider = makeSlider( document.querySelector('#blackbox .slider'), thisIndex(el) );
 			
 		}
 
@@ -513,7 +514,7 @@ forEach( 'a[href*="#"]', function (el, i) {
 
 /* Modal window: open a link inside it. Also lightbox with images */
 
-forEach('a.modal, a.lightbox', function(el, i) {
+forEach('a.modal, .lightbox a', function(el, i) {
 	
 	el.onclick = modalWindow;
 	
