@@ -1,5 +1,7 @@
 /* natUIve by rado.bg */
 	
+var ua = navigator.userAgent;
+
 function addClass ( el, className ) {
 
 	if (el.classList) {
@@ -241,13 +243,13 @@ var requestAnimFrame = (function() {
 function scrollTo( to, callback ) {
 
 	// figure out if this is moz || IE because they use documentElement
-	var doc = (navigator.userAgent.indexOf('Chrome') != -1 || navigator.userAgent.indexOf('Firefox') != -1 || navigator.userAgent.indexOf('Trident') != -1) ? document.documentElement : document.body,
+	var doc = (ua.indexOf('Chrome') != -1 || ua.indexOf('Firefox') != -1 || ua.indexOf('Trident') != -1) ? document.documentElement : document.body,
 	start = doc.scrollTop,
 	change = to - start,
 	currentTime = 0,
 	increment = 20;
 
-	if ( (navigator.userAgent.indexOf('Trident') ) != -1 ) { // Turn off animation for IE; WP8 animates by itself
+	if ( (ua.indexOf('Trident') ) != -1 ) { // Turn off animation for IE; WP8 animates by itself
 		
 		doc.scrollTop = to;
 		return false;
@@ -376,7 +378,7 @@ function modalWindow (e, html) {
 	
 	// Load an external file 
 		
-	if ( navigator.userAgent.indexOf('MSIE 8') != -1 ) {
+	if ( ua.indexOf('MSIE 8') != -1 ) {
 
 		window.open (el.href, '_blank'); 
 		return false;
@@ -489,20 +491,12 @@ function animateAnchors (e) {
 	removeClass ( document.getElementById('footer'), 'semi-transparent' );
 	removeClass ( document.querySelector('#head > .row'), 'semi-transparent' );
 
-	if ( navigator.userAgent.indexOf('Android') == -1) { // No doc.scrollTop on Android
-	
 		scrollTo( (hash == null) ? 0 : getCumulativeOffset(hash).y, function (e) { 
 
 			window.location = el.href; 
 
 		});
 		return false;
-
-	} else {
-
-		window.location = el.href;
-
-	}
 	
 };
 	
@@ -511,6 +505,13 @@ forEach( 'a[href*="#"]', function (el, i) {
 	el.onclick = animateAnchors;
 	
 });
+
+document.querySelector('.backtotop').onclick = function (e) {
+
+	scrollTo( 0 );
+	return false;
+	
+}
 
 /* Modal window: open a link inside it. Also lightbox with images */
 

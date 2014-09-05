@@ -100,8 +100,7 @@ _mouseWheelHandler = function(event) {
 
 function isAndroidBrowser() {
 
-	ua = navigator.userAgent.toLowerCase();
-	return ((ua.indexOf("android") != -1) && (ua.indexOf("chrome") == -1));
+	return ((ua.indexOf("Android") != -1) && (ua.indexOf("Chrome") == -1));
 
 }
 
