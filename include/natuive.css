@@ -429,14 +429,14 @@ a:link, a:visited {
 	
 }
 
-	#head .row > div.column4 {
+	#head .head-right {
 		
 		text-align: right;
 		vertical-align: top;
 		
 	}
 	
-	#head .row > div.column4 .nav a {
+	#head .head-right .nav a {
 		
 		padding-right: 0;
 		
@@ -709,9 +709,8 @@ form {
 		text-indent: 0.01px;
 		text-overflow: '';
 		width: 45%;
-		background: #fff\9; /* IE8 */
 		margin-top: 0;
-		min-height: 0px\9; /* IE8 fix */
+		min-height: 0; /* IE8 fix */
 		width: 100%;
 		background: transparent;
 		border: 0;
@@ -1478,11 +1477,11 @@ input.trigger, [for="nav-trigger"] {
 		
 	}
 
-	table td {
+		table td {
+			
+			word-break: normal;
 		
-		word-break: normal;
-	
-	}
+		}
 	
 	.button.big {
 		
@@ -1502,52 +1501,52 @@ input.trigger, [for="nav-trigger"] {
 
 	}
 	
-	.nav-main input.trigger#nav-trigger + div {
-		
-		display: none;
-		
-	}
-
-	.nav-main input.trigger#nav-trigger:checked + div {
-		
-		display: block;
-		
-	}
-
-	.nav-main .row * {
-
-		background: #fff;
-		
-	}
+		.nav-main input.trigger#nav-trigger + div {
+			
+			display: none;
+			
+		}
 	
-	.nav-main > div {
-		
-		background: #fff;
-		display: none;
-		margin-top: 2em;
-
-	}
+		.nav-main input.trigger#nav-trigger:checked + div {
+			
+			display: block;
+			
+		}
 	
-	label[for="nav-trigger"] {
+		.nav-main .row * {
+	
+			background: #fff;
+			
+		}
 		
-		display: block;
-		left: 0;
-		top: 0;
-		width: 1.1em;
-		height: 1em;
-		font-size: 3em;
-		line-height: .95em;
-		margin: 0;
-		text-align: center;
-		max-width: none;
-		overflow: hidden;
-		background: #fff;
-		position: fixed;
-		z-index: 99999;
-		-webkit-box-shadow: 1px 1px 2px #333;
-		box-shadow: 1px 1px 2px #333;
+		.nav-main > div {
+			
+			background: #fff;
+			display: none;
+			margin-top: 2em;
+	
+		}
 		
-	}
+		label[for="nav-trigger"] {
+			
+			display: block;
+			left: 0;
+			top: 0;
+			width: 1.1em;
+			height: 1em;
+			font-size: 3em;
+			line-height: .95em;
+			margin: 0;
+			text-align: center;
+			max-width: none;
+			overflow: hidden;
+			background: #fff;
+			position: fixed;
+			z-index: 99999;
+			-webkit-box-shadow: 1px 1px 2px #333;
+			box-shadow: 1px 1px 2px #333;
+			
+		}
 	
 	#blackbox .close {
 		

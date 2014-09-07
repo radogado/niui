@@ -12,7 +12,7 @@
 
 	overflow-x: visible;
 	overflow-y: hidden;
-	white-space: nowrap;
+	white-space: nowrap; /* keep inline-block elements together */
 	word-wrap: normal; /* IE8 fix */
 	position: relative;
 	-webkit-overflow-scrolling: auto; /* momentum scrolling off because of iOS 8 new behaviour */
@@ -64,30 +64,31 @@
 	z-index: 999; /* Stay on top of slider-nav if they are aligned vertically */
 	
 }
-.slider-arrow.right {
 
-	left: auto;
-	right: 1em;
-
-}
-
-.slider-arrow, .slider-nav a {
+	.slider-arrow.right {
 	
-	cursor: pointer;
-	padding: .6em;
-	width: 1em;
-	height: 1em;
-	-webkit-border-radius: 50px;
-	border-radius: 50%;
-	background: #bbb;
-	color: #fff;
-	transition: background-color .2s linear;
-	line-height: .7em;
-	-webkit-box-sizing: content-box;
-	-moz-box-sizing: content-box;
-	box-sizing: content-box;
-
-}
+		left: auto;
+		right: 1em;
+	
+	}
+	
+	.slider-arrow, .slider-nav a {
+		
+		cursor: pointer;
+		padding: .6em;
+		width: 1em;
+		height: 1em;
+		-webkit-border-radius: 50px;
+		border-radius: 50%;
+		background: #bbb;
+		color: #fff;
+		transition: background-color .2s linear;
+		line-height: .7em;
+		-webkit-box-sizing: content-box;
+		-moz-box-sizing: content-box;
+		box-sizing: content-box;
+	
+	}
 
 .slider-arrow, .slider-nav {
 
@@ -100,13 +101,6 @@
 
 }
 
-.slider-nav a.active {
-
-	background: #fff;
-	color: #666;
-
-}
-
 .slider-nav {
 	
 	text-align: center;
@@ -116,13 +110,45 @@
 	
 }
 		
-.slider-nav a {
+	.slider-nav a {
+		
+		display: inline-block;
+		margin: .5em;
+		line-height: .9em;
+		
+	}
 	
-	display: inline-block;
-	margin: .5em;
-	line-height: .9em;
+	.slider-nav a.active {
 	
-}
+		background: #fff;
+		color: #666;
+	
+	}
+
+	.slider-nav.thumbnails {
+		
+		right: auto;
+		position: static;
+		
+	}
+	
+	.slider-nav.thumbnails a {
+		
+		text-indent: 0;
+		width: auto;
+		height: auto;
+		display: table-cell;
+		text-align: left;
+		color: #333;
+		border-radius: 0;
+		line-height: 22px;
+		padding: 0 .5em;
+		-webkit-flex: 1;
+		-ms-flex: 1;
+		flex: 1;
+		margin: 0;
+	
+	}
 
 .slider > * > img {
 
@@ -137,27 +163,3 @@
 
 }
 
-.slider-nav.thumbnails {
-	
-	right: auto;
-	position: static;
-	
-}
-
-.slider-nav.thumbnails a {
-	
-	text-indent: 0;
-	width: auto;
-	height: auto;
-	display: table-cell;
-	text-align: left;
-	color: #333;
-	border-radius: 0;
-	line-height: 22px;
-	padding: 0 .5em;
-	-webkit-flex: 1;
-	-ms-flex: 1;
-	flex: 1;
-	margin: 0;
-
-}
