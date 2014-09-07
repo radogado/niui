@@ -2,6 +2,7 @@
 	
 var ua = navigator.userAgent;
 
+/* DOM functions via http://youmightnotneedjquery.com */
 function addClass ( el, className ) {
 
 	if (el.classList) {
@@ -144,8 +145,7 @@ if ( typeof document.body.style.textShadow == 'undefined' ) { // Old browsers wi
 
 	forEach( 'table', function (el, i) {
 		
-		el.insertAdjacentHTML('beforebegin', '<div class="table-container"></div>');
-		el.previousSibling.insertAdjacentHTML('beforeend', el.outerHTML);
+		el.insertAdjacentHTML('beforebegin', '<div class="table-container">' + el.outerHTML + '</div>');
 		el.outerHTML = '';
 		
 	});
@@ -354,8 +354,12 @@ function modalWindow (e, html) {
 		elements = el.parentNode.querySelectorAll('a img');
 
 		for (var i = 0; i < elements.length; i++) {
-
-			images += '<div><img src="' + elements[i].parentNode.href + '"></div>';
+			
+			if ( elements[i].tagName == 'IMG' ) {
+			
+				images += '<div><img src="' + elements[i].parentNode.href + '"></div>';
+			
+			}
 
 		}
 
@@ -459,20 +463,25 @@ document.querySelector(	document.querySelector('#footer > div > div') ? '#footer
 /* Animate anchor links */
 
 var getCumulativeOffset = function (obj) { // Offset from element to top of page
+
     var left, top;
     left = top = 0;
+
     if (obj.offsetParent) {
 
         do {
+
             left += obj.offsetLeft;
             top  += obj.offsetTop;
+
         } while (obj = obj.offsetParent);
 
     }
+
     return {
 
-        x : left,
-        y : top
+        x: left,
+        y: top
 
     };
 
@@ -589,7 +598,7 @@ function submitForm (e) {
 	
 }
 	
-forEach('form', function (el, i) {
+forEach( 'form', function (el, i) {
 	
 	el.onsubmit = el.onsubmit || submitForm;
 	
@@ -662,7 +671,7 @@ forEach( '.accordion > label', function(el, i) {
 
 });
 
-if ( 'ontouchstart' in window ) { // iOS: remove sticky hover state
+if ( 'ontouchstart' in window ) { // Touch device: remove iOS sticky hover state
 
 	document.body.insertAdjacentHTML('beforeend', '<style> a[href]:hover { color: inherit; } .tool:hover .tip { display: none; } </style>');
 

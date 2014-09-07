@@ -1,58 +1,10 @@
 /* natUIve Slider */
 
-_swipeEvents = function(el) {
+function isAndroidBrowser() {
 
-	var startX,
-		startY;
+	return ((ua.indexOf("Android") != -1) && (ua.indexOf("Chrome") == -1));
 
-	el.addEventListener("touchstart", touchstart);  
-	
-	function touchstart(event) {
-
-		var touches = event.touches;
-		if (touches && touches.length) {
-			startX = touches[0].pageX;
-			startY = touches[0].pageY;
-
-			el.addEventListener("touchmove", touchmove);
-		}
-	}
-
-	function touchmove(event) {
-		var touches = event.touches;
-		if (touches && touches.length) {
-
-			var deltaX = startX - touches[0].pageX;
-			var deltaY = startY - touches[0].pageY;
-			
-			if ( Math.abs(deltaX) < Math.abs(deltaY) ) {
-				
-				return;
-				
-			}
-			
-			event.preventDefault();
-
-			if (deltaX >= 50) {
-			  var event = new Event('swipeLeft');
-			  el.dispatchEvent(event);
-			}
-			if (deltaX <= -50) {
-			  var event = new Event('swipeRight');
-			  el.dispatchEvent(event);
-			}
-			if ( (Math.abs(deltaY) >= 10) && !document.querySelector('.slider.lightbox') && ((document.body.scrollTop + window.innerHeight + deltaY) < document.body.scrollHeight)) {
-				document.body.scrollTop += deltaY;
-			}
-
-			if (Math.abs(deltaX) >= 50 || Math.abs(deltaY) >= 50) {
-				el.removeEventListener('touchmove', touchmove);
-			}
-
-		}
-	}
-
-};
+}
 
 function sliderElement (e) {
 	
@@ -77,9 +29,66 @@ function sliderElement (e) {
 	
 }
 
+/* Thanks to Pete & Eike Send for the swipe events – http://www.thepetedesign.com/demos/purejs_onepage_scroll_demo.html */
+swipeEvents = function(el) {
+
+	var startX,
+		startY;
+
+	el.addEventListener("touchstart", touchStart);  
+	
+	function touchStart(event) {
+
+		var touches = event.touches;
+		if (touches && touches.length) {
+			startX = touches[0].pageX;
+			startY = touches[0].pageY;
+
+			el.addEventListener("touchmove", touchMove);
+		}
+	}
+
+	function touchMove(event) {
+
+		var touches = event.touches;
+		if (touches && touches.length) {
+
+			var deltaX = startX - touches[0].pageX;
+			var deltaY = startY - touches[0].pageY;
+			
+			if ( (Math.abs(deltaX) < Math.abs(deltaY)) && !document.querySelector('.slider.lightbox') ) {
+				
+				return;
+				
+			}
+
+			event.preventDefault();
+
+			if (deltaX >= 50) {
+				/* Android 2.3 no go */
+				var event = new Event('swipeLeft');
+				el.dispatchEvent(event);
+
+			}
+			if (deltaX <= -50) {
+
+				var event = new Event('swipeRight');
+				el.dispatchEvent(event);
+
+			}
+
+			if (Math.abs(deltaX) >= 50 || Math.abs(deltaY) >= 50) {
+				el.removeEventListener('touchmove', touchMove);
+			}
+
+		}
+	}
+
+};
+
 var lastAnimation = 0;
 
-_init_scroll = function(event, delta) {
+initScroll = function(event, delta) {
 
 	var deltaOfInterest = delta,
 		timeNow = new Date().getTime();
@@ -97,18 +106,12 @@ _init_scroll = function(event, delta) {
 	lastAnimation = timeNow;
 }
 
-_mouseWheelHandler = function(event) {
+mouseWheelHandler = function(event) {
 
 	var delta = event.wheelDeltaX || -event.detail;
 	if ( Math.abs(delta) < 9 ) return;
 	event.preventDefault();
-	_init_scroll(event, delta);
-}
-
-function isAndroidBrowser() {
-
-	return ((ua.indexOf("Android") != -1) && (ua.indexOf("Chrome") == -1));
-
+	initScroll(event, delta);
 }
 
 function slide ( e, method ) {
@@ -167,7 +170,7 @@ function slide ( e, method ) {
     addClass( slider.parentNode.querySelector('.slider-nav').children[index], 'active');
 
     slider.style.cssText = ( ua.indexOf('MSIE 8') != -1 || isAndroidBrowser() ) ? 
-    	("overflow-y: visible; left: -" + pos + ";") : 
+    	("overflow-y: visible; left: -" + pos + "; -webkit-transition: left 400ms ease;") :
     	("overflow-y: visible; -webkit-transform: translateX(-" + pos + "); -moz-transform: translateX(-" + pos + "); -ms-transform: translateX(-" + pos + "); transform: translateX(-" + pos + "); -webkit-transition: -webkit-transform 400ms ease; -moz-transition: -moz-transform 400ms ease; -ms-transition: -ms-transform 400ms ease;");
     
 }
@@ -273,10 +276,10 @@ function makeSlider (el, current_slide) {
 	
 	}
 
-	el.parentNode.addEventListener('mousewheel', _mouseWheelHandler);
-	el.parentNode.addEventListener('DOMMouseScroll', _mouseWheelHandler);
+	el.parentNode.addEventListener('mousewheel', mouseWheelHandler);
+	el.parentNode.addEventListener('DOMMouseScroll', mouseWheelHandler);
 
-	_swipeEvents(el.parentNode);
+	swipeEvents(el.parentNode);
   	el.parentNode.addEventListener("swipeLeft",  function(event){
 
 	  	el = sliderElement(event);

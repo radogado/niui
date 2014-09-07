@@ -1281,7 +1281,7 @@ table {
 	
 	.table-container {
 		
-		overflow-x: scroll;
+		overflow-x: auto;
 	    scrollbar-3dlight-color:grey;
 	    scrollbar-arrow-color:grey;
 	    scrollbar-base-color:;
