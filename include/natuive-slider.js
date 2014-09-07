@@ -13,6 +13,7 @@ _swipeEvents = function(el) {
 		if (touches && touches.length) {
 			startX = touches[0].pageX;
 			startY = touches[0].pageY;
+
 			el.addEventListener("touchmove", touchmove);
 		}
 	}
@@ -23,7 +24,13 @@ _swipeEvents = function(el) {
 
 			var deltaX = startX - touches[0].pageX;
 			var deltaY = startY - touches[0].pageY;
-
+			
+			if ( Math.abs(deltaX) < Math.abs(deltaY) ) {
+				
+				return;
+				
+			}
+			
 			event.preventDefault();
 
 			if (deltaX >= 50) {
