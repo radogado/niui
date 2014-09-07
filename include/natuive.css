@@ -320,6 +320,7 @@ a:link, a:visited {
 	form.nav .selector {
 
 		background: url('../images/country_select_globes.png') center left no-repeat;
+		background-position: 0 9px;
 
 	}
 
@@ -330,7 +331,7 @@ a:link, a:visited {
 		-moz-appearance: window;
 		vertical-align: middle;
 		background: transparent;
-		padding-left: 1.8em;
+		margin-left: 1.8em;
 
 	}
 
@@ -553,7 +554,8 @@ form {
 	form div.checkbox {
 	
 		clear: both;
-		min-height: 22px;
+		min-height: 44px;
+		margin-bottom: 22px;
 
 	}
 
@@ -842,7 +844,7 @@ form {
 		opacity: 0;
 		padding: 0;
 		border: 1px solid transparent;
-		left: -3px;
+		left: 0;
 		outline: none;
 		float: left;
 		width: auto;
@@ -907,12 +909,6 @@ form {
 	padding-top: 3em;
 	-webkit-overflow-scrolling: touch;
 
-	}
-
-	#blackbox::-webkit-scrollbar {
-	
-	    display: none;
-	
 	}
 
 	#blackbox .close {
@@ -1227,12 +1223,6 @@ table {
 
 	}
 
-	table::-webkit-scrollbar {
-	
-	    display: none;
-	
-	}
-
 	table td {
 
 		padding: 0 .5em;
@@ -1342,7 +1332,7 @@ input.trigger, [for="nav-trigger"] {
 	.row > * {
 
 		display: block;
-		padding: 5px; /* Because percentage leads to Android Chrome inline-block bug */
+		padding: 5px;
 
 	}
 
