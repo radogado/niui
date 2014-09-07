@@ -1225,7 +1225,7 @@ table {
 
 	table td {
 
-		padding: 0 .5em;
+		padding: 11px .5em;
 		vertical-align: middle;
 
 	}
@@ -1234,6 +1234,7 @@ table {
 
 		color: #fff;
 		font-weight: bold;
+		padding-bottom: 22px;
 
 	}
 
