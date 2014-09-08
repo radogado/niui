@@ -953,7 +953,7 @@ form {
 
 /* Back to top button */
 
-.backtotop {
+.backtotop:link, .backtotop:visited {
 
 	text-align: center;
 	display: block;
@@ -1222,6 +1222,12 @@ table {
 
 	}
 
+	table::-webkit-scrollbar {
+	
+	    display: none;
+	
+	}
+	
 	table td {
 
 		padding: 11px .5em;

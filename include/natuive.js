@@ -249,13 +249,6 @@ function scrollTo( to, callback ) {
 	currentTime = 0,
 	increment = 20;
 
-	if ( (ua.indexOf('Trident') ) != -1 ) { // Turn off animation for IE; WP8 animates by itself
-		
-		doc.scrollTop = to;
-		return false;
-		
-	}
-
 	var animateScroll = function(){
 	    // increment the time
 	    currentTime += increment;
@@ -297,7 +290,7 @@ function removeBlackbox () {
 
 	}
 	removeClass ( document.querySelector('html'), 'nooverflow' );
-	window.onresize = null;
+	window.removeEventListener( 'resize', resizeLightbox );
 
 }
 
@@ -374,7 +367,7 @@ function modalWindow (e, html) {
 		document.getElementById('blackbox-bg').onclick = document.querySelector('#blackbox .close').onclick = removeBlackbox;
 		
 		resizeLightbox();
-		window.onresize = resizeLightbox;
+		addEventHandler( window, 'resize', resizeLightbox );
 		
 		return false;
 		
