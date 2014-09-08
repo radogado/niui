@@ -30,6 +30,9 @@ function sliderElement (e) {
 }
 
 /* Thanks to Pete & Eike Send for the swipe events – http://www.thepetedesign.com/demos/purejs_onepage_scroll_demo.html */
+
+var lastAnimation = 0;
+
 swipeEvents = function(el) {
 
 	var startX,
@@ -65,12 +68,25 @@ swipeEvents = function(el) {
 			event.preventDefault();
 
 			if (deltaX >= 50) {
-				/* Android 2.3 no go */
+				
+				if ( isAndroidBrowser() ) {
+					
+					initScroll(event, -1*deltaX);
+					
+				}
+
 				var event = new Event('swipeLeft');
 				el.dispatchEvent(event);
 
+
 			}
 			if (deltaX <= -50) {
+
+				if ( isAndroidBrowser() ) {
+					
+					initScroll(event, -1*deltaX);
+					
+				}
 
 				var event = new Event('swipeRight');
 				el.dispatchEvent(event);
@@ -85,8 +101,6 @@ swipeEvents = function(el) {
 	}
 
 };
-
-var lastAnimation = 0;
 
 initScroll = function(event, delta) {
 
@@ -112,6 +126,7 @@ mouseWheelHandler = function(event) {
 	if ( Math.abs(delta) < 9 ) return;
 	event.preventDefault();
 	initScroll(event, delta);
+
 }
 
 function slide ( e, method ) {

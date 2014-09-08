@@ -36,6 +36,19 @@
 
 }
 
+.slider > *:before {
+	
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	background: transparent;
+	z-index: -1;
+
+}
+
 .row > .slider {
 	
 	padding: 0;
