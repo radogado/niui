@@ -28,6 +28,7 @@ natUIve: mostly native front-end framework
 - Animated anchor links
 - Language selector
 - URI parameters relay to links*
+- Arabic layout with one CSS line
 - Functional without JS and accessible without CSS*
 - Less than 9 KB effective weight
 - No IE conditional operators*
