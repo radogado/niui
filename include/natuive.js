@@ -141,16 +141,12 @@ function thisIndex (el) {
 
 }
 
-if ( typeof document.body.style.textShadow == 'undefined' ) { // Old browsers without (good) CSS3 support. IE9- detector
-
-	forEach( 'table', function (el, i) {
-		
-		el.insertAdjacentHTML('beforebegin', '<div class="table-container">' + el.outerHTML + '</div>');
-		el.outerHTML = '';
-		
-	});
-
-}
+forEach( 'table', function (el, i) {
+	
+	el.insertAdjacentHTML('beforebegin', '<div class="table">' + el.outerHTML + '</div>');
+	el.outerHTML = '';
+	
+});
 
 /* URI parameters */
 

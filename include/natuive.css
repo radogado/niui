@@ -1218,7 +1218,7 @@ table {
 	width: 100%;
 	overflow: auto;
 	border-collapse: collapse;
-	display: block;
+/* 	display: block; */
 	-webkit-overflow-scrolling: touch;
 
 	}
@@ -1276,7 +1276,7 @@ table {
 	
 	}
 	
-	.table-container {
+	div.table {
 		
 		overflow-x: auto;
 	    scrollbar-3dlight-color:grey;
