@@ -332,95 +332,104 @@ function modalWindow (e, html) {
 	var event = e || window.event;
 	var el = event.target || event.srcElement;
 
-	if ( el && hasClass(el.parentNode.parentNode, 'lightbox' ) ) { // Show an image lightbox
+	if ( hasClass ( el, 'modal' )) { // Load an external file 
 		
-		el = el.parentNode;
-
-		document.getElementById('blackbox').innerHTML = '<div class="close"> ← ' + document.title + '</div><div class="slider lightbox"></div><div id="blackbox-bg"></div>';
-		
-		/* Add any <a><img> siblings with description to a .slider and initialise its controls */
-		images = '';
-		elements = el.parentNode.querySelectorAll('a img');
-
-		for (var i = 0; i < elements.length; i++) {
+		if ( ua.indexOf('MSIE 8') != -1 ) {
+	
+			window.open (el.href, '_blank'); 
+			return false;
+	
+		}
+	
+		request = new XMLHttpRequest();
+		request.open('GET', el.href.split('#')[0], true);
+	
+		request.onload = function() {
+	
+			if (request.status >= 200 && request.status < 400){
+			// Success
+				container = (typeof el.href.split('#')[1] != 'undefined') ? ( '#' + el.href.split('#')[1] ) : 0;
+	
+				blackbox = document.getElementById('blackbox');
+				blackbox.insertAdjacentHTML('afterbegin', '<div class="close"> ← ' + document.title + '</div>');
+				if (container) {
+	
+					parsed = parseHTML(request.responseText);
+					if ( !parsed.querySelector(container) ) { removeBlackbox (); return false; }
+					blackbox.insertAdjacentHTML('beforeend', parsed.querySelector(container).innerHTML);
+						
+	
+				} else {
+	
+					blackbox.insertAdjacentHTML('beforeend', request.responseText);
+	
+				}
+	
+				blackbox.querySelector('.close').onclick = removeBlackbox;
+				
+				relayParameters();
 			
-			if ( elements[i].tagName == 'IMG' ) {
-			
-				images += '<div><img src="' + elements[i].parentNode.href + '"></div>';
-			
+			} else { 
+				// Error
+				removeBlackbox();
+	
 			}
-
-		}
-
-		document.querySelector('.slider.lightbox').innerHTML = images;
-
-		if ( makeSlider ) { 
-
-			var slider = makeSlider( document.querySelector('#blackbox .slider'), thisIndex(el) );
+	
+		};
+		
+		request.onerror = function() {
+		  // Error
+		  removeBlackbox();
+		};
+		
+		request.send();
 			
-		}
-
-		document.getElementById('blackbox-bg').onclick = document.querySelector('#blackbox .close').onclick = removeBlackbox;
-		
-		resizeLightbox();
-		addEventHandler( window, 'resize', resizeLightbox );
-		
 		return false;
 		
 	}
 	
-	// Load an external file 
+	// Assuming it's a lightbox item
+
+	document.getElementById('blackbox').innerHTML = '<div class="close"> ← ' + document.title + '</div><div class="slider lightbox"></div><div id="blackbox-bg"></div>';
+
+	var parent = el.parentNode;
+	
+	while ( !hasClass(parent,'lightbox') ) {
 		
-	if ( ua.indexOf('MSIE 8') != -1 ) {
+		parent = parent.parentNode;
+		
+	}
+	
+	/* Add any <a><img> siblings with description to a .slider and initialise its controls */
+	images = '';
+	
+	forEach( parent.querySelectorAll('a[href]'), function (el) {
+		
+		images += '<div><img src="' + el.href + '"></div>';
+		
+	});
 
-		window.open (el.href, '_blank'); 
-		return false;
+	document.querySelector('.slider.lightbox').innerHTML = images;
 
+	if ( makeSlider ) { 
+		
+		var anchor = el.parentNode;
+
+		while ( typeof anchor.href == 'undefined' ) {
+			
+			anchor = anchor.parentNode;
+			
+		}
+		
+		var slider = makeSlider( document.querySelector('#blackbox .slider'), thisIndex(anchor) );
+		
 	}
 
-	request = new XMLHttpRequest();
-	request.open('GET', el.href.split('#')[0], true);
-
-	request.onload = function() {
-
-		if (request.status >= 200 && request.status < 400){
-		// Success
-			container = (typeof el.href.split('#')[1] != 'undefined') ? ( '#' + el.href.split('#')[1] ) : 0;
-
-			blackbox = document.getElementById('blackbox');
-			blackbox.insertAdjacentHTML('afterbegin', '<div class="close"> ← ' + document.title + '</div>');
-			if (container) {
-
-				parsed = parseHTML(request.responseText);
-				if ( !parsed.querySelector(container) ) { removeBlackbox (); return false; }
-				blackbox.insertAdjacentHTML('beforeend', parsed.querySelector(container).innerHTML);
-					
-
-			} else {
-
-				blackbox.insertAdjacentHTML('beforeend', request.responseText);
-
-			}
-
-			blackbox.querySelector('.close').onclick = removeBlackbox;
-			
-			relayParameters();
-		
-		} else { 
-			// Error
-			removeBlackbox();
-
-		}
-
-	};
+	document.getElementById('blackbox-bg').onclick = document.querySelector('#blackbox .close').onclick = removeBlackbox;
 	
-	request.onerror = function() {
-	  // Error
-	  removeBlackbox();
-	};
+	resizeLightbox();
+	addEventHandler( window, 'resize', resizeLightbox );
 	
-	request.send();
-		
 	return false;
 
 }
@@ -514,7 +523,7 @@ document.querySelector('.backtotop').onclick = function (e) {
 /* Modal window: open a link inside it. Also lightbox with images */
 
 forEach('a.modal, .lightbox a', function(el, i) {
-	
+
 	el.onclick = modalWindow;
 	
 });
