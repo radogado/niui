@@ -141,6 +141,26 @@ function thisIndex (el) {
 
 }
 
+function parentByClass ( el, className ) { 
+	
+	while ( el.parentNode && !hasClass(el,className) ) { 
+		
+		el = el.parentNode; 
+	} 
+	
+	if ( hasClass(el,className) ) { 
+	
+		return el; 
+	
+	} else { 
+		
+		return null;
+	}
+
+}
+
+/* ––– */
+
 forEach( 'table', function (el, i) {
 	
 	el.insertAdjacentHTML('beforebegin', '<div class="table">' + el.outerHTML + '</div>');
@@ -302,7 +322,7 @@ function resizeLightbox () {
 	
 }
 
-function modalWindow (e, html) {
+function modalWindow (e) {
 
 	document.body.onkeyup = function(e) {
 
@@ -332,8 +352,10 @@ function modalWindow (e, html) {
 	var event = e || window.event;
 	var el = event.target || event.srcElement;
 
-	if ( hasClass ( el, 'modal' )) { // Load an external file 
+	if ( parentByClass ( el, 'modal' ) ) { // Load an external file 
 		
+		el = parentByClass ( el, 'modal' );
+
 		if ( ua.indexOf('MSIE 8') != -1 ) {
 	
 			window.open (el.href, '_blank'); 
@@ -392,13 +414,7 @@ function modalWindow (e, html) {
 
 	document.getElementById('blackbox').innerHTML = '<div class="close"> ← ' + document.title + '</div><div class="slider lightbox"></div><div id="blackbox-bg"></div>';
 
-	var parent = el.parentNode;
-	
-	while ( !hasClass(parent,'lightbox') ) {
-		
-		parent = parent.parentNode;
-		
-	}
+	var parent = parentByClass ( el, 'lightbox' );
 	
 	/* Add any <a><img> siblings with description to a .slider and initialise its controls */
 	images = '';
