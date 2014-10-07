@@ -1288,6 +1288,13 @@ table {
 	
 	}
 	
+	table tr:hover td {
+		
+		color: #333;
+		background: #ddd;
+
+	}
+	
 /* Etc */
 
 .social {
