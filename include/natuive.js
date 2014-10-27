@@ -1,4 +1,10 @@
 /* natUIve by rado.bg */
+
+function resizeSlider () {
+	
+	// Subtract the difference between the uniform height and the container height on all slides 
+	
+}
 	
 var ua = navigator.userAgent;
 
