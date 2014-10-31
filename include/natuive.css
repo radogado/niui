@@ -35,6 +35,12 @@
 		max-width: none !important;
 
 	}
+
+	.embed-row > .row {
+	
+		padding: 0;		
+
+	}
 	
 	.row > * > * {
 		
