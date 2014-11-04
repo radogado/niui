@@ -131,6 +131,12 @@ mouseWheelHandler = function(event) {
 
 function slide ( e, method ) {
 
+	if ( window.sliderTimeout ) {
+		
+		clearTimeout(window.sliderTimeout);
+		
+	}
+
 	var event = e || window.event; 
 	stopEvent(event);
 	el = event.target || event.srcElement;
@@ -324,18 +330,18 @@ function makeSlider (el, current_slide) {
 
   	});
 
-/*
   	if ( el.getAttribute('data-autoslide') ) { // auto slide
   	
-  		window.sliderTimeout = setTimeout( function (e) { 
+  		function autoSlide () {
 	  		
-	  		slide(el, 'right'); 
-	  		window.sliderTimeout = setTimeout( function (e) { slide(el, 'right'); }, 1000);
-	  	
-	  	}, 1000);
+	  		slide(el, 'right');
+	  		window.sliderTimeout = setTimeout( autoSlide, 1000 );
+	  		
+  		}
+  		
+  		autoSlide ();
   	
   	}
-*/
 
 	return el;
 	
