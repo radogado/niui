@@ -164,6 +164,18 @@ function slide ( e, method ) {
 		slider = el.parentNode.querySelector('.slider');
 
 		var index = thisIndex ( slider.parentNode.querySelector('.slider-nav a.active') );
+		
+		if ( index == 0 && method == 'left' ) {
+			
+			index = slider.children.length;
+
+		}
+
+		if ( index == (slider.children.length -1) && method == 'right' ) {
+			
+			index = -1;
+	
+		}
 
 		pos = (( method == 'left' ? --index : ++index ) * 100) + '%';
 
@@ -173,12 +185,6 @@ function slide ( e, method ) {
 
 		}
 		
-		if ( (index<0) || (index >= slider.children.length) ) {
-			
-			return;
-	
-		}
-	
 	}
 	
     removeClass( slider.parentNode.querySelector('.slider-nav .active'), 'active');
@@ -317,6 +323,19 @@ function makeSlider (el, current_slide) {
   		slide(el, 'left');
 
   	});
+
+/*
+  	if ( el.getAttribute('data-autoslide') ) { // auto slide
+  	
+  		window.sliderTimeout = setTimeout( function (e) { 
+	  		
+	  		slide(el, 'right'); 
+	  		window.sliderTimeout = setTimeout( function (e) { slide(el, 'right'); }, 1000);
+	  	
+	  	}, 1000);
+  	
+  	}
+*/
 
 	return el;
 	
