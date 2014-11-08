@@ -1225,6 +1225,7 @@ table {
 	overflow: auto;
 	border-collapse: collapse;
 	-webkit-overflow-scrolling: touch;
+	display: block;
 
 	}
 
@@ -1292,6 +1293,12 @@ table {
 	    scrollbar-highlight-color:;
 	    scrollbar-shadow-color:
 	
+	}
+	
+	div.table table {
+		
+		display: table;
+
 	}
 	
 	table tr:hover td {
