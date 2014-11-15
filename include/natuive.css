@@ -1351,7 +1351,6 @@ input.trigger, [for="nav-trigger"] {
 	.row {
 		
 		overflow-x: hidden;
-		display: table;
 
 	}
 
