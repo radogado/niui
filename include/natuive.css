@@ -30,13 +30,12 @@
 	}
 	
 	.row .row {
-	
-		padding: 0;		
+
 		margin: -.5em;
 		width: calc(100% + 1em);
 		width: 100%\9;
 		margin: 0\9;
-		max-width: none !important;
+		max-width: none;
 
 	}
 	
