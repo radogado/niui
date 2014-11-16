@@ -29,7 +29,7 @@
 
 	}
 	
-	.embed-row > .row, .row .row {
+	.row .row {
 	
 		padding: 0;		
 		margin: -.5em;
@@ -1349,6 +1349,13 @@ input.trigger, [for="nav-trigger"] {
 	.row {
 		
 		overflow-x: hidden;
+
+	}
+	
+	.row .row {
+		
+		margin: 0;
+		width: 100%;
 
 	}
 
