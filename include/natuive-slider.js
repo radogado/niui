@@ -335,7 +335,7 @@ function makeSlider (el, current_slide) {
   		function autoSlide () {
 	  		
 	  		slide(el, 'right');
-	  		window.sliderTimeout = setTimeout( autoSlide, 1000 );
+	  		window.sliderTimeout = setTimeout( autoSlide, 1000 * el.getAttribute('data-autoslide') );
 	  		
   		}
   		
