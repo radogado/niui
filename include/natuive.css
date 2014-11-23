@@ -734,7 +734,8 @@ form {
 	form .selector, form .file-input {
 
 		width: 50%;
-		background: #eee url('../images/select-arrow.svg') no-repeat calc(100% - .7em) 50%;
+		background: #eee url('../images/select-arrow.svg') no-repeat;
+		background-position: calc(100% - .7em) 50%;
 		padding: 0;
 		vertical-align: top;
 		border: none;
