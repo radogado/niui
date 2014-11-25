@@ -242,7 +242,7 @@ function makeSlider (el, current_slide) {
 	container.nextSibling.outerHTML = '';
 	el = container.querySelector('.slider');
 	el.style.overflowY = 'visible';
-	var tallest_slide = 0;
+// 	var tallest_slide = 0;
 	
 	// Generate controls
 
@@ -254,7 +254,7 @@ function makeSlider (el, current_slide) {
 		
 		}
 		
-		tallest_slide = (el.children[i].scrollHeight > tallest_slide) ? el.children[i].scrollHeight : tallest_slide;
+// 		tallest_slide = (el.children[i].scrollHeight > tallest_slide) ? el.children[i].scrollHeight : tallest_slide;
 		
 		if ( el.children[i].querySelector('.thumbnail') ) {
 
@@ -277,11 +277,13 @@ function makeSlider (el, current_slide) {
 		
 	}
 
+/*
 	for (var i = 0; i < el.children.length; i++) {
 		
 		el.children[i].style.height = tallest_slide + 'px';
 
 	}
+*/
 	
 	container.querySelector('.slider-arrow.left').onclick = function (e) {
 
@@ -332,6 +334,7 @@ function makeSlider (el, current_slide) {
 
   	if ( el.getAttribute('data-autoslide') ) { // auto slide
   	
+		  	
   		function autoSlide () {
 	  		
 	  		slide(el, 'right');
@@ -339,7 +342,7 @@ function makeSlider (el, current_slide) {
 	  		
   		}
   		
-  		autoSlide ();
+  		setTimeout( autoSlide, 1000 * el.getAttribute('data-autoslide') );
   	
   	}
 
