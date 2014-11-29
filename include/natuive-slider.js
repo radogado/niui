@@ -108,9 +108,11 @@ initScroll = function(event, delta) {
 		timeNow = new Date().getTime();
 
 	// Cancel scroll if currently animating or within quiet period
-	if( (timeNow - lastAnimation) < 700) {
+	if ( (timeNow - lastAnimation) < 1000 ) {
+
 		event.preventDefault();
 		return;
+
 	}
 
 	var el = sliderElement (event);
@@ -118,6 +120,7 @@ initScroll = function(event, delta) {
 	slide(el, (deltaOfInterest < 0) ? 'right' : 'left' );
 	
 	lastAnimation = timeNow;
+
 }
 
 mouseWheelHandler = function(event) {
@@ -196,9 +199,21 @@ function slide ( e, method ) {
     removeClass( slider.parentNode.querySelector('.slider-nav .active'), 'active');
     addClass( slider.parentNode.querySelector('.slider-nav').children[index], 'active');
 
+	el.parentNode.removeEventListener('mousewheel', mouseWheelHandler);
+	el.parentNode.removeEventListener('DOMMouseScroll', mouseWheelHandler);
+	
+	var slide_duration = 1400;
+	
     slider.style.cssText = ( ua.indexOf('MSIE 8') != -1 || isAndroidBrowser() ) ? 
-    	("overflow-y: visible; left: -" + pos + "; -webkit-transition: left 400ms ease;") :
-    	("overflow-y: visible; -webkit-transform: translateX(-" + pos + "); -moz-transform: translateX(-" + pos + "); -ms-transform: translateX(-" + pos + "); transform: translateX(-" + pos + "); -webkit-transition: -webkit-transform 400ms ease; -moz-transition: -moz-transform 400ms ease; -ms-transition: -ms-transform 400ms ease;");
+    	("overflow-y: visible; left: -" + pos + "; -webkit-transition: left " + slide_duration + "ms ease;") :
+    	("overflow-y: visible; -webkit-transform: translateX(-" + pos + "); -moz-transform: translateX(-" + pos + "); -ms-transform: translateX(-" + pos + "); transform: translateX(-" + pos + "); -webkit-transition: -webkit-transform " + slide_duration + "ms ease; -moz-transition: -moz-transform " + slide_duration + "ms ease; -ms-transition: -ms-transform " + slide_duration + "ms ease;");
+
+	slider.addEventListener( 'transitionend', function (e) { 
+	
+		el.parentNode.addEventListener('mousewheel', mouseWheelHandler);
+		el.parentNode.addEventListener('DOMMouseScroll', mouseWheelHandler);
+	
+	}, false );
     
 }
 
