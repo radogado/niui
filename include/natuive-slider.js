@@ -212,6 +212,7 @@ function slide ( e, method ) {
 	
 		el.parentNode.addEventListener('mousewheel', mouseWheelHandler);
 		el.parentNode.addEventListener('DOMMouseScroll', mouseWheelHandler);
+		document.onkeyup = sliderKeyboard;
 	
 	}, false );
     
@@ -221,6 +222,7 @@ function sliderKeyboard (e) {
 
 	var event = e || window.event;
 	el = event.target || event.srcElement;
+
 	if (document.querySelector('.slider') == null ) {
 	
 		return;
@@ -240,6 +242,8 @@ function sliderKeyboard (e) {
 			break;
 		default: return;
 	}
+
+	document.onkeyup = function () {};
 
 };
 
@@ -321,7 +325,7 @@ function makeSlider (el, current_slide) {
 		
 	}
 	
-	document.onkeydown = sliderKeyboard;
+	document.onkeyup = sliderKeyboard;
 
 	if ( ua.indexOf('MSIE 8') != -1 ) {
 	
