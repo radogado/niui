@@ -989,6 +989,7 @@ form {
 	#blackbox .slider, #blackbox .slider-container {
 		
 		background: transparent;
+		height: 100%;
 		
 	}
 	

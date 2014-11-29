@@ -108,7 +108,7 @@ initScroll = function(event, delta) {
 		timeNow = new Date().getTime();
 
 	// Cancel scroll if currently animating or within quiet period
-	if ( (timeNow - lastAnimation) < 1000 ) {
+	if ( (timeNow - lastAnimation) < 800 ) {
 
 		event.preventDefault();
 		return;
@@ -202,7 +202,7 @@ function slide ( e, method ) {
 	el.parentNode.removeEventListener('mousewheel', mouseWheelHandler);
 	el.parentNode.removeEventListener('DOMMouseScroll', mouseWheelHandler);
 	
-	var slide_duration = 1400;
+	var slide_duration = 400;
 	
     slider.style.cssText = ( ua.indexOf('MSIE 8') != -1 || isAndroidBrowser() ) ? 
     	("overflow-y: visible; left: -" + pos + "; -webkit-transition: left " + slide_duration + "ms ease;") :

@@ -1,11 +1,5 @@
 /* natUIve by rado.bg */
 
-function resizeSlider () {
-	
-	// Subtract the difference between the uniform height and the container height on all slides 
-	
-}
-	
 var ua = navigator.userAgent;
 
 /* DOM functions via http://youmightnotneedjquery.com */
@@ -312,20 +306,7 @@ function removeBlackbox () {
 
 	}
 	removeClass ( document.querySelector('html'), 'nooverflow' );
-	window.removeEventListener( 'resize', resizeLightbox );
 
-}
-
-function resizeLightbox () {
-	
-	var imagesMaxHeight = (document.querySelector('#blackbox').offsetHeight - document.querySelector('#blackbox .close').offsetHeight) + 'px';
-	forEach( '.slider.lightbox > div > img', function (el,i) {
-		
-		el.style.maxHeight = imagesMaxHeight;
-		
-	});
-	document.querySelector('#blackbox .slider').style.maxHeight = imagesMaxHeight;
-	
 }
 
 function modalWindow (e) {
@@ -427,7 +408,7 @@ function modalWindow (e) {
 	
 	forEach( parent.querySelectorAll('a[href]'), function (el) {
 		
-		images += '<div><img src="' + el.href + '"></div>';
+		images += '<div style="background-image: url(' + el.href + ');"><p>' + el.title + '</p></div>';
 		
 	});
 
@@ -448,9 +429,6 @@ function modalWindow (e) {
 	}
 
 	document.getElementById('blackbox-bg').onclick = document.querySelector('#blackbox .close').onclick = removeBlackbox;
-	
-	resizeLightbox();
-	addEventHandler( window, 'resize', resizeLightbox );
 	
 	return false;
 

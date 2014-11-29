@@ -59,7 +59,21 @@
 
 .slider.lightbox > * {
 
-	vertical-align: middle;
+	height: 100%;
+	background-position:  center center;
+	background-repeat: no-repeat; 
+	background-size: contain;
+
+}
+
+.slider.lightbox > * p {
+
+	position: absolute;
+	width: 100%;
+	bottom: 3em;
+	text-align: center;
+	text-shadow: 0 -1px 1px #999;
+	color: #000;
 
 }
 
@@ -167,6 +181,7 @@
 
 	display: block; /* Fix image bottom padding */
 	margin: 0 auto;
+	max-height: 100%;
 
 }
 
