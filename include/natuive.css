@@ -809,6 +809,7 @@ form {
 		line-height: 1;
 		color: #333;
 		margin-right: .5em;
+		display: none\9;
 
 	}
 
@@ -941,6 +942,13 @@ form {
 	form.flat .checkbox label:last-child {
 		
 		margin-bottom: -11px;
+		
+	}
+	
+	form.flat input[type="checkbox"], form.flat input[type="radio"] {
+		
+		width: auto;
+		margin-top: 0;
 		
 	}
 		
