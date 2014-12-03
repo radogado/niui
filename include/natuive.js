@@ -343,12 +343,14 @@ function modalWindow (e) {
 		
 		el = parentByClass ( el, 'modal' );
 
+/*
 		if ( ua.indexOf('MSIE 8') != -1 ) {
 	
 			window.open (el.href, '_blank'); 
 			return false;
 	
 		}
+*/
 	
 		request = new XMLHttpRequest();
 		request.open('GET', el.href.split('#')[0], true);
