@@ -36,7 +36,7 @@
 
 }
 
-.slider > *:before { /* Slide background with full slider height */
+.slider > *:after { /* Slide background with full slider height */
 	
 	content: "";
 	display: block;
@@ -60,9 +60,16 @@
 .slider.lightbox > * {
 
 	height: 100%;
-	background-position:  center center;
-	background-repeat: no-repeat; 
-	background-size: contain;
+	text-align: center;
+	
+}
+
+.slider.lightbox > *:before {
+
+	content: ' ';
+    display: inline-block;
+    vertical-align: middle;  /* vertical alignment of the inline element */
+	height: 100%;
 
 }
 
@@ -179,10 +186,9 @@
 
 .slider > * > img {
 
-	display: block; /* Fix image bottom padding */
-	margin: 0 auto;
 	max-height: 100%;
-
+	display: inline-block;
+    vertical-align: middle;
 }
 
 .disable-hover, .disable-hover * {

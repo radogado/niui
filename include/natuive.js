@@ -410,7 +410,7 @@ function modalWindow (e) {
 	
 	forEach( parent.querySelectorAll('a[href]'), function (el) {
 		
-		images += '<div style="background-image: url(' + el.href + ');"><p>' + el.title + '</p></div>';
+		images += '<div><img src="' + el.href + '" alt="' + el.title + '"><p>' + el.title + '</p></div>';
 		
 	});
 
