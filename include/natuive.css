@@ -73,7 +73,43 @@
 		width: 50%;
 
 	}
+	
+	/* Wrapping columns with minimum width. Flexbox with inline-block fallback (no equal height) */
+	
+	.row.wrap {
+		
+		display: block;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		 -webkit-justify-content: center;
+		-webkit-flex-wrap: wrap;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		text-align: center;
+		font-size: 0;
+		justify-content: center;
+		
+	}
+	
+	_:-ms-input-placeholder, :root .row.wrap { /* IE10+ */
+	
+		display: block;
 
+	}
+
+	.row.wrap > * {
+		
+		display: inline-block;
+		-webkit-flex: auto;
+		-ms-flex: auto;
+		flex: 0 1 auto;
+		width: 20em; /* Minimum column width */
+		text-align: left;
+		font-size: 15px;
+
+	}
+	
 /* Basic elements */
 
 html, body {
