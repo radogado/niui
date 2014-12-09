@@ -30,7 +30,7 @@ natUIve: mostly native front-end framework
 - URI parameters relay to links*
 - Arabic layout with one CSS line
 - Functional without JS and accessible without CSS*
-- Less than 9 KB effective weight
+- Less than 9 KB effective weight (JS & CSS combined, minified and gzipped)
 - No IE conditional operators*
 - No jQuery or other dependencies*
 - Supporting IE8+, Safari, Chrome, Firefox, Opera, Android 2.3+, iOS, Windows Phone

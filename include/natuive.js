@@ -515,12 +515,14 @@ forEach( 'a[href*="#"]', function (el, i) {
 	
 });
 
+/*
 document.querySelector('.backtotop').onclick = function (e) {
 
 	scrollTo( 0 );
 	return false;
 	
 }
+*/
 
 /* Modal window: open a link inside it. Also lightbox with images */
 
