@@ -258,9 +258,7 @@ var requestAnimFrame = (function() {
 
 function scrollTo( to, callback ) {
 
-	// figure out if this is moz || IE because they use documentElement
-	var doc = (ua.indexOf('Chrome') != -1 || ua.indexOf('Firefox') != -1 || ua.indexOf('Trident') != -1) ? document.documentElement : document.body,
-	start = doc.scrollTop,
+	start = document.documentElement.scrollTop || document.body.scrollTop,
 	change = to - start,
 	currentTime = 0,
 	increment = 20;
@@ -271,7 +269,8 @@ function scrollTo( to, callback ) {
 	    // find the value with the quadratic in-out easing function
 	    var val = Math.easeInOutQuad(currentTime, start, change, 400);
 	    // move the document.body
-	    doc.scrollTop = val;
+		document.documentElement.scrollTop = document.body.scrollTop = val;
+
 	    // do the animation unless its over
 	    if(currentTime < 400) {
 
@@ -500,29 +499,21 @@ function animateAnchors (e) {
 	removeClass ( document.getElementById('footer'), 'semi-transparent' );
 	removeClass ( document.querySelector('#head > .row'), 'semi-transparent' );
 
-		scrollTo( (hash == null) ? 0 : getCumulativeOffset(hash).y, function (e) { 
+	scrollTo( (hash == null) ? 0 : getCumulativeOffset(hash).y, function (e) { 
 
-			window.location = el.href; 
+		window.location = el.href;
 
-		});
-		return false;
+	});
+
+	return false;
 	
 };
 	
 forEach( 'a[href*="#"]', function (el, i) {
-	
+
 	el.onclick = animateAnchors;
 	
 });
-
-/*
-document.querySelector('.backtotop').onclick = function (e) {
-
-	scrollTo( 0 );
-	return false;
-	
-}
-*/
 
 /* Modal window: open a link inside it. Also lightbox with images */
 
