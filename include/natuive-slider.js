@@ -132,6 +132,22 @@ mouseWheelHandler = function(event) {
 
 }
 
+function mouseEvents ( el, toggle ) {
+	
+	if ( !('onwheel' in window) ) return;
+	
+	if (toggle == 'off') {
+		
+		el.parentNode.removeEventListener('wheel', mouseWheelHandler);
+		
+	} else {
+
+		el.parentNode.addEventListener('wheel', mouseWheelHandler);
+		
+	}
+	
+}
+
 function slide ( e, method ) {
 
 	if ( window.sliderTimeout ) {
@@ -199,8 +215,7 @@ function slide ( e, method ) {
     removeClass( slider.parentNode.querySelector('.slider-nav .active'), 'active');
     addClass( slider.parentNode.querySelector('.slider-nav').children[index], 'active');
 
-	el.parentNode.removeEventListener('mousewheel', mouseWheelHandler);
-	el.parentNode.removeEventListener('DOMMouseScroll', mouseWheelHandler);
+	mouseEvents(el.parentNode, 'off');
 	
 	var slide_duration = 400;
 	
@@ -208,14 +223,17 @@ function slide ( e, method ) {
     	("overflow-y: visible; left: -" + pos + "; -webkit-transition: left " + slide_duration + "ms ease;") :
     	("overflow-y: visible; -webkit-transform: translateX(-" + pos + "); -moz-transform: translateX(-" + pos + "); -ms-transform: translateX(-" + pos + "); transform: translateX(-" + pos + "); -webkit-transition: -webkit-transform " + slide_duration + "ms ease; -moz-transition: -moz-transform " + slide_duration + "ms ease; -ms-transition: -ms-transform " + slide_duration + "ms ease;");
 
-	slider.addEventListener( 'transitionend', function (e) { 
-	
-		el.parentNode.addEventListener('mousewheel', mouseWheelHandler);
-		el.parentNode.addEventListener('DOMMouseScroll', mouseWheelHandler);
-		document.onkeyup = sliderKeyboard;
-	
-	}, false );
-    
+	if ( 'ontransitionend' in window ) {
+		
+		slider.addEventListener( 'transitionend', function (e) { 
+			
+			mouseEvents(el.parentNode);	
+			document.onkeyup = sliderKeyboard;
+		
+		}, false );
+	    
+	}
+
 }
 
 function sliderKeyboard (e) {
@@ -333,9 +351,8 @@ function makeSlider (el, current_slide) {
 	
 	}
 
-	el.parentNode.addEventListener('mousewheel', mouseWheelHandler);
-	el.parentNode.addEventListener('DOMMouseScroll', mouseWheelHandler);
-
+	mouseEvents(el.parentNode);
+	
 	swipeEvents(el.parentNode);
   	el.parentNode.addEventListener("swipeLeft",  function(event){
 
