@@ -1,8 +1,14 @@
 /* natUIve Slider */
 
-function isAndroidBrowser() {
+var new_event_support = 1;
 
-	return ((ua.indexOf("Android") != -1) && (ua.indexOf("Chrome") == -1));
+try { // Android Browser etc?
+
+	var test_event = new Event('test');
+
+} catch(err) {
+
+    new_event_support = 0;
 
 }
 
@@ -69,27 +75,30 @@ swipeEvents = function(el) {
 
 			if (deltaX >= 50) {
 				
-				if ( isAndroidBrowser() ) {
+				if ( new_event_support ) {
 					
+					var event = new Event('swipeLeft');
+					el.dispatchEvent(event);
+					
+				} else {
+
 					initScroll(event, -1*deltaX);
-					
+
 				}
-
-				var event = new Event('swipeLeft');
-				el.dispatchEvent(event);
-
 
 			}
 			if (deltaX <= -50) {
 
-				if ( isAndroidBrowser() ) {
+				if ( new_event_support ) {
+					
+					var event = new Event('swipeRight');
+					el.dispatchEvent(event);
+
+				} else {
 					
 					initScroll(event, -1*deltaX);
 					
 				}
-
-				var event = new Event('swipeRight');
-				el.dispatchEvent(event);
 
 			}
 
@@ -155,11 +164,14 @@ function slide ( e, method ) {
 		clearTimeout(window.sliderTimeout);
 		
 	}
-
 	var event = e || window.event; 
+	if ( typeof event == 'undefined') {
+		
+		return;
+		
+	}
 	stopEvent(event);
-	el = event.target || event.srcElement;
-
+	el = event.srcElement || event.target;
 	if (typeof el == 'undefined' ) { 
 
 		el = e; 
@@ -169,19 +181,13 @@ function slide ( e, method ) {
 	var index = 0, slider = 0;
 	
 	if ( method == 'index' ) {
-		
+
 		slider = el.parentNode.parentNode.querySelector('.slider');
 		
 		index = thisIndex(el);
 
 		pos = (index * 100) + '%';
 		
-		if ( isAndroidBrowser() ) {
-			
-			pos = ( index * slider.offsetWidth ) + 'px';
-			
-		}
-
 	}
 	
 	if ( method == 'left' || method == 'right' ) {
@@ -203,28 +209,20 @@ function slide ( e, method ) {
 		}
 
 		pos = (( method == 'left' ? --index : ++index ) * 100) + '%';
-
-		if ( isAndroidBrowser() ) {
-			
-			pos = (index * slider.offsetWidth) + 'px';
-
-		}
 		
 	}
-	
+
     removeClass( slider.parentNode.querySelector('.slider-nav .active'), 'active');
     addClass( slider.parentNode.querySelector('.slider-nav').children[index], 'active');
 
 	mouseEvents(el.parentNode, 'off');
 	
 	var slide_duration = 400;
-	
-    slider.style.cssText = ( ua.indexOf('MSIE 8') != -1 || isAndroidBrowser() ) ? 
-    	("overflow-y: visible; left: -" + pos + "; -webkit-transition: left " + slide_duration + "ms ease;") :
-    	("overflow-y: visible; -webkit-transform: translateX(-" + pos + "); -moz-transform: translateX(-" + pos + "); -ms-transform: translateX(-" + pos + "); transform: translateX(-" + pos + "); -webkit-transition: -webkit-transform " + slide_duration + "ms ease; -moz-transition: -moz-transform " + slide_duration + "ms ease; -ms-transition: -ms-transform " + slide_duration + "ms ease;");
 
-	if ( 'ontransitionend' in window ) {
-		
+	if ( ('ontransitionend' in window) || (typeof document.body.style.MozTransition == 'string') ) { // CSS Transform Translate enabled browser
+
+		slider.style.cssText = "overflow-y: visible; -webkit-transform: translateX(-" + pos + "); -moz-transform: translateX(-" + pos + "); -ms-transform: translateX(-" + pos + "); transform: translateX(-" + pos + "); -webkit-transition: -webkit-transform " + slide_duration + "ms ease; -moz-transition: -moz-transform " + slide_duration + "ms ease; -ms-transition: -ms-transform " + slide_duration + "ms ease;";
+
 		slider.addEventListener( 'transitionend', function (e) { 
 			
 			mouseEvents(el.parentNode);	
@@ -232,6 +230,10 @@ function slide ( e, method ) {
 		
 		}, false );
 	    
+	} else {
+
+		slider.style.cssText = "overflow-y: visible; left: -" + pos + "; -webkit-transition: left " + slide_duration + "ms ease;";
+
 	}
 
 }
@@ -239,6 +241,12 @@ function slide ( e, method ) {
 function sliderKeyboard (e) {
 
 	var event = e || window.event;
+
+	if (typeof event == 'undefined') {
+		
+		return;
+	}
+	
 	el = event.target || event.srcElement;
 
 	if (document.querySelector('.slider') == null ) {
@@ -279,7 +287,6 @@ function makeSlider (el, current_slide) {
 	container.nextSibling.outerHTML = '';
 	el = container.querySelector('.slider');
 	el.style.overflowY = 'visible';
-// 	var tallest_slide = 0;
 	
 	// Generate controls
 
@@ -290,8 +297,6 @@ function makeSlider (el, current_slide) {
 			continue;
 		
 		}
-		
-// 		tallest_slide = (el.children[i].scrollHeight > tallest_slide) ? el.children[i].scrollHeight : tallest_slide;
 		
 		if ( el.children[i].querySelector('.thumbnail') ) {
 
@@ -314,14 +319,6 @@ function makeSlider (el, current_slide) {
 		
 	}
 
-/*
-	for (var i = 0; i < el.children.length; i++) {
-		
-		el.children[i].style.height = tallest_slide + 'px';
-
-	}
-*/
-	
 	container.querySelector('.slider-arrow.left').onclick = function (e) {
 
 		slide(e, 'left');
@@ -339,34 +336,33 @@ function makeSlider (el, current_slide) {
 		removeClass(el.parentNode.querySelector('.slider-nav .active'), 'active');
 		addClass(el.parentNode.querySelector('.slider-nav').children[current_slide], 'active');
 		pos = current_slide*100;
-		el.style.cssText = ( ua.indexOf('MSIE 8') != -1 ) ? ("overflow-y: visible; left: -" + pos + "%;") : ("overflow-y: visible; -webkit-transform: translateX(-" + pos + "%); -moz-transform: translateX(-" + pos + "%);-ms-transform: translateX(-" + pos + "%);transform: translateX(-" + pos + "%);");
+		el.style.cssText = ( ('ontransitionend' in window) || (typeof document.body.style.MozTransition == 'string') ) ? ("overflow-y: visible; -webkit-transform: translateX(-" + pos + "%); -moz-transform: translateX(-" + pos + "%);-ms-transform: translateX(-" + pos + "%);transform: translateX(-" + pos + "%);") : ("overflow-y: visible; left: -" + pos + "%;");
 		
 	}
 	
 	document.onkeyup = sliderKeyboard;
 
-	if ( ua.indexOf('MSIE 8') != -1 ) {
-	
-		return el;
-	
-	}
-
 	mouseEvents(el.parentNode);
 	
-	swipeEvents(el.parentNode);
-  	el.parentNode.addEventListener("swipeLeft",  function(event){
+	if ( 'ontouchstart' in window ) {
 
-	  	el = sliderElement(event);
-  		slide(el, 'right');
+		swipeEvents(el.parentNode);
 
-  	});
-
-  	el.parentNode.addEventListener("swipeRight", function(event){
-
-	  	el = sliderElement(event);
-  		slide(el, 'left');
-
-  	});
+	  	el.parentNode.addEventListener("swipeLeft",  function(event){
+	
+		  	el = sliderElement(event);
+			slide(el, 'right');
+	
+	  	});
+	
+	  	el.parentNode.addEventListener("swipeRight", function(event){
+	
+		  	el = sliderElement(event);
+	  		slide(el, 'left');
+	
+	  	});
+  	
+  	}
 
   	if ( el.getAttribute('data-autoslide') ) { // auto slide
   	

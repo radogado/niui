@@ -1,7 +1,5 @@
 /* natUIve by rado.bg */
 
-var ua = navigator.userAgent;
-
 /* DOM functions via http://youmightnotneedjquery.com */
 function addClass ( el, className ) {
 
@@ -19,7 +17,6 @@ function addClass ( el, className ) {
 
 function removeClass ( el, className ) {
 
-	if (!el) return;
 	if (el.classList) {
 
 		el.classList.remove(className);
@@ -99,7 +96,17 @@ function addEventHandler( el, eventType, handler ) {
 
 function stopEvent( e ) {
  
-	if (!e) var e = window.event;
+	if (!e) {
+			
+		var e = window.event;
+		
+		if ( typeof e == 'undefined') {
+			
+			return;
+			
+		}
+	
+	}
  
 	//e.cancelBubble is supported by IE, this will kill the bubbling process.
 	e.cancelBubble = true;
@@ -123,6 +130,8 @@ function stopEvent( e ) {
 }
 
 function thisIndex (el) {
+
+	if (!el) return;
 
     var nodes = el.parentNode.childNodes, node;
     var i = count = 0;
@@ -310,6 +319,17 @@ function removeBlackbox () {
 
 function modalWindow (e) {
 
+	var event = e || window.event;
+	var el = event.target || event.srcElement;
+
+	if ( parentByClass ( el, 'modal' ) && !(new XMLHttpRequest().upload) ) {
+		
+		el = parentByClass ( el, 'modal' );
+		window.open(el.href, '_blank');
+		return false;
+
+	}
+
 	document.body.onkeyup = function(e) {
 
 		var event = e || window.event;
@@ -335,22 +355,10 @@ function modalWindow (e) {
 		
 	}
 	
-	var event = e || window.event;
-	var el = event.target || event.srcElement;
-
 	if ( parentByClass ( el, 'modal' ) ) { // Load an external file 
 		
 		el = parentByClass ( el, 'modal' );
 
-/*
-		if ( ua.indexOf('MSIE 8') != -1 ) {
-	
-			window.open (el.href, '_blank'); 
-			return false;
-	
-		}
-*/
-	
 		request = new XMLHttpRequest();
 		request.open('GET', el.href.split('#')[0], true);
 	
@@ -358,6 +366,7 @@ function modalWindow (e) {
 	
 			if (request.status >= 200 && request.status < 400){
 			// Success
+			
 				container = (typeof el.href.split('#')[1] != 'undefined') ? ( '#' + el.href.split('#')[1] ) : 0;
 	
 				blackbox = document.getElementById('blackbox');
@@ -489,6 +498,11 @@ var getCumulativeOffset = function (obj) { // Offset from element to top of page
 function animateAnchors (e) {
 	
 	var event = e || window.event;
+	if ( typeof event == 'undefined' ) {
+		
+		return;
+		
+	}
 	var el = event.target || event.srcElement;
 	
 	hash = document.getElementById( el.href.split('#')[1] );
