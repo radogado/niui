@@ -69,8 +69,8 @@ var parseHTML = function ( str ) {
 }
 
 function forEach( selector, fn ) { // Accepts both an array and a selector
-
-	elements = (typeof selector == 'object') ? selector : document.querySelectorAll(selector);
+alert(typeof selector);
+	elements = (typeof selector == 'string') ? document.querySelectorAll(selector) : selector;
 	for (var i = 0; i < elements.length; i++) {
 
 		fn(elements[i], i);
