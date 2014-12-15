@@ -134,8 +134,8 @@ initScroll = function(event, delta) {
 
 mouseWheelHandler = function(event) {
 
-	var delta = event.wheelDeltaX || -event.detail;
-	if ( Math.abs(delta) < 9 ) return;
+	var delta = (event.deltaX*-10) || event.wheelDeltaX || -event.detail;
+	if ( Math.abs(delta) < 50 ) return;
 	event.preventDefault();
 	initScroll(event, delta);
 
@@ -292,11 +292,13 @@ function makeSlider (el, current_slide) {
 
 	for (var i = 0; i < el.children.length; i++) {
 		
+/*
+		// IE8 counts comments as children and produces an empty slide.			
 		if ( el.children[i].nodeName == '#comment' ) {
 			
-			continue;
 		
 		}
+*/
 		
 		if ( el.children[i].querySelector('.thumbnail') ) {
 
