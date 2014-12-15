@@ -21,6 +21,7 @@
 	-ms-overflow-style: none; /* No scrollbars on IE10+ */
 	font-size: 1px; /* no space between inline-block */
 	-webkit-transform-style: preserve-3d;
+	left: 0;
 
 }
 

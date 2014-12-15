@@ -219,7 +219,7 @@ function slide ( e, method ) {
 	
 	var slide_duration = 400;
 
-	if ( ('ontransitionend' in window) || (typeof document.body.style.MozTransition == 'string') ) { // CSS Transform Translate enabled browser
+	if ( ('ontransitionend' in window) || (typeof document.body.style.MozTransition == 'string') ) { // CSS Transform Translate enabled browser; to do: add IE detection
 
 		slider.style.cssText = "overflow-y: visible; -webkit-transform: translateX(-" + pos + "); -moz-transform: translateX(-" + pos + "); -ms-transform: translateX(-" + pos + "); transform: translateX(-" + pos + "); -webkit-transition: -webkit-transform " + slide_duration + "ms ease; -moz-transition: -moz-transform " + slide_duration + "ms ease; -ms-transition: -ms-transform " + slide_duration + "ms ease;";
 
@@ -232,7 +232,7 @@ function slide ( e, method ) {
 	    
 	} else {
 
-		slider.style.cssText = "overflow-y: visible; left: -" + pos + "; -webkit-transition: left " + slide_duration + "ms ease;";
+		slider.style.cssText = "overflow-y: visible; left: -" + pos + "; -webkit-transition: left " + slide_duration + "ms ease; transition: left " + slide_duration + "ms ease;";
 
 	}
 
