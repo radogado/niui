@@ -224,7 +224,7 @@ function slide ( e, method ) {
 
 		slider.addEventListener( 'transitionend', function (e) { 
 			
-			mouseEvents(el.parentNode);	
+			t = setTimeout ( function (e) { mouseEvents(el.parentNode);	}, slide_duration*2);
 			document.onkeyup = sliderKeyboard;
 		
 		}, false );
@@ -234,7 +234,7 @@ function slide ( e, method ) {
 		slider.style.cssText = "overflow-y: visible; left: -" + pos + "; -webkit-transition: left " + slide_duration + "ms ease; transition: left " + slide_duration + "ms ease;";
 		var t = setTimeout ( function () { 
 
-			mouseEvents(el.parentNode);	
+			t = setTimeout ( function (e) { mouseEvents(el.parentNode);	}, slide_duration*2);
 			document.onkeyup = sliderKeyboard;
 
 		}, slide_duration);
