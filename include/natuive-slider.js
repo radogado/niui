@@ -233,7 +233,13 @@ function slide ( e, method ) {
 	} else {
 
 		slider.style.cssText = "overflow-y: visible; left: -" + pos + "; -webkit-transition: left " + slide_duration + "ms ease; transition: left " + slide_duration + "ms ease;";
+		var t = setTimeout ( function () { 
 
+			mouseEvents(el.parentNode);	
+			document.onkeyup = sliderKeyboard;
+
+		}, slide_duration);
+		
 	}
 
 }
