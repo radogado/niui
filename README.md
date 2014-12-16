@@ -40,3 +40,29 @@ natUIve: mostly native front-end framework
 \* exclusive features, missing in popular frameworks
 
 2014 [rado.bg](http://rado.bg)
+
+–––
+
+natUIve 1.1
+
+- More stability and compatibility
+- Core:
+	- Clean, seamless row embedding without padding creep
+	- Wrap Grid, which wraps equal-width columns on multiple lines
+	- Browser capabilities detection, instead of user agent
+- Tables: 
+	- Highlight row by hover
+- Lightbox:
+	- Image captions
+	- Centered/downscaled images by CSS only
+	- Lightbox link can be anything, not just a thumbnail image
+- Modal windows: 
+	- The link can have child elements
+	- A modal window can have any content – modalWindow(‘HTML')
+- Form:
+	- Supports dragging a file to a file input
+	- Flat version with stacked labels/inputs
+- Slider:
+	- Auto-slide option
+	- Jumping from last to first and first to last
+
