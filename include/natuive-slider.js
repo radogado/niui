@@ -14,8 +14,7 @@ try { // Android Browser etc?
 
 function sliderElement (e) {
 	
-	var event = e || window.event; 
-	el = event.target || event.srcElement;
+	el = eventElement(e);
 
 	if ( hasClass(el, 'slider-container')) {
 
@@ -164,14 +163,14 @@ function slide ( e, method ) {
 		clearTimeout(window.sliderTimeout);
 		
 	}
-	var event = e || window.event; 
-	if ( typeof event == 'undefined') {
+	e = e || window.event;
+	if ( typeof e == 'undefined') {
 		
 		return;
 		
 	}
-	stopEvent(event);
-	el = event.srcElement || event.target;
+	stopEvent(e);
+	el = e.srcElement || e.target;
 	if (typeof el == 'undefined' ) { 
 
 		el = e; 
@@ -246,14 +245,14 @@ function slide ( e, method ) {
 
 function sliderKeyboard (e) {
 
-	var event = e || window.event;
+	e = e || window.event;
 
-	if (typeof event == 'undefined') {
+	if (typeof e == 'undefined') {
 		
 		return;
 	}
 	
-	el = event.target || event.srcElement;
+	el = e.target || e.srcElement;
 
 	if (document.querySelector('.slider') == null ) {
 	

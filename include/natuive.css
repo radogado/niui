@@ -698,7 +698,7 @@ form {
 
 	}
 	
-	form .mandatory span.checkbox:after, form .mandatory span.tip:after {
+	form .mandatory span.checkbox:before, form .mandatory span.tip:after {
 	
 		display: none;
 		
@@ -710,7 +710,7 @@ form {
 		
 	}
 
-	form .mandatory:after {
+	form .mandatory:before {
 		
 		content: "*";
 		color: #a00;
@@ -957,7 +957,7 @@ form {
 
 	}
 	
-	form.flat .mandatory:after {
+	form.flat .mandatory:before {
 		
 		left: auto;
 		right: 0;
@@ -1505,10 +1505,11 @@ input.trigger, [for="nav-trigger"] {
 
 		}
 		
-		form .mandatory:after {
+		form .mandatory:before {
 			
 			right: 0;
 			left: auto;
+			top: .7em;
 			
 		}
 
@@ -1542,12 +1543,6 @@ input.trigger, [for="nav-trigger"] {
 			
 			visibility: hidden;
 			
-		}
-
-		#content form label:before {
-			
-			display: none;
-	
 		}
 		
 		form div.checkbox span, div.checkbox label {

@@ -57,6 +57,13 @@ function toggleClass ( el, className ) {
 	
 }
 
+function eventElement (e) {
+	
+	e = e || window.event;
+	return e.target || e.srcElement;
+
+}
+
 var parseHTML = function ( str ) {
 
 	tmp = document.implementation.createHTMLDocument('Parsed');
@@ -319,8 +326,7 @@ function removeBlackbox () {
 
 function modalWindow (e) {
 
-	var event = e || window.event;
-	var el = event.target || event.srcElement;
+	el = eventElement(e);
 
 	if ( parentByClass ( el, 'modal' ) && !(new XMLHttpRequest().upload) ) {
 		
@@ -332,9 +338,9 @@ function modalWindow (e) {
 
 	document.body.onkeyup = function(e) {
 
-		var event = e || window.event;
+		e = e || window.event;
 
-	    if (event.keyCode == 27) { // esc
+	    if (e.keyCode == 27) { // esc
 			
 			removeBlackbox ();
 			
@@ -497,13 +503,13 @@ var getCumulativeOffset = function (obj) { // Offset from element to top of page
 
 function animateAnchors (e) {
 	
-	var event = e || window.event;
-	if ( typeof event == 'undefined' ) {
+	e = e || window.event;
+	if ( typeof e == 'undefined' ) {
 		
 		return;
 		
 	}
-	var el = event.target || event.srcElement;
+	var el = e.target || e.srcElement;
 	
 	hash = document.getElementById( el.href.split('#')[1] );
 
@@ -543,8 +549,7 @@ forEach('textarea', function(el, i){
 
 	el.onkeyup = function (e) {
 
-		var event = e || window.event;
-		var el = event.target || event.srcElement;
+		el = eventElement(e);
 
 		while ( el.rows > 1 && el.scrollHeight < el.offsetHeight ) {	
 			
@@ -573,8 +578,7 @@ forEach('textarea', function(el, i){
 
 function submitForm (e) {
 
-	var event = e || window.event;
-	el = event.target || event.srcElement;
+	el = eventElement(e);
 
 	ready_to_submit = true;
 
@@ -613,8 +617,8 @@ forEach( 'form', function (el, i) {
 	
 function updateFileInput (e) {
 	
-	var event = e || window.event;
-	el = event.target || event.srcElement;
+	el = eventElement(e);
+
 	el.parentNode.querySelector('span').innerHTML = el.value.substring(el.value.lastIndexOf('\\') +1)
 	
 }
@@ -639,8 +643,8 @@ if ( document.getElementById('language-selector') ) {
 	
 function toggleAccordion (e) {
 	
-	var event = e || window.event;
-	el = event.target || event.srcElement;
+	el = eventElement(e);
+
 	stopEvent( e );
 	el = el.parentNode;
 	toggleClass(el, 'open');
@@ -672,7 +676,8 @@ forEach( '.accordion > label', function(el, i) {
 	
 	el.querySelector('div').onclick = function (e) {  
 
-		var event = e || window.event; event.cancelBubble = true; 
+		e = e || window.event; 
+		e.cancelBubble = true; 
 
 	};
 
