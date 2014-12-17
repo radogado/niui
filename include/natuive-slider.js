@@ -58,7 +58,7 @@ swipeEvents = function(el) {
 
 	function touchMove(e) {
 
-		var touches = event.touches;
+		var touches = e.touches;
 		if (touches && touches.length) {
 
 			var deltaX = startX - touches[0].pageX;
@@ -70,7 +70,7 @@ swipeEvents = function(el) {
 				
 			}
 
-			event.preventDefault();
+			e.preventDefault();
 
 			if (deltaX >= 50) {
 				
@@ -81,7 +81,7 @@ swipeEvents = function(el) {
 					
 				} else {
 
-					initScroll(event, -1*deltaX);
+					initScroll(e, -1*deltaX);
 
 				}
 
@@ -95,7 +95,7 @@ swipeEvents = function(el) {
 
 				} else {
 					
-					initScroll(event, -1*deltaX);
+					initScroll(e, -1*deltaX);
 					
 				}
 
@@ -110,7 +110,7 @@ swipeEvents = function(el) {
 
 };
 
-initScroll = function(e, delta) {
+initScroll = function(event, delta) {
 
 	var deltaOfInterest = delta,
 		timeNow = new Date().getTime();
@@ -118,12 +118,12 @@ initScroll = function(e, delta) {
 	// Cancel scroll if currently animating or within quiet period
 	if ( (timeNow - lastAnimation) < 800 ) {
 
-		e.preventDefault();
+		event.preventDefault();
 		return;
 
 	}
 
-	var el = sliderElement (e);
+	var el = sliderElement (event);
 
 	slide(el, (deltaOfInterest < 0) ? 'right' : 'left' );
 	
@@ -131,12 +131,12 @@ initScroll = function(e, delta) {
 
 }
 
-mouseWheelHandler = function(e) {
+mouseWheelHandler = function(event) {
 
-	var delta = (e.deltaX*-10) || e.wheelDeltaX || -e.detail;
+	var delta = (event.deltaX*-10) || event.wheelDeltaX || -event.detail;
 	if ( Math.abs(delta) < 50 ) return;
-	e.preventDefault();
-	initScroll(e, delta);
+	event.preventDefault();
+	initScroll(event, delta);
 
 }
 
@@ -264,7 +264,7 @@ function sliderKeyboard (e) {
 	
 	el = document.querySelector('.slider.lightbox') || document.querySelector('.slider');
 	
-	switch(e.which) {
+	switch(event.which) {
 		case 37:
 			if (tag != 'input' && tag != 'textarea') slide(el, 'left');
 			break;
@@ -355,16 +355,16 @@ function makeSlider (el, current_slide) {
 
 		swipeEvents(el.parentNode);
 
-	  	el.parentNode.addEventListener("swipeLeft",  function(e){
+	  	el.parentNode.addEventListener("swipeLeft",  function(event){
 	
-		  	el = sliderElement(e);
+		  	el = sliderElement(event);
 			slide(el, 'right');
 	
 	  	});
 	
-	  	el.parentNode.addEventListener("swipeRight", function(e){
+	  	el.parentNode.addEventListener("swipeRight", function(event){
 	
-		  	el = sliderElement(e);
+		  	el = sliderElement(event);
 	  		slide(el, 'left');
 	
 	  	});
