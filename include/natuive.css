@@ -33,6 +33,7 @@
 
 		margin: -.5em;
 		width: calc(100% + 1em);
+		width: 100%\9;
 		margin: 0\9;
 		max-width: none;
 
@@ -818,8 +819,14 @@ form {
 		clear: right;
 		margin: 1px 0 0 0;
 		cursor: pointer;
-		padding-left: 1.5em\9;
+		padding-left: 1.5em;
 		
+	}
+
+	:root div.checkbox label {
+
+		padding-left: 0;
+
 	}
 	
 	div.checkbox label + label {
@@ -846,7 +853,41 @@ form {
 		line-height: 1;
 		color: #333;
 		margin-right: .5em;
-		display: none\9;
+		display: none;
+
+	}
+
+	:root b.checkbox { /* Not IE8 */
+
+		display: inline-block;
+
+	}
+
+	input[type="checkbox"], input[type="radio"] {
+		
+		-webkit-appearance: none;
+		-moz-appearance: window;
+		-ms-appearance: none;
+		position: absolute;
+		background: transparent;
+		cursor: pointer;
+		opacity: 0;
+		padding: 0;
+		border: 1px solid transparent;
+		left: 0;
+		outline: none;
+		float: left;
+		width: auto;
+		min-height: 0;
+		opacity: 0;
+		margin: 0 .5em 0 -1.5em;
+		margin-left: 0\9; /* IE8 */
+
+	}
+
+	:root input[type="checkbox"], :root input[type="radio"] {
+
+		display: none;
 
 	}
 
@@ -871,28 +912,6 @@ form {
 	input[type="checkbox"]:focus + b.checkbox, input[type="radio"]:focus + b.checkbox {
 		
 		box-shadow: 0 0 1px #000;
-
-	}
-		
-	input[type="checkbox"], input[type="radio"] {
-		
-		-webkit-appearance: none;
-		-moz-appearance: window;
-		-ms-appearance: none;
-		position: absolute;
-		background: transparent;
-		cursor: pointer;
-		opacity: 0;
-		padding: 0;
-		border: 1px solid transparent;
-		left: 0;
-		outline: none;
-		float: left;
-		width: auto;
-		min-height: 0;
-		opacity: 0;
-		margin: 0 .5em 0 -1.5em;
-		margin-left: 0\9; /* IE8 */
 
 	}
 
