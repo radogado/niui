@@ -772,6 +772,7 @@ form {
 
 		width: 50%;
 		background: #eee url('../images/select-arrow.svg') no-repeat;
+		background-position: 97% 50%;
 		background-position: calc(100% - .7em) 50%;
 		padding: 0;
 		vertical-align: top;
