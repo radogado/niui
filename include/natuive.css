@@ -102,8 +102,8 @@
 	.row.wrap > * {
 		
 		display: inline-block;
-		-webkit-flex: auto;
-		-ms-flex: auto;
+		-webkit-flex: 0 1 auto;
+		-ms-flex: 0 1 auto;
 		flex: 0 1 auto;
 		width: 20em; /* Minimum column width */
 		text-align: left;
@@ -253,18 +253,6 @@ a:link, a:visited {
 	
 	display: none !important;
 	
-}
-
-.semi-transparent {
-	
-	opacity: .1;
-
-}
-
-#content.semi-transparent, #footer.semi-transparent, #head > .row.semi-transparent {
-	
-	opacity: 1;
-
 }
 
 /* Navigation */
@@ -1478,6 +1466,7 @@ input.trigger, [for="nav-trigger"] {
 
 		display: block;
 		padding: 5px;
+		width: auto !important;
 
 	}
 
@@ -1487,12 +1476,6 @@ input.trigger, [for="nav-trigger"] {
 
 	}
 
-	.row > *, .row > .column23, .row > .column2, .row > .column3, .row > .column4, .row > .column34 {
-
-		width: auto;
-
-	}
-	
 	#head > .row:first-child div {
 		
 		text-align: right;
@@ -1744,7 +1727,7 @@ input.trigger, [for="nav-trigger"] {
 
 	}
 
-	#content.semi-transparent, #footer.semi-transparent, #head > .row.semi-transparent {
+	.semi-transparent #content, .semi-transparent #footer, .semi-transparent #head > .row {
 		
 		opacity: .1;
 	

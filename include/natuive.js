@@ -403,8 +403,9 @@ function modalWindow (e) {
 		};
 		
 		request.onerror = function() {
-		  // Error
-		  removeBlackbox();
+			// Error
+			removeBlackbox();
+
 		};
 		
 		request.send();
@@ -515,9 +516,7 @@ function animateAnchors (e) {
 
 	document.querySelector('#nav-trigger').checked = false; 
 	removeClass ( document.querySelector('.nav-main > div'), 'open' );
-	removeClass ( document.getElementById('content'), 'semi-transparent' );
-	removeClass ( document.getElementById('footer'), 'semi-transparent' );
-	removeClass ( document.querySelector('#head > .row'), 'semi-transparent' );
+	removeClass ( document.querySelector('body'), 'semi-transparent' );
 
 	scrollTo( (hash == null) ? 0 : getCumulativeOffset(hash).y, function (e) { 
 
@@ -691,9 +690,7 @@ if ( 'ontouchstart' in window ) { // Touch device: remove iOS sticky hover state
 
 document.getElementById('nav-trigger').onchange = function (e) {
 	
-	toggleClass ( document.getElementById('content'), 'semi-transparent' );
-	toggleClass ( document.getElementById('footer'), 'semi-transparent' );
-	toggleClass ( document.querySelector('#head > .row'), 'semi-transparent' );
+	toggleClass ( document.querySelector('body'), 'semi-transparent' );
 
 };
 
