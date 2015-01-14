@@ -264,7 +264,7 @@ function sliderKeyboard (e) {
 	
 	el = document.querySelector('.slider.lightbox') || document.querySelector('.slider');
 	
-	switch(event.which) {
+	switch(e.which) {
 		case 37:
 			if (tag != 'input' && tag != 'textarea') slide(el, 'left');
 			break;
