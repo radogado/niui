@@ -19,7 +19,7 @@
     -webkit-transform: translate3d(0, 0, 0); /* fast, hardware-accelerated scrolling */
     -webkit-transform: translateZ(0);
 	-ms-overflow-style: none; /* No scrollbars on IE10+ */
-	font-size: 1px; /* no space between inline-block */
+	font-size: 0; /* no space between inline-block */
 	-webkit-transform-style: preserve-3d;
 	left: 0;
 
