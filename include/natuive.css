@@ -29,7 +29,7 @@
 
 	}
 	
-	.row .row {
+	.row > * > .row {
 
 		margin: -.5em;
 		width: calc(100% + 1em);
@@ -1455,7 +1455,7 @@ input.trigger, [for="nav-trigger"] {
 
 	}
 	
-	.row .row {
+	.row > * > .row {
 		
 		margin: 0;
 		width: 100%;
@@ -1470,7 +1470,7 @@ input.trigger, [for="nav-trigger"] {
 
 	}
 
-	.row .row > * {
+	.row > * > .row > * {
 
 		padding: 0;
 
