@@ -326,6 +326,19 @@ function removeBlackbox () {
 
 function modalWindow (e) {
 
+	if ( typeof e == 'string') { // HTML input
+
+		document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> </div>');
+		addClass ( document.querySelector('html'), 'nooverflow' );
+
+		document.getElementById('blackbox').innerHTML = '<div class="close"> ← ' + document.title + '</div>' + e + '<div id="blackbox-bg"></div>';
+
+		document.getElementById('blackbox-bg').onclick = document.querySelector('#blackbox .close').onclick = removeBlackbox;
+
+		return false;
+		
+	}
+	
 	el = eventElement(e);
 
 	if ( parentByClass ( el, 'modal' ) && !(new XMLHttpRequest().upload) ) {
@@ -351,16 +364,6 @@ function modalWindow (e) {
 	document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> </div>');
 	addClass ( document.querySelector('html'), 'nooverflow' );
 
-	if ( typeof e == 'string') { // HTML input
-
-		document.getElementById('blackbox').innerHTML = '<div class="close"> ← ' + document.title + '</div>' + e + '<div id="blackbox-bg"></div>';
-
-		document.getElementById('blackbox-bg').onclick = document.querySelector('#blackbox .close').onclick = removeBlackbox;
-
-		return false;
-		
-	}
-	
 	if ( parentByClass ( el, 'modal' ) ) { // Load an external file 
 		
 		el = parentByClass ( el, 'modal' );
