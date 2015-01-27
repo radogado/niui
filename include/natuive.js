@@ -30,16 +30,8 @@ function removeClass ( el, className ) {
 }
 
 function hasClass ( el, className ) {
-
-	if (el.classList) {
-
-		return el.classList.contains(className);
-
-	} else {
-
-		return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
-
-	}
+	
+	return (el.classList) ? el.classList.contains(className) : new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
 
 }
 
@@ -162,16 +154,10 @@ function parentByClass ( el, className ) {
 	while ( el.parentNode && !hasClass(el,className) ) { 
 		
 		el = el.parentNode; 
-	} 
-	
-	if ( hasClass(el,className) ) { 
-	
-		return el; 
-	
-	} else { 
-		
-		return null;
+
 	}
+	
+	return hasClass(el,className) && el;
 
 }
 
@@ -385,7 +371,6 @@ function modalWindow (e) {
 					parsed = parseHTML(request.responseText);
 					if ( !parsed.querySelector(container) ) { removeBlackbox (); return false; }
 					blackbox.insertAdjacentHTML('beforeend', parsed.querySelector(container).innerHTML);
-						
 	
 				} else {
 	
