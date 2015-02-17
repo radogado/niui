@@ -1475,6 +1475,13 @@ input.trigger, [for="nav-trigger"] {
 		padding: 0;
 
 	}
+	
+	.row.half > * {
+		
+		width: 50% !important;
+		float: left;
+
+	}
 
 	#head > .row:first-child div {
 		

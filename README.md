@@ -1,7 +1,7 @@
 natUIve: mostly native front-end framework
 ===
 
-9 KB framework leveraging browsers' built-in capabilities, with smart customisation. ([Live demo](http://radogado.github.io/natuive/))
+9 KB framework leveraging browsers' built-in capabilities, with subtle customisation. ([Live demo](http://radogado.github.io/natuive/))
 ---
 
 - Unbreakable, flexible, responsive grid
@@ -30,7 +30,7 @@ natUIve: mostly native front-end framework
 - URI parameters relay to links*
 - Arabic layout with one CSS line
 - Functional without JS and accessible without CSS*
-- Less than 9 KB effective weight (JS & CSS combined, minified and gzipped)
+- 9 KB effective weight (JS & CSS combined, minified and gzipped)
 - No IE conditional operators*
 - No jQuery or other dependencies*
 - Supporting IE8+, Safari, Chrome, Firefox, Opera, Android 2.3+, iOS, Windows Phone
