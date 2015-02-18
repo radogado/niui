@@ -110,6 +110,25 @@
 		font-size: 15px;
 
 	}
+
+	.row.border {
+
+		border: 1px solid #999;
+		padding: 0;
+
+	}
+		
+	.row.border > * {
+		
+		border-left: 1px solid #999;
+		
+	}
+
+	.row.border > *:first-child {
+		
+		border-left: none;
+		
+	}
 	
 /* Basic elements */
 
@@ -1467,6 +1486,7 @@ input.trigger, [for="nav-trigger"] {
 		display: block;
 		padding: 5px;
 		width: auto !important;
+		border: none;
 
 	}
 
@@ -1487,8 +1507,27 @@ input.trigger, [for="nav-trigger"] {
 		
 		text-align: right;
 		
-	} 
+	}
 	
+	.row.wrap > * {
+		
+		width: 100% !important;
+	
+	}
+	
+	.row.border {
+		
+		border: none;
+		padding: .5em 0;
+
+	}
+
+	.row.border > * {
+		
+		border: none;
+
+	}
+		
 	label {
 
 		text-align: left;
@@ -1720,12 +1759,6 @@ input.trigger, [for="nav-trigger"] {
 		
 	}
 
-	.embed-row {
-		
-		margin: 0;
-
-	}
-	
 	/* Termporarily disabled tooltip on mobile */
 	
 	.tool:after {
