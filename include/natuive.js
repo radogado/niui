@@ -500,6 +500,12 @@ function animateAnchors (e) {
 	}
 	var el = e.target || e.srcElement;
 	
+	while( typeof el.href == 'undefined' ) {
+		
+		el = el.parentNode;
+		
+	}
+	
 	hash = document.getElementById( el.href.split('#')[1] );
 
 	document.querySelector('#nav-trigger').checked = false; 
