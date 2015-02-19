@@ -7,6 +7,30 @@
 	max-height: 100%;
 
 }
+
+.slider-container.vertical-thumbnails {
+	
+	padding-left: 33%;
+
+}
+
+.slider-container.vertical-thumbnails .slider-nav.thumbnails {
+	
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 33%;
+	display: block;
+	background: #fff;
+	padding-right: 0.5em;	
+
+}
+
+.slider-container.vertical-thumbnails .slider-nav.thumbnails a {
+	
+	display: block;
+
+}
 	
 .slider {
 
