@@ -312,6 +312,8 @@ function removeBlackbox () {
 
 function modalWindow (e) {
 
+	removeBlackbox ();
+
 	if ( typeof e == 'string') { // HTML input
 
 		document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> </div>');
@@ -596,9 +598,46 @@ function submitForm (e) {
 
 	});
 
-	if (!ready_to_submit) scrollTo(el.offsetTop + el.parentNode.offsetTop);
+	if ( !ready_to_submit ) {
+		
+		scrollTo(el.offsetTop + el.parentNode.offsetTop)
+		return false;
+	
+	}
+	
+	if ( !(new XMLHttpRequest().upload) ) { // Browser unable to submit dynamically
+		
+		return true;
+		
+	}
 
-	return ready_to_submit;
+	el.insertAdjacentHTML('beforeend', '<input name=targetformurl type=hidden value=' + encodeURIComponent(el.action) + '>');
+
+	var r = new XMLHttpRequest(); 
+	r.open("POST", "include/send-form.php", true);
+
+	r.onreadystatechange = function () {
+
+		if ( r.readyState != 4 || r.status != 200 || r.responseText.indexOf('---error---') != -1 ) {
+			
+			// Error
+			document.getElementById('formresult').innerHTML = 'Error submitting form.';
+		
+		} else {
+			
+			// Success
+			document.getElementById('formresult').innerHTML = 'Form submitted successfully.';
+			
+		}
+
+
+	};
+
+	modalWindow ( '<div id="formresult">Submitting form...</div>' );
+
+	r.send( new FormData(el) );
+
+	return false;
 	
 }
 	
