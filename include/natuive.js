@@ -314,6 +314,18 @@ function modalWindow (e) {
 
 	removeBlackbox ();
 
+	document.body.onkeyup = function(e) {
+
+		e = e || window.event;
+
+	    if (e.keyCode == 27) { // esc
+			
+			removeBlackbox ();
+			
+	    }
+
+	};
+	
 	if ( typeof e == 'string') { // HTML input
 
 		document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> </div>');
@@ -337,18 +349,6 @@ function modalWindow (e) {
 
 	}
 
-	document.body.onkeyup = function(e) {
-
-		e = e || window.event;
-
-	    if (e.keyCode == 27) { // esc
-			
-			removeBlackbox ();
-			
-	    }
-
-	};
-	
 	document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> </div>');
 	addClass ( document.querySelector('html'), 'nooverflow' );
 
