@@ -436,7 +436,7 @@ a:link, a:visited {
 		line-height: 2.44444444444em;
 		padding: 0 1em;
 		margin: 1.2333em 0;
-		border: none;
+/* 		border: none; */
 		color: #fff;
 
 	}
@@ -646,9 +646,17 @@ form {
 		margin: -11px 0 11px 0;
 		width: 50%;
 		float: right;
+		outline: none;
+		border: 1px solid transparent;
 
 	}
-	
+
+		input:focus, #content select:focus, textarea:focus {
+			
+			border-color: #666;
+			
+		}
+		
 		input:focus {
 			
 			line-height: 44px\9; /* IE8 input vertical alignment */
@@ -759,7 +767,7 @@ form {
 		min-height: 0; /* IE8 fix */
 		width: 100%;
 		background: transparent;
-		border: 0;
+/* 		border: 0; */
 		text-indent: 0px;
 		padding: 11px 1.6em 11px .7em;
 		padding-right: 0\9; /* IE8 */
@@ -895,7 +903,7 @@ form {
 
 	:root input[type="checkbox"], :root input[type="radio"] {
 
-		display: none;
+/* 		display: none; */
 
 	}
 
@@ -919,7 +927,7 @@ form {
 
 	input[type="checkbox"]:focus + b.checkbox, input[type="radio"]:focus + b.checkbox {
 		
-		box-shadow: 0 0 1px #000;
+		border: 1px solid #666;
 
 	}
 
@@ -931,10 +939,12 @@ form {
 		margin: 0;
 		padding: 0;
 		cursor: pointer;
+/*
 		filter: alpha(opacity=0);
 		opacity: 0;
 		font-size: 200px;
 		height: 44px;
+*/
 		margin-left: -100%\9;
 
 	}
@@ -957,9 +967,15 @@ form {
 		text-align: left;
 		white-space: nowrap;
 		padding: 0 0 0 .8em;
+		background: #eee;
+		z-index: 1;
+		margin: 1px;
+		height: 42px;
+		line-height: 43px;
+		width: calc(100% - 2px);
 
 	}
-	
+
 	form.flat label, form.flat label span, form.flat div.checkbox span {
 		
 		margin: 0;
@@ -967,6 +983,13 @@ form {
 		width: 100%;
 		text-align: left;
 		
+	}
+	
+	form.flat .file-input span {
+		
+		width: calc(100% - 2px);
+		margin: 12px 1px 1px 1px;
+
 	}
 	
 	form.flat input, form.flat textarea, #content form.flat .selector {
@@ -997,9 +1020,9 @@ form {
 
 	}
 	
-	form.flat span.file-input {
+	form.flat span.file-input:focus {
 		
-		margin-bottom: 11px;
+		border: 1px solid;
 
 	}
 	
