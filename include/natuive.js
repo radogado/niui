@@ -310,6 +310,8 @@ function removeBlackbox () {
 
 }
 
+var external = RegExp('^((f|ht)tps?:)?//(?!' + location.host + ')');
+
 function modalWindow (e) {
 
 	removeBlackbox ();
@@ -357,13 +359,13 @@ function modalWindow (e) {
 		el = parentByClass ( el, 'modal' );
 
 		request = new XMLHttpRequest();
-		request.open('GET', el.href.split('#')[0], true);
-	
+		request.open("GET", external.test(el.href) ? "include/send-form.php?targetformurl=" + el.href.split('#')[0] : el.href.split('#')[0], true);
+
 		request.onload = function() {
 	
 			if (request.status >= 200 && request.status < 400){
 			// Success
-			
+
 				container = (typeof el.href.split('#')[1] != 'undefined') ? ( '#' + el.href.split('#')[1] ) : 0;
 	
 				blackbox = document.getElementById('blackbox');
@@ -618,18 +620,29 @@ function submitForm (e) {
 
 	r.onreadystatechange = function () {
 
-		if ( r.readyState != 4 || r.status != 200 || r.responseText.indexOf('---error---') != -1 ) {
+		if ( r.readyState != 4 || r.status != 200 ) {
+						
+			// To do: php script unreachable, submit form normally
+			return true;
+			
+		}
+		
+		// To do: strip id's from response HTML
+		if ( r.responseText.indexOf('---error---') != -1 ) {
 			
 			// Error
+			console.log(r.responseText);
 			document.getElementById('formresult').innerHTML = 'Error submitting form.';
+			return;
 		
 		} else {
 			
 			// Success
-			document.getElementById('formresult').innerHTML = 'Form submitted successfully.';
+			console.log(r.responseText);
+			loaded_html = parseHTML( r.responseText );
+			document.getElementById('formresult').innerHTML = loaded_html.innerHTML;
 			
 		}
-
 
 	};
 
