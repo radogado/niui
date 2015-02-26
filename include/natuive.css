@@ -870,6 +870,7 @@ form {
 		color: #333;
 		margin-right: .5em;
 		display: none;
+		border: 1px solid transparent;
 
 	}
 

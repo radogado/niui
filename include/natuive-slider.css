@@ -31,6 +31,20 @@
 	display: block;
 
 }
+
+.slider-container.full-screen {
+	
+	top: 0px;
+	bottom: 0px;
+	height: 100%;
+	right: 0px;
+	left: 0px;
+	width: 100%;
+	z-index: 99999;
+	background: #FFF;
+	position: fixed;
+
+}
 	
 .slider {
 
@@ -49,6 +63,18 @@
 
 }
 
+.slider.vertical {
+	
+	height: 500px;
+
+}
+
+.full-screen .slider {
+	
+	height: 100%;
+
+}
+
 .slider > * {
 
 	width: 100%;
@@ -58,7 +84,28 @@
 	overflow: hidden;
 	padding: 0;
 	font-size: 15px;
+	margin: 0;
 
+}
+
+.slider.vertical > * {
+
+	height: 100%;
+	display: block;
+	
+}
+
+.slider.vertical > img {
+
+	width: auto;
+	max-width: none;
+	
+}
+
+.full-screen .slider > img {
+	
+	padding: 0 !important;
+	
 }
 
 .slider > *:after { /* Slide background with full slider height */
@@ -86,6 +133,7 @@
 
 	height: 100%;
 	text-align: center;
+	position: relative;
 	
 }
 
@@ -124,10 +172,51 @@
 	
 }
 
+	.slider-arrow:before {
+	
+		content: "←";
+	
+	}
+
+	.vertical .slider-arrow:before {
+	
+		content: "↑";
+	
+	}
+
+	.vertical .slider-arrow {
+		
+		top: 1em;
+		left: calc(50% - 1em);
+		text-align: center;
+	
+	}
+
 	.slider-arrow.right {
 	
 		left: auto;
 		right: 1em;
+	
+	}
+
+	.slider-arrow.right:before {
+	
+		content: "→";
+	
+	}
+
+	.vertical .slider-arrow.right:before {
+	
+		content: "↓";
+	
+	}
+
+	.vertical .slider-arrow.right {
+	
+		left: calc(50% - 1em);
+		right: auto;
+		bottom: 1em;
+		top: auto;
 	
 	}
 	
@@ -168,6 +257,25 @@
 	width: 100%;
 	
 }
+
+	.vertical .slider-nav {
+		
+		width: auto;
+		top: 1em;
+		bottom: 1em;
+		
+	}
+
+/*
+	.vertical .slider-nav:before {
+		
+		content: '';
+		height: 100%;
+		display: inline-block;
+		vertical-align: middle;
+			
+	}
+*/
 		
 	.slider-nav a {
 		
@@ -177,6 +285,12 @@
 		
 	}
 	
+	.vertical .slider-nav a {
+		
+		display: block;
+		
+	}
+		
 	.slider-nav a.active {
 	
 		background: #fff;
@@ -189,6 +303,14 @@
 		right: auto;
 		position: static;
 		
+	}
+
+	.full-screen .slider-nav.thumbnails {
+		
+		position: absolute;
+		bottom: 0;
+		padding: 0;
+	
 	}
 	
 	.slider-nav.thumbnails a {

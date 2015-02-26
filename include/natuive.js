@@ -407,7 +407,7 @@ function modalWindow (e) {
 	}
 	
 	// Assuming it's a lightbox item
-
+	
 	document.getElementById('blackbox').innerHTML = '<div class="close"> ← ' + document.title + '</div><div class="slider lightbox"></div><div id="blackbox-bg"></div>';
 
 	var parent = parentByClass ( el, 'lightbox' );
@@ -431,6 +431,12 @@ function modalWindow (e) {
 			
 			anchor = anchor.parentNode;
 			
+		}
+
+		if ( hasClass( anchor.parentNode, 'vertical' ) ) {
+
+			addClass ( document.querySelector('#blackbox .slider'), 'vertical' );
+
 		}
 		
 		var slider = makeSlider( document.querySelector('#blackbox .slider'), thisIndex(anchor) );
