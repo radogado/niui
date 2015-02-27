@@ -778,7 +778,7 @@ form {
 
 	@-moz-document url-prefix()	{
 
-		#content select { width: calc(100% + 1em); padding-left: .5em;}
+		#content select { width: 100%; padding-left: .5em;}
 		#content select option { background: #fff; }
 
 	}
@@ -972,7 +972,7 @@ form {
 		z-index: 1;
 		margin: 1px;
 		height: 42px;
-		line-height: 43px;
+		line-height: 42px;
 		width: calc(100% - 2px);
 
 	}
@@ -990,6 +990,13 @@ form {
 		
 		width: calc(100% - 2px);
 		margin: 12px 1px 1px 1px;
+
+	}
+	
+	@-moz-document url-prefix() {
+
+		form.flat .file-input span { margin-top: 1px;	}
+		form.flat .file-input input[type="file"] { margin-top: 0; }
 
 	}
 	
@@ -1018,6 +1025,12 @@ form {
 	form.flat span.file-input, form.flat .checkbox label:first-of-type {
 		
 		margin-top: 11px;
+
+	}
+
+	form.flat span.file-input {
+		
+		margin-bottom: 11px;
 
 	}
 	
