@@ -1696,8 +1696,8 @@ input.trigger, [for="nav-trigger"] {
 		
 		form.flat span.file-input span {
 			
-			margin-top: -11px;
-			height: 66px;
+			margin-top: 1px;
+			height: 42px;
 			
 		}
 		
