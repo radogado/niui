@@ -64,13 +64,24 @@ swipeEvents = function(el) {
 			var deltaX = startX - touches[0].pageX;
 			var deltaY = startY - touches[0].pageY;
 			delta = (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY;
-/*
-			if ( (Math.abs(deltaX) < Math.abs(deltaY)) && !document.querySelector('.slider.lightbox') ) {
+
+			if ( hasClass( sliderElement ( e ), 'vertical' ) ) {
+		
+				if ( (Math.abs(deltaY) < Math.abs(deltaX)) && !document.querySelector('.slider.lightbox') ) {
+					
+					return;
+					
+				}
+		
+			} else {
 				
-				return;
+				if ( (Math.abs(deltaX) < Math.abs(deltaY)) && !document.querySelector('.slider.lightbox') ) {
+					
+					return;
+					
+				}
 				
 			}
-*/
 
 			e.preventDefault();
 
@@ -103,7 +114,7 @@ swipeEvents = function(el) {
 
 			}
 
-			if (Math.abs(deltaX) >= 50 || Math.abs(deltaY) >= 50) {
+			if ( Math.abs(deltaX) >= 50 || Math.abs(deltaY) >= 50 ) {
 
 				el.removeEventListener('touchmove', touchMove);
 
@@ -139,11 +150,25 @@ mouseWheelHandler = function(event) {
 
 	var deltaX = (event.deltaX*-10) || event.wheelDeltaX || -event.detail;
 	var deltaY = (event.deltaY*-10) || event.wheelDeltaY || -event.detail;
-	if ( Math.abs(deltaX) < 50 && Math.abs(deltaY) < 50 ) {
+
+	if ( hasClass( sliderElement ( event ), 'vertical' ) ) {
 		
-		return;
-	
+		if ( Math.abs(deltaY) < 50 ) {
+			
+			return;
+		
+		}
+
+	} else {
+		
+		if ( Math.abs(deltaX) < 50 ) {
+			
+			return;
+		
+		}
+		
 	}
+	
 	event.preventDefault();
 	initScroll(event, (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY );
 
