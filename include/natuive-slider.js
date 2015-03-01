@@ -151,24 +151,12 @@ mouseWheelHandler = function(event) {
 	var deltaX = (event.deltaX*-10) || event.wheelDeltaX || -event.detail;
 	var deltaY = (event.deltaY*-10) || event.wheelDeltaY || -event.detail;
 
-	if ( hasClass( sliderElement ( event ), 'vertical' ) ) {
+	if ( Math.abs( hasClass( sliderElement ( event ), 'vertical' ) ? deltaY : deltaX ) < 50 ) {
 		
-		if ( Math.abs(deltaY) < 50 ) {
-			
-			return;
-		
-		}
-
-	} else {
-		
-		if ( Math.abs(deltaX) < 50 ) {
-			
-			return;
-		
-		}
-		
-	}
+		return;
 	
+	}
+
 	event.preventDefault();
 	initScroll(event, (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY );
 
@@ -215,7 +203,7 @@ function slide ( e, method ) {
 	
 	if ( method == 'index' ) {
 
-		slider = el.parentNode.parentNode.querySelector('.slider');
+		slider = parentByClass(el, 'slider-container').querySelector('.slider');
 		
 		index = thisIndex(el);
 
@@ -244,9 +232,9 @@ function slide ( e, method ) {
 		pos = (( method == 'left' ? --index : ++index ) * 100) + '%';
 		
 	}
-
+// div.slider.nav > div > span > a
     removeClass( slider.parentNode.querySelector('.slider-nav .active'), 'active');
-    addClass( slider.parentNode.querySelector('.slider-nav').children[index], 'active');
+    addClass( slider.parentNode.querySelector('.slider-nav span').children[index], 'active');
 
 	mouseEvents(el.parentNode, 'off');
 	
@@ -288,6 +276,7 @@ function sliderKeyboard (e) {
 	if (typeof e == 'undefined') {
 		
 		return;
+
 	}
 	
 	el = e.target || e.srcElement;
@@ -342,7 +331,7 @@ function makeSlider (el, current_slide) {
 
 	}
 
-	container.insertAdjacentHTML('afterbegin', '<a class="slider-arrow left"></a>' + el.outerHTML/* .replace( new RegExp( "\>[\n\t ]+\<" , "g" ) , "><" ) */ + '<a class="slider-arrow right"></a><div class="slider-nav"></div>');
+	container.insertAdjacentHTML('afterbegin', '<a class="slider-arrow left"></a>' + el.outerHTML/* .replace( new RegExp( "\>[\n\t ]+\<" , "g" ) , "><" ) */ + '<a class="slider-arrow right"></a><div class="slider-nav"><div><span></span></div></div>');
 	container.nextSibling.outerHTML = '';
 	el = container.querySelector('.slider');
 	el.style.overflowY = 'visible';
@@ -363,17 +352,17 @@ function makeSlider (el, current_slide) {
 
 			slider_nav = el.parentNode.querySelector('.slider-nav');
 			addClass( slider_nav, 'thumbnails' );
-			addClass( slider_nav, 'row' );
-			slider_nav.insertAdjacentHTML('beforeend', ( !i ? '<a class="active">' : '<a>' ) + el.children[i].querySelector('.thumbnail').innerHTML + '</a>' );
+			addClass( slider_nav.querySelector('span'), 'row' );
+			slider_nav.querySelector('span').insertAdjacentHTML('beforeend', ( !i ? '<a class="active">' : '<a>' ) + el.children[i].querySelector('.thumbnail').innerHTML + '</a>' );
 			
 		} else {
 			
-			container.querySelector('.slider-nav').insertAdjacentHTML('beforeend', ( !i ? '<a class="active">' : '<a>' ) + (i + 1) + '</a>');
+			container.querySelector('.slider-nav span').insertAdjacentHTML('beforeend', ( !i ? '<a class="active">' : '<a>' ) + (i + 1) + '</a>');
 
 		}
 		
-		container.querySelector('.slider-nav').lastChild.onclick = function (e) {
-
+		container.querySelector('.slider-nav span').lastChild.onclick = function (e) {
+			
 			slide(e, 'index');
 
 		};
@@ -395,7 +384,7 @@ function makeSlider (el, current_slide) {
 	if (current_slide) {
 		
 		removeClass(el.parentNode.querySelector('.slider-nav .active'), 'active');
-		addClass(el.parentNode.querySelector('.slider-nav').children[current_slide], 'active');
+		addClass(el.parentNode.querySelector('.slider-nav span').children[current_slide], 'active');
 		pos = current_slide*100;
 		direction = hasClass(el, 'vertical') ? 'translateY' : 'translateX';
 		direction_notransform = hasClass(el, 'vertical') ? 'top' : 'left';

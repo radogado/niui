@@ -261,11 +261,28 @@
 	.vertical .slider-nav {
 		
 		width: auto;
-		top: 1em;
-		bottom: 1em;
+		top: 0;
+		bottom: 0;
+		height: 100%;
+		left: .5em;
+		padding: 1em 0;
 		
 	}
 
+	.vertical .slider-nav div {
+		
+		height: 100%;
+		display: table;
+		
+	}
+
+	.vertical .slider-nav span {
+
+		display: table-cell;
+		vertical-align: middle;
+
+	}
+	
 /*
 	.vertical .slider-nav:before {
 		
@@ -305,6 +322,12 @@
 		
 	}
 
+	.slider-nav.thumbnails .row {
+		
+		padding: 0;
+
+	}
+	
 	.full-screen .slider-nav.thumbnails {
 		
 		position: absolute;

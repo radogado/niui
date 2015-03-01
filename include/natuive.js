@@ -292,6 +292,14 @@ function scrollTo( to, callback ) {
 
 }
 
+var arrow_keys_handler = function(e) {
+    switch(e.keyCode){
+        case 37: case 39: case 38:  case 40: // Arrow keys
+        case 32: e.preventDefault(); break; // Space
+        default: break; // do not block other keys
+    }
+};
+
 function removeBlackbox () {
 
 	var blackbox = document.getElementById('blackbox');
@@ -307,6 +315,8 @@ function removeBlackbox () {
 
 	}
 	removeClass ( document.querySelector('html'), 'nooverflow' );
+
+	window.removeEventListener("keydown", arrow_keys_handler, false);
 
 }
 
@@ -444,6 +454,8 @@ function modalWindow (e) {
 	}
 
 	document.getElementById('blackbox-bg').onclick = document.querySelector('#blackbox .close').onclick = removeBlackbox;
+
+	window.addEventListener("keydown", arrow_keys_handler, false);
 	
 	return false;
 
