@@ -49,11 +49,11 @@ function toggleClass ( el, className ) {
 	
 }
 
-function transferClass ( el_origin, el_target, class_name ) {
+function transferClass ( el_origin, el_target, className ) {
 	
-	if ( hasClass(el_origin, class_name) ) {
+	if ( hasClass(el_origin, className) ) {
 		
-		addClass(el_target, hasClass(el_origin, class_name) ? class_name : '');
+		addClass(el_target, className);
 
 	}
 	
@@ -107,9 +107,7 @@ function stopEvent( e ) {
  
 	if (!e) {
 			
-		var e = window.event;
-		
-		if ( typeof e == 'undefined') {
+		if ( typeof window.event == 'undefined') {
 			
 			return;
 			
@@ -173,9 +171,9 @@ function parentByClass ( el, className ) {
 
 /* ––– */
 
-forEach( 'table', function (el, i) {
+forEach( 'table', function (el) {
 	
-	el.insertAdjacentHTML('beforebegin', '<div class="table">' + el.outerHTML + '</div>');
+	el.insertAdjacentHTML('beforebegin', '<div class=table>' + el.outerHTML + '</div>');
 	el.outerHTML = '';
 	
 });
@@ -184,11 +182,11 @@ forEach( 'table', function (el, i) {
 
 function updateURLParameter ( url, param, paramVal ) { // return input string with updated/added URL parameter
 
-    var newAdditionalURL = "";
-    var tempArray = url.split("?");
-    var baseURL = tempArray[0];
-    var additionalURL = tempArray[1];
-    var temp = "";
+    newAdditionalURL = "";
+    tempArray = url.split("?");
+    baseURL = tempArray[0];
+    additionalURL = tempArray[1];
+    temp = "";
     if (additionalURL) {
 		tempArray = additionalURL.split("&");
 		for (i=0; i<tempArray.length; i++){
@@ -206,8 +204,8 @@ function updateURLParameter ( url, param, paramVal ) { // return input string wi
 
 function getURLParameters () { // return all URL parameters in an array
 
-	var res = {},
-		re = /[?&]([^?&]+)=([^?&]+)/g;
+	res = {};
+	re = /[?&]([^?&]+)=([^?&]+)/g;
 
 	location.href.replace(re, function(_,k,v) {
 
@@ -258,7 +256,7 @@ Math.easeInOutQuad = function ( t, b, c, d ) {
 
 };
 
-var requestAnimFrame = (function() {
+var requestAnimFrame = ( function() {
 	
 	return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function( callback ) {
 
@@ -303,11 +301,13 @@ function scrollTo( to, callback ) {
 }
 
 var arrow_keys_handler = function(e) {
+
     switch(e.keyCode){
         case 37: case 39: case 38:  case 40: // Arrow keys
         case 32: e.preventDefault(); break; // Space
         default: break; // do not block other keys
     }
+
 };
 
 function removeBlackbox () {
@@ -338,9 +338,7 @@ function modalWindow (e) {
 
 	document.body.onkeyup = function(e) {
 
-		e = e || window.event;
-
-	    if (e.keyCode == 27) { // esc
+	    if ( (e || window.event).keyCode == 27 ) { // esc
 			
 			removeBlackbox ();
 			
@@ -348,10 +346,12 @@ function modalWindow (e) {
 
 	};
 	
-	if ( typeof e == 'string') { // HTML input
+	document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> </div>');
+	addClass ( document.querySelector('html'), 'nooverflow' );
 
-		document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> </div>');
-		addClass ( document.querySelector('html'), 'nooverflow' );
+	// Modal window of HTML as input string
+	
+	if ( typeof e == 'string') {
 
 		document.getElementById('blackbox').innerHTML = '<div class="close"> ← ' + document.title + '</div>' + e + '<div id="blackbox-bg"></div>';
 
@@ -360,6 +360,8 @@ function modalWindow (e) {
 		return false;
 		
 	}
+	
+	// Modal window of an external file or Lightbox
 	
 	el = eventElement(e);
 
@@ -371,23 +373,20 @@ function modalWindow (e) {
 
 	}
 
-	document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> </div>');
-	addClass ( document.querySelector('html'), 'nooverflow' );
-
 	if ( parentByClass ( el, 'modal' ) ) { // Load an external file 
-		
-		el = parentByClass ( el, 'modal' );
+
+		link = parentByClass ( el, 'modal' ).href;
 
 		request = new XMLHttpRequest();
-		request.open("GET", external.test(el.href) ? "include/request.php?targetformurl=" + el.href.split('#')[0] : el.href.split('#')[0], true);
+		request.open("GET", external.test(link) ? ("include/request.php?targetformurl=" + link.split('#')[0]) : link.split('#')[0], true);
 
 		request.onload = function() {
 	
 			if (request.status >= 200 && request.status < 400){
 			// Success
 
-				container = (typeof el.href.split('#')[1] != 'undefined') ? ( '#' + el.href.split('#')[1] ) : 0;
-	
+				container = (typeof link.split('#')[1] != 'undefined') ? ( '#' + link.split('#')[1] ) : 0;
+
 				blackbox = document.getElementById('blackbox');
 				blackbox.insertAdjacentHTML('afterbegin', '<div class="close"> ← ' + document.title + '</div>');
 				if (container) {
@@ -426,7 +425,7 @@ function modalWindow (e) {
 		
 	}
 	
-	// Assuming it's a lightbox item
+	// Lightbox
 	
 	document.getElementById('blackbox').innerHTML = '<div class="close"> ← ' + document.title + '</div><div class="slider lightbox"></div><div id="blackbox-bg"></div>';
 
@@ -445,7 +444,7 @@ function modalWindow (e) {
 
 	if ( makeSlider ) { 
 		
-		var anchor = el.parentNode;
+		anchor = el.parentNode;
 
 		while ( typeof anchor.href == 'undefined' ) {
 			
@@ -537,16 +536,16 @@ function animateAnchors (e) {
 		el = el.parentNode;
 		
 	}
-	
-	hash = document.getElementById( el.href.split('#')[1] );
+
+	hash = document.getElementById( el.href.split('#').pop() );
 
 	document.querySelector('#nav-trigger').checked = false; 
 	removeClass ( document.querySelector('.nav-main > div'), 'open' );
 	removeClass ( document.querySelector('body'), 'semi-transparent' );
 
 	scrollTo( (hash == null) ? 0 : getCumulativeOffset(hash).y, function (e) { 
-
-		window.location = el.href;
+		
+		window.location = el.href.split('#')[0] + '#' + el.href.split('#').pop();
 
 	});
 
@@ -570,7 +569,7 @@ forEach('a.modal, .lightbox a', function(el, i) {
 
 /* Auto textarea height */
 	
-forEach('textarea', function(el, i){
+forEach('textarea', function(el) {
 
 	el.onkeyup = function (e) {
 
@@ -607,7 +606,7 @@ function submitForm (e) {
 
 	ready_to_submit = true;
 
-	forEach( el.querySelectorAll('.mandatory'), function (el, i) {
+	forEach( el.querySelectorAll('.mandatory'), function (el) {
 		
 		if ( 
 			( el.querySelector('input, select, textarea') && !el.querySelector('input, select, textarea').value ) || 
@@ -635,7 +634,7 @@ function submitForm (e) {
 	
 	}
 	
-	if ( !(new XMLHttpRequest().upload) ) { // Browser unable to submit dynamically
+	if ( !(new XMLHttpRequest().upload) ) { // Browser unable to submit dynamically. To do: or if request.php isn't working
 		
 		return true;
 		
@@ -724,7 +723,6 @@ function toggleAccordion (e) {
 
 	el.querySelector('div').style.maxHeight = ((el.querySelector('div').style.maxHeight == '') ? (el.querySelector('div').scrollHeight + 'px') : '');
 	
-	
 	if ( hasClass ( el.parentNode.parentNode, 'accordion' ) ) { // Embedded accordion
 
 		el.parentNode.style.maxHeight = el.querySelector('div').scrollHeight + el.parentNode.scrollHeight + 'px';
@@ -749,8 +747,7 @@ forEach( '.accordion > label', function(el, i) {
 	
 	el.querySelector('div').onclick = function (e) {  
 
-		e = e || window.event; 
-		e.cancelBubble = true; 
+		stopEvent( e );
 
 	};
 

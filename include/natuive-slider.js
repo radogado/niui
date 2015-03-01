@@ -16,19 +16,14 @@ function sliderElement (e) {
 	
 	el = eventElement(e);
 
-	if ( hasClass(el, 'slider-container' )) {
+	if ( hasClass(el, 'slider-container' ) ) {
 
 		return el.querySelector('.slider');
 
 	} else {
-
-		while ( !hasClass(el,'slider') ) {
-			
-			el = el.parentNode;
-			
-		}
-
-		return el;
+		
+		container = parentByClass( el, 'slider-container' );
+		return container && container.querySelector('.slider');
 
 	}
 	
@@ -117,7 +112,7 @@ initScroll = function(event, delta) {
 }
 
 mouseWheelHandler = function(event) {
-
+	
 	deltaX = (event.deltaX*-10) || event.wheelDeltaX || -event.detail;
 	deltaY = (event.deltaY*-10) || event.wheelDeltaY || -event.detail;
 
@@ -366,7 +361,6 @@ function makeSlider (el, current_slide) {
 
   	if ( el.getAttribute('data-autoslide') ) { // auto slide
   	
-		  	
   		function autoSlide () {
 	  		
 	  		slide(el, 'right');
