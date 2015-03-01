@@ -49,6 +49,16 @@ function toggleClass ( el, className ) {
 	
 }
 
+function transferClass ( el_origin, el_target, class_name ) {
+	
+	if ( hasClass(el_origin, class_name) ) {
+		
+		addClass(el_target, hasClass(el_origin, class_name) ? class_name : '');
+
+	}
+	
+}
+
 function eventElement (e) {
 	
 	e = e || window.event;
@@ -369,7 +379,7 @@ function modalWindow (e) {
 		el = parentByClass ( el, 'modal' );
 
 		request = new XMLHttpRequest();
-		request.open("GET", external.test(el.href) ? "include/send-form.php?targetformurl=" + el.href.split('#')[0] : el.href.split('#')[0], true);
+		request.open("GET", external.test(el.href) ? "include/request.php?targetformurl=" + el.href.split('#')[0] : el.href.split('#')[0], true);
 
 		request.onload = function() {
 	
@@ -634,7 +644,7 @@ function submitForm (e) {
 	el.insertAdjacentHTML('beforeend', '<input name=targetformurl type=hidden value=' + encodeURIComponent(el.action) + '>');
 
 	var r = new XMLHttpRequest(); 
-	r.open("POST", "include/send-form.php", true);
+	r.open("POST", "include/request.php", true);
 
 	r.onreadystatechange = function () {
 

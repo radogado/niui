@@ -63,6 +63,12 @@
 
 }
 
+.slider-container .slider {
+	
+	overflow-y: visible;
+	
+}
+
 .slider.vertical {
 	
 	height: 500px;

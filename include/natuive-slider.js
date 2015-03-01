@@ -4,7 +4,7 @@ var new_event_support = 1;
 
 try { // Android Browser etc?
 
-	var test_event = new Event('test');
+	test_event = new Event('t');
 
 } catch(err) {
 
@@ -16,9 +16,9 @@ function sliderElement (e) {
 	
 	el = eventElement(e);
 
-	if ( hasClass(el, 'slider-container')) {
+	if ( hasClass(el, 'slider-container' )) {
 
-		el = el.querySelector('.slider');
+		return el.querySelector('.slider');
 
 	} else {
 
@@ -28,20 +28,19 @@ function sliderElement (e) {
 			
 		}
 
+		return el;
+
 	}
-	
-	return el;
 	
 }
 
 /* Thanks to Pete & Eike Send for the swipe events – http://www.thepetedesign.com/demos/purejs_onepage_scroll_demo.html */
 
-var lastAnimation = 0;
+var last_animation = 0;
 
 swipeEvents = function(el) {
 
-	var startX,
-		startY;
+	var startX,	startY;
 
 	el.addEventListener("touchstart", touchStart);  
 	
@@ -49,11 +48,14 @@ swipeEvents = function(el) {
 
 		var touches = e.touches;
 		if (touches && touches.length) {
+
 			startX = touches[0].pageX;
 			startY = touches[0].pageY;
 
 			el.addEventListener("touchmove", touchMove);
+
 		}
+
 	}
 
 	function touchMove(e) {
@@ -65,31 +67,19 @@ swipeEvents = function(el) {
 			var deltaY = startY - touches[0].pageY;
 			delta = (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY;
 
-			if ( hasClass( sliderElement ( e ), 'vertical' ) ) {
-		
-				if ( (Math.abs(deltaY) < Math.abs(deltaX)) && !document.querySelector('.slider.lightbox') ) {
-					
-					return;
-					
-				}
-		
-			} else {
+			if ( ( hasClass( sliderElement ( e ), 'vertical' ) ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY)) ) && !document.querySelector('.slider.lightbox') ) {
 				
-				if ( (Math.abs(deltaX) < Math.abs(deltaY)) && !document.querySelector('.slider.lightbox') ) {
-					
-					return;
-					
-				}
+				return;
 				
 			}
 
 			e.preventDefault();
-
-			if (delta >= 50) {
+			
+			if ( Math.abs(delta) > 50 ) {
 				
 				if ( new_event_support ) {
 					
-					var event = new Event('swipeLeft');
+					var event = new Event( (delta >= 50) ? 'swipeLeft' : 'swipeRight' );
 					el.dispatchEvent(event);
 					
 				} else {
@@ -97,25 +87,7 @@ swipeEvents = function(el) {
 					initScroll(e, -1*delta);
 
 				}
-
-			}
-			if (delta <= -50) {
-
-				if ( new_event_support ) {
-					
-					var event = new Event('swipeRight');
-					el.dispatchEvent(event);
-
-				} else {
-					
-					initScroll(e, -1*delta);
-					
-				}
-
-			}
-
-			if ( Math.abs(deltaX) >= 50 || Math.abs(deltaY) >= 50 ) {
-
+				
 				el.removeEventListener('touchmove', touchMove);
 
 			}
@@ -127,38 +99,34 @@ swipeEvents = function(el) {
 
 initScroll = function(event, delta) {
 
-	var deltaOfInterest = delta,
-		timeNow = new Date().getTime();
+	deltaOfInterest = delta;
+	timeNow = new Date().getTime();
 
 	// Cancel scroll if currently animating or within quiet period
-	if ( (timeNow - lastAnimation) < 800 ) {
+	if ( (timeNow - last_animation) < 800 ) {
 
 		event.preventDefault();
 		return;
 
 	}
 
-	var el = sliderElement (event);
-
-	slide(el, (deltaOfInterest < 0) ? 'right' : 'left' );
+	slide( sliderElement (event), (deltaOfInterest < 0) ? 'right' : 'left' );
 	
-	lastAnimation = timeNow;
+	last_animation = timeNow;
 
 }
 
 mouseWheelHandler = function(event) {
 
-	var deltaX = (event.deltaX*-10) || event.wheelDeltaX || -event.detail;
-	var deltaY = (event.deltaY*-10) || event.wheelDeltaY || -event.detail;
+	deltaX = (event.deltaX*-10) || event.wheelDeltaX || -event.detail;
+	deltaY = (event.deltaY*-10) || event.wheelDeltaY || -event.detail;
 
-	if ( Math.abs( hasClass( sliderElement ( event ), 'vertical' ) ? deltaY : deltaX ) < 50 ) {
+	if ( Math.abs( hasClass( sliderElement ( event ), 'vertical' ) ? deltaY : deltaX ) > 50 ) {
 		
-		return;
-	
-	}
+		event.preventDefault();
+		initScroll(event, (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY );
 
-	event.preventDefault();
-	initScroll(event, (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY );
+	}
 
 }
 
@@ -168,17 +136,17 @@ function mouseEvents ( el, toggle ) {
 	
 	if (toggle == 'off') {
 		
-		el.parentNode.removeEventListener('wheel', mouseWheelHandler);
+		el.parentNode.removeEventListener( 'wheel', mouseWheelHandler );
 		
 	} else {
 
-		el.parentNode.addEventListener('wheel', mouseWheelHandler);
+		el.parentNode.addEventListener( 'wheel', mouseWheelHandler );
 		
 	}
 	
 }
 
-function slide ( e, method ) {
+function slide ( e, method, index_number ) {
 
 	if ( window.sliderTimeout ) {
 		
@@ -199,13 +167,11 @@ function slide ( e, method ) {
 
 	}
 
-	var index = 0, slider = 0;
-	
-	if ( method == 'index' ) {
-
-		slider = parentByClass(el, 'slider-container').querySelector('.slider');
+	slider = parentByClass(el, 'slider-container').querySelector('.slider');
 		
-		index = thisIndex(el);
+	if ( method == 'index' ) {
+		
+		index = index_number || thisIndex(el);
 
 		pos = (index * 100) + '%';
 		
@@ -213,9 +179,7 @@ function slide ( e, method ) {
 	
 	if ( method == 'left' || method == 'right' ) {
 
-		slider = el.parentNode.querySelector('.slider');
-
-		var index = thisIndex ( slider.parentNode.querySelector('.slider-nav a.active') );
+		index = thisIndex ( slider.parentNode.querySelector('.slider-nav a.active') );
 		
 		if ( index == 0 && method == 'left' ) {
 			
@@ -232,19 +196,19 @@ function slide ( e, method ) {
 		pos = (( method == 'left' ? --index : ++index ) * 100) + '%';
 		
 	}
-// div.slider.nav > div > span > a
+
     removeClass( slider.parentNode.querySelector('.slider-nav .active'), 'active');
     addClass( slider.parentNode.querySelector('.slider-nav span').children[index], 'active');
 
 	mouseEvents(el.parentNode, 'off');
 	
-	var slide_duration = 400;
+	slide_duration = 400;
 
 	direction = hasClass(slider, 'vertical') ? 'translateY' : 'translateX';
 
 	if ( ('ontransitionend' in window) || (typeof document.body.style.MozTransition == 'string') ) { // CSS Transform Translate enabled browser; to do: add IE detection
 
-		slider.style.cssText = "overflow-y: visible; -webkit-transform: " + direction + "(-" + pos + "); -moz-transform: " + direction + "(-" + pos + "); -ms-transform: " + direction + "(-" + pos + "); transform: " + direction + "(-" + pos + "); -webkit-transition: -webkit-transform " + slide_duration + "ms ease; -moz-transition: -moz-transform " + slide_duration + "ms ease; -ms-transition: -ms-transform " + slide_duration + "ms ease;";
+		slider.style.cssText = "-webkit-transform: " + direction + "(-" + pos + "); -moz-transform: " + direction + "(-" + pos + "); -ms-transform: " + direction + "(-" + pos + "); transform: " + direction + "(-" + pos + "); -webkit-transition: -webkit-transform " + slide_duration + "ms ease; -moz-transition: -moz-transform " + slide_duration + "ms ease; -ms-transition: -ms-transform " + slide_duration + "ms ease;";
 
 		slider.addEventListener( 'transitionend', function (e) { 
 			
@@ -257,7 +221,7 @@ function slide ( e, method ) {
 
 		direction = hasClass(slider, 'vertical') ? 'top' : 'left';
 
-		slider.style.cssText = "overflow-y: visible; " + direction + ": -" + pos + "; -webkit-transition: " + direction + " " + slide_duration + "ms ease; transition: " + direction + " " + slide_duration + "ms ease;";
+		slider.style.cssText = direction + ": -" + pos + "; -webkit-transition: " + direction + " " + slide_duration + "ms ease; transition: " + direction + " " + slide_duration + "ms ease;";
 		var t = setTimeout ( function () { 
 
 			t = setTimeout ( function (e) { mouseEvents(slider); }, slide_duration*2);
@@ -273,7 +237,7 @@ function sliderKeyboard (e) {
 
 	e = e || window.event;
 
-	if (typeof e == 'undefined') {
+	if ( typeof e == 'undefined' ) {
 		
 		return;
 
@@ -281,27 +245,28 @@ function sliderKeyboard (e) {
 	
 	el = e.target || e.srcElement;
 
-	if (document.querySelector('.slider') == null ) {
+	if ( document.querySelector('.slider') != null ) {
 	
-		return;
+		tag = el.tagName.toLowerCase();
+		if ( tag != 'input' && tag != 'textarea' ) {
+			
+			el = document.querySelector('.slider.lightbox') || document.querySelector('.slider');
+			
+			switch( e.which ) {
+	
+				case 37: case 38:
+					slide(el, 'left'); break;
+				case 39: case 40:
+					slide(el, 'right'); break;
+				default: return;
+	
+			}
 		
-	}
-	
-	var tag = el.tagName.toLowerCase();
-	
-	el = document.querySelector('.slider.lightbox') || document.querySelector('.slider');
-	
-	switch(e.which) {
-		case 37: case 38:
-			if (tag != 'input' && tag != 'textarea') slide(el, 'left');
-			break;
-		case 39: case 40:
-			if (tag != 'input' && tag != 'textarea') slide(el, 'right');
-			break;
-		default: return;
-	}
+			document.onkeyup = function () {};
 
-	document.onkeyup = function () {};
+		}
+	
+	}
 
 };
 
@@ -315,26 +280,14 @@ function makeSlider (el, current_slide) {
 	addClass (el, 'slider');
 	el.insertAdjacentHTML('beforebegin', '<div class="slider-container"></div>'); // Create a container and move the slider in it
 	container = el.previousSibling;
-	if ( hasClass(el, 'vertical-thumbnails') ) {
-		
-		addClass(container, 'vertical-thumbnails');
 
-	}
-	if ( hasClass(el, 'vertical') ) {
-		
-		addClass(container, 'vertical');
-
-	}
-	if ( hasClass(el, 'full-screen') ) {
-		
-		addClass(container, 'full-screen');
-
-	}
-
-	container.insertAdjacentHTML('afterbegin', '<a class="slider-arrow left"></a>' + el.outerHTML/* .replace( new RegExp( "\>[\n\t ]+\<" , "g" ) , "><" ) */ + '<a class="slider-arrow right"></a><div class="slider-nav"><div><span></span></div></div>');
+	transferClass(el, container, 'vertical-thumbnails' );
+	transferClass(el, container, 'vertical' );
+	transferClass(el, container, 'full-screen' );
+	
+	container.insertAdjacentHTML('afterbegin', '<a class="slider-arrow left"></a>' + el.outerHTML + '<a class="slider-arrow right"></a><div class="slider-nav"><div><span></span></div></div>');
 	container.nextSibling.outerHTML = '';
 	el = container.querySelector('.slider');
-	el.style.overflowY = 'visible';
 	
 	// Generate controls
 
@@ -381,14 +334,9 @@ function makeSlider (el, current_slide) {
 
 	}
 	
-	if (current_slide) {
+	if ( current_slide ) {
 		
-		removeClass(el.parentNode.querySelector('.slider-nav .active'), 'active');
-		addClass(el.parentNode.querySelector('.slider-nav span').children[current_slide], 'active');
-		pos = current_slide*100;
-		direction = hasClass(el, 'vertical') ? 'translateY' : 'translateX';
-		direction_notransform = hasClass(el, 'vertical') ? 'top' : 'left';
-		el.style.cssText = ( ('ontransitionend' in window) || (typeof document.body.style.MozTransition == 'string') ) ? ("overflow-y: visible; -webkit-transform: " + direction + "(-" + pos + "%); -moz-transform: " + direction + "(-" + pos + "%);-ms-transform: " + direction + "(-" + pos + "%);transform: " + direction + "(-" + pos + "%);") : ("overflow-y: visible; " + direction_notransform + ": -" + pos + "%;");
+		slide(el, 'index', current_slide );
 		
 	}
 	
@@ -437,7 +385,7 @@ function makeSlider (el, current_slide) {
 /* Start */
 
 /* Initialise JS extras: create arrows/numbers navigation */
-forEach('.slider', function(el, i) {
+forEach('.slider', function(el) {
 
 	makeSlider(el);
 	
