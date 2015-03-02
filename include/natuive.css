@@ -767,7 +767,6 @@ form {
 		min-height: 0; /* IE8 fix */
 		width: 100%;
 		background: transparent;
-/* 		border: 0; */
 		text-indent: 0px;
 		padding: 11px 1.6em 11px .7em;
 		padding-right: 0\9; /* IE8 */
@@ -1528,6 +1527,12 @@ input.trigger, [for="nav-trigger"] {
 
 	}
 
+	.row > *, .row.border, .row.border > * {
+
+		border: none;
+
+	}
+
 	.row > * > .row > * {
 
 		padding: 0;
@@ -1555,17 +1560,10 @@ input.trigger, [for="nav-trigger"] {
 	
 	.row.border {
 		
-		border: none;
 		padding: .5em 0;
 
 	}
 
-	.row.border > * {
-		
-		border: none;
-
-	}
-		
 	label {
 
 		text-align: left;

@@ -72,6 +72,15 @@
 .slider.vertical {
 	
 	height: 500px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+
+}
+
+.slider-container .slider.vertical {
+	
+	overflow-x: visible;
+	overflow-y: visible;
 
 }
 
@@ -152,7 +161,7 @@
 
 }
 
-.slider.lightbox > * p {
+.slider.lightbox > * p { /* Image captions */
 
 	position: absolute;
 	width: 100%;
@@ -289,17 +298,6 @@
 
 	}
 	
-/*
-	.vertical .slider-nav:before {
-		
-		content: '';
-		height: 100%;
-		display: inline-block;
-		vertical-align: middle;
-			
-	}
-*/
-		
 	.slider-nav a {
 		
 		display: inline-block;

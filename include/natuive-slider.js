@@ -245,7 +245,7 @@ function sliderKeyboard (e) {
 		tag = el.tagName.toLowerCase();
 		if ( tag != 'input' && tag != 'textarea' ) {
 			
-			el = document.querySelector('.slider.lightbox') || document.querySelector('.slider');
+			el = document.querySelector('.slider.full-screen') || document.querySelector('.slider.lightbox') || document.querySelector('.slider');
 			
 			switch( e.which ) {
 	
