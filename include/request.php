@@ -1,6 +1,6 @@
 <?php
 error_reporting(0);
-return;
+//return;
 // Flood protection
 
 	session_start();

@@ -650,7 +650,7 @@ function submitForm (e) {
 	r.open("POST", "include/request.php", true);
 
 	r.onreadystatechange = function () {
-
+console.log(r.responseText);
 		if ( r.readyState != 4 || r.status != 200 ) {
 			
 			// To do: php script unreachable, submit form normally
@@ -658,7 +658,7 @@ function submitForm (e) {
 			
 		}
 
-		if ( r.status == 405 || !r.responseText ) {
+		if ( !r.responseText || r.getAllResponseHeaders().toLowerCase().indexOf('php') == -1 ) {
 			
 			// To do: php script unreachable, submit form normally
 			el.onsubmit = function () {};
