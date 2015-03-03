@@ -658,7 +658,7 @@ function submitForm (e) {
 			
 		}
 
-		if ( !r.responseText ) {
+		if ( r.status == 405 || !r.responseText ) {
 			
 			// To do: php script unreachable, submit form normally
 			el.onsubmit = function () {};
