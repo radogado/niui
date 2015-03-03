@@ -1,14 +1,13 @@
-<?php 
+<?php
 error_reporting(0);
+return;
 // Flood protection
 
-/*
 	session_start();
-	if(isset($_SESSION['ip']) && $_SESSION['last_post'] + 9 > time()) die('too early ---error---');
+	if(isset($_SESSION['ip']) && $_SESSION['last_post'] + 3 > time()) die('too early ---error---');
 	
 	$_SESSION['last_post'] = time();
 	$_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
-*/
 
 // Original code from http://www.phpmind.com/blog/author/admin/
 
@@ -79,7 +78,7 @@ error_reporting(0);
 
 	} else {
 		
-		echo $result;
+// 		echo $result;
 		
 	}
 

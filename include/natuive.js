@@ -384,7 +384,11 @@ function modalWindow (e) {
 	
 			if (request.status >= 200 && request.status < 400){
 			// Success
-
+				if (!request.responseText) { // No PHP?
+					
+					window.open(link, 'Modal');
+					
+				}
 				container = (typeof link.split('#')[1] != 'undefined') ? ( '#' + link.split('#')[1] ) : 0;
 
 				blackbox = document.getElementById('blackbox');
@@ -648,8 +652,17 @@ function submitForm (e) {
 	r.onreadystatechange = function () {
 
 		if ( r.readyState != 4 || r.status != 200 ) {
-						
+			
 			// To do: php script unreachable, submit form normally
+			return true;
+			
+		}
+
+		if ( !r.responseText ) {
+			
+			// To do: php script unreachable, submit form normally
+			el.onsubmit = function () {};
+			el.submit();
 			return true;
 			
 		}
@@ -658,14 +671,12 @@ function submitForm (e) {
 		if ( r.responseText.indexOf('---error---') != -1 ) {
 			
 			// Error
-			console.log(r.responseText);
 			document.getElementById('formresult').innerHTML = 'Error submitting form.';
 			return;
 		
 		} else {
 			
 			// Success
-			console.log(r.responseText);
 			loaded_html = parseHTML( r.responseText );
 			document.getElementById('formresult').innerHTML = loaded_html.innerHTML;
 			
