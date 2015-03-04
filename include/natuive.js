@@ -377,6 +377,13 @@ function modalWindow (e) {
 
 		link = parentByClass ( el, 'modal' ).href;
 
+		if ( !php_support ) { // No PHP?
+			
+			window.open(link, 'Modal');
+			return false;
+			
+		}
+
 		request = new XMLHttpRequest();
 		request.open("GET", external.test(link) ? ("include/request.php?targetformurl=" + link.split('#')[0]) : link.split('#')[0], true);
 
