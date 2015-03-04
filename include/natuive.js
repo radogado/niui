@@ -380,6 +380,7 @@ function modalWindow (e) {
 		if ( !php_support ) { // No PHP?
 			
 			window.open(link, 'Modal');
+			removeBlackbox ();
 			return false;
 			
 		}
