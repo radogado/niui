@@ -638,7 +638,7 @@ function submitForm (e) {
 	
 	}
 	
-	if ( !(new XMLHttpRequest().upload) ) { // Browser unable to submit dynamically. To do: or if request.php isn't working
+	if ( !(new XMLHttpRequest().upload) || !php_support ) { // Browser unable to submit dynamically. To do: or if request.php isn't working
 		
 		return true;
 		
@@ -797,3 +797,9 @@ addEventHandler( window, 'load', function() {
 	});
 
 });
+
+
+var req = new XMLHttpRequest();
+req.open('GET', document.location, false);
+req.send(null);
+var php_support =  req.getAllResponseHeaders().toLowerCase().indexOf('php') == -1 ? 0 : 1;
