@@ -1,16 +1,42 @@
 /* natUIve by rado.bg */
 /* DOM functions via http://youmightnotneedjquery.com */
+function addClass_classList(el, className) {
+
+	el.classList.add(className);
+
+}
+
+function addClass_className(el, className) {
+
+    el.className += ' ' + className;
+
+}
+
 function addClass(el, className) {
 
     if (el.classList) {
-
+		
         el.classList.add(className);
+        addClass = addClass_classList;
 
     } else {
 
         el.className += ' ' + className;
+        addClass = addClass_className;
 
     }
+
+}
+
+function removeClass_classList(el, className) {
+
+    el.classList.remove(className);
+
+}
+
+function removeClass_className(el, className) {
+
+    el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
 
 }
 
@@ -19,19 +45,43 @@ function removeClass(el, className) {
     if (el.classList) {
 
         el.classList.remove(className);
+        removeClass = removeClass_classList;
 
     } else {
 
         el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+        removeClass = removeClass_className;
 
     }
 
 }
 
+function hasClass_classList(el, className) {
+
+    return el.classList.contains(className);
+
+}
+
+function hasClass_className(el, className) {
+
+    return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
+
+}
+
 function hasClass(el, className) {
+	
+	if (el.classList) {
+		
+		hasClass = hasClass_classList;
+		return el.classList.contains(className);
 
-    return (el.classList) ? el.classList.contains(className) : new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
-
+	} else {
+		
+		hasClass = hasClass_className;
+		return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
+			
+	}
+	
 }
 
 function toggleClass(el, className) {
@@ -58,10 +108,31 @@ function transferClass(el_origin, el_target, className) {
 
 }
 
-function eventElement(e) {
+function eventElement_e(e) {
 
-    e = e || window.event;
-    return e.target || e.srcElement;
+    return e.target;
+
+}
+
+function eventElement_window(e) {
+
+    return window.event.srcElement;
+
+}
+
+function eventElement(e) {
+	
+	if (e) {
+		
+		eventElement = eventElement_e;
+		return e.target;
+
+	} else {
+		
+		eventElement = eventElement_window;
+		return window.event.srcElement;
+		
+	}
 
 }
 
