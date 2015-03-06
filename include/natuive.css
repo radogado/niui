@@ -989,7 +989,7 @@ form {
 	form.flat .file-input span {
 		
 		width: calc(100% - 2px);
-		margin: 12px 1px 1px 1px;
+		margin: 1px;
 
 	}
 	
@@ -1031,6 +1031,12 @@ form {
 	form.flat span.file-input {
 		
 		margin-bottom: 11px;
+
+	}
+
+	form.flat input[type="file"] {
+		
+		margin-top: 0;
 
 	}
 	

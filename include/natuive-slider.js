@@ -244,7 +244,7 @@ function sliderKeyboard(e) {
 
     el = e.target || e.srcElement;
 
-    if (document.querySelector('.slider') != null) {
+    if (document.querySelector('.slider')) {
 
         tag = el.tagName.toLowerCase();
         if (tag != 'input' && tag != 'textarea') {
@@ -253,12 +253,22 @@ function sliderKeyboard(e) {
 
             switch (e.which) {
 
-                case 37:
                 case 38:
+                	if (!hasClass(el,'vertical')) {
+	                	
+	                	return;
+
+                	}
+                case 37:
                     slide(el, 'left');
                     break;
-                case 39:
                 case 40:
+                	if (!hasClass(el,'vertical')) {
+	                	
+	                	return;
+
+                	}
+                case 39:
                     slide(el, 'right');
                     break;
                 default:
