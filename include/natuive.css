@@ -441,6 +441,12 @@ a:link, a:visited {
 
 	}
 	
+	#content input[type="submit"] {
+		
+		padding: 0\0;
+			
+	}
+	
 	@-moz-document url-prefix() {
 
 		#content input[type="submit"] { line-height: 2.333em; }
@@ -657,7 +663,7 @@ form {
 			
 		}
 		
-		input:focus {
+		input {
 			
 			line-height: 44px\9; /* IE8 input vertical alignment */
 	
@@ -686,6 +692,7 @@ form {
 		
 		margin-right: 0;
 		min-width: 50%;
+		padding: 0;
 		
 	}
 	
