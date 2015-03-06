@@ -436,7 +436,6 @@ a:link, a:visited {
 		line-height: 2.44444444444em;
 		padding: 0 1em;
 		margin: 1.2333em 0;
-/* 		border: none; */
 		color: #fff;
 
 	}
@@ -813,7 +812,7 @@ form {
 		
 	}
 	
-	:root #content select { padding-right: 2% \0/IE9; background: #fff \0/IE9; }  /* Disable the custom arrow in IE9 */
+	:root #content select { padding-right: 2%\9; background: #eee\9; }  /* Disable the custom arrow in IE9 */
 
 	select:hover {
 		
@@ -909,12 +908,6 @@ form {
 
 	}
 
-	:root input[type="checkbox"], :root input[type="radio"] {
-
-/* 		display: none; */
-
-	}
-
 	input[type="checkbox"]:checked + b.checkbox:before {
 		
 		content: "✓";
@@ -947,12 +940,6 @@ form {
 		margin: 0;
 		padding: 0;
 		cursor: pointer;
-/*
-		filter: alpha(opacity=0);
-		opacity: 0;
-		font-size: 200px;
-		height: 44px;
-*/
 		margin-left: -100%\9;
 
 	}

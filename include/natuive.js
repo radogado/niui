@@ -49,7 +49,7 @@ function removeClass(el, className) {
 
     } else {
 
-        el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+        removeClass_className(el, className);
         removeClass = removeClass_className;
 
     }
@@ -78,7 +78,7 @@ function hasClass(el, className) {
 	} else {
 		
 		hasClass = hasClass_className;
-		return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
+		return hasClass_className(el, className);
 			
 	}
 	
@@ -286,6 +286,7 @@ forEach('table', function(el) {
 function updateURLParameter(url, param, paramVal) { // return input string with updated/added URL parameter
 
     newAdditionalURL = "";
+    url = url.split('#')[0];
     tempArray = url.split("?");
     baseURL = tempArray[0];
     additionalURL = tempArray[1];
@@ -301,7 +302,7 @@ function updateURLParameter(url, param, paramVal) { // return input string with 
     }
 
     var rows_txt = temp + "" + param + "=" + paramVal;
-    return baseURL + "?" + newAdditionalURL + rows_txt;
+    return baseURL + "?" + newAdditionalURL + rows_txt.split('#')[0];
 
 }
 
@@ -332,11 +333,17 @@ function relayParameters() {
 
         for (var name in parameters) {
 
-            if (parameters_list.indexOf(name) == -1) continue;
-
-            if (!el.href.indexOf('javascript') || (!el.href.indexOf('mailto'))) continue;
-            var hash = el.href.split('#')[1] ? ('#' + el.href.split('#')[1]) : '';
-            el.href = updateURLParameter(el.href.split('#')[0], name, parameters[name]) + hash;
+            if (el.href.indexOf('javascript') == -1 && el.href.indexOf('mailto') == -1 && parameters_list.indexOf(name) != -1) {
+	            
+	            var hash = el.href.split('#')[1];
+	            el.href = updateURLParameter(el.href, name, parameters[name]);
+	            if (typeof hash != 'undefined') {
+		            
+		            el.href = el.href.split('#')[0] + '#' + hash;
+		            
+	            }
+	            
+            }
 
         }
 
@@ -477,10 +484,12 @@ function modalWindow(e) {
     if (parentByClass(el, 'modal')) { // Load an external file 
 
         link = parentByClass(el, 'modal').href;
+/*
 		if (link.split('#').length > 2) {
 			
 			link = link.split('#')[0] + '#' + link.split('#')[2];
 		}
+*/
 		
         if (!php_support && external.test(link) || !(new XMLHttpRequest().upload)) { // No PHP or XHR?
 
@@ -766,7 +775,7 @@ function submitForm(e) {
     r.open("POST", "include/request.php", true);
 
     r.onreadystatechange = function() {
-        console.log(r.responseText);
+
         if (r.readyState != 4 || r.status != 200) {
 
             // To do: php script unreachable, submit form normally
@@ -913,7 +922,6 @@ addEventHandler(window, 'load', function() {
     });
 
 });
-
 
 var php_support = 0;
 request = new XMLHttpRequest();
