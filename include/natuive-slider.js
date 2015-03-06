@@ -161,7 +161,7 @@ function slide(e, method, index_number) {
 
     }
 
-    slider = parentByClass(el, 'slider-container').querySelector('.slider');
+    var slider = parentByClass(el, 'slider-container').querySelector('.slider');
 
     if (method == 'index') {
 
@@ -198,9 +198,9 @@ function slide(e, method, index_number) {
 
     slide_duration = 400;
 
-    direction = hasClass(slider, 'vertical') ? 'translateY' : 'translateX';
+    if (typeof document.body.style.transition == 'string') { // CSS transition-enabled browser...
 
-    if (('ontransitionend' in window) || (typeof document.body.style.MozTransition == 'string')) { // CSS Transform Translate enabled browser; to do: add IE detection
+	    direction = hasClass(slider, 'vertical') ? 'translateY' : 'translateX';
 
         slider.style.cssText = "-webkit-transform: " + direction + "(-" + pos + "); -moz-transform: " + direction + "(-" + pos + "); -ms-transform: " + direction + "(-" + pos + "); transform: " + direction + "(-" + pos + "); -webkit-transition: -webkit-transform " + slide_duration + "ms ease; -moz-transition: -moz-transform " + slide_duration + "ms ease; -ms-transition: -ms-transform " + slide_duration + "ms ease;";
 
@@ -213,11 +213,12 @@ function slide(e, method, index_number) {
 
         }, false);
 
-    } else {
+    } else { // ... or 'top' property fallback
 
         direction = hasClass(slider, 'vertical') ? 'top' : 'left';
 
         slider.style.cssText = direction + ": -" + pos + "; -webkit-transition: " + direction + " " + slide_duration + "ms ease; transition: " + direction + " " + slide_duration + "ms ease;";
+
         var t = setTimeout(function() {
 
             t = setTimeout(function(e) {

@@ -185,6 +185,12 @@ function stopEvent(e) {
 
     }
 
+	if ( typeof e == 'undefined' ) {
+		
+		return false;
+
+	}
+
     //e.cancelBubble is supported by IE, this will kill the bubbling process.
     e.cancelBubble = true;
     e.returnValue = false;
@@ -235,8 +241,34 @@ function parentByClass(el, className) {
         el = el.parentNode;
 
     }
+	if (typeof el.tagName == 'undefined') {
+		
+		return false;
+
+	}
 
     return hasClass(el, className) && el;
+
+}
+
+if (!Array.prototype.indexOf) {
+
+    Array.prototype.indexOf = function(elt) {
+
+        var len = this.length >>> 0;
+
+        var from = Number(arguments[1]) || 0;
+        from = (from < 0) ? Math.ceil(from) : Math.floor(from);
+        if (from < 0)
+            from += len;
+
+        for (; from < len; from++) {
+            if (from in this && this[from] === elt)
+                return from;
+        }
+        return -1;
+
+    };
 
 }
 
@@ -442,21 +474,17 @@ function modalWindow(e) {
 
     el = eventElement(e);
 
-    if (parentByClass(el, 'modal') && !(new XMLHttpRequest().upload)) {
-
-        el = parentByClass(el, 'modal');
-        window.open(el.href, '_blank');
-        return false;
-
-    }
-
     if (parentByClass(el, 'modal')) { // Load an external file 
 
         link = parentByClass(el, 'modal').href;
+		if (link.split('#').length > 2) {
+			
+			link = link.split('#')[0] + '#' + link.split('#')[2];
+		}
+		
+        if (!php_support && external.test(link) || !(new XMLHttpRequest().upload)) { // No PHP or XHR?
 
-        if (!php_support) { // No PHP?
-
-            window.open(link, 'Modal');
+            window.open(link, '_blank');
             removeBlackbox();
             return false;
 
@@ -887,7 +915,12 @@ addEventHandler(window, 'load', function() {
 });
 
 
-var req = new XMLHttpRequest();
-req.open('GET', document.location, false);
-req.send(null);
-var php_support = req.getAllResponseHeaders().toLowerCase().indexOf('php') == -1 ? 0 : 1;
+var php_support = 0;
+request = new XMLHttpRequest();
+request.open('GET', document.location, true);
+request.onload = function () {
+	
+	php_support = request.getAllResponseHeaders().toLowerCase().indexOf('php') == -1 ? 0 : 1;
+
+}
+request.send(null);

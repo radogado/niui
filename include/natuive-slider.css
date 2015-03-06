@@ -69,9 +69,14 @@
 	
 }
 
-.slider.vertical {
+.slider-container.vertical, .slider.vertical {
 	
 	height: 500px;
+
+}
+
+.slider.vertical {
+	
 	overflow-x: hidden;
 	overflow-y: scroll;
 
