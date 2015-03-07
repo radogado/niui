@@ -145,6 +145,14 @@ html.nooverflow, html.nooverflow body {
 
 }
 
+.disable-hover, .disable-hover * {
+
+	pointer-events: none !important;
+	-webkit-transition: -webkit-transform .4s ease;
+	transition: transform .4s ease;
+
+}
+
 body {
 
 	font-family: 'Helvetica Neue', Arial, sans-serif;

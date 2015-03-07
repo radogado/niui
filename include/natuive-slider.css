@@ -368,10 +368,3 @@
 	max-height: 100%;
     vertical-align: middle;
 }
-
-.disable-hover, .disable-hover * {
-
-	pointer-events: none !important;
-
-}
-

@@ -202,10 +202,16 @@ function slide(e, method, index_number) {
 
 	    direction = hasClass(slider, 'vertical') ? 'translateY' : 'translateX';
 
+		if (!index_number) {
+
+			addClass(q('html'), 'disable-hover');
+		
+		}
         slider.style.cssText = "-webkit-transform: " + direction + "(-" + pos + "); -moz-transform: " + direction + "(-" + pos + "); -ms-transform: " + direction + "(-" + pos + "); transform: " + direction + "(-" + pos + "); -webkit-transition: -webkit-transform " + slide_duration + "ms ease; -moz-transition: -moz-transform " + slide_duration + "ms ease; -ms-transition: -ms-transform " + slide_duration + "ms ease;";
 
         slider.addEventListener('transitionend', function(e) {
 
+        	removeClass(q('html'), 'disable-hover');
             t = setTimeout(function(e) {
                 mouseEvents(slider);
             }, slide_duration * 2);

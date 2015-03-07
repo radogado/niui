@@ -379,15 +379,17 @@ function scrollTo(to, callback) {
 	}
 	
     change = to - (document.documentElement.scrollTop || document.body.scrollTop);
-	
-	q('html').style.cssText = '-webkit-transition: -webkit-transform .4s ease; -webkit-transform: translateY(' + -1*change + 'px); transition: transform .4s ease; transform: translateY(' + -1*change + 'px);';
+
+	addClass(q('html'), 'disable-hover');
     q('html').addEventListener('transitionend', function(e) {
 		
-		q('html').style.cssText = '';
 		q('html').removeEventListener('transitionend', arguments.callee);
+		removeClass(q('html'), 'disable-hover');
+		q('html').style.cssText = '';
 		callback();
 
     }, false);
+	q('html').style.cssText = '-webkit-transform: translateY(' + -1*change + 'px); transform: translateY(' + -1*change + 'px);';
 
 }
 
@@ -744,7 +746,6 @@ function submitForm(e) {
 
     if (!ready_to_submit) {
 
-        scrollTo(el.offsetTop + el.parentNode.offsetTop, function () {});
         return false;
 
     }
