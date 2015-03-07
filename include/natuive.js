@@ -146,7 +146,7 @@ var parseHTML = function(str) {
 
 function forEach(selector, fn) { // Accepts both an array and a selector
 
-    elements = (typeof selector == 'string') ? document.querySelectorAll(selector) : selector;
+    elements = (typeof selector == 'string') ? qa(selector) : selector;
     for (var i = 0; i < elements.length; i++) {
 
         fn(elements[i], i);
@@ -272,6 +272,18 @@ if (!Array.prototype.indexOf) {
 
 }
 
+function q(selector) {
+	
+	return document.querySelector(selector);
+	
+}
+
+function qa(selector) {
+	
+	return document.querySelectorAll(selector);
+	
+}
+
 /* ––– */
 
 forEach('table', function(el) {
@@ -351,62 +363,31 @@ function relayParameters() {
 
 }
 
-Math.easeInOutQuad = function(t, b, c, d) {
-
-    t /= d / 2;
-
-    if (t < 1) {
-
-        return c / 2 * t * t + b
-
-    }
-
-    t--;
-    return -c / 2 * (t * (t - 2) - 1) + b;
-
-};
-
-var requestAnimFrame = (function() {
-
-    return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function(callback) {
-
-        window.setTimeout(callback, 1000 / 60);
-
-    };
-
-})();
-
 function scrollTo(to, callback) {
+	
+	if (typeof document.body.style.transition != 'string') {
+		
+		callback();
+		return;
 
-    start = document.documentElement.scrollTop || document.body.scrollTop,
-        change = to - start,
-        currentTime = 0,
-        increment = 20;
+	}
+	
+	if (to > (document.body.clientHeight-window.innerHeight) ) {
 
-    var animateScroll = function() {
-        // increment the time
-        currentTime += increment;
-        // find the value with the quadratic in-out easing function
-        var val = Math.easeInOutQuad(currentTime, start, change, 400);
-        // move the document.body
-        document.documentElement.scrollTop = document.body.scrollTop = val;
+		to = document.body.clientHeight-window.innerHeight;
 
-        // do the animation unless its over
-        if (currentTime < 400) {
+	}
+	
+    change = to - (document.documentElement.scrollTop || document.body.scrollTop);
+	
+	q('html').style.cssText = '-webkit-transition: -webkit-transform .4s ease; -webkit-transform: translateY(' + -1*change + 'px); transition: transform .4s ease; transform: translateY(' + -1*change + 'px);';
+    q('html').addEventListener('transitionend', function(e) {
+		
+		q('html').style.cssText = '';
+		q('html').removeEventListener('transitionend', arguments.callee);
+		callback();
 
-            requestAnimFrame(animateScroll);
-
-        } else {
-
-            if (callback && typeof(callback) === 'function') {
-                // the animation is done so lets callback
-                callback();
-            }
-
-        }
-
-    };
-    animateScroll();
+    }, false);
 
 }
 
@@ -434,13 +415,13 @@ function removeBlackbox() {
         if (blackbox.querySelector('.slider')) { // Lightbox
 
             removeClass(blackbox.querySelector('.slider'), 'slider');
-            var slider = document.querySelector('.slider'); // Make another slider active, if any
+            var slider = q('.slider'); // Make another slider active, if any
 
         }
         document.body.removeChild(blackbox);
 
     }
-    removeClass(document.querySelector('html'), 'nooverflow');
+    removeClass(q('html'), 'nooverflow');
 
     window.removeEventListener("keydown", arrow_keys_handler, false);
 
@@ -463,7 +444,7 @@ function modalWindow(e) {
     };
 
     document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> </div>');
-    addClass(document.querySelector('html'), 'nooverflow');
+    addClass(q('html'), 'nooverflow');
 
     // Modal window of HTML as input string
 
@@ -471,7 +452,7 @@ function modalWindow(e) {
 
         document.getElementById('blackbox').innerHTML = '<div class="close"> ← ' + document.title + '</div>' + e + '<div id="blackbox-bg"></div>';
 
-        document.getElementById('blackbox-bg').onclick = document.querySelector('#blackbox .close').onclick = removeBlackbox;
+        document.getElementById('blackbox-bg').onclick = q('#blackbox .close').onclick = removeBlackbox;
 
         return false;
 
@@ -569,7 +550,7 @@ function modalWindow(e) {
 
     });
 
-    document.querySelector('.slider.lightbox').innerHTML = images;
+    q('.slider.lightbox').innerHTML = images;
 
     if (makeSlider) {
 
@@ -583,15 +564,15 @@ function modalWindow(e) {
 
         if (hasClass(anchor.parentNode, 'vertical')) {
 
-            addClass(document.querySelector('#blackbox .slider'), 'vertical');
+            addClass(q('#blackbox .slider'), 'vertical');
 
         }
 
-        var slider = makeSlider(document.querySelector('#blackbox .slider'), thisIndex(anchor));
+        var slider = makeSlider(q('#blackbox .slider'), thisIndex(anchor));
 
     }
 
-    document.getElementById('blackbox-bg').onclick = document.querySelector('#blackbox .close').onclick = removeBlackbox;
+    document.getElementById('blackbox-bg').onclick = q('#blackbox .close').onclick = removeBlackbox;
 
     window.addEventListener("keydown", arrow_keys_handler, false);
 
@@ -621,7 +602,7 @@ forEach('.tool', function(el, i) {
 
 /* Add 'Back to top' button */
 
-document.querySelector(document.querySelector('#footer > div > div') ? '#footer > div > div' : 'body').insertAdjacentHTML('beforeend', '<a class="backtotop" href="#"> ↑ </a>');
+q(q('#footer > div > div') ? '#footer > div > div' : 'body').insertAdjacentHTML('beforeend', '<a class="backtotop" href="#"> ↑ </a>');
 
 /* Animate anchor links */
 
@@ -665,12 +646,17 @@ function animateAnchors(e) {
         el = el.parentNode;
 
     }
+	
+	hash = null;
+	if (el.href.split('#').pop().length > 0) {
+	
+	    hash = document.getElementById(el.href.split('#').pop());
 
-    hash = document.getElementById(el.href.split('#').pop());
+	}
 
-    document.querySelector('#nav-trigger').checked = false;
-    removeClass(document.querySelector('.nav-main > div'), 'open');
-    removeClass(document.querySelector('body'), 'semi-transparent');
+    q('#nav-trigger').checked = false;
+    removeClass(q('.nav-main > div'), 'open');
+    removeClass(q('body'), 'semi-transparent');
 
     scrollTo((hash == null) ? 0 : getCumulativeOffset(hash).y, function(e) {
 
@@ -758,7 +744,7 @@ function submitForm(e) {
 
     if (!ready_to_submit) {
 
-        scrollTo(el.offsetTop + el.parentNode.offsetTop)
+        scrollTo(el.offsetTop + el.parentNode.offsetTop, function () {});
         return false;
 
     }
@@ -839,7 +825,7 @@ forEach('input[type="file"]', function(el, i) {
 
 if (document.getElementById('language-selector')) {
 
-    document.querySelector('#language-selector select').onchange = function(e) {
+    q('#language-selector select').onchange = function(e) {
 
         document.getElementById('language-selector').submit();
 
@@ -897,7 +883,7 @@ if ('ontouchstart' in window) { // Touch device: remove iOS sticky hover state
 
 document.getElementById('nav-trigger').onchange = function(e) {
 
-    toggleClass(document.querySelector('body'), 'semi-transparent');
+    toggleClass(q('body'), 'semi-transparent');
 
 };
 

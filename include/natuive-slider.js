@@ -61,7 +61,7 @@ swipeEvents = function(el) {
             var deltaY = startY - touches[0].pageY;
             delta = (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY;
 
-            if ((hasClass(sliderElement(e), 'vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !document.querySelector('.slider.lightbox')) {
+            if ((hasClass(sliderElement(e), 'vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !q('.slider.lightbox')) {
 
                 return;
 
@@ -210,6 +210,7 @@ function slide(e, method, index_number) {
                 mouseEvents(slider);
             }, slide_duration * 2);
             document.onkeyup = sliderKeyboard;
+            slider.removeEventListener('transitionend', arguments.callee);
 
         }, false);
 
@@ -244,12 +245,12 @@ function sliderKeyboard(e) {
 
     el = e.target || e.srcElement;
 
-    if (document.querySelector('.slider')) {
+    if (q('.slider')) {
 
         tag = el.tagName.toLowerCase();
         if (tag != 'input' && tag != 'textarea') {
 
-            el = document.querySelector('.slider.full-screen') || document.querySelector('.slider.lightbox') || document.querySelector('.slider');
+            el = q('.slider.full-screen') || q('.slider.lightbox') || q('.slider');
 
             switch (e.which) {
 
