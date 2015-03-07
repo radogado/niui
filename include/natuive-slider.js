@@ -357,7 +357,7 @@ function makeSlider(el, current_slide) {
 
     document.onkeyup = sliderKeyboard;
 
-    mouseEvents(el.parentNode);
+    mouseEvents(el);
 
     if ('ontouchstart' in window) {
 
