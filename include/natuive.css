@@ -781,6 +781,7 @@ form {
 		min-height: 0; /* IE8 fix */
 		width: 100%;
 		background: transparent;
+		background: #eee\9; /* IE8 */
 		text-indent: 0px;
 		padding: 11px 1.6em 11px .7em;
 		padding-right: 0\9; /* IE8 */
@@ -966,7 +967,6 @@ form {
 
 	form .file-input span {
 
-		width: 100%;
 		text-align: left;
 		white-space: nowrap;
 		padding: 0 0 0 .8em;
@@ -975,6 +975,7 @@ form {
 		margin: 1px;
 		height: 42px;
 		line-height: 42px;
+		width: 100%;
 		width: calc(100% - 2px);
 
 	}
@@ -1014,6 +1015,7 @@ form {
 		
 		width: auto;
 		min-width: 0;
+		padding: 0 1em;
 
 	}
 	
@@ -1621,14 +1623,14 @@ input.trigger, [for="nav-trigger"] {
 				
 		#content select {
 			
-			padding: 0 1.3em 0 .7em;
+			padding: 0 1.3em 0 .45em;
 			margin-bottom: 0;
 			
 		}
 		
 		@-moz-document url-prefix() {
 
-			#content label select { width: 110%; padding-left: .5em; }
+			#content label select { width: 110%; padding-left: .45em; }
 
 		}
 		

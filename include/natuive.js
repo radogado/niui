@@ -173,6 +173,24 @@ function addEventHandler(el, eventType, handler) {
 
 }
 
+function removeEventHandler(el, eventType, handler) {
+
+    if (el.removeEventListener) {
+
+        el.removeEventListener(eventType, handler, false);
+
+    } else {
+
+        if (el.detachEvent) {
+
+            el.detachEvent('on' + eventType, handler);
+
+        }
+
+    }
+
+}
+
 function stopEvent(e) {
 
     if (!e) {
@@ -425,7 +443,7 @@ function removeBlackbox() {
     }
     removeClass(q('html'), 'nooverflow');
 
-    window.removeEventListener("keydown", arrow_keys_handler, false);
+	removeEventHandler(window,'keydown',arrow_keys_handler);
 
 }
 

@@ -13,13 +13,13 @@ natUIve: mostly native front-end framework
 - Balanced functional layout
 - (Mobile) navigation
 - Buttons
-- Modal windows
+- Modal windows with local or external content
 - Lightbox gallery
 - Tooltips with full HTML content*
 - Nested ordered lists*
 - Forms with validation, dynamic submission without page reload, full customisation and accessibility, including native file drop
 - Auto-expanding textarea*
-- Native sliders*, swipeable on mobile and desktop, with numbered or thumbnail navigation
+- Native sliders*, swipeable on mobile and desktop, with numbered or thumbnail navigation, vertical and full screen options
 - Accordions
 - Quote block
 - Tables accessible on narrow screens by scrolling*
@@ -30,7 +30,7 @@ natUIve: mostly native front-end framework
 - URI parameters relay to links*
 - Arabic layout with one CSS line
 - Functional without JS and accessible without CSS*
-- 9 KB effective weight (JS & CSS combined, minified and gzipped)
+- ~9 KB effective weight (JS & CSS combined, minified and gzipped)
 - No IE conditional operators*
 - No jQuery or other dependencies*
 - Supporting IE8+, Safari, Chrome, Firefox, Opera, Android 2.3+, iOS, Windows Phone
@@ -40,6 +40,24 @@ natUIve: mostly native front-end framework
 \* exclusive features, missing in popular frameworks
 
 2014 [rado.bg](http://rado.bg)
+
+–––
+
+natUIve 1.2
+
+- Core
+	- 50% wide columns option on narrow screens
+	- Rows with border option
+	- Anchor links animated by CSS
+	- Various code optimisations
+- Slider
+	- Vertical version
+	- Full-screen version
+- Form
+	- Border on focus
+	- Dynamic form submit without page reload
+- Modal
+	- External content via PHP
 
 –––
 

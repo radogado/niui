@@ -207,6 +207,7 @@
 	.vertical .slider-arrow {
 		
 		top: 1em;
+		left: 48%;
 		left: calc(50% - 1em);
 		text-align: center;
 	
@@ -232,7 +233,8 @@
 	}
 
 	.vertical .slider-arrow.right {
-	
+		
+		left: 48%;
 		left: calc(50% - 1em);
 		right: auto;
 		bottom: 1em;
