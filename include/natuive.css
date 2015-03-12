@@ -250,7 +250,7 @@ a:link, a:visited {
 
 }
 
-	a[href]:hover, #content input[type='submit']:hover, a.button:hover {
+	a[href]:hover, #content input[type='submit']:hover, a.button:hover, #content button:hover {
 
 		color: #ee8822;
 
@@ -391,7 +391,7 @@ a:link, a:visited {
 
 /* Buttons */
 
-.button, input[type="submit"] {
+.button, input[type="submit"], button {
 
 	text-decoration: none;
 	font-weight: bold;
@@ -437,7 +437,7 @@ a:link, a:visited {
 	
 	}
 
-	.button.big, #content input[type="submit"] {
+	.button.big, #content input[type="submit"], #content button {
 
 		background: rgb(0,221,240);
 		font-size: 1.2em;
@@ -583,11 +583,10 @@ form {
 	overflow: hidden;
 
 }
+	form > * {
+		
+		clear: both;
 
-	form label {
-		
-		text-align: right;
-		
 	}
 
 	#content form {
@@ -599,7 +598,6 @@ form {
 	label {
 		
 		display: inline-block;
-		text-align: right;
 		font-weight: bold;
 		max-width: 100%;
 		position: relative;
@@ -608,6 +606,12 @@ form {
 		width: 100%;
 		float: left;
 
+	}
+	
+	label span {
+		
+		text-align: right;
+		
 	}
 	
 	form div.checkbox {
@@ -643,7 +647,7 @@ form {
 	
 	}
 
-	input, #content select, textarea {
+	input, #content select, textarea, input[type=search], button {
 		
 		font-family: inherit;
 		display: inline-block;
@@ -657,12 +661,18 @@ form {
 		background: #eee;
 		font-size: 1.0666em;
 		margin: -11px 0 11px 0;
-		width: 50%;
+		width: 100%;
 		float: right;
 		outline: none;
 		border: 1px solid transparent;
 
 	}
+
+		label input, label textarea, label input[type=search], label button {
+			
+			width: 50%;
+	
+		}
 
 		input:focus, #content select:focus, textarea:focus {
 			
@@ -695,7 +705,7 @@ form {
 
 	}
 	
-	form input[type="submit"] {
+	form input[type="submit"], form button {
 		
 		margin-right: 0;
 		min-width: 50%;
@@ -996,6 +1006,19 @@ form {
 
 	}
 	
+	input[type="search"] {
+	
+	    -webkit-appearance: textfield;
+	
+	}
+	
+	input[type="search"]::-webkit-search-decoration,
+	input[type="search"]::-webkit-search-cancel-button {
+	
+	    -webkit-appearance: none;
+	
+	}
+
 	@-moz-document url-prefix() {
 
 		form.flat .file-input span { margin-top: 1px;	}
@@ -1503,7 +1526,7 @@ input.trigger, [for="nav-trigger"] {
 	
 }
 
-.quote {
+.quote, blockquote {
 	
 	margin-left: 1em;
 	border-left: 1px solid #bbb;

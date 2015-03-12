@@ -674,9 +674,13 @@ function animateAnchors(e) {
 
 	}
 
-    q('#nav-trigger').checked = false;
-    removeClass(q('.nav-main > div'), 'open');
-    removeClass(q('body'), 'semi-transparent');
+	if (q('#nav-trigger')) {
+		
+	    q('#nav-trigger').checked = false;
+	    removeClass(q('.nav-main > div'), 'open');
+	    removeClass(q('body'), 'semi-transparent');
+
+	}
 
     scrollTo((hash == null) ? 0 : getCumulativeOffset(hash).y, function(e) {
 
@@ -900,11 +904,15 @@ if ('ontouchstart' in window) { // Touch device: remove iOS sticky hover state
 
 }
 
-document.getElementById('nav-trigger').onchange = function(e) {
+if (document.getElementById('nav-trigger')) {
+	
+	document.getElementById('nav-trigger').onchange = function(e) {
+	
+	    toggleClass(q('body'), 'semi-transparent');
+	
+	};
 
-    toggleClass(q('body'), 'semi-transparent');
-
-};
+}
 
 addEventHandler(window, 'load', function() {
 
