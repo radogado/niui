@@ -228,6 +228,7 @@ h1, h2, .nav a, .accordion > label {
 img {
 	
 	max-width: 100%;
+	height: auto;
 	border: none;
 	
 }
@@ -507,7 +508,7 @@ a:link, a:visited {
 		
 	}
 	
-	#head .logo {
+	#head img.logo {
 		
 		height: 40px;
 
@@ -722,7 +723,7 @@ form {
 
 	}
 	
-	label span {
+	form > label span {
 		
 		position: relative;
 		display: inline-block;
