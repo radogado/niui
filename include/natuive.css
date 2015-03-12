@@ -1275,6 +1275,7 @@ ul {
 
 	    list-style-type: none;
 	    counter-reset: level2;
+		display: block;
 
 	}
 
