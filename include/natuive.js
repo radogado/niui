@@ -304,6 +304,10 @@ function qa(selector) {
 
 /* ––– */
 
+scripts_location = document.getElementsByTagName('script');
+scripts_location = scripts_location[scripts_location.length-1].src;
+scripts_location = scripts_location.slice(0, scripts_location.length - scripts_location.split('/').pop().length);
+
 forEach('table', function(el) {
 
     el.insertAdjacentHTML('beforebegin', '<div class=table>' + el.outerHTML + '</div>');
@@ -501,7 +505,7 @@ function modalWindow(e) {
         }
 
         request = new XMLHttpRequest();
-        request.open("GET", external.test(link) ? ("include/request.php?targetformurl=" + link.split('#')[0]) : link.split('#')[0], true);
+        request.open("GET", external.test(link) ? (scripts_location + "request.php?targetformurl=" + link.split('#')[0]) : link.split('#')[0], true);
 
         request.onload = function() {
 
@@ -781,7 +785,7 @@ function submitForm(e) {
     el.insertAdjacentHTML('beforeend', '<input name=targetformurl type=hidden value=' + encodeURIComponent(el.action) + '>');
 
     var r = new XMLHttpRequest();
-    r.open("POST", "include/request.php", true);
+    r.open("POST", scripts_location + "request.php", true);
 
     r.onreadystatechange = function() {
 

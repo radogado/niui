@@ -4,7 +4,7 @@ natUIve: mostly native front-end framework
 9 KB framework leveraging browsers' built-in capabilities, with subtle customisation. ([Live demo](http://radogado.github.io/natuive/))
 ---
 
-- Unbreakable, flexible, responsive grid
+- Unbreakable, flexible (no hardcoded dimensions), responsive grid
 - Baseline-aligned elements*
 - Embeddable grid and elements*
 - Vertically aligned column content*

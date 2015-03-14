@@ -576,6 +576,11 @@ a:link, a:visited {
 			
 	}
 
+	#footer > div > div {
+		
+		padding-bottom: 2.3em;
+		
+	}
 
 /* Forms */
 
