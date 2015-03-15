@@ -775,8 +775,8 @@ function submitForm(e) {
         return false;
 
     }
-
-    if (!(new XMLHttpRequest().upload) || !php_support) { // Browser unable to submit dynamically. To do: or if request.php isn't working
+	// To do: dynamic GET 
+    if (!(new XMLHttpRequest().upload) || !php_support || el.method.toLowerCase() == 'get') { // Browser unable to submit dynamically. To do: or if request.php isn't working
 
         return true;
 
@@ -800,7 +800,7 @@ function submitForm(e) {
 
             // To do: php script unreachable, submit form normally
             el.onsubmit = function() {};
-            el.submit();
+			el.constructor.prototype.submit.call(el); // el.submit();
             return true;
 
         }
