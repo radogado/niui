@@ -1,3 +1,4 @@
+@charset "utf-8";
 /* natUIve by rado.bg */
 	
 /* Grid */
@@ -575,7 +576,7 @@ a:link, a:visited {
 		display: table-cell;
 			
 	}
-
+	
 	#footer > div > div {
 		
 		padding-bottom: 2.3em;
@@ -666,13 +667,19 @@ form {
 		border: 0;
 		background: #eee;
 		font-size: 1.0666em;
-		margin: -11px 0 11px 0;
+		margin: 0 0 11px 0;
 		width: 100%;
 		float: right;
 		outline: none;
 		border: 1px solid transparent;
 
 	}
+
+		label > input {
+			
+			margin-top: -11px;
+		
+		}
 
 		label input, label textarea, label input[type=search], label button {
 			
@@ -1541,6 +1548,12 @@ input.trigger, [for="nav-trigger"] {
 	
 }
 
+video {
+	
+	height: auto !important;
+
+}
+
 /* Narrow Screens */
 
 @media screen and (max-width: 640px) {
@@ -1645,7 +1658,7 @@ input.trigger, [for="nav-trigger"] {
 				
 		}
 	
-		#content label select, input[type="submit"] {
+		#content label select, input[type="submit"], form label textarea {
 	
 			width: 100%;
 
@@ -1744,7 +1757,13 @@ input.trigger, [for="nav-trigger"] {
 			margin-bottom: 11px;
 
 		}
-
+		
+		form label > span {
+			
+			line-height: 44px;
+			
+		}
+		
 	.wide-screen {
 		
 		display: none !important;
