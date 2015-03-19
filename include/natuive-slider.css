@@ -278,6 +278,7 @@
 	position: absolute;
 	bottom: .5em;
 	width: 100%;
+	white-space: nowrap;
 	
 }
 
@@ -310,7 +311,10 @@
 		
 		display: inline-block;
 		margin: .5em;
-		line-height: .9em;
+		line-height: 2em;
+		padding: 0;
+		width: 2em;
+		height: 2em;
 		
 	}
 	
