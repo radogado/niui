@@ -142,21 +142,28 @@ function mouseEvents(el, toggle) {
 
 // Function from David Walsh: http://davidwalsh.name/css-animation-callback
 function whichAnimationEvent(){
-  var t,
-      el = document.createElement("fakeelement");
 
-  var animations = {
-    "animation"      : "animationend",
-    "OAnimation"     : "oAnimationEnd",
-    "MozAnimation"   : "animationend",
-    "WebkitAnimation": "webkitAnimationEnd"
-  }
+	el = document.createElement("fakeelement");
+	
+	var animations = {
+	
+		"animation"      : "animationend",
+		"OAnimation"     : "oAnimationEnd",
+		"MozAnimation"   : "animationend",
+		"WebkitAnimation": "webkitAnimationEnd"
+	
+	}
+	
+	for (t in animations){
+	
+		if (el.style[t] !== undefined){
 
-  for (t in animations){
-    if (el.style[t] !== undefined){
-      return animations[t];
-    }
-  }
+			return animations[t];
+
+		}
+	
+	}
+
 }
 
 var animationEvent = whichAnimationEvent();
@@ -292,10 +299,12 @@ function slide(e, method, index_number) {
 
         slider.style.cssText = direction + ": -" + pos + "; -webkit-transition: " + direction + " " + slide_duration + "ms ease; transition: " + direction + " " + slide_duration + "ms ease;";
 
-        var t = setTimeout(function() {
+        t = setTimeout(function() {
 
             t = setTimeout(function(e) {
+
                 mouseEvents(slider);
+
             }, slide_duration * 2);
             document.onkeyup = sliderKeyboard;
 
@@ -368,9 +377,14 @@ function makeSlider(el, current_slide) {
     el.insertAdjacentHTML('beforebegin', '<div class="slider-container"></div>'); // Create a container and move the slider in it
     container = el.previousSibling;
 
-    transferClass(el, container, 'vertical-thumbnails');
     transferClass(el, container, 'vertical');
     transferClass(el, container, 'full-screen');
+    
+    if (hasClass(el, 'full-screen')) {
+	    
+	    addClass(q('html'), 'nooverflow');
+
+    }
 
     container.insertAdjacentHTML('afterbegin', '<a class="slider-arrow left"></a>' + el.outerHTML + '<a class="slider-arrow right"></a><div class="slider-nav"><div><span></span></div></div>');
     container.nextSibling.outerHTML = '';
@@ -394,6 +408,11 @@ function makeSlider(el, current_slide) {
             addClass(slider_nav, 'thumbnails');
             addClass(slider_nav.querySelector('span'), 'row');
             slider_nav.querySelector('span').insertAdjacentHTML('beforeend', (!i ? '<a class="active">' : '<a>') + el.children[i].querySelector('.thumbnail').innerHTML + '</a>');
+            if (hasClass(el, 'vertical')) {
+	            
+	            addClass(el.parentNode, 'vertical-thumbnails');
+	            
+            }
 
         } else {
 
