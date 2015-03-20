@@ -431,6 +431,32 @@ var arrow_keys_handler = function(e) {
 
 };
 
+function populateLightbox(slider, i) {
+	
+	slider.children[i].querySelector('img').src = slider.children[i].querySelector('img').getAttribute('data-src');
+	if (i > 0) {
+	
+		y = i-1;
+		
+	} else {
+		
+		y = slider.children.length-1;
+	
+	}
+	slider.children[y].querySelector('img').src = slider.children[y].querySelector('img').getAttribute('data-src');
+	if (i < slider.children.length-1) {
+		
+		i = i + 1;
+	
+	} else {
+		
+		i = 0;
+	
+	}
+	slider.children[i].querySelector('img').src = slider.children[i].querySelector('img').getAttribute('data-src');
+
+}
+
 function removeBlackbox() {
 
     var blackbox = document.getElementById('blackbox');
@@ -570,7 +596,7 @@ function modalWindow(e) {
 
     forEach(parent.querySelectorAll('a[href]'), function(el) {
 
-        images += '<div><img src="' + el.href + '" alt="' + el.title + '"><p>' + el.title + '</p></div>';
+        images += '<div><img data-src="' + el.href + '" alt="' + el.title + '"><p>' + el.title + '</p></div>';
 
     });
 
@@ -593,6 +619,8 @@ function modalWindow(e) {
         }
 
         var slider = makeSlider(q('#blackbox .slider'), thisIndex(anchor));
+        /* Load the images in the current slide and its neighbours */
+        populateLightbox(slider, thisIndex(anchor));
 
     }
 

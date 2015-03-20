@@ -140,6 +140,29 @@ function mouseEvents(el, toggle) {
 
 }
 
+// Function from David Walsh: http://davidwalsh.name/css-animation-callback
+function whichAnimationEvent(){
+  var t,
+      el = document.createElement("fakeelement");
+
+  var animations = {
+    "animation"      : "animationend",
+    "OAnimation"     : "oAnimationEnd",
+    "MozAnimation"   : "animationend",
+    "WebkitAnimation": "webkitAnimationEnd"
+  }
+
+  for (t in animations){
+    if (el.style[t] !== undefined){
+      return animations[t];
+    }
+  }
+}
+
+var animationEvent = whichAnimationEvent();
+var	prefix = animationEvent == 'webkitAnimationEnd' ? '-webkit-' : ''; 
+var slide_duration = 400;
+
 function slide(e, method, index_number) {
 
     if (window.sliderTimeout) {
@@ -162,61 +185,104 @@ function slide(e, method, index_number) {
     }
 
     var slider = parentByClass(el, 'slider-container').querySelector('.slider');
-
+	
+	var index;
+	var old_index = thisIndex(slider.parentNode.querySelector('.slider-nav a.active'));
+    index = old_index;
+    direction = hasClass(slider, 'vertical') ? 'translateY' : 'translateX';
+	
     if (method == 'index') {
 
         index = index_number || thisIndex(el);
+    
+    }
 
-        pos = (index * 100) + '%';
+    if (method == 'right') {
+
+        if (index == (slider.children.length - 1)) {
+
+            index = 0;
+
+        } else {
+	        
+	        index++; 
+	        
+        }
+        
+    }
+
+    if (method == 'left') {
+
+        if (index == 0) {
+
+            index = slider.children.length-1;
+
+        } else {
+	        
+	        index--;
+	        
+        }
 
     }
 
-    if (method == 'left' || method == 'right') {
+	slider.style.cssText = 'height: ' + slider.scrollHeight + 'px';
 
-        index = thisIndex(slider.parentNode.querySelector('.slider-nav a.active'));
+    i = Math.min(old_index, index) - 1;
+    while ( i++ < Math.abs(index-old_index) ) {
 
-        if (index == 0 && method == 'left') {
-
-            index = slider.children.length;
-
-        }
-
-        if (index == (slider.children.length - 1) && method == 'right') {
-
-            index = -1;
-
-        }
-
-        pos = ((method == 'left' ? --index : ++index) * 100) + '%';
+        addClass(slider.children[i], 'visible');
 
     }
+	addClass(slider.children[index], 'visible');
+	
+	var styles = document.createElement( 'style' );
+	styles.innerHTML = '@' + prefix + 'keyframes slide-index { from { ' + prefix + 'transform: ' + direction + '(' + ((index<old_index) ? (index-old_index) : 0) + '00%); } to { ' + prefix + 'transform: ' + direction + '(' + ((index<old_index) ? 0 : (index-old_index)*-1) + '00%); }}';
+	addClass(styles, 'slide-index-style');
+
+	addClass(slider, 'slide-index');
+	document.getElementsByTagName('head')[0].appendChild(styles);
 
     removeClass(slider.parentNode.querySelector('.slider-nav .active'), 'active');
     addClass(slider.parentNode.querySelector('.slider-nav span').children[index], 'active');
 
     mouseEvents(el.parentNode, 'off');
 
-    slide_duration = 400;
-
     if (typeof document.body.style.transition == 'string') { // CSS transition-enabled browser...
-
-	    direction = hasClass(slider, 'vertical') ? 'translateY' : 'translateX';
 
 		if (!index_number) {
 
 			addClass(q('html'), 'disable-hover');
 		
 		}
-        slider.style.cssText = "-webkit-transform: " + direction + "(-" + pos + "); -moz-transform: " + direction + "(-" + pos + "); -ms-transform: " + direction + "(-" + pos + "); transform: " + direction + "(-" + pos + "); -webkit-transition: -webkit-transform " + slide_duration + "ms ease; -moz-transition: -moz-transform " + slide_duration + "ms ease; -ms-transition: -ms-transform " + slide_duration + "ms ease;";
 
-        slider.addEventListener('transitionend', function(e) {
+        slider.addEventListener(animationEvent, function(e) {
 
+			forEach ( slider.querySelectorAll('.visible'), function (el) {
+				
+				removeClass(el, 'visible');
+				
+			});
+			addClass(slider.children[index], 'visible');
+			removeClass(slider,'slide-index');
+			slider.style.cssText = prefix + 'transform: ' + direction + '(-' + index + '00%);';
+			if (q('.slide-index-style')) {
+				
+				q('.slide-index-style').outerHTML = '';
+			
+			}
+			
         	removeClass(q('html'), 'disable-hover');
             t = setTimeout(function(e) {
                 mouseEvents(slider);
             }, slide_duration * 2);
             document.onkeyup = sliderKeyboard;
-            slider.removeEventListener('transitionend', arguments.callee);
+            slider.removeEventListener(animationEvent, arguments.callee);
+            
+            if (hasClass(slider, 'lightbox')) {
+				
+				populateLightbox(slider, index);
+	            
+            }
 
         }, false);
 
@@ -356,9 +422,17 @@ function makeSlider(el, current_slide) {
     }
 
     if (current_slide) {
-
-        slide(el, 'index', current_slide);
-
+		
+		addClass(el.children[current_slide], 'visible');
+		removeClass(el.parentNode.querySelector('.active'), 'active');
+		addClass(el.parentNode.querySelector('.slider-nav span').children[current_slide], 'active');
+		direction = hasClass(el, 'vertical') ? 'translateY' : 'translateX';
+		el.style.cssText = prefix + 'transform: ' + direction + '(-' + current_slide + '00%);';
+		
+    } else {
+	    
+		addClass(el.children[0], 'visible');
+	    
     }
 
     document.onkeyup = sliderKeyboard;
