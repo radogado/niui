@@ -111,7 +111,7 @@
 .slider-container .slider.vertical > * {
 
 	height: 100%;
-	display: none;
+	display: block;
 
 }
 
@@ -140,7 +140,7 @@
 
 }
 
-.slider-container .slider.slide-index, .slider.vertical {
+.slider-container .slider.slide-index {
 
 	-webkit-transform: none !important;
 

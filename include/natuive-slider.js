@@ -170,34 +170,18 @@ var animationEvent = whichAnimationEvent();
 var	prefix = animationEvent == 'webkitAnimationEnd' ? '-webkit-' : ''; 
 var slide_duration = 400;
 
-function slide(e, method, index_number) {
+function slide(el, method, index_number) {
 
     if (window.sliderTimeout) {
 
         clearTimeout(window.sliderTimeout);
 
     }
-    e = e || window.event;
-    if (typeof e == 'undefined') {
-
-        return;
-
-    }
-    stopEvent(e);
-    el = e.srcElement || e.target;
-    if (typeof el == 'undefined') {
-
-        el = e;
-
-    }
 
     var slider = parentByClass(el, 'slider-container').querySelector('.slider');
-	
-	var index;
-	var old_index = thisIndex(slider.parentNode.querySelector('.slider-nav a.active'));
-    index = old_index;
-    direction = hasClass(slider, 'vertical') ? 'translateY' : 'translateX';
-	
+
+	index = old_index = thisIndex(slider.parentNode.querySelector('.slider-nav a.active'));
+
     if (method == 'index') {
 
         index = index_number || thisIndex(el);
@@ -232,23 +216,28 @@ function slide(e, method, index_number) {
 
     }
 
-	slider.style.cssText = 'height: ' + slider.scrollHeight + 'px';
-	addClass(slider, 'slide-index');
+	if (!hasClass(slider, 'vertical')) {
+		
+		slider.style.cssText = 'height: ' + slider.scrollHeight + 'px';
+	
+	}
 
     removeClass(slider.parentNode.querySelector('.slider-nav .active'), 'active');
     addClass(slider.parentNode.querySelector('.slider-nav span').children[index], 'active');
 
     if (typeof document.body.style.transition == 'string') { // CSS transition-enabled browser...
 
+	    direction = hasClass(slider, 'vertical') ? 'translateY' : 'translateX';
+		addClass(slider, 'slide-index');
 	    mouseEvents(el.parentNode, 'off');
-
-		addClass(slider.children[index], 'visible');
 
 		if (!index_number) {
 	
 			addClass(q('html'), 'disable-hover');
 		
 		}
+
+		addClass(slider.children[index], 'visible');
 
 	    i = Math.min(old_index, index) - 1;
 	    while ( i++ < Math.abs(index-old_index) ) {
@@ -296,8 +285,13 @@ function slide(e, method, index_number) {
 
     } else { // ... or without animation on old browsers
 
-		removeClass(slider.querySelector('.visible'), 'visible');
-		addClass(slider.children[index], 'visible');
+		slider.style.cssText = (hasClass(slider, 'vertical') ? 'top' : 'left') + ': -' + index + '00%';
+
+        if (hasClass(slider, 'lightbox')) {
+			
+			populateLightbox(slider, index);
+            
+        }
 
     }
 
@@ -346,8 +340,6 @@ function sliderKeyboard(e) {
                     return;
 
             }
-
-            document.onkeyup = function() {};
 
         }
 
@@ -411,7 +403,7 @@ function makeSlider(el, current_slide) {
 
         container.querySelector('.slider-nav span').lastChild.onclick = function(e) {
 
-            slide(e, 'index');
+            slide(eventElement(e), 'index');
 
         };
 
@@ -419,28 +411,20 @@ function makeSlider(el, current_slide) {
 
     container.querySelector('.slider-arrow.left').onclick = function(e) {
 
-        slide(e, 'left');
+        slide(eventElement(e), 'left');
 
     }
 
     container.querySelector('.slider-arrow.right').onclick = function(e) {
 
-        slide(e, 'right');
+        slide(eventElement(e), 'right');
 
     }
 
     if (current_slide) {
+
+		slide(el, 'index', current_slide);
 		
-		addClass(el.children[current_slide], 'visible');
-		removeClass(el.parentNode.querySelector('.active'), 'active');
-		addClass(el.parentNode.querySelector('.slider-nav span').children[current_slide], 'active');
-		direction = hasClass(el, 'vertical') ? 'translateY' : 'translateX';
-		el.style.cssText = prefix + 'transform: ' + direction + '(-' + current_slide + '00%);';
-		
-    } else {
-	    
-		addClass(el.children[0], 'visible');
-	    
     }
 
     document.onkeyup = sliderKeyboard;

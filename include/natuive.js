@@ -618,9 +618,8 @@ function modalWindow(e) {
 
         }
 
-        var slider = makeSlider(q('#blackbox .slider'), thisIndex(anchor));
-        /* Load the images in the current slide and its neighbours */
-        populateLightbox(slider, thisIndex(anchor));
+        // Load the images in the current slide and its neighbours
+        populateLightbox(makeSlider(q('#blackbox .slider'), thisIndex(anchor)), thisIndex(anchor));
 
     }
 
