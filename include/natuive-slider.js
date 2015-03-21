@@ -233,34 +233,35 @@ function slide(e, method, index_number) {
     }
 
 	slider.style.cssText = 'height: ' + slider.scrollHeight + 'px';
-
-    i = Math.min(old_index, index) - 1;
-    while ( i++ < Math.abs(index-old_index) ) {
-
-        addClass(slider.children[i], 'visible');
-
-    }
-	addClass(slider.children[index], 'visible');
-	
-	var styles = document.createElement( 'style' );
-	styles.innerHTML = '@' + prefix + 'keyframes slide-index { from { ' + prefix + 'transform: ' + direction + '(' + ((index<old_index) ? (index-old_index) : 0) + '00%); } to { ' + prefix + 'transform: ' + direction + '(' + ((index<old_index) ? 0 : (index-old_index)*-1) + '00%); }}';
-	addClass(styles, 'slide-index-style');
-
 	addClass(slider, 'slide-index');
-	document.getElementsByTagName('head')[0].appendChild(styles);
 
     removeClass(slider.parentNode.querySelector('.slider-nav .active'), 'active');
     addClass(slider.parentNode.querySelector('.slider-nav span').children[index], 'active');
 
-    mouseEvents(el.parentNode, 'off');
-
     if (typeof document.body.style.transition == 'string') { // CSS transition-enabled browser...
 
-		if (!index_number) {
+	    mouseEvents(el.parentNode, 'off');
 
+		addClass(slider.children[index], 'visible');
+
+		if (!index_number) {
+	
 			addClass(q('html'), 'disable-hover');
 		
 		}
+
+	    i = Math.min(old_index, index) - 1;
+	    while ( i++ < Math.abs(index-old_index) ) {
+	
+	        addClass(slider.children[i], 'visible');
+	
+	    }
+		
+		var styles = document.createElement( 'style' );
+		addClass(styles, 'slide-index-style');
+	
+		styles.innerHTML = '@' + prefix + 'keyframes slide-index { from { ' + prefix + 'transform: ' + direction + '(' + ((index<old_index) ? (index-old_index) : 0) + '00%); } to { ' + prefix + 'transform: ' + direction + '(' + ((index<old_index) ? 0 : (index-old_index)*-1) + '00%); }}';
+		document.getElementsByTagName('head')[0].appendChild(styles);
 
         slider.addEventListener(animationEvent, function(e) {
 
@@ -293,22 +294,10 @@ function slide(e, method, index_number) {
 
         }, false);
 
-    } else { // ... or 'top' property fallback
+    } else { // ... or without animation on old browsers
 
-        direction = hasClass(slider, 'vertical') ? 'top' : 'left';
-
-        slider.style.cssText = direction + ": -" + pos + "; -webkit-transition: " + direction + " " + slide_duration + "ms ease; transition: " + direction + " " + slide_duration + "ms ease;";
-
-        t = setTimeout(function() {
-
-            t = setTimeout(function(e) {
-
-                mouseEvents(slider);
-
-            }, slide_duration * 2);
-            document.onkeyup = sliderKeyboard;
-
-        }, slide_duration);
+		removeClass(slider.querySelector('.visible'), 'visible');
+		addClass(slider.children[index], 'visible');
 
     }
 
