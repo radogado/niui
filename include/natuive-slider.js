@@ -228,7 +228,6 @@ function slide(el, method, index_number) {
     if (typeof document.body.style.transition == 'string') { // CSS transition-enabled browser...
 
 	    direction = hasClass(slider, 'vertical') ? 'translateY' : 'translateX';
-		addClass(slider, 'slide-index');
 	    mouseEvents(el.parentNode, 'off');
 
 		if (!index_number) {
@@ -246,13 +245,16 @@ function slide(el, method, index_number) {
 	
 	    }
 		
-		var styles = document.createElement( 'style' );
-		addClass(styles, 'slide-index-style');
-	
+		var styles = document.createElement('style');
 		styles.innerHTML = '@' + prefix + 'keyframes slide-index { from { ' + prefix + 'transform: ' + direction + '(' + ((index<old_index) ? (index-old_index) : 0) + '00%); } to { ' + prefix + 'transform: ' + direction + '(' + ((index<old_index) ? 0 : (index-old_index)*-1) + '00%); }}';
 		document.getElementsByTagName('head')[0].appendChild(styles);
+		addClass(styles, 'slide-index-style');
+		addClass(slider, 'slide-index');
+	
 
         slider.addEventListener(animationEvent, function(e) {
+
+            slider.removeEventListener(animationEvent, arguments.callee);
 
 			forEach ( slider.querySelectorAll('.visible'), function (el) {
 				
@@ -262,24 +264,17 @@ function slide(el, method, index_number) {
 			addClass(slider.children[index], 'visible');
 			removeClass(slider,'slide-index');
 			slider.style.cssText = prefix + 'transform: ' + direction + '(-' + index + '00%);';
-			if (q('.slide-index-style')) {
-				
-				q('.slide-index-style').outerHTML = '';
-			
-			}
+			q('.slide-index-style').outerHTML = '';
 			
         	removeClass(q('html'), 'disable-hover');
-            t = setTimeout(function(e) {
-                mouseEvents(slider);
-            }, slide_duration * 2);
-            document.onkeyup = sliderKeyboard;
-            slider.removeEventListener(animationEvent, arguments.callee);
             
             if (hasClass(slider, 'lightbox')) {
 				
 				populateLightbox(slider, index);
 	            
             }
+			document.onkeyup = sliderKeyboard;
+            mouseEvents(slider);
 
         }, false);
 

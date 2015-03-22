@@ -1113,7 +1113,7 @@ form {
 	bottom: 0;
 	left: 0;
 	border-top: none;
-	padding-top: 3em;
+	padding-top: 44px;
 	-webkit-overflow-scrolling: touch;
 
 	}
@@ -1122,8 +1122,8 @@ form {
 
 		color: #fff;
 		cursor: pointer;
-		padding: .6em;
-		height: 3em;
+		padding: 0 .6em;
+		height: 44px;
 		font-weight: bold;
 		position: fixed;
 		background: #000;
@@ -1131,7 +1131,8 @@ form {
 		width: 100%;
 		z-index: 99999;
 		top: 0;
-		line-height: 1.7em;
+		line-height: 44px;
+		overflow: hidden;
 
 	}
 

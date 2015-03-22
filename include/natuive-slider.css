@@ -115,7 +115,7 @@
 
 }
 
-.full-screen .slider {
+.full-screen .slider, .full-screen .slider > * {
 	
 	height: 100%;
 
@@ -417,6 +417,16 @@
 
 	max-height: 100%;
     vertical-align: middle;
+	margin: 0 auto;
+	display: block;
+	padding-bottom: 0 !important;
+
+}
+
+.lightbox.slider > * > img {
+
+	display: inline-block;
+
 }
 
 .slide-index {
