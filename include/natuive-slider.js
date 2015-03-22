@@ -218,7 +218,7 @@ function slide(el, method, index_number) {
 
 	if (!hasClass(slider, 'vertical')) {
 		
-		slider.style.cssText = 'height: ' + slider.scrollHeight + 'px';
+		slider.style.cssText = 'height: ' + slider.offsetHeight + 'px !important';
 	
 	}
 
