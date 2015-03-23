@@ -710,6 +710,12 @@ function animateAnchors(e) {
 
     }
 	
+	if (el.href.split(/#|\?/)[0] != window.location.href.split(/#|\?/)[0]) { // External page?
+		
+		return;
+	
+	}
+
 	hash = null;
 	if (el.href.split('#').pop().length > 0) {
 	
