@@ -16,7 +16,7 @@
 	table-layout: fixed;
 	width: 100%;
 	border-collapse: separate;
-	padding: .5em 0;
+	padding: .7333em 0;
 	
 }
 
@@ -25,17 +25,15 @@
 		display: table-cell;
 		vertical-align: top;
 		position: relative;
-		padding: 0 .5em; /* instead of em, because of Chrome subpixel rendering */
+		padding: 0 .7333em;
 		word-wrap: break-word;
 
 	}
 	
 	.row > * > .row {
 
-		margin: -.5em;
+		margin: -.7333em;
 		width: calc(100% + 1em);
-		width: 100%\9;
-		margin: 0\9;
 		max-width: none;
 
 	}
@@ -188,23 +186,27 @@ h1, h2, h3, h4, h5 {
 h1 {
 	
 	font-size: 2.67em; /* 2.666em 40px */
+	line-height: 1.1em;
 }
 
 h2 {
 	
 	font-size: 2.134em; /* 2.1333em 32px */
+	line-height: 1.375em;
 
 }
 
 h3 {
 	
 	font-size: 1.6em; /* 1.6em 24px */
+	line-height: .91667em;
 
 }
 
 h4 {
 	
 	font-size: 1.2em; /* 1.222em 18px */
+	line-height: 1.2223em;
 
 }
 
@@ -214,15 +216,9 @@ h5 {
 
 }
 
-body, h3, h4, h5, .sub.nav a, .button, input[type="submit"], label, input, #content select, textarea {
+body, .sub.nav a, .nav a {
 	
-	line-height: 22px; /* 1.4666em = 22px (actual line height) / 15px (font size) */
-	
-}
-
-h1, h2, .nav a, .accordion > label {
-	
-	line-height: 44px;
+	line-height: 1.4666em; /* 1.4666em = 22px (actual line height) / 15px (font size) */
 	
 }
 
@@ -242,7 +238,7 @@ b {
 
 p, li {
 
-	margin: 22px 0;
+	margin: 1.46667em 0;
 
 }
 
@@ -262,7 +258,7 @@ a:link, a:visited {
 		
 		display: inline-block;
 		vertical-align: bottom;
-		margin: .5em;
+		margin: 1em .5em;
 		
 	}
 	
@@ -289,7 +285,6 @@ a:link, a:visited {
 .nav {
 	
 	font-size: 1.6em;
-	line-height: 0.8;
 	vertical-align: baseline;
 
 }
@@ -308,7 +303,7 @@ a:link, a:visited {
 		text-transform: uppercase;
 		text-decoration: none;
 		position: relative;
-		padding: 0 .5em 0 0;
+		padding: 0 .7333em 0 0;
 
 	}
 	
@@ -411,7 +406,7 @@ a:link, a:visited {
 	
 	a.button + a.button {
 		
-		margin-left: .5em;
+		margin-left: .7333em;
 		
 	}
 
@@ -443,17 +438,18 @@ a:link, a:visited {
 
 		background: rgb(0,221,240);
 		font-size: 1.2em;
-		line-height: 2.44444444444em;
+		line-height: 2.444em;
 		padding: 0 1em;
-		margin: 1.2333em 0;
+		margin: 1.2222em 0;
 		color: #fff;
 
 	}
 	
 	#content input[type="submit"] {
 		
-		padding: 0\0;
-			
+		line-height: 2.36em;
+		min-height: 2.36em;
+
 	}
 	
 	@-moz-document url-prefix() {
@@ -486,7 +482,7 @@ a:link, a:visited {
 
 #head {
 	
-	margin: 22px 0;	
+	margin: 1.46667em 0;	
 	
 }
 
@@ -579,7 +575,7 @@ a:link, a:visited {
 	
 	#footer > div > div {
 		
-		padding-bottom: 2.3em;
+		padding-bottom: 2.9333em;
 		
 	}
 
@@ -598,7 +594,7 @@ form {
 
 	#content form {
 		
-		padding-top: 22px;
+		padding-top: 1.46667em;
 
 	}
 
@@ -609,7 +605,7 @@ form {
 		max-width: 100%;
 		position: relative;
 		padding: 0;
-		margin: 0 0 22px 0;
+		margin: 0 0 1.46667em 0;
 		width: 100%;
 		float: left;
 
@@ -624,8 +620,8 @@ form {
 	form div.checkbox {
 	
 		clear: both;
-		min-height: 44px;
-		margin-bottom: 22px;
+		min-height: 1.46667em;
+		margin-bottom: 1.46667em;
 
 	}
 
@@ -662,12 +658,12 @@ form {
 		resize: none;
 		vertical-align: top;
 		border-radius: 0;
-		padding: 0 .7em;
-		min-height: 44px;
+		padding: 0 .7333em;
+		min-height: 2.9333em;
 		border: 0;
 		background: #eee;
-		font-size: 1.0666em;
-		margin: 0 0 11px 0;
+		font-size: 1em;
+		margin: 0 0 .7333em 0;
 		width: 100%;
 		float: right;
 		outline: none;
@@ -677,7 +673,7 @@ form {
 
 		label > input {
 			
-			margin-top: -11px;
+			margin-top: -.7333em;
 		
 		}
 
@@ -693,12 +689,6 @@ form {
 			
 		}
 		
-		input {
-			
-			line-height: 44px\9; /* IE8 input vertical alignment */
-	
-		}
-	
 		@-moz-document url-prefix() {
 
 			input { border-bottom: 1px solid transparent; }
@@ -728,10 +718,10 @@ form {
 	
 	textarea {
 		
-		margin: -11px 0 11px 0;
+		margin: -.7333em 0 .7333em 0;
 		border-bottom: 1px solid transparent;
-		padding-top: 11px;
-		min-height: 66px;
+		padding-top: .7333em;
+		min-height: 4.4em;
 
 	}
 	
@@ -801,16 +791,13 @@ form {
 		text-overflow: '';
 		width: 45%;
 		margin-top: 0;
-		min-height: 0; /* IE8 fix */
+		min-height: 0;
 		width: 100%;
 		background: transparent;
-		background: #eee\9; /* IE8 */
 		text-indent: 0px;
-		padding: 11px 1.6em 11px .7em;
-		padding-right: 0\9; /* IE8 */
+		padding: 0 1.6em 0 .7em;
 		float: none;
-		height: 44px;
-		line-height: 21px;
+		height: 2.9333em;
 
 	}
 
@@ -830,7 +817,7 @@ form {
 		padding: 0;
 		vertical-align: top;
 		border: none;
-		height: 22px;
+		height: .7333em;
 		overflow: hidden;
 		margin-left: 0;
 
@@ -839,13 +826,11 @@ form {
 	#content form .selector {
 		
 		padding-top: 0;
-		height: 44px;
-		margin: -11px 0 11px 0;
+		height: 2.9333em;
+		margin: -.7333em 0 .7333em 0;
 		
 	}
 	
-	:root #content select { padding-right: 2%\9; background: #eee\9; }  /* Disable the custom arrow in IE9 */
-
 	select:hover {
 		
 		cursor: pointer;
@@ -854,9 +839,9 @@ form {
 
 	noscript input[type="submit"] {
 		
-		max-height: 1em;
-		line-height: 1;
-		padding: .1em;
+		max-height: .5454em;
+		line-height: .5454em;
+		padding: 0 .1em;
 		min-width: 0;
 		margin-top: 0;
 		min-height: 0;
@@ -871,7 +856,7 @@ form {
 		font-weight: normal;
 		float: right;
 		clear: right;
-		margin: 1px 0 0 0;
+		margin: 0;
 		cursor: pointer;
 		padding-left: 1.5em;
 		
@@ -891,7 +876,7 @@ form {
 
 	div.checkbox label:last-child {
 		
-		margin-bottom: 21px;
+		margin-bottom: 1.46667em;
 
 	}
 		
@@ -902,9 +887,9 @@ form {
 		display: inline-block;
 		background: rgba(0,221,240,1);
 		vertical-align: middle;
-		margin-top: -.5em;
+		margin-top: -.7333em;
 		text-align: center;
-		line-height: 1;
+		line-height: 1em;
 		color: #333;
 		margin-right: .5em;
 		display: none;
@@ -936,7 +921,6 @@ form {
 		min-height: 0;
 		opacity: 0;
 		margin: 0 .5em 0 -1.5em;
-		margin-left: 0\9; /* IE8 */
 
 	}
 
@@ -972,7 +956,6 @@ form {
 		margin: 0;
 		padding: 0;
 		cursor: pointer;
-		margin-left: -100%\9;
 
 	}
 	
@@ -980,9 +963,9 @@ form {
 
 		font-weight: normal;
 		background: #eee;
-		height: 44px;
-		line-height: 45px;
-		margin: -11px 0 11px 0;
+		height: 2.9333em;
+		line-height: 2.9333em;
+		margin: -.7333em 0 .7333em 0;
 		cursor: pointer;
 		font-style: italic;
 		
@@ -995,9 +978,9 @@ form {
 		padding: 0 0 0 .8em;
 		background: #eee;
 		z-index: 1;
-		margin: 1px;
-		height: 42px;
-		line-height: 42px;
+		margin: 0;
+		height: 2.9333em;
+		line-height: 2.9333em;
 		width: 100%;
 		width: calc(100% - 2px);
 
@@ -1009,13 +992,14 @@ form {
 		display: block;
 		width: 100%;
 		text-align: left;
+		line-height: 1.46667em;
 		
 	}
 	
 	form.flat .file-input span {
 		
 		width: calc(100% - 2px);
-		margin: 1px;
+		margin: 0 1px;
 
 	}
 	
@@ -1034,7 +1018,7 @@ form {
 
 	@-moz-document url-prefix() {
 
-		form.flat .file-input span { margin-top: 1px;	}
+		form.flat .file-input span { margin-top: 0;	}
 		form.flat .file-input input[type="file"] { margin-top: 0; }
 
 	}
@@ -1043,7 +1027,7 @@ form {
 		
 		display: block;
 		width: 100%;
-		margin-top: 11px;
+		margin-top: .7333em;
 		
 	}
 	
@@ -1064,13 +1048,13 @@ form {
 	
 	form.flat span.file-input, form.flat .checkbox label:first-of-type {
 		
-		margin-top: 11px;
+		margin-top: .7333em;
 
 	}
 
 	form.flat span.file-input {
 		
-		margin-bottom: 11px;
+		margin-bottom: .7333em;
 
 	}
 
@@ -1088,7 +1072,7 @@ form {
 	
 	form.flat .checkbox label:last-child {
 		
-		margin-bottom: -11px;
+		margin-bottom: -.7333em;
 		
 	}
 	
@@ -1113,7 +1097,7 @@ form {
 	bottom: 0;
 	left: 0;
 	border-top: none;
-	padding-top: 44px;
+	padding-top: 2.9333em;
 	-webkit-overflow-scrolling: touch;
 
 	}
@@ -1123,7 +1107,7 @@ form {
 		color: #fff;
 		cursor: pointer;
 		padding: 0 .6em;
-		height: 44px;
+		height: 1.46667em;
 		font-weight: bold;
 		position: fixed;
 		background: #000;
@@ -1131,7 +1115,7 @@ form {
 		width: 100%;
 		z-index: 99999;
 		top: 0;
-		line-height: 44px;
+		line-height: 2.9333em;
 		overflow: hidden;
 
 	}
@@ -1171,7 +1155,7 @@ form {
 	width: 2em;
 	height: 2em;
 	line-height: 2em;
-	margin: .5em auto;
+	margin: .7333em auto;
 	font-weight: bold;
 	background: transparent;
 	background: rgba(0,0,0,.2);
@@ -1214,8 +1198,8 @@ form {
 	
 		background: #333;
 		color: #ddd;
-		padding: .5em;
-		font-size: 12px;
+		padding: .7333em;
+		font-size: .8em;
 		font-weight: normal;
 		position: absolute;
 		top: auto;
@@ -1224,7 +1208,7 @@ form {
 		display: none;
 		cursor: default;
 		overflow: hidden;
-		line-height: 1.5em;
+		line-height: .5454em;
 		z-index: 999;
 		text-align: left;
 		opacity: 0;
@@ -1245,7 +1229,7 @@ form {
 
 ul {
 	
-	margin: 22px 0 22px .3em;
+	margin: 1.46667em 0 1.46667em .3em;
 
 }
 
@@ -1278,7 +1262,7 @@ ul {
 	    counter-increment: level1;
 	    font-weight: bold;
 	    background: #999;
-	    padding: .3em .6em .3em .6em;
+	    padding: .36665em .6em .36665em .6em;
 	    border-radius: 1em;
 	    margin-right: .5em;
 	    color: #fff;
@@ -1297,7 +1281,7 @@ ul {
 
 	    content: counter(level1) "." counter(level2) " ";
 	    counter-increment: level2;
-	    padding: .3em .4em .3em .5em;
+	    padding: .36665em .4em .36665em .5em;
 	    border-radius: 1em;
 	    background: #999;
 	    color: #fff;
@@ -1343,11 +1327,6 @@ ul {
 
 	}
 	
-	li h4 {
-		
-		line-height: 1.111em;
-	}
-	
 /* Accordion */
 
 .accordion {
@@ -1387,13 +1366,13 @@ ul {
 
 	.accordion:first-of-type > div {
 
-	    padding-top: 1px;
+	    padding-top: 0;
 
 	}
 
 	.accordion:first-of-type {
 
-	    margin-bottom: -1px;
+	    margin-bottom: 0;
 
 	}
 
@@ -1419,6 +1398,7 @@ ul {
 		
 		margin: 0;
 		float: none;
+		line-height: calc(2.9333em + 1px);
 		
 	}
 
@@ -1442,7 +1422,7 @@ table {
 	
 	table td {
 
-		padding: 11px .5em;
+		padding: .7333em .7333em;
 		vertical-align: middle;
 
 	}
@@ -1451,7 +1431,7 @@ table {
 
 		color: #fff;
 		font-weight: bold;
-		padding-bottom: 22px;
+		padding-bottom: 1.46667em;
 
 	}
 
@@ -1575,7 +1555,7 @@ video {
 	.row > * {
 
 		display: block;
-		padding: 5px;
+		padding: .333em;
 		width: auto !important;
 		border: none;
 
@@ -1614,7 +1594,7 @@ video {
 	
 	.row.border {
 		
-		padding: .5em 0;
+		padding: .333em 0;
 
 	}
 
@@ -1626,7 +1606,7 @@ video {
 	
 		label span {
 			
-			padding: 2% 0;
+			padding: .7333em 0;
 			width: 100%;
 			text-align: left;
 			
@@ -1634,13 +1614,13 @@ video {
 		
 		form .mandatory.alert > span {
 			
-			padding: 2%;
+			padding: .7333em;
 			
 		}
 		
 		form .mandatory.alert > span.checkbox {
 			
-			padding: 2% 0;
+			padding: .7333em 0;
 
 		}
 		
@@ -1694,7 +1674,7 @@ video {
 
 		form div.checkbox span {
 			
-			margin-bottom: 11px;			
+			margin-bottom: .7333em;
 			
 		}
 		
@@ -1736,7 +1716,7 @@ video {
 		
 		form div.checkbox {
 			
-			padding-top: 11px;
+			padding-top: .7333em;
 
 		}
 		
@@ -1748,20 +1728,20 @@ video {
 		
 		form.flat span.file-input span {
 			
-			margin-top: 1px;
-			height: 42px;
+			margin-top: 0;
+			height: 2.9333em;
 			
 		}
 		
 		form.flat div.checkbox {
 			
-			margin-bottom: 11px;
+			margin-bottom: .7333em;
 
 		}
 		
 		form label > span {
 			
-			line-height: 44px;
+			line-height: 2.9333em;
 			
 		}
 		
@@ -1831,7 +1811,7 @@ video {
 			
 			background: #fff;
 			display: none;
-			margin-top: 2em;
+			margin-top: 2.9333em;
 	
 		}
 		
@@ -1841,9 +1821,9 @@ video {
 			left: 0;
 			top: 0;
 			width: 1.1em;
-			height: 1em;
+			height: .97778em;
 			font-size: 3em;
-			line-height: .95em;
+			line-height: .97778em;
 			margin: 0;
 			text-align: center;
 			max-width: none;
@@ -1877,3 +1857,52 @@ video {
 	}
 
 }
+
+/* IE9- fixes */
+
+.row > * > .row {
+
+	width: 100%\9;
+	margin: 0\9;
+
+}
+
+input {
+	
+	line-height: 44px\9;
+
+}
+
+
+#content select {
+	
+	background: #eee\9;
+	padding-right: 0\9;
+
+}
+
+:root #content select { /* Disable the custom arrow in IE9 */
+	
+	padding-right: 2%\9; 
+	background: #eee\9; 
+
+}
+
+input[type="checkbox"], input[type="radio"] {
+	
+	margin-left: 0\9;
+
+}
+
+input[type="file"] {
+	
+	margin-left: -100%\9;
+
+}
+
+#content input[type="submit"] {
+	
+	padding: 0\0;
+		
+}
+
