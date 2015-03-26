@@ -16,7 +16,7 @@
 	table-layout: fixed;
 	width: 100%;
 	border-collapse: separate;
-	padding: .7333em 0;
+	padding: 1.46667em 0;
 	
 }
 
@@ -25,14 +25,14 @@
 		display: table-cell;
 		vertical-align: top;
 		position: relative;
-		padding: 0 .7333em;
+		padding: 0 1.46667em;
 		word-wrap: break-word;
 
 	}
 	
 	.row > * > .row {
 
-		margin: -.7333em;
+		margin: -1.46667em;
 		width: calc(100% + 1em);
 		max-width: none;
 
@@ -106,7 +106,6 @@
 		flex: 0 1 auto;
 		width: 20em; /* Minimum column width */
 		text-align: left;
-		font-size: 15px;
 
 	}
 
@@ -157,12 +156,17 @@ body {
 	font-family: 'Helvetica Neue', Arial, sans-serif;
 	font-weight: 300;
 	color: #555;
-	font-size: 15px; /* 15px */
 	position: relative;
 	width: 100%; 
 	background: #fff;
 	-webkit-text-size-adjust: none;
 	display: table;
+	
+}
+
+body, .row.wrap > * {
+	
+	font-size: 15px; /* 15px = main font size */
 	
 }
 
@@ -239,6 +243,7 @@ b {
 p, li {
 
 	margin: 1.46667em 0;
+	line-height: 1.46667em;
 
 }
 
@@ -258,7 +263,8 @@ a:link, a:visited {
 		
 		display: inline-block;
 		vertical-align: bottom;
-		margin: 1em .5em;
+		margin: .7333em .36667em;
+		line-height: 1.46667em;
 		
 	}
 	
@@ -399,6 +405,7 @@ a:link, a:visited {
 	word-break: break-word;
 	background: #f1f1f1;
 	padding: 0 .5em;
+	line-height: 1.46667em;
 	
 	-webkit-appearance: none;
 
@@ -449,6 +456,7 @@ a:link, a:visited {
 		
 		line-height: 2.36em;
 		min-height: 2.36em;
+		margin-top: 0;
 
 	}
 	
@@ -608,6 +616,7 @@ form {
 		margin: 0 0 1.46667em 0;
 		width: 100%;
 		float: left;
+		line-height: 1.46667em;
 
 	}
 	
@@ -705,6 +714,7 @@ form {
 		margin-top: 0;
 		padding-right: 3%;
 		cursor: default;
+		line-height: 1.46667em;
 
 	}
 	
@@ -956,6 +966,13 @@ form {
 		margin: 0;
 		padding: 0;
 		cursor: pointer;
+		z-index: 1;
+		text-indent: -100%;
+		font-size: 0;
+		top: 0;
+		bottom: 0;
+		background: transparent;
+		padding-left: 200%;
 
 	}
 	
@@ -977,12 +994,18 @@ form {
 		white-space: nowrap;
 		padding: 0 0 0 .8em;
 		background: #eee;
-		z-index: 1;
+		z-index: 0;
 		margin: 0;
 		height: 2.9333em;
 		line-height: 2.9333em;
 		width: 100%;
-		width: calc(100% - 2px);
+		border: 1px solid transparent;
+
+	}
+	
+	input[type="file"]:focus + span {
+		
+		border-color: #666;
 
 	}
 
@@ -992,15 +1015,7 @@ form {
 		display: block;
 		width: 100%;
 		text-align: left;
-		line-height: 1.46667em;
 		
-	}
-	
-	form.flat .file-input span {
-		
-		width: calc(100% - 2px);
-		margin: 0 1px;
-
 	}
 	
 	input[type="search"] {
@@ -1027,7 +1042,7 @@ form {
 		
 		display: block;
 		width: 100%;
-		margin-top: .7333em;
+		margin-top: 1.2222em;
 		
 	}
 	
@@ -1036,6 +1051,7 @@ form {
 		width: auto;
 		min-width: 0;
 		padding: 0 1em;
+		margin-top: .7333em;
 
 	}
 	
@@ -1058,18 +1074,6 @@ form {
 
 	}
 
-	form.flat input[type="file"] {
-		
-		margin-top: 0;
-
-	}
-	
-	form.flat span.file-input:focus {
-		
-		border: 1px solid;
-
-	}
-	
 	form.flat .checkbox label:last-child {
 		
 		margin-bottom: -.7333em;
@@ -1107,7 +1111,6 @@ form {
 		color: #fff;
 		cursor: pointer;
 		padding: 0 .6em;
-		height: 1.46667em;
 		font-weight: bold;
 		position: fixed;
 		background: #000;
@@ -1208,7 +1211,7 @@ form {
 		display: none;
 		cursor: default;
 		overflow: hidden;
-		line-height: .5454em;
+		line-height: 1.46667em;
 		z-index: 999;
 		text-align: left;
 		opacity: 0;
