@@ -1,5 +1,8 @@
 @charset "utf-8";
 /* natUIve by rado.bg */
+
+$font-size: 15px;
+$line-height: 22px;
 	
 /* Grid */
 
@@ -16,7 +19,7 @@
 	table-layout: fixed;
 	width: 100%;
 	border-collapse: separate;
-	padding: 1.46667em 0;
+	padding: $line-height 0;
 	
 }
 
@@ -25,14 +28,14 @@
 		display: table-cell;
 		vertical-align: top;
 		position: relative;
-		padding: 0 1.46667em;
+		padding: 0 $line-height;
 		word-wrap: break-word;
 
 	}
 	
 	.row > * > .row {
 
-		margin: -1.46667em;
+		margin: -$line-height;
 		width: calc(100% + 1em);
 		max-width: none;
 
@@ -164,10 +167,54 @@ body {
 	
 }
 
-body, .row.wrap > * {
+/* Elements with single line-height */
+
+html, body, .row.wrap > *, .sub.nav a, p, li, .lightbox a, .button, input[type="submit"], button, label, form div.checkbox span, .tip, label span .tip, h4, h5, form label > span {
 	
-	font-size: 15px; /* 15px = main font size */
+	font-size: $font-size;
+	line-height: $line-height;
+	min-height: $line-height;
+
+}
+
+/* Elements with double line-height */
+
+h1, h2, h3, .button.big, #content input[type="submit"], #content button, #content input[type="submit"], form .file-input, form .file-input span, #blackbox .close, .accordion > label, .nav a, label[for="nav-trigger"] {
 	
+	line-height: $line-height * 2;
+	min-height: $line-height * 2;
+	
+}
+
+/* Elements with height = double line-height */
+
+h1 {
+	
+	font-size: 2.67em;
+}
+
+h2 {
+	
+	font-size: 2.134em;
+
+}
+
+h3 {
+	
+	font-size: 1.6em;
+
+}
+
+h4 {
+	
+	font-size: 1.2em;
+
+}
+
+h5 {
+	
+	font-size: 1em;
+
 }
 
 body * {
@@ -187,45 +234,6 @@ h1, h2, h3, h4, h5 {
 
 }
 
-h1 {
-	
-	font-size: 2.67em; /* 2.666em 40px */
-	line-height: 1.1em;
-}
-
-h2 {
-	
-	font-size: 2.134em; /* 2.1333em 32px */
-	line-height: 1.375em;
-
-}
-
-h3 {
-	
-	font-size: 1.6em; /* 1.6em 24px */
-	line-height: .91667em;
-
-}
-
-h4 {
-	
-	font-size: 1.2em; /* 1.222em 18px */
-	line-height: 1.2223em;
-
-}
-
-h5 {
-	
-	font-size: 1em; /* 1em 15px */
-
-}
-
-body, .sub.nav a, .nav a {
-	
-	line-height: 1.4666em; /* 1.4666em = 22px (actual line height) / 15px (font size) */
-	
-}
-
 img {
 	
 	max-width: 100%;
@@ -240,10 +248,9 @@ b {
 
 }
 
-p, li {
+p, li, #head {
 
-	margin: 1.46667em 0;
-	line-height: 1.46667em;
+	margin: $line-height 0;
 
 }
 
@@ -263,8 +270,7 @@ a:link, a:visited {
 		
 		display: inline-block;
 		vertical-align: bottom;
-		margin: 1.46667em .36667em;
-		line-height: 1.46667em;
+		margin: $line-height $line-height/4;
 		
 	}
 	
@@ -273,7 +279,7 @@ a:link, a:visited {
 		display: block;
 	
 	}
-	
+
 .wide-screen {
 	
 	display: block;
@@ -309,7 +315,8 @@ a:link, a:visited {
 		text-transform: uppercase;
 		text-decoration: none;
 		position: relative;
-		padding: 0 .7333em 0 0;
+		padding: 0 $line-height/2 0 0;
+		font-size: 1.7rem;
 
 	}
 	
@@ -405,7 +412,6 @@ a:link, a:visited {
 	word-break: break-word;
 	background: #f1f1f1;
 	padding: 0 .5em;
-	line-height: 1.46667em;
 	
 	-webkit-appearance: none;
 
@@ -413,7 +419,7 @@ a:link, a:visited {
 	
 	a.button + a.button {
 		
-		margin-left: .7333em;
+		margin-left: $line-height/2;
 		
 	}
 
@@ -445,28 +451,19 @@ a:link, a:visited {
 
 		background: rgb(0,221,240);
 		font-size: 1.2em;
-		line-height: 2.444em;
 		padding: 0 1em;
-		margin: 1.2222em 0;
+		margin: $line-height 0;
+		height: $line-height*2;
 		color: #fff;
 
 	}
 	
 	#content input[type="submit"] {
 		
-		line-height: 2.36em;
-		min-height: 2.36em;
 		margin-top: 0;
 
 	}
 	
-	@-moz-document url-prefix() {
-
-		#content input[type="submit"] { line-height: 2.333em; }
-		.button.big { margin: 1.22em 0; }
-		
-	}
-
 	.button.big:active, #content input[type="submit"]:active {
 
 		background: rgb(0,121,140);
@@ -488,18 +485,12 @@ a:link, a:visited {
 	
 /* Top */
 
-#head {
+#head .head-right {
 	
-	margin: 1.46667em 0;	
+	text-align: right;
+	vertical-align: top;
 	
 }
-
-	#head .head-right {
-		
-		text-align: right;
-		vertical-align: top;
-		
-	}
 	
 	#head .head-right .nav a {
 		
@@ -555,7 +546,7 @@ a:link, a:visited {
 
 	#content ul li {
 		
-		margin: 1.4666em 0 0 0;
+		margin: $line-height 0 0 0;
 
 	}
 
@@ -583,7 +574,7 @@ a:link, a:visited {
 	
 	#footer > div > div {
 		
-		padding-bottom: 2.9333em;
+		padding-bottom: 3em;
 		
 	}
 
@@ -602,7 +593,7 @@ form {
 
 	#content form {
 		
-		padding-top: 1.46667em;
+		padding-top: $line-height;
 
 	}
 
@@ -613,10 +604,9 @@ form {
 		max-width: 100%;
 		position: relative;
 		padding: 0;
-		margin: 0 0 1.46667em 0;
+		margin: 0 0 $line-height 0;
 		width: 100%;
 		float: left;
-		line-height: 1.46667em;
 
 	}
 	
@@ -629,8 +619,8 @@ form {
 	form div.checkbox {
 	
 		clear: both;
-		min-height: 1.46667em;
-		margin-bottom: 1.46667em;
+		min-height: $line-height;
+		margin-bottom: $line-height;
 
 	}
 
@@ -667,12 +657,12 @@ form {
 		resize: none;
 		vertical-align: top;
 		border-radius: 0;
-		padding: 0 .7333em;
-		min-height: 2.9333em;
+		padding: 0 $line-height/2;
+		min-height: $line-height*2;
 		border: 0;
 		background: #eee;
 		font-size: 1em;
-		margin: 0 0 .7333em 0;
+		margin: 0 0 $line-height/2 0;
 		width: 100%;
 		float: right;
 		outline: none;
@@ -682,7 +672,7 @@ form {
 
 		label > input {
 			
-			margin-top: -.7333em;
+			margin-top: -$line-height/2;
 		
 		}
 		
@@ -720,7 +710,6 @@ form {
 		margin-top: 0;
 		padding-right: 3%;
 		cursor: default;
-		line-height: 1.46667em;
 
 	}
 	
@@ -734,9 +723,9 @@ form {
 	
 	textarea {
 		
-		margin: -.7333em 0 .7333em 0;
+		margin: -$line-height/2 0 $line-height/2 0;
 		border-bottom: 1px solid transparent;
-		min-height: 4.4em;
+		min-height: $line-height*3;
 		padding-top: .85em;
 
 	}
@@ -813,7 +802,7 @@ form {
 		text-indent: 0px;
 		padding: 1px 1.6em 0 .7em;
 		float: none;
-		height: 2.9333em;
+		height: $line-height*2;
 
 	}
 
@@ -830,10 +819,11 @@ form {
 		background: #eee url('../images/select-arrow.svg') no-repeat;
 		background-position: 97% 50%;
 		background-position: calc(100% - .7em) 50%;
+		background-size: auto 50%;
 		padding: 0;
 		vertical-align: top;
 		border: none;
-		height: .7333em;
+		height: $line-height/2;
 		overflow: hidden;
 		margin-left: 0;
 
@@ -842,8 +832,8 @@ form {
 	#content form .selector {
 		
 		padding-top: 0;
-		height: 2.9333em;
-		margin: -.7333em 0 .7333em 0;
+		height: $line-height*2;
+		margin: -$line-height/2 0 $line-height/2 0;
 		
 	}
 	
@@ -892,7 +882,7 @@ form {
 
 	div.checkbox label:last-child {
 		
-		margin-bottom: 1.46667em;
+		margin-bottom: $line-height;
 
 	}
 		
@@ -902,10 +892,9 @@ form {
 		height: 1em;
 		display: inline-block;
 		background: rgba(0,221,240,1);
-		vertical-align: middle;
-		margin-top: -.7333em;
+		margin-top: 0;
+		line-height: $line-height/2;
 		text-align: center;
-		line-height: 1em;
 		color: #333;
 		margin-right: .5em;
 		display: none;
@@ -986,9 +975,7 @@ form {
 
 		font-weight: normal;
 		background: #eee;
-		height: 2.9333em;
-		line-height: 2.9333em;
-		margin: -.7333em 0 .7333em 0;
+		margin: -$line-height/2 0 $line-height/2 0;
 		cursor: pointer;
 		font-style: italic;
 		
@@ -1002,8 +989,6 @@ form {
 		background: #eee;
 		z-index: 0;
 		margin: 0;
-		height: 2.9333em;
-		line-height: 2.9333em;
 		width: 100%;
 		border: 1px solid transparent;
 
@@ -1048,7 +1033,7 @@ form {
 		
 		display: block;
 		width: 100%;
-		margin-top: 1.2222em;
+		margin-top: $line-height/2;
 		
 	}
 	
@@ -1057,7 +1042,7 @@ form {
 		width: auto;
 		min-width: 0;
 		padding: 0 1em;
-		margin-top: .7333em;
+		margin-top: $line-height/2;
 
 	}
 	
@@ -1070,19 +1055,19 @@ form {
 	
 	form.flat span.file-input, form.flat .checkbox label:first-of-type {
 		
-		margin-top: .7333em;
+		margin-top: $line-height;
 
 	}
-
+	
 	form.flat span.file-input {
 		
-		margin-bottom: .7333em;
+		margin-bottom: $line-height/2;
 		
 	}
 	
 	form.flat .checkbox label:last-child {
 		
-		margin-bottom: -.7333em;
+		margin-bottom: -$line-height;
 		
 	}
 	
@@ -1107,7 +1092,7 @@ form {
 	bottom: 0;
 	left: 0;
 	border-top: none;
-	padding-top: 2.9333em;
+	padding-top: $line-height*2;
 	-webkit-overflow-scrolling: touch;
 
 	}
@@ -1124,7 +1109,6 @@ form {
 		width: 100%;
 		z-index: 99999;
 		top: 0;
-		line-height: 2.9333em;
 		overflow: hidden;
 
 	}
@@ -1207,7 +1191,7 @@ form {
 	
 		background: #333;
 		color: #ddd;
-		padding: .7333em;
+		padding: $line-height/2;
 		font-size: .8em;
 		font-weight: normal;
 		position: absolute;
@@ -1217,7 +1201,6 @@ form {
 		display: none;
 		cursor: default;
 		overflow: hidden;
-		line-height: 1.46667em;
 		z-index: 999;
 		text-align: left;
 		opacity: 0;
@@ -1238,7 +1221,7 @@ form {
 
 ul {
 	
-	margin: 1.46667em 0 1.46667em .3em;
+	margin: $line-height 0 $line-height .3em;
 
 }
 
@@ -1271,7 +1254,7 @@ ul {
 	    counter-increment: level1;
 	    font-weight: bold;
 	    background: #999;
-	    padding: .36665em .6em .36665em .6em;
+	    padding: $line-height/4 .6em $line-height/4 .6em;
 	    border-radius: 1em;
 	    margin-right: .5em;
 	    color: #fff;
@@ -1290,7 +1273,7 @@ ul {
 
 	    content: counter(level1) "." counter(level2) " ";
 	    counter-increment: level2;
-	    padding: .36665em .4em .36665em .5em;
+	    padding: $line-height/4 .4em $line-height/4 .5em;
 	    border-radius: 1em;
 	    background: #999;
 	    color: #fff;
@@ -1407,7 +1390,6 @@ ul {
 		
 		margin: 0;
 		float: none;
-		line-height: calc(2.9333em + 1px);
 		
 	}
 
@@ -1431,7 +1413,7 @@ table {
 	
 	table td {
 
-		padding: .7333em .7333em;
+		padding: $line-height/2;
 		vertical-align: middle;
 
 	}
@@ -1440,7 +1422,7 @@ table {
 
 		color: #fff;
 		font-weight: bold;
-		padding-bottom: 1.46667em;
+		padding-bottom: $line-height;
 
 	}
 
@@ -1481,11 +1463,11 @@ table {
 		overflow-x: auto;
 	    scrollbar-3dlight-color:grey;
 	    scrollbar-arrow-color:grey;
-	    scrollbar-base-color:;
+	    scrollbar-base-color:transparent;
 	    scrollbar-darkshadow-color:grey;
-	    scrollbar-face-color:;
-	    scrollbar-highlight-color:;
-	    scrollbar-shadow-color:
+	    scrollbar-face-color:transparent;
+	    scrollbar-highlight-color:transparent;
+	    scrollbar-shadow-color:transparent;
 	
 	}
 	
@@ -1564,7 +1546,7 @@ video {
 	.row > * {
 
 		display: block;
-		padding: .333em;
+		padding: $line-height/4;
 		width: auto !important;
 		border: none;
 
@@ -1603,7 +1585,7 @@ video {
 	
 	.row.border {
 		
-		padding: .333em 0;
+		padding: $line-height/4 0;
 
 	}
 
@@ -1615,7 +1597,7 @@ video {
 	
 		label span {
 			
-			padding: .7333em 0;
+			padding: $line-height/2 0;
 			width: 100%;
 			text-align: left;
 			
@@ -1623,13 +1605,13 @@ video {
 		
 		form .mandatory.alert > span {
 			
-			padding: .7333em;
+			padding: $line-height/2;
 			
 		}
 		
 		form .mandatory.alert > span.checkbox {
 			
-			padding: .7333em 0;
+			padding: $line-height/2 0;
 
 		}
 		
@@ -1683,7 +1665,7 @@ video {
 
 		form div.checkbox span {
 			
-			margin-bottom: .7333em;
+			margin-bottom: $line-height/2;
 			
 		}
 		
@@ -1725,7 +1707,7 @@ video {
 		
 		form div.checkbox {
 			
-			padding-top: .7333em;
+			padding-top: $line-height/2;
 
 		}
 		
@@ -1738,20 +1720,14 @@ video {
 		form.flat span.file-input span {
 			
 			margin-top: 0;
-			height: 2.9333em;
+			height: $line-height*2;
 			
 		}
 		
 		form.flat div.checkbox {
 			
-			margin-bottom: .7333em;
+			margin-bottom: $line-height/2;
 
-		}
-		
-		form label > span {
-			
-			line-height: 2.9333em;
-			
 		}
 		
 	.wide-screen {
@@ -1790,7 +1766,7 @@ video {
 	.nav-main {
 		
 		position: fixed;
-		top: 1em;
+		top: 0;
 		left: 0;
 		background: transparent;
 		z-index: 99999;
@@ -1820,7 +1796,7 @@ video {
 			
 			background: #fff;
 			display: none;
-			margin-top: 2.9333em;
+			margin-top: $line-height*2;
 	
 		}
 		
@@ -1830,9 +1806,8 @@ video {
 			left: 0;
 			top: 0;
 			width: 1.1em;
-			height: .97778em;
+			height: $line-height;
 			font-size: 3em;
-			line-height: .97778em;
 			margin: 0;
 			text-align: center;
 			max-width: none;
@@ -1915,3 +1890,445 @@ input[type="file"] {
 		
 }
 
+/* natUIve Slider */
+
+.slider-container {
+	
+	position: relative;
+	overflow: hidden;
+	max-height: 100%;
+
+}
+
+.slider-container.vertical-thumbnails {
+	
+	padding-left: 33%;
+
+}
+
+.slider-container.vertical .slider-nav.thumbnails {
+	
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 33%;
+	display: block;
+	background: #fff;
+	padding-right: 0.5em;	
+
+}
+
+.slider-container.vertical .slider-nav.thumbnails a {
+	
+	display: block;
+
+}
+
+.slider-container.full-screen {
+	
+	top: 0px;
+	bottom: 0px;
+	height: 100%;
+	right: 0px;
+	left: 0px;
+	width: 100%;
+	z-index: 99999;
+	background: #fff;
+	position: fixed;
+
+}
+	
+.slider {
+
+	overflow-x: visible;
+	overflow-y: hidden;
+	white-space: nowrap; /* keep inline-block elements together */
+	word-wrap: normal; /* IE8 fix */
+	position: relative;
+	-webkit-overflow-scrolling: auto; /* momentum scrolling off because of iOS 8 new behaviour */
+    -webkit-transform: translate3d(0, 0, 0); /* fast, hardware-accelerated scrolling */
+    -webkit-transform: translateZ(0);
+	-ms-overflow-style: none; /* No scrollbars on IE10+ */
+	font-size: 0; /* no space between inline-block */
+	-webkit-transform-style: preserve-3d;
+	left: 0;
+
+	-webkit-animation-timing-function: ease;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-duration: .4s;
+	animation-timing-function: ease;
+	animation-iteration-count: 1;
+	animation-duration: .4s;
+
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+
+}
+
+.slider-container .slider {
+	
+	overflow-y: visible;
+	
+}
+
+.slider-container.vertical, .slider.vertical {
+	
+	height: $line-height*23;
+
+}
+
+.slider-container.vertical.full-screen {
+	
+	height: 100%;
+
+}
+
+.slider.vertical {
+	
+	overflow-x: hidden;
+	overflow-y: scroll;
+
+}
+
+.slider-container .slider.vertical {
+	
+	overflow-x: visible;
+	overflow-y: visible;
+
+}
+
+.slider-container .slider.vertical > * {
+
+	height: 100%;
+	display: block;
+
+}
+
+.full-screen .slider, .full-screen .slider > * {
+	
+	height: 100%;
+
+}
+
+.slider > * {
+
+	width: 100%;
+	display: inline-block;
+	white-space: normal;
+	vertical-align: top;
+	overflow: hidden;
+	padding: 0;
+	font-size: $font-size;
+	margin: 0;
+
+}
+
+.slider-container .slider.slide-index > *:not(.visible) {
+
+	display: none;
+
+}
+
+.slider-container .slider.slide-index {
+
+	-webkit-transform: none !important;
+
+}
+
+.slider > *.visible {
+
+	display: inline-block;
+
+}
+
+.slider.vertical > *.visible {
+
+	display: block;
+	
+}
+
+.slider.vertical > img {
+
+	max-width: none;
+	width: auto;
+	
+}
+
+.full-screen .slider > img {
+	
+	padding: 0 !important;
+	
+}
+
+.slider > *:after { /* Slide background with full slider height */
+	
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	background: transparent;
+	z-index: -1;
+
+}
+
+.row > .slider {
+	
+	padding: 0;
+	border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
+
+}
+
+.slider.lightbox > * {
+
+	height: 100%;
+	text-align: center;
+	position: relative;
+	
+}
+
+.slider.lightbox > *:before {
+
+	content: ' ';
+    display: inline-block;
+    vertical-align: middle;  /* vertical alignment of the inline element */
+	height: 100%;
+
+}
+
+.slider.lightbox > * p { /* Image captions */
+
+	position: absolute;
+	width: 100%;
+	bottom: $line-height*2;
+	text-align: center;
+	text-shadow: 0 -1px 1px #999;
+	color: #000;
+
+}
+
+.slider::-webkit-scrollbar {
+
+    display: none;
+
+}
+
+.slider-arrow {
+	
+	position: absolute;
+	top: 45%;
+	left: 1em;
+	z-index: 999; /* Stay on top of slider-nav if they are aligned vertically */
+	
+}
+
+	.slider-arrow:before {
+	
+		content: "←";
+	
+	}
+
+	.vertical .slider-arrow:before {
+	
+		content: "↑";
+	
+	}
+
+	.vertical .slider-arrow {
+		
+		top: 1em;
+		left: 48%;
+		left: calc(50% - 1em);
+		text-align: center;
+	
+	}
+
+	.slider-arrow.right {
+	
+		left: auto;
+		right: 1em;
+	
+	}
+
+	.slider-arrow.right:before {
+	
+		content: "→";
+	
+	}
+
+	.vertical .slider-arrow.right:before {
+	
+		content: "↓";
+	
+	}
+
+	.vertical .slider-arrow.right {
+		
+		left: 48%;
+		left: calc(50% - 1em);
+		right: auto;
+		bottom: 1em;
+		top: auto;
+	
+	}
+	
+	.slider-arrow, .slider-nav a {
+		
+		cursor: pointer;
+		padding: .6em;
+		width: 1em;
+		height: 1em;
+		-webkit-border-radius: 50px;
+		border-radius: 50%;
+		background: #bbb;
+		color: #fff;
+		transition: background-color .2s linear;
+		line-height: .7em;
+		-webkit-box-sizing: content-box;
+		-moz-box-sizing: content-box;
+		box-sizing: content-box;
+	
+	}
+
+.slider-arrow, .slider-nav {
+
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+}
+
+.slider-nav {
+	
+	text-align: center;
+	position: absolute;
+	bottom: .5em;
+	width: 100%;
+	white-space: nowrap;
+	
+}
+
+	.vertical .slider-nav {
+		
+		width: auto;
+		top: 0;
+		bottom: 0;
+		height: 100%;
+		left: .5em;
+		padding: 1em 0;
+		
+	}
+
+	.vertical .slider-nav div {
+		
+		height: 100%;
+		display: table;
+		
+	}
+
+	.vertical .slider-nav span {
+
+		display: table-cell;
+		vertical-align: middle;
+
+	}
+	
+	.slider-nav a {
+		
+		display: inline-block;
+		margin: .5em;
+		line-height: 2em;
+		padding: 0;
+		width: 2em;
+		height: 2em;
+		
+	}
+	
+	.vertical .slider-nav a {
+		
+		display: block;
+		
+	}
+		
+	.slider-nav a.active {
+	
+		background: #fff;
+		color: #666;
+	
+	}
+
+	.slider-nav.thumbnails {
+		
+		right: auto;
+		position: static;
+		
+	}
+
+	.slider-nav.thumbnails .row {
+		
+		padding: 0;
+
+	}
+	
+	.full-screen .slider-nav.thumbnails {
+		
+		position: absolute;
+		bottom: 0;
+		padding: 0;
+	
+	}
+	
+	.slider-nav.thumbnails a {
+		
+		text-indent: 0;
+		width: auto;
+		height: auto;
+		display: table-cell;
+		text-align: left;
+		color: #333;
+		border-radius: 0;
+		line-height: $line-height;
+		padding: 0 .5em;
+		-webkit-flex: 1;
+		-ms-flex: 1;
+		flex: 1;
+		margin: 0;
+		white-space: normal;
+	
+	}
+
+.slider > * > img {
+
+	max-height: 100%;
+    vertical-align: middle;
+	margin: 0 auto;
+	display: block;
+	padding-bottom: 0 !important;
+
+}
+
+.lightbox.slider > * > img {
+	
+	display: none;
+
+}
+
+.lightbox.slider > *.visible > img {
+	
+	display: inline-block;
+
+}
+
+.slide-index {
+
+	-webkit-animation-name: slide-index;
+	animation-name: slide-index;
+	
+}

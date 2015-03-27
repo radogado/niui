@@ -609,6 +609,7 @@ function modalWindow(e) {
     forEach(parent.querySelectorAll('a[href]'), function(el) {
 
         images += '<div><img data-src="' + el.href + '" alt="' + el.title + '"><p>' + el.title + '</p></div>';
+        // Attach onload event to each image to display it only when fully loaded and avoid top-to-bottom reveal?
 
     });
 
@@ -967,7 +968,7 @@ addEventHandler(window, 'load', function() {
 
     /* Baseline-align images. Using standard line height at 22px */
 
-    var line_height = 22;
+    var line_height = 22; /* To do: Get line height from html element */
 
     forEach('#content img', function(el) {
 
