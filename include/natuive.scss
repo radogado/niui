@@ -19,7 +19,7 @@ $line-height: 22px;
 	table-layout: fixed;
 	width: 100%;
 	border-collapse: separate;
-	padding: $line-height 0;
+	padding: $line-height/2 0;
 	
 }
 
@@ -28,15 +28,15 @@ $line-height: 22px;
 		display: table-cell;
 		vertical-align: top;
 		position: relative;
-		padding: 0 $line-height;
+		padding: 0 $line-height/2;
 		word-wrap: break-word;
 
 	}
 	
 	.row > * > .row {
 
-		margin: -$line-height;
-		width: calc(100% + 1em);
+		margin: -$line-height/2;
+		width: calc(100% + #{$line-height});
 		max-width: none;
 
 	}
@@ -90,8 +90,13 @@ $line-height: 22px;
 		-ms-flex-wrap: wrap;
 		flex-wrap: wrap;
 		text-align: center;
-		font-size: 0;
 		justify-content: center;
+		
+	}
+	
+	.row.wrap, input[type="file"], .slider {
+		
+		font-size: 0;
 		
 	}
 	
@@ -199,7 +204,7 @@ h2 {
 
 }
 
-h3 {
+h3, .nav, .nav a, form.nav {
 	
 	font-size: 1.6em;
 
@@ -211,7 +216,7 @@ h4 {
 
 }
 
-h5 {
+h5, .sub.nav {
 	
 	font-size: 1em;
 
@@ -296,7 +301,6 @@ a:link, a:visited {
 
 .nav {
 	
-	font-size: 1.6em;
 	vertical-align: baseline;
 
 }
@@ -316,7 +320,6 @@ a:link, a:visited {
 		text-decoration: none;
 		position: relative;
 		padding: 0 $line-height/2 0 0;
-		font-size: 1.7rem;
 
 	}
 	
@@ -338,12 +341,6 @@ a:link, a:visited {
 
 	}
 
-	.sub.nav {
-	
-		font-size: 1em;
-	
-	}
-	
 	.sub.nav a {
 	
 		color: #727272;
@@ -376,7 +373,6 @@ a:link, a:visited {
 	form.nav {
 	
 		display: inline-block;
-		font-size: 1.6em;
 		white-space: nowrap;
 	
 	}
@@ -523,12 +519,6 @@ a:link, a:visited {
 	color: #333;
 
 }
-	
-	#head h1 {
-		
-		font-size: 3em;
-
-	}
 
 /* Main */
 
@@ -963,7 +953,6 @@ form {
 		cursor: pointer;
 		z-index: 1;
 		text-indent: -100%;
-		font-size: 0;
 		top: 0;
 		bottom: 0;
 		background: transparent;
@@ -1842,54 +1831,6 @@ video {
 
 }
 
-/* IE9- fixes */
-
-.row > * > .row {
-
-	width: 100%\9;
-	margin: 0\9;
-
-}
-
-input {
-	
-	line-height: 44px\9;
-
-}
-
-
-#content select {
-	
-	background: #eee\9;
-	padding-right: 0\9;
-
-}
-
-:root #content select { /* Disable the custom arrow in IE9 */
-	
-	padding-right: 2%\9; 
-	background: #eee\9; 
-
-}
-
-input[type="checkbox"], input[type="radio"] {
-	
-	margin-left: 0\9;
-
-}
-
-input[type="file"] {
-	
-	margin-left: -100%\9;
-
-}
-
-#content input[type="submit"] {
-	
-	padding: 0\0;
-		
-}
-
 /* natUIve Slider */
 
 .slider-container {
@@ -1949,7 +1890,6 @@ input[type="file"] {
     -webkit-transform: translate3d(0, 0, 0); /* fast, hardware-accelerated scrolling */
     -webkit-transform: translateZ(0);
 	-ms-overflow-style: none; /* No scrollbars on IE10+ */
-	font-size: 0; /* no space between inline-block */
 	-webkit-transform-style: preserve-3d;
 	left: 0;
 
@@ -2331,4 +2271,52 @@ input[type="file"] {
 	-webkit-animation-name: slide-index;
 	animation-name: slide-index;
 	
+}
+
+/* IE9- fixes */
+
+.row > * > .row {
+
+	width: 100%\9;
+	margin: 0\9;
+
+}
+
+input {
+	
+	line-height: 44px\9;
+
+}
+
+
+#content select {
+	
+	background: #eee\9;
+	padding-right: 0\9;
+
+}
+
+:root #content select { /* Disable the custom arrow in IE9 */
+	
+	padding-right: 2%\9; 
+	background: #eee\9; 
+
+}
+
+input[type="checkbox"], input[type="radio"] {
+	
+	margin-left: 0\9;
+
+}
+
+input[type="file"] {
+	
+	margin-left: -100%\9;
+
+}
+
+#content input[type="submit"] {
+	
+	padding: 0\0;
+		
 }
