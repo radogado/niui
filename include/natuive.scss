@@ -610,7 +610,7 @@ form {
 	
 		clear: both;
 		min-height: $line-height;
-		margin-bottom: $line-height;
+		margin-bottom: $line-height - 1;
 
 	}
 
@@ -857,6 +857,18 @@ form {
 		padding-left: 1.5em;
 		
 	}
+	
+	.checkbox label:first-of-type {
+		
+		margin-top: 1px;
+		
+	}
+
+	form.flat .checkbox label:first-of-type {
+		
+		margin-top: $line-height + 1px;
+		
+	}
 
 	:root div.checkbox label {
 
@@ -883,7 +895,8 @@ form {
 		display: inline-block;
 		background: rgba(0,221,240,1);
 		margin-top: 0;
-		line-height: $line-height/2;
+		line-height: $line-height*(2/3);
+		font-size: $line-height*(2/3)-1;
 		text-align: center;
 		color: #333;
 		margin-right: .5em;
@@ -1042,9 +1055,9 @@ form {
 
 	}
 	
-	form.flat span.file-input, form.flat .checkbox label:first-of-type {
+	form.flat span.file-input {
 		
-		margin-top: $line-height;
+		margin-top: $line-height/2;
 
 	}
 	
@@ -1056,7 +1069,7 @@ form {
 	
 	form.flat .checkbox label:last-child {
 		
-		margin-bottom: -$line-height;
+		margin-bottom: 0;
 		
 	}
 	
