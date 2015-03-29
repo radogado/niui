@@ -964,11 +964,28 @@ if (document.getElementById('nav-trigger')) {
 
 }
 
+function getStyle(oElm, strCssRule){ // Thanks http://robertnyman.com/2006/04/24/get-the-rendered-style-of-an-element/
+
+	var strValue = "";
+
+	if(document.defaultView && document.defaultView.getComputedStyle){
+		strValue = document.defaultView.getComputedStyle(oElm, "").getPropertyValue(strCssRule);
+	}
+	else if(oElm.currentStyle){
+		strCssRule = strCssRule.replace(/\-(\w)/g, function (strMatch, p1){
+			return p1.toUpperCase();
+		});
+		strValue = oElm.currentStyle[strCssRule];
+	}
+	return strValue;
+
+}
+
+var line_height = parseInt(getStyle(q('body'), 'line-height'));
+
 addEventHandler(window, 'load', function() {
 
-    /* Baseline-align images. Using standard line height at 22px */
-
-    var line_height = 22; /* To do: Get line height from html element */
+    /* Baseline-align images */
 
     forEach('#content img', function(el) {
 
