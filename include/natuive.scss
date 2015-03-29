@@ -454,12 +454,6 @@ a:link, a:visited {
 
 	}
 	
-	#content input[type="submit"] {
-		
-		margin-top: 0;
-
-	}
-	
 	.button.big:active, #content input[type="submit"]:active {
 
 		background: rgb(0,121,140);
@@ -671,7 +665,7 @@ form {
 			padding-top: 1px;
 
 		}
-
+		
 		label input, label textarea, label input[type=search], label button {
 			
 			width: 50%;
@@ -683,12 +677,7 @@ form {
 			border-color: #666;
 			
 		}
-		
-		@-moz-document url-prefix() {
 
-			input { border-bottom: 1px solid transparent; }
-
-		}
 
 	form div.checkbox span {
 		
@@ -709,6 +698,12 @@ form {
 		min-width: 50%;
 		padding: 0;
 		
+	}
+	
+	#content input[type="submit"] {
+	
+		margin-top: 0;
+	
 	}
 	
 	textarea {
@@ -793,16 +788,10 @@ form {
 		padding: 1px 1.6em 0 .7em;
 		float: none;
 		height: $line-height*2;
+		white-space: nowrap;
 
 	}
 
-	@-moz-document url-prefix()	{
-
-		#content select { width: 100%; padding-left: .5em;}
-		#content select option { background: #fff; }
-
-	}
-	
 	form .selector, form .file-input {
 
 		width: 50%;
@@ -863,7 +852,7 @@ form {
 		margin-top: 1px;
 		
 	}
-
+	
 	form.flat .checkbox label:first-of-type {
 		
 		margin-top: $line-height + 1px;
@@ -887,7 +876,7 @@ form {
 		margin-bottom: $line-height;
 
 	}
-		
+	
 	b.checkbox {
 		
 		width: 1em;
@@ -895,8 +884,8 @@ form {
 		display: inline-block;
 		background: rgba(0,221,240,1);
 		margin-top: 0;
-		line-height: $line-height*(2/3);
-		font-size: $line-height*(2/3)-1;
+		line-height: ($line-height + 1)*(2/3);
+		font-size: ($line-height - 2)*(2/3);
 		text-align: center;
 		color: #333;
 		margin-right: .5em;
@@ -1024,13 +1013,6 @@ form {
 	
 	}
 
-	@-moz-document url-prefix() {
-
-		form.flat .file-input span { margin-top: 0;	}
-		form.flat .file-input input[type="file"] { margin-top: 0; }
-
-	}
-	
 	form.flat input, form.flat textarea, #content form.flat .selector {
 		
 		display: block;
@@ -1079,7 +1061,24 @@ form {
 		margin-top: 0;
 		
 	}
+	
+	#content form.flat input[type="submit"] {
 		
+		margin-top: $line-height;
+
+	}
+
+	@-moz-document url-prefix() {
+
+		textarea { padding-top: .75em; }
+		#content select { padding-left: .5em;}
+		.checkbox label:first-of-type { margin-top: 0; }
+		div.checkbox label:last-child { margin-bottom: $line-height + 1; }
+		form .file-input span, #content select { margin-top: -1px; }
+		input[type="text"], input[type="email"], input[type="url"] { padding-top: 0; }
+
+	}
+
 /* Modal window */
 
 #blackbox {
@@ -1591,13 +1590,19 @@ video {
 
 	}
 
-	label {
+	label, form.flat label {
 
 		text-align: left;
+		margin: $line-height/2 0 0 0;
 
 	}
+		form.flat .checkbox label:first-of-type {
+			
+			margin-top: $line-height/2;
+
+		}
 	
-		label span {
+		label span, form > label span {
 			
 			padding: $line-height/2 0;
 			width: 100%;
@@ -1632,23 +1637,23 @@ video {
 				
 		}
 	
-		#content label select, input[type="submit"], form label textarea {
+		#content label select, input[type="submit"], form label textarea, #content form.flat input[type="submit"] {
 	
 			width: 100%;
 
 		}
+		
+		#content input[type="submit"] {
+			
+			margin-top: $line-height;
+		
+		}
 				
 		#content select {
 			
-			padding: 0 1.3em 0 .45em;
+			padding: 0 1.3em 0 .7em;
 			margin-bottom: 0;
 			
-		}
-		
-		@-moz-document url-prefix() {
-
-			#content label select { width: 110%; padding-left: .45em; }
-
 		}
 		
 		form label span .tip {
@@ -1687,12 +1692,6 @@ video {
 			
 			right: 0;
 			
-		}
-		
-		label {
-			
-			margin: 0;
-
 		}
 		
 		div.checkbox label:last-child {
