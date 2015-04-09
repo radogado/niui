@@ -411,7 +411,7 @@ function scrollTo(to, callback) {
 		callback();
 
     }, false);
-	q('html').style.cssText = '-webkit-transform: translateY(' + -1*change + 'px); transform: translateY(' + -1*change + 'px);';
+	q('html').style.cssText = '-webkit-transform: translate3d(0,' + -1*change + 'px,0); transform: translate3d(0,' + -1*change + 'px,0);';
 
 }
 

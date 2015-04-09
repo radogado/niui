@@ -227,7 +227,18 @@ function slide(el, method, index_number) {
 
     if (typeof document.body.style.transition == 'string') { // CSS transition-enabled browser...
 
-	    direction = hasClass(slider, 'vertical') ? 'translateY' : 'translateX';
+	    if (hasClass(slider, 'vertical')) {
+		
+		    translate_from = 'translate3d(0,' + ((index<old_index) ? (index-old_index) : 0) + '00%,0)';
+		    translate_to = 'translate3d(0,' + ((index<old_index) ? 0 : (index-old_index)*-1) + '00%,0)';
+		
+		} else {
+			
+		    translate_from = 'translate3d(' + ((index<old_index) ? (index-old_index) : 0) + '00%,0,0)';
+		    translate_to = 'translate3d(' + ((index<old_index) ? 0 : (index-old_index)*-1) + '00%,0,0)';
+			
+		}
+	    
 	    mouseEvents(el.parentNode, 'off');
 
 		if (!index_number) {
@@ -246,7 +257,7 @@ function slide(el, method, index_number) {
 	    }
 		
 		var styles = document.createElement('style');
-		styles.innerHTML = '@' + prefix + 'keyframes slide-index { from { ' + prefix + 'transform: ' + direction + '(' + ((index<old_index) ? (index-old_index) : 0) + '00%); } to { ' + prefix + 'transform: ' + direction + '(' + ((index<old_index) ? 0 : (index-old_index)*-1) + '00%); }}';
+		styles.innerHTML = '@' + prefix + 'keyframes slide-index { from { ' + prefix + 'transform: ' + translate_from + '; } to { ' + prefix + 'transform: ' + translate_to + '; }}';
 		document.getElementsByTagName('head')[0].appendChild(styles);
 		addClass(styles, 'slide-index-style');
 		addClass(slider, 'slide-index');
@@ -263,7 +274,7 @@ function slide(el, method, index_number) {
 			});
 			addClass(slider.children[index], 'visible');
 			removeClass(slider,'slide-index');
-			slider.style.cssText = prefix + 'transform: ' + direction + '(-' + index + '00%);';
+			slider.style.cssText = prefix + 'transform: ' + (hasClass(slider, 'vertical') ? 'translateY' : 'translateX') + '(-' + index + '00%);';
 			q('.slide-index-style').outerHTML = '';
 			
         	removeClass(q('html'), 'disable-hover');
