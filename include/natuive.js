@@ -666,7 +666,7 @@ forEach('.tool', function(el, i) {
 
 /* Add 'Back to top' button */
 
-q(q('#footer > div > div') ? '#footer > div > div' : 'body').insertAdjacentHTML('beforeend', '<a class="backtotop" href="#"> ↑ </a>');
+q(q('footer > div > div') ? 'footer > div > div' : 'body').insertAdjacentHTML('beforeend', '<a class="backtotop" href="#"> ↑ </a>');
 
 /* Animate anchor links */
 
@@ -727,7 +727,7 @@ function animateAnchors(e) {
 	if (q('#nav-trigger')) {
 		
 	    q('#nav-trigger').checked = false;
-	    removeClass(q('.nav-main > div'), 'open');
+	    removeClass(q('header > nav > div'), 'open');
 	    removeClass(q('body'), 'semi-transparent');
 
 	}
