@@ -94,7 +94,7 @@ $line-height: 22px;
 		
 	}
 	
-	.row.wrap, input[type="file"], .slider {
+	.row.wrap, input[type=file], .slider {
 		
 		font-size: 0;
 		
@@ -161,7 +161,7 @@ html.nooverflow, html.nooverflow body {
 
 body {
 
-	font-family: 'Helvetica Neue', Arial, sans-serif;
+	font-family: Helvetica Neue, Arial, sans-serif;
 	font-weight: 300;
 	color: #555;
 	position: relative;
@@ -174,7 +174,7 @@ body {
 
 /* Elements with single line-height */
 
-html, body, .row.wrap > *, nav.sub a, p, li, .lightbox a, .button, input[type="submit"], button, label, form div.checkbox span, .tip, label span .tip, h4, h5, form label > span {
+html, body, .row.wrap > *, nav.sub a, p, li, .lightbox a, .button, input[type=submit], button, label, form div.checkbox span, .tip, label span .tip, h4, h5, form label > span {
 	
 	font-size: $font-size;
 	line-height: $line-height;
@@ -184,7 +184,7 @@ html, body, .row.wrap > *, nav.sub a, p, li, .lightbox a, .button, input[type="s
 
 /* Elements with double line-height */
 
-h1, h2, h3, .button.big, input[type="submit"], button, input[type="submit"], form .file-input, form .file-input span, #blackbox .close, .accordion > label, nav a, label[for="nav-trigger"] {
+h1, h2, h3, .button.big, input[type=submit], button, input[type=submit], form .file-input, form .file-input span, #blackbox .close, .accordion > label, nav a, label[for=nav-trigger] {
 	
 	line-height: $line-height * 2;
 	min-height: $line-height * 2;
@@ -271,7 +271,7 @@ a:link, a:visited {
 
 }
 
-	a[href]:hover, input[type='submit']:hover, a.button:hover, button:hover {
+	a[href]:hover, input[type=submit]:hover, a.button:hover, button:hover {
 
 		color: #ee8822;
 
@@ -391,7 +391,7 @@ nav {
 
 	formnav .selector {
 
-		background: url('../images/country_select_globes.png') center left no-repeat;
+		background: url(../images/country_select_globes.png) center left no-repeat;
 		background-position: 0 9px;
 
 	}
@@ -409,7 +409,7 @@ nav {
 
 /* Buttons */
 
-.button, input[type="submit"], button {
+.button, input[type=submit], button[type=submit], button[type=reset], button {
 
 	text-decoration: none;
 	font-weight: bold;
@@ -431,7 +431,7 @@ nav {
 		
 	}
 
-	.button, input[type="submit"], label, .trigger {
+	.button, input[type=submit], label, .trigger {
 	
 		-webkit-touch-callout: none;
 		-webkit-user-select: none;
@@ -442,7 +442,7 @@ nav {
 
 	}
 
-	.button:active, input[type="submit"]:active {
+	.button:active, input[type=submit]:active {
 
 		background: #ccc;
 		
@@ -455,7 +455,7 @@ nav {
 	
 	}
 
-	.button.big, input[type="submit"], button {
+	.button.big, input[type=submit], button {
 
 		background: rgb(0,221,240);
 		font-size: 1.2em;
@@ -466,14 +466,18 @@ nav {
 
 	}
 	
-	input[type="submit"] {
+	input[type=submit] {
 		
 		height: auto;
-		line-height: $line-height/2;
+		line-height: $line-height;
+		white-space: normal;
+		word-break: break-all;
+		margin-bottom: $line-height - 2px; /* fix for the failed box-sizing: border-box */
+		min-height: $line-height*2 + 2px;
 		
 	}
 	
-	.button.big:active, input[type="submit"]:active {
+	.button.big:active, input[type=submit]:active {
 
 		background: rgb(0,121,140);
 
@@ -693,7 +697,7 @@ form {
 		
 		}
 		
-		input[type="text"], input[type="email"], input[type="url"] {
+		input[type=text], input[type=email], input[type=url] {
 			
 			padding-top: 1px;
 
@@ -725,7 +729,7 @@ form {
 
 	}
 	
-	form input[type="submit"], form button {
+	form input[type=submit], form button {
 		
 		margin-right: 0;
 		min-width: 50%;
@@ -734,7 +738,7 @@ form {
 		
 	}
 	
-	input[type="submit"] {
+	input[type=submit] {
 	
 		margin-top: 0;
 	
@@ -829,7 +833,7 @@ form {
 	form .selector, form .file-input {
 
 		width: 50%;
-		background: #eee url('../images/select-arrow.svg') no-repeat;
+		background: #eee url(../images/select-arrow.svg) no-repeat;
 		background-position: 97% 50%;
 		background-position: calc(100% - .7em) 50%;
 		background-size: auto 50%;
@@ -856,7 +860,7 @@ form {
 		
 	}
 
-	noscript input[type="submit"] {
+	noscript input[type=submit] {
 		
 		max-height: .5454em;
 		line-height: .5454em;
@@ -934,7 +938,7 @@ form {
 
 	}
 
-	input[type="checkbox"], input[type="radio"] {
+	input[type=checkbox], input[type=radio] {
 		
 		-webkit-appearance: none;
 		-moz-appearance: window;
@@ -955,31 +959,31 @@ form {
 
 	}
 
-	input[type="checkbox"]:checked + b.checkbox:before {
+	input[type=checkbox]:checked + b.checkbox:before {
 		
 		content: "✓";
 
 	}
 
-	input[type="radio"] + b.checkbox {
+	input[type=radio] + b.checkbox {
 		
 		border-radius: 50%;
 
 	}
 
-	input[type="radio"]:checked + b.checkbox:before {
+	input[type=radio]:checked + b.checkbox:before {
 		
 		content: "●";
 
 	}
 
-	input[type="checkbox"]:focus + b.checkbox, input[type="radio"]:focus + b.checkbox {
+	input[type=checkbox]:focus + b.checkbox, input[type=radio]:focus + b.checkbox {
 		
 		border: 1px solid #666;
 
 	}
 
-	input[type="file"] {
+	input[type=file] {
 		
 		position: absolute;
 		left: 0;
@@ -1019,7 +1023,7 @@ form {
 
 	}
 	
-	input[type="file"]:focus + span {
+	input[type=file]:focus + span {
 		
 		border-color: #666;
 
@@ -1034,14 +1038,14 @@ form {
 		
 	}
 	
-	input[type="search"] {
+	input[type=search] {
 	
 	    -webkit-appearance: textfield;
 	
 	}
 	
-	input[type="search"]::-webkit-search-decoration,
-	input[type="search"]::-webkit-search-cancel-button {
+	input[type=search]::-webkit-search-decoration,
+	input[type=search]::-webkit-search-cancel-button {
 	
 	    -webkit-appearance: none;
 	
@@ -1055,7 +1059,7 @@ form {
 		
 	}
 	
-	form.flat input[type="submit"] {
+	form.flat input[type=submit] {
 		
 		width: auto;
 		min-width: 0;
@@ -1089,14 +1093,14 @@ form {
 		
 	}
 	
-	form.flat input[type="checkbox"], form.flat input[type="radio"] {
+	form.flat input[type=checkbox], form.flat input[type=radio] {
 		
 		width: auto;
 		margin-top: 0;
 		
 	}
 	
-	form.flat input[type="submit"] {
+	form.flat input[type=submit] {
 		
 		margin-top: $line-height;
 
@@ -1109,7 +1113,12 @@ form {
 		.checkbox label:first-of-type { margin-top: 0; }
 		div.checkbox label:last-child { margin-bottom: $line-height + 1; }
 		form .file-input span, select { margin-top: -1px; }
-		input[type="text"], input[type="email"], input[type="url"] { padding-top: 0; }
+		input[type=text], input[type=email], input[type=url] { padding-top: 0; }
+		input::-moz-focus-inner,
+		button::-moz-focus-inner {
+		  padding: 0;
+		  border: 0;
+		}
 
 	}
 
@@ -1189,7 +1198,7 @@ form {
 	background: rgba(0,0,0,.2);
 	color: #fff;
 	border-radius: 2em;
-	font-family: "Hiragino Mincho ProN"; /* fix for iOS */
+	font-family: Hiragino Mincho ProN; /* fix for iOS */
 	cursor: pointer;
 	position: absolute;
 	bottom: 0;
@@ -1533,7 +1542,7 @@ table {
 
 /* Checkbox trigger */
 
-input.trigger, [for="nav-trigger"] {
+input.trigger, [for=nav-trigger] {
 	
 	display: none;
 	
@@ -1672,13 +1681,13 @@ video {
 				
 		}
 	
-		label select, input[type="submit"], form label textarea, form.flat input[type="submit"] {
+		label select, input[type=submit], form label textarea, form.flat input[type=submit] {
 	
 			width: 100%;
 
 		}
 		
-		input[type="submit"] {
+		input[type=submit] {
 			
 			margin-top: $line-height;
 		
@@ -1717,7 +1726,7 @@ video {
 
 		}
 		
-		input[type="radio"] {
+		input[type=radio] {
 			
 			margin-left: 2px;
 			
@@ -1850,7 +1859,7 @@ video {
 	
 		}
 		
-		label[for="nav-trigger"] {
+		label[for=nav-trigger] {
 			
 			display: block;
 			left: 0;
@@ -2398,19 +2407,19 @@ select {
 
 }
 
-input[type="checkbox"], input[type="radio"] {
+input[type=checkbox], input[type=radio] {
 	
 	margin-left: 0\9;
 
 }
 
-input[type="file"] {
+input[type=file] {
 	
 	margin-left: -100%\9;
 
 }
 
-input[type="submit"] {
+input[type=submit] {
 	
 	padding: 0\0;
 		
