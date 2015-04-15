@@ -204,7 +204,7 @@ h2 {
 
 }
 
-h3, nav, nav a, formnav {
+h3, nav, nav a, nav form {
 	
 	font-size: 1.6em;
 
@@ -382,28 +382,28 @@ nav {
 		
 	}
 
-	formnav {
+	nav form {
 	
 		display: inline-block;
 		white-space: nowrap;
 	
 	}
 
-	formnav .selector {
+	nav form#language-selector .select {
 
 		background: url(../images/country_select_globes.png) center left no-repeat;
-		background-position: 0 9px;
+		background-position: 0 3px;
 
 	}
 
-	formnav select {
+	nav form#language-selector select {
 
-		font-size: .5em;
+		font-size: .9em;
 		border: none;
 		-moz-appearance: window;
 		vertical-align: middle;
 		background: transparent;
-		margin-left: 1.8em;
+		margin-left: 1em;
 
 	}
 
@@ -830,7 +830,7 @@ form {
 
 	}
 
-	form .selector, form .file-input {
+	form .select, form .file-input {
 
 		width: 50%;
 		background: #eee url(../images/select-arrow.svg) no-repeat;
@@ -846,7 +846,7 @@ form {
 
 	}
 	
-	form .selector {
+	form .select {
 		
 		padding-top: 0;
 		height: $line-height*2;
@@ -1029,15 +1029,6 @@ form {
 
 	}
 
-	form.flat label, form.flat label span, form.flat div.checkbox span {
-		
-		margin: 0;
-		display: block;
-		width: 100%;
-		text-align: left;
-		
-	}
-	
 	input[type=search] {
 	
 	    -webkit-appearance: textfield;
@@ -1051,12 +1042,33 @@ form {
 	
 	}
 
-	form.flat input, form.flat textarea, form.flat .selector {
+	form.flat label, form.flat label span, form.flat div.checkbox span {
+		
+		margin: 0;
+		display: block;
+		width: 100%;
+		text-align: left;
+		
+	}
+	
+	form.flat input, form.flat textarea, form.flat .select {
 		
 		display: block;
 		width: 100%;
 		margin-top: $line-height/2;
 		
+	}
+	
+	form.flat input[type=file] {
+		
+		margin-top: 0;
+
+	}
+
+	form.flat .select, form.flat .file-input {
+		
+		margin: $line-height/2 0;
+
 	}
 	
 	form.flat input[type=submit] {
@@ -1073,18 +1085,6 @@ form {
 		left: auto;
 		right: 0;
 
-	}
-	
-	form.flat span.file-input {
-		
-		margin-top: $line-height/2;
-
-	}
-	
-	form.flat span.file-input {
-		
-		margin-bottom: $line-height/2;
-		
 	}
 	
 	form.flat .checkbox label:last-child {
@@ -1674,7 +1674,7 @@ video {
 			
 		}
 
-		label .selector, label input, textarea, form .file-input {
+		label .select, label input, textarea, form .file-input {
 			
 			width: 100%;
 			margin: 0;
@@ -1744,7 +1744,7 @@ video {
 
 		}
 		
-		form.flat input, form.flat textarea, form.flat .selector, form.flat span.file-input {
+		form.flat input, form.flat textarea, form.flat .select, form.flat span.file-input {
 			
 			margin-top: 0;
 
@@ -1838,7 +1838,7 @@ video {
 			
 		}
 		
-		formnav#language-selector select {
+		nav form#language-selector select {
 			
 			margin-left: 1em;
 			
@@ -1879,7 +1879,7 @@ video {
 			
 		}
 		
-		form#language-selector .selector {
+		form#language-selector .select {
 			
 			height: auto;
 			width: 100%;
