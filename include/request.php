@@ -40,9 +40,9 @@ error_reporting(0);
 	}
 
 	$split_query = split('&targetformurl=', $query_string, 2); // Separate form data from form URI
-	
+
 	$url = str_replace("&","&amp;",$split_query[1]); // Fix URI containing "&"
-	
+
 	//Open cURL connection
 	$ch = curl_init();
 
@@ -50,7 +50,7 @@ error_reporting(0);
 	curl_setopt($ch, CURLOPT_URL, urldecode($url) );
 	curl_setopt($ch, CURLOPT_POST, count($kv) );
 	curl_setopt($ch, CURLOPT_POSTFIELDS, str_replace('%3D','=',urlencode($split_query[0])) );
-	
+
 	if ($_GET) {
 		
 		curl_setopt($ch, CURLOPT_URL, $_GET['targetformurl'] );
@@ -61,24 +61,25 @@ error_reporting(0);
 	
 	//Set some settings that make it all work  
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
 	curl_setopt($ch, CURLOPT_HEADER, false);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, FALSE);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	// curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
 	
 	//Execute PHP cURL
-	$result = curl_exec($ch);
-	$err = curl_error($ch);
+	$result = 	curl_exec($ch);
+	$err = 		curl_error($ch);
+	$status = 	curl_getinfo($ch);
 
 	//close cURL connection
 	curl_close($ch);
 
 	if($result === false) {
 
-	    echo '---error---';
+	    return '---error---';
 
 	} else {
-		
-// 		echo $result;
+		echo $result;
 		
 	}
 

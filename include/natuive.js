@@ -821,14 +821,14 @@ function submitForm(e) {
         return false;
 
     }
-	// To do: dynamic GET 
-    if (!(new XMLHttpRequest().upload) || !php_support || el.method.toLowerCase() == 'get') { // Browser unable to submit dynamically. To do: or if request.php isn't working
+
+    if (!(new XMLHttpRequest().upload) || !php_support) { // Browser unable to submit dynamically. To do: or if request.php isn't working
 
         return true;
 
     }
 
-    el.insertAdjacentHTML('beforeend', '<input name=targetformurl type=hidden value=' + encodeURIComponent(el.action) + '>');
+    el.insertAdjacentHTML('beforeend', '<input name=targetformurl type=hidden value=' + encodeURIComponent(el.action).replace(/\/?(\?|#|$)/, '/$1') + '>');
 
     var r = new XMLHttpRequest();
     r.open("POST", scripts_location + "request.php", true);
@@ -842,7 +842,7 @@ function submitForm(e) {
 
         }
 
-        if (!r.responseText || r.getAllResponseHeaders().toLowerCase().indexOf('php') == -1) {
+        if (!r.responseText || !php_support) {
 
             // To do: php script unreachable, submit form normally
             el.onsubmit = function() {};
