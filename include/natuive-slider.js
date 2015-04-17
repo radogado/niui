@@ -229,13 +229,13 @@ function slide(el, method, index_number) {
 
 	    if (hasClass(slider, 'vertical')) {
 		
-		    translate_from = 'translate3d(0,' + ((index<old_index) ? (index-old_index) : 0) + '00%,0)';
-		    translate_to = 'translate3d(0,' + ((index<old_index) ? 0 : (index-old_index)*-1) + '00%,0)';
+		    translate_from = 'translate3d(0,' + ((index<old_index) ? -1 : 0) + '00%,0)';
+		    translate_to = 'translate3d(0,' + ((index<old_index) ? 0 : -1) + '00%,0)';
 		
 		} else {
 			
-		    translate_from = 'translate3d(' + ((index<old_index) ? (index-old_index) : 0) + '00%,0,0)';
-		    translate_to = 'translate3d(' + ((index<old_index) ? 0 : (index-old_index)*-1) + '00%,0,0)';
+		    translate_from = 'translate3d(' + ((index<old_index) ? -1 : 0) + '00%,0,0)';
+		    translate_to = 'translate3d(' + ((index<old_index) ? 0 : -1) + '00%,0,0)';
 			
 		}
 	    
@@ -248,13 +248,16 @@ function slide(el, method, index_number) {
 		}
 
 		addClass(slider.children[index], 'visible');
+		addClass(slider.children[old_index], 'visible');
 
+/*
 	    i = Math.min(old_index, index) - 1;
 	    while ( i++ < Math.abs(index-old_index) ) {
 	
 	        addClass(slider.children[i], 'visible');
 	
 	    }
+*/
 		
 		var styles = document.createElement('style');
 		styles.innerHTML = '@' + prefix + 'keyframes slide-index { from { ' + prefix + 'transform: ' + translate_from + '; } to { ' + prefix + 'transform: ' + translate_to + '; }}';
@@ -263,7 +266,7 @@ function slide(el, method, index_number) {
 		addClass(slider, 'slide-index');
 	
 
-        slider.addEventListener(animationEvent, function(e) {
+        slider.addEventListener(animationEvent, function(e) { // On slide end
 
             slider.removeEventListener(animationEvent, arguments.callee);
 
@@ -431,6 +434,10 @@ function makeSlider(el, current_slide) {
 
 		slide(el, 'index', current_slide);
 		
+    } else {
+    
+	    addClass(el.children[0], 'visible');
+    
     }
 
     document.onkeyup = sliderKeyboard;

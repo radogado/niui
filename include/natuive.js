@@ -987,7 +987,7 @@ addEventHandler(window, 'load', function() {
 
     /* Baseline-align images */
 
-    forEach('#content img', function(el) {
+    forEach('main img', function(el) {
 
         extra_padding = ((Math.round(el.height / line_height) + 1) * line_height - el.height);
 
