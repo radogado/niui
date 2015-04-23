@@ -265,7 +265,7 @@ p, li, header {
 
 }
 
-a:link, a:visited {
+a[href] {
 
 	color: #333;
 
@@ -335,7 +335,7 @@ nav {
 
 	}
 	
-	nav a.active:link, nav a.active:visited {
+	nav a.active[href] {
 	
 		color: #ee8822;
 	
@@ -1185,7 +1185,7 @@ form {
 
 /* Back to top button */
 
-.backtotop:link, .backtotop:visited {
+.backtotop[href] {
 
 	text-align: center;
 	display: block;
