@@ -31,7 +31,7 @@ natUIve: mostly native front-end framework
 - Arabic layout with one CSS line
 - Functional without JS and accessible without CSS*
 - ~9 KB effective weight (JS & CSS combined, minified and gzipped)
-- No IE conditional operators*
+- ~~No IE conditional operators~~ HTML5 elements also for IE8 with html5shiv
 - No jQuery or other dependencies*
 - Supporting IE8+, Safari, Chrome, Firefox, Opera, Android 2.3+, iOS, Windows Phone
 - Graceful degradation

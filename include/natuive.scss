@@ -403,7 +403,7 @@ nav {
 		-moz-appearance: window;
 		vertical-align: middle;
 		background: transparent;
-		margin-left: 1em;
+		padding-left: 1.5em;
 
 	}
 
@@ -664,12 +664,6 @@ form {
 
 	}
 
-	select::-ms-expand {
-	
-	    display: none;
-	
-	}
-
 	input, select, textarea, input[type=search], button {
 		
 		font-family: inherit;
@@ -735,13 +729,8 @@ form {
 		min-width: 50%;
 		max-width: 100%;
 		padding: 0 1em;
-		
-	}
-	
-	input[type=submit] {
-	
 		margin-top: 0;
-	
+		
 	}
 	
 	textarea {
@@ -769,7 +758,7 @@ form {
 
 	}
 	
-	form .mandatory span.checkbox:before, form .mandatory span.tip:after {
+	form .mandatory span.checkbox:before, form .mandatory span.tip:after, select::-ms-expand {
 	
 		display: none;
 		
@@ -827,7 +816,7 @@ form {
 		float: none;
 		height: $line-height*2;
 		white-space: nowrap;
-
+		
 	}
 
 	form .select, form .file-input {
@@ -860,7 +849,7 @@ form {
 		
 	}
 
-	noscript input[type=submit] {
+	#language-selector noscript input[type=submit] {
 		
 		max-height: .5454em;
 		line-height: .5454em;
@@ -872,7 +861,7 @@ form {
 
 	}
 	
-	div.checkbox label {
+	.checkbox label {
 		
 		text-align: left;
 		width: 50%;
@@ -897,7 +886,7 @@ form {
 		
 	}
 
-	:root div.checkbox label {
+	:root div.checkbox label { /* Not IE9 */
 
 		padding-left: 0;
 
@@ -905,7 +894,7 @@ form {
 	
 	div.checkbox label + label {
 		
-		margin-top: 0;
+		margin-top: 0; 
 
 	}
 
@@ -1032,6 +1021,7 @@ form {
 	input[type=search] {
 	
 	    -webkit-appearance: textfield;
+	    border-radius: 0;
 	
 	}
 	
@@ -1042,7 +1032,7 @@ form {
 	
 	}
 
-	form.flat label, form.flat label span, form.flat div.checkbox span {
+	form.flat label, form.flat label span, form.flat .checkbox span {
 		
 		margin: 0;
 		display: block;
@@ -1111,7 +1101,7 @@ form {
 		textarea { padding-top: .75em; }
 		select { padding-left: .5em;}
 		.checkbox label:first-of-type { margin-top: 0; }
-		div.checkbox label:last-child { margin-bottom: $line-height + 1; }
+		.checkbox label:last-child { margin-bottom: $line-height + 1; }
 		form .file-input span, select { margin-top: -1px; }
 		input[type=text], input[type=email], input[type=url] { padding-top: 0; }
 		input::-moz-focus-inner,
@@ -1706,7 +1696,7 @@ video {
 			
 		}
 		
-		form div.checkbox span, div.checkbox label {
+		form .checkbox span, .checkbox label {
 			
 			display: block;
 			width: 100%;
@@ -1714,13 +1704,13 @@ video {
 
 		}
 
-		form div.checkbox span {
+		form .checkbox span {
 			
 			margin-bottom: $line-height/2;
 			
 		}
 		
-		div.checkbox label {
+		.checkbox label {
 		
 			margin-top: 0;
 
@@ -1738,7 +1728,7 @@ video {
 			
 		}
 		
-		div.checkbox label:last-child {
+		.checkbox label:last-child {
 			
 			margin-bottom: 0;
 
@@ -1750,13 +1740,13 @@ video {
 
 		}
 		
-		form div.checkbox {
+		form .checkbox {
 			
 			padding-top: $line-height/2;
 
 		}
 		
-		form.flat span.file-input, form div.checkbox {
+		form.flat span.file-input, form .checkbox {
 			
 			margin-bottom: 0;
 
@@ -1769,7 +1759,7 @@ video {
 			
 		}
 		
-		form.flat div.checkbox {
+		form.flat .checkbox {
 			
 			margin-bottom: $line-height/2;
 
@@ -2381,46 +2371,47 @@ video {
 
 .row > * > .row {
 
-	width: 100%\9;
-	margin: 0\9;
+	width: 100% \9;
+	margin: 0 \9;
 
 }
 
 input {
 	
-	line-height: 44px\9;
+	line-height: $line-height*2 \9;
 
 }
 
 
 select {
 	
-	background: #eee\9;
-	padding-right: 0\9;
+	padding-right: 0 \9;
+	height: $line-height \9;
+	margin-top: $line-height/2 \9;
 
 }
 
-:root select { /* Disable the custom arrow in IE9 */
+:root select { /* IE9 not IE8 */
 	
-	padding-right: 2%\9; 
-	background: #eee\9; 
+	height: $line-height*2 \9;
+	margin-top: 0 \9;
 
 }
 
 input[type=checkbox], input[type=radio] {
 	
-	margin-left: 0\9;
+	margin-left: 0 \9;
 
 }
 
 input[type=file] {
 	
-	margin-left: -100%\9;
+	margin-left: -100% \9;
 
 }
 
 input[type=submit] {
 	
-	padding: 0\0;
+	padding: 0 \0;
 		
 }
