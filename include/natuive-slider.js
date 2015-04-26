@@ -31,14 +31,21 @@ function sliderElement(e) {
 /* Thanks to Pete & Eike Send for the swipe events – http://www.thepetedesign.com/demos/purejs_onepage_scroll_demo.html */
 
 var last_animation = 0;
-
+var sliding = 0;
 swipeEvents = function(el) {
 
     var startX, startY;
 
-    el.addEventListener("touchstart", touchStart);
+    el.addEventListener('touchstart', touchStart);
 
     function touchStart(e) {
+
+		if (sliding) {
+			
+			e.preventDefault();
+			return;
+
+		}
 
         var touches = e.touches;
         if (touches && touches.length) {
@@ -46,7 +53,7 @@ swipeEvents = function(el) {
             startX = touches[0].pageX;
             startY = touches[0].pageY;
 
-            el.addEventListener("touchmove", touchMove);
+            el.addEventListener('touchmove', touchMove);
 
         }
 
@@ -91,7 +98,7 @@ swipeEvents = function(el) {
 
 };
 
-initScroll = function(event, delta) {
+initScroll = function(e, delta) {
 
     deltaOfInterest = delta;
     timeNow = new Date().getTime();
@@ -99,7 +106,7 @@ initScroll = function(event, delta) {
     // Cancel scroll if currently animating or within quiet period
     if ((timeNow - last_animation) < 800) {
 
-        event.preventDefault();
+        e.preventDefault();
         return;
 
     }
@@ -110,15 +117,15 @@ initScroll = function(event, delta) {
 
 }
 
-mouseWheelHandler = function(event) {
+mouseWheelHandler = function(e) {
 
-    deltaX = (event.deltaX * -10) || event.wheelDeltaX || -event.detail;
-    deltaY = (event.deltaY * -10) || event.wheelDeltaY || -event.detail;
+    deltaX = (e.deltaX * -10) || e.wheelDeltaX || -e.detail;
+    deltaY = (e.deltaY * -10) || e.wheelDeltaY || -e.detail;
 
     if (Math.abs(hasClass(sliderElement(event), 'vertical') ? deltaY : deltaX) > 50) {
 
-        event.preventDefault();
-        initScroll(event, (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY);
+        e.preventDefault();
+        initScroll(e, (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY);
 
     }
 
@@ -147,10 +154,10 @@ function whichAnimationEvent(){
 	
 	var animations = {
 	
-		"animation"      : "animationend",
-		"OAnimation"     : "oAnimationEnd",
-		"MozAnimation"   : "animationend",
-		"WebkitAnimation": "webkitAnimationEnd"
+		'animation'      : 'animationend',
+		'OAnimation'     : 'oAnimationEnd',
+		'MozAnimation'   : 'animationend',
+		'WebkitAnimation': 'webkitAnimationEnd'
 	
 	}
 	
@@ -171,6 +178,9 @@ var	prefix = animationEvent == 'webkitAnimationEnd' ? '-webkit-' : '';
 var slide_duration = 400;
 
 function slide(el, method, index_number) {
+
+	sliding = 1;
+    mouseEvents(el.parentNode, 'off');
 
     if (window.sliderTimeout) {
 
@@ -239,8 +249,6 @@ function slide(el, method, index_number) {
 			
 		}
 	    
-	    mouseEvents(el.parentNode, 'off');
-
 		if (!index_number) {
 	
 			addClass(q('html'), 'disable-hover');
@@ -264,7 +272,6 @@ function slide(el, method, index_number) {
 		document.getElementsByTagName('head')[0].appendChild(styles);
 		addClass(styles, 'slide-index-style');
 		addClass(slider, 'slide-index');
-	
 
         slider.addEventListener(animationEvent, function(e) { // On slide end
 
@@ -289,6 +296,7 @@ function slide(el, method, index_number) {
             }
 			document.onkeyup = sliderKeyboard;
             mouseEvents(slider);
+            sliding = 0;
 
         }, false);
 
@@ -301,6 +309,9 @@ function slide(el, method, index_number) {
 			populateLightbox(slider, index);
             
         }
+        
+        sliding = 0;
+        mouseEvents(slider);
 
     }
 
@@ -310,7 +321,7 @@ function sliderKeyboard(e) {
 
     e = e || window.event;
 
-    if (typeof e == 'undefined') {
+    if (typeof e == 'undefined' || sliding) {
 
         return;
 
@@ -448,14 +459,14 @@ function makeSlider(el, current_slide) {
 
         swipeEvents(el.parentNode);
 
-        el.parentNode.addEventListener("swipeLeft", function(event) {
+        el.parentNode.addEventListener('swipeLeft', function(event) {
 
             el = sliderElement(event);
             slide(el, 'right');
 
         });
 
-        el.parentNode.addEventListener("swipeRight", function(event) {
+        el.parentNode.addEventListener('swipeRight', function(event) {
 
             el = sliderElement(event);
             slide(el, 'left');

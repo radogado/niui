@@ -319,24 +319,24 @@ forEach('table', function(el) {
 
 function updateURLParameter(url, param, paramVal) { // return input string with updated/added URL parameter
 
-    newAdditionalURL = "";
+    newAdditionalURL = '';
     url = url.split('#')[0];
     tempArray = url.split("?");
     baseURL = tempArray[0];
     additionalURL = tempArray[1];
-    temp = "";
+    temp = '';
     if (additionalURL) {
         tempArray = additionalURL.split("&");
         for (i = 0; i < tempArray.length; i++) {
             if (tempArray[i].split('=')[0] != param) {
                 newAdditionalURL += temp + tempArray[i];
-                temp = "&";
+                temp = '&';
             }
         }
     }
 
-    var rows_txt = temp + "" + param + "=" + paramVal;
-    return baseURL + "?" + newAdditionalURL + rows_txt.split('#')[0];
+    var rows_txt = temp + '' + param + '=' + paramVal;
+    return baseURL + '?' + newAdditionalURL + rows_txt.split('#')[0];
 
 }
 
@@ -543,7 +543,7 @@ function modalWindow(e) {
         }
 
         request = new XMLHttpRequest();
-        request.open("GET", external.test(link) ? (scripts_location + "request.php?targetformurl=" + link.split('#')[0]) : link.split('#')[0], true);
+        request.open("GET", external.test(link) ? (scripts_location + 'request.php?targetformurl=' + link.split('#')[0]) : link.split('#')[0], true);
 
         request.onload = function() {
 
@@ -638,7 +638,7 @@ function modalWindow(e) {
 
     document.getElementById('blackbox-bg').onclick = q('#blackbox .close').onclick = removeBlackbox;
 
-    window.addEventListener("keydown", arrow_keys_handler, false);
+    window.addEventListener('keydown', arrow_keys_handler, false);
 
     return false;
 
@@ -831,7 +831,7 @@ function submitForm(e) {
     el.insertAdjacentHTML('beforeend', '<input name=targetformurl type=hidden value=' + encodeURIComponent(el.action).replace(/\/?(\?|#|$)/, '/$1') + '>');
 
     var r = new XMLHttpRequest();
-    r.open("POST", scripts_location + "request.php", true);
+    r.open('POST', scripts_location + 'request.php', true);
 
     r.onreadystatechange = function() {
 
