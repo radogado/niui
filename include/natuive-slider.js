@@ -104,16 +104,16 @@ initScroll = function(e, delta) {
     timeNow = new Date().getTime();
 
     // Cancel scroll if currently animating or within quiet period
-    if ((timeNow - last_animation) < 800) {
+    if ((timeNow - last_animation) < 800 || sliding) {
 
         e.preventDefault();
         return;
 
     }
 
-    slide(sliderElement(event), (deltaOfInterest < 0) ? 'right' : 'left');
-
     last_animation = timeNow;
+
+    slide(sliderElement(event), deltaOfInterest < 0 ? 'right' : 'left');
 
 }
 
