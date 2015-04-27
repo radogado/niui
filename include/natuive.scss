@@ -174,7 +174,7 @@ body {
 
 /* Elements with single line-height */
 
-html, body, .row.wrap > *, nav.sub a, p, li, .lightbox a, .button, input[type=submit], button, label, form div.checkbox span, .tip, label span .tip, h4, h5, form label > span {
+html, body, .row.wrap > *, nav.sub a, p, li, .lightbox a, .button, input[type=submit], button, label, form .checkbox span, .tip, label span .tip, h4, h5, form label > span {
 	
 	font-size: $font-size;
 	line-height: $line-height;
@@ -637,7 +637,7 @@ form {
 		
 	}
 	
-	form div.checkbox {
+	form .checkbox {
 	
 		clear: both;
 		min-height: $line-height;
@@ -645,7 +645,7 @@ form {
 
 	}
 
-	form div.checkbox:after {
+	form .checkbox:after {
 		
 		content: "";
 		display: block;
@@ -710,7 +710,7 @@ form {
 		}
 
 
-	form div.checkbox span {
+	form .checkbox span {
 		
 		display: inline-block;
 		font-weight: bold;
@@ -752,7 +752,7 @@ form {
 
 	}
 	
-	form div.checkbox label span {
+	form .checkbox label span {
 		
 		width: auto;
 
@@ -880,31 +880,37 @@ form {
 		
 	}
 	
+	form.flat {
+		
+		padding-top: 0;
+		
+	}
+	
 	form.flat .checkbox label:first-of-type {
 		
 		margin-top: $line-height + 1px;
 		
 	}
 
-	:root div.checkbox label { /* Not IE9 */
+	:root form .checkbox label { /* Not IE9 */
 
 		padding-left: 0;
 
 	}
 	
-	div.checkbox label + label {
+	form .checkbox label + label {
 		
 		margin-top: 0; 
 
 	}
 
-	div.checkbox label:last-child {
+	form .checkbox label:last-child {
 		
 		margin-bottom: $line-height;
 
 	}
 	
-	b.checkbox {
+	.checkbox-icon {
 		
 		width: 1em;
 		height: 1em;
@@ -921,7 +927,7 @@ form {
 
 	}
 
-	:root b.checkbox { /* Not IE8 */
+	:root .checkbox-icon { /* Not IE8 */
 
 		display: inline-block;
 
@@ -948,25 +954,25 @@ form {
 
 	}
 
-	input[type=checkbox]:checked + b.checkbox:before {
+	input[type=checkbox]:checked + .checkbox-icon:before {
 		
 		content: "✓";
 
 	}
 
-	input[type=radio] + b.checkbox {
+	input[type=radio] + .checkbox-icon {
 		
 		border-radius: 50%;
 
 	}
 
-	input[type=radio]:checked + b.checkbox:before {
+	input[type=radio]:checked + .checkbox-icon:before {
 		
 		content: "●";
 
 	}
 
-	input[type=checkbox]:focus + b.checkbox, input[type=radio]:focus + b.checkbox {
+	input[type=checkbox]:focus + .checkbox-icon, input[type=radio]:focus + .checkbox-icon {
 		
 		border: 1px solid #666;
 
@@ -1677,7 +1683,7 @@ video {
 
 		}
 		
-		input[type=submit] {
+		form input[type=submit], form .checkbox span, form.flat .checkbox span {
 			
 			margin-top: $line-height;
 		
@@ -1696,7 +1702,7 @@ video {
 			
 		}
 		
-		form .checkbox span, .checkbox label {
+		form .checkbox span, .checkbox label, form .checkbox span {
 			
 			display: block;
 			width: 100%;
@@ -1710,7 +1716,7 @@ video {
 			
 		}
 		
-		.checkbox label {
+		.checkbox label, form.flat input, form.flat textarea, form.flat .select, form.flat span.file-input {
 		
 			margin-top: 0;
 
@@ -1728,27 +1734,15 @@ video {
 			
 		}
 		
-		.checkbox label:last-child {
+		.checkbox label:last-child, form.flat span.file-input, form .checkbox, form.flat .checkbox, form .checkbox label:last-child, form.flat .select {
 			
 			margin-bottom: 0;
 
 		}
 		
-		form.flat input, form.flat textarea, form.flat .select, form.flat span.file-input {
+		form, form .checkbox {
 			
-			margin-top: 0;
-
-		}
-		
-		form .checkbox {
-			
-			padding-top: $line-height/2;
-
-		}
-		
-		form.flat span.file-input, form .checkbox {
-			
-			margin-bottom: 0;
+			padding-top: 0;
 
 		}
 		
@@ -1757,12 +1751,6 @@ video {
 			margin-top: 0;
 			height: $line-height*2;
 			
-		}
-		
-		form.flat .checkbox {
-			
-			margin-bottom: $line-height/2;
-
 		}
 		
 	.wide-screen {
