@@ -469,138 +469,122 @@ function populateLightbox(slider, i) {
 
 }
 
-function removeBlackbox() {
+var external = RegExp('^((f|ht)tps?:)?//(?!' + location.host + ')');
 
-    var blackbox = document.getElementById('blackbox');
-    if (blackbox) {
+function closeFullWindow() {
+	
+    var full_window = document.getElementById('full-window');
+    if (full_window) {
 
-        if (blackbox.querySelector('.slider')) { // Lightbox
+        if (full_window.querySelector('.slider')) { // Lightbox
 
-            removeClass(blackbox.querySelector('.slider'), 'slider');
+            removeClass(full_window.querySelector('.slider'), 'slider');
             var slider = q('.slider'); // Make another slider active, if any
 
         }
-        document.body.removeChild(blackbox);
+        document.body.removeChild(full_window);
 
     }
     removeClass(q('html'), 'nooverflow');
 
-	removeEventHandler(window,'keydown',arrow_keys_handler);
-
+	removeEventHandler(window, 'keydown', arrow_keys_handler);
+	
 }
 
-var external = RegExp('^((f|ht)tps?:)?//(?!' + location.host + ')');
-
-function modalWindow(e) {
-
-    removeBlackbox();
+function openFullWindow(content) {
+	
+	closeFullWindow();
 
     document.body.onkeyup = function(e) {
 
         if ((e || window.event).keyCode == 27) { // esc
 
-            removeBlackbox();
+            closeFullWindow();
 
         }
 
     };
 
-    document.body.insertAdjacentHTML('afterbegin', '<div id="blackbox"> </div>');
+    document.body.insertAdjacentHTML('afterbegin', '<div id=full-window> <div class=close> ← ' + document.title + '</div> <div class=content>' + content + '</div> <div id=full-window-bg></div> </div>');
     addClass(q('html'), 'nooverflow');
+	q('#full-window-bg').onclick = q('#full-window .close').onclick = closeFullWindow;
+    
+    return false;
+	
+}
 
-    // Modal window of HTML as input string
-
-    if (typeof e == 'string') {
-
-        document.getElementById('blackbox').innerHTML = '<div class="close"> ← ' + document.title + '</div>' + e + '<div id="blackbox-bg"></div>';
-
-        document.getElementById('blackbox-bg').onclick = q('#blackbox .close').onclick = removeBlackbox;
-
-        return false;
-
-    }
+function modalWindow(e) {
 
     // Modal window of an external file or Lightbox
 
+	openFullWindow('Loading...');
+
     el = eventElement(e);
 
-    if (parentByClass(el, 'modal')) { // Load an external file 
+    link = parentByClass(el, 'modal').href;
+	
+    if (!php_support && external.test(link) || !(new XMLHttpRequest().upload)) { // No PHP or XHR?
 
-        link = parentByClass(el, 'modal').href;
-/*
-		if (link.split('#').length > 2) {
-			
-			link = link.split('#')[0] + '#' + link.split('#')[2];
-		}
-*/
-		
-        if (!php_support && external.test(link) || !(new XMLHttpRequest().upload)) { // No PHP or XHR?
-
-            window.open(link, '_blank');
-            removeBlackbox();
-            return false;
-
-        }
-
-        request = new XMLHttpRequest();
-        request.open("GET", external.test(link) ? (scripts_location + 'request.php?targetformurl=' + link.split('#')[0]) : link.split('#')[0], true);
-
-        request.onload = function() {
-
-            if (request.status >= 200 && request.status < 400) {
-                // Success
-                if (!request.responseText) { // No PHP?
-
-                    window.open(link, 'Modal');
-
-                }
-                container = (typeof link.split('#')[1] != 'undefined') ? ('#' + link.split('#')[1]) : 0;
-
-                blackbox = document.getElementById('blackbox');
-                blackbox.insertAdjacentHTML('afterbegin', '<div class="close"> ← ' + document.title + '</div>');
-                if (container) {
-
-                    parsed = parseHTML(request.responseText);
-                    if (!parsed.querySelector(container)) {
-                        removeBlackbox();
-                        return false;
-                    }
-                    blackbox.insertAdjacentHTML('beforeend', parsed.querySelector(container).innerHTML);
-
-                } else {
-
-                    blackbox.insertAdjacentHTML('beforeend', request.responseText);
-
-                }
-
-                blackbox.querySelector('.close').onclick = removeBlackbox;
-
-                relayParameters();
-
-            } else {
-                // Error
-                removeBlackbox();
-
-            }
-
-        };
-
-        request.onerror = function() {
-            // Error
-            removeBlackbox();
-
-        };
-
-        request.send();
-
+        window.open(link, '_blank');
         return false;
 
     }
 
-    // Lightbox
+    request = new XMLHttpRequest();
+    request.open("GET", external.test(link) ? (scripts_location + 'request.php?targetformurl=' + link.split('#')[0]) : link.split('#')[0], true);
 
-    document.getElementById('blackbox').innerHTML = '<div class="close"> ← ' + document.title + '</div><div class="slider lightbox"></div><div id="blackbox-bg"></div>';
+    request.onload = function() {
 
+        if (request.status >= 200 && request.status < 400) {
+            // Success
+            if (!request.responseText) { // No PHP?
+
+                window.open(link, 'Modal');
+
+            }
+            container = (typeof link.split('#')[1] != 'undefined') ? ('#' + link.split('#')[1]) : 0;
+			
+			parsed = request.responseText;
+            if (container) {
+
+                parsed = parseHTML(request.responseText);
+                if (!parsed.querySelector(container)) {
+                    closeFullWindow();
+                    return false;
+                }
+                parsed = parsed.querySelector(container).innerHTML;
+
+            }
+
+            q('#full-window .content').innerHTML = parsed;
+
+            relayParameters();
+
+        } else {
+            // Error
+            closeFullWindow();
+
+        }
+
+    };
+
+    request.onerror = function() {
+        // Error
+        closeFullWindow();
+
+    };
+
+    request.send();
+
+    return false;
+
+}
+
+function openLightbox(e) {
+
+	openFullWindow('<div class="slider lightbox"></div>');
+	
+	el = eventElement(e);
     var parent = parentByClass(el, 'lightbox');
 
     /* Add any <a><img> siblings with description to a .slider and initialise its controls */
@@ -627,16 +611,14 @@ function modalWindow(e) {
 
         if (hasClass(anchor.parentNode, 'vertical')) {
 
-            addClass(q('#blackbox .slider'), 'vertical');
+            addClass(q('#full-window .slider'), 'vertical');
 
         }
 
         // Load the images in the current slide and its neighbours
-        populateLightbox(makeSlider(q('#blackbox .slider'), thisIndex(anchor)), thisIndex(anchor));
+        populateLightbox(makeSlider(q('#full-window .slider'), thisIndex(anchor)), thisIndex(anchor));
 
     }
-
-    document.getElementById('blackbox-bg').onclick = q('#blackbox .close').onclick = removeBlackbox;
 
     window.addEventListener('keydown', arrow_keys_handler, false);
 
@@ -750,9 +732,15 @@ forEach('a[href*="#"]', function(el, i) {
 
 /* Modal window: open a link inside it. Also lightbox with images */
 
-forEach('a.modal, .lightbox a', function(el, i) {
+forEach('a.modal', function(el, i) {
 
     el.onclick = modalWindow;
+
+});
+
+forEach('.lightbox a', function(el, i) {
+
+    el.onclick = openLightbox;
 
 });
 

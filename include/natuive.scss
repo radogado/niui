@@ -184,7 +184,7 @@ html, body, .row.wrap > *, nav.sub a, p, li, .lightbox a, .button, input[type=su
 
 /* Elements with double line-height */
 
-h1, h2, h3, .button.big, input[type=submit], button, input[type=submit], form .file-input, form .file-input span, #blackbox .close, .accordion > label, nav a, label[for=nav-trigger] {
+h1, h2, h3, .button.big, input[type=submit], button, input[type=submit], form .file-input, form .file-input span, #full-window .close, .accordion > label, nav a, label[for=nav-trigger] {
 	
 	line-height: $line-height * 2;
 	min-height: $line-height * 2;
@@ -1120,7 +1120,7 @@ form {
 
 /* Modal window */
 
-#blackbox {
+#full-window {
 
 	z-index: 9999;
 	background: #fff;
@@ -1137,7 +1137,7 @@ form {
 
 	}
 
-	#blackbox .close {
+	#full-window .close {
 
 		color: #fff;
 		cursor: pointer;
@@ -1153,20 +1153,20 @@ form {
 
 	}
 
-	#blackbox > * {
+	#full-window > * {
 		
 		background: #fff;
 		
 	}
 
-	#blackbox .slider, #blackbox .slider-container {
+	#full-window .slider, #full-window .slider-container, #full-window > .content {
 		
 		background: transparent;
 		height: 100%;
 		
 	}
 	
-	#blackbox-bg {
+	#full-window-bg {
 		
 		position: absolute;
 		top: 0;
@@ -1873,7 +1873,7 @@ video {
 		
 		}
 	
-	#blackbox .close {
+	#full-window .close {
 		
 		padding-left: 4em;
 		
@@ -1947,7 +1947,7 @@ video {
 
 }
 
-.slider-container.full-screen {
+.slider-container.full-window {
 	
 	top: 0px;
 	bottom: 0px;
@@ -2001,7 +2001,7 @@ video {
 
 }
 
-.slider-container.vertical.full-screen {
+.slider-container.vertical.full-window {
 	
 	height: 100%;
 
@@ -2028,7 +2028,7 @@ video {
 
 }
 
-.full-screen .slider, .full-screen .slider > * {
+.full-window .slider, .full-window .slider > * {
 	
 	height: 100%;
 
@@ -2078,7 +2078,7 @@ video {
 	
 }
 
-.full-screen .slider > img {
+.full-window .slider > img {
 	
 	padding: 0 !important;
 	
@@ -2299,7 +2299,7 @@ video {
 
 	}
 	
-	.full-screen .slider-nav.thumbnails {
+	.full-window .slider-nav.thumbnails {
 		
 		position: absolute;
 		bottom: 0;

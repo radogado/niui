@@ -334,7 +334,7 @@ function sliderKeyboard(e) {
         tag = el.tagName.toLowerCase();
         if (tag != 'input' && tag != 'textarea') {
 
-            el = q('.slider.full-screen') || q('.slider.lightbox') || q('.slider');
+            el = q('.slider.full-window') || q('.slider.lightbox') || q('.slider');
 
             switch (e.which) {
 
@@ -379,9 +379,9 @@ function makeSlider(el, current_slide) {
     container = el.previousSibling;
 
     transferClass(el, container, 'vertical');
-    transferClass(el, container, 'full-screen');
+    transferClass(el, container, 'full-window');
     
-    if (hasClass(el, 'full-screen')) {
+    if (hasClass(el, 'full-window')) {
 	    
 	    addClass(q('html'), 'nooverflow');
 
