@@ -379,7 +379,6 @@ function makeSlider(el, current_slide) {
     container = el.previousSibling;
 
     transferClass(el, container, 'vertical');
-    transferClass(el, container, 'full-window');
     
     if (hasClass(el, 'full-window')) {
 	    
