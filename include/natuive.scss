@@ -165,6 +165,8 @@ body {
 	width: 100%; 
 	-webkit-text-size-adjust: none;
 	display: table; /* Sticky footer */
+	color: #333;
+	background: #fff;
 	
 }
 
@@ -213,6 +215,12 @@ img {
 p, li, header {
 
 	margin: $line-height 0;
+
+}
+
+.align-right {
+	
+	text-align: right;
 
 }
 
@@ -267,6 +275,8 @@ nav {
 	nav a {
 		
 		position: relative;
+		padding: 0 .5em 0 0;
+		font-size: 1.3em;
 
 	}
 	
@@ -297,28 +307,31 @@ nav {
 	nav.sub a {
 	
 		display: inline-block;
-		padding: 0 .3em 0 0;
 	
 	}
 
 /* Buttons */
 
-.button, input[type=submit], button[type=submit], button[type=reset], button {
+.button, input[type=submit], button[type=submit], button[type=reset], button, a.button[href] {
 
 	text-decoration: none;
 	display: inline-block;
 	cursor: pointer;
 	width: auto;
 	word-break: break-word;
-	padding: 0 .5em;
+	padding: 0 .7em;
 	-webkit-appearance: none;
+	background: #333;
+	color: #eee;
+	-webkit-transition: all .1s linear;
+	transition: all .1s linear;
 
 }
 
-	a.button[href] {
+	.button:hover, input[type=submit]:hover, button[type=submit]:hover, button[type=reset]:hover, button:hover, a.button[href]:hover {
 		
-		background: #333;
-		color: #ddd;
+		background: #eee;
+		color: #333;
 		
 	}
 
@@ -414,7 +427,13 @@ form > * {
 
 }
 
-	form {
+	header form {
+		
+		display: inline-block;
+
+	}
+
+	#content form {
 		
 		padding-top: $line-height;
 
@@ -645,6 +664,14 @@ form > * {
 		
 	}
 	
+	header form .select {
+		
+		width: 100%;
+		display: inline-block;
+		margin: 0;
+
+	}
+	
 	select:hover {
 		
 		cursor: pointer;
@@ -705,7 +732,7 @@ form > * {
 		width: 1em;
 		height: 1em;
 		display: inline-block;
-		background: rgba(0,221,240,1);
+		background: #eee;
 		margin-top: 0;
 		line-height: ($line-height + 1)*(2/3);
 		font-size: ($line-height - 2)*(2/3);
@@ -1158,11 +1185,8 @@ ul {
 	position: relative;
 	padding: 0 .5em 0 1em;
 	cursor: pointer;
-	color: #777;
 	margin: 0;
 	text-align: left;
-	cursor: pointer;
-	background: #fff;
 	max-width: 100%;
 	
 }
@@ -1263,7 +1287,7 @@ table {
 
 	tr:nth-child(2n+1) {
 
-		background: #f4f4f4;
+		background: #fdfdfd;
 
 	}
 
@@ -1273,30 +1297,16 @@ table {
 		
 	}
 	
-	table.scroll {
-		
-		display: block;
-		overflow: scroll;
-		table-layout: auto;
-		
-	}
-
-	table.scroll td, table.scroll th {
-		
-		word-break: normal;
-	
-	}
-	
 	div.table {
 		
 		overflow-x: auto;
-	    scrollbar-3dlight-color:grey;
-	    scrollbar-arrow-color:grey;
-	    scrollbar-base-color:transparent;
-	    scrollbar-darkshadow-color:grey;
-	    scrollbar-face-color:transparent;
-	    scrollbar-highlight-color:transparent;
-	    scrollbar-shadow-color:transparent;
+	    scrollbar-3dlight-color: grey;
+	    scrollbar-arrow-color: grey;
+	    scrollbar-base-color: transparent;
+	    scrollbar-darkshadow-color: grey;
+	    scrollbar-face-color: transparent;
+	    scrollbar-highlight-color: transparent;
+	    scrollbar-shadow-color: transparent;
 	
 	}
 	
@@ -1308,7 +1318,6 @@ table {
 	
 	table tr:hover td {
 		
-		color: #333;
 		background: #ddd;
 
 	}
@@ -1640,7 +1649,7 @@ video {
 			width: 100%;
 			font-size: 1.5em;
 			background-position: 0 5px;
-			margin-left: 0em;
+			margin-left: 0;
 			
 		}
 		
@@ -1988,7 +1997,7 @@ video {
 		background: #bbb;
 		color: #fff;
 		transition: background-color .2s linear;
-		line-height: .7em;
+		line-height: 1em;
 		-webkit-box-sizing: content-box;
 		-moz-box-sizing: content-box;
 		box-sizing: content-box;

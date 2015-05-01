@@ -143,20 +143,13 @@ nav form#language-selector select {
 
 }
 
-.button, input[type=submit], button[type=submit], button[type=reset], button {
+.button, input[type=submit], button[type=submit], button[type=reset], button, a.button[href] {
 
 	font-weight: bold;
-	color: #555;
+	background: rgb(0,221,240);
+	color: #fff;
 
 }
-
-	a.button[href] {
-		
-		background: rgb(0,221,240);
-		color: #fff;
-		
-	}
-
 
 	.button:active, input[type=submit]:active {
 
@@ -266,3 +259,8 @@ header h1, header p {
 
 }
 
+	.checkbox-icon {
+
+		background: rgba(0,221,240,1);
+
+}
