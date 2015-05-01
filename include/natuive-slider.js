@@ -15,13 +15,13 @@ function sliderElement(e) {
 
     el = eventElement(e);
 
-    if (hasClass(el, 'slider-container')) {
+    if (hasClass(el, 'slider-wrap')) {
 
         return el.querySelector('.slider');
 
     } else {
 
-        container = parentByClass(el, 'slider-container');
+        container = parentByClass(el, 'slider-wrap');
         return container && container.querySelector('.slider');
 
     }
@@ -150,7 +150,7 @@ function mouseEvents(el, toggle) {
 // Function from David Walsh: http://davidwalsh.name/css-animation-callback
 function whichAnimationEvent(){
 
-	el = document.createElement("fakeelement");
+	el = document.createElement('temp');
 	
 	var animations = {
 	
@@ -188,7 +188,7 @@ function slide(el, method, index_number) {
 
     }
 
-    var slider = parentByClass(el, 'slider-container').querySelector('.slider');
+    var slider = parentByClass(el, 'slider-wrap').querySelector('.slider');
 
 	index = old_index = thisIndex(slider.parentNode.querySelector('.slider-nav a.active'));
 
@@ -251,22 +251,13 @@ function slide(el, method, index_number) {
 	    
 		if (!index_number) {
 	
-			addClass(q('html'), 'disable-hover');
+			addClass(q('html'), 'no-hover');
 		
 		}
 
 		addClass(slider.children[index], 'visible');
 		addClass(slider.children[old_index], 'visible');
 
-/*
-	    i = Math.min(old_index, index) - 1;
-	    while ( i++ < Math.abs(index-old_index) ) {
-	
-	        addClass(slider.children[i], 'visible');
-	
-	    }
-*/
-		
 		var styles = document.createElement('style');
 		styles.innerHTML = '@' + prefix + 'keyframes slide-index { from { ' + prefix + 'transform: ' + translate_from + '; } to { ' + prefix + 'transform: ' + translate_to + '; }}';
 		document.getElementsByTagName('head')[0].appendChild(styles);
@@ -287,7 +278,7 @@ function slide(el, method, index_number) {
 			slider.style.cssText = prefix + 'transform: ' + (hasClass(slider, 'vertical') ? 'translateY' : 'translateX') + '(-' + index + '00%);';
 			q('.slide-index-style').outerHTML = '';
 			
-        	removeClass(q('html'), 'disable-hover');
+        	removeClass(q('html'), 'no-hover');
             
             if (hasClass(slider, 'lightbox')) {
 				
@@ -375,18 +366,12 @@ function makeSlider(el, current_slide) {
 
     }
     addClass(el, 'slider');
-    el.insertAdjacentHTML('beforebegin', '<div class="slider-container"></div>'); // Create a container and move the slider in it
+    el.insertAdjacentHTML('beforebegin', '<div class=slider-wrap></div>'); // Create a container and move the slider in it
     container = el.previousSibling;
 
     transferClass(el, container, 'vertical');
     
-    if (hasClass(el, 'full-window')) {
-	    
-	    addClass(q('html'), 'nooverflow');
-
-    }
-
-    container.insertAdjacentHTML('afterbegin', '<a class="slider-arrow left"></a>' + el.outerHTML + '<a class="slider-arrow right"></a><div class="slider-nav"><div><span></span></div></div>');
+    container.insertAdjacentHTML('afterbegin', '<a class="slider-arrow left"></a>' + el.outerHTML + '<a class="slider-arrow right"></a><div class=slider-nav><div><span></span></div></div>');
     container.nextSibling.outerHTML = '';
     el = container.querySelector('.slider');
 
@@ -407,7 +392,7 @@ function makeSlider(el, current_slide) {
             slider_nav = el.parentNode.querySelector('.slider-nav');
             addClass(slider_nav, 'thumbnails');
             addClass(slider_nav.querySelector('span'), 'row');
-            slider_nav.querySelector('span').insertAdjacentHTML('beforeend', (!i ? '<a class="active">' : '<a>') + el.children[i].querySelector('.thumbnail').innerHTML + '</a>');
+            slider_nav.querySelector('span').insertAdjacentHTML('beforeend', (!i ? '<a class=active>' : '<a>') + el.children[i].querySelector('.thumbnail').innerHTML + '</a>');
             if (hasClass(el, 'vertical')) {
 	            
 	            addClass(el.parentNode, 'vertical-thumbnails');
@@ -416,7 +401,7 @@ function makeSlider(el, current_slide) {
 
         } else {
 
-            container.querySelector('.slider-nav span').insertAdjacentHTML('beforeend', (!i ? '<a class="active">' : '<a>') + (i + 1) + '</a>');
+            container.querySelector('.slider-nav span').insertAdjacentHTML('beforeend', (!i ? '<a class=active>' : '<a>') + (i + 1) + '</a>');
 
         }
 
@@ -428,7 +413,7 @@ function makeSlider(el, current_slide) {
 
     }
 
-    container.querySelector('.slider-arrow.left').onclick = function(e) {
+    container.querySelector('.slider-arrow').onclick = function(e) {
 
         slide(eventElement(e), 'left');
 

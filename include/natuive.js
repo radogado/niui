@@ -1,42 +1,16 @@
 /* natUIve by rado.bg */
 /* DOM functions via http://youmightnotneedjquery.com */
-function addClass_classList(el, className) {
-
-	el.classList.add(className);
-
-}
-
-function addClass_className(el, className) {
-
-    el.className += ' ' + className;
-
-}
-
 function addClass(el, className) {
 
     if (el.classList) {
 		
         el.classList.add(className);
-        addClass = addClass_classList;
 
     } else {
 
         el.className += ' ' + className;
-        addClass = addClass_className;
 
     }
-
-}
-
-function removeClass_classList(el, className) {
-
-    el.classList.remove(className);
-
-}
-
-function removeClass_className(el, className) {
-
-    el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
 
 }
 
@@ -45,26 +19,12 @@ function removeClass(el, className) {
     if (el.classList) {
 
         el.classList.remove(className);
-        removeClass = removeClass_classList;
 
     } else {
 
-        removeClass_className(el, className);
-        removeClass = removeClass_className;
+	    el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
 
     }
-
-}
-
-function hasClass_classList(el, className) {
-
-    return el.classList.contains(className);
-
-}
-
-function hasClass_className(el, className) {
-
-    return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
 
 }
 
@@ -72,13 +32,11 @@ function hasClass(el, className) {
 	
 	if (el.classList) {
 		
-		hasClass = hasClass_classList;
 		return el.classList.contains(className);
 
 	} else {
 		
-		hasClass = hasClass_className;
-		return hasClass_className(el, className);
+	    return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
 			
 	}
 	
@@ -108,28 +66,14 @@ function transferClass(el_origin, el_target, className) {
 
 }
 
-function eventElement_e(e) {
-
-    return e.target;
-
-}
-
-function eventElement_window(e) {
-
-    return window.event.srcElement;
-
-}
-
 function eventElement(e) {
 	
 	if (e) {
 		
-		eventElement = eventElement_e;
 		return e.target;
 
 	} else {
 		
-		eventElement = eventElement_window;
 		return window.event.srcElement;
 		
 	}
@@ -402,11 +346,11 @@ function scrollTo(to, callback) {
 	
     change = to - (document.documentElement.scrollTop || document.body.scrollTop);
 
-	addClass(q('html'), 'disable-hover');
+	addClass(q('html'), 'no-hover');
     q('html').addEventListener('transitionend', function(e) {
 		
 		q('html').removeEventListener('transitionend', arguments.callee);
-		removeClass(q('html'), 'disable-hover');
+		removeClass(q('html'), 'no-hover');
 		q('html').style.cssText = '';
 		callback();
 
@@ -431,41 +375,25 @@ var arrow_keys_handler = function(e) {
 
 };
 
+function populateLightboxItem(slider, i) {
+	
+	img = slider.children[i].querySelector('img');
+
+	if (!img.src) {
+		
+		img.src = img.getAttribute('data-src');
+
+	}
+
+}
+
 function populateLightbox(slider, i) {
 	
-	if (!slider.children[i].querySelector('img').src) {
+	populateLightboxItem(slider, i);
 		
-		slider.children[i].querySelector('img').src = slider.children[i].querySelector('img').getAttribute('data-src');
+	populateLightboxItem(slider, (i > 0) ? i-1 : slider.children.length-1);
 
-	}
-	if (i > 0) {
-	
-		y = i-1;
-		
-	} else {
-		
-		y = slider.children.length-1;
-	
-	}
-	if (!slider.children[y].querySelector('img').src) {
-		
-		slider.children[y].querySelector('img').src = slider.children[y].querySelector('img').getAttribute('data-src');
-
-	}
-	if (i < slider.children.length-1) {
-		
-		i = i + 1;
-	
-	} else {
-		
-		i = 0;
-	
-	}
-	if (!slider.children[i].querySelector('img').src) {
-		
-		slider.children[i].querySelector('img').src = slider.children[i].querySelector('img').getAttribute('data-src');
-
-	}
+	populateLightboxItem(slider, (i < slider.children.length-1) ? i+1 : 0);
 
 }
 
@@ -473,10 +401,10 @@ var external = RegExp('^((f|ht)tps?:)?//(?!' + location.host + ')');
 
 function closeFullWindow() {
 	
-    var full_window = document.getElementById('full-window');
+    full_window = document.getElementById('full-window');
     if (full_window) {
 
-        if (full_window.querySelector('.slider')) { // Lightbox
+        if (full_window.querySelector('.slider')) {
 
             removeClass(full_window.querySelector('.slider'), 'slider');
             var slider = q('.slider'); // Make another slider active, if any
@@ -517,7 +445,7 @@ function modalWindow(e) {
 
     // Modal window of an external file or Lightbox
 
-	openFullWindow('Loading...');
+	openFullWindow('...');
 
     el = eventElement(e);
 
@@ -730,13 +658,15 @@ forEach('a[href*="#"]', function(el, i) {
 
 });
 
-/* Modal window: open a link inside it. Also lightbox with images */
+/* Modal window: open a link inside it. */
 
 forEach('a.modal', function(el, i) {
 
     el.onclick = modalWindow;
 
 });
+
+/* Also lightbox with images */
 
 forEach('.lightbox a', function(el, i) {
 
@@ -787,8 +717,8 @@ function submitForm(e) {
 
         if (
             (el.querySelector('input, select, textarea') && !el.querySelector('input, select, textarea').value) ||
-            (el.querySelector('input[type="checkbox"]') && !el.querySelector('input[type="checkbox"]').checked) ||
-            (el.querySelector('input[type="radio"]') && !el.querySelector('input[type="radio"]').checked)
+            (el.querySelector('input[type=checkbox]') && !el.querySelector('input[type=checkbox]').checked) ||
+            (el.querySelector('input[type=radio]') && !el.querySelector('input[type=radio]').checked)
         ) {
 
             ready_to_submit = false;
@@ -856,7 +786,7 @@ function submitForm(e) {
 
     };
 
-    modalWindow('<div id="formresult">Submitting form...</div>');
+    modalWindow('<div id=formresult>Submitting form...</div>');
 
     r.send(new FormData(el));
 
@@ -878,17 +808,17 @@ function updateFileInput(e) {
 
 }
 
-forEach('input[type="file"]', function(el, i) {
+forEach('input[type=file]', function(el, i) {
 
     el.onchange = updateFileInput;
 
 });
 
-if (document.getElementById('language-selector')) {
+if (q('#language-selector')) {
 
     q('#language-selector select').onchange = function(e) {
 
-        document.getElementById('language-selector').submit();
+        q('#language-selector').submit();
 
     };
 
@@ -938,13 +868,13 @@ forEach('.accordion > label', function(el, i) {
 
 if ('ontouchstart' in window) { // Touch device: remove iOS sticky hover state
 
-    document.body.insertAdjacentHTML('beforeend', '<style> a[href]:hover { color: inherit; } .tool:hover .tip { display: none; } </style>');
+	addClass(html, 'touch-device');
 
 }
 
-if (document.getElementById('nav-trigger')) {
+if (q('#nav-trigger')) {
 	
-	document.getElementById('nav-trigger').onchange = function(e) {
+	q('#nav-trigger').onchange = function(e) {
 	
 	    toggleClass(q('body'), 'semi-transparent');
 	
@@ -954,17 +884,22 @@ if (document.getElementById('nav-trigger')) {
 
 function getStyle(oElm, strCssRule){ // Thanks http://robertnyman.com/2006/04/24/get-the-rendered-style-of-an-element/
 
-	var strValue = "";
+	strValue = '';
 
-	if(document.defaultView && document.defaultView.getComputedStyle){
+	if(document.defaultView && document.defaultView.getComputedStyle) {
+
 		strValue = document.defaultView.getComputedStyle(oElm, "").getPropertyValue(strCssRule);
+
 	}
-	else if(oElm.currentStyle){
+	else if(oElm.currentStyle) {
+
 		strCssRule = strCssRule.replace(/\-(\w)/g, function (strMatch, p1){
 			return p1.toUpperCase();
 		});
 		strValue = oElm.currentStyle[strCssRule];
+
 	}
+
 	return strValue;
 
 }
