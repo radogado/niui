@@ -218,10 +218,28 @@ p, li, header {
 
 }
 
+header .row {
+	
+	padding: 0;
+
+}
+
 .align-right {
 	
 	text-align: right;
 
+}
+
+.align-middle, .align-middle > * {
+	
+	vertical-align: middle;
+	
+}
+
+.align-top, .align-top > * {
+	
+	vertical-align: top;
+	
 }
 
 a[href] {
@@ -357,6 +375,7 @@ nav {
 		padding: 0 1em;
 		margin: $line-height 0;
 		height: $line-height*2;
+		font-size: 1.2em;
 
 	}
 	
