@@ -1417,12 +1417,6 @@ video {
 
 	}
 
-	header > .row:first-child div {
-		
-		text-align: right;
-		
-	}
-	
 	.row.wrap > * {
 		
 		width: 100% !important;
@@ -1591,21 +1585,34 @@ video {
 		
 	}
 
-	header > nav {
+	header > .row:first-child div {
 		
-		position: fixed;
-		top: 0;
-		left: 0;
-		background: transparent;
-		z-index: 99999;
-		width: 100%;
-		max-height: 100%;
-		overflow: auto;
-
+		text-align: right;
+		
 	}
+	
+		header > nav {
+			
+			position: fixed;
+			top: 0;
+			left: 0;
+			background: transparent;
+			z-index: 99999;
+			width: 100%;
+			max-height: 100%;
+			overflow: auto;
+	
+		}
+
 		nav li {
 			
 			margin: 0;
+
+		}
+		
+		header nav.sub li a {
+			
+			padding: .5em 0;
 
 		}
 		
@@ -1621,12 +1628,6 @@ video {
 			
 		}
 		
-		nav form#language-selector select {
-			
-			margin-left: 1em;
-			
-		}
-	
 		header > nav .row * {
 	
 			background: #fff;
@@ -1645,17 +1646,15 @@ video {
 		label[for=nav-trigger] {
 			
 			display: block;
-			left: 0;
-			top: 0;
-			width: 1.1em;
+			width: 1em;
 			height: $line-height;
+			line-height: $line-height*1.6;
 			font-size: 3em;
-			margin: 0;
+			margin: 0 0 .1em 0;
 			text-align: center;
 			max-width: none;
 			overflow: hidden;
 			background: #fff;
-			position: fixed;
 			z-index: 99999;
 			-webkit-box-shadow: 1px 1px 2px #333;
 			box-shadow: 1px 1px 2px #333;
@@ -1668,6 +1667,12 @@ video {
 			width: 100%;
 			font-size: 1.5em;
 			background-position: 0 5px;
+			margin-left: 0;
+			
+		}
+
+		form#language-selector select {
+			
 			margin-left: 0;
 			
 		}
