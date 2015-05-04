@@ -941,8 +941,8 @@ form > * {
 		  border: 0;
 		}
 		input[type=text], input[type=email], input[type=url] { padding-top: 0; }
-		form .file-input span, select { margin-top: -1px; }
-		input[type=file], form.flat input[type=file] { padding-left: 100%; margin-top: -100%; }
+		form .file-input span { margin-top: -1px; }
+		input[type=file], form.flat input[type=file] { padding-left: 100%; margin-top: -$line-height; }
 
 	}
 
