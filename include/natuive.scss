@@ -1797,6 +1797,9 @@ video {
 	-ms-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 
+	-webkit-transition: none;
+	transition: none;
+
 }
 
 .slider-wrap .slider {
@@ -1851,13 +1854,13 @@ video {
 
 }
 
-.slider-wrap .slider.slide-index > *:not(.visible) {
+.slider-wrap .slider.sliding > *:not(.visible) {
 
 	display: none;
 
 }
 
-.slider-wrap .slider.slide-index {
+.slider-wrap .slider.sliding {
 
 	-webkit-transform: none !important;
 
@@ -2152,10 +2155,10 @@ video {
 
 }
 
-.slide-index {
+.sliding {
 
-	-webkit-animation-name: slide-index;
-	animation-name: slide-index;
+	-webkit-animation-name: sliding;
+	animation-name: sliding;
 	
 }
 

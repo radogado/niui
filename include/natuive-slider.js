@@ -233,7 +233,6 @@ function slide(el, method, index_number) {
 	}
 
     removeClass(slider.parentNode.querySelector('.slider-nav .active'), 'active');
-    addClass(slider.parentNode.querySelector('.slider-nav span').children[index], 'active');
 
     if (typeof document.body.style.transition == 'string') { // CSS transition-enabled browser...
 
@@ -255,28 +254,23 @@ function slide(el, method, index_number) {
 		
 		}
 
+		var styles = document.createElement('style');
+		styles.innerHTML = '@' + prefix + 'keyframes sliding { from { ' + prefix + 'transform: ' + translate_from + '; } to { ' + prefix + 'transform: ' + translate_to + '; }}';
+		document.getElementsByTagName('head')[0].appendChild(styles);
+		addClass(styles, 'sliding-style');
 		addClass(slider.children[index], 'visible');
 		addClass(slider.children[old_index], 'visible');
-
-		var styles = document.createElement('style');
-		styles.innerHTML = '@' + prefix + 'keyframes slide-index { from { ' + prefix + 'transform: ' + translate_from + '; } to { ' + prefix + 'transform: ' + translate_to + '; }}';
-		document.getElementsByTagName('head')[0].appendChild(styles);
-		addClass(styles, 'slide-index-style');
-		addClass(slider, 'slide-index');
+		addClass(slider, 'sliding');
 
         slider.addEventListener(animationEvent, function(e) { // On slide end
 
             slider.removeEventListener(animationEvent, arguments.callee);
 
-			forEach ( slider.querySelectorAll('.visible'), function (el) {
-				
-				removeClass(el, 'visible');
-				
-			});
-			addClass(slider.children[index], 'visible');
-			removeClass(slider,'slide-index');
+			removeClass(slider.children[index], 'visible');
+			removeClass(slider.children[old_index], 'visible');
+			removeClass(slider,'sliding');
 			slider.style.cssText = prefix + 'transform: ' + (hasClass(slider, 'vertical') ? 'translateY' : 'translateX') + '(-' + index + '00%);';
-			q('.slide-index-style').outerHTML = '';
+			q('.sliding-style').outerHTML = '';
 			
         	removeClass(q('html'), 'no-hover');
             
@@ -288,6 +282,7 @@ function slide(el, method, index_number) {
 			document.onkeyup = sliderKeyboard;
             mouseEvents(slider);
             sliding = 0;
+			addClass(slider.parentNode.querySelector('.slider-nav span').children[index], 'active');
 
         }, false);
 
@@ -302,6 +297,8 @@ function slide(el, method, index_number) {
         }
         
         sliding = 0;
+		addClass(slider.parentNode.querySelector('.slider-nav span').children[index], 'active');
+
         mouseEvents(slider);
 
     }
@@ -373,8 +370,16 @@ function makeSlider(el, current_slide) {
     
     container.insertAdjacentHTML('afterbegin', '<a class="slider-arrow left"></a>' + el.outerHTML + '<a class="slider-arrow right"></a><div class=slider-nav><div><span></span></div></div>');
     container.nextSibling.outerHTML = '';
-    el = container.querySelector('.slider');
 
+	if (hasClass(el, 'full-window')) {
+		
+		openFullWindow(container.outerHTML);
+		container = q('#full-window .slider-wrap');
+		
+	}
+
+    el = container.querySelector('.slider');
+	
     // Generate controls
 
     for (var i = 0; i < el.children.length; i++) {
@@ -431,7 +436,7 @@ function makeSlider(el, current_slide) {
 		
     } else {
     
-	    addClass(el.children[0], 'visible');
+// 	    addClass(el.children[0], 'visible');
     
     }
 
@@ -471,7 +476,7 @@ function makeSlider(el, current_slide) {
         setTimeout(autoSlide, 1000 * el.getAttribute('data-autoslide'));
 
     }
-
+	
     return el;
 
 }
