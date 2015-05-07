@@ -142,6 +142,11 @@ function mouseEvents(el, toggle) {
     } else {
 
         el.parentNode.addEventListener('wheel', mouseWheelHandler);
+        el.parentNode.querySelector('.slider-nav').addEventListener('wheel', function (e) {
+
+	        // Scroll as usual instead of sliding
+
+        });
 
     }
 
@@ -259,14 +264,12 @@ function slide(el, method, index_number) {
 		document.getElementsByTagName('head')[0].appendChild(styles);
 		addClass(styles, 'sliding-style');
 		addClass(slider.children[index], 'visible');
-		addClass(slider.children[old_index], 'visible');
 		addClass(slider, 'sliding');
 
         slider.addEventListener(animationEvent, function(e) { // On slide end
 
             slider.removeEventListener(animationEvent, arguments.callee);
 
-			removeClass(slider.children[index], 'visible');
 			removeClass(slider.children[old_index], 'visible');
 			removeClass(slider,'sliding');
 			slider.style.cssText = prefix + 'transform: ' + (hasClass(slider, 'vertical') ? 'translateY' : 'translateX') + '(-' + index + '00%);';
@@ -362,7 +365,17 @@ function makeSlider(el, current_slide) {
         return el;
 
     }
+
     addClass(el, 'slider');
+
+	if (hasClass(el, 'full-window')) {
+		
+		openFullWindow(el.parentNode.outerHTML);
+		el.outerHTML = '';
+		el = q('#full-window .slider');
+		
+	}
+
     el.insertAdjacentHTML('beforebegin', '<div class=slider-wrap></div>'); // Create a container and move the slider in it
     container = el.previousSibling;
 
@@ -370,13 +383,6 @@ function makeSlider(el, current_slide) {
     
     container.insertAdjacentHTML('afterbegin', '<a class="slider-arrow left"></a>' + el.outerHTML + '<a class="slider-arrow right"></a><div class=slider-nav><div><span></span></div></div>');
     container.nextSibling.outerHTML = '';
-
-	if (hasClass(el, 'full-window')) {
-		
-		openFullWindow(container.outerHTML);
-		container = q('#full-window .slider-wrap');
-		
-	}
 
     el = container.querySelector('.slider');
 	
@@ -430,14 +436,12 @@ function makeSlider(el, current_slide) {
 
     }
 
+    addClass(el.children[0], 'visible');
+
     if (current_slide) {
 
 		slide(el, 'index', current_slide);
 		
-    } else {
-    
-// 	    addClass(el.children[0], 'visible');
-    
     }
 
     document.onkeyup = sliderKeyboard;

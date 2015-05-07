@@ -521,7 +521,7 @@ form > * {
 		width: 100%;
 		float: right;
 		outline: none;
-		border: 1px solid transparent;
+		border: 1px dotted transparent;
 
 	}
 
@@ -545,7 +545,7 @@ form > * {
 
 		input:focus, select:focus, textarea:focus {
 			
-			border-color: #666;
+			border-color: #bbb;
 			
 		}
 
@@ -576,7 +576,7 @@ form > * {
 	textarea {
 		
 		margin: -$line-height/2 0 $line-height/2 0;
-		border-bottom: 1px solid transparent;
+		border-bottom: 1px dotted transparent;
 		min-height: $line-height*3;
 		padding-top: .85em;
 
@@ -753,7 +753,7 @@ form > * {
 		color: #333;
 		margin-right: .5em;
 		display: none;
-		border: 1px solid transparent;
+		border: 1px dotted transparent;
 
 	}
 
@@ -773,7 +773,7 @@ form > * {
 		cursor: pointer;
 		opacity: 0;
 		padding: 0;
-		border: 1px solid transparent;
+		border: 1px dotted transparent;
 		left: 0;
 		outline: none;
 		float: left;
@@ -804,7 +804,7 @@ form > * {
 
 	input[type=checkbox]:focus + .checkbox-icon, input[type=radio]:focus + .checkbox-icon {
 		
-		border: 1px solid #666;
+		border: 1px dotted #666;
 
 	}
 
@@ -844,13 +844,13 @@ form > * {
 		z-index: 0;
 		margin: 0;
 		width: 100%;
-		border: 1px solid transparent;
+		border: 1px dotted transparent;
 
 	}
 	
 	input[type=file]:focus + span {
 		
-		border-color: #666;
+		border-color: #bbb;
 
 	}
 
@@ -1854,6 +1854,13 @@ video {
 
 }
 
+.slider.vertical > * {
+	
+	display: block;
+	height: 100%;
+
+}
+
 .slider-wrap .slider.sliding > *:not(.visible) {
 
 	display: none;
@@ -1882,7 +1889,8 @@ video {
 
 	max-width: none;
 	width: auto;
-	
+	max-height: 100%;
+
 }
 
 #full-window .slider > img {
