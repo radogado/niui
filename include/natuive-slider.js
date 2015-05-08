@@ -113,7 +113,7 @@ initScroll = function(e, delta) {
 
     last_animation = timeNow;
 
-    slide(sliderElement(event), deltaOfInterest < 0 ? 'right' : 'left');
+    slide(sliderElement(e), deltaOfInterest < 0 ? 'right' : 'left');
 
 }
 
@@ -121,8 +121,9 @@ mouseWheelHandler = function(e) {
 
     deltaX = (e.deltaX * -10) || e.wheelDeltaX || -e.detail;
     deltaY = (e.deltaY * -10) || e.wheelDeltaY || -e.detail;
-
-    if (Math.abs(hasClass(sliderElement(event), 'vertical') ? deltaY : deltaX) > 50) {
+console.log(deltaX);
+console.log(deltaY);
+    if (Math.abs(hasClass(sliderElement(e), 'vertical') ? deltaY : deltaX) > 50) { // Why no FF?
 
         e.preventDefault();
         initScroll(e, (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY);
@@ -452,16 +453,16 @@ function makeSlider(el, current_slide) {
 
         swipeEvents(el.parentNode);
 
-        el.parentNode.addEventListener('swipeLeft', function(event) {
+        el.parentNode.addEventListener('swipeLeft', function(e) {
 
-            el = sliderElement(event);
+            el = sliderElement(e);
             slide(el, 'right');
 
         });
 
-        el.parentNode.addEventListener('swipeRight', function(event) {
+        el.parentNode.addEventListener('swipeRight', function(e) {
 
-            el = sliderElement(event);
+            el = sliderElement(e);
             slide(el, 'left');
 
         });
