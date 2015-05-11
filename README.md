@@ -27,6 +27,7 @@ natUIve: mostly native front-end framework
 - 'Back to top' button
 - Animated anchor links
 - Language selector
+- Video
 - URI parameters relay to links*
 - Arabic layout with one CSS line
 - Functional without JS and accessible without CSS*

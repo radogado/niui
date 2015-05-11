@@ -1,8 +1,10 @@
-@charset 'utf-8';
 /* natUIve – rado.bg */
+@charset 'utf-8';
 
 $font-size: 15px;
 $line-height: 22px;
+
+@import 'theme-variables'; /* Rewrite base variables here; add theme CSS below this one in <head> */
 	
 /* Grid */
 
@@ -211,6 +213,8 @@ img {
 	border: none;
 	
 }
+
+
 
 p, li, header {
 
@@ -950,7 +954,7 @@ form > * {
 
 #full-window {
 
-	z-index: 9999;
+	z-index: 999999;
 	background: #fff;
 	background: rgba(255,255,255,.97);
 	overflow-y: scroll;
@@ -1302,7 +1306,7 @@ table {
 
 	}
 
-	tr, td, th {
+	tr, td, th, iframe {
 		
 		border: none;
 		
@@ -1419,6 +1423,12 @@ video {
 		
 		padding: $line-height/4 0;
 
+	}
+	
+	header {
+		
+		margin: 0;
+		
 	}
 
 	label, form.flat label {

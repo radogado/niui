@@ -121,8 +121,7 @@ mouseWheelHandler = function(e) {
 
     deltaX = (e.deltaX * -10) || e.wheelDeltaX || -e.detail;
     deltaY = (e.deltaY * -10) || e.wheelDeltaY || -e.detail;
-console.log(deltaX);
-console.log(deltaY);
+
     if (Math.abs(hasClass(sliderElement(e), 'vertical') ? deltaY : deltaX) > 50) { // Why no FF?
 
         e.preventDefault();
@@ -153,33 +152,6 @@ function mouseEvents(el, toggle) {
 
 }
 
-// Function from David Walsh: http://davidwalsh.name/css-animation-callback
-function whichAnimationEvent(){
-
-	el = document.createElement('temp');
-	
-	var animations = {
-	
-		'animation'      : 'animationend',
-		'OAnimation'     : 'oAnimationEnd',
-		'MozAnimation'   : 'animationend',
-		'WebkitAnimation': 'webkitAnimationEnd'
-	
-	}
-	
-	for (t in animations){
-	
-		if (el.style[t] !== undefined){
-
-			return animations[t];
-
-		}
-	
-	}
-
-}
-
-var animationEvent = whichAnimationEvent();
 var	prefix = animationEvent == 'webkitAnimationEnd' ? '-webkit-' : ''; 
 var slide_duration = 400;
 

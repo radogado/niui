@@ -329,6 +329,46 @@ function relayParameters() {
 
 }
 
+temp = document.createElement('temp');
+
+transitions = {
+
+	'transition'		: 'transitionend',
+	'OTransition'		: 'oTransitionEnd',
+	'MozTransition'		: 'transitionend',
+	'WebkitTransition'	: 'webkitTransitionEnd'
+
+}
+
+animations = {
+
+	'animation'      	: 'animationend',
+	'OAnimation'     	: 'oAnimationEnd',
+	'MozAnimation'   	: 'animationend',
+	'WebkitAnimation'	: 'webkitAnimationEnd'
+
+}
+
+for(t in transitions){
+
+    if (temp.style[t] !== undefined) {
+
+        var transitionEvent = transitions[t];
+
+    }
+
+}
+
+for(t in animations){
+
+    if (temp.style[t] !== undefined) {
+
+        var animationEvent = animations[t];
+
+    }
+
+}
+
 function scrollTo(to, callback) {
 	
 	if (typeof document.body.style.transition != 'string') {
@@ -347,9 +387,9 @@ function scrollTo(to, callback) {
     change = to - (document.documentElement.scrollTop || document.body.scrollTop);
 
 	addClass(q('html'), 'no-hover');
-    q('html').addEventListener('transitionend', function(e) {
-		
-		q('html').removeEventListener('transitionend', arguments.callee);
+    q('html').addEventListener(transitionEvent, function(e) {
+
+		q('html').removeEventListener(transitionEvent, arguments.callee);
 		removeClass(q('html'), 'no-hover');
 		q('html').style.cssText = '';
 		callback();
@@ -613,7 +653,7 @@ function animateAnchors(e) {
         return;
 
     }
-    var el = e.target || e.srcElement;
+    el = e.target || e.srcElement;
 
     while (typeof el.href == 'undefined') {
 

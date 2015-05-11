@@ -1,5 +1,4 @@
-$font-size: 15px;
-$line-height: 22px;
+@import 'theme-variables';
 
 body {
 
@@ -10,38 +9,9 @@ body {
 
 }
 
-h1 {
-	
-	font-size: 2.67em;
-}
-
-h2 {
-	
-	font-size: 2.134em;
-
-}
-
-h3, nav, nav a, nav form {
-	
-	font-size: 1.6em;
-
-}
-
-h4 {
-	
-	font-size: 1.2em;
-
-}
-
 li > h4 {
 	
 	margin-top: -1px;
-
-}
-
-h5, nav.sub {
-	
-	font-size: 1em;
 
 }
 
@@ -75,7 +45,6 @@ nav a {
 	color: #666;
 	text-transform: uppercase;
 	text-decoration: none;
-	padding: 0 $line-height/2 0 0;
 
 }
 
@@ -106,6 +75,7 @@ nav a {
 		
 	}
 
+/*
 nav form {
 
 	display: inline-block;
@@ -113,21 +83,28 @@ nav form {
 
 }
 
-nav form#language-selector .select {
+form#language-selector {
+
+	padding-top: 2.3em;
+	
+}
+
+form#language-selector .select {
 
 	background: url(../images/country_select_globes.png) center left no-repeat;
-	background-position: 0 3px;
+	background-position: 0 .7em;
 
 }
 
-nav form#language-selector select {
+form#language-selector select {
 
-	font-size: .9em;
+	font-size: 2em;
 	border: none;
 	-moz-appearance: window;
 	vertical-align: middle;
 	background: transparent;
 	padding-left: 1.5em;
+	padding-right: 0;
 
 }
 
@@ -142,6 +119,7 @@ nav form#language-selector select {
 	font-size: .8em;
 
 }
+*/
 
 .button, input[type=submit], button[type=submit], button[type=reset], button, a.button[href] {
 
@@ -192,25 +170,20 @@ nav form#language-selector select {
 	}
 	/* Top */
 	
-	header .head-right {
+	header .align-right {
 		
 		text-align: right;
 		vertical-align: top;
 		
 	}
 		
-		header .head-right nav a {
-			
-			padding-right: 0;
-			
-		}
-	
 		header img {
 			
 			margin: 0;
 			
 		}
 		
+/*
 		header form {
 			
 			display: inline-block;
@@ -224,6 +197,7 @@ nav form#language-selector select {
 			height: $line-height;
 	
 		}
+*/
 		
 		header img.logo {
 			
@@ -259,8 +233,18 @@ header h1, header p {
 
 }
 
-	.checkbox-icon {
+.checkbox-icon {
 
-		background: rgba(0,221,240,1);
+	background: rgba(0,221,240,1);
+
+}
+
+@media screen and (max-width: 640px) {
+	
+	nav.sub li:not(:first-child):before {
+		
+		content: none;
+
+	}
 
 }
