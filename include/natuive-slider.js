@@ -152,6 +152,21 @@ function mouseEvents(el, toggle) {
 
 }
 
+function endSlide (slider, index) {
+	
+    if (hasClass(slider, 'lightbox')) {
+		
+		populateLightbox(slider, index);
+        
+    }
+    
+    sliding = 0;
+	addClass(slider.parentNode.querySelector('.slider-nav span').children[index], 'active');
+    mouseEvents(slider);
+	document.onkeyup = sliderKeyboard;
+	
+}
+
 var	prefix = animationEvent == 'webkitAnimationEnd' ? '-webkit-' : ''; 
 var slide_duration = 400;
 
@@ -172,6 +187,12 @@ function slide(el, method, index_number) {
 
     if (method == 'index') {
 
+		if (index == thisIndex(el)) { /* Don't slide to current slide */
+			
+			endSlide (slider, index);
+			return;
+
+		}
         index = index_number || thisIndex(el);
     
     }
@@ -250,15 +271,7 @@ function slide(el, method, index_number) {
 			
         	removeClass(q('html'), 'no-hover');
             
-            if (hasClass(slider, 'lightbox')) {
-				
-				populateLightbox(slider, index);
-	            
-            }
-			document.onkeyup = sliderKeyboard;
-            mouseEvents(slider);
-            sliding = 0;
-			addClass(slider.parentNode.querySelector('.slider-nav span').children[index], 'active');
+			endSlide(slider, index);
 
         }, false);
 
@@ -266,16 +279,7 @@ function slide(el, method, index_number) {
 
 		slider.style.cssText = (hasClass(slider, 'vertical') ? 'top' : 'left') + ': -' + index + '00%';
 
-        if (hasClass(slider, 'lightbox')) {
-			
-			populateLightbox(slider, index);
-            
-        }
-        
-        sliding = 0;
-		addClass(slider.parentNode.querySelector('.slider-nav span').children[index], 'active');
-
-        mouseEvents(slider);
+		endSlide(slider, index);
 
     }
 

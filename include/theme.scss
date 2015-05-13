@@ -75,51 +75,14 @@ nav a {
 		
 	}
 
-/*
-nav form {
-
-	display: inline-block;
-	white-space: nowrap;
-
-}
-
-form#language-selector {
-
-	padding-top: 2.3em;
-	
-}
-
-form#language-selector .select {
-
-	background: url(../images/country_select_globes.png) center left no-repeat;
-	background-position: 0 .7em;
-
-}
-
 form#language-selector select {
 
-	font-size: 2em;
-	border: none;
-	-moz-appearance: window;
-	vertical-align: middle;
-	background: transparent;
-	padding-left: 1.5em;
-	padding-right: 0;
+	padding-left: 3em;
+	background: url(../images/globe.svg) no-repeat center left;
+	background-position: .5em center;
+	background-size: auto 60%;
 
 }
-
-#language-selector noscript input[type=submit] {
-	
-	max-height: .5454em;
-	line-height: .5454em;
-	padding: 0 .1em;
-	min-width: 0;
-	margin-top: 0;
-	min-height: 0;
-	font-size: .8em;
-
-}
-*/
 
 .button, input[type=submit], button[type=submit], button[type=reset], button, a.button[href] {
 

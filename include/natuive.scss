@@ -1369,6 +1369,42 @@ video {
 
 }
 
+/* Image aspect ratio – don't shift the page after loading the image */
+
+.aspect {
+	
+	 display: block;
+	 position: relative;
+	 overflow: hidden;
+
+}
+
+.aspect img { /* If smaller, center vertical/horizontal; If taller, crop and center vertically */
+	
+	max-width: 100%;
+	height: auto;
+	padding-bottom: 0 !important;
+
+}
+
+:root .aspect img { /* All but IE9- – To do: check on browsers */
+	
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate3d(-50%,-50%,0);
+	transform: translate3d(-50%,-50%,0);
+
+}
+
+.aspect span { /*  Ratio can be overwritten with inline CSS padding-bottom */
+
+	padding-bottom: 56.25%; /*    y / x * 100   default 16:9    */
+	width: 0; 
+	display: inline-block;
+
+}
+
 /* Narrow Screens */
 
 @media screen and (max-width: 640px) {
@@ -2181,51 +2217,11 @@ video {
 	
 }
 
-/* IE9- fixes */
+/* Overthrow CSS:
+   Enable overflow: auto on elements with overthrow class when html element has overthrow class too */
+.overthrow-enabled .overthrow {
 
-.row > * > .row {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
 
-	width: 100% \9;
-	margin: 0 \9;
-
-}
-
-input {
-	
-	line-height: $line-height*2 \9;
-
-}
-
-
-select {
-	
-	padding-right: 0 \9;
-	height: $line-height \9;
-	margin-top: $line-height/2 \9;
-
-}
-
-:root select { /* IE9 not IE8 */
-	
-	height: $line-height*2 \9;
-	margin-top: 0 \9;
-
-}
-
-input[type=checkbox], input[type=radio] {
-	
-	margin-left: 0 \9;
-
-}
-
-input[type=file] {
-	
-	margin-left: -100% \9;
-
-}
-
-input[type=submit] {
-	
-	padding: 0 \0;
-		
 }

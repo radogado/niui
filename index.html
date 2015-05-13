@@ -13,6 +13,7 @@
 	<link rel=styleSheet href=include/theme.css type=text/css media=screen>
 
 	<!--[if lte IE 9]> 
+		<link rel=styleSheet href=include/ie9-.css type=text/css media=screen>
 		<script src=include/html5shiv.min.js></script> 
 	<![endif]-->
 
@@ -50,7 +51,7 @@
 		
 		</div>
 
-		<nav class=contain>
+		<nav class='contain overthrow'>
 
 			<label for=nav-trigger class=trigger> ≡ </label>
 			<input type=checkbox id=nav-trigger class=trigger>
@@ -92,6 +93,8 @@
 								<li> <a href=#lightbox>Lightbox</a> </li>
 
 								<li> <a href=#video>Video</a> </li>
+
+								<li> <a href=#aspect-ratio>Image aspect ratio</a> </li>
 							
 							</ul>
 						
@@ -141,8 +144,8 @@
 	<main id=content>
 	
 		<div class=banner>
-
-			<div class="contain row">
+			
+			<div class='contain row'>
 				
 				<div>
 				
@@ -432,6 +435,23 @@
 			<div>A</div>
 			<div>A</div>
 			<div>A</div>
+		
+		</div>
+		
+		<div class=row id=aspect-ratio>
+			
+			<div>
+				
+				<h2>Image container with aspect ratio of 2.35:1</h2>
+				
+				<span class='aspect'>
+					
+					<span style="padding-bottom: 42.5625%"></span>
+					<img src=images/lido.jpg alt=''>
+					
+				</span>
+				
+			</div>
 		
 		</div>
 

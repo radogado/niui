@@ -908,7 +908,7 @@ forEach('.accordion > label', function(el, i) {
 
 if ('ontouchstart' in window) { // Touch device: remove iOS sticky hover state
 
-	addClass(html, 'touch-device');
+	addClass(q('html'), 'touch-device');
 
 }
 
@@ -975,3 +975,18 @@ request.onload = function () {
 
 }
 request.send(null);
+
+
+
+if (q('.overthrow')) { /* Load touch scroll polyfill */
+    // DOM: Create the script element
+    js_el = document.createElement("script");
+    // set the type attribute
+    js_el.type = "application/javascript";
+    // make the script element load file
+    js_el.src = scripts_location + 'overthrow.js';
+    // finally insert the element to the body element in order to load the script
+    document.body.appendChild(js_el);
+	
+}
+
