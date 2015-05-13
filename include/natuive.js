@@ -622,7 +622,7 @@ q(q('footer > div > div') ? 'footer > div > div' : 'body').insertAdjacentHTML('b
 
 var getCumulativeOffset = function(obj) { // Offset from element to top of page
 
-    left, top;
+	var left, top;
     left = top = 0;
 
     if (obj.offsetParent) {
@@ -786,7 +786,7 @@ function submitForm(e) {
 
     }
 
-    el.insertAdjacentHTML('beforeend', '<input name=targetformurl type=hidden value=' + encodeURIComponent(el.action)/* .replace(/\/?(\?|#|$)/, '/$1') */ + '>');
+    el.insertAdjacentHTML('beforeend', '<input name=targetformurl type=hidden value=' + encodeURIComponent( el.method == 'get' ? el.action.replace(/\/?(\?|#|$)/, '/$1') : el.action ) + '>');
 
     request = new XMLHttpRequest();
     request.open('POST', scripts_location + 'request.php', true);
