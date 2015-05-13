@@ -12,12 +12,12 @@ error_reporting(0);
 // Original code from http://www.phpmind.com/blog/author/admin/
 
 	// Initialize the $query_string variable for later use
-	$query_string = "";
+	$query_string = '';
 	//Check to see if cURL is installed ...
 	if (!function_exists('curl_init')){
 		die('Sorry cURL is not installed!');
 	}
-	
+
 	// If there are POST variables
 	if ($_POST) {
 
@@ -30,18 +30,18 @@ error_reporting(0);
 			$key = str_replace('_', '.', $key); // Fix field names containing "."
 	
 			//Set array element for each POST variable
-			$kv[] = stripslashes($key)."=". stripslashes($value);
+			$kv[] = stripslashes($key).'='. stripslashes($value);
 	
 		}
 	
 		//	Create a query string with join function separted by &
-		$query_string = join("&", $kv);
+		$query_string = join('&', $kv);
 		
 	}
 
 	$split_query = split('&targetformurl=', $query_string, 2); // Separate form data from form URI
 
-	$url = str_replace("&","&amp;",$split_query[1]); // Fix URI containing "&"
+	$url = str_replace('&','&amp;',$split_query[1]); // Fix URI containing "&"
 
 	//Open cURL connection
 	$ch = curl_init();
@@ -64,7 +64,7 @@ error_reporting(0);
 	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
 	curl_setopt($ch, CURLOPT_HEADER, false);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-	// curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
 	
 	//Execute PHP cURL
 	$result = 	curl_exec($ch);
@@ -79,6 +79,7 @@ error_reporting(0);
 	    return '---error---';
 
 	} else {
+
 		echo $result;
 		
 	}

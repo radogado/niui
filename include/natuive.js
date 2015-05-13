@@ -80,7 +80,7 @@ function eventElement(e) {
 
 }
 
-var parseHTML = function(str) {
+parseHTML = function(str) {
 
     tmp = document.implementation.createHTMLDocument('Parsed');
     tmp.body.innerHTML = str;
@@ -91,7 +91,7 @@ var parseHTML = function(str) {
 function forEach(selector, fn) { // Accepts both an array and a selector
 
     elements = (typeof selector == 'string') ? qa(selector) : selector;
-    for (var i = 0; i < elements.length; i++) {
+    for (i = 0; i < elements.length; i++) {
 
         fn(elements[i], i);
 
@@ -178,8 +178,8 @@ function thisIndex(el) {
 
     if (!el) return;
 
-    var nodes = el.parentNode.childNodes,
-        node;
+    nodes = node = el.parentNode.childNodes;
+
     var i = count = 0;
 
     while ((node = nodes.item(i++)) && node != el) {
@@ -215,17 +215,17 @@ function parentByClass(el, className) {
 
 if (!Array.prototype.indexOf) {
 
-    Array.prototype.indexOf = function(elt) {
+    Array.prototype.indexOf = function(el) {
 
-        var len = this.length >>> 0;
+        len = this.length >>> 0;
 
-        var from = Number(arguments[1]) || 0;
+        from = Number(arguments[1]) || 0;
         from = (from < 0) ? Math.ceil(from) : Math.floor(from);
         if (from < 0)
             from += len;
 
         for (; from < len; from++) {
-            if (from in this && this[from] === elt)
+            if (from in this && this[from] === el)
                 return from;
         }
         return -1;
@@ -265,12 +265,12 @@ function updateURLParameter(url, param, paramVal) { // return input string with 
 
     newAdditionalURL = '';
     url = url.split('#')[0];
-    tempArray = url.split("?");
+    tempArray = url.split('?');
     baseURL = tempArray[0];
     additionalURL = tempArray[1];
     temp = '';
     if (additionalURL) {
-        tempArray = additionalURL.split("&");
+        tempArray = additionalURL.split('&');
         for (i = 0; i < tempArray.length; i++) {
             if (tempArray[i].split('=')[0] != param) {
                 newAdditionalURL += temp + tempArray[i];
@@ -279,7 +279,7 @@ function updateURLParameter(url, param, paramVal) { // return input string with 
         }
     }
 
-    var rows_txt = temp + '' + param + '=' + paramVal;
+    rows_txt = temp + '' + param + '=' + paramVal;
     return baseURL + '?' + newAdditionalURL + rows_txt.split('#')[0];
 
 }
@@ -309,11 +309,11 @@ function relayParameters() {
 
     forEach('a[href]', function(el, i) {
 
-        for (var name in parameters) {
+        for (name in parameters) {
 
             if (el.href.indexOf('javascript') == -1 && el.href.indexOf('mailto') == -1 && parameters_list.indexOf(name) != -1) {
 	            
-	            var hash = el.href.split('#')[1];
+	            hash = el.href.split('#')[1];
 	            el.href = updateURLParameter(el.href, name, parameters[name]);
 	            if (typeof hash != 'undefined') {
 		            
@@ -499,7 +499,7 @@ function modalWindow(e) {
     }
 
     request = new XMLHttpRequest();
-    request.open("GET", external.test(link) ? (scripts_location + 'request.php?targetformurl=' + link.split('#')[0]) : link.split('#')[0], true);
+    request.open('GET', external.test(link) ? (scripts_location + 'request.php?targetformurl=' + link.split('#')[0]) : link.split('#')[0], true);
 
     request.onload = function() {
 
@@ -511,7 +511,7 @@ function modalWindow(e) {
 
             }
             container = (typeof link.split('#')[1] != 'undefined') ? ('#' + link.split('#')[1]) : 0;
-			
+
 			parsed = request.responseText;
             if (container) {
 
@@ -553,7 +553,7 @@ function openLightbox(e) {
 	openFullWindow('<div class="slider lightbox"></div>');
 	
 	el = eventElement(e);
-    var parent = parentByClass(el, 'lightbox');
+    parent = parentByClass(el, 'lightbox');
 
     /* Add any <a><img> siblings with description to a .slider and initialise its controls */
     images = '';
@@ -622,7 +622,7 @@ q(q('footer > div > div') ? 'footer > div > div' : 'body').insertAdjacentHTML('b
 
 var getCumulativeOffset = function(obj) { // Offset from element to top of page
 
-    var left, top;
+    left, top;
     left = top = 0;
 
     if (obj.offsetParent) {
@@ -786,21 +786,21 @@ function submitForm(e) {
 
     }
 
-    el.insertAdjacentHTML('beforeend', '<input name=targetformurl type=hidden value=' + encodeURIComponent(el.action).replace(/\/?(\?|#|$)/, '/$1') + '>');
+    el.insertAdjacentHTML('beforeend', '<input name=targetformurl type=hidden value=' + encodeURIComponent(el.action)/* .replace(/\/?(\?|#|$)/, '/$1') */ + '>');
 
-    var r = new XMLHttpRequest();
-    r.open('POST', scripts_location + 'request.php', true);
+    request = new XMLHttpRequest();
+    request.open('POST', scripts_location + 'request.php', true);
 
-    r.onreadystatechange = function() {
+    request.onreadystatechange = function() {
 
-        if (r.readyState != 4 || r.status != 200) {
+        if (request.readyState != 4 || request.status != 200) {
 
             // To do: php script unreachable, submit form normally
             return true;
 
         }
 
-        if (!r.responseText || !php_support) {
+        if (!request.responseText || !php_support) {
 
             // To do: php script unreachable, submit form normally
             el.onsubmit = function() {};
@@ -810,25 +810,25 @@ function submitForm(e) {
         }
 
         // To do: strip id's from response HTML
-        if (r.responseText.indexOf('---error---') != -1) {
+        if (request.responseText.indexOf('---error---') != -1) {
 
             // Error
             document.getElementById('formresult').innerHTML = 'Error submitting form.';
             return;
 
         } else {
-
+console.log(request.responseText);
             // Success
-            loaded_html = parseHTML(r.responseText);
+            loaded_html = parseHTML(request.responseText);
             document.getElementById('formresult').innerHTML = loaded_html.innerHTML;
 
         }
 
     };
 
-    modalWindow('<div id=formresult>Submitting form...</div>');
+    openFullWindow('<div id=formresult>Submitting form...</div>');
 
-    r.send(new FormData(el));
+    request.send(new FormData(el));
 
     return false;
 
@@ -928,7 +928,7 @@ function getStyle(oElm, strCssRule){ // Thanks http://robertnyman.com/2006/04/24
 
 	if(document.defaultView && document.defaultView.getComputedStyle) {
 
-		strValue = document.defaultView.getComputedStyle(oElm, "").getPropertyValue(strCssRule);
+		strValue = document.defaultView.getComputedStyle(oElm, '').getPropertyValue(strCssRule);
 
 	}
 	else if(oElm.currentStyle) {
