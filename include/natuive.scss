@@ -1369,31 +1369,27 @@ video {
 
 }
 
+video a[href] {
+	
+	color: #fff;
+
+}
+
 /* Image aspect ratio – don't shift the page after loading the image */
 
 .aspect {
 	
 	 display: block;
-	 position: relative;
 	 overflow: hidden;
+	 font-size: 0;
 
 }
 
-.aspect img { /* If smaller, center vertical/horizontal; If taller, crop and center vertically */
+.aspect img {
 	
 	max-width: 100%;
 	height: auto;
 	padding-bottom: 0 !important;
-
-}
-
-:root .aspect img { /* All but IE9- – To do: check on browsers */
-	
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	-webkit-transform: translate3d(-50%,-50%,0);
-	transform: translate3d(-50%,-50%,0);
 
 }
 

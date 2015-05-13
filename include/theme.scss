@@ -77,11 +77,18 @@ nav a {
 
 form#language-selector select {
 
-	padding-left: 3em;
+	padding-left: 2em;
 	background: url(../images/globe.svg) no-repeat center left;
 	background-position: .5em center;
-	background-size: auto 60%;
+	background-size: auto 66%;
+	height: $line-height;
 
+}
+
+header form .select {
+	
+	height: $line-height;
+	
 }
 
 .button, input[type=submit], button[type=submit], button[type=reset], button, a.button[href] {
