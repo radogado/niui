@@ -91,7 +91,7 @@ parseHTML = function(str) {
 function forEach(selector, fn) { // Accepts both an array and a selector
 
     elements = (typeof selector == 'string') ? qa(selector) : selector;
-    for (i = 0; i < elements.length; i++) {
+    for (var i = 0; i < elements.length; i++) {
 
         fn(elements[i], i);
 
