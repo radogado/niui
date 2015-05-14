@@ -246,6 +246,23 @@ function qa(selector) {
 	
 }
 
+var wrap = function (toWrap, wrapper) { // Thanks yckart
+
+    wrapper = wrapper || document.createElement('div');
+    if (toWrap.nextSibling) {
+
+        toWrap.parentNode.insertBefore(wrapper, toWrap.nextSibling);
+
+    } else {
+
+        toWrap.parentNode.appendChild(wrapper);
+
+    }
+
+    return wrapper.appendChild(toWrap);
+
+};
+
 /* ––– */
 
 scripts_location = document.getElementsByTagName('script');
@@ -254,8 +271,7 @@ scripts_location = scripts_location.slice(0, scripts_location.length - scripts_l
 
 forEach('table', function(el) {
 
-    el.insertAdjacentHTML('beforebegin', '<div class=table>' + el.outerHTML + '</div>');
-    el.outerHTML = '';
+	addClass(wrap(el).parentNode, 'table');
 
 });
 
@@ -442,24 +458,22 @@ var external = RegExp('^((f|ht)tps?:)?//(?!' + location.host + ')');
 function closeFullWindow() {
 	
     full_window = document.getElementById('full-window');
+
     if (full_window) {
 
-        if (full_window.querySelector('.slider')) {
+	    el = full_window.querySelector('.content > *');
 
-            removeClass(full_window.querySelector('.slider'), 'slider');
-            var slider = q('.slider'); // Make another slider active, if any
-
-        }
-        document.body.removeChild(full_window);
+		full_window.parentNode.replaceChild(el, full_window);
 
     }
+    
     removeClass(q('html'), 'nooverflow');
 
 	removeEventHandler(window, 'keydown', arrow_keys_handler);
 	
 }
 
-function openFullWindow(content) {
+function openFullWindow(el) {
 	
 	closeFullWindow();
 
@@ -472,9 +486,20 @@ function openFullWindow(content) {
         }
 
     };
-
-    document.body.insertAdjacentHTML('afterbegin', '<div id=full-window> <div class=close> ← ' + document.title + '</div> <div class=content>' + content + '</div> <div id=full-window-bg></div> </div>');
+	
     addClass(q('html'), 'nooverflow');
+	
+	if (typeof el == 'string') {
+		
+		var full_window_content = el = document.createElement('div');
+		
+	}
+	    
+    addClass(wrap(el).parentNode, 'content');
+    wrap(el.parentNode).parentNode.setAttribute('id', 'full-window');
+    
+    q('#full-window').insertAdjacentHTML('afterbegin', '<div class=close> ← ' + document.title + '</div>');
+    q('#full-window').insertAdjacentHTML('beforeend', '<div id=full-window-bg></div>');
 	q('#full-window-bg').onclick = q('#full-window .close').onclick = closeFullWindow;
     
     return false;
@@ -549,8 +574,10 @@ function modalWindow(e) {
 }
 
 function openLightbox(e) {
-
-	openFullWindow('<div class="slider lightbox"></div>');
+	
+	el = document.createElement('div');
+	addClass(el, 'slider lightbox');
+	openFullWindow(el);
 	
 	el = eventElement(e);
     parent = parentByClass(el, 'lightbox');
@@ -780,7 +807,7 @@ function submitForm(e) {
 
     }
 
-    if (!(new XMLHttpRequest().upload) || !php_support) { // Browser unable to submit dynamically. To do: or if request.php isn't working
+    if (!(new XMLHttpRequest().upload) || !php_support) { // Browser unable to submit dynamically.
 
         return true;
 
@@ -795,21 +822,21 @@ function submitForm(e) {
 
         if (request.readyState != 4 || request.status != 200) {
 
-            // To do: php script unreachable, submit form normally
+            // php script unreachable, submit form normally
             return true;
 
         }
 
         if (!request.responseText || !php_support) {
 
-            // To do: php script unreachable, submit form normally
+            // php script unreachable, submit form normally
             el.onsubmit = function() {};
 			el.constructor.prototype.submit.call(el); // el.submit();
             return true;
 
         }
 
-        // To do: strip id's from response HTML
+        // strip id's from response HTML
         if (request.responseText.indexOf('---error---') != -1) {
 
             // Error

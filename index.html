@@ -147,7 +147,7 @@
 			
 			<div class='contain row'>
 				
-				<div>
+				<div class=col23>
 				
 					<h1>
 						
@@ -171,43 +171,97 @@
 							
 							<div>
 							
-								<h3>✓ Please do</h3>
-								
-								<ul>
-									
-									<li> Use a grid with arbitrary cell elements inside <b>.row</b>. </li>
+<div id=accordion>
 	
-									<li> Use <b>vertical alignment</b> in cells, it's finally easy and dependable. </li>
+	<h2>Accordion</h2>
 	
-									<li> Embed any kind of element into any container-type element: Cell, List, Slider, Accordion. </li>
-								
-								</ul>
+	<div class=accordion>
+	
+		<label class=trigger for=accordion-4> How it works </label>
+		<input type=checkbox class=trigger id=accordion-4>
+	
+		<div>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+		</div>
+	
+	</div>
+	
+	<div class=accordion>
+	
+		<label class=trigger for=accordion-5> Questions </label>
+		<input type=checkbox class=trigger id=accordion-5>
+		
+		<div>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	
+		</div>
+	
+	</div>
+
+	<div class=accordion>
+	
+		<label class=trigger for=accordion-1> Nested Accordions </label>
+		<input type=checkbox class=trigger id=accordion-1>
+		
+		<div>
+	
+			<div class=accordion>
+		
+				<label class=trigger for=accordion-2> About Inner Accordion </label>
+				<input type=checkbox class=trigger id=accordion-2>
+			
+				<div>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				</div>
+		
+			</div>
+		
+			<div class=accordion>
+		
+				<label class=trigger for=accordion-3> About Inner Accordion 2 </label>
+				<input type=checkbox class=trigger id=accordion-3>
+			
+				<div>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				</div>
+		
+			</div>
+			
+		</div>
+	
+	</div>
+
+	<br>
+				
+</div>
 							
 							</div>
 							
 							<div>
 							
-								<p>
-									
-									The grid is simpler and doesn't insist on the famous 12 cols. Just add a <b>&lt;div&gt;</b> to a <b>.row</b>. col width classes, like <b>.col23</b>, are optional.
-								
-								</p>
-								
-								<p>
-				
-									<span class=tool>
-										This text has a tooltip.
-										<span class=tip><b>Here is the tooltip</b> <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-										</span>
-									</span>
-								
-								</p>
-
-								<p> 
-									
-									ThisLineIsTooLongAndMustBeClippedByTheContainerEvenThoughOverflowXandYDontWorkAsExpected 
-								
-								</p>
+					<h2> Lightbox Image Gallery </h2>
+	
+					<div id=lightbox class=lightbox>
+					
+						<a href=images/DSC_5823.jpg title='First Image'> <span> Text Lightbox </span> </a>
+	
+						<a href=images/DSC_5975.jpg title='Second Image'> <img src=images/DSC_5975-t.jpg alt=1> </a>
+	
+						<a href=images/DSC_4225.jpg title='Third Image'> <img src=images/DSC_4225-t.jpg alt=2> </a>
+					
+					</div>
+					
+					<h3> Vertical Lightbox Gallery </h3>
+	
+					<div id=lightbox2 class='lightbox vertical'>
+					
+						<a href=images/DSC_5823.jpg title='First Image'> <span> Text Lightbox </span> </a>
+	
+						<a href=images/DSC_5975.jpg title='Second Image'> <img src=images/DSC_5975-t.jpg alt=1> </a>
+	
+						<a href=images/DSC_4225.jpg title='Third Image'> <img src=images/DSC_4225-t.jpg alt=2> </a>
+					
+					</div>
 				
 		
 							</div>
@@ -239,607 +293,511 @@
 		
 		<div class=contain>
 	
-		<div class=row>
+			<div class=row>
+				
+				<div>
 			
-			<div>
-				
-				<h1> Headline 1 </h1>
-				<h2> Headline 2 </h2>
-				<h3> Headline 3 </h3>
-				<h4> Headline 4 </h4>
-				<h5> Headline 5 </h5>
-				
-				<h2>
-				
-					Buttons
-				
-				</h2>
-				
-				<a href=# class=button>Small button</a>
-				
-				<br>
-				
-				<a href=# class='button big'>Big button</a>
-				
-				<br>
-				
-				Here is an <a href=# class=button>Inline button</a> inside a paragraph.
-				<br><br>
-				<div id=accordion>
-					
-					<h2>Accordion</h2>
-					
-					<div class=accordion>
-					
-						<label class=trigger for=accordion-4> How it works </label>
-						<input type=checkbox class=trigger id=accordion-4>
-					
+					<h2>Wrapping Grid</h2>
+	
+					<div class='row wrap'>
+						
+						<div>Use a grid with arbitrary cell elements inside .row.</div>		
+						<div>Use vertical alignment in cells, it's finally easy and dependable.</div>
+						<div>Embed any kind of element into any container-type element: Cell, List, Slider, Accordion.</div>
+						<div>The grid is simpler and doesn't insist on the famous 12 cols. Just add a div to a .row. col width classes, like .col23, are optional.</div>
 						<div>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-						</div>
-					
-					</div>
-					
-					<div class=accordion>
-					
-						<label class=trigger for=accordion-5> Questions </label>
-						<input type=checkbox class=trigger id=accordion-5>
-						
-						<div>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-					
-						</div>
-					
-					</div>
+
+							<p style="position: relative;">
 				
-					<div class=accordion>
-					
-						<label class=trigger for=accordion-1> Nested Accordions </label>
-						<input type=checkbox class=trigger id=accordion-1>
-						
-						<div>
-					
-							<div class=accordion>
-						
-								<label class=trigger for=accordion-2> About Inner Accordion </label>
-								<input type=checkbox class=trigger id=accordion-2>
-							
-								<div>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-								</div>
-						
-							</div>
-						
-							<div class=accordion>
-						
-								<label class=trigger for=accordion-3> About Inner Accordion 2 </label>
-								<input type=checkbox class=trigger id=accordion-3>
-							
-								<div>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-								</div>
-						
-							</div>
-							
-						</div>
-					
-					</div>
-				
-					<br>
+									<span class="tool" style="position: static;">
+										This text has a tooltip.
+										<span class="tip" style="top: 21px; width: 100%;"><b>Here is the tooltip</b> <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+										</span>
+									</span>
 								
-				</div>
-			</div>
+							</p>
 
-			<div id=modal>
-			
-				<h2> Modal Window </h2>
+						</div>
 
-				<p>				
-					
-					<a href=index.html#content class=modal>Open a modal window inside this <span>tab</span>.</a>
-				
-				</p>
-
-				<p>				
-					
-					<a href=http://natuive.net#footer class=modal>Show external domain content in a modal window.</a> (On PHP enabled host)
-				
-				</p>
-				
-				<h2> Lightbox Image Gallery </h2>
-
-				<div id=lightbox class=lightbox>
-				
-					<a href=images/DSC_5823.jpg title='First Image'> <span> Text Lightbox </span> </a>
-
-					<a href=images/DSC_5975.jpg title='Second Image'> <img src=images/DSC_5975-t.jpg alt=1> </a>
-
-					<a href=images/DSC_4225.jpg title='Third Image'> <img src=images/DSC_4225-t.jpg alt=2> </a>
-				
-				</div>
-				
-				<h3> Vertical Lightbox Gallery </h3>
-
-				<div id=lightbox2 class='lightbox vertical'>
-				
-					<a href=images/DSC_5823.jpg title='First Image'> <span> Text Lightbox </span> </a>
-
-					<a href=images/DSC_5975.jpg title='Second Image'> <img src=images/DSC_5975-t.jpg alt=1> </a>
-
-					<a href=images/DSC_4225.jpg title='Third Image'> <img src=images/DSC_4225-t.jpg alt=2> </a>
-				
-				</div>
-					
-			</div>
-		
-			<div>
-			
-				<h2>Table</h2>
-
-				<table>
-					<tr>
-						<th>TheTableWillBeScrollableOnNarrowScreens</th> 
-						<th> <a>One Time</a> </th> 
-						<th> <a>Second Long col</a> </th> 
-						<th> <a>Three</a> </th> 
-						<th> <a>Four</a> </th>
-					</tr>
-					<tr>
-						<td>Row One</td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td>
-					</tr>
-					<tr>
-						<td>Row Two with Long Headline to Test Table on Narrow Screens</td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td>
-					</tr>
-					<tr>
-						<td>Row Three</td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td>
-					</tr>
-				</table>
-
-				<br> 
-				
-				<table>
-					<tr>
-						<td>Short title</td> 
-						<td> <a>One Time</a> </td> 
-						<td> <a>Second Long col</a> </td> 
-						<td> <a>Three</a> </td> 
-						<td> <a>Four</a> </td>
-					</tr>
-					<tr>
-						<td>Row One</td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td>
-					</tr>
-					<tr>
-						<td>Row Two with Long Headline to Test Table on Narrow Screens</td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td>
-					</tr>
-					<tr>
-						<td>Row Three</td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td>
-					</tr>
-				</table>
-			
-			</div>
-		
-		</div>
-		
-		<div class='row wrap'>
-			
-			<div><h2>Wrapping Grid</h2></div>		
-			<div>A<br>B</div>
-			<div>A</div>
-			<div>A</div>
-			<div>A</div>
-			<div>A</div>
-			<div>A</div>	
-			<div>A</div>
-			<div>A</div>
-			<div>A</div>	
-			<div>A</div>
-			<div>A</div>
-			<div>A</div>
-		
-		</div>
-		
-		<div class=row id=aspect-ratio>
-			
-			<div>
-				
-				<h2>Image container with aspect ratio of 2.35:1</h2>
-				
-				<span class='aspect'>
-					
-					<span style='padding-bottom: 42.5625%'></span>
-					<img src=images/lido.jpg alt=''>
-					
-				</span>
-				
-			</div>
-		
-		</div>
-
-		<div class=row>
-		
-			<div>
-				
-				<h2>Flat Form</h2>
-				
-				<form action=# method=post target=_blank class=flat>
+						<div>ThisLineIsTooLongAndMustBeClippedByTheContainerEvenThoughOverflowXandYDontWorkAsExpected</div>
+						<div id=modal><h2> Modal Window </h2><a href="index.html#content" class="modal">Open a modal window inside this <span>tab</span>.</a></div>	
+						<div>
 						
-					<label class=mandatory>
-
-						<span>Excepteur sint occaecat cupidatat non proident</span>
-						<input name=last_name id=last_name type=text placeholder='What is your name?'>
-
-					</label>
+							<a href="http://natuive.net#footer" class="modal">Show external domain content in a modal window.</a> (On PHP enabled host)
 					
-					<div class=checkbox>
-
-						<span>Please choose:</span>
-						<label> 
-							<input type=radio name=radiodemo> <b class=checkbox-icon></b>
-							First option
-						</label>
-						<label> 
-							<input type=radio name=radiodemo> <b class=checkbox-icon></b>
-							Second option
-						</label>
-						<label> 
-							<input type=radio name=radiodemo> <b class=checkbox-icon></b>
-							Third option
-						</label>
-
+						</div>
+						<div>					<h1> Headline 1 </h1>
+							<h2> Headline 2 </h2>
+							<h3> Headline 3 </h3>
+							<h4> Headline 4 </h4>
+							<h5> Headline 5 </h5>
+					
+						</div>
+						<div><h2>
+						
+							Buttons
+						
+							</h2>
+							
+							<a href=# class=button>Small button</a>
+							
+							<br>
+							
+							<a href=# class='button big'>Big button</a>
+						</div>	
+						<div>Here is an <a href=# class=button>Inline button</a> inside a paragraph.
+						</div>
+						<div>A</div>
+						<div>A</div>
+					
 					</div>
-
-					<label class=mandatory id=email_label>
-
-						<span>Email</span>
-						<input name=email id=email type=email placeholder='Your Email address.'>
-
-					</label> 
-									
-					<label id=text_area_label>
-
-						<span>Enter text here</span>
-						<textarea placeholder='How are you today?'></textarea>
-
-					</label>
+				
+				</div>
 			
-					<label id=URL_label>
-
-						<span>Website</span>
-						<input name=URL id=URL type=url placeholder='URL of your website.'>
-
-					</label>
-			
-					<label id=file_label>
-
-						<span>Select a file</span>
-						<span class=file-input>
-							<input name=file id=file type=file>
-							<span>Drop or browse</span>
-						</span>
-
-					</label> 
-			
-					<label>
-
-						<span>Country of residence</span>
-						<span class=select>
-						
-							<select id=country maxlength=40 name=country>
-								<option value='' selected=selected>Country of residence →</option><option value='United Kingdom'>United Kingdom</option><option value=Afghanistan>Afghanistan</option><option value='Aland Islands'>Aland Islands</option><option value=Albania>Albania</option><option value=Algeria>Algeria</option><option value='American Samoa'>American Samoa</option><option value=Andorra>Andorra</option><option value=Angola>Angola</option><option value=Anguilla>Anguilla</option><option value=Antarctica>Antarctica</option><option value='Antigua And Barbuda'>Antigua And Barbuda</option><option value=Argentina>Argentina</option>
-							</select>
-						
-						</span>
-
-					</label>
-					
-					<label id=phone_label>
-
-						<span>Telephone</span>
-						<input name=phone id=phone type=tel placeholder='Your phone number.'>
-
-					</label>
-			
-					<div class='checkbox mandatory'>
-
-						<span>Check this</span>
-						<label>
-							<input name=checkbox id=checkbox type=checkbox> <b class=checkbox-icon></b>
-							I accept the <a href=#>Terms and Conditions</a>.
-						</label>
-
-					</div>
-					
-					<label id=phone_label>
-
-						<span>Telephone</span>
-						<input name=phone id=phone type=tel placeholder='Your phone number.'>
-
-					</label>
-			
-					<input type=submit value='Request more info' title='Request more info'>
-					
-				</form>
-
 			</div>
 			
-			<div id=form>
 			
-				<h2>Form</h2>
-
-				<form action=https://docs.google.com/forms/d/1K55MbIgqFWkYzBOOe2-UfSpKPchOUNxhSxgCXz4YG8k/formResponse target=_blank method=post>
+			<div class=row id=aspect-ratio>
 				
-					<label>
+				<div>
+					
+					<h2>Image container with aspect ratio of 2.35:1</h2>
+					
+					<span class='aspect'>
+						
+						<span style='padding-bottom: 42.5625%'></span>
+						<img src=images/lido.jpg alt=''>
+						
+					</span>
+					
+				</div>
+			
+<div>
 
-						<span>Submit this to Google Forms</span>
-						<input type=text name=entry.1773453675 id=entry_1773453675>
+	<h2>Table</h2>
+	
+	<table>
 
-					</label>
-
-					<input type=submit value='This is a very long submit button text which wraps to another line if long enough'>
-				
-				</form>
-
+		<tr>
+			<td>Short title</td> 
+			<td> <a>One Time</a> </td> 
+			<td> <a>Second Long col</a> </td> 
+			<td> <a>Three</a> </td> 
+			<td> <a>Four</a> </td>
+		</tr>
+		<tr>
+			<td>Row One</td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td>
+		</tr>
+		<tr>
+			<td>Row Two with Long Headline to Test Table on Narrow Screens</td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td>
+		</tr>
 <!--
-				<form action=http://natuive.net#footer method=POST target=_blank>
-				
-					<label>
-
-						<span>Submit this to Google Forms</span>
-						<input type=text name=entry.1773453675 id=entry_1773453675>
-
-					</label>
-
-					<input type=submit>
-				
-				</form>
+		<tr>
+			<td>Row Three</td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td>
+		</tr>
 -->
+	</table>
+
+	<table>
+
+		<tr>
+			<th>TheTableWillBeScrollableOnNarrowScreens</th> 
+			<th> <a>One Time</a> </th> 
+			<th> <a>Second Long col</a> </th> 
+			<th> <a>Three</a> </th> 
+			<th> <a>Four</a> </th>
+		</tr>
+		<tr>
+			<td>Row One</td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td>
+		</tr>
+		<tr>
+			<td>Row Two with Long Headline to Test Table on Narrow Screens</td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td>
+		</tr>
+<!--
+		<tr>
+			<td>Row Three</td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td>
+		</tr>
+-->
+	</table>
+	
+	<br> 
+	
+</div>
 			
-				<form action=# method=post target=_blank>
-						
-					<label class=mandatory>
-
-						<span>Excepteur sint occaecat cupidatat non proident</span>
-						<input name=last_name id=last_name type=text placeholder='What is your name?'>
-
-					</label>
-
-					<div class=checkbox>
-
-						<span>A very long piece of label text which wraps to another line</span>
-						<label> 
-							<input type=radio name=radiodemo> <b class=checkbox-icon></b>
-							First option
-						</label>
-						<label> 
-							<input type=radio name=radiodemo> <b class=checkbox-icon></b>
-							Second option has very long text which wraps to the next line
-						</label>
-						<label> 
-							<input type=radio name=radiodemo> <b class=checkbox-icon></b>
-							Third option
-						</label>
-
-					</div>
-
-					<label class=mandatory id=email_label>
-
-						<span>Email</span>
-						<input name=email id=email type=email placeholder='Your Email address.'>
-
-					</label> 
-									
-					<label id=text_area_label>
-
-						<span>Enter text here</span>
-						<textarea placeholder='How are you today?'></textarea>
-
-					</label>
-			
-					<label id=URL_label>
-
-						<span>Website</span>
-						<input name=URL id=URL type=url placeholder='URL of your website.'>
-
-					</label>
-			
-					<label id=file_label>
-
-						<span>Select a file</span>
-						<span class=file-input>
-							<input name=file id=file type=file>
-							<span>Drop or browse</span>
-						</span>
-
-					</label> 
-			
-					<label>
-
-						<span>Country of residence</span>
-						<span class=select>
-						
-							<select id=country maxlength=40 name=country>
-								<option value='' selected=selected>Country of residence →</option><option value='United Kingdom'>United Kingdom</option><option value=Afghanistan>Afghanistan</option><option value='Aland Islands'>Aland Islands</option><option value=Albania>Albania</option><option value=Algeria>Algeria</option><option value='American Samoa'>American Samoa</option><option value=Andorra>Andorra</option><option value=Angola>Angola</option><option value=Anguilla>Anguilla</option><option value=Antarctica>Antarctica</option><option value='Antigua And Barbuda'>Antigua And Barbuda</option><option value=Argentina>Argentina</option>
-							</select>
-						
-						</span>
-
-					</label>
-					
-					<label id=phone_label>
-
-						<span>Telephone</span>
-						<input name=phone id=phone type=tel placeholder='Your phone number.'>
-
-					</label>
-			
-					<div class='checkbox mandatory'>
-
-						<span>Check this</span>
-						<label>
-							<input name=checkbox id=checkbox type=checkbox> <b class=checkbox-icon></b>
-							I accept the <a href=#>Terms and Conditions</a>.
-						</label>
-
-					</div>
-					
-					<label id=phone_label>
-
-						<span>Telephone</span>
-						<input name=phone id=phone type=tel placeholder='Your phone number.'>
-
-					</label>
-			
-					<input type=submit value='Request more info' title='Request more info'>
-					
-				</form>
-				
 			</div>
-				
-		</div>
-		
-		<div class=row>
+	
+			<div class=row id=slider>
 			
-			<div>
-
-				<h2>Nested Ordered List</h2>
-				
-				<ol>
-					
-					<li> One
+				<div>
+		
+						<h2 id=video>Video</h2>
+						
+						<video poster=images/video.jpg controls=controls preload=none>
+								
+							<source type=video/mp4 src=//s3.amazonaws.com/gado/Outlying-Teaser.mp4>
+							
+							<a href=//s3.amazonaws.com/gado/Outlying-Teaser.mp4>//s3.amazonaws.com/gado/Outlying-Teaser.mp4</a>
+							
+						</video>
+						
+						<!--
+						// Disabled because of a cross-domain console error
+						<h2>YouTube Video</h2>
+						
+						<iframe width="900" height="506" src="https://www.youtube.com/embed/9bZkp7q19f0?feature=oembed" allowfullscreen></iframe>
+						-->
+	
+						<h2>Nested Ordered List</h2>
 						
 						<ol>
 							
-							<li>One 1</li>
-	
-							<li>One 2</li>
-	
-							<li>One 3</li>
-						
-						</ol>
-					
-					</li>
-						
-					<li>
-						
-						<h4>Did you know?</h4>
-	
-						<p class=quote>An in-house study at <b>Walmart.com</b> came out with the results that saw an up to 2% increase in conversions on the site for every single second of improvement on the load time. The accumulative growth of revenues went up to 1% for every 100 milliseconds of load time improvement.</p>
-						
-						<ol>
-							<li>
-								Supporting IE8+, Chrome, Safari, Firefox, Opera.
-							</li>
-					
-							<li>
-								Supporting iOS and Android tablets and phones.
+							<li> One
+								
 								<ol>
-									<li>No hardcoded dimensions except line height.</li>
-									<li>The slider only needs a <b>.slider > div</b> structure and is fully flexible.</li>
+									
+									<li>One 1</li>
+			
+									<li>One 2</li>
+			
+									<li>One 3</li>
+								
 								</ol>
-							</li>
-						</ol>
-						
-					</li>
-				
-				</ol>
-	
-			</div>
-		
-			<div>
-				
-				<h2 id=video>Video</h2>
-				
-				<video poster=images/video.jpg controls=controls preload=none>
-						
-					<source type=video/mp4 src=//s3.amazonaws.com/gado/Outlying-Teaser.mp4>
-					
-					<a href=//s3.amazonaws.com/gado/Outlying-Teaser.mp4>//s3.amazonaws.com/gado/Outlying-Teaser.mp4</a>
-					
-				</video>
-				
-<!--
-				// Disabled because of a cross-domain console error
-				<h2>YouTube Video</h2>
-				
-				<iframe width="900" height="506" src="https://www.youtube.com/embed/9bZkp7q19f0?feature=oembed" allowfullscreen></iframe>
--->
-				
-			</div>
-
-		</div>
-		
-		<div class=row>
-		
-			<div id=slider>
-				
-				<h2>Slider</h2>
-				
-				<div class='slider'>
-					
-					<div>
-					
-						<p class=thumbnail> Slider 2 Slide 1 </p>
-			
-						<p> natUIve guarantees instant loading, because </p>
-		
-						<p class=quote>
 							
-							"The value of 14 KB has been measured empirically by Google and is the threshold for the first package exchanged between a server and client via towers on a cellular connection." – Smashing Magazine
+							</li>
+								
+							<li>
+								
+								<h4>Did you know?</h4>
+			
+								<p class=quote>An in-house study at <b>Walmart.com</b> came out with the results that saw an up to 2% increase in conversions on the site for every single second of improvement on the load time. The accumulative growth of revenues went up to 1% for every 100 milliseconds of load time improvement.</p>
+								
+								<ol>
+									<li>
+										Supporting IE8+, Chrome, Safari, Firefox, Opera.
+									</li>
+							
+									<li>
+										Supporting iOS and Android tablets and phones.
+										<ol>
+											<li>No hardcoded dimensions except line height.</li>
+											<li>The slider only needs a <b>.slider > div</b> structure and is fully flexible.</li>
+										</ol>
+									</li>
+								</ol>
+								
+							</li>
 						
-						</p>
+						</ol>
 			
-					</div>
-					
-					<div>
-			
-						<p class=thumbnail> Slider 2 Slide 2 </p>
-			
-						<p> Second Slider 2 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-					
 					</div>
 				
-					<div>
+				<div id=form>
 					
-						<p class=thumbnail> Slider 2 Very Long Title which Shows the Flexible Thumbnails Dimensions  </p>
-			
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
-						Second Slider 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			
-					</div>
+					<h2>Forms in Slider</h2>
 					
-				</div>
+					<div class='slider full-window'>
+					
+						<div> 
+							
+							<form action=# method=post target=_blank>
+								
+							<label class=mandatory>
+		
+								<span>Excepteur sint occaecat cupidatat non proident</span>
+								<input name=last_name id=last_name type=text placeholder='What is your name?'>
+		
+							</label>
+		
+							<div class=checkbox>
+		
+								<span>A very long piece of label text which wraps to another line</span>
+								<label> 
+									<input type=radio name=radiodemo> <b class=checkbox-icon></b>
+									First option
+								</label>
+								<label> 
+									<input type=radio name=radiodemo> <b class=checkbox-icon></b>
+									Second option has very long text which wraps to the next line
+								</label>
+								<label> 
+									<input type=radio name=radiodemo> <b class=checkbox-icon></b>
+									Third option
+								</label>
+		
+							</div>
+		
+							<label class=mandatory id=email_label>
+		
+								<span>Email</span>
+								<input name=email id=email type=email placeholder='Your Email address.'>
+		
+							</label> 
+											
+							<label id=text_area_label>
+		
+								<span>Enter text here</span>
+								<textarea placeholder='How are you today?'></textarea>
+		
+							</label>
+					
+							<label id=URL_label>
+		
+								<span>Website</span>
+								<input name=URL id=URL type=url placeholder='URL of your website.'>
+		
+							</label>
+					
+							<label id=file_label>
+		
+								<span>Select a file</span>
+								<span class=file-input>
+									<input name=file id=file type=file>
+									<span>Drop or browse</span>
+								</span>
+		
+							</label> 
+					
+							<label>
+		
+								<span>Country of residence</span>
+								<span class=select>
+								
+									<select id=country maxlength=40 name=country>
+										<option value='' selected=selected>Country of residence →</option><option value='United Kingdom'>United Kingdom</option><option value=Afghanistan>Afghanistan</option><option value='Aland Islands'>Aland Islands</option><option value=Albania>Albania</option><option value=Algeria>Algeria</option><option value='American Samoa'>American Samoa</option><option value=Andorra>Andorra</option><option value=Angola>Angola</option><option value=Anguilla>Anguilla</option><option value=Antarctica>Antarctica</option><option value='Antigua And Barbuda'>Antigua And Barbuda</option><option value=Argentina>Argentina</option>
+									</select>
+								
+								</span>
+		
+							</label>
+							
+							<label id=phone_label>
+		
+								<span>Telephone</span>
+								<input name=phone id=phone type=tel placeholder='Your phone number.'>
+		
+							</label>
+					
+							<div class='checkbox mandatory'>
+		
+								<span>Check this</span>
+								<label>
+									<input name=checkbox id=checkbox type=checkbox> <b class=checkbox-icon></b>
+									I accept the <a href=#>Terms and Conditions</a>.
+								</label>
+		
+							</div>
+							
+							<label id=phone_label>
+		
+								<span>Telephone</span>
+								<input name=phone id=phone type=tel placeholder='Your phone number.'>
+		
+							</label>
+					
+							<input type=submit value='Request more info' title='Request more info'>
+							
+						</form> 
+						
+						</div>
+	
+						<div> 
+							
+							<form action=# method=post target=_blank class=flat>
+								
+							<label class=mandatory>
+		
+								<span>Excepteur sint occaecat cupidatat non proident</span>
+								<input name=last_name id=last_name type=text placeholder='What is your name?'>
+		
+							</label>
+							
+							<div class=checkbox>
+		
+								<span>Please choose:</span>
+								<label> 
+									<input type=radio name=radiodemo> <b class=checkbox-icon></b>
+									First option
+								</label>
+								<label> 
+									<input type=radio name=radiodemo> <b class=checkbox-icon></b>
+									Second option
+								</label>
+								<label> 
+									<input type=radio name=radiodemo> <b class=checkbox-icon></b>
+									Third option
+								</label>
+		
+							</div>
+		
+							<label class=mandatory id=email_label>
+		
+								<span>Email</span>
+								<input name=email id=email type=email placeholder='Your Email address.'>
+		
+							</label> 
+											
+							<label id=text_area_label>
+		
+								<span>Enter text here</span>
+								<textarea placeholder='How are you today?'></textarea>
+		
+							</label>
+					
+							<label id=URL_label>
+		
+								<span>Website</span>
+								<input name=URL id=URL type=url placeholder='URL of your website.'>
+		
+							</label>
+					
+							<label id=file_label>
+		
+								<span>Select a file</span>
+								<span class=file-input>
+									<input name=file id=file type=file>
+									<span>Drop or browse</span>
+								</span>
+		
+							</label> 
+					
+							<label>
+		
+								<span>Country of residence</span>
+								<span class=select>
+								
+									<select id=country maxlength=40 name=country>
+										<option value='' selected=selected>Country of residence →</option><option value='United Kingdom'>United Kingdom</option><option value=Afghanistan>Afghanistan</option><option value='Aland Islands'>Aland Islands</option><option value=Albania>Albania</option><option value=Algeria>Algeria</option><option value='American Samoa'>American Samoa</option><option value=Andorra>Andorra</option><option value=Angola>Angola</option><option value=Anguilla>Anguilla</option><option value=Antarctica>Antarctica</option><option value='Antigua And Barbuda'>Antigua And Barbuda</option><option value=Argentina>Argentina</option>
+									</select>
+								
+								</span>
+		
+							</label>
+							
+							<label id=phone_label>
+		
+								<span>Telephone</span>
+								<input name=phone id=phone type=tel placeholder='Your phone number.'>
+		
+							</label>
+					
+							<div class='checkbox mandatory'>
+		
+								<span>Check this</span>
+								<label>
+									<input name=checkbox id=checkbox type=checkbox> <b class=checkbox-icon></b>
+									I accept the <a href=#>Terms and Conditions</a>.
+								</label>
+		
+							</div>
+							
+							<label id=phone_label>
+		
+								<span>Telephone</span>
+								<input name=phone id=phone type=tel placeholder='Your phone number.'>
+		
+							</label>
+					
+							<input type=submit value='Request more info' title='Request more info'>
+							
+						</form> 
 
-			</div>
+						</div>
+		
+						<div> 
+							
+							<form action=https://docs.google.com/forms/d/1K55MbIgqFWkYzBOOe2-UfSpKPchOUNxhSxgCXz4YG8k/formResponse target=_blank method=post>
+						
+								<label>
 			
-			<div>
+									<span>Submit this to Google Forms</span>
+									<input type=text name=entry.1773453675 id=entry_1773453675>
 			
-				<h2>Another Slider</h2>
+								</label>
+			
+								<input type=submit value='This is a very long submit button text which wraps to another line if long enough'>
+							
+							</form> 
+						
+						</div>
+	
+					</div>
 				
-
-				<div class='slider vertical' data-autoslide-=2>
-
-					<img src=images/DSC_4225.jpg alt=0>
-			
-					<div>
-
-						<p> Slide 2 </p>
-						
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-						
-						<a class=button>Button here</a>
-
-					</div>
-					
-					<!-- <img src="" alt=""> -->
-					
-					<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-			
-					<p> Slide 5 </p>
-					
 				</div>
+				
 			</div>
 			
-		</div>
+<!--
+			<div class=row>
+			
+				<div id=slider>
+					
+					<h2>Slider</h2>
+					
+					<div class='slider'>
+						
+						<div>
+						
+							<p class=thumbnail> Slider 2 Slide 1 </p>
+				
+							<p> natUIve guarantees instant loading, because </p>
+			
+							<p class=quote>
+								
+								"The value of 14 KB has been measured empirically by Google and is the threshold for the first package exchanged between a server and client via towers on a cellular connection." – Smashing Magazine
+							
+							</p>
+				
+						</div>
+						
+						<div>
+				
+							<p class=thumbnail> Slider 2 Slide 2 </p>
+				
+							<p> Second Slider 2 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+						
+						</div>
+					
+						<div>
+						
+							<p class=thumbnail> Slider 2 Very Long Title which Shows the Flexible Thumbnails Dimensions  </p>
+				
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+							Second Slider 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				
+						</div>
+						
+					</div>
+	
+				</div>
+				
+				<div>
+				
+					<h2>Another Slider</h2>
+					
+	
+					<div class='slider vertical' data-autoslide-=2>
+	
+						<img src=images/DSC_4225.jpg alt=0>
+				
+						<div>
+	
+							<p> Slide 2 </p>
+							
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							
+							<a class=button>Button here</a>
+	
+						</div>
+						
+						<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+				
+						<p> Slide 5 </p>
+						
+					</div>
+				</div>
+				
+			</div>
+-->
 		
 		</div>
 

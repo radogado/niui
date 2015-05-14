@@ -345,35 +345,27 @@ function makeSlider(el, current_slide) {
 
     addClass(el, 'slider');
 
-	if (hasClass(el, 'full-window')) {
+	if (hasClass(el, 'full-window')) { // To do: move nodes properly; this loses event handlers
 		
-		openFullWindow(el.parentNode.outerHTML);
-		el.outerHTML = '';
-		el = q('#full-window .slider');
+		openFullWindow(el);
 		
 	}
 
-    el.insertAdjacentHTML('beforebegin', '<div class=slider-wrap></div>'); // Create a container and move the slider in it
-    container = el.previousSibling;
-
-    transferClass(el, container, 'vertical');
-    
-    container.insertAdjacentHTML('afterbegin', '<a class="slider-arrow left"></a>' + el.outerHTML + '<a class="slider-arrow right"></a><div class=slider-nav><div><span></span></div></div>');
-    container.nextSibling.outerHTML = '';
-
+    container = wrap(el).parentNode;
+	addClass(container, 'slider-wrap');
     el = container.querySelector('.slider');
+    transferClass(el, container, 'vertical');
+	
+    container.insertAdjacentHTML('afterbegin', '<a class="slider-arrow left"></a>');
+    container.insertAdjacentHTML('beforeend', '<a class="slider-arrow right"></a><div class=slider-nav><div><span></span></div></div>');
+	
 	
     // Generate controls
 
     for (var i = 0; i < el.children.length; i++) {
 
-        /*
         		// IE8 counts comments as children and produces an empty slide.			
-        		if ( el.children[i].nodeName == '#comment' ) {
-        			
-        		
-        		}
-        */
+//         		if ( el.children[i].nodeName == '#comment' ) {	}
 
         if (el.children[i].querySelector('.thumbnail')) {
 
