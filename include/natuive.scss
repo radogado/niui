@@ -114,8 +114,9 @@ $line-height: 22px;
 		-webkit-flex: 0 1 auto;
 		-ms-flex: 0 1 auto;
 		flex: 0 1 auto;
-		width: 20em; /* Minimum col width */
+		width: 20%; /* Minimum col width */
 		text-align: left;
+		padding: $line-height/2;
 
 	}
 
@@ -1403,6 +1404,26 @@ video a[href] {
 
 /* Narrow Screens */
 
+@media screen and (max-width: 1024px) {
+
+	.row.wrap > * {
+		
+		width: 25%;
+	
+	}
+
+}
+
+@media screen and (max-width: 768px) {
+
+	.row.wrap > * {
+		
+		width: 33%;
+	
+	}
+
+}
+
 @media screen and (max-width: 640px) {
 
 	.row {
@@ -1435,7 +1456,7 @@ video a[href] {
 
 	.row > * > .row > * {
 
-		padding: 0;
+		padding: $line-height/3 0;
 
 	}
 	
