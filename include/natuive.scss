@@ -969,6 +969,12 @@ form > * {
 	-webkit-overflow-scrolling: touch;
 
 	}
+	
+	#full-window.headless {
+		
+		padding-top: 0;
+
+	}
 
 	#full-window .close {
 
@@ -1842,9 +1848,8 @@ video a[href] {
 	white-space: nowrap; /* keep inline-block elements together */
 	word-wrap: normal; /* IE8 fix */
 	position: relative;
-	-webkit-overflow-scrolling: auto; /* momentum scrolling off because of iOS 8 new behaviour */
+	-webkit-overflow-scrolling: touch;
     -webkit-transform: translate3d(0, 0, 0); /* fast, hardware-accelerated scrolling */
-    -webkit-transform: translateZ(0);
 	-ms-overflow-style: none; /* No scrollbars on IE10+ */
 	-webkit-transform-style: preserve-3d;
 	left: 0;
@@ -1882,6 +1887,13 @@ video a[href] {
 	
 	height: 100%;
 
+}
+
+#full-window .slider:not(.vertical) > * {
+	
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+	
 }
 
 .slider.vertical {
@@ -2111,8 +2123,10 @@ video a[href] {
 	text-align: center;
 	position: absolute;
 	bottom: .5em;
-	width: 100%;
 	white-space: nowrap;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
 	
 }
 
@@ -2124,6 +2138,9 @@ video a[href] {
 		height: 100%;
 		left: .5em;
 		padding: 1em 0;
+		top: 50%;
+		-webkit-transform: translateY(-50%);
+		transform: translateY(-50%);
 		
 	}
 

@@ -454,54 +454,70 @@ function populateLightbox(slider, i) {
 }
 
 var external = RegExp('^((f|ht)tps?:)?//(?!' + location.host + ')');
+var full_window_content = null;
 
 function closeFullWindow() {
 	
     full_window = document.getElementById('full-window');
 
     if (full_window) {
+		
+		if (full_window_content) { // Remove disposable generated content
+			
+			full_window.parentNode.removeChild(full_window);
+			
+		} else { // or keep previously existing content
+		
+			full_window.parentNode.replaceChild(full_window.querySelector('.content > *'), full_window);
+		
+		}
 
-	    el = full_window.querySelector('.content > *');
-
-		full_window.parentNode.replaceChild(el, full_window);
-
+	    removeClass(q('html'), 'nooverflow');
+		removeEventHandler(window, 'keydown', arrow_keys_handler);
+		
     }
     
-    removeClass(q('html'), 'nooverflow');
-
-	removeEventHandler(window, 'keydown', arrow_keys_handler);
-	
 }
 
 function openFullWindow(el) {
 	
 	closeFullWindow();
 
-    document.body.onkeyup = function(e) {
-
-        if ((e || window.event).keyCode == 27) { // esc
-
-            closeFullWindow();
-
-        }
-
-    };
-	
     addClass(q('html'), 'nooverflow');
 	
 	if (typeof el == 'string') {
 		
-		var full_window_content = el = document.createElement('div');
+		full_window_content = document.createElement('div');
+		full_window_content.innerHTML = el;
+		el = full_window_content;
+		q('body').appendChild(el);
 		
 	}
 	    
     addClass(wrap(el).parentNode, 'content');
     wrap(el.parentNode).parentNode.setAttribute('id', 'full-window');
+	q('#full-window').insertAdjacentHTML('beforeend', '<div id=full-window-bg></div>');
     
-    q('#full-window').insertAdjacentHTML('afterbegin', '<div class=close> ← ' + document.title + '</div>');
-    q('#full-window').insertAdjacentHTML('beforeend', '<div id=full-window-bg></div>');
-	q('#full-window-bg').onclick = q('#full-window .close').onclick = closeFullWindow;
-    
+    if (!hasClass(el, 'headless')) {
+	    
+	    q('#full-window').insertAdjacentHTML('afterbegin', '<div class=close> ← ' + document.title + '</div>');
+		q('#full-window-bg').onclick = q('#full-window .close').onclick = closeFullWindow;
+	    document.body.onkeyup = function(e) {
+	
+	        if ((e || window.event).keyCode == 27) { // esc
+	
+	            closeFullWindow();
+	
+	        }
+	
+	    };
+	   
+	} else {
+		
+		addClass(q('#full-window'), 'headless');
+		
+	}
+	
     return false;
 	
 }
@@ -575,9 +591,7 @@ function modalWindow(e) {
 
 function openLightbox(e) {
 	
-	el = document.createElement('div');
-	addClass(el, 'slider lightbox');
-	openFullWindow(el);
+	openFullWindow('<div class="slider lightbox"></div>');
 	
 	el = eventElement(e);
     parent = parentByClass(el, 'lightbox');
