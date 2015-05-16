@@ -971,7 +971,6 @@ form {
 	left: 0;
 	border-top: none;
 	padding-top: $line-height*2;
-	-webkit-overflow-scrolling: touch;
 
 	}
 	
@@ -1840,7 +1839,7 @@ video a[href] {
 	right: 0px;
 	left: 0px;
 	width: 100%;
-	z-index: 99999;
+	z-index: 1;
 	background: #fff;
 	position: absolute;
 

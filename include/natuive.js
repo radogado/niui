@@ -463,9 +463,11 @@ function closeFullWindow() {
     if (full_window) {
 		
 		if (full_window_content) { // Remove disposable generated content
-			
+
 			full_window.parentNode.removeChild(full_window);
-			
+			full_window_content = null;
+
+				
 		} else { // or keep previously existing content
 		
 			full_window.parentNode.replaceChild(full_window.querySelector('.content > *'), full_window);
@@ -497,7 +499,7 @@ function openFullWindow(el) {
     addClass(wrap(el).parentNode, 'content');
     wrap(el.parentNode).parentNode.setAttribute('id', 'full-window');
 	q('#full-window').insertAdjacentHTML('beforeend', '<div id=full-window-bg></div>');
-    
+
     if (!hasClass(el, 'headless')) {
 	    
 	    q('#full-window').insertAdjacentHTML('afterbegin', '<div class=close> ← ' + document.title + '</div>');
@@ -524,7 +526,7 @@ function openFullWindow(el) {
 
 function modalWindow(e) {
 
-    // Modal window of an external file or Lightbox
+    // Modal window of an external file
 
 	openFullWindow('...');
 
