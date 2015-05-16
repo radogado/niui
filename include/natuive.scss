@@ -49,31 +49,31 @@ $line-height: 22px;
 		
 	}
 
-	.row > .col23 {
+	body .row > .col23 {
 
 		width: 66.6%;
 
 	}
 	
-	.row > .col34 {
+	body .row > .col34 {
 
 		width: 75%;
 
 	}
 
-	.row > .col4 {
+	body .row > .col4 {
 
 		width: 25%;
 
 	}
 
-	.row > .col3 {
+	body .row > .col3 {
 
 		width: 33.333%;
 
 	}
 
-	.row > .col2 {
+	body .row > .col2 {
 
 		width: 50%;
 
@@ -148,7 +148,7 @@ html, body {
 	
 }
 
-html.nooverflow, html.nooverflow body, form {
+html.nooverflow, html.nooverflow body {
 	
 	overflow: hidden;
 
@@ -256,7 +256,7 @@ a[href] {
 .lightbox a {
 	
 	display: inline-block;
-	vertical-align: bottom;
+	vertical-align: middle;
 	margin: $line-height $line-height/4;
 	
 }
@@ -445,11 +445,16 @@ footer {
 
 /* Forms */
 
-form > * {
+form {
 	
-	clear: both;
-
+	overflow: hidden;
 }
+
+	form > * {
+		
+		clear: both;
+	
+	}
 
 	header form {
 		
@@ -2133,9 +2138,7 @@ video a[href] {
 	.vertical .slider-nav {
 		
 		width: auto;
-		top: 0;
-		bottom: 0;
-		height: 100%;
+		display: table;
 		left: .5em;
 		padding: 1em 0;
 		top: 50%;
@@ -2144,20 +2147,6 @@ video a[href] {
 		
 	}
 
-	.vertical .slider-nav div {
-		
-		height: 100%;
-		display: table;
-		
-	}
-
-	.vertical .slider-nav span {
-
-		display: table-cell;
-		vertical-align: middle;
-
-	}
-	
 	.slider-nav a {
 		
 		display: inline-block;

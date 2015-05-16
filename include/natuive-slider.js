@@ -161,7 +161,7 @@ function endSlide (slider, index) {
     }
     
     sliding = 0;
-	addClass(slider.parentNode.querySelector('.slider-nav span').children[index], 'active');
+	addClass(slider.parentNode.querySelector('.slider-nav').children[index], 'active');
     mouseEvents(slider);
 	document.onkeyup = sliderKeyboard;
 	
@@ -357,7 +357,7 @@ function makeSlider(el, current_slide) {
     transferClass(el, container, 'vertical');
 	
     container.insertAdjacentHTML('afterbegin', '<a class="slider-arrow left"></a>');
-    container.insertAdjacentHTML('beforeend', '<a class="slider-arrow right"></a><div class=slider-nav><div><span></span></div></div>');
+    container.insertAdjacentHTML('beforeend', '<a class="slider-arrow right"></a><div class=slider-nav></div>');
 	
 	
     // Generate controls
@@ -372,7 +372,7 @@ function makeSlider(el, current_slide) {
             slider_nav = el.parentNode.querySelector('.slider-nav');
             addClass(slider_nav, 'thumbnails');
             addClass(slider_nav.querySelector('span'), 'row');
-            slider_nav.querySelector('span').insertAdjacentHTML('beforeend', (!i ? '<a class=active>' : '<a>') + el.children[i].querySelector('.thumbnail').innerHTML + '</a>');
+            slider_nav.insertAdjacentHTML('beforeend', (!i ? '<a class=active>' : '<a>') + el.children[i].querySelector('.thumbnail').innerHTML + '</a>');
             if (hasClass(el, 'vertical')) {
 	            
 	            addClass(el.parentNode, 'vertical-thumbnails');
@@ -381,11 +381,11 @@ function makeSlider(el, current_slide) {
 
         } else {
 
-            container.querySelector('.slider-nav span').insertAdjacentHTML('beforeend', (!i ? '<a class=active>' : '<a>') + (i + 1) + '</a>');
+            container.querySelector('.slider-nav').insertAdjacentHTML('beforeend', (!i ? '<a class=active>' : '<a>') + (i + 1) + '</a>');
 
         }
 
-        container.querySelector('.slider-nav span').lastChild.onclick = function(e) {
+        container.querySelector('.slider-nav').lastChild.onclick = function(e) {
 
             slide(eventElement(e), 'index');
 
