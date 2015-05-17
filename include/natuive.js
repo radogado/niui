@@ -597,7 +597,7 @@ function modalWindow(e) {
 }
 
 function openLightbox(e) {
-	
+
 	openFullWindow('<div class="slider lightbox"></div>');
 	
 	el = eventElement(e);
@@ -617,7 +617,7 @@ function openLightbox(e) {
 
     if (makeSlider) {
 
-        anchor = el.parentNode;
+        anchor = el;
 
         while (typeof anchor.href == 'undefined') {
 
