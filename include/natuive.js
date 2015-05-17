@@ -458,18 +458,17 @@ var full_window_content = null;
 
 function closeFullWindow() {
 	
-    full_window = document.getElementById('full-window');
-
-    if (full_window) {
+    if (full_window = document.getElementById('full-window')) {
 		
 		if (full_window_content) { // Remove disposable generated content
 
+			 // If lightbox/slider, crashes iOS Safari. not crashing with an empty div
 			full_window.parentNode.removeChild(full_window);
 			full_window_content = null;
 
 				
 		} else { // or keep previously existing content
-		
+
 			full_window.parentNode.replaceChild(full_window.querySelector('.content > *'), full_window);
 		
 		}
@@ -490,9 +489,9 @@ function openFullWindow(el) {
 	if (typeof el == 'string') {
 		
 		full_window_content = document.createElement('div');
+		q('body').appendChild(full_window_content);
 		full_window_content.innerHTML = el;
 		el = full_window_content;
-		q('body').appendChild(el);
 		
 	}
 	    
@@ -523,6 +522,12 @@ function openFullWindow(el) {
     return false;
 	
 }
+
+/* To imporve: Open and close a modal window with a generated element, to fix iOS Safari crash on modal close */
+el = document.createElement('div');
+q('body').appendChild(el);
+openFullWindow(el);
+closeFullWindow();
 
 function modalWindow(e) {
 
@@ -567,7 +572,7 @@ function modalWindow(e) {
 
             }
 
-            q('#full-window .content').innerHTML = parsed;
+            openFullWindow(parsed);
 
             relayParameters();
 
