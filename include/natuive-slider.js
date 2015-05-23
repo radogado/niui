@@ -356,8 +356,8 @@ function makeSlider(el, current_slide) {
     el = container.querySelector('.slider');
     transferClass(el, container, 'vertical');
 	
-    container.insertAdjacentHTML('afterbegin', '<a class="slider-arrow left"></a>');
-    container.insertAdjacentHTML('beforeend', '<a class="slider-arrow right"></a><div class=slider-nav></div>');
+    container.insertAdjacentHTML(hasClass(el, 'toptabs') ? 'afterbegin' : 'beforeend', '<div class=slider-nav></div>');
+    container.insertAdjacentHTML('beforeend', '<a class="slider-arrow left"></a><a class="slider-arrow right"></a>');
 	
 	
     // Generate controls
@@ -367,15 +367,15 @@ function makeSlider(el, current_slide) {
         		// IE8 counts comments as children and produces an empty slide.			
 //         		if ( el.children[i].nodeName == '#comment' ) {	}
 
-        if (el.children[i].querySelector('.thumbnail')) {
+        if (el.children[i].querySelector('.tab')) {
 
             slider_nav = el.parentNode.querySelector('.slider-nav');
-            addClass(slider_nav, 'thumbnails');
-            addClass(slider_nav.querySelector('span'), 'row');
-            slider_nav.insertAdjacentHTML('beforeend', (!i ? '<a class=active>' : '<a>') + el.children[i].querySelector('.thumbnail').innerHTML + '</a>');
+            addClass(el.parentNode, 'tabs');
+            addClass(slider_nav, 'row');
+            slider_nav.insertAdjacentHTML('beforeend', (!i ? '<a class=active>' : '<a>') + el.children[i].querySelector('.tab').innerHTML + '</a>');
             if (hasClass(el, 'vertical')) {
 	            
-	            addClass(el.parentNode, 'vertical-thumbnails');
+	            addClass(el.parentNode, 'vertical-tabs');
 	            
             }
 
