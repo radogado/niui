@@ -264,6 +264,7 @@ a[href] {
 	.lightbox a img {
 		
 		display: block;
+		padding-bottom: 0 !important;
 	
 	}
 
@@ -2179,6 +2180,12 @@ video a[href] {
 		
 	}
 
+	.slider-wrap.tabs .slider-arrow {
+
+		display: none;
+		
+	}
+	
 	.slider-wrap.tabs .slider-nav.row {
 		
 		padding: 0;

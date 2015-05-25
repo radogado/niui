@@ -187,14 +187,14 @@ function slide(el, method, index_number) {
 
     if (method == 'index') {
 
-		if (index == thisIndex(el)) { /* Don't slide to current slide */
-			
-			endSlide (slider, index);
+		if (typeof index_number == 'undefined') { /* Don't slide to current slide */
+
+			endSlide(slider, index);
 			return;
 
 		}
-        index = index_number || thisIndex(el);
-    
+        index = index_number;
+
     }
 
     if (method == 'right') {
@@ -386,8 +386,8 @@ function makeSlider(el, current_slide) {
         }
 
         container.querySelector('.slider-nav').lastChild.onclick = function(e) {
-
-            slide(eventElement(e), 'index');
+			
+            slide(eventElement(e), 'index', thisIndex(eventElement(e)));
 
         };
 
