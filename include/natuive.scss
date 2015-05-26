@@ -223,6 +223,41 @@ p, li, header {
 
 }
 
+.viewport-height .header-and-banner {
+	
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: -1;
+
+}
+
+body.viewport-height {
+
+	margin-top: 100vh;
+
+}
+
+.viewport-height .header-and-banner ~ * {
+
+	background: #fff;
+	z-index: 0;
+
+}
+
+.viewport-height .header-and-banner:after {
+	
+	content: '⇣';
+	left: 0;
+	right: 0;
+	bottom: 0;
+	position: fixed;
+	text-align: center;
+	
+}
+
 header .row {
 	
 	padding: 0;
@@ -1651,6 +1686,18 @@ video a[href] {
 		text-align: center;
 		
 	}
+	
+	.viewport-height .header-and-banner {
+		
+		position: static;
+		
+	}
+	
+	body.viewport-height {
+		
+		margin-top: 0;
+
+	}
 
 	header > .row:first-child div {
 		
@@ -1732,7 +1779,6 @@ video a[href] {
 			
 			height: auto;
 			width: 100%;
-			font-size: 1.5em;
 			background-position: 0 5px;
 			margin-left: 0;
 			
