@@ -456,6 +456,12 @@ function populateLightbox(slider, i) {
 var external = RegExp('^((f|ht)tps?:)?//(?!' + location.host + ')');
 var full_window_content = null;
 
+function preventEvent(e) { // For iOS scrolling behind blackbox
+	
+	e.preventDefault();
+
+}
+
 function closeFullWindow() {
 	
     if (full_window = document.getElementById('full-window')) {
@@ -474,6 +480,9 @@ function closeFullWindow() {
 		}
 
 	    removeClass(q('html'), 'nooverflow');
+	    document.removeEventListener('touchmove', preventEvent, false);
+	    q('body').removeEventListener('touchmove', preventEvent, false);
+
 		removeEventHandler(window, 'keydown', arrow_keys_handler);
 		
     }
@@ -503,6 +512,7 @@ function openFullWindow(el) {
 	    
 	    q('#full-window').insertAdjacentHTML('afterbegin', '<div class=close> ← ' + document.title + '</div>');
 		q('#full-window-bg').onclick = q('#full-window .close').onclick = closeFullWindow;
+		
 	    document.body.onkeyup = function(e) {
 	
 	        if ((e || window.event).keyCode == 27) { // esc
@@ -517,6 +527,13 @@ function openFullWindow(el) {
 		
 		addClass(q('#full-window'), 'headless');
 		
+	}
+
+	if (el.children[0] && hasClass(el.children[0], 'slider')) {
+
+		document.addEventListener('touchmove', preventEvent, false);
+		q('body').addEventListener('touchmove', preventEvent, false);
+
 	}
 	
     return false;

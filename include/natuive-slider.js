@@ -92,8 +92,9 @@ swipeEvents = function(el) {
                 el.removeEventListener('touchmove', touchMove);
 
             }
-
+            
         }
+
     }
 
 };
