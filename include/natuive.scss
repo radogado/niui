@@ -223,7 +223,7 @@ p, li, header {
 
 }
 
-.viewport-height .header-and-banner {
+.viewport-height.header-and-banner {
 	
 	height: 100vh;
 	overflow: auto;
@@ -1659,7 +1659,7 @@ video a[href] {
 		
 	}
 	
-	.viewport-height .header-and-banner {
+	.viewport-height.header-and-banner {
 		
 		height: auto;
 		
