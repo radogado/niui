@@ -225,37 +225,9 @@ p, li, header {
 
 .viewport-height .header-and-banner {
 	
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	z-index: -1;
+	height: 100vh;
+	overflow: auto;
 
-}
-
-body.viewport-height {
-
-	margin-top: 100vh;
-
-}
-
-.viewport-height .header-and-banner ~ * {
-
-	background: #fff;
-	z-index: 0;
-
-}
-
-.viewport-height .header-and-banner:after {
-	
-	content: '⇣';
-	left: 0;
-	right: 0;
-	bottom: 0;
-	position: fixed;
-	text-align: center;
-	
 }
 
 header .row {
@@ -1689,16 +1661,10 @@ video a[href] {
 	
 	.viewport-height .header-and-banner {
 		
-		position: static;
+		height: auto;
 		
 	}
 	
-	body.viewport-height {
-		
-		margin-top: 0;
-
-	}
-
 	header > .row:first-child div {
 		
 		text-align: right;
