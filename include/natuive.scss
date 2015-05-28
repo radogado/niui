@@ -311,6 +311,12 @@ nav {
 
 	}
 	
+	nav a[href].active {
+		
+		color: #999;
+
+	}
+	
 	nav li:last-child a {
 		
 		padding-right: 0;
