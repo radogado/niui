@@ -616,6 +616,7 @@ function modalWindow(e) {
 function openLightbox(e) {
 
 	openFullWindow('<div class="slider lightbox"></div>');
+	q('#full-window').style.cssText = 'overflow:hidden';
 	
 	el = eventElement(e);
     parent = parentByClass(el, 'lightbox');
