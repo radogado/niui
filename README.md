@@ -14,20 +14,26 @@ natUIve: mostly native front-end framework
 - (Mobile) navigation
 - Buttons
 - Modal windows with local or external content
-- Lightbox gallery
+- Lightbox gallery supporting huge galleries*
 - Tooltips with full HTML content*
 - Nested ordered lists*
 - Forms with validation, dynamic submission without page reload, full customisation and accessibility, including native file drop
 - Auto-expanding textarea*
 - Native sliders*, swipeable on mobile and desktop, with numbered or thumbnail navigation, vertical and full screen options
 - Accordions
+- Tabs
 - Quote block
 - Tables accessible on narrow screens by scrolling*
 - Footer sticking to the very bottom on short pages*
 - 'Back to top' button
 - Animated anchor links
 - Language selector
-- Video
+- Native video player
+- Good usability without any classes*
+- Themes
+- Aspect ratio image container*
+- Support for Android Browser scrolling via polyfill overthrow.js*
+- CSS-only viewport height header*
 - URI parameters relay to links*
 - Arabic layout with one CSS line
 - Functional without JS and accessible without CSS*
@@ -41,6 +47,31 @@ natUIve: mostly native front-end framework
 \* exclusive features, missing in popular frameworks
 
 2014 [rado.bg](http://rado.bg)
+
+–––
+
+natUIve 1.3
+
+- Core
+	- Sass CSS for $font-size and $line-height
+	- Reduced class dependencies
+	- HTML5 elements
+	- Themes support
+	- openFullWindow(‘content’)
+	- Overflowing mobile nav scrollable
+	- Node manipulation preserves events
+	- Aspect ratio image container
+	- Scroll polyfill for Android Browser with overthrow.js
+	- Option for Header+Banner (“Hero”) to take up .viewport-height (CSS only)
+	- Optimisations and fixes
+- natUIve WordPress theme
+- Lightbox
+	- Lazy loading images to support huge galleries
+- Slider
+	- Rewritten slide animation to support huge sliders
+	- Headless full-window option
+- Video player
+- Tabs
 
 –––
 

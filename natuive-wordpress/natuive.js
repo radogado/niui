@@ -456,33 +456,25 @@ function populateLightbox(slider, i) {
 var external = RegExp('^((f|ht)tps?:)?//(?!' + location.host + ')');
 var full_window_content = null;
 
-function preventEvent(e) { // For iOS scrolling behind blackbox
-	
-	e.preventDefault();
-
-}
-
 function closeFullWindow() {
 	
-    if (full_window = document.getElementById('full-window')) {
+    full_window = document.getElementById('full-window');
+
+    if (full_window) {
 		
 		if (full_window_content) { // Remove disposable generated content
 
-			 // If lightbox/slider, crashes iOS Safari. not crashing with an empty div
 			full_window.parentNode.removeChild(full_window);
 			full_window_content = null;
 
 				
 		} else { // or keep previously existing content
-
+		
 			full_window.parentNode.replaceChild(full_window.querySelector('.content > *'), full_window);
 		
 		}
 
 	    removeClass(q('html'), 'nooverflow');
-	    document.removeEventListener('touchmove', preventEvent, false);
-	    q('body').removeEventListener('touchmove', preventEvent, false);
-
 		removeEventHandler(window, 'keydown', arrow_keys_handler);
 		
     }
@@ -498,9 +490,9 @@ function openFullWindow(el) {
 	if (typeof el == 'string') {
 		
 		full_window_content = document.createElement('div');
-		q('body').appendChild(full_window_content);
 		full_window_content.innerHTML = el;
 		el = full_window_content;
+		q('body').appendChild(el);
 		
 	}
 	    
@@ -512,7 +504,6 @@ function openFullWindow(el) {
 	    
 	    q('#full-window').insertAdjacentHTML('afterbegin', '<div class=close> ← ' + document.title + '</div>');
 		q('#full-window-bg').onclick = q('#full-window .close').onclick = closeFullWindow;
-		
 	    document.body.onkeyup = function(e) {
 	
 	        if ((e || window.event).keyCode == 27) { // esc
@@ -528,23 +519,10 @@ function openFullWindow(el) {
 		addClass(q('#full-window'), 'headless');
 		
 	}
-
-	if (el.children[0] && hasClass(el.children[0], 'slider')) {
-
-		document.addEventListener('touchmove', preventEvent, false);
-		q('body').addEventListener('touchmove', preventEvent, false);
-
-	}
 	
     return false;
 	
 }
-
-/* To imporve: Open and close a modal window with a generated element, to fix iOS Safari crash on modal close */
-el = document.createElement('div');
-q('body').appendChild(el);
-openFullWindow(el);
-closeFullWindow();
 
 function modalWindow(e) {
 
@@ -572,9 +550,7 @@ function modalWindow(e) {
             // Success
             if (!request.responseText) { // No PHP?
 
-                closeFullWindow();
                 window.open(link, 'Modal');
-                return false;
 
             }
             container = (typeof link.split('#')[1] != 'undefined') ? ('#' + link.split('#')[1]) : 0;
@@ -591,7 +567,7 @@ function modalWindow(e) {
 
             }
 
-            openFullWindow(parsed);
+            q('#full-window .content').innerHTML = parsed;
 
             relayParameters();
 
@@ -616,9 +592,8 @@ function modalWindow(e) {
 }
 
 function openLightbox(e) {
-
+	
 	openFullWindow('<div class="slider lightbox"></div>');
-	q('#full-window').style.overflow = 'hidden';
 	
 	el = eventElement(e);
     parent = parentByClass(el, 'lightbox');
@@ -637,7 +612,7 @@ function openLightbox(e) {
 
     if (makeSlider) {
 
-        anchor = el;
+        anchor = el.parentNode;
 
         while (typeof anchor.href == 'undefined') {
 
@@ -652,8 +627,7 @@ function openLightbox(e) {
         }
 
         // Load the images in the current slide and its neighbours
-        this_index = thisIndex(anchor);
-        populateLightbox(makeSlider(q('#full-window .slider'), this_index), this_index); // Wrong thisIndex()
+        populateLightbox(makeSlider(q('#full-window .slider'), thisIndex(anchor)), thisIndex(anchor));
 
     }
 
@@ -984,9 +958,9 @@ if ('ontouchstart' in window) { // Touch device: remove iOS sticky hover state
 if (q('#nav-trigger')) {
 	
 	q('#nav-trigger').onchange = function(e) {
-		
+	
 	    toggleClass(q('body'), 'semi-transparent');
-
+	
 	};
 
 }

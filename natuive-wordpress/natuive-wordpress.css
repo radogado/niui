@@ -1,0 +1,198 @@
+.slider-wrap {
+	
+	background: #eee;
+	margin-bottom: 44px;
+
+}
+
+#full-window .slider-wrap {
+	
+	margin-bottom: 0;
+
+}
+
+.slider.featured {
+	
+	margin-bottom: 22px;
+/* 	height: auto !important; */
+
+}
+
+.slider.featured h2 a[href] {
+	
+	position: absolute;
+	display: block;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	
+}
+
+.slider-wrap .slider.featured {
+	
+	margin-bottom: 0;
+
+}
+
+.slider.featured > * {
+	
+	position: relative;
+	text-align: center;
+	padding: 9% 0;
+	overflow: visible;
+	
+}
+
+.slider.featured a[href], .slider.featured p {
+	
+	color: #fff;
+
+}
+
+.slider.featured > div > * {
+	
+	padding: 0 .5em;
+	display: inline-block;
+	background: rgba(0,0,0,.5);
+	color: #fff;
+
+}
+
+#content .slider.featured img {
+	
+	display: none;
+	
+}
+
+#content .slider.featured > * > img[class*='thumbnail'] {
+	
+	position: absolute;
+	z-index: -1;
+	margin: auto;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	max-height: none;
+	padding: 0;
+	display: block;
+   
+}
+
+#content .sidebar form {
+	
+	padding-top: 0;
+	margin-top: -11px;
+	margin-bottom: 11px;
+
+
+}
+
+#content img {
+	
+	display: block;
+	margin: 0 auto;
+}
+
+#content .sidebar ul, #content .sidebar li, #content .comments ul {
+	
+	list-style: none;
+	padding-left: 0;
+	margin-left: 0;
+	
+}
+
+button.search-submit {
+	
+	display: none;
+
+}
+
+.lightbox.gallery {
+	
+	margin-left: -.5em;
+
+}
+
+#full-window .slider-arrow {
+	
+	top: 49%;
+
+}
+
+.wp-caption, iframe {
+	
+	max-width: 100%;
+
+}
+
+iframe, article h2 a {
+	
+	margin: 0 auto;
+	display: block;
+
+}
+
+.home article, .archive article, .search-results article {
+	
+	margin-bottom: 44px;
+	position: relative;
+
+}
+
+article p {
+	
+	color: #000;
+
+}
+
+.img-crop {
+
+	width: 100%;
+	display: block;
+	background-color: #eee;
+	overflow: hidden;
+	position: relative;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 100%;
+
+}
+
+.img-crop:before {
+
+	display: inline-block;
+	vertical-align: middle;
+	content: '';
+	padding-top: 17%;
+
+}
+
+.comment-author img {
+	
+	padding-bottom: 0 !important;
+
+} 
+
+#head .logo a {
+	
+	display: block;
+
+}
+
+.menu .current_page_item a:link, .menu .current_page_item a:visited {
+	
+	color: #e82;
+
+}
+
+@media screen and (max-width: 640px) {
+
+	.lightbox.gallery {
+		
+		text-align: center;		
+
+	}
+
+}
