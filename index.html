@@ -68,14 +68,30 @@
 			
 							<ul>
 							
+								<script type="text/javascript">
+									function toggleTheme() {
+									if (document.querySelector('link.theme')) {
+										document.getElementsByTagName('head')[0].removeChild(document.querySelector('link.theme'));	
+									} else {
+										var l = document.createElement('link');
+										addClass(l, 'theme');
+										l.href = 'include/theme.css';
+										l.rel = 'styleSheet';
+										l.type = 'text/css';
+										document.getElementsByTagName('head')[0].appendChild(l);											
+									
+									}
+									return false;
+									}
+								</script>
+								<li> <a onclick=toggleTheme() style="cursor: pointer;">Toggle Theme</a> </li>
+							
 								<li> <a href=#>Fast</a> </li>
 			
 								<li> <a href=#>Lightweight</a> </li>
 			
 								<li> <a href=# class=active>Functional</a> </li>
 
-								<li> <a href=theme.html>Add Theme</a> </li>
-							
 							</ul>
 										
 						</nav>
@@ -109,7 +125,7 @@
 						
 					<div class='col4 align-right align-middle'>
 						
-						<a href=#>With Theme</a> 
+						<a href=#>Help</a> 
 
 						<form action=. method=get id=language-selector>
 							
