@@ -572,7 +572,9 @@ function modalWindow(e) {
             // Success
             if (!request.responseText) { // No PHP?
 
+                closeFullWindow();
                 window.open(link, 'Modal');
+                return false;
 
             }
             container = (typeof link.split('#')[1] != 'undefined') ? ('#' + link.split('#')[1]) : 0;
