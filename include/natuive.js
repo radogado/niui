@@ -621,12 +621,11 @@ function openLightbox(e) {
 	q('#full-window').style.overflow = 'hidden';
 	
 	el = eventElement(e);
-    parent = parentByClass(el, 'lightbox');
 
     /* Add any <a><img> siblings with description to a .slider and initialise its controls */
     images = '';
 
-    forEach(parent.querySelectorAll('a[href]'), function(el) {
+    forEach(parentByClass(el, 'lightbox').querySelectorAll('a[href]'), function(el) {
 
         images += '<div><img data-src="' + el.href + '" alt="' + el.title + '"><p>' + el.title + '</p></div>';
         // Attach onload event to each image to display it only when fully loaded and avoid top-to-bottom reveal?
