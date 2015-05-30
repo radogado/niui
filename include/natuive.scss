@@ -849,6 +849,16 @@ form {
 
 	}
 	
+	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) { /* IE10 */
+	
+		input[type=file] {
+			
+			margin-left: -100%;
+
+		}
+	
+	}
+	
 	form .file-input {
 
 		font-weight: normal;
@@ -1357,11 +1367,16 @@ table {
 		display: table;
 
 	}
-	
-	table tr:hover td {
-		
-		background: #ddd;
 
+
+	@media screen and (min-width: 0) { /* All but IE9- */
+	
+		table tr:hover td {
+			
+			background: #ddd;
+	
+		}
+	
 	}
 	
 /* Checkbox trigger */
@@ -1891,7 +1906,14 @@ video a[href] {
 	transform-style: preserve-3d;
 
 	-webkit-transition: none;
+	-ms-transition: none;
 	transition: none;
+
+	-ms-transition: top .2s linear;
+	transition: top .2s linear;
+
+	-ms-transition: left .2s linear;
+	transition: left .2s linear;
 
 }
 

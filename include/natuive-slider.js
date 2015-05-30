@@ -165,6 +165,7 @@ function endSlide (slider, index) {
 	addClass(slider.parentNode.querySelector('.slider-nav').children[index], 'active');
     mouseEvents(slider);
 	document.onkeyup = sliderKeyboard;
+   	removeClass(q('html'), 'no-hover');
 	
 }
 
@@ -234,7 +235,7 @@ function slide(el, method, index_number) {
 
     removeClass(slider.parentNode.querySelector('.slider-nav .active'), 'active');
 
-    if (typeof document.body.style.transition == 'string') { // CSS transition-enabled browser...
+    if (animationEvent) { // CSS transition-enabled browser...
 
 	    if (hasClass(slider, 'vertical')) {
 		
@@ -270,8 +271,6 @@ function slide(el, method, index_number) {
 			slider.style.cssText = prefix + 'transform: ' + (hasClass(slider, 'vertical') ? 'translateY' : 'translateX') + '(-' + index + '00%);';
 			q('.sliding-style').outerHTML = '';
 			
-        	removeClass(q('html'), 'no-hover');
-            
 			endSlide(slider, index);
 
         }, false);
