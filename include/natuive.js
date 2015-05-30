@@ -358,7 +358,7 @@ transitions = {
 
 animations = {
 
-	'animation'      	: 'animationend',
+// 	'animation'      	: 'animationend', // Disable IE because of a Slider glitch
 	'OAnimation'     	: 'oAnimationEnd',
 	'MozAnimation'   	: 'animationend',
 	'WebkitAnimation'	: 'webkitAnimationEnd'

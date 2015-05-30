@@ -1970,6 +1970,8 @@ video a[href] {
 .slider-wrap .slider.sliding {
 
 	-webkit-transform: none !important;
+	-ms-transform: none !important;
+	transform: none !important;
 
 }
 
@@ -2196,6 +2198,7 @@ video a[href] {
 		right: auto;
 		position: static;
 		-webkit-transform: none;
+		-ms-transform: none;
 		transform: none;
 		
 	}
