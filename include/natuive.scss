@@ -1369,14 +1369,10 @@ table {
 	}
 
 
-	@media screen and (min-width: 0) { /* All but IE9- */
-	
-		table tr:hover td {
-			
-			background: #ddd;
-	
-		}
-	
+	table tr:hover td { /* Bug: on IE9, hover on overflowing table makes its .table container taller */
+		
+		background-color: #ddd;
+
 	}
 	
 /* Checkbox trigger */

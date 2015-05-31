@@ -438,6 +438,7 @@ function populateLightboxItem(slider, i) {
 	if (!img.src) {
 		
 		img.src = img.getAttribute('data-src');
+		return false;
 
 	}
 
@@ -782,6 +783,14 @@ forEach('a.modal', function(el, i) {
 /* Also lightbox with images */
 
 forEach('.lightbox a', function(el, i) {
+
+	/* Abort on IE, because of IE bug on dynamic img.src change */
+	if (navigator.userAgent.indexOf('MSIE') != -1 || navigator.userAgent.indexOf('Trident') != -1) {
+		
+		el.target = '_blank';		
+		return;
+
+	}
 
     el.onclick = openLightbox;
 
