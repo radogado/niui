@@ -85,6 +85,15 @@ form#language-selector select {
 
 }
 
+form .select {
+
+	background: #eee url(../images/select-arrow.svg) no-repeat;
+	background-position: 97% 50%;
+	background-position: calc(100% - .7em) 50%;
+	background-size: auto 50%;
+
+}
+
 header form .select {
 	
 	height: $line-height;

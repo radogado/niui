@@ -223,6 +223,13 @@ p, li, header {
 
 }
 
+.viewport-height.header-and-banner {
+	
+	height: 100vh;
+	overflow: auto;
+
+}
+
 header .row {
 	
 	padding: 0;
@@ -264,6 +271,7 @@ a[href] {
 	.lightbox a img {
 		
 		display: block;
+		padding-bottom: 0 !important;
 	
 	}
 
@@ -300,6 +308,12 @@ nav {
 		position: relative;
 		padding: 0 .5em 0 0;
 		font-size: 1.3em;
+
+	}
+	
+	nav a[href].active {
+		
+		color: #999;
 
 	}
 	
@@ -672,10 +686,7 @@ form {
 	form .select, form .file-input {
 
 		width: 50%;
-		background: #eee url(../images/select-arrow.svg) no-repeat;
-		background-position: 97% 50%;
-		background-position: calc(100% - .7em) 50%;
-		background-size: auto 50%;
+		background: #eee;
 		padding: 0;
 		vertical-align: top;
 		border: none;
@@ -835,6 +846,16 @@ form {
 
 	}
 	
+	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) { /* IE10 */
+	
+		input[type=file] {
+			
+			margin-left: -100%;
+
+		}
+	
+	}
+	
 	form .file-input {
 
 		font-weight: normal;
@@ -971,6 +992,7 @@ form {
 	left: 0;
 	border-top: none;
 	padding-top: $line-height*2;
+    -webkit-overflow-scrolling: touch;
 
 	}
 	
@@ -1342,10 +1364,11 @@ table {
 		display: table;
 
 	}
-	
-	table tr:hover td {
+
+
+	table tr:hover td { /* Bug: on IE9, hover on overflowing table makes its .table container taller */
 		
-		background: #ddd;
+		background-color: #ddd;
 
 	}
 	
@@ -1650,7 +1673,13 @@ video a[href] {
 		text-align: center;
 		
 	}
-
+	
+	.viewport-height.header-and-banner {
+		
+		height: auto;
+		
+	}
+	
 	header > .row:first-child div {
 		
 		text-align: right;
@@ -1731,7 +1760,6 @@ video a[href] {
 			
 			height: auto;
 			width: 100%;
-			font-size: 1.5em;
 			background-position: 0 5px;
 			margin-left: 0;
 			
@@ -1807,13 +1835,13 @@ video a[href] {
 
 }
 
-.slider-wrap.vertical-thumbnails {
+.slider-wrap.vertical-tabs {
 	
 	padding-left: 33%;
 
 }
 
-.slider-wrap.vertical .slider-nav.thumbnails {
+.slider-wrap.vertical.tabs .slider-nav {
 	
 	position: absolute;
 	top: 0px;
@@ -1825,7 +1853,7 @@ video a[href] {
 
 }
 
-.slider-wrap.vertical .slider-nav.thumbnails a {
+.slider-wrap.vertical.tabs .slider-nav a {
 	
 	display: block;
 
@@ -1871,7 +1899,14 @@ video a[href] {
 	transform-style: preserve-3d;
 
 	-webkit-transition: none;
+	-ms-transition: none;
 	transition: none;
+
+	-ms-transition: top .2s linear;
+	transition: top .2s linear;
+
+	-ms-transition: left .2s linear;
+	transition: left .2s linear;
 
 }
 
@@ -1950,6 +1985,7 @@ video a[href] {
 .slider-wrap .slider.sliding {
 
 	-webkit-transform: none !important;
+	-ms-transform: none !important;
 
 }
 
@@ -1976,6 +2012,7 @@ video a[href] {
 #full-window .slider > img {
 	
 	padding: 0 !important;
+	height: auto;
 	
 }
 
@@ -2170,20 +2207,29 @@ video a[href] {
 	
 	}
 
-	.slider-nav.thumbnails {
+	.slider-wrap.tabs .slider-nav {
 		
 		right: auto;
 		position: static;
+		-webkit-transform: none;
+		-ms-transform: none;
+		transform: none;
 		
 	}
 
-	.slider-nav.thumbnails .row {
+	.slider-wrap.tabs .slider-arrow {
+
+		display: none;
+		
+	}
+	
+	.slider-wrap.tabs .slider-nav.row {
 		
 		padding: 0;
 
 	}
 	
-	.full-window .slider-nav.thumbnails {
+	.full-window .slider-wrap.tabs .slider-nav {
 		
 		position: absolute;
 		bottom: 0;
@@ -2191,7 +2237,7 @@ video a[href] {
 	
 	}
 	
-	.slider-nav.thumbnails a {
+	.slider-wrap.tabs .slider-nav a {
 		
 		text-indent: 0;
 		width: auto;

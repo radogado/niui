@@ -15,7 +15,7 @@
 		<?php wp_head(); ?>
 
         <!--[if lte IE 9]> 
-        	<link rel=styleSheet href=<?php echo get_template_directory_uri(); ?>/ie9-.css type=text/css media=screen>
+        	<link rel=styleSheet href=<?php echo get_template_directory_uri(); ?>/ie.css type=text/css media=screen>
         	<script src=<?php echo get_template_directory_uri(); ?>/html5shiv.min.js></script> 
         <![endif]-->
 
