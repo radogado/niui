@@ -651,8 +651,13 @@ function openLightbox(e) {
         }
 
         // Load the images in the current slide and its neighbours
+        while ( anchor.tagName.toLowerCase() != 'a' ) {
+	        
+	        anchor = anchor.parentNode;
+	        
+        }
         this_index = thisIndex(anchor);
-        populateLightbox(makeSlider(q('#full-window .slider'), this_index), this_index); // Wrong thisIndex()
+        populateLightbox(makeSlider(q('#full-window .slider'), this_index), this_index);
 
     }
 
