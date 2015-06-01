@@ -187,6 +187,12 @@ article p {
 
 }
 
+article {
+	
+	overflow: auto;
+
+}
+
 @media screen and (max-width: 640px) {
 
 	.lightbox.gallery {
