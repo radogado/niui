@@ -170,6 +170,7 @@ body {
 	display: table; /* Sticky footer */
 	color: #333;
 	background: #fff;
+	-webkit-font-smoothing: antialiased;
 	
 }
 
@@ -185,7 +186,7 @@ html, body, .row.wrap > *, nav.sub a, p, li, .lightbox a, .button, input[type=su
 
 /* Elements with double line-height */
 
-h1, h2, h3, .button.big, input[type=submit], button, input[type=submit], form .file-input, form .file-input span, #full-window .close, .accordion > label, nav a, label[for=nav-trigger] {
+h1, h2, h3, .button.big, input[type=submit], form button, input[type=submit], form .file-input, form .file-input span, #full-window .close, .accordion > label, nav a, label[for=nav-trigger] {
 	
 	line-height: $line-height * 2;
 	min-height: $line-height * 2;
@@ -233,6 +234,12 @@ p, li, header {
 header .row {
 	
 	padding: 0;
+
+}
+
+header a.logo {
+	
+	display: inline-block;
 
 }
 
@@ -362,10 +369,11 @@ nav {
 	color: #eee;
 	-webkit-transition: all .1s linear;
 	transition: all .1s linear;
+	border: none;
 
 }
 
-	.button:hover, input[type=submit]:hover, button[type=submit]:hover, button[type=reset]:hover, button:hover, a.button[href]:hover {
+	.button:hover, input[type=submit]:hover, button[type=submit]:hover, button[type=reset]:hover, form button:hover, a.button[href]:hover {
 		
 		background: #eee;
 		color: #333;
@@ -389,7 +397,7 @@ nav {
 
 	}
 
-	.button.big, input[type=submit], button {
+	.button.big, input[type=submit], form button {
 
 		padding: 0 1em;
 		margin: $line-height 0;
@@ -528,7 +536,7 @@ form {
 
 	}
 
-	input, select, textarea, input[type=search], button {
+	input, select, textarea, input[type=search], form button {
 		
 		font-family: inherit;
 		display: inline-block;
@@ -2074,9 +2082,11 @@ video a[href] {
 .slider-arrow {
 	
 	position: absolute;
-	top: 45%;
+	top: 50%;
 	left: 1em;
 	z-index: 999; /* Stay on top of slider-nav if they are aligned vertically */
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
 	
 }
 
@@ -2098,6 +2108,8 @@ video a[href] {
 		left: 48%;
 		left: calc(50% - 1em);
 		text-align: center;
+		-webkit-transform: none;
+		transform: none;
 	
 	}
 

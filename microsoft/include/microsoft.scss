@@ -1,0 +1,569 @@
+$font-size: 16px;
+$line-height: 22px;
+
+/*
+@font-face {
+
+    font-family: 'Segoe Bold';
+    src: url('latest.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+
+    font-family: 'Segoe';
+    src: url('latest-2.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+
+    font-family: 'Segoe Light';
+    src: url('latest-3.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+*/
+
+@font-face {
+    font-family: 'wf_segoe-ui_light';
+    src: url('latest-3.woff') format('woff');
+    font-weight: normal;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'wf_segoe-ui_normal';
+    src: url('latest-2.woff') format('woff');
+    font-weight: normal;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'wf_segoe-ui_Semibold';
+    src: url('latest.woff') format('woff');
+    font-weight: normal;
+    font-style: normal
+}
+
+@font-face {
+
+    font-family: 'wf_icons_normal';
+    src: url('icons.woff') format('woff');
+    font-weight: normal;
+    font-style: normal
+
+}
+
+body {
+	
+	background-color: #f2f2f2;
+	font-family: wf_segoe-ui_normal, sans-serif;
+
+}
+
+.button, button, a.button[href] {
+	
+	color: #000;
+	background: transparent;
+	font-family: 'wf_segoe-ui_normal', sans-serif;
+
+}
+
+h2 {
+	
+	font-family: wf_segoe-ui_light, sans-serif;
+	font-weight: normal;
+	
+}
+
+h3, h4 {
+	
+	font-family: wf_segoe-ui_Semibold, sans-serif;
+	font-weight: normal;
+	
+}
+
+nav a {
+	
+	font-size: 1em;
+
+}
+
+header {
+	
+	background-color: #fff;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-top: $line-height/2;
+	border-bottom: 1px solid #e1e1e1;
+
+}
+
+header > .row, header > nav {
+	
+	padding: 0 1.4em;
+	
+}
+
+.banner > .row {
+	
+	padding-top: 0;
+
+}
+
+.banner .slider-wrap {
+	
+	margin-bottom: 1em;
+
+}
+
+header form {
+	
+	width: 70%;
+	position: relative;
+
+}
+
+header input {
+	
+	margin-bottom: 0;
+	background: #fff;
+	border-color: #969696;
+	border-style: solid;
+	padding-right: 35px;
+	min-height: 36px;
+
+}
+
+header input[type=submit], header input[type=submit]:hover {
+	
+	height: 100%;
+	width: 30px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: url(../images/search.png) center center no-repeat;
+	min-width: 0;
+	border: none;
+	min-height: 36px;
+
+}
+
+header .row > div, header a.logo, header form {
+	
+	vertical-align: middle;
+
+}
+
+header nav a[href]:after, header a.signin[href]:after, .banner button:after {
+	
+	display: inline-block;
+	content: '∨';
+	-webkit-transform: translateY(.4em) scale(1,.5);
+	transform: translateY(.4em) scale(1,.5);
+	margin-left: .3em;
+	font-size: 1.5em;
+	
+}
+
+.banner button:after {
+	
+	content: '⟩';
+
+}
+
+.banner button:after:hover {
+	
+	text-decoration: underline;
+
+}
+
+header a[href] {
+	
+	display: inline-block;
+	vertical-align: middle;
+	
+}
+
+header a.shopping[href] {
+	
+	height: 20px; 
+	line-height: 20px; 
+	margin: 0 1.3em;
+	background: url(../images/icon_cart_reg.png) left center no-repeat;
+	width: 24px;
+	
+}
+
+header a.shopping[href]:hover {
+
+	background: url(../images/icon_cart_hover.png);
+	
+}
+
+header nav li + li {
+	
+	padding-left: 2em;
+	
+}
+
+a[href] {
+	
+	text-decoration: none;
+	
+}
+
+a[href]:hover {
+	
+	text-decoration: underline;
+	color: #1570a6;
+	
+}
+
+.slider a[href] {
+	
+	position: relative;
+
+}
+
+.slider span.copy {
+	
+	position: absolute;
+	bottom: 1.7em;
+	display: block;
+	left: 0;
+	right: 0;
+	text-align: center;
+
+}
+
+.slider-arrow {
+	
+	width: 30px;
+	height: 72px;
+	border-radius: 3px;
+	left: 0;
+	padding: 0;
+	line-height: 62px;
+	text-align: center;
+	background: rgba(0,0,0,.3);
+
+}
+
+.slider-arrow:hover {
+
+	background: rgba(0,0,0,.5);
+}
+
+.slider-arrow:before {
+	
+	content: '⟨';
+	font-size: 2em;
+
+}
+
+.slider-arrow.right {
+	
+	right: 0;
+	
+}
+
+.slider-arrow.right:before {
+	
+	content: '⟩';
+	
+}
+
+.slider-nav a {
+	
+	margin: 10px 7px;
+	font-size: 0;
+	width: 7px;
+	height: 7px;
+	box-shadow: 0 0 2px #666;
+
+}
+
+main .slider span.copy, main .slider span.copy h2, main .slider span.copy button {
+	
+	color: #fff;
+
+}
+
+.row.top-link-bar {
+	
+	background-color: #525252;
+	margin: 0;
+	padding: 0 8%;
+	width: 100%;
+	text-align: center;
+	
+}
+
+.row.top-link-bar a[href] {
+
+	color: #fff;
+	padding-top: 1em;
+	padding-bottom: .3em;
+
+}
+
+.row.top-link-bar a[href]:hover {
+
+	background-color: #6b6b6b;
+	text-decoration: none;
+
+}
+
+.mini-features {
+	
+	font-size: .75em
+
+}
+
+.mini-features.row .row {
+	
+	margin-left: 0;
+	width: 100%;
+	
+}
+
+.mini-features h2 {
+	
+	background-color: #767676;
+	margin: 0;
+	color: #fff;
+	text-align: center;
+
+}
+
+.mini-features a {
+	
+	text-align: center;
+	position: relative;
+	padding: 0;
+
+}
+
+.mini-features a:hover {
+	
+	opacity: .8;
+
+}
+
+.mini-features span.copy {
+	
+	position: absolute;
+	display: block;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0,0,0,.6);
+	color: #fff;
+	min-height: 6.5em;
+
+}
+
+.mini-features span.copy h3 {
+
+	text-transform: uppercase;
+	line-height: 1.5;
+	margin-top: .5em;
+	min-height: 0;
+
+}
+
+.mini-features span.copy p {
+
+	margin: 0 0 .7em 0;
+	line-height: 1.2;
+	font-size: 15px;
+	padding: 0 1em;
+	font-family: 'wf_segoe-ui_light', sans-serif;
+
+}
+
+.mini-features img {
+	
+	padding-bottom: 0 !important;
+
+}
+
+.recommended {
+	
+	background: #fff;
+	padding: 1.8em 8%;
+	
+}
+
+.recommended h2 {
+	
+	font-size: 1.4em;
+	font-family: 'wf_segoe-ui_normal', sans-serif;
+	
+}
+
+.recommended h2, .recommended a[href] {
+	
+	text-align: center;
+	
+}
+
+.recommended a[href] {
+	
+	font-size: 1em;	
+	font-family: 'wf_segoe-ui_Semibold', sans-serif;
+
+}
+
+.recommended a[href] img {
+	
+	padding-bottom: 0 !important;
+
+}
+
+.recommended a[href]:hover {
+	
+	text-decoration: none;
+	color: inherit;
+
+}
+
+.recommended a[href]:hover img {
+	
+	opacity: .8;
+
+}
+
+.social {
+	
+	background-color: #767676;
+	color: #fff;
+	
+}
+
+.social h3 > * {
+	
+	display: inline-block;
+	vertical-align: middle;
+	line-height: .5;
+	margin-left: .2em;
+
+}
+
+footer .columns.row, footer .columns.row + .row {
+	
+	padding: 0 1.4em;
+
+} 
+
+footer .columns.row {
+	
+	padding-top: 1.8em;
+	
+}
+
+footer .columns a[href] {
+	
+	display: block;
+
+}
+
+footer .columns div:not(:first-child) > a[href], footer .footer-bottom a[href] {
+	
+	font-size: .9em;
+	color: #1570a6;
+
+}
+
+footer .footer-bottom a[href] {
+	
+	margin: 0 .5em;
+	
+}
+
+div.row.contain.footer-bottom {
+	
+	padding-top: 1em;
+	
+}
+
+footer .footer-bottom span {
+	
+	font-size: .9em;
+	
+}
+
+footer .footer-bottom nav {
+	
+	text-align: right;
+	
+}
+
+footer .columns div:not(:first-child) > a[href]:hover, footer .footer-bottom a[href]:hover {
+	
+	color: #083047;
+
+}
+
+footer .columns h4 {
+	
+	margin-bottom: .3em;
+
+}
+
+footer .columns h4 ~ h4 {
+	
+	margin-top: .6em;
+
+}
+
+footer > div > div {
+	
+	padding-bottom: 0;
+	margin-top: .8em;
+
+}
+
+.social h3 {
+	
+    font-family: 'wf_segoe-ui_normal';
+	
+}
+
+footer .columns img {
+	
+	vertical-align: middle;
+	display: inline-block;
+	width: 24px;
+	margin: 4px 10px 4px 0;
+
+}
+
+.backtotop[href] {
+	
+	display: none;
+
+}
+
+footer .footer-bottom span.icon-globe {
+	
+	font-family: wf_icons_normal;
+	font-size: 1.6em;
+	vertical-align: middle;
+	margin-right: -.1em;
+	display: inline-block;
+	
+}
+
+.icon-globe:after {
+	
+	content:'●'
+	
+}
