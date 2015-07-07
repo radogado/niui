@@ -243,6 +243,30 @@ header a.logo {
 
 }
 
+header nav ul ul {
+	
+	display: none;
+	position: absolute;
+	background: #fff;
+	top: 2em;
+	left: 0;
+	z-index: 9;
+	width: 100%;
+
+}
+
+header nav ul .trigger:checked + ul {
+	
+	display: block;
+
+}
+
+label.trigger {
+	
+	width: auto;
+
+}
+		
 .align-right {
 	
 	text-align: right;
@@ -307,6 +331,7 @@ nav {
 		margin: 0;
 		padding: 0;
 		display: inline-block;
+		width: 100%;
 	
 	}
 	
@@ -1163,6 +1188,12 @@ ul {
 
 	}
 
+	ol li > ul {
+		
+		display: block;
+
+	}
+
 	ol > li:before {
 
 	    content: counter(level1);
@@ -1719,7 +1750,7 @@ video a[href] {
 
 		}
 		
-		header > nav.sub li:not(:first-child):before, header > nav input.trigger#nav-trigger + div {
+		header > nav.sub li:not(:first-child):before, header > nav input.trigger#nav-trigger + div, nav input.trigger + * {
 			
 			display: none;
 		

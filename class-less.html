@@ -7,14 +7,13 @@
     <meta name="description" content="CSS Framework for Dummies">
     <link rel="stylesheet" type="text/css" href=include/natuive.css>
     <title>tacit</title>
-    <link rel="shortcut icon" type="image/gif" href="logo.gif">
   </head>
   <body class="contain">
-    <section>
+<section>
       <header>
         <nav>
           <ul>
-            <li><code>0.3.2</code></li>
+            <li><code>0.5.4</code></li>
           </ul>
         </nav>
       </header>
@@ -29,7 +28,8 @@
         <pre>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
   &lt;head&gt;
-    &lt;link rel="stylesheet" type="text/css" href="//yegor256.github.io/tacit/tacit.min.css"/&gt;
+    &lt;link rel="stylesheet" type="text/css"
+      href="//yegor256.github.io/tacit/tacit.min.css"/&gt;
   &lt;/head&gt;
 &lt;/html&gt;</pre>
         <p>
@@ -61,12 +61,17 @@
               <option value="female">female</option>
               <option value="male">male</option>
             </select>
+            <input type="radio" id="under" name="age">
+            <label for="under">I'm under 18</label>
+            <input type="radio" id="over" name="age">
+            <label for="over">I'm over 18</label>
             <label for="address">Your full address:</label>
             <textarea name="address" id="address" cols="40" rows="3" placeholder="PO box is not allowed"></textarea>
-            <input type="checkbox" name="consent" value="test">
+            <input type="checkbox" name="consent" id="consent" value="test">
             <label for="consent">I agree with all possible terms and conditions</label>
             <button type="submit">Subscribe</button>
             <button type="reset">Reset</button>
+            <button disabled="">Can't click</button>
           </fieldset>
         </form>
         <h2>Tables</h2>
@@ -94,6 +99,42 @@
             </tr>
           </tbody>
         </table>
+        <h2>Headings</h2>
+        <p>Just use standard <code>&lt;h1&gt;</code>...<code>&lt;h6&gt;</code> tags:
+        </p><h1>This is &lt;h1&gt;</h1>
+        <p>Use heading of the highest level once per page.</p>
+        <h2>This is &lt;h2&gt;</h2>
+        <p>Use <code>&lt;h2&gt;</code> for sections of the page.</p>
+        <h3>This is &lt;h3&gt;</h3>
+        <p>Use <code>&lt;h3&gt;</code> for sub-sections.</p>
+        <h4>This is &lt;h4&gt;</h4>
+        <p>I would recommend to avoid type of headers at all.</p>
+        <h5>This is &lt;h5&gt;</h5>
+        <p>I would recommend to avoid type of headers at all.</p>
+        <h6>This is &lt;h6&gt;</h6>
+        <p>I would recommend to avoid type of headers at all.</p>
+        <h2>Lists</h2>
+        <p>Just use standard <code>&lt;ul&gt;</code> and <code>&lt;ol&gt;</code> tags:
+        </p><ul>
+          <li>Orange</li>
+          <li>
+            Apple
+            <ol>
+              <li>First</li>
+              <li>
+                Second
+                <ul>
+                  <li>Blue</li>
+                  <li>Yellow</li>
+                  <li>Green</li>
+                  <li>Red</li>
+                </ul>
+              </li>
+              <li>Third</li>
+            </ol>
+          </li>
+          <li>Appricot</li>
+        </ul>
         <h2>Work in progress</h2>
         <p>
           The framework is still in development. If you want to contribute,
@@ -112,7 +153,7 @@
         <nav>
           <ul>
             <li><small><a href="https://github.com/yegor256/tacit">Github</a></small></li>
-            <li><small><a href="http://yegor256.github.io/tacit/tacit-0.3.2.min.css">Download</a></small></li>
+            <li><small><a href="http://yegor256.github.io/tacit/tacit-0.5.4.min.css">Download</a></small></li>
             <li><small><a href="http://opensource.org/licenses/MIT">MIT license</a></small></li>
           </ul>
         </nav>
@@ -127,7 +168,6 @@
         </nav>
       </footer>
     </section>
-
 <script src=include/natuive.js type=text/javascript></script>
 <script src=include/natuive-slider.js type=text/javascript></script>
 
