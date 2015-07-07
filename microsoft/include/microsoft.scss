@@ -95,6 +95,12 @@ nav a {
 
 }
 
+header nav li li {
+	
+	display: block;
+
+}
+
 header {
 	
 	background-color: #fff;
@@ -207,9 +213,68 @@ header a.shopping[href]:hover {
 	
 }
 
-header nav li + li {
+header > nav > li + li {
 	
 	padding-left: 2em;
+	
+}
+
+header nav ul ul {
+	
+	width: auto;
+
+}
+
+header nav ul li {
+	
+	position: relative;
+	white-space: normal;
+
+}
+
+header nav > ul > li > ul > li {
+	
+	white-space: nowrap;
+
+}
+
+header nav label.trigger {
+	
+	float: none;
+
+}
+
+header nav li li li:first-child {
+	
+	position: relative;
+	width: 67%;
+	float: right;
+	margin-top: 0;
+
+}
+
+header nav li li li:first-child + li {
+	
+	margin-top: 0;
+
+}
+
+header nav ul ul ul {
+	
+	display: block;
+	position: absolute;
+	width: calc(100vw/2 + 100%);
+	padding-left: 100%;
+	top: 0;
+	z-index: -1;
+// 	border: 1px solid #eee;
+
+}
+
+header nav > ul > li > ul {
+	
+	padding-right: calc(100vw/2);
+	z-index: 9999;
 	
 }
 
