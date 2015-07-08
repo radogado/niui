@@ -1,6 +1,8 @@
 $font-size: 16px;
 $line-height: 22px;
 
+// Hover nav needs hover delay, show only one drop-down and hide it on click outside of the drop-down, make drop-downs of all positions accessible (current site hides one on the right)
+
 /*
 @font-face {
 
@@ -235,6 +237,86 @@ header nav ul li {
 header nav > ul > li > ul > li {
 	
 	white-space: nowrap;
+	margin: 0;
+	padding: 12px 0;
+
+}
+
+header nav > ul > li > ul > li:nth-child(2) li:nth-child(2), header nav > ul > li > ul > li:nth-child(2) li:first-child {
+	
+	margin-top: -3em;
+
+}
+
+header nav > ul > li > ul > li:nth-child(3) li:nth-child(2), header nav > ul > li > ul > li:nth-child(3) li:first-child {
+	
+	margin-top: -6em;
+
+}
+
+header nav > ul > li > ul > li:nth-child(4) li:nth-child(2), header nav > ul > li > ul > li:nth-child(4) li:first-child {
+	
+	margin-top: -9em;
+
+}
+
+header nav > ul > li > ul > li:nth-child(5) li:nth-child(2), header nav > ul > li > ul > li:nth-child(5) li:first-child {
+	
+	margin-top: -12em;
+
+}
+
+header nav > ul > li > ul > li:nth-child(6) li:nth-child(2), header nav > ul > li > ul > li:nth-child(6) li:first-child {
+	
+	margin-top: -15em;
+
+}
+
+header nav > ul > li > ul > li:nth-child(7) li:nth-child(2), header nav > ul > li > ul > li:nth-child(7) li:first-child {
+	
+	margin-top: -18em;
+
+}
+
+header nav > ul > li > ul > li:nth-child(8) li:nth-child(2), header nav > ul > li > ul > li:nth-child(8) li:first-child {
+	
+	margin-top: -21em;
+
+}
+
+header nav > ul > li > ul > li:nth-child(9) li:nth-child(2), header nav > ul > li > ul > li:nth-child(9) li:first-child {
+	
+	margin-top: -24em;
+
+}
+
+header nav > ul > li > ul > li:nth-child(10) li:nth-child(2), header nav > ul > li > ul > li:nth-child(10) li:first-child {
+	
+	margin-top: -27em;
+
+}
+
+header nav > ul > li > ul > li:nth-child(11) li:nth-child(2), header nav > ul > li > ul > li:nth-child(11) li:first-child {
+	
+	margin-top: -30em;
+
+}
+
+header nav > ul > li > ul > li:nth-child(12) li:nth-child(2), header nav > ul > li > ul > li:nth-child(12) li:first-child {
+	
+	margin-top: -33em;
+
+}
+
+header nav > ul > li > ul > li:nth-child(13) li:nth-child(2), header nav > ul > li > ul > li:nth-child(13) li:first-child {
+	
+	margin-top: -36em;
+
+}
+
+header nav > ul > li > ul > li:nth-child(14) li:nth-child(2), header nav > ul > li > ul > li:nth-child(14) li:first-child {
+	
+	margin-top: -39em;
 
 }
 
@@ -261,13 +343,21 @@ header nav li li li:first-child + li {
 
 header nav ul ul ul {
 	
-	display: block;
 	position: absolute;
 	width: calc(100vw/2 + 100%);
 	padding-left: 100%;
 	top: 0;
 	z-index: -1;
 // 	border: 1px solid #eee;
+	display: none;
+
+}
+
+// 1st & second third-level li need margin-top: -(3*parent_li_index)em
+
+header nav ul ul li:hover > ul {
+	
+	display: block;
 
 }
 
