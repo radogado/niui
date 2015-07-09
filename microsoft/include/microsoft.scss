@@ -1,7 +1,7 @@
 $font-size: 16px;
 $line-height: 22px;
 
-// Hover nav needs hover delay, show only one drop-down and hide it on click outside of the drop-down, make drop-downs of all positions accessible (current site hides one on the right)
+// Hover nav needs hover delay, show only one drop-down and hide it on click outside of the drop-down, make drop-downs of all positions accessible (current site hides one on the right), slider images aspect ratio
 
 /*
 @font-face {
@@ -332,12 +332,15 @@ header nav li li li:first-child {
 	width: 67%;
 	float: right;
 	margin-top: 0;
+	z-index: 1;
+	text-align: center;
 
 }
 
 header nav li li li:first-child + li {
 	
 	margin-top: 0;
+	background: #fff;
 
 }
 
@@ -350,10 +353,17 @@ header nav ul ul ul {
 	z-index: -1;
 // 	border: 1px solid #eee;
 	display: none;
+	margin-top: 1em;
 
 }
 
 // 1st & second third-level li need margin-top: -(3*parent_li_index)em
+
+header nav ul ul li:first-child > ul {
+	
+	display: block;
+
+}
 
 header nav ul ul li:hover > ul {
 	
