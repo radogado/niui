@@ -255,7 +255,7 @@ header nav ul ul {
 
 }
 
-header nav ul .trigger:checked + ul {
+header nav ul .trigger:checked ~ ul {
 	
 	display: block;
 
@@ -1317,7 +1317,7 @@ ul {
 
 	}
 
-	.accordion input.trigger:checked + div {
+	.accordion input.trigger:checked ~ div {
 		
 		max-height: none;
 
@@ -1750,13 +1750,13 @@ video a[href] {
 
 		}
 		
-		header > nav.sub li:not(:first-child):before, header > nav input.trigger#nav-trigger + div, nav input.trigger + * {
+		header > nav.sub li:not(:first-child):before, header > nav input.trigger#nav-trigger ~ div, nav input.trigger + * {
 			
 			display: none;
 		
 		}
 	
-		header > nav input.trigger#nav-trigger:checked + div, header > nav.sub a {
+		header > nav input.trigger#nav-trigger:checked ~ div, header > nav.sub a {
 			
 			display: block;
 			

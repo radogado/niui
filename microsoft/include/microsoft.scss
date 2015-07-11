@@ -1,7 +1,7 @@
 $font-size: 16px;
 $line-height: 22px;
 
-// Hover nav needs hover delay, show only one drop-down and hide it on click outside of the drop-down, make drop-downs of all positions accessible (current site hides one on the right), slider images aspect ratio
+// Hover nav needs hover delay, show only one drop-down and hide it on click outside of the drop-down, make drop-downs of all positions accessible (current site hides one on the right), slider images aspect ratio, change input+label to just label absolutely-spanning all the li (parent)
 
 /*
 @font-face {
@@ -169,7 +169,7 @@ header .row > div, header a.logo, header form {
 
 }
 
-header nav a[href]:after, header a.signin[href]:after, .banner button:after {
+header nav a[href]:after, header a.signin[href]:after, .banner button:after, header nav label a:after {
 	
 	display: inline-block;
 	content: '∨';
@@ -192,10 +192,11 @@ header nav a[href]:after, header a.signin[href]:after, .banner button:after {
 
 }
 
-header a[href] {
+header a[href], header nav label a {
 	
 	display: inline-block;
 	vertical-align: middle;
+	font-weight: normal;
 	
 }
 
@@ -224,6 +225,7 @@ header > nav > li + li {
 header nav ul ul {
 	
 	width: auto;
+	top: auto;
 
 }
 
@@ -231,6 +233,9 @@ header nav ul li {
 	
 	position: relative;
 	white-space: normal;
+	margin-left: -1em;
+	display: inline-block;
+	margin-top: 0;
 
 }
 
@@ -239,6 +244,20 @@ header nav > ul > li > ul > li {
 	white-space: nowrap;
 	margin: 0;
 	padding: 12px 0;
+	padding-left: 1em;
+	display: block;
+
+}
+
+header nav > ul > li > ul > li li {
+
+	display: block;
+
+}
+
+header nav > ul > li > ul > li:nth-child(1) li:nth-child(2), header nav > ul > li > ul > li:nth-child(1) li:first-child {
+	
+	margin-top: -1em;
 
 }
 
@@ -323,6 +342,12 @@ header nav > ul > li > ul > li:nth-child(14) li:nth-child(2), header nav > ul > 
 header nav label.trigger {
 	
 	float: none;
+	border-top: 1px solid transparent;
+	border-left: 1px solid transparent;
+	border-right: 1px solid transparent;
+	padding-left: 1em;
+	margin: 0;
+	margin-bottom: -1px
 
 }
 
@@ -348,11 +373,11 @@ header nav ul ul ul {
 	
 	position: absolute;
 	width: calc(100vw/2 + 100%);
-	padding-left: 100%;
+	padding-left: calc(100% + 3em);
 	top: 0;
 	z-index: -1;
 // 	border: 1px solid #eee;
-	display: none;
+// 	display: none;
 	margin-top: 1em;
 
 }
@@ -361,7 +386,7 @@ header nav ul ul ul {
 
 header nav ul ul li:first-child > ul {
 	
-	display: block;
+// 	display: block;
 
 }
 
@@ -375,7 +400,18 @@ header nav > ul > li > ul {
 	
 	padding-right: calc(100vw/2);
 	z-index: 9999;
+	border: 1px solid #ddd;
 	
+}
+
+header nav input.trigger:checked ~ label {
+	
+	border-top-color: #ddd;
+	border-left-color: #ddd;
+	border-right-color: #ddd;
+	background: #fff;
+	z-index: 99999;
+
 }
 
 a[href] {
