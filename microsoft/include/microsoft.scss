@@ -169,7 +169,7 @@ header .row > div, header a.logo, header form {
 
 }
 
-header nav a[href]:after, header a.signin[href]:after, .banner button:after, header nav label a:after {
+header nav label a:after {
 	
 	display: inline-block;
 	content: '∨';
@@ -178,18 +178,6 @@ header nav a[href]:after, header a.signin[href]:after, .banner button:after, hea
 	margin-left: .3em;
 	font-size: 1.5em;
 	
-}
-
-.banner button:after {
-	
-	content: '⟩';
-
-}
-
-.banner button:after:hover {
-	
-	text-decoration: underline;
-
 }
 
 header a[href], header nav label a {
@@ -243,9 +231,9 @@ header nav > ul > li > ul > li {
 	
 	white-space: nowrap;
 	margin: 0;
-	padding: 12px 0;
-	padding-left: 1em;
+	padding: 12px 1em;
 	display: block;
+	cursor: default;
 
 }
 
@@ -255,87 +243,87 @@ header nav > ul > li > ul > li li {
 
 }
 
-header nav > ul > li > ul > li:nth-child(1) li:nth-child(2), header nav > ul > li > ul > li:nth-child(1) li:first-child {
+header nav > ul > li > ul > li:nth-child(1) li + li.teaser, header nav > ul > li > ul > li:nth-child(1) li:first-child {
 	
 	margin-top: -1em;
 
 }
 
-header nav > ul > li > ul > li:nth-child(2) li:nth-child(2), header nav > ul > li > ul > li:nth-child(2) li:first-child {
+header nav > ul > li > ul > li:nth-child(2) li + li.teaser, header nav > ul > li > ul > li:nth-child(2) li:first-child {
 	
-	margin-top: -3em;
+	margin-top: -4em;
 
 }
 
-header nav > ul > li > ul > li:nth-child(3) li:nth-child(2), header nav > ul > li > ul > li:nth-child(3) li:first-child {
+header nav > ul > li > ul > li:nth-child(3) li + li.teaser, header nav > ul > li > ul > li:nth-child(3) li:first-child {
 	
-	margin-top: -6em;
+	margin-top: -7em;
 
 }
 
-header nav > ul > li > ul > li:nth-child(4) li:nth-child(2), header nav > ul > li > ul > li:nth-child(4) li:first-child {
+header nav > ul > li > ul > li:nth-child(4) li + li.teaser, header nav > ul > li > ul > li:nth-child(4) li:first-child {
 	
-	margin-top: -9em;
+	margin-top: -10em;
 
 }
 
-header nav > ul > li > ul > li:nth-child(5) li:nth-child(2), header nav > ul > li > ul > li:nth-child(5) li:first-child {
+header nav > ul > li > ul > li:nth-child(5) li + li.teaser, header nav > ul > li > ul > li:nth-child(5) li:first-child {
 	
-	margin-top: -12em;
+	margin-top: -13em;
 
 }
 
-header nav > ul > li > ul > li:nth-child(6) li:nth-child(2), header nav > ul > li > ul > li:nth-child(6) li:first-child {
+header nav > ul > li > ul > li:nth-child(6) li + li.teaser, header nav > ul > li > ul > li:nth-child(6) li:first-child {
 	
-	margin-top: -15em;
+	margin-top: -16em;
 
 }
 
-header nav > ul > li > ul > li:nth-child(7) li:nth-child(2), header nav > ul > li > ul > li:nth-child(7) li:first-child {
+header nav > ul > li > ul > li:nth-child(7) li + li.teaser, header nav > ul > li > ul > li:nth-child(7) li:first-child {
 	
-	margin-top: -18em;
+	margin-top: -19em;
 
 }
 
-header nav > ul > li > ul > li:nth-child(8) li:nth-child(2), header nav > ul > li > ul > li:nth-child(8) li:first-child {
+header nav > ul > li > ul > li:nth-child(8) li + li.teaser, header nav > ul > li > ul > li:nth-child(8) li:first-child {
 	
-	margin-top: -21em;
+	margin-top: -22em;
 
 }
 
-header nav > ul > li > ul > li:nth-child(9) li:nth-child(2), header nav > ul > li > ul > li:nth-child(9) li:first-child {
+header nav > ul > li > ul > li:nth-child(9) li + li.teaser, header nav > ul > li > ul > li:nth-child(9) li:first-child {
 	
-	margin-top: -24em;
+	margin-top: -25em;
 
 }
 
-header nav > ul > li > ul > li:nth-child(10) li:nth-child(2), header nav > ul > li > ul > li:nth-child(10) li:first-child {
+header nav > ul > li > ul > li:nth-child(10) li + li.teaser, header nav > ul > li > ul > li:nth-child(10) li:first-child {
 	
-	margin-top: -27em;
+	margin-top: -28em;
 
 }
 
-header nav > ul > li > ul > li:nth-child(11) li:nth-child(2), header nav > ul > li > ul > li:nth-child(11) li:first-child {
+header nav > ul > li > ul > li:nth-child(11) li + li.teaser, header nav > ul > li > ul > li:nth-child(11) li:first-child {
 	
-	margin-top: -30em;
+	margin-top: -31em;
 
 }
 
-header nav > ul > li > ul > li:nth-child(12) li:nth-child(2), header nav > ul > li > ul > li:nth-child(12) li:first-child {
+header nav > ul > li > ul > li:nth-child(12) li + li.teaser, header nav > ul > li > ul > li:nth-child(12) li:first-child {
 	
-	margin-top: -33em;
+	margin-top: -34em;
 
 }
 
-header nav > ul > li > ul > li:nth-child(13) li:nth-child(2), header nav > ul > li > ul > li:nth-child(13) li:first-child {
+header nav > ul > li > ul > li:nth-child(13) li + li.teaser, header nav > ul > li > ul > li:nth-child(13) li:first-child {
 	
-	margin-top: -36em;
+	margin-top: -37em;
 
 }
 
-header nav > ul > li > ul > li:nth-child(14) li:nth-child(2), header nav > ul > li > ul > li:nth-child(14) li:first-child {
+header nav > ul > li > ul > li:nth-child(14) li + li.teaser, header nav > ul > li > ul > li:nth-child(14) li:first-child {
 	
-	margin-top: -39em;
+	margin-top: -40em;
 
 }
 
@@ -351,21 +339,21 @@ header nav label.trigger {
 
 }
 
-header nav li li li:first-child {
+header nav li li li.teaser {
 	
 	position: relative;
-	width: 67%;
-	float: right;
 	margin-top: 0;
 	z-index: 1;
 	text-align: center;
 
 }
 
-header nav li li li:first-child + li {
+header nav li li li + li.teaser {
 	
-	margin-top: 0;
-	background: #fff;
+	width: calc(100% - 100vw/3);
+	position: absolute;
+	top: 0;
+	right: 0;
 
 }
 
@@ -373,12 +361,27 @@ header nav ul ul ul {
 	
 	position: absolute;
 	width: calc(100vw/2 + 100%);
-	padding-left: calc(100% + 3em);
+	padding-left: calc(100% + 4em);
 	top: 0;
 	z-index: -1;
 // 	border: 1px solid #eee;
 // 	display: none;
 	margin-top: 1em;
+	visibility: hidden;
+	transition: 0.2s .5s;
+
+}
+
+header nav > ul > li > ul > li:hover {
+	
+	background: cyan;
+
+}
+
+header nav ul ul li:hover ul {
+	
+	visibility: visible;
+	transition-delay: 0s;
 
 }
 
@@ -390,10 +393,25 @@ header nav ul ul li:first-child > ul {
 
 }
 
-header nav ul ul li:hover > ul {
+header nav ul input.trigger:checked ~ ul li:hover > ul li {
 	
+// 	display: block;
+	visibility: hidden;
 	display: block;
 
+}
+
+header nav ul input.trigger:checked ~ ul li:hover > ul li {
+	
+// 	display: block;
+	visibility: visible;
+
+}
+
+header nav ul input.trigger:checked ~ ul ul {
+	
+	display: block;
+	
 }
 
 header nav > ul > li > ul {
