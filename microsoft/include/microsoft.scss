@@ -588,6 +588,7 @@ main .slider span.copy, main .slider span.copy h2, main .slider span.copy button
 	color: #fff;
 	padding-top: 1em;
 	padding-bottom: .3em;
+	transition: background-color .2s linear;
 
 }
 
@@ -625,29 +626,42 @@ main .slider span.copy, main .slider span.copy h2, main .slider span.copy button
 	text-align: center;
 	position: relative;
 	padding: 0;
-
-}
-
-.mini-features a:hover {
-	
-	opacity: .8;
-
-}
-
-.mini-features span.copy {
-	
-	position: absolute;
-	display: block;
-	bottom: 0;
-	left: 0;
-	right: 0;
 	background: rgba(0,0,0,.6);
 	color: #fff;
-	min-height: 6.5em;
+	font-size: 13px;
 
 }
 
-.mini-features span.copy h3 {
+.mini-features a:before {
+	
+	position: absolute;
+	top: auto;
+	display: block;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 700%;
+	content: '';
+	background: #fff;
+	opacity: 0;
+	transition: opacity .2s linear;
+
+}
+
+.mini-features a[href]:hover:before {
+	
+	opacity: .2;	
+
+}
+
+.mini-features a[href]:hover {
+	
+	text-decoration: none;
+	color: #fff;
+
+}
+
+.mini-features a h3 {
 
 	text-transform: uppercase;
 	line-height: 1.5;
@@ -656,7 +670,7 @@ main .slider span.copy, main .slider span.copy h2, main .slider span.copy button
 
 }
 
-.mini-features span.copy p {
+.mini-features a p {
 
 	margin: 0 0 .7em 0;
 	line-height: 1.2;
@@ -666,9 +680,15 @@ main .slider span.copy, main .slider span.copy h2, main .slider span.copy button
 
 }
 
-.mini-features img {
+.mini-features a img {
 	
 	padding-bottom: 0 !important;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	display: block;
+	z-index: -1;
 
 }
 
@@ -702,6 +722,7 @@ main .slider span.copy, main .slider span.copy h2, main .slider span.copy button
 .recommended a[href] img {
 	
 	padding-bottom: 0 !important;
+	transition: opacity .2s linear;
 
 }
 
