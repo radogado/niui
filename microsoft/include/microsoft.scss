@@ -69,6 +69,12 @@ body {
 
 }
 
+.contain.wide {
+	
+	max-width: 1600px;
+
+}
+
 .button, button, a.button[href] {
 	
 	color: #000;
@@ -345,6 +351,12 @@ header nav label.trigger {
 
 }
 
+header nav li li li.teaser span {
+	
+	font-weight: bold;
+
+}
+
 header nav li li li.teaser {
 	
 	position: relative;
@@ -380,7 +392,103 @@ header nav ul ul ul {
 
 header nav > ul > li > ul > li:hover {
 	
-	background: cyan;
+	color: #fff;
+
+}
+
+header nav > ul > li > ul > li.blue:hover {
+	
+	background: #0072C6;
+
+}
+
+header nav > ul > li > ul > li.blue a b, header nav > ul > li > ul > li.blue li.teaser a[href] {
+	
+	color: #0072C6;
+
+}
+
+header nav > ul > li > ul > li.red:hover {
+	
+	background: #DC3701;
+
+}
+
+header nav > ul > li > ul > li.red a b, header nav > ul > li > ul > li.red li.teaser a[href] {
+	
+	color: #DC3701;
+
+}
+
+header nav > ul > li > ul > li.dark-blue:hover {
+	
+	background: #002050;
+
+}
+
+header nav > ul > li > ul > li.dark-blue a b, header nav > ul > li > ul > li.dark-blue li.teaser a[href] {
+	
+	color: #002050;
+
+}
+
+header nav > ul > li > ul > li.green:hover {
+	
+	background: #007233;
+
+}
+
+header nav > ul > li > ul > li.green a b, header nav > ul > li > ul > li.green li.teaser a[href] {
+	
+	color: #007233;
+
+}
+
+header nav > ul > li > ul > li.dark-red:hover {
+	
+	background: #BA141A;
+
+}
+
+header nav > ul > li > ul > li.dark-red a b, header nav > ul > li > ul > li.dark-red li.teaser a[href] {
+	
+	color: #BA141A;
+
+}
+
+header nav > ul > li > ul > li.purple:hover {
+	
+	background: #68217A;
+
+}
+
+header nav > ul > li > ul > li.purple a b, header nav > ul > li > ul > li.purple li.teaser a[href] {
+	
+	color: #68217A;
+
+}
+
+header nav > ul > li > ul > li.dark-purple:hover {
+	
+	background: #442359;
+
+}
+
+header nav > ul > li > ul > li.dark-purple a b, header nav > ul > li > ul > li.dark-purple li.teaser a[href] {
+	
+	color: #442359;
+
+}
+
+header nav > ul > li > ul > li.pastel-blue:hover {
+	
+	background: #1570A6;
+
+}
+
+header nav > ul > li > ul > li.pastel-blue a b, header nav > ul > li > ul > li.pastel-blue li.teaser a[href] {
+	
+	color: #1570A6;
 
 }
 
@@ -449,6 +557,12 @@ a[href]:hover {
 	text-decoration: underline;
 	color: #1570a6;
 	
+}
+
+.slider.dark h2, .slider.dark a[href] {
+	
+	color: #fff;
+
 }
 
 .slider > div {
