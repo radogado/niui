@@ -189,7 +189,7 @@ function slide(el, method, index_number) {
 
     if (method == 'index') {
 
-		if (typeof index_number == 'undefined') { /* Don't slide to current slide */
+		if (typeof index_number == 'undefined' || index_number == index) { /* Don't slide to current slide */
 
 			endSlide(slider, index);
 			return;

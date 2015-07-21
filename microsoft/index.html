@@ -102,7 +102,7 @@
 								
 									<li>
 									
-										<input type="checkbox" id=nav-1 class="trigger">
+										<input type="radio" name=radionav id=nav-1 class="trigger">
 										
 										<label for="nav-1" class="trigger"> <a>Store</a> </label>
 									
@@ -512,7 +512,7 @@
 	
 									<li> 
 									
-										<input type="checkbox" id=nav-explore class="trigger">
+										<input type="radio" name=radionav id=nav-explore class="trigger">
 										
 										<label for="nav-explore" class="trigger"> <a>Explore</a> </label>
 									
@@ -678,7 +678,7 @@
 									
 									<li>
 									
-										<input type="checkbox" id=nav-devices class="trigger">
+										<input type="radio" name=radionav id=nav-devices class="trigger">
 										
 										<label for="nav-devices" class="trigger"> <a>Devices</a> </label>
 									
@@ -932,7 +932,7 @@
 									
 									<li>
 									
-										<input type="checkbox" id=nav-software class="trigger">
+										<input type="radio" name=radionav id=nav-software class="trigger">
 										
 										<label for="nav-software" class="trigger"> <a>Software & apps</a> </label>
 									
@@ -1258,7 +1258,7 @@
 									
 									<li>
 									
-										<input type="checkbox" id=nav-support class="trigger">
+										<input type="radio" name=radionav id=nav-support class="trigger">
 										
 										<label for="nav-support" class="trigger"> <a>Support</a> </label>
 									
@@ -1971,6 +1971,22 @@
 	<script src=../include/natuive-slider.js type=text/javascript></script>
 -->
 	<script src=../include/natuive.min.js type=text/javascript></script>
+	
+<!--
+	<script type="text/javascript">
+		
+		document.querySelector('body').onclick = function (e) {
+			
+			if (document.querySelector('nav input[type=radio]:checked')) {
+				
+				document.querySelector('nav input[type=radio]:checked').checked = false;
+				
+			}
+			
+		};
+	
+	</script>
+-->
 
 </body>
 
