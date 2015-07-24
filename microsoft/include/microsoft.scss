@@ -71,7 +71,7 @@ body {
 
 .contain.wide {
 	
-	max-width: 1600px;
+	max-width: 100rem;
 
 }
 
@@ -156,22 +156,22 @@ header input {
 	background: #fff;
 	border-color: #969696;
 	border-style: solid;
-	padding-right: 35px;
-	min-height: 36px;
+	padding-right: 2em;
+	min-height: 2em;
 
 }
 
 header input[type=submit], header input[type=submit]:hover {
 	
 	height: 100%;
-	width: 30px;
+	width: 2em;
 	position: absolute;
 	top: 0;
 	right: 0;
 	background: url(../images/search.png) center center no-repeat;
 	min-width: 0;
 	border: none;
-	min-height: 36px;
+	min-height: 2em;
 
 }
 
@@ -202,11 +202,11 @@ header a[href], header nav label a {
 
 header a.shopping[href] {
 	
-	height: 20px; 
-	line-height: 20px; 
+	height: 1.5em; 
+	line-height: 1.5em; 
 	margin: 0 1.3em;
 	background: url(../images/icon_cart_reg.png) left center no-repeat;
-	width: 24px;
+	width: 1em;
 	
 }
 
@@ -243,7 +243,7 @@ header nav > ul > li > ul > li {
 	
 	white-space: nowrap;
 	margin: 0;
-	padding: 12px 1em;
+	padding: .8em 1em;
 	display: block;
 	cursor: default;
 
@@ -636,12 +636,12 @@ a.span-relative-parent ~ a:after {
 
 .slider-arrow {
 	
-	width: 30px;
-	height: 72px;
-	border-radius: 3px;
+	width: 1.3em;
+	height: 2.8em;
+	border-radius: .2rem;
 	left: 0;
 	padding: 0;
-	line-height: 62px;
+	line-height: 2.3em;
 	text-align: center;
 	background: rgba(0,0,0,.3);
 
@@ -673,11 +673,12 @@ a.span-relative-parent ~ a:after {
 
 .slider-nav a {
 	
-	margin: 10px 7px;
-	font-size: 0;
-	width: 7px;
-	height: 7px;
-	box-shadow: 0 0 2px #666;
+	margin: .7em .5em;
+// 	font-size: 0;
+	width: .5em;
+	height: .5em;
+	box-shadow: 0 0 .12rem #666;
+	text-indent: -100em;
 
 }
 
@@ -742,7 +743,7 @@ main .slider span.copy, main .slider span.copy h2, main .slider span.copy button
 	padding: 0;
 	background: rgba(0,0,0,.6);
 	color: #fff;
-	font-size: 13px;
+	font-size: .8rem;
 
 }
 
@@ -788,7 +789,7 @@ main .slider span.copy, main .slider span.copy h2, main .slider span.copy button
 
 	margin: 0 0 .7em 0;
 	line-height: 1.2;
-	font-size: 15px;
+	font-size: 1rem;
 	padding: 0 1em;
 	font-family: 'wf_segoe-ui_light', sans-serif;
 
@@ -953,8 +954,8 @@ footer .columns img {
 	
 	vertical-align: middle;
 	display: inline-block;
-	width: 24px;
-	margin: 4px 10px 4px 0;
+	width: 1.5rem;
+	margin: .25rem .7rem .25rem 0;
 
 }
 
