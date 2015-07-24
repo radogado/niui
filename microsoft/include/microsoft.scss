@@ -1,7 +1,7 @@
 $font-size: 16px;
 $line-height: 22px;
 
-// Hover nav needs hover delay, show only one drop-down and hide it on click outside of the drop-down, make drop-downs of all positions accessible (current site hides one on the right), slider images aspect ratio, change input+label to just label absolutely-spanning all the li (parent)
+// Hover nav needs hover delay, show only one drop-down and hide it on click outside of the drop-down, make drop-downs of all positions accessible (current site hides one on the right), slider images aspect ratio, change input+label to just label absolutely-spanning all the li (parent), drop-down menu for touch
 
 /*
 @font-face {
@@ -382,8 +382,6 @@ header nav ul ul ul {
 	padding-left: calc(100% + 4em);
 	top: 0;
 	z-index: -1;
-// 	border: 1px solid #eee;
-// 	display: none;
 	margin-top: 1em;
 	visibility: hidden;
 	transition: 0.2s .5s;
@@ -673,12 +671,11 @@ a.span-relative-parent ~ a:after {
 
 .slider-nav a {
 	
-	margin: .7em .5em;
-// 	font-size: 0;
-	width: .5em;
-	height: .5em;
+	margin: .7rem .5rem;
+	font-size: 0;
+	width: .5rem;
+	height: .5rem;
 	box-shadow: 0 0 .12rem #666;
-	text-indent: -100em;
 
 }
 

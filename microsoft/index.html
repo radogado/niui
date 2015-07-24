@@ -58,7 +58,7 @@
 								
 								<li>
 								
-									<input type="checkbox" id="nav-signin" class="trigger">
+									<input type="radio" id="nav-signin" class="trigger">
 									<label for="nav-signin" class="trigger"> <a>Sign in</a> </label>
 									
 									<ul>
@@ -1972,21 +1972,19 @@
 -->
 	<script src=../include/natuive.min.js type=text/javascript></script>
 	
-<!--
 	<script type="text/javascript">
 		
-		document.querySelector('body').onclick = function (e) {
+		document.querySelector('body').onmouseup = document.querySelector('body').ontouchend = function(e) {
 			
-			if (document.querySelector('nav input[type=radio]:checked')) {
+			if ( document.querySelector('input[type=radio]:checked') ) {
 				
-				document.querySelector('nav input[type=radio]:checked').checked = false;
-				
+				document.querySelector('input[type=radio]:checked').checked = false;
+			
 			}
+
+		}
 			
-		};
-	
 	</script>
--->
 
 </body>
 
