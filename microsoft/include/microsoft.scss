@@ -106,6 +106,7 @@ header div nav {
 nav a {
 	
 	font-size: 1em;
+	margin-right: 1.5em;
 
 }
 
@@ -206,13 +207,13 @@ header a.shopping[href] {
 	line-height: 1.5em; 
 	margin: 0 1.3em;
 	background: url(../images/icon_cart_reg.png) left center no-repeat;
-	width: 1em;
+	width: 2em;
 	
 }
 
 header a.shopping[href]:hover {
 
-	background: url(../images/icon_cart_hover.png);
+	background-image: url(../images/icon_cart_hover.png);
 	
 }
 
@@ -976,4 +977,18 @@ footer .footer-bottom span.icon-globe {
 	
 	content:'●'
 	
+}
+
+[for=nav-signin] + ul li {
+	
+	text-align: left;
+	padding-top: 0;
+	padding-bottom: 0;
+
+}
+
+[for=nav-signin] + ul{
+	
+	padding-right: 0 !important;
+
 }
