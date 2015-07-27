@@ -558,6 +558,18 @@ a[href]:hover {
 	
 }
 
+.slider a {
+	
+	text-shadow: 0 1px 1px #fff;
+
+}
+
+.slider h2 {
+	
+	line-height: 1em;
+
+}
+
 .slider.dark h2, .slider.dark a[href] {
 	
 	color: #fff;
@@ -990,5 +1002,31 @@ footer .footer-bottom span.icon-globe {
 [for=nav-signin] + ul{
 	
 	padding-right: 0 !important;
+
+}
+
+@media screen and (max-width: 1024px) {
+
+	header form {
+		
+		width: auto;
+
+	}
+
+}
+
+@media screen and (max-width: 640px) {
+
+	.mini-features a img {
+		
+		position: static;
+		
+	}
+	
+	header nav ul ul {
+		
+		position: relative;
+
+	}
 
 }
