@@ -1028,5 +1028,24 @@ footer .footer-bottom span.icon-globe {
 		position: relative;
 
 	}
+	
+	header>nav .row ul > li > ul {
+		
+		display: none;
+// 		visibility: hidden;
+
+	}
+	
+	.contain {
+		
+		padding: 0;
+
+	}
+	
+	header>nav>div {
+		
+		margin-top: 0;
+	
+	}
 
 }
