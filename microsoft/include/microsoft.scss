@@ -558,9 +558,29 @@ a[href]:hover {
 	
 }
 
+.slider-wrap:before {
+	
+	content: '';	
+    display: inline-block;
+    width: 0;
+    padding-bottom: 35%;
+	
+}
+
+.slider-wrap .slider {
+	
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+}
+
 .slider a {
 	
 	text-shadow: 0 1px 1px #fff;
+	display: inline-block;
 
 }
 
@@ -579,6 +599,12 @@ a[href]:hover {
 .slider > div {
 	
 	position: relative;
+	height: 100%;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: auto 100%;
+	text-align: center;
+	padding-bottom: 2em;
 
 }
 
@@ -626,16 +652,6 @@ a.span-relative-parent ~ a:after {
 
 }
 
-.slider > div {
-	
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-size: auto 100%;
-	text-align: center;
-    padding-bottom: 2em;
-
-}
-
 .slider > div:before {
 	
 	display: inline-block; 
@@ -643,6 +659,12 @@ a.span-relative-parent ~ a:after {
 	padding-bottom: 30%;
 	content: '';
 	
+}
+
+.slider-wrap .slider > div:before {
+
+	content: none;
+
 }
 
 .slider-arrow {
