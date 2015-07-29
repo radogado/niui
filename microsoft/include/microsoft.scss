@@ -593,6 +593,7 @@ a[href]:hover {
 .slider.dark h2, .slider.dark a[href] {
 	
 	color: #fff;
+	text-shadow: 0 -1px 1px #000;
 
 }
 
@@ -663,7 +664,9 @@ a.span-relative-parent ~ a:after {
 
 .slider-wrap .slider > div:before {
 
-	content: none;
+	padding: 0;
+	height: calc(100% - 2em);
+	vertical-align: bottom;
 
 }
 
