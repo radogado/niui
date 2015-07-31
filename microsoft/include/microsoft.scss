@@ -1042,10 +1042,45 @@ footer .footer-bottom span.icon-globe {
 
 @media screen and (max-width: 640px) {
 
-	.mini-features a img {
+	.mini-features a {
 		
+		background: none;
+		
+	}
+
+	.mini-features a > * {
+		
+		background: rgba(0,0,0,.6);
+		
+	}
+	
+	.mini-features a h3 {
+		
+		padding-top: 1rem;
+		
+	}
+
+	.mini-features a p {
+		
+		padding-bottom: 1rem;
+		
+	}
+
+	.mini-features a:before {
+		
+		content: '';
+		display: inline-block;
+		width: 0;
+		padding-bottom: 88%;
+		vertical-align: bottom;
 		position: static;
 		
+	}
+	
+	.mini-features.row .row {
+		
+		padding: 0;
+	
 	}
 	
 	header nav ul ul {
