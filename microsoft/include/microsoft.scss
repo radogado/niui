@@ -581,6 +581,7 @@ a[href]:hover {
 	
 	text-shadow: 0 1px 1px #fff;
 	display: inline-block;
+	font-size: 1rem;
 
 }
 
@@ -605,7 +606,8 @@ a[href]:hover {
 	background-repeat: no-repeat;
 	background-size: auto 100%;
 	text-align: center;
-	padding-bottom: 2em;
+	padding-bottom: 2rem;
+	font-size: 0;
 
 }
 
@@ -665,7 +667,7 @@ a.span-relative-parent ~ a:after {
 .slider-wrap .slider > div:before {
 
 	padding: 0;
-	height: calc(100% - 2em);
+	height: 100%;
 	vertical-align: bottom;
 
 }
