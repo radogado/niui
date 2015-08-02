@@ -3,35 +3,6 @@ $line-height: 22px;
 
 // Hover nav needs hover delay, show only one drop-down and hide it on click outside of the drop-down, make drop-downs of all positions accessible (current site hides one on the right), slider images aspect ratio, change input+label to just label absolutely-spanning all the li (parent), drop-down menu for touch
 
-/*
-@font-face {
-
-    font-family: 'Segoe Bold';
-    src: url('latest.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-
-    font-family: 'Segoe';
-    src: url('latest-2.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-
-    font-family: 'Segoe Light';
-    src: url('latest-3.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-*/
-
 @font-face {
     font-family: 'wf_segoe-ui_light';
     src: url('latest-3.woff') format('woff');
@@ -57,6 +28,15 @@ $line-height: 22px;
 
     font-family: 'wf_icons_normal';
     src: url('icons.woff') format('woff');
+    font-weight: normal;
+    font-style: normal
+
+}
+
+@font-face {
+
+    font-family: 'shell-icons';
+    src: url('shell-icons.woff') format('woff');
     font-weight: normal;
     font-style: normal
 
@@ -146,7 +126,7 @@ header > .row, header > nav {
 
 header form {
 	
-	width: 70%;
+// 	width: 70%;
 	position: relative;
 
 }
@@ -167,12 +147,19 @@ header input[type=submit], header input[type=submit]:hover {
 	height: 100%;
 	width: 2em;
 	position: absolute;
-	top: 0;
+	top: -.1em;
 	right: 0;
-	background: url(../images/search.png) center center no-repeat;
+// 	background: url(../images/search.png) center center no-repeat;
+	background: none;
 	min-width: 0;
 	border: none;
 	min-height: 2em;
+	font-family: 'shell-icons';
+	text-align: center;
+    bottom: 0;
+    margin-bottom: 0;
+    line-height: 1em;
+	margin-right: .5em;
 
 }
 
@@ -182,14 +169,20 @@ header .row > div, header a.logo, header form {
 
 }
 
+header a.logo {
+	
+	margin-right: 3em;
+
+}
+
 header nav label a:after {
 	
 	display: inline-block;
 	content: '∨';
-	-webkit-transform: translateY(.4em) scale(1,.5);
-	transform: translateY(.4em) scale(1,.5);
+	-webkit-transform: /* translateY(.4em) */ scale(1,.5);
+	transform: /* translateY(.4em) */ scale(1,.5);
 	margin-left: .3em;
-	font-size: 1.5em;
+	font-size: 1em;
 	
 }
 
@@ -206,14 +199,18 @@ header a.shopping[href] {
 	height: 1.5em; 
 	line-height: 1.5em; 
 	margin: 0 1.3em;
-	background: url(../images/icon_cart_reg.png) left center no-repeat;
+// 	background: url(../images/icon_cart_reg.png) left center no-repeat;
 	width: 2em;
+    font-family: 'shell-icons';
+// 	content: '';
+	color: #7f7f7f;
+	text-align: center;
 	
 }
 
 header a.shopping[href]:hover {
 
-	background-image: url(../images/icon_cart_hover.png);
+	text-decoration: none;
 	
 }
 
@@ -342,16 +339,21 @@ header nav > ul > li > ul > li:nth-child(14) li + li.teaser, header nav > ul > l
 
 header nav label.trigger {
 	
-	float: none;
+/*
 	border-top: 1px solid transparent;
 	border-left: 1px solid transparent;
 	border-right: 1px solid transparent;
+*/
+/*
+	float: none;
 	padding-left: 1em;
 	margin: 0;
 	margin-bottom: -1px
+*/
 
 }
 
+/*
 header nav li li li.teaser span {
 	
 	font-weight: bold;
@@ -375,6 +377,7 @@ header nav li li li + li.teaser {
 	right: 0;
 
 }
+*/
 
 header nav ul ul ul {
 	
@@ -531,15 +534,17 @@ header nav > ul > li > ul {
 	
 	padding-right: calc(100vw/2);
 	z-index: 9999;
-	border: 1px solid #ddd;
+// 	border: 1px solid #ddd;
 	
 }
 
 header nav input.trigger:checked ~ label {
 	
+/*
 	border-top-color: #ddd;
 	border-left-color: #ddd;
 	border-right-color: #ddd;
+*/
 	background: #fff;
 	z-index: 99999;
 
@@ -606,7 +611,7 @@ a[href]:hover {
 	background-repeat: no-repeat;
 	background-size: auto 100%;
 	text-align: center;
-	padding-bottom: 2rem;
+	padding: 2rem;
 	font-size: 0;
 
 }
@@ -741,6 +746,7 @@ main .slider span.copy, main .slider span.copy h2, main .slider span.copy button
 	padding-top: 1em;
 	padding-bottom: .3em;
 	transition: background-color .2s linear;
+	margin-right: 0;
 
 }
 
@@ -748,6 +754,11 @@ main .slider span.copy, main .slider span.copy h2, main .slider span.copy button
 
 	background-color: #6b6b6b;
 	text-decoration: none;
+
+}
+
+.row.top-link-bar img {
+	
 
 }
 
@@ -1026,10 +1037,17 @@ footer .footer-bottom span.icon-globe {
 
 }
 
-[for=nav-signin] + ul{
+[for=nav-signin] + ul {
 	
 	padding-right: 0 !important;
 
+}
+
+header nav a[href]:hover {
+	
+	text-decoration: none;
+	color: inherit;
+	
 }
 
 @media screen and (max-width: 1024px) {
@@ -1043,6 +1061,13 @@ footer .footer-bottom span.icon-globe {
 }
 
 @media screen and (max-width: 640px) {
+	
+	.row > * {
+		
+		padding-left: 0;
+		padding-right: 0;
+
+	}
 
 	.mini-features a {
 		
@@ -1108,6 +1133,77 @@ footer .footer-bottom span.icon-globe {
 		
 		margin-top: 0;
 	
+	}
+	
+	.social {
+		
+		padding: 0 .5em;
+
+	}
+
+	header nav ul input.trigger:checked ~ ul ul {
+	
+		display: block;
+	    position: static;
+	    visibility: visible;
+	    padding-left: 2em;
+	    white-space: normal;
+    	
+	}
+	
+	body header nav>ul>li>ul>li li {
+		
+		margin-top: 0 !important;
+		display: inline-block !important;
+
+	}
+	
+	header nav>ul>li>ul {
+		
+		padding-right: 0;
+
+	}
+	
+	header nav ul ul ul {
+		
+		width: 100%;
+	
+	}
+	
+	header nav ul li {
+		
+		margin-left: 0;
+	
+	}
+	
+	header>.row:first-child div {
+		
+		text-align: left;
+	
+	}
+	
+	nav input.trigger:checked + *, nav > ul > li > input.trigger + * {
+		
+		display: block;
+	
+	}
+	
+	header nav {
+		
+		width: 100%;
+
+	}	
+
+	.semi-transparent main, .semi-transparent footer, .semi-transparent header > .row {
+		
+		opacity: 1;
+	
+	}
+	
+	form input[type=submit] {
+		
+		margin-top: 0;
+		
 	}
 
 }

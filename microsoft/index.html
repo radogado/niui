@@ -20,6 +20,15 @@
 </head>
 	
 <body>
+<label for="globalcheck" style="
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+"></label>
+<input type="radio" name=radionav id=globalcheck>
 
 	<!-- Head - Start -->
 
@@ -29,7 +38,7 @@
 	
 			<div class='row contain'>
 			
-				<div class="col4">
+				<div>
 				
 					<a href=# class=logo>
 					
@@ -37,68 +46,12 @@
 						
 					</a>
 					
-				</div>
-				
-				<div class='align-right'>
-	
-					<div>
-	
-						<form>
-							
-							<input type="text" placeholder="Search Microsoft.com">
-							<input type="submit" value="">
-						
-						</form>
-						
-						<a href=# class="shopping"> </a>
-						
-						<nav>
-							
-							<ul>
-								
-								<li>
-								
-									<input type="radio" id="nav-signin" class="trigger">
-									<label for="nav-signin" class="trigger"> <a>Sign in</a> </label>
-									
-									<ul>
-										
-										<li> <a href=#>Profile</a> </li>
-										
-										<li> <a href=#>Order History</a> </li>
-										
-										<li> <a href=#>Digital content</a> </li>
-										
-										<li> <a href=#>Payment</a> </li>
-										
-									</ul>
-								
-								</li>
-							
-							</ul>
-						
-						</nav>
-						
-					</div>
-					
-				</div>
+					<nav class=contain>
 			
-			</div>
-	
-			<nav class=contain>
-	
-				<label for=nav-trigger class=trigger> ≡ </label>
-				<input type=checkbox id=nav-trigger class=trigger>
-				
-				<div>
-				
-					<div class=row>
+						<label for=nav-trigger class=trigger> ≡ </label>
+						<input type=checkbox id=nav-trigger class=trigger>
 						
-						<div class=col34>
-							
-							<nav>
-				
-								<ul>
+						<ul>
 								
 									<li>
 									
@@ -122,22 +75,8 @@
 													
 													<li><a href="#">Surface for students</a></li>
 												
-													<li class=teaser>
-													
-														<a href=#>
-													
-															<img src=images/en-US-OS-Nav-Surface-Family.jpg alt="Surface family">
-															
-															<p>The tablet that can replace your laptop</p>
-															
-															<span>Shop now</span>
-															
-														</a>
-													
-													</li>
-													
 												</ul>
-
+							
 											</li>
 											
 											<li class="red">Office
@@ -147,7 +86,7 @@
 													<li><a href="#"><b>All Office</b></a></li>
 													
 													<li><a href="#">Office 365 Home</a></li>
-
+							
 													<li><a href="#">Office 365 Personal</a></li>
 													
 													<li><a href="#">Office 365 University</a></li>
@@ -160,20 +99,6 @@
 													
 													<li><a href="#">Office apps</a></li>
 												
-													<li class=teaser>
-													
-														<a href=#>
-													
-															<img src=images/Store_Office_Nav_406x280.jpg alt="Office">
-															
-															<p>Work virtually anytime, anywhere and on any device</p>
-															
-															<span>Shop now</span>
-
-														</a>
-														
-													</li>
-													
 												</ul>
 												
 											</li>
@@ -194,20 +119,6 @@
 													
 													<li><a href="#">PC accessories</a></li>
 												
-													<li class=teaser>
-													
-														<a href=#>
-													
-															<img src=images/en-US-OS-Nav-Computers-Tablets-Needs.jpg alt="PCs & tablets">
-															
-															<p>New PCs for all your needs</p>
-															
-															<span>Shop now</span>
-														
-														</a>
-													
-													</li>
-													
 												</ul>
 												
 											</li>
@@ -232,26 +143,12 @@
 													
 													<li><a href="#">Xbox Music Pass</a></li>
 												
-													<li class=teaser>
-													
-														<a href=#>
-													
-															<img src=images/en-US-OS-Nav-Xbox-Batman-Division-Halo.jpeg alt="Xbox">
-															
-															<p>Pre-order select Xbox games, get a $10 gift card</p>
-															
-															<span>Shop now</span>
-															
-														</a>
-													
-													</li>
-													
 												</ul>
 												
 											</li>
 											
 											<li class="dark-red">Windows Phone
-
+							
 												<ul>
 													
 													<li><a href="#"><b>All Windows Phone</b></a></li>
@@ -268,20 +165,6 @@
 													
 													<li><a href="#">Phone accessories</a></li>
 												
-													<li class=teaser>
-													
-														<a href=#>
-													
-															<img src=images/en-US-OS-Nav-Phone-Lumia-735.jpeg alt="Windows Phone">
-															
-															<p>Lumia 735: The first phone designed for selfies and Skype video calls</p>
-															
-															<span>Shop now</span>
-															
-														</a>
-													
-													</li>
-													
 												</ul>
 											
 											</li>
@@ -290,22 +173,10 @@
 											
 												<ul>
 													
-													<li class=teaser>
-													
-														<a href=#>
-													
-															<img src=images/Devices_Band_Nav_406x250.jpeg alt="Microsoft Band">
-															
-															<p>Introducing Microsoft Band</p>
-															
-															<span>Shop now</span>
-															
-														</a>
-													
-													</li>
+													<li><a href="#"><b>All Microsoft Band</b></a></li>
 													
 												</ul>
-
+							
 											</li>
 											
 											<li class="purple">Windows
@@ -322,20 +193,6 @@
 													
 													<li><a href="#">Windows 8.1 Pro Pack</a></li>
 													
-													<li class=teaser>
-													
-														<a href=#>
-													
-															<img src=images/en-US-OS-Nav-Windows-Discover-Work-Play.jpeg alt="Windows">
-															
-															<p>Discover new ways to work and play</p>
-															
-															<span>Shop Windows 8.1</span>
-															
-														</a>
-													
-													</li>
-													
 												</ul>
 												
 											</li>
@@ -351,20 +208,6 @@
 													<li><a href="#">Visio</a></li>
 													
 													<li><a href="#">Project</a></li>
-													
-													<li class=teaser>
-													
-														<a href=#>
-													
-															<img src=images/en-US-OS-Nav-Additional-Software-Transform.jpeg alt="Additional software">
-															
-															<p>Transform the way you do things</p>
-															
-															<span>Shop now</span>
-															
-														</a>
-													
-													</li>
 													
 												</ul>
 												
@@ -390,20 +233,6 @@
 													
 													<li><a href="#">PC accessories</a></li>
 													
-													<li class=teaser>
-													
-														<a href=#>
-													
-															<img src=images/en-US-OS-Nav-Accessories-JBL-Parrot-Band.jpeg alt="Accessories">
-															
-															<p>Essential extras to enhance your experience</p>
-															
-															<span>Shop all accessories</span>
-															
-														</a>
-													
-													</li>
-													
 												</ul>
 												
 											</li>
@@ -426,20 +255,6 @@
 													
 													<li><a href="#">Accessories</a></li>
 													
-													<li class=teaser>
-													
-														<a href=#>
-													
-															<img src=images/Store-Small-Business_Nav_406x280.jpeg alt="Business">
-															
-															<p>Solutions you and your business can count on</p>
-															
-															<span>Shop now</span>
-															
-														</a>
-													
-													</li>
-													
 												</ul>
 												
 											</li>
@@ -458,20 +273,6 @@
 													
 													<li><a href="#">PC games</a></li>
 													
-													<li class=teaser>
-													
-														<a href=#>
-													
-															<img src=images/Entertainment_Movies_Nav_406x250.jpeg alt="Entertainment">
-															
-															<p>Watch the latest movies</p>
-															
-															<span>Visit the Xbox Video Store</span>
-															
-														</a>
-													
-													</li>
-													
 												</ul>
 												
 											</li>
@@ -488,20 +289,6 @@
 													
 													<li><a href="#">Refurbished</a></li>
 													
-													<li class=teaser>
-													
-														<a href=#>
-													
-															<img src=images/en-US-OS-Nav-Sale-Special-Offers.jpeg alt="Sales">
-															
-															<p>Take advantage of big savings and special offers</p>
-															
-															<span>Shop now</span>
-															
-														</a>
-													
-													</li>
-													
 												</ul>
 												
 											</li>
@@ -509,7 +296,8 @@
 										</ul>
 										
 									</li>
-	
+								
+							<!--
 									<li> 
 									
 										<input type="radio" name=radionav id=nav-explore class="trigger">
@@ -522,19 +310,7 @@
 												
 												<ul>
 													
-													<li class=teaser>
-													
-														<a href=#>
-													
-															<img src=images/Explore_Home_Nav_419x280.jpeg alt="All categories">
-															
-															<p>Find apps and devices that help you do more of what you love</p>
-															
-															<span>Learn more</span>
-															
-														</a>
-													
-													</li>
+													<li><a href="#"><b>All categories</b></a></li>
 													
 												</ul>
 									
@@ -544,19 +320,7 @@
 												
 												<ul>
 													
-													<li class=teaser>
-													
-														<a href=#>
-													
-															<img src=images/Explore_Photos_Nav_419x280.jpeg alt="All categories">
-															
-															<p>Take, share, and edit photos easily with all your friends</p>
-															
-															<span>See apps and devices</span>
-															
-														</a>
-													
-													</li>
+													<li><a href="#"><b>Share photos & videos</b></a></li>
 													
 												</ul>
 									
@@ -675,12 +439,13 @@
 										</ul>
 										
 									</li>
+							-->
 									
 									<li>
 									
 										<input type="radio" name=radionav id=nav-devices class="trigger">
 										
-										<label for="nav-devices" class="trigger"> <a>Devices</a> </label>
+										<label for="nav-devices" class="trigger"> <a>Products</a> </label>
 									
 										<ul>
 											
@@ -698,20 +463,6 @@
 													
 													<li><a href="#">Shop Surface</a></li>
 												
-													<li class=teaser>
-													
-														<a href=#>
-													
-															<img src=images/Devices_SrfcThemis_Nav_419x280.jpeg alt="Surface family">
-															
-															<p>The most productive tablets on the planet</p>
-															
-															<span>Learn more</span>
-															
-														</a>
-													
-													</li>
-													
 												</ul>
 									
 											</li>
@@ -736,20 +487,6 @@
 													
 													<li><a href="#">Shop PCs & tablets</a></li>
 												
-													<li class=teaser>
-													
-														<a href=#>
-													
-															<img src=images/Devices_PCsandTablets_Nav_406x280.jpeg alt="PCs & tablets">
-															
-															<p>Get things done and have more fun</p>
-															
-															<span>Explore new PCs</span>
-															
-														</a>
-													
-													</li>
-													
 												</ul>
 												
 											</li>
@@ -763,7 +500,7 @@
 													<li><a href="#">Xbox One</a></li>
 												
 													<li><a href="#">Xbox One games</a></li>
-
+							
 													<li><a href="#">Xbox One accessories</a></li>
 													
 													<li><a href="#">Xbox Live</a></li>
@@ -774,20 +511,6 @@
 													
 													<li><a href="#">Shop Xbox</a></li>
 												
-													<li class=teaser>
-													
-														<a href=#>
-													
-															<img src=images/Devices_Xbox_Nav_406x280.jpeg alt="Xbox">
-															
-															<p>It's more fun on Xbox One</p>
-															
-															<span>Learn more</span>
-														
-														</a>
-													
-													</li>
-													
 												</ul>
 												
 											</li>
@@ -801,23 +524,9 @@
 													<li><a href="#">Apps & games</a></li>
 												
 													<li><a href="#">Phone accessories</a></li>
-
+							
 													<li><a href="#">Shop Lumia phones</a></li>
-
-													<li class=teaser>
-													
-														<a href=#>
-													
-															<img src=images/Devices_LumiaPhone_Nav_419x280.jpeg alt="Lumia phones">
-															
-															<p>The world's most personal smartphone</p>
-															
-															<span>Find yours</span>
-															
-														</a>
-													
-													</li>
-													
+							
 												</ul>
 												
 											</li>
@@ -908,20 +617,6 @@
 													
 													<li><a href="#">Shop accessories</a></li>
 												
-													<li class=teaser>
-													
-														<a href=#>
-													
-															<img src=images/Devices_Accessories_Nav_406x280.jpeg alt="Accessories">
-															
-															<p>Comfort, style, precision</p>
-															
-															<span>Shop accessories now</span>
-															
-														</a>
-													
-													</li>
-													
 												</ul>
 											
 											</li>
@@ -930,6 +625,7 @@
 									
 									</li>
 									
+							<!--
 									<li>
 									
 										<input type="radio" name=radionav id=nav-software class="trigger">
@@ -964,20 +660,6 @@
 													
 													<li><a href="#">Shop Office</a></li>
 												
-													<li class=teaser>
-													
-														<a href=#>
-													
-															<img src=images/Software_and_Apps_Office_Nav_406x280.jpeg alt="Office">
-															
-															<p>Welcome to the new Office</p>
-															
-															<span>Learn more</span>
-															
-														</a>
-													
-													</li>
-													
 												</ul>
 									
 											</li>
@@ -1002,20 +684,6 @@
 													
 													<li><a href="#">Shop Windows</a></li>
 												
-													<li class=teaser>
-													
-														<a href=#>
-													
-															<img src=images/Products_Win10_Nav_419x280.jpeg alt="Windows">
-															
-															<p>See what's coming in Windows 10</p>
-															
-															<span>Learn more</span>
-														
-														</a>
-													
-													</li>
-													
 												</ul>
 											
 											</li>
@@ -1025,7 +693,7 @@
 												<ul>
 													
 													<li><a href="#"><b>All additional software</b></a></li>
-
+							
 													<li><a href="#">Microsoft Health</a></li>
 													
 													<li><a href="#">Microsoft Security Essentials</a></li>
@@ -1068,20 +736,6 @@
 													
 													<li><a href="#">Xbox apps</a></li>
 												
-													<li class=teaser>
-													
-														<a href=#>
-													
-															<img src=images/SoftwareandApps_Apps_Nav_406x280.jpeg alt="Apps">
-															
-															<p>Discover thousands of great apps and games</p>
-															
-															<span>Search Windows apps</span>
-															
-														</a>
-													
-													</li>
-													
 												</ul>
 											
 											</li>
@@ -1102,24 +756,10 @@
 													
 													<li><a href="#">PC games</a></li>
 												
-													<li class=teaser>
-													
-														<a href=#>
-													
-															<img src=images/SoftwareandApps_Games_Nav_406x280.jpeg alt="Games">
-															
-															<p>The best games live on Xbox One</p>
-															
-															<span>Learn more</span>
-															
-														</a>
-													
-													</li>
-													
 												</ul>
 											
 											</li>
-
+							
 											<li class="blue">Other downloads
 												
 												<ul>
@@ -1139,7 +779,7 @@
 												</ul>
 											
 											</li>
-
+							
 											<li class="purple">Developer & IT Pro
 												
 												<ul>
@@ -1255,6 +895,7 @@
 										</ul>
 									
 									</li>
+							-->
 									
 									<li>
 									
@@ -1465,7 +1106,7 @@
 												<ul>
 													
 													<li><a href="#"><b>Popular topics</b></a></li>
-
+							
 													<li><a href="#">Error messages</a></li>
 													
 													<li><a href="#">Install, upgrade & activate (Windows)</a></li>
@@ -1504,18 +1145,6 @@
 													
 													<li><a href="#">Answer Desk</a></li>
 												
-													<li class=teaser>
-													
-														<a href=#>
-													
-															<img src=images/Support_Sales_Orders_Nav_419x280.jpeg alt="Sales & orders">
-															
-															<p>Call sales and customer support</p>
-															
-															<span>Available 24/7</span>
-															
-														</a>
-														
 													</li>
 													
 												</ul>
@@ -1540,39 +1169,44 @@
 													
 													<li><a href="#">Privacy feedback</a></li>
 													
-													<li class=teaser>
-													
-														<a href=#>
-													
-															<img src=images/Contact_Us.png alt="Contact us">
-															
-															<p>Contact sales and customer support</p>
-															
-															<span>Available 24/7</span>
-														
-														</a>
-														
-													</li>
-													
 												</ul>
 											
 											</li>
-
+							
 										</ul>
 									
 									</li>
 											
 								</ul>
-											
-							</nav>
-			
-						</div>
-								
-					</div>
-			
+					
+					</nav>
+
 				</div>
+				
+				<div class='align-right'>
 	
-			</nav>
+					<div>
+	
+						<form>
+							
+							<input type="text" placeholder="Search Microsoft.com">
+							<input type="submit" value="&#59169;">
+						
+						</form>
+						
+						<a href=# class="shopping">&#59327; </a>
+						
+						<nav>
+							
+							<a href=#>Sign in</a>
+							
+						</nav>
+						
+					</div>
+					
+				</div>
+			
+			</div>
 	
 		</header>
 
@@ -1993,6 +1627,7 @@
 -->
 	<script src=../include/natuive.min.js type=text/javascript></script>
 	
+<!--
 	<script type="text/javascript">
 		
 		document.querySelector('body').onmouseup = document.querySelector('body').ontouchend = function(e) {
@@ -2006,6 +1641,7 @@
 		}
 			
 	</script>
+-->
 
 </body>
 
