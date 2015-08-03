@@ -1,7 +1,7 @@
 $font-size: 16px;
 $line-height: 22px;
 
-// Hover nav needs hover delay, show only one drop-down and hide it on click outside of the drop-down, make drop-downs of all positions accessible (current site hides one on the right), slider images aspect ratio, change input+label to just label absolutely-spanning all the li (parent), drop-down menu for touch
+// Hover nav needs hover delay, show only one drop-down and hide it on click outside of the drop-down, make drop-downs of all positions accessible (current site hides one on the right), slider images aspect ratio, change input+label to just label absolutely-spanning all the li (parent), drop-down menu for touch, space bar doesn't scroll the page
 
 @font-face {
     font-family: 'wf_segoe-ui_light';
@@ -220,6 +220,12 @@ header > nav > li + li {
 	
 }
 
+header nav {
+
+	vertical-align: middle;
+	    
+}
+
 header nav ul ul {
 	
 	width: auto;
@@ -351,6 +357,8 @@ header nav label.trigger {
 	margin-bottom: -1px
 */
 
+    margin: 0;
+    
 }
 
 /*
@@ -494,12 +502,14 @@ header nav > ul > li > ul > li.pastel-blue a b, header nav > ul > li > ul > li.p
 
 }
 
+/*
 header nav ul ul li:hover ul {
 	
 	visibility: visible;
 	transition-delay: 0s;
 
 }
+*/
 
 // 1st & second third-level li need margin-top: -(3*parent_li_index)em
 
@@ -509,6 +519,7 @@ header nav ul ul li:first-child > ul {
 
 }
 
+/*
 header nav ul input.trigger:checked ~ ul li:hover > ul li {
 	
 // 	display: block;
@@ -516,13 +527,16 @@ header nav ul input.trigger:checked ~ ul li:hover > ul li {
 	display: block;
 
 }
+*/
 
+/*
 header nav ul input.trigger:checked ~ ul li:hover > ul li {
 	
 // 	display: block;
 	visibility: visible;
 
 }
+*/
 
 header nav ul input.trigger:checked ~ ul ul {
 	
@@ -1141,6 +1155,7 @@ header nav a[href]:hover {
 
 	}
 
+/*
 	header nav ul input.trigger:checked ~ ul ul {
 	
 		display: block;
@@ -1150,11 +1165,12 @@ header nav a[href]:hover {
 	    white-space: normal;
     	
 	}
+*/
 	
 	body header nav>ul>li>ul>li li {
 		
 		margin-top: 0 !important;
-		display: inline-block !important;
+// 		display: inline-block !important;
 
 	}
 	
@@ -1173,6 +1189,7 @@ header nav a[href]:hover {
 	header nav ul li {
 		
 		margin-left: 0;
+		display: block;
 	
 	}
 	
@@ -1185,6 +1202,9 @@ header nav a[href]:hover {
 	nav input.trigger:checked + *, nav > ul > li > input.trigger + * {
 		
 		display: block;
+		width: 100%;
+		float: none;
+		clear: both;
 	
 	}
 	
@@ -1192,8 +1212,42 @@ header nav a[href]:hover {
 		
 		width: 100%;
 
-	}	
+	}
+	
+	header nav li li input[type=radio].trigger {
+		
+		display: block;
+	    top: 0;
+	    right: 0;
+// 	    bottom: 0;
+	    left: 0;
+	    width: 100%;
+	    background-color: red;
+	    z-index: 9999999;
+	    margin: 0;
+		height: 3rem;
 
+	}
+
+	header nav li li a {
+		
+		line-height: 1rem;
+
+	}
+	
+	header nav li li input[type=radio].trigger + * {
+		
+		visibility: hidden;
+		
+	}
+
+	header nav li li input[type=radio].trigger:checked + * {
+		
+		visibility: visible;
+		position: static;
+		
+	}
+	
 	.semi-transparent main, .semi-transparent footer, .semi-transparent header > .row {
 		
 		opacity: 1;
@@ -1204,6 +1258,12 @@ header nav a[href]:hover {
 		
 		margin-top: 0;
 		
+	}
+	
+	header nav ul ul ul {
+		
+		padding-left: 0;
+	
 	}
 
 }
