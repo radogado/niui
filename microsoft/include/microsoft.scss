@@ -1,7 +1,7 @@
 $font-size: 16px;
 $line-height: 22px;
 
-// Hover nav needs hover delay, show only one drop-down and hide it on click outside of the drop-down, make drop-downs of all positions accessible (current site hides one on the right), slider images aspect ratio, change input+label to just label absolutely-spanning all the li (parent), drop-down menu for touch, space bar doesn't scroll the page
+// Hover nav needs hover delay, show only one drop-down and hide it on click outside of the drop-down, make drop-downs of all positions accessible (current site hides one on the right), slider images aspect ratio, change input+label to just label absolutely-spanning all the li (parent), drop-down menu for touch, space bar doesn't scroll the page, solution for hiding a menu with radio checkbox: every checkbox has an invisible display: none reset button over it, but only the checked checkbox shows it – click on it and the form is reset, unchecking all checkboxes. forms for reset should be one for each level, no need for one per each sub nav
 
 @font-face {
     font-family: 'wf_segoe-ui_light';
@@ -163,6 +163,31 @@ header input[type=submit], header input[type=submit]:hover {
 
 }
 
+input[type=reset] {
+	
+	position: absolute; 
+	background: transparent;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	border: 0;
+	display: none;
+	font-size: 0;
+    width: 100%;
+    outline: none;
+    height: 3rem;
+    z-index: 2;
+    padding: 0;
+    		
+}
+
+input:checked + input[type=reset] {
+	
+	display: block;
+
+}
+
 header .row > div, header a.logo, header form {
 	
 	vertical-align: middle;
@@ -243,7 +268,7 @@ header nav ul li {
 
 }
 
-header nav > ul > li > ul > li {
+header nav ul > li > ul > li {
 	
 	white-space: nowrap;
 	margin: 0;
@@ -253,91 +278,91 @@ header nav > ul > li > ul > li {
 
 }
 
-header nav > ul > li > ul > li li {
+header nav ul > li > ul > li li {
 
 	display: block;
 
 }
 
-header nav > ul > li > ul > li:nth-child(1) li + li.teaser, header nav > ul > li > ul > li:nth-child(1) li:first-child {
+header nav ul > li > ul > li:nth-child(1) li + li.teaser, header nav ul > li > ul > li:nth-child(1) li:first-child {
 	
 	margin-top: -1em;
 
 }
 
-header nav > ul > li > ul > li:nth-child(2) li + li.teaser, header nav > ul > li > ul > li:nth-child(2) li:first-child {
+header nav ul > li > ul > li:nth-child(2) li + li.teaser, header nav ul > li > ul > li:nth-child(2) li:first-child {
 	
 	margin-top: -4em;
 
 }
 
-header nav > ul > li > ul > li:nth-child(3) li + li.teaser, header nav > ul > li > ul > li:nth-child(3) li:first-child {
+header nav ul > li > ul > li:nth-child(3) li + li.teaser, header nav ul > li > ul > li:nth-child(3) li:first-child {
 	
 	margin-top: -7em;
 
 }
 
-header nav > ul > li > ul > li:nth-child(4) li + li.teaser, header nav > ul > li > ul > li:nth-child(4) li:first-child {
+header nav ul > li > ul > li:nth-child(4) li + li.teaser, header nav ul > li > ul > li:nth-child(4) li:first-child {
 	
 	margin-top: -10em;
 
 }
 
-header nav > ul > li > ul > li:nth-child(5) li + li.teaser, header nav > ul > li > ul > li:nth-child(5) li:first-child {
+header nav ul > li > ul > li:nth-child(5) li + li.teaser, header nav ul > li > ul > li:nth-child(5) li:first-child {
 	
 	margin-top: -13em;
 
 }
 
-header nav > ul > li > ul > li:nth-child(6) li + li.teaser, header nav > ul > li > ul > li:nth-child(6) li:first-child {
+header nav ul > li > ul > li:nth-child(6) li + li.teaser, header nav ul > li > ul > li:nth-child(6) li:first-child {
 	
 	margin-top: -16em;
 
 }
 
-header nav > ul > li > ul > li:nth-child(7) li + li.teaser, header nav > ul > li > ul > li:nth-child(7) li:first-child {
+header nav ul > li > ul > li:nth-child(7) li + li.teaser, header nav ul > li > ul > li:nth-child(7) li:first-child {
 	
 	margin-top: -19em;
 
 }
 
-header nav > ul > li > ul > li:nth-child(8) li + li.teaser, header nav > ul > li > ul > li:nth-child(8) li:first-child {
+header nav ul > li > ul > li:nth-child(8) li + li.teaser, header nav ul > li > ul > li:nth-child(8) li:first-child {
 	
 	margin-top: -22em;
 
 }
 
-header nav > ul > li > ul > li:nth-child(9) li + li.teaser, header nav > ul > li > ul > li:nth-child(9) li:first-child {
+header nav ul > li > ul > li:nth-child(9) li + li.teaser, header nav ul > li > ul > li:nth-child(9) li:first-child {
 	
 	margin-top: -25em;
 
 }
 
-header nav > ul > li > ul > li:nth-child(10) li + li.teaser, header nav > ul > li > ul > li:nth-child(10) li:first-child {
+header nav ul > li > ul > li:nth-child(10) li + li.teaser, header nav ul > li > ul > li:nth-child(10) li:first-child {
 	
 	margin-top: -28em;
 
 }
 
-header nav > ul > li > ul > li:nth-child(11) li + li.teaser, header nav > ul > li > ul > li:nth-child(11) li:first-child {
+header nav ul > li > ul > li:nth-child(11) li + li.teaser, header nav ul > li > ul > li:nth-child(11) li:first-child {
 	
 	margin-top: -31em;
 
 }
 
-header nav > ul > li > ul > li:nth-child(12) li + li.teaser, header nav > ul > li > ul > li:nth-child(12) li:first-child {
+header nav ul > li > ul > li:nth-child(12) li + li.teaser, header nav ul > li > ul > li:nth-child(12) li:first-child {
 	
 	margin-top: -34em;
 
 }
 
-header nav > ul > li > ul > li:nth-child(13) li + li.teaser, header nav > ul > li > ul > li:nth-child(13) li:first-child {
+header nav ul > li > ul > li:nth-child(13) li + li.teaser, header nav ul > li > ul > li:nth-child(13) li:first-child {
 	
 	margin-top: -37em;
 
 }
 
-header nav > ul > li > ul > li:nth-child(14) li + li.teaser, header nav > ul > li > ul > li:nth-child(14) li:first-child {
+header nav ul > li > ul > li:nth-child(14) li + li.teaser, header nav ul > li > ul > li:nth-child(14) li:first-child {
 	
 	margin-top: -40em;
 
@@ -396,107 +421,109 @@ header nav ul ul ul {
 	z-index: -1;
 	margin-top: 1em;
 	visibility: hidden;
-	transition: 0.2s .5s;
+// 	transition: 0.2s .5s;
 
 }
 
-header nav > ul > li > ul > li:hover {
+/*
+header nav ul > li > ul > li:hover {
 	
 	color: #fff;
 
 }
+*/
 
-header nav > ul > li > ul > li.blue:hover {
+header nav ul > li > ul > li.blue:hover {
 	
 	background: #0072C6;
 
 }
 
-header nav > ul > li > ul > li.blue a b, header nav > ul > li > ul > li.blue li.teaser a[href] {
+header nav ul > li > ul > li.blue a b, header nav ul > li > ul > li.blue li.teaser a[href] {
 	
 	color: #0072C6;
 
 }
 
-header nav > ul > li > ul > li.red:hover {
+header nav ul > li > ul > li.red:hover {
 	
 	background: #DC3701;
 
 }
 
-header nav > ul > li > ul > li.red a b, header nav > ul > li > ul > li.red li.teaser a[href] {
+header nav ul > li > ul > li.red a b, header nav ul > li > ul > li.red li.teaser a[href] {
 	
 	color: #DC3701;
 
 }
 
-header nav > ul > li > ul > li.dark-blue:hover {
+header nav ul > li > ul > li.dark-blue:hover {
 	
 	background: #002050;
 
 }
 
-header nav > ul > li > ul > li.dark-blue a b, header nav > ul > li > ul > li.dark-blue li.teaser a[href] {
+header nav ul > li > ul > li.dark-blue a b, header nav ul > li > ul > li.dark-blue li.teaser a[href] {
 	
 	color: #002050;
 
 }
 
-header nav > ul > li > ul > li.green:hover {
+header nav ul > li > ul > li.green:hover {
 	
 	background: #007233;
 
 }
 
-header nav > ul > li > ul > li.green a b, header nav > ul > li > ul > li.green li.teaser a[href] {
+header nav ul > li > ul > li.green a b, header nav ul > li > ul > li.green li.teaser a[href] {
 	
 	color: #007233;
 
 }
 
-header nav > ul > li > ul > li.dark-red:hover {
+header nav ul > li > ul > li.dark-red:hover {
 	
 	background: #BA141A;
 
 }
 
-header nav > ul > li > ul > li.dark-red a b, header nav > ul > li > ul > li.dark-red li.teaser a[href] {
+header nav ul > li > ul > li.dark-red a b, header nav ul > li > ul > li.dark-red li.teaser a[href] {
 	
 	color: #BA141A;
 
 }
 
-header nav > ul > li > ul > li.purple:hover {
+header nav ul > li > ul > li.purple:hover {
 	
 	background: #68217A;
 
 }
 
-header nav > ul > li > ul > li.purple a b, header nav > ul > li > ul > li.purple li.teaser a[href] {
+header nav ul > li > ul > li.purple a b, header nav ul > li > ul > li.purple li.teaser a[href] {
 	
 	color: #68217A;
 
 }
 
-header nav > ul > li > ul > li.dark-purple:hover {
+header nav ul > li > ul > li.dark-purple:hover {
 	
 	background: #442359;
 
 }
 
-header nav > ul > li > ul > li.dark-purple a b, header nav > ul > li > ul > li.dark-purple li.teaser a[href] {
+header nav ul > li > ul > li.dark-purple a b, header nav ul > li > ul > li.dark-purple li.teaser a[href] {
 	
 	color: #442359;
 
 }
 
-header nav > ul > li > ul > li.pastel-blue:hover {
+header nav ul > li > ul > li.pastel-blue:hover {
 	
 	background: #1570A6;
 
 }
 
-header nav > ul > li > ul > li.pastel-blue a b, header nav > ul > li > ul > li.pastel-blue li.teaser a[href] {
+header nav ul > li > ul > li.pastel-blue a b, header nav ul > li > ul > li.pastel-blue li.teaser a[href] {
 	
 	color: #1570A6;
 
@@ -544,7 +571,7 @@ header nav ul input.trigger:checked ~ ul ul {
 	
 }
 
-header nav > ul > li > ul {
+header nav ul > li > ul {
 	
 	padding-right: calc(100vw/2);
 	z-index: 9999;
@@ -1167,14 +1194,14 @@ header nav a[href]:hover {
 	}
 */
 	
-	body header nav>ul>li>ul>li li {
+	body header nav ul>li>ul>li li {
 		
 		margin-top: 0 !important;
 // 		display: inline-block !important;
 
 	}
 	
-	header nav>ul>li>ul {
+	header nav ul>li>ul {
 		
 		padding-right: 0;
 
@@ -1199,7 +1226,7 @@ header nav a[href]:hover {
 	
 	}
 	
-	nav input.trigger:checked + *, nav > ul > li > input.trigger + * {
+	nav input.trigger:checked + ul, nav > ul > li > input.trigger + ul {
 		
 		display: block;
 		width: 100%;
@@ -1214,7 +1241,7 @@ header nav a[href]:hover {
 
 	}
 	
-	header nav li li input[type=radio].trigger {
+	header nav li input[type=radio].trigger {
 		
 		display: block;
 	    top: 0;
@@ -1223,28 +1250,30 @@ header nav a[href]:hover {
 	    left: 0;
 	    width: 100%;
 	    background-color: red;
-	    z-index: 9999999;
+	    z-index: 1;
 	    margin: 0;
 		height: 3rem;
 
 	}
 
-	header nav li li a {
+	header nav li a {
 		
-		line-height: 1rem;
+		line-height: 3rem;
 
 	}
 	
-	header nav li li input[type=radio].trigger + * {
+	header nav li input[type=radio].trigger ~ ul {
 		
-		visibility: hidden;
+		display: none;
 		
 	}
 
-	header nav li li input[type=radio].trigger:checked + * {
+	header nav li input[type=radio].trigger:checked ~ ul {
 		
-		visibility: visible;
+		display: block;
 		position: static;
+	    visibility: visible;
+// 	    transition: none;
 		
 	}
 	
@@ -1272,7 +1301,7 @@ header nav a[href]:hover {
 	
 	}
 
-	header nav>ul>li>ul>li li {
+	header nav ul>li>ul>li li {
 		
 		background: #ddd;
 		padding: 0 .8em;
