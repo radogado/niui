@@ -179,6 +179,7 @@ input[type=reset] {
     height: 3rem;
     z-index: 2;
     padding: 0;
+    cursor: pointer;
     		
 }
 
@@ -565,6 +566,18 @@ header nav ul input.trigger:checked ~ ul li:hover > ul li {
 }
 */
 
+input.trigger {
+	
+	display: block;
+
+}
+
+input.trigger#nav-trigger, label.trigger {
+	
+	display: none;
+
+}
+
 header nav ul input.trigger:checked ~ ul ul {
 	
 	display: block;
@@ -589,6 +602,57 @@ header nav input.trigger:checked ~ label {
 	background: #fff;
 	z-index: 99999;
 
+}
+
+nav input.trigger:checked + ul, nav > ul > li > input.trigger + ul {
+	
+	display: block;
+	width: 100%;
+	float: none;
+	clear: both;
+
+}
+
+header nav a[href] {
+	
+	display: block;
+
+}
+
+header nav li input[type=radio].trigger {
+	
+	display: block;
+    top: 0;
+    right: 0;
+// 	    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: red;
+    z-index: 1;
+    margin: 0;
+	height: 3rem;
+
+}
+
+header nav li a {
+	
+	line-height: 3rem;
+
+}
+
+header nav li input[type=radio].trigger ~ ul {
+	
+	display: none;
+	
+}
+
+header nav li input[type=radio].trigger:checked ~ ul {
+	
+	display: block;
+	position: absolute;
+    visibility: visible;
+// 	    transition: none;
+	
 }
 
 a[href] {
@@ -1086,8 +1150,13 @@ footer .footer-bottom span.icon-globe {
 
 header nav a[href]:hover {
 	
-	text-decoration: none;
 	color: inherit;
+	
+}
+
+header nav li li li a[href]:hover {
+	
+// 	text-decoration: underline;
 	
 }
 
@@ -1193,7 +1262,19 @@ header nav a[href]:hover {
     	
 	}
 */
+
+	input.trigger#nav-trigger, label.trigger {
+		
+		display: block;
 	
+	}
+	
+	header nav li input[type=radio].trigger:checked ~ ul {
+		
+		position: static;
+		
+	}
+
 	body header nav ul>li>ul>li li {
 		
 		margin-top: 0 !important;
@@ -1226,55 +1307,10 @@ header nav a[href]:hover {
 	
 	}
 	
-	nav input.trigger:checked + ul, nav > ul > li > input.trigger + ul {
-		
-		display: block;
-		width: 100%;
-		float: none;
-		clear: both;
-	
-	}
-	
 	header nav {
 		
 		width: 100%;
 
-	}
-	
-	header nav li input[type=radio].trigger {
-		
-		display: block;
-	    top: 0;
-	    right: 0;
-// 	    bottom: 0;
-	    left: 0;
-	    width: 100%;
-	    background-color: red;
-	    z-index: 1;
-	    margin: 0;
-		height: 3rem;
-
-	}
-
-	header nav li a {
-		
-		line-height: 3rem;
-
-	}
-	
-	header nav li input[type=radio].trigger ~ ul {
-		
-		display: none;
-		
-	}
-
-	header nav li input[type=radio].trigger:checked ~ ul {
-		
-		display: block;
-		position: static;
-	    visibility: visible;
-// 	    transition: none;
-		
 	}
 	
 	.semi-transparent main, .semi-transparent footer, .semi-transparent header > .row {
