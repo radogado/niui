@@ -90,9 +90,16 @@ nav a {
 
 }
 
-header nav li li {
+header nav ul li li {
 	
 	display: block;
+	position: static;
+
+}
+
+header nav ul li li:first-child {
+	
+	position: relative;
 
 }
 
@@ -282,9 +289,11 @@ header nav ul > li > ul > li {
 header nav ul > li > ul > li li {
 
 	display: block;
+	padding: 0 1em;
 
 }
 
+/*
 header nav ul > li > ul > li:nth-child(1) li + li.teaser, header nav ul > li > ul > li:nth-child(1) li:first-child {
 	
 	margin-top: -1em;
@@ -368,6 +377,7 @@ header nav ul > li > ul > li:nth-child(14) li + li.teaser, header nav ul > li > 
 	margin-top: -40em;
 
 }
+*/
 
 header nav label.trigger {
 	
@@ -416,11 +426,11 @@ header nav li li li + li.teaser {
 header nav ul ul ul {
 	
 	position: absolute;
-	width: calc(100vw/2 + 100%);
-	padding-left: calc(100% + 4em);
+// 	width: calc(100vw/2 + 100%);
+	margin-left: 100%;
 	top: 0;
 	z-index: -1;
-	margin-top: 1em;
+// 	margin-top: 1em;
 	visibility: hidden;
 // 	transition: 0.2s .5s;
 
@@ -434,6 +444,7 @@ header nav ul > li > ul > li:hover {
 }
 */
 
+/*
 header nav ul > li > ul > li.blue:hover {
 	
 	background: #0072C6;
@@ -529,15 +540,14 @@ header nav ul > li > ul > li.pastel-blue a b, header nav ul > li > ul > li.paste
 	color: #1570A6;
 
 }
+*/
 
-/*
 header nav ul ul li:hover ul {
 	
 	visibility: visible;
-	transition-delay: 0s;
+	transition-delay: 0.2s;
 
 }
-*/
 
 // 1st & second third-level li need margin-top: -(3*parent_li_index)em
 
@@ -586,7 +596,7 @@ header nav ul input.trigger:checked ~ ul ul {
 
 header nav ul > li > ul {
 	
-	padding-right: calc(100vw/2);
+// 	padding-right: calc(100vw/2);
 	z-index: 9999;
 // 	border: 1px solid #ddd;
 	
@@ -631,6 +641,7 @@ header nav li input[type=radio].trigger {
     z-index: 1;
     margin: 0;
 	height: 3rem;
+	border: 0;
 
 }
 
@@ -1263,6 +1274,19 @@ header nav li li li a[href]:hover {
 	}
 */
 
+	header nav ul li li {
+		
+		position: relative;
+	
+	}
+
+	header nav ul ul li:hover ul {
+		
+		visibility: hidden;
+		transition-delay: 0s;
+	
+	}
+
 	input.trigger#nav-trigger, label.trigger {
 		
 		display: block;
@@ -1328,6 +1352,7 @@ header nav li li li a[href]:hover {
 	header nav ul ul ul {
 		
 		padding-left: 0;
+		margin-left: 0;
 	
 	}
 
