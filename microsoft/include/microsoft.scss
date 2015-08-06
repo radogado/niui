@@ -208,7 +208,7 @@ header a.logo {
 
 }
 
-header nav > ul > li > a:after {
+header nav > ul > li > a:after, header nav > ul > li > ul > li > a:after {
 	
 	display: inline-block;
 	content: '∨';
@@ -217,6 +217,12 @@ header nav > ul > li > a:after {
 	margin-left: .3em;
 	font-size: 1em;
 	
+}
+
+header nav > ul > li > ul > li > a:after {
+	
+	content: '>';
+
 }
 
 header a[href], header nav label a {
@@ -280,7 +286,7 @@ header nav ul > li > ul > li {
 	
 	white-space: nowrap;
 	margin: 0;
-	padding: .8em 1em;
+	padding: 0 1em;
 	display: block;
 	cursor: default;
 
@@ -421,6 +427,7 @@ header nav li input[type=radio].trigger:checked ~ ul {
 	display: block;
 	position: absolute;
     visibility: visible;
+    margin-left: -1em;
 // 	    transition: none;
 	
 }
@@ -1049,12 +1056,14 @@ header nav li li li a[href]:hover {
 	header nav li input[type=radio].trigger:checked ~ ul {
 		
 		position: static;
+		margin-left: 0;
 		
 	}
 
 	body header nav ul>li>ul>li li {
 		
 		margin-top: 0 !important;
+		padding: 0;
 // 		display: inline-block !important;
 
 	}
@@ -1092,10 +1101,22 @@ header nav li li li a[href]:hover {
 
 	}
 	
+	header nav li a, nav li:first-child a {
+		
+		padding: 0 1em;
+	
+	}
+	
 	.semi-transparent main, .semi-transparent footer, .semi-transparent header > .row {
 		
 		opacity: 1;
 	
+	}
+	
+	header > .row {
+		
+		padding: 0;
+		
 	}
 	
 	form input[type=submit] {
@@ -1114,6 +1135,7 @@ header nav li li li a[href]:hover {
 	header nav>ul>li>ul>li {
 		
 		background: #eee;
+		padding: 0;
 	
 	}
 
@@ -1122,6 +1144,12 @@ header nav li li li a[href]:hover {
 		background: #ddd;
 		padding: 0 .8em;
 	
+	}
+
+	header nav > ul > li > ul > li > a:after {
+		
+		content: '∨';
+		
 	}
 
 }
