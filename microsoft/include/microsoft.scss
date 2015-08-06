@@ -208,7 +208,7 @@ header a.logo {
 
 }
 
-header nav label a:after {
+header nav > ul > li > a:after {
 	
 	display: inline-block;
 	content: '∨';
@@ -293,135 +293,11 @@ header nav ul > li > ul > li li {
 
 }
 
-/*
-header nav ul > li > ul > li:nth-child(1) li + li.teaser, header nav ul > li > ul > li:nth-child(1) li:first-child {
-	
-	margin-top: -1em;
-
-}
-
-header nav ul > li > ul > li:nth-child(2) li + li.teaser, header nav ul > li > ul > li:nth-child(2) li:first-child {
-	
-	margin-top: -4em;
-
-}
-
-header nav ul > li > ul > li:nth-child(3) li + li.teaser, header nav ul > li > ul > li:nth-child(3) li:first-child {
-	
-	margin-top: -7em;
-
-}
-
-header nav ul > li > ul > li:nth-child(4) li + li.teaser, header nav ul > li > ul > li:nth-child(4) li:first-child {
-	
-	margin-top: -10em;
-
-}
-
-header nav ul > li > ul > li:nth-child(5) li + li.teaser, header nav ul > li > ul > li:nth-child(5) li:first-child {
-	
-	margin-top: -13em;
-
-}
-
-header nav ul > li > ul > li:nth-child(6) li + li.teaser, header nav ul > li > ul > li:nth-child(6) li:first-child {
-	
-	margin-top: -16em;
-
-}
-
-header nav ul > li > ul > li:nth-child(7) li + li.teaser, header nav ul > li > ul > li:nth-child(7) li:first-child {
-	
-	margin-top: -19em;
-
-}
-
-header nav ul > li > ul > li:nth-child(8) li + li.teaser, header nav ul > li > ul > li:nth-child(8) li:first-child {
-	
-	margin-top: -22em;
-
-}
-
-header nav ul > li > ul > li:nth-child(9) li + li.teaser, header nav ul > li > ul > li:nth-child(9) li:first-child {
-	
-	margin-top: -25em;
-
-}
-
-header nav ul > li > ul > li:nth-child(10) li + li.teaser, header nav ul > li > ul > li:nth-child(10) li:first-child {
-	
-	margin-top: -28em;
-
-}
-
-header nav ul > li > ul > li:nth-child(11) li + li.teaser, header nav ul > li > ul > li:nth-child(11) li:first-child {
-	
-	margin-top: -31em;
-
-}
-
-header nav ul > li > ul > li:nth-child(12) li + li.teaser, header nav ul > li > ul > li:nth-child(12) li:first-child {
-	
-	margin-top: -34em;
-
-}
-
-header nav ul > li > ul > li:nth-child(13) li + li.teaser, header nav ul > li > ul > li:nth-child(13) li:first-child {
-	
-	margin-top: -37em;
-
-}
-
-header nav ul > li > ul > li:nth-child(14) li + li.teaser, header nav ul > li > ul > li:nth-child(14) li:first-child {
-	
-	margin-top: -40em;
-
-}
-*/
-
 header nav label.trigger {
 	
-/*
-	border-top: 1px solid transparent;
-	border-left: 1px solid transparent;
-	border-right: 1px solid transparent;
-*/
-/*
-	float: none;
-	padding-left: 1em;
-	margin: 0;
-	margin-bottom: -1px
-*/
-
     margin: 0;
     
 }
-
-/*
-header nav li li li.teaser span {
-	
-	font-weight: bold;
-
-}
-
-header nav li li li.teaser {
-	
-	position: relative;
-	margin-top: 0;
-	z-index: 1;
-	text-align: center;
-
-}
-
-header nav li li li + li.teaser {
-	
-	width: calc(100% - 100vw/3);
-	position: absolute;
-	top: 0;
-	right: 0;
-
-}
-*/
 
 header nav ul ul ul {
 	
@@ -432,119 +308,15 @@ header nav ul ul ul {
 	z-index: -1;
 // 	margin-top: 1em;
 	visibility: hidden;
-// 	transition: 0.2s .5s;
+	opacity: 0;
+	transition: 0.2s .4s;
 
 }
-
-/*
-header nav ul > li > ul > li:hover {
-	
-	color: #fff;
-
-}
-*/
-
-/*
-header nav ul > li > ul > li.blue:hover {
-	
-	background: #0072C6;
-
-}
-
-header nav ul > li > ul > li.blue a b, header nav ul > li > ul > li.blue li.teaser a[href] {
-	
-	color: #0072C6;
-
-}
-
-header nav ul > li > ul > li.red:hover {
-	
-	background: #DC3701;
-
-}
-
-header nav ul > li > ul > li.red a b, header nav ul > li > ul > li.red li.teaser a[href] {
-	
-	color: #DC3701;
-
-}
-
-header nav ul > li > ul > li.dark-blue:hover {
-	
-	background: #002050;
-
-}
-
-header nav ul > li > ul > li.dark-blue a b, header nav ul > li > ul > li.dark-blue li.teaser a[href] {
-	
-	color: #002050;
-
-}
-
-header nav ul > li > ul > li.green:hover {
-	
-	background: #007233;
-
-}
-
-header nav ul > li > ul > li.green a b, header nav ul > li > ul > li.green li.teaser a[href] {
-	
-	color: #007233;
-
-}
-
-header nav ul > li > ul > li.dark-red:hover {
-	
-	background: #BA141A;
-
-}
-
-header nav ul > li > ul > li.dark-red a b, header nav ul > li > ul > li.dark-red li.teaser a[href] {
-	
-	color: #BA141A;
-
-}
-
-header nav ul > li > ul > li.purple:hover {
-	
-	background: #68217A;
-
-}
-
-header nav ul > li > ul > li.purple a b, header nav ul > li > ul > li.purple li.teaser a[href] {
-	
-	color: #68217A;
-
-}
-
-header nav ul > li > ul > li.dark-purple:hover {
-	
-	background: #442359;
-
-}
-
-header nav ul > li > ul > li.dark-purple a b, header nav ul > li > ul > li.dark-purple li.teaser a[href] {
-	
-	color: #442359;
-
-}
-
-header nav ul > li > ul > li.pastel-blue:hover {
-	
-	background: #1570A6;
-
-}
-
-header nav ul > li > ul > li.pastel-blue a b, header nav ul > li > ul > li.pastel-blue li.teaser a[href] {
-	
-	color: #1570A6;
-
-}
-*/
 
 header nav ul ul li:hover ul {
 	
 	visibility: visible;
+	opacity: 1;
 	transition-delay: 0.2s;
 
 }
@@ -556,25 +328,6 @@ header nav ul ul li:first-child > ul {
 // 	display: block;
 
 }
-
-/*
-header nav ul input.trigger:checked ~ ul li:hover > ul li {
-	
-// 	display: block;
-	visibility: hidden;
-	display: block;
-
-}
-*/
-
-/*
-header nav ul input.trigger:checked ~ ul li:hover > ul li {
-	
-// 	display: block;
-	visibility: visible;
-
-}
-*/
 
 input.trigger {
 	
@@ -1262,18 +1015,6 @@ header nav li li li a[href]:hover {
 
 	}
 
-/*
-	header nav ul input.trigger:checked ~ ul ul {
-	
-		display: block;
-	    position: static;
-	    visibility: visible;
-	    padding-left: 2em;
-	    white-space: normal;
-    	
-	}
-*/
-
 	header nav ul li li {
 		
 		position: relative;
@@ -1315,6 +1056,8 @@ header nav li li li a[href]:hover {
 	header nav ul ul ul {
 		
 		width: 100%;
+		transition: none;
+		opacity: 1;
 	
 	}
 	
