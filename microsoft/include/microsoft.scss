@@ -398,6 +398,12 @@ header nav li input[type=radio].trigger {
 
 }
 
+header nav li li input[type=radio].trigger {
+	
+	display: none;
+	
+}
+
 header nav li a {
 	
 	line-height: 3rem;
@@ -1021,6 +1027,12 @@ header nav li li li a[href]:hover {
 	
 	}
 
+	header nav li li input[type=radio].trigger {
+		
+		display: block;
+		
+	}
+	
 	header nav ul ul li:hover ul {
 		
 		visibility: hidden;
