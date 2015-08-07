@@ -90,6 +90,11 @@ nav a {
 
 }
 
+header nav ul {
+	
+	font-size: 0;
+}
+
 header nav ul li li {
 	
 	display: block;
@@ -276,9 +281,16 @@ header nav ul li {
 	
 	position: relative;
 	white-space: normal;
-	margin-left: -1em;
 	display: inline-block;
 	margin-top: 0;
+	transition: background-color .2s linear;
+	font-size: 1rem;
+
+}
+
+header nav ul li:hover {
+	
+	background: #eee;
 
 }
 
@@ -286,16 +298,22 @@ header nav ul > li > ul > li {
 	
 	white-space: nowrap;
 	margin: 0;
-	padding: 0 1em;
+	padding: 0;
 	display: block;
 	cursor: default;
 
 }
 
+header nav ul > li > ul > li:hover {
+	
+	background: #ddd;
+
+}
+	
 header nav ul > li > ul > li li {
 
 	display: block;
-	padding: 0 1em;
+	padding: 0;
 
 }
 
@@ -316,6 +334,7 @@ header nav ul ul ul {
 	visibility: hidden;
 	opacity: 0;
 	transition: 0.2s .4s;
+	background: #ddd;
 
 }
 
@@ -350,6 +369,13 @@ input.trigger#nav-trigger, label.trigger {
 header nav ul input.trigger:checked ~ ul ul {
 	
 	display: block;
+	background: #ddd;
+	
+}
+
+header nav ul input.trigger:checked ~ a {
+	
+	background: #eee;
 	
 }
 
@@ -358,6 +384,7 @@ header nav ul > li > ul {
 // 	padding-right: calc(100vw/2);
 	z-index: 9999;
 // 	border: 1px solid #ddd;
+	background: #eee;
 	
 }
 
@@ -410,9 +437,13 @@ header nav li li input[type=radio].trigger {
 	
 }
 
-header nav li a {
+header nav li a, nav li:first-child a, nav li:last-child a {
 	
 	line-height: 3rem;
+	display: inline-block;
+	padding-left: 1em;
+	margin: 0;
+    padding-right: 1em;
 
 }
 
@@ -427,7 +458,7 @@ header nav li input[type=radio].trigger:checked ~ ul {
 	display: block;
 	position: absolute;
     visibility: visible;
-    margin-left: -1em;
+//     margin-left: -1em;
 // 	    transition: none;
 	
 }
@@ -1101,9 +1132,11 @@ header nav li li li a[href]:hover {
 
 	}
 	
-	header nav li a, nav li:first-child a {
+	header nav li a, nav li:first-child a, nav li:last-child a {
 		
 		padding: 0 1em;
+		display: block;
+// 		background: #eee;
 	
 	}
 	
