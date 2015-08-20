@@ -130,9 +130,21 @@ header > .row, header > nav {
 
 }
 
+.banner .slider {
+	
+	margin-bottom: 1.4rem;
+
+}
+
 .banner .slider-wrap {
 	
-	margin-bottom: 1em;
+	margin-bottom: 1.4rem;
+
+}
+
+.banner .slider-wrap .slider {
+	
+	margin-bottom: 0;
 
 }
 
@@ -524,8 +536,13 @@ a[href]:hover {
 	background-repeat: no-repeat;
 	background-size: auto 100%;
 	text-align: center;
-	padding: 2rem;
 	font-size: 0;
+
+}
+
+.slider-wrap .slider > div {
+	
+	padding: 2rem;
 
 }
 
@@ -577,7 +594,7 @@ a.span-relative-parent ~ a:after {
 	
 	display: inline-block; 
 	width: 0; 
-	padding-bottom: 30%;
+	padding-bottom: 35%;
 	content: '';
 	
 }
@@ -705,6 +722,7 @@ main .slider span.copy, main .slider span.copy h2, main .slider span.copy button
 	background: rgba(0,0,0,.6);
 	color: #fff;
 	font-size: .8rem;
+	z-index: 0;
 
 }
 
@@ -721,6 +739,20 @@ main .slider span.copy, main .slider span.copy h2, main .slider span.copy button
 	background: #fff;
 	opacity: 0;
 	transition: opacity .2s linear;
+
+}
+
+.mini-features a:after {
+	
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,.6);
+	z-index: -1;
 
 }
 
