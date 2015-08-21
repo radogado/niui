@@ -1982,6 +1982,18 @@ video a[href] {
 	
 }
 
+.slider-wrap .slider > * {
+	
+	opacity: 0;
+	
+}
+
+.slider-wrap .slider > .visible {
+	
+	opacity: 1;
+	
+}
+
 .slider-wrap.vertical, .slider.vertical {
 	
 	height: $line-height*23;
