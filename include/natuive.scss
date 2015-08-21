@@ -1480,6 +1480,27 @@ video a[href] {
 
 }
 
+/* Masonry in CSS only */
+
+.masonry {
+
+    -moz-column-count: 3;
+    -moz-column-gap: .7em;
+    -webkit-column-count: 3;
+    -webkit-column-gap: .7em;
+    column-count: 3;
+    column-gap: .7em;
+
+}
+
+    .masonry a {
+
+        display: inline-block; /* Display inline-block, and absolutely NO FLOATS! */
+        margin-bottom: 1em;
+        width: 100%; 
+
+    }
+
 /* Narrow Screens */
 
 @media screen and (max-width: 1024px) {

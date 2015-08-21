@@ -15,7 +15,9 @@
 		<link rel=styleSheet href=include/ie.css type=text/css media=screen>
 		<script src=include/html5shiv.min.js></script> 
 	<![endif]-->
-
+	
+	<!-- 	Dynamic theme switching demo -->
+	
 	<script type="text/javascript">
 		function toggleTheme() {
 		if (document.querySelector('link.theme')) {
@@ -115,6 +117,8 @@
 								<li> <a href=#video>Video</a> </li>
 
 								<li> <a href=#aspect-ratio>Image aspect ratio</a> </li>
+
+								<li> <a href=#masonry>Masonry</a> </li>
 							
 							</ul>
 						
@@ -158,6 +162,7 @@
 		</nav>
 	
 	</header>
+
 		<div class=banner>
 			
 			<div class='contain row'>
@@ -819,6 +824,27 @@
 				</div>
 				
 			</div>
+			
+			<div class="row">
+				
+				<div id=masonry>
+					
+					<h2>Masonry in CSS only by <a href="http://sickdesigner.com/masonry-css-getting-awesome-with-css3/">Sick Designer</a></h2>
+					
+					<div class="masonry">
+						
+						<a href="#">Whatever stuff you want to put in here. Second line. Second line. Second line. </a>
+						<a href="#">Whatever stuff you want to put in here.</a>
+						<a href="#">Whatever stuff you want to put in here.</a>
+						<a href="#">Whatever stuff you want to put in here.</a>
+						<a href="#">Whatever stuff you want to put in here.</a>
+						<a href="#">Whatever stuff you want to put in here.</a>
+						
+					</div>
+					
+				</div>
+			
+			</div>
 		
 		</div>
 
@@ -835,7 +861,7 @@
 			<div>
 			
 				<nav class='row sub contain'>
-	
+					
 					<ul>
 					
 						<li> <a href=#>Contact</a> </li>

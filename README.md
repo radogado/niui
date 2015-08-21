@@ -36,6 +36,7 @@ natUIve: mostly native front-end framework
 - CSS-only viewport height header*
 - URI parameters relay to links*
 - Arabic layout with one CSS line
+- Masonry CSS-only
 - Functional without JS and accessible without CSS*
 - 5 KB CSS + optional 5 KB JS (effective weight with combined, minified and gzipped files)
 - ~~No IE conditional operators~~ HTML5 elements also for IE8 with html5shiv
