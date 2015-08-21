@@ -1048,6 +1048,7 @@ addEventHandler(window, 'load', function() {
 
 });
 
+/* Check for host PHP support */
 var php_support = 0;
 request = new XMLHttpRequest();
 request.open('GET', document.location, true);
@@ -1058,9 +1059,25 @@ request.onload = function () {
 }
 request.send(null);
 
+/* Polyfill to uncheck all radio buttons of a form with form owner attribute. Single set of radios currently, for drop-down menu. */
+if (q('input[type=reset][form]') && !q('input[type=reset][form]').form) {
+	
+	forEach('input[type=reset][form]', function(el) {
+
+		el.onclick = function (e) { /* Assuming a single set of radios per form (for drop down menu) */
+			
+			el = eventElement(e);
+			q('input[type=radio][form=' + el.getAttribute('form') + ']:checked').checked = false;
+			
+		};
+
+	});
+
+}
 
 
 if (q('.overthrow')) { /* Load touch scroll polyfill */
+
     // DOM: Create the script element
     js_el = document.createElement("script");
     // set the type attribute
