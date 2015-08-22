@@ -702,6 +702,7 @@ main .slider span.copy, main .slider span.copy h2, main .slider span.copy button
 	
 	margin-left: 0;
 	width: 100%;
+	padding-bottom: 0;
 	
 }
 
@@ -749,7 +750,7 @@ main .slider span.copy, main .slider span.copy h2, main .slider span.copy button
 	position: absolute;
 	top: 0;
 	right: 0;
-	bottom: 0;
+	bottom: -9em;
 	left: 0;
 	background: rgba(0,0,0,.6);
 	z-index: -1;
