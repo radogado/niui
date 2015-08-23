@@ -267,6 +267,7 @@ function slide(el, method, index_number) {
             slider.removeEventListener(animationEvent, arguments.callee);
 
 			removeClass(slider.children[old_index], 'visible');
+			slider.children[old_index].style.opacity = 0; // Safari Odd/Even width 1px visible fix
 			removeClass(slider,'sliding');
 			slider.style.cssText = prefix + 'transform: ' + (hasClass(slider, 'vertical') ? 'translateY' : 'translateX') + '(-' + index + '00%);';
 			q('.sliding-style').outerHTML = '';
@@ -278,6 +279,8 @@ function slide(el, method, index_number) {
     } else { // ... or without animation on old browsers
 
 		slider.style.cssText = (hasClass(slider, 'vertical') ? 'top' : 'left') + ': -' + index + '00%';
+		removeClass(slider.children[old_index], 'visible');
+		addClass(slider.children[index], 'visible');
 
 		endSlide(slider, index);
 

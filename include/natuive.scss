@@ -1951,6 +1951,7 @@ video a[href] {
 	-ms-overflow-style: none; /* No scrollbars on IE10+ */
 	-webkit-transform-style: preserve-3d;
 	left: 0;
+	width: 100%;
 
 	-webkit-animation-timing-function: ease;
 	-webkit-animation-iteration-count: 1;
@@ -1982,15 +1983,9 @@ video a[href] {
 	
 }
 
-.slider-wrap .slider > * {
-	
-	opacity: 0;
-	
-}
-
 .slider-wrap .slider > .visible {
 	
-	opacity: 1;
+	opacity: 1 !important;
 	
 }
 
