@@ -1,7 +1,7 @@
 $font-size: 16px;
 $line-height: 22px;
 
-// Hover nav needs hover delay, show only one drop-down and hide it on click outside of the drop-down, make drop-downs of all positions accessible (current site hides one on the right), slider images aspect ratio, change input+label to just label absolutely-spanning all the li (parent), drop-down menu for touch, space bar doesn't scroll the page, solution for hiding a menu with radio checkbox: every checkbox has an invisible display: none reset button over it, but only the checked checkbox shows it – click on it and the form is reset, unchecking all checkboxes. forms for reset should be one for each level, no need for one per each sub nav
+// Hover nav needs hover delay, show only one drop-down and hide it on click outside of the drop-down, make drop-downs of all positions accessible (current site hides one on the right), slider images aspect ratio, change input+label to just label absolutely-spanning all the li (parent), drop-down menu for touch, space bar doesn't scroll the page, solution for hiding a menu with radio checkbox: every checkbox has an invisible display: none reset button over it, but only the checked checkbox shows it – click on it and the form is reset, unchecking all checkboxes. forms for reset should be one for each level, no need for one per each sub nav, on touch, grey nav item bg remains forever
 
 @font-face {
     font-family: 'wf_segoe-ui_light';
@@ -150,7 +150,6 @@ header > .row, header > nav {
 
 header form {
 	
-// 	width: 70%;
 	position: relative;
 
 }
@@ -173,7 +172,6 @@ header input[type=submit], header input[type=submit]:hover {
 	position: absolute;
 	top: -.1em;
 	right: 0;
-// 	background: url(../images/search.png) center center no-repeat;
 	background: none;
 	min-width: 0;
 	border: none;
@@ -187,7 +185,7 @@ header input[type=submit], header input[type=submit]:hover {
 
 }
 
-input[type=reset] {
+nav input[type=reset] {
 	
 	position: absolute; 
 	background: transparent;
@@ -207,9 +205,10 @@ input[type=reset] {
     		
 }
 
-input:checked + input[type=reset] {
+nav input:checked + input[type=reset] {
 	
 	display: block;
+	background: url(../images/transparent.png); /* IE10- */
 
 }
 
@@ -255,10 +254,8 @@ header a.shopping[href] {
 	height: 1.5em; 
 	line-height: 1.5em; 
 	margin: 0 1.3em;
-// 	background: url(../images/icon_cart_reg.png) left center no-repeat;
 	width: 2em;
     font-family: 'shell-icons';
-// 	content: '';
 	color: #7f7f7f;
 	text-align: center;
 	
@@ -338,11 +335,9 @@ header nav label.trigger {
 header nav ul ul ul {
 	
 	position: absolute;
-// 	width: calc(100vw/2 + 100%);
 	margin-left: 100%;
 	top: 0;
 	z-index: -1;
-// 	margin-top: 1em;
 	visibility: hidden;
 	opacity: 0;
 	transition: 0.2s .4s;
@@ -355,14 +350,6 @@ header nav ul ul li:hover ul {
 	visibility: visible;
 	opacity: 1;
 	transition-delay: 0.2s;
-
-}
-
-// 1st & second third-level li need margin-top: -(3*parent_li_index)em
-
-header nav ul ul li:first-child > ul {
-	
-// 	display: block;
 
 }
 
@@ -393,20 +380,13 @@ header nav ul input.trigger:checked ~ a {
 
 header nav ul > li > ul {
 	
-// 	padding-right: calc(100vw/2);
 	z-index: 9999;
-// 	border: 1px solid #ddd;
 	background: #eee;
 	
 }
 
 header nav input.trigger:checked ~ label {
 	
-/*
-	border-top-color: #ddd;
-	border-left-color: #ddd;
-	border-right-color: #ddd;
-*/
 	background: #fff;
 	z-index: 99999;
 
@@ -432,7 +412,6 @@ header nav li input[type=radio].trigger {
 	display: block;
     top: 0;
     right: 0;
-// 	    bottom: 0;
     left: 0;
     width: 100%;
     background-color: red;
@@ -452,7 +431,7 @@ header nav li li input[type=radio].trigger {
 header nav li a, nav li:first-child a, nav li:last-child a {
 	
 	line-height: 3rem;
-	display: inline-block;
+	display: block;
 	padding-left: 1em;
 	margin: 0;
     padding-right: 1em;
@@ -470,8 +449,6 @@ header nav li input[type=radio].trigger:checked ~ ul {
 	display: block;
 	position: absolute;
     visibility: visible;
-//     margin-left: -1em;
-// 	    transition: none;
 	
 }
 
@@ -1070,7 +1047,6 @@ header nav li li li a[href]:hover {
 	header>nav .row ul > li > ul {
 		
 		display: none;
-// 		visibility: hidden;
 
 	}
 	
@@ -1128,7 +1104,6 @@ header nav li li li a[href]:hover {
 		
 		margin-top: 0 !important;
 		padding: 0;
-// 		display: inline-block !important;
 
 	}
 	
@@ -1169,7 +1144,6 @@ header nav li li li a[href]:hover {
 		
 		padding: 0 1em;
 		display: block;
-// 		background: #eee;
 	
 	}
 	
