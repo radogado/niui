@@ -637,6 +637,15 @@ form {
 		
 	}
 	
+	header form noscript input[type=submit] {
+		
+		margin: 0;
+		padding: 0;
+		min-width: 0;
+		min-height: 1em;
+
+	}
+	
 	textarea {
 		
 		margin: -$line-height/2 0 $line-height/2 0;
@@ -1501,6 +1510,16 @@ video a[href] {
 
     }
 
+
+/* Overthrow CSS:
+   Enable overflow: auto on elements with overthrow class when html element has overthrow class too */
+.overthrow-enabled .overthrow {
+
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+
+}
+
 /* Narrow Screens */
 
 @media screen and (max-width: 1024px) {
@@ -2138,7 +2157,7 @@ video a[href] {
 
 }
 
-.slider::-webkit-scrollbar {
+.slider-wrap .slider::-webkit-scrollbar {
 
     display: none;
 
@@ -2360,13 +2379,4 @@ video a[href] {
 	-webkit-animation-name: sliding;
 	animation-name: sliding;
 	
-}
-
-/* Overthrow CSS:
-   Enable overflow: auto on elements with overthrow class when html element has overthrow class too */
-.overthrow-enabled .overthrow {
-
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-
 }

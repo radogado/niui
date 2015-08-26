@@ -481,8 +481,12 @@ function closeFullWindow() {
 		}
 
 	    removeClass(q('html'), 'nooverflow');
-	    document.removeEventListener('touchmove', preventEvent, false);
-	    q('body').removeEventListener('touchmove', preventEvent, false);
+	    if ('ontouchstart' in window) {
+
+		    document.removeEventListener('touchmove', preventEvent, false);
+		    q('body').removeEventListener('touchmove', preventEvent, false);
+	    
+	    }
 
 		removeEventHandler(window, 'keydown', arrow_keys_handler);
 		
@@ -530,7 +534,7 @@ function openFullWindow(el) {
 		
 	}
 
-	if (el.children[0] && hasClass(el.children[0], 'slider')) {
+	if (('ontouchstart' in window) && el.children[0] && hasClass(el.children[0], 'slider')) {
 
 		document.addEventListener('touchmove', preventEvent, false);
 		q('body').addEventListener('touchmove', preventEvent, false);

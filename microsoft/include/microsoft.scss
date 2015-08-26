@@ -208,7 +208,7 @@ nav input[type=reset] {
 nav input:checked + input[type=reset] {
 	
 	display: block;
-	background: url(../images/transparent.png); /* IE10- */
+	background: url(../../images/transparent.png); /* IE10- */
 
 }
 
@@ -414,7 +414,6 @@ header nav li input[type=radio].trigger {
     right: 0;
     left: 0;
     width: 100%;
-    background-color: red;
     z-index: 1;
     margin: 0;
 	height: 3rem;
@@ -1038,6 +1037,12 @@ header nav li li li a[href]:hover {
 	
 	}
 	
+	header {
+		
+		padding: 11px;
+
+	}
+	
 	header nav ul ul {
 		
 		position: relative;
@@ -1056,7 +1061,7 @@ header nav li li li a[href]:hover {
 
 	}
 	
-	header>nav>div {
+	header > nav > div {
 		
 		margin-top: 0;
 	
@@ -1134,8 +1139,23 @@ header nav li li li a[href]:hover {
 	
 	}
 	
-	header nav {
+	header nav.contain {
 		
+// 		pointer-events: none;
+		position: fixed;
+		left: 11px;
+		top: 11px;
+		z-index: 9999;
+		overflow: auto;
+		margin-left: -11px;
+		margin-top: -11px;
+
+	}
+	
+	header nav.contain > ul {
+
+		background: #fff;
+		min-height: 100vh;
 		width: 100%;
 
 	}
@@ -1189,6 +1209,14 @@ header nav li li li a[href]:hover {
 	header nav > ul > li > ul > li > a:after {
 		
 		content: '∨';
+		
+	}
+	
+	header a.logo[href] {
+		
+		text-align: right;
+		display: block;
+		margin-right: 0;
 		
 	}
 
