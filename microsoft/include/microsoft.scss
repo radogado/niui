@@ -77,6 +77,13 @@ h3, h4 {
 	
 }
 
+header {
+	
+		z-index: 99999;
+
+
+}
+
 header div nav {
 	
 	display: inline-block;
@@ -300,6 +307,12 @@ header nav ul li {
 header nav ul li:hover {
 	
 	background: #eee;
+
+}
+
+.touch header nav > ul > li:hover {
+	
+	background: inherit;
 
 }
 
