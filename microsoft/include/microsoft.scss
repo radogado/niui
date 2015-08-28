@@ -1,7 +1,7 @@
 $font-size: 16px;
 $line-height: 22px;
 
-// Hover nav needs hover delay, show only one drop-down and hide it on click outside of the drop-down, make drop-downs of all positions accessible (current site hides one on the right), slider images aspect ratio, change input+label to just label absolutely-spanning all the li (parent), drop-down menu for touch, space bar doesn't scroll the page, solution for hiding a menu with radio checkbox: every checkbox has an invisible display: none reset button over it, but only the checked checkbox shows it – click on it and the form is reset, unchecking all checkboxes. forms for reset should be one for each level, no need for one per each sub nav, on touch, grey nav item bg remains forever
+// Hover nav needs hover delay, show only one drop-down and hide it on click outside of the drop-down, make drop-downs of all positions accessible (current site hides one on the right), slider images aspect ratio, change input+label to just label absolutely-spanning all the li (parent), drop-down menu for touch, space bar doesn't scroll the page, solution for hiding a menu with radio checkbox: every checkbox has an invisible display: none reset button over it, but only the checked checkbox shows it – click on it and the form is reset, unchecking all checkboxes. forms for reset should be one for each level, no need for one per each sub nav, on touch, grey nav item bg remains forever, nav taps don't work under the slider, mobile nav: top-level items under opened items are not visible/accessible, mobile slider: too short
 
 @font-face {
     font-family: 'wf_segoe-ui_light';
@@ -1146,7 +1146,6 @@ header nav li li li a[href]:hover {
 		left: 11px;
 		top: 11px;
 		z-index: 9999;
-		overflow: auto;
 		margin-left: -11px;
 		margin-top: -11px;
 
@@ -1154,6 +1153,7 @@ header nav li li li a[href]:hover {
 	
 	header nav.contain > ul {
 
+		overflow-y: auto;
 		background: #fff;
 		min-height: 100vh;
 		width: 100%;

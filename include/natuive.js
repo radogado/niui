@@ -842,9 +842,11 @@ function submitForm(e) {
     forEach(el.querySelectorAll('.mandatory'), function(el) {
 
         if (
-            (el.querySelector('input, select, textarea') && !el.querySelector('input, select, textarea').value) ||
-            (el.querySelector('input[type=checkbox]') && !el.querySelector('input[type=checkbox]').checked) ||
-            (el.querySelector('input[type=radio]') && !el.querySelector('input[type=radio]').checked)
+			( el.querySelector('input, select, textarea') && !el.querySelector('input, select, textarea').value ) || 
+			( el.querySelector('input[type=checkbox]') && !el.querySelector('input[type=checkbox]').checked ) ||
+			( el.querySelector('input[type=email]') && !RegExp(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/).test(el.querySelector('input[type=email]').value) ) ||
+			( el.querySelector('input[type=url]') && !RegExp(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/).test(el.querySelector('input[type=url]').value) ) ||
+			( el.querySelector('input[type=radio]') && !el.querySelector('input[type=radio]').checked )
         ) {
 
             ready_to_submit = false;
@@ -1079,6 +1081,11 @@ if (q('input[type=reset][form]') && !q('input[type=reset][form]').form) {
 
 }
 
+if ('ontouchstart' in window) { // For touch devices CSS
+
+	addClass(document.querySelector('body'), 'touch');
+
+}
 
 if (q('.overthrow')) { /* Load touch scroll polyfill */
 
