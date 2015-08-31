@@ -846,6 +846,10 @@ function submitForm(e) {
 			( el.querySelector('input[type=checkbox]') && !el.querySelector('input[type=checkbox]').checked ) ||
 			( el.querySelector('input[type=email]') && !RegExp(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/).test(el.querySelector('input[type=email]').value) ) ||
 			( el.querySelector('input[type=url]') && !RegExp(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/).test(el.querySelector('input[type=url]').value) ) ||
+			( el.querySelector('input[type=number]') && 
+				!(RegExp(/^\d+$/).test(el.querySelector('input[type=number]').value)) ||
+				(el.querySelector('input[type=number][data-digits]') && (el.querySelector('input[type=number]').value.length != el.querySelector('input[type=number]').getAttribute('data-digits')))
+			) ||
 			( el.querySelector('input[type=radio]') && !el.querySelector('input[type=radio]').checked )
         ) {
 

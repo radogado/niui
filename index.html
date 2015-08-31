@@ -526,12 +526,19 @@
 					
 						<div> 
 							
-							<form action=# method=post target=_blank id=f>
+							<form action=# method=post target=_blank id=f novalidate>
 								
 							<label class=mandatory>
 		
 								<span>Excepteur sint occaecat cupidatat non proident</span>
 								<input name=last_name id=last_name type=text placeholder='What is your name?'>
+		
+							</label>
+		
+							<label class=mandatory>
+		
+								<span>Number input (5 digits)</span>
+								<input type=number placeholder=0 data-digitsa=5>
 		
 							</label>
 		
@@ -570,7 +577,7 @@
 							<label id=URL_label class="mandatory">
 		
 								<span>Website</span>
-								<input name=URL id=URL type=url placeholder='URL of your website.'>
+								<input name=URL id=URL type=url_ placeholder='URL of your website.'>
 		
 							</label>
 					
@@ -635,7 +642,7 @@
 							<label class=mandatory>
 		
 								<span>Excepteur sint occaecat cupidatat non proident</span>
-								<input name=last_name id=last_name type=text placeholder='What is your name?'>
+								<input name=last_name type=text placeholder='What is your name?'>
 		
 							</label>
 							
@@ -660,7 +667,7 @@
 							<label class=mandatory id=email_label>
 		
 								<span>Email</span>
-								<input name=email id=email type=email placeholder='Your Email address.'>
+								<input name=email type=email placeholder='Your Email address.'>
 		
 							</label> 
 											
@@ -674,7 +681,7 @@
 							<label id=URL_label>
 		
 								<span>Website</span>
-								<input name=URL id=URL type=url placeholder='URL of your website.'>
+								<input name=URL type=url placeholder='URL of your website.'>
 		
 							</label>
 					
@@ -682,7 +689,7 @@
 		
 								<span>Select a file</span>
 								<span class=file-input>
-									<input name=file id=file type=file>
+									<input name=file type=file>
 									<span>Drop or browse</span>
 								</span>
 		
@@ -704,7 +711,7 @@
 							<label id=phone_label>
 		
 								<span>Telephone</span>
-								<input name=phone id=phone type=tel placeholder='Your phone number.'>
+								<input name=phone type=tel placeholder='Your phone number.'>
 		
 							</label>
 					
@@ -712,7 +719,7 @@
 		
 								<span>Check this</span>
 								<label>
-									<input name=checkbox id=checkbox type=checkbox> <b class=checkbox-icon></b>
+									<input name=checkbox type=checkbox> <b class=checkbox-icon></b>
 									I accept the <a href=#>Terms and Conditions</a>.
 								</label>
 		
@@ -721,7 +728,7 @@
 							<label id=phone_label>
 		
 								<span>Telephone</span>
-								<input name=phone id=phone type=tel placeholder='Your phone number.'>
+								<input name=phone type=tel placeholder='Your phone number.'>
 		
 							</label>
 					
