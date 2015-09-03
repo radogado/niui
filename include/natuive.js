@@ -755,7 +755,11 @@ function animateAnchors(e) {
 	if (q('#nav-trigger')) {
 		
 	    q('#nav-trigger').checked = false;
-	    removeClass(q('header > nav > div'), 'open');
+	    if (q('header > nav > div')) {
+		    
+			removeClass(q('header > nav > div'), 'open');
+			
+		}
 	    removeClass(q('body'), 'semi-transparent');
 
 	}
@@ -770,7 +774,7 @@ function animateAnchors(e) {
 
 };
 
-forEach('a[href*="#"]', function(el, i) {
+forEach('a[href^="#"]', function(el, i) {
 
     el.onclick = animateAnchors;
 
@@ -1074,7 +1078,7 @@ if (q('input[type=reset][form]') && !q('input[type=reset][form]').form) {
 	
 	forEach('input[type=reset][form]', function(el) {
 
-		el.onclick = function (e) { /* Assuming a single set of radios per form (for drop down menu) */
+		el.onclick = function (e) { // Assuming a single set of radios per form (for drop down menu)
 			
 			el = eventElement(e);
 			q('input[type=radio][form=' + el.getAttribute('form') + ']:checked').checked = false;
