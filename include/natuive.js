@@ -682,6 +682,23 @@ relayParameters();
 
 forEach('.tool', function(el, i) {
 
+	if ('ontouchstart' in window) {
+
+		el.ontouchstart = function (e) {
+			
+			addClass(e, 'open');
+			
+		};
+	
+		el.querySelector('.tip').ontouchend = function (e) {
+
+			e.stopPropagation();
+			removeClass(e.parentNode, 'open');
+			
+		};
+	
+	}
+
     t = el.querySelector('.tip');
     if (!t) return;
 
@@ -1006,6 +1023,10 @@ if ('ontouchstart' in window) { // Touch device: remove iOS sticky hover state
 
 	addClass(q('html'), 'touch-device');
 
+} else {
+	
+	addClass(q('body'), 'no-touch');
+	
 }
 
 if (q('#nav-trigger')) {
@@ -1094,6 +1115,13 @@ if ('ontouchstart' in window) { // For touch devices CSS
 	addClass(document.querySelector('body'), 'touch');
 
 }
+
+/* Sort parent table's rows by matching column number alternatively desc/asc on click */
+forEach ('tr .sort', function (el) {
+	
+	
+	
+});
 
 if (q('.overthrow')) { /* Load touch scroll polyfill */
 
