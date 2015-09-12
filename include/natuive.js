@@ -196,23 +196,6 @@ function thisIndex(el) {
 
 }
 
-function parentByClass(el, className) {
-
-    while (el.parentNode && !hasClass(el, className)) {
-
-        el = el.parentNode;
-
-    }
-	if (typeof el.tagName == 'undefined') {
-		
-		return false;
-
-	}
-
-    return hasClass(el, className) && el;
-
-}
-
 if (!Array.prototype.indexOf) {
 
     Array.prototype.indexOf = function(el) {
@@ -559,7 +542,7 @@ function modalWindow(e) {
 
     el = eventElement(e);
 
-    link = parentByClass(el, 'modal').href;
+    link = getClosest(el, '.modal').href;
 	
     if (!php_support && external.test(link) || !(new XMLHttpRequest().upload)) { // No PHP or XHR?
 
@@ -630,7 +613,7 @@ function openLightbox(e) {
     /* Add any <a><img> siblings with description to a .slider and initialise its controls */
     images = '';
 
-    forEach(parentByClass(el, 'lightbox').querySelectorAll('a[href]'), function(el) {
+    forEach(getClosest(el, '.lightbox').querySelectorAll('a[href]'), function(el) {
 
         images += '<div><img data-src="' + el.href + '" alt="' + el.title + '"><p>' + el.title + '</p></div>';
         // Attach onload event to each image to display it only when fully loaded and avoid top-to-bottom reveal?
@@ -1019,12 +1002,8 @@ forEach('.accordion > label', function(el, i) {
 
 });
 
-if ('ontouchstart' in window) { // Touch device: remove iOS sticky hover state
+if (!('ontouchstart' in window)) { // Touch device: remove iOS sticky hover state
 
-	addClass(q('html'), 'touch-device');
-
-} else {
-	
 	addClass(q('body'), 'no-touch');
 	
 }
@@ -1083,6 +1062,57 @@ addEventHandler(window, 'load', function() {
 
 });
 
+var isInViewport = function (el) { // Thanks http://gomakethings.com/ditching-jquery/
+
+    var distance = el.getBoundingClientRect();
+    return (
+        distance.top >= 0 &&
+        distance.left >= 0 &&
+        distance.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        distance.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+
+};
+
+var getClosest = function (el, selector) { // Thanks http://gomakethings.com/ditching-jquery/
+
+    var firstChar = selector.charAt(0);
+
+    // Get closest match
+    for ( ; el && el !== document; el = el.parentNode ) {
+
+        // If selector is a class
+        if ( firstChar === '.' ) {
+            if ( el.classList.contains( selector.substr(1) ) ) {
+                return el;
+            }
+        }
+
+        // If selector is an ID
+        if ( firstChar === '#' ) {
+            if ( el.id === selector.substr(1) ) {
+                return el;
+            }
+        } 
+
+        // If selector is a data attribute
+        if ( firstChar === '[' ) {
+            if ( el.hasAttribute( selector.substr(1, selector.length - 2) ) ) {
+                return el;
+            }
+        }
+
+        // If selector is a tag
+        if ( el.tagName.toLowerCase() === selector ) {
+            return el;
+        }
+
+    }
+
+    return false;
+
+};
+
 /* Check for host PHP support */
 var php_support = 0;
 request = new XMLHttpRequest();
@@ -1110,17 +1140,45 @@ if (q('input[type=reset][form]') && !q('input[type=reset][form]').form) {
 
 }
 
-if ('ontouchstart' in window) { // For touch devices CSS
+/* Sort parent table's rows by matching column number alternatively desc/asc on click */
+function sortTable(table, column){
 
-	addClass(document.querySelector('body'), 'touch');
+	var parent=table.getElementsByTagName('tbody')[0], clones=[], txt=[];
+	var rows=parent.getElementsByTagName('tr'), i=0, r, c, t;
+	while(r=rows[i++]){
+		c=r.cloneNode(true);
+		txt[txt.length]=c.getElementsByTagName('td')[column].firstChild.textContent;
+		clones[clones.length]=c;
+	}
+	txt.sort(function (a,b) {return a == b ? 0 : (a < b ? -1 : 1)});
+	for(i=0;i<txt.length;i++){
+	
+		for(var j=clones.length-1;j>=0;j--){
+			t=clones[j].getElementsByTagName('td')[column].firstChild.textContent;
+			if(txt[i]==t){
+			parent.replaceChild(clones[j],rows[i]);break;
+			}
+		}
+	
+	}
 
 }
 
-/* Sort parent table's rows by matching column number alternatively desc/asc on click */
-forEach ('tr .sort', function (el) {
+forEach ('td[data-sort]', function (el) {
+	// asc or desc
+	if (el.getAttribute('data-sort') != 'asc' && el.getAttribute('data-sort') != 'desc') {
+		
+		el.setAttribute('data-sort', 'asc');
+		
+	}
 	
-	
-	
+	el.onclick = function (e) {
+		
+		el = eventElement(e);
+		console.log(sortTable(getClosest(el, 'table')));
+		
+	};
+
 });
 
 if (q('.overthrow')) { /* Load touch scroll polyfill */
@@ -1135,4 +1193,3 @@ if (q('.overthrow')) { /* Load touch scroll polyfill */
     document.body.appendChild(js_el);
 	
 }
-

@@ -21,7 +21,7 @@ function sliderElement(e) {
 
     } else {
 
-        container = parentByClass(el, 'slider-wrap');
+        container = getClosest(el, '.slider-wrap');
         return container && container.querySelector('.slider');
 
     }
@@ -183,7 +183,7 @@ function slide(el, method, index_number) {
 
     }
 
-    var slider = parentByClass(el, 'slider-wrap').querySelector('.slider');
+    var slider = getClosest(el, '.slider-wrap').querySelector('.slider');
 
 	index = old_index = thisIndex(slider.parentNode.querySelector('.slider-nav a.active'));
 

@@ -173,7 +173,8 @@ body {
 	position: relative;
 	width: 100%; 
 	-webkit-text-size-adjust: none;
-	display: table; /* Sticky footer */
+	display: flex;  /* Sticky footer */
+	flex-direction: column;
 	color: #333;
 	background: #fff;
 	-webkit-font-smoothing: antialiased;
@@ -209,9 +210,11 @@ body * {
 
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, h6 {
 	
 	margin: 0;
+	word-break: break-word;
+	word-wrap: break-word;
 
 }
 
@@ -231,7 +234,13 @@ p, li, header {
 
 }
 
-.viewport-height.header-and-banner {
+.header-and-banner {
+
+	flex: none;	
+
+}
+
+.viewport.header-and-banner {
 	
 	height: 100vh;
 	overflow: auto;
@@ -247,6 +256,7 @@ header .row {
 header a.logo {
 	
 	display: inline-block;
+	min-height: 46px; /* Don't shift page after image is loaded */
 
 }
 
@@ -451,11 +461,17 @@ nav {
 
 /* Main */
 
-ul {
-
-	padding-left: 1.3em;
-
+main#content {
+	
+	flex: 1 0 auto;
+	
 }
+
+	ul {
+	
+		padding-left: 1.3em;
+	
+	}
 	
 	main nav ul {
 	
@@ -480,22 +496,16 @@ ul {
 
 footer {
 	
-	display: table-row;
+	flex: none;
+	position: relative; // backtotop button
 	
 }
 
-	footer > * {
-		
-		vertical-align: bottom; 
-		display: table-cell;
-			
-	}
+footer .row > * {
 	
-	footer > div > div {
-		
-		padding-bottom: 3em;
-		
-	}
+	position: static;
+
+}
 
 /* Forms */
 
@@ -1421,10 +1431,17 @@ table {
 	}
 
 
-	table tr:hover td { /* Bug: on IE9, hover on overflowing table makes its .table container taller */
+	table :not(thead) tr:hover td { /* IE9 bug: hover on overflowing table makes its .table container taller */
 		
 		background-color: #ddd;
 
+	}
+	
+	td[data-sort]:after {
+		
+		content: '⇳';
+		margin-left: .5em;
+		
 	}
 	
 /* Checkbox trigger */
@@ -1470,6 +1487,7 @@ video a[href] {
 	
 	 display: block;
 	 overflow: hidden;
+	 text-align: center;
 
 }
 
@@ -1759,7 +1777,7 @@ video a[href] {
 		
 	}
 	
-	.viewport-height.header-and-banner {
+	.viewport.header-and-banner {
 		
 		height: auto;
 		
@@ -1870,20 +1888,6 @@ video a[href] {
 
 	}
 		
-	.touch-device .tool:hover .tip { 
-		
-		display: none; 
-	
-	}
-
-	/* Hover style on touch devices */
-	
-	.touch-device a[href]:hover { 
-		
-		color: inherit; 
-	
-	} 
-
 	.semi-transparent main, .semi-transparent footer, .semi-transparent header > .row {
 		
 		opacity: .1;
@@ -1905,6 +1909,14 @@ video a[href] {
 	footer .row > .social {
 		
 		float: right;
+		
+	}
+	
+	.masonry {
+		
+	    -moz-column-count: 2;
+	    -webkit-column-count: 2;
+	    column-count: 2;
 		
 	}
 
@@ -2108,16 +2120,34 @@ video a[href] {
 	
 }
 
-.slider > *:after { /* Slide background with full slider height */
+.slider > *:after, .slider > *:before { /* Slide background with full slider height */
 	
-	content: '';
+	content: '<';
 	display: block;
 	position: absolute;
-	top: 0;
+	top: 50%;
 	bottom: 0;
 	width: 100%;
 	background: transparent;
 	z-index: -1;
+	opacity: .5;
+
+}
+
+.slider > *:after {
+	
+	content: '>';
+	text-align: right;
+	
+}
+
+.slider-wrap .slider > *:after, .slider-wrap .slider > *:before, .slider > *:first-child:before, .slider > *:last-child:after {
+	
+	content: '';
+	top: 0;
+	text-align: left;
+	opacity: 1;
+	width: auto;
 
 }
 
@@ -2143,6 +2173,7 @@ video a[href] {
     display: inline-block;
     vertical-align: middle;  /* vertical alignment of the inline element */
 	height: 100%;
+	position: static;
 
 }
 
