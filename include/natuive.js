@@ -913,7 +913,7 @@ function submitForm(e) {
             return;
 
         } else {
-console.log(request.responseText);
+
             // Success
             loaded_html = parseHTML(request.responseText);
             document.getElementById('formresult').innerHTML = loaded_html.innerHTML;
@@ -1141,26 +1141,30 @@ if (q('input[type=reset][form]') && !q('input[type=reset][form]').form) {
 }
 
 /* Sort parent table's rows by matching column number alternatively desc/asc on click */
-function sortTable(table, column){
+function sortTable (table, column, f) {
 
-	var parent=table.getElementsByTagName('tbody')[0], clones=[], txt=[];
-	var rows=parent.getElementsByTagName('tr'), i=0, r, c, t;
-	while(r=rows[i++]){
-		c=r.cloneNode(true);
-		txt[txt.length]=c.getElementsByTagName('td')[column].firstChild.textContent;
-		clones[clones.length]=c;
-	}
-	txt.sort(function (a,b) {return a == b ? 0 : (a < b ? -1 : 1)});
-	for(i=0;i<txt.length;i++){
+	rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'), 0);
+	rows.sort(function(a, b) {
 	
-		for(var j=clones.length-1;j>=0;j--){
-			t=clones[j].getElementsByTagName('td')[column].firstChild.textContent;
-			if(txt[i]==t){
-			parent.replaceChild(clones[j],rows[i]);break;
-			}
+		A = a.querySelectorAll('td')[column].textContent.toUpperCase();
+		B = b.querySelectorAll('td')[column].textContent.toUpperCase();
+		
+		if(A < B) {
+			return 1*f;
 		}
+		if(A > B) {
+			return -1*f;
+		}
+
+		return 0;
 	
-	}
+	});
+
+    for (i = 0; i < rows.length; i++) {
+
+        table.querySelector('tbody').appendChild(rows[i]);
+
+    }
 
 }
 
@@ -1174,8 +1178,23 @@ forEach ('td[data-sort]', function (el) {
 	
 	el.onclick = function (e) {
 		
+		stopEvent(e);
 		el = eventElement(e);
-		console.log(sortTable(getClosest(el, 'table')));
+		cell = el.type == 'td' ? el : getClosest(el, 'td');
+		var f; // Ascending
+		if (cell.getAttribute('data-sort') == 'desc') {
+			
+			f = -1;
+			cell.setAttribute('data-sort', 'asc')
+			
+		} else {
+			
+			f = 1;
+			cell.setAttribute('data-sort', 'desc')
+			
+		}
+
+		sortTable(getClosest(el, 'table'), thisIndex(cell), f);
 		
 	};
 

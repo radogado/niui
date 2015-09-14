@@ -23,7 +23,7 @@ natUIve: mostly native front-end framework
 - Accordions
 - Tabs
 - Quote block
-- Tables accessible on narrow screens by scrolling*
+- Tables accessible on narrow screens by scrolling; sortable*
 - Footer sticking to the very bottom on short pages*
 - 'Back to top' button
 - Animated anchor links

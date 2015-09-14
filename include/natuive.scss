@@ -428,7 +428,7 @@ nav {
 		
 	}
 
-	.button, input[type=submit], label, .trigger {
+	.button, input[type=submit], label, .trigger, td[data-sort] {
 	
 		-webkit-touch-callout: none;
 		-webkit-user-select: none;
@@ -1434,6 +1434,12 @@ table {
 	table :not(thead) tr:hover td { /* IE9 bug: hover on overflowing table makes its .table container taller */
 		
 		background-color: #ddd;
+
+	}
+	
+	td[data-sort] {
+		
+		cursor: pointer;
 
 	}
 	
