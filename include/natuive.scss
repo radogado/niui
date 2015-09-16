@@ -836,6 +836,7 @@ form {
 		margin-right: .5em;
 		display: none;
 		border: 1px dotted transparent;
+		border: none;
 
 	}
 
@@ -875,12 +876,20 @@ form {
 	input[type=radio] + .checkbox-icon {
 		
 		border-radius: 50%;
+		position: relative;
 
 	}
 
 	input[type=radio]:checked + .checkbox-icon:before {
 		
-		content: '●';
+		content: '';
+		position: absolute;
+		background: #333;
+		top: 25%;
+		right: 25%;
+		bottom: 25%;
+		left: 25%;
+		border-radius: 50%;
 
 	}
 
