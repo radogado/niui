@@ -168,20 +168,6 @@ html.nooverflow, html.nooverflow body {
 
 }
 
-body {
-
-	position: relative;
-	width: 100%; 
-	-webkit-text-size-adjust: none;
-	display: flex;  /* Sticky footer */
-	flex-direction: column;
-	color: #333;
-	background: #fff;
-	-webkit-font-smoothing: antialiased;
-	-webkit-tap-highlight-color: rgba(0,0,0,.5);
-	
-}
-
 /* Elements with single line-height */
 
 html, body, .row.wrap > *, nav.sub a, p, li, .lightbox a, .button, input[type=submit], button, label, form .checkbox span, .tip, label span .tip, h4, h5, form label > span {
@@ -198,6 +184,22 @@ h1, h2, h3, .button.big, input[type=submit], form button, input[type=submit], fo
 	
 	line-height: $line-height * 2;
 	min-height: $line-height * 2;
+	
+}
+
+body {
+
+	position: relative;
+	width: 100%;
+	height: auto;
+	min-height: 100%;
+	-webkit-text-size-adjust: none;
+	display: flex;  /* Sticky footer */
+	flex-direction: column;
+	color: #333;
+	background: #fff;
+	-webkit-font-smoothing: antialiased;
+	-webkit-tap-highlight-color: rgba(0,0,0,.5);
 	
 }
 
