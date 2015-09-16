@@ -1530,8 +1530,10 @@ video a[href] {
 
         display: inline-block; /* Display inline-block, and absolutely NO FLOATS! */
         margin-bottom: $line-height;
-        width: 100%; 
-
+        width: 100%;
+        -webkit-column-break-inside: avoid;
+		page-break-inside: avoid;           /* FF 20+ */
+		break-inside: avoid-column;
     }
 
 

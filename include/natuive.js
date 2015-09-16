@@ -776,6 +776,11 @@ function animateAnchors(e) {
 
 forEach('a[href^="#"]', function(el, i) {
 
+	if (el.onclick) { // Don't overwrite previous onclick event handler
+		
+		return;
+
+	}
     el.onclick = animateAnchors;
 
 });
@@ -1046,7 +1051,7 @@ addEventHandler(window, 'load', function() {
 
     /* Baseline-align images */
 
-    forEach('main img', function(el) {
+    forEach('main img, main video', function(el) {
 
         extra_padding = ((Math.round(el.height / line_height) + 1) * line_height - el.height);
 
