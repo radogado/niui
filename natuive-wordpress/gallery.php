@@ -290,12 +290,13 @@ final class Cleaner_Gallery {
 		$icon = $this->get_gallery_icon( $attachment );
 
 		/* Add the icon and caption. */
-		$output .= $icon /* . $caption */;
+		$output .= str_replace('title', 'title="' . $caption . '"', $icon);
 
 		/* Close individual gallery item. */
 		$output .= "";
 
 		return $output;
+
 	}
 
 	/**
@@ -372,7 +373,8 @@ final class Cleaner_Gallery {
 		/* If image caption is set, format and return. */
 		if ( !empty( $caption ) ) {
 			$this->has_caption = true;
-			return "\n\t\t\t\t\t\t" . sprintf( '<%1$s id="%2$s" class="gallery-caption" itemprop="caption">%3$s</%1$s>', $this->args['captiontag'], esc_attr( "figcaption-{$this->args['id']}-{$attachment->ID}" ), $caption );
+// 			return "\n\t\t\t\t\t\t" . sprintf( '<%1$s id="%2$s" class="gallery-caption" itemprop="caption">%3$s</%1$s>', $this->args['captiontag'], esc_attr( "figcaption-{$this->args['id']}-{$attachment->ID}" ), $caption );
+			return $caption;
 		}
 
 		/* Return an empty string if there's no caption. */
@@ -440,7 +442,8 @@ final class Cleaner_Gallery {
 	 */
 	public function get_attachment_link( $link ) {
 
-		return preg_replace( '/(<a.*?)>/i', '$1 itemprop="contentURL">', $link );
+		return preg_replace( '/(<a.*?)>/i', '$1 itemprop="contentURL" title>', $link );
+
 	}
 
 	/**
