@@ -1545,6 +1545,7 @@ video a[href] {
         -webkit-column-break-inside: avoid;
 		page-break-inside: avoid;           /* FF 20+ */
 		break-inside: avoid-column;
+
     }
 
 
@@ -2199,11 +2200,13 @@ video a[href] {
 .slider.lightbox > * p { /* Image captions */
 
 	position: absolute;
-	width: 100%;
-	bottom: $line-height*2;
+	bottom: 48px;
 	text-align: center;
-	text-shadow: 0 -1px 1px #999;
-	color: #000;
+	color: #fff;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: .2em .5em;
+	background: rgba(0, 0, 0, .2);
 
 }
 
