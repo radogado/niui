@@ -174,6 +174,12 @@ var slide_duration = 400;
 
 function slide(el, method, index_number) {
 
+    if (el.children.length < 2) {
+
+        return el;
+
+    }
+
 	sliding = 1;
     mouseEvents(el.parentNode, 'off');
 
@@ -339,12 +345,6 @@ function sliderKeyboard(e) {
 };
 
 function makeSlider(el, current_slide) {
-
-    if (el.children.length < 2) {
-
-        return el;
-
-    }
 
     addClass(el, 'slider');
 
