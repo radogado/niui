@@ -174,7 +174,7 @@ var slide_duration = 400;
 
 function slide(el, method, index_number) {
 
-    if (el.children.length < 2) {
+    if (getClosest(el, '.slider-wrap').querySelector('.slider').children.length < 2) {
 
         return el;
 

@@ -204,6 +204,12 @@ article {
 
 }
 
+.logo-img {
+	
+	min-height: 37px;
+
+}
+
 @media screen and (max-width: 640px) {
 
 	.lightbox.gallery {

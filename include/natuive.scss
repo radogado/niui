@@ -1440,25 +1440,31 @@ table {
 		display: table;
 
 	}
-
-
-	table :not(thead) tr:hover td { /* IE9 bug: hover on overflowing table makes its .table container taller */
+	
+	/* IE9 bug: hover on overflowing table makes its .table container taller */
+/*
+	table :not(thead) tr:hover td { 
 		
 		background-color: #ddd;
 
 	}
+*/
 	
-	td[data-sort] {
-		
-		cursor: pointer;
-
-	}
+	@media screen and (min-width: 1px) { // IE9+
 	
-	td[data-sort]:after {
+		td[data-sort] {
+			
+			cursor: pointer;
+	
+		}
 		
-		content: '⇳';
-		margin-left: .5em;
-		
+		td[data-sort]:after {
+			
+			content: '⇳';
+			margin-left: .5em;
+			
+		}
+	
 	}
 	
 /* Checkbox trigger */
@@ -2168,6 +2174,8 @@ video a[href] {
 	text-align: left;
 	opacity: 1;
 	width: auto;
+	right: 0;
+	left: 0;
 
 }
 

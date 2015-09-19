@@ -348,7 +348,7 @@ animations = {
 
 }
 
-for(t in transitions){
+for(var t in transitions){
 
     if (temp.style[t] !== undefined) {
 
@@ -358,7 +358,7 @@ for(t in transitions){
 
 }
 
-for(t in animations){
+for(var t in animations){
 
     if (temp.style[t] !== undefined) {
 
@@ -1051,9 +1051,9 @@ addEventHandler(window, 'load', function() {
 
     /* Baseline-align images */
 
-    forEach('main img, main video', function(el) {
+    forEach('main img' + ((typeof(document.createElement('video').canPlayType) != 'undefined') ? ', main video' : ''), function(el) {
 
-        extra_padding = ((Math.round(el.height / line_height) + 1) * line_height - el.height);
+        var extra_padding = ((Math.round(el.height / line_height) + 1) * line_height - el.height);
 
         if (extra_padding >= line_height) {
 
@@ -1088,7 +1088,7 @@ var getClosest = function (el, selector) { // Thanks http://gomakethings.com/dit
 
         // If selector is a class
         if ( firstChar === '.' ) {
-            if ( el.classList.contains( selector.substr(1) ) ) {
+            if ( hasClass(el, selector.substr(1) ) ) {
                 return el;
             }
         }
@@ -1147,8 +1147,19 @@ if (q('input[type=reset][form]') && !q('input[type=reset][form]').form) {
 
 /* Sort parent table's rows by matching column number alternatively desc/asc on click */
 function sortTable (table, column, f) {
+	
+	var rows;
+	
+	try { // IE8
+	
+		rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'), 0);
+	
+	} catch (err) {
+	
+	    return;
+	
+	}
 
-	rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'), 0);
 	rows.sort(function(a, b) {
 	
 		A = a.querySelectorAll('td')[column].textContent.toUpperCase();
