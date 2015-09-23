@@ -18,7 +18,6 @@ input {
 
 }
 
-
 select {
 	
 	padding-right: 0;
@@ -75,4 +74,25 @@ form .select, form .file-input {
 	
 	top: 1em;
 
+}
+
+nav input[type=reset], nav input.trigger, nav input.trigger.burger, nav.drop > ul input.trigger {
+	
+	display: none;
+
+}
+
+nav.drop > ul, nav.drop > ul > li {
+	
+	display: block;
+	visibility: visible;
+	opacity: 1;
+
+}
+
+.no-touch nav.drop ul ul li:hover ul, .no-touch nav.drop ul ul li:hover div {
+	
+	visibility: visible;
+	z-index: 4;
+	
 }

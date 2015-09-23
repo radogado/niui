@@ -356,7 +356,7 @@ nav {
 		margin: 0;
 		padding: 0;
 		display: inline-block;
-		width: 100%;
+		width: auto;
 	
 	}
 	
@@ -1616,6 +1616,12 @@ video a[href] {
 
 	}
 
+	.no-mobile-gutter.row > * {
+		
+		padding: 0;
+
+	}
+	
 	.row > *, .row.border, .row.border > * {
 
 		border: none;
@@ -1899,7 +1905,7 @@ video a[href] {
 			
 			height: auto;
 			width: 100%;
-			background-position: 0 5px;
+			background-position: calc(100% - .5em);
 			margin-left: 0;
 			
 		}
@@ -2610,6 +2616,12 @@ nav.drop ul ul li {
 	
 }
 
+nav.drop input:checked ~ input[type=reset] {
+	
+	background: url(../images/transparent.png); /* IE10- */
+
+}
+
 nav.drop ul ul {
 	
 	visibility: hidden;		
@@ -2624,14 +2636,14 @@ nav.drop input.trigger {
 
 }
 
-nav.drop input.trigger:checked ~ ul, .no-touch nav.drop ul ul li:hover ul { /* Not '+', because the form reset button stands between them; Touch first, Desktop second */
+nav.drop input.trigger:checked ~ ul, .no-touch nav.drop ul ul li:hover ul, nav.drop input.trigger:checked ~ div, .no-touch nav.drop ul ul li:hover div { /* Not '+', because the form reset button stands between them; Touch first, Desktop second */
 	
 	visibility: visible;
 	z-index: 4;
 	
 }
 
-nav.drop input.trigger:not(.burger):not(:checked) ~ ul input.trigger:checked ~ ul {
+nav.drop input.trigger:not(.burger):not(:checked) ~ ul input.trigger:checked ~ ul, nav.drop input.trigger:not(.burger):not(:checked) ~ div input.trigger:checked ~ div {
 	
 	visibility: hidden;
 	
@@ -2695,31 +2707,33 @@ input.trigger, input.trigger ~ input[type=reset] {
 		
 		display: inline-block;
 		width: 2em;
+		height: 2em;
 		
 	}
 
-	input.trigger.burger ~ ul, nav.drop ul ul, nav.drop ul .trigger:not(:checked) ~ ul, .no-touch nav.drop ul li:hover .trigger:not(:checked) ~ ul {
+	input.trigger.burger ~ ul, nav.drop ul ul, nav.drop ul .trigger:not(:checked) ~ ul, .no-touch nav.drop ul li:hover .trigger:not(:checked) ~ ul, input.trigger.burger ~ div, nav.drop ul .trigger:not(:checked) ~ div, .no-touch nav.drop ul li:hover .trigger:not(:checked) ~ div {
 		
 		display: none;
 		
 	}
 
-	input.trigger.burger:checked ~ ul, nav.drop ul .trigger:checked ~ ul, .no-touch nav.drop ul ul li input.trigger {
+	input.trigger.burger:checked ~ ul, nav.drop ul .trigger:checked ~ ul, input.trigger.burger:checked ~ div, nav.drop ul .trigger:checked ~ div,.no-touch nav.drop ul ul li input.trigger {
 		
 		display: block;
 		
 	}
 	
-	nav.drop {
+	nav.drop, header > nav {
 		
 		width: 100%;
-		height: 2em;
+		min-height: 2em;
 		text-align: left;
 		display: inline-block;
+		position: relative;
 
 	}
 	
-	nav.drop:before {
+	nav.drop:before, header > nav:before {
 		
 		content: '🍔';
 	
@@ -2738,7 +2752,7 @@ input.trigger, input.trigger ~ input[type=reset] {
 
 	}
 	
-	nav.drop input.trigger:checked ~ ul ul {
+	nav.drop input.trigger:checked ~ ul ul, nav.drop input.trigger:checked ~ div ul {
 		
 		width: 100%;
 		position: relative;
