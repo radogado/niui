@@ -1216,6 +1216,21 @@ forEach ('td[data-sort]', function (el) {
 
 });
 
+/* Polyfill to uncheck all radio buttons of a form with form owner attribute. Single set of radios currently, for drop-down menu. */
+if (document.querySelector('input[type=reset][form]') && !document.querySelector('input[type=reset][form]').form) {
+	
+	forEach('input[type=reset][form]', function(el) {
+
+		el.onclick = function (e) { // Assuming a single set of radios per form (for drop down menu)
+			
+			el = eventElement(e);
+			document.querySelector('input[type=radio][form=' + el.getAttribute('form') + ']:checked').checked = false;
+			
+		};
+
+	});
+
+}
 if (q('.overthrow')) { /* Load touch scroll polyfill */
 
     // DOM: Create the script element

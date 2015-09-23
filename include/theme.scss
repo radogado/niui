@@ -48,6 +48,11 @@ nav a {
 
 }
 
+	nav.drop a {
+		
+		text-transform: none;
+	}
+
 	nav a.active[href] {
 	
 		color: #ee8822;

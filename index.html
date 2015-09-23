@@ -70,99 +70,300 @@
 				</div>
 			
 			</div>
-	
+			
 			<nav class=contain>
-	
-				<label for=nav-trigger class=trigger> ≡ </label>
-				<input type=checkbox id=nav-trigger class=trigger>
+			
+						<label for=nav-trigger class=trigger> ≡ </label>
+						<input type=checkbox id=nav-trigger class=trigger>
+						
+						<div>
+						
+							<div class=row>
+								
+								<div class=col34>
+									
+									<nav>
+						
+										<ul>
+										
+											<li> <a onclick=toggleTheme() style="cursor: pointer;">Toggle Theme</a> </li>
+										
+											<li> <a href=#>Fast</a> </li>
+						
+											<li> <a href=#>Lightweight</a> </li>
+						
+											<li> <a href=# class=active>Functional</a> </li>
+			
+										</ul>
+													
+									</nav>
+								
+									<nav class=sub>
+							
+										<ul>
+										
+											<li> <a href=#>Baseline Grid</a> </li>
+										
+											<li> <a href=#form class=active>Form</a> </li>
+										
+											<li> <a href=#slider>Slider</a> </li>
+						
+											<li> <a href=#accordion>Accordion</a> </li>
+						
+											<li> <a href=#modal>Modal Window</a> </li>
+					
+											<li> <a href=#lightbox>Lightbox</a> </li>
+			
+											<li> <a href=#video>Video</a> </li>
+			
+											<li> <a href=#aspect-ratio>Image aspect ratio</a> </li>
+			
+											<li> <a href=#masonry>Masonry</a> </li>
+			
+											<li> <a href=#tables>Tables</a> </li>
+										
+										</ul>
+									
+									</nav>
+					
+								</div>
+										
+									
+								<div class='col4 align-right align-middle'>
+									
+									<a href=#>Help</a> 
+			
+									<form action=. method=get id=language-selector>
+										
+										<span class=select>
+										
+											<select name=l class=mandatory>
+												
+												<option value=en>English</option>
+												<option value=fr>Français</option>
+												<option value=cn>中文</option>
+						
+											</select>
+										
+										</span>
+					
+										<noscript>
+										
+											<input type=submit value=▶>
+										
+										</noscript>
+									
+									</form>
+															
+								</div>
+					
+							</div>
+					
+						</div>
+			
+					</nav>
+			
+			<br>
+			
+			<div class='row contain'>
 				
 				<div>
-				
-					<div class=row>
-						
-						<div class=col34>
-							
-							<nav>
-				
-								<ul>
-								
-									<li> <a onclick=toggleTheme() style="cursor: pointer;">Toggle Theme</a> </li>
-								
-									<li> <a href=#>Fast</a> </li>
-				
-									<li> <a href=#>Lightweight</a> </li>
-				
-									<li> <a href=# class=active>Functional</a> </li>
 	
-								</ul>
-											
-							</nav>
+					<nav class=drop>
 						
-							<nav class=sub>
+						<form id="level1"> </form>
+						<form id="level2"> </form>
 					
+						<input type="checkbox" class="trigger burger">
+					
+						<ul>
+							
+							<li> 
+							
+								<input type="radio" class="trigger" form="level1" name="level1">
+					
+								<input type="reset" form="level1">
+							
+								<a>Top One Long Text Long Text Long Text Long Text Long Text</a>
+								
+								<b class="sub"></b>
+								
 								<ul>
+									
+									<li> 
+									
+										<input type="radio" class="trigger" form="level2" name="level2">
+							
+										<input type="reset" form="level2">
+							
+										<a>Middle One (Longer)</a>
+									
+										<b class="sub"></b>
 								
-									<li> <a href=#>Baseline Grid</a> </li>
+										<ul>
+											
+											<li> 
+												
+												<a href="#">One Bottom One</a>
+											
+											</li>
+											
+											<li> 
+												
+												<a href="#">One Bottom Two</a>
+											
+											</li>
+										
+										</ul>
+									
+									</li>
 								
-									<li> <a href=#form class=active>Form</a> </li>
+									<li> 
+									
+										<input type="radio" class="trigger" form="level2" name="level2">
+							
+										<input type="reset" form="level2">
+							
+										<a href=asd>Middle Two also Link</a>
+									
+										<b class="sub"></b>
 								
-									<li> <a href=#slider>Slider</a> </li>
-				
-									<li> <a href=#accordion>Accordion</a> </li>
-				
-									<li> <a href=#modal>Modal Window</a> </li>
-			
-									<li> <a href=#lightbox>Lightbox</a> </li>
-	
-									<li> <a href=#video>Video</a> </li>
-	
-									<li> <a href=#aspect-ratio>Image aspect ratio</a> </li>
-	
-									<li> <a href=#masonry>Masonry</a> </li>
-	
-									<li> <a href=#tables>Tables</a> </li>
+										<ul>
+											
+											<li> 
+												
+												<a href="#">Two Bottom One</a>
+											
+											</li>
+											
+											<li> 
+												
+												<a href="#">Two Bottom Two</a>
+											
+											</li>
+										
+										</ul>
+									
+									</li>
 								
 								</ul>
 							
-							</nav>
-			
-						</div>
-								
+							</li>
+					
+							<li> 
 							
-						<div class='col4 align-right align-middle'>
+								<input type="radio" class="trigger" form="level1" name="level1">
+					
+								<input type="reset" form="level1">
 							
-							<a href=#>Help</a> 
-	
-							<form action=. method=get id=language-selector>
+								<a href=asd>Top Two Long Text Long Text Long Text Long Text</a>
+							
+								<b class="sub"></b>
 								
-								<span class=select>
+								<ul>
+									
+									<li> 
+									
+										<input type="radio" class="trigger" form="level2" name="level2">
+							
+										<input type="reset" form="level2">
+							
+										<a>Middle Two</a>
+									
+										<b class="sub"></b>
 								
-									<select name=l class=mandatory>
+										<ul>
+											
+											<li> 
+												
+												<a href="#">Bottom One</a>
+											
+											</li>
+											
+											<li> 
+												
+												<a href="#">Bottom Two</a>
+											
+											</li>
 										
-										<option value=en>English</option>
-										<option value=fr>Français</option>
-										<option value=cn>中文</option>
-				
-									</select>
+										</ul>
+									
+									</li>
 								
-								</span>
-			
-								<noscript>
+								</ul>
 								
-									<input type=submit value=▶>
-								
-								</noscript>
+							</li>
+					
+							<li> 
 							
-							</form>
-													
-						</div>
-			
-					</div>
-			
+								<input type="radio" class="trigger" form="level1" name="level1">
+					
+								<input type="reset" form="level1">
+							
+								<a>Just 2 Levels</a>
+							
+								<b class="sub"></b>
+								
+								<ul>
+									
+									<li> 
+									
+										<a href=#>2 Levels One</a>
+									
+									</li>
+					
+									<li> 
+									
+										<a href=#>2 Levels One Two</a>
+									
+									</li>
+								
+								</ul>
+								
+							</li>
+						
+							<li> 
+							
+								<input type="radio" class="trigger" form="level1" name="level1">
+					
+								<input type="reset" form="level1">
+							
+								<a>Just 2 Levels</a>
+							
+								<b class="sub"></b>
+								
+								<ul>
+									
+									<li> 
+									
+										<a href=#>2 Levels One</a>
+									
+									</li>
+					
+									<li> 
+									
+										<a href=#>2 Levels One Two</a>
+									
+									</li>
+								
+								</ul>
+								
+							</li>
+					
+							<li> 
+							
+								<a href="#">Without sub-menu</a>
+							
+							</li>
+					
+						</ul>
+						
+					</nav>
+				
 				</div>
-	
-			</nav>
-		
+			
+			</div>
+
 		</header>
 
 		<div class=banner>
