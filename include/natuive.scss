@@ -2192,6 +2192,7 @@ video a[href] {
 	width: auto;
 	right: 0;
 	left: 0;
+	position: static;
 
 }
 
@@ -2463,6 +2464,7 @@ video a[href] {
 nav.drop {
 	
 	position: relative;
+	display: inline-block;
 
 }
 

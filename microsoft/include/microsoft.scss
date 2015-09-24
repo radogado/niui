@@ -83,7 +83,7 @@ header {
 	background-color: #fff;
 	margin-top: 0;
 	margin-bottom: 0;
-	padding-top: $line-height/2;
+// 	padding-top: $line-height/2;
 	border-bottom: 1px solid #e1e1e1;
 
 
@@ -179,12 +179,20 @@ nav input[type=reset] {
 header .row > div, header a.logo, header form {
 	
 	vertical-align: middle;
+	padding: 0;
 
 }
 
 header a.logo {
 	
 	margin-right: 3em;
+	min-height: 0;
+
+}
+
+header a.logo img {
+	
+	display: block;
 
 }
 
@@ -726,10 +734,22 @@ header nav a[href]:hover {
 	
 }
 
-header nav li li li a[href]:hover {
+header nav {
 	
-// 	text-decoration: underline;
+	display: inline-block;
 	
+}
+
+nav.drop {
+	
+	vertical-align: middle;
+
+}
+
+nav.drop ul li, nav.drop ul li b.sub {
+	
+	background: none;
+
 }
 
 @media screen and (max-width: 1024px) {
@@ -751,7 +771,7 @@ header nav li li li a[href]:hover {
 
 	}
 
-	.mini-features a {
+	.mini-features a, .mini-features a:after {
 		
 		background: none;
 		
@@ -771,7 +791,8 @@ header nav li li li a[href]:hover {
 
 	.mini-features a p {
 		
-		padding-bottom: 1rem;
+		padding-bottom: 0;
+		margin: 0;
 		
 	}
 
@@ -792,9 +813,28 @@ header nav li li li a[href]:hover {
 	
 	}
 	
+	.mini-features a img {
+		
+		top: 0;
+		bottom: auto;
+
+	}
+	
+	.mini-features a h3 {
+		
+		margin: 0;
+
+	}
+	
 	header {
 		
-		padding: 11px;
+		padding: 0;
+
+	}
+	
+	header form {
+		
+		margin: 11px;
 
 	}
 	
@@ -846,7 +886,7 @@ header nav li li li a[href]:hover {
 		
 		text-align: right;
 		display: block;
-		margin-right: 0;
+		margin: 11px;
 		
 	}
 
