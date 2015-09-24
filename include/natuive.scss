@@ -2616,9 +2616,10 @@ nav.drop ul ul li {
 	
 }
 
-nav.drop input:checked ~ input[type=reset] {
+nav.drop input:checked ~ input[type=reset], nav.drop input.trigger {
 	
-	background: url(../images/transparent.png); /* IE10- */
+	display: block;
+	background: url(../images/0.png); /* IE10- */
 
 }
 
@@ -2628,12 +2629,6 @@ nav.drop ul ul {
 	position: absolute;
 	display: block;
 	
-}
-
-nav.drop input.trigger {
-	
-	display: block;
-
 }
 
 nav.drop input.trigger:checked ~ ul, .no-touch nav.drop ul ul li:hover ul, nav.drop input.trigger:checked ~ div, .no-touch nav.drop ul ul li:hover div { /* Not '+', because the form reset button stands between them; Touch first, Desktop second */

@@ -28,8 +28,9 @@ select {
 
 form#language-selector select {
 	
-	margin-top: 0;
+	margin: 0;
 	padding-left: 0;
+	height: 44px;
 
 }
 
@@ -84,13 +85,32 @@ nav input[type=reset], nav input.trigger, nav input.trigger.burger, nav.drop > u
 
 nav.drop > ul, nav.drop > ul > li {
 	
-	display: block;
+	display: inline-block;
 	visibility: visible;
 	opacity: 1;
 
 }
 
-.no-touch nav.drop ul ul li:hover ul, .no-touch nav.drop ul ul li:hover div {
+nav.drop ul li a {
+	
+	font-size: $font-size;
+	z-index: 1;
+
+}
+
+nav.drop ul li li ul, nav.drop ul li li div {
+	
+	display: none;
+	
+}
+
+nav.drop ul li li:hover ul, nav.drop ul li li:hover div {
+	
+	display: block;
+	
+}
+
+nav.drop ul li:hover ul, nav.drop ul li:hover div {
 	
 	visibility: visible;
 	z-index: 4;
