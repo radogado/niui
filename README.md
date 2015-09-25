@@ -12,6 +12,7 @@ natUIve: mostly native front-end framework
 - Semantic structure
 - Balanced functional layout
 - (Mobile) navigation
+- Drop-down nav: Touch-first, CSS-only, JS enhanced, 1-3 levels, responsive, label/link items support
 - Buttons
 - Modal windows with local or external content
 - Lightbox gallery supporting huge galleries*
@@ -35,10 +36,11 @@ natUIve: mostly native front-end framework
 - Support for Android Browser scrolling via polyfill overthrow.js*
 - CSS-only viewport height header*
 - URI parameters relay to links*
-- Arabic layout with one CSS line
+- Arabic layout ready
 - Masonry CSS-only
+- WordPress theme
 - Functional without JS and accessible without CSS*
-- 5 KB CSS + optional 5 KB JS (effective weight with combined, minified and gzipped files)
+- 6 KB CSS + optional 6 KB JS (effective weight with combined, minified and gzipped files)
 - ~~No IE conditional operators~~ HTML5 elements also for IE8 with html5shiv
 - No jQuery or other dependencies*
 - Supporting IE8+, Safari, Chrome, Firefox, Opera, Android 2.3+, iOS, Windows Phone
@@ -47,7 +49,24 @@ natUIve: mostly native front-end framework
 
 \* exclusive features, missing in popular frameworks
 
-2014 [rado.bg](http://rado.bg)
+2014-2015 [rado.bg](http://rado.bg)
+
+–––
+
+natUIve 1.4
+
+- New
+    - Sortable tables
+    - Masonry CSS-only
+    - isInViewport()
+    - Drop-down nav: Touch-first, CSS-only, JS enhanced, 1-3 levels, responsive, label/link items supporting
+- Improved
+    - Tooltip for touch
+    - parentByClass() replaced by versatile getClosest()
+    - Slider in CSS-only more now has visual cues
+    - Form validation for email and URL inputs
+    - Form: input type=number with optional data-digits to specify exact digits required
+    - WordPress Gallery captions
 
 –––
 

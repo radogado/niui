@@ -310,6 +310,12 @@ label.trigger {
 	
 }
 
+.align-center {
+	
+	text-align: center;
+
+}
+
 a[href] {
 	
 	color: #333;
@@ -1525,6 +1531,7 @@ video a[href] {
 	max-width: 100%;
 	height: auto;
 	padding-bottom: 0 !important;
+	vertical-align: middle;
 
 }
 
@@ -1533,6 +1540,7 @@ video a[href] {
 	padding-bottom: 56.25%; /*    y / x * 100   default 16:9    */
 	width: 0; 
 	display: inline-block;
+	vertical-align: middle;
 
 }
 
@@ -2246,7 +2254,7 @@ video a[href] {
 	position: absolute;
 	top: 50%;
 	left: 1em;
-	z-index: 999; /* Stay on top of slider-nav if they are aligned vertically */
+	z-index: 3; /* Stay on top of slider-nav if they are aligned vertically */
 	-webkit-transform: translateY(-50%);
 	transform: translateY(-50%);
 	

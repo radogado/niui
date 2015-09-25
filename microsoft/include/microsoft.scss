@@ -366,8 +366,8 @@ a.span-relative-parent ~ a:after {
 
 .slider-arrow:before {
 	
-	content: '⟨';
-	font-size: 2em;
+	content: '<';
+	font-size: 1.8em;
 
 }
 
@@ -379,7 +379,7 @@ a.span-relative-parent ~ a:after {
 
 .slider-arrow.right:before {
 	
-	content: '⟩';
+	content: '>';
 	
 }
 

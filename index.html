@@ -5,7 +5,7 @@
 	
 	<title>natUIve</title>
 	
-	<meta http-equiv=Content-Type content=text/html charset=utf-8>
+	<meta charset=utf-8>
 	<meta name=viewport content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no'>
 
 	<link rel=icon href=images/favicon.ico>
@@ -450,74 +450,6 @@
 			<div class=row>
 		
 				<div>
-		
-					<div id=accordion>
-	
-						<h2>Accordion</h2>
-	
-	<div class=accordion>
-	
-		<label class=trigger for=accordion-4> How it works </label>
-		<input type=checkbox class=trigger id=accordion-4>
-	
-		<div>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-		</div>
-	
-	</div>
-	
-	<div class=accordion>
-	
-		<label class=trigger for=accordion-5> Questions </label>
-		<input type=checkbox class=trigger id=accordion-5>
-		
-		<div>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-	
-		</div>
-	
-	</div>
-
-	<div class=accordion>
-	
-		<label class=trigger for=accordion-1> Nested Accordions </label>
-		<input type=checkbox class=trigger id=accordion-1>
-		
-		<div>
-	
-			<div class=accordion>
-		
-				<label class=trigger for=accordion-2> About Inner Accordion </label>
-				<input type=checkbox class=trigger id=accordion-2>
-			
-				<div>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-				</div>
-		
-			</div>
-		
-			<div class=accordion>
-		
-				<label class=trigger for=accordion-3> About Inner Accordion 2 </label>
-				<input type=checkbox class=trigger id=accordion-3>
-			
-				<div>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-				</div>
-		
-			</div>
-			
-		</div>
-	
-	</div>
-
-	<br>
-				
-</div>
-		
-				</div>
-		
-				<div>
 
 					<h2> Lightbox Image Gallery </h2>
 						
@@ -543,11 +475,28 @@
 					
 					</div>
 		
+					<h2 id=video>Video</h2>
+					
+					<video poster=images/video.jpg controls=controls preload=none>
+							
+						<source type=video/mp4 src=//s3.amazonaws.com/gado/Outlying-Teaser.mp4>
+						
+						<a href=//s3.amazonaws.com/gado/Outlying-Teaser.mp4>//s3.amazonaws.com/gado/Outlying-Teaser.mp4</a>
+						
+					</video>
+					
+					<!--
+					// Disabled because of a cross-domain console error
+					<h2>YouTube Video</h2>
+					
+					<iframe width="900" height="506" src="https://www.youtube.com/embed/9bZkp7q19f0?feature=oembed" allowfullscreen></iframe>
+					-->
+
 				</div>
 				
 				<div id=tables>
 					
-					<h2>Table</h2>
+					<h2>Tables</h2>
 					
 					<table>
 					
@@ -564,40 +513,14 @@
 						<tr>
 							<td>Row Two with Long Headline to Test Table on Narrow Screens</td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td>
 						</tr>
-					<!--
-						<tr>
-							<td>Row Three</td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td>
-						</tr>
-					-->
+
 					</table>
 					
 					<table>
-					
-						<tr>
-							<th>TheTableWillBeScrollableOnNarrowScreens</th> 
-							<th> <a>One Time</a> </th> 
-							<th> <a>Second Long col</a> </th> 
-							<th> <a>Three</a> </th> 
-							<th> <a>Four</a> </th>
-						</tr>
-						<tr>
-							<td>One Row</td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td>
-						</tr>
-						<tr>
-							<td>Row Two with Long Headline to Test Table on Narrow Screens</td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td>
-						</tr>
-					<!--
-						<tr>
-							<td>Row Three</td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td>
-						</tr>
-					-->
-					</table>
-
-					<table id=t>
 						
 						<thead>
 							<tr>
-								<td data-sort>TheTableWill<!-- BeScrollableOnNarrowScreens --></td>
+								<td data-sort>TheTableWillBeScrollableOnNarrowScreensBecauseOfWideCell</td>
 								<td data-sort> <a>One Time</a> </td>
 								<td data-sort> <a>Second Long col</a> </td>
 								<td> <a>Three</a> </td>
@@ -605,7 +528,7 @@
 							</tr>
 						</thead>
 						<tr>
-							<td>A</td> <td><b>3</b></td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td>
+							<td>B</td> <td><b>3</b></td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td>
 						</tr>
 						<tr>
 							<td>Row Two with Long Headline to Test Table on Narrow Screens</td> <td><b>1</b></td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td>
@@ -613,13 +536,75 @@
 						<tr>
 							<td>A</td> <td><b>2</b></td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td>
 						</tr>
-					<!--
-						<tr>
-							<td>Row Three</td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td>
-						</tr>
-					-->
+
 					</table>
 					
+					<br>
+					
+					<div id=accordion>
+	
+						<h2>Accordion</h2>
+	
+						<div class=accordion>
+						
+							<label class=trigger for=accordion-4> How it works </label>
+							<input type=checkbox class=trigger id=accordion-4>
+						
+							<div>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+							</div>
+						
+						</div>
+						
+						<div class=accordion>
+						
+							<label class=trigger for=accordion-5> Questions </label>
+							<input type=checkbox class=trigger id=accordion-5>
+							
+							<div>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						
+							</div>
+						
+						</div>
+					
+						<div class=accordion>
+						
+							<label class=trigger for=accordion-1> Nested Accordions </label>
+							<input type=checkbox class=trigger id=accordion-1>
+							
+							<div>
+						
+								<div class=accordion>
+							
+									<label class=trigger for=accordion-2> About Inner Accordion </label>
+									<input type=checkbox class=trigger id=accordion-2>
+								
+									<div>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+									</div>
+							
+								</div>
+							
+								<div class=accordion>
+							
+									<label class=trigger for=accordion-3> About Inner Accordion 2 </label>
+									<input type=checkbox class=trigger id=accordion-3>
+								
+									<div>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+									</div>
+							
+								</div>
+								
+							</div>
+						
+						</div>
+					
+						<br>
+									
+					</div>
+		
 				</div>
 		
 			</div>
@@ -683,31 +668,12 @@
 			
 			</div>
 			
-			<div class=row id=slider>
+			<div class=row>
 			
 				<div>
 		
-					<h2 id=video>Video</h2>
-					
-					<video poster=images/video.jpg controls=controls preload=none>
-							
-						<source type=video/mp4 src=//s3.amazonaws.com/gado/Outlying-Teaser.mp4>
-						
-						<a href=//s3.amazonaws.com/gado/Outlying-Teaser.mp4>//s3.amazonaws.com/gado/Outlying-Teaser.mp4</a>
-						
-					</video>
-					
-					<!--
-					// Disabled because of a cross-domain console error
-					<h2>YouTube Video</h2>
-					
-					<iframe width="900" height="506" src="https://www.youtube.com/embed/9bZkp7q19f0?feature=oembed" allowfullscreen></iframe>
-					-->
-
 					<h2>Nested Ordered List</h2>
 					
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
 					<ol>
 						
 						<li> One
@@ -756,32 +722,53 @@
 						</li>
 					
 					</ol>
-		
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-				</div>
-				
-				<div> 
 					
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					<br>
+		
+					<h2>Tabs</h2>
+					
+					<div class='slider toptabs'>
+						
+						<div>
+						
+							<p class=tab> Slider 2 Slide 1 </p>
+									
+							<p> natUIve guarantees instant loading, because </p>
+								
+							<p class=quote>
+								
+								"The value of 14 KB has been measured empirically by Google and is the threshold for the first package exchanged between a server and client via towers on a cellular connection." – Smashing Magazine
+							
+							</p>
+									
+						</div>
+						
+						<div>
+									
+							<p class=tab> Slider 2 Slide 2 </p>
+									
+							<p> Second Slider 2 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+						
+						</div>
+					
+						<div>
+						
+							<p class=tab> Slider 2 Very Long Title which Shows the Flexible tabs Dimensions  </p>
+									
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+							Second Slider 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+									
+						</div>
+						
+					</div>
 
 				</div>
 				
-				<div id=form>
+				<div id=form> 
 					
 					<h2>Forms in Slider</h2>
 					
-					<div class='slider full-window- ' data-autoslide-=2>
+					<div class='slider full-window- ' data-autoslide-=2 id=slider>
 					
 						<div> 
 							
@@ -819,28 +806,28 @@
 		
 							</div>
 		
-							<label class=mandatory id=email_label>
+							<label class=mandatory>
 		
 								<span>Email</span>
 								<input name=email id=email type=email placeholder='Your Email address.'>
 		
 							</label> 
 											
-							<label id=text_area_label>
+							<label>
 		
 								<span>Enter text here</span>
 								<textarea placeholder='How are you today?'></textarea>
 		
 							</label>
 					
-							<label id=URL_label class="mandatory">
+							<label class="mandatory">
 		
 								<span>Website</span>
-								<input name=URL id=URL type=url_ placeholder='URL of your website.'>
+								<input name=URL id=URL type=url placeholder='URL of your website.'>
 		
 							</label>
 					
-							<label id=file_label>
+							<label>
 		
 								<span>Select a file</span>
 								<span class=file-input>
@@ -855,7 +842,7 @@
 								<span>Country of residence</span>
 								<span class=select>
 								
-									<select id=country maxlength=40 name=country>
+									<select name=country>
 										<option value='' selected=selected>Country of residence →</option><option value='United Kingdom'>United Kingdom</option><option value=Afghanistan>Afghanistan</option><option value='Aland Islands'>Aland Islands</option><option value=Albania>Albania</option><option value=Algeria>Algeria</option><option value='American Samoa'>American Samoa</option><option value=Andorra>Andorra</option><option value=Angola>Angola</option><option value=Anguilla>Anguilla</option><option value=Antarctica>Antarctica</option><option value='Antigua And Barbuda'>Antigua And Barbuda</option><option value=Argentina>Argentina</option>
 									</select>
 								
@@ -863,10 +850,10 @@
 		
 							</label>
 							
-							<label id=phone_label>
+							<label>
 		
 								<span>Telephone</span>
-								<input name=phone id=phone type=tel placeholder='Your phone number.'>
+								<input name=phone type=tel placeholder='Your phone number.'>
 		
 							</label>
 					
@@ -880,10 +867,10 @@
 		
 							</div>
 							
-							<label id=phone_label>
+							<label>
 		
 								<span>Telephone</span>
-								<input name=phone id=phone type=tel placeholder='Your phone number.'>
+								<input name=phone type=tel placeholder='Your phone number.'>
 		
 							</label>
 					
@@ -923,28 +910,28 @@
 		
 							</div>
 		
-							<label class=mandatory id=email_label>
+							<label class=mandatory>
 		
 								<span>Email</span>
 								<input name=email type=email placeholder='Your Email address.'>
 		
 							</label> 
 											
-							<label id=text_area_label>
+							<label>
 		
 								<span>Enter text here</span>
 								<textarea placeholder='How are you today?'></textarea>
 		
 							</label>
 					
-							<label id=URL_label>
+							<label>
 		
 								<span>Website</span>
 								<input name=URL type=url placeholder='URL of your website.'>
 		
 							</label>
 					
-							<label id=file_label>
+							<label>
 		
 								<span>Select a file</span>
 								<span class=file-input>
@@ -959,7 +946,7 @@
 								<span>Country of residence</span>
 								<span class=select>
 								
-									<select id=country maxlength=40 name=country>
+									<select name=country>
 										<option value='' selected=selected>Country of residence →</option><option value='United Kingdom'>United Kingdom</option><option value=Afghanistan>Afghanistan</option><option value='Aland Islands'>Aland Islands</option><option value=Albania>Albania</option><option value=Algeria>Algeria</option><option value='American Samoa'>American Samoa</option><option value=Andorra>Andorra</option><option value=Angola>Angola</option><option value=Anguilla>Anguilla</option><option value=Antarctica>Antarctica</option><option value='Antigua And Barbuda'>Antigua And Barbuda</option><option value=Argentina>Argentina</option>
 									</select>
 								
@@ -967,7 +954,7 @@
 		
 							</label>
 							
-							<label id=phone_label>
+							<label>
 		
 								<span>Telephone</span>
 								<input name=phone type=tel placeholder='Your phone number.'>
@@ -984,7 +971,7 @@
 		
 							</div>
 							
-							<label id=phone_label>
+							<label>
 		
 								<span>Telephone</span>
 								<input name=phone type=tel placeholder='Your phone number.'>
@@ -1022,47 +1009,7 @@
 			
 			<div class=row>
 			
-				<div id=slider>
-					
-					<h2>Tabs</h2>
-					
-					<div class='slider toptabs'>
-						
-						<div>
-						
-							<p class=tab> Slider 2 Slide 1 </p>
-				
-							<p> natUIve guarantees instant loading, because </p>
-			
-							<p class=quote>
-								
-								"The value of 14 KB has been measured empirically by Google and is the threshold for the first package exchanged between a server and client via towers on a cellular connection." – Smashing Magazine
-							
-							</p>
-				
-						</div>
-						
-						<div>
-				
-							<p class=tab> Slider 2 Slide 2 </p>
-				
-							<p> Second Slider 2 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-						
-						</div>
-					
-						<div>
-						
-							<p class=tab> Slider 2 Very Long Title which Shows the Flexible tabs Dimensions  </p>
-				
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
-							Second Slider 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-				
-						</div>
-						
-					</div>
-	
-				</div>
-				
+<!--
 				<div>
 				
 					<h2>Another Slider</h2>
@@ -1088,6 +1035,7 @@
 						
 					</div>
 				</div>
+-->
 				
 			</div>
 			
@@ -1095,16 +1043,16 @@
 				
 				<div id=masonry>
 					
-					<h2>Masonry in CSS only by <a href="http://sickdesigner.com/masonry-css-getting-awesome-with-css3/">Sick Designer</a></h2>
+					<h2>Masonry in CSS only</h2>
 					
 					<div class="masonry">
 						
-						<a href="#">Whatever stuff you want to put in here. Second line. Second line. Second line. Whatever stuff you want to put in here. Second line. Second line. Second line. </a>
-						<a href="#">Whatever stuff you want to put in here.</a>
-						<a href="#">Whatever stuff you want to put in here.</a>
-						<a href="#">Whatever stuff you want to put in here.</a>
-						<a href="#">Whatever stuff you want to put in here.</a>
-						<a href="#">Whatever stuff you want to put in here.</a>
+						<a class=align-center>A very long cell which demonstrates how Masonry arranges cells in optimised space.</a>
+						<a class=align-center>Cell</a>
+						<a class=align-center>Cell</a>
+						<a class=align-center>Cell</a>
+						<a class=align-center>Cell</a>
+						<a class=align-center>Cell</a>
 						
 					</div>
 					
@@ -1170,9 +1118,11 @@
 
 	<!-- Footer - End -->
 
+<!--
 	<script src=include/natuive.js type=text/javascript></script>
 	<script src=include/natuive-slider.js type=text/javascript></script>
-	<!-- <script src=include/natuive.min.js type=text/javascript></script> -->
+-->
+	<script src=include/natuive.min.js type=text/javascript></script>
 
 </body>
 
