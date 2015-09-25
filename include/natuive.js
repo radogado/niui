@@ -615,7 +615,7 @@ function openLightbox(e) {
 
     forEach(getClosest(el, '.lightbox').querySelectorAll('a[href]'), function(el) {
 
-        images += '<div><img data-src="' + el.href + '" alt="' + el.title + '"><p>' + el.title + '</p></div>';
+        images += '<div><img data-src="' + el.href + '" alt="' + el.title + '">' + (el.title ? ('<p>' + el.title + '</p>') : '') + '</div>';
         // Attach onload event to each image to display it only when fully loaded and avoid top-to-bottom reveal?
 
     });
