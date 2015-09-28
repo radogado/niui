@@ -2,7 +2,7 @@
 			<!-- /content -->
 			<!-- footer -->
 			<footer id="footer" class="footer" role="contentinfo">
-				<div><div><div class="row contain">
+				<div class="row contain">
 					
 				<!-- copyright -->
 					<p class="copyright">
@@ -10,7 +10,7 @@
 						<a href="//wordpress.org" title="WordPress">WordPress</a>, <a href="//html5blank.com" title="HTML5 Blank">HTML5 Blank</a> & <a href="//natuive.net">natUIve WordPress</a>.
 					</p>
 				<!-- /copyright -->
-				</div></div></div>
+				</div>
 
 			</footer>
 			<!-- /footer -->

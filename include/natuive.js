@@ -667,16 +667,16 @@ forEach('.tool', function(el, i) {
 
 	if ('ontouchstart' in window) {
 
-		el.ontouchstart = function (e) {
-			
-			addClass(e, 'open');
+		el.onclick = function (e) {
+
+			toggleClass(eventElement(e), 'open');
 			
 		};
 	
 		el.querySelector('.tip').ontouchend = function (e) {
 
 			e.stopPropagation();
-			removeClass(e.parentNode, 'open');
+			removeClass(eventElement(e).parentNode, 'open');
 			
 		};
 	

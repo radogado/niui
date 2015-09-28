@@ -1165,7 +1165,7 @@ form {
 	
 	.tool:after {
 		
-		content: ' ?';
+		content: '?';
 		display: inline-block;
 		background: #444;
 		border-radius: 100%;
@@ -1175,6 +1175,12 @@ form {
 
 	}
 
+	.tool.open:after {
+		
+		content: '✕';
+
+	}
+	
 	.tip, label span .tip {
 	
 		background: #333;
@@ -1197,7 +1203,7 @@ form {
 	
 	}
 	
-	.tip.open, .tool:hover .tip {
+	.tool.open .tip, .no-touch .tool:hover .tip {
 		
 		opacity: 1;
 		display: block;
@@ -1930,14 +1936,6 @@ video a[href] {
 		
 		}
 	
-	/* Termporarily disabled tooltip on mobile */
-	
-	.tool:after {
-	
-		display: none;
-
-	}
-		
 	.semi-transparent main, .semi-transparent footer, .semi-transparent header > .row {
 		
 		opacity: .1;
