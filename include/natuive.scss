@@ -240,6 +240,14 @@ p, li, header {
 
 }
 
+.drop-cap:first-letter {
+
+	float: left;
+	font-size: 5em;
+	padding: .1em;
+
+}
+
 .header-and-banner {
 
 	flex: none;	
