@@ -673,12 +673,14 @@ forEach('.tool', function(el, i) {
 			
 		};
 	
+/*
 		el.querySelector('.tip').ontouchend = function (e) {
 
-			e.stopPropagation();
+			stopEvent(e);
 			removeClass(eventElement(e).parentNode, 'open');
 			
 		};
+*/
 	
 	}
 
