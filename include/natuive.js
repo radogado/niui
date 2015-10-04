@@ -1049,13 +1049,13 @@ function getStyle(oElm, strCssRule){ // Thanks http://robertnyman.com/2006/04/24
 
 var line_height = parseInt(getStyle(q('body'), 'line-height'));
 
-addEventHandler(window, 'load', function() {
+/* Baseline-align images etc */
 
-    /* Baseline-align images */
+function baselineAlign () {
 
-    forEach('main img' + ((typeof(document.createElement('video').canPlayType) != 'undefined') ? ', main video' : ''), function(el) {
+    forEach('main img, .aspect' + ((typeof(document.createElement('video').canPlayType) != 'undefined') ? ', main video' : ''), function(el) {
 
-        var extra_padding = ((Math.round(el.height / line_height) + 1) * line_height - el.height);
+        var extra_padding = ((Math.round(el.scrollHeight / line_height) + 1) * line_height - el.scrollHeight);
 
         if (extra_padding >= line_height) {
 
@@ -1067,7 +1067,18 @@ addEventHandler(window, 'load', function() {
 
     });
 
+}
+
+addEventHandler(window, 'load', baselineAlign);
+
+/*
+// Disabled for jumpiness
+addEventHandler(window, 'resize', function () { 
+	
+	t = setTimeout(baselineAlign, 1000);
+
 });
+*/
 
 var isInViewport = function (el) { // Thanks http://gomakethings.com/ditching-jquery/
 
