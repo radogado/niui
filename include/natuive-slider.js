@@ -348,16 +348,22 @@ function makeSlider(el, current_slide) {
 
     addClass(el, 'slider');
 
-	if (hasClass(el, 'full-window')) { // To do: move nodes properly; this loses event handlers
+	if (hasClass(el, 'full-window')) {
 		
 		openFullWindow(el);
 		
 	}
 
-    container = wrap(el).parentNode;
-	addClass(container, 'slider-wrap');
-    el = container.querySelector('.slider');
-    transferClass(el, container, 'vertical');
+	container = el.parentNode;
+
+	if (!hasClass(container, 'slider-wrap')) {
+
+	    container = wrap(el).parentNode;
+		addClass(container, 'slider-wrap');
+	    el = container.querySelector('.slider');
+	    transferClass(el, container, 'vertical');
+    
+    }
 	
     container.insertAdjacentHTML(hasClass(el, 'toptabs') ? 'afterbegin' : 'beforeend', '<div class=slider-nav></div>');
     container.insertAdjacentHTML('beforeend', '<a class="slider-arrow left"></a><a class="slider-arrow right"></a>');

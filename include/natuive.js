@@ -448,7 +448,7 @@ function preventEvent(e) { // For iOS scrolling behind blackbox
 
 function closeFullWindow() {
 	
-    if (full_window = document.getElementById('full-window')) {
+    if (full_window = q('.full-window-wrap')) {
 		
 		if (full_window_content) { // Remove disposable generated content
 
@@ -493,13 +493,13 @@ function openFullWindow(el) {
 	}
 	    
     addClass(wrap(el).parentNode, 'content');
-    wrap(el.parentNode).parentNode.setAttribute('id', 'full-window');
-	q('#full-window').insertAdjacentHTML('beforeend', '<div id=full-window-bg></div>');
+    wrap(el.parentNode).parentNode.setAttribute('class', 'full-window-wrap');
+	q('.full-window-wrap').insertAdjacentHTML('beforeend', '<div class=full-window-wrap-bg></div>');
 
     if (!hasClass(el, 'headless')) {
 	    
-	    q('#full-window').insertAdjacentHTML('afterbegin', '<div class=close> ← ' + document.title + '</div>');
-		q('#full-window-bg').onclick = q('#full-window .close').onclick = closeFullWindow;
+	    q('.full-window-wrap').insertAdjacentHTML('afterbegin', '<div class=close> ← ' + document.title + '</div>');
+		q('.full-window-wrap-bg').onclick = q('.full-window-wrap .close').onclick = closeFullWindow;
 		
 	    document.body.onkeyup = function(e) {
 	
@@ -513,7 +513,7 @@ function openFullWindow(el) {
 	   
 	} else {
 		
-		addClass(q('#full-window'), 'headless');
+		addClass(q('.full-window-wrap'), 'headless');
 		
 	}
 
@@ -606,7 +606,7 @@ function modalWindow(e) {
 function openLightbox(e) {
 
 	openFullWindow('<div class="slider lightbox"></div>');
-	q('#full-window').style.overflow = 'hidden';
+	q('.full-window-wrap').style.overflow = 'hidden';
 	
 	el = eventElement(e);
 
@@ -634,7 +634,7 @@ function openLightbox(e) {
 
         if (hasClass(anchor.parentNode, 'vertical')) {
 
-            addClass(q('#full-window .slider'), 'vertical');
+            addClass(q('.full-window-wrap .slider'), 'vertical');
 
         }
 
@@ -645,7 +645,7 @@ function openLightbox(e) {
 	        
         }
         this_index = thisIndex(anchor);
-        populateLightbox(makeSlider(q('#full-window .slider'), this_index), this_index);
+        populateLightbox(makeSlider(q('.full-window-wrap .slider'), this_index), this_index);
 
     }
 
