@@ -1244,7 +1244,12 @@ if (document.querySelector('input[type=reset][form]') && !document.querySelector
 	});
 
 }
-if (q('.overthrow')) { /* Load touch scroll polyfill */
+
+/* Revert to default font if web font isn't loaded in 2" */
+// 
+
+ /* Load touch scroll polyfill, needed for Android Browser (Android 2.3) */
+ if (q('.overthrow')) {
 
     // DOM: Create the script element
     js_el = document.createElement("script");

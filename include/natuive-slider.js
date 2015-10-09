@@ -273,7 +273,11 @@ function slide(el, method, index_number) {
             slider.removeEventListener(animationEvent, arguments.callee);
 
 			removeClass(slider.children[old_index], 'visible');
-			slider.children[old_index].style.opacity = 0; // Safari Odd/Even width 1px visible fix
+			if (index > 0) {
+				
+				slider.children[index-1].style.opacity = 0; // Safari Odd/Even width 1px visible fix
+
+			}
 			removeClass(slider,'sliding');
 			slider.style.cssText = prefix + 'transform: ' + (hasClass(slider, 'vertical') ? 'translateY' : 'translateX') + '(-' + index + '00%);';
 			q('.sliding-style').outerHTML = '';
