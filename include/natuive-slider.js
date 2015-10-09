@@ -182,6 +182,7 @@ function slide(el, method, index_number) {
 
 	sliding = 1;
     mouseEvents(el.parentNode, 'off');
+    mouseEvents(el, 'off');
 
     if (window.sliderTimeout) {
 

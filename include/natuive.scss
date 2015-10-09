@@ -1074,31 +1074,33 @@ form {
 	z-index: 999999;
 	background: #fff;
 	background: rgba(255,255,255,.97);
-	overflow-y: scroll;
+	overflow: hidden;
 	position: fixed;
 	top: 0;
 	right: 0;
 	bottom: 0;
 	left: 0;
 	border-top: none;
-	padding-top: $line-height*2;
     -webkit-overflow-scrolling: touch;
+    padding-top: 0;
 
 	}
 	
-	.full-window-wrap.headless {
+	.full-window-wrap > .content {
 		
-		padding-top: 0;
+		overflow-y: scroll;
+		position: relative;
+		background: transparent;
+		height: calc(100% - #{($line-height*2)});
 
 	}
-
+	
 	.full-window-wrap .close {
 
 		color: #fff;
 		cursor: pointer;
 		padding: 0 .6em;
 		font-weight: bold;
-		position: fixed;
 		background: #000;
 		background: rgba(0,0,0,.7);
 		width: 100%;
@@ -1108,6 +1110,31 @@ form {
 
 	}
 
+	/* On touch, disable fixed-position "close" bar, because it's jumpy */
+	.no-touch .full-window-wrap .close {
+
+		position: fixed;
+
+	}
+
+	.no-touch .full-window-wrap {
+	
+		overflow-y: scroll;
+	
+	}
+
+	.no-touch .full-window-wrap.headless {
+		
+		padding-top: 0;
+
+	}
+
+	.no-touch .full-window-wrap > .content {
+
+		height: 100%;
+	
+	}
+
 	.full-window-wrap > * {
 		
 		background: #fff;
@@ -1115,12 +1142,18 @@ form {
 		
 	}
 	
-	.full-window-wrap .slider, .full-window-wrap .slider-wrap, .full-window-wrap > .content {
+	.full-window-wrap .slider, .full-window-wrap .slider-wrap {
 		
-		background: transparent;
 		height: 100%;
 		
 	}
+	
+	.no-touch .full-window-wrap .slider-wrap, .no-touch .full-window-wrap .slider-wrap.vertical {
+				
+		margin-top: $line-height*2;
+		height: calc(100% - #{$line-height*2});
+
+	}		
 	
 	.full-window-wrap-bg {
 		
