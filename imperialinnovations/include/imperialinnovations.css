@@ -1,7 +1,14 @@
 body {
 	
 	color: #3a3a3a;
+	font-family: Lato, sans-serif;
 
+}
+
+h1, h2, h3, h4, h5, h6 {
+	
+	font-family: Gudea, sans-serif;
+	
 }
 
 a[href] {
@@ -24,7 +31,7 @@ a[href].button:hover {
 
 }
 
-.banner a[href].button {
+.banner a[href].button, main a[href]:not(h5 *) {
 	
 	color: #00a2dd;
 	background-color: #fff;
@@ -35,9 +42,30 @@ a[href].button:hover {
 	
 }
 
+a.logo {
+	
+	position: absolute;
+	top: 0;
+	left: 0;
+
+}
+
 main {
 	
 	background: #f0f0f0;
+	z-index: 0;
+	
+}
+
+main > .row:first-child {
+	
+	margin-top: -10em;
+
+}
+
+main .contain {
+	
+	background: #fff;
 	
 }
 
@@ -46,6 +74,12 @@ footer .about {
 	background: #3a3a3a;
 	color: #fff;
 	
+}
+
+footer .about a[href] {
+	
+	color: #fff;
+
 }
 
 .banner {
@@ -60,6 +94,11 @@ footer .about {
 	
 }
 
+.banner .slider-wrap {
+	
+	background: #ccc;
+}
+
 .banner .slider-nav {
 	
 	display: none;
@@ -70,7 +109,70 @@ footer .about {
 	
 	background: top center no-repeat;
 	background-size: 100% auto;
+	min-height: 40em;
 	
+}
+
+.statistics .slider-arrow {
+	
+	display: none;
+	
+}
+
+.statistics h4, .statistics h5 {
+	
+	color: #0e4096;
+	
+}
+
+.portfolio .slider-nav {
+	
+	display: none;
+
+}
+
+.slider-arrow {
+	
+	border-radius: 0;
+	background: #fff;
+	color: #1c3f93;
+
+}
+
+main .slider-arrow {
+	
+	border: 1px solid #e6e6e6;
+
+}
+
+.slider-nav a {
+	
+	color: transparent;
+	width: 1em;
+	height: 1em;
+	background: #fff;
+	border: 1px solid #e6e6e6;
+	
+}
+
+.slider-nav a.active {
+	
+	background: #1c3f93;
+	border-color: #1c3f93;
+	color: transparent;
+
+}
+
+.slider-arrow:before {
+	
+	content: '◀︎';
+
+}
+
+.slider-arrow.right:before {
+	
+	content: '▶︎';
+
 }
 
 .banner .slider-arrow.right {
@@ -103,5 +205,39 @@ footer .about {
 		right: calc(4em);
 		
 	}
+	
+}
+
+.promo-box {
+	
+	background-image: linear-gradient(45deg, #1c3f93 0, #00a3db 100%);
+	color: #fff;
+	display: block;
+	text-align: center;
+	padding: 3em 0 1em 0;
+
+}
+
+.date {
+	
+	color: #d1d1d1;
+	text-align: center;
+	font-size: 1.5em;
+
+}
+
+.date b {
+	
+	padding-top: .2em;
+	margin-bottom: .2em;
+	font-size: 1.7em;
+	display: block;
+
+}
+
+thead td, tr:nth-child(2n+1) {
+	
+	color: inherit;
+	background: transparent;
 	
 }

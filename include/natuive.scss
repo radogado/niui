@@ -160,6 +160,12 @@ html.nooverflow, html.nooverflow body {
 
 }
 
+.pad {
+	
+	padding: $line-height/2;
+
+}
+
 .no-hover, .no-hover * {
 
 	pointer-events: none !important;
