@@ -58,12 +58,14 @@ footer h3 {
 footer .row .row {
 	
 	margin-top: -11px;
+	margin-bottom: -11px;
 	
 }
 
 footer .row .pad {
 	
 	padding-top: 0;
+	padding-bottom: 0;
 	
 }
 
@@ -187,6 +189,18 @@ nav.drop ul li, nav.drop ul li a[href] {
 	background-size: cover;
 	min-height: 40em;
 	padding-top: 5em;
+	
+}
+
+.statistics {
+	
+	border-left: 1px solid #e6e6e6;
+	
+}
+
+.statistics .slider-wrap {
+	
+	position: static;
 	
 }
 
@@ -317,6 +331,7 @@ main .slider-nav {
 	color: #d1d1d1;
 	text-align: center;
 	font-size: 1.5em;
+	white-space: nowrap;
 
 }
 
@@ -329,10 +344,16 @@ main .slider-nav {
 
 }
 
-td {
+td, thead td {
 	
-	padding: 22px 0;
+	padding: 22px 0 0 0;
 
+}
+
+table {
+	
+	margin-bottom: 22px;
+	
 }
 
 thead td, tr:nth-child(2n+1) {
