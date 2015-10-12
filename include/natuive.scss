@@ -145,6 +145,13 @@ $line-height: 22px;
 		
 	}
 	
+	.row > * > .box { /* Boxes inside grid cells */
+		
+		background: #fff;
+		border: 1px solid #e6e6e6;
+		
+	}
+	
 /* Basic elements */
 
 html, body {

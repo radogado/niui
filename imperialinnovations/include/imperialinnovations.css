@@ -5,9 +5,65 @@ body {
 
 }
 
+html, body, .row.wrap>*, nav.sub a, p, li, .lightbox a, .button, input[type=submit], button, label, form .checkbox span, .tip, label span .tip, h4, h5, form label>span {
+	
+	font-size: 14px;
+
+}
+
+.contain {
+	
+	max-width: 77em;
+
+}
+
 h1, h2, h3, h4, h5, h6 {
 	
 	font-family: Gudea, sans-serif;
+	
+}
+
+.banner h2 {
+	
+	font-size: 3em;
+	
+}
+
+.banner .contain {
+	
+	max-width: 72em;
+
+}
+
+h3, h4 {
+	
+	font-size: 2em;
+	line-height: 33px;
+
+}
+
+h5 {
+	
+	font-size: 1.3em;
+	font-weight: normal;
+
+}
+
+footer h3 {
+	
+	line-height: 44px;
+
+}
+
+footer .row .row {
+	
+	margin-top: -11px;
+	
+}
+
+footer .row .pad {
+	
+	padding-top: 0;
 	
 }
 
@@ -45,8 +101,15 @@ a[href].button:hover {
 a.logo {
 	
 	position: absolute;
-	top: 0;
-	left: 0;
+	z-index: 1;
+	top: -22px;
+/* 	left: 0; */
+
+}
+
+.slider>*>img, .row>*>img {
+	
+	margin: 0;
 
 }
 
@@ -63,12 +126,6 @@ main > .row:first-child {
 
 }
 
-main .contain {
-	
-	background: #fff;
-	
-}
-
 footer .about {
 	
 	background: #3a3a3a;
@@ -79,6 +136,25 @@ footer .about {
 footer .about a[href] {
 	
 	color: #fff;
+
+}
+
+footer .about p:first-child {
+	
+	border-top: 1px solid #fff;
+	padding-top: 22px;
+
+}
+
+nav.drop {
+	
+	margin-left: 7em;
+	
+}
+
+nav.drop ul li, nav.drop ul li a[href] {
+	
+	background: transparent;
 
 }
 
@@ -107,9 +183,10 @@ footer .about a[href] {
 
 .banner .slider > * {
 	
-	background: top center no-repeat;
-	background-size: 100% auto;
+	background: center center no-repeat;
+	background-size: cover;
 	min-height: 40em;
+	padding-top: 5em;
 	
 }
 
@@ -142,6 +219,23 @@ footer .about a[href] {
 main .slider-arrow {
 	
 	border: 1px solid #e6e6e6;
+	bottom: -1.2em;
+	left: 0;
+	top: auto;
+	right: auto;
+
+}
+
+main .slider-arrow.right {
+	
+	left: 3em;
+	right: auto;
+
+}
+
+main .slider-nav {
+	
+	bottom: -.7em;
 
 }
 
@@ -177,18 +271,18 @@ main .slider-arrow {
 
 .banner .slider-arrow.right {
 	
-	right: calc(50% - 39em);
+	right: calc(50% - 37.7em);
 	top: auto;
-	bottom: 1em;
+	bottom: 11em;
 	
 }
 
 .banner .slider-arrow.left {
 	
 	left: auto;
-	right: calc(50% - 36em);
+	right: calc(50% - 34.7em);
 	top: auto;
-	bottom: 1em;
+	bottom: 11em;
 	
 }
 
@@ -232,6 +326,12 @@ main .slider-arrow {
 	margin-bottom: .2em;
 	font-size: 1.7em;
 	display: block;
+
+}
+
+td {
+	
+	padding: 22px 0;
 
 }
 
