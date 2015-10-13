@@ -1781,10 +1781,29 @@ video a[href] {
 
 	}
 	
+	.row.border-all .row {
+		
+		margin: 0;
+
+	}
+
+	.row.border-all .row .row {
+		
+		margin-left: -$line-height/2;
+		width:calc(100% + #{$line-height});
+
+	}
+
 	header {
 		
 		margin: 0;
 		
+	}
+	
+	.row.border-all>*:not(:first-child), .row.border-all .row>*:not(:first-child) {
+		
+		border-left: none;
+
 	}
 
 	label, form.flat label {
