@@ -152,6 +152,60 @@ $line-height: 22px;
 		
 	}
 	
+	.row.border-all {
+		
+		border: 1px solid;
+		padding: 0;
+		margin: 0;
+		width: 100%;
+		margin: 0 auto;
+
+	}
+	
+	.row.border-all > *, .row.border-all .row > * {
+		
+		padding: $line-height/2;
+		
+	}
+	
+	.row.border-all > *:not(:first-child), .row.border-all .row > *:not(:first-child) {
+		
+		border-left: 1px solid;
+		
+	}
+	
+	.row.border-all .row {
+		
+		border-top: 1px solid;
+		padding-top: 0;
+		margin-left: -$line-height/2;
+		
+	}
+
+	.row.border-all, .row.border-all .row, .row.border-all > *:not(:first-child), .row.border-all .row > *:not(:first-child) {
+		
+		border-color: #ddd;
+		
+	}
+	
+	.row.border-all .row:first-child {
+		
+		border-top: none;
+		
+	}
+
+	.row.border-all .row:last-child {
+		
+		padding-bottom: 0;
+		
+	}
+	
+	.row.border-all .row.border-off > * {
+		
+		border: none;
+
+	}
+	
 /* Basic elements */
 
 html, body {
@@ -170,6 +224,12 @@ html.nooverflow, html.nooverflow body {
 .pad {
 	
 	padding: $line-height/2;
+
+}
+
+.pad-x2 {
+	
+	padding: $line-height;
 
 }
 

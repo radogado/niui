@@ -17,6 +17,18 @@ html, body, .row.wrap>*, nav.sub a, p, li, .lightbox a, .button, input[type=subm
 
 }
 
+.border-all {
+	
+	background: #fff;
+
+}
+
+main .row > * {
+	
+	padding: 22px;
+
+}
+
 h1, h2, h3, h4, h5, h6 {
 	
 	font-family: Gudea, sans-serif;
