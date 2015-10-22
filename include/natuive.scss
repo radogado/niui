@@ -208,6 +208,12 @@ $line-height: 22px;
 	
 /* Basic elements */
 
+html {
+	
+	overflow-x: hidden;
+
+}
+
 html, body {
 	
 	height: 100%;
@@ -347,32 +353,6 @@ header a.logo {
 
 }
 
-/*
-header nav ul ul {
-	
-	display: none;
-	position: absolute;
-	background: #fff;
-	top: 2em;
-	left: 0;
-	z-index: 9;
-	width: 100%;
-
-}
-
-header nav ul .trigger:checked ~ ul {
-	
-	display: block;
-
-}
-
-label.trigger {
-	
-	width: auto;
-
-}
-*/
-		
 .align-right {
 	
 	text-align: right;
@@ -1573,9 +1553,8 @@ table {
 
 	}
 	
-	/* IE9 bug: hover on overflowing table makes its .table container taller */
 /*
-	table :not(thead) tr:hover td { 
+	table :not(thead) tr:hover td { // IE9 bug: hover on overflowing table makes its .table container taller
 		
 		background-color: #ddd;
 
@@ -1973,22 +1952,7 @@ video a[href] {
 		text-align: right;
 		
 	}
-	
-/*
-		header > nav {
-			
-			position: fixed;
-			top: 0;
-			left: 0;
-			background: transparent;
-			z-index: 99999;
-			width: 100%;
-			max-height: 100%;
-			overflow: auto;
-	
-		}
-*/
-
+ 	
 		nav li {
 			
 			margin: 0;
@@ -2000,53 +1964,6 @@ video a[href] {
 			padding: .5em 0;
 
 		}
-		
-/*
-		header > nav.sub li:not(:first-child):before, header > nav input.trigger#nav-trigger ~ div, nav input.trigger + * {
-			
-			display: none;
-		
-		}
-	
-		header > nav input.trigger#nav-trigger:checked ~ div, header > nav.sub a {
-			
-			display: block;
-			
-		}
-		
-		header > nav .row * {
-	
-			background: #fff;
-			display: block;
-			
-		}
-		
-		header > nav > div {
-			
-			background: #fff;
-			display: none;
-			margin-top: $line-height*2;
-	
-		}
-
-		label[for=nav-trigger] {
-			
-			display: block;
-			width: 1em;
-			height: $line-height;
-			line-height: $line-height*1.6;
-			font-size: 3em;
-			margin: 0 0 .1em 0;
-			text-align: center;
-			max-width: none;
-			overflow: hidden;
-			background: #fff;
-			z-index: 99999;
-			-webkit-box-shadow: 1px 1px 2px #333;
-			box-shadow: 1px 1px 2px #333;
-			
-		}
-*/
 		
 		form#language-selector .select {
 			
