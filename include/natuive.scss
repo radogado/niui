@@ -104,6 +104,7 @@ $line-height: 22px;
 
 	.row.wrap > *, .slider > *, .aspect > * { /* Restore font-size of zeroed elements' children */
 		
+		font-size: $font-size;
 		font-size: 1rem;
 		
 	}

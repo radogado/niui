@@ -129,7 +129,7 @@ mouseWheelHandler = function(e) {
         initScroll(e, (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY);
 
     }
-
+    
 }
 
 function mouseEvents(el, toggle) {
