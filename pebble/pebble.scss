@@ -124,6 +124,8 @@ header nav:first-of-type {
 	text-decoration: none;
 	text-transform: uppercase;
 	margin: 0 2em;
+	font-size: .8em;
+    font-weight: 900;
 	
 }
 
@@ -138,6 +140,8 @@ a.button[href] {
 	
 	border-radius: 2em;
 	padding: 0 3em;
+	font-size: .8em;
+    font-weight: 900;
 	
 }
 
@@ -195,6 +199,7 @@ main a[href] {
 	bottom: 0;
 	left: 0;
 	z-index: -1;
+	margin-top: -2px; // FF fix
 	
 }
 
@@ -321,6 +326,7 @@ footer li {
 	
 	display: block;
 	margin-top: 0;
+    font-size: .8em;	
 	
 }
 
@@ -355,6 +361,7 @@ footer p {
 	border-top: 1px solid #666665;
 	padding: 1em 0;
 	font-weight: normal;
+	font-size: .8em;
 	
 }
 
@@ -367,6 +374,7 @@ footer nav form.flat label input {
 	color: #fff;
 	margin: 0;
 	font-weight: normal;
+	font-size: .8em;
 
 }
 
