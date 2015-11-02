@@ -360,10 +360,10 @@ header a.logo {
 
 }
 
-.align-middle, .align-middle > * {
+.align-center {
 	
-	vertical-align: middle;
-	
+	text-align: center;
+
 }
 
 .align-top, .align-top > * {
@@ -372,10 +372,16 @@ header a.logo {
 	
 }
 
-.align-center {
+.align-middle, .align-middle > * {
 	
-	text-align: center;
+	vertical-align: middle;
+	
+}
 
+.align-bottom, .align-bottom > * {
+	
+	vertical-align: bottom;
+	
 }
 
 a[href] {
