@@ -497,10 +497,23 @@ nav {
 	-webkit-transition: all .1s linear;
 	transition: all .1s linear;
 	border: none;
+	font-family: inherit;
 
 }
+	button {
+		
+		margin: 0;
 
-	.button:hover, input[type=submit]:hover, button[type=submit]:hover, button[type=reset]:hover, form button:hover, a.button[href]:hover {
+	}
+	
+	button[disabled] {
+		
+		cursor: default;
+		opacity: .2;
+
+	}
+
+	.button:hover, input[type=submit]:hover, button[type=submit]:hover, button[type=reset]:hover, form button:hover, a.button[href]:hover, button:hover {
 		
 		background: #eee;
 		color: #333;
@@ -524,7 +537,7 @@ nav {
 
 	}
 
-	.button.big, input[type=submit], form button {
+	.button.big, input[type=submit], form button, button.big {
 
 		padding: 0 1em;
 		margin: $line-height 0;
