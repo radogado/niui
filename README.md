@@ -46,6 +46,7 @@ natUIve: mostly native front-end framework
 - No jQuery or other dependencies*
 - Supporting IE8+, Safari, Chrome, Firefox, Opera, Android 2.3+, iOS, Windows Phone
 - Graceful degradation
+- .row.wrap grid supports Bootstrap-style wrapping columns, but with .col3 (1/3) etc., instead of .col-**-4 (4/12)
 - Includes a FREE picture of a cat
 
 \* exclusive features, missing in popular frameworks

@@ -369,18 +369,21 @@ header a.logo {
 .align-top, .align-top > * {
 	
 	vertical-align: top;
+	align-self: flex-start;
 	
 }
 
 .align-middle, .align-middle > * {
 	
 	vertical-align: middle;
+	align-self: center;
 	
 }
 
 .align-bottom, .align-bottom > * {
 	
 	vertical-align: bottom;
+	align-self: flex-end;
 	
 }
 
