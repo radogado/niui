@@ -513,7 +513,7 @@ nav {
 
 	}
 
-	.button:hover, input[type=submit]:hover, button[type=submit]:hover, button[type=reset]:hover, form button:hover, a.button[href]:hover, button:hover {
+	.button:hover, input[type=submit]:hover, button[type=submit]:hover, button[type=reset]:hover, form button:hover, a.button[href]:hover, button:not([disabled]):hover {
 		
 		background: #eee;
 		color: #333;

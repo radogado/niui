@@ -401,6 +401,7 @@ function makeSlider(el, current_slide) {
 
         container.querySelector('.slider-nav').lastChild.onclick = function(e) {
 			
+			/* To fix: error when clicking during a slide */
             slide(eventElement(e), 'index', thisIndex(eventElement(e)));
 
         };
