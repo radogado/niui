@@ -239,8 +239,11 @@ function slide(el, method, index_number) {
 		slider.style.cssText = 'height: ' + slider.offsetHeight + 'px !important';
 	
 	}
+	if (slider.parentNode.querySelector('.slider-nav .active')) {
 
-    removeClass(slider.parentNode.querySelector('.slider-nav .active'), 'active');
+	    removeClass(slider.parentNode.querySelector('.slider-nav .active'), 'active');
+
+    }
 
     if (animationEvent) { // CSS transition-enabled browser...
 
@@ -272,8 +275,11 @@ function slide(el, method, index_number) {
         slider.addEventListener(animationEvent, function(e) { // On slide end
 
             slider.removeEventListener(animationEvent, arguments.callee);
-
-			removeClass(slider.children[old_index], 'visible');
+			if (slider.children[old_index]) {
+	
+				removeClass(slider.children[old_index], 'visible');
+	
+			}
 			if (index > 0) {
 				
 				slider.children[index-1].style.opacity = 0; // Safari Odd/Even width 1px visible fix
