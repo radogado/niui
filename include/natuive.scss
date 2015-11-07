@@ -500,9 +500,12 @@ nav {
 	font-family: inherit;
 
 }
-	button {
+
+	button:not(.big), .button:not(.big) {
 		
 		margin: 0;
+		line-height: $line-height - 1px;
+		min-height: $line-height - 1px;
 
 	}
 	
