@@ -20,7 +20,7 @@ natUIve: mostly native front-end framework
 - Nested ordered lists*
 - Forms with validation, dynamic submission without page reload, full customisation and accessibility, including native file drop
 - Auto-expanding textarea*
-- Native sliders*, swipeable on mobile and desktop, with numbered or thumbnail navigation, vertical and full screen options
+- Native sliders*, swipeable on mobile and desktop, with numbered or thumbnail navigation, vertical and full screen options, slider inside slider
 - Accordions
 - Tabs
 - Quote block

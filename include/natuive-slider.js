@@ -143,7 +143,7 @@ function mouseEvents(el, toggle) {
     } else {
 
         el.parentNode.addEventListener('wheel', mouseWheelHandler);
-        el.parentNode.querySelector('.slider-nav').addEventListener('wheel', function (e) {
+        childByClass(el.parentNode, 'slider-nav').addEventListener('wheel', function (e) {
 
 	        // Scroll as usual instead of sliding
 
@@ -162,7 +162,7 @@ function endSlide (slider, index) {
     }
     
     sliding = 0;
-	addClass(slider.parentNode.querySelector('.slider-nav').children[index], 'active');
+	addClass(childByClass(slider.parentNode, 'slider-nav').children[index], 'active');
     mouseEvents(slider);
 	document.onkeyup = sliderKeyboard;
    	removeClass(q('html'), 'no-hover');
@@ -192,7 +192,7 @@ function slide(el, method, index_number) {
 
     var slider = getClosest(el, '.slider-wrap').querySelector('.slider');
 
-	index = old_index = thisIndex(slider.parentNode.querySelector('.slider-nav a.active'));
+	index = old_index = thisIndex(childByClass(slider.parentNode, 'slider-nav').querySelector('a.active'));
 
     if (method == 'index') {
 
@@ -239,9 +239,9 @@ function slide(el, method, index_number) {
 		slider.style.cssText = 'height: ' + slider.offsetHeight + 'px !important';
 	
 	}
-	if (slider.parentNode.querySelector('.slider-nav .active')) {
+	if (childByClass(slider.parentNode, 'slider-nav').querySelector('.active')) {
 
-	    removeClass(slider.parentNode.querySelector('.slider-nav .active'), 'active');
+	    removeClass(childByClass(slider.parentNode, 'slider-nav').querySelector('.active'), 'active');
 
     }
 

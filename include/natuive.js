@@ -246,6 +246,24 @@ var wrap = function (toWrap, wrapper) { // Thanks yckart
 
 };
 
+function childByClass (el, cl) {
+
+	i = 0;
+	while(i < el.children.length) {
+		
+		if (hasClass(el.children[i], cl)) {
+			
+			return el.children[i];
+
+		}
+		i++;
+		
+	}
+
+	return false;
+		
+}
+
 /* ––– */
 
 scripts_location = document.getElementsByTagName('script');

@@ -2062,7 +2062,7 @@ video a[href] {
 
 }
 
-.slider-wrap.vertical.tabs .slider-nav {
+.slider-wrap.vertical.tabs > .slider-nav {
 	
 	position: absolute;
 	top: 0px;
@@ -2074,7 +2074,7 @@ video a[href] {
 
 }
 
-.slider-wrap.vertical.tabs .slider-nav a {
+.slider-wrap.vertical.tabs > .slider-nav a {
 	
 	display: block;
 
@@ -2463,7 +2463,7 @@ video a[href] {
 	
 	}
 
-	.slider-wrap.tabs .slider-nav {
+	.slider-wrap.tabs > .slider-nav {
 		
 		right: auto;
 		position: static;
@@ -2473,19 +2473,19 @@ video a[href] {
 		
 	}
 
-	.slider-wrap.tabs .slider-arrow {
+	.slider-wrap.tabs > .slider-arrow {
 
 		display: none;
 		
 	}
 	
-	.slider-wrap.tabs .slider-nav.row {
+	.slider-wrap.tabs > .slider-nav.row {
 		
 		padding: 0;
 
 	}
 	
-	.full-window .slider-wrap.tabs .slider-nav {
+	.full-window .slider-wrap.tabs > .slider-nav {
 		
 		position: absolute;
 		bottom: 0;
@@ -2493,7 +2493,7 @@ video a[href] {
 	
 	}
 	
-	.slider-wrap.tabs .slider-nav a {
+	.slider-wrap.tabs > .slider-nav a {
 		
 		text-indent: 0;
 		width: auto;
