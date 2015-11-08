@@ -1,5 +1,6 @@
 /* natUIve Slider */
 var new_event_support = 1;
+var slide_duration = .5;
 
 try { // Android Browser etc?
 
@@ -170,7 +171,6 @@ function endSlide (slider, index) {
 }
 
 var	prefix = animationEvent == 'webkitAnimationEnd' ? '-webkit-' : ''; 
-var slide_duration = 400;
 
 function slide(el, method, index_number) {
 
@@ -266,7 +266,7 @@ function slide(el, method, index_number) {
 		}
 
 		var styles = document.createElement('style');
-		styles.innerHTML = '@' + prefix + 'keyframes sliding { from { ' + prefix + 'transform: ' + translate_from + '; } to { ' + prefix + 'transform: ' + translate_to + '; }}';
+		styles.innerHTML = '@' + prefix + 'keyframes sliding { from { ' + prefix + 'transform: ' + translate_from + '; } to { ' + prefix + 'transform: ' + translate_to + '; }} .sliding { animation-duration: ' + (slider.getAttribute('data-duration') ? slider.getAttribute('data-duration') : slide_duration) + 's; }';
 		document.getElementsByTagName('head')[0].appendChild(styles);
 		addClass(styles, 'sliding-style');
 		addClass(slider.children[index], 'visible');
@@ -470,7 +470,7 @@ function makeSlider(el, current_slide) {
         setTimeout(autoSlide, 1000 * el.getAttribute('data-autoslide'));
 
     }
-	
+
     return el;
 
 }
