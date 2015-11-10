@@ -1,6 +1,8 @@
 /* natUIve Slider */
-var new_event_support = 1;
-var slide_duration = .5;
+var new_event_support = 1; // Can the browser do new Event('t')?
+var slide_duration = .5; // Default slide duration, overwritten by the optional data-duration attribute
+var last_animation = 0; // Protection from unwanted slide after slide
+var sliding = 0; // Slide in progress
 
 try { // Android Browser etc?
 
@@ -31,8 +33,6 @@ function sliderElement(e) {
 
 /* Thanks to Pete & Eike Send for the swipe events – http://www.thepetedesign.com/demos/purejs_onepage_scroll_demo.html */
 
-var last_animation = 0;
-var sliding = 0;
 swipeEvents = function(el) {
 
     var startX, startY;
@@ -100,12 +100,13 @@ swipeEvents = function(el) {
 
 };
 
-initScroll = function(e, delta) {
+initScroll = function(e, delta) { // Scroll happens
 
     deltaOfInterest = delta;
+
     timeNow = new Date().getTime();
 
-    // Cancel scroll if currently animating or within quiet period
+    // Cancel scroll if currently animating or within quiet period – don't slide again automatically after a slide
     if ((timeNow - last_animation) < 800 || sliding) {
 
         e.preventDefault();
@@ -121,15 +122,15 @@ initScroll = function(e, delta) {
 
 mouseWheelHandler = function(e) {
 
-    deltaX = (e.deltaX * -10) || e.wheelDeltaX || -e.detail;
+    deltaX = (e.deltaX * -10) || e.wheelDeltaX || -e.detail; // Firefox provides 'detail' with opposite value
     deltaY = (e.deltaY * -10) || e.wheelDeltaY || -e.detail;
-
-    if (Math.abs(hasClass(sliderElement(e), 'vertical') ? deltaY : deltaX) > 50) { // Why no FF?
+	
+    if (Math.abs(hasClass(sliderElement(e), 'vertical') ? deltaY : deltaX) > 50) {
 
         e.preventDefault();
         initScroll(e, (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY);
 
-    }
+	}
     
 }
 
@@ -373,6 +374,7 @@ function makeSlider(el, current_slide) {
 		addClass(container, 'slider-wrap');
 	    el = container.querySelector('.slider');
 	    transferClass(el, container, 'vertical');
+        transferClass(el, container, 'wrap');
     
     }
 	
@@ -392,6 +394,7 @@ function makeSlider(el, current_slide) {
             slider_nav = el.parentNode.querySelector('.slider-nav');
             addClass(el.parentNode, 'tabs');
             addClass(slider_nav, 'row');
+            transferClass(el.parentNode, slider_nav, 'wrap');
             slider_nav.insertAdjacentHTML('beforeend', (!i ? '<a class=active>' : '<a>') + el.children[i].querySelector('.tab').innerHTML + '</a>');
             if (hasClass(el, 'vertical')) {
 	            

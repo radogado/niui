@@ -2053,6 +2053,7 @@ video a[href] {
 	position: relative;
 	overflow: hidden;
 	max-height: 100%;
+	z-index: 1;
 
 }
 
@@ -2189,7 +2190,7 @@ video a[href] {
 	width: 100%;
 	display: inline-block;
 	white-space: normal;
-	vertical-align: top;
+	vertical-align: top; // to fix: jumps to top-alignment while sliding
 	overflow: hidden;
 	padding: 0;
 	font-size: $font-size;
@@ -2265,7 +2266,7 @@ video a[href] {
 	
 }
 
-.slider-wrap .slider > *:after, .slider-wrap .slider > *:before, .slider > *:first-child:before, .slider > *:last-child:after {
+.slider-wrap .slider > *:after, .slider-wrap .slider > *:before, .slider > *:first-child:before, .slider > *:last-child:after, .slider-wrap .slider > * > div.bg {
 	
 	content: '';
 	top: 0;
@@ -2274,8 +2275,15 @@ video a[href] {
 	width: auto;
 	right: 0;
 	left: 0;
-	position: static;
+	position: absolute;
+	bottom: 0;
 
+}
+
+.slider > div:before { // Specify full-height per-slide background here
+	
+	background: transparent;
+	
 }
 
 .row > .slider {
@@ -2426,6 +2434,21 @@ video a[href] {
 	transform: translateX(-50%);
 	
 }
+
+	.slider-nav.wrap {
+		
+		text-align: left;
+		justify-content: left;
+
+	}
+
+	.slider-wrap.tabs > .slider-nav.wrap a {
+		
+		-webkit-flex: 0 1 auto;
+		-ms-flex: 0 1 auto;
+		flex: 0 1 auto;
+
+	}
 
 	.vertical .slider-nav {
 		
