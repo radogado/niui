@@ -1,0 +1,81 @@
+$dark: #BD4A37;
+$darker: #82372B;
+$light: #FAF6EF;
+
+.contain {
+	
+	max-width: 69em;
+
+}
+
+body {
+	
+	background: $light;
+	color: $darker;
+	font-family: 'Josefin Sans', sans-serif;
+
+}
+
+a[href] {
+	
+	color: $light;
+	text-decoration: none;
+	font-weight: bold;
+
+}
+
+header {
+	
+	background: $darker;
+	margin: 0;
+		
+}
+
+header form, header nav {
+	
+	display: inline-block;
+	vertical-align: middle;
+	text-transform: uppercase;
+	margin-right: 1em;
+
+}
+
+header nav a[href] {
+	
+	font-size: 1em;
+
+}
+
+header form input, header form input[type=submit] {
+	
+	width: auto;
+	float: none;
+	min-width: 0;
+	margin: 0;
+	background: transparent;
+	min-height: 0;
+
+}
+
+.banner, footer, .banner select {
+	
+	background: $dark;
+	color: $light;
+
+}
+
+.banner select {
+	
+	text-transform: uppercase;
+	font-weight: bold;
+	padding: 0;
+	margin: 0;
+
+}
+
+.banner h1 {
+	
+	margin: .5em 0;
+	font-size: 4em;
+
+}
