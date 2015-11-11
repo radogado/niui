@@ -146,7 +146,7 @@ form#search input[type=text] {
 
 footer {
 	
-	padding-bottom: 2em;
+	padding: 1em 0 2em 0;
 	
 }
 
@@ -166,5 +166,29 @@ table {
 table p {
 	
 	margin: 0;
+	
+}
+
+h2 {
+	
+	font-size: 1.8em;
+
+}
+
+h3 {
+	
+	font-size: 1.4em;
+
+}
+
+h4 {
+	
+	font-size: 1.2em;
+
+}
+
+.slider.lightbox > * p {
+	
+	background: rgba(0, 0, 0, .5);
 	
 }
