@@ -1,6 +1,18 @@
-$dark: #BD4A37;
-$darker: #82372B;
+$dark: #82372B;
+$darker: #622a21;
 $light: #FAF6EF;
+
+html, body, .row.wrap > *, nav.sub a, p, li, .lightbox a, .button, input[type=submit], button, label, form .checkbox span, .tip, label span .tip, h4, h5, form label > span {
+	
+	font-size: 16px;
+
+}
+
+p, #content li {
+	
+	font-size: 18px;
+
+}
 
 .contain {
 	
@@ -24,6 +36,12 @@ a[href] {
 
 }
 
+#content a[href] {
+	
+	color: $darker;
+	
+}
+
 header {
 	
 	background: $darker;
@@ -40,10 +58,17 @@ header form, header nav {
 
 }
 
+header .row > nav {
+	
+	padding-top: .3em; 
+
+}
+
 header nav a[href] {
 	
 	font-size: 1em;
 	padding-right: 1em;
+	white-space: nowrap;
 
 }
 
@@ -68,13 +93,35 @@ form#search {
 form#search input[type=text] {
 	
 	width: 9em;
+	color: $light;
+	line-height: 1.5em;
+	padding: .3em .5em;
 
 }
 
-.banner, footer, .banner select {
+.banner, footer {
 	
 	background: $dark;
 	color: $light;
+
+}
+
+.banner {
+	
+	padding-top: 1em;
+	background: $dark url(train-mountain.jpg) bottom center no-repeat;
+	background-size: cover;
+
+}
+
+.banner label {
+
+	margin: 0;
+	width: auto;
+	background: url(arrow.svg) right center no-repeat;	
+	background-size: auto 25%;
+	background-position: calc(100% - .7em) 1em;
+	clear: both;
 
 }
 
@@ -82,14 +129,42 @@ form#search input[type=text] {
 	
 	text-transform: uppercase;
 	font-weight: bold;
-	padding: 0;
 	margin: 0;
+	color: $light;
+	padding-right: 1.77em;
+	z-index: 9;
 
 }
 
 .banner h1 {
 	
-	margin: .5em 0;
+	margin: .4em 0 .5em 0;
 	font-size: 4em;
+	line-height: 1em;
 
+}
+
+footer {
+	
+	padding-bottom: 2em;
+	
+}
+
+.ads img {
+	
+	display: inline-block;
+	margin: .2em .5em;
+	
+}
+
+table {
+	
+	margin: 1em 0;
+	
+}
+
+table p {
+	
+	margin: 0;
+	
 }
