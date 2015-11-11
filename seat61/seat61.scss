@@ -54,6 +54,19 @@ header form input, header form input[type=submit] {
 	margin: 0;
 	background: transparent;
 	min-height: 0;
+	padding: 0;
+
+}
+
+form#search {
+	
+	width: 12em;
+
+}
+
+form#search input[type=text] {
+	
+	width: 9em;
 
 }
 
