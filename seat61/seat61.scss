@@ -59,13 +59,19 @@ header form, header nav {
 
 }
 
+nav li {
+	
+	display: inline-block;
+	
+}
+
 header .row > nav {
 	
 	padding-top: .2em; 
 
 }
 
-header nav a[href] {
+nav a[href] {
 	
 	font-size: 1em;
 	padding-right: 1em;
@@ -149,6 +155,12 @@ footer {
 	
 	padding: 1em 0 2em 0;
 	
+}
+
+.ads {
+	
+	overflow: hidden;
+
 }
 
 .ads img {
