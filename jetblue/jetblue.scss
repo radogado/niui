@@ -3,3 +3,25 @@ body {
 	
 
 }
+
+header nav {
+	
+	display: inline-block;
+
+}
+
+form.flat input[type=submit] {
+	
+	display: inline-block;
+	float: none;
+	margin: 0;
+
+}
+
+form.flat label, form .checkbox {
+	
+	display: inline-block;
+	width: auto;
+	margin: 0;
+	
+}

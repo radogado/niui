@@ -34,16 +34,16 @@
 				
 				<div class="align-right align-top">
 					
-					<p>Travel Alert</p>
+					<p class="travel-alert"><b>Travel Alert:</b> <a href=#>BOS Construction</a></p>
 					
 					<nav>
 						
 						<ul>
 							
-							<li>Español</li>
-							<li>Help</li>
-							<li>Contact us</li>
-							<li>SoFly</li>
+							<li><a href=#>Español</a></li>
+							<li><a href=#>Help</a></li>
+							<li><a href=#>Contact us</a></li>
+							<li><a href=#>SoFly</a></li>
 						
 						</ul>
 					
@@ -51,8 +51,8 @@
 					
 					<a>TrueBlue</a>
 					
-					<a class="button">Sign in</a>
-					<a class="button">Join</a>
+					<a class="button" href=#>Sign in</a>
+					<a class="button" href=#>Join</a>
 				
 				</div>
 			
@@ -60,15 +60,149 @@
 			
 			<nav class="drop">
 				
+				<form id="level1"> </form>
+				<form id="level2"> </form>
+									
+				<input type="checkbox" class="trigger burger">
+					
 				<ul>
 					
-					<li>Plan a trip</li>
-					<li>Manage flights</li>
-					<li>Where we jet</li>
-					<li>Flying on JetBlue</li>
-					<li>Travel information</li>
-					<li>TrueBlue</li>
-				
+					<li>
+
+						<input type="radio" class="trigger" form="level1" name="level1">
+											
+						<input type="reset" form="level1">
+													
+						<a href=#>Plan a trip</a>
+						
+						<b class="sub"></b>
+
+						<ul>
+							
+							<li> 
+							
+								<input type="radio" class="trigger" form="level2" name="level2">
+													
+								<input type="reset" form="level2">
+													
+								<a>Flights</a>
+							
+							</li>
+						
+						</ul>
+
+					</li>
+
+					<li>
+
+						<input type="radio" class="trigger" form="level1" name="level1">
+											
+						<input type="reset" form="level1">
+													
+						<a href=#>Manage flights</a>
+						
+						<b class="sub"></b>
+
+						<ul>
+							
+							<li> 
+							
+								<input type="radio" class="trigger" form="level2" name="level2">
+													
+								<input type="reset" form="level2">
+													
+								<a>Flights</a>
+							
+							</li>
+						
+						</ul>
+
+					</li>
+
+					<li>
+
+						<input type="radio" class="trigger" form="level1" name="level1">
+											
+						<input type="reset" form="level1">
+													
+						<a href=#>Where we jet</a>
+						
+						<b class="sub"></b>
+
+						<ul>
+							
+							<li> 
+							
+								<input type="radio" class="trigger" form="level2" name="level2">
+													
+								<input type="reset" form="level2">
+													
+								<a>Flights</a>
+							
+							</li>
+						
+						</ul>
+
+					</li>
+
+					<li>
+
+						<input type="radio" class="trigger" form="level1" name="level1">
+											
+						<input type="reset" form="level1">
+													
+						<a href=#>Flying on JetBlue</a>
+						
+						<b class="sub"></b>
+
+						<ul>
+							
+							<li> 
+							
+								<input type="radio" class="trigger" form="level2" name="level2">
+													
+								<input type="reset" form="level2">
+													
+								<a>Flights</a>
+							
+							</li>
+						
+						</ul>
+
+					</li>
+
+					<li>
+
+						<input type="radio" class="trigger" form="level1" name="level1">
+											
+						<input type="reset" form="level1">
+													
+						<a href=#>Travel information</a>
+						
+						<b class="sub"></b>
+
+						<ul>
+							
+							<li> 
+							
+								<input type="radio" class="trigger" form="level2" name="level2">
+													
+								<input type="reset" form="level2">
+													
+								<a>Flights</a>
+							
+							</li>
+						
+						</ul>
+
+					</li>
+
+					<li>
+
+						<a href=#>TrueBlue</a>
+						
+					</li>
+
 				</ul>
 			
 			</nav>
@@ -121,7 +255,7 @@
 					
 					<h2>Buy.</h2>
 					
-					<div>
+					<div class="align-right">
 						
 						<a class="button">Check in</a>
 						<a class="button">Flight status</a>
@@ -143,16 +277,18 @@
 				
 				    </label>
 					
-				    <div class=checkbox>
+				    <span class=checkbox>
 				        <label>
 				            <input type=radio checked name="flight-option"> <b class=checkbox-icon> </b>Roundtrip
 				        </label>
 				        <label>
 				            <input type=radio name="flight-option"> <b class=checkbox-icon> </b>One-way
 				        </label>
-				    </div>
+				    </span>
 
 					<a href=# title="Booking a multicity itinerary? Click here.">Multicity</a> <a href=#>Optional Services and Fees Information</a>
+					
+					<br>
 					
 					<label>
 						
@@ -177,7 +313,7 @@
 						<input type="text" placeholder="Return date">
 					
 					</label>
-					
+					<br>
 				    <label>
 				
 				        <span class=selector>
@@ -210,6 +346,8 @@
 				            <input type=radio name="currency"> <b class=checkbox-icon> </b>TrueBlue Points
 				        </label>
 				    </div>
+				    
+				    <br>
 				    
 					<a class="modal" href="#">Special assistance</a>	<a class="modal" href="#">New baggage policy</a>	<a class="modal" href="#">8+ travellers, pets, kids, lap infants, FAQs</a>
 
