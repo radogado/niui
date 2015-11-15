@@ -1,6 +1,59 @@
-body {
+$blue: #306FAA;
+$orange: #ff9900;
+$dark-blue: #004990;
+$darker-blue: #00245D;
+$light-blue: #33507d;
+
+body, .button, .lightbox a, .row.wrap>*, .tip, body, button, form .checkbox span, form label>span, h4, h5, html, input[type=submit], label, label span .tip, li, nav.sub a, p {
+	 
+	font-size: 12px;
+	font-family: 'Helvetica Neue', sans-serif;
+	line-height: 19px;
+
+}
+
+p {
 	
+	margin: .5em 0;
+
+}
+ 
+a[href] {
 	
+	color: $blue;
+	text-decoration: none;
+	font-weight: bold;
+
+} 
+
+a[href]:hover {
+	
+	color: $dark-blue;
+	text-decoration: underline;
+
+}
+
+.contain {
+	
+	max-width: 83em;
+
+}
+
+button, a[href].button, input[type=submit] {
+	
+	background: $blue;
+	text-transform: uppercase;
+	color: #fff;
+	font-weight: bold;
+	border-radius: 3px;
+	
+}
+
+button:href, a[href].button:hover, input[type=submit]:hover {
+	
+	background: $dark-blue;
+	color: #fff;
+	text-decoration: none;
 
 }
 
@@ -50,4 +103,76 @@ select {
 	height: auto;
 	margin: 0;
 
+}
+
+.travel-alert b {
+	
+	color: $orange;
+	text-transform: uppercase;
+	
+}
+
+.travel-alert b:before {
+	
+	content: '!';
+	display: inline-block;
+	margin-right: .4em;
+	background: $orange;
+	color: #fff;
+	border-radius: 50%;
+	width: 1.5em;
+	height: 1.5em;
+	text-align: center;
+	
+}
+
+.travel-alert a[href] {
+
+	font-weight: normal;	
+	
+}
+
+.travel-alert a:after {
+
+	content: '▶︎';
+	display: inline-block;
+	font-size: .8em;
+	margin-left: .5em;
+	
+}
+
+.hi {
+	
+	background: $darker-blue;
+	color: #fff;
+	border-radius: 3px;
+
+}
+
+.hi a[href] {
+	
+	color: #fff;
+
+}
+
+.hi input[type=email], .hi input[type=password] {
+	
+	background: $light-blue;
+	color: #fff;
+	
+}
+
+.hi p {
+	
+	margin: .5em 0;
+
+}
+
+.hi a[href]:not(span *):after {
+	
+	content: '▶︎';
+	display: inline-block;
+	font-size: .8em;
+	margin-left: .5em;
+	
 }
