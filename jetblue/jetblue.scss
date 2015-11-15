@@ -4,9 +4,21 @@ body {
 
 }
 
+header {
+	
+	margin: 0;
+
+}
+
 header nav {
 	
 	display: inline-block;
+
+}
+
+nav a {
+	
+	font-size: 1em;
 
 }
 
@@ -23,5 +35,19 @@ form.flat label, form .checkbox {
 	display: inline-block;
 	width: auto;
 	margin: 0;
+	float: none;
 	
+}
+
+form.flat .checkbox label:first-of-type {
+	
+	margin-top: 0;
+
+}
+
+select {
+	
+	height: auto;
+	margin: 0;
+
 }
