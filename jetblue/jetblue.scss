@@ -3,6 +3,7 @@ $orange: #ff9900;
 $dark-blue: #004990;
 $darker-blue: #00245D;
 $light-blue: #33507d;
+$lighter-blue: #f1f5f8;
 
 body, .button, .lightbox a, .row.wrap>*, .tip, body, button, form .checkbox span, form label>span, h4, h5, html, input[type=submit], label, label span .tip, li, nav.sub a, p {
 	 
@@ -39,7 +40,7 @@ a[href]:hover {
 
 }
 
-button, a[href].button, input[type=submit] {
+button, a[href].button, input[type=submit], a.button {
 	
 	background: $blue;
 	text-transform: uppercase;
@@ -49,11 +50,17 @@ button, a[href].button, input[type=submit] {
 	
 }
 
-button:href, a[href].button:hover, input[type=submit]:hover {
+button:href, a[href].button:hover, input[type=submit]:hover, a.button:hover {
 	
 	background: $dark-blue;
 	color: #fff;
 	text-decoration: none;
+
+}
+
+ul li {
+	
+	margin: 0;
 
 }
 
@@ -72,6 +79,16 @@ header nav {
 nav a {
 	
 	font-size: 1em;
+	line-height: 1.5em;
+	min-height: 1.5em;
+
+}
+
+.banner.row {
+	
+	border-spacing: 1em 0;
+	margin-left: -1em;
+	width: calc(100% + 2em);
 
 }
 
@@ -132,7 +149,7 @@ select {
 	
 }
 
-.travel-alert a:after {
+a.arrow:after {
 
 	content: '▶︎';
 	display: inline-block;
@@ -168,11 +185,20 @@ select {
 
 }
 
-.hi a[href]:not(span *):after {
+.buy {
 	
-	content: '▶︎';
-	display: inline-block;
-	font-size: .8em;
-	margin-left: .5em;
+	background: $lighter-blue;
 	
+}
+
+.buy input[type=text] {
+	
+	background: #fff;
+	border-radius: 3px;
+}
+
+.slider-arrow {
+	
+	display: none;
+
 }
