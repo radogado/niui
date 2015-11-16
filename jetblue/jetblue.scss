@@ -185,20 +185,66 @@ a.arrow:after {
 
 }
 
-.buy {
+.box {
 	
 	background: $lighter-blue;
 	
 }
 
-.buy input[type=text] {
+.box input[type=text] {
 	
 	background: #fff;
 	border-radius: 3px;
+
+}
+
+.box h2 {
+	
+	color: $dark-blue;
+	padding: 0;
+
 }
 
 .slider-arrow {
 	
 	display: none;
 
+}
+
+input[type=radio] + .checkbox-icon {
+	
+	background: #fff;
+	border: 2px solid #999;
+	width: .9em;
+	height: .9em;
+
+}
+
+input[type=radio]:checked + .checkbox-icon {
+	
+	background: $dark-blue;
+	box-shadow: 0 0 1px 2px $orange;
+	border-color: #fff;
+
+}
+
+input[type=radio]:checked+.checkbox-icon:before {
+	
+	background: $dark-blue;
+	
+}
+
+form .select {
+	
+	box-shadow: 1px 1px 0 #aaa;
+	height: auto;
+	background: url(up-dwn-arrows.png) no-repeat center center;
+
+}
+
+select {
+	
+	line-height: 2em;
+	background: linear-gradient(to bottom, #fff 0, #f2f2f2 100%);
+	
 }
