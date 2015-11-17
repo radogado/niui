@@ -47,7 +47,8 @@ button, a[href].button, input[type=submit], a.button {
 	color: #fff;
 	font-weight: bold;
 	border-radius: 3px;
-	
+	padding: .3em 1.1em;
+
 }
 
 button:href, a[href].button:hover, input[type=submit]:hover, a.button:hover {
@@ -92,6 +93,18 @@ nav a {
 
 }
 
+.banner.row form .row {
+	
+	border-spacing: 0;
+
+}
+
+.banner.row form .row > * {
+	
+	padding: 0;
+
+}
+
 form.flat input[type=submit] {
 	
 	display: inline-block;
@@ -109,9 +122,22 @@ form.flat label, form .checkbox {
 	
 }
 
+form .checkbox {
+	
+	line-height: 3em;
+	padding: 0 1em;
+
+}
+
+form .checkbox label {
+	
+
+}
+
 form.flat .checkbox label:first-of-type {
 	
 	margin-top: 0;
+	padding-right: .5em;
 
 }
 
@@ -195,6 +221,7 @@ a.arrow:after {
 	
 	background: #fff;
 	border-radius: 3px;
+	box-shadow: -1px -1px 0 0px #ccc;
 
 }
 
@@ -236,15 +263,20 @@ input[type=radio]:checked+.checkbox-icon:before {
 
 form .select {
 	
-	box-shadow: 1px 1px 0 #aaa;
+	box-shadow: 1px 1px 0 #ccc;
 	height: auto;
-	background: url(up-dwn-arrows.png) no-repeat center center;
-
+	border-radius: 3px;
+	background: linear-gradient(to bottom, #fff 0, #f2f2f2 100%);
+	cursor: pointer;
 }
 
 select {
 	
 	line-height: 2em;
-	background: linear-gradient(to bottom, #fff 0, #f2f2f2 100%);
-	
+	background: url(up-dwn-arrows.png) no-repeat center center;
+	background-position: calc(100% - .5em) center;
+	padding-right: 2em;
+	color: $blue;
+	font-weight: bold;
+
 }
