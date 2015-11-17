@@ -36,7 +36,26 @@ a[href]:hover {
 
 .contain {
 	
-	max-width: 83em;
+	max-width: 85em;
+
+}
+
+body:before {
+	
+	content: '';
+	display: block;
+	position: absolute;
+	height: 183px;
+	width: 400px;
+	top: 0;
+	left: -220px;
+	background: url(bg-jetblue-body-logoonly.png);
+	
+}
+
+.logo {
+	
+	color: #fff;
 
 }
 
@@ -110,6 +129,7 @@ form.flat input[type=submit] {
 	display: inline-block;
 	float: none;
 	margin: 0;
+	min-height: 36px;
 
 }
 
@@ -181,7 +201,14 @@ a.arrow:after {
 	display: inline-block;
 	font-size: .8em;
 	margin-left: .5em;
+	margin-right: .5em;
 	
+}
+
+a[href] + a[href] {
+	
+	margin-right: .5em;
+
 }
 
 .hi {
@@ -279,4 +306,34 @@ select {
 	color: $blue;
 	font-weight: bold;
 
+}
+
+nav.drop ul li {
+	
+	border-radius: 3px;
+
+}
+
+nav.drop ul li, nav.drop ul li b.sub {
+	
+	background: $orange;
+
+}
+
+nav.drop ul li a[href] {
+	
+	color: #fff;
+
+}
+
+.slider a {
+	
+	display: block;
+	
+}
+
+.slider img {
+	
+	padding-bottom: 0 !important;
+	
 }
