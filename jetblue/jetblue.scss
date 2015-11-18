@@ -265,6 +265,31 @@ a[href] + a[href] {
 
 }
 
+.slider-nav {
+	
+	background: #fff;
+	border-radius: 3px 3px 0 0;
+	bottom: 0;
+	padding: .1em .3em;
+
+}
+
+.slider-nav a {
+	
+	background: $lighter-blue;
+	text-indent: -100%;
+	overflow: hidden;
+	width: 1.1em;
+	height: 1.1em;
+
+}
+
+.slider-nav a.active {
+	
+	background: $orange;
+
+}
+
 input[type=radio] + .checkbox-icon {
 	
 	background: #fff;
@@ -336,4 +361,17 @@ nav.drop ul li a[href] {
 	
 	padding-bottom: 0 !important;
 	
+}
+
+.slider > * {
+	
+	text-align: center;
+
+}
+
+a p {
+	
+	font-weight: normal;
+	color: #333;
+
 }
