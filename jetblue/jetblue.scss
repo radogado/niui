@@ -107,8 +107,10 @@ nav a {
 .banner.row {
 	
 	border-spacing: 1em 0;
+/*
 	margin-left: -1em;
 	width: calc(100% + 2em);
+*/
 
 }
 
@@ -120,7 +122,7 @@ nav a {
 
 .banner.row form .row > * {
 	
-	padding: 0;
+// 	padding: 0;
 
 }
 
@@ -140,6 +142,18 @@ form.flat label, form .checkbox {
 	margin: 0;
 	float: none;
 	
+}
+
+form.flat .row > div > label {
+	
+	width: 100%;
+
+}
+
+form.flat .row > div > label input {
+	
+	margin: 0;
+
 }
 
 form .checkbox {
