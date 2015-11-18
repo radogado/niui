@@ -333,9 +333,23 @@ select {
 
 }
 
+nav.drop {
+	
+	width: 100%;
+
+}
+
+nav.drop ul {
+	
+	display: flex;
+
+}
+
 nav.drop ul li {
 	
 	border-radius: 3px;
+	flex-grow: 1;
+	margin: 0 .5rem;
 
 }
 
