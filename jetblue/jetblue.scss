@@ -263,13 +263,20 @@ a[href] + a[href] {
 	background: #fff;
 	border-radius: 3px;
 	box-shadow: -1px -1px 0 0px #ccc;
+	margin: 0;
+
+}
+
+.box h2, .hi h2 {
+	
+	padding: .3em 0;
+	font-size: 4em;
 
 }
 
 .box h2 {
 	
 	color: $dark-blue;
-	padding: 0;
 
 }
 
@@ -350,6 +357,7 @@ select {
 nav.drop {
 	
 	width: 100%;
+	margin-top: 1em;
 
 }
 
@@ -367,6 +375,12 @@ nav.drop ul li {
 
 }
 
+nav.drop ul ul li {
+
+	margin-left: 0;
+
+}
+
 nav.drop ul li, nav.drop ul li b.sub {
 	
 	background: $orange;
@@ -376,6 +390,15 @@ nav.drop ul li, nav.drop ul li b.sub {
 nav.drop ul li a[href] {
 	
 	color: #fff;
+	display: block;
+	cursor: pointer;
+
+}
+
+nav.drop input.trigger, nav.drop input:checked ~ input[type=reset] {
+	
+	top: 50%;
+	height: 50%;
 
 }
 
@@ -401,5 +424,12 @@ a p {
 	
 	font-weight: normal;
 	color: #333;
+
+}
+
+footer nav a, footer nav a[href]+a[href] {
+	
+	padding: 0 .5em;
+	margin: 0;
 
 }
