@@ -22,7 +22,7 @@ $line-height: 22px;
 	width: 100%;
 	border-collapse: separate;
 	padding: $line-height/2 0;
-	
+
 }
 
 	.row > * {
@@ -32,6 +32,12 @@ $line-height: 22px;
 		position: relative;
 		padding: 0 $line-height/2;
 		word-wrap: break-word;
+
+	}
+	
+	.row.no-gutter > * {
+		
+		padding: 0;
 
 	}
 	

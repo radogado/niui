@@ -1,0 +1,74 @@
+body {
+	
+	font-family: 'Helvetica Neue', sans-serif;
+	color: #3B4043;
+
+}
+
+nav a {
+	
+	font-size: 1em;
+
+}
+
+.banner a[href], #content a[href] {
+	
+	color: inherit;
+	text-decoration: none;
+
+}
+
+.banner a[href]:after, #content a[href]:after {
+
+	content: ' ›';
+
+}
+
+a[href].button {
+	
+	background: transparent;
+	border: 1px solid;
+	border-color: inherit;
+	text-transform: uppercase;
+	font-family: 'Helvetica Neue', sans-serif;
+
+}
+
+header {
+	
+	padding: 1em;
+	
+}
+
+header a.logo, header nav {
+	
+	display: inline-block;
+
+}
+
+header a.logo img {
+	
+	display: block;
+	height: 5em;
+
+}
+
+.aspect.banner {
+	
+	text-align: left;
+	background: url(all-new-mrj-first-flight) no-repeat center center;
+	background-size: cover;
+	
+}
+
+.aspect.banner > div {
+	
+	display: inline-block;
+	vertical-align: top;
+	text-align: left;
+	margin: 1em;
+	padding: 1em;
+	background: rgba(70, 80, 92, 0.65);
+	color: #fff;
+	
+}

@@ -1,7 +1,7 @@
 natUIve: mostly native front-end framework
 ===
 
-13 KB framework leveraging browsers' built-in capabilities, with subtle customisation. [Features demo](http://radogado.github.io/natuive/) ([minified](http://natuive.net)), [WordPress theme](http://rado.bg), [Microsoft homepage](http://natuive.net/microsoft/), [Imperial Innovations homepage](http://natuive.net/imperialinnovations/), [Pebble homepage](http://natuive.net/pebble/), [Seat 61](http://radogado.github.io/natuive/seat61/), [Classless demo](http://radogado.github.io/natuive/classless.html)
+13 KB framework leveraging browsers' built-in capabilities, with subtle customisation. [Features demo](http://radogado.github.io/natuive/) ([minified](http://natuive.net)), [WordPress theme](http://rado.bg), [Microsoft homepage](http://natuive.net/microsoft/), [Imperial Innovations homepage](http://natuive.net/imperialinnovations/), [Pebble homepage](http://natuive.net/pebble/), [Seat 61](http://radogado.github.io/natuive/seat61/), [JetBlue](http://radogado.github.io/natuive/jetblue/), [Classless demo](http://radogado.github.io/natuive/classless.html)
 ---
 
 - Unbreakable, flexible (no hardcoded dimensions), responsive grid
