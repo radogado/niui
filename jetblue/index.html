@@ -26,9 +26,9 @@
 			
 			<div class="row">
 				
-				<div class="align-bottom logo">
+				<div class="align-bottom logo col3">
 					
-					JetBlue
+					<a href=#> <img src=jetblue-white-reg alt=JetBlue> </a>
 					
 				</div>
 				
@@ -49,7 +49,7 @@
 					
 					</nav>
 					
-					<a style="display: inline-block;"><img src=bg-true-blue-label.png alt="TrueBlue"></a>
+					<a style="display: inline-block;"><img src=bg-true-blue-label.png alt="TrueBlue" style="display: block;"></a>
 					
 					<a class="button" href=#>Sign in</a>
 					<a class="button" href=#>Join</a>
@@ -61,7 +61,6 @@
 			<nav class="drop">
 				
 				<form id="level1"> </form>
-				<form id="level2"> </form>
 									
 				<input type="checkbox" class="trigger burger">
 					
@@ -79,15 +78,15 @@
 
 						<ul>
 							
-							<li> 
-							
-								<input type="radio" class="trigger" form="level2" name="level2">
-													
-								<input type="reset" form="level2">
-													
-								<a>Flights</a>
-							
-							</li>
+							<li> <a href=#>Flights</a></li>
+							<li> <a href=#>Getaways</a></li>
+							<li> <a href=#>Hotels</a></li>
+							<li> <a href=#>Cars</a></li>
+							<li> <a href=#>Cruises</a></li>
+							<li> <a href=#>Deals</a></li>
+							<li> <a href=#>Timetables</a></li>
+							<li> <a href=#>Fare alerts</a></li>
+							<li> <a href=#>Best Fare Finder</a></li>
 						
 						</ul>
 
@@ -119,11 +118,7 @@
 							
 							<li> 
 							
-								<input type="radio" class="trigger" form="level2" name="level2">
-													
-								<input type="reset" form="level2">
-													
-								<a>Flights</a>
+								<a href=#>Sub menu</a>
 							
 							</li>
 						
@@ -145,11 +140,7 @@
 							
 							<li> 
 							
-								<input type="radio" class="trigger" form="level2" name="level2">
-													
-								<input type="reset" form="level2">
-													
-								<a>Flights</a>
+								<a href=#>Sub menu</a>
 							
 							</li>
 						
@@ -194,7 +185,7 @@
 					</label>
 					<br>
 					<span style="text-transform: uppercase;" class="align-middle">
-						<input type="submit" value="Sign in"> or <a href=#>Join now!</a>
+						<input type="submit" value="Sign in"> <span style="padding: 0 .5em;">or</span> <a href=#>Join now!</a>
 					</span>
 					<br>
 					<br>
@@ -212,7 +203,7 @@
 				
 			</div>
 			
-			<div class="box">
+			<div class="box buy">
 				
 				<div class="row">
 					
@@ -220,22 +211,22 @@
 					
 					<div class="align-right align-middle" style="padding: 0;">
 						
-						<a class="button">Check in</a>
-						<a class="button">Flight status</a>
+						<a class="button icon"> <img src=checkin.png alt="Check in"> Check in</a>
+						<a class="button icon"> <img src=status.png alt="Status"> Flight status</a>
 					
 					</div>
 				
 				</div>
 				
-				<button>Flights</button>
-				<button>Flights + Hotel = Savings</button>
+				<button class="rounded active">Flights</button>
+				<button class="rounded">Flights + Hotel = Savings</button>
 				
 				<form class="flat align-middle">
 					
 				    <label>
 				
 				        <span class=select>
-				            <select> <option>1 recent searches</option> </select>
+				            <select> <option>0 recent searches</option> </select>
 				        </span>
 				
 				    </label>
@@ -257,21 +248,21 @@
 						
 						<div>
 					
-						<label>
+							<label>
+								
+								<input type="text" placeholder="From">
 							
-							<input type="text" placeholder="From">
-						
-						</label>
+							</label>
 						
 						</div>
 						
 						<div>
 					
-						<label>
+							<label>
+								
+								<input type="text" placeholder="To">
 							
-							<input type="text" placeholder="To">
-						
-						</label>
+							</label>
 						
 						</div>
 					
@@ -281,21 +272,21 @@
 						
 						<div>
 
-						<label>
+							<label>
+								
+								<input type="text" placeholder="Depart date">
 							
-							<input type="text" placeholder="Depart date">
-						
-						</label>
+							</label>
 						
 						</div>
 						
 						<div>
 					
-						<label>
+							<label>
+								
+								<input type="text" placeholder="Return date">
 							
-							<input type="text" placeholder="Return date">
-						
-						</label>
+							</label>
 						
 						</div>
 
@@ -340,7 +331,7 @@
 					    
 					    <div>
 				    
-							<a class="modal" href="#">Special assistance</a>	<a class="modal" href="#">New baggage policy</a>	<a class="modal" href="#">8+ travellers, pets, kids, lap infants, FAQs</a>
+							<a class="modal" href="#"> <img src=assistance.png alt=Assistance class="align-middle"> Special assistance</a> &nbsp; <a class="modal" href="#"> <img src=baggage.png alt=Baggage class="align-middle"> New baggage policy</a> &nbsp; <a class="modal" href="#"> <img src=faq.png alt=FAQ class="align-middle"> 8+ travellers, pets, kids, lap infants, FAQs</a>
 						
 						</div>
 
@@ -364,12 +355,22 @@
 	
 	<main id=content>
 	
-		<div class="row">
+		<div class="row spacing-horizontal">
 			
-			<div class="col23">
+			<div class="col23" style="padding: 0;">
 				
 				<div class="slider box">
 					
+					<div>
+						
+						<a href=#>
+							
+							<img src=GW_638x424_Hero_NatlSale.jpg alt=Ad>
+						
+						</a>
+						
+					</div>
+				
 					<div>
 						
 						<a href=#>
@@ -390,43 +391,91 @@
 						
 					</div>
 				
-					<div>
-						
-						<a href=#>
-							
-							<img src=GW_638x424_Hero_NatlSale.jpg alt=Ad>
-						
-						</a>
-						
-					</div>
-				
 				</div>
 				
 			</div>
 			
-			<div class="box">
+			<div class="box featured">
 				
 				<h3>Featured Deals</h3>				
 				<hr>
 				<div class="row">
 					<div>
-						From New York City, NY
-						To Nassau, Bahamas
-						Restrictions apply
+						From <b>New York City, NY</b><br>
+						To <b>Nassau, Bahamas</b><br>
+						<small>Restrictions apply</small>
 					</div>
 					<div>
-						From
-						$99
-						one way
+						<div class="row">
+							<div class="align-right">
+								From
+								<em>$99</em>
+								one way
+							</div>
+							<div class="align-middle">
+								
+								<a href=# class="button">→</a>
+								
+							</div>
+						</div>
 					</div>
 				</div>
+				<hr>
+				<div class="row">
+					<div>
+						From <b>New York City, NY</b><br>
+						To <b>Nassau, Bahamas</b><br>
+						<small>Restrictions apply</small>
+					</div>
+					<div>
+						<div class="row">
+							<div class="align-right">
+								From
+								<em>$99</em>
+								one way
+							</div>
+							<div class="align-middle">
+								
+								<a href=# class="button">→</a>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div>
+						From <b>New York City, NY</b><br>
+						To <b>Nassau, Bahamas</b><br>
+						<small>Restrictions apply</small>
+					</div>
+					<div>
+						<div class="row">
+							<div class="align-right">
+								From
+								<em>$99</em>
+								one way
+							</div>
+							<div class="align-middle">
+								
+								<a href=# class="button">→</a>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<hr>
+				<br>
+				<div class="align-right">
 				<a class="button" href=#>See more deals</a>
+				<br><br>
+				</div>
 			
 			</div>
 			
 		</div>
 		
-		<div class="row" style="border-spacing: 1em;">
+		<div class="row actions">
 			
 			<div class="box">
 				
@@ -483,39 +532,43 @@
 		
 		</div>
 		
-		<form class="box">
-			
-			<label>
-			
-				<span class="align-left">
-					
-					<img src=jbapp-icon.png alt=App style="float: left; margin: 0 1em; padding: 0 !important">
-					Same smart app. More smartphones.<br>
-					<a href="#">Download the JetBlue mobile app for iPhone and Android now!</a>
-				</span>
+		<div class="pad">
 				
-				<input type="text" placeholder="Search jetblue.com">
+			<form class="box">
+		
+				<label>
+				
+					<span class="align-left">
+						
+						<img src=jbapp-icon.png alt=App style="float: left; margin: 0 1em; padding: 0 !important">
+						Same smart app. More smartphones.<br>
+						<a href="#">Download the JetBlue mobile app for iPhone and Android now!</a>
+					</span>
+					
+					<input type="text" class=search placeholder="Search jetblue.com">
+				
+				</label>
 			
-			</label>
+			</form>
 		
-		</form>
-		
+		</div>
+		<br>
 		<div class="row">
 			
 			<div>
 				
-				<p><a href="#">SoFly ™</a>      View and share JetBlue pics and travel tricks</p>
-				<p><a href="#">Like us on Facebook</a>  1,025,719 like this</p>
-				<p><a href="#">Follow us at @JetBlue</a>  1,939,033 followers</p>
-				<p><a href="#">Follow us on Instagram</a>  63,525 followers</p>
-				<p><a href="#">Visit us on YouTube</a>  5,610,887 total views</p>
-				<p><a href="#">BlueTales Blog</a>  Your destination for all things JetBlue and beyond</p>
+				<p><a href="#"> <img src=soflybubbleicon.png alt=soflybubbleicon class="align-middle"> SoFly ™</a>      View and share JetBlue pics and travel tricks</p>
+				<p><a href="#"> <img src=facebookicon.png alt=facebookicon class="align-middle"> Like us on Facebook</a>  1,025,719 like this</p>
+				<p><a href="#"> <img src=twittericon.png alt=twittericon class="align-middle"> Follow us at @JetBlue</a>  1,939,033 followers</p>
+				<p><a href="#"> <img src=instagramicon.png alt=instagramicon class="align-middle"> Follow us on Instagram</a>  63,525 followers</p>
+				<p><a href="#"> <img src=youtubeicon.png alt=youtubeicon class="align-middle"> Visit us on YouTube</a>  5,610,887 total views</p>
+				<p><a href="#"> <img src=bluetalesicon.png alt=bluetalesicon class="align-middle"> BlueTales Blog</a>  Your destination for all things JetBlue and beyond</p>
 				
 			</div>
 			
 			<div>
 				
-				<div class="row">
+				<div class="row more-links">
 				
 					<ul>
 		                <li class="list-head">Get to know us</li>
@@ -566,7 +619,7 @@
 
 	<!-- Footer - Start -->
 	
-	<footer>
+	<footer class="pad">
 		
 		<nav>
 			

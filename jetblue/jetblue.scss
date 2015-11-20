@@ -4,18 +4,19 @@ $dark-blue: #004990;
 $darker-blue: #00245D;
 $light-blue: #33507d;
 $lighter-blue: #f1f5f8;
+$line-height: 19px;
 
 body, .button, .lightbox a, .row.wrap>*, .tip, body, button, form .checkbox span, form label>span, h4, h5, html, input[type=submit], label, label span .tip, li, nav.sub a, p {
 	 
 	font-size: 12px;
 	font-family: 'Helvetica Neue', sans-serif;
-	line-height: 19px;
+	line-height: $line-height;
 
 }
 
 p {
 	
-	margin: .5em 0;
+	margin: $line-height/2 0;
 
 }
  
@@ -36,7 +37,7 @@ a[href]:hover {
 
 .contain {
 	
-	max-width: 85em;
+	max-width: 83em;
 
 }
 
@@ -56,6 +57,15 @@ body:before {
 .logo {
 	
 	color: #fff;
+	font-size: 2em;
+
+}
+
+.logo img {
+	
+	width: 90px;
+	margin-left: -7px;
+	margin-bottom: -7px;
 
 }
 
@@ -75,6 +85,48 @@ button:href, a[href].button:hover, input[type=submit]:hover, a.button:hover {
 	background: $dark-blue;
 	color: #fff;
 	text-decoration: none;
+
+}
+
+button.rounded {
+	
+	border-radius: 3em;
+	background: $lighter-blue;
+	border: 2px solid #D0DEEB;
+	color: $darker-blue;
+	padding: .3em 3em;
+	position: relative;
+
+}
+
+button.rounded.active {
+	
+	background: $dark-blue;
+	border-color: $dark-blue;
+	color: #fff;
+
+}
+
+button.rounded.active:after {
+	
+	content: '';
+	display: block;
+	position: absolute;
+	height: 0;
+	width: 0;
+	border: solid transparent;
+	border-top-color: #004990;
+	border-width: 7px;
+	margin-left: -7px;
+	top: 100%;
+	left: 50%;
+
+}
+
+a.button.icon img { 
+	
+	display: inline-block;
+	vertical-align: middle;
 
 }
 
@@ -99,18 +151,14 @@ header nav {
 nav a {
 	
 	font-size: 1em;
-	line-height: 1.5em;
-	min-height: 1.5em;
+	line-height: $line-height;
+	min-height: $line-height;
 
 }
 
-.banner.row {
+.banner.row, .row.actions {
 	
-	border-spacing: 1em 0;
-/*
-	margin-left: -1em;
-	width: calc(100% + 2em);
-*/
+	border-spacing: $line-height/2 0;
 
 }
 
@@ -120,18 +168,12 @@ nav a {
 
 }
 
-.banner.row form .row > * {
-	
-// 	padding: 0;
-
-}
-
 form.flat input[type=submit] {
 	
 	display: inline-block;
 	float: none;
 	margin: 0;
-	min-height: 36px;
+	min-height: $line-height*2;
 
 }
 
@@ -158,8 +200,8 @@ form.flat .row > div > label input {
 
 form .checkbox {
 	
-	line-height: 3em;
-	padding: 0 1em;
+	line-height: $line-height*2;
+	padding: 0 $line-height/2;
 
 }
 
@@ -171,14 +213,13 @@ form .checkbox label {
 form.flat .checkbox label:first-of-type {
 	
 	margin-top: 0;
-	padding-right: .5em;
+	padding-right: $line-height/2;
 
 }
 
-select {
+.buy form.flat input[type=submit] {
 	
-	height: auto;
-	margin: 0;
+	background: $orange;
 
 }
 
@@ -193,12 +234,12 @@ select {
 	
 	content: '!';
 	display: inline-block;
-	margin-right: .4em;
+	margin-right: $line-height/2;
 	background: $orange;
 	color: #fff;
 	border-radius: 50%;
-	width: 1.5em;
-	height: 1.5em;
+	width: $line-height;
+	height: $line-height;
 	text-align: center;
 	
 }
@@ -209,20 +250,29 @@ select {
 	
 }
 
+/*
+a.arrow {
+	
+	position: relative;
+	padding-right: 1em;
+	margin-right: .5em;
+	
+}
+*/
+
 a.arrow:after {
 
 	content: '▶︎';
 	display: inline-block;
 	font-size: .8em;
 	margin-left: .5em;
-	margin-right: .5em;
+// 	margin-right: .5em;
+/*
+	position: absolute;
+	right: -.5em;
+	bottom: -.3em;
+*/
 	
-}
-
-a[href] + a[href] {
-	
-	margin-right: .5em;
-
 }
 
 .hi {
@@ -248,7 +298,13 @@ a[href] + a[href] {
 
 .hi p {
 	
-	margin: .5em 0;
+	margin: $line-height/2 0;
+
+}
+
+.hi form .checkbox {
+	
+	padding: 0;
 
 }
 
@@ -269,7 +325,7 @@ a[href] + a[href] {
 
 .box h2, .hi h2 {
 	
-	padding: .3em 0;
+	padding: $line-height/2 0;
 	font-size: 4em;
 
 }
@@ -277,6 +333,18 @@ a[href] + a[href] {
 .box h2 {
 	
 	color: $dark-blue;
+
+}
+
+.box .row > * {
+	
+	padding-right: 0;
+
+}
+
+.box .row > *:first-child {
+	
+	padding-left: 0;
 
 }
 
@@ -334,13 +402,15 @@ input[type=radio]:checked+.checkbox-icon:before {
 	
 }
 
-form .select {
+form .select, a.button.icon {
 	
 	box-shadow: 1px 1px 0 #ccc;
 	height: auto;
 	border-radius: 3px;
 	background: linear-gradient(to bottom, #fff 0, #f2f2f2 100%);
 	cursor: pointer;
+	color: $dark-blue;
+
 }
 
 select {
@@ -351,13 +421,16 @@ select {
 	padding-right: 2em;
 	color: $blue;
 	font-weight: bold;
-
+	height: auto;
+	margin: 0;
+	padding-left: .6em
+	
 }
 
 nav.drop {
 	
 	width: 100%;
-	margin-top: 1em;
+	padding: $line-height/2;
 
 }
 
@@ -375,13 +448,26 @@ nav.drop ul li {
 
 }
 
+nav.drop ul li:first-child {
+	
+	margin-left: 0;
+	
+}
+
+nav.drop ul li:last-child {
+	
+	margin-right: 0;
+	background: $dark-blue;
+	
+}
+
 nav.drop ul ul li {
 
 	margin-left: 0;
 
 }
 
-nav.drop ul li, nav.drop ul li b.sub {
+nav.drop ul li, nav.drop ul li b.sub, nav.drop ul li .trigger:checked ~ b.sub, nav.drop ul ul li, nav.drop ul li li a, .no-touch nav.drop ul li li:hover a {
 	
 	background: $orange;
 
@@ -392,6 +478,8 @@ nav.drop ul li a[href] {
 	color: #fff;
 	display: block;
 	cursor: pointer;
+	font-size: 1.2rem;
+	white-space: normal;
 
 }
 
@@ -399,6 +487,21 @@ nav.drop input.trigger, nav.drop input:checked ~ input[type=reset] {
 	
 	top: 50%;
 	height: 50%;
+
+}
+
+nav.drop ul ul li {
+	
+	margin: 0;
+
+}
+
+nav.drop ul li b.sub:after {
+	
+	background: url(arrow-down-white.png) no-repeat center center;
+	width: 10px;
+	display: inline-block;
+	padding: 1px;
 
 }
 
@@ -411,6 +514,8 @@ nav.drop input.trigger, nav.drop input:checked ~ input[type=reset] {
 .slider img {
 	
 	padding-bottom: 0 !important;
+	display: block;
+	margin: 0 auto;
 	
 }
 
@@ -431,5 +536,120 @@ footer nav a, footer nav a[href]+a[href] {
 	
 	padding: 0 .5em;
 	margin: 0;
+
+}
+
+.featured {
+	
+	color: $blue;
+
+}
+
+.featured b {
+	
+	color: $dark-blue;
+
+}
+
+.featured h3 {
+	
+	text-transform: uppercase;
+	font-size: 1.7em;
+	color: $dark-blue;
+	margin-bottom: -$line-height/2;
+
+}
+
+.featured em {
+	
+	font-size: 3em;
+	font-style: normal;
+	font-weight: bold;
+	display: block;
+	color: $dark-blue;
+	white-space: nowrap;
+
+}
+
+hr {
+	
+	border-top-color: $blue;
+
+}
+
+.more-links ul {
+	
+	list-style: none;
+
+}
+
+.more-links li.list-head {
+	
+	color: $darker-blue;
+	font-weight: bold;
+	font-size: 1.2em;
+
+}
+
+input[type=text].search {
+	
+	 margin-right: 1em; width: calc(50% - 1em);
+
+}
+
+@media screen and (max-width: 640px) {
+	
+	nav.drop ul li {
+		
+		margin: 0;
+		
+	}
+
+	nav.drop ul ul li, nav.drop ul ul li:first-child {
+		
+		margin-left: 1rem;
+		
+	}
+	
+	nav.drop input:checked ~ input[type=reset] {
+		
+		top: 0;
+		height: 100%;
+
+	}
+	
+	.no-touch nav.drop ul li li:hover {
+		
+		background: transparent;
+		
+	}
+	
+	nav.drop input.trigger.burger {
+		
+		top: 0;
+		height: 3em;
+		width: 3em;
+		
+	}
+	
+	.box .row > * {
+		
+		padding: 0;
+		
+	}
+	
+	.actions img {
+		
+		margin: 0 auto;
+		display: block;
+		
+	}
+
+	input[type=text].search {
+		
+		margin: 1em;
+		width: calc(100% - 2em);
+	
+	}
 
 }

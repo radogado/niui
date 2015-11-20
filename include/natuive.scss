@@ -207,6 +207,24 @@ $line-height: 22px;
 
 	}
 	
+	.row.spacing {
+		
+		border-spacing: $line-height/2;
+
+	}
+	
+	.row.spacing-horizontal {
+		
+		border-spacing: $line-height/2 0;
+
+	}
+	
+	.row.spacing-vertical {
+		
+		border-spacing: 0 $line-height/2;
+
+	}
+	
 /* Basic elements */
 
 html {
@@ -2807,6 +2825,17 @@ input.trigger, input.trigger ~ input[type=reset] {
 	border-radius: 0;
 	z-index: 3;
 	padding: 0;
+
+}
+
+hr {
+
+    display: block;
+    height: 1px;
+    border: 0;   
+    border-top: 1px solid #cccccc;
+    margin: 1em 0;
+    padding: 0;
 
 }
 
