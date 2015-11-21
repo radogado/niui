@@ -35,7 +35,7 @@ $line-height: 22px;
 
 	}
 	
-	.row.no-gutter > * {
+	.row.no-gutter, .row.no-gutter > * {
 		
 		padding: 0;
 
