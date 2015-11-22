@@ -1682,6 +1682,13 @@ video a[href] {
 
 }
 
+.aspect > * {
+	
+	display: inline-block;
+	vertical-align: top;
+
+}
+
 .aspect img {
 	
 	max-width: 100%;
