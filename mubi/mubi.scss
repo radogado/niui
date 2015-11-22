@@ -17,12 +17,21 @@ header {
 	
 	position: fixed;
 	width: 100%;
+	z-index: 1;
+	margin: 0;
+	border-bottom: 1px solid #aaa;
 
 }
 
 .banner {
 	
 	padding-top: 5em;
+
+}
+
+header form.flat {
+	
+	white-space: nowrap;
 
 }
 
@@ -73,11 +82,105 @@ hr {
 	
 }
 
+.list b {
+	
+	color: #009c7c;
+	
+}
+
+a.button[href], button {
+	
+	background: #009c7c;
+	font-weight: bold;
+	
+}
+
 .related.aspect > div {
 	
 	padding: 1em;
 	color: #fff;
 	text-transform: uppercase;
-	text-shadow: 1px 1px 0px #000, -1px -1px 0px #000;
+	text-shadow: 1px 0px 1px #000;
+
+}
+
+.rating {
+	
+	white-space: nowrap;
+	color: #878787;
+	position: relative;
+	display: inline-block;
+	white-space: nowrap;
+	font-size: 1.7em;
+
+}
+
+.rating:before {
+
+	content: '★★★★★';
+
+}
+
+.rating b {
+	
+	display: block;	
+	color: #fff;
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	width: 67%;
+	font-weight: normal;
+
+}
+
+.rating b:before {
+	
+	content: '★★★★★';
+
+}
+
+main .rating b {
+	
+	color: #fee134;
+		
+}
+
+time {
+	
+	color: #999;
+
+}
+
+time:before {
+	
+	content: '🕒 ';
+	
+}
+
+a[href] {
+	
+	text-decoration: none;
+	font-weight: bold;
+	
+}
+
+a.related[href] {
+	
+	font-weight: normal;
+	
+}
+
+form.flat input[type=submit] {
+	
+	margin-top: 0;
+	background: transparent;
+	
+}
+
+form.flat input[type=text] {
+	
+	background: transparent;
+	color: #fff;
 
 }
