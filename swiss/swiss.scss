@@ -7,18 +7,33 @@ header, #content, footer {
 header {
 	
 	margin: 0;
+	padding-bottom: 1.5em;
 	
+}
+
+header nav, header form, footer nav, footer form {
+	
+	display: inline-block;
+	vertical-align: middle;
+
 }
 
 #content {
 	
 	min-height: 100vh;
+	padding-top: 1.5em;
 
 }
 
 .banner {
 	
 	height: 33em;
+
+}
+
+.banner .slider-wrap {
+	
+	margin-top: -1.5em;
 
 }
 

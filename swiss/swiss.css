@@ -1,1 +1,1 @@
-header,#content,footer{background:#fff}header{margin:0}#content{min-height:100vh}.banner{height:33em}.parallax-back{background:#fff url(Taxi-A330-Stage.jpg) top center no-repeat}
+header,#content,footer{background:#fff}header{margin:0;padding-bottom:1.5em}header nav,header form,footer nav,footer form{display:inline-block;vertical-align:middle}#content{min-height:100vh;padding-top:1.5em}.banner{height:33em}.banner .slider-wrap{margin-top:-1.5em}.parallax-back{background:#fff url(Taxi-A330-Stage.jpg) top center no-repeat}
