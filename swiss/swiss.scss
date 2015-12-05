@@ -193,3 +193,29 @@ footer .about nav a {
 	padding: 1em;
 	
 }
+
+.offers a, .offers a b, .offers a em {
+	
+	display: block;
+	background: center center no-repeat;
+	background-size: cover;
+
+}
+
+.offers a {
+	
+	margin-bottom: 1em;
+
+}
+
+.offers a span {
+	
+	background: url(offer-box-bg.png) top right no-repeat;
+	color: #fff;
+	display: inline-block;
+	padding: .5em 3em .5em 1em;
+	margin: 4em 0 1em -1em;
+	font-size: 1.3em;
+
+}
+
