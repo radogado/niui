@@ -10,6 +10,12 @@ body {
 
 }
 
+.contain {
+	
+	max-width: 65em;
+
+}
+
 a[href] {
 	
 	text-decoration: none;
@@ -128,6 +134,13 @@ footer .about nav a {
 .highlights a {
 	
 	background: $grey;
+	padding-bottom: 2em;
+	
+}
+
+.highlights a > span {
+	
+	padding-bottom: 3em;
 	
 }
 
@@ -147,6 +160,9 @@ footer .about nav a {
 	font-size: .7em;
 	display: block;
 	margin-top: 1em;
+	position: absolute;
+	bottom: 1em;
+	line-height: 1;
 	
 }
 
@@ -154,6 +170,13 @@ footer .about nav a {
 	
 	content: ' ►';
 	font-size: .8em;
+
+}
+
+.highlights h3 {
+	
+	line-height: 1;
+	margin-top: .7em
 
 }
 
@@ -199,6 +222,13 @@ footer .about nav a {
 	display: block;
 	background: center center no-repeat;
 	background-size: cover;
+
+}
+
+.offers a em {
+	
+	font-style: normal;
+	font-weight: bold;
 
 }
 
