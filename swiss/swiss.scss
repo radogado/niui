@@ -1,3 +1,34 @@
+$grey: #f5f4f1;
+$dark-grey: #edece8;
+$darker-grey: #6f6660;
+$line-height: 22px;
+
+body {
+	
+	font-family: Helvetica Neue, sans-serif;
+	color: #9e9890;
+
+}
+
+a[href] {
+	
+	text-decoration: none;
+	color: #9e9890;
+
+}
+
+h1, h2, h3, h4 {
+	
+	color: #333;
+
+}
+
+.backtotop[href] {
+	
+	display: none;
+
+}
+
 header, #content, footer {
 	
 	background: #fff;
@@ -7,13 +38,26 @@ header, #content, footer {
 header {
 	
 	margin: 0;
-	padding-bottom: 1.5em;
+	padding-bottom: 4em;
 	
 }
 
-header nav, header form, footer nav, footer form {
+header nav, header form, footer nav, footer form, main form, main nav {
 	
 	display: inline-block;
+	vertical-align: middle;
+
+}
+
+header nav ul li a[href] {
+	
+	color: #333;
+
+}
+
+header .logo img {
+	
+	height: 2.2em;
 	vertical-align: middle;
 
 }
@@ -33,7 +77,13 @@ header nav, header form, footer nav, footer form {
 
 .banner .slider-wrap {
 	
-	margin-top: -1.5em;
+	margin-top: -3em;
+
+}
+
+.banner .contain {
+	
+	padding: 0 $line-height/2;
 
 }
 
@@ -41,4 +91,105 @@ header nav, header form, footer nav, footer form {
 
 	background: #fff url(Taxi-A330-Stage.jpg) top center no-repeat;
 
+}
+
+footer nav:not(.about nav) a, footer nav:not(.about nav) ul {
+	
+	display: block;
+
+}
+
+footer {
+
+	padding-bottom: 2em;
+	background: $grey;
+
+}
+
+footer .about img {
+	
+	height: 1.3em;
+
+}
+
+footer .about {
+	
+	background: $dark-grey;
+
+}
+
+footer .about nav a {
+	
+	font-weight: bold;
+	color: $darker-grey;
+
+}
+
+.highlights a {
+	
+	background: $grey;
+	
+}
+
+.highlights img {
+	
+	display: block;
+	margin-bottom: -1em;
+	border-bottom: 4px solid #d6d3cc;
+	padding-bottom: 0 !important;
+	
+}
+
+.highlights span span {
+	
+	color: #333;
+	text-transform: uppercase;
+	font-size: .7em;
+	display: block;
+	margin-top: 1em;
+	
+}
+
+.highlights span span:after {
+	
+	content: ' ►';
+	font-size: .8em;
+
+}
+
+.slider-wrap.tabs > .slider-nav a {
+	
+	background: $grey;
+	padding: .75em;
+	color: $darker-grey;
+	border-top: 1px solid #e1dfda;
+	border-right: 1px solid #e1dfda;
+	
+}
+
+.slider-wrap.tabs > .slider-nav a:first-child {
+	
+	border-left: 1px solid #e1dfda;
+	
+}
+
+.slider-wrap.tabs > .slider-nav a.active {
+	
+	background: $darker-grey;
+	border-top: 1px solid $darker-grey;
+	color: #fff;
+	
+}
+
+.slider-wrap.tabs > .slider-nav a.active:first-child {
+	
+	border-left: 1px solid $darker-grey;
+	
+}
+
+.slider > * {
+	
+	background: $darker-grey;
+	padding: 1em;
+	
 }

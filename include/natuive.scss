@@ -255,6 +255,7 @@ html.nooverflow, html.nooverflow body {
 .pad {
 	
 	padding: $line-height/2;
+	display: block;
 
 }
 
@@ -471,8 +472,13 @@ nav {
 		
 		position: relative;
 		padding: 0 .5em 0 0;
-		font-size: 1.3em;
 
+	}
+	
+	header nav a {
+		
+		font-size: 1.3em;
+	
 	}
 	
 	nav a[href].active {
