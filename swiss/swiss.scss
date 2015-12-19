@@ -217,6 +217,12 @@ footer .about nav a {
 	
 }
 
+.slider > * .tab {
+	
+	display: none;
+	
+}
+
 .offers a, .offers a b, .offers a em {
 	
 	display: block;
@@ -246,6 +252,12 @@ footer .about nav a {
 	padding: .5em 3em .5em 1em;
 	margin: 4em 0 1em -1em;
 	font-size: 1.3em;
+
+}
+
+form .checkbox, form.flat .checkbox label:first-of-type {
+	
+	margin: 0;
 
 }
 

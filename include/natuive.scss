@@ -54,7 +54,7 @@ $line-height: 22px;
 		max-width: 100%; /* instead of overflow-x:hidden, which would also activate overflow-y:hidden and clip the tooltip */
 		
 	}
-
+/* colXY where the column takes up X/Y of space; colY means 1/Y */
 	body .row > .col23 { // body used for rules override
 
 		width: 66.6%;
@@ -82,6 +82,12 @@ $line-height: 22px;
 	body .row > .col2 {
 
 		width: 50%;
+
+	}
+	
+	body .row > .col1 { /* for wrap grid */
+
+		width: 100%;
 
 	}
 	
@@ -656,6 +662,13 @@ form {
 		clear: both;
 	
 	}
+	
+	form span { /* When used as a wrapper for inline checkboxes */
+		
+		display: inline-block;
+		vertical-align: middle;
+
+	}
 
 	header form {
 		
@@ -933,7 +946,7 @@ form {
 		
 	}
 	
-	form.flat .checkbox label:first-of-type {
+	form.flat .checkbox label:first-of-type { /* To do: not needed when checkboxes are inline */
 		
 		margin-top: $line-height;
 		
