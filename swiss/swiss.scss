@@ -49,6 +49,12 @@ header {
 	
 }
 
+header nav a {
+	
+	font-size: 1.5em;
+
+}
+
 header nav, header form, footer nav, footer form, main form, main nav {
 	
 	display: inline-block;
@@ -59,6 +65,14 @@ header nav, header form, footer nav, footer form, main form, main nav {
 header nav ul li a[href] {
 	
 	color: #333;
+	line-height: 1;
+
+}
+
+header form.flat input {
+	
+	margin: 0;
+	min-height: 0;
 
 }
 
@@ -75,7 +89,7 @@ header nav.drop ul li {
 
 }
 
-header nav.drop ul li a, nav.drop ul li b.sub, header nav.top ul li a[href] {
+header nav.drop ul li a, nav.drop ul li b.sub, header .top nav ul li a[href], header .top input[type=search] {
 	
 	font-size: .7rem;
 	padding: 0 .5em;
@@ -84,6 +98,89 @@ header nav.drop ul li a, nav.drop ul li b.sub, header nav.top ul li a[href] {
 	text-transform: uppercase;
 	font-weight: bold;
 	color: $brown;
+
+}
+
+nav.drop ul li .trigger:checked ~ a, nav.drop ul li .trigger:checked ~ b.sub {
+	
+	background: none;
+
+}
+
+header .top ::-webkit-input-placeholder {
+	
+	color: $brown;
+	
+}
+
+header .top input[type=submit] {
+	
+	background: transparent url(search.svg) no-repeat center center;
+	margin-top: 0;
+
+}
+
+header .top input[type=submit], header .top input[type=search] {
+	
+	display: inline-block;
+	width: auto;
+	float: none;
+	vertical-align: middle;
+	
+}
+
+header .top input[type=search] {
+	
+	padding: .7em .5em;
+	width: 7em;
+	transition: width .2s ease-in-out;
+
+}
+
+header .top input[type=search]:focus {
+	
+	width: 21em;
+
+}
+
+header .row.top {
+	
+	padding: .5em 0;
+	margin-bottom: 2em;
+	
+}
+
+header .row.logo nav, header .row.logo nav ul {
+	
+	width: 100%;
+
+}
+
+header .row.logo nav ul li + li a {
+	
+	padding-left: 1em;	
+
+}
+
+header .row.logo nav ul li:first-child {
+	
+	padding-left: 0;	
+	padding-right: 1.5em;	
+
+}
+
+header .row.logo nav ul li:last-child {
+	
+	margin-top: .5em;
+	float: right;
+
+}
+
+nav.drop ul li b.sub:after {
+	
+	content: '[]';
+	background: transparent url(arrow-down.svg) no-repeat scroll center center;
+	color: transparent;
 
 }
 
@@ -114,7 +211,7 @@ header nav.drop ul li a, nav.drop ul li b.sub, header nav.top ul li a[href] {
 
 .parallax-back {
 
-	background: #fff url(Taxi-A330-Stage.jpg) top center no-repeat;
+	background: #fff url(Geneva-A320-Stage.jpg) top center no-repeat;
 
 }
 
@@ -240,6 +337,17 @@ footer .about nav a {
 	
 	display: none;
 	
+}
+
+.slider a[href]:before {
+	
+	content: '>';
+	color: transparent;
+	display: inline-block;
+	background: url(arrow-right.svg) no-repeat center center;
+	background-size: auto 67%;
+	margin-right: .5em;
+
 }
 
 .offers a, .offers a b, .offers a em {
