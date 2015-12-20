@@ -2,11 +2,12 @@ $grey: #f5f4f1;
 $dark-grey: #edece8;
 $darker-grey: #6f6660;
 $line-height: 22px;
+$brown: #9e9890;
 
 body {
 	
 	font-family: Helvetica Neue, sans-serif;
-	color: #9e9890;
+	color: $brown;
 
 }
 
@@ -65,6 +66,24 @@ header .logo img {
 	
 	height: 2.2em;
 	vertical-align: middle;
+
+}
+
+header nav.drop ul li {
+	
+	background: transparent;
+
+}
+
+header nav.drop ul li a, nav.drop ul li b.sub, header nav.top ul li a[href] {
+	
+	font-size: .7rem;
+	padding: 0 .5em;
+	background: none;
+	min-height: 0;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: $brown;
 
 }
 
