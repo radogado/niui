@@ -571,3 +571,90 @@ form .checkbox, form.flat .checkbox label:first-of-type {
 	padding-right: 1rem
 	
 }
+
+@media screen and (max-width: 640px) {
+
+	.slider-wrap.tabs>.slider-nav a {
+		
+		background-image: none !important;
+	
+	}
+	
+	header .row.logo nav ul li:last-child {
+		
+		float: none;
+	
+	}
+	
+	.slider form .row {
+		
+		width: 100%;
+		margin: 0;
+		
+	}
+	
+	header .row.top {
+		
+		margin: 0;
+		padding: 0;
+		
+	}
+	
+	nav.drop {
+		
+		width: auto;
+
+	}
+	
+	header nav.drop {
+		
+		float: left;
+
+	}
+	
+	header .row.logo nav ul li:first-child {
+		
+		display: block;
+		margin-bottom: 1em;
+		
+	}
+	
+	header .row.logo nav ul li+li a {
+		
+		padding: 0 .5em 0 0;
+		font-size: 1.3em;
+		
+	}
+	
+
+	.banner {
+		
+		height: 47em;
+	
+	}
+	
+	.slider form select {
+		
+		margin: .3em 0;
+		
+	}
+	
+	form.flat input[type=submit] {
+		
+		margin-top: .5em;
+	
+	}
+	
+	#content nav.drop ul li a {
+		
+		line-height: 2;
+
+	}
+	
+	#content nav.drop ul li {
+		
+		background: #fff;
+		
+	}
+
+}

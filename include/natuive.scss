@@ -1790,7 +1790,7 @@ video a[href] {
 
 	.row {
 		
-		overflow-x: hidden;
+// 		overflow-x: hidden; /* cuts off tooltip at the bottom of a row */
 
 	}
 	
@@ -2907,7 +2907,7 @@ hr {
 
 	}
 	
-	nav.drop:before, header > nav:before {
+	header nav.drop:before, header > nav:before {
 		
 		content: '🍔';
 	
@@ -2955,7 +2955,7 @@ hr {
 
 	}
 	
-	nav.drop ul li a {
+	header nav.drop ul li a {
 		
 		width: 80%;
 		width: calc(100% - 2.5em);
