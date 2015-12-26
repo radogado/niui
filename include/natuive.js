@@ -86,7 +86,7 @@ parseHTML = function(str) {
     tmp.body.innerHTML = str;
     return tmp.body;
 
-}
+};
 
 function forEach(selector, fn) { // Accepts both an array and a selector
 
@@ -404,9 +404,9 @@ function scrollTo(to, callback) {
     change = to - (document.documentElement.scrollTop || document.body.scrollTop);
 
 	addClass(q('html'), 'no-hover');
-    q('html').addEventListener(transitionEvent, function(e) {
+    q('html').addEventListener(transitionEvent, function scrollEndHandler(e) {
 
-		q('html').removeEventListener(transitionEvent, arguments.callee);
+		q('html').removeEventListener(transitionEvent, scrollEndHandler);
 		removeClass(q('html'), 'no-hover');
 		q('html').style.cssText = '';
 		callback();
@@ -1148,7 +1148,7 @@ request.onload = function () {
 	
 	php_support = request.getAllResponseHeaders().toLowerCase().indexOf('php') == -1 ? 0 : 1;
 
-}
+};
 request.send(null);
 
 /* Polyfill to uncheck all radio buttons of a form with form owner attribute. Single set of radios currently, for drop-down menu. */

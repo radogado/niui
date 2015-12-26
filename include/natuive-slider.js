@@ -1,6 +1,6 @@
 /* natUIve Slider */
 var new_event_support = 1; // Can the browser do new Event('t')?
-var slide_duration = .5; // Default slide duration, overwritten by the optional data-duration attribute
+var slide_duration = 0.5; // Default slide duration, overwritten by the optional data-duration attribute
 var last_animation = 0; // Protection from unwanted slide after slide
 var sliding = 0; // Slide in progress
 
@@ -118,13 +118,15 @@ initScroll = function(e, delta) { // Scroll happens
 
     slide(sliderElement(e), deltaOfInterest < 0 ? 'right' : 'left');
 
-}
+};
 
 mouseWheelHandler = function(e) {
+	
+	el = eventElement(e);
 
     deltaX = (e.deltaX * -10) || e.wheelDeltaX || -e.detail; // Firefox provides 'detail' with opposite value
     deltaY = (e.deltaY * -10) || e.wheelDeltaY || -e.detail;
-	
+/* To do: stop generating events while sliding */	
     if (Math.abs(hasClass(sliderElement(e), 'vertical') ? deltaY : deltaX) > 50) {
 
         e.preventDefault();
@@ -132,7 +134,7 @@ mouseWheelHandler = function(e) {
 
 	}
     
-}
+};
 
 function mouseEvents(el, toggle) {
 
@@ -163,11 +165,13 @@ function endSlide (slider, index) {
         
     }
     
-    sliding = 0;
 	addClass(childByClass(slider.parentNode, 'slider-nav').children[index], 'active');
-    mouseEvents(slider);
 	document.onkeyup = sliderKeyboard;
    	removeClass(q('html'), 'no-hover');
+    t = setTimeout(function () { 
+	    sliding = 0;
+	    mouseEvents(slider); 
+	}, 500);
 	
 }
 
@@ -273,9 +277,9 @@ function slide(el, method, index_number) {
 		addClass(slider.children[index], 'visible');
 		addClass(slider, 'sliding');
 
-        slider.addEventListener(animationEvent, function(e) { // On slide end
+        slider.addEventListener(animationEvent, function slideEndHandler(e) { // On slide end
 
-            slider.removeEventListener(animationEvent, arguments.callee);
+            slider.removeEventListener(animationEvent, slideEndHandler);
 			if (slider.children[old_index]) {
 	
 				removeClass(slider.children[old_index], 'visible');
@@ -421,13 +425,13 @@ function makeSlider(el, current_slide) {
 
         slide(eventElement(e), 'left');
 
-    }
+    };
 
     container.querySelector('.slider-arrow.right').onclick = function(e) {
 
         slide(eventElement(e), 'right');
 
-    }
+    };
 
     addClass(el.children[0], 'visible');
 
@@ -463,12 +467,12 @@ function makeSlider(el, current_slide) {
 
     if (el.getAttribute('data-autoslide')) { // auto slide
 
-        function autoSlide() {
+        var autoSlide = function() {
 
             slide(el, 'right');
             window.sliderTimeout = setTimeout(autoSlide, 1000 * el.getAttribute('data-autoslide'));
 
-        }
+        };
 
         setTimeout(autoSlide, 1000 * el.getAttribute('data-autoslide'));
 
