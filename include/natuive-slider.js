@@ -16,7 +16,7 @@ try { // Android Browser etc?
 
 function sliderElement(e) {
 
-    el = eventElement(e);
+    var el = eventElement(e);
 
     if (hasClass(el, 'slider-wrap')) {
 
@@ -24,7 +24,7 @@ function sliderElement(e) {
 
     } else {
 
-        container = getClosest(el, '.slider-wrap');
+        var container = getClosest(el, '.slider-wrap');
         return container && container.querySelector('.slider');
 
     }
@@ -33,7 +33,7 @@ function sliderElement(e) {
 
 /* Thanks to Pete & Eike Send for the swipe events – http://www.thepetedesign.com/demos/purejs_onepage_scroll_demo.html */
 
-swipeEvents = function(el) {
+var swipeEvents = function(el) {
 
     var startX, startY;
 
@@ -100,11 +100,11 @@ swipeEvents = function(el) {
 
 };
 
-initScroll = function(e, delta) { // Scroll happens
+var initScroll = function(e, delta) { // Scroll happens
 
-    deltaOfInterest = delta;
+    var deltaOfInterest = delta;
 
-    timeNow = new Date().getTime();
+    var timeNow = new Date().getTime();
 
     // Cancel scroll if currently animating or within quiet period – don't slide again automatically after a slide
     if ((timeNow - last_animation) < 800 || sliding) {
@@ -114,18 +114,18 @@ initScroll = function(e, delta) { // Scroll happens
 
     }
 
-    last_animation = timeNow;
+    var last_animation = timeNow;
 
     slide(sliderElement(e), deltaOfInterest < 0 ? 'right' : 'left');
 
 };
 
-mouseWheelHandler = function(e) {
+var mouseWheelHandler = function(e) {
 	
-	el = eventElement(e);
+	var el = eventElement(e);
 
-    deltaX = (e.deltaX * -10) || e.wheelDeltaX || -e.detail; // Firefox provides 'detail' with opposite value
-    deltaY = (e.deltaY * -10) || e.wheelDeltaY || -e.detail;
+    var deltaX = (e.deltaX * -10) || e.wheelDeltaX || -e.detail; // Firefox provides 'detail' with opposite value
+    var deltaY = (e.deltaY * -10) || e.wheelDeltaY || -e.detail;
 /* To do: stop generating events while sliding */	
     if (Math.abs(hasClass(sliderElement(e), 'vertical') ? deltaY : deltaX) > 50) {
 
@@ -196,7 +196,8 @@ function slide(el, method, index_number) {
     }
 
     var slider = getClosest(el, '.slider-wrap').querySelector('.slider');
-
+	var index;
+	var old_index;
 	index = old_index = thisIndex(childByClass(slider.parentNode, 'slider-nav').querySelector('a.active'));
 
     if (method == 'index') {
@@ -254,13 +255,13 @@ function slide(el, method, index_number) {
 
 	    if (hasClass(slider, 'vertical')) {
 		
-		    translate_from = 'translate3d(0,' + ((index<old_index) ? -1 : 0) + '00%,0)';
-		    translate_to = 'translate3d(0,' + ((index<old_index) ? 0 : -1) + '00%,0)';
+		    var translate_from = 'translate3d(0,' + ((index<old_index) ? -1 : 0) + '00%,0)';
+		    var translate_to = 'translate3d(0,' + ((index<old_index) ? 0 : -1) + '00%,0)';
 		
 		} else {
 			
-		    translate_from = 'translate3d(' + ((index<old_index) ? -1 : 0) + '00%,0,0)';
-		    translate_to = 'translate3d(' + ((index<old_index) ? 0 : -1) + '00%,0,0)';
+		    var translate_from = 'translate3d(' + ((index<old_index) ? -1 : 0) + '00%,0,0)';
+		    var translate_to = 'translate3d(' + ((index<old_index) ? 0 : -1) + '00%,0,0)';
 			
 		}
 	    
@@ -320,11 +321,11 @@ function sliderKeyboard(e) {
 
     }
 
-    el = e.target || e.srcElement;
+    var el = e.target || e.srcElement;
 
     if (q('.slider')) {
 
-        tag = el.tagName.toLowerCase();
+        var tag = el.tagName.toLowerCase();
         if (tag != 'input' && tag != 'textarea') {
 
             el = q('.slider.full-window') || q('.slider.lightbox') || q('.slider');
@@ -370,7 +371,7 @@ function makeSlider(el, current_slide) {
 		
 	}
 
-	container = el.parentNode;
+	var container = el.parentNode;
 
 	if (!hasClass(container, 'slider-wrap')) {
 
@@ -395,7 +396,7 @@ function makeSlider(el, current_slide) {
 
         if (el.children[i].querySelector('.tab')) {
 
-            slider_nav = el.parentNode.querySelector('.slider-nav');
+            var slider_nav = el.parentNode.querySelector('.slider-nav');
             addClass(el.parentNode, 'tabs');
             addClass(slider_nav, 'row');
             transferClass(el.parentNode, slider_nav, 'wrap');
@@ -451,14 +452,14 @@ function makeSlider(el, current_slide) {
 
         el.parentNode.addEventListener('swipeLeft', function(e) {
 
-            el = sliderElement(e);
+            var el = sliderElement(e);
             slide(el, 'right');
 
         });
 
         el.parentNode.addEventListener('swipeRight', function(e) {
 
-            el = sliderElement(e);
+            var el = sliderElement(e);
             slide(el, 'left');
 
         });

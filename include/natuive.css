@@ -1628,6 +1628,67 @@ ol p {
   -webkit-animation-name: sliding;
   animation-name: sliding; }
 
+/* natUIve – Modal */
+.full-window-wrap {
+  z-index: 999999;
+  background: #fff;
+  background: rgba(255, 255, 255, 0.97);
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-top: none;
+  -webkit-overflow-scrolling: touch;
+  padding-top: 0; }
+
+.full-window-wrap > .content {
+  overflow-y: scroll;
+  position: relative;
+  background: transparent;
+  height: calc(100% - 44px);
+  padding-top: 3em; }
+
+.full-window-wrap .close {
+  color: #fff;
+  cursor: pointer;
+  padding: 0 .6em;
+  font-weight: bold;
+  background: #000;
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  z-index: 99999;
+  top: 0;
+  overflow: hidden; }
+
+/* On touch, disable fixed-position "close" bar, because it's jumpy */
+.no-touch .full-window-wrap .close {
+  position: fixed; }
+
+.no-touch .full-window-wrap {
+  overflow-y: scroll; }
+
+.no-touch .full-window-wrap.headless {
+  padding-top: 0; }
+
+.no-touch .full-window-wrap > .content {
+  height: 100%; }
+
+.full-window-wrap > * {
+  background: #fff;
+  position: relative; }
+
+.full-window-wrap-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  cursor: crosshair;
+  background: transparent; }
+
 /* CSS-only parallax scrolling. html.parallax with body children .parallax-back and .parallax-front. Thanks http://keithclark.co.uk/articles/pure-css-parallax-websites/ */
 html.parallax, html.parallax body {
   margin: 0;
@@ -1742,6 +1803,9 @@ p, header {
   height: 100vh;
   overflow: auto; }
 
+header .row {
+  padding: 0; }
+
 header a.logo {
   display: inline-block;
   min-height: 46px;
@@ -1767,67 +1831,6 @@ footer {
 
 footer .row > * {
   position: static; }
-
-/* Modal window */
-.full-window-wrap {
-  z-index: 999999;
-  background: #fff;
-  background: rgba(255, 255, 255, 0.97);
-  overflow: hidden;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  border-top: none;
-  -webkit-overflow-scrolling: touch;
-  padding-top: 0; }
-
-.full-window-wrap > .content {
-  overflow-y: scroll;
-  position: relative;
-  background: transparent;
-  height: calc(100% - 44px);
-  padding-top: 3em; }
-
-.full-window-wrap .close {
-  color: #fff;
-  cursor: pointer;
-  padding: 0 .6em;
-  font-weight: bold;
-  background: #000;
-  background: rgba(0, 0, 0, 0.7);
-  width: 100%;
-  z-index: 99999;
-  top: 0;
-  overflow: hidden; }
-
-/* On touch, disable fixed-position "close" bar, because it's jumpy */
-.no-touch .full-window-wrap .close {
-  position: fixed; }
-
-.no-touch .full-window-wrap {
-  overflow-y: scroll; }
-
-.no-touch .full-window-wrap.headless {
-  padding-top: 0; }
-
-.no-touch .full-window-wrap > .content {
-  height: 100%; }
-
-.full-window-wrap > * {
-  background: #fff;
-  position: relative; }
-
-.full-window-wrap-bg {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  cursor: crosshair;
-  background: transparent; }
 
 /* Back to top button */
 .backtotop[href] {

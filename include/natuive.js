@@ -80,7 +80,7 @@ function eventElement(e) {
 
 }
 
-parseHTML = function(str) {
+var parseHTML = function(str) {
 
     tmp = document.implementation.createHTMLDocument('Parsed');
     tmp.body.innerHTML = str;
@@ -90,7 +90,7 @@ parseHTML = function(str) {
 
 function forEach(selector, fn) { // Accepts both an array and a selector
 
-    elements = (typeof selector == 'string') ? qa(selector) : selector;
+    var elements = (typeof selector == 'string') ? qa(selector) : selector;
     for (var i = 0; i < elements.length; i++) {
 
         fn(elements[i], i);
@@ -177,10 +177,12 @@ function stopEvent(e) {
 function thisIndex(el) {
 
     if (!el) return;
-
+	var node, nodes;
+	
     nodes = node = el.parentNode.childNodes;
 
-    var i = count = 0;
+    var i = 0;
+    var count = 0;
 
     while ((node = nodes.item(i++)) && node != el) {
 
@@ -248,7 +250,7 @@ var wrap = function (toWrap, wrapper) { // Thanks yckart
 
 function childByClass (el, cl) {
 
-	i = 0;
+	var i = 0;
 	while(i < el.children.length) {
 		
 		if (hasClass(el.children[i], cl)) {
@@ -266,7 +268,7 @@ function childByClass (el, cl) {
 
 /* ––– */
 
-scripts_location = document.getElementsByTagName('script');
+var scripts_location = document.getElementsByTagName('script');
 scripts_location = scripts_location[scripts_location.length-1].src;
 scripts_location = scripts_location.slice(0, scripts_location.length - scripts_location.split('/').pop().length);
 
@@ -285,10 +287,10 @@ function updateURLParameter(url, param, paramVal) { // return input string with 
     tempArray = url.split('?');
     baseURL = tempArray[0];
     additionalURL = tempArray[1];
-    temp = '';
+    var temp = '';
     if (additionalURL) {
         tempArray = additionalURL.split('&');
-        for (i = 0; i < tempArray.length; i++) {
+        for (var i = 0; i < tempArray.length; i++) {
             if (tempArray[i].split('=')[0] != param) {
                 newAdditionalURL += temp + tempArray[i];
                 temp = '&';
@@ -303,8 +305,8 @@ function updateURLParameter(url, param, paramVal) { // return input string with 
 
 function getURLParameters() { // return all URL parameters in an array
 
-    res = {};
-    re = /[?&]([^?&]+)=([^?&]+)/g;
+    var res = {};
+    var re = /[?&]([^?&]+)=([^?&]+)/g;
 
     location.href.replace(re, function(_, k, v) {
 
@@ -322,7 +324,7 @@ var parameters_list = new Array('parameter1', 'parameter2');
 
 function relayParameters() {
 
-    parameters = getURLParameters();
+    var parameters = getURLParameters();
 
     forEach('a[href]', function(el, i) {
 
@@ -330,7 +332,7 @@ function relayParameters() {
 
             if (el.href.indexOf('javascript') == -1 && el.href.indexOf('mailto') == -1 && parameters_list.indexOf(name) != -1) {
 	            
-	            hash = el.href.split('#')[1];
+	            var hash = el.href.split('#')[1];
 	            el.href = updateURLParameter(el.href, name, parameters[name]);
 	            if (typeof hash != 'undefined') {
 		            
@@ -346,9 +348,9 @@ function relayParameters() {
 
 }
 
-temp = document.createElement('temp');
+var temp = document.createElement('temp');
 
-transitions = {
+var transitions = {
 
 	'transition'		: 'transitionend',
 	'OTransition'		: 'oTransitionEnd',
@@ -357,7 +359,7 @@ transitions = {
 
 }
 
-animations = {
+var animations = {
 
 // 	'animation'      	: 'animationend', // Disable IE because of a Slider glitch
 	'OAnimation'     	: 'oAnimationEnd',
@@ -401,7 +403,7 @@ function scrollTo(to, callback) {
 
 	}
 	
-    change = to - (document.documentElement.scrollTop || document.body.scrollTop);
+    var change = to - (document.documentElement.scrollTop || document.body.scrollTop);
 
 	addClass(q('html'), 'no-hover');
     q('html').addEventListener(transitionEvent, function scrollEndHandler(e) {
@@ -466,6 +468,7 @@ function preventEvent(e) { // For iOS scrolling behind blackbox
 
 function closeFullWindow() {
 	
+	var full_window;
     if (full_window = q('.full-window-wrap')) {
 		
 		if (full_window_content) { // Remove disposable generated content
@@ -547,9 +550,9 @@ function openFullWindow(el) {
 }
 
 /* To imporve: Open and close a modal window with a generated element, to fix iOS Safari crash on modal close */
-el = document.createElement('div');
-q('body').appendChild(el);
-openFullWindow(el);
+var temp_div = document.createElement('div');
+q('body').appendChild(temp_div);
+openFullWindow(temp_div);
 closeFullWindow();
 
 function modalWindow(e) {
@@ -558,7 +561,7 @@ function modalWindow(e) {
 
 	openFullWindow('...');
 
-    el = eventElement(e);
+    var el = eventElement(e);
 
     link = getClosest(el, '.modal').href;
 	
@@ -626,7 +629,7 @@ function openLightbox(e) {
 	openFullWindow('<div class="slider lightbox"></div>');
 	q('.full-window-wrap').style.overflow = 'hidden';
 	
-	el = eventElement(e);
+	var el = eventElement(e);
 
     /* Add any <a><img> siblings with description to a .slider and initialise its controls */
     images = '';
@@ -742,7 +745,7 @@ function animateAnchors(e) {
         return;
 
     }
-    el = e.target || e.srcElement;
+    var el = e.target || e.srcElement;
 
     while (typeof el.href == 'undefined') {
 
@@ -756,7 +759,7 @@ function animateAnchors(e) {
 	
 	}
 
-	hash = null;
+	var hash = null;
 	if (el.href.split('#').pop().length > 0) {
 	
 	    hash = document.getElementById(el.href.split('#').pop());
@@ -855,7 +858,7 @@ forEach('textarea', function(el) {
 
 function submitForm(e) {
 
-    el = eventElement(e);
+    var el = eventElement(e);
 
     ready_to_submit = true;
 
@@ -954,7 +957,7 @@ forEach('form', function(el, i) {
 
 function updateFileInput(e) {
 
-    el = eventElement(e);
+    var el = eventElement(e);
 
     el.parentNode.querySelector('span').innerHTML = el.value.substring(el.value.lastIndexOf('\\') + 1)
 
@@ -980,7 +983,7 @@ if (q('#language-selector')) {
 
 function toggleAccordion(e) {
 
-    el = eventElement(e);
+    var el = eventElement(e);
 
     stopEvent(e);
     el = el.parentNode;
@@ -1036,7 +1039,7 @@ if (q('#nav-trigger')) {
 
 function getStyle(oElm, strCssRule){ // Thanks http://robertnyman.com/2006/04/24/get-the-rendered-style-of-an-element/
 
-	strValue = '';
+	var strValue = '';
 
 	if(document.defaultView && document.defaultView.getComputedStyle) {
 
@@ -1142,7 +1145,7 @@ var getClosest = function (el, selector) { // Thanks http://gomakethings.com/dit
 
 /* Check for host PHP support */
 var php_support = 0;
-request = new XMLHttpRequest();
+var request = new XMLHttpRequest();
 request.open('GET', document.location, true);
 request.onload = function () {
 	
@@ -1158,7 +1161,7 @@ if (q('input[type=reset][form]') && !q('input[type=reset][form]').form) {
 
 		el.onclick = function (e) { // Assuming a single set of radios per form (for drop down menu)
 			
-			el = eventElement(e);
+			var el = eventElement(e);
 			q('input[type=radio][form=' + el.getAttribute('form') + ']:checked').checked = false;
 			
 		};
@@ -1198,7 +1201,7 @@ function sortTable (table, column, f) {
 	
 	});
 
-    for (i = 0; i < rows.length; i++) {
+    for (var i = 0; i < rows.length; i++) {
 
         table.querySelector('tbody').appendChild(rows[i]);
 
@@ -1217,7 +1220,7 @@ forEach ('td[data-sort]', function (el) {
 	el.onclick = function (e) {
 		
 		stopEvent(e);
-		el = eventElement(e);
+		var el = eventElement(e);
 		cell = el.type == 'td' ? el : getClosest(el, 'td');
 		var f; // Ascending
 		if (cell.getAttribute('data-sort') == 'desc') {
