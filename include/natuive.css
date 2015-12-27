@@ -1140,7 +1140,7 @@ ol {
 
 ol > li {
   text-indent: -2.3em;
-  margin-left: 2.3em; }
+  margin: 11px 0 11px 2.3em; }
 
 ol li > * {
   text-indent: 0;
