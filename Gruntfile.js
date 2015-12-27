@@ -1,6 +1,23 @@
 module.exports = function(grunt) {
 
 	grunt.initConfig({ /* To do: compile SCSS first */
+/*
+	    'scss': {
+	        options: {
+	            sourceMap: true
+	        },
+	        dist: {
+	            files: {
+	                'include/natuive.css': 'include/natuive.scss'
+	            }
+	        }
+	    },
+*/
+		'sass': { 
+			dist: { 
+				files: { 'include/natuive.css': 'include/natuive.scss' } 
+				} 
+		},
 		'cssmin': {
 		  options: {
 		    shorthandCompacting: false,
@@ -26,10 +43,12 @@ module.exports = function(grunt) {
 	  }
 	});
 
+// 	grunt.loadNpmTasks('grunt-contrib-scss');
+	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-closure-compiler');
 
 	// Default task(s).
-	grunt.registerTask('default', ['cssmin', 'closure-compiler']);
+	grunt.registerTask('default', ['sass', 'cssmin', 'closure-compiler']);
 
 };

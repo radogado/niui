@@ -1,0 +1,419 @@
+/* natUIve – Grid */
+
+.row {
+
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+	border-collapse: separate;
+	padding: $line-height/2 0;
+
+}
+
+	.row > * {
+	
+		display: table-cell;
+		vertical-align: top;
+		position: relative;
+		padding: 0 $line-height/2;
+		word-wrap: break-word;
+
+	}
+	
+	.row > * > .row {
+
+		margin: -$line-height/2;
+		width: calc(100% + #{$line-height});
+		max-width: none;
+
+	}
+	
+	.row > * > * {
+		
+		max-width: 100%; /* instead of overflow-x:hidden, which would also activate overflow-y:hidden and clip the tooltip */
+		
+	}
+/* colXY where the column takes up X/Y of space; colY means 1/Y */
+	body .row > .col23 { // body used for rules override
+
+		width: 66.6%;
+
+	}
+	
+	body .row > .col34 {
+
+		width: 75%;
+
+	}
+
+	body .row > .col4 {
+
+		width: 25%;
+
+	}
+
+	body .row > .col3 {
+
+		width: 33.333%;
+
+	}
+
+	body .row > .col2 {
+
+		width: 50%;
+
+	}
+	
+	body .row > .col1 { /* for wrap grid */
+
+		width: 100%;
+
+	}
+	
+	/* Wrapping cols with minimum width. Flexbox with inline-block fallback (no equal height) */
+	
+	.row.wrap {
+		
+		display: block;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		 -webkit-justify-content: center;
+		-webkit-flex-wrap: wrap;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		text-align: center;
+		justify-content: center;
+		
+	}
+	
+	.row.wrap, input[type=file], .slider, .aspect { /* No space between inline-block elements */
+		
+		font-size: 0;
+		
+	}
+
+	.row.wrap > *, .slider > *, .aspect > * { /* Restore font-size of zeroed elements' children */
+		
+		font-size: $font-size;
+		line-height: $line-height;
+		min-height: $line-height;
+		font-size: 1rem;
+		
+	}
+	
+	.row > * > img {
+		
+		display: block;
+		margin: 0 auto;
+		
+	}
+
+	_:-ms-input-placeholder, :root .row.wrap { /* IE10+ */
+	
+		display: block;
+
+	}
+
+	.row.wrap > * {
+		
+		display: inline-block;
+		-webkit-flex: 0 1 auto;
+		-ms-flex: 0 1 auto;
+		flex: 0 1 auto;
+		width: 20%; /* Minimum col width */
+		text-align: left;
+		padding: $line-height/2;
+
+	}
+
+	@media screen and (max-width: 1024px) {
+	
+		.row.wrap > * {
+			
+			width: 25%;
+		
+		}
+	
+	}
+	
+	@media screen and (max-width: 768px) {
+	
+		.row.wrap > * {
+			
+			width: 33%;
+		
+		}
+	
+	}
+	
+	.row.no-gutter, .row.no-gutter > * {
+		
+		padding: 0;
+	
+	}
+	
+.align-left {
+	
+	text-align: left;
+
+}
+
+.align-right {
+	
+	text-align: right;
+
+}
+
+.align-center {
+	
+	text-align: center;
+
+}
+
+.align-top, .align-top > * {
+	
+	vertical-align: top;
+	align-self: flex-start;
+	
+}
+
+.align-middle, .align-middle > * {
+	
+	vertical-align: middle;
+	align-self: center;
+	
+}
+
+.align-bottom, .align-bottom > * {
+	
+	vertical-align: bottom;
+	align-self: flex-end;
+	
+}
+
+/* Masonry in CSS only */
+
+.masonry {
+
+    -moz-column-count: 3;
+    -moz-column-gap: $line-height/2;
+    -webkit-column-count: 3;
+    -webkit-column-gap: $line-height/2;
+    column-count: 3;
+    column-gap: $line-height/2;
+
+}
+
+    .masonry > * {
+
+        display: inline-block; /* Display inline-block, and absolutely NO FLOATS! */
+        margin-bottom: $line-height;
+        width: 100%;
+        -webkit-column-break-inside: avoid;
+		page-break-inside: avoid;           /* FF 20+ */
+		break-inside: avoid-column;
+
+    }
+
+@media screen and (max-width: $screen-narrow) {
+
+	.row {
+		
+// 		overflow-x: hidden; /* cuts off tooltip at the bottom of a row */
+
+	}
+	
+	.row > * > .row {
+		
+		margin: 0;
+		width: 100%;
+
+	}
+
+	.row > * {
+
+		display: block;
+		padding: $line-height/4;
+		width: auto !important;
+		border: none;
+
+	}
+
+	.no-mobile-gutter.row > * {
+		
+		padding: 0;
+
+	}
+	
+	.row > *, .row.border, .row.border > * {
+
+		border: none;
+
+	}
+
+	.row > * > .row > * {
+
+		padding: $line-height/3 0;
+
+	}
+	
+	.row.half > * {
+		
+		width: 50% !important;
+		float: left;
+
+	}
+
+	.row.wrap > * {
+		
+		width: 100% !important;
+	
+	}
+	
+	.row.border {
+		
+		padding: $line-height/4 0;
+
+	}
+	
+	.row.border-all .row {
+		
+		margin: 0;
+
+	}
+
+	.row.border-all .row .row {
+		
+		margin-left: -$line-height/2;
+		width:calc(100% + #{$line-height});
+
+	}
+	
+	.row.border-all>*:not(:first-child), .row.border-all .row>*:not(:first-child) {
+		
+		border-left: none;
+
+	}
+
+	.masonry {
+		
+	    -moz-column-count: 2;
+	    -webkit-column-count: 2;
+	    column-count: 2;
+		
+	}
+
+}
+
+.pad {
+	
+	padding: $line-height/2;
+	display: block;
+
+}
+	
+	.pad-x2 {
+		
+		padding: $line-height;
+	
+	}
+
+.row.border {
+
+	border: 1px solid #999;
+	padding: 0;
+
+}
+		
+	.row.border > * {
+		
+		border-left: 1px solid #999;
+		
+	}
+
+	.row.border > *:first-child {
+		
+		border-left: none;
+		
+	}
+	
+	.row > * > .box { /* Boxes inside grid cells */
+		
+		background: #fff;
+		border: 1px solid #e6e6e6;
+		
+	}
+	
+	.row.border-all {
+		
+		border: 1px solid;
+		padding: 0;
+		margin: 0;
+		width: 100%;
+		margin: 0 auto;
+
+	}
+	
+	.row.border-all > *, .row.border-all .row > * {
+		
+		padding: $line-height/2;
+		
+	}
+	
+	.row.border-all > *:not(:first-child), .row.border-all .row > *:not(:first-child) {
+		
+		border-left: 1px solid;
+		
+	}
+	
+	.row.border-all .row {
+		
+		border-top: 1px solid;
+		padding-top: 0;
+		margin-left: -$line-height/2;
+		
+	}
+
+	.row.border-all, .row.border-all .row, .row.border-all > *:not(:first-child), .row.border-all .row > *:not(:first-child) {
+		
+		border-color: #ddd;
+		
+	}
+	
+	.row.border-all .row:first-child {
+		
+		border-top: none;
+		
+	}
+
+	.row.border-all .row:last-child {
+		
+		padding-bottom: 0;
+		
+	}
+	
+	.row.border-all .row.border-off > * {
+		
+		border: none;
+
+	}
+	
+	.row.spacing {
+		
+		border-spacing: $line-height/2;
+
+	}
+	
+	.row.spacing-horizontal {
+		
+		border-spacing: $line-height/2 0;
+
+	}
+	
+	.row.spacing-vertical {
+		
+		border-spacing: 0 $line-height/2;
+
+	}
+
