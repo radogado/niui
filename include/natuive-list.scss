@@ -15,6 +15,8 @@ ul {
 ul li {
 	
 	margin: $line-height 0 0 0;
+	font-size: $font-size;
+	font-size: 1rem;
 
 }
 
@@ -25,7 +27,7 @@ ol {
 	padding: 0;
 	margin: 0;
 
-	}
+}
 
 ol > li {
 

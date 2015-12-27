@@ -402,7 +402,7 @@ input[type=radio]:checked+.checkbox-icon:before {
 	
 }
 
-form .select, a.button.icon {
+form select, a.button.icon {
 	
 	box-shadow: 1px 1px 0 #ccc;
 	height: auto;
@@ -413,7 +413,7 @@ form .select, a.button.icon {
 
 }
 
-select {
+form select {
 	
 	line-height: 2em;
 	background: url(up-dwn-arrows.png) no-repeat center center;

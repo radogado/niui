@@ -138,14 +138,16 @@ form#search input[type=text] {
 
 }
 
-.banner select {
+.banner form select {
 	
 	text-transform: uppercase;
 	font-weight: bold;
 	margin: 0;
 	color: $light;
+	background: none;
 	padding-right: 1.77em;
 	z-index: 9;
+	width: auto;
 
 }
 

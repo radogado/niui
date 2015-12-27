@@ -67,7 +67,7 @@ var swipeEvents = function(el) {
 
             var deltaX = startX - touches[0].pageX;
             var deltaY = startY - touches[0].pageY;
-            delta = (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY;
+            var delta = (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY;
 
             if ((hasClass(sliderElement(e), 'vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !q('.slider.lightbox')) {
 
@@ -171,7 +171,7 @@ function endSlide (slider, index) {
     t = setTimeout(function () { 
 	    sliding = 0;
 	    mouseEvents(slider); 
-	}, 500);
+	}, 200);
 	
 }
 

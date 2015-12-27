@@ -300,6 +300,29 @@ a.button + a.button {
   height: 44px;
   font-size: 1.2em; }
 
+/* Back to top button */
+a.backtotop[href] {
+  text-align: center;
+  display: block;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  margin: .7333em auto;
+  font-weight: bold;
+  background: transparent;
+  background: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  border-radius: 2em;
+  font-family: 'Hiragino Mincho ProN';
+  /* fix for iOS */
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-decoration: none;
+  z-index: 999; }
+
 @media screen and (max-width: 640px) {
   .button.big {
     display: block;
@@ -1105,7 +1128,9 @@ ul {
   margin: 22px 0 22px 0.3em; }
 
 ul li {
-  margin: 22px 0 0 0; }
+  margin: 22px 0 0 0;
+  font-size: 15px;
+  font-size: 1rem; }
 
 ol {
   list-style-type: none;
@@ -1735,25 +1760,6 @@ html, body {
   height: 100%;
   margin: 0 auto; }
 
-html.nooverflow, html.nooverflow body {
-  overflow: hidden; }
-
-.no-hover, .no-hover * {
-  pointer-events: none !important;
-  -webkit-transition: -webkit-transform .4s ease;
-  transition: transform .4s ease; }
-
-/* Elements with single line-height */
-html, body, p, h4, h5 {
-  font-size: 15px;
-  line-height: 22px;
-  min-height: 22px; }
-
-/* Elements with double line-height */
-h1, h2, h3, .full-window-wrap .close {
-  line-height: 44px;
-  min-height: 44px; }
-
 body {
   position: relative;
   width: 100%;
@@ -1774,6 +1780,25 @@ body * {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
   /* iOS: Don't flash on tap */ }
+
+html.nooverflow, html.nooverflow body {
+  overflow: hidden; }
+
+.no-hover, .no-hover * {
+  pointer-events: none !important;
+  -webkit-transition: -webkit-transform .4s ease;
+  transition: transform .4s ease; }
+
+/* Elements with single line-height */
+html, body, p, h4, h5 {
+  font-size: 15px;
+  line-height: 22px;
+  min-height: 22px; }
+
+/* Elements with double line-height */
+h1, h2, h3, .full-window-wrap .close {
+  line-height: 44px;
+  min-height: 44px; }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
@@ -1811,6 +1836,9 @@ header a.logo {
   min-height: 46px;
   /* Don't shift page after image is loaded */ }
 
+header form#language-selector select {
+  padding-right: 2em; }
+
 a[href] {
   color: #333; }
 
@@ -1831,29 +1859,6 @@ footer {
 
 footer .row > * {
   position: static; }
-
-/* Back to top button */
-.backtotop[href] {
-  text-align: center;
-  display: block;
-  width: 2em;
-  height: 2em;
-  line-height: 2em;
-  margin: .7333em auto;
-  font-weight: bold;
-  background: transparent;
-  background: rgba(0, 0, 0, 0.2);
-  color: #fff;
-  border-radius: 2em;
-  font-family: Hiragino Mincho ProN;
-  /* fix for iOS */
-  cursor: pointer;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  text-decoration: none;
-  z-index: 999; }
 
 .quote, blockquote {
   margin-left: 1em;
@@ -1920,9 +1925,7 @@ video a[href] {
     height: auto;
     width: 100%;
     background-position: calc(100% - .5em);
-    margin-left: 0; }
-
-  form#language-selector select {
+    margin-left: 0;
     margin-left: 0; }
 
   header .head-right {

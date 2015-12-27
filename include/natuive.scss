@@ -38,6 +38,31 @@ html, body {
 	
 }
 
+body {
+
+	position: relative;
+	width: 100%;
+	height: auto;
+	min-height: 100%;
+	-webkit-text-size-adjust: none;
+	display: flex;  /* Sticky footer */
+	flex-direction: column;
+	color: #333;
+	background: #fff;
+	-webkit-font-smoothing: antialiased;
+	-webkit-tap-highlight-color: rgba(0,0,0,.5);
+	
+}
+
+body * {
+	
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: rgba(0,0,0,0); /* iOS: Don't flash on tap */
+
+}
+
 html.nooverflow, html.nooverflow body {
 	
 	overflow: hidden;
@@ -69,31 +94,6 @@ h1, h2, h3, .full-window-wrap .close {
 	line-height: $line-height * 2;
 	min-height: $line-height * 2;
 	
-}
-
-body {
-
-	position: relative;
-	width: 100%;
-	height: auto;
-	min-height: 100%;
-	-webkit-text-size-adjust: none;
-	display: flex;  /* Sticky footer */
-	flex-direction: column;
-	color: #333;
-	background: #fff;
-	-webkit-font-smoothing: antialiased;
-	-webkit-tap-highlight-color: rgba(0,0,0,.5);
-	
-}
-
-body * {
-	
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	-webkit-tap-highlight-color: rgba(0,0,0,0); /* iOS: Don't flash on tap */
-
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -159,6 +159,12 @@ header a.logo {
 
 }
 
+header form#language-selector select {
+	
+	padding-right: 2em;
+
+}
+
 a[href] {
 	
 	color: #333;
@@ -200,32 +206,6 @@ footer .row > * {
 
 }
 
-/* Back to top button */
-
-.backtotop[href] {
-
-	text-align: center;
-	display: block;
-	width: 2em;
-	height: 2em;
-	line-height: 2em;
-	margin: .7333em auto;
-	font-weight: bold;
-	background: transparent;
-	background: rgba(0,0,0,.2);
-	color: #fff;
-	border-radius: 2em;
-	font-family: Hiragino Mincho ProN; /* fix for iOS */
-	cursor: pointer;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	text-decoration: none;
-	z-index: 999;
-
-}
-	
 .quote, blockquote {
 	
 	margin-left: 1em;
@@ -333,15 +313,10 @@ video a[href] {
 			width: 100%;
 			background-position: calc(100% - .5em);
 			margin-left: 0;
-			
-		}
-
-		form#language-selector select {
-			
 			margin-left: 0;
 			
 		}
-		
+
 		header .head-right {
 			
 			text-align: left;

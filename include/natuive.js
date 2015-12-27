@@ -82,7 +82,7 @@ function eventElement(e) {
 
 var parseHTML = function(str) {
 
-    tmp = document.implementation.createHTMLDocument('Parsed');
+    var tmp = document.implementation.createHTMLDocument('Parsed');
     tmp.body.innerHTML = str;
     return tmp.body;
 
@@ -436,7 +436,7 @@ var arrow_keys_handler = function(e) {
 
 function populateLightboxItem(slider, i) {
 	
-	img = slider.children[i].querySelector('img');
+	var img = slider.children[i].querySelector('img');
 
 	if (!img.src) {
 		
@@ -563,7 +563,7 @@ function modalWindow(e) {
 
     var el = eventElement(e);
 
-    link = getClosest(el, '.modal').href;
+    var link = getClosest(el, '.modal').href;
 	
     if (!php_support && external.test(link) || !(new XMLHttpRequest().upload)) { // No PHP or XHR?
 
@@ -572,7 +572,7 @@ function modalWindow(e) {
 
     }
 
-    request = new XMLHttpRequest();
+    var request = new XMLHttpRequest();
     request.open('GET', external.test(link) ? (scripts_location + 'request.php?targetformurl=' + link.split('#')[0]) : link.split('#')[0], true);
 
     request.onload = function() {
@@ -586,9 +586,9 @@ function modalWindow(e) {
                 return false;
 
             }
-            container = (typeof link.split('#')[1] != 'undefined') ? ('#' + link.split('#')[1]) : 0;
+            var container = (typeof link.split('#')[1] != 'undefined') ? ('#' + link.split('#')[1]) : 0;
 
-			parsed = request.responseText;
+			var parsed = request.responseText;
             if (container) {
 
                 parsed = parseHTML(request.responseText);
@@ -632,7 +632,7 @@ function openLightbox(e) {
 	var el = eventElement(e);
 
     /* Add any <a><img> siblings with description to a .slider and initialise its controls */
-    images = '';
+    var images = '';
 
     forEach(getClosest(el, '.lightbox').querySelectorAll('a[href]'), function(el) {
 
@@ -645,7 +645,7 @@ function openLightbox(e) {
 
     if (makeSlider) {
 
-        anchor = el;
+        var anchor = el;
 
         while (typeof anchor.href == 'undefined') {
 
@@ -665,7 +665,7 @@ function openLightbox(e) {
 	        anchor = anchor.parentNode;
 	        
         }
-        this_index = thisIndex(anchor);
+        var this_index = thisIndex(anchor);
         populateLightbox(makeSlider(q('.full-window-wrap .slider'), this_index), this_index);
 
     }

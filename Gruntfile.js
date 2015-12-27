@@ -1,18 +1,6 @@
 module.exports = function(grunt) {
 
 	grunt.initConfig({ /* To do: compile SCSS first */
-/*
-	    'scss': {
-	        options: {
-	            sourceMap: true
-	        },
-	        dist: {
-	            files: {
-	                'include/natuive.css': 'include/natuive.scss'
-	            }
-	        }
-	    },
-*/
 		'sass': { 
 			dist: { 
 				files: { 'include/natuive.css': 'include/natuive.scss' } 
@@ -35,15 +23,15 @@ module.exports = function(grunt) {
 	      js: ['include/natuive.js', 'include/natuive-slider.js'],
 	      jsOutputFile: 'dist/natuive.min.js',
 	      maxBuffer: 500,
+		  noreport: true,
 	      options: {
 	        compilation_level: 'ADVANCED_OPTIMIZATIONS',
-	        language_in: 'ECMASCRIPT5_STRICT'
+	        language_in: 'ECMASCRIPT5_STRICT',
 	      }
 	    }
 	  }
 	});
 
-// 	grunt.loadNpmTasks('grunt-contrib-scss');
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-closure-compiler');
