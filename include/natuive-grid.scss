@@ -155,43 +155,52 @@
 	
 	}
 	
-.align-left {
+.align-left, .row.wrap > .align-left {
 	
 	text-align: left;
 
 }
 
-.align-right {
+.align-right, .row.wrap > .align-right {
 	
 	text-align: right;
 
 }
 
-.align-center {
+.align-center, .row.wrap > .align-center {
 	
 	text-align: center;
 
 }
 
-.align-top, .align-top > * {
+.row.wrap > .align-top, .row.wrap > .align-middle, .row.wrap > .align-bottom {
+	
+	display: flex;
+	
+}
+
+.align-top, .row.wrap > .align-top {
 	
 	vertical-align: top;
-	align-self: flex-start;
+	justify-content: flex-start;
+	flex-direction: column;
 	
 }
 
-.align-middle, .align-middle > * {
+.align-middle, .row.wrap > .align-middle {
 	
 	vertical-align: middle;
-	align-self: center;
+	justify-content: center;
+	flex-direction: column;
 	
 }
 
-.align-bottom, .align-bottom > * {
+.align-bottom, .row.wrap > .align-bottom {
 	
 	vertical-align: bottom;
-	align-self: flex-end;
-	
+	justify-content: flex-end;
+	flex-direction: column;
+
 }
 
 /* Masonry in CSS only */
