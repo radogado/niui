@@ -1,0 +1,7 @@
+.DS_Store
+.git*
+environment/
+Gruntfile.js
+src/
+test/
+tasks/

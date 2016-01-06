@@ -240,11 +240,17 @@ function slide(el, method, index_number) {
 
     }
 
+	addClass(slider.children[index], 'visible');
 	if (!hasClass(slider, 'vertical')) {
 		
 		slider.style.cssText = 'height: ' + slider.offsetHeight + 'px !important';
 	
+	} else {
+
+		slider.style.cssText = 'height: ' + slider.children[index].offsetHeight + 'px !important';
+		
 	}
+
 	if (childByClass(slider.parentNode, 'slider-nav').querySelector('.active')) {
 
 	    removeClass(childByClass(slider.parentNode, 'slider-nav').querySelector('.active'), 'active');
@@ -275,7 +281,6 @@ function slide(el, method, index_number) {
 		styles.innerHTML = '@' + prefix + 'keyframes sliding { from { ' + prefix + 'transform: ' + translate_from + '; } to { ' + prefix + 'transform: ' + translate_to + '; }} .sliding { animation-duration: ' + (slider.getAttribute('data-duration') ? slider.getAttribute('data-duration') : slide_duration) + 's; }';
 		document.getElementsByTagName('head')[0].appendChild(styles);
 		addClass(styles, 'sliding-style');
-		addClass(slider.children[index], 'visible');
 		addClass(slider, 'sliding');
 
         slider.addEventListener(animationEvent, function slideEndHandler(e) { // On slide end
@@ -292,7 +297,7 @@ function slide(el, method, index_number) {
 
 			}
 			removeClass(slider,'sliding');
-			slider.style.cssText = prefix + 'transform: ' + (hasClass(slider, 'vertical') ? 'translateY' : 'translateX') + '(-' + index + '00%);';
+			slider.style.cssText = prefix + 'transform: ' + (hasClass(slider, 'vertical') ? 'translateY(0)' : 'translateX(-' + index + '00%);');
 			q('.sliding-style').outerHTML = '';
 			
 			endSlide(slider, index);

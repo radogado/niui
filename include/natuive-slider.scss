@@ -41,19 +41,21 @@
 
 .slider-wrap.vertical-tabs {
 	
-	padding-left: 33%;
+	display: flex;
+
+}
+
+.slider-wrap.vertical-tabs > .slider {
+
+	order: 1;
+	flex: 1;
 
 }
 
 .slider-wrap.vertical.tabs > .slider-nav {
 	
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	width: 33%;
+	width: 33.3%;
 	display: block;
-	background: #fff;
-	padding-right: 0.5em;	
 
 }
 
@@ -129,7 +131,7 @@
 
 .slider-wrap.vertical, .slider.vertical {
 	
-	height: $line-height*23;
+// 	height: $line-height*23;
 
 }
 
@@ -163,6 +165,12 @@
 .slider-wrap .slider.vertical > * {
 
 	height: 100%;
+	display: none;
+
+}
+
+.sliding .slider-wrap .slider.vertical > *, .slider-wrap .slider.vertical > .visible {
+
 	display: block;
 
 }

@@ -37,10 +37,10 @@ natUIve: mostly native front-end framework
 - Support for Android Browser scrolling via polyfill overthrow.js*
 - CSS-only viewport height header*
 - URI parameters relay to links*
-- Arabic layout ready
-- Masonry CSS-only
-- CSS-only parallax scrolling
-- WordPress theme
+- Arabic layout ready*
+- Masonry CSS-only*
+- CSS-only parallax scrolling*
+- WordPress theme*
 - Functional without JS and accessible without CSS*
 - 6 KB CSS + optional 6 KB JS (effective weight with combined, minified and gzipped files)
 - ~~No IE conditional operators~~ HTML5 elements also for IE8 with html5shiv
