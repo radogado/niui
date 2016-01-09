@@ -2,23 +2,41 @@
 
 @import 'natuive-setup';
 
+/* Wrapping cols with minimum width. Flexbox with inline-block fallback (no equal height) */
+	
 .row {
 
-	display: table;
-	table-layout: fixed;
 	width: 100%;
-	border-collapse: separate;
 	padding: $line-height/2 0;
+	font-size: 0; /* No space between inline-block elements */
+	display: block;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	 -webkit-justify-content: center;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	text-align: center;
+	justify-content: center;
 
 }
 
 	.row > * {
 	
-		display: table-cell;
 		vertical-align: top;
 		position: relative;
 		padding: 0 $line-height/2;
 		word-wrap: break-word;
+		font-size: $font-size;
+		font-size: 1rem;
+		display: inline-block;
+		-webkit-flex: 1 0 auto;
+		-ms-flex: 1 0 auto;
+		flex: 1 0 auto;
+		width: 20%; /* Minimum col width */
+		text-align: left;
+		padding: $line-height/2;
 
 	}
 	
@@ -36,94 +54,86 @@
 		
 	}
 /* colXY where the column takes up X/Y of space; colY means 1/Y */
-	body .row > .col23 { // body used for rules override
+	.row > .col23 { // body used for rules override
 
 		width: 66.6%;
+		flex: 0 0 66.6%;
 
 	}
 	
-	body .row > .col34 {
+	.row > .col34 {
 
 		width: 75%;
+		flex: 0 0 75%;
 
 	}
 
-	body .row > .col4 {
+	.row > .col4 {
 
 		width: 25%;
+		flex: 0 0 25%;
 
 	}
 
-	body .row > .col5 {
+	.row > .col5 {
 
 		width: 20%;
+		flex: 0 0 20%;
 
 	}
 
-	body .row > .col25 {
+	.row > .col25 {
 
 		width: 40%;
+		flex: 0 0 40%;
 
 	}
 
-	body .row > .col35 {
+	.row > .col35 {
 
 		width: 60%;
+		flex: 0 0 60%;
 
 	}
 
-	body .row > .col45 {
+	.row > .col45 {
 
 		width: 80%;
+		flex: 0 0 80%;
 
 	}
 
-	body .row > .col3 {
+	.row > .col3 {
 
 		width: 33.333%;
+		flex: 0 0 33.333%;
 
 	}
 
-	body .row > .col2 {
+	.row > .col2 {
 
 		width: 50%;
+		flex: 0 0 50%;
 
 	}
 	
-	body .row > .col1 { /* for wrap grid */
+	.row > .col1 {
 
 		width: 100%;
+		flex: 0 0 100%;
 
 	}
 	
-	/* Wrapping cols with minimum width. Flexbox with inline-block fallback (no equal height) */
-	
-	.row.wrap {
+	.row, .aspect { /* No space between inline-block elements */
 		
-		display: block;
-		display: -webkit-flex;
-		display: -ms-flexbox;
-		display: flex;
-		 -webkit-justify-content: center;
-		-webkit-flex-wrap: wrap;
-		-ms-flex-wrap: wrap;
-		flex-wrap: wrap;
-		text-align: center;
-		justify-content: center;
-		
-	}
-	
-	.row.wrap, input[type=file], .slider, .aspect { /* No space between inline-block elements */
-		
-		font-size: 0;
 		
 	}
 
-	.row.wrap > *, .slider > *, .aspect > * { /* Restore font-size of zeroed elements' children */
+	.row > *, .slider > *, .aspect > * { /* Restore font-size of zeroed elements' children */
 		
-		font-size: $font-size;
 		line-height: $line-height;
 		min-height: $line-height;
+		font-size: $font-size;
 		font-size: 1rem;
 		
 	}
@@ -135,27 +145,15 @@
 		
 	}
 
-	_:-ms-input-placeholder, :root .row.wrap { /* IE10+ */
+	_:-ms-input-placeholder, :root .row { /* IE10+ */
 	
 		display: block;
 
 	}
 
-	.row.wrap > * {
-		
-		display: inline-block;
-		-webkit-flex: 0 1 auto;
-		-ms-flex: 0 1 auto;
-		flex: 0 1 auto;
-		width: 20%; /* Minimum col width */
-		text-align: left;
-		padding: $line-height/2;
-
-	}
-
 	@media screen and (max-width: 1024px) {
 	
-		.row.wrap > * {
+		.row > * {
 			
 			width: 25%;
 		
@@ -165,7 +163,7 @@
 	
 	@media screen and (max-width: 768px) {
 	
-		.row.wrap > * {
+		.row > * {
 			
 			width: 33%;
 		
@@ -179,31 +177,31 @@
 	
 	}
 	
-.align-left, .row.wrap > .align-left {
+.align-left, .row > .align-left {
 	
 	text-align: left;
 
 }
 
-.align-right, .row.wrap > .align-right {
+.align-right, .row > .align-right {
 	
 	text-align: right;
 
 }
 
-.align-center, .row.wrap > .align-center {
+.align-center, .row > .align-center {
 	
 	text-align: center;
 
 }
 
-.row.wrap > .align-top, .row.wrap > .align-middle, .row.wrap > .align-bottom {
+.row > .align-top, .row > .align-middle, .row > .align-bottom {
 	
 	display: flex;
 	
 }
 
-.align-top, .row.wrap > .align-top {
+.align-top, .row > .align-top {
 	
 	vertical-align: top;
 	justify-content: flex-start;
@@ -211,7 +209,7 @@
 	
 }
 
-.align-middle, .row.wrap > .align-middle {
+.align-middle, .row > .align-middle {
 	
 	vertical-align: middle;
 	justify-content: center;
@@ -219,7 +217,7 @@
 	
 }
 
-.align-bottom, .row.wrap > .align-bottom {
+.align-bottom, .row > .align-bottom {
 	
 	vertical-align: bottom;
 	justify-content: flex-end;
@@ -253,12 +251,6 @@
 
 @media screen and (max-width: $screen-narrow) {
 
-	.row {
-		
-// 		overflow-x: hidden; /* cuts off tooltip at the bottom of a row */
-
-	}
-	
 	.row > * > .row {
 		
 		margin: 0;
@@ -300,7 +292,7 @@
 
 	}
 
-	.row.wrap > * {
+	.row > * {
 		
 		width: 100% !important;
 	
@@ -451,4 +443,3 @@
 		border-spacing: 0 $line-height/2;
 
 	}
-

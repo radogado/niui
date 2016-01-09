@@ -91,6 +91,7 @@
 	-ms-overflow-style: none; /* No scrollbars on IE10+ */
 	-webkit-transform-style: preserve-3d;
 	left: 0;
+	font-size: 0;
 
 	-webkit-animation-timing-function: ease;
 	-webkit-animation-iteration-count: 1;
@@ -425,14 +426,14 @@
 	
 }
 
-	.slider-nav.wrap {
+	.slider-nav {
 		
 		text-align: left;
 		justify-content: left;
 
 	}
 
-	.slider-wrap.tabs > .slider-nav.wrap a {
+	.slider-wrap.tabs > .slider-nav a {
 		
 		-webkit-flex: 0 1 auto;
 		-ms-flex: 0 1 auto;
@@ -460,6 +461,7 @@
 		padding: 0;
 		width: 2em;
 		height: 2em;
+		text-align: center;
 		
 	}
 	
