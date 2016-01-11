@@ -7,7 +7,7 @@ body {
 
 .contain {
 	
-	max-width: 91em;
+	max-width: 91rem;
 
 }
 
@@ -69,6 +69,7 @@ header {
 header a.logo, header nav {
 	
 	display: inline-block;
+	vertical-align: middle;
 
 }
 
