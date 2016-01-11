@@ -208,8 +208,7 @@ _:-ms-input-placeholder, :root .row {
     -webkit-column-count: 2;
     column-count: 2; } }
 .pad {
-  padding: 11px;
-  display: block; }
+  padding: 11px; }
 
 .pad-x2 {
   padding: 22px; }
