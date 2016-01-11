@@ -91,10 +91,14 @@ var parseHTML = function(str) {
 function forEach(selector, fn) { // Accepts both an array and a selector
 
     var elements = (typeof selector == 'string') ? qa(selector) : selector;
-    for (var i = 0; i < elements.length; i++) {
+	if (elements.length > 0) {
 
-        fn(elements[i], i);
-
+	    for (var i = 0; i < elements.length; i++) {
+	
+	        fn(elements[i], i);
+	
+	    }
+    
     }
 
 }
@@ -265,6 +269,30 @@ function childByClass (el, cl) {
 	return false;
 		
 }
+
+/* :scope polyfill by disfated */
+
+(function(doc, proto) {
+  try { // check if browser supports :scope natively
+    doc.querySelector(':scope body');
+  } catch (err) { // polyfill native methods if it doesn't
+    ['querySelector', 'querySelectorAll'].forEach(function(method) {
+      var nativ = proto[method];
+      proto[method] = function(selectors) {
+        if (/(^|,)\s*:scope/.test(selectors)) { // only if selectors contains :scope
+          var id = this.id; // remember current element id
+          this.id = 'ID_' + Date.now(); // assign new unique id
+          selectors = selectors.replace(/((^|,)\s*):scope/g, '$1#' + this.id); // replace :scope with #ID
+          var result = doc[method](selectors);
+          this.id = id; // restore previous id
+          return result;
+        } else {
+          return nativ.call(this, selectors); // use native code for other selectors
+        }
+      }
+    });
+  }
+})(window.document, Element.prototype);
 
 /* ––– */
 
@@ -1154,22 +1182,6 @@ request.onload = function () {
 };
 request.send(null);
 
-/* Polyfill to uncheck all radio buttons of a form with form owner attribute. Single set of radios currently, for drop-down menu. */
-if (q('input[type=reset][form]') && !q('input[type=reset][form]').form) {
-	
-	forEach('input[type=reset][form]', function(el) {
-
-		el.onclick = function (e) { // Assuming a single set of radios per form (for drop down menu)
-			
-			var el = eventElement(e);
-			q('input[type=radio][form=' + el.getAttribute('form') + ']:checked').checked = false;
-			
-		};
-
-	});
-
-}
-
 /* Sort parent table's rows by matching column number alternatively desc/asc on click */
 function sortTable (table, column, f) {
 	
@@ -1257,19 +1269,3 @@ if (document.querySelector('input[type=reset][form]') && !document.querySelector
 
 }
 
-/* Revert to default font if web font isn't loaded in 2" */
-// 
-
- /* Load touch scroll polyfill, needed for Android Browser (Android 2.3) */
- if (q('.overthrow')) {
-
-    // DOM: Create the script element
-    js_el = document.createElement("script");
-    // set the type attribute
-    js_el.type = "application/javascript";
-    // make the script element load file
-    js_el.src = scripts_location + 'overthrow.js';
-    // finally insert the element to the body element in order to load the script
-    document.body.appendChild(js_el);
-	
-}
