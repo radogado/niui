@@ -4,7 +4,7 @@ natUIve: mostly native front-end framework
 13 KB framework leveraging browsers' built-in capabilities, with subtle customisation. [Features demo](http://radogado.github.io/natuive/) ([minified](http://natuive.net)), [WordPress theme](http://rado.bg), [Microsoft homepage](http://natuive.net/microsoft/), [Imperial Innovations homepage](http://natuive.net/imperialinnovations/), [Pebble homepage](http://natuive.net/pebble/), [Seat 61](http://radogado.github.io/natuive/seat61/), [JetBlue](http://radogado.github.io/natuive/jetblue/), [Mitsubishi Regional Jet](http://radogado.github.io/natuive/mrj/), [MUBI](http://radogado.github.io/natuive/mubi/), [SWISS](http://radogado.github.io/natuive/swiss/), [Classless demo](http://radogado.github.io/natuive/classless.html)
 ---
 
-- Unbreakable, flexible (no hardcoded dimensions), responsive grid
+- Unbreakable, flexible (no hardcoded dimensions), responsive grid. Supports Bootstrap-style wrapping columns, but with .col3 (1/3) etc., instead of .col-**-4 (4/12). Auto equal width columns with equal height and vertical alignment.
 - Baseline-aligned elements*
 - Embeddable grid and elements*
 - Vertically aligned column content*
@@ -47,7 +47,6 @@ natUIve: mostly native front-end framework
 - No jQuery or other dependencies*
 - Supporting IE8+, Safari, Chrome, Firefox, Opera, Android 2.3+, iOS, Windows Phone
 - Graceful degradation
-- .row.wrap grid supports Bootstrap-style wrapping columns, but with .col3 (1/3) etc., instead of .col-**-4 (4/12)
 - Includes a FREE picture of a cat
 
 \* exclusive features, missing in popular frameworks
