@@ -2,8 +2,14 @@
 
 @import 'natuive-setup';
 
-/* For proper fallback, use .col* for all columns. Automatic column width (no .col*) works for Flexbox only. */
+body.rtl {
 	
+	direction: rtl;
+
+}
+
+/* For proper fallback, use .col* for all columns. Automatic column width (no .col*) works for Flexbox only. */
+
 .row {
 
 	width: 100%;
@@ -37,6 +43,12 @@
 		width: 20%; /* Minimum col width */
 		text-align: left;
 		padding: $line-height/2;
+
+	}
+	
+	.rtl .row > * {
+	
+		text-align: right;
 
 	}
 	
@@ -184,9 +196,21 @@
 
 }
 
+.rtl .align-left, .rtl .row > .align-left {
+	
+	text-align: right;
+
+}
+
 .align-right, .row > .align-right {
 	
 	text-align: right;
+
+}
+
+.rtl .align-right, .rtl .row > .align-right {
+	
+	text-align: left;
 
 }
 

@@ -6,6 +6,9 @@ $line-height: 34px;
 */
 /* Rewrite base variables here; add theme CSS below this one in <head> */
 /* natUIve – Grid */
+body.rtl {
+  direction: rtl; }
+
 /* For proper fallback, use .col* for all columns. Automatic column width (no .col*) works for Flexbox only. */
 .row {
   width: 100%;
@@ -38,6 +41,9 @@ $line-height: 34px;
   /* Minimum col width */
   text-align: left;
   padding: 11px; }
+
+.rtl .row > * {
+  text-align: right; }
 
 .row > * > .row {
   margin: -11px;
@@ -120,8 +126,14 @@ _:-ms-input-placeholder, :root .row {
 .align-left, .row > .align-left {
   text-align: left; }
 
+.rtl .align-left, .rtl .row > .align-left {
+  text-align: right; }
+
 .align-right, .row > .align-right {
   text-align: right; }
+
+.rtl .align-right, .rtl .row > .align-right {
+  text-align: left; }
 
 .align-center, .row > .align-center {
   text-align: center; }
