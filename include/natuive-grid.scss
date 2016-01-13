@@ -2,12 +2,6 @@
 
 @import 'natuive-setup';
 
-body.rtl {
-	
-	direction: rtl;
-
-}
-
 /* For proper fallback, use .col* for all columns. Automatic column width (no .col*) works for Flexbox only. */
 
 .row {
@@ -46,7 +40,7 @@ body.rtl {
 
 	}
 	
-	.rtl .row > * {
+	[dir=rtl] .row > * {
 	
 		text-align: right;
 
@@ -196,7 +190,7 @@ body.rtl {
 
 }
 
-.rtl .align-left, .rtl .row > .align-left {
+[dir=rtl] .align-left, [dir=rtl] .row > .align-left {
 	
 	text-align: right;
 
@@ -208,7 +202,7 @@ body.rtl {
 
 }
 
-.rtl .align-right, .rtl .row > .align-right {
+[dir=rtl] .align-right, [dir=rtl] .row > .align-right {
 	
 	text-align: left;
 
