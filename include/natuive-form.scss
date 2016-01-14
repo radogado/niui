@@ -72,9 +72,15 @@ form {
 
 	}
 	
+	[dir=rtl] label {
+		
+		float: right;
+
+	}
+	
 	label span {
 		
-		text-align: right;
+		text-align: end;
 		
 	}
 	
@@ -115,6 +121,12 @@ form {
 
 	}
 
+		[dir=rtl] input, [dir=rtl] select, [dir=rtl] textarea, [dir=rtl] input[type=search], [dir=rtl] form button {
+			
+			float: left;
+	
+		}
+	
 		label > input {
 			
 			margin-top: -$line-height/2;
@@ -144,12 +156,20 @@ form {
 		
 		display: inline-block;
 		font-weight: bold;
-		text-align: right;
+		text-align: end;
 		width: 50%;
 		float: left;
 		margin-top: 0;
 		padding-right: 3%;
 		cursor: default;
+
+	}
+	
+	[dir=rtl] form .checkbox span {
+		
+		float: right;
+		padding-right: 0;
+		padding-left: 3%;
 
 	}
 	
@@ -191,6 +211,13 @@ form {
 
 	}
 	
+	[dir=rtl] form > label span {
+		
+		float: right;
+		padding: 0 0 0 3%;
+
+	}
+	
 	form .checkbox label span {
 		
 		width: auto;
@@ -220,6 +247,13 @@ form {
 		
 	}
 
+	[dir=rtl] form .mandatory:before {
+
+		right: 47.5%;
+		left: auto;
+
+	}
+	
 	form .mandatory.alert span, form .mandatory.alert p {
 		
 		background: #666;
@@ -288,6 +322,14 @@ form {
 		
 	}
 	
+	[dir=rtl] form select {
+		
+		background-position: 1em 50%;
+		padding-left: 0;
+		padding-right: .8em;
+
+	}
+	
 	form select option {
 		
 		padding: 0;
@@ -310,7 +352,7 @@ form {
 
 	.checkbox label {
 		
-		text-align: left;
+		text-align: start;
 		width: 50%;
 		font-weight: normal;
 		float: right;
@@ -318,6 +360,13 @@ form {
 		margin: 0;
 		cursor: pointer;
 		padding-left: 1.5em;
+		
+	}
+	
+	[dir=rtl] .checkbox label {
+		
+		float: left;
+		clear: left;
 		
 	}
 	
@@ -396,6 +445,12 @@ form {
 
 	}
 
+	input[type=checkbox], input[type=radio] {
+		
+		float: right;
+
+	}
+	
 	input[type=checkbox]:checked + .checkbox-icon:before {
 		
 		content: '✓';
@@ -468,7 +523,7 @@ form {
 
 	form .file-input span {
 
-		text-align: left;
+		text-align: start;
 		white-space: nowrap;
 		padding: 0 0 0 .8em;
 		background: #eee;
@@ -476,6 +531,12 @@ form {
 		margin: 0;
 		width: 100%;
 		border: 1px dotted transparent;
+
+	}
+	
+	[dir=rtl] form .file-input span {
+
+		padding: 0 .8em 0 0;
 
 	}
 	
@@ -504,7 +565,7 @@ form {
 		margin: 0;
 		display: block;
 		width: 100%;
-		text-align: left;
+		text-align: start;
 		
 	}
 	
@@ -582,7 +643,7 @@ form {
 	
 	label, form.flat label {
 
-		text-align: left;
+		text-align: start;
 		margin: $line-height/2 0 0 0;
 
 	}
@@ -596,7 +657,7 @@ form {
 			
 			padding: $line-height/2 0;
 			width: 100%;
-			text-align: left;
+			text-align: start;
 			
 		}
 		
@@ -656,7 +717,7 @@ form {
 			
 			display: block;
 			width: 100%;
-			text-align: left;
+			text-align: start;
 
 		}
 

@@ -253,7 +253,7 @@
 .slider > *:after {
 	
 	content: '>';
-	text-align: right;
+	text-align: end;
 	
 }
 
@@ -261,7 +261,7 @@
 	
 	content: '';
 	top: 0;
-	text-align: left;
+	text-align: start;
 	opacity: 1;
 	width: auto;
 	right: 0;
@@ -428,8 +428,8 @@
 
 	.slider-nav {
 		
-		text-align: left;
-		justify-content: left;
+		text-align: start;
+		justify-content: flex-start;
 
 	}
 
@@ -514,7 +514,7 @@
 		width: auto;
 		height: auto;
 		display: table-cell;
-		text-align: left;
+		text-align: start;
 		color: #333;
 		border-radius: 0;
 		line-height: $line-height;

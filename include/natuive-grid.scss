@@ -35,14 +35,8 @@
 		-ms-flex: 1 0 auto;
 		flex: 1 0 auto;
 		width: 20%; /* Minimum col width */
-		text-align: left;
+		text-align: start;
 		padding: $line-height/2;
-
-	}
-	
-	[dir=rtl] .row > * {
-	
-		text-align: right;
 
 	}
 	
@@ -186,25 +180,13 @@
 	
 .align-left, .row > .align-left {
 	
-	text-align: left;
-
-}
-
-[dir=rtl] .align-left, [dir=rtl] .row > .align-left {
-	
-	text-align: right;
+	text-align: start;
 
 }
 
 .align-right, .row > .align-right {
 	
-	text-align: right;
-
-}
-
-[dir=rtl] .align-right, [dir=rtl] .row > .align-right {
-	
-	text-align: left;
+	text-align: end;
 
 }
 

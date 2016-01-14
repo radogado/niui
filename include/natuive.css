@@ -36,11 +36,8 @@ $line-height: 34px;
   flex: 1 0 auto;
   width: 20%;
   /* Minimum col width */
-  text-align: left;
+  text-align: start;
   padding: 11px; }
-
-[dir=rtl] .row > * {
-  text-align: right; }
 
 .row > * > .row {
   margin: -11px;
@@ -121,16 +118,10 @@ _:-ms-input-placeholder, :root .row {
   padding: 0; }
 
 .align-left, .row > .align-left {
-  text-align: left; }
-
-[dir=rtl] .align-left, [dir=rtl] .row > .align-left {
-  text-align: right; }
+  text-align: start; }
 
 .align-right, .row > .align-right {
-  text-align: right; }
-
-[dir=rtl] .align-right, [dir=rtl] .row > .align-right {
-  text-align: left; }
+  text-align: end; }
 
 .align-center, .row > .align-center {
   text-align: center; }
@@ -406,8 +397,11 @@ label {
   width: 100%;
   float: left; }
 
+[dir=rtl] label {
+  float: right; }
+
 label span {
-  text-align: right; }
+  text-align: end; }
 
 form .checkbox {
   clear: both;
@@ -437,6 +431,9 @@ input, select, textarea, input[type=search], form button {
   outline: none;
   border: 1px dotted transparent; }
 
+[dir=rtl] input, [dir=rtl] select, [dir=rtl] textarea, [dir=rtl] input[type=search], [dir=rtl] form button {
+  float: left; }
+
 label > input {
   margin-top: -11px; }
 
@@ -452,12 +449,17 @@ input:focus, select:focus, textarea:focus {
 form .checkbox span {
   display: inline-block;
   font-weight: bold;
-  text-align: right;
+  text-align: end;
   width: 50%;
   float: left;
   margin-top: 0;
   padding-right: 3%;
   cursor: default; }
+
+[dir=rtl] form .checkbox span {
+  float: right;
+  padding-right: 0;
+  padding-left: 3%; }
 
 form input[type=submit], form button {
   margin-right: 0;
@@ -485,6 +487,10 @@ form > label span {
   padding: 0 3% 0 0;
   float: left; }
 
+[dir=rtl] form > label span {
+  float: right;
+  padding: 0 0 0 3%; }
+
 form .checkbox label span {
   width: auto; }
 
@@ -501,6 +507,10 @@ form .mandatory:before {
   left: 47.5%;
   top: 0;
   font-weight: bold; }
+
+[dir=rtl] form .mandatory:before {
+  right: 47.5%;
+  left: auto; }
 
 form .mandatory.alert span, form .mandatory.alert p {
   background: #666;
@@ -552,6 +562,11 @@ form select {
   padding-left: .8em;
   text-indent: 1px; }
 
+[dir=rtl] form select {
+  background-position: 1em 50%;
+  padding-left: 0;
+  padding-right: .8em; }
+
 form select option {
   padding: 0; }
 
@@ -564,7 +579,7 @@ select:hover {
   cursor: pointer; }
 
 .checkbox label {
-  text-align: left;
+  text-align: start;
   width: 50%;
   font-weight: normal;
   float: right;
@@ -572,6 +587,10 @@ select:hover {
   margin: 0;
   cursor: pointer;
   padding-left: 1.5em; }
+
+[dir=rtl] .checkbox label {
+  float: left;
+  clear: left; }
 
 form.flat {
   padding-top: 0; }
@@ -627,6 +646,9 @@ input[type=checkbox], input[type=radio] {
   opacity: 0;
   margin: 0 .5em 0 -1.5em; }
 
+input[type=checkbox], input[type=radio] {
+  float: right; }
+
 input[type=checkbox]:checked + .checkbox-icon:before {
   content: '✓'; }
 
@@ -674,7 +696,7 @@ form .file-input {
   font-style: italic; }
 
 form .file-input span {
-  text-align: left;
+  text-align: start;
   white-space: nowrap;
   padding: 0 0 0 .8em;
   background: #eee;
@@ -682,6 +704,9 @@ form .file-input span {
   margin: 0;
   width: 100%;
   border: 1px dotted transparent; }
+
+[dir=rtl] form .file-input span {
+  padding: 0 .8em 0 0; }
 
 input[type=file]:focus + span {
   border-color: #bbb; }
@@ -698,7 +723,7 @@ form.flat label, form.flat label span, form.flat .checkbox span {
   margin: 0;
   display: block;
   width: 100%;
-  text-align: left; }
+  text-align: start; }
 
 form.flat input, form.flat textarea, form.flat select {
   display: block;
@@ -755,7 +780,7 @@ form.flat input[type=submit] {
     margin-top: -22px; } }
 @media screen and (max-width: 640px) {
   label, form.flat label {
-    text-align: left;
+    text-align: start;
     margin: 11px 0 0 0; }
 
   form.flat .checkbox label:first-of-type {
@@ -764,7 +789,7 @@ form.flat input[type=submit] {
   label span, form > label span {
     padding: 11px 0;
     width: 100%;
-    text-align: left; }
+    text-align: start; }
 
   form .mandatory.alert > span {
     padding: 11px; }
@@ -797,7 +822,7 @@ form.flat input[type=submit] {
   form .checkbox span, .checkbox label, form .checkbox span {
     display: block;
     width: 100%;
-    text-align: left; }
+    text-align: start; }
 
   form .checkbox span {
     margin-bottom: 11px; }
@@ -1483,12 +1508,12 @@ ol p {
 
 .slider > *:after {
   content: '>';
-  text-align: right; }
+  text-align: end; }
 
 .slider-wrap .slider > *:after, .slider-wrap .slider > *:before, .slider > *:first-child:before, .slider > *:last-child:after, .slider-wrap .slider > * > div.bg {
   content: '';
   top: 0;
-  text-align: left;
+  text-align: start;
   opacity: 1;
   width: auto;
   right: 0;
@@ -1604,8 +1629,8 @@ ol p {
   transform: translateX(-50%); }
 
 .slider-nav {
-  text-align: left;
-  justify-content: left; }
+  text-align: start;
+  justify-content: flex-start; }
 
 .slider-wrap.tabs > .slider-nav a {
   -webkit-flex: 0 1 auto;
@@ -1660,7 +1685,7 @@ ol p {
   width: auto;
   height: auto;
   display: table-cell;
-  text-align: left;
+  text-align: start;
   color: #333;
   border-radius: 0;
   line-height: 22px;
@@ -1857,6 +1882,9 @@ p, header {
   font-size: 5em;
   padding: .1em .1em .1em 0; }
 
+[dir=rtl] .drop-cap:first-letter {
+  float: right; }
+
 .header-and-banner {
   flex: none; }
 
@@ -1956,7 +1984,7 @@ video a[href] {
     height: auto; }
 
   header > .row:first-child div {
-    text-align: right; }
+    text-align: end; }
 
   form#language-selector select {
     height: auto;
@@ -1966,7 +1994,7 @@ video a[href] {
     margin-left: 0; }
 
   header .head-right {
-    text-align: left; }
+    text-align: start; }
 
   .semi-transparent main, .semi-transparent footer, .semi-transparent header > .row {
     opacity: .1; }
@@ -1978,7 +2006,7 @@ video a[href] {
     margin: 0; }
 
   footer .row > .social {
-    float: right; } }
+    float: end; } }
 hr {
   display: block;
   height: 1px;

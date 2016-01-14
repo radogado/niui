@@ -133,6 +133,12 @@ p, header {
 
 }
 
+[dir=rtl] .drop-cap:first-letter {
+
+	float: right;
+
+}
+
 .header-and-banner {
 
 	flex: none;	
@@ -305,7 +311,7 @@ video a[href] {
 	
 	header > .row:first-child div {
 		
-		text-align: right;
+		text-align: end;
 		
 	}
  	
@@ -321,7 +327,7 @@ video a[href] {
 
 		header .head-right {
 			
-			text-align: left;
+			text-align: start;
 		
 		}
 	
@@ -345,7 +351,7 @@ video a[href] {
 
 	footer .row > .social {
 		
-		float: right;
+		float: end;
 		
 	}
 	

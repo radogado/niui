@@ -185,9 +185,10 @@ function slide(el, method, index_number) {
 
     }
 
-	sliding = 1;
     mouseEvents(el.parentNode, 'off');
     mouseEvents(el, 'off');
+	document.onkeyup = function () { return false; };
+	sliding = 1;
 
     if (window.sliderTimeout) {
 
@@ -214,7 +215,7 @@ function slide(el, method, index_number) {
 
     if (method == 'right') {
 
-        if (index == (slider.children.length - 1)) {
+        if (index == (slider.children.length-1)) {
 
             index = 0;
 
@@ -317,11 +318,10 @@ function slide(el, method, index_number) {
 }
 
 function sliderKeyboard(e) {
-
+	console.log('k');
     e = e || window.event;
 
     if (typeof e == 'undefined' || sliding) {
-
         return;
 
     }
