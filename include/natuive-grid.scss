@@ -35,6 +35,7 @@
 		-ms-flex: 1 0 auto;
 		flex: 1 0 auto;
 		width: 20%; /* Minimum col width */
+		text-align: left;
 		text-align: start;
 		padding: $line-height/2;
 
@@ -180,12 +181,14 @@
 	
 .align-left, .row > .align-left {
 	
+	text-align: left;
 	text-align: start;
 
 }
 
 .align-right, .row > .align-right {
 	
+	text-align: right;	
 	text-align: end;
 
 }

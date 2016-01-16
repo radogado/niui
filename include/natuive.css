@@ -36,6 +36,7 @@ $line-height: 34px;
   flex: 1 0 auto;
   width: 20%;
   /* Minimum col width */
+  text-align: left;
   text-align: start;
   padding: 11px; }
 
@@ -118,9 +119,11 @@ _:-ms-input-placeholder, :root .row {
   padding: 0; }
 
 .align-left, .row > .align-left {
+  text-align: left;
   text-align: start; }
 
 .align-right, .row > .align-right {
+  text-align: right;
   text-align: end; }
 
 .align-center, .row > .align-center {

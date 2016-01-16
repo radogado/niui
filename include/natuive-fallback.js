@@ -15,10 +15,43 @@
 	
 }
 
+/* :scope polyfill by disfated. :not not supported in IE8 */
+
+(function(doc, proto) {
+  try { // check if browser supports :scope natively
+    doc.querySelector(':scope body');
+  } catch (err) { // polyfill native methods if it doesn't
+    forEach(['querySelector', 'querySelectorAll'], function(method) {
+      var nativ = proto[method];
+      proto[method] = function(selectors) {
+        if (/(^|,)\s*:scope/.test(selectors)) { // only if selectors contains :scope
+          var id = this.id; // remember current element id
+          this.id = 'ID_' + Date.now(); // assign new unique id
+          selectors = selectors.replace(/((^|,)\s*):scope/g, '$1#' + this.id); // replace :scope with #ID
+          var result = doc[method](selectors);
+          this.id = id; // restore previous id
+          return result;
+        } else {
+          return nativ.call(this, selectors); // use native code for other selectors
+        }
+      }
+    });
+  }
+})(window.document, Element.prototype);
+
 /* Flexbox grid polyfill */
 var detector = document.createElement("detect");
-detector.style.display = "flex";
-if (detector.style.display != "flex") { // No Flexbox support
+var flexbox_support = 1;
+try {
+
+	detector.style.display = "flex";
+
+} catch (err) {
+	
+	flexbox_support = 0;
+}
+
+if (detector.style.display != "flex" || !flexbox_support) { // No Flexbox support
 
     // Flex is not supported, add col*-class-less columns the proper classes   '.row > *:not([class^="col"])'
     forEach('.row', function (el) {
@@ -29,7 +62,7 @@ if (detector.style.display != "flex") { // No Flexbox support
 		    
 		    var space = 100; // %
 		    forEach(el.querySelectorAll(':scope > [class^=col]'), function(el) {
-				
+				addClass(el, 'column');
 // 				space -=  100 / (getStyle(el.parentNode, 'width').match(/[0-9]*/) / getStyle(el, 'width').match(/[0-9]*/)); // To do: get it from CSS rule
 
 			    // Get each column's specified space in % via their col* class, substract it from 100 and distribute the result evenly among the classless columns // To do: get it from CSS rule
@@ -50,12 +83,15 @@ if (detector.style.display != "flex") { // No Flexbox support
 			}
 
 			// Set this row's classless columns width to space/number_of_classless_columns
-			var new_width = space / el.querySelectorAll(':scope > :not([class^=col])').length;
-		    console.log(new_width);
+			var new_width = space / (el.querySelectorAll(':scope > *').length - el.querySelectorAll(':scope > .column').length);
 		    
-		    forEach(el.querySelectorAll(':scope > :not([class^=col])'), function (el) {
+		    forEach(el.querySelectorAll(':scope > *'), function (el) {
 			    
-			    el.style.width = new_width + '%';
+			    if (!hasClass(el, 'column')) {
+	
+				    el.style.width = new_width + '%';
+				
+				}
 			    
 		    });
 		    

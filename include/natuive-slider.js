@@ -320,7 +320,7 @@ function slide(el, method, index_number) {
 }
 
 function sliderKeyboard(e) {
-	console.log('k');
+
     e = e || window.event;
 
     if (typeof e == 'undefined' || sliding) {
