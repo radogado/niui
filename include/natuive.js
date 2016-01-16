@@ -433,11 +433,11 @@ function scrollTo(to, callback) {
 	
     var change = to - (document.documentElement.scrollTop || document.body.scrollTop);
 
-	addClass(q('html'), 'no-hover');
+	addClass(q('html'), 'animate-scroll');
     q('html').addEventListener(transitionEvent, function scrollEndHandler(e) {
 
 		q('html').removeEventListener(transitionEvent, scrollEndHandler);
-		removeClass(q('html'), 'no-hover');
+		removeClass(q('html'), 'animate-scroll');
 		q('html').style.cssText = '';
 		callback();
 

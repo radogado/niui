@@ -241,7 +241,6 @@ function slide(el, method, index_number) {
 
     }
 
-	addClass(slider.children[index], 'visible');
 	if (!hasClass(slider, 'vertical')) {
 		
 		slider.style.cssText = 'height: ' + slider.offsetHeight + 'px !important';
@@ -260,6 +259,7 @@ function slide(el, method, index_number) {
 
     if (animationEvent) { // CSS transition-enabled browser...
 
+		addClass(slider.children[index], 'visible');
 	    if (hasClass(slider, 'vertical')) {
 		
 		    var translate_from = 'translate3d(0,' + ((index<old_index) ? -1 : 0) + '00%,0)';
@@ -292,11 +292,13 @@ function slide(el, method, index_number) {
 				removeClass(slider.children[old_index], 'visible');
 	
 			}
+
 			if (index > 0) {
 				
 				slider.children[index-1].style.opacity = 0; // Safari Odd/Even width 1px visible fix
 
 			}
+
 			removeClass(slider,'sliding');
 			slider.style.cssText = prefix + 'transform: ' + (hasClass(slider, 'vertical') ? 'translateY(0)' : 'translateX(-' + index + '00%);');
 			q('.sliding-style').outerHTML = '';

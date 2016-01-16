@@ -169,11 +169,12 @@ _:-ms-input-placeholder, :root .row {
     margin: 0;
     width: 100%; }
 
-  .row > * {
+  .row > *, .row > [class^=col] {
     display: block;
     padding: 5.5px;
-    width: auto !important;
-    border: none; }
+    width: 100%;
+    border: none;
+    flex: 0 0 100%; }
 
   .no-mobile-gutter.row > * {
     padding: 0; }
@@ -186,10 +187,7 @@ _:-ms-input-placeholder, :root .row {
 
   .row.half > * {
     width: 50% !important;
-    float: left; }
-
-  .row > * {
-    width: 100% !important; }
+    flex: 0 0 50%; }
 
   .row.border {
     padding: 5.5px 0; }
@@ -1845,10 +1843,13 @@ body * {
 html.nooverflow, html.nooverflow body {
   overflow: hidden; }
 
-.no-hover, .no-hover * {
+.animate-scroll {
   pointer-events: none !important;
   -webkit-transition: -webkit-transform .4s ease;
   transition: transform .4s ease; }
+
+.no-hover {
+  pointer-events: none !important; }
 
 /* Elements with single line-height */
 html, body, p, h4, h5 {

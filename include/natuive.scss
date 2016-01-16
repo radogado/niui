@@ -70,11 +70,17 @@ html.nooverflow, html.nooverflow body {
 
 }
 
-.no-hover, .no-hover * {
+.animate-scroll {
 
 	pointer-events: none !important;
 	-webkit-transition: -webkit-transform .4s ease;
 	transition: transform .4s ease;
+
+}
+
+.no-hover {
+
+	pointer-events: none !important;
 
 }
 

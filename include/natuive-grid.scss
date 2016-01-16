@@ -260,12 +260,13 @@
 
 	}
 
-	.row > * {
+	.row > *, .row > [class^=col] {
 
 		display: block;
 		padding: $line-height/4;
-		width: auto !important;
+		width: 100%;
 		border: none;
+		flex: 0 0 100%;
 
 	}
 
@@ -290,16 +291,10 @@
 	.row.half > * {
 		
 		width: 50% !important;
-		float: left;
+		flex: 0 0 50%;
 
 	}
 
-	.row > * {
-		
-		width: 100% !important;
-	
-	}
-	
 	.row.border {
 		
 		padding: $line-height/4 0;
