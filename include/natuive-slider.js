@@ -241,6 +241,7 @@ function slide(el, method, index_number) {
 
     }
 
+	addClass(slider.children[index], 'visible');
 	if (!hasClass(slider, 'vertical')) {
 		
 		slider.style.cssText = 'height: ' + slider.offsetHeight + 'px !important';
@@ -259,7 +260,6 @@ function slide(el, method, index_number) {
 
     if (animationEvent) { // CSS transition-enabled browser...
 
-		addClass(slider.children[index], 'visible');
 	    if (hasClass(slider, 'vertical')) {
 		
 		    var translate_from = 'translate3d(0,' + ((index<old_index) ? -1 : 0) + '00%,0)';
