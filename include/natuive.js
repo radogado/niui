@@ -202,6 +202,14 @@ function thisIndex(el) {
 
 }
 
+function touchSupport () {
+	
+	return (('ontouchstart' in window)
+	     || (navigator.maxTouchPoints > 0)
+	     || (navigator.msMaxTouchPoints > 0));
+
+}
+
 if (!Array.prototype.indexOf) {
 
     Array.prototype.indexOf = function(el) {
@@ -489,7 +497,7 @@ function closeFullWindow() {
 		}
 
 	    removeClass(q('html'), 'nooverflow');
-	    if ('ontouchstart' in window) {
+	    if (touchSupport()) {
 
 		    document.removeEventListener('touchmove', preventEvent, false);
 		    q('body').removeEventListener('touchmove', preventEvent, false);
@@ -542,7 +550,7 @@ function openFullWindow(el) {
 		
 	}
 
-	if (('ontouchstart' in window) && el.children[0] && hasClass(el.children[0], 'slider')) {
+	if (touchSupport() && el.children[0] && hasClass(el.children[0], 'slider')) {
 
 		document.addEventListener('touchmove', preventEvent, false);
 		q('body').addEventListener('touchmove', preventEvent, false);
@@ -690,7 +698,7 @@ relayParameters();
 
 forEach('.tool', function(el, i) {
 
-	if ('ontouchstart' in window) {
+	if (touchSupport()) {
 
 		el.onclick = function (e) {
 
@@ -1025,7 +1033,7 @@ forEach('.accordion > label', function(el, i) {
 
 });
 
-if (!('ontouchstart' in window)) { // Touch device: remove iOS sticky hover state
+if (!touchSupport()) { // Touch device: remove iOS sticky hover state
 
 	addClass(q('body'), 'no-touch');
 	

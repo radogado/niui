@@ -9,7 +9,7 @@ $line-height: 34px;
 /* For proper fallback, use .col* for all columns. Automatic column width (no .col*) works for Flexbox only. */
 .row {
   width: 100%;
-  padding: 11px 0;
+  margin: 11px 0;
   font-size: 0;
   /* No space between inline-block elements */
   display: block;
@@ -167,48 +167,6 @@ _:-ms-input-placeholder, :root .row {
   /* FF 20+ */
   break-inside: avoid-column; }
 
-@media screen and (max-width: 640px) {
-  .row > * > .row {
-    margin: 0;
-    width: 100%; }
-
-  .row > *, .row > [class^=col] {
-    display: block;
-    padding: 5.5px;
-    width: 100%;
-    border: none;
-    flex: 0 0 100%; }
-
-  .no-mobile-gutter.row > * {
-    padding: 0; }
-
-  .row > *, .row.border, .row.border > * {
-    border: none; }
-
-  .row > * > .row > * {
-    padding: 7.33333px 0; }
-
-  .row.half > * {
-    width: 50% !important;
-    flex: 0 0 50%; }
-
-  .row.border {
-    padding: 5.5px 0; }
-
-  .row.border-all .row {
-    margin: 0; }
-
-  .row.border-all .row .row {
-    margin-left: -11px;
-    width: calc(100% + 22px); }
-
-  .row.border-all > *:not(:first-child), .row.border-all .row > *:not(:first-child) {
-    border-left: none; }
-
-  .masonry {
-    -moz-column-count: 2;
-    -webkit-column-count: 2;
-    column-count: 2; } }
 .pad {
   padding: 11px; }
 
@@ -248,6 +206,9 @@ _:-ms-input-placeholder, :root .row {
   padding-top: 0;
   margin-left: -11px; }
 
+.row.border-all > * > .row:not(:first-child) {
+  margin-top: 11px; }
+
 .row.border-all, .row.border-all .row, .row.border-all > *:not(:first-child), .row.border-all .row > *:not(:first-child) {
   border-color: #ddd; }
 
@@ -260,15 +221,57 @@ _:-ms-input-placeholder, :root .row {
 .row.border-all .row.border-off > * {
   border: none; }
 
-.row.spacing {
-  border-spacing: 11px; }
+.row.spacing > * {
+  margin: 11px; }
 
-.row.spacing-horizontal {
-  border-spacing: 11px 0; }
+.row.spacing-horizontal > * {
+  margin: 0 11px; }
 
-.row.spacing-vertical {
-  border-spacing: 0 11px; }
+.row.spacing-vertical > * {
+  margin: 11px 0; }
 
+@media screen and (max-width: 640px) {
+  .row > * > .row {
+    margin: 0;
+    width: 100%; }
+
+  .row > *, .row > [class^=col] {
+    display: block;
+    padding: 5.5px;
+    width: 100% !important;
+    border: none;
+    flex: 0 0 100%; }
+
+  .no-mobile-gutter.row > * {
+    padding: 0; }
+
+  .row > *, .row.border, .row.border > * {
+    border: none; }
+
+  .row > * > .row > * {
+    padding: 7.33333px 0; }
+
+  .row.half > * {
+    width: 50% !important;
+    flex: 0 0 50%; }
+
+  .row.border {
+    padding: 5.5px 0; }
+
+  .row.border-all .row {
+    margin: 0; }
+
+  .row.border-all .row .row {
+    margin-left: -11px;
+    width: calc(100% + 22px); }
+
+  .row.border-all > *:not(:first-child), .row.border-all .row > *:not(:first-child) {
+    border-left: none; }
+
+  .masonry {
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+    column-count: 2; } }
 /* natUIve – Button */
 .button, button {
   font-size: 15px;
@@ -1431,7 +1434,7 @@ ol p {
   transition: left .2s linear; }
 
 .slider-wrap .slider {
-  overflow-y: visible;
+  overflow: visible;
   width: 100%; }
 
 .slider-wrap .slider > .visible {
@@ -1674,7 +1677,8 @@ ol p {
   display: none; }
 
 .slider-wrap.tabs > .slider-nav.row {
-  padding: 0; }
+  padding: 0;
+  margin-bottom: 0; }
 
 .full-window .slider-wrap.tabs > .slider-nav {
   position: absolute;
@@ -1955,11 +1959,12 @@ video a[href] {
   display: inline-block;
   vertical-align: top; }
 
-.aspect img {
+.aspect > img {
   max-width: 100%;
   height: auto;
   padding-bottom: 0 !important;
-  vertical-align: middle; }
+  vertical-align: middle;
+  font-size: 0; }
 
 .aspect span {
   /*  Ratio can be overwritten with inline CSS padding-bottom */

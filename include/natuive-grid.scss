@@ -7,7 +7,7 @@
 .row {
 
 	width: 100%;
-	padding: $line-height/2 0;
+	margin: $line-height/2 0;
 	font-size: 0; /* No space between inline-block elements */
 	display: block;
 	display: -webkit-flex;
@@ -254,85 +254,6 @@
 
     }
 
-@media screen and (max-width: $screen-narrow) {
-
-	.row > * > .row {
-		
-		margin: 0;
-		width: 100%;
-
-	}
-
-	.row > *, .row > [class^=col] {
-
-		display: block;
-		padding: $line-height/4;
-		width: 100%;
-		border: none;
-		flex: 0 0 100%;
-
-	}
-
-	.no-mobile-gutter.row > * {
-		
-		padding: 0;
-
-	}
-	
-	.row > *, .row.border, .row.border > * {
-
-		border: none;
-
-	}
-
-	.row > * > .row > * {
-
-		padding: $line-height/3 0;
-
-	}
-	
-	.row.half > * {
-		
-		width: 50% !important;
-		flex: 0 0 50%;
-
-	}
-
-	.row.border {
-		
-		padding: $line-height/4 0;
-
-	}
-	
-	.row.border-all .row {
-		
-		margin: 0;
-
-	}
-
-	.row.border-all .row .row {
-		
-		margin-left: -$line-height/2;
-		width:calc(100% + #{$line-height});
-
-	}
-	
-	.row.border-all>*:not(:first-child), .row.border-all .row>*:not(:first-child) {
-		
-		border-left: none;
-
-	}
-
-	.masonry {
-		
-	    -moz-column-count: 2;
-	    -webkit-column-count: 2;
-	    column-count: 2;
-		
-	}
-
-}
-
 .pad {
 	
 	padding: $line-height/2;
@@ -401,6 +322,12 @@
 		
 	}
 
+	.row.border-all > * > .row:not(:first-child) {
+		
+		margin-top: 11px;
+		
+	}
+
 	.row.border-all, .row.border-all .row, .row.border-all > *:not(:first-child), .row.border-all .row > *:not(:first-child) {
 		
 		border-color: #ddd;
@@ -425,20 +352,99 @@
 
 	}
 	
-	.row.spacing {
+	.row.spacing > * {
 		
-		border-spacing: $line-height/2;
+		margin: $line-height/2;
 
 	}
 	
-	.row.spacing-horizontal {
+	.row.spacing-horizontal > * {
 		
-		border-spacing: $line-height/2 0;
+		margin: 0 $line-height/2;
 
 	}
 	
-	.row.spacing-vertical {
+	.row.spacing-vertical > * {
 		
-		border-spacing: 0 $line-height/2;
+		margin: $line-height/2 0;
 
 	}
+
+@media screen and (max-width: $screen-narrow) {
+
+	.row > * > .row {
+		
+		margin: 0;
+		width: 100%;
+
+	}
+
+	.row > *, .row > [class^=col] {
+
+		display: block;
+		padding: $line-height/4;
+		width: 100% !important; // Important because of Android Browser
+		border: none;
+		flex: 0 0 100%;
+
+	}
+
+	.no-mobile-gutter.row > * {
+		
+		padding: 0;
+
+	}
+	
+	.row > *, .row.border, .row.border > * {
+
+		border: none;
+
+	}
+
+	.row > * > .row > * {
+
+		padding: $line-height/3 0;
+
+	}
+	
+	.row.half > * {
+		
+		width: 50% !important;
+		flex: 0 0 50%;
+
+	}
+
+	.row.border {
+		
+		padding: $line-height/4 0;
+
+	}
+	
+	.row.border-all .row {
+		
+		margin: 0;
+
+	}
+
+	.row.border-all .row .row {
+		
+		margin-left: -$line-height/2;
+		width:calc(100% + #{$line-height});
+
+	}
+	
+	.row.border-all > *:not(:first-child), .row.border-all .row>*:not(:first-child) {
+		
+		border-left: none;
+
+	}
+
+	.masonry {
+		
+	    -moz-column-count: 2;
+	    -webkit-column-count: 2;
+	    column-count: 2;
+		
+	}
+
+}

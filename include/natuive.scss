@@ -262,12 +262,13 @@ video a[href] {
 
 }
 
-.aspect img {
+.aspect > img {
 	
 	max-width: 100%;
 	height: auto;
 	padding-bottom: 0 !important;
 	vertical-align: middle;
+	font-size: 0;
 
 }
 

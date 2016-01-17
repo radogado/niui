@@ -416,6 +416,7 @@ main .slider span.copy, main .slider span.copy h2, main .slider span.copy button
 	padding-bottom: .3em;
 	transition: background-color .2s linear;
 	margin-right: 0;
+	text-align: center;
 
 }
 
@@ -442,6 +443,13 @@ main .slider span.copy, main .slider span.copy h2, main .slider span.copy button
 	margin-left: 0;
 	width: 100%;
 	padding-bottom: 0;
+	margin: 0;
+	
+}
+
+.aspect {
+	
+	padding-bottom: 0 !important;
 	
 }
 

@@ -1,8 +1,10 @@
 /* natUIve Slider */
 var new_event_support = 1; // Can the browser do new Event('t')?
-var slide_duration = 0.5; // Default slide duration, overwritten by the optional data-duration attribute
-var last_animation = 0; // Protection from unwanted slide after slide
-var sliding = 0; // Slide in progress
+var slide_duration = 0.5; // Default slide duration [sec], overwritten by the optional data-duration attribute
+var timeNow = new Date().getTime();
+var last_animation = timeNow; // Protection from unwanted slide after slide
+var sliding_now = 0; // Slide in progress
+var	prefix = animationEvent == 'webkitAnimationEnd' ? '-webkit-' : ''; 
 
 try { // Android Browser etc?
 
@@ -41,7 +43,7 @@ var swipeEvents = function(el) {
 
     function touchStart(e) {
 
-		if (sliding) {
+		if (sliding_now) {
 			
 			e.preventDefault();
 			return;
@@ -102,32 +104,37 @@ var swipeEvents = function(el) {
 
 var initScroll = function(e, delta) { // Scroll happens
 
-    var deltaOfInterest = delta;
-
-    var timeNow = new Date().getTime();
+    timeNow = new Date().getTime();
 
     // Cancel scroll if currently animating or within quiet period – don't slide again automatically after a slide
-    if ((timeNow - last_animation) < 800 || sliding) {
+    if ((timeNow - last_animation) < slide_duration*2000 || sliding_now) {
 
-        e.preventDefault();
-        return;
+        stopEvent(e);
+		return;
 
     }
 
-    var last_animation = timeNow;
+    last_animation = timeNow;
 
-    slide(sliderElement(e), deltaOfInterest < 0 ? 'right' : 'left');
+    slide(sliderElement(e), delta < 0 ? 'right' : 'left');
 
 };
 
 var mouseWheelHandler = function(e) {
+
+	if (sliding_now) {
+		
+		stopEvent(e); 
+		return;
 	
+	}
+
 	var el = eventElement(e);
 
     var deltaX = (e.deltaX * -10) || e.wheelDeltaX || -e.detail; // Firefox provides 'detail' with opposite value
     var deltaY = (e.deltaY * -10) || e.wheelDeltaY || -e.detail;
 /* To do: stop generating events while sliding */	
-    if (Math.abs(hasClass(sliderElement(e), 'vertical') ? deltaY : deltaX) > 50) {
+    if (!sliding_now && Math.abs(hasClass(sliderElement(e), 'vertical') ? deltaY : deltaX) > 50) {
 
         e.preventDefault();
         initScroll(e, (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY);
@@ -167,17 +174,17 @@ function endSlide (slider, index) {
     
 	addClass(childByClass(slider.parentNode, 'slider-nav').children[index], 'active');
 	document.onkeyup = sliderKeyboard;
-   	removeClass(q('html'), 'no-hover');
     t = setTimeout(function () { 
-	    sliding = 0;
+	    sliding_now = 0;
 	    mouseEvents(slider); 
-	}, 200);
+		removeClass(q('html'), 'no-hover');
+	}, slide_duration/2);
 	
 }
 
-var	prefix = animationEvent == 'webkitAnimationEnd' ? '-webkit-' : ''; 
-
 function slide(el, method, index_number) {
+
+	addClass(q('html'), 'no-hover');
 
     if (getClosest(el, '.slider-wrap').querySelector('.slider').children.length < 2) {
 
@@ -188,7 +195,7 @@ function slide(el, method, index_number) {
     mouseEvents(el.parentNode, 'off');
     mouseEvents(el, 'off');
 	document.onkeyup = function () { return false; };
-	sliding = 1;
+	sliding_now = 1;
 
     if (window.sliderTimeout) {
 
@@ -323,7 +330,7 @@ function sliderKeyboard(e) {
 
     e = e || window.event;
 
-    if (typeof e == 'undefined' || sliding) {
+    if (typeof e == 'undefined' || sliding_now) {
         return;
 
     }
@@ -392,8 +399,7 @@ function makeSlider(el, current_slide) {
 	
     container.insertAdjacentHTML(hasClass(el, 'toptabs') ? 'afterbegin' : 'beforeend', '<div class=slider-nav></div>');
     container.insertAdjacentHTML('beforeend', '<a class="slider-arrow left"></a><a class="slider-arrow right"></a>');
-	
-	
+
     // Generate controls
 
     for (var i = 0; i < el.children.length; i++) {
@@ -453,7 +459,7 @@ function makeSlider(el, current_slide) {
 
     mouseEvents(el);
 
-    if ('ontouchstart' in window) {
+    if (touchSupport()) {
 
         swipeEvents(el.parentNode);
 
