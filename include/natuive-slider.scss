@@ -16,7 +16,7 @@
 		padding-bottom: 0 !important;
 	
 	}
-
+	
 	.full-window-wrap .slider, .full-window-wrap .slider-wrap {
 		
 		height: 100%;
@@ -548,6 +548,22 @@
 	
 	display: inline-block;
 
+}
+
+.lightbox.slider > *.visible > img.zoom {
+
+	width: auto;
+	height: auto;
+	max-height: none;
+	max-width: none;
+	transform: translate3d(calc(50vw - 50%), calc(50vh - 50%), 0);
+
+}
+
+.full-window-wrap .lightbox.slider > * {
+	
+	overflow: hidden;
+	
 }
 
 .sliding {

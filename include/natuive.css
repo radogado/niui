@@ -1714,6 +1714,16 @@ ol p {
 .lightbox.slider > *.visible > img {
   display: inline-block; }
 
+.lightbox.slider > *.visible > img.zoom {
+  width: auto;
+  height: auto;
+  max-height: none;
+  max-width: none;
+  transform: translate3d(calc(50vw - 50%), calc(50vh - 50%), 0); }
+
+.full-window-wrap .lightbox.slider > * {
+  overflow: hidden; }
+
 .sliding {
   -webkit-animation-name: sliding;
   animation-name: sliding; }

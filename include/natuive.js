@@ -453,6 +453,11 @@ function populateLightboxItem(slider, i) {
 	if (!img.src) {
 		
 		img.src = img.getAttribute('data-src');
+		img.onclick = function (e) {
+			
+			toggleClass(eventElement(e), 'zoom');
+
+		}
 		return false;
 
 	}
