@@ -18,7 +18,7 @@
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
 	text-align: center;
-	justify-content: center;
+	justify-content: space-between;
 
 }
 
@@ -38,6 +38,7 @@
 		text-align: left;
 		text-align: start;
 		padding: $line-height/2;
+		margin: $line-height/2 0;
 
 	}
 	
@@ -59,78 +60,73 @@
 	.row > .col23 { // body used for rules override
 
 		width: 66.6%;
-		flex: 0 0 66.6%;
+		flex: 0 0 calc(66.6% - #{$line-height/2});
 
 	}
 	
 	.row > .col34 {
 
 		width: 75%;
-		flex: 0 0 75%;
+		flex: 0 0 calc(75% - #{$line-height/2});
 
 	}
 
 	.row > .col4 {
 
 		width: 25%;
-		flex: 0 0 25%;
+		flex: 0 0 calc(25% - #{$line-height/2});
 
 	}
 
 	.row > .col5 {
 
 		width: 20%;
-		flex: 0 0 20%;
+		flex: 0 0 calc(20% - #{$line-height/2});
 
 	}
 
 	.row > .col25 {
 
 		width: 40%;
-		flex: 0 0 40%;
+		flex: 0 0 calc(40% - #{$line-height/2});
 
 	}
 
 	.row > .col35 {
 
 		width: 60%;
-		flex: 0 0 60%;
+		flex: 0 0 calc(60% - #{$line-height/2});
 
 	}
 
 	.row > .col45 {
 
 		width: 80%;
-		flex: 0 0 80%;
+		flex: 0 0 calc(80% - #{$line-height/2});
 
 	}
 
 	.row > .col3 {
 
 		width: 33.333%;
-		flex: 0 0 33.333%;
+		flex: 0 0 calc(33.333% - #{$line-height/2});
 
 	}
 
 	.row > .col2 {
 
 		width: 50%;
-		flex: 0 0 50%;
+		flex: 0 0 calc(50% - #{$line-height/2});
 
 	}
 	
 	.row > .col1, .row > *:only-child {
 
 		width: 100%;
-		flex: 0 0 100%;
+		flex: 0 0 calc(100% - #{$line-height/2});
 
 	}
 	
-	.row, .aspect { /* No space between inline-block elements */
-		
-		
-	}
-
 	.row > *, .slider > *, .aspect > * { /* Restore font-size of zeroed elements' children */
 		
 		line-height: $line-height;
@@ -173,7 +169,7 @@
 	
 	}
 	
-	.row.no-gutter, .row.no-gutter > * {
+	.row.no-padding, .row.no-padding > * {
 		
 		padding: 0;
 	
@@ -318,13 +314,13 @@
 		
 		border-top: 1px solid;
 		padding-top: 0;
-		margin-left: -$line-height/2;
+		margin-top: -($line-height*3/2);
 		
 	}
 
 	.row.border-all > * > .row:not(:first-child) {
 		
-		margin-top: 11px;
+		margin-top: 0;
 		
 	}
 
@@ -352,9 +348,15 @@
 
 	}
 	
-	.row.spacing > * {
+	.row.no-spacing > * {
 		
-		margin: $line-height/2;
+		font-size: 0;
+
+	}
+	
+	.row.no-spacing > * > * {
+		
+		font-size: 1rem;
 
 	}
 	

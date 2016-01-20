@@ -21,7 +21,7 @@ $line-height: 34px;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   text-align: center;
-  justify-content: center; }
+  justify-content: space-between; }
 
 .row > * {
   vertical-align: top;
@@ -38,7 +38,8 @@ $line-height: 34px;
   /* Minimum col width */
   text-align: left;
   text-align: start;
-  padding: 11px; }
+  padding: 11px;
+  margin: 11px 0; }
 
 .row > * > .row {
   margin: -11px;
@@ -53,46 +54,43 @@ $line-height: 34px;
 /* colXY where the column takes up X/Y of space; colY means 1/Y */
 .row > .col23 {
   width: 66.6%;
-  flex: 0 0 66.6%; }
+  flex: 0 0 calc(66.6% - 11px); }
 
 .row > .col34 {
   width: 75%;
-  flex: 0 0 75%; }
+  flex: 0 0 calc(75% - 11px); }
 
 .row > .col4 {
   width: 25%;
-  flex: 0 0 25%; }
+  flex: 0 0 calc(25% - 11px); }
 
 .row > .col5 {
   width: 20%;
-  flex: 0 0 20%; }
+  flex: 0 0 calc(20% - 11px); }
 
 .row > .col25 {
   width: 40%;
-  flex: 0 0 40%; }
+  flex: 0 0 calc(40% - 11px); }
 
 .row > .col35 {
   width: 60%;
-  flex: 0 0 60%; }
+  flex: 0 0 calc(60% - 11px); }
 
 .row > .col45 {
   width: 80%;
-  flex: 0 0 80%; }
+  flex: 0 0 calc(80% - 11px); }
 
 .row > .col3 {
   width: 33.333%;
-  flex: 0 0 33.333%; }
+  flex: 0 0 calc(33.333% - 11px); }
 
 .row > .col2 {
   width: 50%;
-  flex: 0 0 50%; }
+  flex: 0 0 calc(50% - 11px); }
 
 .row > .col1, .row > *:only-child {
   width: 100%;
-  flex: 0 0 100%; }
-
-.row, .aspect {
-  /* No space between inline-block elements */ }
+  flex: 0 0 calc(100% - 11px); }
 
 .row > *, .slider > *, .aspect > * {
   /* Restore font-size of zeroed elements' children */
@@ -115,7 +113,7 @@ _:-ms-input-placeholder, :root .row {
 @media screen and (max-width: 768px) {
   .row > * {
     width: 33%; } }
-.row.no-gutter, .row.no-gutter > * {
+.row.no-padding, .row.no-padding > * {
   padding: 0; }
 
 .align-left, .row > .align-left {
@@ -204,10 +202,10 @@ _:-ms-input-placeholder, :root .row {
 .row.border-all .row {
   border-top: 1px solid;
   padding-top: 0;
-  margin-left: -11px; }
+  margin-top: -33px; }
 
 .row.border-all > * > .row:not(:first-child) {
-  margin-top: 11px; }
+  margin-top: 0; }
 
 .row.border-all, .row.border-all .row, .row.border-all > *:not(:first-child), .row.border-all .row > *:not(:first-child) {
   border-color: #ddd; }
@@ -221,8 +219,11 @@ _:-ms-input-placeholder, :root .row {
 .row.border-all .row.border-off > * {
   border: none; }
 
-.row.spacing > * {
-  margin: 11px; }
+.row.no-spacing > * {
+  font-size: 0; }
+
+.row.no-spacing > * > * {
+  font-size: 1rem; }
 
 .row.spacing-horizontal > * {
   margin: 0 11px; }
@@ -1953,7 +1954,8 @@ video {
   height: auto !important;
   background: #000;
   margin: 0 auto;
-  display: block; }
+  display: block;
+  max-width: 100%; }
 
 video a[href] {
   color: #fff; }
