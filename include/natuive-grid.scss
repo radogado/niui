@@ -143,12 +143,6 @@
 		
 	}
 
-	_:-ms-input-placeholder, :root .row { /* IE10+ */
-	
-		display: block;
-
-	}
-
 	@media screen and (max-width: 1024px) {
 	
 		.row > * {
@@ -348,9 +342,18 @@
 
 	}
 	
+	.row.no-spacing {
+		
+		padding: 0;
+		margin: 0;
+
+	}
+	
 	.row.no-spacing > * {
 		
 		font-size: 0;
+		padding: 0;
+		margin: 0;
 
 	}
 	
