@@ -71,7 +71,6 @@ body:before {
 .logo img {
 	
 	width: 90px;
-	margin-left: -7px;
 	margin-bottom: -7px;
 
 }
@@ -149,6 +148,13 @@ header {
 
 }
 
+header .row > * {
+	
+	margin: 0;
+	padding: 0;
+
+}
+
 header nav {
 	
 	display: inline-block;
@@ -163,15 +169,12 @@ nav a {
 
 }
 
-.banner.row, .row.actions {
-	
-	border-spacing: $line-height/2 0;
-
-}
-
 .banner.row form .row {
 	
 	padding: 0;
+	margin-left: 0;
+	margin-right: 0;
+	width: 100%;
 
 }
 
@@ -227,6 +230,20 @@ form.flat .checkbox label:first-of-type {
 .buy form.flat input[type=submit] {
 	
 	background: $orange;
+
+}
+
+.buy .pad {
+	
+	padding-top: 0;
+	padding-bottom: 0;
+	
+}
+
+.buy .row > * {
+	
+	margin-top: 0;
+	
 
 }
 
@@ -548,6 +565,7 @@ footer nav a, footer nav a[href]+a[href] {
 .featured {
 	
 	color: $blue;
+	padding: 1rem !important;
 
 }
 

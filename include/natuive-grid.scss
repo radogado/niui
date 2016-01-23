@@ -7,7 +7,7 @@
 .row {
 
 	width: 100%;
-	margin: $line-height/2 0;
+// 	margin: $line-height/2 0;
 	font-size: 0; /* No space between inline-block elements */
 	display: block;
 	display: -webkit-flex;
@@ -42,7 +42,7 @@
 
 	}
 	
-	.row > * > .row {
+	.row * .row {
 
 		margin: -$line-height/2;
 		width: calc(100% + #{$line-height});
@@ -275,7 +275,7 @@
 		
 	}
 	
-	.row > * > .box { /* Boxes inside grid cells */
+	.row * .box { /* Boxes inside grid cells */
 		
 		background: #fff;
 		border: 1px solid #e6e6e6;
@@ -298,6 +298,24 @@
 		
 	}
 	
+	.row.border-all .row > * {
+		
+		margin: 0;
+		
+	}
+	
+	.row.border-all .row:first-child > * {
+		
+		margin: $line-height/2 0;
+		
+	}
+	
+	.row.border-all > *:only-child {
+		
+		flex: 0 0 100%;
+		
+	}
+	
 	.row.border-all > *:not(:first-child), .row.border-all .row > *:not(:first-child) {
 		
 		border-left: 1px solid;
@@ -312,9 +330,10 @@
 		
 	}
 
-	.row.border-all > * > .row:not(:first-child) {
+	.row.border-all * .row:not(:first-child) {
 		
 		margin-top: 0;
+		margin-bottom: 0
 		
 	}
 
@@ -330,9 +349,22 @@
 		
 	}
 
+	.row.border-all .row .row:first-child {
+		
+		margin-top: -$line-height;
+		
+	}
+
 	.row.border-all .row:last-child {
 		
 		padding-bottom: 0;
+		margin-bottom: -$line-height;
+		
+	}
+	
+	.row.border-all .row .row:last-child {
+		
+		margin-bottom: -$line-height/2;
 		
 	}
 	
@@ -377,7 +409,7 @@
 
 @media screen and (max-width: $screen-narrow) {
 
-	.row > * > .row {
+	.row * .row {
 		
 		margin: 0;
 		width: 100%;
@@ -390,7 +422,7 @@
 		padding: $line-height/4;
 		width: 100% !important; // Important because of Android Browser
 		border: none;
-		flex: 0 0 100%;
+		flex: 0 0 100% !important;
 
 	}
 
@@ -406,7 +438,7 @@
 
 	}
 
-	.row > * > .row > * {
+	.row * .row > * {
 
 		padding: $line-height/3 0;
 

@@ -30,9 +30,9 @@ h1, h2, h3, h4 {
 
 }
 
-.backtotop[href] {
+.backtotop {
 	
-	display: none;
+	display: none !important;
 
 }
 
@@ -451,6 +451,12 @@ footer .about nav a {
 	display: block;
 	background: center center no-repeat;
 	background-size: cover;
+
+}
+
+.slider-wrap.tabs>.slider-nav.row {
+	
+	margin-top: 0;
 
 }
 

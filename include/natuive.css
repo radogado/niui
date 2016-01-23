@@ -9,7 +9,6 @@ $line-height: 34px;
 /* For proper fallback, use .col* for all columns. Automatic column width (no .col*) works for Flexbox only. */
 .row {
   width: 100%;
-  margin: 11px 0;
   font-size: 0;
   /* No space between inline-block elements */
   display: block;
@@ -41,7 +40,7 @@ $line-height: 34px;
   padding: 11px;
   margin: 11px 0; }
 
-.row > * > .row {
+.row * .row {
   margin: -11px;
   width: calc(100% + 22px);
   max-width: none;
@@ -177,7 +176,7 @@ $line-height: 34px;
 .row.border > *:first-child {
   border-left: none; }
 
-.row > * > .box {
+.row * .box {
   /* Boxes inside grid cells */
   background: #fff;
   border: 1px solid #e6e6e6; }
@@ -192,6 +191,15 @@ $line-height: 34px;
 .row.border-all > *, .row.border-all .row > * {
   padding: 11px; }
 
+.row.border-all .row > * {
+  margin: 0; }
+
+.row.border-all .row:first-child > * {
+  margin: 11px 0; }
+
+.row.border-all > *:only-child {
+  flex: 0 0 100%; }
+
 .row.border-all > *:not(:first-child), .row.border-all .row > *:not(:first-child) {
   border-left: 1px solid; }
 
@@ -200,8 +208,9 @@ $line-height: 34px;
   padding-top: 0;
   margin-top: -33px; }
 
-.row.border-all > * > .row:not(:first-child) {
-  margin-top: 0; }
+.row.border-all * .row:not(:first-child) {
+  margin-top: 0;
+  margin-bottom: 0; }
 
 .row.border-all, .row.border-all .row, .row.border-all > *:not(:first-child), .row.border-all .row > *:not(:first-child) {
   border-color: #ddd; }
@@ -209,8 +218,15 @@ $line-height: 34px;
 .row.border-all .row:first-child {
   border-top: none; }
 
+.row.border-all .row .row:first-child {
+  margin-top: -22px; }
+
 .row.border-all .row:last-child {
-  padding-bottom: 0; }
+  padding-bottom: 0;
+  margin-bottom: -22px; }
+
+.row.border-all .row .row:last-child {
+  margin-bottom: -11px; }
 
 .row.border-all .row.border-off > * {
   border: none; }
@@ -234,7 +250,7 @@ $line-height: 34px;
   margin: 11px 0; }
 
 @media screen and (max-width: 640px) {
-  .row > * > .row {
+  .row * .row {
     margin: 0;
     width: 100%; }
 
@@ -243,7 +259,7 @@ $line-height: 34px;
     padding: 5.5px;
     width: 100% !important;
     border: none;
-    flex: 0 0 100%; }
+    flex: 0 0 100% !important; }
 
   .no-mobile-gutter.row > * {
     padding: 0; }
@@ -251,7 +267,7 @@ $line-height: 34px;
   .row > *, .row.border, .row.border > * {
     border: none; }
 
-  .row > * > .row > * {
+  .row * .row > * {
     padding: 7.33333px 0; }
 
   .row.half > * {
@@ -1678,7 +1694,8 @@ ol p {
 
 .slider-wrap.tabs > .slider-nav.row {
   padding: 0;
-  margin-bottom: 0; }
+  margin: 0;
+  width: auto; }
 
 .full-window .slider-wrap.tabs > .slider-nav {
   position: absolute;
