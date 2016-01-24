@@ -87,7 +87,7 @@ $line-height: 34px;
   width: 50%;
   flex: 0 0 calc(50% - 11px); }
 
-.row > .col1, .row > *:only-child {
+.row > .col1, .row > *:only-child:not([class^=col]) {
   width: 100%;
   flex: 0 0 calc(100% - 11px); }
 
@@ -141,6 +141,10 @@ $line-height: 34px;
   justify-content: flex-end;
   flex-direction: column; }
 
+section:before, section:after {
+  content: '';
+  display: table; }
+
 /* Masonry in CSS only */
 .masonry {
   -moz-column-count: 3;
@@ -170,11 +174,11 @@ $line-height: 34px;
   margin: -11px; }
 
 .row.border {
-  border: 1px solid #999;
+  border: 1px solid #e6e6e6;
   padding: 0; }
 
 .row.border > * {
-  border-left: 1px solid #999; }
+  border-left: 1px solid #e6e6e6; }
 
 .row.border > *:first-child {
   border-left: none; }
@@ -396,7 +400,8 @@ input[type=submit] {
   min-height: 46px; }
 
 form {
-  overflow: hidden; }
+  overflow: hidden;
+  padding-top: 22px; }
 
 form > * {
   clear: both; }
@@ -1877,7 +1882,9 @@ body * {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
-  /* iOS: Don't flash on tap */ }
+  /* iOS: Don't flash on tap */
+  word-break: break-word;
+  word-wrap: break-word; }
 
 html.nooverflow, html.nooverflow body {
   overflow: hidden; }
@@ -1902,9 +1909,7 @@ h1, h2, h3, .full-window-wrap .close {
   min-height: 44px; }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 0;
-  word-break: break-word;
-  word-wrap: break-word; }
+  margin: 0; }
 
 img {
   max-width: 100%;

@@ -120,7 +120,7 @@
 
 	}
 	
-	.row > .col1, .row > *:only-child {
+	.row > .col1, .row > *:only-child:not([class^=col]) {
 
 		width: 100%;
 		flex: 0 0 calc(100% - #{$line-height/2});
@@ -220,6 +220,13 @@
 
 }
 
+section:before, section:after { // Prevent inner edge margins from creating blank space between sections
+	
+	content: '';
+	display: table;
+
+}
+
 /* Masonry in CSS only */
 
 .masonry {
@@ -264,14 +271,14 @@
 
 .row.border {
 
-	border: 1px solid #999;
+	border: 1px solid #e6e6e6;
 	padding: 0;
 
 }
 		
 	.row.border > * {
 		
-		border-left: 1px solid #999;
+		border-left: 1px solid #e6e6e6;
 		
 	}
 
