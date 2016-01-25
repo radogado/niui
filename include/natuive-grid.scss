@@ -45,6 +45,7 @@
 	.row * .row {
 
 		margin: -$line-height/2;
+		margin-top: -$line-height*3/2;
 		width: calc(100% + #{$line-height});
 		max-width: none;
 		padding: 0;
@@ -218,6 +219,12 @@
 	justify-content: flex-end;
 	flex-direction: column;
 
+}
+
+.align-children *, .row.align-children > * {
+	
+	text-align: inherit;
+	
 }
 
 section:before, section:after { // Prevent inner edge margins from creating blank space between sections

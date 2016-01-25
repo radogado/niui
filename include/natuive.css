@@ -42,6 +42,7 @@ $line-height: 34px;
 
 .row * .row {
   margin: -11px;
+  margin-top: -33px;
   width: calc(100% + 22px);
   max-width: none;
   padding: 0; }
@@ -140,6 +141,9 @@ $line-height: 34px;
   vertical-align: bottom;
   justify-content: flex-end;
   flex-direction: column; }
+
+.align-children *, .row.align-children > * {
+  text-align: inherit; }
 
 section:before, section:after {
   content: '';
