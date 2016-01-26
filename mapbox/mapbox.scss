@@ -1,7 +1,7 @@
 body {
 	
 	font-size: 15px;
-	font-family: Helvetica Neue, sans-serif;
+	font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
 
 }
 
@@ -120,9 +120,27 @@ footer ul li a[href].button {
 
 }
 
-footer ul li a[href].button:after {
+footer ul li a[href].button:after, .arrow-links a[href]:not(p *):after {
 
 	content: ' →';
+	font-weight: bold;
+	font-size: .8em;
+
+}
+
+footer p {
+	
+	margin: 0;
+	color: rgba(0, 0, 0, 0.75);
+	font-size: .8em;
+
+}
+
+footer a[href] {
+	
+	text-decoration: none;
+	font-weight: bold;
+	color: #3887BE;
 
 }
 
@@ -152,6 +170,7 @@ ul {
 		width: auto;
 		display: block;
 		opacity: .5;
+		padding-bottom: 0 !important;
 		
 	}
 	
@@ -212,6 +231,12 @@ main a[href] {
 
 }
 
+.row.no-spacing>*> h3 {
+	
+	font-size: 1.5rem;
+
+}
+
 .dark a[href] {
 	
 	color: rgba(255, 255, 255, .5);
@@ -251,5 +276,27 @@ section {
 input[type=email] {
 	
 	background: #fff;
+	
+}
+
+.row * .row {
+	
+	margin-top: -11px;
+	
+}
+
+@media screen and (max-width: 640px) {
+	
+	.banner .row > div:first-child {
+		
+		display: none;
+		
+	}
+	
+	.banner .row div.pad {
+		
+		margin: 0 !important;
+
+	}
 	
 }
