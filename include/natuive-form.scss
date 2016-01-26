@@ -31,9 +31,14 @@ input[type=submit], form button, input[type=submit], form .file-input, form .fil
 form {
 	
 	overflow: hidden;
-	padding-top: 22px;
 
 }
+
+	form:not(.flat) {
+		
+		padding-top: 22px;
+		
+	}
 
 	form > * {
 		

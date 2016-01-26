@@ -83,6 +83,12 @@ header nav a[href] {
 	
 }
 
+footer {
+	
+	background: #f8f8f8;
+
+}
+
 footer .row > * {
 	
 	width: 16.666%;
@@ -103,6 +109,21 @@ footer ul li a[href] {
 	color: rgba(0, 0, 0, 0.5);
 	display: block;
 	
+}
+
+footer ul li a[href].button {
+	
+	background: none;
+	color: rgba(0,0,0,.3);
+	font-weight: normal;
+	padding: 0;
+
+}
+
+footer ul li a[href].button:after {
+
+	content: ' →';
+
 }
 
 ul {
@@ -197,6 +218,12 @@ main a[href] {
 	
 }
 
+.slider-wrap {
+	
+	margin: 1em 0;
+	
+}
+
 .slider-wrap.tabs>.slider-nav a {
 	
 	margin: .3em;
@@ -218,5 +245,11 @@ main a[href] {
 section {
 	
 	padding: 1em;
+	
+}
+
+input[type=email] {
+	
+	background: #fff;
 	
 }

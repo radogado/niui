@@ -175,7 +175,8 @@ section:before, section:after {
   padding: 22px; }
 
 .unpad {
-  margin: -11px; }
+  margin: -11px;
+  width: calc(100% + $line-height); }
 
 .row.border {
   border: 1px solid #e6e6e6;
@@ -404,7 +405,9 @@ input[type=submit] {
   min-height: 46px; }
 
 form {
-  overflow: hidden;
+  overflow: hidden; }
+
+form:not(.flat) {
   padding-top: 22px; }
 
 form > * {

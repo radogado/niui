@@ -214,7 +214,7 @@ if (!Array.prototype.indexOf) {
 
     Array.prototype.indexOf = function(el) {
 
-        len = this.length >>> 0;
+        var len = this.length >>> 0;
 
         from = Number(arguments[1]) || 0;
         from = (from < 0) ? Math.ceil(from) : Math.floor(from);
@@ -246,6 +246,7 @@ function qa(selector) {
 var wrap = function (toWrap, wrapper) { // Thanks yckart
 
     wrapper = wrapper || document.createElement('div');
+
     if (toWrap.nextSibling) {
 
         toWrap.parentNode.insertBefore(wrapper, toWrap.nextSibling);
@@ -877,7 +878,7 @@ function submitForm(e) {
 
     var el = eventElement(e);
 
-    ready_to_submit = true;
+    var ready_to_submit = true;
 
     forEach(el.querySelectorAll('.mandatory'), function(el) {
 
