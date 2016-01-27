@@ -42,7 +42,7 @@
 
 	}
 	
-	.row * .row {
+	.row * .row { // Nested grid
 
 		margin: -$line-height/2;
 		margin-top: -$line-height*3/2;

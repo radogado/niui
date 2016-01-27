@@ -1081,6 +1081,10 @@ var line_height = parseInt(getStyle(q('body'), 'line-height'));
 
 /* Baseline-align images etc */
 
+/*
+	
+// Not working after page resize and undesired in many cases. Need to rethink.
+
 function baselineAlign () {
 
     forEach('main img, .aspect' + ((typeof(document.createElement('video').canPlayType) != 'undefined') ? ', main video' : ''), function(el) {
@@ -1100,6 +1104,7 @@ function baselineAlign () {
 }
 
 addEventHandler(window, 'load', baselineAlign);
+*/
 
 /*
 // Disabled for jumpiness
