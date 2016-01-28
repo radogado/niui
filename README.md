@@ -23,6 +23,7 @@ natUIve: mostly native front-end framework
 - Native sliders*, swipeable on mobile and desktop, with numbered or thumbnail navigation, vertical and full screen options, slider inside slider
 - Accordions
 - Tabs
+- Cards
 - Quote block
 - Drop Caps
 - Tables accessible on narrow screens by scrolling; sortable*
