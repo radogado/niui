@@ -91,7 +91,7 @@
 	-ms-overflow-style: none; /* No scrollbars on IE10+ */
 	-webkit-transform-style: preserve-3d;
 	left: 0;
-	font-size: 0;
+// 	font-size: 0;
 
 	-webkit-animation-timing-function: ease;
 	-webkit-animation-iteration-count: 1;
@@ -114,6 +114,8 @@
 
 	-ms-transition: left .2s linear;
 	transition: left .2s linear;
+
+	display: flex;
 
 }
 
@@ -160,6 +162,7 @@
 	
 	overflow-x: visible;
 	overflow-y: visible;
+	flex-direction: column;
 
 }
 
@@ -184,8 +187,14 @@
 	vertical-align: top; // to fix: jumps to top-alignment while sliding
 	overflow: hidden;
 	padding: 0;
+/*
 	font-size: $font-size;
+	line-height: $line-height;
+	min-height: $line-height;
+*/
 	margin: 0;
+
+	flex: 1 0 auto;
 
 }
 

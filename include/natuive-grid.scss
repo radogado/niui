@@ -7,8 +7,6 @@
 .row {
 
 	width: 100%;
-// 	margin: $line-height/2 0;
-	font-size: 0; /* No space between inline-block elements */
 	display: block;
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -18,7 +16,6 @@
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
 	text-align: center;
-	justify-content: space-between;
 
 }
 
@@ -26,10 +23,7 @@
 	
 		vertical-align: top;
 		position: relative;
-		padding: 0 $line-height/2;
 		word-wrap: break-word;
-		font-size: $font-size;
-		font-size: 1rem;
 		display: inline-block;
 		-webkit-flex: 1 0 auto;
 		-ms-flex: 1 0 auto;
@@ -37,106 +31,149 @@
 		width: 20%; /* Minimum col width */
 		text-align: left;
 		text-align: start;
-		padding: $line-height/2;
-		margin: $line-height/2 0;
+		padding: .5em;
+		margin: .5em;
 
 	}
 	
-	.row * .row { // Nested grid
-
-		margin: -$line-height/2;
-		margin-top: -$line-height*3/2;
-		width: calc(100% + #{$line-height});
-		max-width: none;
-		padding: 0;
-
-	}
-	
-	.row > * > * {
+	.row > *, .row > * > * {
 		
 		max-width: 100%; /* instead of overflow-x:hidden, which would also activate overflow-y:hidden and clip the tooltip */
 		
 	}
+
 /* colXY where the column takes up X/Y of space; colY means 1/Y */
+
 	.row > .col23 { // body used for rules override
 
 		width: 66.6%;
-		flex: 0 0 calc(66.6% - #{$line-height/2});
+		flex: 0 0 calc(66.6% - 1em);
 
 	}
 	
 	.row > .col34 {
 
 		width: 75%;
-		flex: 0 0 calc(75% - #{$line-height/2});
+		flex: 0 0 calc(75% - 1em);
 
 	}
 
 	.row > .col4 {
 
 		width: 25%;
-		flex: 0 0 calc(25% - #{$line-height/2});
+		flex: 0 0 calc(25% - 1em);
 
 	}
 
 	.row > .col5 {
 
 		width: 20%;
-		flex: 0 0 calc(20% - #{$line-height/2});
+		flex: 0 0 calc(20% - 1em);
 
 	}
 
 	.row > .col25 {
 
 		width: 40%;
-		flex: 0 0 calc(40% - #{$line-height/2});
+		flex: 0 0 calc(40% - 1em);
 
 	}
 
 	.row > .col35 {
 
 		width: 60%;
-		flex: 0 0 calc(60% - #{$line-height/2});
+		flex: 0 0 calc(60% - 1em);
 
 	}
 
 	.row > .col45 {
 
 		width: 80%;
-		flex: 0 0 calc(80% - #{$line-height/2});
+		flex: 0 0 calc(80% - 1em);
 
 	}
 
 	.row > .col3 {
 
 		width: 33.333%;
-		flex: 0 0 calc(33.333% - #{$line-height/2});
+		flex: 0 0 calc(33.333% - 1em);
 
 	}
 
 	.row > .col2 {
 
 		width: 50%;
-		flex: 0 0 calc(50% - #{$line-height/2});
+		flex: 0 0 calc(50% - 1em);
 
 	}
 	
 	.row > .col1, .row > *:only-child:not([class^=col]) {
 
 		width: 100%;
-		flex: 0 0 calc(100% - #{$line-height/2});
+		flex: 0 0 calc(100% - 1em);
 
 	}
 	
-	.row > *, .slider > *, .aspect > * { /* Restore font-size of zeroed elements' children */
-		
-		line-height: $line-height;
-		min-height: $line-height;
-		font-size: $font-size;
-		font-size: 1rem;
-		
+	.row.no-spacing > .col23 { // body used for rules override
+	
+		flex: 0 0 66.6%;
+	
 	}
 	
+	.row.no-spacing > .col34 {
+	
+		flex: 0 0 75%;
+	
+	}
+	
+	.row.no-spacing > .col4 {
+	
+		flex: 0 0 25%;
+	
+	}
+	
+	.row.no-spacing > .col5 {
+	
+		flex: 0 0 20%;
+	
+	}
+	
+	.row.no-spacing > .col25 {
+	
+		flex: 0 0 40%;
+	
+	}
+	
+	.row.no-spacing > .col35 {
+	
+		flex: 0 0 60%;
+	
+	}
+	
+	.row.no-spacing > .col45 {
+	
+		flex: 0 0 80%;
+	
+	}
+	
+	.row.no-spacing > .col3 {
+	
+		flex: 0 0 33.333%;
+	
+	}
+	
+	.row.no-spacing > .col2 {
+	
+		flex: 0 0 50%;
+	
+	}
+	
+	.row.no-spacing > .col1, .row > *:only-child:not([class^=col]) {
+	
+		flex: 0 0 100%;
+	
+	}
+
 	.row > * > img {
 		
 		display: block;
@@ -239,18 +276,18 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 .masonry {
 
     -moz-column-count: 3;
-    -moz-column-gap: $line-height/2;
+    -moz-column-gap: .5em;
     -webkit-column-count: 3;
-    -webkit-column-gap: $line-height/2;
+    -webkit-column-gap: .5em;
     column-count: 3;
-    column-gap: $line-height/2;
+    column-gap: .5em;
 
 }
 
     .masonry > * {
 
         display: inline-block; /* Display inline-block, and absolutely NO FLOATS! */
-        margin-bottom: $line-height;
+        margin-bottom: 1em;
         width: 100%;
         -webkit-column-break-inside: avoid;
 		page-break-inside: avoid;           /* FF 20+ */
@@ -260,20 +297,20 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 
 .pad {
 	
-	padding: $line-height/2;
+	padding: .5em;
 
 }
 
 	.pad-x2 {
 		
-		padding: $line-height;
+		padding: 1em;
 	
 	}
 
 	.unpad {
 		
-		margin: -$line-height/2;
-		width: calc(100% + $line-height);
+		margin: -.5em;
+		width: calc(100% + 1em);
 	
 	}
 
@@ -315,7 +352,7 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 	
 	.row.border-all > *, .row.border-all .row > * {
 		
-		padding: $line-height/2;
+		padding: .5em;
 		
 	}
 	
@@ -327,7 +364,7 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 	
 	.row.border-all .row:first-child > * {
 		
-		margin: $line-height/2 0;
+		margin: .5em 0 0 0;
 		
 	}
 	
@@ -347,7 +384,10 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 		
 		border-top: 1px solid;
 		padding-top: 0;
-		margin-top: -($line-height*3/2);
+		margin-top: -1.5em;
+		max-width: none;
+		margin-left: -.5em;
+		width: calc(100% + 1em);
 		
 	}
 
@@ -372,20 +412,20 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 
 	.row.border-all .row .row:first-child {
 		
-		margin-top: -$line-height;
+		margin-top: -1em;
 		
 	}
 
 	.row.border-all .row:last-child {
 		
 		padding-bottom: 0;
-		margin-bottom: -$line-height;
-		
+		margin-bottom: -1em;		
+
 	}
 	
 	.row.border-all .row .row:last-child {
 		
-		margin-bottom: -$line-height/2;
+		margin-bottom: -.5em;
 		
 	}
 	
@@ -394,6 +434,14 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 		border: none;
 
 	}
+	
+	.row.border-all .row > .col1, .row.border-all .row > *:only-child:not([class^=col]) {
+
+		width: 100%;
+		flex: 0 0 calc(100%);
+
+	}
+
 	
 	.row.no-spacing {
 		
@@ -404,7 +452,6 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 	
 	.row.no-spacing > * {
 		
-		font-size: 0;
 		padding: 0;
 		margin: 0;
 
@@ -412,35 +459,37 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 	
 	.row.no-spacing > * > * {
 		
-		font-size: 1rem;
+		font-size: 1em;
 
 	}
 	
 	.row.spacing-horizontal > * {
 		
-		margin: 0 $line-height/2;
+		margin: 0 .5em;
 
 	}
 	
 	.row.spacing-vertical > * {
 		
-		margin: $line-height/2 0;
+		margin: .5em 0;
 
 	}
 
 @media screen and (max-width: $screen-narrow) {
 
+/*
 	.row * .row {
 		
 		margin: 0;
 		width: 100%;
 
 	}
+*/
 
 	.row > *, .row > [class^=col] {
 
 		display: block;
-		padding: $line-height/4;
+		padding: .3em;
 		width: 100% !important; // Important because of Android Browser
 		border: none;
 		flex: 0 0 100% !important;
@@ -459,11 +508,13 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 
 	}
 
+/*
 	.row * .row > * {
 
 		padding: $line-height/3 0;
 
 	}
+*/
 	
 	.row.half > * {
 		
@@ -474,7 +525,7 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 
 	.row.border {
 		
-		padding: $line-height/4 0;
+		padding: .3em 0;
 
 	}
 	
@@ -486,8 +537,7 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 
 	.row.border-all .row .row {
 		
-		margin-left: -$line-height/2;
-		width:calc(100% + #{$line-height});
+		margin-left: -.5em;
 
 	}
 	
