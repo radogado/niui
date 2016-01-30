@@ -24,7 +24,7 @@
 		overflow-y: scroll;
 		position: relative;
 		background: transparent;
-		height: calc(100% - #{($line-height*2)});
+		height: calc(100% - 3em);
 		padding-top: 3em;
 
 	}

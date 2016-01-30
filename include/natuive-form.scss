@@ -4,27 +4,27 @@
 
 input[type=submit], label, form .checkbox span, form label > span {
 	
-	font-size: $font-size;
-	line-height: $line-height;
-	min-height: $line-height;
+	font-size: 1em;
+	line-height: 1.5em;
+	min-height: 1.5em;
 
 }
 
 input[type=submit], form button, input[type=submit], form .file-input, form .file-input span {
 	
-	line-height: $line-height * 2;
-	min-height: $line-height * 2;
+	line-height: 3em;
+	min-height: 3em;
 	
 }
 
 	input[type=submit] {
 		
 		height: auto;
-		line-height: $line-height;
+		line-height: 1.5em;
 		white-space: normal;
 		word-break: break-all;
-		margin-bottom: $line-height - 2px; /* fix for the failed box-sizing: border-box */
-		min-height: $line-height*2 + 2px;
+		margin-bottom: calc(1.5em - 2px); /* fix for the failed box-sizing: border-box */
+		min-height: calc(3em + 2px);
 		
 	}
 
@@ -62,7 +62,7 @@ form {
 
 	#content form {
 		
-		padding-top: $line-height;
+		padding-top: 1.5em;
 
 	}
 
@@ -73,7 +73,7 @@ form {
 		max-width: 100%;
 		position: relative;
 		padding: 0;
-		margin: 0 0 $line-height 0;
+		margin: 0 0 1.5em 0;
 		width: 100%;
 		float: left;
 
@@ -94,8 +94,8 @@ form {
 	form .checkbox {
 	
 		clear: both;
-		min-height: $line-height;
-		margin-bottom: $line-height;
+		min-height: 1.5em;
+		margin-bottom: 1.5em;
 
 	}
 
@@ -115,12 +115,12 @@ form {
 		resize: none;
 		vertical-align: top;
 		border-radius: 0;
-		padding: 0 $line-height/2;
-		min-height: $line-height*2;
+		padding: 0 .75em;
+		min-height: 3em;
 		border: 0;
 		background: #eee;
 		font-size: 1em;
-		margin: 0 0 $line-height/2 0;
+		margin: 0 0 .75em 0;
 		width: 100%;
 		float: right;
 		outline: none;
@@ -136,7 +136,7 @@ form {
 	
 		label > input {
 			
-			margin-top: -$line-height/2;
+			margin-top: -.75em;
 		
 		}
 		
@@ -201,9 +201,9 @@ form {
 	
 	textarea {
 		
-		margin: -$line-height/2 0 $line-height/2 0;
+		margin: -.75em 0 .75em 0;
 		border-bottom: 1px dotted transparent;
-		min-height: $line-height*3;
+		min-height: 4.5em;
 		padding-top: .85em;
 
 	}
@@ -294,7 +294,7 @@ form {
 		text-indent: 0px;
 		padding: 1px 1.6em 0 .7em;
 		float: none;
-		height: $line-height*2;
+		height: 3em;
 		white-space: nowrap;
 		-webkit-appearance: none;
 		appearance: none;
@@ -312,7 +312,7 @@ form {
 		padding: 0;
 		vertical-align: top;
 		border: none;
-		height: $line-height/2;
+		height: .75em;
 		overflow: hidden;
 		margin-left: 0;
 
@@ -321,8 +321,8 @@ form {
 	form select {
 		
 		padding-top: 0;
-		height: $line-height*2;
-		margin: -$line-height/2 0 $line-height/2 0;
+		height: 3em;
+		margin: -.75em 0 .75em 0;
 		background: #eee url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAG0lEQVR42mNgwAfKy8v/48I4FeA0AacVDFQBAP9wJkE/KhUMAAAAAElFTkSuQmCC") no-repeat calc(100% - 1em) 50%;
 		padding-left: .8em;
 		text-indent: 1px;
@@ -385,7 +385,7 @@ form {
 	
 	form.flat .checkbox label:first-of-type { /* To do: not needed when checkboxes are inline */
 		
-		margin-top: $line-height;
+		margin-top: 1.5em;
 		
 	}
 
@@ -403,7 +403,7 @@ form {
 
 	form .checkbox label:last-child {
 		
-		margin-bottom: $line-height;
+		margin-bottom: 1.5em;
 
 	}
 	
@@ -414,8 +414,8 @@ form {
 		display: inline-block;
 		background: #eee;
 		margin-top: 0;
-		line-height: ($line-height + 1)*(2/3);
-		font-size: ($line-height - 2)*(2/3);
+		line-height: calc(.6667*(1.5em + 1));
+		font-size: calc(.6667*(1.5em - 2));
 		text-align: center;
 		color: #333;
 		margin-right: .5em;
@@ -522,7 +522,7 @@ form {
 
 		font-weight: normal;
 		background: #eee;
-		margin: -$line-height/2 0 $line-height/2 0;
+		margin: -.75em 0 .75em 0;
 		cursor: pointer;
 		font-style: italic;
 		
@@ -580,7 +580,7 @@ form {
 		
 		display: block;
 		width: 100%;
-		margin-top: $line-height/2;
+		margin-top: .75em;
 		
 	}
 	
@@ -592,7 +592,7 @@ form {
 
 	form.flat select, form.flat .file-input {
 		
-		margin: $line-height/2 0;
+		margin: .75em 0;
 
 	}
 	
@@ -601,7 +601,7 @@ form {
 		width: auto;
 		min-width: 0;
 		padding: 0 1em;
-		margin-top: $line-height/2;
+		margin-top: .75em;
 
 	}
 	
@@ -627,7 +627,7 @@ form {
 	
 	form.flat input[type=submit] {
 		
-		margin-top: $line-height;
+		margin-top: 1.5em;
 
 	}
 
@@ -642,7 +642,7 @@ form {
 		}
 		input[type=text], input[type=email], input[type=url] { padding-top: 0; }
 		form .file-input span { margin-top: -1px; }
-		input[type=file], form.flat input[type=file] { padding-left: 100%; margin-top: -$line-height; }
+		input[type=file], form.flat input[type=file] { padding-left: 100%; margin-top: -1.5em; }
 
 	}
 
@@ -651,18 +651,18 @@ form {
 	label, form.flat label {
 
 		text-align: start;
-		margin: $line-height/2 0 0 0;
+		margin: .75em 0 0 0;
 
 	}
 		form.flat .checkbox label:first-of-type {
 			
-			margin-top: $line-height/2;
+			margin-top: .75em;
 
 		}
 	
 		label span, form > label span {
 			
-			padding: $line-height/2 0;
+			padding: .75em 0;
 			width: 100%;
 			text-align: start;
 			
@@ -670,13 +670,13 @@ form {
 		
 		form .mandatory.alert > span {
 			
-			padding: $line-height/2;
+			padding: .75em;
 			
 		}
 		
 		form .mandatory.alert > span.checkbox {
 			
-			padding: $line-height/2 0;
+			padding: .75em 0;
 
 		}
 		
@@ -703,7 +703,7 @@ form {
 		
 		form input[type=submit], form .checkbox span, form.flat .checkbox span {
 			
-			margin-top: $line-height;
+			margin-top: 1.5em;
 		
 		}
 				
@@ -730,7 +730,7 @@ form {
 
 		form .checkbox span {
 			
-			margin-bottom: $line-height/2;
+			margin-bottom: .75em;
 			
 		}
 		
@@ -767,7 +767,7 @@ form {
 		form.flat span.file-input span {
 			
 			margin-top: 0;
-			height: $line-height*2;
+			height: 3em;
 			
 		}
 

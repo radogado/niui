@@ -6,7 +6,7 @@
 	
 	display: inline-block;
 	vertical-align: middle;
-	margin: $line-height $line-height/4;
+	margin: 1.5em .375em;
 	
 }
 
@@ -25,8 +25,8 @@
 	
 	.no-touch .full-window-wrap .slider-wrap, .no-touch .full-window-wrap .slider-wrap.vertical {
 				
-		margin-top: $line-height*2;
-		height: calc(100% - #{$line-height*2});
+		margin-top: 3em;
+		height: calc(100% - 3em);
 
 	}		
 	
@@ -528,7 +528,7 @@
 		text-align: start;
 		color: #333;
 		border-radius: 0;
-		line-height: $line-height;
+		line-height: 1.5em;
 		padding: 0 .5em;
 		-webkit-flex: 1;
 		-ms-flex: 1;
