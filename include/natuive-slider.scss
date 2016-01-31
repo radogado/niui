@@ -6,7 +6,8 @@
 	
 	display: inline-block;
 	vertical-align: middle;
-	margin: 1.5em .375em;
+	margin: $line-height-em $line-height-em/4;
+// 	margin: var(--line-height-em) calc(var(--line-height-em)/4);
 	
 }
 
@@ -25,8 +26,10 @@
 	
 	.no-touch .full-window-wrap .slider-wrap, .no-touch .full-window-wrap .slider-wrap.vertical {
 				
-		margin-top: 3em;
-		height: calc(100% - 3em);
+		margin-top: $line-height-em*2;
+// 		margin-top: calc(var(--line-height-em)*2);
+		height: calc(100% - $line-height-em*2);
+// 		height: calc(100% - var(--line-height-em)*2);
 
 	}		
 	
@@ -126,9 +129,15 @@
 	
 }
 
+.slider-wrap .slider > * {
+	
+	opacity: 0;
+	
+}
+
 .slider-wrap .slider > .visible {
 	
-	opacity: 1 !important;
+	opacity: 1;
 	
 }
 
@@ -267,16 +276,8 @@
 }
 
 .slider-wrap .slider > *:after, .slider-wrap .slider > *:before, .slider > *:first-child:before, .slider > *:last-child:after, .slider-wrap .slider > * > div.bg {
-	
-	content: '';
-	top: 0;
-	text-align: start;
-	opacity: 1;
-	width: auto;
-	right: 0;
-	left: 0;
-	position: absolute;
-	bottom: 0;
+
+	display: none;	
 
 }
 
@@ -528,7 +529,8 @@
 		text-align: start;
 		color: #333;
 		border-radius: 0;
-		line-height: 1.5em;
+		line-height: $line-height;
+// 		line-height: var(--line-height);
 		padding: 0 .5em;
 		-webkit-flex: 1;
 		-ms-flex: 1;

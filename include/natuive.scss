@@ -3,6 +3,7 @@
 @charset 'utf-8';
 
 @import 'natuive-setup';
+// @import url('natuive-setup.css');  // Drop SCSS when CSS variables become widely supported in March 2016. Combine them.
 @import 'theme-variables'; /* Rewrite base variables here; add theme CSS below this one in <head> */
 @import 'natuive-grid';
 @import 'natuive-button';
@@ -53,8 +54,8 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-webkit-tap-highlight-color: rgba(0,0,0,.5);
 	font-size: $font-size;
-	line-height: 1.5em;
-	line-height: 1.5rem;
+	line-height: $line-height;
+// 	line-height: var(--line-height);
 	
 }
 
@@ -106,7 +107,8 @@ html, p, h4, h5 {
 
 h1, h2, h3, .full-window-wrap .close {
 	
-	line-height: 3em;
+	line-height: $line-height * 2;
+// 	line-height: calc(var(--line-height) * 2);
 	
 }
 
@@ -116,7 +118,7 @@ h1, h2, h3, h4, h5, h6 {
 
 }
 
-h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
+h1 + p:not(.drop-cap), h2 + p:not(.drop-cap), h3 + p:not(.drop-cap), h4 + p:not(.drop-cap), h5 + p:not(.drop-cap), h6 + p:not(.drop-cap) {
 	
 	margin-top: 0;
 
@@ -125,46 +127,48 @@ h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
 h1 {
 	
 	font-size: 2em;
-	line-height: 1.5em;
-	
+	line-height: $line-height;
+// 	line-height: var(--line-height);	
+
 }
 
 h2 {
 	
-	font-size: 1.5333em;
-	line-height: 1.9566em;
-
+	font-size: 1.5em;	// 	line-height: 1.333;
+	line-height: $line-height/1.5; // = standard line-height / new font-size in em
+// 	line-height: calc(var(--line-height)/1.5); // = standard line-height / new font-size in em
+	
 }
 
 h3 {
 	
 	font-size: 1.2em;
-	line-height: 1.25em;
-	min-height: 1.25em;
+	line-height: $line-height/1.2;
+// 	line-height: calc(var(--line-height)/1.2);
 
 }
 
 h4 {
 	
 	font-size: 1em;
-	line-height: 1.5em;
-	min-height: 1.5em;
+	line-height: $line-height;
+// 	line-height: calc(var(--line-height));
 
 }
 
 h5 {
 	
 	font-size: .8em;
-	line-height: 1.875em;
-	min-height: 1.875em;
+	line-height: $line-height/.8;
+// 	line-height: calc(var(--line-height)/.8);
 
 }
 
 h6 {
 	
 	font-size: .6667em;
-	line-height: 2.25em;
-	min-height: 2.25em;
+	line-height: $line-height/.6667;
+// 	line-height: calc(var(--line-height)/.6667em);
 
 }
 
@@ -184,16 +188,21 @@ pre {
 
 p {
 
-	margin: 1.5em 0;
-	line-height: 1.5em;
+	font-size: 1em;
+	margin: $line-height-em 0;
+// 	margin: var(--line-height-em) 0;
+	line-height: $line-height;
+// 	line-height: var(--line-height);
 
 }
 
 .drop-cap:first-letter {
 
 	float: left;
-	font-size: 5em;
+	font-size: 5*$font-size;
 	padding: .1em .1em .1em 0;
+	margin-top: -.2em;
+	line-height: 1em;
 
 }
 
@@ -303,20 +312,18 @@ video a[href] {
 
 /* Image aspect ratio – don't shift the page after loading the image */
 
-.aspect {
+.aspect { // Table, because inline-block doesn't work in Android Browser
 	
-	 display: block;
-	 overflow: hidden;
-	 text-align: center;
-	 font-size: 0;
-
+	text-align: center;
+	display: table;
+    width: 100%;
+    table-layout: fixed;
 }
 
 .aspect > * {
 	
-	display: inline-block;
+	display: table-cell;
 	vertical-align: top;
-	font-size: 1rem;
 
 }
 
@@ -324,9 +331,7 @@ video a[href] {
 	
 	max-width: 100%;
 	height: auto;
-	padding-bottom: 0 !important;
 	vertical-align: middle;
-	font-size: 0;
 
 }
 
@@ -334,7 +339,6 @@ video a[href] {
 
 	padding-bottom: 56.25%; /*    y / x * 100   default 16:9    */
 	width: 0; 
-	display: inline-block;
 	vertical-align: middle;
 
 }

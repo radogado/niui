@@ -2,43 +2,12 @@
 
 @import 'natuive-setup';
 
-input[type=submit], label, form .checkbox span, form label > span {
+form, #content form {
 	
-	font-size: 1em;
-	line-height: 1.5em;
-	min-height: 1.5em;
-
-}
-
-input[type=submit], form button, input[type=submit], form .file-input, form .file-input span {
-	
-	line-height: 3em;
-	min-height: 3em;
-	
-}
-
-	input[type=submit] {
-		
-		height: auto;
-		line-height: 1.5em;
-		white-space: normal;
-		word-break: break-all;
-		margin-bottom: calc(1.5em - 2px); /* fix for the failed box-sizing: border-box */
-		min-height: calc(3em + 2px);
-		
-	}
-
-form {
-	
+	padding-top: 0;
 	overflow: hidden;
-
+	
 }
-
-	main form:not(.flat) {
-		
-		padding-top: 22px;
-		
-	}
 
 	form > * {
 		
@@ -46,14 +15,26 @@ form {
 	
 	}
 	
-	form span { /* When used as a wrapper for inline checkboxes */
+	input[type=submit], label, form .checkbox span, form label > span {
 		
-		display: inline-block;
-		vertical-align: middle;
-
+		font-size: $font-size;
+		line-height: $line-height;
+	// 	line-height: var(--line-height);
+		min-height: $line-height-em;
+	// 	min-height: var(--line-height-em);
+	
+	}
+	
+	input[type=submit], form button, input[type=submit], form .file-input, form .file-input span {
+		
+		line-height: $line-height * 2;
+	// 	line-height: calc(var(--line-height) * 2);
+		min-height: $line-height-em * 2;
+	// 	min-height: calc(var(--line-height-em) * 2);
+		
 	}
 
-	header form {
+	form span { /* When used as a wrapper for inline checkboxes */
 		
 		display: inline-block;
 		vertical-align: middle;
@@ -62,7 +43,8 @@ form {
 
 	#content form {
 		
-		padding-top: 1.5em;
+		padding-top: $line-height-em;
+// 		padding-top: var(--line-height-em);
 
 	}
 
@@ -73,40 +55,35 @@ form {
 		max-width: 100%;
 		position: relative;
 		padding: 0;
-		margin: 0 0 1.5em 0;
+		margin: 0 0 $line-height-em 0;
+// 		margin: 0 0 var(--line-height-em) 0;
 		width: 100%;
-		float: left;
+		min-height: $line-height-em*2;
+// 		min-height: calc(var(--line-height-em)*2);
 
 	}
 	
-	[dir=rtl] label {
+	label > input {
 		
-		float: right;
-
-	}
+		margin-top: -$line-height-em/2;
+	// 			margin-top: calc(-var(--line-height-em)/2);
 	
-	label span {
-		
-		text-align: end;
-		
-	}
-	
-	form .checkbox {
-	
-		clear: both;
-		min-height: 1.5em;
-		margin-bottom: 1.5em;
-
 	}
 
-	form .checkbox:after {
+	input[type=submit] {
 		
-		content: '';
-		display: block;
-		clear: both;
-
+		height: auto;
+		line-height: $line-height;
+// 		line-height: var(--line-height);
+		white-space: normal;
+		word-break: break-all;
+		margin-bottom: calc($line-height-em - 2px); /* fix for the failed box-sizing: border-box */
+// 		margin-bottom: calc(var(--line-height-em) - 2px); /* fix for the failed box-sizing: border-box */
+		min-height: calc($line-height-em*2 + 2px);
+// 		min-height: calc(var(--line-height-em)*2 + 2px);
+		
 	}
-		
+
 	input, select, textarea, input[type=search], form button {
 		
 		font-family: inherit;
@@ -115,12 +92,15 @@ form {
 		resize: none;
 		vertical-align: top;
 		border-radius: 0;
-		padding: 0 .75em;
-		min-height: 3em;
+		padding: 0 $line-height-em/2;
+// 		padding: 0 calc(var(--line-height-em)/2);
+		min-height: $line-height-em * 2;
+// 		min-height: calc(var(--line-height) * 2em);
 		border: 0;
 		background: #eee;
 		font-size: 1em;
-		margin: 0 0 .75em 0;
+		margin: 0 0 calc($line-height-em/2) 0;
+// 		margin: 0 0 calc(var(--line-height-em)/2) 0;
 		width: 100%;
 		float: right;
 		outline: none;
@@ -128,56 +108,67 @@ form {
 
 	}
 
-		[dir=rtl] input, [dir=rtl] select, [dir=rtl] textarea, [dir=rtl] input[type=search], [dir=rtl] form button {
-			
-			float: left;
-	
-		}
-	
-		label > input {
-			
-			margin-top: -.75em;
+	input[type=text], input[type=email], input[type=url] {
 		
-		}
-		
-		input[type=text], input[type=email], input[type=url] {
-			
-			padding-top: 1px;
+// 		padding-top: 1px;
 
-		}
-		
-		label input, label textarea, label input[type=search], label button {
-			
-			width: 50%;
+	}
 	
-		}
-
-		input:focus, select:focus, textarea:focus {
-			
-			border-color: #bbb;
-			
-		}
+	input:focus, select:focus, textarea:focus {
+		
+		border-color: #bbb;
+		
+	}
 
 
 	form .checkbox span {
 		
 		display: inline-block;
 		font-weight: bold;
-		text-align: end;
-		width: 50%;
-		float: left;
 		margin-top: 0;
-		padding-right: 3%;
 		cursor: default;
 
 	}
 	
-	[dir=rtl] form .checkbox span {
+	.checkbox label {
 		
-		float: right;
-		padding-right: 0;
-		padding-left: 3%;
-
+		text-align: start;
+		font-weight: normal;
+		clear: right;
+		margin: 0;
+		cursor: pointer;
+		min-height: 0;
+		
+	}
+	
+	form .checkbox {
+	
+		clear: both;
+		min-height: $line-height-em;
+	// 		min-height: var(--line-height-em);
+		margin-bottom: $line-height-em;
+	// 		margin-bottom: var(--line-height-em);
+	
+	}
+	
+	form .checkbox:after {
+		
+		content: '';
+		display: block;
+		clear: both;
+	
+	}
+		
+	form .checkbox label span {
+		
+		width: auto;
+	
+	}
+	
+	form .mandatory span.checkbox:before, form .mandatory span.tip:after, select::-ms-expand {
+	
+		display: none;
+		
 	}
 	
 	form input[type=submit], form button {
@@ -190,51 +181,15 @@ form {
 		
 	}
 	
-	header form noscript input[type=submit] {
+	form textarea {
 		
-		margin: 0;
-		padding: 0;
-		min-width: 0;
-		min-height: 1em;
-
-	}
-	
-	textarea {
-		
-		margin: -.75em 0 .75em 0;
+		margin: -$line-height-em/2 0 $line-height-em/2 0;
+// 		margin: calc(-1*var(--line-height-em)/2) 0 calc(var(--line-height-em)/2) 0;
 		border-bottom: 1px dotted transparent;
-		min-height: 4.5em;
-		padding-top: .85em;
-
-	}
+		min-height: $line-height-em * 3;
+// 		min-height: calc(var(--line-height-em) * 3);
+		padding-top: $line-height-em/2;
 	
-	form > label span {
-		
-		position: relative;
-		display: inline-block;
-		width: 50%;
-		padding: 0 3% 0 0;
-		float: left;		
-
-	}
-	
-	[dir=rtl] form > label span {
-		
-		float: right;
-		padding: 0 0 0 3%;
-
-	}
-	
-	form .checkbox label span {
-		
-		width: auto;
-
-	}
-	
-	form .mandatory span.checkbox:before, form .mandatory span.tip:after, select::-ms-expand {
-	
-		display: none;
-		
 	}
 
 	form .mandatory {
@@ -248,19 +203,11 @@ form {
 		content: '*';
 		color: #a00;
 		position: absolute;
-		left: 47.5%;
 		top: 0;
 		font-weight: bold;
 		
 	}
 
-	[dir=rtl] form .mandatory:before {
-
-		right: 47.5%;
-		left: auto;
-
-	}
-	
 	form .mandatory.alert span, form .mandatory.alert p {
 		
 		background: #666;
@@ -286,15 +233,13 @@ form {
 		-moz-appearance: none;
 		text-indent: 0.01px;
 		text-overflow: '';
-		width: 45%;
-		margin-top: 0;
 		min-height: 0;
 		width: 100%;
 		background: transparent;
 		text-indent: 0px;
-		padding: 1px 1.6em 0 .7em;
-		float: none;
-		height: 3em;
+		padding: 0 1.6em 0 .8em;
+		height: $line-height-em * 2;
+// 		height: calc(var(--line-height-em) * 2);
 		white-space: nowrap;
 		-webkit-appearance: none;
 		appearance: none;
@@ -302,38 +247,29 @@ form {
 	    text-indent: -1px;
 	    text-overflow: '';	
 	    margin: 0;
-		
-	}
-
-	form select, form .file-input {
-
-		width: 50%;
-		background: #eee;
-		padding: 0;
-		vertical-align: top;
-		border: none;
-		height: .75em;
-		overflow: hidden;
-		margin-left: 0;
-
-	}
-	
-	form select {
-		
-		padding-top: 0;
-		height: 3em;
-		margin: -.75em 0 .75em 0;
+		height: $line-height-em * 2;
+		// 		height: calc(var(--line-height-em) * 2);
+		margin: -$line-height-em/2 0 $line-height-em/2 0;
+		// 		margin: calc(-1*var(--line-height-em)/2) 0 calc(var(--line-height-em)/2) 0;
 		background: #eee url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAG0lEQVR42mNgwAfKy8v/48I4FeA0AacVDFQBAP9wJkE/KhUMAAAAAElFTkSuQmCC") no-repeat calc(100% - 1em) 50%;
-		padding-left: .8em;
 		text-indent: 1px;
-		
+	
 	}
 	
 	[dir=rtl] form select {
 		
-		background-position: 1em 50%;
 		padding-left: 0;
 		padding-right: .8em;
+	
+	}
+
+	form select, form .file-input {
+
+		background: #eee;
+		vertical-align: top;
+		border: none;
+		overflow: hidden;
+		margin-left: 0;
 
 	}
 	
@@ -343,55 +279,23 @@ form {
 
 	}
 	
-	header form select {
-		
-		width: 100%;
-		display: inline-block;
-		margin: 0;
-
-	}
-	
 	select:hover {
 		
 		cursor: pointer;
 		
 	}
 
-	.checkbox label {
+	form .checkbox label:first-of-type { /* To do: not needed when checkboxes are inline */
 		
-		text-align: start;
-		width: 50%;
-		font-weight: normal;
-		float: right;
-		clear: right;
-		margin: 0;
-		cursor: pointer;
-		padding-left: 1.5em;
-		
-	}
-	
-	[dir=rtl] .checkbox label {
-		
-		float: left;
-		clear: left;
-		
-	}
-	
-	form.flat {
-		
-		padding-top: 0;
-		
-	}
-	
-	form.flat .checkbox label:first-of-type { /* To do: not needed when checkboxes are inline */
-		
-		margin-top: 1.5em;
+		margin-top: $line-height-em/2;
+// 		margin-top: var(--line-height-em);
 		
 	}
 
 	:root form .checkbox label { /* Not IE9 */
 
 		padding-left: 0;
+		padding-bottom: 0;
 
 	}
 	
@@ -403,7 +307,8 @@ form {
 
 	form .checkbox label:last-child {
 		
-		margin-bottom: 1.5em;
+		margin-bottom: $line-height-em;
+// 		margin-bottom: var(--line-height-em);
 
 	}
 	
@@ -414,8 +319,10 @@ form {
 		display: inline-block;
 		background: #eee;
 		margin-top: 0;
-		line-height: calc(.6667*(1.5em + 1));
-		font-size: calc(.6667*(1.5em - 2));
+		line-height: ($line-height + 1)*(2/3);
+// 		line-height: calc((var(--line-height) + 1)*(2/3));
+		font-size: ($line-height - 2)*(2/3);
+// 		font-size: calc((var(--line-height) - 1)*(2/3));
 		text-align: center;
 		color: #333;
 		margin-right: .5em;
@@ -428,6 +335,7 @@ form {
 	:root .checkbox-icon { /* Not IE8 */
 
 		display: inline-block;
+		margin-top: -1px;
 
 	}
 
@@ -505,6 +413,7 @@ form {
 		background: transparent;
 		padding-left: 200%;
 		font-size: 0;
+		margin-top: 0;
 
 	}
 	
@@ -522,9 +431,12 @@ form {
 
 		font-weight: normal;
 		background: #eee;
-		margin: -.75em 0 .75em 0;
+		margin: -$line-height-em/2 0 $line-height-em/2 0;
+// 		margin: calc(-1*var(--line-height)/2) 0 calc(var(--line-height)/2) 0;
 		cursor: pointer;
 		font-style: italic;
+		padding: 0;
+		margin: 0;
 		
 	}
 
@@ -532,18 +444,11 @@ form {
 
 		text-align: start;
 		white-space: nowrap;
-		padding: 0 0 0 .8em;
 		background: #eee;
 		z-index: 0;
 		margin: 0;
 		width: 100%;
 		border: 1px dotted transparent;
-
-	}
-	
-	[dir=rtl] form .file-input span {
-
-		padding: 0 .8em 0 0;
 
 	}
 	
@@ -567,67 +472,74 @@ form {
 	
 	}
 
-	form.flat label, form.flat label span, form.flat .checkbox span {
+	form label, form label span, form .checkbox span {
 		
 		margin: 0;
 		display: block;
 		width: 100%;
 		text-align: start;
+		padding: 0 0 .75em 0;
 		
 	}
 	
-	form.flat input, form.flat textarea, form.flat select {
+	form span.file-input span {
+		
+		padding-left: .75em;
+		line-height: $line-height-em;
+		padding-top: $line-height-em/2;
+		
+	}
+	
+	form input, form textarea, form select {
 		
 		display: block;
 		width: 100%;
-		margin-top: .75em;
+		padding-top: 0;
+		margin: 0 0 $line-height-em/2 0;
+// 		margin: 0 0 calc(var(--line-height-em) / 2) 0;
 		
 	}
 	
-	form.flat input[type=file] {
+	form textarea {
 		
-		margin-top: 0;
-
-	}
-
-	form.flat select, form.flat .file-input {
+		padding-top: .85em;;
 		
-		margin: .75em 0;
-
 	}
 	
-	form.flat input[type=submit] {
+	form input[type=submit] {
 		
 		width: auto;
 		min-width: 0;
 		padding: 0 1em;
-		margin-top: .75em;
+		margin-top: $line-height-em/2;
+// 		margin-top: calc(var(--line-height-em) / 2);
 
 	}
 	
-	form.flat .mandatory:before {
+	form .mandatory:before {
 		
 		left: auto;
 		right: 0;
 
 	}
 	
-	form.flat .checkbox label:last-child {
+	form .checkbox label:last-child {
 		
 		margin-bottom: 0;
 		
 	}
 	
-	form.flat input[type=checkbox], form.flat input[type=radio] {
+	form input[type=checkbox], form input[type=radio] {
 		
 		width: auto;
 		margin-top: 0;
 		
 	}
 	
-	form.flat input[type=submit] {
+	form input[type=submit] {
 		
-		margin-top: 1.5em;
+		margin-top: $line-height-em;
+// 		margin-top: var(--line-height-em);
 
 	}
 
@@ -642,133 +554,199 @@ form {
 		}
 		input[type=text], input[type=email], input[type=url] { padding-top: 0; }
 		form .file-input span { margin-top: -1px; }
-		input[type=file], form.flat input[type=file] { padding-left: 100%; margin-top: -1.5em; }
+		input[type=file] { padding-left: 100%; 
+			margin-top: -$line-height-em; 
+// 			margin-top: -var(--line-height-em); 
+		}
 
 	}
 
-@media screen and (max-width: $screen-narrow) {
-	
-	label, form.flat label {
+/* Mast form with labels/inputs on either side */
 
-		text-align: start;
-		margin: .75em 0 0 0;
+@media screen and (min-width: $screen-narrow) {
 
+	form.mast {
+		
+		padding-top: $line-height-em;
+		padding-top: va(--line-height-em);
+		
 	}
-		form.flat .checkbox label:first-of-type {
-			
-			margin-top: .75em;
-
-		}
 	
-		label span, form > label span {
+		form.mast label {
 			
-			padding: .75em 0;
-			width: 100%;
-			text-align: start;
-			
-		}
-		
-		form .mandatory.alert > span {
-			
-			padding: .75em;
-			
-		}
-		
-		form .mandatory.alert > span.checkbox {
-			
-			padding: .75em 0;
-
-		}
-		
-		form .mandatory:before {
-			
-			right: 0;
-			left: auto;
-			top: .7em;
-			
-		}
-
-		label select, label input, textarea, form .file-input {
-			
-			width: 100%;
-			margin: 0;
-				
-		}
-	
-		label select, input[type=submit], form label textarea, form.flat input[type=submit] {
-	
-			width: 100%;
-
-		}
-		
-		form input[type=submit], form .checkbox span, form.flat .checkbox span {
-			
-			margin-top: 1.5em;
-		
-		}
-				
-		select {
-			
-			padding: 0 1.3em 0 .7em;
-			margin-bottom: 0;
-			
-		}
-		
-		form label span .tip {
-			
-			visibility: hidden;
-			
-		}
-		
-		form .checkbox span, .checkbox label, form .checkbox span {
-			
-			display: block;
-			width: 100%;
-			text-align: start;
-
-		}
-
-		form .checkbox span {
-			
+			float: left;
 			margin-bottom: .75em;
 			
 		}
-		
-		.checkbox label, form.flat input, form.flat textarea, form.flat select, form.flat span.file-input {
-		
-			margin-top: 0;
+
+		form.mast .checkbox label {
+			
+			margin: 0;
 
 		}
 		
-		input[type=radio] {
+		[dir=rtl] form.mast label {
 			
-			margin-left: 2px;
-			
+			float: right;
+		
 		}
-
-		form .mandatory span.tool:after, form .mandatory p.tool:after {
+	
+		form.mast label span {
 			
-			right: 0;
+			text-align: end;
 			
 		}
 		
-		.checkbox label:last-child, form.flat span.file-input, form .checkbox, form.flat .checkbox, form .checkbox label:last-child, form.flat select {
+		form.mast label input, form.mast label textarea, form.mast label input[type=search], form.mast label button {
 			
-			margin-bottom: 0;
+			width: 50%;
+			float: right;
+			margin-top: -$line-height-em/2;
+			
+		}
+		
+		[dir=rtl] form.mast input, [dir=rtl] form.mast select, [dir=rtl] form.mast textarea, [dir=rtl] form.mast input[type=search], [dir=rtl] form.mast button {
+			
+			float: left;
+			
+		}
+		
+		form.mast .mandatory:before {
+		
+			left: 47.5%;
+		
+		}
+		
+		[dir=rtl] form.mast .mandatory:before {
+		
+			right: 47.5%;
+			left: auto;
+		
+		}
+		
+		form.mast select {
+		
+			width: 45%;
+		
+		}
+		
+		form.mast select, form.mast .file-input {
+		
+			width: 50%;
+			margin-top: -$line-height-em/2;
+		
+		}
+		
+		form.mast label > span.file-input {
+			
+			margin-bottom: $line-height-em/2;	
+			padding: 0;
+		
+		}
+		
+		[dir=rtl] form.mast select {
+		
+			background-position: 1em 50%;
+		
+		}
+			
+		form.mast .checkbox label {
+		
+			width: 50%;
+		
+		}
+	
+		form.mast .checkbox span {
+		
+			text-align: end;
+			float: left;
+			padding-right: 3%;
+			width: 50%;
+		
+		}
+		
+		[dir=rtl] form.mast .checkbox span {
+			
+			float: right;
+			padding-right: 0;
+			padding-left: 3%;
+		
+		}
+	
+		form.mast > label span {
+			
+			position: relative;
+			display: inline-block;
+			padding: 0 3% 0 0;
+			float: left;
+			width: 50%;
+		
+		}
+		
+		[dir=rtl] form.mast > label span {
+			
+			float: right;
+			padding: 0 0 0 3%;
+		
+		}
+	
+		form.mast > label .file-input span {
+
+			width: 100%;
+			padding: $line-height-em/2 0 0 $line-height-em/2;
+			line-height: $line-height-em/2;
+			text-align: left;
 
 		}
 		
-		form, form .checkbox {
+		form.mast .checkbox label {
 			
-			padding-top: 0;
-
-		}
+			float: right;
 		
-		form.flat span.file-input span {
+		}
+	
+		[dir=rtl] form.mast .checkbox label {
 			
-			margin-top: 0;
-			height: 3em;
+			float: left;
+			clear: left;
 			
+		}
+	
+		form .file-input span {
+		
+			padding: 0 0 0 .8em;
+		
+		}
+	
+		[dir=rtl] form.mast .file-input span {
+		
+			padding: 0 .8em 0 0;
+		
 		}
 
 }
+
+header form {
+	
+	display: inline-block;
+	vertical-align: middle;
+
+}
+
+	header form noscript input[type=submit] {
+		
+		margin: 0;
+		padding: 0;
+		min-width: 0;
+		min-height: 1em;
+
+	}
+	
+	header form select {
+		
+		width: 100%;
+		display: inline-block;
+		margin: 0;
+
+	}
+	

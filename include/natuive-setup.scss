@@ -1,4 +1,14 @@
-$font-size: 15px;
-// $line-height: 1.5em;
+$font-size: 16px;
+$line-height: 1.5;
+$line-height-em: 1.5em;
 $screen-narrow: 640px;
 $screen-limited: 768px;
+
+/*
+body { // Crashes Chrome Beta, FF bug can't calc properly
+	
+	--line-height: 2;
+	--line-height-em: calc(var(--line-height)*1em);
+
+}
+*/

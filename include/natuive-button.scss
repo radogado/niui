@@ -4,16 +4,20 @@
 
 .button, button {
 	
-	font-size: 1em;
-	line-height: 1.5em;
-	min-height: 1.5em;
+	font-size: $font-size;
+	line-height: $line-height;
+// 	line-height: var(--line-height);
+	min-height: $line-height-em;
+// 	min-height: var(--line-height-em);
 
 }
 
 .button.big {
 	
-	line-height: 3em;
-	min-height: 3em;
+	line-height: $line-height * 2;
+// 	line-height: calc(var(--line-height) * 2);
+	min-height: $line-height-em * 2;
+// 	min-height: calc(var(--line-height-em) * 2);
 	
 }
 
@@ -38,8 +42,10 @@
 	button:not(.big), .button:not(.big) {
 		
 		margin: 0;
-		line-height: calc(1.5em - 1px);
-		min-height: calc(1.5em - 1px);
+		line-height: calc($line-height-em - 1px);
+// 		line-height: calc(var(--line-height-em) - 1px);
+		min-height: calc($line-height-em - 1px);
+// 		min-height: calc(var(--line-height-em) - 1px);
 
 	}
 	
@@ -59,7 +65,8 @@
 
 	a.button + a.button {
 		
-		margin-left: .75em;
+		margin-left: $line-height-em/2;
+// 		margin-left: calc(var(--line-height-em)/2);
 		
 	}
 
@@ -77,8 +84,10 @@
 	.button.big, input[type=submit], form button, button.big {
 
 		padding: 0 1em;
-		margin: 1.5em 0;
-		height: 3em;
+		margin: $line-height-em 0;
+// 		margin: var(--line-height-em) 0;
+		height: $line-height-em*2;
+// 		height: calc(var(--line-height-em)*2);
 		font-size: 1.2em;
 
 	}

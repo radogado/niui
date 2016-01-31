@@ -20,8 +20,10 @@ nav {
 	
 	nav a {
 		
-		line-height: 3em;
-		min-height: 3em;
+		line-height: $line-height * 2;
+// 		line-height: calc(var(--line-height) * 2);
+		min-height: $line-height-em * 2;
+// 		min-height: calc(var(--line-height-em) * 2);
 		position: relative;
 		padding: 0 .5em 0 0;
 
@@ -65,9 +67,11 @@ nav {
 
 	nav.sub a {
 	
-		font-size: 1em;
-		line-height: 1.5em;
-		min-height: 1.5em;
+		font-size: $font-size;
+		line-height: $line-height;
+// 		line-height: var(--line-height);
+		min-height: $line-height-em;
+// 		min-height: var(--line-height-em);
 		display: inline-block;
 	
 	}

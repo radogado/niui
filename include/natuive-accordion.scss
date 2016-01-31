@@ -73,7 +73,9 @@
 
 .accordion > label {
 	
-	line-height: 3em;
-	min-height: 3em;
+	line-height: $line-height * 2;
+// 	line-height: calc(var(--line-height) * 2);
+	min-height: $line-height-em * 2;
+// 	min-height: calc(var(--line-height-em) * 2);
 	
 }

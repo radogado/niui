@@ -5,17 +5,23 @@
 ul {
 
 	padding-left: 1.3em;
-	font-size: 1em;
-	line-height: 1.5em;
-	min-height: 1.5em;
-	margin: 1.5em 0 1.5em .3em;
+	font-size: $font-size;
+	font-size: 1rem;
+	line-height: $line-height;
+// 	line-height: var(--line-height);
+	min-height: $line-height-em;
+// 	min-height: var(--line-height-em);
+	margin: $line-height-em 0 $line-height-em .3em;
+// 	margin: var(--line-height-em) 0 var(--line-height-em) .3em;
 
 }
 
 ul li {
 	
-	margin: 1.5em 0 0 0;
-	font-size: 1em;
+	margin: $line-height-em 0 0 0;
+// 	margin: var(--line-height-em) 0 0 0;
+	font-size: $font-size;
+	font-size: 1rem;
 
 }
 
@@ -31,7 +37,8 @@ ol {
 ol > li {
 
 	text-indent: -2.3em;
-	margin: .75em 0 .75em 2.3em;
+	margin: $line-height-em 0 $line-height-em/2 2.3em;
+// 	margin: calc(var(--line-height-em)/2) 0 calc(var(--line-height-em)/2) 2.3em;
 
 }
 
@@ -54,7 +61,8 @@ ol > li:before {
     counter-increment: level1;
     font-weight: bold;
     background: #999;
-    padding: .375em .6em .375em .6em;
+    padding: $line-height-em/4 .6em $line-height-em/4 .6em;
+//     padding: calc(var(--line-height-em)/4) .6em calc(var(--line-height-em)/4) .6em;
     border-radius: 1em;
     margin-right: .5em;
     color: #fff;
@@ -73,7 +81,8 @@ ol > li ol > li:before {
 
     content: counter(level1) '.' counter(level2) ' ';
     counter-increment: level2;
-    padding: .375em .4em .375em .5em;
+    padding: $line-height-em/4 .4em $line-height-em/4 .5em;
+//     padding: calc(var(--line-height-em)/4) .4em calc(var(--line-height-em)/4) .5em;
     border-radius: 1em;
     background: #999;
     color: #fff;
