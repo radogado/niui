@@ -117,11 +117,17 @@ nav.drop * {
 
 }
 
+nav.drop ul {
+	
+	display: flex; // No space between top-level items
+	flex-wrap: wrap;
+
+}
+
 nav.drop ul, nav.drop li {
 	
 	margin: 0;
 	padding: 0;
-	font-size: 0;
 	list-style: none;
 
 } 
@@ -143,6 +149,7 @@ nav.drop ul li b.sub {
 	font-size: 1rem;
 	background: #fbfbfb;
 	line-height: 1;
+	margin-left: -.3em;
 
 }
 

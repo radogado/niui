@@ -43,6 +43,7 @@ html, body {
 body {
 
 	position: relative;
+	overflow: hidden;
 	width: 100%;
 	height: auto;
 	min-height: 100%;
@@ -220,8 +221,19 @@ p {
 
 .viewport.header-and-banner {
 	
-	height: 100vh;
+	min-height: 100vh;
 	overflow: auto;
+	display: flex;
+	flex-direction: column;
+
+}
+
+.viewport.header-and-banner .banner {
+
+	flex-grow: 1;
+	justify-content: center;
+	flex-direction: column;
+	display: flex;
 
 }
 
@@ -331,7 +343,7 @@ video a[href] {
 	
 	max-width: 100%;
 	height: auto;
-	vertical-align: middle;
+	margin: 0 auto;
 
 }
 
@@ -339,7 +351,6 @@ video a[href] {
 
 	padding-bottom: 56.25%; /*    y / x * 100   default 16:9    */
 	width: 0; 
-	vertical-align: middle;
 
 }
 

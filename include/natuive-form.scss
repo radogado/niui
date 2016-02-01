@@ -2,9 +2,8 @@
 
 @import 'natuive-setup';
 
-form, #content form {
+form {
 	
-	padding-top: 0;
 	overflow: hidden;
 	
 }
@@ -41,10 +40,11 @@ form, #content form {
 
 	}
 
-	#content form {
+	#content form, .banner form {
 		
 		padding-top: $line-height-em;
 // 		padding-top: var(--line-height-em);
+		overflow: hidden;
 
 	}
 
@@ -102,7 +102,6 @@ form, #content form {
 		margin: 0 0 $line-height-em/2 0;
 // 		margin: 0 0 calc(var(--line-height-em)/2) 0;
 		width: 100%;
-		float: right;
 		outline: none;
 		border: 1px dotted transparent;
 
@@ -287,7 +286,7 @@ form, #content form {
 
 	form .checkbox label:first-of-type { /* To do: not needed when checkboxes are inline */
 		
-		margin-top: $line-height-em/2;
+// 		margin-top: $line-height-em/2;
 // 		margin-top: var(--line-height-em);
 		
 	}
@@ -431,12 +430,11 @@ form, #content form {
 
 		font-weight: normal;
 		background: #eee;
-		margin: -$line-height-em/2 0 $line-height-em/2 0;
+		margin: 0 0 $line-height-em 0;
 // 		margin: calc(-1*var(--line-height)/2) 0 calc(var(--line-height)/2) 0;
 		cursor: pointer;
 		font-style: italic;
 		padding: 0;
-		margin: 0;
 		
 	}
 
@@ -478,7 +476,6 @@ form, #content form {
 		display: block;
 		width: 100%;
 		text-align: start;
-		padding: 0 0 .75em 0;
 		
 	}
 	
@@ -495,7 +492,7 @@ form, #content form {
 		display: block;
 		width: 100%;
 		padding-top: 0;
-		margin: 0 0 $line-height-em/2 0;
+		margin: 0 0 $line-height-em 0;
 // 		margin: 0 0 calc(var(--line-height-em) / 2) 0;
 		
 	}
@@ -511,7 +508,7 @@ form, #content form {
 		width: auto;
 		min-width: 0;
 		padding: 0 1em;
-		margin-top: $line-height-em/2;
+// 		margin-top: $line-height-em/2;
 // 		margin-top: calc(var(--line-height-em) / 2);
 
 	}
@@ -536,13 +533,6 @@ form, #content form {
 		
 	}
 	
-	form input[type=submit] {
-		
-		margin-top: $line-height-em;
-// 		margin-top: var(--line-height-em);
-
-	}
-
 	@-moz-document url-prefix() {
 
 		form select { padding-left: 0; text-indent: .3em; }
@@ -639,7 +629,7 @@ form, #content form {
 		
 		form.mast label > span.file-input {
 			
-			margin-bottom: $line-height-em/2;	
+			margin-bottom: $line-height-em;
 			padding: 0;
 		
 		}
@@ -693,7 +683,7 @@ form, #content form {
 		form.mast > label .file-input span {
 
 			width: 100%;
-			padding: $line-height-em/2 0 0 $line-height-em/2;
+			padding: calc(#{$line-height-em}/2 + .3em) 0 0 $line-height-em/2;
 			line-height: $line-height-em/2;
 			text-align: left;
 
@@ -722,6 +712,12 @@ form, #content form {
 		
 			padding: 0 .8em 0 0;
 		
+		}
+		
+		form.mast input[type=submit], form.mast button {
+			
+			float: right;
+
 		}
 
 }

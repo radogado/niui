@@ -69,20 +69,20 @@ header nav ul li a[href] {
 
 }
 
-header form.flat input {
+header form input {
 	
 	margin: 0;
 	min-height: 0;
 
 }
 
-header form.flat {
+header form {
 
 	margin-top: -3px;
 
 }
 
-form.flat input[type=submit] {
+form input[type=submit] {
 	
 	margin: 0;
 	background-color: #BE1902;
@@ -108,7 +108,6 @@ header nav ul {
 
 	margin: 0;
 	padding: 0;
-	font-size: 0;
 	list-style: none;
 
 }
@@ -122,6 +121,12 @@ header nav.drop ul li a, nav.drop ul li b.sub, header .top nav ul li a[href], he
 	text-transform: uppercase;
 	font-weight: bold;
 	color: $brown;
+
+}
+
+header .top input[type=search] {
+	
+	margin: 0;
 
 }
 
@@ -366,7 +371,7 @@ footer .about nav a {
 .slider-wrap.tabs > .slider-nav a {
 	
 	background: $grey;
-	padding: .75em;
+	padding: .75em 4em .75em .75em;
 	color: $darker-grey;
 	border-top: 1px solid #e1dfda;
 	border-right: 1px solid #e1dfda;
@@ -544,7 +549,7 @@ footer .about nav a {
 
 }
 
-form .checkbox, form.flat .checkbox label:first-of-type {
+form .checkbox, form .checkbox label:first-of-type {
 	
 	margin: 0;
 
@@ -645,7 +650,7 @@ form .checkbox, form.flat .checkbox label:first-of-type {
 		
 	}
 	
-	form.flat input[type=submit] {
+	form input[type=submit] {
 		
 		margin-top: .5em;
 	

@@ -533,11 +533,12 @@ function openFullWindow(el) {
 	    
     addClass(wrap(el).parentNode, 'content');
     wrap(el.parentNode).parentNode.setAttribute('class', 'full-window-wrap');
-	q('.full-window-wrap').insertAdjacentHTML('beforeend', '<div class=full-window-wrap-bg></div>');
+	var full_window = q('.full-window-wrap');
+	full_window.insertAdjacentHTML('beforeend', '<div class=full-window-wrap-bg></div>');
 
     if (!hasClass(el, 'headless')) {
 	    
-	    q('.full-window-wrap').insertAdjacentHTML('afterbegin', '<div class=close> ← ' + document.title + '</div>');
+	    full_window.insertAdjacentHTML('afterbegin', '<div class=close> ← ' + document.title + '</div>');
 		q('.full-window-wrap-bg').onclick = q('.full-window-wrap .close').onclick = closeFullWindow;
 		
 	    document.body.onkeyup = function(e) {
@@ -552,7 +553,7 @@ function openFullWindow(el) {
 	   
 	} else {
 		
-		addClass(q('.full-window-wrap'), 'headless');
+		addClass(full_window, 'headless');
 		
 	}
 
@@ -561,6 +562,26 @@ function openFullWindow(el) {
 		document.addEventListener('touchmove', preventEvent, false);
 		q('body').addEventListener('touchmove', preventEvent, false);
 
+	}
+
+    if (el.childNodes.length > 0 && hasClass(el.childNodes[0], 'full-screen')) {
+
+		if (full_window.webkitRequestFullScreen) { 
+			
+			full_window.webkitRequestFullScreen(); return false; 
+		
+		}
+		if (full_window.mozRequestFullScreen) { 
+			
+			full_window.mozRequestFullScreen(); return false; 
+		
+		}
+		if (full_window.requestFullScreen) {
+			
+			full_window.requestFullScreen(); return false; 
+		
+		}
+	
 	}
 	
     return false;
@@ -644,11 +665,11 @@ function modalWindow(e) {
 
 function openLightbox(e) {
 
-	openFullWindow('<div class="slider lightbox"></div>');
-	q('.full-window-wrap').style.overflow = 'hidden';
-	
 	var el = eventElement(e);
 
+	openFullWindow('<div class="slider lightbox' + (hasClass(el.parentNode.parentNode, 'full-screen') ? ' full-screen' : '') + '"></div>');
+	q('.full-window-wrap').style.overflow = 'hidden';
+	
     /* Add any <a><img> siblings with description to a .slider and initialise its controls */
     var images = '';
 

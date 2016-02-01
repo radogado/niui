@@ -187,7 +187,6 @@ section:before, section:after {
 
 .masonry > * {
   display: inline-block;
-  /* Display inline-block, and absolutely NO FLOATS! */
   margin-bottom: 1em;
   width: 100%;
   -webkit-column-break-inside: avoid;
@@ -448,8 +447,7 @@ body { // Crashes Chrome Beta, FF bug can't calc properly
 
 }
 */
-form, #content form {
-  padding-top: 0;
+form {
   overflow: hidden; }
 
 form > * {
@@ -469,8 +467,9 @@ form span {
   display: inline-block;
   vertical-align: middle; }
 
-#content form {
-  padding-top: 1.5em; }
+#content form, .banner form {
+  padding-top: 1.5em;
+  overflow: hidden; }
 
 label {
   display: inline-block;
@@ -508,7 +507,6 @@ input, select, textarea, input[type=search], form button {
   font-size: 1em;
   margin: 0 0 0.75em 0;
   width: 100%;
-  float: right;
   outline: none;
   border: 1px dotted transparent; }
 
@@ -619,8 +617,7 @@ select:hover {
   cursor: pointer; }
 
 form .checkbox label:first-of-type {
-  /* To do: not needed when checkboxes are inline */
-  margin-top: 0.75em; }
+  /* To do: not needed when checkboxes are inline */ }
 
 :root form .checkbox label {
   /* Not IE9 */
@@ -717,11 +714,10 @@ input[type=file] {
 form .file-input {
   font-weight: normal;
   background: #eee;
-  margin: -0.75em 0 0.75em 0;
+  margin: 0 0 1.5em 0;
   cursor: pointer;
   font-style: italic;
-  padding: 0;
-  margin: 0; }
+  padding: 0; }
 
 form .file-input span {
   text-align: start;
@@ -747,8 +743,7 @@ form label, form label span, form .checkbox span {
   margin: 0;
   display: block;
   width: 100%;
-  text-align: start;
-  padding: 0 0 .75em 0; }
+  text-align: start; }
 
 form span.file-input span {
   padding-left: .75em;
@@ -759,7 +754,7 @@ form input, form textarea, form select {
   display: block;
   width: 100%;
   padding-top: 0;
-  margin: 0 0 0.75em 0; }
+  margin: 0 0 1.5em 0; }
 
 form textarea {
   padding-top: .85em; }
@@ -767,8 +762,7 @@ form textarea {
 form input[type=submit] {
   width: auto;
   min-width: 0;
-  padding: 0 1em;
-  margin-top: 0.75em; }
+  padding: 0 1em; }
 
 form .mandatory:before {
   left: auto;
@@ -780,9 +774,6 @@ form .checkbox label:last-child {
 form input[type=checkbox], form input[type=radio] {
   width: auto;
   margin-top: 0; }
-
-form input[type=submit] {
-  margin-top: 1.5em; }
 
 @-moz-document url-prefix() {
   form select {
@@ -848,7 +839,7 @@ form input[type=submit] {
     margin-top: -0.75em; }
 
   form.mast label > span.file-input {
-    margin-bottom: 0.75em;
+    margin-bottom: 1.5em;
     padding: 0; }
 
   [dir=rtl] form.mast select {
@@ -881,7 +872,7 @@ form input[type=submit] {
 
   form.mast > label .file-input span {
     width: 100%;
-    padding: 0.75em 0 0 0.75em;
+    padding: calc(1.5em/2 + .3em) 0 0 0.75em;
     line-height: 0.75em;
     text-align: left; }
 
@@ -896,7 +887,10 @@ form input[type=submit] {
     padding: 0 0 0 .8em; }
 
   [dir=rtl] form.mast .file-input span {
-    padding: 0 .8em 0 0; } }
+    padding: 0 .8em 0 0; }
+
+  form.mast input[type=submit], form.mast button {
+    float: right; } }
 header form {
   display: inline-block;
   vertical-align: middle; }
@@ -1058,10 +1052,13 @@ nav.drop * {
   -ms-user-select: none;
   user-select: none; }
 
+nav.drop ul {
+  display: flex;
+  flex-wrap: wrap; }
+
 nav.drop ul, nav.drop li {
   margin: 0;
   padding: 0;
-  font-size: 0;
   list-style: none; }
 
 nav.drop ul li {
@@ -1076,7 +1073,8 @@ nav.drop ul li b.sub {
   padding: 1em;
   font-size: 1rem;
   background: #fbfbfb;
-  line-height: 1; }
+  line-height: 1;
+  margin-left: -.3em; }
 
 nav.drop ul li li b.sub {
   display: inline-block;
@@ -1978,6 +1976,16 @@ body { // Crashes Chrome Beta, FF bug can't calc properly
   background-size: cover;
   color: #fff; }
 
+.card .head.image:after {
+  content: '';
+  padding-bottom: 56.25%;
+  width: 0;
+  display: inline-block;
+  vertical-align: bottom; }
+
+.card .head.image > * {
+  display: inline-block; }
+
 .contain {
   max-width: 82em;
   margin: 0 auto; }
@@ -1992,6 +2000,7 @@ html, body {
 
 body {
   position: relative;
+  overflow: hidden;
   width: 100%;
   height: auto;
   min-height: 100%;
@@ -2095,8 +2104,16 @@ p {
   flex: none; }
 
 .viewport.header-and-banner {
-  height: 100vh;
-  overflow: auto; }
+  min-height: 100vh;
+  overflow: auto;
+  display: flex;
+  flex-direction: column; }
+
+.viewport.header-and-banner .banner {
+  flex-grow: 1;
+  justify-content: center;
+  flex-direction: column;
+  display: flex; }
 
 header .row {
   padding: 0; }
@@ -2159,14 +2176,13 @@ video a[href] {
 .aspect > img {
   max-width: 100%;
   height: auto;
-  vertical-align: middle; }
+  margin: 0 auto; }
 
 .aspect span {
   /*  Ratio can be overwritten with inline CSS padding-bottom */
   padding-bottom: 56.25%;
   /*    y / x * 100   default 16:9    */
-  width: 0;
-  vertical-align: middle; }
+  width: 0; }
 
 /* Overthrow CSS:
    Enable overflow: auto on elements with overthrow class when html element has overthrow class too */

@@ -287,7 +287,7 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 
     .masonry > * {
 
-        display: inline-block; /* Display inline-block, and absolutely NO FLOATS! */
+        display: inline-block;
         margin-bottom: 1em;
         width: 100%;
         -webkit-column-break-inside: avoid;

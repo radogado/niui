@@ -37,3 +37,20 @@
 	color: #fff;
 
 }
+
+.card .head.image:after {
+	
+	content: '';
+	padding-bottom: 56.25%;
+	width: 0;
+	display: inline-block;
+	vertical-align: bottom;
+
+}
+
+.card .head.image > * {
+	
+	display: inline-block;
+
+}
+
