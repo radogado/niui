@@ -77,9 +77,9 @@ form, #content form {
 // 		line-height: var(--line-height);
 		white-space: normal;
 		word-break: break-all;
-		margin-bottom: calc($line-height-em - 2px); /* fix for the failed box-sizing: border-box */
+		margin-bottom: calc(#{$line-height-em} - 2px); /* fix for the failed box-sizing: border-box */
 // 		margin-bottom: calc(var(--line-height-em) - 2px); /* fix for the failed box-sizing: border-box */
-		min-height: calc($line-height-em*2 + 2px);
+		min-height: calc(#{$line-height-em}*2 + 2px);
 // 		min-height: calc(var(--line-height-em)*2 + 2px);
 		
 	}
@@ -99,7 +99,7 @@ form, #content form {
 		border: 0;
 		background: #eee;
 		font-size: 1em;
-		margin: 0 0 calc($line-height-em/2) 0;
+		margin: 0 0 $line-height-em/2 0;
 // 		margin: 0 0 calc(var(--line-height-em)/2) 0;
 		width: 100%;
 		float: right;

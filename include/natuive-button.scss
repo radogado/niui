@@ -42,9 +42,9 @@
 	button:not(.big), .button:not(.big) {
 		
 		margin: 0;
-		line-height: calc($line-height-em - 1px);
+		line-height: calc(#{$line-height-em} - 1px);
 // 		line-height: calc(var(--line-height-em) - 1px);
-		min-height: calc($line-height-em - 1px);
+		min-height: calc(#{$line-height-em} - 1px);
 // 		min-height: calc(var(--line-height-em) - 1px);
 
 	}

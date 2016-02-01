@@ -384,8 +384,8 @@ body { // Crashes Chrome Beta, FF bug can't calc properly
 
 button:not(.big), .button:not(.big) {
   margin: 0;
-  line-height: calc($line-height-em - 1px);
-  min-height: calc($line-height-em - 1px); }
+  line-height: calc(1.5em - 1px);
+  min-height: calc(1.5em - 1px); }
 
 button[disabled] {
   cursor: default;
@@ -490,9 +490,9 @@ input[type=submit] {
   line-height: 1.5;
   white-space: normal;
   word-break: break-all;
-  margin-bottom: calc($line-height-em - 2px);
+  margin-bottom: calc(1.5em - 2px);
   /* fix for the failed box-sizing: border-box */
-  min-height: calc($line-height-em*2 + 2px); }
+  min-height: calc(1.5em*2 + 2px); }
 
 input, select, textarea, input[type=search], form button {
   font-family: inherit;
@@ -506,7 +506,7 @@ input, select, textarea, input[type=search], form button {
   border: 0;
   background: #eee;
   font-size: 1em;
-  margin: 0 0 calc($line-height-em/2) 0;
+  margin: 0 0 0.75em 0;
   width: 100%;
   float: right;
   outline: none;
@@ -1475,7 +1475,7 @@ body { // Crashes Chrome Beta, FF bug can't calc properly
 
 .no-touch .full-window-wrap .slider-wrap, .no-touch .full-window-wrap .slider-wrap.vertical {
   margin-top: 3em;
-  height: calc(100% - $line-height-em*2); }
+  height: calc(100% - 3em); }
 
 .slider-wrap {
   position: relative;
@@ -1654,7 +1654,8 @@ body { // Crashes Chrome Beta, FF bug can't calc properly
   vertical-align: middle;
   /* vertical alignment of the inline element */
   height: 100%;
-  position: static; }
+  position: static;
+  width: 0; }
 
 .slider.lightbox > * p {
   /* Image captions */
@@ -1871,7 +1872,7 @@ body { // Crashes Chrome Beta, FF bug can't calc properly
   overflow-y: scroll;
   position: relative;
   background: transparent;
-  height: calc(100% - $line-height-em*2);
+  height: calc(100% - 3em);
   padding-top: 3em; }
 
 .full-window-wrap .close {

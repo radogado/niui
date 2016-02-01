@@ -28,7 +28,7 @@
 				
 		margin-top: $line-height-em*2;
 // 		margin-top: calc(var(--line-height-em)*2);
-		height: calc(100% - $line-height-em*2);
+		height: calc(100% - #{$line-height-em*2});
 // 		height: calc(100% - var(--line-height-em)*2);
 
 	}		
@@ -310,6 +310,7 @@
     vertical-align: middle;  /* vertical alignment of the inline element */
 	height: 100%;
 	position: static;
+	width: 0;
 
 }
 
