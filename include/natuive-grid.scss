@@ -29,6 +29,7 @@
 		-ms-flex: 1 0 auto;
 		flex: 1 0 auto;
 		width: 20%; /* Minimum col width */
+		width: calc(20% - 1em);
 		text-align: left;
 		text-align: start;
 		padding: .5em;
@@ -207,21 +208,21 @@
 	
 	}
 	
-.align-left, .row > .align-left {
+.align-left, .align-left *, .row > .align-left {
 	
 	text-align: left;
 	text-align: start;
 
 }
 
-.align-right, .row > .align-right {
+.align-right, .align-right *, .row > .align-right {
 	
 	text-align: right;	
 	text-align: end;
 
 }
 
-.align-center, .row > .align-center {
+.align-center, .align-center *, .row > .align-center {
 	
 	text-align: center;
 

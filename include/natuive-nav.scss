@@ -20,19 +20,9 @@ nav {
 	
 	nav a {
 		
-		line-height: $line-height * 2;
-// 		line-height: calc(var(--line-height) * 2);
-		min-height: $line-height-em * 2;
-// 		min-height: calc(var(--line-height-em) * 2);
 		position: relative;
 		padding: 0 .5em 0 0;
 
-	}
-	
-	header nav a {
-		
-		font-size: 1.3em;
-	
 	}
 	
 	nav a[href].active {

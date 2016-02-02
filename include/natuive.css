@@ -45,6 +45,7 @@ body { // Crashes Chrome Beta, FF bug can't calc properly
   flex: 1 0 auto;
   width: 20%;
   /* Minimum col width */
+  width: calc(20% - 1em);
   text-align: left;
   text-align: start;
   padding: .5em;
@@ -138,15 +139,15 @@ body { // Crashes Chrome Beta, FF bug can't calc properly
 .row.no-padding, .row.no-padding > * {
   padding: 0; }
 
-.align-left, .row > .align-left {
+.align-left, .align-left *, .row > .align-left {
   text-align: left;
   text-align: start; }
 
-.align-right, .row > .align-right {
+.align-right, .align-right *, .row > .align-right {
   text-align: right;
   text-align: end; }
 
-.align-center, .row > .align-center {
+.align-center, .align-center *, .row > .align-center {
   text-align: center; }
 
 .row > .align-top, .row > .align-middle, .row > .align-bottom {
@@ -998,13 +999,8 @@ nav ul {
   width: auto; }
 
 nav a {
-  line-height: 3;
-  min-height: 3em;
   position: relative;
   padding: 0 .5em 0 0; }
-
-header nav a {
-  font-size: 1.3em; }
 
 nav a[href].active {
   color: #999; }
@@ -1273,9 +1269,7 @@ ul {
   margin: 1.5em 0 1.5em 0.3em; }
 
 ul li {
-  margin: 1.5em 0 0 0;
-  font-size: 16px;
-  font-size: 1rem; }
+  margin: 1.5em 0 0 0; }
 
 ol {
   list-style-type: none;
