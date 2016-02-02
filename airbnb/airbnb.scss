@@ -44,7 +44,14 @@ main .row > * {
 	background: #fff;
 	min-height: 27em;
 	color: #fff;
+	background-size: cover;
 	
+}
+
+main .row h3 {
+	
+	font-size: 2em;
+
 }
 
 main .row.no-spacing > * {
@@ -57,6 +64,7 @@ main .row a[href] {
 	
 	text-decoration: none;
 	background-size: cover;
+	color: #fff;
 
 }
 
@@ -69,6 +77,13 @@ main .row, main .row.no-spacing {
 main .slider {
 	
 	color: #fff;
+
+}
+
+main .slider > * {
+	
+	min-height: 37em;
+	background-size: cover;
 
 }
 
