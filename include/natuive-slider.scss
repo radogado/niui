@@ -81,6 +81,24 @@
 	position: absolute;
 
 }
+
+*:-webkit-full-screen  .slider-wrap {
+
+	background: #000;
+
+}
+	
+*:-moz-full-screen  .slider-wrap {
+
+	background: #000;
+
+}
+	
+*:fullscreen  .slider-wrap {
+
+	background: #000;
+
+}
 	
 .slider {
 

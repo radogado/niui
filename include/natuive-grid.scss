@@ -168,7 +168,7 @@
 	
 	}
 	
-	.row.no-spacing > .col1, .row > *:only-child:not([class^=col]) {
+	.row.no-spacing > .col1 {
 	
 		flex: 0 0 100%;
 	
@@ -298,20 +298,20 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 
 .pad {
 	
-	padding: .5em;
+	padding: $line-height-em;
 
 }
 
-	.pad-x2 {
+	.pad-half {
 		
-		padding: 1em;
+		padding: $line-height-em/2;
 	
 	}
 
 	.unpad {
 		
-		margin: -.5em;
-		width: calc(100% + 1em);
+		margin: -$line-height-em;
+		width: calc(100% + #{$line-height-em}*2);
 	
 	}
 

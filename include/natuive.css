@@ -122,7 +122,7 @@ body { // Crashes Chrome Beta, FF bug can't calc properly
 .row.no-spacing > .col2 {
   flex: 0 0 50%; }
 
-.row.no-spacing > .col1, .row > *:only-child:not([class^=col]) {
+.row.no-spacing > .col1 {
   flex: 0 0 100%; }
 
 .row > * > img {
@@ -195,14 +195,14 @@ section:before, section:after {
   break-inside: avoid-column; }
 
 .pad {
-  padding: .5em; }
+  padding: 1.5em; }
 
-.pad-x2 {
-  padding: 1em; }
+.pad-half {
+  padding: 0.75em; }
 
 .unpad {
-  margin: -.5em;
-  width: calc(100% + 1em); }
+  margin: -1.5em;
+  width: calc(100% + 1.5em*2); }
 
 .row.border {
   border: 1px solid #e6e6e6;
@@ -604,7 +604,6 @@ form select {
   padding-right: .8em; }
 
 form select, form .file-input {
-  background: #eee;
   vertical-align: top;
   border: none;
   overflow: hidden;
@@ -1282,7 +1281,7 @@ ol {
   list-style-type: none;
   counter-reset: level1;
   padding: 0;
-  margin: 0; }
+  margin: 0 0 1.5em 0; }
 
 ol > li {
   text-indent: -2.3em;
@@ -1505,6 +1504,15 @@ body { // Crashes Chrome Beta, FF bug can't calc properly
   z-index: 1;
   background: #fff;
   position: absolute; }
+
+*:-webkit-full-screen .slider-wrap {
+  background: #000; }
+
+*:-moz-full-screen .slider-wrap {
+  background: #000; }
+
+*:fullscreen .slider-wrap {
+  background: #000; }
 
 .slider {
   overflow-x: visible;
@@ -2020,9 +2028,7 @@ body * {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
-  /* iOS: Don't flash on tap */
-  word-break: break-word;
-  word-wrap: break-word; }
+  /* iOS: Don't flash on tap */ }
 
 html.nooverflow, html.nooverflow body {
   overflow: hidden; }
@@ -2048,7 +2054,9 @@ h1, h2, h3, .full-window-wrap .close {
   line-height: 3; }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 0; }
+  margin: 0;
+  word-break: break-word;
+  word-wrap: break-word; }
 
 h1 + p:not(.drop-cap), h2 + p:not(.drop-cap), h3 + p:not(.drop-cap), h4 + p:not(.drop-cap), h5 + p:not(.drop-cap), h6 + p:not(.drop-cap) {
   margin-top: 0; }
