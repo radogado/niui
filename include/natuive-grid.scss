@@ -235,27 +235,30 @@
 	
 }
 
-.align-top, .row > .align-top {
+.align-top, .row > .align-top, .align-top .row > * {
 	
 	vertical-align: top;
 	justify-content: flex-start;
 	flex-direction: column;
+	display: flex;
 	
 }
 
-.align-middle, .row > .align-middle {
+.align-middle, .row > .align-middle, .align-middle .row > * {
 	
 	vertical-align: middle;
 	justify-content: center;
 	flex-direction: column;
+	display: flex;
 	
 }
 
-.align-bottom, .row > .align-bottom {
+.align-bottom, .row > .align-bottom, .align-bottom .row > * {
 	
 	vertical-align: bottom;
 	justify-content: flex-end;
 	flex-direction: column;
+	display: flex;
 
 }
 
