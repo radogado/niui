@@ -110,11 +110,9 @@ header nav:first-of-type {
 
 }
 
-.banner .row > div:before {
+.banner .row {
 	
-	content: '';
-	display: inline-block;
-	min-height: 33em;
+	min-height: 45em;
 	
 }
 
@@ -387,9 +385,10 @@ footer nav form.flat label input[type=submit] {
 	top: 50%;
 	right: 0;
 	transform: translateY(-50%);
-	margin: 0;
+	margin: -.3em 0 0 0;
 	border: none;
 	font-weight: 900;
+	padding: 0 1em 0 0 ;
 
 }
 

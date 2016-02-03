@@ -77,13 +77,19 @@ form {
 // 		line-height: var(--line-height);
 		white-space: normal;
 		word-break: break-all;
+		margin-bottom: 0;
+
+	}
+
+	form.wide input[type=submit] {
+
 		margin-bottom: calc(#{$line-height-em} - 2px); /* fix for the failed box-sizing: border-box */
 // 		margin-bottom: calc(var(--line-height-em) - 2px); /* fix for the failed box-sizing: border-box */
 		min-height: calc(#{$line-height-em}*2 + 2px);
 // 		min-height: calc(var(--line-height-em)*2 + 2px);
 		
 	}
-
+	
 	input, select, textarea, input[type=search], form button {
 		
 		font-family: inherit;
@@ -99,8 +105,6 @@ form {
 		border: 0;
 		background: #eee;
 		font-size: 1em;
-		margin: 0 0 $line-height-em/2 0;
-// 		margin: 0 0 calc(var(--line-height-em)/2) 0;
 		width: 100%;
 		outline: none;
 		border: 1px dotted transparent;
@@ -246,13 +250,18 @@ form {
 	    text-indent: -1px;
 	    text-overflow: '';	
 	    margin: 0;
+		background: #eee url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAG0lEQVR42mNgwAfKy8v/48I4FeA0AacVDFQBAP9wJkE/KhUMAAAAAElFTkSuQmCC") no-repeat calc(100% - 1em) 50%;
+		text-indent: 1px;
+	
+	}
+	
+	form.wide select {
+		
 		height: $line-height-em * 2;
 		// 		height: calc(var(--line-height-em) * 2);
 		margin: -$line-height-em/2 0 $line-height-em/2 0;
 		// 		margin: calc(-1*var(--line-height-em)/2) 0 calc(var(--line-height-em)/2) 0;
-		background: #eee url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAG0lEQVR42mNgwAfKy8v/48I4FeA0AacVDFQBAP9wJkE/KhUMAAAAAElFTkSuQmCC") no-repeat calc(100% - 1em) 50%;
-		text-indent: 1px;
-	
+		
 	}
 	
 	[dir=rtl] form select {
@@ -273,7 +282,7 @@ form {
 	
 	form select option {
 		
-		padding: 0;
+		padding: 0 1.5em 0 0;
 
 	}
 	
@@ -488,14 +497,22 @@ form {
 	
 	form input, form textarea, form select {
 		
-		display: block;
-		width: 100%;
+		display: inline-block;
+		width: auto;
 		padding-top: 0;
-		margin: 0 0 $line-height-em 0;
-// 		margin: 0 0 calc(var(--line-height-em) / 2) 0;
+		margin: 0;
 		
 	}
 	
+	form.wide input, form.wide textarea, form.wide select {
+		
+		display: block;
+		width: 100%;
+		margin: 0 0 $line-height-em 0;
+// 		margin: 0 0 calc(var(--line-height-em) / 2) 0;
+	
+	}
+
 	form textarea {
 		
 		padding-top: .85em;;

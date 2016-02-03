@@ -608,3 +608,12 @@
 	animation-name: sliding;
 	
 }
+
+.slider.center > * {
+	
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	
+}

@@ -14,6 +14,12 @@ body, .button, .lightbox a, .row.wrap>*, .tip, body, button, form .checkbox span
 
 }
 
+form label {
+	
+	display: inline;
+
+}
+
 .row>*>.row {
 	
 	margin: 0;
@@ -45,6 +51,7 @@ a[href]:hover {
 .contain {
 	
 	max-width: 83rem;
+	overflow: visible;
 
 }
 
@@ -167,6 +174,12 @@ nav a {
 	line-height: $line-height;
 	min-height: $line-height;
 
+}
+
+header nav.drop ul li b.sub {
+	
+	margin: 0;
+	
 }
 
 .banner.row form .row {
@@ -677,4 +690,11 @@ input[type=text].search {
 	
 	}
 
+}
+
+.main-form label, .main-form label input[type=text] {
+	
+	display: block;
+	width: 100%;
+	
 }

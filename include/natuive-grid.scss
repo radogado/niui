@@ -47,8 +47,8 @@
 
 	.row > .col23 { // body used for rules override
 
-		width: 66.6%;
-		flex: 0 0 calc(66.6% - 1em);
+		width: 66.667%;
+		flex: 0 0 calc(66.667% - 1em);
 
 	}
 	
@@ -117,7 +117,7 @@
 	
 	.row.no-spacing > .col23 { // body used for rules override
 	
-		flex: 0 0 66.6%;
+		flex: 0 0 66.667%;
 	
 	}
 	
@@ -196,7 +196,7 @@
 	
 		.row > * {
 			
-			width: 33%;
+			width: 33.333%;
 		
 		}
 	
@@ -510,7 +510,6 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 
 	.row > *, .row > [class^=col] {
 
-		display: block;
 		padding: .3em;
 		width: 100% !important; // Important because of Android Browser
 		border: none;
