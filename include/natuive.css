@@ -55,6 +55,14 @@ body { // Crashes Chrome Beta, FF bug can't calc properly
   max-width: 100%;
   /* instead of overflow-x:hidden, which would also activate overflow-y:hidden and clip the tooltip */ }
 
+.no-flex .row {
+  font-size: 0; }
+
+.no-flex .row > * {
+  font-size: 16px;
+  font-size: 1rem;
+  margin: .5em 0; }
+
 /* colXY where the column takes up X/Y of space; colY means 1/Y */
 .row > .col23 {
   width: 66.667%;
@@ -481,8 +489,10 @@ label {
   position: relative;
   padding: 0;
   margin: 0 0 1.5em 0;
-  width: 100%;
   min-height: 3em; }
+
+form.wide label {
+  width: 100%; }
 
 label > input {
   margin-top: -0.75em; }
@@ -747,9 +757,11 @@ input[type=search]::-webkit-search-cancel-button {
 
 form label, form label span, form .checkbox span {
   margin: 0;
-  display: block;
-  width: 100%;
   text-align: start; }
+
+form.wide label, form.wide label span, form.wide .checkbox span {
+  display: block;
+  width: 100%; }
 
 form span.file-input span {
   padding-left: .75em;
@@ -760,7 +772,8 @@ form input, form textarea, form select {
   display: inline-block;
   width: auto;
   padding-top: 0;
-  margin: 0; }
+  margin: 1.5em 0;
+  vertical-align: middle; }
 
 form.wide input, form.wide textarea, form.wide select {
   display: block;
@@ -807,6 +820,7 @@ form input[type=checkbox], form input[type=radio] {
 
   input[type=file] {
     padding-left: 100%;
+    text-indent: -1em;
     margin-top: -1.5em; } }
 /* Mast form with labels/inputs on either side */
 @media screen and (min-width: 640px) {
@@ -816,7 +830,8 @@ form input[type=checkbox], form input[type=radio] {
 
   form.mast label {
     float: left;
-    margin-bottom: .75em; }
+    margin-bottom: 1.5em;
+    width: 100%; }
 
   form.mast .checkbox label {
     margin: 0; }
@@ -830,7 +845,7 @@ form input[type=checkbox], form input[type=radio] {
   form.mast label input, form.mast label textarea, form.mast label input[type=search], form.mast label button {
     width: 50%;
     float: right;
-    margin-top: -0.75em; }
+    margin: -0.75em 0 0 0; }
 
   [dir=rtl] form.mast input, [dir=rtl] form.mast select, [dir=rtl] form.mast textarea, [dir=rtl] form.mast input[type=search], [dir=rtl] form.mast button {
     float: left; }
@@ -842,15 +857,19 @@ form input[type=checkbox], form input[type=radio] {
     right: 47.5%;
     left: auto; }
 
+  form.mast label textarea {
+    margin-bottom: 0.75em; }
+
   form.mast select {
-    width: 45%; }
+    width: 45%;
+    margin-bottom: 0.75em; }
 
   form.mast select, form.mast .file-input {
     width: 50%;
     margin-top: -0.75em; }
 
   form.mast label > span.file-input {
-    margin-bottom: 1.5em;
+    margin-bottom: 0.75em;
     padding: 0; }
 
   [dir=rtl] form.mast select {
@@ -2006,7 +2025,8 @@ body { // Crashes Chrome Beta, FF bug can't calc properly
   display: inline-block; }
 
 .contain {
-  max-width: 82em;
+  max-width: 1312px;
+  max-width: 82rem;
   margin: 0 auto; }
 
 /* Basic elements */

@@ -20,7 +20,8 @@
 
 .contain {
 
-	max-width: 82em;
+	max-width: 82*$font-size;
+	max-width: 82rem;
 	margin: 0 auto;
 
 }

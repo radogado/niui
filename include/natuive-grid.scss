@@ -43,6 +43,20 @@
 		
 	}
 
+	.no-flex .row { // Fallback
+		
+		font-size: 0;
+	
+	}
+
+	.no-flex .row > * {
+		
+		font-size: $font-size;
+		font-size: 1rem;
+		margin: .5em 0;
+
+	}
+
 /* colXY where the column takes up X/Y of space; colY means 1/Y */
 
 	.row > .col23 { // body used for rules override

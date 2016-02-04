@@ -52,7 +52,8 @@ try {
 }
 
 if (detector.style.display != "flex" || !flexbox_support) { // No Flexbox support
-
+	
+	addClass(q('body'), 'no-flex');
     // Flex is not supported, add col*-class-less columns the proper classes   '.row > *:not([class^="col"])'
     forEach('.row', function (el) {
 	    
