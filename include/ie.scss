@@ -47,13 +47,27 @@ form#language-selector select {
 
 }
 
-input[type=checkbox], input[type=radio] {
+input[type=checkbox], input[type=radio], form.wide input[type=checkbox], form.wide input[type=radio] {
 	
 	margin-left: 0;
 	float: none;
 	position: static;
 	display: inline-block;
+	clear: left;
+	margin-top: 1em;
+
+}
+
+:root input[type=checkbox], :root input[type=radio], :root form.wide input[type=checkbox], :root form.wide input[type=radio] {
 	
+	display: none;
+
+}
+
+form.mast input[type=checkbox], form.mast input[type=radio] {
+	
+	float: left;
+	width: auto;
 
 }
 
@@ -67,6 +81,20 @@ input[type=submit] {
 	
 	padding: 0;
 		
+}
+
+.checkbox-icon {
+	
+	margin-right: 1em;
+// 	display: inline-block;
+	opacity: 0;
+
+}
+
+:root .checkbox-icon {
+	
+	opacity: 1	;
+
 }
 
 form select, form .file-input {
