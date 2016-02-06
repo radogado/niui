@@ -582,182 +582,178 @@ form {
 
 /* Mast form with labels/inputs on either side */
 
-@media screen and (min-width: $screen-narrow) {
+form.mast {
+	
+	padding-top: $line-height-em;
+	padding-top: va(--line-height-em);
+	
+}
 
-	form.mast {
+	form.mast label {
 		
-		padding-top: $line-height-em;
-		padding-top: va(--line-height-em);
+		float: left;
+		margin-bottom: $line-height-em;
+		width: 100%;
+		
+	}
+
+	form.mast .checkbox label {
+		
+		margin: 0;
+
+	}
+	
+	[dir=rtl] form.mast label {
+		
+		float: right;
+	
+	}
+
+	form.mast label span {
+		
+		text-align: end;
 		
 	}
 	
-		form.mast label {
-			
-			float: left;
-			margin-bottom: $line-height-em;
-			width: 100%;
-			
-		}
-
-		form.mast .checkbox label {
-			
-			margin: 0;
-
-		}
+	form.mast label input, form.mast label textarea, form.mast label input[type=search], form.mast label button {
 		
-		[dir=rtl] form.mast label {
-			
-			float: right;
+		width: 50%;
+		float: right;
+		margin: -$line-height-em/2 0 0 0;
 		
-		}
+	}
 	
-		form.mast label span {
-			
-			text-align: end;
-			
-		}
+	[dir=rtl] form.mast input, [dir=rtl] form.mast select, [dir=rtl] form.mast textarea, [dir=rtl] form.mast input[type=search], [dir=rtl] form.mast button {
 		
-		form.mast label input, form.mast label textarea, form.mast label input[type=search], form.mast label button {
-			
-			width: 50%;
-			float: right;
-			margin: -$line-height-em/2 0 0 0;
-			
-		}
+		float: left;
 		
-		[dir=rtl] form.mast input, [dir=rtl] form.mast select, [dir=rtl] form.mast textarea, [dir=rtl] form.mast input[type=search], [dir=rtl] form.mast button {
-			
-			float: left;
-			
-		}
+	}
+	
+	form.mast .mandatory:before {
+	
+		left: 47.5%;
+	
+	}
+	
+	[dir=rtl] form.mast .mandatory:before {
+	
+		right: 47.5%;
+		left: auto;
+	
+	}
+	
+	form.mast label textarea {
 		
-		form.mast .mandatory:before {
-		
-			left: 47.5%;
-		
-		}
-		
-		[dir=rtl] form.mast .mandatory:before {
-		
-			right: 47.5%;
-			left: auto;
-		
-		}
-		
-		form.mast label textarea {
-			
-			margin-bottom: $line-height-em/2;
+		margin-bottom: $line-height-em/2;
 
-		}
-		
-		form.mast select {
-		
-			width: 45%;
-			margin-bottom: $line-height-em/2;
-		
-		}
-		
-		form.mast select, form.mast .file-input {
-		
-			width: 50%;
-			margin-top: -$line-height-em/2;
-		
-		}
-		
-		form.mast label > span.file-input {
-			
-			margin-bottom: $line-height-em/2;
-			padding: 0;
-		
-		}
-		
-		[dir=rtl] form.mast select {
-		
-			background-position: 1em 50%;
-		
-		}
-			
-		form.mast .checkbox label {
-		
-			width: 50%;
-		
-		}
+	}
 	
-		form.mast .checkbox span {
-		
-			text-align: end;
-			float: left;
-			padding-right: 3%;
-			width: 50%;
-		
-		}
-		
-		[dir=rtl] form.mast .checkbox span {
-			
-			float: right;
-			padding-right: 0;
-			padding-left: 3%;
-		
-		}
+	form.mast select {
 	
-		form.mast > label span {
-			
-			position: relative;
-			display: inline-block;
-			padding: 0 3% 0 0;
-			float: left;
-			width: 50%;
-		
-		}
-		
-		[dir=rtl] form.mast > label span {
-			
-			float: right;
-			padding: 0 0 0 3%;
-		
-		}
+		width: 45%;
+		margin-bottom: $line-height-em/2;
 	
-		form.mast > label .file-input span {
+	}
+	
+	form.mast select, form.mast .file-input {
+	
+		width: 50%;
+		margin-top: -$line-height-em/2;
+	
+	}
+	
+	form.mast label > span.file-input {
+		
+		margin-bottom: $line-height-em/2;
+		padding: 0;
+	
+	}
+	
+	[dir=rtl] form.mast select {
+	
+		background-position: 1em 50%;
+	
+	}
+		
+	form.mast .checkbox label {
+	
+		width: 50%;
+	
+	}
 
-			width: 100%;
-			padding: calc(#{$line-height-em}/2 + .3em) 0 0 $line-height-em/2;
-			line-height: $line-height-em/2;
-			text-align: left;
-
-		}
-		
-		form.mast .checkbox label {
-			
-			float: right;
-		
-		}
+	form.mast .checkbox span {
 	
-		[dir=rtl] form.mast .checkbox label {
-			
-			float: left;
-			clear: left;
-			
-		}
+		text-align: end;
+		float: left;
+		padding-right: 3%;
+		width: 50%;
 	
-		form .file-input span {
-		
-			padding: 0 0 0 .8em;
-		
-		}
+	}
 	
-		[dir=rtl] form.mast .file-input span {
+	[dir=rtl] form.mast .checkbox span {
 		
-			padding: 0 .8em 0 0;
-		
-		}
-		
-		form.mast input[type=submit], form.mast button {
-			
-			float: right;
+		float: right;
+		padding-right: 0;
+		padding-left: 3%;
+	
+	}
 
-		}
+	form.mast > label span {
+		
+		position: relative;
+		display: inline-block;
+		padding: 0 3% 0 0;
+		float: left;
+		width: 50%;
+	
+	}
+	
+	[dir=rtl] form.mast > label span {
+		
+		float: right;
+		padding: 0 0 0 3%;
+	
+	}
 
-}
+	form.mast > label .file-input span {
+
+		width: 100%;
+		padding: calc(#{$line-height-em}/2 + .3em) 0 0 $line-height-em/2;
+		line-height: $line-height-em/2;
+		text-align: left;
+
+	}
+	
+	form.mast .checkbox label {
+		
+		float: right;
+	
+	}
+
+	[dir=rtl] form.mast .checkbox label {
+		
+		float: left;
+		clear: left;
+		
+	}
+
+	form .file-input span {
+	
+		padding: 0 0 0 .8em;
+	
+	}
+
+	[dir=rtl] form.mast .file-input span {
+	
+		padding: 0 .8em 0 0;
+	
+	}
+	
+	form.mast input[type=submit], form.mast button {
+		
+		float: right;
+
+	}
 
 header form {
 	

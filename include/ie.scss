@@ -12,6 +12,12 @@ $line-height: 22px;
 
 }
 
+.row > .col1 {
+	
+	width: 100%;
+
+}
+
 input {
 	
 	line-height: $line-height*2;
@@ -30,7 +36,7 @@ form#language-selector select {
 	
 	margin: 0;
 	padding-left: 0;
-	height: 44px;
+	height: $line-height*2;
 
 }
 
@@ -44,6 +50,10 @@ form#language-selector select {
 input[type=checkbox], input[type=radio] {
 	
 	margin-left: 0;
+	float: none;
+	position: static;
+	display: inline-block;
+	
 
 }
 
@@ -71,6 +81,12 @@ form select, form .file-input {
 	
 }
 
+.slider > *:after, .slider > *:before {
+
+	display: none;	
+
+}
+	
 .vertical .slider-nav {
 	
 	top: 1em;

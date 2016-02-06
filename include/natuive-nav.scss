@@ -136,6 +136,7 @@ nav.drop ul li b.sub {
 	
 	display: inline-block;
 	padding: 1em;
+	font-size: $font-size;
 	font-size: 1rem;
 	background: #fbfbfb;
 	line-height: 1;
@@ -147,6 +148,7 @@ nav.drop ul li li b.sub {
 	
 	display: inline-block;
 	padding: 1em;
+	font-size: $font-size;
 	font-size: 1rem;
 	background-color: #eee;
 	padding-right: 1.5em;
@@ -177,6 +179,7 @@ nav.drop ul li li li b.sub {
 	
 	display: inline-block;
 	padding: 1em;
+	font-size: $font-size;
 	font-size: 1rem;
 	background-color: #ddd;
 
@@ -203,6 +206,7 @@ nav.drop ul li a {
 	padding: 1em;
 	display: inline-block;
 	position: relative;
+	font-size: $font-size;
 	font-size: 1rem;
 	line-height: 1;
 	

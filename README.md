@@ -43,7 +43,7 @@ natUIve: mostly native front-end framework
 - CSS-only parallax scrolling*
 - WordPress theme*
 - Functional without JS and accessible without CSS*
-- 6 KB CSS + optional 6 KB JS (effective weight with combined, minified and gzipped files)
+- 6 KB CSS + optional 6 KB JS (combined, minified, OS X gzip)
 - ~~No IE conditional operators~~ HTML5 elements also for IE8 with html5shiv
 - No jQuery or other dependencies*
 - Supporting IE8+, Safari, Chrome, Firefox, Opera, Android 2.3+, iOS, Windows Phone

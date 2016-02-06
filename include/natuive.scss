@@ -326,36 +326,28 @@ video a[href] {
 
 .aspect { // Table, because inline-block doesn't work in Android Browser
 	
-	text-align: center;
-	display: table;
-    width: 100%;
-    table-layout: fixed;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    
 }
 
-.aspect > * {
+	.aspect > img {
+		
+		max-width: 100%;
+		height: auto;
+		margin: 0 auto;
 	
-	display: table-cell;
-	vertical-align: top;
-
-}
-
-.aspect > img {
+	}
 	
-	max-width: 100%;
-	height: auto;
-	margin: 0 auto;
-
-}
-
-.aspect span { /*  Ratio can be overwritten with inline CSS padding-bottom */
-
-	padding-bottom: 56.25%; /*    y / x * 100   default 16:9    */
-	width: 0; 
-
-}
+	.aspect span { /*  Ratio can be overwritten with inline CSS padding-bottom */
+	
+		padding-bottom: 56.25%; /*    y / x * 100   default 16:9    */
+	
+	}
 
 /* Overthrow CSS:
-   Enable overflow: auto on elements with overthrow class when html element has overthrow class too */
+   For Mobile devices not supporting overflow: scroll. Enable overflow: auto on elements with overthrow class when html element has overthrow class too */
 .overthrow-enabled .overthrow {
 
     overflow: auto;

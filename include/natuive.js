@@ -263,16 +263,20 @@ var wrap = function (toWrap, wrapper) { // Thanks yckart
 
 function childByClass (el, cl) {
 
-	var i = 0;
-	while(i < el.children.length) {
-		
-		if (hasClass(el.children[i], cl)) {
-			
-			return el.children[i];
+	if ( el ) {
 
+		var i = 0;
+		while(i < el.children.length) {
+			
+			if (hasClass(el.children[i], cl)) {
+				
+				return el.children[i];
+	
+			}
+			i++;
+			
 		}
-		i++;
-		
+
 	}
 
 	return false;

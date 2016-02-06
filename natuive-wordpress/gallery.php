@@ -193,7 +193,7 @@ final class Cleaner_Gallery {
 
 		/* Gallery attributes. */
 		$gallery_attr  = sprintf( "id='%s'", esc_attr( $this->args['id'] ) . '-' . esc_attr( $this->gallery_instance ) );
-		$gallery_attr .= sprintf( " class='lightbox gallery gallery-%s gallery-columns-%s gallery-size-%s'", esc_attr( $this->args['id'] ), esc_attr( $this->args['columns'] ), sanitize_html_class( $this->args['size'] ) );
+		$gallery_attr .= sprintf( " class='lightbox full-screen gallery gallery-%s gallery-columns-%s gallery-size-%s'", esc_attr( $this->args['id'] ), esc_attr( $this->args['columns'] ), sanitize_html_class( $this->args['size'] ) );
 		$gallery_attr .= sprintf( " itemscope itemtype='%s'", esc_attr( $this->get_gallery_itemtype() ) );
 
 		/* Return out very nice, valid HTML gallery. */

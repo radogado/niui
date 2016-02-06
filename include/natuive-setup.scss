@@ -5,7 +5,7 @@ $screen-narrow: 640px;
 $screen-limited: 768px;
 
 /*
-body { // Crashes Chrome Beta, FF bug can't calc properly
+body { // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
 	
 	--line-height: 2;
 	--line-height-em: calc(var(--line-height)*1em);

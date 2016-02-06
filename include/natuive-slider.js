@@ -188,6 +188,7 @@ function slide(el, method, index_number) {
 
     if (getClosest(el, '.slider-wrap').querySelector('.slider').children.length < 2) {
 
+		endSlide(el, 0);
         return el;
 
     }

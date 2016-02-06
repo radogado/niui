@@ -225,6 +225,12 @@
 
 }
 
+.no-flex .slider > * + * { // Fallback
+	
+	margin-left: -.3em;
+	
+}
+
 .slider.vertical > * {
 	
 	display: block;

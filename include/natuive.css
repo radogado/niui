@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /* natUIve – rado.bg */
 /*
-body { // Crashes Chrome Beta, FF bug can't calc properly
+body { // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
 	
 	--line-height: 2;
 	--line-height-em: calc(var(--line-height)*1em);
@@ -15,7 +15,7 @@ $line-height: 34px;
 /* Rewrite base variables here; add theme CSS below this one in <head> */
 /* natUIve – Grid */
 /*
-body { // Crashes Chrome Beta, FF bug can't calc properly
+body { // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
 	
 	--line-height: 2;
 	--line-height-em: calc(var(--line-height)*1em);
@@ -361,7 +361,7 @@ section:before, section:after {
     column-count: 2; } }
 /* natUIve – Button */
 /*
-body { // Crashes Chrome Beta, FF bug can't calc properly
+body { // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
 	
 	--line-height: 2;
 	--line-height-em: calc(var(--line-height)*1em);
@@ -451,7 +451,7 @@ a.backtotop[href] {
     text-align: center; } }
 /* natUIve  – Form */
 /*
-body { // Crashes Chrome Beta, FF bug can't calc properly
+body { // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
 	
 	--line-height: 2;
 	--line-height-em: calc(var(--line-height)*1em);
@@ -823,104 +823,104 @@ form input[type=checkbox], form input[type=radio] {
     text-indent: -1em;
     margin-top: -1.5em; } }
 /* Mast form with labels/inputs on either side */
-@media screen and (min-width: 640px) {
-  form.mast {
-    padding-top: 1.5em;
-    padding-top: va(--line-height-em); }
+form.mast {
+  padding-top: 1.5em;
+  padding-top: va(--line-height-em); }
 
-  form.mast label {
-    float: left;
-    margin-bottom: 1.5em;
-    width: 100%; }
+form.mast label {
+  float: left;
+  margin-bottom: 1.5em;
+  width: 100%; }
 
-  form.mast .checkbox label {
-    margin: 0; }
+form.mast .checkbox label {
+  margin: 0; }
 
-  [dir=rtl] form.mast label {
-    float: right; }
+[dir=rtl] form.mast label {
+  float: right; }
 
-  form.mast label span {
-    text-align: end; }
+form.mast label span {
+  text-align: end; }
 
-  form.mast label input, form.mast label textarea, form.mast label input[type=search], form.mast label button {
-    width: 50%;
-    float: right;
-    margin: -0.75em 0 0 0; }
+form.mast label input, form.mast label textarea, form.mast label input[type=search], form.mast label button {
+  width: 50%;
+  float: right;
+  margin: -0.75em 0 0 0; }
 
-  [dir=rtl] form.mast input, [dir=rtl] form.mast select, [dir=rtl] form.mast textarea, [dir=rtl] form.mast input[type=search], [dir=rtl] form.mast button {
-    float: left; }
+[dir=rtl] form.mast input, [dir=rtl] form.mast select, [dir=rtl] form.mast textarea, [dir=rtl] form.mast input[type=search], [dir=rtl] form.mast button {
+  float: left; }
 
-  form.mast .mandatory:before {
-    left: 47.5%; }
+form.mast .mandatory:before {
+  left: 47.5%; }
 
-  [dir=rtl] form.mast .mandatory:before {
-    right: 47.5%;
-    left: auto; }
+[dir=rtl] form.mast .mandatory:before {
+  right: 47.5%;
+  left: auto; }
 
-  form.mast label textarea {
-    margin-bottom: 0.75em; }
+form.mast label textarea {
+  margin-bottom: 0.75em; }
 
-  form.mast select {
-    width: 45%;
-    margin-bottom: 0.75em; }
+form.mast select {
+  width: 45%;
+  margin-bottom: 0.75em; }
 
-  form.mast select, form.mast .file-input {
-    width: 50%;
-    margin-top: -0.75em; }
+form.mast select, form.mast .file-input {
+  width: 50%;
+  margin-top: -0.75em; }
 
-  form.mast label > span.file-input {
-    margin-bottom: 0.75em;
-    padding: 0; }
+form.mast label > span.file-input {
+  margin-bottom: 0.75em;
+  padding: 0; }
 
-  [dir=rtl] form.mast select {
-    background-position: 1em 50%; }
+[dir=rtl] form.mast select {
+  background-position: 1em 50%; }
 
-  form.mast .checkbox label {
-    width: 50%; }
+form.mast .checkbox label {
+  width: 50%; }
 
-  form.mast .checkbox span {
-    text-align: end;
-    float: left;
-    padding-right: 3%;
-    width: 50%; }
+form.mast .checkbox span {
+  text-align: end;
+  float: left;
+  padding-right: 3%;
+  width: 50%; }
 
-  [dir=rtl] form.mast .checkbox span {
-    float: right;
-    padding-right: 0;
-    padding-left: 3%; }
+[dir=rtl] form.mast .checkbox span {
+  float: right;
+  padding-right: 0;
+  padding-left: 3%; }
 
-  form.mast > label span {
-    position: relative;
-    display: inline-block;
-    padding: 0 3% 0 0;
-    float: left;
-    width: 50%; }
+form.mast > label span {
+  position: relative;
+  display: inline-block;
+  padding: 0 3% 0 0;
+  float: left;
+  width: 50%; }
 
-  [dir=rtl] form.mast > label span {
-    float: right;
-    padding: 0 0 0 3%; }
+[dir=rtl] form.mast > label span {
+  float: right;
+  padding: 0 0 0 3%; }
 
-  form.mast > label .file-input span {
-    width: 100%;
-    padding: calc(1.5em/2 + .3em) 0 0 0.75em;
-    line-height: 0.75em;
-    text-align: left; }
+form.mast > label .file-input span {
+  width: 100%;
+  padding: calc(1.5em/2 + .3em) 0 0 0.75em;
+  line-height: 0.75em;
+  text-align: left; }
 
-  form.mast .checkbox label {
-    float: right; }
+form.mast .checkbox label {
+  float: right; }
 
-  [dir=rtl] form.mast .checkbox label {
-    float: left;
-    clear: left; }
+[dir=rtl] form.mast .checkbox label {
+  float: left;
+  clear: left; }
 
-  form .file-input span {
-    padding: 0 0 0 .8em; }
+form .file-input span {
+  padding: 0 0 0 .8em; }
 
-  [dir=rtl] form.mast .file-input span {
-    padding: 0 .8em 0 0; }
+[dir=rtl] form.mast .file-input span {
+  padding: 0 .8em 0 0; }
 
-  form.mast input[type=submit], form.mast button {
-    float: right; } }
+form.mast input[type=submit], form.mast button {
+  float: right; }
+
 header form {
   display: inline-block;
   vertical-align: middle; }
@@ -938,7 +938,7 @@ header form select {
 
 /* Tables */
 /*
-body { // Crashes Chrome Beta, FF bug can't calc properly
+body { // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
 	
 	--line-height: 2;
 	--line-height-em: calc(var(--line-height)*1em);
@@ -1011,7 +1011,7 @@ div.table table {
     word-break: normal; } }
 /* natUIve – Navigation */
 /*
-body { // Crashes Chrome Beta, FF bug can't calc properly
+body { // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
 	
 	--line-height: 2;
 	--line-height-em: calc(var(--line-height)*1em);
@@ -1096,6 +1096,7 @@ nav.drop ul li {
 nav.drop ul li b.sub {
   display: inline-block;
   padding: 1em;
+  font-size: 16px;
   font-size: 1rem;
   background: #fbfbfb;
   line-height: 1;
@@ -1104,6 +1105,7 @@ nav.drop ul li b.sub {
 nav.drop ul li li b.sub {
   display: inline-block;
   padding: 1em;
+  font-size: 16px;
   font-size: 1rem;
   background-color: #eee;
   padding-right: 1.5em; }
@@ -1125,6 +1127,7 @@ nav.drop ul li li .trigger:checked ~ b.sub:before, .no-touch nav.drop ul li li:h
 nav.drop ul li li li b.sub {
   display: inline-block;
   padding: 1em;
+  font-size: 16px;
   font-size: 1rem;
   background-color: #ddd; }
 
@@ -1142,6 +1145,7 @@ nav.drop ul li a {
   padding: 1em;
   display: inline-block;
   position: relative;
+  font-size: 16px;
   font-size: 1rem;
   line-height: 1; }
 
@@ -1283,7 +1287,7 @@ input.trigger, input.trigger ~ input[type=reset] {
     display: block; } }
 /* natUIve – List */
 /*
-body { // Crashes Chrome Beta, FF bug can't calc properly
+body { // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
 	
 	--line-height: 2;
 	--line-height-em: calc(var(--line-height)*1em);
@@ -1364,7 +1368,7 @@ ol p {
 
 /* natUIve – Accordion */
 /*
-body { // Crashes Chrome Beta, FF bug can't calc properly
+body { // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
 	
 	--line-height: 2;
 	--line-height-em: calc(var(--line-height)*1em);
@@ -1420,7 +1424,7 @@ body { // Crashes Chrome Beta, FF bug can't calc properly
 
 /* natUIve – Tooltip */
 /*
-body { // Crashes Chrome Beta, FF bug can't calc properly
+body { // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
 	
 	--line-height: 2;
 	--line-height-em: calc(var(--line-height)*1em);
@@ -1475,7 +1479,7 @@ body { // Crashes Chrome Beta, FF bug can't calc properly
 
 /* natUIve – Slider */
 /*
-body { // Crashes Chrome Beta, FF bug can't calc properly
+body { // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
 	
 	--line-height: 2;
 	--line-height-em: calc(var(--line-height)*1em);
@@ -1619,6 +1623,9 @@ body { // Crashes Chrome Beta, FF bug can't calc properly
   */
   margin: 0;
   flex: 1 0 auto; }
+
+.no-flex .slider > * + * {
+  margin-left: -.3em; }
 
 .slider.vertical > * {
   display: block;
@@ -1883,7 +1890,7 @@ body { // Crashes Chrome Beta, FF bug can't calc properly
 
 /* natUIve – Modal */
 /*
-body { // Crashes Chrome Beta, FF bug can't calc properly
+body { // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
 	
 	--line-height: 2;
 	--line-height-em: calc(var(--line-height)*1em);
@@ -1986,7 +1993,7 @@ html.parallax, html.parallax body {
     transform-origin: 100% 100%; } }
 /* natUIve  – Card */
 /*
-body { // Crashes Chrome Beta, FF bug can't calc properly
+body { // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
 	
 	--line-height: 2;
 	--line-height-em: calc(var(--line-height)*1em);
@@ -2203,14 +2210,9 @@ video a[href] {
 
 /* Image aspect ratio – don't shift the page after loading the image */
 .aspect {
-  text-align: center;
-  display: table;
-  width: 100%;
-  table-layout: fixed; }
-
-.aspect > * {
-  display: table-cell;
-  vertical-align: top; }
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start; }
 
 .aspect > img {
   max-width: 100%;
@@ -2220,11 +2222,10 @@ video a[href] {
 .aspect span {
   /*  Ratio can be overwritten with inline CSS padding-bottom */
   padding-bottom: 56.25%;
-  /*    y / x * 100   default 16:9    */
-  width: 0; }
+  /*    y / x * 100   default 16:9    */ }
 
 /* Overthrow CSS:
-   Enable overflow: auto on elements with overthrow class when html element has overthrow class too */
+   For Mobile devices not supporting overflow: scroll. Enable overflow: auto on elements with overthrow class when html element has overthrow class too */
 .overthrow-enabled .overthrow {
   overflow: auto;
   -webkit-overflow-scrolling: touch; }

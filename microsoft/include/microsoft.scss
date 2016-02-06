@@ -133,6 +133,7 @@ header input {
 	border-style: solid;
 	padding-right: 2em;
 	min-height: 2em;
+	margin: .1em;
 
 }
 
@@ -166,7 +167,6 @@ nav input[type=reset] {
 	left: 0;
 	border: 0;
 	display: none;
-	font-size: 0;
     width: 100%;
     outline: none;
     height: 3rem;
@@ -259,7 +259,6 @@ a[href]:hover {
 	
 	text-shadow: 0 1px 1px #fff;
 	display: inline-block;
-	font-size: 1rem;
 
 }
 
@@ -284,7 +283,6 @@ a[href]:hover {
 	background-repeat: no-repeat;
 	background-size: auto 100%;
 	text-align: center;
-	font-size: 0;
 
 }
 
@@ -395,10 +393,10 @@ a.span-relative-parent ~ a:after {
 .slider-nav a {
 	
 	margin: .7rem .5rem;
-	font-size: 0;
 	width: .5rem;
 	height: .5rem;
 	box-shadow: 0 0 .12rem #666;
+	font-size: 0;
 
 }
 
@@ -453,13 +451,14 @@ main .slider span.copy, main .slider span.copy h2, main .slider span.copy button
 	width: 100%;
 	padding-bottom: 0;
 	margin: 0;
-	margin-top: 20rem;
 	
 }
 
 .aspect {
 	
 	padding-bottom: 0 !important;
+	overflow: hidden;
+	align-items: flex-end;
 	
 }
 
@@ -469,6 +468,7 @@ main .slider span.copy, main .slider span.copy h2, main .slider span.copy button
 	margin: 0;
 	color: #fff;
 	text-align: center;
+	padding: .7em 0;
 
 }
 
@@ -541,7 +541,6 @@ main .slider span.copy, main .slider span.copy h2, main .slider span.copy button
 
 	margin: 0 0 .7em 0;
 	line-height: 1.2;
-	font-size: 1rem;
 	padding: 0 1em;
 	font-family: 'wf_segoe-ui_light', sans-serif;
 
