@@ -56,6 +56,18 @@ natUIve: mostly native front-end framework
 
 –––
 
+natUIve 1.5
+
+- Unified Flexbox grid with equal height, vertical alignment and auto wrapping
+- Modular source code
+- Cards
+- Balanced for 10 common page designs
+- Vertically centered viewport banner
+- Click to zoom in lightbox
+- Full screen lightbox
+
+–––
+
 natUIve 1.4
 
 - New
