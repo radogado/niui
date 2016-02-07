@@ -17,16 +17,17 @@
     -webkit-overflow-scrolling: touch;
     padding-top: 0;
 
-	}
+}
 	
 	.full-window-wrap > .content {
 		
 		overflow-y: scroll;
 		position: relative;
 		background: transparent;
+		height: 100%; // For Android Browser, which doesn't understand the bottom line
 		height: calc(100% - #{$line-height-em*2});
 // 		height: calc(100% - var(--line-height-em)*2);
-		padding-top: 3em;
+		padding-top: $line-height-em*2;
 
 	}
 	

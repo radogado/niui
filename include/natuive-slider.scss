@@ -77,7 +77,7 @@
 	left: 0px;
 	width: 100%;
 	z-index: 1;
-	background: #fff;
+// 	background: #fff;
 	position: absolute;
 
 }
@@ -211,7 +211,7 @@
 	width: 100%;
 	display: inline-block;
 	white-space: normal;
-	vertical-align: top; // to fix: jumps to top-alignment while sliding
+	vertical-align: top;
 	overflow: hidden;
 	padding: 0;
 /*

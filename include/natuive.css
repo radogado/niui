@@ -1530,7 +1530,6 @@ body { // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
   left: 0px;
   width: 100%;
   z-index: 1;
-  background: #fff;
   position: absolute; }
 
 *:-webkit-full-screen .slider-wrap {
@@ -1915,6 +1914,7 @@ body { // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
   overflow-y: scroll;
   position: relative;
   background: transparent;
+  height: 100%;
   height: calc(100% - 3em);
   padding-top: 3em; }
 
