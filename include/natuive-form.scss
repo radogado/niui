@@ -191,6 +191,7 @@ form {
 	
 	form textarea {
 		
+		display: block;
 		margin: -$line-height-em/2 0 $line-height-em/2 0;
 // 		margin: calc(-1*var(--line-height-em)/2) 0 calc(var(--line-height-em)/2) 0;
 		border-bottom: 1px dotted transparent;

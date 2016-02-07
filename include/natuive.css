@@ -566,6 +566,7 @@ form input[type=submit], form button {
   margin-top: 0; }
 
 form textarea {
+  display: block;
   margin: -0.75em 0 0.75em 0;
   border-bottom: 1px dotted transparent;
   min-height: 4.5em;
