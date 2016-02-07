@@ -769,7 +769,7 @@ form span.file-input span {
   line-height: 1.5em;
   padding-top: 0.75em; }
 
-form input, form textarea, form select {
+form input, form select {
   display: inline-block;
   width: auto;
   padding-top: 0;
