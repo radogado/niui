@@ -3,16 +3,15 @@
 @import 'natuive-setup';
 
 ul {
-
-	padding-left: 1.3em;
+	
+	padding: 0;
 	font-size: $font-size;
-	font-size: 1rem;
 	line-height: $line-height;
 // 	line-height: var(--line-height);
 	min-height: $line-height-em;
 // 	min-height: var(--line-height-em);
-	margin: $line-height-em 0 $line-height-em .3em;
-// 	margin: var(--line-height-em) 0 var(--line-height-em) .3em;
+	margin: $line-height-em 0 $line-height-em 0;
+// 	margin: var(--line-height-em) 0 var(--line-height-em) 0;
 
 }
 

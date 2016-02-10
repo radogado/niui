@@ -1301,12 +1301,11 @@ body { // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
 }
 */
 ul {
-  padding-left: 1.3em;
+  padding: 0;
   font-size: 16px;
-  font-size: 1rem;
   line-height: 1.5;
   min-height: 1.5em;
-  margin: 1.5em 0 1.5em 0.3em; }
+  margin: 1.5em 0 1.5em 0; }
 
 ul li {
   margin: 1.5em 0 0 0; }
