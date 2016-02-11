@@ -144,7 +144,7 @@ h2 {
 h3 {
 	
 	font-size: 1.2em;
-	line-height: $line-height/1.2;
+	line-height: ($line-height*1.011)/1.2;
 // 	line-height: calc(var(--line-height)/1.2);
 
 }

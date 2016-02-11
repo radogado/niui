@@ -5,6 +5,7 @@
 form {
 	
 	overflow: hidden;
+	position: relative;
 	
 }
 
@@ -83,6 +84,15 @@ form {
 		white-space: normal;
 		word-break: break-all;
 		margin-bottom: 0;
+
+	}
+	
+	form.sticky-submit input[type=submit] {
+		
+		position: absolute;
+		top: 50%;
+		right: 0;
+		transform: translateY(-50%);
 
 	}
 

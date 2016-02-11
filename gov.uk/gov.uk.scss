@@ -1,0 +1,47 @@
+@font-face {
+
+    font-family: 'font';
+    src: url('gov.uk.regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal
+
+}
+
+@font-face {
+
+    font-family: 'font';
+    src: url('gov.uk.bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal
+
+}
+
+body {
+	
+	font-family: 'font';
+
+}
+
+.contain {
+	
+	max-width: 63rem;
+
+}
+
+.banner, .banner a[href] {
+	
+	color: #fff;
+
+}
+
+ul {
+	
+	list-style: none;
+
+}
+
+input[type=text] {
+	
+	background: #fff;
+
+}

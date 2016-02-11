@@ -7,6 +7,7 @@
 	<meta charset=utf-8>
 	<meta name=viewport content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no'>
 	<link rel=styleSheet href=../dist/natuive.min.css type=text/css media=screen>
+	<link rel=styleSheet href=gov.uk.css type=text/css media=screen>
 	<!--[if lte IE 9]> 
 		<link rel=styleSheet href=../dist/ie.css type=text/css media=screen>
 		<script src=../dist/html5shiv.min.js></script> 
@@ -22,7 +23,11 @@
 	
 		<header style="background: #000;">
 			
-			<a href=# class="contain"> <img src=Gov.uk_logo alt=Logo> </a>
+			<div class="contain pad" style="padding: .8em 1.5em .5em 1.5em;">
+				
+				<a href=#> <img src=Gov.uk_logo alt=Logo style="width: 10em"> </a>
+			
+			</div>
 
 		</header>
 
@@ -37,16 +42,16 @@
 					<p>The best place to find government services and information<br>
 					<b>Simpler, clearer, faster</b></p>
 					
-					<form class="wide">
+					<form class="wide sticky-submit">
 						
 						<input type="text" placeholder="Search GOV.UK">
-						<input type="submit" value=" ">
+						<input type="submit" value=">">
 					
 					</form>
 				
 				</div>
 				
-				<div>
+				<div style="background: #000;">
 					
 					<p>Popular on GOV.UK</p>
 					
@@ -357,7 +362,7 @@
 		      
 				<p class="open-government-licence">
 				
-					<a href="#" title="Open Government Licence"> <img src=open-government-licence-c1aedc8257961b938b4c7a21a2b0db3f2716dd9ef782cea73110dc69107c9042.png alt=OGL> </a>
+					<a href="#" title="Open Government Licence"><img src=ogl.svg alt=OGL style="height: 1.1em;"></a>
 					All content is available under the <a href="#">Open Government Licence v3.0</a>, except where otherwise stated
 				
 				</p>
