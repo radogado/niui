@@ -28,10 +28,33 @@ body {
 
 }
 
+.banner h1 {
+	
+	font-size: 3em;
+
+}
+
 .banner, .banner a[href] {
 	
 	color: #fff;
 
+}
+
+main a[href] {
+	
+	color: #005ea5;
+}
+
+.banner ul li, main ul li {
+	
+	margin: 0;
+
+}
+
+footer ul li {
+	
+	display: inline-block;
+	
 }
 
 ul {
@@ -43,6 +66,12 @@ ul {
 input[type=text] {
 	
 	background: #fff;
+
+}
+
+.masonry p {
+	
+	margin: 0;
 
 }
 
@@ -58,5 +87,18 @@ footer {
 	
 	border-top: .7em solid #005ea5;
 	background: #dee0e2;
+	
+}
+
+a[href].button.huge {
+	
+	display: block;
+	font-size: 2.5em;
+	line-height: 1.1em;
+	background: #005ea5;
+	color: #fff;
+	font-weight: bold;
+	text-align: center;
+	padding: 1em;	
 	
 }
