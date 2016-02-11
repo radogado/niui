@@ -45,3 +45,18 @@ input[type=text] {
 	background: #fff;
 
 }
+
+.banner input[type=submit] {
+	
+	background: #000 url(loupe.svg) center center no-repeat;
+	background-size: 67%;
+	width: 2em;
+
+}
+
+footer {
+	
+	border-top: .7em solid #005ea5;
+	background: #dee0e2;
+	
+}
