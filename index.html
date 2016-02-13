@@ -17,32 +17,13 @@
 		<script src=include/html5shiv.min.js></script> 
 	<![endif]-->
 	
-	<!-- 	Dynamic theme switching demo -->
-	
-	<script type="text/javascript">
-		function toggleTheme() {
-		if (document.querySelector('link.theme')) {
-			document.getElementsByTagName('head')[0].removeChild(document.querySelector('link.theme'));	
-		} else {
-			var l = document.createElement('link');
-			l.className = 'theme';
-			l.href = 'include/theme.css';
-			l.rel = 'styleSheet';
-			l.type = 'text/css';
-			document.getElementsByTagName('head')[0].appendChild(l);											
-		
-		}
-		return false;
-		}
-	</script>
-
 </head>
 	
 <body dir=ltr>
 
 	<!-- Head - Start -->
 
-	<div class='header-and-banner viewport-'>
+	<div class='header-and-banner viewport'>
 	
 		<header>
 		
@@ -66,9 +47,23 @@
 	
 					<div>
 	
-						<a href='mailto:a@a.com?subject=123' class=button>Log in</a>
-	
-						<a href=javascript:return; class='button yellow'>Sign up</a>
+						<form action=. method=get id=language-selector>
+							
+							<select name=l class=mandatory>
+								
+								<option value=en>English</option>
+								<option value=fr>Français</option>
+								<option value=cn>中文</option>
+										
+							</select>
+										
+							<noscript>
+							
+								<input type=submit value=▶>
+							
+							</noscript>
+						
+						</form>
 						
 					</div>
 
@@ -78,54 +73,45 @@
 			
 			<nav class=contain style="display: block;">
 			
-<!--
-				<label for=nav-trigger class=trigger> ≡ </label>
-				<input type=checkbox id=nav-trigger class=trigger>
--->
-
 				<input type="checkbox" class="trigger burger">
 				
-				<div>
-				
-					<div class=row>
+				<div class='row unpad-vertical'>
 						
-						<div class=col34>
+						<div class=col1>
 							
 							<nav>
 				
 								<ul>
 								
-									<li> <a onclick=toggleTheme() style="cursor: pointer;">Toggle Theme</a> </li>
-								
-									<li> <a href=#>Fast</a> </li>
+									<li> <a href=#grid class="active">Grid</a> </li>
 				
-									<li> <a href=#>Lightweight</a> </li>
+									<li> <a href=#slider>Slider</a> </li>
 				
-									<li> <a href=# class=active>Functional</a> </li>
+									<li> <a href=#form>Form</a> </li>
 	
 								</ul>
 											
 							</nav>
+							
+							<br>
 						
 							<nav class=sub>
 					
 								<ul>
 								
-									<li> <a href=#>Baseline Grid</a> </li>
+									<li> <a href=#buttons>Buttons</a> </li>
+
+									<li> <a href=#drop-nav>Drop-down nav</a> </li>
 								
-									<li> <a href=#form class=active>Form</a> </li>
+									<li> <a href=#lightbox class="active">Lightbox</a> </li>
 								
-									<li> <a href=#slider>Slider</a> </li>
-				
 									<li> <a href=#accordion>Accordion</a> </li>
 				
 									<li> <a href=#modal>Modal Window</a> </li>
 			
-									<li> <a href=#lightbox>Lightbox</a> </li>
-	
 									<li> <a href=#video>Video</a> </li>
 	
-									<li> <a href=#aspect-ratio>Image aspect ratio</a> </li>
+									<li> <a href=#aspect-ratio>Aspect ratio</a> </li>
 	
 									<li> <a href=#masonry>Masonry</a> </li>
 	
@@ -136,6 +122,7 @@
 									<li> <a href=#tabs>Tabs</a> </li>
 
 									<li> <a href=#cards>Cards</a> </li>
+
 								
 								</ul>
 							
@@ -143,338 +130,49 @@
 			
 						</div>
 								
-							
-						<div class='col4 align-right align-top'>
-							
-							<div>
-								
-								<a href=#>Help</a> 
-		
-								<form action=. method=get id=language-selector>
-									
-									<select name=l class=mandatory>
-										
-										<option value=en>English</option>
-										<option value=fr>Français</option>
-										<option value=cn>中文</option>
-				
-									</select>
-				
-									<noscript>
-									
-										<input type=submit value=▶>
-									
-									</noscript>
-								
-								</form>
-							
-							</div>
-													
-						</div>
-			
 					</div>
-			
-				</div>
 	
 			</nav>
 			
-			<div class='row contain no-mobile-gutter'>
-				
-				<div>
-	
-					<nav class=drop>
-						
-						<form id="level1"> </form>
-						<form id="level2"> </form>
-					
-						<input type="checkbox" class="trigger burger">
-					
-						<ul>
-							
-							<li> 
-							
-								<input type="radio" class="trigger" form="level1" name="level1">
-					
-								<input type="reset" form="level1">
-							
-								<a>One</a>
-								
-								<b class="sub"></b>
-								
-								<ul>
-									
-									<li> 
-									
-										<input type="radio" class="trigger" form="level2" name="level2">
-							
-										<input type="reset" form="level2">
-							
-										<a>Middle One (Longer)</a>
-									
-										<b class="sub"></b>
-								
-										<ul>
-											
-											<li> 
-												
-												<a href="asd">One Bottom One</a>
-											
-											</li>
-											
-											<li> 
-												
-												<a href="fdgdf">One Bottom Two</a>
-											
-											</li>
-										
-										</ul>
-									
-									</li>
-								
-									<li> 
-									
-										<input type="radio" class="trigger" form="level2" name="level2">
-							
-										<input type="reset" form="level2">
-							
-										<a href=asd>Middle Two also Link</a>
-									
-										<b class="sub"></b>
-								
-										<ul>
-											
-											<li> 
-												
-												<a href="#">Two Bottom One</a>
-											
-											</li>
-											
-											<li> 
-												
-												<a href="#">Two Bottom Two</a>
-											
-											</li>
-										
-										</ul>
-									
-									</li>
-								
-								</ul>
-							
-							</li>
-					
-							<li> 
-							
-								<input type="radio" class="trigger" form="level1" name="level1">
-					
-								<input type="reset" form="level1">
-							
-								<a href=asd>Top Two Long Text Long Text Long Text Long Text</a>
-							
-								<b class="sub"></b>
-								
-								<ul>
-									
-									<li> 
-									
-										<input type="radio" class="trigger" form="level2" name="level2">
-							
-										<input type="reset" form="level2">
-							
-										<a>Middle Two</a>
-									
-										<b class="sub"></b>
-								
-										<ul>
-											
-											<li> 
-												
-												<a href="#">Bottom One</a>
-											
-											</li>
-											
-											<li> 
-												
-												<a href="#">Bottom Two</a>
-											
-											</li>
-										
-										</ul>
-									
-									</li>
-								
-								</ul>
-								
-							</li>
-					
-							<li> 
-							
-								<input type="radio" class="trigger" form="level1" name="level1">
-					
-								<input type="reset" form="level1">
-							
-								<a>Just 2 Levels</a>
-							
-								<b class="sub"></b>
-								
-								<ul>
-									
-									<li> 
-									
-										<a href=#>2 Levels One</a>
-									
-									</li>
-					
-									<li> 
-									
-										<a href=#>2 Levels One Two</a>
-									
-									</li>
-								
-								</ul>
-								
-							</li>
-						
-							<li> 
-							
-								<input type="radio" class="trigger" form="level1" name="level1">
-					
-								<input type="reset" form="level1">
-							
-								<a>Just 2 Levels</a>
-							
-								<b class="sub"></b>
-								
-								<ul>
-									
-									<li> 
-									
-										<a href=#>2 Levels One</a>
-									
-									</li>
-					
-									<li> 
-									
-										<a href=#>2 Levels One Two</a>
-									
-									</li>
-								
-								</ul>
-								
-							</li>
-					
-							<li> 
-							
-								<a href="#">Without sub-menu</a>
-							
-							</li>
-					
-						</ul>
-						
-					</nav>
-				
-				</div>
-			
-			</div>
-
 		</header>
 
 		<div class=banner>
 		
 			<div class='contain row'>
 				
-				<div class=col23>
+				<div class='col23 align-middle'>
 				
 					<div>					
 
 						<h1>
 							
-							Fast, light and functional front-end framework
+							Lightweight and feature-heavy framework
 						
 						</h1>
 						
 						<h2>
 						
-							And it haz a picture of a cat
+							that haz a picture of a cat
 							
 						</h2>
 						
 						<p class=drop-cap>
 						
-							Increase conversion by decreasing page load time down to 5" max on slow mobile networks. Improve development speed by using standard building blocks that are flexible to customise and combine. Improve stability and compatibility by not pushing the browsers any more than necessary. The negligible weight of 13 KB removes the barrier between your content and your customers everywhere.
-						
-							Increase conversion by decreasing page load time down to 5" max on slow mobile networks. Improve development speed by using standard building blocks that are flexible to customise and combine. Improve stability and compatibility by not pushing the browsers any more than necessary. The negligible weight of 13 KB removes the barrier between your content and your customers everywhere.
-						
-						</p>
-						
-						<div class='row border-all'>
+							Increase conversion by decreasing page load time down to 5" max on slow mobile networks. Improve development speed by using standard building blocks that are flexible to customise and combine. Improve stability and compatibility by not pushing the browsers any more than necessary.</p>
 							
-<!-- 							<div>Column</div> -->
-							
-							<div>
-								
-								<div class="row">
-								
-									<div> <div>Grid with borders</div> </div>
-								
-									<div class=align-right>
-										
-										<div>
+						<p>The negligible weight of 13 KB removes the barrier between your content and your customers everywhere.</p>
 
-											<a href=http://github.com/radogado/natuive class='big button'>Get it from GitHub</a>
-
-										</div>
-								
-									</div>
-		
-								</div>
-								
-								<div class="row">
-									
-									<div>
-										
-										<div>Full width</div>
-									
-									</div>
-								
-								</div>
-								
-								<div class="row">
-								
-									<div> <div>Top</div> </div>
-									<div class="align-bottom align-center"> <div>Center Bottom</div> </div>
-								
-									<div class=align-right>
-										
-										<div>
-											
-											<div class="row">
-												
-												<div>Right</div>
-											
-											</div>
-											
-											<div class="row">
-												
-												<div>Right</div>
-											
-											</div>
-										
-										</div>
-								
-									</div>
-		
-								</div>
-								
-							</div>
-							
-						</div>
-
-					</div>									
+					</div>
+					
+					<div class="col1 align-center">
+						
+						<a href=http://github.com/radogado/natuive class='big button'>Get it from GitHub</a>
+						
+					</div>
 
 				</div>
 			
-				<div>
+				<div class="align-middle">
 
 					<span class="aspect">
 
@@ -497,6 +195,205 @@
 
 		<div class=contain>
 	
+			<div class='row contain'>
+	
+	<div>
+	
+		<nav class=drop id=drop-nav>
+			
+			<form id="level1"> </form>
+			<form id="level2"> </form>
+		
+			<input type="checkbox" class="trigger burger">
+		
+			<ul>
+				
+				<li> 
+				
+					<input type="radio" class="trigger" form="level1" name="level1">
+		
+					<input type="reset" form="level1">
+				
+					<a>One</a>
+					
+					<b class="sub"></b>
+					
+					<ul>
+						
+						<li> 
+						
+							<input type="radio" class="trigger" form="level2" name="level2">
+				
+							<input type="reset" form="level2">
+				
+							<a>Middle One (Longer)</a>
+						
+							<b class="sub"></b>
+					
+							<ul>
+								
+								<li> 
+									
+									<a href="asd">One Bottom One</a>
+								
+								</li>
+								
+								<li> 
+									
+									<a href="fdgdf">One Bottom Two</a>
+								
+								</li>
+							
+							</ul>
+						
+						</li>
+					
+						<li> 
+						
+							<input type="radio" class="trigger" form="level2" name="level2">
+				
+							<input type="reset" form="level2">
+				
+							<a href=asd>Middle Two also Link</a>
+						
+							<b class="sub"></b>
+					
+							<ul>
+								
+								<li> 
+									
+									<a href="#">Two Bottom One</a>
+								
+								</li>
+								
+								<li> 
+									
+									<a href="#">Two Bottom Two</a>
+								
+								</li>
+							
+							</ul>
+						
+						</li>
+					
+					</ul>
+				
+				</li>
+		
+				<li> 
+				
+					<input type="radio" class="trigger" form="level1" name="level1">
+		
+					<input type="reset" form="level1">
+				
+					<a href=asd>Top Two Long Text Long Text Long Text Long Text</a>
+				
+					<b class="sub"></b>
+					
+					<ul>
+						
+						<li> 
+						
+							<input type="radio" class="trigger" form="level2" name="level2">
+				
+							<input type="reset" form="level2">
+				
+							<a>Middle Two</a>
+						
+							<b class="sub"></b>
+					
+							<ul>
+								
+								<li> 
+									
+									<a href="#">Bottom One</a>
+								
+								</li>
+								
+								<li> 
+									
+									<a href="#">Bottom Two</a>
+								
+								</li>
+							
+							</ul>
+						
+						</li>
+					
+					</ul>
+					
+				</li>
+		
+				<li> 
+				
+					<input type="radio" class="trigger" form="level1" name="level1">
+		
+					<input type="reset" form="level1">
+				
+					<a>Just 2 Levels</a>
+				
+					<b class="sub"></b>
+					
+					<ul>
+						
+						<li> 
+						
+							<a href=#>2 Levels One</a>
+						
+						</li>
+		
+						<li> 
+						
+							<a href=#>2 Levels One Two</a>
+						
+						</li>
+					
+					</ul>
+					
+				</li>
+			
+				<li> 
+				
+					<input type="radio" class="trigger" form="level1" name="level1">
+		
+					<input type="reset" form="level1">
+				
+					<a>Just 2 Levels</a>
+				
+					<b class="sub"></b>
+					
+					<ul>
+						
+						<li> 
+						
+							<a href=#>2 Levels One</a>
+						
+						</li>
+		
+						<li> 
+						
+							<a href=#>2 Levels One Two</a>
+						
+						</li>
+					
+					</ul>
+					
+				</li>
+		
+				<li> 
+				
+					<a href="#">Without sub-menu</a>
+				
+				</li>
+		
+			</ul>
+			
+		</nav>
+	
+	</div>
+
+</div>
+
 			<div class=row id=aspect-ratio>
 				
 				<div>
@@ -685,7 +582,7 @@
 		
 			</div>
 				
-			<div class='row no-spacing-'>
+			<div class='row no-spacing-' id=grid>
 				
 				<div class="col1"> 
 					
@@ -736,7 +633,8 @@
 					<h6> Headline 6 Headline 6 Headline 6 Headline 6 </h6>
 			
 				</div>
-				<div class="col5">
+
+				<div class="col5" id=buttons>
 					
 					<div>
 						
@@ -752,11 +650,75 @@
 						
 						<a href=# class='button big'>Big button</a>
 					
+						<p>Here is an <a href=# class=button>Inline button</a> inside a paragraph.</p>
+
 					</div>
 
 				</div>	
-				<div class="col5">
-					Here is an <a href=# class=button>Inline button</a> inside a paragraph.
+				
+				<div>
+					
+					<div class='row border-all'>
+						
+						<div>
+							
+							<div class="row">
+							
+								<div> <div>Grid with borders</div> </div>
+							
+								<div class=align-right>
+									
+									<div>
+					
+										
+					
+									</div>
+							
+								</div>
+							
+							</div>
+							
+							<div class="row">
+								
+								<div>
+									
+									<div>Full width</div>
+								
+								</div>
+							
+							</div>
+							
+							<div class="row">
+							
+								<div> <div>Top</div> </div>
+								<div class="align-bottom align-center"> <div>Center Bottom</div> </div>
+							
+								<div class=align-right>
+									
+									<div>
+										
+										<div class="row">
+											
+											<div>Right</div>
+										
+										</div>
+										
+										<div class="row">
+											
+											<div>Right</div>
+										
+										</div>
+									
+									</div>
+							
+								</div>
+							
+							</div>
+							
+						</div>
+						
+					</div>
+					
 				</div>
 			
 			</div>
@@ -851,7 +813,7 @@
 									
 							<p class=tab> Slider 2 Slide 2 </p>
 									
-							<p> Second Slider 2 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+							<p> Second Slider 2 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 						
 						</div>
 					
@@ -859,8 +821,7 @@
 						
 							<p class=tab> Slider 2 Very Long Title which Shows the Flexible tabs Dimensions  </p>
 									
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
-							Second Slider 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
 									
 						</div>
 						
@@ -1165,37 +1126,13 @@
 					
 				</div>
 			
-			</div>
-			
-			<div class="row" id=cards>
-				
-					<div class="col1">
-						
-						<h2>Cards</h2>
-						
-					</div>
+				<div>
 					
-					<div>
-						
-						<div class="card">
-							
-							<div class="head">
-								
-								<h3>Title</h3>
-							
-							</div>
-							
-							<div class="content">
-								
-								<p>Card content.</p>
-								
-								<a href=#>Link</a>.
-							
-							</div>
-						
-						</div>
-						
-						<div class="card">
+					<h2>Cards</h2>
+					
+					<div class="slider" id=cards>
+											
+						<div><div class="card">
 							
 							<div class="head image" style="background-image: url(images/DSC_4225.jpg)">
 								
@@ -1211,13 +1148,27 @@
 							
 							</div>
 						
-						</div>
+						</div></div>
+
+						<div><div class="card">
+							
+							<div class="head">
+								
+								<h3>Title</h3>
+							
+							</div>
+							
+							<div class="content">
+								
+								<p>Card content.</p>
+								
+								<a href=#>Link</a>.
+							
+							</div>
 						
-					</div>
-					
-					<div>
+						</div></div>
 						
-						<div class="card">
+						<div><div class="card">
 							
 							<img src=images/DSC_4225.jpg alt=Image>
 							
@@ -1229,9 +1180,13 @@
 							
 							</div>
 						
-						</div>
+						</div></div>
 					
 					</div>
+
+				</div>
+				
+				</div>
 			
 			</div>
 

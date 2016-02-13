@@ -360,7 +360,7 @@ input.trigger, input.trigger ~ input[type=reset] {
 
 	}
 	
-	header nav.drop:before, header > nav:before {
+	nav.drop:before, header > nav:before {
 		
 		content: '🍔';
 	

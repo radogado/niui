@@ -341,6 +341,12 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 		width: calc(100% + #{$line-height-em}*2);
 	
 	}
+	
+	.unpad-vertical {
+		
+		margin: -$line-height-em 0;
+
+	}
 
 .row.border {
 

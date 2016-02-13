@@ -355,11 +355,26 @@ form {
 
 	}
 
+	input[type=checkbox] + .checkbox-icon:before {
+		
+		content: '✓';
+		opacity: 0;
+		position: absolute;
+		left: 1px;
+	
+	}
+
 	:root .checkbox-icon { /* Not IE8 */
 
 		display: inline-block;
 		margin-top: -1px;
 
+	}
+
+	input[type=checkbox]:checked + .checkbox-icon:before {
+		
+		opacity: 1;
+	
 	}
 
 	input[type=checkbox], input[type=radio] {
@@ -389,12 +404,6 @@ form {
 
 	}
 	
-	input[type=checkbox]:checked + .checkbox-icon:before {
-		
-		content: '✓';
-
-	}
-
 	input[type=radio] + .checkbox-icon {
 		
 		border-radius: 50%;
