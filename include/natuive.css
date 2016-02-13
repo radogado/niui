@@ -471,7 +471,8 @@ a.button + a.button {
   font-size: 1.2em;
   padding: .75em 1em;
   line-height: 1.05em;
-  min-height: 0; }
+  min-height: 0;
+  font-weight: bold; }
 
 /* Back to top button */
 a.backtotop[href] {
