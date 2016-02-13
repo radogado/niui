@@ -1289,3 +1289,38 @@ if (document.querySelector('input[type=reset][form]') && !document.querySelector
 
 }
 
+/* 
+	
+On page resize, scroll to the previous element visible on top.
+On scroll, remember the element from 
+allElementsFromPoint(start_of_contents or center, widnowscroll offset)[allElementsFromPoint(start_of_contents or center, widnowscroll offset).length-1]
+and on resize, scroll to that element's position
+Problem: a long paragraph might be re-positioned incorrectly. Which part of a tall element was on top?
+Thanks http://stackoverflow.com/a/27884653	
+
+function allElementsFromPoint(x, y) {
+
+    var element, elements = [];
+    var old_visibility = [];
+
+    while (true) {
+        element = document.elementFromPoint(x, y);
+        if (!element || element === document.documentElement) {
+            break;
+        }
+        elements.push(element);
+        old_visibility.push(element.style.visibility);
+        element.style.visibility = 'hidden'; // Temporarily hide the element (without changing the layout)
+    }
+
+    for (var k = 0; k < elements.length; k++) {
+        elements[k].style.visibility = old_visibility[k];
+    }
+
+    elements.reverse();
+    return elements;
+
+}
+
+*/
+

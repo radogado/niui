@@ -7,6 +7,7 @@ natUIve: mostly native front-end framework
 - Unbreakable, flexible (no hardcoded dimensions), responsive grid. Supports Bootstrap-style wrapping columns, but with .col3 (1/3) etc., instead of .col-**-4 (4/12). Auto equal width columns with equal height and vertical alignment.
 - Baseline-aligned text elements*
 - Embeddable grid and elements*
+- Built around edge cases (overflowing content etc)
 - Vertically aligned column content*
 - CSS reset
 - Semantic structure
@@ -52,7 +53,7 @@ natUIve: mostly native front-end framework
 
 \* exclusive features, missing in popular frameworks
 
-2014-2015 [rado.bg](http://rado.bg)
+© 2014-2016 [rado.bg](http://rado.bg)
 
 –––
 

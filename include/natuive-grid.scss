@@ -384,16 +384,10 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 		
 	}
 	
-	.row.border-all .row > * {
+	.row.border-all > *, .row.border-all .row > * {
 		
 		margin: 0;
-		
-	}
-	
-	.row.border-all .row:first-child > * {
-		
-		margin: $line-height-em/2 0 0 0;
-		
+
 	}
 	
 	.row.border-all > *:only-child {
@@ -455,16 +449,9 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 		
 	}
 
-	.row.border-all .row .row:first-child {
-		
-		margin-top: -$line-height-em;
-		
-	}
-
 	.row.border-all .row:last-child {
 		
-		padding-bottom: 0;
-		margin-bottom: -$line-height-em;		
+		margin-bottom: -$line-height-em/2;
 
 	}
 	
@@ -545,36 +532,10 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 
 	}
 
-/*
-	.row * .row > * {
-
-		padding: $line-height/3 0;
-
-	}
-*/
-	
 	.row.half > * {
 		
 		width: 50% !important;
 		flex: 0 0 50%;
-
-	}
-
-	.row.border {
-		
-		padding: .3em 0;
-
-	}
-	
-	.row.border-all .row {
-		
-		margin: 0;
-
-	}
-
-	.row.border-all .row .row {
-		
-		margin-left: -$line-height-em/2;
 
 	}
 	

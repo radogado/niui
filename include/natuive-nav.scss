@@ -57,8 +57,8 @@ nav {
 
 	nav.sub a {
 	
-		font-size: $font-size;
-		line-height: $line-height;
+		font-size: .8em;
+		line-height: $line-height-em/.8;
 // 		line-height: var(--line-height);
 		min-height: $line-height-em;
 // 		min-height: var(--line-height-em);

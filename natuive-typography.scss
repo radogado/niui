@@ -1,0 +1,114 @@
+/* natUIve – Typography */
+
+@import 'natuive-setup';
+
+/* Elements with double line-height */
+
+h1, h2, h3, .full-window-wrap .close {
+	
+	line-height: $line-height * 2;
+// 	line-height: calc(var(--line-height) * 2);
+	
+}
+
+h1, h2, h3, h4, h5, h6 {
+	
+	margin: .75em 0;
+	word-break: break-word; // Overflow protection for long words
+	word-wrap: break-word;
+
+}
+
+h1 + p:not(.drop-cap), h2 + p:not(.drop-cap), h3 + p:not(.drop-cap), h4 + p:not(.drop-cap), h5 + p:not(.drop-cap), h6 + p:not(.drop-cap) {
+	
+	margin-top: 0;
+
+}
+
+h1 {
+	
+	font-size: 2em;
+	line-height: $line-height;
+// 	line-height: var(--line-height);	
+
+}
+
+h2 {
+	
+	font-size: 1.5em;	// 	line-height: 1.333;
+	line-height: $line-height/1.5; // = standard line-height / new font-size in em
+// 	line-height: calc(var(--line-height)/1.5); // = standard line-height / new font-size in em
+	
+}
+
+h3 {
+	
+	font-size: 1.2em;
+	line-height: ($line-height*1.011)/1.2;
+// 	line-height: calc(var(--line-height)/1.2);
+
+}
+
+h4 {
+	
+	font-size: 1em;
+	line-height: $line-height;
+// 	line-height: calc(var(--line-height));
+
+}
+
+h5 {
+	
+	font-size: .8em;
+	line-height: $line-height/.8;
+// 	line-height: calc(var(--line-height)/.8);
+
+}
+
+h6 {
+	
+	font-size: .6667em;
+	line-height: $line-height/.6667;
+// 	line-height: calc(var(--line-height)/.6667em);
+
+}
+
+img {
+	
+	max-width: 100%;
+	height: auto;
+	border: none;
+	
+}
+
+pre {
+	
+	overflow: auto;
+
+}
+
+p {
+
+	font-size: 1em;
+	margin: $line-height-em 0;
+// 	margin: var(--line-height-em) 0;
+	line-height: $line-height;
+// 	line-height: var(--line-height);
+
+}
+
+.drop-cap:first-letter {
+
+	float: left;
+	font-size: 5*$font-size;
+	padding: .1em .1em .1em 0;
+	margin-top: -.2em;
+	line-height: 1em;
+
+}
+
+[dir=rtl] .drop-cap:first-letter {
+
+	float: right;
+
+}
