@@ -2,6 +2,19 @@
 
 @import 'natuive-setup';
 
+body {
+	
+	color: #333;
+	-webkit-text-size-adjust: none;
+	-webkit-font-smoothing: antialiased;
+	font-size: $font-size;
+	line-height: $line-height;
+	// 	line-height: var(--line-height);
+	font-family: Helvetica Neue, sans-serif;
+	font-weight: 300;
+
+}
+
 /* Elements with double line-height */
 
 h1, h2, h3, .full-window-wrap .close {

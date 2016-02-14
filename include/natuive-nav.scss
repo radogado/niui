@@ -152,6 +152,7 @@ nav.drop ul li li b.sub {
 	font-size: 1rem;
 	background-color: #eee;
 	padding-right: 1.5em;
+	z-index: 3;
 
 }
 	
@@ -214,7 +215,8 @@ nav.drop ul li a {
 
 nav.drop ul li a[href] {
 
-	z-index: 3;
+	z-index: 5;
+	width: calc(100% - 2.5em);
 
 }
 
@@ -227,7 +229,7 @@ nav.drop ul li li a, nav.drop ul li .trigger:checked ~ a, nav.drop ul li .trigge
 
 nav.drop ul li li a[href], nav.drop ul li .trigger:checked ~ a[href] {
 	
-	z-index: 3;
+	z-index: 6;
 
 }
 
@@ -253,6 +255,7 @@ nav.drop ul ul li {
 .no-touch nav.drop ul ul li input.trigger, input.trigger ~ input[type=reset], input.trigger.burger, form#level1, form#level2 {
 	
 	display: none;
+	z-index: 5;
 	
 }
 
@@ -275,6 +278,12 @@ nav.drop input.trigger:checked ~ ul, .no-touch nav.drop ul ul li:hover ul, nav.d
 	
 	visibility: visible;
 	z-index: 4;
+	
+}
+
+nav.drop input.trigger:checked ~ ul {
+	
+	z-index: 6;
 	
 }
 
@@ -324,14 +333,14 @@ input.trigger, input.trigger ~ input[type=reset] {
 	left: 0;
 	top: 0;
 	width: 100%;
-	height: 100%;
+	height: 3em;
 	border: 0;
 	margin: 0;
 	opacity: 0;
 	cursor: pointer;
 	-webkit-appearance: none;
 	border-radius: 0;
-	z-index: 3;
+	z-index: 5;
 	padding: 0;
 
 }
@@ -435,7 +444,7 @@ input.trigger, input.trigger ~ input[type=reset] {
 		
 	}
 
-	input.trigger.burger:checked ~ ul, nav.drop ul .trigger:checked ~ ul, input.trigger.burger:checked ~ div, nav.drop ul .trigger:checked ~ div,.no-touch nav.drop ul ul li input.trigger {
+	input.trigger.burger:checked ~ ul, nav.drop ul .trigger:checked ~ ul, input.trigger.burger:checked ~ div, nav.drop ul .trigger:checked ~ div, .no-touch nav.drop ul ul li input.trigger {
 		
 		display: block;
 		
