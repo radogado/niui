@@ -2185,6 +2185,10 @@ html.nooverflow, html.nooverflow body {
   flex-direction: column;
   display: flex; }
 
+.viewport.header-and-banner.push-up:after {
+  content: '';
+  flex-grow: 1; }
+
 header .row {
   padding: 0; }
 
@@ -2235,6 +2239,9 @@ video a[href] {
   flex-direction: row;
   align-items: flex-start; }
 
+@-moz-document url-prefix() {
+  .aspect {
+    display: block; } }
 .aspect > img {
   max-width: 100%;
   height: auto;

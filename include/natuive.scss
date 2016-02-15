@@ -109,6 +109,13 @@ html.nooverflow, html.nooverflow body {
 
 }
 
+.viewport.header-and-banner.push-up:after {
+	
+	content: '';
+	flex-grow: 1;
+
+}
+
 header .row {
 	
 	padding: 0;
@@ -197,6 +204,12 @@ video a[href] {
     align-items: flex-start;
     
 }
+
+	@-moz-document url-prefix() { // Disabled in FF because it doesn't work there
+
+		.aspect { display: block; }
+
+	}
 
 	.aspect > img {
 		
