@@ -977,7 +977,7 @@ function submitForm(e) {
         } else {
 
             // Success
-            loaded_html = parseHTML(request.responseText);
+            var loaded_html = parseHTML(request.responseText);
             document.getElementById('formresult').innerHTML = loaded_html.innerHTML;
 
         }
