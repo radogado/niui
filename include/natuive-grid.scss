@@ -443,12 +443,6 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 		
 	}
 
-	.row.border-all, .row.border-all .row, .row.border-all > *:not(:first-child), .row.border-all .row > *:not(:first-child) {
-		
-		border-color: #ddd;
-		
-	}
-	
 	.row.border-all .row:first-child {
 		
 		border-top: none;

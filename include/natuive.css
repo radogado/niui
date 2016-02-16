@@ -277,9 +277,6 @@ section:before, section:after {
   margin-top: 0;
   margin-bottom: 0; }
 
-.row.border-all, .row.border-all .row, .row.border-all > *:not(:first-child), .row.border-all .row > *:not(:first-child) {
-  border-color: #ddd; }
-
 .row.border-all .row:first-child {
   border-top: none; }
 
@@ -421,7 +418,7 @@ p {
   float: right; }
 
 a[href] {
-  color: #333; }
+  color: inherit; }
 
 hr {
   display: block;
@@ -592,7 +589,8 @@ input, select, textarea, input[type=search], form button {
   font-size: 1em;
   width: 100%;
   outline: none;
-  border: 1px dotted transparent; }
+  border: 1px dotted transparent;
+  color: inherit; }
 
 input:focus, select:focus, textarea:focus {
   border-color: #bbb; }
@@ -1125,7 +1123,8 @@ nav a {
   padding: 0 .5em 0 0; }
 
 nav a[href].active {
-  color: #999; }
+  text-decoration: none;
+  opacity: .7; }
 
 nav li:last-child a {
   padding-right: 0; }
@@ -1907,7 +1906,7 @@ body { // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
 
 .slider-nav a.active {
   background: #fff;
-  color: #666; }
+  color: inherit; }
 
 .slider-wrap.tabs > .slider-nav {
   right: auto;
