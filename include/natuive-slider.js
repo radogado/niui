@@ -336,7 +336,13 @@ function sliderKeyboard(e) {
         if (tag != 'input' && tag != 'textarea') {
 
             el = q('.slider.full-window') || q('.slider.lightbox') || q('.slider');
+/*
+			if (!isInViewport(el)) {
 
+				return;
+				
+			}
+*/
             switch (e.which) {
 
                 case 38:

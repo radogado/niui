@@ -4,11 +4,10 @@ natUIve: mostly native front-end framework
 13 KB framework leveraging browsers' built-in capabilities, with subtle customisation. [Features demo](http://radogado.github.io/natuive/) ([minified](http://natuive.net)), [WordPress theme](http://rado.bg), [Microsoft homepage](http://natuive.net/microsoft/), [Imperial Innovations homepage](http://natuive.net/imperialinnovations/), [Pebble homepage](http://natuive.net/pebble/), [Seat 61](http://radogado.github.io/natuive/seat61/), [JetBlue](http://radogado.github.io/natuive/jetblue/), [Mitsubishi Regional Jet](http://radogado.github.io/natuive/mrj/), [MUBI](http://radogado.github.io/natuive/mubi/), [SWISS](http://radogado.github.io/natuive/swiss/), [Mapbox](http://radogado.github.io/natuive/mapbox/), [Airbnb](http://radogado.github.io/natuive/airbnb/), [GOV.UK](http://radogado.github.io/natuive/gov.uk/), [Classless demo](http://radogado.github.io/natuive/classless.html)
 ---
 
-- Unbreakable, flexible (no hardcoded dimensions), responsive grid. Supports Bootstrap-style wrapping columns, but with .col3 (1/3) etc., instead of .col-**-4 (4/12). Auto equal width columns with equal height and vertical alignment.
+- Unbreakable, flexible (no hardcoded dimensions), responsive grid. Supports Bootstrap-style wrapping columns, but with .col3 (1/3) etc., instead of .col-**-4 (4/12). Auto equal width columns with equal height and vertical alignment\*.
 - Baseline-aligned text elements*
 - Embeddable grid and elements*
 - Built around edge cases (overflowing content etc)
-- Vertically aligned column content*
 - CSS reset
 - Semantic structure
 - Balanced functional layout
@@ -34,7 +33,6 @@ natUIve: mostly native front-end framework
 - Language selector
 - Native video player
 - Good usability without any classes*
-- Themes
 - Aspect ratio image container*
 - Support for Android Browser scrolling via polyfill overthrow.js*
 - CSS-only viewport height header*
