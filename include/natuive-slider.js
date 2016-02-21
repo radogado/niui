@@ -3,7 +3,7 @@ var new_event_support = 1; // Can the browser do new Event('t')?
 var slide_duration = 0.5; // Default slide duration [sec], overwritten by the optional data-duration attribute
 var timeNow = new Date().getTime();
 var last_animation = timeNow; // Protection from unwanted slide after slide
-var sliding_now = 0; // Slide in progress
+var sliding_now = false; // Slide in progress
 var	prefix = animationEvent == 'webkitAnimationEnd' ? '-webkit-' : ''; 
 
 try { // Android Browser etc?
@@ -45,7 +45,7 @@ var swipeEvents = function(el) {
 
 		if (sliding_now) {
 			
-			e.preventDefault();
+			endSlide(sliderElement(e));
 			return;
 
 		}
@@ -55,8 +55,8 @@ var swipeEvents = function(el) {
 
             startX = touches[0].pageX;
             startY = touches[0].pageY;
-
             el.addEventListener('touchmove', touchMove);
+            sliding_now = true;
 
         }
 
@@ -73,6 +73,7 @@ var swipeEvents = function(el) {
 
             if ((hasClass(sliderElement(e), 'vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !q('.slider.lightbox')) {
 
+                sliding_now = false;
                 return;
 
             }
@@ -175,7 +176,7 @@ function endSlide (slider, index) {
 	addClass(childByClass(slider.parentNode, 'slider-nav').children[index], 'active');
 	document.onkeyup = sliderKeyboard;
     t = setTimeout(function () { 
-	    sliding_now = 0;
+	    sliding_now = false;
 	    mouseEvents(slider); 
 		removeClass(q('html'), 'no-hover');
 	}, slide_duration/2);
@@ -196,7 +197,7 @@ function slide(el, method, index_number) {
     mouseEvents(el.parentNode, 'off');
     mouseEvents(el, 'off');
 	document.onkeyup = function () { return false; };
-	sliding_now = 1;
+	sliding_now = true;
 
     if (window.sliderTimeout) {
 
