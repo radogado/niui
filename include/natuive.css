@@ -83,6 +83,11 @@ body {
   padding: 0.75em;
   margin: 0.75em; }
 
+.row:before, .row:after {
+  content: '';
+  display: table;
+  width: 100%; }
+
 .row > *, .row > * > * {
   max-width: 100%;
   /* instead of overflow-x:hidden, which would also activate overflow-y:hidden and clip the tooltip */ }
@@ -410,7 +415,8 @@ h1, h2, h3, .full-window-wrap .close {
   line-height: 3; }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 0.75rem 0;
+  margin: 0;
+  padding: 0.75rem 0;
   word-break: break-word;
   word-wrap: break-word;
   font-weight: 500; }
@@ -420,7 +426,8 @@ h1 + p:not(.drop-cap), h2 + p:not(.drop-cap), h3 + p:not(.drop-cap), h4 + p:not(
 
 h1 {
   font-size: 2em;
-  line-height: 1; }
+  line-height: 1;
+  padding: 0.25em 0; }
 
 h2 {
   font-size: 1.5em;
@@ -436,11 +443,13 @@ h4 {
 
 h5 {
   font-size: .8em;
-  line-height: 0.9375; }
+  line-height: 0.9375;
+  padding: 0.46875em 0; }
 
 h6 {
   font-size: .6667em;
-  line-height: 1.12494; }
+  line-height: 1.12494;
+  padding: 0.56247em 0; }
 
 img {
   max-width: 100%;

@@ -37,6 +37,14 @@
 
 	}
 	
+	.row:before, .row:after { // Clear margins before/after a row
+		
+		content: '';
+		display: table;
+		width: 100%;
+
+	}
+	
 	.row > *, .row > * > * {
 		
 		max-width: 100%; /* instead of overflow-x:hidden, which would also activate overflow-y:hidden and clip the tooltip */
