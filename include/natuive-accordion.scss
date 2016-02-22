@@ -15,12 +15,14 @@
 	.accordion > label {
 		
 		text-align: left;
+		text-align: start;
+		width: 100%;
 		cursor: pointer;
-		-webkit-transition: padding 0.25s ;
-		-moz-transition: padding 0.25s ;
-		-ms-transition: padding 0.25s ;
-		-o-transition: padding 0.25s ;
-		transition: padding 0.25s ;  
+		-webkit-transition: padding 0.25s;
+		-moz-transition: padding 0.25s;
+		-ms-transition: padding 0.25s;
+		-o-transition: padding 0.25s;
+		transition: padding 0.25s;
 		
 	}
 

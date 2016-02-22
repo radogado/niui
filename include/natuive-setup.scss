@@ -3,12 +3,35 @@ $line-height: 1.5;
 $line-height-em: 1.5em;
 $screen-narrow: 640px;
 $screen-limited: 768px;
-
 /*
-body { // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
+$color: #fff;
+$background: #1E8DaC;
+*/
+$color: #333;
+$background: #fff;
+
+body {
 	
+/*
+// Crashes Chrome 49 Beta, FF 44 bug can't calc properly
 	--line-height: 2;
 	--line-height-em: calc(var(--line-height)*1em);
+*/
+
+/*
+	--color: #fff;
+	--background: #1E8DaC;
+*/
+	--color: #333;
+	--background: #fff;
 
 }
-*/
+
+body {
+	
+	color: $color; /* Fallback when CSS variables aren't supported */
+	color: var(--color);
+	background: $background;
+	background: var(--background);
+
+}

@@ -1,0 +1,1 @@
+body{--color:#333;--background:#fff}body{color:#333;color:var(--color);background:#fff;background:var(--background)}

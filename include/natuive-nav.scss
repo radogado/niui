@@ -129,7 +129,7 @@ nav.drop ul li {
 	vertical-align: top;
 	white-space: nowrap;
 	position: relative;
-	background: #fbfbfb;
+// 	background: #fbfbfb;
 	
 }
 
@@ -139,9 +139,10 @@ nav.drop ul li b.sub {
 	padding: 1em;
 	font-size: $font-size;
 	font-size: 1rem;
-	background: #fbfbfb;
+// 	background: #fbfbfb;
 	line-height: 1;
 	margin-left: -.3em;
+	mix-blend-mode: multiply;
 
 }
 
@@ -154,6 +155,7 @@ nav.drop ul li li b.sub {
 	background-color: #eee;
 	padding-right: 1.5em;
 	z-index: 3;
+	mix-blend-mode: normal;
 
 }
 	
@@ -225,6 +227,7 @@ nav.drop ul li li a, nav.drop ul li .trigger:checked ~ a, nav.drop ul li .trigge
 
 	background: #eee;
 	z-index: 1;
+	color: #333;
 
 }
 

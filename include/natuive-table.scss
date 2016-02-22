@@ -9,6 +9,7 @@ table {
 	border-collapse: collapse;
 	-webkit-overflow-scrolling: touch;
 	display: block;
+	margin: $line-height-em 0;
 
 	}
 
@@ -33,14 +34,14 @@ table {
 		padding-bottom: $line-height-em;
 // 		padding-bottom: var(--line-height-em);
 		font-size: 1.1em;
-		background: #292b2e;
+		background: rgba(0,0,0,.1);
 		text-align: left;
 
 	}
 
 	tr:nth-child(2n+1) {
 
-		background: #fdfdfd;
+		background: rgba(0, 0, 0, .1);
 
 	}
 

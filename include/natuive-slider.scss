@@ -428,7 +428,7 @@
 		height: 1em;
 		-webkit-border-radius: 50px;
 		border-radius: 50%;
-		background: #bbb;
+		background: rgba(0, 0, 0, .1);
 		color: #fff;
 		transition: background-color .2s linear;
 		line-height: 1em;
@@ -508,7 +508,7 @@
 		
 	.slider-nav a.active {
 	
-		background: #fff;
+		background: rgba(0, 0, 0, .2);
 		color: inherit;
 	
 	}
@@ -552,7 +552,6 @@
 		height: auto;
 		display: table-cell;
 		text-align: start;
-		color: #333;
 		border-radius: 0;
 		line-height: $line-height;
 // 		line-height: var(--line-height);

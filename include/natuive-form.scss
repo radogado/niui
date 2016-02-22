@@ -107,6 +107,8 @@ form {
 	
 	input, select, textarea, input[type=search], form button {
 		
+// 		background: #eee;
+		background-color: rgba(0, 0, 0, .1);
 		font-family: inherit;
 		display: inline-block;
 		overflow: hidden;
@@ -118,7 +120,6 @@ form {
 		min-height: $line-height-em * 2;
 // 		min-height: calc(var(--line-height) * 2em);
 		border: 0;
-		background: #eee;
 		font-size: 1em;
 		width: 100%;
 		outline: none;
@@ -261,7 +262,6 @@ form {
 		text-overflow: '';
 		min-height: 0;
 		width: 100%;
-		background: transparent;
 		text-indent: 0px;
 		padding: 0 1.6em 0 .8em;
 		height: $line-height-em * 2;
@@ -273,7 +273,9 @@ form {
 	    text-indent: -1px;
 	    text-overflow: '';	
 	    margin: 0;
-		background: #eee url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAG0lEQVR42mNgwAfKy8v/48I4FeA0AacVDFQBAP9wJkE/KhUMAAAAAElFTkSuQmCC") no-repeat calc(100% - 1em) 50%;
+		background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAG0lEQVR42mNgwAfKy8v/48I4FeA0AacVDFQBAP9wJkE/KhUMAAAAAElFTkSuQmCC");
+		background-repeat: no-repeat;
+		background-position: calc(100% - 1em) 50%;
 		text-indent: 1px;
 	
 	}
@@ -455,6 +457,7 @@ form {
 		padding-left: 200%;
 		font-size: 0;
 		margin-top: 0;
+		background: transparent;
 
 	}
 	
@@ -471,7 +474,6 @@ form {
 	form .file-input {
 
 		font-weight: normal;
-		background: #eee;
 		margin: 0 0 $line-height-em 0;
 // 		margin: calc(-1*var(--line-height)/2) 0 calc(var(--line-height)/2) 0;
 		cursor: pointer;
@@ -484,7 +486,7 @@ form {
 
 		text-align: start;
 		white-space: nowrap;
-		background: #eee;
+		background: rgba(0, 0, 0, 0.1);
 		z-index: 0;
 		margin: 0;
 		width: 100%;

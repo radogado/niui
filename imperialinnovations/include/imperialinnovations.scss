@@ -17,9 +17,10 @@ html, body, .row.wrap>*, nav.sub a, p, li, .lightbox a, .button, input[type=subm
 
 }
 
-.border-all {
+.row.border-all, .row.border-all .row, .row.border-all .row>:not(:first-child) {
 	
 	background: #fff;
+	border-color: #ddd;
 
 }
 
