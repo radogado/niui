@@ -290,6 +290,12 @@
 	
 }
 
+section {
+	
+	position: relative;
+
+}
+
 section:before, section:after { // Prevent inner edge margins from creating blank space between sections
 	
 	content: '';

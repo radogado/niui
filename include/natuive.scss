@@ -233,6 +233,13 @@ video a[href] {
 
 }
 
+.fixed-background { /* Element as a window to an image spanning viewpoert dimensions */
+
+	background-attachment: fixed;
+	background-size: cover;
+	
+}
+
 /* Narrow Screens */
 
 @media screen and (max-width: $screen-narrow) {
