@@ -3,7 +3,7 @@ module.exports = function(grunt) {
 	grunt.initConfig({ /* To do: compile SCSS first */
 		'sass': { 
 			dist: { 
-				files: { 'include/natuive.css': 'include/natuive.scss' } 
+				files: { 'src/css/natuive.css': 'src/css/natuive.scss' } 
 				} 
 		},
 		'cssmin': {
@@ -13,14 +13,14 @@ module.exports = function(grunt) {
 		  },
 		  target: {
 		    files: {
-		      'dist/natuive.min.css': ['include/natuive.css']
+		      'dist/natuive.min.css': ['src/css/natuive.css']
 		    }
 		  }
 		},
 	  'closure-compiler': {
 	    frontend: {
 	      closurePath: './node_modules/closure-compiler',
-	      js: ['include/natuive.js', 'include/natuive-slider.js', 'include/natuive-fallback.js'],
+	      js: ['src/script/natuive.js', 'src/script/natuive-slider.js', 'src/script/natuive-fallback.js'],
 	      jsOutputFile: 'dist/natuive.min.js',
 	      maxBuffer: 500,
 		  noreport: true,
