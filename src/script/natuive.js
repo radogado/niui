@@ -938,7 +938,7 @@ function submitForm(e) {
 
     }
 
-    if (!(new XMLHttpRequest().upload) || !php_support) { // Browser unable to submit dynamically.
+    if (!hasClass(el, 'dynamic') || !(new XMLHttpRequest().upload) || !php_support) { // Browser unable to submit dynamically.
 
         return true;
 
