@@ -40,7 +40,7 @@ natUIve: mostly native front-end framework
 - URI parameters relay to links*
 - Arabic layout ready*
 - Masonry CSS-only*
-- CSS-only parallax scrolling*
+- CSS-only parallax scrolling* and fixed background option
 - WordPress theme*
 - Functional without JS and accessible without CSS*
 - 6 KB CSS + optional 6 KB JS (combined, minified, OS X gzip)
@@ -48,6 +48,7 @@ natUIve: mostly native front-end framework
 - No jQuery or other dependencies*
 - Supporting IE8+, Safari, Chrome, Firefox, Opera, Android 2.3+, iOS, Windows Phone
 - Graceful degradation
+- Full documentation in [natUIve.pdf](http://radogado.github.io/natuive/natUIve.pdf)
 - Includes a FREE picture of a cat
 
 \* exclusive features, missing in popular frameworks

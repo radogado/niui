@@ -308,9 +308,6 @@ section:before, section:after {
   width: calc(100% + 1.5em); }
 
 @-moz-document url-prefix() {
-  .row.border-all .row {
-    margin-left: -1.5em; }
-
   .row.border-all .row .row {
     margin-left: -0.75em; } }
 .row.border-all * .row:not(:first-child) {
@@ -360,7 +357,8 @@ section:before, section:after {
     padding: .3em;
     width: 100% !important;
     border: none;
-    flex: 0 0 100% !important; }
+    flex: 0 0 100% !important;
+    margin: 0.75em 0; }
 
   .no-mobile-gutter.row > * {
     padding: 0; }
