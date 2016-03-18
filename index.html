@@ -403,12 +403,13 @@
 					
 						<h2>A New Perspective: Image container with aspect ratio of 2.35:1</h2>
 						
-						<span class='aspect'>
-							
+						<picture class=aspect>
+						
 							<span style='padding-bottom: 42.5625%'></span>
-							<img src=images/lido.jpg alt=''>
-							
-						</span>
+							<source media="(max-width: 640px)" srcset="images/lido-small.jpg">
+							<img src=images/lido.jpg alt='Lido'>
+						
+						</picture>
 						
 						<br>
 						
