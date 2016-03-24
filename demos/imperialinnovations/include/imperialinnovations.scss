@@ -408,12 +408,13 @@ main .slider-nav {
 
 }
 
-.date {
+.date, .row.border-all .row > .date {
 	
 	color: #d1d1d1;
 	text-align: center;
 	font-size: 1.5rem;
 	white-space: nowrap;
+	padding: 0;
 
 }
 

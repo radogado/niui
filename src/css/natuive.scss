@@ -240,6 +240,22 @@ video a[href] {
 	
 }
 
+/* Notification bar */
+
+.notify {
+
+	position: fixed;
+	background: rgba(0, 0, 0, .8);
+	left: 0;
+	right: 0;
+	text-align: center;
+	padding: 1em;
+	z-index: 1;
+	color: #fff;
+	font-weight: 500;
+
+}
+
 /* Narrow Screens */
 
 @media screen and (max-width: $screen-narrow) {
