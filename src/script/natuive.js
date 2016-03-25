@@ -1289,6 +1289,26 @@ if (document.querySelector('input[type=reset][form]') && !document.querySelector
 
 }
 
+function notifyCloseEvent() {
+	
+	q('.notify').onclick = function (e) {
+		
+		var el = eventElement(e);
+		el.parentNode.removeChild(el);
+		
+	};
+	
+}
+
+function notify(content, option) {
+	
+	q('body').insertAdjacentHTML('afterbegin', '<div class="notify' + ((option == 'fixed') ? ' fixed' : '') + '">' + content + '</div>');
+	notifyCloseEvent();
+	
+}
+
+notifyCloseEvent();
+
 /* 
 	
 On page resize, scroll to the previous element visible on top.

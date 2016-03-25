@@ -244,15 +244,27 @@ video a[href] {
 
 .notify {
 
-	position: fixed;
 	background: rgba(0, 0, 0, .8);
-	left: 0;
-	right: 0;
 	text-align: center;
 	padding: 1em;
-	z-index: 1;
 	color: #fff;
+	cursor: pointer;
+
+}
+
+.notify:after {
+	
+	content: ' ✕';
+
+}
+
+.notify.fixed {
+
 	font-weight: 500;
+	position: fixed;
+	left: 0;
+	right: 0;
+	z-index: 2;
 
 }
 
