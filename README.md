@@ -42,6 +42,7 @@ natUIve: mostly native front-end framework
 - Masonry CSS-only*
 - CSS-only parallax scrolling* and fixed background option
 - WordPress theme*
+- Notificaton bar
 - Functional without JS and accessible without CSS*
 - 6 KB CSS + optional 6 KB JS (combined, minified, OS X gzip)
 - ~~No IE conditional operators~~ HTML5 elements also for IE8 with html5shiv
