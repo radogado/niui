@@ -10,5 +10,34 @@
     "grunt-contrib-scss": "^0.1.2",
     "grunt-contrib-uglify": "~0.5.0",
     "grunt-imageoptim": "^1.4.1"
-  }
+  },
+  "description": "natUIve: mostly native front-end framework ===",
+  "main": "Gruntfile.js",
+  "dependencies": {
+    "closure-compiler": "^0.2.12",
+    "clean-css": "^3.4.8",
+    "concat": "^1.0.0",
+    "grunt": "^0.4.5",
+    "grunt-closure-compiler": "^0.0.21",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-cssmin": "^0.14.0",
+    "grunt-contrib-nodeunit": "^0.4.1",
+    "grunt-contrib-sass": "^0.9.2",
+    "grunt-contrib-uglify": "^0.5.1",
+    "grunt-contrib-scss": "^0.1.2",
+    "grunt-imageoptim": "^1.4.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/radogado/natuive.git"
+  },
+  "author": "Radoslav Sharapanov <spacest@gmail.com> (http://github.com/radogado)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/radogado/natuive/issues"
+  },
+  "homepage": "https://github.com/radogado/natuive#readme"
 }

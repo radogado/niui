@@ -1290,13 +1290,17 @@ if (document.querySelector('input[type=reset][form]') && !document.querySelector
 }
 
 function notifyCloseEvent() {
+
+	if (q('.notify')) {
+
+		q('.notify').onclick = function (e) {
+			
+			var el = eventElement(e);
+			el.parentNode.removeChild(el);
+			
+		};
 	
-	q('.notify').onclick = function (e) {
-		
-		var el = eventElement(e);
-		el.parentNode.removeChild(el);
-		
-	};
+	}
 	
 }
 
