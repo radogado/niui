@@ -64,6 +64,20 @@ body * {
 	
 }
 
+img {
+	
+	max-width: 100%;
+	height: auto;
+	border: none;
+	
+}
+
+picture {
+	
+	text-align: center;
+
+}
+
 html.nooverflow, html.nooverflow body {
 	
 	overflow: hidden;
