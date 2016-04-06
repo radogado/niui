@@ -53,6 +53,11 @@ body {
 	flex-direction: column;
 	-webkit-tap-highlight-color: rgba(0,0,0,.5);
 	
+	color: $color; /* Fallback when CSS variables aren't supported */
+	color: var(--color);
+	background: $background;
+	background: var(--background);
+
 }
 
 body * {

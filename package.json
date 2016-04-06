@@ -1,7 +1,8 @@
 {
   "name": "natuive",
-  "version": "0.1.0",
+  "version": "0.1.5",
   "devDependencies": {
+    "graceful-fs": "^4.1.3",
     "grunt": "^0.4.5",
     "grunt-contrib-cssmin": "^0.14.0",
     "grunt-contrib-jshint": "~0.10.0",

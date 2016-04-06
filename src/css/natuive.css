@@ -4,7 +4,7 @@
 $color: #fff;
 $background: #1E8DaC;
 */
-body {
+:root {
   /*
   // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
   	--line-height: 2;
@@ -16,13 +16,6 @@ body {
   */
   --color: #333;
   --background: #fff; }
-
-body {
-  color: #333;
-  /* Fallback when CSS variables aren't supported */
-  color: var(--color);
-  background: #fff;
-  background: var(--background); }
 
 /*
 $font-size: 26px;
@@ -34,7 +27,7 @@ $line-height: 34px;
 $color: #fff;
 $background: #1E8DaC;
 */
-body {
+:root {
   /*
   // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
   	--line-height: 2;
@@ -46,13 +39,6 @@ body {
   */
   --color: #333;
   --background: #fff; }
-
-body {
-  color: #333;
-  /* Fallback when CSS variables aren't supported */
-  color: var(--color);
-  background: #fff;
-  background: var(--background); }
 
 /* For proper fallback, use .col* for all columns. Automatic column width (no .col*) works for Flexbox only. */
 .row {
@@ -382,7 +368,7 @@ section:before, section:after {
 $color: #fff;
 $background: #1E8DaC;
 */
-body {
+:root {
   /*
   // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
   	--line-height: 2;
@@ -394,13 +380,6 @@ body {
   */
   --color: #333;
   --background: #fff; }
-
-body {
-  color: #333;
-  /* Fallback when CSS variables aren't supported */
-  color: var(--color);
-  background: #fff;
-  background: var(--background); }
 
 body {
   color: #333;
@@ -461,7 +440,7 @@ p {
 
 .drop-cap:first-letter {
   float: left;
-  font-size: 80px;
+  font-size: 5em;
   padding: .1em .1em .1em 0;
   margin-top: -.2em;
   line-height: 1em; }
@@ -485,7 +464,7 @@ hr {
 $color: #fff;
 $background: #1E8DaC;
 */
-body {
+:root {
   /*
   // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
   	--line-height: 2;
@@ -497,13 +476,6 @@ body {
   */
   --color: #333;
   --background: #fff; }
-
-body {
-  color: #333;
-  /* Fallback when CSS variables aren't supported */
-  color: var(--color);
-  background: #fff;
-  background: var(--background); }
 
 .button, input[type=submit], button[type=submit], button[type=reset], button, a.button[href] {
   font-size: 16px;
@@ -581,7 +553,7 @@ a.backtotop[href] {
 $color: #fff;
 $background: #1E8DaC;
 */
-body {
+:root {
   /*
   // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
   	--line-height: 2;
@@ -593,13 +565,6 @@ body {
   */
   --color: #333;
   --background: #fff; }
-
-body {
-  color: #333;
-  /* Fallback when CSS variables aren't supported */
-  color: var(--color);
-  background: #fff;
-  background: var(--background); }
 
 form {
   overflow: hidden;
@@ -1108,7 +1073,7 @@ header form select {
 $color: #fff;
 $background: #1E8DaC;
 */
-body {
+:root {
   /*
   // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
   	--line-height: 2;
@@ -1120,13 +1085,6 @@ body {
   */
   --color: #333;
   --background: #fff; }
-
-body {
-  color: #333;
-  /* Fallback when CSS variables aren't supported */
-  color: var(--color);
-  background: #fff;
-  background: var(--background); }
 
 table {
   width: 100%;
@@ -1206,7 +1164,7 @@ td[data-sort] {
 $color: #fff;
 $background: #1E8DaC;
 */
-body {
+:root {
   /*
   // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
   	--line-height: 2;
@@ -1218,13 +1176,6 @@ body {
   */
   --color: #333;
   --background: #fff; }
-
-body {
-  color: #333;
-  /* Fallback when CSS variables aren't supported */
-  color: var(--color);
-  background: #fff;
-  background: var(--background); }
 
 nav {
   vertical-align: baseline;
@@ -1504,7 +1455,7 @@ input.trigger, input.trigger ~ input[type=reset] {
 $color: #fff;
 $background: #1E8DaC;
 */
-body {
+:root {
   /*
   // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
   	--line-height: 2;
@@ -1516,13 +1467,6 @@ body {
   */
   --color: #333;
   --background: #fff; }
-
-body {
-  color: #333;
-  /* Fallback when CSS variables aren't supported */
-  color: var(--color);
-  background: #fff;
-  background: var(--background); }
 
 ul {
   padding: 0;
@@ -1600,7 +1544,7 @@ ol p {
 $color: #fff;
 $background: #1E8DaC;
 */
-body {
+:root {
   /*
   // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
   	--line-height: 2;
@@ -1612,13 +1556,6 @@ body {
   */
   --color: #333;
   --background: #fff; }
-
-body {
-  color: #333;
-  /* Fallback when CSS variables aren't supported */
-  color: var(--color);
-  background: #fff;
-  background: var(--background); }
 
 .accordion {
   position: relative;
@@ -1673,7 +1610,7 @@ body {
 $color: #fff;
 $background: #1E8DaC;
 */
-body {
+:root {
   /*
   // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
   	--line-height: 2;
@@ -1685,13 +1622,6 @@ body {
   */
   --color: #333;
   --background: #fff; }
-
-body {
-  color: #333;
-  /* Fallback when CSS variables aren't supported */
-  color: var(--color);
-  background: #fff;
-  background: var(--background); }
 
 .tip, label span .tip {
   font-size: 16px;
@@ -1744,7 +1674,7 @@ body {
 $color: #fff;
 $background: #1E8DaC;
 */
-body {
+:root {
   /*
   // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
   	--line-height: 2;
@@ -1756,13 +1686,6 @@ body {
   */
   --color: #333;
   --background: #fff; }
-
-body {
-  color: #333;
-  /* Fallback when CSS variables aren't supported */
-  color: var(--color);
-  background: #fff;
-  background: var(--background); }
 
 .lightbox a {
   display: inline-block;
@@ -2169,7 +2092,7 @@ body {
 $color: #fff;
 $background: #1E8DaC;
 */
-body {
+:root {
   /*
   // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
   	--line-height: 2;
@@ -2181,13 +2104,6 @@ body {
   */
   --color: #333;
   --background: #fff; }
-
-body {
-  color: #333;
-  /* Fallback when CSS variables aren't supported */
-  color: var(--color);
-  background: #fff;
-  background: var(--background); }
 
 .full-window-wrap {
   z-index: 999999;
@@ -2289,7 +2205,7 @@ html.parallax, html.parallax body {
 $color: #fff;
 $background: #1E8DaC;
 */
-body {
+:root {
   /*
   // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
   	--line-height: 2;
@@ -2301,13 +2217,6 @@ body {
   */
   --color: #333;
   --background: #fff; }
-
-body {
-  color: #333;
-  /* Fallback when CSS variables aren't supported */
-  color: var(--color);
-  background: #fff;
-  background: var(--background); }
 
 .card {
   margin: 1em 0;
@@ -2362,7 +2271,12 @@ body {
   display: flex;
   /* Sticky footer */
   flex-direction: column;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.5); }
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.5);
+  color: #333;
+  /* Fallback when CSS variables aren't supported */
+  color: var(--color);
+  background: #fff;
+  background: var(--background); }
 
 body * {
   -webkit-box-sizing: border-box;

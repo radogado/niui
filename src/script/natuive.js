@@ -1,5 +1,8 @@
 /* natUIve by rado.bg */
 /* DOM functions via http://youmightnotneedjquery.com */
+
+"use strict";
+
 function addClass(el, className) {
 
     if (el.classList) {

@@ -10,7 +10,7 @@ $background: #1E8DaC;
 $color: #333;
 $background: #fff;
 
-body {
+:root {
 	
 /*
 // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
@@ -24,14 +24,5 @@ body {
 */
 	--color: #333;
 	--background: #fff;
-
-}
-
-body {
-	
-	color: $color; /* Fallback when CSS variables aren't supported */
-	color: var(--color);
-	background: $background;
-	background: var(--background);
 
 }
