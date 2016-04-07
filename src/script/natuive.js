@@ -1222,8 +1222,8 @@ function sortTable (table, column, f) {
 
 	rows.sort(function(a, b) {
 	
-		A = a.querySelectorAll('td')[column].textContent.toUpperCase();
-		B = b.querySelectorAll('td')[column].textContent.toUpperCase();
+		var A = a.querySelectorAll('td')[column].textContent.toUpperCase();
+		var B = b.querySelectorAll('td')[column].textContent.toUpperCase();
 		
 		if(A < B) {
 			return 1*f;
@@ -1256,7 +1256,7 @@ forEach ('td[data-sort]', function (el) {
 		
 		stopEvent(e);
 		var el = eventElement(e);
-		cell = el.type == 'td' ? el : getClosest(el, 'td');
+		var cell = el.type == 'td' ? el : getClosest(el, 'td');
 		var f; // Ascending
 		if (cell.getAttribute('data-sort') == 'desc') {
 			
