@@ -1051,6 +1051,12 @@ forEach('.accordion > label', function(el, i) {
 
     el.onclick = toggleAccordion;
 
+    if (hasClass(el.parentNode, 'open')) {
+	    
+	    el.click();
+
+	}
+
     el = el.parentNode;
 
     if (el.querySelector('input.trigger')) { // Remove CSS-only triggers
@@ -1064,7 +1070,7 @@ forEach('.accordion > label', function(el, i) {
         stopEvent(e);
 
     };
-
+    
 });
 
 if (!touchSupport()) { // Touch device: remove iOS sticky hover state
