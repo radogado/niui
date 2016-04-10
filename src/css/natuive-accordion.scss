@@ -29,8 +29,18 @@
 	.accordion > div { /* hidden accordion item */
 
 	    overflow: hidden;
-	    max-height: 0;
 	    cursor: auto;
+
+	}
+
+	.accordion:not(.open) > div {
+
+	    max-height: 0;
+
+	}
+
+	.accordion > div.transition {
+
 	    transition: max-height .4s ease-in-out;
 
 	}

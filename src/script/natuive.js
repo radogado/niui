@@ -1027,15 +1027,38 @@ if (q('#language-selector')) {
 
 /* Accordion */
 
+function accordionTransitionEnd(e) {
+	
+// 	alert('a');
+
+	stopEvent(e);
+	var el = eventElement(e);
+	removeClass(el, 'transition');
+	console.log(el.outerHTML);
+	el.removeEventListener("transitionend", accordionTransitionEnd, false);
+// 	el.style.cssText = '';
+    el.style.maxHeight = hasClass(el.parentNode, 'open') ? 'none' : '0';
+
+}
+
 function toggleAccordion(e) {
 
     var el = eventElement(e);
 
     stopEvent(e);
+
     el = el.parentNode;
     toggleClass(el, 'open');
+	
+	if (hasClass(el, 'open')) {
+
+		addClass(el.querySelector('div'), 'transition');
+		el.querySelector('div').addEventListener("transitionend", accordionTransitionEnd, false);
+	
+	}
 
     el.querySelector('div').style.maxHeight = ((el.querySelector('div').style.maxHeight == '') ? (el.querySelector('div').scrollHeight + 'px') : '');
+//     el.querySelector('div').style.cssText = ('max-height: ' + ((el.querySelector('div').style.maxHeight == '') ? (el.querySelector('div').scrollHeight + 'px') : '') + 'px');
 
     if (hasClass(el.parentNode.parentNode, 'accordion')) { // Embedded accordion
 
