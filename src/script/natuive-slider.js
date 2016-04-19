@@ -205,6 +205,7 @@ function slide(el, method, index_number) {
     }
 
     var slider = getClosest(el, '.slider-wrap').querySelector('.slider');
+    var offset_sign = '-'; // Slider offset depending on direction. '-' for LTR or '' (plus) for RTL. Vertical is always '-'
 	var index;
 	var old_index;
 	index = old_index = thisIndex(childByClass(slider.parentNode, 'slider-nav').querySelector('a.active'));
@@ -253,6 +254,11 @@ function slide(el, method, index_number) {
 	if (!hasClass(slider, 'vertical')) {
 		
 		slider.style.cssText = 'height: ' + slider.offsetHeight + 'px !important';
+		if (slider.getAttribute('dir') == 'rtl') {
+			
+			offset_sign = '';
+
+		}
 	
 	} else {
 
@@ -275,8 +281,8 @@ function slide(el, method, index_number) {
 		
 		} else {
 			
-		    var translate_from = 'translate3d(' + ((index<old_index) ? -1 : 0) + '00%,0,0)';
-		    var translate_to = 'translate3d(' + ((index<old_index) ? 0 : -1) + '00%,0,0)';
+		    var translate_from = 'translate3d(' + offset_sign + ((index<old_index) ? 1 : 0) + '00%,0,0)';
+		    var translate_to = 'translate3d(' + offset_sign + ((index<old_index) ? 0 : 1) + '00%,0,0)';
 			
 		}
 	    
@@ -302,7 +308,7 @@ function slide(el, method, index_number) {
 			}
 
 			removeClass(slider,'sliding');
-			slider.style.cssText = animationPrefix + 'transform: ' + (hasClass(slider, 'vertical') ? 'translateY(0)' : 'translateX(-' + index + '00%);');
+			slider.style.cssText = animationPrefix + 'transform: ' + (hasClass(slider, 'vertical') ? 'translateY(0)' : 'translateX(' + offset_sign + index + '00%);');
 			q('.sliding-style').outerHTML = '';
 			
 			endSlide(slider, index);
@@ -311,7 +317,7 @@ function slide(el, method, index_number) {
 
     } else { // ... or without animation on old browsers
 
-		slider.style.cssText = (hasClass(slider, 'vertical') ? 'top' : 'left') + ': -' + index + '00%';
+		slider.style.cssText = (hasClass(slider, 'vertical') ? 'top' : 'left') + ': ' + offset_sign + index + '00%';
 
 		endSlide(slider, index);
 
@@ -491,6 +497,12 @@ function makeSlider(el, current_slide) {
 
     }
 
+	if (window.getComputedStyle) { // Detect direction
+
+        el.setAttribute('dir', window.getComputedStyle(el, null).getPropertyValue('direction'));
+
+    }
+    
     return el;
 
 }
