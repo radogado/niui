@@ -454,12 +454,6 @@ function makeSlider(el, current_slide) {
 
     addClass(el.children[0], 'visible');
 
-    if (current_slide) {
-
-		slide(el, 'index', current_slide);
-		
-    }
-
     document.onkeyup = sliderKeyboard;
 
     mouseEvents(el);
@@ -484,16 +478,18 @@ function makeSlider(el, current_slide) {
 
     }
 
-    if (el.getAttribute('data-autoslide')) { // auto slide
+    if (el.getAttribute('data-autoslide') != null) { // auto slide
 
+		var delay = el.getAttribute('data-autoslide');
+		delay = delay.length > 0 ? (1000 * el.getAttribute('data-autoslide')) : 4000;
         var autoSlide = function() {
 
             slide(el, 'right');
-            window.sliderTimeout = setTimeout(autoSlide, 1000 * el.getAttribute('data-autoslide'));
+            window.sliderTimeout = setTimeout(autoSlide, delay);
 
         };
 
-        setTimeout(autoSlide, 1000 * el.getAttribute('data-autoslide'));
+        setTimeout(autoSlide, delay);
 
     }
 
@@ -503,6 +499,12 @@ function makeSlider(el, current_slide) {
 
     }
     
+    if (current_slide) {
+
+		slide(el, 'index', current_slide);
+		
+    }
+
     return el;
 
 }
