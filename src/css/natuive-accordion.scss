@@ -23,6 +23,12 @@
 		-ms-transition: padding 0.25s;
 		-o-transition: padding 0.25s;
 		transition: padding 0.25s;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
 		
 	}
 
@@ -30,18 +36,22 @@
 
 	    overflow: hidden;
 	    cursor: auto;
+	    contain: none;
 
 	}
 
 	.accordion:not(.open) > div {
 
 	    max-height: 0;
+	    contain: strict;
 
 	}
 
 	.accordion > div.transition {
 
-	    transition: max-height .4s ease-in-out;
+		-webkit-animation-name: transition;
+		animation-name: transition;
+		
 
 	}
 

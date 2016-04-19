@@ -150,12 +150,14 @@
 .slider-wrap .slider > * {
 	
 	opacity: 0;
+	contain: strict;
 	
 }
 
 .slider-wrap .slider > .visible {
 	
 	opacity: 1;
+	contain: none;
 	
 }
 

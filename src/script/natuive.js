@@ -408,6 +408,8 @@ for(var t in animations){
 
 }
 
+var	animationPrefix = animationEvent == 'webkitAnimationEnd' ? '-webkit-' : ''; 
+
 function scrollTo(to, callback) {
 	
 	if (typeof document.body.style.transition != 'string') {
@@ -1028,43 +1030,50 @@ if (q('#language-selector')) {
 /* Accordion */
 
 function accordionTransitionEnd(e) {
-	
-// 	alert('a');
 
 	stopEvent(e);
 	var el = eventElement(e);
 	removeClass(el, 'transition');
-	console.log(el.outerHTML);
-	el.removeEventListener("transitionend", accordionTransitionEnd, false);
-// 	el.style.cssText = '';
-    el.style.maxHeight = hasClass(el.parentNode, 'open') ? 'none' : '0';
+	el.removeEventListener(animationEvent, accordionTransitionEnd, false);
+	q('.transition-style').outerHTML = '';
+    if (hasClass(el.parentNode.parentNode, 'accordion')) { // Embedded accordion
+
+        el.parentNode.style.maxHeight = content.scrollHeight + el.parentNode.scrollHeight + 'px';
+
+    }
 
 }
 
 function toggleAccordion(e) {
 
-    var el = eventElement(e);
-
     stopEvent(e);
+    var el = eventElement(e).parentNode;
 
-    el = el.parentNode;
-    toggleClass(el, 'open');
-	
-	if (hasClass(el, 'open')) {
+    var content = el.querySelector('div');
 
-		addClass(el.querySelector('div'), 'transition');
-		el.querySelector('div').addEventListener("transitionend", accordionTransitionEnd, false);
+	toggleClass(el, 'open');
+
+	if (animationEvent) { // CSS animation support
+
+		content.addEventListener(animationEvent, accordionTransitionEnd, false);
 	
+		var styles = document.createElement('style');
+
+		if (hasClass(el, 'open')) {
+
+			styles.innerHTML = '@' + animationPrefix + 'keyframes transition { from { max-height: 0; } to { max-height: ' + content.scrollHeight + 'px; }} .transition { animation-duration: .2s; }';
+		
+		} else {
+			
+			styles.innerHTML = '@' + animationPrefix + 'keyframes transition { from { max-height: ' + content.scrollHeight + 'px; } to { max-height: 0; }} .transition { animation-duration: .2s; }';
+	
+		}
+	
+		document.getElementsByTagName('head')[0].appendChild(styles);
+		addClass(styles, 'transition-style');
+		addClass(content, 'transition');
+
 	}
-
-    el.querySelector('div').style.maxHeight = ((el.querySelector('div').style.maxHeight == '') ? (el.querySelector('div').scrollHeight + 'px') : '');
-//     el.querySelector('div').style.cssText = ('max-height: ' + ((el.querySelector('div').style.maxHeight == '') ? (el.querySelector('div').scrollHeight + 'px') : '') + 'px');
-
-    if (hasClass(el.parentNode.parentNode, 'accordion')) { // Embedded accordion
-
-        el.parentNode.style.maxHeight = el.querySelector('div').scrollHeight + el.parentNode.scrollHeight + 'px';
-
-    }
 
     return false;
 

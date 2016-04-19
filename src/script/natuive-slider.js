@@ -4,7 +4,6 @@ var slide_duration = 0.5; // Default slide duration [sec], overwritten by the op
 var timeNow = new Date().getTime();
 var last_animation = timeNow; // Protection from unwanted slide after slide
 var sliding_now = false; // Slide in progress
-var	prefix = animationEvent == 'webkitAnimationEnd' ? '-webkit-' : ''; 
 
 try { // Android Browser etc?
 
@@ -288,7 +287,7 @@ function slide(el, method, index_number) {
 		}
 
 		var styles = document.createElement('style');
-		styles.innerHTML = '@' + prefix + 'keyframes sliding { from { ' + prefix + 'transform: ' + translate_from + '; } to { ' + prefix + 'transform: ' + translate_to + '; }} .sliding { animation-duration: ' + (slider.getAttribute('data-duration') ? slider.getAttribute('data-duration') : slide_duration) + 's; }';
+		styles.innerHTML = '@' + animationPrefix + 'keyframes sliding { from { ' + animationPrefix + 'transform: ' + translate_from + '; } to { ' + animationPrefix + 'transform: ' + translate_to + '; }} .sliding { animation-duration: ' + (slider.getAttribute('data-duration') ? slider.getAttribute('data-duration') : slide_duration) + 's; }';
 		document.getElementsByTagName('head')[0].appendChild(styles);
 		addClass(styles, 'sliding-style');
 		addClass(slider, 'sliding');
@@ -303,7 +302,7 @@ function slide(el, method, index_number) {
 			}
 
 			removeClass(slider,'sliding');
-			slider.style.cssText = prefix + 'transform: ' + (hasClass(slider, 'vertical') ? 'translateY(0)' : 'translateX(-' + index + '00%);');
+			slider.style.cssText = animationPrefix + 'transform: ' + (hasClass(slider, 'vertical') ? 'translateY(0)' : 'translateX(-' + index + '00%);');
 			q('.sliding-style').outerHTML = '';
 			
 			endSlide(slider, index);

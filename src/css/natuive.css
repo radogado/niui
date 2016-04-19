@@ -1573,18 +1573,27 @@ $background: #1E8DaC;
   -moz-transition: padding 0.25s;
   -ms-transition: padding 0.25s;
   -o-transition: padding 0.25s;
-  transition: padding 0.25s; }
+  transition: padding 0.25s;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
 
 .accordion > div {
   /* hidden accordion item */
   overflow: hidden;
-  cursor: auto; }
+  cursor: auto;
+  contain: none; }
 
 .accordion:not(.open) > div {
-  max-height: 0; }
+  max-height: 0;
+  contain: strict; }
 
 .accordion > div.transition {
-  transition: max-height .4s ease-in-out; }
+  -webkit-animation-name: transition;
+  animation-name: transition; }
 
 .accordion:first-of-type > div {
   padding-top: 0; }
@@ -1785,10 +1794,12 @@ $background: #1E8DaC;
   width: 100%; }
 
 .slider-wrap .slider > * {
-  opacity: 0; }
+  opacity: 0;
+  contain: strict; }
 
 .slider-wrap .slider > .visible {
-  opacity: 1; }
+  opacity: 1;
+  contain: none; }
 
 .full-window-wrap .slider-wrap.vertical, .full-window-wrap .slider, .full-window-wrap .slider > * {
   height: 100%; }
