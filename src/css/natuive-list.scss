@@ -39,6 +39,13 @@ ol > li {
 
 }
 
+[dir=rtl] ol > li {
+
+	margin: $line-height-em 2.3em $line-height-em/2 0;
+// 	margin: calc(var(--line-height-em)/2) 2.3em calc(var(--line-height-em)/2) 0;
+
+}
+
 ol li > * {
 	
 	text-indent: 0;
@@ -60,9 +67,20 @@ ol > li:before {
     background: #999;
     padding: $line-height-em/4 .6em $line-height-em/4 .6em;
 //     padding: calc(var(--line-height-em)/4) .6em calc(var(--line-height-em)/4) .6em;
-    border-radius: 1em;
+    border-radius: 50%;
     margin-right: .5em;
     color: #fff;
+    min-width: 1em;
+    min-height: 1em;
+    display: inline-block;
+    text-indent: 0;
+    text-align: center;
+
+}
+
+[dir=rtl] ol > li:before {
+
+    margin: 0 0 0 .5em;
 
 }
 

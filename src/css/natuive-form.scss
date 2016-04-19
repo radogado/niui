@@ -364,6 +364,12 @@ form {
 
 	}
 
+	[dir=rtl] .checkbox-icon {
+
+		margin: 0 0 0 .5em;
+
+	}
+	
 	input[type=checkbox] + .checkbox-icon:before {
 		
 		content: '✓';
@@ -575,6 +581,13 @@ form {
 		
 		left: auto;
 		right: 0;
+
+	}
+	
+	[dir=rtl] form .mandatory:before {
+		
+		left: 0;
+		right: auto;
 
 	}
 	

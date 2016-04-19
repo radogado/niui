@@ -285,6 +285,10 @@ section:before, section:after {
 .row.border-all > *:not(:first-child), .row.border-all .row > *:not(:first-child) {
   border-left: 1px solid; }
 
+[dir=rtl] .row.border-all > *:not(:first-child), [dir=rtl] .row.border-all .row > *:not(:first-child) {
+  border-right: 1px solid;
+  border-left: none; }
+
 .row.border-all .row {
   border-top: 1px solid;
   padding-top: 0;
@@ -292,6 +296,10 @@ section:before, section:after {
   max-width: none;
   margin-left: -0.75em;
   width: calc(100% + 1.5em); }
+
+[dir=rtl] .row.border-all .row {
+  margin-left: 0;
+  margin-right: -0.75em; }
 
 @-moz-document url-prefix() {
   .row.border-all .row .row {
@@ -785,6 +793,9 @@ form .checkbox label:last-child {
   border: 1px dotted transparent;
   border: none; }
 
+[dir=rtl] .checkbox-icon {
+  margin: 0 0 0 .5em; }
+
 input[type=checkbox] + .checkbox-icon:before {
   content: '✓';
   opacity: 0;
@@ -923,6 +934,10 @@ form input[type=submit] {
 form .mandatory:before {
   left: auto;
   right: 0; }
+
+[dir=rtl] form .mandatory:before {
+  left: 0;
+  right: auto; }
 
 form .checkbox label:last-child {
   margin-bottom: 0; }
@@ -1488,6 +1503,9 @@ ol > li {
   text-indent: -2.3em;
   margin: 1.5em 0 0.75em 2.3em; }
 
+[dir=rtl] ol > li {
+  margin: 1.5em 2.3em 0.75em 0; }
+
 ol li > * {
   text-indent: 0;
   display: inline-block; }
@@ -1501,9 +1519,17 @@ ol > li:before {
   font-weight: bold;
   background: #999;
   padding: 0.375em 0.6em 0.375em 0.6em;
-  border-radius: 1em;
+  border-radius: 50%;
   margin-right: .5em;
-  color: #fff; }
+  color: #fff;
+  min-width: 1em;
+  min-height: 1em;
+  display: inline-block;
+  text-indent: 0;
+  text-align: center; }
+
+[dir=rtl] ol > li:before {
+  margin: 0 0 0 .5em; }
 
 ol > li ol {
   list-style-type: none;
