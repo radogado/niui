@@ -4,7 +4,7 @@ natUIve: mostly native front-end framework
 13 KB framework leveraging browsers' built-in capabilities, with subtle customisation. [Features demo](http://radogado.github.io/natuive/) ([minified](http://natuive.net)), [WordPress theme](http://rado.bg), [Microsoft homepage](http://radogado.github.io/natuive/demos/microsoft/), [Imperial Innovations homepage](http://radogado.github.io/natuive/demos/imperialinnovations/), [Pebble homepage](http://radogado.github.io/natuive/demos/pebble/), [Seat 61](http://radogado.github.io/natuive/demos/seat61/), [JetBlue](http://radogado.github.io/natuive/demos/jetblue/), [Mitsubishi Regional Jet](http://radogado.github.io/natuive/demos/mrj/), [MUBI](http://radogado.github.io/natuive/demos/mubi/), [SWISS](http://radogado.github.io/natuive/demos/swiss/), [Mapbox](http://radogado.github.io/natuive/demos/mapbox/), [Airbnb](http://radogado.github.io/natuive/demos/airbnb/), [GOV.UK](http://radogado.github.io/natuive/demos/gov.uk/), [Classless demo](http://radogado.github.io/natuive/demos/classless.html)
 ---
 
-- Unbreakable, flexible (no hardcoded dimensions), responsive grid. Supports Bootstrap-style wrapping columns, but with .col3 (1/3) etc., instead of .col-**-4 (4/12). Auto equal width columns with equal height and vertical alignment\*.
+- Unbreakable, flexible (no hardcoded dimensions), responsive grid. Supports Bootstrap-style wrapping columns, but with .col3 (1/3) etc., instead of .col...4 (4/12). Auto equal width columns with equal height and vertical alignment.
 - Baseline-aligned text elements*
 - Embeddable grid and elements*
 - Built around edge cases (overflowing content etc)
