@@ -856,6 +856,12 @@ forEach('a.modal', function(el, i) {
 	    el.onclick = modalWindow;
 
     }
+    
+    if (el.getAttribute && el.getAttribute('rel') == null) {
+	    
+	    el.setAttribute('rel', 'prefetch');
+
+    }
 
 });
 
