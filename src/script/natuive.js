@@ -851,7 +851,11 @@ forEach('a[href^="#"]', function(el, i) {
 
 forEach('a.modal', function(el, i) {
 
-    el.onclick = modalWindow;
+	if (el.href != (location.href.split('#')[0] + '#')) {
+		
+	    el.onclick = modalWindow;
+
+    }
 
 });
 
