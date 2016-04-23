@@ -475,6 +475,16 @@ function makeSlider(el, current_slide) {
             slide(el, 'left');
 
         });
+        
+        forEach(el.querySelectorAll('input[type=range]'), function (el) {
+	        
+	        el.ontouchmove = function(e) {
+
+				e.stopPropagation();
+		        
+	        };
+	        
+        });
 
     }
 
