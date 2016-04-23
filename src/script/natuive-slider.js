@@ -293,7 +293,20 @@ function slide(el, method, index_number) {
 		}
 
 		var styles = document.createElement('style');
-		styles.innerHTML = '@' + animationPrefix + 'keyframes sliding { from { ' + animationPrefix + 'transform: ' + translate_from + '; } to { ' + animationPrefix + 'transform: ' + translate_to + '; }} .sliding { animation-duration: ' + (slider.getAttribute('data-duration') ? slider.getAttribute('data-duration') : slide_duration) + 's; }';
+
+		var animation_code;
+
+		if (hasClass(slider, 'fade')) {
+
+			animation_code = '@' + animationPrefix + 'keyframes sliding { from { opacity: 1; ' + animationPrefix + 'transform: ' + translate_from + '; } to { opacity: 0; ' + animationPrefix + 'transform: ' + translate_from + '; }}';
+		
+		} else {
+			
+			animation_code = '@' + animationPrefix + 'keyframes sliding { from { ' + animationPrefix + 'transform: ' + translate_from + '; } to { ' + animationPrefix + 'transform: ' + translate_to + '; }}'
+
+		}
+		
+		styles.innerHTML = animation_code + '.sliding { animation-duration: ' + (slider.getAttribute('data-duration') ? slider.getAttribute('data-duration') : slide_duration) + 's; }';
 		document.getElementsByTagName('head')[0].appendChild(styles);
 		addClass(styles, 'sliding-style');
 		addClass(slider, 'sliding');
