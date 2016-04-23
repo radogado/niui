@@ -2199,6 +2199,9 @@ $background: #1E8DaC;
   justify-content: center;
   text-align: center; }
 
+.slider.auto-height > *:not(.visible) {
+  height: 0; }
+
 /* natUIve – Modal */
 /*
 $color: #fff;

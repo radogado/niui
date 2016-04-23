@@ -624,3 +624,9 @@
 	text-align: center;
 	
 }
+
+.slider.auto-height > *:not(.visible) {
+	
+	height: 0;
+
+}
