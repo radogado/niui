@@ -521,7 +521,20 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 		margin: $line-height-em/2 0;
 
 	}
+	
+	.row > .vertical-row {
+		
+		display: flex;
+		flex-direction: column;
 
+	}
+
+	.row > .vertical-row > * {
+		
+		flex-grow: 1;
+
+	}
+	
 @media screen and (max-width: $screen-narrow) {
 
 /*

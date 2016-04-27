@@ -338,6 +338,13 @@ section:before, section:after {
 .row.spacing-vertical > * {
   margin: 0.75em 0; }
 
+.row > .vertical-row {
+  display: flex;
+  flex-direction: column; }
+
+.row > .vertical-row > * {
+  flex-grow: 1; }
+
 @media screen and (max-width: 640px) {
   /*
   	.row * .row {
