@@ -73,7 +73,7 @@ a.backtotop[href] {
 	display: block;
 	width: 2em;
 	height: 2em;
-	line-height: 2em;
+	line-height: 1;
 	margin: .7333em auto;
 	font-weight: bold;
 	background: transparent;
@@ -88,6 +88,16 @@ a.backtotop[href] {
 	right: 0;
 	text-decoration: none;
 	z-index: 999;
+
+}
+
+a.backtotop[href]:before {
+	
+	content: '↑';
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	line-height: 2;
 
 }
 

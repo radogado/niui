@@ -205,6 +205,12 @@ function thisIndex(el) {
 
 }
 
+function getCookie(k) { // Thanks Simon Steinberger
+	
+	var v=document.cookie.match('(^|;) ?'+k+'=([^;]*)(;|$)');return v?v[2]:null
+
+}
+
 function touchSupport () {
 	
 	return (('ontouchstart' in window)
@@ -756,7 +762,7 @@ forEach('.tool', function(el, i) {
 
 /* Add 'Back to top' button */
 
-q(q('footer > div > div') ? 'footer > div > div' : 'body').insertAdjacentHTML('beforeend', '<a class="backtotop" href="#"> ↑ </a>');
+q(q('footer > div > div') ? 'footer > div > div' : 'body').insertAdjacentHTML('beforeend', '<a class="backtotop" href="#"></a>');
 
 /* Animate anchor links */
 
