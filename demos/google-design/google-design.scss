@@ -6,9 +6,16 @@
 
 body {
 	
-	font-family: Helvetica Neue;
+	font-family: Roboto Mono;
 	color: #565a5c;
 	background: #fafafa;
+	-webkit-font-smoothing: antialiased;
+	
+}
+
+p, footer a[href] {
+	
+	font-family: Roboto;
 	
 }
 
@@ -27,12 +34,13 @@ header a[href] {
 
 .banner h1 {
 	
-	font-size: 3em;
+	font-size: 3.5em;
 	margin: .5em 0;
+	font-weight: 400;
 
 }
 
-header a[href], footer a[href] {
+header a[href], footer a[href], main a[href] {
 	
 	text-decoration: none;
 	font-weight: 500;
@@ -42,12 +50,26 @@ header a[href], footer a[href] {
 main .row > * {
 	
 	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 
+}
+
+.row > .vertical-row > * {
+	
+	padding-bottom: 3em;
+	
 }
 
 footer {
 	
 	padding-top: 7em;
+
+}
+
+footer a[href] + a[href] {
+	
+	margin-left: 1em;
 
 }
 
@@ -60,7 +82,6 @@ footer ul li {
 svg {
 	
 	height: 2em;
-	opacity: .5;
 
 }
 
@@ -72,8 +93,62 @@ header svg {
 
 }
 
+footer svg {
+	
+	opacity: .5;
+
+}
+
 footer svg:hover {
 	
 	opacity: 1;
 
+}
+
+a.link-overlay, .playbutton {
+	
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1;
+	padding: 1.5em;
+	display: flex;
+	justify-content: flex-end;
+	flex-direction: column;
+	
+}
+
+a.link-overlay svg {
+	
+	position: absolute;
+	bottom: 1.5em;
+	right: 1.5em;
+
+}
+
+.playbutton {
+	
+	z-index: 0;
+	text-align: center;
+
+}
+
+.playbutton > svg {
+	
+	width: 5em;
+	height: 5em;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate3d(-50%,-50%,0);
+	opacity: 1;
+	
+}
+
+.vertical-row > * {
+	
+	position: relative;
+	
 }

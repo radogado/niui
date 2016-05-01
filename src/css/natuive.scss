@@ -223,12 +223,6 @@ video a[href] {
     
 }
 
-	@-moz-document url-prefix() { // Disabled in FF because it doesn't work there
-
-		.aspect { display: block; }
-
-	}
-
 	.aspect > img {
 		
 		max-width: 100%;
@@ -241,6 +235,13 @@ video a[href] {
 	
 		padding-bottom: 56.25%; /*    y / x * 100   default 16:9    */
 	
+	}
+
+	@-moz-document url-prefix() { // Disabled in FF because it doesn't work there
+
+		.aspect { display: block; }
+		.aspect > * { display: inline-block; vertical-align: top; }
+
 	}
 
 /* Overthrow CSS:

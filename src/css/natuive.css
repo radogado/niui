@@ -362,7 +362,8 @@ section:before, section:after {
     margin: 0.75em 0; }
 
   .row.no-spacing > *, .row.no-spacing > [class^=col] {
-    margin: 0; }
+    margin: 0;
+    padding: 0; }
 
   .no-mobile-gutter.row > * {
     padding: 0; }
@@ -2511,9 +2512,6 @@ video a[href] {
   flex-direction: row;
   align-items: flex-start; }
 
-@-moz-document url-prefix() {
-  .aspect {
-    display: block; } }
 .aspect > img {
   max-width: 100%;
   height: auto;
@@ -2524,6 +2522,13 @@ video a[href] {
   padding-bottom: 56.25%;
   /*    y / x * 100   default 16:9    */ }
 
+@-moz-document url-prefix() {
+  .aspect {
+    display: block; }
+
+  .aspect > * {
+    display: inline-block;
+    vertical-align: top; } }
 /* Overthrow CSS:
    For Mobile devices not supporting overflow: scroll. Enable overflow: auto on elements with overthrow class when html element has overthrow class too */
 .overthrow-enabled .overthrow {
