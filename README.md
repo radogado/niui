@@ -7,7 +7,7 @@ natUIve: mostly native front-end framework
 - Unbreakable, flexible (no hardcoded dimensions), responsive grid. Supports Bootstrap-style wrapping columns, but with .col3 (1/3) etc., instead of .col...4 (4/12). Auto equal width columns with equal height and vertical alignment.
 - Baseline-aligned text elements*
 - Embeddable grid and elements*
-- Built around edge cases (overflowing content etc)
+- Built around edge cases (overflowing content etc)*
 - CSS reset
 - Really blank default style, unlike frameworks with baked-in rounded edges, shadows etc*
 - Semantic structure
@@ -19,8 +19,7 @@ natUIve: mostly native front-end framework
 - Lightbox gallery supporting huge galleries* and click to zoom
 - Tooltips with full HTML content*
 - Nested ordered lists*
-- Forms with validation, dynamic submission without page reload, full customisation and accessibility, including native file drop. Range input with blank style.
-- Auto-expanding textarea*
+- Forms with validation, dynamic submission without page reload, full customisation and accessibility, including native file drop. Range input with blank style. Auto-expanding textarea*
 - Native sliders*, swipeable on mobile and desktop, with numbered or thumbnail (tabs) navigation, vertical and full window options, slider inside slider, fade in/out option, auto height option
 - Accordions
 - Tabs
