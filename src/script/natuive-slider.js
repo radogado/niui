@@ -305,8 +305,8 @@ function slide(el, method, index_number) {
 			animation_code = '@' + animationPrefix + 'keyframes sliding { from { ' + animationPrefix + 'transform: ' + translate_from + '; } to { ' + animationPrefix + 'transform: ' + translate_to + '; }}'
 
 		}
-		
-		styles.innerHTML = animation_code + '.sliding { animation-duration: ' + (slider.getAttribute('data-duration') ? slider.getAttribute('data-duration') : slide_duration) + 's; }';
+		var duration = (slider.getAttribute('data-duration') ? slider.getAttribute('data-duration') : slide_duration);
+		styles.innerHTML = animation_code + ' .sliding { animation-duration: ' + duration + 's; }';
 		document.getElementsByTagName('head')[0].appendChild(styles);
 		addClass(styles, 'sliding-style');
 		addClass(slider, 'sliding');
@@ -321,7 +321,7 @@ function slide(el, method, index_number) {
 			}
 
 			removeClass(slider,'sliding');
-			slider.style.cssText = animationPrefix + 'transform: ' + (hasClass(slider, 'vertical') ? 'translateY(0)' : 'translateX(' + offset_sign + index + '00%);');
+			slider.style.cssText = animationPrefix + 'transform: ' + (hasClass(slider, 'vertical') ? 'translateY(0)' : 'translateX(' + offset_sign + index + '00%); transition: opacity ' + duration + 's linear;');
 			q('.sliding-style').outerHTML = '';
 			
 			endSlide(slider, index);
