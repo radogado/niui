@@ -1844,7 +1844,7 @@ $background: #1E8DaC;
   order: 1;
   flex: 1; }
 
-.slider-wrap.vertical.tabs > .slider-nav {
+.slider-wrap.vertical.tabs > .slider-nav.row {
   width: 33.3%;
   display: block; }
 
@@ -1919,7 +1919,7 @@ $background: #1E8DaC;
 .full-window-wrap .slider-wrap.vertical, .full-window-wrap .slider, .full-window-wrap .slider > * {
   height: 100%; }
 
-.full-window-wrap .slider:not(.vertical) > * {
+.full-window-wrap > .slider:not(.vertical) > * {
   overflow: auto;
   -webkit-overflow-scrolling: touch; }
 
@@ -1927,16 +1927,19 @@ $background: #1E8DaC;
   overflow-x: hidden;
   overflow-y: scroll; }
 
-.slider-wrap .slider.vertical {
+.slider-wrap > .slider.vertical {
   overflow-x: visible;
   overflow-y: visible;
   flex-direction: column; }
 
-.slider-wrap .slider.vertical > * {
-  height: 100%;
+.slider-wrap > .slider.vertical > * {
+  height: auto;
   display: none; }
 
-.sliding .slider-wrap .slider.vertical > *, .slider-wrap .slider.vertical > .visible {
+.slider-wrap > .slider.vertical.lightbox > * {
+  height: 100%; }
+
+.sliding .slider-wrap > .slider.vertical > *, .slider-wrap > .slider.vertical > .visible {
   display: block; }
 
 .slider > * {
@@ -2050,10 +2053,10 @@ $background: #1E8DaC;
 .slider-arrow:before {
   content: '←'; }
 
-.vertical .slider-arrow:before {
+.vertical > .slider-arrow:before {
   content: '↑'; }
 
-.vertical .slider-arrow {
+.vertical > .slider-arrow {
   top: 1em;
   left: 48%;
   left: calc(50% - 1em);
@@ -2068,10 +2071,10 @@ $background: #1E8DaC;
 .slider-arrow.right:before {
   content: '→'; }
 
-.vertical .slider-arrow.right:before {
+.vertical > .slider-arrow.right:before {
   content: '↓'; }
 
-.vertical .slider-arrow.right {
+.vertical > .slider-arrow.right {
   left: 48%;
   left: calc(50% - 1em);
   right: auto;
@@ -2119,7 +2122,7 @@ $background: #1E8DaC;
   -ms-flex: 0 1 auto;
   flex: 0 1 auto; }
 
-.vertical .slider-nav {
+.vertical > .slider-nav {
   width: auto;
   display: table;
   left: .5em;
@@ -2137,7 +2140,7 @@ $background: #1E8DaC;
   height: 2em;
   text-align: center; }
 
-.vertical .slider-nav a {
+.vertical > .slider-nav a {
   display: block; }
 
 .slider-nav a.active {

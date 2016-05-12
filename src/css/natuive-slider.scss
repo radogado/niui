@@ -55,7 +55,7 @@
 
 }
 
-.slider-wrap.vertical.tabs > .slider-nav {
+.slider-wrap.vertical.tabs > .slider-nav.row {
 	
 	width: 33.3%;
 	display: block;
@@ -173,7 +173,7 @@
 
 }
 
-.full-window-wrap .slider:not(.vertical) > * {
+.full-window-wrap > .slider:not(.vertical) > * {
 	
 	overflow: auto;
 	-webkit-overflow-scrolling: touch;
@@ -187,7 +187,7 @@
 
 }
 
-.slider-wrap .slider.vertical {
+.slider-wrap > .slider.vertical {
 	
 	overflow-x: visible;
 	overflow-y: visible;
@@ -195,14 +195,20 @@
 
 }
 
-.slider-wrap .slider.vertical > * {
+.slider-wrap > .slider.vertical > * {
 
-	height: 100%;
+	height: auto;
 	display: none;
 
 }
 
-.sliding .slider-wrap .slider.vertical > *, .slider-wrap .slider.vertical > .visible {
+.slider-wrap > .slider.vertical.lightbox > * {
+
+	height: 100%;
+
+}
+
+.sliding .slider-wrap > .slider.vertical > *, .slider-wrap > .slider.vertical > .visible {
 
 	display: block;
 
@@ -376,13 +382,13 @@
 	
 	}
 
-	.vertical .slider-arrow:before {
+	.vertical > .slider-arrow:before {
 	
 		content: '↑';
 	
 	}
 
-	.vertical .slider-arrow {
+	.vertical > .slider-arrow {
 		
 		top: 1em;
 		left: 48%;
@@ -406,13 +412,13 @@
 	
 	}
 
-	.vertical .slider-arrow.right:before {
+	.vertical > .slider-arrow.right:before {
 	
 		content: '↓';
 	
 	}
 
-	.vertical .slider-arrow.right {
+	.vertical > .slider-arrow.right {
 		
 		left: 48%;
 		left: calc(50% - 1em);
@@ -478,7 +484,7 @@
 
 	}
 
-	.vertical .slider-nav {
+	.vertical > .slider-nav {
 		
 		width: auto;
 		display: table;
@@ -502,7 +508,7 @@
 		
 	}
 	
-	.vertical .slider-nav a {
+	.vertical > .slider-nav a {
 		
 		display: block;
 		
