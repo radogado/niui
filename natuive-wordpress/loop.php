@@ -5,20 +5,27 @@
 
 		<!-- post thumbnail -->
 		<?php if ( has_post_thumbnail()) : // Check if thumbnail exists 
+
 			$post_thumbnail_id = get_post_thumbnail_id($post->ID);
 			$post_thumbnail_url = wp_get_attachment_url( $post_thumbnail_id );
 			
 		?>
 			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="img-crop" style="background-image: url(<?php echo $post_thumbnail_url ?>)">
+				<h2><?php the_title(); ?> &rarr;</h2>
 				
 			</a>
-		<?php endif; ?>
 		<!-- /post thumbnail -->
 
+		<?php else: ?>
+
 		<!-- post title -->
-		<h2>
-			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-		</h2>
+		<div>
+			<h2>
+				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+			</h2>
+		</div>
+
+		<?php endif; ?>
 		<!-- /post title -->
 
 		<?php the_content(); //html5wp_excerpt('html5wp_index'); // Build your custom callback length in functions.php ?>
