@@ -1,10 +1,13 @@
 module.exports = function(grunt) {
 
 	grunt.initConfig({ /* To do: compile SCSS first */
-		'sass': { 
+		'sass': {
 			dist: { 
-				files: { 'src/css/natuive.css': 'src/css/natuive.scss' } 
-				} 
+				files: {
+					'src/css/natuive.css': 'src/css/natuive.scss',
+					'src/css/natuive-wordpress.css': 'src/css/natuive-wordpress.scss'
+					}
+				}
 		},
 		'cssmin': {
 		  options: {
@@ -13,7 +16,8 @@ module.exports = function(grunt) {
 		  },
 		  target: {
 		    files: {
-		      'dist/natuive.min.css': ['src/css/natuive.css']
+		      'dist/natuive.min.css': ['src/css/natuive.css'],
+		      'natuive-wordpress/natuive-wordpress.min.css': ['src/css/natuive-wordpress.css']
 		    }
 		  }
 		},

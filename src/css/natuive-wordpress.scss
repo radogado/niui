@@ -1,3 +1,12 @@
+/* natUIve WordPress – rado.bg */
+
+@charset 'utf-8';
+
+// Maybe drop SCSS when CSS variables become widely supported in March 2016. Combine with Grunt.
+@import 'natuive';
+@import 'theme';
+
+
 .slider-wrap {
 	
 	background: #eee;
