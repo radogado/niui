@@ -321,7 +321,13 @@ video a[href] {
 		text-align: end;
 		
 	}
- 	
+ 		
+ 		header.fixed form#language-selector {
+	 		
+	 		display: none;
+
+ 		}
+ 		
 		form#language-selector select {
 			
 			height: auto;
@@ -336,6 +342,36 @@ video a[href] {
 			text-align: start;
 		
 		}
+	
+	header.fixed {
+		
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		background: #fff;
+		z-index: 2;
+	
+	}
+	
+	header.fixed .row > * {
+		
+		padding: 0;
+		margin: 0;
+
+	}
+	
+	header.fixed a.logo {
+		
+		padding: .5em;
+
+	}
+	
+	header.fixed .logo img {
+		
+		height: 1.5em;
+
+	}
 	
 	.semi-transparent main, .semi-transparent footer, .semi-transparent header > .row {
 		

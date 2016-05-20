@@ -350,17 +350,17 @@ input.trigger, input.trigger ~ input[type=reset] {
 
 @media screen and (max-width: $screen-narrow) {
 
-		nav li {
-			
-			margin: 0;
-
-		}
+	nav li {
 		
-		header nav.sub li a {
-			
-			padding: .5em 0;
+		margin: 0;
 
-		}
+	}
+	
+	header nav.sub li a {
+		
+		padding: .5em 0;
+
+	}
 		
 	nav.drop, header > nav {
 		
@@ -375,6 +375,11 @@ input.trigger, input.trigger ~ input[type=reset] {
 	nav.drop:before, header > nav:before {
 		
 		content: '🍔';
+		width: 2em;
+		height: 2em;
+		line-height: 2em;
+		display: inline-block;
+		text-align: center;
 	
 	}
 	
@@ -426,6 +431,22 @@ input.trigger, input.trigger ~ input[type=reset] {
 		width: calc(100% - 2.5em);
 
 	}
+	
+	header.fixed > nav {
+		
+		position: fixed;
+		top: 0;
+		left: 0;
+
+	}
+	
+	header.fixed input.trigger.burger ~ div {
+		
+		background: #fff;
+		margin: 0;
+		padding: .5em;
+
+	}
 
 	nav.drop ul li li li a {
 		
@@ -452,5 +473,5 @@ input.trigger, input.trigger ~ input[type=reset] {
 		display: block;
 		
 	}
-
+	
 }

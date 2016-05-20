@@ -1511,7 +1511,12 @@ input.trigger, input.trigger ~ input[type=reset] {
     position: relative; }
 
   nav.drop:before, header > nav:before {
-    content: '🍔'; }
+    content: '🍔';
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    display: inline-block;
+    text-align: center; }
 
   nav.drop ul li {
     display: block; }
@@ -1540,6 +1545,16 @@ input.trigger, input.trigger ~ input[type=reset] {
   header nav.drop ul li a {
     width: 80%;
     width: calc(100% - 2.5em); }
+
+  header.fixed > nav {
+    position: fixed;
+    top: 0;
+    left: 0; }
+
+  header.fixed input.trigger.burger ~ div {
+    background: #fff;
+    margin: 0;
+    padding: .5em; }
 
   nav.drop ul li li li a {
     width: 100%; }
@@ -2575,6 +2590,9 @@ video a[href] {
   header > .row:first-child div {
     text-align: end; }
 
+  header.fixed form#language-selector {
+    display: none; }
+
   form#language-selector select {
     height: auto;
     width: 100%;
@@ -2583,6 +2601,24 @@ video a[href] {
 
   header .head-right {
     text-align: start; }
+
+  header.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    z-index: 2; }
+
+  header.fixed .row > * {
+    padding: 0;
+    margin: 0; }
+
+  header.fixed a.logo {
+    padding: .5em; }
+
+  header.fixed .logo img {
+    height: 1.5em; }
 
   .semi-transparent main, .semi-transparent footer, .semi-transparent header > .row {
     opacity: .1; }
