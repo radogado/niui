@@ -2544,7 +2544,10 @@ video a[href] {
 
   .aspect > * {
     display: inline-block;
-    vertical-align: top; } }
+    vertical-align: top; }
+
+  .aspect > span {
+    display: none; } }
 /* Overthrow CSS:
    For Mobile devices not supporting overflow: scroll. Enable overflow: auto on elements with overthrow class when html element has overthrow class too */
 .overthrow-enabled .overthrow {

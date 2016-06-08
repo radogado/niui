@@ -241,6 +241,7 @@ video a[href] {
 
 		.aspect { display: block; }
 		.aspect > * { display: inline-block; vertical-align: top; }
+		.aspect > span { display: none; }
 
 	}
 
