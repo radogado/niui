@@ -1833,7 +1833,7 @@ $background: #1E8DaC;
 .lightbox a {
   display: inline-block;
   vertical-align: middle;
-  margin: 1.5em 0.375em; }
+  margin: 0.75em 0.375em; }
 
 .lightbox a img {
   display: block;
