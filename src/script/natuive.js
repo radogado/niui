@@ -292,6 +292,19 @@ function childByClass (el, cl) {
 		
 }
 
+function ready(fn) {
+  if (document.readyState != 'loading'){
+    fn();
+  } else if (document.addEventListener) {
+    document.addEventListener('DOMContentLoaded', fn);
+  } else {
+    document.attachEvent('onreadystatechange', function() {
+      if (document.readyState != 'loading')
+        fn();
+    });
+  }
+}
+
 /* ––– */
 
 var scripts_location = document.getElementsByTagName('script');
@@ -681,7 +694,11 @@ function modalWindow(e) {
 function openLightbox(e) {
 
 	var el = eventElement(e);
-
+	if (el.length == 0) {
+		
+		el = e;
+	}
+	
 	openFullWindow('<div class="slider lightbox' + (hasClass(el.parentNode.parentNode, 'full-screen') ? ' full-screen' : '') + '"></div>');
 	q('.full-window-wrap').style.overflow = 'hidden';
 	
@@ -1369,6 +1386,22 @@ function notify(content, option) {
 }
 
 notifyCloseEvent();
+
+/* Automatically open a lightbox specified in the URI */
+
+ready( function () {
+
+	var t = setTimeout( function () {
+		
+		if (q('.lightbox:target')) {
+			
+			openLightbox(q('.lightbox:target > a[href]'));
+			
+		}
+	
+	}, 1);
+
+});
 
 /* 
 	
