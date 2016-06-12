@@ -1,19 +1,9 @@
 /* natUIve Slider */
-var new_event_support = 1; // Can the browser do new Event('t')?
-var slide_duration = 0.5; // Default slide duration [sec], overwritten by the optional data-duration attribute
-var timeNow = new Date().getTime();
-var last_animation = timeNow; // Protection from unwanted slide after slide
-var sliding_now = false; // Slide in progress
 
-try { // Android Browser etc?
+"use strict";
 
-    test_event = new Event('t');
-
-} catch (err) {
-
-    new_event_support = 0;
-
-}
+q('html').setAttribute('last_animation', '14045017000');
+q('html').setAttribute('slide_duration', '0.5');
 
 function sliderElement(e) {
 
@@ -34,7 +24,7 @@ function sliderElement(e) {
 
 /* Thanks to Pete & Eike Send for the swipe events – http://www.thepetedesign.com/demos/purejs_onepage_scroll_demo.html */
 
-var swipeEvents = function(el) {
+function swipeEvents(el) {
 
     var startX, startY;
 
@@ -42,8 +32,8 @@ var swipeEvents = function(el) {
 
     function touchStart(e) {
 
-		if (sliding_now) {
-			
+		if (hasClass(q('html'), 'sliding_now')) {
+
 			endSlide(sliderElement(e));
 			return;
 
@@ -55,7 +45,7 @@ var swipeEvents = function(el) {
             startX = touches[0].pageX;
             startY = touches[0].pageY;
             el.addEventListener('touchmove', touchMove);
-            sliding_now = true;
+            addClass(q('html'), 'sliding_now');
 
         }
 
@@ -72,7 +62,7 @@ var swipeEvents = function(el) {
 
             if ((hasClass(sliderElement(e), 'vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !q('.slider.lightbox')) {
 
-                sliding_now = false;
+                removeClass(q('html'), 'sliding_now');
                 return;
 
             }
@@ -81,7 +71,7 @@ var swipeEvents = function(el) {
 
             if (Math.abs(delta) > 50) {
 
-                if (new_event_support) {
+                if (!hasClass('html', 'no_new_event_support')) {
 
                     var event = new Event((delta >= 50) ? 'swipeLeft' : 'swipeRight');
                     el.dispatchEvent(event);
@@ -100,29 +90,29 @@ var swipeEvents = function(el) {
 
     }
 
-};
+}
 
-var initScroll = function(e, delta) { // Scroll happens
+function initScroll(e, delta) { // Scroll happens
 
-    timeNow = new Date().getTime();
+    var timeNow = new Date().getTime();
 
     // Cancel scroll if currently animating or within quiet period – don't slide again automatically after a slide
-    if ((timeNow - last_animation) < slide_duration*2000 || sliding_now) {
+    if ((timeNow - q('html').getAttribute('last_animation')) < q('html').getAttribute('slide_duration')*2000 || hasClass(q('html'), 'sliding_now')) {
 
         stopEvent(e);
 		return;
 
     }
 
-    last_animation = timeNow;
+    q('html').setAttribute('last_animation', timeNow);
 
     slide(sliderElement(e), delta < 0 ? 'right' : 'left');
 
-};
+}
 
-var mouseWheelHandler = function(e) {
+function mouseWheelHandler(e) {
 
-	if (sliding_now) {
+	if (hasClass(q('html'), 'sliding_now')) {
 		
 		stopEvent(e); 
 		return;
@@ -134,14 +124,14 @@ var mouseWheelHandler = function(e) {
     var deltaX = (e.deltaX * -10) || e.wheelDeltaX || -e.detail; // Firefox provides 'detail' with opposite value
     var deltaY = (e.deltaY * -10) || e.wheelDeltaY || -e.detail;
 /* To do: stop generating events while sliding */	
-    if (!sliding_now && Math.abs(hasClass(sliderElement(e), 'vertical') ? deltaY : deltaX) > 50) {
+    if (!hasClass(q('html'), 'sliding_now') && Math.abs(hasClass(sliderElement(e), 'vertical') ? deltaY : deltaX) > 50) {
 
         e.preventDefault();
         initScroll(e, (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY);
 
 	}
     
-};
+}
 
 function mouseEvents(el, toggle) {
 
@@ -171,14 +161,14 @@ function endSlide (slider, index) {
 		populateLightbox(slider, index);
         
     }
-    
+
 	addClass(childByClass(slider.parentNode, 'slider-nav').children[index], 'active');
 	document.onkeyup = sliderKeyboard;
     t = setTimeout(function () { 
-	    sliding_now = false;
+	    removeClass(q('html'), 'sliding_now');
 	    mouseEvents(slider); 
 		removeClass(q('html'), 'no-hover');
-	}, slide_duration/2);
+	}, q('html').getAttribute('slide_duration')/2);
 	
 }
 
@@ -196,7 +186,7 @@ function slide(el, method, index_number) {
     mouseEvents(el.parentNode, 'off');
     mouseEvents(el, 'off');
 	document.onkeyup = function () { return false; };
-	sliding_now = true;
+	addClass(q('html'), 'sliding_now');
 
     if (window.sliderTimeout) {
 
@@ -305,7 +295,7 @@ function slide(el, method, index_number) {
 			animation_code = '@' + animationPrefix + 'keyframes sliding { from { ' + animationPrefix + 'transform: ' + translate_from + '; } to { ' + animationPrefix + 'transform: ' + translate_to + '; }}'
 
 		}
-		var duration = (slider.getAttribute('data-duration') ? slider.getAttribute('data-duration') : slide_duration);
+		var duration = (slider.getAttribute('data-duration') ? slider.getAttribute('data-duration') : q('html').getAttribute('slide_duration'));
 		styles.innerHTML = animation_code + ' .sliding { animation-duration: ' + duration + 's; }';
 		document.getElementsByTagName('head')[0].appendChild(styles);
 		addClass(styles, 'sliding-style');
@@ -342,7 +332,8 @@ function sliderKeyboard(e) {
 
     e = e || window.event;
 
-    if (typeof e == 'undefined' || sliding_now) {
+    if (typeof e == 'undefined' || hasClass(q('html'), 'sliding_now')) {
+
         return;
 
     }
@@ -540,3 +531,4 @@ forEach('.slider', function(el) {
     makeSlider(el);
 
 });
+

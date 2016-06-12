@@ -83,13 +83,13 @@ function eventElement(e) {
 
 }
 
-var parseHTML = function(str) {
+function parseHTML(str) {
 
     var tmp = document.implementation.createHTMLDocument('Parsed');
     tmp.body.innerHTML = str;
     return tmp.body;
 
-};
+}
 
 function forEach(selector, fn) { // Accepts both an array and a selector
 
@@ -252,7 +252,7 @@ function qa(selector) {
 	
 }
 
-var wrap = function (toWrap, wrapper) { // Thanks yckart
+function wrap(toWrap, wrapper) { // Thanks yckart
 
     wrapper = wrapper || document.createElement('div');
 
@@ -268,7 +268,7 @@ var wrap = function (toWrap, wrapper) { // Thanks yckart
 
     return wrapper.appendChild(toWrap);
 
-};
+}
 
 function childByClass (el, cl) {
 
@@ -459,7 +459,7 @@ function scrollTo(to, callback) {
 
 }
 
-var arrow_keys_handler = function(e) {
+function arrow_keys_handler(e) {
 
     switch (e.keyCode) {
         case 37:
@@ -473,9 +473,15 @@ var arrow_keys_handler = function(e) {
             break; // do not block other keys
     }
 
-};
+}
 
 function populateLightboxItem(slider, i) {
+	
+	if (typeof i == 'undefined') {
+		
+		i = 0;
+
+	}
 	
 	var img = slider.children[i].querySelector('img');
 
@@ -783,7 +789,7 @@ q(q('footer > div > div') ? 'footer > div > div' : 'body').insertAdjacentHTML('b
 
 /* Animate anchor links */
 
-var getCumulativeOffset = function(obj) { // Offset from element to top of page
+function getCumulativeOffset(obj) { // Offset from element to top of page
 
 	var left, top;
     left = top = 0;
@@ -806,7 +812,7 @@ var getCumulativeOffset = function(obj) { // Offset from element to top of page
 
     };
 
-};
+}
 
 function animateAnchors(e) {
 
@@ -1214,7 +1220,7 @@ addEventHandler(window, 'resize', function () {
 });
 */
 
-var isInViewport = function (el) { // Thanks http://gomakethings.com/ditching-jquery/
+function isInViewport(el) { // Thanks http://gomakethings.com/ditching-jquery/
 
     var distance = el.getBoundingClientRect();
     return (
@@ -1226,7 +1232,7 @@ var isInViewport = function (el) { // Thanks http://gomakethings.com/ditching-jq
 
 };
 
-var getClosest = function (el, selector) { // Thanks http://gomakethings.com/ditching-jquery/
+function getClosest(el, selector) { // Thanks http://gomakethings.com/ditching-jquery/
 
     var firstChar = selector.charAt(0);
 
@@ -1391,6 +1397,16 @@ notifyCloseEvent();
 
 ready( function () {
 
+	try { // Android Browser etc?
+	
+	    var test_event = new Event('t');
+	
+	} catch (err) {
+	
+	    addClass('html', 'no_new_event_support');
+	
+	}
+
 	var t = setTimeout( function () {
 		
 		if (q('.lightbox:target')) {
@@ -1437,4 +1453,3 @@ function allElementsFromPoint(x, y) {
 }
 
 */
-
