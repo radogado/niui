@@ -241,7 +241,7 @@ if (!Array.prototype.indexOf) {
 }
 
 function q(selector) {
-	
+
 	return document.querySelector(selector);
 	
 }
@@ -1409,10 +1409,18 @@ ready( function () {
 
 	var t = setTimeout( function () {
 		
-		if (q('.lightbox:target')) {
+		try { /* No IE8 :target support */
 			
-			openLightbox(q('.lightbox:target > a[href]'));
+			if (q('.lightbox:target')) {
+				
+				openLightbox(q('.lightbox:target > a[href]'));
+				
+			}
+		
+		} catch (err) {
 			
+			return;	
+		
 		}
 	
 	}, 1);

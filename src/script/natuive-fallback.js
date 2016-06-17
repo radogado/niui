@@ -1,11 +1,13 @@
 /* Revert to default font if web font isn't loaded in 2" */
 // To do...
 
+"use strict";
+
  /* Load touch scroll polyfill, needed for Android Browser (Android 2.3) */
  if (q('.overthrow')) {
 
     // DOM: Create the script element
-    js_el = document.createElement("script");
+    var js_el = document.createElement("script");
     // set the type attribute
     js_el.type = "application/javascript";
     // make the script element load file
@@ -48,12 +50,12 @@ try {
 
 } catch (err) {
 	
-	flexbox_support = 0;
+	addClass(q('body'), 'no-flex');
+
 }
 
-if (detector.style.display != "flex" || !flexbox_support) { // No Flexbox support
-	
-	addClass(q('body'), 'no-flex');
+if (hasClass(q('body'), 'no-flex')) { // No Flexbox support
+
     // Flex is not supported, add col*-class-less columns the proper classes   '.row > *:not([class^="col"])'
     forEach('.row', function (el) {
 	    

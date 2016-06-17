@@ -7,7 +7,6 @@
 .row {
 
 	width: 100%;
-	display: block;
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
@@ -53,6 +52,7 @@
 
 	.no-flex .row { // Fallback
 		
+		display: block;
 		font-size: 0;
 	
 	}

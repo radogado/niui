@@ -44,7 +44,6 @@ $background: #1E8DaC;
 /* For proper fallback, use .col* for all columns. Automatic column width (no .col*) works for Flexbox only. */
 .row {
   width: 100%;
-  display: block;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -80,6 +79,7 @@ $background: #1E8DaC;
   /* instead of overflow-x:hidden, which would also activate overflow-y:hidden and clip the tooltip */ }
 
 .no-flex .row {
+  display: block;
   font-size: 0; }
 
 .no-flex .row > * {

@@ -2,8 +2,8 @@
 
 "use strict";
 
-q('html').setAttribute('last_animation', '14045017000');
-q('html').setAttribute('slide_duration', '0.5');
+q('html').setAttribute('data-last_animation', '14045017000');
+q('html').setAttribute('data-slide_duration', '0.5');
 
 function sliderElement(e) {
 
@@ -97,14 +97,14 @@ function initScroll(e, delta) { // Scroll happens
     var timeNow = new Date().getTime();
 
     // Cancel scroll if currently animating or within quiet period – don't slide again automatically after a slide
-    if ((timeNow - q('html').getAttribute('last_animation')) < q('html').getAttribute('slide_duration')*2000 || hasClass(q('html'), 'sliding_now')) {
+    if ((timeNow - q('html').getAttribute('data-last_animation')) < q('html').getAttribute('data-slide_duration')*2000 || hasClass(q('html'), 'sliding_now')) {
 
         stopEvent(e);
 		return;
 
     }
 
-    q('html').setAttribute('last_animation', timeNow);
+    q('html').setAttribute('data-last_animation', timeNow);
 
     slide(sliderElement(e), delta < 0 ? 'right' : 'left');
 
@@ -168,7 +168,7 @@ function endSlide (slider, index) {
 	    removeClass(q('html'), 'sliding_now');
 	    mouseEvents(slider); 
 		removeClass(q('html'), 'no-hover');
-	}, q('html').getAttribute('slide_duration')/2);
+	}, q('html').getAttribute('data-slide_duration')/2);
 	
 }
 
@@ -295,7 +295,7 @@ function slide(el, method, index_number) {
 			animation_code = '@' + animationPrefix + 'keyframes sliding { from { ' + animationPrefix + 'transform: ' + translate_from + '; } to { ' + animationPrefix + 'transform: ' + translate_to + '; }}'
 
 		}
-		var duration = (slider.getAttribute('data-duration') ? slider.getAttribute('data-duration') : q('html').getAttribute('slide_duration'));
+		var duration = (slider.getAttribute('data-duration') ? slider.getAttribute('data-duration') : q('html').getAttribute('data-slide_duration'));
 		styles.innerHTML = animation_code + ' .sliding { animation-duration: ' + duration + 's; }';
 		document.getElementsByTagName('head')[0].appendChild(styles);
 		addClass(styles, 'sliding-style');
