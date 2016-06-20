@@ -252,7 +252,7 @@ function slide(el, method, index_number) {
 	
 	} else {
 
-		slider.style.cssText = 'height: ' + slider.children[index].offsetHeight + 'px !important';
+		slider.style.cssText = 'height: ' + slider.children[old_index].offsetHeight + 'px !important'; console.log(slider.style.cssText);
 		
 	}
 
