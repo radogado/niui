@@ -17,7 +17,7 @@ form {
 	
 	input[type=submit], label, form .checkbox span, form label > span {
 		
-		font-size: $font-size;
+// 		font-size: $font-size;
 		line-height: $line-height;
 	// 	line-height: var(--line-height);
 		min-height: $line-height-em;
@@ -645,7 +645,7 @@ form {
 	input[type=range]::-webkit-slider-runnable-track {
 
 		width: 100%;
-		height: 11.4px;
+		height: .7125em;
 		cursor: pointer;
 		background: rgba(0, 0, 0, 0.1);
 
@@ -653,13 +653,13 @@ form {
 
 	input[type=range]::-webkit-slider-thumb {
 
-		height: 26px;
-		width: 26px;
+		height: 1.625em;
+		width: 1.625em;
 		border-radius: 50%;
 		background: #000;
 		cursor: pointer;
 		-webkit-appearance: none;
-		margin-top: -7.3px;
+		margin-top: -.45625em;
 
 	}
 
@@ -672,7 +672,7 @@ form {
 	input[type=range]::-moz-range-track {
 
 		width: 100%;
-		height: 11.4px;
+		height: .7125em;
 		cursor: pointer;
 		background: rgba(0, 0, 0, 0.1);
 
@@ -681,8 +681,8 @@ form {
 	input[type=range]::-moz-range-thumb {
 
 		border: 0px solid rgba(0, 0, 0, 0);
-		height: 26px;
-		width: 26px;
+		height: 1.625em;
+		width: 1.625em;
 		border-radius: 50%;
 		background: #000;
 		cursor: pointer;
@@ -692,7 +692,7 @@ form {
 	input[type=range]::-ms-track {
 
 		width: 100%;
-		height: 11.4px;
+		height: .7125em;
 		cursor: pointer;
 		background: transparent;
 		border-color: transparent;
@@ -715,12 +715,12 @@ form {
 	input[type=range]::-ms-thumb {
 
 		border: 0px solid rgba(0, 0, 0, 0);
-		height: 26px;
-		width: 26px;
-		border-radius: 15px;
+		height: 1.625em;
+		width: 1.625em;
+		border-radius: .9375em;
 		background: #000000;
 		cursor: pointer;
-		height: 11.4px;
+		height: .7125em;
 
 	}
 

@@ -497,7 +497,7 @@ $background: #1E8DaC;
   --background: #fff; }
 
 .button, input[type=submit], button[type=submit], button[type=reset], button, a.button[href] {
-  font-size: 16px;
+  font-size: inherit;
   line-height: 1.5;
   min-height: 1.5em;
   text-decoration: none;
@@ -523,7 +523,8 @@ $background: #1E8DaC;
 button[disabled] {
   cursor: default;
   opacity: .2;
-  margin: 0; }
+  margin: 0;
+  font-size: inherit; }
 
 .button:hover, input[type=submit]:hover, button[type=submit]:hover, button[type=reset]:hover, form button:hover, a.button[href]:hover, button:not([disabled]):hover {
   background: #eee;
@@ -600,7 +601,6 @@ form > * {
   clear: both; }
 
 input[type=submit], label, form .checkbox span, form label > span {
-  font-size: 16px;
   line-height: 1.5;
   min-height: 1.5em; }
 
@@ -999,39 +999,39 @@ input[type=range]:focus {
 
 input[type=range]::-webkit-slider-runnable-track {
   width: 100%;
-  height: 11.4px;
+  height: .7125em;
   cursor: pointer;
   background: rgba(0, 0, 0, 0.1); }
 
 input[type=range]::-webkit-slider-thumb {
-  height: 26px;
-  width: 26px;
+  height: 1.625em;
+  width: 1.625em;
   border-radius: 50%;
   background: #000;
   cursor: pointer;
   -webkit-appearance: none;
-  margin-top: -7.3px; }
+  margin-top: -.45625em; }
 
 input[type=range]:focus::-webkit-slider-runnable-track {
   background: rgba(5, 5, 5, 0.1); }
 
 input[type=range]::-moz-range-track {
   width: 100%;
-  height: 11.4px;
+  height: .7125em;
   cursor: pointer;
   background: rgba(0, 0, 0, 0.1); }
 
 input[type=range]::-moz-range-thumb {
   border: 0px solid transparent;
-  height: 26px;
-  width: 26px;
+  height: 1.625em;
+  width: 1.625em;
   border-radius: 50%;
   background: #000;
   cursor: pointer; }
 
 input[type=range]::-ms-track {
   width: 100%;
-  height: 11.4px;
+  height: .7125em;
   cursor: pointer;
   background: transparent;
   border-color: transparent;
@@ -1045,12 +1045,12 @@ input[type=range]::-ms-fill-upper {
 
 input[type=range]::-ms-thumb {
   border: 0px solid transparent;
-  height: 26px;
-  width: 26px;
-  border-radius: 15px;
+  height: 1.625em;
+  width: 1.625em;
+  border-radius: .9375em;
   background: #000000;
   cursor: pointer;
-  height: 11.4px; }
+  height: .7125em; }
 
 input[type=range]:focus::-ms-fill-lower {
   background: rgba(0, 0, 0, 0.1); }
@@ -1359,8 +1359,10 @@ nav.drop ul li {
 nav.drop ul li b.sub {
   display: inline-block;
   padding: 1em;
-  font-size: 16px;
-  font-size: 1rem;
+  /*
+  	font-size: $font-size;
+  	font-size: 1rem;
+  */
   line-height: 1;
   margin-left: -.3em;
   mix-blend-mode: multiply; }
@@ -1410,8 +1412,10 @@ nav.drop ul li a {
   padding: 1em;
   display: inline-block;
   position: relative;
-  font-size: 16px;
-  font-size: 1rem;
+  /*
+  	font-size: $font-size;
+  	font-size: 1rem;
+  */
   line-height: 1; }
 
 nav.drop ul li a[href] {
@@ -1589,7 +1593,6 @@ $background: #1E8DaC;
 
 ul {
   padding: 0;
-  font-size: 16px;
   line-height: 1.5;
   min-height: 1.5em;
   margin: 1.5em 0 1.5em 0; }

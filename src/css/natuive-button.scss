@@ -4,7 +4,8 @@
 
 .button, input[type=submit], button[type=submit], button[type=reset], button, a.button[href] {
 
-	font-size: $font-size;
+// 	font-size: $font-size;
+	font-size: inherit;
 	line-height: $line-height;
 	// 	line-height: var(--line-height);
 	min-height: $line-height-em;
@@ -36,6 +37,7 @@
 		cursor: default;
 		opacity: .2;
 		margin: 0;
+		font-size: inherit;
 
 	}
 
