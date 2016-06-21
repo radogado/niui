@@ -2171,7 +2171,8 @@ $background: #1E8DaC;
   padding: 1em 0;
   top: 50%;
   -webkit-transform: translateY(-50%);
-  transform: translateY(-50%); }
+  transform: translateY(-50%);
+  z-index: 1; }
 
 .slider-nav a {
   display: inline-block;
