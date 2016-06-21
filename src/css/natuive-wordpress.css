@@ -961,7 +961,8 @@ form textarea {
 form input[type=submit] {
   width: auto;
   min-width: 0;
-  padding: 0 1em; }
+  padding: 0 1em;
+  min-height: 2.50005em; }
 
 form .mandatory:before {
   left: auto;
