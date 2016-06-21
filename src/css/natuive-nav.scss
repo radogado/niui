@@ -353,10 +353,17 @@ input.trigger, input.trigger ~ input[type=reset] {
 }
 
 @media screen and (max-width: $screen-narrow) {
+	
+	nav, nav ul {
+		
+		width: 100%;
 
-	nav li {
+	}
+
+	nav ul li, nav li a {
 		
 		margin: 0;
+		display: block;
 
 	}
 	
@@ -441,6 +448,9 @@ input.trigger, input.trigger ~ input[type=reset] {
 		position: fixed;
 		top: 0;
 		left: 0;
+		text-align: start;
+		max-height: 100%;
+		overflow: auto;
 
 	}
 	
@@ -466,6 +476,12 @@ input.trigger, input.trigger ~ input[type=reset] {
 		
 	}
 
+	[dir=rtl] input.trigger.burger {
+		
+		right: 0;
+
+	}
+	
 	input.trigger.burger ~ ul, nav.drop ul ul, nav.drop ul .trigger:not(:checked) ~ ul, .no-touch nav.drop ul li:hover .trigger:not(:checked) ~ ul, input.trigger.burger ~ div, nav.drop ul .trigger:not(:checked) ~ div, .no-touch nav.drop ul li:hover .trigger:not(:checked) ~ div {
 		
 		display: none;

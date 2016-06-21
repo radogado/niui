@@ -32,6 +32,13 @@
 html {
 	
 	overflow-x: hidden;
+	
+	/* Mobile nav unwanted page scrolling fix */
+/*
+	position: fixed;
+	width: 100%;
+	-webkit-overflow-scrolling: touch;
+*/
 
 }
 
@@ -57,6 +64,12 @@ body {
 	color: var(--color);
 	background: $background;
 	background: var(--background);
+	
+	/* Mobile nav unwanted page scrolling fix */
+/*
+	height: 100%;
+	overflow: auto;
+*/
 
 }
 
@@ -187,14 +200,6 @@ footer .row > * {
 	
 	position: static;
 
-}
-
-.quote, blockquote {
-	
-	margin-left: 1em;
-	border-left: 1px solid #bbb;
-	padding-left: 1em;
-	
 }
 
 video {

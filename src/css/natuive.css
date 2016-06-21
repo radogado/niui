@@ -478,6 +478,19 @@ hr {
   margin: 1em 0;
   padding: 0; }
 
+.quote, blockquote {
+  margin-left: 1em;
+  border-left: 1px solid #bbb;
+  padding-left: 1em; }
+
+[dir=rtl] .quote, [dir=rtl] blockquote {
+  margin-left: 0;
+  border-left: none;
+  padding-left: 0;
+  margin-right: 1em;
+  border-right: 1px solid #bbb;
+  padding-right: 1em; }
+
 /* natUIve – Button */
 /*
 $color: #fff;
@@ -1501,8 +1514,12 @@ input.trigger, input.trigger ~ input[type=reset] {
   padding: 0; }
 
 @media screen and (max-width: 640px) {
-  nav li {
-    margin: 0; }
+  nav, nav ul {
+    width: 100%; }
+
+  nav ul li, nav li a {
+    margin: 0;
+    display: block; }
 
   header nav.sub li a {
     padding: .5em 0; }
@@ -1553,7 +1570,10 @@ input.trigger, input.trigger ~ input[type=reset] {
   header.fixed > nav {
     position: fixed;
     top: 0;
-    left: 0; }
+    left: 0;
+    text-align: start;
+    max-height: 100%;
+    overflow: auto; }
 
   header.fixed input.trigger.burger ~ div {
     background: #fff;
@@ -1567,6 +1587,9 @@ input.trigger, input.trigger ~ input[type=reset] {
     display: inline-block;
     width: 2em;
     height: 2em; }
+
+  [dir=rtl] input.trigger.burger {
+    right: 0; }
 
   input.trigger.burger ~ ul, nav.drop ul ul, nav.drop ul .trigger:not(:checked) ~ ul, .no-touch nav.drop ul li:hover .trigger:not(:checked) ~ ul, input.trigger.burger ~ div, nav.drop ul .trigger:not(:checked) ~ div, .no-touch nav.drop ul li:hover .trigger:not(:checked) ~ div {
     display: none; }
@@ -2413,7 +2436,13 @@ $background: #1E8DaC;
 
 /* Basic elements */
 html {
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  /* Mobile nav unwanted page scrolling fix */
+  /*
+  	position: fixed;
+  	width: 100%;
+  	-webkit-overflow-scrolling: touch;
+  */ }
 
 html, body {
   height: 100%;
@@ -2433,7 +2462,12 @@ body {
   /* Fallback when CSS variables aren't supported */
   color: var(--color);
   background: #fff;
-  background: var(--background); }
+  background: var(--background);
+  /* Mobile nav unwanted page scrolling fix */
+  /*
+  	height: 100%;
+  	overflow: auto;
+  */ }
 
 body * {
   -webkit-box-sizing: border-box;
@@ -2508,11 +2542,6 @@ footer {
 
 footer .row > * {
   position: static; }
-
-.quote, blockquote {
-  margin-left: 1em;
-  border-left: 1px solid #bbb;
-  padding-left: 1em; }
 
 video {
   height: auto !important;

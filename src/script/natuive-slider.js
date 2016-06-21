@@ -416,13 +416,13 @@ function makeSlider(el, current_slide) {
         		// IE8 counts comments as children and produces an empty slide.			
 //         		if ( el.children[i].nodeName == '#comment' ) {	}
 
-        if (el.children[i].querySelector('.tab')) {
+        if (el.children[i].querySelector('.tab-title')) {
 
             var slider_nav = el.parentNode.querySelector('.slider-nav');
             addClass(el.parentNode, 'tabs');
             addClass(slider_nav, 'row');
             transferClass(el.parentNode, slider_nav, 'wrap');
-            slider_nav.insertAdjacentHTML('beforeend', (!i ? '<a class=active>' : '<a>') + el.children[i].querySelector('.tab').innerHTML + '</a>');
+            slider_nav.insertAdjacentHTML('beforeend', (!i ? '<a class=active>' : '<a>') + el.children[i].querySelector('.tab-title').innerHTML + '</a>');
             if (hasClass(el, 'vertical')) {
 	            
 	            addClass(el.parentNode, 'vertical-tabs');

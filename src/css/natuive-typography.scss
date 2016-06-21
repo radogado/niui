@@ -139,3 +139,23 @@ hr {
     padding: 0;
 
 }
+
+.quote, blockquote {
+	
+	margin-left: 1em;
+	border-left: 1px solid #bbb;
+	padding-left: 1em;
+	
+}
+
+[dir=rtl] .quote, [dir=rtl] blockquote {
+	
+	margin-left: 0;
+	border-left: none;
+	padding-left: 0;
+	margin-right: 1em;
+	border-right: 1px solid #bbb;
+	padding-right: 1em;
+	
+}
+
