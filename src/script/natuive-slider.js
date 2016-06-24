@@ -243,7 +243,7 @@ function slide(el, method, index_number) {
 	addClass(slider.children[index], 'visible');
 	if (!hasClass(slider, 'vertical')) {
 		
-		slider.style.cssText = 'height: ' + slider.offsetHeight + 'px !important';
+		slider.style.cssText = 'height: ' + slider.offsetHeight + 'px !important;';
 		if (slider.getAttribute('dir') == 'rtl') {
 			
 			offset_sign = '';
@@ -252,9 +252,12 @@ function slide(el, method, index_number) {
 	
 	} else {
 
-		slider.style.cssText = 'height: ' + slider.children[Math.min(old_index, index)].offsetHeight + 'px !important'; console.log(slider.style.cssText);
+		slider.style.cssText = 'height: ' + slider.children[Math.min(old_index, index)].offsetHeight + 'px !important;';
 		
 	}
+	
+	var duration = (slider.getAttribute('data-duration') ? slider.getAttribute('data-duration') : q('html').getAttribute('data-slide_duration'));
+	slider.style.cssText = slider.style.cssText + 'transition-duration: ' + duration + 's';
 
 	if (childByClass(slider.parentNode, 'slider-nav').querySelector('.active')) {
 
@@ -263,6 +266,12 @@ function slide(el, method, index_number) {
     }
 
     if (animationEvent) { // CSS transition-enabled browser...
+
+		if (!index_number) {
+	
+			addClass(q('html'), 'no-hover');
+		
+		}
 
 	    if (hasClass(slider, 'vertical')) {
 		
@@ -276,26 +285,21 @@ function slide(el, method, index_number) {
 			
 		}
 	    
-		if (!index_number) {
-	
-			addClass(q('html'), 'no-hover');
-		
-		}
-
 		var styles = document.createElement('style');
 
 		var animation_code;
+		var animationPrefix = ('WebkitAppearance' in document.documentElement.style) ? '-webkit-' : '';
 
 		if (hasClass(slider, 'fade')) {
 
-			animation_code = '@' + animationPrefix + 'keyframes sliding { from { opacity: 1; ' + animationPrefix + 'transform: ' + translate_from + '; } to { opacity: 0; ' + animationPrefix + 'transform: ' + translate_from + '; }}';
+			animation_code = '@' + animationPrefix + 'keyframes sliding { 0% { opacity: 1; transform: ' + translate_from + ' } 49% { transform: ' + translate_from + ' } 50% { opacity: 0; transform:' + translate_to + ' } 100% { opacity: 1; transform:' + translate_to + ' } }';
 		
 		} else {
 			
 			animation_code = '@' + animationPrefix + 'keyframes sliding { from { ' + animationPrefix + 'transform: ' + translate_from + '; } to { ' + animationPrefix + 'transform: ' + translate_to + '; }}'
 
 		}
-		var duration = (slider.getAttribute('data-duration') ? slider.getAttribute('data-duration') : q('html').getAttribute('data-slide_duration'));
+
 		styles.innerHTML = animation_code + ' .sliding { animation-duration: ' + duration + 's; }';
 		document.getElementsByTagName('head')[0].appendChild(styles);
 		addClass(styles, 'sliding-style');
@@ -311,7 +315,7 @@ function slide(el, method, index_number) {
 			}
 
 			removeClass(slider,'sliding');
-			slider.style.cssText = animationPrefix + 'transform: ' + (hasClass(slider, 'vertical') ? 'translateY(0)' : 'translateX(' + offset_sign + index + '00%); transition: opacity ' + duration + 's linear;');
+			slider.style.cssText = animationPrefix + 'transform: ' + (hasClass(slider, 'vertical') ? 'translateY(0)' : 'translateX(' + offset_sign + index + '00%);'); /* A different transform than above one, without the old slide */
 			q('.sliding-style').outerHTML = '';
 			
 			endSlide(slider, index);

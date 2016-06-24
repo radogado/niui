@@ -1046,7 +1046,7 @@ function updateFileInput(e) {
 
     var el = eventElement(e);
 
-    el.parentNode.querySelector('span').innerHTML = el.value.substring(el.value.lastIndexOf('\\') + 1)
+    el.parentNode.querySelector('span').innerHTML = el.value.substring(el.value.lastIndexOf('\\') + 1);
 
 }
 

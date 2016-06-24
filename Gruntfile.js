@@ -21,26 +21,35 @@ module.exports = function(grunt) {
 		    }
 		  }
 		},
-	  'closure-compiler': {
-	    frontend: {
-	      closurePath: './node_modules/closure-compiler',
-	      js: ['src/script/natuive.js', 'src/script/natuive-slider.js', 'src/script/natuive-fallback.js'],
-	      jsOutputFile: 'dist/natuive.min.js',
-	      maxBuffer: 500,
+		'closure-compiler': {
+		frontend: {
+		  closurePath: './node_modules/closure-compiler',
+		  js: ['src/script/natuive.js', 'src/script/natuive-slider.js', 'src/script/natuive-fallback.js'],
+		  jsOutputFile: 'dist/natuive.min.js',
+		  maxBuffer: 500,
 		  noreport: true,
-	      options: {
-	        compilation_level: 'ADVANCED_OPTIMIZATIONS',
-	        language_in: 'ECMASCRIPT5_STRICT',
-	      }
-	    }
-	  }
+		  options: {
+		    compilation_level: 'ADVANCED_OPTIMIZATIONS',
+		    language_in: 'ECMASCRIPT5_STRICT',
+		  }
+		}
+		},
+		'copy': {
+		  main: {
+		    expand: true,
+		    cwd: 'dist',
+		    src: 'natuive.min.js',
+		    dest: 'natuive-wordpress/',
+		  }
+		}  
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-closure-compiler');
+	grunt.loadNpmTasks('grunt-contrib-copy');
 
 	// Default task(s).
-	grunt.registerTask('default', ['sass', 'cssmin', 'closure-compiler']);
+	grunt.registerTask('default', ['sass', 'cssmin', 'closure-compiler', 'copy']);
 
 };

@@ -255,7 +255,7 @@
 .slider-wrap .slider.sliding {
 
 	-webkit-transform: none !important;
-	-ms-transform: none !important;
+	transform: none !important;
 
 }
 
@@ -479,7 +479,6 @@
 	.slider-wrap.tabs > .slider-nav a {
 		
 		-webkit-flex: 0 1 auto;
-		-ms-flex: 0 1 auto;
 		flex: 0 1 auto;
 
 	}
@@ -527,7 +526,6 @@
 		right: auto;
 		position: static;
 		-webkit-transform: none;
-		-ms-transform: none;
 		transform: none;
 		
 	}
@@ -566,7 +564,6 @@
 // 		line-height: var(--line-height);
 		padding: 0 .5em;
 		-webkit-flex: 1;
-		-ms-flex: 1;
 		flex: 1;
 		margin: 0;
 		white-space: normal;
@@ -621,12 +618,6 @@
 	-webkit-animation-name: sliding;
 	animation-name: sliding;
 	
-}
-
-.slider.fade.sliding {
-
-	opacity: 0;
-
 }
 
 .slider.center > * {
