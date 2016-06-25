@@ -1938,12 +1938,7 @@ $background: #1E8DaC;
   -ms-transform-style: preserve-3d;
   transform-style: preserve-3d;
   -webkit-transition: none;
-  -ms-transition: none;
   transition: none;
-  -ms-transition: top .2s linear;
-  transition: top .2s linear;
-  -ms-transition: left .2s linear;
-  transition: left .2s linear;
   display: flex; }
 
 .slider-wrap .slider {
@@ -2008,10 +2003,6 @@ $background: #1E8DaC;
 
 .slider-wrap .slider.sliding > *:not(.visible) {
   display: none; }
-
-.slider-wrap .slider.sliding {
-  -webkit-transform: none !important;
-  transform: none !important; }
 
 .slider > *.visible {
   display: inline-block; }
