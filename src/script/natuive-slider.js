@@ -243,7 +243,7 @@ function slide(el, method, index_number) {
 	addClass(slider.children[index], 'visible');
 	if (!hasClass(slider, 'vertical')) {
 		
-		slider.style.cssText = 'height: ' + slider.offsetHeight + 'px !important;';
+		var computed_style = getComputedStyle(slider);
 		if (slider.getAttribute('dir') == 'rtl') {
 			
 			offset_sign = '';
@@ -252,9 +252,11 @@ function slide(el, method, index_number) {
 	
 	} else {
 
-		slider.style.cssText = 'height: ' + slider.children[Math.min(old_index, index)].offsetHeight + 'px !important;';
+		var computed_style = getComputedStyle(slider.children[Math.min(old_index, index)]);
 		
 	}
+
+	slider.style.cssText = 'height: ' + computed_style.height + '!important;';
 	
 	var duration = (slider.getAttribute('data-duration') ? slider.getAttribute('data-duration') : q('html').getAttribute('data-slide_duration'));
 	slider.style.cssText = slider.style.cssText + 'transition-duration: ' + duration + 's';
