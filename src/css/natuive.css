@@ -530,7 +530,6 @@ $background: #1E8DaC;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none; }
 
 button[disabled] {
@@ -659,9 +658,9 @@ form.sticky-submit input[type=submit] {
   transform: translateY(-50%); }
 
 form.wide input[type=submit] {
-  margin-bottom: calc(1.5em - 2px);
+  margin-bottom: calc(1.5em/2 + 2px);
   /* fix for the failed box-sizing: border-box */
-  min-height: calc(1.5em*2 + 2px); }
+  min-height: calc(1.5em*2 - 2px); }
 
 input, select, textarea, input[type=search], form button {
   background-color: rgba(0, 0, 0, 0.1);
@@ -700,7 +699,6 @@ form .checkbox span {
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none; }
 
 form .checkbox {
@@ -1259,7 +1257,6 @@ td[data-sort] {
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none; }
 
 @media screen and (min-width: 1px) {
@@ -1352,7 +1349,6 @@ nav.drop * {
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none; }
 
 nav.drop ul {
@@ -1726,16 +1722,10 @@ $background: #1E8DaC;
   text-align: start;
   width: 100%;
   cursor: pointer;
-  -webkit-transition: padding 0.25s;
-  -moz-transition: padding 0.25s;
-  -ms-transition: padding 0.25s;
-  -o-transition: padding 0.25s;
-  transition: padding 0.25s;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none; }
 
 .accordion > div {
@@ -1891,7 +1881,8 @@ $background: #1E8DaC;
   display: block; }
 
 .slider-wrap.vertical.tabs > .slider-nav a {
-  display: block; }
+  display: block;
+  box-sizing: border-box; }
 
 .full-window-wrap .slider-wrap {
   top: 0px;
@@ -2134,7 +2125,6 @@ $background: #1E8DaC;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none; }
 
 .slider-nav {

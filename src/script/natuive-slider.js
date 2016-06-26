@@ -290,7 +290,6 @@ function slide(el, method, index_number) {
 		var styles = document.createElement('style');
 
 		var animation_code;
-		var animationPrefix = ('WebkitAppearance' in document.documentElement.style) ? '-webkit-' : '';
 
 		if (hasClass(slider, 'fade')) {
 
