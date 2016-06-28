@@ -342,52 +342,46 @@ function sliderKeyboard(e) {
         return;
 
     }
-
-    var el = e.target || e.srcElement;
-
-    if (q('.slider')) {
-
-        var tag = el.tagName.toLowerCase();
-        if (tag != 'input' && tag != 'textarea') {
-
-            el = q('.slider.full-window') || q('.slider.lightbox') || q('.slider');
-/*
-			if (!isInViewport(el)) {
-
-				return;
-				
-			}
-*/
-            switch (e.which) {
-
-                case 38:
-                	if (!hasClass(el,'vertical')) {
-	                	
-	                	return;
-
-                	}
-                case 37:
-                    slide(el, 'left');
-                    break;
-                case 40:
-                	if (!hasClass(el,'vertical')) {
-	                	
-	                	return;
-
-                	}
-                case 39:
-                    slide(el, 'right');
-                    break;
-                default:
-                    return;
-
-            }
-
-        }
+	
+	var el = eventElement(e);    
+	var tag = el.tagName.toLowerCase();
+    if (tag == 'input' || tag == 'textarea') {
+	    
+	    return;
 
     }
+	
+	/* To do: process all sliders and check if in view, instead of only the first one */
+	if (el = q('.full-window-wrap .slider') || q('.slider')) {
+		
+        switch (e.which) {
 
-};
+            case 38:
+            	if (!hasClass(el,'vertical')) {
+                	
+                	return;
+
+            	}
+            case 37:
+                slide(el, 'left');
+                break;
+            case 40:
+            	if (!hasClass(el,'vertical')) {
+                	
+                	return;
+
+            	}
+            case 39:
+                slide(el, 'right');
+                break;
+            default:
+                return;
+
+        }
+		
+	}
+
+}
 
 function makeSlider(el, current_slide) {
 
