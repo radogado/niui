@@ -337,23 +337,23 @@ function sliderKeyboard(e) {
 
     e = e || window.event;
 
-    if (typeof e == 'undefined' || hasClass(q('html'), 'sliding_now')) {
+    if (typeof e == 'undefined' || hasClass(q('html'), 'sliding_now') || q('.slider.sliding')) {
 
         return;
 
     }
-	
-	var el = eventElement(e);    
-	var tag = el.tagName.toLowerCase();
-    if (tag == 'input' || tag == 'textarea') {
-	    
-	    return;
 
-    }
-	
-	/* To do: process all sliders and check if in view, instead of only the first one */
-	if (el = q('.full-window-wrap .slider') || q('.slider')) {
+	var el = eventElement(e);
+	var tag = el.tagName.toLowerCase();
+
+	if (tag != 'input' && tag != 'textarea' && (el = q('.full-window-wrap .slider') || qa('.slider'))) {
 		
+		if (typeof el.length != 'undefined') { /* An array of sliders */
+			
+			el = el[0]; /* To do: choose the proper, visible in viewport slider, by its index */
+			
+		}
+
         switch (e.which) {
 
             case 38:
