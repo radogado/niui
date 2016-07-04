@@ -2579,6 +2579,9 @@ video a[href] {
 .fixed {
   position: fixed; }
 
+header.fixed {
+  position: static; }
+
 /* Narrow Screens */
 @media screen and (max-width: 640px) {
   header {
