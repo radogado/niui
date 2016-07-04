@@ -32,13 +32,6 @@
 html {
 	
 	overflow-x: hidden;
-	
-	/* Mobile nav unwanted page scrolling fix */
-/*
-	position: fixed;
-	width: 100%;
-	-webkit-overflow-scrolling: touch;
-*/
 
 }
 
@@ -65,12 +58,6 @@ body {
 	background: $background;
 	background: var(--background);
 	
-	/* Mobile nav unwanted page scrolling fix */
-/*
-	height: 100%;
-	overflow: auto;
-*/
-
 }
 
 body * {
@@ -294,6 +281,12 @@ video a[href] {
 
 }
 
+.fixed {
+	
+	position: fixed;
+
+}
+
 /* Narrow Screens */
 
 @media screen and (max-width: $screen-narrow) {
@@ -356,7 +349,7 @@ video a[href] {
 		left: 0;
 		right: 0;
 		background: #fff;
-		z-index: 2;
+		z-index: 7;
 	
 	}
 	

@@ -1529,10 +1529,11 @@ input.trigger, input.trigger ~ input[type=reset] {
     position: relative; }
 
   nav.drop:before, header > nav:before {
-    content: '🍔';
-    width: 2em;
-    height: 2em;
-    line-height: 2em;
+    content: '\2630';
+    width: 1.5em;
+    height: 1.5em;
+    line-height: 1.5em;
+    font-size: 2em;
     display: inline-block;
     text-align: center; }
 
@@ -1582,8 +1583,8 @@ input.trigger, input.trigger ~ input[type=reset] {
 
   input.trigger.burger {
     display: inline-block;
-    width: 2em;
-    height: 2em; }
+    width: 3em;
+    height: 3em; }
 
   [dir=rtl] input.trigger.burger {
     right: 0; }
@@ -2413,13 +2414,7 @@ $background: #1E8DaC;
 
 /* Basic elements */
 html {
-  overflow-x: hidden;
-  /* Mobile nav unwanted page scrolling fix */
-  /*
-  	position: fixed;
-  	width: 100%;
-  	-webkit-overflow-scrolling: touch;
-  */ }
+  overflow-x: hidden; }
 
 html, body {
   height: 100%;
@@ -2439,12 +2434,7 @@ body {
   /* Fallback when CSS variables aren't supported */
   color: var(--color);
   background: #fff;
-  background: var(--background);
-  /* Mobile nav unwanted page scrolling fix */
-  /*
-  	height: 100%;
-  	overflow: auto;
-  */ }
+  background: var(--background); }
 
 body * {
   -webkit-box-sizing: border-box;
@@ -2585,6 +2575,9 @@ video a[href] {
   right: 0;
   z-index: 2; }
 
+.fixed {
+  position: fixed; }
+
 /* Narrow Screens */
 @media screen and (max-width: 640px) {
   header {
@@ -2620,7 +2613,7 @@ video a[href] {
     left: 0;
     right: 0;
     background: #fff;
-    z-index: 2; }
+    z-index: 7; }
 
   header.fixed .row > * {
     padding: 0;

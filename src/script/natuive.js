@@ -429,7 +429,7 @@ for(var t in animations){
 
 var	animationPrefix = animationEvent == 'webkitAnimationEnd' ? '-webkit-' : ''; 
 
-function scrollTo(to, callback) {
+function scrollToAnimated(to, callback) {
 	
 	if (typeof document.body.style.transition != 'string') {
 		
@@ -855,7 +855,7 @@ function animateAnchors(e) {
 
 	}
 
-    scrollTo((hash == null) ? 0 : getCumulativeOffset(hash).y, function(e) {
+    scrollToAnimated((hash == null) ? 0 : getCumulativeOffset(hash).y, function(e) {
 
         window.location = el.href.split('#')[0] + '#' + el.href.split('#').pop();
 
@@ -1461,3 +1461,28 @@ function allElementsFromPoint(x, y) {
 }
 
 */
+
+/*
+$(".page").on("touchmove", function(event) {
+  event.preventDefault()
+});
+*/
+
+/* Mobile menu – freeze page content behind the menu */
+q('header.fixed input.trigger.burger').onchange = function (e) {
+	
+	if (hasClass(q('body'),'fixed')) {
+		
+		var offset = q('body').style.top;
+		q('body').style.top = 0;
+		removeClass(q('body'), 'fixed');
+		window.scrollTo(0, Math.abs(parseInt(offset, 10)));
+		
+	} else {
+		
+		q('body').style.top = (-1 * window.scrollY) + 'px';
+		addClass(q('body'), 'fixed');
+	
+	}
+
+};

@@ -384,10 +384,11 @@ input.trigger, input.trigger ~ input[type=reset] {
 	
 	nav.drop:before, header > nav:before {
 		
-		content: '🍔';
-		width: 2em;
-		height: 2em;
-		line-height: 2em;
+		content: '\2630';
+		width: 1.5em;
+		height: 1.5em;
+		line-height: 1.5em;
+		font-size: 2em;
 		display: inline-block;
 		text-align: center;
 	
@@ -470,8 +471,8 @@ input.trigger, input.trigger ~ input[type=reset] {
 	input.trigger.burger {
 		
 		display: inline-block;
-		width: 2em;
-		height: 2em;
+		width: 3em;
+		height: 3em;
 		
 	}
 
