@@ -1431,8 +1431,7 @@ nav.drop ul li a {
   line-height: 1; }
 
 nav.drop ul li a[href] {
-  z-index: 5;
-  white-space: initial; }
+  z-index: 5; }
 
 nav.drop ul li input ~ a[href] {
   /* Arrow space */
