@@ -366,7 +366,7 @@ input.trigger, input.trigger ~ input[type=reset] {
 
 	}
 	
-	header nav.sub li a {
+	header nav li a {
 		
 		padding: .5em 0;
 
@@ -450,14 +450,15 @@ input.trigger, input.trigger ~ input[type=reset] {
 		left: 0;
 		text-align: start;
 		max-height: 100%;
-		overflow: auto;
+		overflow: scroll;
+// 		-webkit-overflow-scrolling: auto;
 
 	}
 	
 	header.fixed input.trigger.burger ~ div {
 		
 		background: #fff;
-		margin: 0;
+		margin: -.2em 0 0 0;
 		padding: .5em;
 
 	}
