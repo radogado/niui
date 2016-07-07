@@ -585,6 +585,7 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 	.row.border-all > *:not(:first-child), .row.border-all .row>*:not(:first-child) {
 		
 		border-left: none;
+		border-top: 1px solid;
 
 	}
 

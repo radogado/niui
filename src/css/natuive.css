@@ -376,7 +376,8 @@ section:before, section:after {
     flex: 0 0 50%; }
 
   .row.border-all > *:not(:first-child), .row.border-all .row > *:not(:first-child) {
-    border-left: none; }
+    border-left: none;
+    border-top: 1px solid; }
 
   .masonry {
     -moz-column-count: 2;
