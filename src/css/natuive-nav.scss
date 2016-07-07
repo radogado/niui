@@ -222,6 +222,12 @@ nav.drop ul li a {
 nav.drop ul li a[href] {
 
 	z-index: 5;
+	white-space: initial;
+
+}
+
+nav.drop ul li input ~ a[href] { /* Arrow space */
+
 	width: calc(100% - 2.5em);
 
 }

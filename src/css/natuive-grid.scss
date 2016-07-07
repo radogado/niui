@@ -230,14 +230,14 @@
 	
 	}
 	
-.align-left, .align-left *, .row > .align-left {
+.align-left, .align-right .align-left *, .align-left *, .row > .align-left {
 	
 	text-align: left;
 	text-align: start;
 
 }
 
-.align-right, .align-right *, .row > .align-right {
+.align-right, .align-left .align-right *, .align-right *, .row > .align-right {
 	
 	text-align: right;	
 	text-align: end;
