@@ -2559,7 +2559,8 @@ video a[href] {
 .fixed-background {
   /* Element as a window to an image spanning viewpoert dimensions */
   background-attachment: fixed;
-  background-size: cover; }
+  background-size: cover;
+  background-position: center; }
 
 /* Notification bar */
 .notify {
