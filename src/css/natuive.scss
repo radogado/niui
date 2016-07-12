@@ -229,11 +229,10 @@ video a[href] {
 	
 	}
 
-	@-moz-document url-prefix() { // Disabled in FF because it doesn't work there
+	@-moz-document url-prefix() { // No-flex version for FF
 
-		.aspect { display: block; }
-		.aspect > * { display: inline-block; vertical-align: top; }
-		.aspect > span { display: none; }
+		.aspect { display: block; font-size: 0; }
+		.aspect > * { display: inline-block; }
 
 	}
 

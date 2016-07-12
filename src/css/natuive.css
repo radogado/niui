@@ -2542,14 +2542,11 @@ video a[href] {
 
 @-moz-document url-prefix() {
   .aspect {
-    display: block; }
+    display: block;
+    font-size: 0; }
 
   .aspect > * {
-    display: inline-block;
-    vertical-align: top; }
-
-  .aspect > span {
-    display: none; } }
+    display: inline-block; } }
 /* Overthrow CSS:
    For Mobile devices not supporting overflow: scroll. Enable overflow: auto on elements with overthrow class when html element has overthrow class too */
 .overthrow-enabled .overthrow {
