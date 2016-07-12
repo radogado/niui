@@ -245,12 +245,51 @@ video a[href] {
 
 }
 
-.fixed-background { /* Element as a window to an image spanning viewpoert dimensions */
+/* Element as a window to an image spanning viewpoert dimensions. iOS doesn't support it natively and requires div.fixed-background-image */
+
+.fixed-background { 
 
 	background-attachment: fixed;
+	background-position: center;
+	position: relative;
+	background-size: 0;
+	overflow: hidden;
+	
+}
+
+.no-touch .fixed-background { 
+
+	background-size: cover;
+	
+}
+
+.no-touch .fixed-background-image {
+	
+	display: none;
+
+}
+
+.fixed-background-image {
+	
+	position: absolute;
+	background-image: inherit;
+	background-size: 0;
+	z-index: -1;
+	
+}
+
+.fixed-background-image:before {
+	
+	content: '';
+	position: fixed;
+	z-index: -1;
+	height: 100%;
+	width: 100%;
+	background-image: inherit;
+	top: 0;
 	background-size: cover;
 	background-position: center;
-	
+
 }
 
 /* Notification bar */

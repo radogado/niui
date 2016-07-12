@@ -71,7 +71,7 @@ function swipeEvents(el) {
 
             if (Math.abs(delta) > 50) {
 
-                if (!hasClass('html', 'no_new_event_support')) {
+                if (!hasClass(q('html'), 'no_new_event_support')) {
 
                     var event = new Event((delta >= 50) ? 'swipeLeft' : 'swipeRight');
                     el.dispatchEvent(event);

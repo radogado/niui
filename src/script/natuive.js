@@ -3,46 +3,51 @@
 
 "use strict";
 
+// classList polyfill for IE9-. If no classList support, insert classList.min.js synchronously
+
+var scripts_location = document.getElementsByTagName('script');
+scripts_location = scripts_location[scripts_location.length-1].src;
+scripts_location = scripts_location.slice(0, scripts_location.length - scripts_location.split('/').pop().length);
+
+function loadScriptFile(file_name) {
+	
+    var js_el = document.createElement("script");
+    js_el.type = "text/javascript";
+    js_el.src = scripts_location + file_name;
+    document.head.appendChild(js_el);
+
+}
+
+if (!("classList" in document.createElement("_"))) {
+
+	loadScriptFile('polyfill-classList.min.js');
+
+}
+
+if (!Array.prototype.indexOf) {
+
+	loadScriptFile('polyfill-indexof.js');
+
+}
+
+// DOM functions
+
 function addClass(el, className) {
 
-    if (el.classList) {
-		
-        el.classList.add(className);
-
-    } else {
-
-        el.className += ' ' + className;
-
-    }
+	el.classList.add(className);
 
 }
 
 function removeClass(el, className) {
 
-    if (el.classList) {
-
-        el.classList.remove(className);
-
-    } else {
-
-	    el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
-
-    }
+	el.classList.remove(className);
 
 }
 
 function hasClass(el, className) {
 	
-	if (el.classList) {
-		
-		return el.classList.contains(className);
+	return el.classList.contains(className);
 
-	} else {
-		
-	    return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
-			
-	}
-	
 }
 
 function toggleClass(el, className) {
@@ -219,27 +224,6 @@ function touchSupport () {
 
 }
 
-if (!Array.prototype.indexOf) {
-
-    Array.prototype.indexOf = function(el) {
-
-        var len = this.length >>> 0;
-
-        from = Number(arguments[1]) || 0;
-        from = (from < 0) ? Math.ceil(from) : Math.floor(from);
-        if (from < 0)
-            from += len;
-
-        for (; from < len; from++) {
-            if (from in this && this[from] === el)
-                return from;
-        }
-        return -1;
-
-    };
-
-}
-
 function q(selector) {
 
 	return document.querySelector(selector);
@@ -306,10 +290,6 @@ function ready(fn) {
 }
 
 /* ––– */
-
-var scripts_location = document.getElementsByTagName('script');
-scripts_location = scripts_location[scripts_location.length-1].src;
-scripts_location = scripts_location.slice(0, scripts_location.length - scripts_location.split('/').pop().length);
 
 forEach('table', function(el) {
 
@@ -1321,7 +1301,7 @@ function sortTable (table, column, f) {
 
 }
 
-forEach ('td[data-sort]', function (el) {
+forEach('td[data-sort]', function (el) {
 	// asc or desc
 	if (el.getAttribute('data-sort') != 'asc' && el.getAttribute('data-sort') != 'desc') {
 		
@@ -1403,7 +1383,7 @@ ready( function () {
 	
 	} catch (err) {
 	
-	    addClass('html', 'no_new_event_support');
+	    addClass(q('html'), 'no_new_event_support');
 	
 	}
 
