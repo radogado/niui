@@ -254,7 +254,8 @@ video a[href] {
 	position: relative;
 	background-size: 0;
 	overflow: hidden;
-	
+	z-index: 0;
+
 }
 
 .no-touch .fixed-background { 
