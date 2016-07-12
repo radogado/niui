@@ -1593,11 +1593,17 @@ input.trigger, input.trigger ~ input[type=reset] {
   [dir=rtl] input.trigger.burger {
     right: 0; }
 
+  @keyframes slidein {
+    0% {
+      transform: translate3d(-100%, 0, 0); }
+    100% {
+      transform: translate3d(0, 0, 0); } }
   input.trigger.burger ~ ul, nav.drop ul ul, nav.drop ul .trigger:not(:checked) ~ ul, .no-touch nav.drop ul li:hover .trigger:not(:checked) ~ ul, input.trigger.burger ~ div, nav.drop ul .trigger:not(:checked) ~ div, .no-touch nav.drop ul li:hover .trigger:not(:checked) ~ div {
     display: none; }
 
   input.trigger.burger:checked ~ ul, nav.drop ul .trigger:checked ~ ul, input.trigger.burger:checked ~ div, nav.drop ul .trigger:checked ~ div, .no-touch nav.drop ul ul li input.trigger {
-    display: block; } }
+    display: block;
+    animation: slidein .2s 1; } }
 /* natUIve – List */
 /*
 $color: #fff;
