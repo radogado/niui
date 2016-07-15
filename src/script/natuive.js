@@ -45,7 +45,12 @@ function removeClass(el, className) {
 }
 
 function hasClass(el, className) {
+
+	if (typeof el.classList == 'undefined') { // Because of openFullWindow('asd') (when called with a string) – To do: fix that function instead
+		
+		return false;
 	
+	}
 	return el.classList.contains(className);
 
 }
@@ -76,15 +81,7 @@ function transferClass(el_origin, el_target, className) {
 
 function eventElement(e) {
 	
-	if (e) {
-		
-		return e.target;
-
-	} else {
-		
-		return window.event.srcElement;
-		
-	}
+	return e ? e.target : window.event.srcElement;
 
 }
 
@@ -277,16 +274,24 @@ function childByClass (el, cl) {
 }
 
 function ready(fn) {
-  if (document.readyState != 'loading'){
+
+  if (document.readyState != 'loading') {
+
     fn();
+
   } else if (document.addEventListener) {
+
     document.addEventListener('DOMContentLoaded', fn);
+
   } else {
+
     document.attachEvent('onreadystatechange', function() {
-      if (document.readyState != 'loading')
-        fn();
+    	if (document.readyState != 'loading')
+        	fn();
     });
+
   }
+
 }
 
 /* ––– */
@@ -401,13 +406,11 @@ for(var t in animations){
 
     if (temp.style[t] !== undefined) {
 
-        var animationEvent = animations[t];
+        var animationEndEvent = animations[t];
 
     }
 
 }
-
-var	animationPrefix = animationEvent == 'webkitAnimationEnd' ? '-webkit-' : ''; 
 
 function scrollToAnimated(to, callback) {
 	
@@ -498,6 +501,18 @@ function preventEvent(e) { // For iOS scrolling behind blackbox
 
 }
 
+/*
+function keyUpClose(e) {
+	
+    if ((e || window.event).keyCode == 27) { // esc
+
+        closeFullWindow();
+
+    }
+
+}
+*/
+
 function closeFullWindow() {
 	
 	var full_window;
@@ -525,6 +540,7 @@ function closeFullWindow() {
 	    }
 
 		removeEventHandler(window, 'keydown', arrow_keys_handler);
+// 		document.body.removeEventListener('keyup', keyUpClose); // To do: make it work
 		
     }
     
@@ -555,15 +571,7 @@ function openFullWindow(el) {
 	    full_window.insertAdjacentHTML('afterbegin', '<div class=close> ← ' + document.title + '</div>');
 		q('.full-window-wrap-bg').onclick = q('.full-window-wrap .close').onclick = closeFullWindow;
 		
-	    document.body.onkeyup = function(e) {
-	
-	        if ((e || window.event).keyCode == 27) { // esc
-	
-	            closeFullWindow();
-	
-	        }
-	
-	    };
+// 	    document.body.onkeyup = keyUpClose;
 	   
 	} else {
 		
@@ -582,17 +590,20 @@ function openFullWindow(el) {
 
 		if (full_window.webkitRequestFullScreen) { 
 			
-			full_window.webkitRequestFullScreen(); return false; 
+			full_window.webkitRequestFullScreen(); 
+			return false; 
 		
 		}
 		if (full_window.mozRequestFullScreen) { 
 			
-			full_window.mozRequestFullScreen(); return false; 
+			full_window.mozRequestFullScreen(); 
+			return false; 
 		
 		}
 		if (full_window.requestFullScreen) {
 			
-			full_window.requestFullScreen(); return false; 
+			full_window.requestFullScreen(); 
+			return false; 
 		
 		}
 	
@@ -602,7 +613,7 @@ function openFullWindow(el) {
 	
 }
 
-/* To imporve: Open and close a modal window with a generated element, to fix iOS Safari crash on modal close */
+/* To improve: Open and close a modal window with a generated element, to fix iOS Safari crash on modal close */
 var temp_div = document.createElement('div');
 q('body').appendChild(temp_div);
 openFullWindow(temp_div);
@@ -1052,9 +1063,6 @@ function accordionTransitionEnd(e) {
 
 	stopEvent(e);
 	var el = eventElement(e);
-	removeClass(el, 'transition');
-	el.removeEventListener(animationEvent, accordionTransitionEnd, false);
-	q('.transition-style').outerHTML = '';
     if (hasClass(el.parentNode.parentNode, 'accordion')) { // Embedded accordion
 
         el.parentNode.style.maxHeight = content.scrollHeight + el.parentNode.scrollHeight + 'px';
@@ -1071,28 +1079,8 @@ function toggleAccordion(e) {
     var content = el.querySelector('div');
 
 	toggleClass(el, 'open');
-
-	if (animationEvent) { // CSS animation support
-
-		content.addEventListener(animationEvent, accordionTransitionEnd, false);
 	
-		var styles = document.createElement('style');
-
-		if (hasClass(el, 'open')) {
-
-			styles.innerHTML = '@' + animationPrefix + 'keyframes transition { from { max-height: 0; } to { max-height: ' + content.scrollHeight + 'px; }} .transition { animation-duration: .2s; }';
-		
-		} else {
-			
-			styles.innerHTML = '@' + animationPrefix + 'keyframes transition { from { max-height: ' + content.scrollHeight + 'px; } to { max-height: 0; }} .transition { animation-duration: .2s; }';
-	
-		}
-	
-		document.getElementsByTagName('head')[0].appendChild(styles);
-		addClass(styles, 'transition-style');
-		addClass(content, 'transition');
-
-	}
+	animate(content, hasClass(el, 'open') ? ('from { max-height: 0; } to { max-height: ' + content.scrollHeight + 'px; }') : ('from { max-height: ' + content.scrollHeight + 'px; } to { max-height: 0; }'), '.2', accordionTransitionEnd);
 
     return false;
 
@@ -1101,12 +1089,6 @@ function toggleAccordion(e) {
 forEach('.accordion > label', function(el, i) {
 
     el.onclick = toggleAccordion;
-
-    if (hasClass(el.parentNode, 'open')) {
-	    
-	    el.click();
-
-	}
 
     el = el.parentNode;
 
@@ -1140,6 +1122,9 @@ if (q('#nav-trigger')) {
 
 }
 
+/* Baseline-align images etc */
+
+/*
 function getStyle(oElm, strCssRule){ // Thanks http://robertnyman.com/2006/04/24/get-the-rendered-style-of-an-element/
 
 	var strValue = '';
@@ -1162,9 +1147,8 @@ function getStyle(oElm, strCssRule){ // Thanks http://robertnyman.com/2006/04/24
 
 }
 
-var line_height = parseInt(getStyle(q('body'), 'line-height'));
-
-/* Baseline-align images etc */
+var line_height = parseInt(getStyle(q('body'), 'line-height')); // Replace with getComputedStyle(q('body')).lineHeight for IE9+
+*/
 
 /*
 	
@@ -1469,4 +1453,26 @@ if (q('header.fixed input.trigger.burger')) {
 	
 	};
 
+}
+
+/* Chainable async animation specified as CSS Animation */
+
+function animate(el, animation, duration, callback) {
+
+	el.addEventListener(animationEndEvent, function animationEndHandler() {
+
+		el.style.animation = 'none';
+		el.removeEventListener(animationEndEvent, animationEndHandler);
+		q('.animation-code').outerHTML = '';
+		callback ? callback() : '';
+	
+	});
+	
+	var animation_name = '_' + new Date().getTime(); // Unique animation name for more animate() as callback
+	var styles = document.createElement('style');
+	styles.innerHTML = '@keyframes ' + animation_name + ' {' + animation + '}'; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
+	q('head').appendChild(styles);
+	addClass(styles, 'animation-code');
+	el.style.animation = animation_name + ' ' + duration + 's';
+	
 }

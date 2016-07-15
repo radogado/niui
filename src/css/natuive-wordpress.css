@@ -1979,7 +1979,7 @@ $background: #1E8DaC;
 .slider-wrap > .slider.vertical.lightbox > * {
   height: 100%; }
 
-.sliding .slider-wrap > .slider.vertical > *, .slider-wrap > .slider.vertical > .visible {
+.slider-wrap > .slider.vertical > .visible {
   display: block; }
 
 .slider > * {
@@ -2255,6 +2255,9 @@ $background: #1E8DaC;
 
 .slider.auto-height > *:not(.visible) {
   height: 0; }
+
+.slider.fade .visible.old {
+  opacity: 0; }
 
 /* natUIve – Modal */
 /*
@@ -2570,7 +2573,8 @@ video a[href] {
   z-index: 0; }
 
 .no-touch .fixed-background {
-  background-size: cover; }
+  background-size: cover;
+  transform: translate3d(0, 0, 0); }
 
 .no-touch .fixed-background-image {
   display: none; }
@@ -2590,7 +2594,9 @@ video a[href] {
   background-image: inherit;
   top: 0;
   background-size: cover;
-  background-position: center; }
+  background-position: center;
+  will-change: transform;
+  transform: translate3d(0, 0, 0); }
 
 /* Notification bar */
 .notify {

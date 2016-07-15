@@ -2,7 +2,7 @@
 
 "use strict";
 
-q('html').setAttribute('data-last_animation', '14045017000');
+q('html').setAttribute('data-last_slide', '14045017000');
 q('html').setAttribute('data-slide_duration', '0.5');
 
 function sliderElement(e) {
@@ -97,14 +97,14 @@ function initScroll(e, delta) { // Scroll happens
     var timeNow = new Date().getTime();
 
     // Cancel scroll if currently animating or within quiet period – don't slide again automatically after a slide
-    if ((timeNow - q('html').getAttribute('data-last_animation')) < q('html').getAttribute('data-slide_duration')*2000 || hasClass(q('html'), 'sliding_now')) {
+    if ((timeNow - q('html').getAttribute('data-last_slide')) < q('html').getAttribute('data-slide_duration')*2000 || hasClass(q('html'), 'sliding_now')) {
 
         stopEvent(e);
 		return;
 
     }
 
-    q('html').setAttribute('data-last_animation', timeNow);
+    q('html').setAttribute('data-last_slide', timeNow);
 
     slide(sliderElement(e), delta < 0 ? 'right' : 'left');
 
@@ -155,7 +155,7 @@ function mouseEvents(el, toggle) {
 }
 
 function endSlide (slider, index) {
-	
+
     if (hasClass(slider, 'lightbox')) {
 		
 		populateLightbox(slider, index);
@@ -267,7 +267,7 @@ function slide(el, method, index_number) {
 
     }
 
-    if (animationEvent) { // CSS transition-enabled browser...
+    if (animationEndEvent) { // CSS transition-enabled browser...
 
 		if (!index_number) {
 	
@@ -293,35 +293,31 @@ function slide(el, method, index_number) {
 
 		if (hasClass(slider, 'fade')) {
 
-			animation_code = '@' + animationPrefix + 'keyframes sliding { 0% { opacity: 1; transform: ' + translate_from + ' } 49% { transform: ' + translate_from + ' } 50% { opacity: 0; transform:' + translate_to + ' } 100% { opacity: 1; transform:' + translate_to + ' } }';
+			animation_code = '0% { opacity: 1; transform: ' + translate_from + ' } 49% { transform: ' + translate_from + ' } 51% { opacity: 0; transform:' + translate_to + ' } 100% { opacity: 1; transform:' + translate_to + ' }';
 		
 		} else {
 			
-			animation_code = '@' + animationPrefix + 'keyframes sliding { from { ' + animationPrefix + 'transform: ' + translate_from + '; } to { ' + animationPrefix + 'transform: ' + translate_to + '; }}'
+			animation_code = 'from { transform: ' + translate_from + '; } to { transform: ' + translate_to + '; }'
 
 		}
 
-		styles.innerHTML = animation_code + ' .sliding { animation-duration: ' + duration + 's; }';
-		document.getElementsByTagName('head')[0].appendChild(styles);
-		addClass(styles, 'sliding-style');
 		addClass(slider, 'sliding');
 
-        slider.addEventListener(animationEvent, function slideEndHandler(e) { // On slide end
+		animate(slider, animation_code, duration, function slideEndHandler(e) { // On slide end
 
-            slider.removeEventListener(animationEvent, slideEndHandler);
+			removeClass(slider,'sliding');
 			if (slider.children[old_index]) {
 	
 				removeClass(slider.children[old_index], 'visible');
 	
 			}
 
-			removeClass(slider,'sliding');
-			slider.style.cssText = animationPrefix + 'transform: ' + (hasClass(slider, 'vertical') ? 'translateY(0)' : 'translateX(' + offset_sign + index + '00%);'); /* A different transform than above one, without the old slide */
-			q('.sliding-style').outerHTML = '';
+			slider.style.cssText = 'transform: ' + (hasClass(slider, 'vertical') ? 'translateY(0)' : 'translateX(' + offset_sign + index + '00%);'); // A different transform than above one, without the old slide
+// 			slider.style.transform = (hasClass(slider, 'vertical') ? 'translateY(0)' : 'translateX(' + offset_sign + index + '00%);');
 			
 			endSlide(slider, index);
 
-        }, false);
+        });
 
     } else { // ... or without animation on old browsers
 
