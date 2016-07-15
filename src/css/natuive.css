@@ -2569,11 +2569,12 @@ video a[href] {
   position: relative;
   background-size: 0;
   overflow: hidden;
-  z-index: 0; }
+  z-index: -1; }
 
 .no-touch .fixed-background {
   background-size: cover;
-  transform: translate3d(0, 0, 0); }
+  transform: translate3d(0, 0, 0);
+  z-index: 0; }
 
 .no-touch .fixed-background-image {
   display: none; }
