@@ -20,7 +20,7 @@
 	
 	.full-window-wrap .slider, .full-window-wrap .slider-wrap {
 		
-		height: 100%;
+		height: 100% !important;
 		
 	}
 	
@@ -28,7 +28,7 @@
 				
 		margin-top: $line-height-em*2;
 // 		margin-top: calc(var(--line-height-em)*2);
-		height: calc(100% - #{$line-height-em*2});
+		height: calc(100% - #{$line-height-em*2}) !important;
 // 		height: calc(100% - var(--line-height-em)*2);
 
 	}		

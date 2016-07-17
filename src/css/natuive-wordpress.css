@@ -1869,11 +1869,11 @@ $background: #1E8DaC;
   padding-bottom: 0 !important; }
 
 .full-window-wrap .slider, .full-window-wrap .slider-wrap {
-  height: 100%; }
+  height: 100% !important; }
 
 .no-touch .full-window-wrap .slider-wrap, .no-touch .full-window-wrap .slider-wrap.vertical {
   margin-top: 3em;
-  height: calc(100% - 3em); }
+  height: calc(100% - 3em) !important; }
 
 .slider-wrap {
   position: relative;
