@@ -226,7 +226,7 @@ video a[href] {
 	.aspect:before {
 		
 		content: '';
-		padding-bottom: calc(var(--ratio)); /*    y / x * 100	*/
+		padding-bottom: calc(100%*1/var(--ratio)); /*    y / x * 100	*/
 	
 	}
 

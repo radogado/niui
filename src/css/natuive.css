@@ -2546,7 +2546,7 @@ video a[href] {
 
 .aspect:before {
   content: '';
-  padding-bottom: calc(var(--ratio));
+  padding-bottom: calc(100%*1/var(--ratio));
   /*    y / x * 100	*/ }
 
 @-moz-document url-prefix() {
