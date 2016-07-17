@@ -2545,17 +2545,17 @@ video a[href] {
   height: auto;
   margin: 0 auto; }
 
-.aspect span {
-  /*  Ratio can be overwritten with inline CSS padding-bottom */
-  padding-bottom: 56.25%;
-  /*    y / x * 100   default 16:9    */ }
+.aspect:before {
+  content: '';
+  padding-bottom: calc(var(--ratio));
+  /*    y / x * 100	*/ }
 
 @-moz-document url-prefix() {
   .aspect {
     display: block;
     font-size: 0; }
 
-  .aspect > * {
+  .aspect:before {
     display: inline-block; } }
 /* Overthrow CSS:
    For Mobile devices not supporting overflow: scroll. Enable overflow: auto on elements with overthrow class when html element has overthrow class too */

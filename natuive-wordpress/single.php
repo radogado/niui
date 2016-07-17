@@ -16,9 +16,8 @@
 					<?php the_post_thumbnail(); // Fullsize image for the single post ?>
 				</a>
 -->
-			<span class="aspect">
+			<span class="aspect" style="--ratio: <?php echo ($image_data[2] / $image_data[1])*100; ?>%;">
 				<?php $image_data = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "original" ); ?>
-				<span style="padding-bottom: <?php echo ($image_data[2] / $image_data[1])*100; ?>%;"></span>
 				<?php the_post_thumbnail(); // Fullsize image for the single post ?>
 			</span>
 			<?php endif; ?>

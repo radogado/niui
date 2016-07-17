@@ -207,7 +207,7 @@ video a[href] {
 
 /* Image aspect ratio – don't shift the page after loading the image */
 
-.aspect {
+.aspect { // aspect ratio is specified as this element's --ratio CSS variable
 	
     display: flex;
     flex-direction: row;
@@ -223,16 +223,17 @@ video a[href] {
 	
 	}
 	
-	.aspect span { /*  Ratio can be overwritten with inline CSS padding-bottom */
-	
-		padding-bottom: 56.25%; /*    y / x * 100   default 16:9    */
+	.aspect:before {
+		
+		content: '';
+		padding-bottom: calc(var(--ratio)); /*    y / x * 100	*/
 	
 	}
 
 	@-moz-document url-prefix() { // No-flex version for FF
 
 		.aspect { display: block; font-size: 0; }
-		.aspect > * { display: inline-block; }
+		.aspect:before { display: inline-block; }
 
 	}
 
@@ -254,7 +255,7 @@ video a[href] {
 	position: relative;
 	background-size: 0;
 	overflow: hidden;
-	z-index: -1;
+	z-index: -1; // To do: fix accessibility without JS
 
 }
 
