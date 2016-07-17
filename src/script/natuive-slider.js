@@ -1,6 +1,6 @@
 /* natUIve Slider */
 
-"use strict";
+// "use strict";
 
 q('html').setAttribute('data-last_slide', '14045017000');
 q('html').setAttribute('data-slide_duration', '0.5');
@@ -228,7 +228,7 @@ function slide(el, method, index_number) {
 
     if (method == 'left') {
 
-        if (index == 0) {
+        if (index === 0) {
 
             index = slider.children.length-1;
 
@@ -241,9 +241,10 @@ function slide(el, method, index_number) {
     }
 
 	addClass(slider.children[index], 'visible');
+	var computed_style;
 	if (!hasClass(slider, 'vertical')) {
 		
-		var computed_style = getComputedStyle(slider);
+		computed_style = getComputedStyle(slider);
 		if (slider.getAttribute('dir') == 'rtl') {
 			
 			offset_sign = '';
@@ -252,11 +253,11 @@ function slide(el, method, index_number) {
 	
 	} else {
 
-		var computed_style = getComputedStyle(slider.children[Math.min(old_index, index)]);
+		computed_style = getComputedStyle(slider.children[Math.min(old_index, index)]);
 		
 	}
 
-	slider.style.cssText = 'height: ' + computed_style.height + '!important;';
+	slider.style.cssText = 'height: ' + computed_style.height + '!important;'; // To do: fix conflict with inline style set by animate(). Complied JS can't set animation property directly?
 	
 	var duration = (slider.getAttribute('data-duration') ? slider.getAttribute('data-duration') : q('html').getAttribute('data-slide_duration'));
 	slider.style.cssText = slider.style.cssText + 'transition-duration: ' + duration + 's';
@@ -274,21 +275,21 @@ function slide(el, method, index_number) {
 			addClass(q('html'), 'no-hover');
 		
 		}
-
+		
+		var translate_from, translate_to;
+		
 	    if (hasClass(slider, 'vertical')) {
 		
-		    var translate_from = 'translate3d(0,' + ((index<old_index) ? -1 : 0) + '00%,0)';
-		    var translate_to = 'translate3d(0,' + ((index<old_index) ? 0 : -1) + '00%,0)';
+		    translate_from = 'translate3d(0,' + ((index<old_index) ? -1 : 0) + '00%,0)';
+		    translate_to = 'translate3d(0,' + ((index<old_index) ? 0 : -1) + '00%,0)';
 		
 		} else {
 			
-		    var translate_from = 'translate3d(' + offset_sign + ((index<old_index) ? 1 : 0) + '00%,0,0)';
-		    var translate_to = 'translate3d(' + offset_sign + ((index<old_index) ? 0 : 1) + '00%,0,0)';
+		    translate_from = 'translate3d(' + offset_sign + ((index<old_index) ? 1 : 0) + '00%,0,0)';
+		    translate_to = 'translate3d(' + offset_sign + ((index<old_index) ? 0 : 1) + '00%,0,0)';
 			
 		}
 	    
-		var styles = document.createElement('style');
-
 		var animation_code;
 
 		if (hasClass(slider, 'fade')) {
@@ -297,7 +298,7 @@ function slide(el, method, index_number) {
 		
 		} else {
 			
-			animation_code = 'from { transform: ' + translate_from + '; } to { transform: ' + translate_to + '; }'
+			animation_code = 'from { transform: ' + translate_from + '; } to { transform: ' + translate_to + '; }';
 
 		}
 
@@ -305,14 +306,14 @@ function slide(el, method, index_number) {
 
 		animate(slider, animation_code, duration, function slideEndHandler(e) { // On slide end
 
-			removeClass(slider,'sliding');
+			removeClass(slider, 'sliding');
 			if (slider.children[old_index]) {
 	
 				removeClass(slider.children[old_index], 'visible');
 	
 			}
 
-			slider.style.cssText = 'transform: ' + (hasClass(slider, 'vertical') ? 'translateY(0)' : 'translate3d(' + offset_sign + index + '00%, 0, 0);'); // A 			
+			slider.style.cssText = 'transform: ' + (hasClass(slider, 'vertical') ? 'translateY(0)' : 'translate3d(' + offset_sign + index + '00%, 0, 0);');
 			endSlide(slider, index);
 
         });
@@ -356,6 +357,7 @@ function sliderKeyboard(e) {
                 	return;
 
             	}
+            	break;
             case 37:
                 slide(el, 'left');
                 break;
@@ -365,6 +367,7 @@ function sliderKeyboard(e) {
                 	return;
 
             	}
+            	break;
             case 39:
                 slide(el, 'right');
                 break;
@@ -485,7 +488,7 @@ function makeSlider(el, current_slide) {
 
     }
 
-    if (el.getAttribute('data-autoslide') != null) { // auto slide
+    if (el.getAttribute('data-autoslide') !== null) { // auto slide
 
 		var delay = el.getAttribute('data-autoslide');
 		delay = delay.length > 0 ? (1000 * el.getAttribute('data-autoslide')) : 4000;

@@ -209,15 +209,13 @@ function thisIndex(el) {
 
 function getCookie(k) { // Thanks Simon Steinberger
 	
-	var v=document.cookie.match('(^|;) ?'+k+'=([^;]*)(;|$)');return v?v[2]:null
+	var v=document.cookie.match('(^|;) ?'+k+'=([^;]*)(;|$)');return v?v[2]:null;
 
 }
 
 function touchSupport () {
 	
-	return (('ontouchstart' in window)
-	     || (navigator.maxTouchPoints > 0)
-	     || (navigator.msMaxTouchPoints > 0));
+	return (('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
 
 }
 
@@ -306,11 +304,11 @@ forEach('table', function(el) {
 
 function updateURLParameter(url, param, paramVal) { // return input string with updated/added URL parameter
 
-    newAdditionalURL = '';
+    var newAdditionalURL = '';
     url = url.split('#')[0];
-    tempArray = url.split('?');
-    baseURL = tempArray[0];
-    additionalURL = tempArray[1];
+    var tempArray = url.split('?');
+    var baseURL = tempArray[0];
+    var additionalURL = tempArray[1];
     var temp = '';
     if (additionalURL) {
         tempArray = additionalURL.split('&');
@@ -322,7 +320,7 @@ function updateURLParameter(url, param, paramVal) { // return input string with 
         }
     }
 
-    rows_txt = temp + '' + param + '=' + paramVal;
+    var rows_txt = temp + '' + param + '=' + paramVal;
     return baseURL + '?' + newAdditionalURL + rows_txt.split('#')[0];
 
 }
@@ -352,7 +350,7 @@ function relayParameters() {
 
     forEach('a[href]', function(el, i) {
 
-        for (name in parameters) {
+        for (var name in parameters) {
 
             if (el.href.indexOf('javascript') == -1 && el.href.indexOf('mailto') == -1 && parameters_list.indexOf(name) != -1) {
 	            
@@ -381,7 +379,7 @@ var transitions = {
 	'MozTransition'		: 'transitionend',
 	'WebkitTransition'	: 'webkitTransitionEnd'
 
-}
+};
 
 var animations = {
 
@@ -390,7 +388,7 @@ var animations = {
 	'MozAnimation'   	: 'animationend',
 	'WebkitAnimation'	: 'webkitAnimationEnd'
 
-}
+};
 
 for(var t in transitions){
 
@@ -475,7 +473,7 @@ function populateLightboxItem(slider, i) {
 			
 			toggleClass(eventElement(e), 'zoom');
 
-		}
+		};
 		return false;
 
 	}
@@ -515,8 +513,8 @@ function keyUpClose(e) {
 
 function closeFullWindow() {
 	
-	var full_window;
-    if (full_window = q('.full-window-wrap')) {
+	var full_window = q('.full-window-wrap');
+    if (full_window) {
 		
 		if (full_window_content) { // Remove disposable generated content
 
@@ -691,7 +689,7 @@ function modalWindow(e) {
 function openLightbox(e) {
 
 	var el = eventElement(e);
-	if (el.length == 0) {
+	if (el.length === 0) {
 		
 		el = e;
 	}
@@ -711,7 +709,7 @@ function openLightbox(e) {
 
     q('.slider.lightbox').innerHTML = images;
 
-    if (makeSlider) {
+    if (typeof makeSlider == 'function') {
 
         var anchor = el;
 
@@ -791,8 +789,9 @@ function getCumulativeOffset(obj) { // Offset from element to top of page
 
             left += obj.offsetLeft;
             top += obj.offsetTop;
+            obj = obj.offsetParent;
 
-        } while (obj = obj.offsetParent);
+        } while (obj);
 
     }
 
@@ -846,7 +845,7 @@ function animateAnchors(e) {
 
 	}
 
-    scrollToAnimated((hash == null) ? 0 : getCumulativeOffset(hash).y, function(e) {
+    scrollToAnimated((hash === null) ? 0 : getCumulativeOffset(hash).y, function(e) {
 
         window.location = el.href.split('#')[0] + '#' + el.href.split('#').pop();
 
@@ -854,7 +853,7 @@ function animateAnchors(e) {
 
     return false;
 
-};
+}
 
 forEach('a[href^="#"]', function(el, i) {
 
@@ -877,7 +876,7 @@ forEach('a.modal', function(el, i) {
 
     }
     
-    if (el.getAttribute && el.getAttribute('rel') == null) {
+    if (el.getAttribute && el.getAttribute('rel') === null) {
 	    
 	    el.setAttribute('rel', 'prefetch');
 
@@ -926,7 +925,7 @@ forEach('textarea', function(el) {
 
         }
 
-        el.rows++
+        el.rows++;
 
     };
 
@@ -1057,55 +1056,6 @@ if (q('#language-selector')) {
 
 }
 
-/* Accordion */
-
-function accordionTransitionEnd(e) {
-
-	stopEvent(e);
-	var el = eventElement(e);
-    if (hasClass(el.parentNode.parentNode, 'accordion')) { // Embedded accordion
-
-        el.parentNode.style.maxHeight = content.scrollHeight + el.parentNode.scrollHeight + 'px';
-
-    }
-
-}
-
-function toggleAccordion(e) {
-
-    stopEvent(e);
-    var el = eventElement(e).parentNode;
-
-    var content = el.querySelector('div');
-
-	toggleClass(el, 'open');
-	
-	animate(content, hasClass(el, 'open') ? ('from { max-height: 0; } to { max-height: ' + content.scrollHeight + 'px; }') : ('from { max-height: ' + content.scrollHeight + 'px; } to { max-height: 0; }'), '.2', accordionTransitionEnd);
-
-    return false;
-
-}
-
-forEach('.accordion > label', function(el, i) {
-
-    el.onclick = toggleAccordion;
-
-    el = el.parentNode;
-
-    if (el.querySelector('input.trigger')) { // Remove CSS-only triggers
-
-        el.querySelector('input.trigger').outerHTML = '';
-
-    }
-
-    el.querySelector('div').onclick = function(e) {
-
-        stopEvent(e);
-
-    };
-    
-});
-
 if (!touchSupport()) { // Touch device: remove iOS sticky hover state
 
 	addClass(q('body'), 'no-touch');
@@ -1194,7 +1144,7 @@ function isInViewport(el) { // Thanks http://gomakethings.com/ditching-jquery/
         distance.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
 
-};
+}
 
 function getClosest(el, selector) { // Thanks http://gomakethings.com/ditching-jquery/
 
@@ -1233,7 +1183,7 @@ function getClosest(el, selector) { // Thanks http://gomakethings.com/ditching-j
 
     return false;
 
-};
+}
 
 /* Check for host PHP support */
 var php_support = 0;
@@ -1302,12 +1252,12 @@ forEach('td[data-sort]', function (el) {
 		if (cell.getAttribute('data-sort') == 'desc') {
 			
 			f = -1;
-			cell.setAttribute('data-sort', 'asc')
+			cell.setAttribute('data-sort', 'asc');
 			
 		} else {
 			
 			f = 1;
-			cell.setAttribute('data-sort', 'desc')
+			cell.setAttribute('data-sort', 'desc');
 			
 		}
 
@@ -1371,7 +1321,7 @@ ready( function () {
 	
 	}
 
-	var t = setTimeout( function () {
+	setTimeout( function () {
 		
 		try { /* No IE8 :target support */
 			
@@ -1459,20 +1409,73 @@ if (q('header.fixed input.trigger.burger')) {
 
 function animate(el, animation, duration, callback) {
 
-	el.addEventListener(animationEndEvent, function animationEndHandler() {
+	el.addEventListener(animationEndEvent, function animationEndHandler(e) {
 
+		var el = eventElement(e);
 		el.style.animation = 'none';
 		el.removeEventListener(animationEndEvent, animationEndHandler);
 		q('.animation-code').outerHTML = '';
-		callback ? callback() : '';
+		if (typeof callback == 'function') {
 	
-	});
+			callback();
 	
-	var animation_name = '_' + new Date().getTime(); // Unique animation name for more animate() as callback
+		}
+	
+	}, false);
+	var animation_name = 'a' + new Date().getTime(); // Unique animation name for more animate() as callback
 	var styles = document.createElement('style');
 	styles.innerHTML = '@keyframes ' + animation_name + ' {' + animation + '}'; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
 	q('head').appendChild(styles);
 	addClass(styles, 'animation-code');
-	el.style.animation = animation_name + ' ' + duration + 's';
+	el.style.cssText = 'animation: ' + animation_name + ' ' + duration + 's;';
+// 	el.style.animation = animation_name + ' ' + duration + 's;';
 	
 }
+
+/* Accordion */
+
+function accordionTransitionEnd(el) {
+
+    if (hasClass(el.parentNode.parentNode, 'accordion')) { // Embedded accordion
+
+        el.parentNode.style.maxHeight = el.scrollHeight + el.parentNode.scrollHeight + 'px';
+
+    }
+
+}
+
+function toggleAccordion(e) {
+
+    stopEvent(e);
+    var el = eventElement(e).parentNode;
+
+    var content = el.querySelector('div');
+
+	toggleClass(el, 'open');
+	
+	animate(content, hasClass(el, 'open') ? ('from { max-height: 0; } to { max-height: ' + content.scrollHeight + 'px; }') : ('from { max-height: ' + content.scrollHeight + 'px; } to { max-height: 0; }'), '.2', function () { accordionTransitionEnd(el); });
+
+    return false;
+
+}
+
+forEach('.accordion > label', function(el, i) {
+
+    el.onclick = toggleAccordion;
+
+    el = el.parentNode;
+
+    if (el.querySelector('input.trigger')) { // Remove CSS-only triggers
+
+        el.querySelector('input.trigger').outerHTML = '';
+
+    }
+
+    el.querySelector('div').onclick = function(e) {
+
+        stopEvent(e);
+
+    };
+    
+});
+

@@ -1,7 +1,7 @@
 /* Revert to default font if web font isn't loaded in 2" */
 // To do...
 
-"use strict";
+// "use strict";
 
 /* Load touch scroll polyfill, needed for Android Browser (Android 2.3) */
  if (q('.overthrow')) {
@@ -12,7 +12,6 @@
 
 /* Flexbox grid polyfill */
 var detector = document.createElement("detect");
-var flexbox_support = 1;
 try {
 
 	detector.style.display = "flex";

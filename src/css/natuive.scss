@@ -256,6 +256,7 @@ video a[href] {
 	background-size: 0;
 	overflow: hidden;
 	z-index: -1; // To do: fix accessibility without JS
+	will-change: scroll-position;
 
 }
 
