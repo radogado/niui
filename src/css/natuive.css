@@ -1945,14 +1945,13 @@ $background: #1E8DaC;
 
 .slider-wrap .slider {
   overflow: visible;
-  width: 100%; }
+  margin-left: -.5px;
+  width: calc(100% + 1px); }
 
 .slider-wrap .slider > * {
-  opacity: 0;
   contain: strict; }
 
 .slider-wrap .slider > .visible {
-  opacity: 1;
   contain: none; }
 
 .full-window-wrap .slider-wrap.vertical, .full-window-wrap .slider, .full-window-wrap .slider > * {
@@ -1977,9 +1976,6 @@ $background: #1E8DaC;
 
 .slider-wrap > .slider.vertical.lightbox > * {
   height: 100%; }
-
-.slider-wrap > .slider.vertical > .visible {
-  display: block; }
 
 .slider > * {
   width: 100%;
@@ -2006,11 +2002,8 @@ $background: #1E8DaC;
 .slider-wrap .slider.sliding > *:not(.visible) {
   display: none; }
 
-.slider > *.visible {
+.slider > *.visible, .lightbox.slider > *.visible > img {
   display: inline-block; }
-
-.slider.vertical > *.visible {
-  display: block; }
 
 .slider.vertical > img {
   max-width: none;
@@ -2174,7 +2167,7 @@ $background: #1E8DaC;
   height: 2em;
   text-align: center; }
 
-.vertical > .slider-nav a {
+.slider-wrap > .slider.vertical > .visible, .vertical > .slider-nav a {
   display: block; }
 
 .slider-nav a.active {
@@ -2224,9 +2217,6 @@ $background: #1E8DaC;
 .lightbox.slider > * > img {
   display: none; }
 
-.lightbox.slider > *.visible > img {
-  display: inline-block; }
-
 .lightbox.slider > *.visible > img.zoom {
   width: auto;
   height: auto;
@@ -2254,9 +2244,6 @@ $background: #1E8DaC;
 
 .slider.auto-height > *:not(.visible) {
   height: 0; }
-
-.slider.fade .visible.old {
-  opacity: 0; }
 
 /* natUIve – Modal */
 /*

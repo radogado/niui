@@ -136,20 +136,21 @@
 .slider-wrap .slider {
 	
 	overflow: visible;
-	width: 100%;
+
+	// Fix Safari bug where 1px of previous slide is visible during slide
+	margin-left: -.5px;
+	width: calc(100% + 1px);
 	
 }
 
 .slider-wrap .slider > * {
 	
-	opacity: 0;
 	contain: strict;
 	
 }
 
 .slider-wrap .slider > .visible {
 	
-	opacity: 1;
 	contain: none;
 	
 }
@@ -201,12 +202,6 @@
 
 }
 
-.slider-wrap > .slider.vertical > .visible {
-
-	display: block;
-
-}
-
 .slider > * {
 
 	width: 100%;
@@ -245,16 +240,10 @@
 
 }
 
-.slider > *.visible {
+.slider > *.visible, .lightbox.slider > *.visible > img {
 
 	display: inline-block;
 
-}
-
-.slider.vertical > *.visible {
-
-	display: block;
-	
 }
 
 .slider.vertical > img {
@@ -493,7 +482,7 @@
 		
 	}
 	
-	.vertical > .slider-nav a {
+	.slider-wrap > .slider.vertical > .visible, .vertical > .slider-nav a {
 		
 		display: block;
 		
@@ -571,12 +560,6 @@
 
 }
 
-.lightbox.slider > *.visible > img {
-	
-	display: inline-block;
-
-}
-
 .lightbox.slider > *.visible > img.zoom {
 
 	width: auto;
@@ -618,10 +601,4 @@
 	
 	height: 0;
 
-}
-
-.slider.fade .visible.old {
-	
-	opacity: 0;
-	
 }

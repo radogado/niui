@@ -312,9 +312,7 @@ function slide(el, method, index_number) {
 	
 			}
 
-			slider.style.cssText = 'transform: ' + (hasClass(slider, 'vertical') ? 'translateY(0)' : 'translateX(' + offset_sign + index + '00%);'); // A different transform than above one, without the old slide
-// 			slider.style.transform = (hasClass(slider, 'vertical') ? 'translateY(0)' : 'translateX(' + offset_sign + index + '00%);');
-			
+			slider.style.cssText = 'transform: ' + (hasClass(slider, 'vertical') ? 'translateY(0)' : 'translate3d(' + offset_sign + index + '00%, 0, 0);'); // A 			
 			endSlide(slider, index);
 
         });

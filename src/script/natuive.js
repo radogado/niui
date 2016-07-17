@@ -1455,7 +1455,7 @@ if (q('header.fixed input.trigger.burger')) {
 
 }
 
-/* Chainable async animation specified as CSS Animation */
+/* Chainable animation specified as CSS Animation */
 
 function animate(el, animation, duration, callback) {
 
