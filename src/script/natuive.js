@@ -1419,7 +1419,7 @@ if (q('header.fixed input.trigger.burger')) {
 function animate(el, animation, duration, callback) {
 
 	el.addEventListener(animationEndEvent, function animationEndHandler(e) {
-	console.log('animate() end');
+
 		q('.animation-code').outerHTML = '';
 		var el = eventElement(e);
 		el.style.cssText = '';
