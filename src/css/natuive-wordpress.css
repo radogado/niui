@@ -2233,10 +2233,6 @@ $background: #1E8DaC;
 .full-window-wrap .lightbox.slider > * {
   overflow: hidden; }
 
-.sliding {
-  -webkit-animation-name: sliding;
-  animation-name: sliding; }
-
 .slider.center > * {
   display: flex;
   flex-direction: column;
@@ -2245,6 +2241,9 @@ $background: #1E8DaC;
 
 .slider.auto-height > *:not(.visible) {
   height: 0; }
+
+.sliding_now {
+  pointer-events: none !important; }
 
 /* natUIve – Modal */
 /*
@@ -2459,9 +2458,6 @@ html.nooverflow, html.nooverflow body {
   pointer-events: none !important;
   -webkit-transition: -webkit-transform .4s ease;
   transition: transform .4s ease; }
-
-.no-hover {
-  pointer-events: none !important; }
 
 .header-and-banner {
   flex: none; }

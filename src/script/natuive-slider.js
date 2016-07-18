@@ -167,7 +167,6 @@ function endSlide (slider, index) {
     setTimeout(function () { 
 	    removeClass(q('html'), 'sliding_now');
 	    mouseEvents(slider); 
-		removeClass(q('html'), 'no-hover');
 	}, q('html').getAttribute('data-slide_duration')/2);
 	
 }
@@ -175,8 +174,6 @@ function endSlide (slider, index) {
 function slide(el, method, index_number) {
 
     var slider = getClosest(el, '.slider-wrap').querySelector('.slider');
-
-	addClass(q('html'), 'no-hover');
 
     if (getClosest(el, '.slider-wrap').querySelector('.slider').children.length < 2) {
 
@@ -240,26 +237,27 @@ function slide(el, method, index_number) {
 
     }
 
-	var computed_style;
-	    var offset_sign = '-'; // Slider offset depending on direction. '-' for LTR or '' (plus) for RTL. Vertical is always '-'
+    var offset_sign = '-'; // Slider offset depending on direction. '-' for LTR or '' (plus) for RTL. Vertical is always '-'
+
+	// To do: auto-height slider to take the height of the taller element
+	var computed_height;
 	if (!hasClass(slider, 'vertical')) {
 		
-		computed_style = getComputedStyle(slider);
+		computed_height = getComputedStyle(slider).height;
 		if (slider.getAttribute('dir') == 'rtl') {
 			
 			offset_sign = '';
 	
 		}
 	
-		getClosest(slider, '.slider-wrap').style.height = computed_style.height /* + ' !important;' */; // To do: fix conflict with inline style set by animate(). Complied JS can't set animation property directly?
+		getClosest(slider, '.slider-wrap').style.height = computed_height /* + ' !important;' */; // To do: fix conflict with inline style set by animate(). Complied JS can't set animation property directly?
 
 	} else {
 	
-		computed_style = getComputedStyle(slider.children[Math.min(old_index, index)]);
-		slider.style.height = computed_style.height /* + ' !important;' */; // To do: fix conflict with inline style set by animate(). Complied JS can't set animation property directly?
+		computed_height = getComputedStyle(slider.children[Math.min(old_index, index)]).height;
+		slider.style.height = computed_height /* + ' !important;' */; // To do: fix conflict with inline style set by animate(). Complied JS can't set animation property directly?
 		
 	}
-
 
 	addClass(slider.children[index], 'visible');
 
@@ -273,12 +271,6 @@ function slide(el, method, index_number) {
 
     if (animationEndEvent) { // CSS transition-enabled browser...
 
-		if (!index_number) {
-	
-			addClass(q('html'), 'no-hover');
-		
-		}
-		
 		var translate_from, translate_to;
 		
 	    if (hasClass(slider, 'vertical')) {
@@ -319,6 +311,7 @@ function slide(el, method, index_number) {
 			slider.style.cssText = 'transform: ' + (hasClass(slider, 'vertical') ? 'translateY(0)' : 'translate3d(' + offset_sign + index + '00%, 0, 0);');
 			getClosest(slider, '.slider-wrap').style.height = 'auto';
 			slider.style.height = 'auto';
+			removeClass(q('html'), 'sliding_now');
 			endSlide(slider, index);
 
         });
@@ -510,7 +503,7 @@ function makeSlider(el, current_slide) {
 
 	if (window.getComputedStyle) { // Detect direction
 
-        el.setAttribute('dir', window.getComputedStyle(el, null).getPropertyValue('direction'));
+        el.setAttribute('dir', getComputedStyle(el, null).getPropertyValue('direction'));
 
     }
     

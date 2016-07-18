@@ -38,6 +38,15 @@ function addClass(el, className) {
 
 }
 
+/* To do: Convert to Prototype functions: el.addClass('class'); instead of addClass(el, 'class'); */
+/*
+Object.prototype.addClassPrototype = function (className) {
+	
+	this.classList.add(className);
+
+};
+*/
+
 function removeClass(el, className) {
 
 	el.classList.remove(className);
@@ -1410,11 +1419,12 @@ if (q('header.fixed input.trigger.burger')) {
 function animate(el, animation, duration, callback) {
 
 	el.addEventListener(animationEndEvent, function animationEndHandler(e) {
-
-		var el = eventElement(e);
-		el.style.animation = 'none';
-		el.removeEventListener(animationEndEvent, animationEndHandler);
+	console.log('animate() end');
 		q('.animation-code').outerHTML = '';
+		var el = eventElement(e);
+		el.style.cssText = '';
+// 		el.style.animation = 'none';
+		el.removeEventListener(animationEndEvent, animationEndHandler);
 		if (typeof callback == 'function') {
 	
 			callback();

@@ -581,13 +581,6 @@
 	
 }
 
-.sliding {
-
-	-webkit-animation-name: sliding;
-	animation-name: sliding;
-	
-}
-
 .slider.center > * {
 	
 	display: flex;
@@ -600,5 +593,11 @@
 .slider.auto-height > *:not(.visible) {
 	
 	height: 0;
+
+}
+
+.sliding_now {
+	
+	pointer-events: none !important;
 
 }
