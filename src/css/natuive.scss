@@ -249,7 +249,6 @@ video a[href] {
 	position: relative;
 	background-size: 0;
 	overflow: hidden;
-	z-index: -1; // To do: fix accessibility without JS
 	will-change: scroll-position;
 
 }
@@ -258,7 +257,7 @@ video a[href] {
 
 	background-size: cover;
 	transform: translate3d(0, 0, 0);
-	z-index: 0;
+	z-index: 0; // To do: fix accessibility without JS
 	
 }
 

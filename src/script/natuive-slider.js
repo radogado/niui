@@ -45,7 +45,7 @@ function swipeEvents(el) {
             startX = touches[0].pageX;
             startY = touches[0].pageY;
             el.addEventListener('touchmove', touchMove);
-            addClass(q('html'), 'sliding_now');
+//             addClass(q('html'), 'sliding_now');
 
         }
 
