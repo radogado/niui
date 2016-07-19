@@ -241,23 +241,22 @@ function slide(el, method, index_number) {
 
 	// To do: auto-height slider to take the height of the taller element
 	var computed_height;
-	if (!hasClass(slider, 'vertical')) {
+	if (hasClass(slider, 'vertical')) {
 		
+		computed_height = getComputedStyle(slider.children[index]).height; // To do: get proper target slide height
+
+	} else {
+	
 		computed_height = getComputedStyle(slider).height;
 		if (slider.getAttribute('dir') == 'rtl') {
 			
 			offset_sign = '';
 	
 		}
-	
-		getClosest(slider, '.slider-wrap').style.height = computed_height /* + ' !important;' */; // To do: fix conflict with inline style set by animate(). Complied JS can't set animation property directly?
-
-	} else {
-	
-		computed_height = getComputedStyle(slider.children[Math.min(old_index, index)]).height;
-		slider.style.height = computed_height /* + ' !important;' */; // To do: fix conflict with inline style set by animate(). Complied JS can't set animation property directly?
 		
 	}
+
+	slider.style.height = computed_height;
 
 	addClass(slider.children[index], 'visible');
 
@@ -355,20 +354,16 @@ function sliderKeyboard(e) {
                 	return;
 
             	}
-            	break;
             case 37:
                 slide(el, 'left');
-                break;
             case 40:
             	if (!hasClass(el,'vertical')) {
                 	
                 	return;
 
             	}
-            	break;
             case 39:
                 slide(el, 'right');
-                break;
             default:
                 return;
 

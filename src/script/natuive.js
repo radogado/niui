@@ -508,7 +508,6 @@ function preventEvent(e) { // For iOS scrolling behind blackbox
 
 }
 
-/*
 function keyUpClose(e) {
 	
     if ((e || window.event).keyCode == 27) { // esc
@@ -518,7 +517,6 @@ function keyUpClose(e) {
     }
 
 }
-*/
 
 function closeFullWindow() {
 	
@@ -547,7 +545,7 @@ function closeFullWindow() {
 	    }
 
 		removeEventHandler(window, 'keydown', arrow_keys_handler);
-// 		document.body.removeEventListener('keyup', keyUpClose); // To do: make it work
+		document.body.removeEventListener('keyup', keyUpClose); // To do: make it work
 		
     }
     
@@ -578,7 +576,7 @@ function openFullWindow(el) {
 	    full_window.insertAdjacentHTML('afterbegin', '<div class=close> ← ' + document.title + '</div>');
 		q('.full-window-wrap-bg').onclick = q('.full-window-wrap .close').onclick = closeFullWindow;
 		
-// 	    document.body.onkeyup = keyUpClose;
+	    document.body.onkeyup = keyUpClose;
 	   
 	} else {
 		
@@ -1419,12 +1417,11 @@ if (q('header.fixed input.trigger.burger')) {
 function animate(el, animation, duration, callback) {
 
 	el.addEventListener(animationEndEvent, function animationEndHandler(e) {
-
+		
+		var el = e.target;
+		removeClass(el, q('.animation-code').getAttribute('data-class'));
 		q('.animation-code').outerHTML = '';
-		var el = eventElement(e);
-		el.style.cssText = '';
-// 		el.style.animation = 'none';
-		el.removeEventListener(animationEndEvent, animationEndHandler);
+ 		el.removeEventListener(animationEndEvent, animationEndHandler);
 		if (typeof callback == 'function') {
 	
 			callback();
@@ -1434,11 +1431,11 @@ function animate(el, animation, duration, callback) {
 	}, false);
 	var animation_name = 'a' + new Date().getTime(); // Unique animation name for more animate() as callback
 	var styles = document.createElement('style');
-	styles.innerHTML = '@keyframes ' + animation_name + ' {' + animation + '}'; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
+	styles.innerHTML = '@keyframes ' + animation_name + ' {' + animation + '} .' + animation_name + ' { animation-name: ' + animation_name + '; animation-duration: ' + duration + 's; }'; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
 	q('head').appendChild(styles);
 	addClass(styles, 'animation-code');
-	el.style.cssText = 'animation: ' + animation_name + ' ' + duration + 's;';
-// 	el.style.animation = animation_name + ' ' + duration + 's;';
+	styles.setAttribute('data-class', animation_name);
+	addClass(el, animation_name);
 	
 }
 
