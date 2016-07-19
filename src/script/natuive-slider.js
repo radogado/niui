@@ -292,7 +292,7 @@ function slide(el, method, index_number) {
 		
 		} else {
 			
-			animation_code = 'from { transform: ' + translate_from + '; } to { transform: ' + translate_to + '; }';
+			animation_code = '0% { transform: ' + translate_from + '; } 100% { transform: ' + translate_to + '; }';
 
 		}
 
@@ -307,17 +307,23 @@ function slide(el, method, index_number) {
 	
 			}
 
-			slider.style.cssText = 'transform: ' + (hasClass(slider, 'vertical') ? 'translateY(0)' : 'translate3d(' + offset_sign + index + '00%, 0, 0);');
-			getClosest(slider, '.slider-wrap').style.height = 'auto';
+			slider.style.transform = hasClass(slider, 'vertical') ? 'translateY(0)' : 'translate3d(' + offset_sign + index + '00%, 0, 0)';
 			slider.style.height = 'auto';
-			removeClass(q('html'), 'sliding_now');
 			endSlide(slider, index);
 
         });
 
     } else { // ... or without animation on old browsers
 
-		slider.style.cssText = (hasClass(slider, 'vertical') ? 'top' : 'left') + ': ' + offset_sign + index + '00%';
+		if (hasClass(slider, 'vertical')) {
+
+			slider.style.top = offset_sign + index + '00%';
+		
+		} else {
+			
+			slider.style.left = offset_sign + index + '00%';
+
+		}
 
 		endSlide(slider, index);
 

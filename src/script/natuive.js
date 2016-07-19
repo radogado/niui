@@ -441,11 +441,11 @@ function scrollToAnimated(to, callback) {
 
 		q('html').removeEventListener(transitionEvent, scrollEndHandler);
 		removeClass(q('html'), 'animate-scroll');
-		q('html').style.cssText = '';
+		q('html').style.transform = 'none';
 		callback();
 
     }, false);
-	q('html').style.cssText = '-webkit-transform: translate3d(0,' + -1*change + 'px,0); transform: translate3d(0,' + -1*change + 'px,0);';
+	q('html').style.transform = 'translate3d(0,' + -1*change + 'px,0)';
 
 }
 
