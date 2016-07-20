@@ -1441,16 +1441,6 @@ function animate(el, animation, duration, callback) {
 
 /* Accordion */
 
-function accordionTransitionEnd(el) {
-
-    if (hasClass(el.parentNode.parentNode, 'accordion')) { // Embedded accordion
-
-        el.parentNode.style.maxHeight = el.scrollHeight + el.parentNode.scrollHeight + 'px';
-
-    }
-
-}
-
 function toggleAccordion(e) {
 
     stopEvent(e);
@@ -1458,9 +1448,16 @@ function toggleAccordion(e) {
 
     var content = el.querySelector('div');
 
-	toggleClass(el, 'open');
-	
-	animate(content, hasClass(el, 'open') ? ('from { max-height: 0; } to { max-height: ' + content.scrollHeight + 'px; }') : ('from { max-height: ' + content.scrollHeight + 'px; } to { max-height: 0; }'), '.2', function () { accordionTransitionEnd(el); });
+	if (hasClass(el, 'open')) {
+		
+		animate(content, '0% { max-height: ' + content.scrollHeight + 'px; } 100% { max-height: 0; }', '.2', function () { toggleClass(el, 'open'); });
+		
+	} else {
+		
+		toggleClass(el, 'open');
+		animate(content, '0% { max-height: 0; } 100% { max-height: ' + content.scrollHeight + 'px; }', '.2');
+		
+	}
 
     return false;
 
