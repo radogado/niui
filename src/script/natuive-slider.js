@@ -52,15 +52,17 @@ function swipeEvents(el) {
     }
 
     function touchMove(e) {
-
+	    
         var touches = e.touches;
-        if (touches && touches.length) {
+	    var slider = sliderElement(e);
+
+        if (touches && touches.length && !(hasClass(slider, 'vertical') && !getClosest(slider, '.full-window-wrap'))) { // Don't slide vertically if not full window
 
             var deltaX = startX - touches[0].pageX;
             var deltaY = startY - touches[0].pageY;
             var delta = (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY;
 
-            if ((hasClass(sliderElement(e), 'vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !q('.slider.lightbox')) {
+            if ((hasClass(slider, 'vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !q('.slider.lightbox')) {
 
                 removeClass(q('html'), 'sliding_now');
                 return;
@@ -135,7 +137,11 @@ function mouseWheelHandler(e) {
 
 function mouseEvents(el, toggle) {
 
-    if (!('onwheel' in window)) return;
+    if (!('onwheel' in window) || (hasClass(el, 'vertical') && !getClosest(el, '.full-window-wrap'))) { // Check for mouse wheel and Don't slide vertically if not full window
+	    
+	    return;
+	   
+	}
 
     if (toggle == 'off') {
 
