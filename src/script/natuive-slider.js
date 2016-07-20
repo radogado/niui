@@ -45,6 +45,7 @@ function swipeEvents(el) {
             startX = touches[0].pageX;
             startY = touches[0].pageY;
             el.addEventListener('touchmove', touchMove);
+
 //             addClass(q('html'), 'sliding_now');
 
         }
@@ -54,15 +55,15 @@ function swipeEvents(el) {
     function touchMove(e) {
 	    
         var touches = e.touches;
-	    var slider = sliderElement(e);
+// 	    var slider = sliderElement(e);
 
-        if (touches && touches.length && !(hasClass(slider, 'vertical') && !getClosest(slider, '.full-window-wrap'))) { // Don't slide vertically if not full window
+        if (touches && touches.length && !(hasClass(el, 'vertical') && !getClosest(el, '.full-window-wrap'))) { // Don't slide vertically if not full window
 
             var deltaX = startX - touches[0].pageX;
             var deltaY = startY - touches[0].pageY;
             var delta = (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY;
 
-            if ((hasClass(slider, 'vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !q('.slider.lightbox')) {
+            if ((hasClass(el, 'vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !q('.slider.lightbox')) {
 
                 removeClass(q('html'), 'sliding_now');
                 return;
@@ -169,6 +170,7 @@ function endSlide (slider, index) {
     }
 
 	addClass(childByClass(slider.parentNode, 'slider-nav').children[index], 'active');
+
 	document.onkeyup = sliderKeyboard;
     setTimeout(function () { 
 	    removeClass(q('html'), 'sliding_now');
@@ -178,6 +180,12 @@ function endSlide (slider, index) {
 }
 
 function slide(el, method, index_number) {
+
+	if (hasClass(q('html'), 'sliding_now')) {
+		
+		return;
+	
+	}
 
     var slider = getClosest(el, '.slider-wrap').querySelector('.slider');
 
@@ -436,12 +444,13 @@ function makeSlider(el, current_slide) {
 
         }
 
-        container.querySelector('.slider-nav').lastChild.onclick = function(e) {
+		container.querySelector('.slider-nav').lastChild.onclick = function(e) {
 			
-			/* To fix: error when clicking during a slide */
             slide(eventElement(e), 'index', thisIndex(eventElement(e)));
 
         };
+        
+        container.querySelector('.slider-nav').lastChild.addEventListener('touchstart', function (e) { e.stopPropagation(); return false; });
 
     }
 
@@ -450,12 +459,17 @@ function makeSlider(el, current_slide) {
         slide(eventElement(e), 'left');
 
     };
+    
+    container.querySelector('.slider-arrow').addEventListener('touchstart', function (e) { e.stopPropagation(); return false; });
 
     container.querySelector('.slider-arrow.right').onclick = function(e) {
+
 
         slide(eventElement(e), 'right');
 
     };
+
+    container.querySelector('.slider-arrow.right').addEventListener('touchstart', function (e) { e.stopPropagation(); return false; });
 
     addClass(el.children[0], 'visible');
 
@@ -486,6 +500,7 @@ function makeSlider(el, current_slide) {
 	        el.ontouchmove = function(e) {
 
 				e.stopPropagation();
+				removeClass(q('html'), 'sliding_now');
 		        
 	        };
 	        

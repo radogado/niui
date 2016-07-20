@@ -1416,6 +1416,11 @@ if (q('header.fixed input.trigger.burger')) {
 
 function animate(el, animation, duration, callback) {
 
+	if (q('.animation-code')) {
+		
+		return;
+
+	}
 	el.addEventListener(animationEndEvent, function animationEndHandler(e) {
 		
 		var el = e.target;
