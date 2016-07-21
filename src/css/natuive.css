@@ -91,6 +91,21 @@ $background: #1E8DaC;
   width: 66.667%;
   flex: 0 0 calc(66.667% - 1.5em); }
 
+/*
+	// To do: Future CSS Variables grid with only 1 line per column variant
+	
+	.row > * {
+		
+		width: var(--width);
+		flex: 0 0 calc(var(--width) - 1.5em);
+	}
+	
+	.row > .col23 {
+		
+		--width: 66.667%;
+		
+	}
+*/
 .row > .col34 {
   width: 75%;
   flex: 0 0 calc(75% - 1.5em); }
@@ -324,10 +339,14 @@ section:before, section:after {
   width: 100%;
   flex: 0 0 calc(100%); }
 
-.row.no-spacing {
-  padding: 0;
-  margin: 0; }
+/*
+	.row.no-spacing {
+		
+		padding: 0;
+		margin: 0 auto;
 
+	}
+*/
 .row.no-spacing > * {
   padding: 0;
   margin: 0; }
@@ -2241,9 +2260,6 @@ $background: #1E8DaC;
 .slider.auto-height > *:not(.visible) {
   height: 0; }
 
-.sliding_now {
-  pointer-events: none !important; }
-
 /* natUIve – Modal */
 /*
 $color: #fff;
@@ -2453,11 +2469,6 @@ picture {
 html.nooverflow, html.nooverflow body {
   overflow: hidden; }
 
-.animate-scroll {
-  pointer-events: none !important;
-  -webkit-transition: -webkit-transform .4s ease;
-  transition: transform .4s ease; }
-
 .header-and-banner {
   flex: none; }
 
@@ -2651,9 +2662,6 @@ header.fixed {
 
   header.fixed .logo img {
     height: 1.5em; }
-
-  .semi-transparent main, .semi-transparent footer, .semi-transparent header > .row {
-    opacity: .1; }
 
   footer .row > * {
     display: inline-block; }

@@ -170,6 +170,7 @@ function endSlide (slider, index) {
     }
 
 	addClass(childByClass(slider.parentNode, 'slider-nav').children[index], 'active');
+	slider.style.pointerEvents = '';
 
 	document.onkeyup = sliderKeyboard;
     setTimeout(function () { 
@@ -197,6 +198,7 @@ function slide(el, method, index_number) {
     }
 
     mouseEvents(el.parentNode, 'off');
+    el.style.pointerEvents = 'none'; // Speed up animation
     mouseEvents(el, 'off');
 	document.onkeyup = function () { return false; };
 	addClass(q('html'), 'sliding_now');
@@ -282,7 +284,7 @@ function slide(el, method, index_number) {
 
     }
 
-    if (animationEndEvent) { // CSS transition-enabled browser...
+    if (animationEndEvent) { // CSS animation-enabled browser...
 
 		var translate_from, translate_to;
 		

@@ -89,14 +89,6 @@ html.nooverflow, html.nooverflow body {
 
 }
 
-.animate-scroll {
-
-	pointer-events: none !important;
-	-webkit-transition: -webkit-transform .4s ease;
-	transition: transform .4s ease;
-
-}
-
 .header-and-banner {
 
 	flex: none;	
@@ -415,12 +407,6 @@ header.fixed {
 		
 		height: 1.5em;
 
-	}
-	
-	.semi-transparent main, .semi-transparent footer, .semi-transparent header > .row {
-		
-		opacity: .1;
-	
 	}
 	
 	footer .row > * {

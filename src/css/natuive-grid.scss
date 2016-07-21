@@ -69,10 +69,26 @@
 
 	.row > .col23 { // body used for rules override
 
-		width: 66.667%;
+		width: 66.667%; // To do: as this line is only for inline-block fallback, remove it and use inline style width instead of classes in the JS
 		flex: 0 0 calc(66.667% - #{$line-height-em});
 
 	}
+	
+/*
+	// To do: Future CSS Variables grid with only 1 line per column variant
+	
+	.row > * {
+		
+		width: var(--width);
+		flex: 0 0 calc(var(--width) - #{$line-height-em});
+	}
+	
+	.row > .col23 {
+		
+		--width: 66.667%;
+		
+	}
+*/
 	
 	.row > .col34 {
 
@@ -496,12 +512,14 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 
 	}
 
+/*
 	.row.no-spacing {
 		
 		padding: 0;
-		margin: 0;
+		margin: 0 auto;
 
 	}
+*/
 	
 	.row.no-spacing > * {
 		
@@ -522,7 +540,7 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 
 	}
 	
-	.row > .vertical-row {
+	.row > .vertical-row { // Split a column vertically
 		
 		display: flex;
 		flex-direction: column;

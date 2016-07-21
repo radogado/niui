@@ -379,76 +379,6 @@ function relayParameters() {
 
 }
 
-var temp = document.createElement('temp');
-
-var transitions = {
-
-	'transition'		: 'transitionend',
-	'OTransition'		: 'oTransitionEnd',
-	'MozTransition'		: 'transitionend',
-	'WebkitTransition'	: 'webkitTransitionEnd'
-
-};
-
-var animations = {
-
-// 	'animation'      	: 'animationend', // Disable IE because of a Slider glitch
-	'OAnimation'     	: 'oAnimationEnd',
-	'MozAnimation'   	: 'animationend',
-	'WebkitAnimation'	: 'webkitAnimationEnd'
-
-};
-
-for(var t in transitions){
-
-    if (temp.style[t] !== undefined) {
-
-        var transitionEvent = transitions[t];
-
-    }
-
-}
-
-for(var t in animations){
-
-    if (temp.style[t] !== undefined) {
-
-        var animationEndEvent = animations[t];
-
-    }
-
-}
-
-function scrollToAnimated(to, callback) {
-	
-	if (typeof document.body.style.transition != 'string') {
-		
-		callback();
-		return;
-
-	}
-	
-	if (to > (document.body.clientHeight-window.innerHeight) ) {
-
-		to = document.body.clientHeight-window.innerHeight;
-
-	}
-	
-    var change = to - (document.documentElement.scrollTop || document.body.scrollTop);
-
-	addClass(q('html'), 'animate-scroll');
-    q('html').addEventListener(transitionEvent, function scrollEndHandler(e) {
-
-		q('html').removeEventListener(transitionEvent, scrollEndHandler);
-		removeClass(q('html'), 'animate-scroll');
-		q('html').style.transform = 'none';
-		callback();
-
-    }, false);
-	q('html').style.transform = 'translate3d(0,' + -1*change + 'px,0)';
-
-}
-
 function arrow_keys_handler(e) {
 
     switch (e.keyCode) {
@@ -848,11 +778,10 @@ function animateAnchors(e) {
 			removeClass(q('header > nav > div'), 'open');
 			
 		}
-	    removeClass(q('body'), 'semi-transparent');
 
 	}
 
-    scrollToAnimated((hash === null) ? 0 : getCumulativeOffset(hash).y, function(e) {
+    scrollToAnimated((hash === null) ? 0 : getCumulativeOffset(hash).y, function(e) { // To do: fix jumping to new hash – is the fallback executed properly in animate()?
 
         window.location = el.href.split('#')[0] + '#' + el.href.split('#').pop();
 
@@ -1067,16 +996,6 @@ if (!touchSupport()) { // Touch device: remove iOS sticky hover state
 
 	addClass(q('body'), 'no-touch');
 	
-}
-
-if (q('#nav-trigger')) {
-	
-	q('#nav-trigger').onchange = function(e) {
-		
-	    toggleClass(q('body'), 'semi-transparent');
-
-	};
-
 }
 
 /* Baseline-align images etc */
@@ -1414,9 +1333,29 @@ if (q('header.fixed input.trigger.burger')) {
 
 /* Chainable animation specified as CSS Animation */
 
+var temp = document.createElement('temp');
+
+var animations = {
+
+// 	'animation'      	: 'animationend', // Disable IE because of a Slider glitch
+	'MozAnimation'   	: 'animationend',
+	'WebkitAnimation'	: 'webkitAnimationEnd'
+
+};
+
+for(var t in animations) {
+
+    if (temp.style[t] !== undefined) {
+
+        var animationEndEvent = animations[t];
+
+    }
+
+}
+
 function animate(el, animation, duration, callback) {
 
-	if (q('.animation-code')) {
+	if (q('.animation-code')) { // Animation in progress
 		
 		return;
 
@@ -1424,6 +1363,7 @@ function animate(el, animation, duration, callback) {
 	el.addEventListener(animationEndEvent, function animationEndHandler(e) {
 		
 		var el = e.target;
+		el.style.pointerEvents = '';
 		removeClass(el, q('.animation-code').getAttribute('data-class'));
 		q('.animation-code').outerHTML = '';
  		el.removeEventListener(animationEndEvent, animationEndHandler);
@@ -1441,7 +1381,33 @@ function animate(el, animation, duration, callback) {
 	addClass(styles, 'animation-code');
 	styles.setAttribute('data-class', animation_name);
 	addClass(el, animation_name);
+	el.style.pointerEvents = 'none';
 	
+}
+
+// Scroll the page to any position
+
+function scrollToAnimated(to, callback) {
+	
+	if (to > (document.body.clientHeight - window.innerHeight) ) {
+
+		to = document.body.clientHeight - window.innerHeight;
+
+	}
+	
+	function scrollToCallback (callback) {
+		
+		q('html').scrollTop = to; 
+		if (typeof callback === 'function') {
+			
+			callback();
+		
+		}
+		
+	}
+	
+	animate(q('html'), '100%{transform: translate3d(0,' + -1*(to - (document.documentElement.scrollTop || document.body.scrollTop)) + 'px,0)}', .5, scrollToCallback.bind(null, callback));
+
 }
 
 /* Accordion */
@@ -1455,12 +1421,12 @@ function toggleAccordion(e) {
 
 	if (hasClass(el, 'open')) {
 		
-		animate(content, '0% { max-height: ' + content.scrollHeight + 'px; } 100% { max-height: 0; }', '.2', function () { toggleClass(el, 'open'); });
+		animate(content, '0% { max-height: ' + content.scrollHeight + 'px; } 100% { max-height: 0; }', .2, function () { toggleClass(el, 'open'); });
 		
 	} else {
 		
 		toggleClass(el, 'open');
-		animate(content, '0% { max-height: 0; } 100% { max-height: ' + content.scrollHeight + 'px; }', '.2');
+		animate(content, '0% { max-height: 0; } 100% { max-height: ' + content.scrollHeight + 'px; }', .2);
 		
 	}
 
