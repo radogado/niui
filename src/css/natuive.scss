@@ -237,7 +237,6 @@ video a[href] {
 .fixed-background { 
 
 	background-attachment: fixed;
-	background-position: center;
 	position: relative;
 	background-size: 0;
 	overflow: hidden;
@@ -247,7 +246,10 @@ video a[href] {
 
 .no-touch .fixed-background { 
 
-	background-size: cover;
+	background-position: center;
+	background-size: auto;
+	background-repeat: no-repeat;
+// 	background-size: cover; // Too slow
 	transform: translate3d(0, 0, 0);
 	z-index: 0; // To do: fix accessibility without JS
 	

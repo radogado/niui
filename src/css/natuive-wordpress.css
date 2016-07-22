@@ -1399,6 +1399,10 @@ nav.drop ul li b.sub {
   margin-left: -.3em;
   mix-blend-mode: multiply; }
 
+[dir=rtl] nav.drop ul li b.sub {
+  margin-left: 0;
+  margin-right: -.3em; }
+
 nav.drop ul li li b.sub {
   display: inline-block;
   padding: 1em;
@@ -1901,6 +1905,13 @@ $background: #1E8DaC;
   max-height: 100%;
   z-index: 1; }
 
+_::-webkit-full-page-media, _:future, :root .slider-wrap {
+  padding: 0 .1px; }
+
+_::-webkit-full-page-media, _:future, :root .slider-wrap .slider {
+  margin-left: -.5px;
+  width: calc(100% + 1px); }
+
 .slider-wrap.vertical-tabs {
   display: flex; }
 
@@ -1965,9 +1976,7 @@ $background: #1E8DaC;
   display: flex; }
 
 .slider-wrap .slider {
-  overflow: visible;
-  margin-left: -.5px;
-  width: calc(100% + 1px); }
+  overflow: visible; }
 
 .slider-wrap .slider > * {
   contain: strict; }
@@ -2561,14 +2570,15 @@ video a[href] {
 /* Element as a window to an image spanning viewpoert dimensions. iOS doesn't support it natively and requires div.fixed-background-image */
 .fixed-background {
   background-attachment: fixed;
-  background-position: center;
   position: relative;
   background-size: 0;
   overflow: hidden;
   will-change: scroll-position; }
 
 .no-touch .fixed-background {
-  background-size: cover;
+  background-position: center;
+  background-size: auto;
+  background-repeat: no-repeat;
   transform: translate3d(0, 0, 0);
   z-index: 0; }
 

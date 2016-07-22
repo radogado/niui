@@ -147,6 +147,13 @@ nav.drop ul li b.sub {
 
 }
 
+[dir=rtl] nav.drop ul li b.sub {
+
+	margin-left: 0;
+	margin-right: -.3em;
+
+}
+
 nav.drop ul li li b.sub {
 	
 	display: inline-block;

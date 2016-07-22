@@ -42,6 +42,20 @@
 
 }
 
+_::-webkit-full-page-media, _:future, :root .slider-wrap {
+	
+    padding: 0 .1px; // Fix Safari bug where 1px of previous slide is visible during slide
+	
+}
+
+_::-webkit-full-page-media, _:future, :root .slider-wrap .slider {
+
+	// Fix Safari bug where 1px of previous slide is visible during slide
+	margin-left: -.5px;
+	width: calc(100% + 1px);
+
+}
+
 .slider-wrap.vertical-tabs {
 	
 	display: flex;
@@ -137,10 +151,6 @@
 	
 	overflow: visible;
 
-	// Fix Safari bug where 1px of previous slide is visible during slide
-	margin-left: -.5px;
-	width: calc(100% + 1px);
-	
 }
 
 .slider-wrap .slider > * {
