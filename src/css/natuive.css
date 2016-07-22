@@ -259,9 +259,10 @@ section:before, section:after {
 .pad-half {
   padding: 0.75em; }
 
-.unpad {
+.unpad, .row > * > .unpad {
   margin: -1.5em;
-  width: calc(100% + 1.5em*2); }
+  width: calc(100% + 1.5em*2);
+  max-width: none; }
 
 .unpad-vertical {
   margin: -1.5em 0; }

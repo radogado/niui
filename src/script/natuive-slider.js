@@ -198,7 +198,7 @@ function slide(el, method, index_number) {
     }
 
     mouseEvents(el.parentNode, 'off');
-    el.style.pointerEvents = 'none'; // Speed up animation
+    slider.style.pointerEvents = 'none'; // Speed up animation
     mouseEvents(el, 'off');
 	document.onkeyup = function () { return false; };
 	addClass(q('html'), 'sliding_now');

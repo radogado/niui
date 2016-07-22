@@ -365,10 +365,11 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 	
 	}
 
-	.unpad {
+	.unpad, .row > * > .unpad {
 		
 		margin: -$line-height-em;
 		width: calc(100% + #{$line-height-em}*2);
+		max-width: none;
 	
 	}
 	
