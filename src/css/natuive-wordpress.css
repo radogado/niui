@@ -2026,7 +2026,9 @@ _::-webkit-full-page-media, _:future, :root .slider-wrap .slider {
   margin-left: -.3em; }
 
 .slider.vertical > * {
-  display: block;
+  display: block; }
+
+.full-window-wrap .slider.vertical > * {
   height: 100%; }
 
 .slider-wrap .slider.sliding > *:not(.visible) {

@@ -165,12 +165,6 @@ _::-webkit-full-page-media, _:future, :root .slider-wrap .slider {
 	
 }
 
-.slider-wrap.vertical, .slider.vertical {
-	
-// 	height: $line-height*23;
-
-}
-
 .full-window-wrap .slider-wrap.vertical, .full-window-wrap .slider, .full-window-wrap .slider > * {
 	
 	height: 100%;
@@ -240,6 +234,11 @@ _::-webkit-full-page-media, _:future, :root .slider-wrap .slider {
 .slider.vertical > * {
 	
 	display: block;
+
+}
+
+.full-window-wrap .slider.vertical > * {
+	
 	height: 100%;
 
 }

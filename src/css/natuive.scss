@@ -251,7 +251,7 @@ video a[href] {
 	background-repeat: no-repeat;
 // 	background-size: cover; // Too slow
 	transform: translate3d(0, 0, 0);
-	z-index: 0; // To do: fix accessibility without JS
+	z-index: 0;
 	
 }
 
