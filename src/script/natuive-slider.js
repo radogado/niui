@@ -257,12 +257,13 @@ function slide(el, method, index_number) {
 
 	// To do: auto-height slider to take the height of the taller element
 	var computed_height;
+	var computed_height_old;
 	addClass(slider.children[index], 'visible');
 
 	if (hasClass(slider, 'vertical')) {
 		
 		computed_height = getComputedStyle(slider.children[index]).height; // To do: get proper target slide height
-		console.log(computed_height);
+		computed_height_old = getComputedStyle(slider.children[old_index]).height; // To do: get proper target slide height
 
 	} else {
 	
@@ -291,8 +292,21 @@ function slide(el, method, index_number) {
 		
 	    if (hasClass(slider, 'vertical')) {
 		
-		    translate_from = 'translate3d(0,' + ((index<old_index) ? -1 : 0) + '00%,0)';
-		    translate_to = 'translate3d(0,' + ((index<old_index) ? 0 : -1) + '00%,0)';
+		    translate_from = 'translate3d(0,' + ((index<old_index) ? '-100%' : '0') + ',0)';
+			
+			computed_height = parseInt(computed_height, 10);
+			computed_height_old = parseInt(computed_height_old, 10);
+		    var difference = Math.abs(computed_height - computed_height_old);
+		    if (computed_height > computed_height_old) {
+			    
+			    difference = Math.max(computed_height, computed_height_old) - difference;
+			    
+		    } else {
+			    
+			    difference = Math.min(computed_height, computed_height_old) + difference;
+			    
+		    }
+		    translate_to = 'translate3d(0,' + ((index<old_index) ? '0' : ('-' + difference + 'px')) + ',0)';
 		
 		} else {
 			

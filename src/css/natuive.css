@@ -1323,6 +1323,12 @@ nav ul {
   display: inline-block;
   width: auto; }
 
+nav.scroll ul {
+  white-space: nowrap;
+  overflow: auto;
+  max-width: 100%;
+  padding-bottom: 1.5em; }
+
 nav a {
   position: relative;
   padding: 0 .5em 0 0; }
@@ -1924,7 +1930,8 @@ _::-webkit-full-page-media, _:future, :root .slider-wrap .slider {
 
 .slider-wrap.vertical.tabs > .slider-nav a {
   display: block;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  padding: 1.5em 0.5em; }
 
 .full-window-wrap .slider-wrap {
   top: 0px;
