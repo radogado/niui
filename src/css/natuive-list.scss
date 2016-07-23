@@ -65,12 +65,12 @@ ol > li:before {
     counter-increment: level1;
     font-weight: bold;
     background: #999;
-    padding: $line-height-em/4 .6em $line-height-em/4 .6em;
+    padding: 0 .5em;
 //     padding: calc(var(--line-height-em)/4) .6em calc(var(--line-height-em)/4) .6em;
     border-radius: 50%;
     margin-right: .5em;
     color: #fff;
-    min-width: 1em;
+//     min-width: 1.5em;
     min-height: 1em;
     display: inline-block;
     text-indent: 0;
@@ -96,7 +96,7 @@ ol > li ol > li:before {
 
     content: counter(level1) '.' counter(level2) ' ';
     counter-increment: level2;
-    padding: $line-height-em/4 .4em $line-height-em/4 .5em;
+//     padding: $line-height-em/4 .4em $line-height-em/4 .5em;
 //     padding: calc(var(--line-height-em)/4) .4em calc(var(--line-height-em)/4) .5em;
     border-radius: 1em;
     background: #999;

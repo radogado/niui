@@ -1686,11 +1686,10 @@ ol > li:before {
   counter-increment: level1;
   font-weight: bold;
   background: #999;
-  padding: 0.375em 0.6em 0.375em 0.6em;
+  padding: 0 .5em;
   border-radius: 50%;
   margin-right: .5em;
   color: #fff;
-  min-width: 1em;
   min-height: 1em;
   display: inline-block;
   text-indent: 0;
@@ -1707,7 +1706,6 @@ ol > li ol {
 ol > li ol > li:before {
   content: counter(level1) "." counter(level2) " ";
   counter-increment: level2;
-  padding: 0.375em 0.4em 0.375em 0.5em;
   border-radius: 1em;
   background: #999;
   color: #fff; }
