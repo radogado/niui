@@ -2181,6 +2181,10 @@ _::-webkit-full-page-media, _:future, :root .slider-wrap .slider {
   transform: translateX(-50%);
   z-index: 1; }
 
+.top > .slider-nav {
+  bottom: auto;
+  top: .5em; }
+
 .slider-nav {
   text-align: start;
   justify-content: flex-start; }

@@ -433,10 +433,11 @@ function makeSlider(el, current_slide) {
 	    el = container.querySelector('.slider');
 	    transferClass(el, container, 'vertical');
         transferClass(el, container, 'wrap');
+        transferClass(el, container, 'top');
     
     }
 	
-    container.insertAdjacentHTML('afterbegin', '<div class=slider-nav></div>');
+    container.insertAdjacentHTML(hasClass(container, 'top') ? 'afterbegin' : 'beforeend', '<div class=slider-nav></div>');
     container.insertAdjacentHTML('beforeend', '<a class="slider-arrow left"></a><a class="slider-arrow right"></a>');
 
     // Generate controls
