@@ -307,6 +307,8 @@ function slide(el, method, index_number) {
 			    
 		    }
 		    translate_to = 'translate3d(0,' + ((index<old_index) ? '0' : ('-' + difference + 'px')) + ',0)';
+		    slider.children[old_index].style.transition = 'opacity ' + duration/2 + 's linear';
+		    slider.children[old_index].style.opacity = 0;
 		
 		} else {
 			
@@ -335,6 +337,8 @@ function slide(el, method, index_number) {
 			if (slider.children[old_index]) {
 	
 				removeClass(slider.children[old_index], 'visible');
+			    slider.children[old_index].style.transition = '';
+			    slider.children[old_index].style.opacity = 'initial';
 	
 			}
 
@@ -432,7 +436,7 @@ function makeSlider(el, current_slide) {
     
     }
 	
-    container.insertAdjacentHTML(hasClass(el, 'toptabs') ? 'afterbegin' : 'beforeend', '<div class=slider-nav></div>');
+    container.insertAdjacentHTML('afterbegin', '<div class=slider-nav></div>');
     container.insertAdjacentHTML('beforeend', '<a class="slider-arrow left"></a><a class="slider-arrow right"></a>');
 
     // Generate controls
@@ -442,16 +446,16 @@ function makeSlider(el, current_slide) {
         		// IE8 counts comments as children and produces an empty slide.			
 //         		if ( el.children[i].nodeName == '#comment' ) {	}
 
-        if (el.children[i].querySelector('.tab-title')) {
+        if (hasClass(el, 'tabs')) {
 
             var slider_nav = el.parentNode.querySelector('.slider-nav');
             addClass(el.parentNode, 'tabs');
             addClass(slider_nav, 'row');
             transferClass(el.parentNode, slider_nav, 'wrap');
-            slider_nav.insertAdjacentHTML('beforeend', (!i ? '<a class=active>' : '<a>') + el.children[i].querySelector('.tab-title').innerHTML + '</a>');
+            slider_nav.insertAdjacentHTML('beforeend', (!i ? '<a class=active>' : '<a>') + (el.children[i].querySelector('.tab-title') ? el.children[i].querySelector('.tab-title').innerHTML : i+1) + '</a>');
             if (hasClass(el, 'vertical')) {
 	            
-	            addClass(el.parentNode, 'vertical-tabs');
+	            addClass(el.parentNode, 'vertical');
 	            
             }
 

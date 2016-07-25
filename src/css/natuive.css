@@ -1919,10 +1919,10 @@ _::-webkit-full-page-media, _:future, :root .slider-wrap .slider {
   margin-left: -.5px;
   width: calc(100% + 1px); }
 
-.slider-wrap.vertical-tabs {
+.slider-wrap.vertical.tabs {
   display: flex; }
 
-.slider-wrap.vertical-tabs > .slider {
+.slider-wrap.vertical.tabs > .slider {
   order: 1;
   flex: 1; }
 
@@ -2178,7 +2178,8 @@ _::-webkit-full-page-media, _:future, :root .slider-wrap .slider {
   white-space: nowrap;
   left: 50%;
   -webkit-transform: translateX(-50%);
-  transform: translateX(-50%); }
+  transform: translateX(-50%);
+  z-index: 1; }
 
 .slider-nav {
   text-align: start;
