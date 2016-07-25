@@ -1321,7 +1321,8 @@ nav ul {
   margin: 0;
   padding: 0;
   display: inline-block;
-  width: auto; }
+  width: auto;
+  list-style: none; }
 
 nav.scroll ul {
   white-space: nowrap;
@@ -1660,6 +1661,9 @@ ul {
 
 ul li {
   margin: 1.5em 0 0 0; }
+
+ul.vertical li {
+  display: block; }
 
 ol {
   list-style-type: none;
