@@ -338,12 +338,12 @@ function slide(el, method, index_number) {
 	
 				removeClass(slider.children[old_index], 'visible');
 			    slider.children[old_index].style.transition = '';
-			    slider.children[old_index].style.opacity = 'initial';
+			    slider.children[old_index].style.opacity = '';
 	
 			}
 
 			slider.style.transform = hasClass(slider, 'vertical') ? 'translate3d(0, 0, 0)' : 'translate3d(' + offset_sign + index + '00%, 0, 0)';
-			slider.style.height = 'auto';
+			slider.style.height = '';
 			endSlide(slider, index);
 
         });
@@ -434,6 +434,7 @@ function makeSlider(el, current_slide) {
 	    transferClass(el, container, 'vertical');
         transferClass(el, container, 'wrap');
         transferClass(el, container, 'top');
+        transferClass(el, container, 'right');
     
     }
 	

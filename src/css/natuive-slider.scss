@@ -56,23 +56,29 @@ _::-webkit-full-page-media, _:future, :root .slider-wrap .slider {
 
 }
 
-.slider-wrap.vertical.tabs {
-	
-	display: flex;
+.slider-wrap.vertical.tabs > .slider { // Floats, because flex version is glitching when tab stack is taller than the slider. To do: fix flex version.
 
-}
-
-.slider-wrap.vertical.tabs > .slider {
-
-	order: 1;
-	flex: 1;
+	width: 66.667%;
+    float: right;
 
 }
 
 .slider-wrap.vertical.tabs > .slider-nav.row {
 	
-	width: 33.3%;
-	display: block;
+	width: 33.333%;
+	float: left;
+
+}
+
+.slider-wrap.vertical.tabs.right > .slider {
+
+    float: left;
+
+}
+
+.slider-wrap.vertical.tabs.right > .slider-nav.row {
+	
+	float: right;
 
 }
 

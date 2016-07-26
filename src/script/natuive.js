@@ -35,6 +35,7 @@ if (!Array.prototype.indexOf) {
 function addClass(el, className) {
 
 	el.classList.add(className);
+	// To do: remove a single '.' for foolproof operation; Add multiple classes separated by space, dot, comma
 
 }
 
@@ -50,6 +51,7 @@ Object.prototype.addClassPrototype = function (className) {
 function removeClass(el, className) {
 
 	el.classList.remove(className);
+	// To do: remove a single '.' for foolproof operation; Add multiple classes separated by space, dot, comma
 
 }
 
@@ -61,6 +63,7 @@ function hasClass(el, className) {
 	
 	}
 	return el.classList.contains(className);
+	// To do: remove a single '.' for foolproof operation; Add multiple classes separated by space, dot, comma
 
 }
 
@@ -224,7 +227,7 @@ function getCookie(k) { // Thanks Simon Steinberger
 
 function touchSupport () {
 	
-	return (('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
+	return (('ontouchstart' in window) /* || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0) */);
 
 }
 
@@ -1337,7 +1340,7 @@ var temp = document.createElement('temp');
 
 var animations = {
 
-// 	'animation'      	: 'animationend', // Disable IE because of a Slider glitch
+	'animation'      	: 'animationend',
 	'MozAnimation'   	: 'animationend',
 	'WebkitAnimation'	: 'webkitAnimationEnd'
 
