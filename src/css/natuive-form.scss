@@ -935,3 +935,30 @@ header form {
 
 	}
 	
+// Placeholder colour 
+
+$placeholder_color: #aaa;
+
+::-webkit-input-placeholder {
+
+   color: $placeholder_color;
+
+}
+
+:-moz-placeholder { /* Firefox 18- */
+
+   color: $placeholder_color;  
+
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+
+   color: $placeholder_color;  
+
+}
+
+:-ms-input-placeholder {  
+
+   color: $placeholder_color;  
+
+}

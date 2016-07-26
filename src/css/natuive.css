@@ -1205,6 +1205,20 @@ header form select {
   display: inline-block;
   margin: 0; }
 
+::-webkit-input-placeholder {
+  color: #aaa; }
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #aaa; }
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #aaa; }
+
+:-ms-input-placeholder {
+  color: #aaa; }
+
 /* Tables */
 /*
 $color: #fff;
