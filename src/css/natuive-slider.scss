@@ -494,6 +494,13 @@ _::-webkit-full-page-media, _:future, :root .slider-wrap .slider {
 		
 	}
 
+	.right.vertical > .slider-nav {
+		
+	    right: .5em;
+	    left: auto;
+
+	}
+	
 	.slider-nav a {
 		
 		display: inline-block;

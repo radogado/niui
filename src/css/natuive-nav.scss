@@ -42,6 +42,12 @@ nav {
 
 	}
 	
+	nav a[href^='#'] {
+		
+		text-decoration: none;
+
+	}
+	
 	nav li:last-child a {
 		
 		padding-right: 0;

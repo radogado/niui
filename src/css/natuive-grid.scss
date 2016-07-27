@@ -7,10 +7,9 @@
 .row {
 
 	width: 100%;
-	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
-	 -webkit-justify-content: center;
+	-webkit-justify-content: center;
 	-webkit-flex-wrap: wrap;
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
@@ -24,17 +23,23 @@
 		position: relative;
 		word-wrap: break-word;
 		display: inline-block;
-		-webkit-flex: 1 0 auto;
-		-ms-flex: 1 0 auto;
-		flex: 1 0 auto;
-		width: 20%; /* Minimum col width */
-		width: calc(20% - #{$line-height-em});
+		width: 20%;
+		flex-basis: calc(20% - #{$line-height-em});
+		padding: calc(#{$line-height-em/4}); // Not for browsers without calc (flex)
+		margin: calc(#{$line-height-em/4});
+		flex-grow: 1;
 		text-align: left;
 		text-align: start;
-		padding: $line-height-em/2;
-		margin: $line-height-em/2;
 
 	}
+	
+/*
+	.row > [class^=col] {
+		
+		flex-grow: 0;
+		
+	}
+*/
 	
 	.row:before, .row:after { // Clear margins before/after a row
 		
@@ -70,7 +75,7 @@
 	.row > .col23 { // body used for rules override
 
 		width: 66.667%; // To do: as this line is only for inline-block fallback, remove it and use inline style width instead of classes in the JS
-		flex: 0 0 calc(66.667% - #{$line-height-em});
+		flex-basis: calc(66.667% - #{$line-height-em}); // To do: spacing as CSS variable, which can be zeroed by the .no-spacing class
 
 	}
 	
@@ -93,123 +98,123 @@
 	.row > .col34 {
 
 		width: 75%;
-		flex: 0 0 calc(75% - #{$line-height-em});
+		flex-basis: calc(75% - #{$line-height-em});
 
 	}
 
 	.row > .col4 {
 
 		width: 25%;
-		flex: 0 0 calc(25% - #{$line-height-em});
+		flex-basis: calc(25% - #{$line-height-em});
 
 	}
 
 	.row > .col5 {
 
 		width: 20%;
-		flex: 0 0 calc(20% - #{$line-height-em});
+		flex-basis: calc(20% - #{$line-height-em});
 
 	}
 
 	.row > .col25 {
 
 		width: 40%;
-		flex: 0 0 calc(40% - #{$line-height-em});
+		flex-basis: calc(40% - #{$line-height-em});
 
 	}
 
 	.row > .col35 {
 
 		width: 60%;
-		flex: 0 0 calc(60% - #{$line-height-em});
+		flex-basis: calc(60% - #{$line-height-em});
 
 	}
 
 	.row > .col45 {
 
 		width: 80%;
-		flex: 0 0 calc(80% - #{$line-height-em});
+		flex-basis: calc(80% - #{$line-height-em});
 
 	}
 
 	.row > .col3 {
 
 		width: 33.333%;
-		flex: 0 0 calc(33.333% - #{$line-height-em});
+		flex-basis: calc(33.333% - #{$line-height-em});
 
 	}
 
 	.row > .col2 {
 
 		width: 50%;
-		flex: 0 0 calc(50% - #{$line-height-em});
+		flex-basis: calc(50% - #{$line-height-em});
 
 	}
 	
 	.row > .col1, .row > *:only-child:not([class^=col]) {
 
 		width: 100%;
-		flex: 0 0 calc(100% - #{$line-height-em});
+		flex-basis: calc(100% - #{$line-height-em});
 
 	}
 	
 	.row.no-spacing > .col23 { // body used for rules override
 	
-		flex: 0 0 66.667%;
+		flex-basis: 66.667%;
 	
 	}
 	
 	.row.no-spacing > .col34 {
 	
-		flex: 0 0 75%;
+		flex-basis: 75%;
 	
 	}
 	
 	.row.no-spacing > .col4 {
 	
-		flex: 0 0 25%;
+		flex-basis: 25%;
 	
 	}
 	
 	.row.no-spacing > .col5 {
 	
-		flex: 0 0 20%;
+		flex-basis: 20%;
 	
 	}
 	
 	.row.no-spacing > .col25 {
 	
-		flex: 0 0 40%;
+		flex-basis: 40%;
 	
 	}
 	
 	.row.no-spacing > .col35 {
 	
-		flex: 0 0 60%;
+		flex-basis: 60%;
 	
 	}
 	
 	.row.no-spacing > .col45 {
 	
-		flex: 0 0 80%;
+		flex-basis: 80%;
 	
 	}
 	
 	.row.no-spacing > .col3 {
 	
-		flex: 0 0 33.333%;
+		flex-basis: 33.333%;
 	
 	}
 	
 	.row.no-spacing > .col2 {
 	
-		flex: 0 0 50%;
+		flex-basis: 50%;
 	
 	}
 	
 	.row.no-spacing > .col1 {
 	
-		flex: 0 0 100%;
+		flex-basis: 100%;
 	
 	}
 

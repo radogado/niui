@@ -939,26 +939,36 @@ header form {
 
 $placeholder_color: #aaa;
 
+form {
+	
+	--placeholder_color: #aaa;
+
+}
+
 ::-webkit-input-placeholder {
 
    color: $placeholder_color;
+   color: var(--placeholder_color);
 
 }
 
 :-moz-placeholder { /* Firefox 18- */
 
    color: $placeholder_color;  
+   color: var(--placeholder_color);
 
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
 
    color: $placeholder_color;  
+   color: var(--placeholder_color);
 
 }
 
 :-ms-input-placeholder {  
 
    color: $placeholder_color;  
+   color: var(--placeholder_color);
 
 }

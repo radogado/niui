@@ -14,7 +14,7 @@ function loadScriptFile(file_name) {
     var js_el = document.createElement("script");
     js_el.type = "text/javascript";
     js_el.src = scripts_location + file_name;
-    document.head.appendChild(js_el);
+    document.querySelector('head').appendChild(js_el);
 
 }
 
@@ -659,11 +659,8 @@ function openLightbox(e) {
 
         }
 
-        if (hasClass(anchor.parentNode, 'vertical')) {
-
-            addClass(q('.full-window-wrap .slider'), 'vertical');
-
-        }
+        transferClass(anchor.parentNode, q('.full-window-wrap .slider'), 'vertical');
+        transferClass(anchor.parentNode, q('.full-window-wrap .slider'), 'right');
 
         // Load the images in the current slide and its neighbours
         while ( anchor.tagName.toLowerCase() != 'a' ) {
