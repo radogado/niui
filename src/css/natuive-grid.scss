@@ -24,7 +24,7 @@
 		word-wrap: break-word;
 		display: inline-block;
 		width: 20%;
-		flex-basis: calc(20% - #{$line-height-em});
+		flex-basis: calc(20% - #{$line-height-em/2});
 		padding: calc(#{$line-height-em/4}); // Not for browsers without calc (flex)
 		margin: calc(#{$line-height-em/4});
 		flex-grow: 1;
@@ -33,13 +33,11 @@
 
 	}
 	
-/*
 	.row > [class^=col] {
 		
 		flex-grow: 0;
 		
 	}
-*/
 	
 	.row:before, .row:after { // Clear margins before/after a row
 		
@@ -75,7 +73,7 @@
 	.row > .col23 { // body used for rules override
 
 		width: 66.667%; // To do: as this line is only for inline-block fallback, remove it and use inline style width instead of classes in the JS
-		flex-basis: calc(66.667% - #{$line-height-em}); // To do: spacing as CSS variable, which can be zeroed by the .no-spacing class
+		flex-basis: calc(66.667% - #{$line-height-em/2}); // To do: spacing as CSS variable, which can be zeroed by the .no-spacing class
 
 	}
 	
@@ -98,63 +96,63 @@
 	.row > .col34 {
 
 		width: 75%;
-		flex-basis: calc(75% - #{$line-height-em});
+		flex-basis: calc(75% - #{$line-height-em/2});
 
 	}
 
 	.row > .col4 {
 
 		width: 25%;
-		flex-basis: calc(25% - #{$line-height-em});
+		flex-basis: calc(25% - #{$line-height-em/2});
 
 	}
 
 	.row > .col5 {
 
 		width: 20%;
-		flex-basis: calc(20% - #{$line-height-em});
+		flex-basis: calc(20% - #{$line-height-em/2});
 
 	}
 
 	.row > .col25 {
 
 		width: 40%;
-		flex-basis: calc(40% - #{$line-height-em});
+		flex-basis: calc(40% - #{$line-height-em/2});
 
 	}
 
 	.row > .col35 {
 
 		width: 60%;
-		flex-basis: calc(60% - #{$line-height-em});
+		flex-basis: calc(60% - #{$line-height-em/2});
 
 	}
 
 	.row > .col45 {
 
 		width: 80%;
-		flex-basis: calc(80% - #{$line-height-em});
+		flex-basis: calc(80% - #{$line-height-em/2});
 
 	}
 
 	.row > .col3 {
 
 		width: 33.333%;
-		flex-basis: calc(33.333% - #{$line-height-em});
+		flex-basis: calc(33.333% - #{$line-height-em/2});
 
 	}
 
 	.row > .col2 {
 
 		width: 50%;
-		flex-basis: calc(50% - #{$line-height-em});
+		flex-basis: calc(50% - #{$line-height-em/2});
 
 	}
 	
 	.row > .col1, .row > *:only-child:not([class^=col]) {
 
 		width: 100%;
-		flex-basis: calc(100% - #{$line-height-em});
+		flex-basis: calc(100% - #{$line-height-em/2});
 
 	}
 	
@@ -230,6 +228,7 @@
 		.row > * {
 			
 			width: 25%;
+			flex-basis: calc(25% - #{$line-height-em/2});
 		
 		}
 	
@@ -240,6 +239,7 @@
 		.row > * {
 			
 			width: 33.333%;
+			flex-basis: calc(33.333% - #{$line-height-em/2});
 		
 		}
 	
@@ -360,20 +360,20 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 
 .pad {
 	
-	padding: $line-height-em;
+	padding: $line-height-em/2;
 
 }
 
 	.pad-half {
 		
-		padding: $line-height-em/2;
+		padding: $line-height-em/4;
 	
 	}
 
 	.unpad, .row > * > .unpad {
 		
 		margin: -$line-height-em;
-		width: calc(100% + #{$line-height-em}*2);
+		width: calc(100% + #{$line-height-em});
 		max-width: none;
 	
 	}
@@ -514,7 +514,8 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 	.row.border-all .row > .col1, .row.border-all .row > *:only-child:not([class^=col]) {
 
 		width: 100%;
-		flex: 0 0 calc(100%);
+		flex-basis: calc(100%);
+		flex-grow: 1;
 
 	}
 
