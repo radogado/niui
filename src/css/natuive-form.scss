@@ -69,6 +69,13 @@ form {
 
 	}
 	
+	form.wide textarea, form.mast textarea {
+		
+		margin: -$line-height-em/2 0 $line-height-em/2 0;
+		// 		margin: calc(-1*var(--line-height-em)/2) 0 calc(var(--line-height-em)/2) 0;
+		
+	}
+	
 	label > input {
 		
 		margin-top: -$line-height-em/2;
@@ -209,12 +216,11 @@ form {
 	form textarea {
 		
 		display: block;
-		margin: -$line-height-em/2 0 $line-height-em/2 0;
-// 		margin: calc(-1*var(--line-height-em)/2) 0 calc(var(--line-height-em)/2) 0;
 		border-bottom: 1px dotted transparent;
 		min-height: $line-height-em * 3;
 // 		min-height: calc(var(--line-height-em) * 3);
 		padding-top: $line-height-em/2;
+		padding-top: .85em;;
 	
 	}
 
@@ -278,6 +284,18 @@ form {
 		text-indent: 1px;
 	
 	}
+	
+/*
+	label.select:after {
+		
+	    position: absolute;
+	    right: .5em;
+	    width: 1em;
+	    bottom: .9em;
+	    content: '▾';
+		    
+	}
+*/
 	
 	form.wide select {
 		
@@ -479,12 +497,20 @@ form {
 	form .file-input {
 
 		font-weight: normal;
-		margin: 0 0 $line-height-em 0;
+		margin: -$line-height-em/2 0 $line-height-em 0;
 // 		margin: calc(-1*var(--line-height)/2) 0 calc(var(--line-height)/2) 0;
 		cursor: pointer;
 		font-style: italic;
 		padding: 0;
+		overflow: hidden;
+	    position: relative;
 		
+	}
+
+	form.wide .file-input, form.mast .file-input {
+		
+		margin-top: 0;
+
 	}
 
 	form .file-input span {
@@ -496,6 +522,7 @@ form {
 		margin: 0;
 		width: 100%;
 		border: 1px dotted transparent;
+		padding: 0 $line-height-em/2 0 .8em;
 
 	}
 	
@@ -560,12 +587,6 @@ form {
 	
 	}
 
-	form textarea {
-		
-		padding-top: .85em;;
-		
-	}
-	
 	form input[type=submit] {
 		
 		width: auto;
@@ -891,12 +912,6 @@ form.mast {
 		float: left;
 		clear: left;
 		
-	}
-
-	form .file-input span {
-	
-		padding: 0 0 0 .8em;
-	
 	}
 
 	[dir=rtl] form.mast .file-input span {

@@ -372,7 +372,7 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 
 	.unpad, .row > * > .unpad {
 		
-		margin: -$line-height-em;
+		margin: 0 #{-$line-height-em/2};
 		width: calc(100% + #{$line-height-em});
 		max-width: none;
 	

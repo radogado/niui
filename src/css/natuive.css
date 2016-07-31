@@ -261,7 +261,7 @@ section:before, section:after {
   padding: 0.375em; }
 
 .unpad, .row > * > .unpad {
-  margin: -1.5em;
+  margin: 0 -0.75em;
   width: calc(100% + 1.5em);
   max-width: none; }
 
@@ -663,6 +663,9 @@ label {
 form.wide label {
   width: 100%; }
 
+form.wide textarea, form.mast textarea {
+  margin: -0.75em 0 0.75em 0; }
+
 label > input {
   margin-top: -0.75em; }
 
@@ -748,10 +751,10 @@ form input[type=submit], form button {
 
 form textarea {
   display: block;
-  margin: -0.75em 0 0.75em 0;
   border-bottom: 1px dotted transparent;
   min-height: 4.5em;
-  padding-top: 0.75em; }
+  padding-top: 0.75em;
+  padding-top: .85em; }
 
 form .mandatory {
   position: relative; }
@@ -795,6 +798,17 @@ form select {
   background-position: calc(100% - 1em) 50%;
   text-indent: 1px; }
 
+/*
+	label.select:after {
+		
+	    position: absolute;
+	    right: .5em;
+	    width: 1em;
+	    bottom: .9em;
+	    content: '▾';
+		    
+	}
+*/
 form.wide select {
   height: 3em;
   margin: -0.75em 0 0.75em 0; }
@@ -924,10 +938,15 @@ input[type=file] {
     margin-left: -100%; } }
 form .file-input {
   font-weight: normal;
-  margin: 0 0 1.5em 0;
+  margin: -0.75em 0 1.5em 0;
   cursor: pointer;
   font-style: italic;
-  padding: 0; }
+  padding: 0;
+  overflow: hidden;
+  position: relative; }
+
+form.wide .file-input, form.mast .file-input {
+  margin-top: 0; }
 
 form .file-input span {
   text-align: start;
@@ -936,7 +955,8 @@ form .file-input span {
   z-index: 0;
   margin: 0;
   width: 100%;
-  border: 1px dotted transparent; }
+  border: 1px dotted transparent;
+  padding: 0 0.75em 0 0.8em; }
 
 input[type=file]:focus + span {
   border-color: #bbb; }
@@ -973,9 +993,6 @@ form.wide input, form.wide textarea, form.wide select {
   display: block;
   width: 100%;
   margin: 0 0 1.5em 0; }
-
-form textarea {
-  padding-top: .85em; }
 
 form input[type=submit] {
   width: auto;
@@ -1181,9 +1198,6 @@ form.mast .checkbox label {
 [dir=rtl] form.mast .checkbox label {
   float: left;
   clear: left; }
-
-form .file-input span {
-  padding: 0 0 0 .8em; }
 
 [dir=rtl] form.mast .file-input span {
   padding: 0 .8em 0 0; }
@@ -1466,13 +1480,15 @@ nav.drop ul li li li b.sub {
   background-color: #ddd; }
 
 nav.drop ul li b.sub:after {
-  content: '[]';
-  background: transparent url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAG0lEQVR42mNgwAfKy8v/48I4FeA0AacVDFQBAP9wJkE/KhUMAAAAAElFTkSuQmCC") no-repeat scroll center center;
-  color: transparent; }
+  content: '▾';
+  /*
+  	background: transparent url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAG0lEQVR42mNgwAfKy8v/48I4FeA0AacVDFQBAP9wJkE/KhUMAAAAAElFTkSuQmCC") no-repeat scroll center center;
+  	color: transparent;
+  */ }
 
 nav.drop ul li li b.sub:after {
+  content: '▸';
   position: absolute;
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAJUlEQVR42mNgAILy8vL/DLgASBKnApgkVgXIkhgKiNKJ005s4gDLbCZBiSxfygAAAABJRU5ErkJggg==");
   right: 1em; }
 
 nav.drop ul li a {
