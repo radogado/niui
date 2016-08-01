@@ -20,7 +20,7 @@ function loadScriptFile(file_name) {
 
 if (!("classList" in document.createElement("_"))) {
 
-	loadScriptFile('polyfill-classList.min.js');
+	loadScriptFile('polyfill-classList.min.js'); // IE8?
 
 }
 
@@ -33,10 +33,13 @@ if (!Array.prototype.indexOf) {
 // DOM functions
 
 function addClass(el, className) {
-
-	el.classList.add(className);
+// IE8, IE9 errors
+// 	el.classList.add(className);
 	// To do: remove a single '.' for foolproof operation; Add multiple classes separated by space, dot, comma
-
+if (el.classList)
+  el.classList.add(className);
+else
+  el.className += ' ' + className;
 }
 
 /* To do: Convert to Prototype functions: el.addClass('class'); instead of addClass(el, 'class'); */
@@ -50,9 +53,13 @@ Object.prototype.addClassPrototype = function (className) {
 
 function removeClass(el, className) {
 
-	el.classList.remove(className);
+// 	el.classList.remove(className); // IE8, IE9 errors
 	// To do: remove a single '.' for foolproof operation; Add multiple classes separated by space, dot, comma
-
+if (el.classList)
+  el.classList.remove(className);
+else
+  el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+  
 }
 
 function hasClass(el, className) {
@@ -478,7 +485,8 @@ function closeFullWindow() {
 	    }
 
 		removeEventHandler(window, 'keydown', arrow_keys_handler);
-		document.body.removeEventListener('keyup', keyUpClose); // To do: make it work
+// 		document.body.removeEventListener('keyup', keyUpClose);
+		removeEventHandler(q('body'), 'keyup', keyUpClose);
 		
     }
     
@@ -1355,7 +1363,7 @@ for(var t in animations) {
 
 function animate(el, animation, duration, callback) {
 
-	if (q('.animation-code')) { // Animation in progress
+	if (!el.addEventListener || q('.animation-code')) { // Animation in progress
 		
 		return;
 
@@ -1453,4 +1461,3 @@ forEach('.accordion > label', function(el, i) {
     };
     
 });
-

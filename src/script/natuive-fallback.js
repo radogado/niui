@@ -11,6 +11,7 @@
 }
 
 /* Flexbox grid polyfill */
+/*
 var detector = document.createElement("detect");
 try {
 
@@ -22,8 +23,9 @@ try {
 
 }
 
-if (hasClass(q('body'), 'no-flex')) { // No Flexbox support
+if (hasClass(q('body'), 'no-flex')) { // No Flexbox support // To do: fix IE8
 
 	loadScriptFile('polyfill-flexbox.js');
 
 }
+*/

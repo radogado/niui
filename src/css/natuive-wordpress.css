@@ -689,6 +689,7 @@ form.wide input[type=submit] {
   min-height: calc(1.5em*2 - 2px); }
 
 input, select, textarea, input[type=search], form button {
+  background-color: #eee;
   background-color: rgba(0, 0, 0, 0.1);
   font-family: inherit;
   display: inline-block;
@@ -2486,6 +2487,7 @@ $background: #1E8DaC;
 .card .head.image {
   background-position: center center;
   background-size: cover;
+  background-repeat: no-repeat;
   color: #fff; }
 
 .card .head.image:after {

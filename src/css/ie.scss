@@ -3,6 +3,7 @@
 $font-size: 15px;
 $line-height: 22px;
 
+@import 'natuive-setup';
 @import 'theme-variables'; /* Rewrite base variables here; add theme CSS below this one in <head> */
 
 .row > * > .row {
@@ -12,9 +13,37 @@ $line-height: 22px;
 
 }
 
-.row > .col1 {
+.row > * {
 	
-	width: 100%;
+	width: 100% !important;
+	display: block;
+
+}
+
+.border-all.row > * {
+	
+	padding-right: 0;
+
+}
+
+.border-all.row .row {
+
+	margin-left: -$line-height-em/2;
+	padding: $line-height-em/2 0;
+
+}
+
+.border-all.row .row > * {
+	
+	padding-right: 0;
+	box-sizing: border-box;
+
+}
+
+.border-all.row .row > * > * {
+	
+	margin-left: 0;
+	padding-right: 0;
 
 }
 
@@ -24,11 +53,12 @@ input {
 
 }
 
-select {
+form select {
 	
 	padding-right: 0;
 	height: $line-height;
 	margin-top: $line-height/2;
+	
 
 }
 
@@ -74,6 +104,7 @@ form.mast input[type=checkbox], form.mast input[type=radio] {
 input[type=file] {
 	
 	margin-left: -100%;
+	height: 0;
 
 }
 
@@ -103,6 +134,12 @@ form select, form .file-input {
 
 }
 
+form .file-input span {
+	
+	min-height: $line-height-em;
+
+}
+
 .slider-nav {
 	
 	left: 1em;
@@ -112,6 +149,12 @@ form select, form .file-input {
 .slider > *:after, .slider > *:before {
 
 	display: none;	
+
+}
+
+.slider {
+	
+	overflow-x: scroll;
 
 }
 	

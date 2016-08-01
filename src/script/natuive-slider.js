@@ -416,6 +416,12 @@ function sliderKeyboard(e) {
 
 function makeSlider(el, current_slide) {
 
+	if (!el.addEventListener) { // IE8
+		
+		return;
+		
+	}
+
     addClass(el, 'slider');
 
 	if (hasClass(el, 'full-window')) {
@@ -473,7 +479,8 @@ function makeSlider(el, current_slide) {
 
         };
         
-        container.querySelector('.slider-nav').lastChild.addEventListener('touchstart', function (e) { e.stopPropagation(); return false; });
+//         container.querySelector('.slider-nav').lastChild.addEventListener('touchstart', function (e) { e.stopPropagation(); return false; });
+        addEventHandler(container.querySelector('.slider-nav').lastChild, 'touchstart', function (e) { e.stopPropagation(); return false; })
 
     }
 
@@ -483,7 +490,8 @@ function makeSlider(el, current_slide) {
 
     };
     
-    container.querySelector('.slider-arrow').addEventListener('touchstart', function (e) { e.stopPropagation(); return false; });
+//     container.querySelector('.slider-arrow').addEventListener('touchstart', function (e) { e.stopPropagation(); return false; });
+    addEventHandler(container.querySelector('.slider-arrow'), 'touchstart', function (e) { e.stopPropagation(); return false; });
 
     container.querySelector('.slider-arrow.right').onclick = function(e) {
 
@@ -492,7 +500,8 @@ function makeSlider(el, current_slide) {
 
     };
 
-    container.querySelector('.slider-arrow.right').addEventListener('touchstart', function (e) { e.stopPropagation(); return false; });
+//     container.querySelector('.slider-arrow.right').addEventListener('touchstart', function (e) { e.stopPropagation(); return false; });
+    addEventHandler(container.querySelector('.slider-arrow.right'), 'touchstart', function (e) { e.stopPropagation(); return false; });
 
     addClass(el.children[0], 'visible');
 
