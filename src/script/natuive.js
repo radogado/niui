@@ -1461,3 +1461,21 @@ forEach('.accordion > label', function(el, i) {
     };
     
 });
+
+// Close all .trigger-activated content when clicking outside of them
+
+addEventHandler(q('body'), 'click', function (e) {
+
+	if (!getClosest(eventElement(e), '.trigger')) {
+		
+		forEach('input.trigger', function (el) {
+			
+			el.checked = false;
+			
+		});
+		
+		removeClass(q('body'), 'fixed');
+		
+	}
+	
+});

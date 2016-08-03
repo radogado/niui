@@ -2707,7 +2707,8 @@ header.fixed {
     display: block !important; }
 
   .viewport.header-and-banner {
-    height: auto; }
+    height: auto;
+    overflow: hidden; }
 
   header > .row:first-child div {
     text-align: end; }
