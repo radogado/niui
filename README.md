@@ -57,6 +57,24 @@ natUIve: mostly native front-end framework
 
 –––
 
+natUIve 1.6
+
+- animate() function for CSS animations
+- Slider with Fade option
+- Nested sliders
+- Scrollable horizontal nav
+- Animated off-screen mobile nav
+- Automatically open a lightbox by loading url#lightbox-id
+- Notification bar
+- Range input
+- CSS-only parallax scrolling
+- Fixed background behind an element
+- Close burger content by clicking outside
+- Aspect ratio container now a single element
+- Properly inherited font size
+
+–––
+
 natUIve 1.5
 
 - Unified Flexbox grid with equal height, vertical alignment and auto wrapping

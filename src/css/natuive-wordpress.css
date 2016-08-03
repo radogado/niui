@@ -2041,7 +2041,7 @@ _::-webkit-full-page-media, _:future, :root .slider-wrap .slider {
 .full-window-wrap .slider-wrap.vertical, .full-window-wrap .slider, .full-window-wrap .slider > * {
   height: 100%; }
 
-.full-window-wrap > .slider:not(.vertical) > * {
+.full-window-wrap .slider:not(.vertical) > * {
   overflow: auto;
   -webkit-overflow-scrolling: touch; }
 

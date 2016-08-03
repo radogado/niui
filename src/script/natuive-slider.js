@@ -350,8 +350,22 @@ function slide(el, method, index_number) {
 
     } else { // ... or without animation on old browsers
 
-		if (hasClass(slider, 'vertical')) {
+		slider.style.transition = 'all ' + duration + 's ease-in-out';
 
+		removeClass(slider.children[old_index], 'visible');
+		
+		if (hasClass(slider, 'vertical')) {
+			
+			if (q('.full-window-wrap')) {
+				
+				forEach(slider.children, function (el) {
+					
+					addClass(el, 'visible');
+					
+				});
+			
+			}
+			
 			slider.style.top = offset_sign + index + '00%';
 		
 		} else {
