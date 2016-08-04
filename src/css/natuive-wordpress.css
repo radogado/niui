@@ -1955,10 +1955,10 @@ $background: #1E8DaC;
   max-height: 100%;
   z-index: 1; }
 
-_::-webkit-full-page-media, _:future, :root .slider-wrap {
+.slider-wrap {
   padding: 0 .1px; }
 
-_::-webkit-full-page-media, _:future, :root .slider-wrap .slider {
+.slider-wrap .slider {
   margin-left: -.5px;
   width: calc(100% + 1px); }
 

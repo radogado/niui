@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	
+	<title>natUIve</title>
+	
+	<meta charset=utf-8>
+	<meta name=viewport content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no'>
+
+	<link rel=icon href=images/favicon.ico>
+	<link rel=styleSheet href=src/css/natuive.css type=text/css media=screen>
+
+	<!--[if lte IE 9]> 
+		<link rel=styleSheet href=src/css/ie.css type=text/css media=screen>
+		<script src=src/script/html5shiv.min.js></script> 
+	<![endif]-->
+	
+</head>
+	
+<body dir=ltr>
+<!-- <div class="notify">Whoops</div> -->
+	<!-- Head - Start -->
+
+	<div class='header-and-banner viewport push-up'>
+	
+		<header class="fixed">
+		
+			<div class='row contain'>
+			
+				<div>
+					
+					<div>
+				
+						<a href=# class=logo>
+						
+							<img src=images/natuive.svg alt=Logo onerror='this.src=this.src.replace(".svg",".png");this.onerror=null;'>
+							
+						</a>
+						
+					</div>
+					
+				</div>
+				
+				<div class='col4 align-right'>
+	
+					<div>
+	
+						<form action=. method=get id=language-selector>
+
+							<label class="select">
+							
+								<select name="l" class="mandatory">
+									
+									<option value="en">🇬🇧 English</option>
+									<option value="fr">🇫🇷 Français</option>
+									<option value="cn">🇨🇳 中文</option>
+									<option value="cn">🇧🇬 български</option>
+									<option value="cn">🇯🇵 日本</option>
+									
+											
+								</select>
+							
+							</label>
+																	
+							<noscript>
+							
+								<input type=submit value=▶>
+							
+							</noscript>
+						
+						</form>
+						
+					</div>
+
+				</div>
+			
+			</div>
+			
+			
+		</header>
+
+		<div class=banner>
+		
+			<div class='contain row'>
+				
+				<div class="align-middle">
+
+<!--
+					<span class="aspect">
+
+						<span style="padding-bottom: 100.566%"></span>
+						<img src=images/cat.jpg alt=Portrait>
+
+					</span>
+-->
+					<picture>
+					
+						<img src=images/cat.jpg alt=Portrait>
+					
+					</picture>
+					
+				</div>
+		
+				<div class='col23 align-middle'>
+				
+					<div>					
+
+						<h1 style="font-size: calc(100% + 3vw);">
+							
+							Lightweight, feature-heavy framework
+						
+						</h1>
+						
+						<h2>
+						
+							with a picture of a cat
+							
+						</h2>
+						
+						<p class=drop-cap>
+						
+							Increase conversion by decreasing page load time down to &lt;5" on slow mobile networks. Improve development by using standard building blocks that are flexible to customise and combine. Improve stability and compatibility by not pushing the browsers more than necessary. Under the negligible weight of 13 KB, which removes the barrier between your content and your customers everywhere.
+						
+						</p>
+
+					</div>
+					
+					<div class="col1">
+						
+						<a href=http://github.com/radogado/natuive class='big button'>Get it from GitHub</a>
+						
+					</div>
+
+				</div>
+			
+			</div>
+		
+		</div>
+		
+	</div>
+
+<!-- 	Content - Start -->
+	
+	<main id=content>
+
+		<div class=contain>
+	
+			<div class="slider tabs vertical">
+				
+				<div data-tab-title=Navigation>
+						
+					<nav class=contain style="display: block;">
+			
+				<input type="checkbox" class="trigger burger">
+				
+				<div class='row'>
+						
+						<div class=col1>
+							
+							<nav>
+				
+								<ul>
+								
+									<li> <a href=#grid class="active">Grid</a> </li>
+				
+									<li> <a href=#slider>Slider</a> </li>
+				
+									<li> <a href=#form>Form</a> </li>
+	
+								</ul>
+											
+							</nav>
+							
+							<br>
+						
+							<nav class=sub>
+					
+								<ul>
+								
+									<li> <a href=#buttons>Buttons</a> </li>
+
+									<li> <a href=#drop-nav>Drop-down nav</a> </li>
+								
+									<li> <a href=#lightbox class="active">Lightbox</a> </li>
+								
+									<li> <a href=#accordion>Accordion</a> </li>
+				
+									<li> <a href=#modal>Modal window</a> </li>
+			
+									<li> <a href=#video>Video</a> </li>
+	
+									<li> <a href=#aspect-ratio>Aspect ratio</a> </li>
+	
+									<li> <a href=#masonry>Masonry</a> </li>
+	
+									<li> <a href=#tables>Tables</a> </li>
+
+									<li> <a href=#tabs>Tabs</a> </li>
+
+									<li> <a href=#lists>Lists</a> </li>
+
+									<li> <a href=#cards>Cards</a> </li>
+
+									<li> <a href=//rado.bg target="_blank">WordPress theme</a> </li>
+
+									<li> <a href=#showcase>Showcase</a> </li>
+								
+								</ul>
+							
+							</nav>
+			
+						</div>
+								
+					</div>
+	
+			</nav>
+				
+				</div>
+
+				<nav class=drop id=drop-nav>
+			
+			<form id="level1"> </form>
+			<form id="level2"> </form>
+		
+			<input type="checkbox" class="trigger burger">
+		
+			<ul>
+				
+				<li> 
+				
+					<input type="radio" class="trigger" form="level1" name="level1">
+		
+					<input type="reset" form="level1">
+				
+					<a>First item</a>
+					
+					<b class="sub"></b>
+					
+					<ul>
+						
+						<li> 
+						
+							<input type="radio" class="trigger" form="level2" name="level2">
+				
+							<input type="reset" form="level2">
+				
+							<a>First item's second level item 1</a>
+						
+							<b class="sub"></b>
+					
+							<ul>
+								
+								<li> 
+									
+									<a href="asd">First item's second level item 1 third level item 1</a>
+								
+								</li>
+								
+								<li> 
+									
+									<a href="fdgdf">First item's second level item 1 third level item 2</a>
+								
+								</li>
+							
+							</ul>
+						
+						</li>
+					
+						<li> 
+						
+							<input type="radio" class="trigger" form="level2" name="level2">
+				
+							<input type="reset" form="level2">
+				
+							<a href=asd>First item's second level item 2</a>
+						
+							<b class="sub"></b>
+					
+							<ul>
+								
+								<li> 
+									
+									<a href="#">First item's second level item 2 third level item 1</a>
+								
+								</li>
+								
+								<li> 
+									
+									<a href="#">First item's second level item 2 third level item 1</a>
+								
+								</li>
+							
+							</ul>
+						
+						</li>
+					
+					</ul>
+				
+				</li>
+		
+				<li> 
+				
+					<input type="radio" class="trigger" form="level1" name="level1">
+		
+					<input type="reset" form="level1">
+				
+					<a href=asd>Second item which is a link with long text</a>
+				
+					<b class="sub"></b>
+					
+					<ul>
+						
+						<li> 
+						
+							<input type="radio" class="trigger" form="level2" name="level2">
+				
+							<input type="reset" form="level2">
+				
+							<a>Second item level two item 1</a>
+						
+							<b class="sub"></b>
+					
+							<ul>
+								
+								<li> 
+									
+									<a href="#">Second item level two item 1 third level item 1</a>
+								
+								</li>
+								
+								<li> 
+									
+									<a href="#">Second item level two item 1 third level item 1</a>
+								
+								</li>
+							
+							</ul>
+						
+						</li>
+					
+					</ul>
+					
+				</li>
+		
+				<li> 
+				
+					<input type="radio" class="trigger" form="level1" name="level1">
+		
+					<input type="reset" form="level1">
+				
+					<a>Third item with one sub level</a>
+				
+					<b class="sub"></b>
+					
+					<ul>
+						
+						<li> 
+						
+							<a href=#>Third item second level item 1</a>
+						
+						</li>
+		
+						<li> 
+						
+							<a href=#>Third item second level item 2</a>
+						
+						</li>
+					
+					</ul>
+					
+				</li>
+			
+				<li> 
+				
+					<input type="radio" class="trigger" form="level1" name="level1">
+		
+					<input type="reset" form="level1">
+				
+					<a>Fourth item with one sub level</a>
+				
+					<b class="sub"></b>
+					
+					<ul>
+						
+						<li> 
+						
+							<a href=#>Fourth item second level item 1</a>
+						
+						</li>
+		
+						<li> 
+						
+							<a href=#>Fourth item second level item 2</a>
+						
+						</li>
+					
+					</ul>
+					
+				</li>
+		
+				<li> 
+				
+					<a href="#">Last item without a sub level</a>
+				
+				</li>
+		
+			</ul>
+			
+		</nav>
+				
+				<div id=aspect-ratio>
+			
+					<h2>A New Perspective: Image container with aspect ratio of 2.35:1</h2>
+					
+					<picture class=aspect style="--ratio: 2.35;">
+					
+						<source media="(max-width: 640px)" srcset="images/lido-small.jpg">
+						<img src=images/lido.jpg alt='Lido'>
+					
+					</picture>
+					
+				</div>
+					
+				<div>
+
+					<div>
+
+						<h2> Lightbox Image Gallery </h2>
+							
+						<h3> Full screen </h3>
+
+						<div id=lightbox class='lightbox full-screen'>
+						
+							<a href=images/DSC_5823.jpg > <span> Text Lightbox </span> </a>
+							
+							<a href=images/DSC_5975.jpg title='Second Image'> <img src=images/DSC_5975-t.jpg alt=1> </a>
+							
+							<a href=images/DSC_4225.jpg title='Third Image'> <img src=images/DSC_4225-t.jpg alt=2> </a>
+						
+						</div>
+						
+						<h3> Vertical </h3>
+							
+						<div id=lightbox2 class='lightbox vertical'>
+						
+							<a href=images/DSC_5823.jpg title='First Image'> <span> Text Lightbox </span> </a>
+							
+							<a href=images/DSC_5975.jpg title='Second Image'> <img src=images/DSC_5975-t.jpg alt=1> </a>
+							
+							<a href=images/DSC_4225.jpg title='Third Image'> <img src=images/DSC_4225-t.jpg alt=2> </a>
+						
+						</div>
+			
+						<h2 id=video>Video Is Looking Good</h2>
+						
+						<video poster=images/video.jpg controls=controls preload=none>
+								
+							<source type=video/mp4 src=//s3.amazonaws.com/gado/Outlying-Teaser.mp4>
+							
+							<a href=//s3.amazonaws.com/gado/Outlying-Teaser.mp4>//s3.amazonaws.com/gado/Outlying-Teaser.mp4</a>
+							
+						</video>
+
+					</div>
+				
+				</div>
+				
+				<div id=tables>
+				
+					<h2>Turn the Tables</h2>
+					
+					<table>
+					
+						<tr>
+							<td>Short title</td> 
+							<td> <a>One Time</a> </td> 
+							<td> <a>Second Long col</a> </td> 
+							<td> <a>Three</a> </td> 
+							<td> <a>Four</a> </td>
+						</tr>
+						<tr>
+							<td>Row One</td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td>
+						</tr>
+						<tr>
+							<td>Row Two with Long Headline to Test Table on Narrow Screens</td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td>
+						</tr>
+
+					</table>
+					
+					<table>
+						
+						<thead>
+							<tr>
+								<td data-sort>TheTableWillBeScrollableOnNarrowScreensBecauseOfWideCell</td>
+								<td data-sort> <a>One Time</a> </td>
+								<td data-sort> <a>Second Long col</a> </td>
+								<td> <a>Three</a> </td>
+								<td> <a>Four</a> </td>
+							</tr>
+						</thead>
+						<tr>
+							<td>B</td> <td><b>3</b></td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td>
+						</tr>
+						<tr>
+							<td>Row Two with Long Headline to Test Table on Narrow Screens</td> <td><b>1</b></td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td>
+						</tr>
+						<tr>
+							<td>A</td> <td><b>2</b></td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td>
+						</tr>
+
+					</table>
+					
+	
+			</div>
+
+				<div id=accordion>
+	
+<h2>Accordion</h2>
+	
+<div class='accordion open'>
+
+<label class=trigger> How it works </label>
+<input type=checkbox class=trigger>
+
+<div id=i>
+
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+
+</div>
+
+</div>
+
+<div class=accordion>
+
+<label class=trigger> Questions </label>
+<input type=checkbox class=trigger>
+
+<div>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+</div>
+
+</div>
+
+<div class=accordion>
+
+<label class=trigger> Nested Accordions </label>
+<input type=checkbox class=trigger>
+
+<div>
+
+	<div class=accordion>
+
+		<label class=trigger> About Inner Accordion </label>
+		<input type=checkbox class=trigger>
+	
+		<div>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+
+	</div>
+
+	<div class=accordion>
+
+		<label class=trigger> About Inner Accordion 2 </label>
+		<input type=checkbox class=trigger>
+	
+		<div>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+
+	</div>
+	
+</div>
+
+</div>
+
+</div>
+				
+				<div>
+					
+					<div class='row no-spacing-' id=grid>
+						
+						<div class="col1"> 
+							
+							<h2>Row on: Wrapping Grid</h2> 
+						
+						</div>
+						
+						<div class="col2 align-bottom" style="background: #fee; color: #333;">
+							
+							<div>Use a grid with arbitrary cell elements inside .row. <button>Inline element</button></div>
+						
+						</div>
+						<div class="col4" style="background: #efe; color: #333;">
+							
+							<div>Use vertical alignment in cells, it's finally easy and dependable.<p><br></p><p><br></p></div>
+							
+						</div>
+						<div class="col4 align-right vertical-row" style="background: #eef; color: #333;">
+							<div>Embed any kind of element into any container-type element: Cell, List, Slider, Accordion.</div>
+							<div class="align-bottom" style="text-align: start;">Vertical row as tall as the parent row with equal-height full-width children</div>
+						</div>
+						<div style="background: #eff; color: #333;"><div>The grid is simpler and doesn't insist on the infamous 12 cols. Just add a div to a .row. Width classes, like .col23, are optional.</div></div>
+						<div>
+							
+							<div>
+					
+								<span class="tool">
+									This text has a tooltip.
+									<span class="tip"><b>Here is the tooltip</b> <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+									</span>
+								</span>
+							
+							</div>
+					
+						</div>
+					
+						<div>ThisLineIsTooLongAndMustBeClippedByTheContainerEvenThoughOverflowXandYDontWorkAsExpected</div>
+						<div id=modal><h2> Modal Window </h2><a href="external.html#content" class="modal">Open a modal window inside this <span>tab</span>.</a></div>	
+						<div>
+						
+							<a href="http://natuive.net/external.html#content" class="modal">Show external domain content in a modal window.</a> (On PHP enabled host)
+					
+						</div>
+						<div class="col5">
+							
+							<h1> Headline 1 </h1>
+							<h2> Headline 2 </h2>
+							<h3> Headline 3 </h3>
+							<h4> Headline 4 </h4>
+							<h5> Headline 5 </h5>
+							<h6> Headline 6 </h6>
+					
+						</div>
+					
+						<div class="col5" id=buttons>
+							
+							<div>
+								
+								<h2>Buttons</h2>
+								
+								<a href=# class=button>Small button</a>
+								
+								<br>
+								
+								<button disabled>Disabled button</button>
+						
+								<br>
+								
+								<a href=# class='button big'>Big button</a>
+							
+								<p>Here is an <a href=# class=button>Inline button</a> inside a paragraph.</p>
+					
+							</div>
+					
+						</div>	
+						
+						<div>
+							
+							<div class='row border-all'>
+								
+								<div>
+									
+									<div class="row">
+									
+										<div> <h2>Grid with borders</h2> </div>
+									
+										<div class='align-center align-middle'>
+											
+											<div>
+							
+												Middle
+							
+											</div>
+									
+										</div>
+									
+									</div>
+									
+									<div class="row">
+										
+										<div>
+											
+											<div>Full width</div>
+										
+										</div>
+									
+									</div>
+									
+									<div class="row">
+									
+										<div> <div>Top</div> </div>
+										<div class="align-bottom align-center"> <div>Center Bottom</div> </div>
+									
+										<div class=align-right>
+											
+											<div>
+												
+												<div class="row">
+													
+													<div>Right</div>
+												
+												</div>
+												
+												<div class="row">
+													
+													<div>Right</div>
+												
+												</div>
+											
+											</div>
+									
+										</div>
+									
+									</div>
+									
+								</div>
+								
+							</div>
+							
+						</div>
+					
+					</div>
+				
+				</div>
+		
+				<div id=lists>
+		
+	<h2>Nested Ordered List</h2>
+	
+	<ol>
+		
+		<li> How to make a <b>natUIve</b> page
+			
+			<ol>
+				
+				<li>Copy the contents of the <b>dist</b> folder in your site's root folder</li>
+			
+				<li>Edit <b>index.html</b> there</li>
+			
+			</ol>
+		
+		</li>
+			
+		<li>
+			
+			<h4>Did you know?</h4>
+			
+			<p class=quote>An in-house study at <b>Walmart.com</b> came out with the results that saw an up to 2% increase in conversions on the site for every single second of improvement on the load time. The accumulative growth of revenues went up to 1% for every 100 milliseconds of load time improvement.</p>
+			
+			<ol>
+				<li>
+					Supporting IE8+, Chrome, Safari, Firefox, Opera.
+				</li>
+		
+				<li>
+					Supporting iOS and Android tablets and phones.
+					<ol>
+						<li>No hardcoded dimensions except line height.
+							
+							<ul>
+								
+								<li>Unordered one</li>
+								<li>Unordered two</li>
+							
+							</ul>
+							
+						</li>
+						<li>The slider only needs a <b>.slider > div</b> structure and is fully flexible.</li>
+					</ol>
+				</li>
+			</ol>
+			
+		</li>
+	
+	</ol>
+	
+	<br>
+			
+	<h2 id=tabs>Tabs</h2>
+	
+	<div class='slider vertical tabs'>
+		
+		<div data-tab-title='Nested slider'>
+			
+<!-- 								<p class=tab-title> Slider 2 Slide 1 </p> -->
+			
+			<div class="pad">
+	
+				<div class="slider">
+		
+					<p> natUIve guarantees instant loading, because </p>
+						
+					<p class=quote>
+						
+						"The value of 14 KB has been measured empirically by Google and is the threshold for the first package exchanged between a server and client via towers on a cellular connection." – Smashing Magazine
+					
+					</p>
+				
+				</div>
+	
+			</div>
+					
+		</div>
+		
+		<div>
+					
+			<p class=tab-title> Slider 2 Slide 2 </p>
+					
+			<p> Second Slider 2 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		
+		</div>
+	
+		<div>
+		
+			<p class=tab-title> Slider 2 Very Long Title which Shows the Flexible tabs Dimensions  </p>
+					
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+					
+		</div>
+		
+	</div>
+	
+	<br>
+	
+	<div class='slider top tabs auto-height' data-duration=1>
+		
+		<div style="background: mintcream;"> <div class="pad"><h3 class="tab-title">Tab 1</h3> <p>Content of Tab 1</p></div> </div>
+	
+		<div style="background: cyan;"> <div class="pad"><h3 class="tab-title">Tab 2</h3> <p>And the content of Tab 2 <br> new line <br> new line</p> </div></div>
+	
+	</div>
+	
+	<!--
+	<h3>Vertical Tabs with Auto Content Height</h3>
+	
+	<div class='slider top tabs vertical'>
+		
+		<div> <h3 class="tab-title">Tab 1</h3> <p>Content of Tab 1</p> </div>
+	
+		<div> <h3 class="tab-title">Tab 2</h3> <p>And the content of Tab 2 <br> new line <br> new line</p> </div>
+	
+	</div>
+	-->
+	
+</div>
+
+				<div id=form>
+					
+					<h2>Forms in Slider</h2>
+
+					<div class='slider' data-autoslide-=2 id=slider>
+						
+						<div>
+							
+<!--
+							<div class="slider">
+								
+								<p>Slide 1<br>Slide 1</p>
+								
+								<p>Slide 2<br>Slide 2</p>
+							
+							</div>
+-->
+							
+							<form action=# method=post target=_blank id=f novalidate class="wide">
+								
+								<label class=mandatory>
+			
+									<span>Excepteur sint occaecat cupidatat non proident</span>
+									<input name=last_name id=last_name type=text placeholder='What is your name?'>
+			
+								</label>
+			
+								<label class=mandatory>
+			
+									<span>Number input (5 digits)</span>
+									<input type=number placeholder=0 data-digits=5>
+			
+								</label>
+			
+								<div class=checkbox>
+			
+									<span>A very long piece of label text which wraps to another line</span>
+									<label> 
+										<input type=radio name=radiodemo> <b class=checkbox-icon></b>
+										First option
+									</label>
+									<label> 
+										<input type=radio name=radiodemo> <b class=checkbox-icon></b>
+										Second option has very long text which wraps to the next line
+									</label>
+									<label> 
+										<input type=radio name=radiodemo> <b class=checkbox-icon></b>
+										Third option
+									</label>
+			
+								</div>
+			
+								<label class=mandatory>
+			
+									<span>Email</span>
+									<input name=email id=email type=email placeholder='Your Email address.'>
+			
+								</label> 
+												
+								<label>
+			
+									<span>Enter text here</span>
+									<textarea placeholder='How are you today?'></textarea>
+			
+								</label>
+						
+								<label class="mandatory">
+			
+									<span>Website</span>
+									<input name=URL id=URL type=url placeholder='URL of your website.'>
+			
+								</label>
+						
+								<label>
+											
+									<span>Range</span>
+									<input type=range>
+											
+								</label>
+														
+								<label>
+			
+									<span>Select a file</span>
+									<span class=file-input>
+										<input name=file id=file type=file>
+										<span>Drop or browse</span>
+									</span>
+			
+								</label> 
+						
+								<label class="select">
+			
+									<span>Country of residence</span>
+
+									<select name=country>
+										<option value='' selected=selected>Country of residence →</option><option value='United Kingdom'>United Kingdom</option><option value=Afghanistan>Afghanistan</option><option value='Aland Islands'>Aland Islands</option><option value=Albania>Albania</option><option value=Algeria>Algeria</option><option value='American Samoa'>American Samoa</option><option value=Andorra>Andorra</option><option value=Angola>Angola</option><option value=Anguilla>Anguilla</option><option value=Antarctica>Antarctica</option><option value='Antigua And Barbuda'>Antigua And Barbuda</option><option value=Argentina>Argentina</option>
+									</select>
+			
+								</label>
+								
+								<label>
+			
+									<span>Telephone</span>
+									<input name=phone type=tel placeholder='Your phone number.'>
+			
+								</label>
+						
+								<div class='checkbox mandatory'>
+			
+									<span>Check this</span>
+									<label>
+										<input name=checkbox id=checkbox type=checkbox> <b class=checkbox-icon></b>
+										I accept the <a href=#>Terms and Conditions</a>.
+									</label>
+			
+								</div>
+								
+								<label>
+			
+									<span>Telephone</span>
+									<input name=phone type=tel placeholder='Your phone number.'>
+			
+								</label>
+						
+								<input type=submit value='Request more info' title='Request more info'>
+	<!-- 							<input type='reset' value='Reset' name='reset'> -->
+							
+							</form>
+							
+						</div>
+	
+						<div> 
+							
+							<form action=# method=post target=_blank class=mast>
+								
+								<label class=mandatory>
+			
+									<span>Excepteur sint occaecat cupidatat non proident</span>
+									<input name=last_name type=text placeholder='What is your name?'>
+			
+								</label>
+								
+								<div class=checkbox>
+			
+									<span>Please choose:</span>
+									<label> 
+										<input type=radio name=radiodemo> <b class=checkbox-icon></b>
+										First option
+									</label>
+									<label> 
+										<input type=radio name=radiodemo> <b class=checkbox-icon></b>
+										Second option
+									</label>
+									<label> 
+										<input type=radio name=radiodemo> <b class=checkbox-icon></b>
+										Third option
+									</label>
+			
+								</div>
+			
+								<label class=mandatory>
+			
+									<span>Email</span>
+									<input name=email type=email placeholder='Your Email address.'>
+			
+								</label> 
+												
+								<label>
+			
+									<span>Enter text here</span>
+									<textarea placeholder='How are you today?'></textarea>
+			
+								</label>
+						
+								<label>
+			
+									<span>Website</span>
+									<input name=URL type=url placeholder='URL of your website.'>
+			
+								</label>
+						
+								<label>
+											
+									<span>Range</span>
+									<input type=range>
+											
+								</label>
+														
+								<label>
+			
+									<span>Select a file</span>
+									<span class=file-input>
+										<input name=file type=file>
+										<span>Drop or browse</span>
+									</span>
+			
+								</label> 
+						
+								<label class="select">
+			
+									<span>Country of residence</span>
+	
+									<select name=country>
+										<option value='' selected=selected>Country of residence →</option><option value='United Kingdom'>United Kingdom</option><option value=Afghanistan>Afghanistan</option><option value='Aland Islands'>Aland Islands</option><option value=Albania>Albania</option><option value=Algeria>Algeria</option><option value='American Samoa'>American Samoa</option><option value=Andorra>Andorra</option><option value=Angola>Angola</option><option value=Anguilla>Anguilla</option><option value=Antarctica>Antarctica</option><option value='Antigua And Barbuda'>Antigua And Barbuda</option><option value=Argentina>Argentina</option>
+									</select>
+			
+								</label>
+								
+								<label>
+			
+									<span>Telephone</span>
+									<input name=phone type=tel placeholder='Your phone number.'>
+			
+								</label>
+						
+								<div class='checkbox mandatory'>
+			
+									<span>Check this</span>
+									<label>
+										<input name=checkbox type=checkbox> <b class=checkbox-icon></b>
+										I accept the <a href=#>Terms and Conditions</a>.
+									</label>
+			
+								</div>
+								
+								<label>
+			
+									<span>Telephone</span>
+									<input name=phone type=tel placeholder='Your phone number.'>
+			
+								</label>
+						
+								<input type=submit value='Request more info' title='Request more info'>
+								
+								<p>Text</p>
+
+							</form> 
+
+							<p>Text</p>
+					
+						</div>
+		
+						<div> 
+							
+							<form class=dynamic action=https://docs.google.com/forms/d/1K55MbIgqFWkYzBOOe2-UfSpKPchOUNxhSxgCXz4YG8k/formResponse target=_blank method=post>
+						
+								<label>
+			
+									<span>Submit this to Google Forms</span>
+									<input type=text name=entry.1773453675 id=entry_1773453675>
+			
+								</label>
+			
+								<input type=submit value='This is a very long submit button text which wraps to another line if long enough'>
+							
+							</form> 
+						
+							<p>Text</p>
+
+						</div>
+	
+					</div>
+					
+					<p>Text</p>
+				
+				</div>
+
+				<div class="fixed-background" style="background-image: url(images/DSC00470.jpg); color: #fff; background-color: #cb845a;">
+			
+			<div class="fixed-background-image"></div>
+			
+			<div class='row contain'>
+				
+				<div>
+					
+					<div id=masonry>
+						
+						<h2>Fixed background</h2>
+						
+						<p>takes up the full window and is visible only through the current section.</p>
+		
+						<h2>Masonry in CSS only</h2>
+						
+						<div class='masonry'>
+							
+							<a class=align-center>A very long cell which demonstrates how Masonry arranges cells in optimised space.</a>
+							<a class=align-center>Cell</a>
+							<a class=align-center>Cell</a>
+							<a class=align-center>Cell</a>
+							
+						</div>
+						
+					</div>
+					
+				</div>
+			
+				<div>
+					
+					<h2>Cards</h2>
+					
+					<div class='slider fade' id=cards>
+											
+						<div><div class="card">
+							
+							<div class="head image" style="background-image: url(images/DSC_4225.jpg)">
+								
+								<h3>Title</h3>
+							
+							</div>
+							
+							<div class="content">
+								
+								<p>Card content.</p>
+								
+								<a href=#>Link</a>.
+							
+							</div>
+						
+						</div></div>
+
+						<div><div class="card">
+							
+							<div class="head">
+								
+								<h3>Title</h3>
+							
+							</div>
+							
+							<div class="content">
+								
+								<p>Card content.</p>
+								
+								<a href=#>Link</a>.
+							
+							</div>
+						
+						</div></div>
+						
+						<div><div class="card">
+							
+							<img src=images/DSC_4225.jpg alt=Image>
+							
+							<div class="content">
+								
+								<p>Card content.</p>
+								
+								<a href=#>Link</a>.
+							
+							</div>
+						
+						</div></div>
+					
+					</div>
+
+				</div>
+				
+			</div>
+
+		</div>
+
+				<div class=contain>
+	
+	<div class='row' id=showcase>
+			
+		<div>
+
+			<h2>natUIve Showcase</h2>
+			<h3>Malleable by Design</h3>
+
+		</div>
+
+	</div>
+				
+	<div class='row'>
+		
+		<a href=demos/microsoft title="Microsoft"> <img src='images/natUIve%20Microsoft%20(20151030)%20-.png' alt="Microsoft"> </a>
+		<a href=demos/imperialinnovations title="Imperial Innovations"> <img src='images/natUIve%20(20151030)%20imperial%20-.png' alt="Imperial Innovations"> </a>
+		<a href=demos/pebble title="Pebble"> <img src='images/natUIve%20(20151030)%20pebble%20-.png' alt="Pebble"> </a>
+		<a href=demos/seat61 title="Seat 61"> <img src='images/seat61.png' alt="Seat 61"> </a>
+		<a href=demos/jetblue title="JetBlue"> <img src='images/jetblue.png' alt="JetBlue"> </a>
+		<a href=demos/mrj title="Mitsubishi Regional Jet"> <img src='images/mrj.png' alt="Mitsubishi Regional Jet"> </a>
+		<a href=demos/mubi title="MUBI"> <img src='images/mubi.png' alt="MUBI"> </a>
+		<a href=demos/swiss title="SWISS"> <img src='images/swiss.png' alt="SWISS"> </a>
+		<a href=demos/mapbox title="Mapbox"> <img src='images/mapbox.png' alt="Mapbox"> </a>
+		<a href=demos/airbnb title="Airbnb"> <img src='images/airbnb.png' alt="Airbnb"> </a>
+		<a href=demos/gov.uk title="GOV.UK"> <img src='images/gov.uk.png' alt="GOV.UK"> </a>
+		<a href=demos/google-design title="Google Design"> <img src='images/google-design.png' alt="Google Design"> </a>
+		<a href=demos/daringfireball title="Daring Fireball"> <img src='images/daringfireball.png' alt="Daring Fireball"> </a>
+		<a href=demos/vitsoe title="Vitsœ"> <img src='images/vitsoe.png' alt="Vitsœ"> </a>
+	
+	</div>
+
+</div>
+
+				<footer id=footer>
+	
+		<div class='row contain'>
+
+			<div class=col3>
+				
+				<h3>Copyright copy</h3>
+			
+				<p>
+				
+					&copy; 2014–2016 <a href=http://rado.bg>rado.bg</a>
+				
+				</p>
+				
+			</div>
+
+			<nav class="col3">
+				
+				<h3>Vertical list of links</h3>
+				
+				<ul class="vertical">
+				
+					<li> <a href=#>Contact</a> </li>
+				
+					<li> <a href=#>Support</a> </li>
+				
+					<li> <a href=#>Jobs</a> </li>
+				
+					<li> <a href=#>Developers</a> </li>
+				
+					<li> <a href=#>Terms & Conditions</a> </li>
+				
+					<li> <a href=#>Privacy Policy</a> </li>
+				
+				</ul>
+	
+			</nav>
+	
+			<div class=social>
+				
+				<h3>Social links</h3>
+				
+				<a href=#><img src=images/facebook.png alt=Facebook></a>
+			
+				<a href=#><img src=images/linkedin.png alt=LinkedIn></a>
+				
+				<a href=#><img src=images/twitter.png alt=Twitter></a>
+	
+			</div>
+
+		</div>
+
+	</footer>
+
+			</div>
+			
+		</div>
+		
+	</main>
+	
+	<!-- Content - End -->
+
+	<!-- Footer - Start -->
+	
+
+	<!-- Footer - End -->
+
+	<script src=src/script/natuive.js type=text/javascript></script>
+	<script src=src/script/natuive-slider.js type=text/javascript></script>
+	<script src=src/script/natuive-fallback.js type=text/javascript></script>
+<!-- 		<script src=dist/natuive.min.js type=text/javascript async></script> -->
+
+</body>
+
+</html>

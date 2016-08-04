@@ -42,13 +42,14 @@
 
 }
 
-_::-webkit-full-page-media, _:future, :root .slider-wrap {
+.slider-wrap {
 	
-    padding: 0 .1px; // Fix Safari bug where 1px of previous slide is visible during slide
+	// Fix Safari, Chrome bug where 1px of previous slide is visible during slide
+    padding: 0 .1px;
 	
 }
 
-_::-webkit-full-page-media, _:future, :root .slider-wrap .slider {
+.slider-wrap .slider {
 
 	// Fix Safari bug where 1px of previous slide is visible during slide
 	margin-left: -.5px;

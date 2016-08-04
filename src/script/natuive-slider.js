@@ -474,7 +474,8 @@ function makeSlider(el, current_slide) {
             addClass(el.parentNode, 'tabs');
             addClass(slider_nav, 'row');
             transferClass(el.parentNode, slider_nav, 'wrap');
-            slider_nav.insertAdjacentHTML('beforeend', (!i ? '<a class=active>' : '<a>') + (el.children[i].querySelector('.tab-title') ? el.children[i].querySelector('.tab-title').innerHTML : i+1) + '</a>');
+            var tab_title = el.children[i].getAttribute('data-tab-title') || (el.children[i].querySelector('.tab-title') ? el.children[i].querySelector('.tab-title').innerHTML : i+1);
+            slider_nav.insertAdjacentHTML('beforeend', (!i ? '<a class=active>' : '<a>') + tab_title + '</a>');
             if (hasClass(el, 'vertical')) {
 	            
 	            addClass(el.parentNode, 'vertical');
