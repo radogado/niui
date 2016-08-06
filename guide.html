@@ -120,7 +120,7 @@
 						
 						<p class=drop-cap>
 						
-							Increase conversion by decreasing page load time down to &lt;5" on slow mobile networks. Improve development by using standard building blocks that are flexible to customise and combine. Improve stability and compatibility by not pushing the browsers more than necessary. Under the negligible weight of 13 KB, which removes the barrier between your content and your customers everywhere.
+							Increase conversion by decreasing page load time down to &lt;5" on slow mobile networks. Improve development by using standard building blocks that are flexible to customise and combine. Improve stability and compatibility by not pushing the browsers more than necessary. Under the negligible weight of ~13 KB, which removes the barrier between your content and your customers everywhere.
 						
 						</p>
 
@@ -150,7 +150,7 @@
 				
 				<div data-tab-title=Navigation>
 						
-					<nav class=contain style="display: block;">
+					<nav>
 			
 				<input type="checkbox" class="trigger burger">
 				
@@ -215,10 +215,44 @@
 					</div>
 	
 			</nav>
-				
-				</div>
+			
+					<nav class=scroll>
+					
+								<ul>
+								
+									<li> <a href=#buttons>Buttons</a> </li>
 
-				<nav class=drop id=drop-nav>
+									<li> <a href=#drop-nav>Drop-down nav</a> </li>
+								
+									<li> <a href=#lightbox class="active">Lightbox</a> </li>
+								
+									<li> <a href=#accordion>Accordion</a> </li>
+				
+									<li> <a href=#modal>Modal window</a> </li>
+			
+									<li> <a href=#video>Video</a> </li>
+	
+									<li> <a href=#aspect-ratio>Aspect ratio</a> </li>
+	
+									<li> <a href=#masonry>Masonry</a> </li>
+	
+									<li> <a href=#tables>Tables</a> </li>
+
+									<li> <a href=#tabs>Tabs</a> </li>
+
+									<li> <a href=#lists>Lists</a> </li>
+
+									<li> <a href=#cards>Cards</a> </li>
+
+									<li> <a href=//rado.bg target="_blank">WordPress theme</a> </li>
+
+									<li> <a href=#showcase>Showcase</a> </li>
+								
+								</ul>
+							
+							</nav>
+			
+					<nav class=drop id=drop-nav>
 			
 			<form id="level1"> </form>
 			<form id="level2"> </form>
@@ -408,8 +442,11 @@
 			</ul>
 			
 		</nav>
+
+				</div>
+
 				
-				<div id=aspect-ratio>
+				<div id=aspect-ratio data-tab-title='Aspect ratio'>
 			
 					<h2>A New Perspective: Image container with aspect ratio of 2.35:1</h2>
 					
@@ -422,9 +459,7 @@
 					
 				</div>
 					
-				<div>
-
-					<div>
+				<div data-tab-title=Lightbox>
 
 						<h2> Lightbox Image Gallery </h2>
 							
@@ -452,25 +487,31 @@
 						
 						</div>
 			
-						<h2 id=video>Video Is Looking Good</h2>
-						
-						<video poster=images/video.jpg controls=controls preload=none>
-								
-							<source type=video/mp4 src=//s3.amazonaws.com/gado/Outlying-Teaser.mp4>
-							
-							<a href=//s3.amazonaws.com/gado/Outlying-Teaser.mp4>//s3.amazonaws.com/gado/Outlying-Teaser.mp4</a>
-							
-						</video>
-
 					</div>
+				
+				<div data-tab-title=Video>
+									
+					<h2 id=video>Video Is Looking Good</h2>
+					
+					<video poster=images/video.jpg controls=controls preload=none>
+							
+						<source type=video/mp4 src=//s3.amazonaws.com/gado/Outlying-Teaser.mp4>
+						
+						<a href=//s3.amazonaws.com/gado/Outlying-Teaser.mp4>//s3.amazonaws.com/gado/Outlying-Teaser.mp4</a>
+						
+					</video>
 				
 				</div>
 				
-				<div id=tables>
+				<div id=tables data-tab-title=Tables>
 				
 					<h2>Turn the Tables</h2>
 					
-					<table>
+					<div class="row">
+						
+						<div>
+								
+							<table>
 					
 						<tr>
 							<td>Short title</td> 
@@ -487,8 +528,12 @@
 						</tr>
 
 					</table>
+						
+						</div>
 					
-					<table>
+						<div>
+							
+							<table>
 						
 						<thead>
 							<tr>
@@ -510,11 +555,14 @@
 						</tr>
 
 					</table>
+						
+						</div>
 					
+					</div>
 	
-			</div>
+				</div>
 
-				<div id=accordion>
+				<div id=accordion data-tab-title=Accordion>
 	
 <h2>Accordion</h2>
 	
@@ -578,7 +626,25 @@
 
 </div>
 				
-				<div>
+				<div data-tab-title=Tooltip>
+					
+					<span class="tool">
+						This text has a tooltip.
+						<span class="tip"><b>Here is the tooltip</b> <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						</span>
+					</span>
+					
+				</div>
+				
+				<div data-tab-title='Modal window'>
+				
+					<h2> Modal Window </h2><a href="external.html#content" class="modal">Open a modal window inside this <span>tab</span>.</a>
+					<br>					
+					<a href="http://natuive.net/external.html#content" class="modal">Show external domain content in a modal window.</a> (On PHP enabled host)
+
+				</div>
+				
+				<div data-tab-title=Grid>
 					
 					<div class='row no-spacing-' id=grid>
 						
