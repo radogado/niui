@@ -2263,7 +2263,8 @@ $background: #1E8DaC;
   text-align: center; }
 
 .slider-wrap > .slider.vertical > .visible, .vertical > .slider-nav a {
-  display: block; }
+  display: block;
+  overflow: visible; }
 
 .slider-nav a.active {
   background: rgba(0, 0, 0, 0.2);
