@@ -2696,6 +2696,13 @@ video a[href] {
 header.fixed {
   position: static; }
 
+a[href].span-relative-parent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0; }
+
 /* Narrow Screens */
 @media screen and (max-width: 640px) {
   header {
