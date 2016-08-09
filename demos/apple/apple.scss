@@ -151,6 +151,16 @@ form#language-selector select {
 	
 }
 
+@media screen and (max-width: 640px) {
+	
+	.header-and-banner .slider h2 { 
+		
+		margin-top: .5em;
+		
+	}
+	
+}
+
 .header-and-banner .slider h3 { 
 	
 	font-size: 3.6em;
