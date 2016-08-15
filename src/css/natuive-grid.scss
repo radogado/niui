@@ -358,6 +358,14 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 	    
     }
 
+    .masonry.col4 {
+
+	    -moz-column-count: 4;
+	    -webkit-column-count: 4;
+	    column-count: 4;
+	    
+    }
+
 .pad {
 	
 	padding: $line-height-em/2;
@@ -621,7 +629,7 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 
 	}
 
-	.masonry {
+	.masonry, .masonry.col2, .masonry.col4 {
 		
 	    -moz-column-count: 2;
 	    -webkit-column-count: 2;
