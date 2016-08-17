@@ -386,7 +386,11 @@ section:before, section:after {
     width: 100% !important;
     border: none;
     flex: 0 0 100% !important;
-    margin: 0.75em 0; }
+    margin: 0.75em 0;
+    box-sizing: border-box; }
+
+  .row > .full-mobile-width, .row > [class^=col].full-mobile-width {
+    box-sizing: content-box; }
 
   .row.no-spacing > *, .row.no-spacing > [class^=col] {
     margin: 0;
@@ -689,9 +693,9 @@ form.sticky-submit input[type=submit] {
   transform: translateY(-50%); }
 
 form.wide input[type=submit] {
-  margin-bottom: calc(1.5em/2 + 2px);
+  margin-bottom: calc(1.5em - 5px);
   /* fix for the failed box-sizing: border-box */
-  min-height: calc(1.5em*2 - 2px); }
+  line-height: 1em; }
 
 input, select, textarea, input[type=search], form button {
   background-color: #eee;
@@ -1682,7 +1686,8 @@ input.trigger, input.trigger ~ input[type=reset] {
 
   input.trigger.burger:checked ~ ul, nav.drop ul .trigger:checked ~ ul, input.trigger.burger:checked ~ div, nav.drop ul .trigger:checked ~ div, .no-touch nav.drop ul ul li input.trigger {
     display: block;
-    animation: slidein .2s 1; } }
+    animation: slidein .2s 1;
+    will-change: transform; } }
 /* natUIve – List */
 /*
 $color: #fff;
@@ -1823,15 +1828,12 @@ $background: #1E8DaC;
   /* hidden accordion item */
   overflow: hidden;
   cursor: auto;
-  contain: none; }
+  contain: none;
+  will-change: transform; }
 
 .accordion:not(.open) > div {
   max-height: 0;
   contain: strict; }
-
-.accordion > div.transition {
-  -webkit-animation-name: transition;
-  animation-name: transition; }
 
 .accordion:first-of-type > div {
   padding-top: 0; }
@@ -1958,14 +1960,8 @@ $background: #1E8DaC;
   position: relative;
   overflow: hidden;
   max-height: 100%;
-  z-index: 1; }
-
-.slider-wrap {
-  padding: 0 .5px; }
-
-.slider-wrap .slider {
-  margin-left: -.5px;
-  width: calc(100% + 1px); }
+  z-index: 1;
+  padding: 0 .25px; }
 
 .slider-wrap.vertical.tabs > .slider {
   width: 66.667%;
@@ -2032,10 +2028,13 @@ $background: #1E8DaC;
   transform-style: preserve-3d;
   -webkit-transition: none;
   transition: none;
-  display: flex; }
+  display: flex;
+  will-change: transform; }
 
 .slider-wrap .slider {
-  overflow: visible; }
+  overflow: visible;
+  margin-left: -.5px;
+  width: calc(100% + 1px); }
 
 .slider-wrap .slider > * {
   contain: strict; }

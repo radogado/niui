@@ -31,6 +31,7 @@
 	    overflow: hidden;
 	    cursor: auto;
 	    contain: none;
+	    will-change: transform;
 
 	}
 
@@ -38,14 +39,6 @@
 
 	    max-height: 0;
 	    contain: strict;
-
-	}
-
-	.accordion > div.transition {
-
-		-webkit-animation-name: transition;
-		animation-name: transition;
-		
 
 	}
 

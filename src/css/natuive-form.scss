@@ -105,10 +105,11 @@ form {
 
 	form.wide input[type=submit] {
 
-		margin-bottom: calc(#{$line-height-em}/2 + 2px); /* fix for the failed box-sizing: border-box */
+		margin-bottom: calc(#{$line-height-em} - 5px); /* fix for the failed box-sizing: border-box */
 // 		margin-bottom: calc(var(--line-height-em) - 2px); /* fix for the failed box-sizing: border-box */
-		min-height: calc(#{$line-height-em}*2 - 2px);
+//		min-height: calc(#{$line-height-em}*2 - 2px);
 // 		min-height: calc(var(--line-height-em)*2 + 2px);
+		line-height: 2*$line-height-em/3;
 		
 	}
 	

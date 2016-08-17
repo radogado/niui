@@ -539,6 +539,7 @@ input.trigger, input.trigger ~ input[type=reset] {
 		
 		display: block;
 		animation: slidein .2s 1;
+		will-change: transform;
 		
 	}
 	

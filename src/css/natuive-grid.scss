@@ -593,9 +593,16 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 		border: none;
 		flex: 0 0 100% !important;
 		margin: $line-height-em/2 0;
+		box-sizing: border-box;
 
 	}
 
+	.row > .full-mobile-width, .row > [class^=col].full-mobile-width {
+		
+		box-sizing: content-box;
+
+	}
+	
 	.row.no-spacing > *, .row.no-spacing > [class^=col] {
 
 		margin: 0;
