@@ -1251,6 +1251,16 @@ form {
   color: #aaa;
   color: var(--placeholder_color); }
 
+legend {
+  padding: 0 .5em; }
+
+fieldset {
+  margin-bottom: 1em;
+  border: 1px solid; }
+
+fieldset input:last-of-type {
+  margin-bottom: 0.5em; }
+
 /* Tables */
 /*
 $color: #fff;
