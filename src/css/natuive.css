@@ -1397,7 +1397,7 @@ nav a[href].active {
 nav a[href^='#'] {
   text-decoration: none; }
 
-nav li:last-child a {
+nav li:last-child a, nav .vertical li a {
   padding-right: 0; }
 
 nav li {
