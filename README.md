@@ -16,7 +16,7 @@ natUIve: mostly native front-end framework
 - Drop-down nav: Touch-first, CSS-only, JS enhanced, 1-3 levels, responsive, label/link items support
 - Buttons
 - Modal windows with local or external content
-- Lightbox gallery supporting huge galleries* and click to zoom. Can be opened automatically by URI page#lightbox_id
+- Lightbox gallery supporting huge galleries* and click to zoom. Can be opened automatically by URI page#lightbox_id. Video in lightbox.
 - Tooltips with full HTML content*
 - Nested ordered lists*
 - Forms with validation, dynamic submission without page reload, full customisation and accessibility, including native file drop. Range input with blank style. Auto-expanding textarea*

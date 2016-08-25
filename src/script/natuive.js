@@ -407,15 +407,9 @@ function arrow_keys_handler(e) {
 
 function populateLightboxItem(slider, i) {
 	
-	if (typeof i == 'undefined') {
-		
-		i = 0;
+	var img = slider.children[(typeof i == 'undefined') ? 0 : i].querySelector('img');
 
-	}
-	
-	var img = slider.children[i].querySelector('img');
-
-	if (!img.src) {
+	if (img && !img.src) {
 		
 		img.src = img.getAttribute('data-src');
 		img.onclick = function (e) {
@@ -649,8 +643,16 @@ function openLightbox(e) {
     var images = '';
 
     forEach(getClosest(el, '.lightbox').querySelectorAll('a[href]'), function(el) {
+		
+		if (hasClass(el, 'video')) {
+			// video poster = the anchor's img child, if it exists
+			images += '<div><video poster=' + (el.querySelector('img') ? el.querySelector('img').src : '#') + ' controls=controls preload=none> <source type=video/mp4 src=' + el.href + '> </video></div>';
+			
+		} else {
 
-        images += '<div><img data-src="' + el.href + '" alt="' + el.title + '">' + (el.title ? ('<p>' + el.title + '</p>') : '') + '</div>';
+	        images += '<div><img data-src="' + el.href + '" alt="' + el.title + '">' + (el.title ? ('<p>' + el.title + '</p>') : '') + '</div>';
+
+        }
         // Attach onload event to each image to display it only when fully loaded and avoid top-to-bottom reveal?
 
     });
