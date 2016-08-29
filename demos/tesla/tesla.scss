@@ -165,13 +165,13 @@ footer a[href]:first-child {
 
 @media screen and (max-width: 640px) {
 	
-	.checkered .col2:nth-child(2) {
+	.checkered > div:nth-child(2) {
 		
 		order: 1;
 		
 	}
 
-	.checkered .col2:nth-child(4) {
+	.checkered > div:nth-child(4) {
 		
 		order: 2;
 		

@@ -33,13 +33,6 @@
 
 	}
 	
-	@-moz-document url-prefix() { // Incorrect width calculation in FF
-
-		.row > * { box-sizing: border-box; }
-
-	}
-	
-	
 	.row > [class^=col] {
 		
 		flex-grow: 0;

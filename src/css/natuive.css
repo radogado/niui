@@ -64,9 +64,6 @@ $background: #1E8DaC;
   text-align: start;
   box-sizing: content-box; }
 
-@-moz-document url-prefix() {
-  .row > * {
-    box-sizing: border-box; } }
 .row > [class^=col] {
   flex-grow: 0; }
 
