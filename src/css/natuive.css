@@ -2628,8 +2628,7 @@ main#content {
 /* Footer */
 footer {
   flex: none;
-  position: relative;
-  padding-bottom: 2em; }
+  position: relative; }
 
 footer .row > * {
   position: static; }
