@@ -437,7 +437,8 @@ body {
   font-size: 16px;
   line-height: 1.5;
   font-family: Helvetica Neue, sans-serif;
-  font-weight: 300; }
+  font-weight: 300;
+  letter-spacing: .03em; }
 
 /* Elements with double line-height */
 h1, h2, h3, .full-window-wrap .close {
