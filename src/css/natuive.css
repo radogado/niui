@@ -64,6 +64,9 @@ $background: #1E8DaC;
   text-align: start;
   box-sizing: content-box; }
 
+@-moz-document url-prefix() {
+  .row > * {
+    box-sizing: border-box; } }
 .row > [class^=col] {
   flex-grow: 0; }
 
@@ -2625,7 +2628,8 @@ main#content {
 /* Footer */
 footer {
   flex: none;
-  position: relative; }
+  position: relative;
+  padding-bottom: 2em; }
 
 footer .row > * {
   position: static; }

@@ -1,6 +1,20 @@
 body {
 	
 	font-size: 15px;
+	font-weight: normal;
+
+}
+
+main img {
+	
+	display: block;
+	margin: 0 auto;
+
+}
+
+h1, h2 {
+	
+	font-weight: normal;
 
 }
 
@@ -29,12 +43,32 @@ header nav a[href] {
 	
 }
 
+header nav li:first-child a[href] {
+	
+	margin-left: 0;
+	
+}
+
+header nav .active a, header nav:last-child .active a {
+	
+	color: #999;
+	    
+}
+
+header .col25 nav a {
+	
+	font-size: .75em;
+	color: #999;
+
+}
+
 a.button[href] {
 	
 	padding: .75em 1.4em;
 	text-transform: uppercase;
 	font-size: .9em;
 	font-weight: normal;
+    margin: .5em 0;
 	
 }
 
@@ -51,6 +85,7 @@ a.button[href] {
 	transform: translate3d(0,0,0);
 
 }
+
 .sticky a[href]:not(.button) {
 	
 	text-decoration: none;
@@ -61,6 +96,19 @@ a.button[href] {
 a.button[href].red {
 
 	background: #c00;
+
+}
+
+footer a[href] {
+	
+	text-decoration: none;
+	padding: 0 1em;
+
+}
+
+footer a[href]:first-child {
+	
+	padding-left: 0;
 
 }
 
@@ -115,7 +163,29 @@ a.button[href].red {
 
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 640px) {
+	
+	.checkered .col2:nth-child(2) {
+		
+		order: 1;
+		
+	}
+
+	.checkered .col2:nth-child(4) {
+		
+		order: 2;
+		
+	}
+
+	.sticky {
+	
+		position: static;
+		
+	}
+
+}
+
+@media screen and (max-width: 1280px) {
 	
 	.narrow, .row div:not(.col1) .narrow {
 		
