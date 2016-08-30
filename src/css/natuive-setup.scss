@@ -1,6 +1,6 @@
 $font-size: 16px;
 $line-height: 1.5;
-$line-height-em: 1.5em;
+$line-height-em: 1em*$line-height;
 $screen-narrow: 640px;
 $screen-limited: 768px;
 /*

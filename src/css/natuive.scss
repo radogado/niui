@@ -199,6 +199,7 @@ video a[href] {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    overflow: hidden;
     
 }
 
@@ -219,7 +220,7 @@ video a[href] {
 
 	@-moz-document url-prefix() { // No-flex version for FF
 
-		.aspect { display: block; font-size: 0; }
+		.aspect { display: block; font-size: 0; letter-spacing: 0; }
 		.aspect:before { display: inline-block; }
 
 	}
