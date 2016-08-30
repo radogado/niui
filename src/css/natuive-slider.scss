@@ -24,7 +24,7 @@
 	max-height: 100%;
 	z-index: 1;
 	// Fix Safari, Chrome bug where 1px of previous slide is visible during slide
-    padding: 0 .25px;
+    padding: 0 .5px;
 
 }
 
@@ -131,8 +131,8 @@
 	
 	overflow: visible;
 	// Fix Safari bug where 1px of previous slide is visible during slide
-	margin-left: -.5px;
-	width: calc(100% + 1px);
+	margin-left: -1px;
+    width: calc(100% + 2px);
 
 }
 

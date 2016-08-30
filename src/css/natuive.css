@@ -1974,7 +1974,7 @@ $background: #1E8DaC;
   overflow: hidden;
   max-height: 100%;
   z-index: 1;
-  padding: 0 .25px; }
+  padding: 0 .5px; }
 
 .slider-wrap.vertical.tabs > .slider {
   width: 66.667%;
@@ -2045,8 +2045,8 @@ $background: #1E8DaC;
 
 .slider-wrap .slider {
   overflow: visible;
-  margin-left: -.5px;
-  width: calc(100% + 1px); }
+  margin-left: -1px;
+  width: calc(100% + 2px); }
 
 .slider-wrap .slider > * {
   contain: strict; }
