@@ -506,6 +506,20 @@ $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'them
 add_action( 'customize_register', 'themeslug_theme_customizer' );
 
 
-require_once( "gallery.php"         );
+require_once( "gallery.php" );
 
+
+add_filter('upload_mimes', 'custom_upload_mimes');
+
+function custom_upload_mimes ( $existing_mimes=array() ) {
+
+	// add the file extension to the array
+
+	$existing_mimes['svg'] = 'mime/type';
+
+        // call the modified list of extensions
+
+	return $existing_mimes;
+
+}
 ?>

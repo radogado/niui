@@ -30,17 +30,19 @@
 					<!-- logo -->
 					
 					<?php if ( get_theme_mod( 'themeslug_logo' ) ) : ?>
-					    <div class='logo'>
-					        <a href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'>
+
+					<?php
+					    $themelogo = get_theme_mod( 'themeslug_logo' );
+					    $themelogo_size = getimagesize($themelogo);
+					    $themelogo_width = $themelogo_size[0];
+					    $themelogo_height = $themelogo_size[1];
+					?>
+
+					    <div class='logo' style='min-height: <?php echo $themelogo_height; ?>px; margin: 1em 0 1.5em 0;'>
+					        <a style="position: absolute;" href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'>
 						        
 <!-- 						        <img src='<?php echo esc_url( get_theme_mod( 'themeslug_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'> -->
 
-<?php
-    $themelogo = get_theme_mod( 'themeslug_logo' );
-    $themelogo_size = getimagesize($themelogo);
-    $themelogo_width = $themelogo_size[0];
-    $themelogo_height = $themelogo_size[1];
-?>
 <img src='<?php echo esc_url( get_theme_mod( 'themeslug_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?> Logo' class="img-responsive full" height="<?php echo($themelogo_height);?>" width="<?php echo($themelogo_width);?>">
 						        
 						        </a>

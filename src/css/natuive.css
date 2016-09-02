@@ -1635,13 +1635,23 @@ input.trigger, input.trigger ~ input[type=reset] {
     position: relative; }
 
   nav.drop:before, header > nav:before {
-    content: '\2630';
+    content: '';
     width: 1.5em;
-    height: 1.5em;
+    height: 1.3em;
     line-height: 1.5em;
     font-size: 2em;
     display: inline-block;
     text-align: center; }
+
+  nav.drop:after, header > nav:after {
+    content: '';
+    position: absolute;
+    left: .75em;
+    display: block;
+    width: 1.5em;
+    top: .5em;
+    height: 0;
+    box-shadow: 0 10px 0 1px #333,0 16px 0 1px #333,0 22px 0 1px #333; }
 
   nav.drop ul li {
     display: block; }
@@ -1665,7 +1675,8 @@ input.trigger, input.trigger ~ input[type=reset] {
     position: absolute;
     right: 0;
     top: 0;
-    bottom: 0; }
+    bottom: 0;
+    mix-blend-mode: initial; }
 
   header nav.drop ul li a {
     width: 80%;
