@@ -12,7 +12,7 @@
 @import 'natuive-table';
 @import 'natuive-nav';
 @import 'natuive-list';
-@import 'natuive-accordion';
+@import 'natuive-fold';
 @import 'natuive-tooltip';
 @import 'natuive-slider';
 @import 'natuive-modal';
@@ -404,7 +404,13 @@ a[href].span-relative-parent {
 		z-index: 7;
 	
 	}
-	
+
+	header.fixed > .row {
+
+		min-height: $line-height-em*2;
+
+	}
+		
 	header.fixed .row > * {
 		
 		padding: 0;

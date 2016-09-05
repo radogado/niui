@@ -1420,7 +1420,7 @@ nav li:first-child a {
 nav li:last-child {
   margin-right: 0; }
 
-nav.sub a {
+nav .sub a {
   font-size: .8em;
   line-height: 1.875em;
   min-height: 1.5em;
@@ -1430,12 +1430,19 @@ main nav ul {
   padding-left: 0; }
 
 /* Checkbox trigger */
+/*
 nav input.trigger, nav [for=nav-trigger] {
-  display: none; }
+	
+	display: none;
+	
+}
 
 .trigger {
-  cursor: pointer; }
-
+	
+	cursor: pointer;
+	
+}
+*/
 /* nav.drop */
 nav.drop {
   position: relative;
@@ -1557,7 +1564,7 @@ nav.drop ul ul li {
 .no-touch nav.drop ul ul li, .no-touch nav.drop ul ul li:first-child {
   position: relative; }
 
-.no-touch nav.drop ul ul li input.trigger, input.trigger ~ input[type=reset], input.trigger.burger, form#level1, form#level2 {
+.no-touch nav.drop ul ul li input.trigger, input.trigger ~ input[type=reset], form#level1, form#level2 {
   display: none;
   z-index: 5; }
 
@@ -1577,7 +1584,7 @@ nav.drop input.trigger:checked ~ ul, .no-touch nav.drop ul ul li:hover ul, nav.d
 nav.drop input.trigger:checked ~ ul {
   z-index: 6; }
 
-nav.drop input.trigger:not(.burger):not(:checked) ~ ul input.trigger:checked ~ ul, nav.drop input.trigger:not(.burger):not(:checked) ~ div input.trigger:checked ~ div {
+nav.drop input.trigger:not(:checked) ~ ul input.trigger:checked ~ ul, nav.drop input.trigger:not(:checked) ~ div input.trigger:checked ~ div {
   visibility: hidden; }
 
 nav.drop ul ul ul {
@@ -1628,34 +1635,16 @@ input.trigger, input.trigger ~ input[type=reset] {
   header nav li a {
     padding: .5em 0; }
 
-  nav.drop, header > nav {
+  nav.drop {
     width: 100%;
     min-height: 2em;
     text-align: left;
     display: inline-block;
     position: relative; }
 
-  nav.drop:before, header > nav:before {
-    content: '';
-    width: 1.5em;
-    height: 1.3em;
-    line-height: 1.5em;
-    font-size: 2em;
-    display: inline-block;
-    text-align: center; }
-
-  nav.drop:after, header > nav:after {
-    content: '';
-    position: absolute;
-    left: .75em;
-    display: block;
-    width: 1.5em;
-    top: .5em;
-    height: 0;
-    box-shadow: 0 10px 0 1px #333,0 16px 0 1px #333,0 22px 0 1px #333; }
-
   nav.drop ul li {
-    display: block; }
+    display: block;
+    width: 100%; }
 
   nav.drop ul li a {
     white-space: normal;
@@ -1665,6 +1654,9 @@ input.trigger, input.trigger ~ input[type=reset] {
     width: 100%;
     position: relative;
     left: 0; }
+
+  nav.drop ul ul {
+    position: relative; }
 
   .no-touch nav.drop ul ul ul {
     opacity: 1; }
@@ -1683,39 +1675,18 @@ input.trigger, input.trigger ~ input[type=reset] {
     width: 80%;
     width: calc(100% - 2.5em); }
 
-  header.fixed > nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    text-align: start;
-    max-height: 100%;
-    overflow: scroll; }
-
-  header.fixed input.trigger.burger ~ div {
-    background: #fff;
-    margin: -.2em 0 0 0;
-    padding: .5em; }
-
   nav.drop ul li li li a {
     width: 100%; }
-
-  input.trigger.burger {
-    display: inline-block;
-    width: 3em;
-    height: 3em; }
-
-  [dir=rtl] input.trigger.burger {
-    right: 0; }
 
   @keyframes slidein {
     0% {
       transform: translate3d(-100%, 0, 0); }
     100% {
       transform: translate3d(0, 0, 0); } }
-  input.trigger.burger ~ ul, nav.drop ul ul, nav.drop ul .trigger:not(:checked) ~ ul, .no-touch nav.drop ul li:hover .trigger:not(:checked) ~ ul, input.trigger.burger ~ div, nav.drop ul .trigger:not(:checked) ~ div, .no-touch nav.drop ul li:hover .trigger:not(:checked) ~ div {
+  nav.drop ul ul, nav.drop ul .trigger:not(:checked) ~ ul, .no-touch nav.drop ul li:hover .trigger:not(:checked) ~ ul, nav.drop ul .trigger:not(:checked) ~ div, .no-touch nav.drop ul li:hover .trigger:not(:checked) ~ div {
     display: none; }
 
-  input.trigger.burger:checked ~ ul, nav.drop ul .trigger:checked ~ ul, input.trigger.burger:checked ~ div, nav.drop ul .trigger:checked ~ div, .no-touch nav.drop ul ul li input.trigger {
+  nav.drop ul .trigger:checked ~ ul, nav.drop ul .trigger:checked ~ div, .no-touch nav.drop ul ul li input.trigger {
     display: block;
     animation: slidein .2s 1;
     will-change: transform; } }
@@ -1822,7 +1793,7 @@ ol ul {
 ol p {
   text-indent: 0; }
 
-/* natUIve – Accordion */
+/* natUIve – Fold */
 /*
 $color: #fff;
 $background: #1E8DaC;
@@ -1840,14 +1811,17 @@ $background: #1E8DaC;
   --color: #333;
   --background: #fff; }
 
-.accordion {
+.fold {
   position: relative;
   padding: 0 .5em 0 1em;
-  cursor: pointer;
   margin: 0;
   max-width: 100%; }
 
-.accordion > label {
+.fold > label {
+  margin: 0;
+  float: none;
+  line-height: 3;
+  min-height: 3em;
   text-align: left;
   text-align: start;
   width: 100%;
@@ -1856,42 +1830,87 @@ $background: #1E8DaC;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
-  user-select: none; }
+  user-select: none;
+  cursor: pointer; }
 
-.accordion > div {
-  /* hidden accordion item */
+.fold.mobile {
+  padding: 0;
+  width: auto; }
+
+.fold.mobile > label, .fold.mobile > input.trigger {
+  display: none;
+  width: auto;
+  line-height: 1.5;
+  min-height: 1.5em;
+  height: 3em; }
+
+.fold > div {
+  /* hidden fold item */
   overflow: hidden;
   cursor: auto;
-  contain: none;
   will-change: transform; }
 
-.accordion:not(.open) > div {
-  max-height: 0;
-  contain: strict; }
+.fold:not(.open):not(.mobile) > div {
+  max-height: 0; }
 
-.accordion:first-of-type > div {
+.fold:first-of-type > div {
   padding-top: 0; }
 
-.accordion:first-of-type {
+.fold:first-of-type {
   margin-bottom: 0; }
 
-.accordion > div > * {
+.fold > div > * {
   margin-top: 0; }
 
-.accordion input.trigger:checked ~ div {
+.fold > input.trigger:checked ~ div, .fold.mobile > div {
   max-height: none; }
 
-.accordion.open input.trigger + * {
+.fold.open > input.trigger + * {
   display: inline-block; }
 
-.accordion > label {
-  margin: 0;
-  float: none; }
+span.burger {
+  width: 1.5em;
+  height: 1.5em;
+  line-height: 1.5em;
+  font-size: 2em;
+  display: inline-block;
+  text-align: center;
+  position: relative; }
 
-.accordion > label {
-  line-height: 3;
-  min-height: 3em; }
+span.burger:before {
+  content: '';
+  position: absolute;
+  left: 0.25em;
+  width: 1em;
+  top: 0.15em;
+  box-shadow: 0 0.25em 0 1px #333, 0 0.625em 0 1px #333, 0 1em 0 1px #333; }
 
+@media screen and (max-width: 640px) {
+  .fold.mobile > label, .fold.mobile > input.trigger {
+    display: flex;
+    width: 3em; }
+
+  .fold.mobile:not(.open) > div {
+    max-height: 0; }
+
+  .fold.mobile > input.trigger:checked ~ div {
+    max-height: none; }
+
+  header.fixed .fold.mobile {
+    position: fixed;
+    top: 0;
+    max-height: 100vh;
+    width: 100vw;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch; }
+
+  header.fixed .fold.mobile > div {
+    overflow: hidden;
+    padding: 0 0.375em;
+    background: #fff; }
+
+  header.fixed .fold.mobile.open > div {
+    padding-bottom: 4.5em; } }
 /* natUIve – Tooltip */
 /*
 $color: #fff;
@@ -2800,6 +2819,9 @@ a[href].span-relative-parent {
     right: 0;
     background: #fff;
     z-index: 7; }
+
+  header.fixed > .row {
+    min-height: 3em; }
 
   header.fixed .row > * {
     padding: 0;

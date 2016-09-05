@@ -77,14 +77,17 @@
 			
 			</div>
 			
-			<nav class=contain style="display: block;">
+			<div class=contain>
 			
-				<input type="checkbox" class="trigger burger">
+				<div class='fold mobile'>
 				
-				<div class='row'>
+					<label class=trigger> <span class="burger"></span> </label>
+					<input type=checkbox class=trigger>
+
+					<div class='row'>
 						
 					<div class=col1>
-						
+
 						<nav>
 			
 							<ul>
@@ -96,52 +99,50 @@
 								<li> <a href=#form>Form</a> </li>
 
 							</ul>
+							
+							<br>
 										
-						</nav>
-						
-						<br>
-					
-						<nav class=sub>
-				
-							<ul>
+							<ul class="sub">
 							
 								<li> <a href=#buttons>Buttons</a> </li>
-
+							
 								<li> <a href=#drop-nav>Drop-down nav</a> </li>
 							
 								<li> <a href=#lightbox class="active">Lightbox</a> </li>
 							
-								<li> <a href=#accordion>Accordion</a> </li>
-			
+								<li> <a href=#fold>Fold</a> </li>
+										
 								<li> <a href=#modal>Modal window</a> </li>
-		
+									
 								<li> <a href=#video>Video</a> </li>
-
+							
 								<li> <a href=#aspect-ratio>Aspect ratio</a> </li>
-
+							
 								<li> <a href=#masonry>Masonry</a> </li>
-
+							
 								<li> <a href=#tables>Tables</a> </li>
-
+							
 								<li> <a href=#tabs>Tabs</a> </li>
-
+							
 								<li> <a href=#lists>Lists</a> </li>
-
+							
 								<li> <a href=#cards>Cards</a> </li>
-
+							
 								<li> <a href=//rado.bg target="_blank">WordPress theme</a> </li>
-
+							
 								<li> <a href=#showcase>Showcase</a> </li>
 							
 							</ul>
-						
+
 						</nav>
-		
+						
 					</div>
 							
 				</div>
+				
+				</div>
 	
-			</nav>
+			</div>
 			
 		</header>
 
@@ -211,196 +212,205 @@
 
 		<div class=contain>
 	
-			<nav class=drop id=drop-nav>
+			<div class='fold mobile'>
 			
-			<form id="level1"> </form>
-			<form id="level2"> </form>
-		
-			<input type="checkbox" class="trigger burger">
-		
-			<ul>
+				<label class=trigger> <span class="burger"></span> </label>
+				<input type=checkbox class=trigger>
 				
-				<li> 
-				
-					<input type="radio" class="trigger" form="level1" name="level1">
-		
-					<input type="reset" form="level1">
-				
-					<a>First item</a>
-					
-					<b class="sub"></b>
-					
-					<ul>
-						
-						<li> 
-						
-							<input type="radio" class="trigger" form="level2" name="level2">
-				
-							<input type="reset" form="level2">
-				
-							<a>First item's second level item 1</a>
-						
-							<b class="sub"></b>
-					
-							<ul>
-								
-								<li> 
-									
-									<a href="asd">First item's second level item 1 third level item 1</a>
-								
-								</li>
-								
-								<li> 
-									
-									<a href="fdgdf">First item's second level item 1 third level item 2</a>
-								
-								</li>
-							
-							</ul>
-						
-						</li>
-					
-						<li> 
-						
-							<input type="radio" class="trigger" form="level2" name="level2">
-				
-							<input type="reset" form="level2">
-				
-							<a href=asd>First item's second level item 2</a>
-						
-							<b class="sub"></b>
-					
-							<ul>
-								
-								<li> 
-									
-									<a href="#">First item's second level item 2 third level item 1</a>
-								
-								</li>
-								
-								<li> 
-									
-									<a href="#">First item's second level item 2 third level item 1</a>
-								
-								</li>
-							
-							</ul>
-						
-						</li>
-					
-					</ul>
-				
-				</li>
-		
-				<li> 
-				
-					<input type="radio" class="trigger" form="level1" name="level1">
-		
-					<input type="reset" form="level1">
-				
-					<a href=asd>Second item which is a link with long text</a>
-				
-					<b class="sub"></b>
-					
-					<ul>
-						
-						<li> 
-						
-							<input type="radio" class="trigger" form="level2" name="level2">
-				
-							<input type="reset" form="level2">
-				
-							<a>Second item level two item 1</a>
-						
-							<b class="sub"></b>
-					
-							<ul>
-								
-								<li> 
-									
-									<a href="#">Second item level two item 1 third level item 1</a>
-								
-								</li>
-								
-								<li> 
-									
-									<a href="#">Second item level two item 1 third level item 1</a>
-								
-								</li>
-							
-							</ul>
-						
-						</li>
-					
-					</ul>
-					
-				</li>
-		
-				<li> 
-				
-					<input type="radio" class="trigger" form="level1" name="level1">
-		
-					<input type="reset" form="level1">
-				
-					<a>Third item with one sub level</a>
-				
-					<b class="sub"></b>
-					
-					<ul>
-						
-						<li> 
-						
-							<a href=#>Third item second level item 1</a>
-						
-						</li>
-		
-						<li> 
-						
-							<a href=#>Third item second level item 2</a>
-						
-						</li>
-					
-					</ul>
-					
-				</li>
+				<div>
 			
-				<li> 
-				
-					<input type="radio" class="trigger" form="level1" name="level1">
-		
-					<input type="reset" form="level1">
-				
-					<a>Fourth item with one sub level</a>
-				
-					<b class="sub"></b>
-					
-					<ul>
-						
-						<li> 
-						
-							<a href=#>Fourth item second level item 1</a>
-						
-						</li>
-		
-						<li> 
-						
-							<a href=#>Fourth item second level item 2</a>
-						
-						</li>
-					
-					</ul>
-					
-				</li>
-		
-				<li> 
-				
-					<a href="#">Last item without a sub level</a>
-				
-				</li>
-		
-			</ul>
+					<nav class='drop' id=drop-nav>
 			
-		</nav>
+						<form id="level1"> </form>
+						<form id="level2"> </form>
+			
+						<ul>
+					
+					<li> 
+					
+						<input type="radio" class="trigger" form="level1" name="level1">
+			
+						<input type="reset" form="level1">
+					
+						<a>First item</a>
+						
+						<b class="sub"></b>
+						
+						<ul>
+							
+							<li> 
+							
+								<input type="radio" class="trigger" form="level2" name="level2">
+					
+								<input type="reset" form="level2">
+					
+								<a>First item's second level item 1</a>
+							
+								<b class="sub"></b>
+						
+								<ul>
+									
+									<li> 
+										
+										<a href="asd">First item's second level item 1 third level item 1</a>
+									
+									</li>
+									
+									<li> 
+										
+										<a href="fdgdf">First item's second level item 1 third level item 2</a>
+									
+									</li>
+								
+								</ul>
+							
+							</li>
+						
+							<li> 
+							
+								<input type="radio" class="trigger" form="level2" name="level2">
+					
+								<input type="reset" form="level2">
+					
+								<a href=asd>First item's second level item 2</a>
+							
+								<b class="sub"></b>
+						
+								<ul>
+									
+									<li> 
+										
+										<a href="#">First item's second level item 2 third level item 1</a>
+									
+									</li>
+									
+									<li> 
+										
+										<a href="#">First item's second level item 2 third level item 1</a>
+									
+									</li>
+								
+								</ul>
+							
+							</li>
+						
+						</ul>
+					
+					</li>
+			
+					<li> 
+					
+						<input type="radio" class="trigger" form="level1" name="level1">
+			
+						<input type="reset" form="level1">
+					
+						<a href=asd>Second item which is a link with long text</a>
+					
+						<b class="sub"></b>
+						
+						<ul>
+							
+							<li> 
+							
+								<input type="radio" class="trigger" form="level2" name="level2">
+					
+								<input type="reset" form="level2">
+					
+								<a>Second item level two item 1</a>
+							
+								<b class="sub"></b>
+						
+								<ul>
+									
+									<li> 
+										
+										<a href="#">Second item level two item 1 third level item 1</a>
+									
+									</li>
+									
+									<li> 
+										
+										<a href="#">Second item level two item 1 third level item 1</a>
+									
+									</li>
+								
+								</ul>
+							
+							</li>
+						
+						</ul>
+						
+					</li>
+			
+					<li> 
+					
+						<input type="radio" class="trigger" form="level1" name="level1">
+			
+						<input type="reset" form="level1">
+					
+						<a>Third item with one sub level</a>
+					
+						<b class="sub"></b>
+						
+						<ul>
+							
+							<li> 
+							
+								<a href=#>Third item second level item 1</a>
+							
+							</li>
+			
+							<li> 
+							
+								<a href=#>Third item second level item 2</a>
+							
+							</li>
+						
+						</ul>
+						
+					</li>
+				
+					<li> 
+					
+						<input type="radio" class="trigger" form="level1" name="level1">
+			
+						<input type="reset" form="level1">
+					
+						<a>Fourth item with one sub level</a>
+					
+						<b class="sub"></b>
+						
+						<ul>
+							
+							<li> 
+							
+								<a href=#>Fourth item second level item 1</a>
+							
+							</li>
+			
+							<li> 
+							
+								<a href=#>Fourth item second level item 2</a>
+							
+							</li>
+						
+						</ul>
+						
+					</li>
+			
+					<li> 
+					
+						<a href="#">Last item without a sub level</a>
+					
+					</li>
+			
+				</ul>
+			
+					</nav>
+
+				</div>
+			
+			</div>
 	
 			<div class=row id=aspect-ratio>
 				
@@ -520,11 +530,11 @@
 		
 							</table>
 							
-							<div id=accordion>
+							<div id=fold>
 			
-								<h2>Accordion</h2>
+								<h2>Fold</h2>
 			
-								<div class='accordion open'>
+								<div class='fold open'>
 								
 									<label class=trigger> How it works </label>
 									<input type=checkbox class=trigger>
@@ -537,7 +547,7 @@
 								
 								</div>
 								
-								<div class=accordion>
+								<div class=fold>
 								
 									<label class=trigger> Questions </label>
 									<input type=checkbox class=trigger>
@@ -549,14 +559,14 @@
 								
 								</div>
 							
-								<div class=accordion>
+								<div class=fold>
 								
 									<label class=trigger> Nested Accordions </label>
 									<input type=checkbox class=trigger>
 									
 									<div>
 								
-										<div class=accordion>
+										<div class=fold>
 									
 											<label class=trigger> About Inner Accordion </label>
 											<input type=checkbox class=trigger>
@@ -567,7 +577,7 @@
 									
 										</div>
 									
-										<div class=accordion>
+										<div class=fold>
 									
 											<label class=trigger> About Inner Accordion 2 </label>
 											<input type=checkbox class=trigger>
@@ -611,7 +621,7 @@
 					
 				</div>
 				<div class="col4 align-right vertical-row" style="background: #eef; color: #333;">
-					<div>Embed any kind of element into any container-type element: Cell, List, Slider, Accordion.</div>
+					<div>Embed any kind of element into any container-type element: Cell, List, Slider, Fold (Accordion).</div>
 					<div class="align-bottom" style="text-align: start;">Vertical row as tall as the parent row with equal-height full-width children</div>
 				</div>
 				<div style="background: #eff; color: #333;"><div>The grid is simpler and doesn't insist on the infamous 12 cols. Just add a div to a .row. Width classes, like .col23, are optional.</div></div>

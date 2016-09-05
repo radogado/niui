@@ -1,0 +1,173 @@
+/* natUIve – Fold */
+
+@import 'natuive-setup';
+
+.fold {
+
+	position: relative;
+	padding: 0 .5em 0 1em;
+	margin: 0;
+	max-width: 100%;
+	
+}
+
+	.fold > label {
+		
+		margin: 0;
+		float: none;
+		line-height: $line-height * 2;
+	// 	line-height: calc(var(--line-height) * 2);
+		min-height: $line-height-em * 2;
+	// 	min-height: calc(var(--line-height-em) * 2);
+		text-align: left;
+		text-align: start;
+		width: 100%;
+		cursor: pointer;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		user-select: none;
+		cursor: pointer;
+		
+	}
+	
+	.fold.mobile {
+		
+		padding: 0;
+		width: auto;
+
+	}
+	
+	.fold.mobile > label, .fold.mobile > input.trigger {
+		
+		display: none;
+		width: auto;
+		line-height: $line-height;
+		min-height: $line-height-em;
+		height: $line-height-em*2;
+
+	}
+
+	.fold > div { /* hidden fold item */
+
+	    overflow: hidden;
+	    cursor: auto;
+	    will-change: transform;
+// 	    margin-top: - .375*$line-height-em; // Weird offset
+
+	}
+
+	.fold.mobile > div {
+
+// 	    overflow: visible;
+
+	}
+
+	.fold:not(.open):not(.mobile) > div {
+
+	    max-height: 0;
+
+	}
+
+	.fold:first-of-type > div {
+
+	    padding-top: 0;
+
+	}
+
+	.fold:first-of-type {
+
+	    margin-bottom: 0;
+
+	}
+
+	.fold > div > * {
+		
+		margin-top: 0;
+
+	}
+
+	.fold > input.trigger:checked ~ div, .fold.mobile > div {
+		
+		max-height: none;
+
+	}
+	
+	.fold.open > input.trigger + * {
+		
+		display: inline-block;
+		
+	}
+	
+	span.burger {
+		
+		width: $line-height-em;
+		height: $line-height-em;
+		line-height: $line-height-em;
+		font-size: 2em;
+		display: inline-block;
+		text-align: center;
+		position: relative;
+
+	}
+	
+	span.burger:before {
+		
+		content: '';
+		position: absolute;
+		left: $line-height-em/6;
+		width: $line-height-em/1.5;
+		top: $line-height-em/10;
+		box-shadow: 0 $line-height-em/6 0 1px #333, 0 $line-height-em/2.4 0 1px #333, 0 $line-height-em/1.5 0 1px #333;
+
+	}
+	
+@media screen and (max-width: $screen-narrow) {
+
+	.fold.mobile > label, .fold.mobile > input.trigger {
+		
+// 		display: inline-block;
+		display: flex;
+		width: 3em;
+
+	}
+
+	.fold.mobile:not(.open) > div {
+	
+		max-height: 0;
+	
+	}
+	
+	.fold.mobile > input.trigger:checked ~ div {
+		
+		max-height: none;
+		
+	}
+	
+	header.fixed .fold.mobile {
+		
+		position: fixed;
+	    top: 0;
+	    max-height: 100vh;
+	    width: 100vw;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+
+	}
+	
+	header.fixed .fold.mobile > div {
+		
+		overflow: hidden;
+		padding: 0 $line-height-em/4;
+	    background: #fff;
+
+	}
+	
+	header.fixed .fold.mobile.open > div {
+		
+        padding-bottom: $line-height-em*3;
+
+	}
+	
+}

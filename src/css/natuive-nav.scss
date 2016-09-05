@@ -72,7 +72,7 @@ nav {
 
 	}
 
-	nav.sub a {
+	nav .sub a {
 	
 		font-size: .8em;
 		line-height: $line-height-em/.8;
@@ -91,6 +91,7 @@ nav {
 
 /* Checkbox trigger */
 
+/*
 nav input.trigger, nav [for=nav-trigger] {
 	
 	display: none;
@@ -102,6 +103,7 @@ nav input.trigger, nav [for=nav-trigger] {
 	cursor: pointer;
 	
 }
+*/
 
 /* nav.drop */
 
@@ -290,7 +292,7 @@ nav.drop ul ul li {
 	
 }
 
-.no-touch nav.drop ul ul li input.trigger, input.trigger ~ input[type=reset], input.trigger.burger, form#level1, form#level2 {
+.no-touch nav.drop ul ul li input.trigger, input.trigger ~ input[type=reset], form#level1, form#level2 {
 	
 	display: none;
 	z-index: 5;
@@ -324,7 +326,7 @@ nav.drop input.trigger:checked ~ ul {
 	
 }
 
-nav.drop input.trigger:not(.burger):not(:checked) ~ ul input.trigger:checked ~ ul, nav.drop input.trigger:not(.burger):not(:checked) ~ div input.trigger:checked ~ div {
+nav.drop input.trigger:not(:checked) ~ ul input.trigger:checked ~ ul, nav.drop input.trigger:not(:checked) ~ div input.trigger:checked ~ div {
 	
 	visibility: hidden;
 	
@@ -403,7 +405,7 @@ input.trigger, input.trigger ~ input[type=reset] {
 
 	}
 		
-	nav.drop, header > nav {
+	nav.drop {
 		
 		width: 100%;
 		min-height: 2em;
@@ -413,35 +415,10 @@ input.trigger, input.trigger ~ input[type=reset] {
 
 	}
 	
-	nav.drop:before, header > nav:before {
-		
-// 		content: '\2630';
-		content: '';
-		width: 1.5em;
-		height: 1.3em;
-		line-height: 1.5em;
-		font-size: 2em;
-		display: inline-block;
-		text-align: center;
-	
-	}
-
-	nav.drop:after, header > nav:after { // Because Android Browser etc don't have the \2630 symbol
-
-		content: '';
-	    position: absolute;
-	    left: .75em;
-	    display: block;
-	    width: 1.5em;
-	    top: .5em;
-	    height: 0;
-	    box-shadow: 0 10px 0 1px #333,0 16px 0 1px #333,0 22px 0 1px #333;
-	
-	}
-	
 	nav.drop ul li {
 		
 		display: block;
+		width: 100%;
 
 	}
 	
@@ -457,6 +434,12 @@ input.trigger, input.trigger ~ input[type=reset] {
 		width: 100%;
 		position: relative;
 		left: 0;
+
+	}
+	
+	nav.drop ul ul {
+		
+		position: relative;
 
 	}
 	
@@ -489,46 +472,12 @@ input.trigger, input.trigger ~ input[type=reset] {
 
 	}
 	
-	header.fixed > nav {
-		
-		position: fixed;
-		top: 0;
-		left: 0;
-		text-align: start;
-		max-height: 100%;
-		overflow: scroll;
-// 		-webkit-overflow-scrolling: auto;
-
-	}
-	
-	header.fixed input.trigger.burger ~ div {
-		
-		background: #fff;
-		margin: -.2em 0 0 0;
-		padding: .5em;
-
-	}
-
 	nav.drop ul li li li a {
 		
 		width: 100%;
 
 	}
 
-	input.trigger.burger {
-		
-		display: inline-block;
-		width: 3em;
-		height: 3em;
-		
-	}
-
-	[dir=rtl] input.trigger.burger {
-		
-		right: 0;
-
-	}
-	
 	@keyframes slidein {
 		
 		0% {
@@ -544,13 +493,13 @@ input.trigger, input.trigger ~ input[type=reset] {
 
 	}
 	
-	input.trigger.burger ~ ul, nav.drop ul ul, nav.drop ul .trigger:not(:checked) ~ ul, .no-touch nav.drop ul li:hover .trigger:not(:checked) ~ ul, input.trigger.burger ~ div, nav.drop ul .trigger:not(:checked) ~ div, .no-touch nav.drop ul li:hover .trigger:not(:checked) ~ div {
+	nav.drop ul ul, nav.drop ul .trigger:not(:checked) ~ ul, .no-touch nav.drop ul li:hover .trigger:not(:checked) ~ ul, nav.drop ul .trigger:not(:checked) ~ div, .no-touch nav.drop ul li:hover .trigger:not(:checked) ~ div {
 		
 		display: none;
 		
 	}
 
-	input.trigger.burger:checked ~ ul, nav.drop ul .trigger:checked ~ ul, input.trigger.burger:checked ~ div, nav.drop ul .trigger:checked ~ div, .no-touch nav.drop ul ul li input.trigger {
+	nav.drop ul .trigger:checked ~ ul, nav.drop ul .trigger:checked ~ div, .no-touch nav.drop ul ul li input.trigger {
 		
 		display: block;
 		animation: slidein .2s 1;

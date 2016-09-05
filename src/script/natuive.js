@@ -1319,25 +1319,21 @@ $(".page").on("touchmove", function(event) {
 */
 
 /* Mobile menu – freeze page content behind the menu */
-if (q('header.fixed input.trigger.burger')) {
-
-	q('header.fixed input.trigger.burger').onchange = function (e) {
+function toggleFixedBody(e) {
 		
-		if (hasClass(q('body'),'fixed')) {
-			
-			var offset = q('body').style.top;
-			q('body').style.top = 0;
-			removeClass(q('body'), 'fixed');
-			window.scrollTo(0, Math.abs(parseInt(offset, 10)));
-			
-		} else {
-			
-			q('body').style.top = (-1 * window.scrollY) + 'px';
-			addClass(q('body'), 'fixed');
+	if (hasClass(q('body'),'fixed')) {
 		
-		}
+		var offset = q('body').style.top;
+		q('body').style.top = 0;
+		removeClass(q('body'), 'fixed');
+		window.scrollTo(0, Math.abs(parseInt(offset, 10)));
+		
+	} else {
+		
+		q('body').style.top = (-1 * window.scrollY) + 'px';
+		addClass(q('body'), 'fixed');
 	
-	};
+	}
 
 }
 
@@ -1420,12 +1416,18 @@ function scrollToAnimated(to, callback) {
 
 }
 
-/* Accordion */
+/* Fold */
 
 function toggleAccordion(e) {
 
     stopEvent(e);
-    var el = eventElement(e).parentNode;
+    var el = getClosest(eventElement(e), '.fold');
+
+    if (getClosest(el, '.fixed')) {
+	    
+	    toggleFixedBody();
+
+    }
 
     var content = el.querySelector('div');
 
@@ -1444,7 +1446,17 @@ function toggleAccordion(e) {
 
 }
 
-forEach('.accordion > label', function(el, i) {
+forEach('input.trigger, input[type=reset]', function(el, i) {
+	
+	el.onclick = function(e) {
+		
+		e.stopPropagation();
+
+	};
+
+});
+
+forEach('.fold > label', function(el, i) {
 
     el.onclick = toggleAccordion;
 
