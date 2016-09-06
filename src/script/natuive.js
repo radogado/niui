@@ -1472,13 +1472,15 @@ forEach('.fold > label', function(el, i) {
 
     }
 
-/*
-    el.querySelector('div').onclick = function(e) {
+    if (!hasClass(el, 'mobile')) { // Keep the accordion content clickable
+	    
+	    el.querySelector('div').onclick = function(e) {
 
-        stopEvent(e);
+	        stopEvent(e);
+	
+	    };
 
-    };
-*/
+    }
     
 });
 

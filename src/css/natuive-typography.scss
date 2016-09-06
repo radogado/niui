@@ -43,11 +43,10 @@ h1 + p:not(.drop-cap), h2 + p:not(.drop-cap), h3 + p:not(.drop-cap), h4 + p:not(
 
 h1 {
 	
-	font-size: 2em;
-	line-height: 1;
-// 	padding: $line-height/4*1rem 0; // (line-height*2 - font-size*2)/2 0
-	padding: ($line-height-em*2 - 2em)/4 0; // (line-height*2 - font-size*2)/2 0
-
+	font-size: 2.5em;
+    line-height: 1.2em;
+    padding: 0;
+    
 }
 
 h2 {
@@ -160,3 +159,12 @@ hr {
 	
 }
 
+.big-text {
+
+	font-size: 1.125em;
+	line-height: 1.3334em;
+// 		line-height: var(--line-height);
+	min-height: 1.3334em;
+// 		min-height: var(--line-height-em);
+
+}

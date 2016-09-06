@@ -465,9 +465,9 @@ h1 + p:not(.drop-cap), h2 + p:not(.drop-cap), h3 + p:not(.drop-cap), h4 + p:not(
   margin-top: 0; }
 
 h1 {
-  font-size: 2em;
-  line-height: 1;
-  padding: 0.25em 0; }
+  font-size: 2.5em;
+  line-height: 1.2em;
+  padding: 0; }
 
 h2 {
   font-size: 1.5em;
@@ -532,6 +532,11 @@ hr {
   margin-right: 1em;
   border-right: 1px solid #bbb;
   padding-right: 1em; }
+
+.big-text {
+  font-size: 1.125em;
+  line-height: 1.3334em;
+  min-height: 1.3334em; }
 
 /* natUIve – Button */
 /*
@@ -1420,12 +1425,6 @@ nav li:first-child a {
 nav li:last-child {
   margin-right: 0; }
 
-nav .sub a {
-  font-size: .8em;
-  line-height: 1.875em;
-  min-height: 1.5em;
-  display: inline-block; }
-
 main nav ul {
   padding-left: 0; }
 
@@ -1718,10 +1717,11 @@ ul.indent {
   margin-left: 1.5em; }
 
 ul li {
-  margin: 1.5em 0 0 0; }
+  display: inline-block; }
 
 ul.vertical li {
-  display: block; }
+  display: block;
+  margin: 1.5em 0 0 0; }
 
 ol {
   list-style-type: none;
@@ -2670,7 +2670,8 @@ main#content {
 /* Footer */
 footer {
   flex: none;
-  position: relative; }
+  position: relative;
+  padding-bottom: 3em; }
 
 footer .row > * {
   position: static; }
