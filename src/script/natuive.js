@@ -1497,7 +1497,24 @@ addEventHandler(q('body'), 'click', function (e) {
 			
 		});
 		
-// 		removeClass(q('body'), 'fixed');
+	}
+	
+});
+
+addEventHandler(q('body'), 'click', function (e) {
+
+	if (!getClosest(eventElement(e), '.trigger')) {
+		
+		forEach('.trigger', function (el) {
+			
+			el.checked = false;
+			if (hasClass(el.parentNode, 'open')) {
+				
+				removeClass(el.parentNode, 'open');
+
+			}
+			
+		});
 		
 	}
 	

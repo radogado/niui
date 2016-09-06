@@ -1898,7 +1898,9 @@ span.burger:before {
 
   header.fixed .fold.mobile {
     position: fixed;
-    top: 0;
+    top: 0; }
+
+  header.fixed .fold.mobile.open {
     bottom: 0; }
 
   header.fixed .fold.mobile > div {
