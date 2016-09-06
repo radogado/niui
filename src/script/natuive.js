@@ -1319,6 +1319,7 @@ $(".page").on("touchmove", function(event) {
 */
 
 /* Mobile menu – freeze page content behind the menu */
+/*
 function toggleFixedBody(e) {
 		
 	if (hasClass(q('body'),'fixed')) {
@@ -1336,6 +1337,7 @@ function toggleFixedBody(e) {
 	}
 
 }
+*/
 
 /* Chainable animation specified as CSS Animation */
 
@@ -1423,11 +1425,13 @@ function toggleAccordion(e) {
     stopEvent(e);
     var el = getClosest(eventElement(e), '.fold');
 
+/*
     if (getClosest(el, '.fixed')) {
 	    
 	    toggleFixedBody();
 
     }
+*/
 
     var content = el.querySelector('div');
 
@@ -1482,13 +1486,18 @@ addEventHandler(q('body'), 'click', function (e) {
 
 	if (!getClosest(eventElement(e), '.trigger')) {
 		
-		forEach('input.trigger', function (el) {
+		forEach('.trigger', function (el) {
 			
 			el.checked = false;
+			if (hasClass(el.parentNode, 'open')) {
+				
+				removeClass(el.parentNode, 'open');
+
+			}
 			
 		});
 		
-		removeClass(q('body'), 'fixed');
+// 		removeClass(q('body'), 'fixed');
 		
 	}
 	

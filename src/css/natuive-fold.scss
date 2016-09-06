@@ -149,16 +149,13 @@
 		
 		position: fixed;
 	    top: 0;
-	    max-height: 100vh;
-	    width: 100vw;
-        overflow: auto;
-        -webkit-overflow-scrolling: touch;
+	    bottom: 0;
 
 	}
-	
+
 	header.fixed .fold.mobile > div {
 		
-		overflow: hidden;
+// 		overflow: hidden;
 		padding: 0 $line-height-em/4;
 	    background: #fff;
 
@@ -166,7 +163,11 @@
 	
 	header.fixed .fold.mobile.open > div {
 		
-        padding-bottom: $line-height-em*3;
+		overflow: auto;
+		-webkit-overflow-scrolling: touch;
+		position: fixed;
+		top: 3em; // header height, shouldn't be hardcoded
+		bottom: 0;		
 
 	}
 	

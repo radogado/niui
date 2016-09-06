@@ -397,7 +397,8 @@ section:before, section:after {
     box-sizing: border-box; }
 
   .row > .full-mobile-width, .row > [class^=col].full-mobile-width {
-    box-sizing: content-box; }
+    box-sizing: content-box;
+    padding: 0; }
 
   .row.no-spacing > *, .row.no-spacing > [class^=col] {
     margin: 0;
@@ -1899,18 +1900,18 @@ span.burger:before {
   header.fixed .fold.mobile {
     position: fixed;
     top: 0;
-    max-height: 100vh;
-    width: 100vw;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch; }
+    bottom: 0; }
 
   header.fixed .fold.mobile > div {
-    overflow: hidden;
     padding: 0 0.375em;
     background: #fff; }
 
   header.fixed .fold.mobile.open > div {
-    padding-bottom: 4.5em; } }
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    position: fixed;
+    top: 3em;
+    bottom: 0; } }
 /* natUIve – Tooltip */
 /*
 $color: #fff;
