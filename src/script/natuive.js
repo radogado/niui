@@ -1472,34 +1472,17 @@ forEach('.fold > label', function(el, i) {
 
     }
 
+/*
     el.querySelector('div').onclick = function(e) {
 
         stopEvent(e);
 
     };
+*/
     
 });
 
 // Close all .trigger-activated content when clicking outside of them
-
-addEventHandler(q('body'), 'click', function (e) {
-
-	if (!getClosest(eventElement(e), '.trigger')) {
-		
-		forEach('.trigger', function (el) {
-			
-			el.checked = false;
-			if (hasClass(el.parentNode, 'open')) {
-				
-				removeClass(el.parentNode, 'open');
-
-			}
-			
-		});
-		
-	}
-	
-});
 
 addEventHandler(q('body'), 'click', function (e) {
 
