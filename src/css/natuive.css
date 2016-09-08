@@ -1846,7 +1846,7 @@ $background: #1E8DaC;
   cursor: auto;
   will-change: transform; }
 
-.fold:not(.open):not(.mobile) > div {
+.fold:not(.open):not(.mobile) > div, .fold.open input.trigger:checked ~ div {
   max-height: 0; }
 
 .fold:first-of-type > div {
@@ -1858,7 +1858,7 @@ $background: #1E8DaC;
 .fold > div > * {
   margin-top: 0; }
 
-.fold > input.trigger:checked ~ div, .fold.mobile > div {
+.fold > input.trigger:checked ~ div, .fold.mobile > div, .fold > .open input.trigger:not(:checked) ~ div {
   max-height: none; }
 
 .fold.open > input.trigger + * {

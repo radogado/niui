@@ -64,7 +64,7 @@
 
 	}
 
-	.fold:not(.open):not(.mobile) > div {
+	.fold:not(.open):not(.mobile) > div, .fold.open input.trigger:checked ~ div /* also for CSS-only open by default */ {
 
 	    max-height: 0;
 
@@ -88,7 +88,7 @@
 
 	}
 
-	.fold > input.trigger:checked ~ div, .fold.mobile > div {
+	.fold > input.trigger:checked ~ div, .fold.mobile > div, .fold > .open input.trigger:not(:checked) ~ div {
 		
 		max-height: none;
 

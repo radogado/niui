@@ -30,6 +30,8 @@ if (!Array.prototype.indexOf) {
 
 }
 
+addClass(q('body'), 'js');
+
 // DOM functions
 
 function addClass(el, className) {
