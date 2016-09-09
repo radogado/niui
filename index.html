@@ -673,7 +673,9 @@
 						
 						<a href=# class='button big'>Big button</a>
 					
-						<p>Here is an <a href=# class=button>Inline button</a> inside a paragraph.</p>
+						<p id=copycontent>Here is an <a href=# class=button>Inline button</a> inside a paragraph.</p>
+
+						<p>Click this <a class="button" id=copybutton>copy button</a> to copy the contents of the above paragraph to the clipboard.</p>
 
 					</div>
 
@@ -1370,6 +1372,7 @@
 	<script src=src/script/natuive-slider.js type=text/javascript></script>
 	<script src=src/script/natuive-fallback.js type=text/javascript></script>
 <!-- 		<script src=dist/natuive.min.js type=text/javascript async></script> -->
+	<script> copyButton(document.getElementById('copybutton'), document.getElementById('copycontent')); </script>
 
 </body>
 

@@ -1506,3 +1506,27 @@ addEventHandler(q('body'), 'click', function (e) {
 	}
 	
 });
+
+// Clicking a button copies a target element's contents
+
+function copyButton (el, target) {
+	
+	el.addEventListener('click', function(event) {  
+
+	  var range = document.createRange();  
+	  range.selectNode(target);  
+	  window.getSelection().addRange(range);  
+	
+	  try {  
+
+		  document.execCommand('copy');  
+
+	  } catch(err) {
+
+	  }  
+	
+	  window.getSelection().removeAllRanges();  
+
+	});
+	
+}
