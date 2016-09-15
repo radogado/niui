@@ -1580,9 +1580,6 @@ nav.drop input.trigger:checked ~ ul, .no-touch nav.drop ul ul li:hover ul, nav.d
 nav.drop input.trigger:checked ~ ul {
   z-index: 6; }
 
-nav.drop input.trigger:not(:checked) ~ ul input.trigger:checked ~ ul, nav.drop input.trigger:not(:checked) ~ div input.trigger:checked ~ div {
-  visibility: hidden; }
-
 nav.drop ul ul ul {
   display: inline-block;
   vertical-align: top;

@@ -317,7 +317,7 @@ nav.drop input.trigger:checked ~ ul {
 
 nav.drop input.trigger:not(:checked) ~ ul input.trigger:checked ~ ul, nav.drop input.trigger:not(:checked) ~ div input.trigger:checked ~ div {
 	
-	visibility: hidden;
+// 	visibility: hidden;
 	
 }
 
