@@ -15,7 +15,7 @@ function sliderElement(e) {
 
     } else {
 
-        var container = getClosest(el, '.slider-wrap');
+        var container = closest(el, '.slider-wrap');
         return container && container.querySelector('.slider');
 
     }
@@ -57,7 +57,7 @@ function swipeEvents(el) {
         var touches = e.touches;
 // 	    var slider = sliderElement(e);
 
-        if (touches && touches.length && !(hasClass(el, 'vertical') && !getClosest(el, '.full-window-wrap'))) { // Don't slide vertically if not full window
+        if (touches && touches.length && !(hasClass(el, 'vertical') && !closest(el, '.full-window-wrap'))) { // Don't slide vertically if not full window
 
             var deltaX = startX - touches[0].pageX;
             var deltaY = startY - touches[0].pageY;
@@ -138,7 +138,7 @@ function mouseWheelHandler(e) {
 
 function mouseEvents(el, toggle) {
 
-    if (!('onwheel' in window) || (hasClass(el, 'vertical') && !getClosest(el, '.full-window-wrap'))) { // Check for mouse wheel and Don't slide vertically if not full window
+    if (!('onwheel' in window) || (hasClass(el, 'vertical') && !closest(el, '.full-window-wrap'))) { // Check for mouse wheel and Don't slide vertically if not full window
 	    
 	    return;
 	   
@@ -188,9 +188,9 @@ function slide(el, method, index_number) {
 	
 	}
 
-    var slider = getClosest(el, '.slider-wrap').querySelector('.slider');
+    var slider = closest(el, '.slider-wrap').querySelector('.slider');
 
-    if (getClosest(el, '.slider-wrap').querySelector('.slider').children.length < 2) {
+    if (closest(el, '.slider-wrap').querySelector('.slider').children.length < 2) {
 
 		endSlide(el, 0);
         return el;

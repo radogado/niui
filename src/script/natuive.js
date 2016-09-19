@@ -569,7 +569,7 @@ function modalWindow(e) {
 
     var el = eventElement(e);
 
-    var link = getClosest(el, '.modal').href;
+    var link = closest(el, '.modal').href;
 	
     if (!php_support && external.test(link) || !(new XMLHttpRequest().upload)) { // No PHP or XHR?
 
@@ -644,7 +644,7 @@ function openLightbox(e) {
     /* Add any <a><img> siblings with description to a .slider and initialise its controls */
     var images = '';
 
-    forEach(getClosest(el, '.lightbox').querySelectorAll('a[href]'), function(el) {
+    forEach(closest(el, '.lightbox').querySelectorAll('a[href]'), function(el) {
 		
 		if (hasClass(el, 'video')) {
 			// video poster = the anchor's img child, if it exists
@@ -994,11 +994,11 @@ forEach('input[type=file]', function(el, i) {
 
 });
 
-if (q('#language-selector')) {
+if (q('form.language')) {
 
-    q('#language-selector select').onchange = function(e) {
+    q('form.language select').onchange = function(e) {
 
-        q('#language-selector').submit();
+        q('form.language').submit();
 
     };
 
@@ -1084,13 +1084,13 @@ function isInViewport(el) { // Thanks http://gomakethings.com/ditching-jquery/
 
 }
 
-function getClosest(el, selector) { // Thanks http://gomakethings.com/ditching-jquery/
+function closest(el, selector) { // Thanks http://gomakethings.com/ditching-jquery/ // To do: IE polyfill
 
-    var firstChar = selector.charAt(0);
+//     var firstChar = selector.charAt(0);
 
-    // Get closest match
     for ( ; el && el !== document; el = el.parentNode ) {
 
+/*
         // If selector is a class
         if ( firstChar === '.' ) {
             if ( hasClass(el, selector.substr(1) ) ) {
@@ -1116,6 +1116,13 @@ function getClosest(el, selector) { // Thanks http://gomakethings.com/ditching-j
         if ( el.tagName.toLowerCase() === selector ) {
             return el;
         }
+*/
+
+		if (el.matches(selector)) {
+			
+			return el;
+
+		}
 
     }
 
@@ -1185,7 +1192,7 @@ forEach('td[data-sort]', function (el) {
 		
 		stopEvent(e);
 		var el = eventElement(e);
-		var cell = el.type == 'td' ? el : getClosest(el, 'td');
+		var cell = el.type == 'td' ? el : closest(el, 'td');
 		var f; // Ascending
 		if (cell.getAttribute('data-sort') == 'desc') {
 			
@@ -1199,7 +1206,7 @@ forEach('td[data-sort]', function (el) {
 			
 		}
 
-		sortTable(getClosest(el, 'table'), thisIndex(cell), f);
+		sortTable(closest(el, 'table'), thisIndex(cell), f);
 		
 	};
 
@@ -1425,10 +1432,10 @@ function scrollToAnimated(to, callback) {
 function toggleAccordion(e) {
 
     stopEvent(e);
-    var el = getClosest(eventElement(e), '.fold');
+    var el = closest(eventElement(e), '.fold');
 
 /*
-    if (getClosest(el, '.fixed')) {
+    if (closest(el, '.fixed')) {
 	    
 	    toggleFixedBody();
 
@@ -1488,7 +1495,7 @@ forEach('.fold > label', function(el, i) {
 
 addEventHandler(q('body'), 'click', function (e) { // Close all Fold elements when clicking outside of them
 
-	if (!getClosest(eventElement(e), '.fold')) {
+	if (!closest(eventElement(e), '.fold')) {
 		
 /*
 		forEach('.trigger', function (el) {
