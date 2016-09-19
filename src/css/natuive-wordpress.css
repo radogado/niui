@@ -2617,6 +2617,9 @@ body * {
   -webkit-tap-highlight-color: transparent;
   /* iOS: Don't flash on tap */ }
 
+body.touch * {
+  cursor: pointer; }
+
 img {
   max-width: 100%;
   height: auto;

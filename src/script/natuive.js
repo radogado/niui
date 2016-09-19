@@ -3,7 +3,7 @@
 
 "use strict";
 
-// classList polyfill for IE9-. If no classList support, insert classList.min.js synchronously
+// Polyfills – start
 
 var scripts_location = document.getElementsByTagName('script');
 scripts_location = scripts_location[scripts_location.length-1].src;
@@ -20,7 +20,7 @@ function loadScriptFile(file_name) {
 
 if (!("classList" in document.createElement("_"))) {
 
-	loadScriptFile('polyfill-classList.min.js'); // IE8?
+	loadScriptFile('polyfill-classlist.min.js'); // IE8?
 
 }
 
@@ -29,6 +29,14 @@ if (!Array.prototype.indexOf) {
 	loadScriptFile('polyfill-indexof.js');
 
 }
+
+if (!Element.prototype.matches) {
+
+	loadScriptFile('polyfill-matches.js');
+
+}
+
+// Polyfills – end
 
 addClass(q('body'), 'js');
 
@@ -46,11 +54,12 @@ else
 
 /* To do: Convert to Prototype functions: el.addClass('class'); instead of addClass(el, 'class'); */
 /*
-Object.prototype.addClassPrototype = function (className) {
+Element.prototype.addClassPrototype = function (className) { // Not working with an array of elements
 	
 	this.classList.add(className);
 
 };
+
 */
 
 function removeClass(el, className) {
@@ -1004,11 +1013,7 @@ if (q('form.language')) {
 
 }
 
-if (!touchSupport()) { // Touch device: remove iOS sticky hover state
-
-	addClass(q('body'), 'no-touch');
-	
-}
+addClass(q('body'), touchSupport() ? 'touch' : 'no-touch');
 
 /* Baseline-align images etc */
 
@@ -1497,19 +1502,20 @@ addEventHandler(q('body'), 'click', function (e) { // Close all Fold elements wh
 
 	if (!closest(eventElement(e), '.fold')) {
 		
-/*
-		forEach('.trigger', function (el) {
+		forEach('.fold', function (el) {
 			
-			el.checked = false;
-			if (hasClass(el.parentNode, 'open')) {
-				
-				removeClass(el.parentNode, 'open');
-
-			}
+			removeClass(el, 'open');
 			
 		});
-*/
+		
+	}
+	
+});
 
+addEventHandler(q('body'), 'click', function (e) { // Close all Fold elements when clicking outside of them
+
+	if (!closest(eventElement(e), '.fold')) {
+		
 		forEach('.fold', function (el) {
 			
 			removeClass(el, 'open');
