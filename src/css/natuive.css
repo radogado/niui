@@ -1273,6 +1273,13 @@ fieldset {
 fieldset input:last-of-type {
   margin-bottom: 0.5em; }
 
+form.language select {
+  height: auto;
+  width: 100%;
+  background-position: calc(100% - .5em);
+  margin-left: 0;
+  background-color: transparent; }
+
 /* Tables */
 /*
 $color: #fff;
@@ -2647,9 +2654,13 @@ header a.logo {
   min-height: 46px;
   /* Don't shift page after image is loaded */ }
 
-header form#language-selector select {
-  padding-right: 2em; }
+/*
+header form.language select {
+	
+	padding-right: 2em;
 
+}
+*/
 .wide-screen {
   display: block; }
 
@@ -2796,15 +2807,13 @@ a[href].span-relative-parent {
   header > .row:first-child div {
     text-align: end; }
 
-  header.fixed form#language-selector {
-    display: none; }
-
-  form#language-selector select {
-    height: auto;
-    width: 100%;
-    background-position: calc(100% - .5em);
-    margin-left: 0; }
-
+  /*
+   		header.fixed form.language {
+  	 		
+  	 		display: none;
+  
+   		}
+  */
   header .head-right {
     text-align: start; }
 

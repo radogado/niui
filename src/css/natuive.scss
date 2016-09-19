@@ -135,11 +135,13 @@ header a.logo {
 
 }
 
-header form#language-selector select {
+/*
+header form.language select {
 	
 	padding-right: 2em;
 
 }
+*/
 
 .wide-screen {
 	
@@ -374,21 +376,14 @@ a[href].span-relative-parent {
 		
 	}
  		
- 		header.fixed form#language-selector {
+/*
+ 		header.fixed form.language {
 	 		
 	 		display: none;
 
  		}
+*/
  		
-		form#language-selector select {
-			
-			height: auto;
-			width: 100%;
-			background-position: calc(100% - .5em);
-			margin-left: 0;
-			
-		}
-
 		header .head-right {
 			
 			text-align: start;

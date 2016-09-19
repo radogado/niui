@@ -446,7 +446,7 @@ function preventEvent(e) { // For iOS scrolling behind blackbox
 
 function keyUpClose(e) {
 	
-    if ((e || window.event).keyCode == 27) { // esc
+    if ((e || window.event).keyCode == 27) { // Esc
 
         closeFullWindow();
 
@@ -513,7 +513,7 @@ function openFullWindow(el) {
 	    full_window.insertAdjacentHTML('afterbegin', '<div class=close> ← ' + document.title + '</div>');
 		q('.full-window-wrap-bg').onclick = q('.full-window-wrap .close').onclick = closeFullWindow;
 		
-	    document.body.onkeyup = keyUpClose;
+	    q('html').onkeyup = keyUpClose;
 	   
 	} else {
 		
@@ -1486,12 +1486,11 @@ forEach('.fold > label', function(el, i) {
     
 });
 
-// Close all .trigger-activated content when clicking outside of them
+addEventHandler(q('body'), 'click', function (e) { // Close all Fold elements when clicking outside of them
 
-addEventHandler(q('body'), 'click', function (e) {
-
-	if (!getClosest(eventElement(e), '.trigger')) {
+	if (!getClosest(eventElement(e), '.fold')) {
 		
+/*
 		forEach('.trigger', function (el) {
 			
 			el.checked = false;
@@ -1500,6 +1499,13 @@ addEventHandler(q('body'), 'click', function (e) {
 				removeClass(el.parentNode, 'open');
 
 			}
+			
+		});
+*/
+
+		forEach('.fold', function (el) {
+			
+			removeClass(el, 'open');
 			
 		});
 		

@@ -1007,3 +1007,16 @@ fieldset input:last-of-type {
 	margin-bottom: $line-height-em/3;
 	
 }
+
+// Language select
+
+form.language select {
+	
+	height: auto;
+	width: 100%;
+	background-position: calc(100% - .5em);
+	margin-left: 0;
+	background-color: transparent;
+	
+}
+
