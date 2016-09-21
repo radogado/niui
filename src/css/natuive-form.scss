@@ -1017,6 +1017,8 @@ form.language select {
 	background-position: calc(100% - .5em);
 	margin-left: 0;
 	background-color: transparent;
+    height: $line-height-em;
+    line-height: $line-height-em;
 	
 }
 

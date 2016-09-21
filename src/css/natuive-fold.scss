@@ -112,22 +112,38 @@
 
 	}
 	
-	span.burger:before {
+	span.burger:after {
 		
-		content: '';
-		position: absolute;
-		left: $line-height-em/6;
-		width: $line-height-em/1.5;
-		top: $line-height-em/10;
-		box-shadow: 0 $line-height-em/6 0 1px #333, 0 $line-height-em/2.4 0 1px #333, 0 $line-height-em/1.5 0 1px #333;
+		content: '=';
 
 	}
 	
+	@supports (--a: 1) { // Newer browsers than Android Browser. Lame check if they support CSS variables.
+
+		span.burger:before {
+			
+			content: '';
+			position: absolute;
+			left: $line-height-em/6;
+			width: $line-height-em/1.5;
+			top: $line-height-em/10;
+			box-shadow: 0 $line-height-em/6 0 1px #333, 0 $line-height-em/2.4 0 1px #333, 0 $line-height-em/1.5 0 1px #333;
+	
+		}
+
+		span.burger:after {
+			
+			display: none;
+	
+		}
+
+	}	
+
 @media screen and (max-width: $screen-narrow) {
 
 	.fold.mobile > label, .fold.mobile > input.trigger {
 		
-// 		display: inline-block;
+		display: inline-block; // Android Browser doesn't support the below version (flex)
 		display: flex;
 		width: 3em;
 

@@ -591,14 +591,11 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 	
 @media screen and (max-width: $screen-narrow) {
 
-/*
-	.row * .row {
+	.row {
 		
-		margin: 0;
-		width: 100%;
+		display: block;
 
 	}
-*/
 
 	.row > *, .row > [class^=col] {
 

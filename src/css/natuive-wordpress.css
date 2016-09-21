@@ -376,14 +376,9 @@ section:before, section:after {
   flex-grow: 1; }
 
 @media screen and (max-width: 640px) {
-  /*
-  	.row * .row {
-  		
-  		margin: 0;
-  		width: 100%;
-  
-  	}
-  */
+  .row {
+    display: block; }
+
   .row > *, .row > [class^=col] {
     padding: .3em;
     width: 100% !important;
@@ -1279,7 +1274,9 @@ form.language select {
   width: 100%;
   background-position: calc(100% - .5em);
   margin-left: 0;
-  background-color: transparent; }
+  background-color: transparent;
+  height: 1.5em;
+  line-height: 1.5em; }
 
 /* Tables */
 /*
@@ -1878,16 +1875,23 @@ span.burger {
   text-align: center;
   position: relative; }
 
-span.burger:before {
-  content: '';
-  position: absolute;
-  left: 0.25em;
-  width: 1em;
-  top: 0.15em;
-  box-shadow: 0 0.25em 0 1px #333, 0 0.625em 0 1px #333, 0 1em 0 1px #333; }
+span.burger:after {
+  content: '='; }
 
+@supports (--a: 1) {
+  span.burger:before {
+    content: '';
+    position: absolute;
+    left: 0.25em;
+    width: 1em;
+    top: 0.15em;
+    box-shadow: 0 0.25em 0 1px #333, 0 0.625em 0 1px #333, 0 1em 0 1px #333; }
+
+  span.burger:after {
+    display: none; } }
 @media screen and (max-width: 640px) {
   .fold.mobile > label, .fold.mobile > input.trigger {
+    display: inline-block;
     display: flex;
     width: 3em; }
 

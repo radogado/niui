@@ -1376,7 +1376,7 @@ for(var t in animations) {
 }
 
 function animate(el, animation, duration, callback) {
-
+// To do: add animation-fill-mode: forwards to keep the end state
 	if (!el.addEventListener || q('.animation-code')) { // Animation in progress
 		
 		return;
@@ -1428,7 +1428,7 @@ function scrollToAnimated(to, callback) {
 		
 	}
 	
-	animate(q('html'), '100%{transform: translate3d(0,' + -1*(to - (document.documentElement.scrollTop || document.body.scrollTop)) + 'px,0)}', .5, scrollToCallback.bind(null, callback));
+	animate(q('html'), '100% { transform: translate3d(0, ' + -1*(to - (document.documentElement.scrollTop || document.body.scrollTop)) + 'px, 0); }', .5, scrollToCallback.bind(null, callback));
 
 }
 
