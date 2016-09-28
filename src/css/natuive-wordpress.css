@@ -2460,6 +2460,15 @@ $background: #1E8DaC;
   height: calc(100% - 3em);
   padding-top: 3em; }
 
+.full-window-wrap.limited > .content, .no-touch .full-window-wrap.limited > .content {
+  background: #666;
+  color: #eee;
+  padding: 0;
+  height: 50vh;
+  margin-top: 25vh;
+  width: 50vw;
+  margin-left: 25vw; }
+
 .full-window-wrap .close {
   color: #fff;
   cursor: pointer;

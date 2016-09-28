@@ -162,7 +162,7 @@ natUIve 1.1
 	- Lightbox link can be anything, not just a thumbnail image
 - Modal windows: 
 	- The link can have child elements
-	- A modal window can have any content – modalWindow(‘HTML')
+	- A modal window can have any content – modalWindow('HTML')
 - Form:
 	- Supports dragging a file to a file input
 	- Flat version with stacked labels/inputs

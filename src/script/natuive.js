@@ -539,6 +539,24 @@ function openFullWindow(el) {
 
     if (el.childNodes.length > 0 && hasClass(el.childNodes[0], 'full-screen')) {
 
+		addEventHandler(document, 'webkitfullscreenchange', function () {
+			
+// 			alert('a');
+			console.log('fs');
+			q('html').onkeyup = keyUpClose;
+		    q('.full-window-wrap .slider').focus();
+			
+		});
+
+		addEventHandler(document, 'fullscreenchange', function () {
+			
+// 			alert('a');
+			console.log('fs');
+		    q('.full-window-wrap .slider').focus();
+		    q('html').onkeyup = keyUpClose;
+			
+		});
+
 		if (full_window.webkitRequestFullScreen) { 
 			
 			full_window.webkitRequestFullScreen(); 
@@ -616,6 +634,7 @@ function modalWindow(e) {
             }
 
             openFullWindow(parsed);
+			transferClass(closest(el, '.modal'), q('.full-window-wrap'), 'limited');
 
             relayParameters();
 
