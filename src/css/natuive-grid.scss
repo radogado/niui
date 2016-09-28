@@ -607,6 +607,12 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 		box-sizing: border-box;
 
 	}
+	
+	.row > *:empty {
+		
+		display: none;
+
+	}
 
 	.row > .full-mobile-width, .row > [class^=col].full-mobile-width {
 		

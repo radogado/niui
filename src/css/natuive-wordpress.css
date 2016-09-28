@@ -387,6 +387,9 @@ section:before, section:after {
     margin: 0.75em 0;
     box-sizing: border-box; }
 
+  .row > *:empty {
+    display: none; }
+
   .row > .full-mobile-width, .row > [class^=col].full-mobile-width {
     box-sizing: content-box;
     padding: 0; }
