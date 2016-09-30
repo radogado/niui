@@ -505,7 +505,8 @@ p {
   float: right; }
 
 a[href] {
-  color: inherit; }
+  color: inherit;
+  display: inline-block; }
 
 hr {
   display: block;
