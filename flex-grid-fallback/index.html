@@ -1,0 +1,182 @@
+<!--
+A grid of inline-block columns can have columns with explicit width and auto width columns. The space remaining after the explicit-width columns is distributed evenly between the rest of the columns. Columns have minimum width. When columns width exceed the available space, they are wrapped on a new row.
+Fallback when Flexbox is not supported.
+-->
+
+<style>
+	
+	body {
+		
+		font-size: 16px;
+
+	}
+	
+	.row {
+	
+		max-width: 800px;
+		font-size: 0;
+		margin: 0 auto;
+		
+	}
+	
+	.row > * {
+		
+		font-size: 16px;
+		min-width: 20%;
+		display: inline-block;
+		padding: 1em 0;
+		margin: 0;
+		border: none;
+		background: #eee;
+		color: #333;
+
+	}
+	
+	.col2 {
+		
+		width: 50%;
+
+	}
+	
+	.col3 {
+		
+		width: 33.333%;
+
+	}
+	
+	.col23 {
+		
+		width: 66.667%;
+		
+	}
+
+	.col4 {
+		
+		width: 25%;
+
+	}
+	
+</style>
+
+<div class=row>
+	
+	<div>Auto</div>
+	<div class="col2">1/2</div>
+	<div>Auto</div>
+	<div>Auto</div>
+	<div>Auto</div>
+	<div class="col4">1/4</div>
+	<div>Auto</div>
+	<div>Auto</div>
+	<div>Auto</div>
+	<div class="col3">1/3</div>
+	<div class="col23">2/3</div>
+	<div>Auto</div>
+	<div>Auto</div>
+	<div>Auto</div>
+	<div>Auto</div>
+		
+</div>
+
+<script>
+	
+	// To do: sub-pixel fixes. Non flex browser also don't support sub-pixel dimensions
+	
+	function thisIndex(el) {
+	
+	    if (!el) return;
+		var node, nodes;
+		
+	    nodes = node = el.parentNode.childNodes;
+	
+	    var i = 0;
+	    var count = 0;
+	
+	    while ((node = nodes.item(i++)) && node != el) {
+	
+	        if (node.nodeType == 1) {
+	
+	            count++;
+	
+	        }
+	
+	    }
+	
+	    return (count);
+	
+	}
+	
+	function flexGridFallback() {
+		
+		document.querySelectorAll('.row').forEach( function (el) { // All rows
+		
+		var space_taken = 0;
+		var space_free = 0;
+		var row_width = el.scrollWidth;
+		var row_start_index = 0;
+		var row_end_index = 0;
+		
+		console.log('Row start: 0\n');
+
+		el.querySelectorAll(':scope > *').forEach( function (el) { // All columns in current row. :scope to be replaced by temporary id fallback
+			
+			space_taken += el.scrollWidth;
+			if (space_taken >= row_width) {
+				
+				space_taken -= row_width;
+				row_end_index = thisIndex(el) - 1;
+				
+				var number_auto_columns = 0;
+				var row_space_taken = 0;
+				for (var i = row_start_index; i <= row_end_index; i++) { // Cycle columns of the current auto-wrapped row
+					
+					console.log(el.parentNode.children[i].scrollWidth + '\n');
+					if (el.parentNode.children[i].matches('[class^=col]')) {
+						
+						row_space_taken += el.parentNode.children[i].scrollWidth;
+						
+					} else {
+						
+						number_auto_columns++;
+
+					}
+					
+				}
+				
+				var auto_column_width = (row_width - row_space_taken) / number_auto_columns;
+				
+				console.log('Space taken: ' + row_space_taken + ', Number of auto columns: ' + number_auto_columns + ', Auto columns width: ' + auto_column_width);
+				
+				for (var i = row_start_index; i <= row_end_index; i++) { // Cycle columns of the current auto-wrapped row
+					
+					if (!el.parentNode.children[i].matches('[class^=col]')) {
+						
+						el.parentNode.children[i].style.width = auto_column_width + 'px';
+						
+					}
+					
+				}
+
+				row_start_index = thisIndex(el);
+				console.log('Row end: ' + row_end_index + '\n');
+				console.log('Row start: ' + row_start_index + '\n');
+				
+			}
+			
+		});
+		
+	});
+		
+	}
+	
+	flexGridFallback();
+
+/*
+	window.addEventListener('resize', function () {
+		
+		setTimeout(flexGridFallback, 300);
+	
+	});
+*/
+
+</script>
