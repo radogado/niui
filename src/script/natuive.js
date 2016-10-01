@@ -541,8 +541,6 @@ function openFullWindow(el) {
 
 		addEventHandler(document, 'webkitfullscreenchange', function () {
 			
-// 			alert('a');
-			console.log('fs');
 			q('html').onkeyup = keyUpClose;
 		    q('.full-window-wrap .slider').focus();
 			
@@ -550,8 +548,6 @@ function openFullWindow(el) {
 
 		addEventHandler(document, 'fullscreenchange', function () {
 			
-// 			alert('a');
-			console.log('fs');
 		    q('.full-window-wrap .slider').focus();
 		    q('html').onkeyup = keyUpClose;
 			

@@ -2424,6 +2424,9 @@ $background: #1E8DaC;
   transform: translate3d(-50%, -50%, 0);
   left: 50%; }
 
+@media screen and (max-width: 640px) {
+  .slider-wrap.tabs > .slider-nav.row {
+    display: flex; } }
 /* natUIve – Modal */
 /*
 $color: #fff;

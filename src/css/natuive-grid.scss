@@ -477,7 +477,7 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 		max-width: none;
 		margin-left: 0;
 		width: 100%;
-		margin-left: -$line-height-em/2;
+		margin-left: -$line-height-em/2; // Buggy in Android Browser
 		
 	}
 	

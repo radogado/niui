@@ -645,3 +645,13 @@
 	    left: 50%;
     
 	}
+
+@media screen and (max-width: $screen-narrow) {
+
+	.slider-wrap.tabs > .slider-nav.row {
+		
+		display: flex;
+		
+	}
+
+}
