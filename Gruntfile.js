@@ -24,7 +24,7 @@ module.exports = function(grunt) {
 		'closure-compiler': {
 		frontend: {
 		  closurePath: './node_modules/closure-compiler',
-		  js: ['src/script/natuive.js', 'src/script/natuive-slider.js', 'src/script/natuive-fallback.js'],
+		  js: ['src/script/natuive.js', 'src/script/natuive-slider.js'],
 		  jsOutputFile: 'dist/natuive.min.js',
 		  maxBuffer: 500,
 		  noreport: true,

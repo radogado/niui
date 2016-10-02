@@ -6,6 +6,29 @@ $line-height: 22px;
 @import 'natuive-setup';
 @import 'theme-variables'; /* Rewrite base variables here; add theme CSS below this one in <head> */
 
+.row {
+	
+	font-size: 0;
+	margin: 0 auto;
+	display: block !important;
+	text-align: left !important;
+
+}
+
+.row > * {
+	
+// 	width: 100% !important;
+	font-size: 16px; // To do: actual font-size
+	min-width: 20%; /* To do: support +33% */
+	width: 20%;
+	display: inline-block;
+	padding: 1em 0;
+	margin: 0;
+	border: none;
+	vertical-align: top;
+
+}
+
 .row > * > .row {
 
 	width: 100%;
@@ -13,10 +36,63 @@ $line-height: 22px;
 
 }
 
-.row > * {
-	
-	width: 100% !important;
-	display: block;
+.row > .col23 {
+
+	width: 66.667%;
+
+}
+
+.row > .col34 {
+
+	width: 75%;
+
+}
+
+.row > .col4 {
+
+	width: 25%;
+
+}
+
+.row > .col5 {
+
+	width: 20%;
+
+}
+
+.row > .col25 {
+
+	width: 40%;
+
+}
+
+.row > .col35 {
+
+	width: 60%;
+
+}
+
+.row > .col45 {
+
+	width: 80%;
+
+}
+
+.row > .col3 {
+
+	width: 33.333%;
+
+}
+
+.row > .col2 {
+
+	width: 50%;
+
+}
+
+.row > .col1/* , .row > *:only-child:not([class^=col]) */ {
+
+	width: 100%;
 
 }
 

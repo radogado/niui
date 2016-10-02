@@ -3,40 +3,9 @@
 
 "use strict";
 
-// Polyfills – start
-
 var scripts_location = document.getElementsByTagName('script');
 scripts_location = scripts_location[scripts_location.length-1].src;
 scripts_location = scripts_location.slice(0, scripts_location.length - scripts_location.split('/').pop().length);
-
-function loadScriptFile(file_name) {
-	
-    var js_el = document.createElement("script");
-    js_el.type = "text/javascript";
-    js_el.src = scripts_location + file_name;
-    document.querySelector('head').appendChild(js_el);
-
-}
-
-if (!("classList" in document.createElement("_"))) {
-
-	loadScriptFile('polyfill-classlist.min.js'); // IE8?
-
-}
-
-if (!Array.prototype.indexOf) {
-
-	loadScriptFile('polyfill-indexof.js');
-
-}
-
-if (!Element.prototype.matches) {
-
-	loadScriptFile('polyfill-matches.js');
-
-}
-
-// Polyfills – end
 
 addClass(q('body'), 'js');
 
@@ -1110,34 +1079,6 @@ function closest(el, selector) { // Thanks http://gomakethings.com/ditching-jque
 
     for ( ; el && el !== document; el = el.parentNode ) {
 
-/*
-        // If selector is a class
-        if ( firstChar === '.' ) {
-            if ( hasClass(el, selector.substr(1) ) ) {
-                return el;
-            }
-        }
-
-        // If selector is an ID
-        if ( firstChar === '#' ) {
-            if ( el.id === selector.substr(1) ) {
-                return el;
-            }
-        } 
-
-        // If selector is a data attribute
-        if ( firstChar === '[' ) {
-            if ( el.hasAttribute( selector.substr(1, selector.length - 2) ) ) {
-                return el;
-            }
-        }
-
-        // If selector is a tag
-        if ( el.tagName.toLowerCase() === selector ) {
-            return el;
-        }
-*/
-
 		if (el.matches(selector)) {
 			
 			return el;
@@ -1545,6 +1486,8 @@ addEventHandler(q('body'), 'click', function (e) { // Close all Fold elements wh
 
 function copyButton (el, target) {
 	
+	if (!q('body').addEventListener) return;
+	
 	el.addEventListener('click', function(event) {  
 
 	  var range = document.createRange();  
@@ -1562,5 +1505,13 @@ function copyButton (el, target) {
 	  window.getSelection().removeAllRanges();  
 
 	});
+	
+}
+
+// Android Browser scrolling polyfill
+
+if (q('.overthrow')) {
+
+    loadScriptFile('overthrow.js');
 	
 }
