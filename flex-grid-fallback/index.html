@@ -124,24 +124,24 @@ Used for fallback when Flexbox is not supported by the browser.
 		
 		document.querySelectorAll('.row').forEach( function (row) { // All rows
 		
-			var i = 0;
 			var start_index = 0;
 			var end_index = 0;
-			
+			var i = 0;
 			for (; i < row.children.length; i++) { // All columns in current row. :scope to be replaced by temporary id fallback
 			
 				var el = row.children[i];
-				if (el.offsetLeft === el.parentNode.offsetLeft)  { // If offset is zero, the row has wrapped and its columns must take up 100% width
+				if (el.offsetLeft === row.offsetLeft)  { // If offset is the same as the row, the row has wrapped and its columns must take up 100% width
 
 					end_index = i - 1;
 					var number_auto_columns = 0;
 					var space_taken = 0;
 					
-					for (var i = start_index; i <= end_index; i++) { // Cycle columns of the current auto-wrapped row
+					var j;
+					for (j = start_index; j <= end_index; j++) { // Cycle columns of the current auto-wrapped row
 						
-						if (el.parentNode.children[i].matches('[class^=col]')) {
+						if (row.children[j].matches('[class^=col]')) {
 							
-							space_taken += columnWidth(el.parentNode.children[i]);
+							space_taken += columnWidth(row.children[j]);
 							
 						} else {
 							
@@ -151,16 +151,15 @@ Used for fallback when Flexbox is not supported by the browser.
 						
 					}
 					
-					console.log('Start: ' + start_index + ', End: ' + end_index + ', Number of auto columns: ' + number_auto_columns);
+// 					console.log('Start: ' + start_index + ', End: ' + end_index + ', Number of auto columns: ' + number_auto_columns);
 					
 					var auto_column_width = (100 - space_taken) / number_auto_columns;
 					
-					var i;
-					for (i = start_index; i <= end_index; i++) { // Cycle columns of the current auto-wrapped row
+					for (j = start_index; j <= end_index; j++) { // Cycle columns of the current auto-wrapped row
 						
-						if (!el.parentNode.children[i].matches('[class^=col]')) {
+						if (!row.children[j].matches('[class^=col]')) {
 							
-							el.parentNode.children[i].style.width = auto_column_width + '%';
+							row.children[j].style.width = auto_column_width + '%';
 							
 						}
 						
