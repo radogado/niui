@@ -1,6 +1,6 @@
 <!--
 A grid of inline-block columns can have columns with explicit width and auto width columns. The space remaining after the explicit-width columns is distributed evenly between the rest of the columns. Columns have minimum width. When columns width exceed the available space, they are wrapped on a new row.
-Fallback when Flexbox is not supported.
+Used for fallback when Flexbox is not supported by the browser.
 -->
 
 <style>
@@ -21,8 +21,8 @@ Fallback when Flexbox is not supported.
 	
 	.row > * {
 		
-		font-size: 16px;
-		min-width: 20%;
+		font-size: 16px; /* To do: replace by actual font size of column's row's parent */
+		min-width: 20%; /* To do: support +33% */
 		display: inline-block;
 		padding: 1em 0;
 		margin: 0;
@@ -77,121 +77,105 @@ Fallback when Flexbox is not supported.
 		
 </div>
 
+<br>
+
+<div class=row>
+	
+	<div class="col23">2/3</div>
+	<div>Auto</div>
+	<div>Auto</div>
+	<div class="col3">1/3</div>
+	<div class="col23">2/3</div>
+		
+</div>
+
 <script>
 	
-	// To do: sub-pixel fixes. Non flex browser also don't support sub-pixel dimensions
+	// To do: polyfill for .classList, .forEach()
 	
-	function thisIndex(el) {
-	
-	    if (!el) return;
-		var node, nodes;
-		
-	    nodes = node = el.parentNode.childNodes;
-	
-	    var i = 0;
-	    var count = 0;
-	
-	    while ((node = nodes.item(i++)) && node != el) {
-	
-	        if (node.nodeType == 1) {
-	
-	            count++;
-	
-	        }
-	
-	    }
-	
-	    return (count);
-	
+	if (!Element.prototype.matches) {
+	    Element.prototype.matches = 
+	        Element.prototype.matchesSelector || 
+	        Element.prototype.mozMatchesSelector ||
+	        Element.prototype.msMatchesSelector || 
+	        Element.prototype.oMatchesSelector || 
+	        Element.prototype.webkitMatchesSelector ||
+	        function(s) {
+	            var matches = (this.document || this.ownerDocument).querySelectorAll(s),
+	                i = matches.length;
+	            while (--i >= 0 && matches.item(i) !== this) {}
+	            return i > -1;            
+	        };
 	}
-	
-	function findProperty(selector) {
-	   rules = document.styleSheets[0].cssRules
-	   for(i in rules) {
-	      if(rules[i].selectorText==selector) return rules[i].cssText.split('width: ')[1].split('%')[0];
-	   }
-	   return false;
+
+	function columnWidth(el) { // Get width in % from a .col23 etc column
+
+		rules = document.styleSheets[0].cssRules;
+		var i;
+		for(i in rules) {
+			if (rules[i].selectorText=== '.' + el.classList[0]) {
+				return parseFloat(rules[i].cssText.split('width: ')[1].split('%')[0], 10);
+			}
+		}
+		return false;
 	}
 
 	function flexGridFallback() {
 		
-		document.querySelectorAll('.row').forEach( function (el) { // All rows
+		document.querySelectorAll('.row').forEach( function (row) { // All rows
 		
-		var space_taken = 0;
-		var space_free = 0;
-		var row_width = el.scrollWidth;
-		var row_start_index = 0;
-		var row_end_index = 0;
-		
-		console.log('Row start: 0\n');
-
-		el.querySelectorAll(':scope > *').forEach( function (el) { // All columns in current row. :scope to be replaced by temporary id fallback
+			var i = 0;
+			var start_index = 0;
+			var end_index = 0;
 			
-			if (el.matches('[class^=col]')) {
-				
-				space_taken += parseFloat(findProperty('.' + el.classList[0]), 10); // To do: Take this value from the element's class width property
-				
-			} else {
-				
-				space_taken += 20; // 20% minimum width, assigned to classless columns
-
-			}
+			for (; i < row.children.length; i++) { // All columns in current row. :scope to be replaced by temporary id fallback
 			
-			if (space_taken >= 100) {
-				
-				space_taken -= 100;
-				row_end_index = thisIndex(el) - 1;
-				
-				var number_auto_columns = 0;
-				var row_space_taken = 0;
-				for (var i = row_start_index; i <= row_end_index; i++) { // Cycle columns of the current auto-wrapped row
-					
-					if (el.parentNode.children[i].matches('[class^=col]')) {
-						
-						row_space_taken += parseFloat(findProperty('.' + el.parentNode.children[i].classList[0]), 10); // el.parentNode.children[i].scrollWidth;
-						
-					} else {
-						
-						number_auto_columns++;
+				var el = row.children[i];
+				if (el.offsetLeft === el.parentNode.offsetLeft)  { // If offset is zero, the row has wrapped and its columns must take up 100% width
 
-					}
+					end_index = i - 1;
+					var number_auto_columns = 0;
+					var space_taken = 0;
 					
-				}
-				
-				var auto_column_width = (100 - row_space_taken) / number_auto_columns;
-				
-				console.log('Space taken: ' + row_space_taken + '%, Number of auto columns: ' + number_auto_columns + ', Auto columns width: ' + auto_column_width + '%');
-				
-				for (var i = row_start_index; i <= row_end_index; i++) { // Cycle columns of the current auto-wrapped row
-					
-					if (!el.parentNode.children[i].matches('[class^=col]')) {
+					for (var i = start_index; i <= end_index; i++) { // Cycle columns of the current auto-wrapped row
 						
-						el.parentNode.children[i].style.width = auto_column_width + '%';
+						if (el.parentNode.children[i].matches('[class^=col]')) {
+							
+							space_taken += columnWidth(el.parentNode.children[i]);
+							
+						} else {
+							
+							number_auto_columns++;
+						
+						}
 						
 					}
 					
+					console.log('Start: ' + start_index + ', End: ' + end_index + ', Number of auto columns: ' + number_auto_columns);
+					
+					var auto_column_width = (100 - space_taken) / number_auto_columns;
+					
+					var i;
+					for (i = start_index; i <= end_index; i++) { // Cycle columns of the current auto-wrapped row
+						
+						if (!el.parentNode.children[i].matches('[class^=col]')) {
+							
+							el.parentNode.children[i].style.width = auto_column_width + '%';
+							
+						}
+						
+					}
+
+					start_index = end_index + 1;
+
 				}
 
-				row_start_index = thisIndex(el);
-				console.log('Row end: ' + row_end_index + '\n');
-				console.log('Row start: ' + row_start_index + '\n');
-				
 			}
 			
 		});
 		
-	});
-		
 	}
 	
 	flexGridFallback();
-
-/*
-	window.addEventListener('resize', function () {
-		
-		setTimeout(flexGridFallback, 300);
-	
-	});
-*/
 
 </script>
