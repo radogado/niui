@@ -127,9 +127,8 @@ Element.prototype.matches =
 		return el.className.indexOf(selector) > -1;
 
 	}
-
 	
-	// To do: equal height & vertical alignment, prevent IE8 from counting comments as child elements
+	// To do: equal height & vertical alignment, prevent IE8 from counting comments as child elements, margin & padding
 
 	function getStyle(el,styleProp) {
 		if (el.currentStyle)
@@ -142,8 +141,7 @@ Element.prototype.matches =
 
 	function flexGridFallback() {
 		
-// 		var rows = Array.prototype.slice.call(document.querySelectorAll('.row')); // Node list to array
-		var rows = document.querySelectorAll('.row'); // Node list to array
+		var rows = document.querySelectorAll('.row');
 		var row_index = 0;
 		
 		for(;row_index < rows.length; row_index++) { // All rows
