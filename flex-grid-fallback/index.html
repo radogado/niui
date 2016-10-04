@@ -110,6 +110,31 @@ Used for fallback when Flexbox is not supported by the browser.
 
 	}
 	
+	.row.table {
+		
+		display: table;
+		width: 100%;
+		table-layout: fixed;
+		border-spacing: .5em;
+		border-collapse: separate;
+		font-size: inherit;
+		margin-bottom: -.5em;
+
+	}
+
+	.row.table > * {
+		
+		display: table-cell;
+		background: #eee;
+		
+	}
+		
+	.row.table > *:before {
+		
+		display: none;
+		
+	}
+		
 </style>
 
 <div class=row>
@@ -164,7 +189,6 @@ Used for fallback when Flexbox is not supported by the browser.
 
 	function flexGridFallback() {
 		
-// 		var rows = Array.prototype.slice.call(document.querySelectorAll('.row')); // Node list to array
 		var rows = document.querySelectorAll('.row'); // Node list to array
 		var row_index = 0;
 		
@@ -240,6 +264,48 @@ Used for fallback when Flexbox is not supported by the browser.
 		
 	}
 	
+	function flexGridFallbackSplit() { // Second approach: split all wrapped rows into separate .row.table
+	
+	
+		var rows = document.querySelectorAll('.row'); // Node list to array
+		var row_index = 0;
+		
+		for(;row_index < rows.length; row_index++) { // All rows
+			
+			var row = rows.item(row_index);
+		
+			var start_index = 0;
+			var end_index = 0;
+			var i = 1;
+			for (;i <= row.children.length; i++) { // All columns in current row.
+				
+				var el = row.children[i];
+				if (i === row.children.length || el.offsetLeft === row.offsetLeft)  { // If offset is the same as the row, the row has wrapped and its columns must take up 100% width
+		
+					row.insertAdjacentHTML('beforebegin', '<div class="row table"></div>');
+					end_index = i - 1;
+					var number_auto_columns = 0;
+					var space_taken = 0;
+					
+					var j;
+					var max_height = 0;
+					for (j = start_index; j <= end_index; j++) { // Cycle columns of the current auto-wrapped row
+						
+						row.previousElementSibling.appendChild(row.children[j]);
+						
+					}
+					
+					start_index = end_index + 1;
+		
+				}
+		
+			}
+			
+		}
+
+	}
+
 	flexGridFallback();
+// 	flexGridFallbackSplit()
 
 </script>
