@@ -37,6 +37,7 @@ Used for fallback when Flexbox is not supported by the browser.
 
 	}
 	
+/*
 	.row > *:before {
 		
 		content: "";
@@ -49,12 +50,15 @@ Used for fallback when Flexbox is not supported by the browser.
 		z-index: -1;
 
 	}
+*/
 	
+/*
 	.row > * > * {
 		
 		padding: .5em;
 
 	}
+*/
 	
 	.row > * {
 		
@@ -62,7 +66,7 @@ Used for fallback when Flexbox is not supported by the browser.
 		
 	}
 	
-	.row > [style^=width] /* Not working in IE8, added as inline style */, .row > *[class^=col] {
+	.row > *[class^=col] {
 		
 		max-width: none;
 
@@ -110,6 +114,12 @@ Used for fallback when Flexbox is not supported by the browser.
 
 	}
 	
+	.align-middle {
+		
+		vertical-align: middle;
+
+	}
+	
 	.row.table {
 		
 		display: table;
@@ -141,7 +151,7 @@ Used for fallback when Flexbox is not supported by the browser.
 	
 	<div><div>Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto </div></div>
 	<div class="align-right"><div>Auto<br>Right-aligned</div></div>
-	<div class="col2 align-center"><div>1/2<br>Centered</div></div>
+	<div class="col2 align-center align-middle"><div>1/2<br>Centered</div></div>
 	<div><div>Auto</div></div>
 	<div><div>Auto</div></div>
 	<div class="col23"><div>2/3</div></div>
@@ -266,14 +276,13 @@ Used for fallback when Flexbox is not supported by the browser.
 	
 	function flexGridFallbackSplit() { // Second approach: split all wrapped rows into separate .row.table
 	
-	
 		var rows = document.querySelectorAll('.row'); // Node list to array
 		var row_index = 0;
 		
 		for(;row_index < rows.length; row_index++) { // All rows
 			
 			var row = rows.item(row_index);
-		
+			console.log(row);
 			var start_index = 0;
 			var end_index = 0;
 			var i = 1;
@@ -284,14 +293,16 @@ Used for fallback when Flexbox is not supported by the browser.
 		
 					row.insertAdjacentHTML('beforebegin', '<div class="row table"></div>');
 					end_index = i - 1;
-					var number_auto_columns = 0;
-					var space_taken = 0;
 					
+
+					console.log('Start: ' + start_index + ', End: ' + end_index);
+
 					var j;
-					var max_height = 0;
 					for (j = start_index; j <= end_index; j++) { // Cycle columns of the current auto-wrapped row
-						
-						row.previousElementSibling.appendChild(row.children[j]);
+
+// 						row.previousElementSibling.appendChild(row.children[j]);
+
+						row.previousElementSibling.insertAdjacentHTML('beforeend', row.children[j].outerHTML); // To do: append the node not to lose events etc
 						
 					}
 					
@@ -301,11 +312,13 @@ Used for fallback when Flexbox is not supported by the browser.
 		
 			}
 			
+			row.outerHTML = '';
+			
 		}
 
 	}
 
-	flexGridFallback();
-// 	flexGridFallbackSplit()
+// 	flexGridFallback();
+	flexGridFallbackSplit();
 
 </script>

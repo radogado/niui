@@ -1508,6 +1508,15 @@ function copyButton (el, target) {
 	
 }
 
+function loadScriptFile(file_name) {
+	
+    var js_el = document.createElement("script");
+    js_el.type = "text/javascript";
+    js_el.src = scripts_location + file_name;
+    document.head.appendChild(js_el);
+
+}
+
 // Android Browser scrolling polyfill
 
 if (q('.overthrow')) {
