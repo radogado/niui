@@ -186,6 +186,16 @@ Used for fallback when Flexbox is not supported by the browser.
 
 	}
 	
+	var previousElementSibling = function( el ) { // IE8 doesn't support Element.previousElementSibling natively
+	    if( el.previousElementSibling ) {
+	        return el.previousElementSibling;
+	    } else {
+	        while( el = el.previousSibling ) {
+	            if( el.nodeType === 1 ) return el;
+	        }
+	    }
+	}
+
 	// To do: equal height & vertical alignment, margin & padding
 
 	function getStyle(el,styleProp) {
@@ -283,34 +293,37 @@ Used for fallback when Flexbox is not supported by the browser.
 			
 			var row = rows.item(row_index);
 			console.log(row);
-			var start_index = 0;
-			var end_index = 0;
+			var start_index = new Array('0');
+			var end_index = new Array('0');
 			var i = 1;
 			for (;i <= row.children.length; i++) { // All columns in current row.
-				
+
 				var el = row.children[i];
 				if (i === row.children.length || el.offsetLeft === row.offsetLeft)  { // If offset is the same as the row, the row has wrapped and its columns must take up 100% width
-		
-					row.insertAdjacentHTML('beforebegin', '<div class="row table"></div>');
-					end_index = i - 1;
-					
 
-					console.log('Start: ' + start_index + ', End: ' + end_index);
+					row.insertAdjacentHTML('beforebegin', '<div class="row table"></div>');
+					end_index[end_index.length] = i - 1;
+
+					console.log('Start: ' + start_index[start_index.length-1] + ', End: ' + end_index[end_index.length-1]);
 
 					var j;
-					for (j = start_index; j <= end_index; j++) { // Cycle columns of the current auto-wrapped row
+					for (j = start_index[start_index.length-1]; j <= end_index[end_index.length-1]; j++) { // Cycle columns of the current auto-wrapped row
 
 // 						row.previousElementSibling.appendChild(row.children[j]);
 
-						row.previousElementSibling.insertAdjacentHTML('beforeend', row.children[j].outerHTML); // To do: append the node not to lose events etc
+// 						row.previousElementSibling.insertAdjacentHTML('beforeend', row.children[j].outerHTML); // To do: append the node not to lose events etc
+						previousElementSibling(row).insertAdjacentHTML('beforeend', row.children[j].outerHTML); // To do: append the node not to lose events etc
 						
 					}
 					
-					start_index = end_index + 1;
+					start_index[start_index.length] = end_index[end_index.length-1] + 1;
 		
 				}
 		
 			}
+			
+			// Move elements here. Afer each element is moved, start_index and end_index should be subtracted by 1?
+			console.log(start_index + '   ' + end_index);
 			
 			row.outerHTML = '';
 			
