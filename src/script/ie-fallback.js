@@ -144,6 +144,7 @@ function flexGridFallback() { // Second approach: split all wrapped rows into se
 				j++;
 				
 			}
+			row.style.fontSize = 'inherit';
 							
 			
 		}

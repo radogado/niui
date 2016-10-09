@@ -62,10 +62,6 @@ if (!Array.prototype.forEach) {
   };
 }
 
-/* classList polyfill */
-
-if("document"in self){if(!("classList"in document.createElement("_"))||document.createElementNS&&!("classList"in document.createElementNS("http://www.w3.org/2000/svg","g"))){(function(t){"use strict";if(!("Element"in t))return;var e="classList",i="prototype",n=t.Element[i],s=Object,r=String[i].trim||function(){return this.replace(/^\s+|\s+$/g,"")},a=Array[i].indexOf||function(t){var e=0,i=this.length;for(;e<i;e++){if(e in this&&this[e]===t){return e}}return-1},o=function(t,e){this.name=t;this.code=DOMException[t];this.message=e},l=function(t,e){if(e===""){throw new o("SYNTAX_ERR","An invalid or illegal string was specified")}if(/\s/.test(e)){throw new o("INVALID_CHARACTER_ERR","String contains an invalid character")}return a.call(t,e)},c=function(t){var e=r.call(t.getAttribute("class")||""),i=e?e.split(/\s+/):[],n=0,s=i.length;for(;n<s;n++){this.push(i[n])}this._updateClassName=function(){t.setAttribute("class",this.toString())}},u=c[i]=[],f=function(){return new c(this)};o[i]=Error[i];u.item=function(t){return this[t]||null};u.contains=function(t){t+="";return l(this,t)!==-1};u.add=function(){var t=arguments,e=0,i=t.length,n,s=false;do{n=t[e]+"";if(l(this,n)===-1){this.push(n);s=true}}while(++e<i);if(s){this._updateClassName()}};u.remove=function(){var t=arguments,e=0,i=t.length,n,s=false,r;do{n=t[e]+"";r=l(this,n);while(r!==-1){this.splice(r,1);s=true;r=l(this,n)}}while(++e<i);if(s){this._updateClassName()}};u.toggle=function(t,e){t+="";var i=this.contains(t),n=i?e!==true&&"remove":e!==false&&"add";if(n){this[n](t)}if(e===true||e===false){return e}else{return!i}};u.toString=function(){return this.join(" ")};if(s.defineProperty){var h={get:f,enumerable:true,configurable:true};try{s.defineProperty(n,e,h)}catch(d){if(d.number===-2146823252){h.enumerable=false;s.defineProperty(n,e,h)}}}else if(s[i].__defineGetter__){n.__defineGetter__(e,f)}})(self)}else{(function(){"use strict";var t=document.createElement("_");t.classList.add("c1","c2");if(!t.classList.contains("c2")){var e=function(t){var e=DOMTokenList.prototype[t];DOMTokenList.prototype[t]=function(t){var i,n=arguments.length;for(i=0;i<n;i++){t=arguments[i];e.call(this,t)}}};e("add");e("remove")}t.classList.toggle("c3",false);if(t.classList.contains("c3")){var i=DOMTokenList.prototype.toggle;DOMTokenList.prototype.toggle=function(t,e){if(1 in arguments&&!this.contains(t)===!e){return e}else{return i.call(this,t)}}}t=null})()}}
-
 /* indexOf polyfill */
 
 Array.prototype.indexOf = function(el) {
@@ -103,112 +99,59 @@ Array.prototype.indexOf = function(el) {
    return b
 })
 
-// .matches polyfill
+/* classList polyfill */
 
-Element.prototype.matches = 
-
-	Element.prototype.matchesSelector || 
-	Element.prototype.mozMatchesSelector ||
-	Element.prototype.msMatchesSelector || 
-	Element.prototype.oMatchesSelector || 
-	Element.prototype.webkitMatchesSelector ||
-	function(s) {
-	    var matches = (this.document || this.ownerDocument).querySelectorAll(s),
-	        i = matches.length;
-	    while (--i >= 0 && matches.item(i) !== this) {}
-	    return i > -1;            
-
-};
+if("document"in self){if(!("classList"in document.createElement("_"))||document.createElementNS&&!("classList"in document.createElementNS("http://www.w3.org/2000/svg","g"))){(function(t){"use strict";if(!("Element"in t))return;var e="classList",i="prototype",n=t.Element[i],s=Object,r=String[i].trim||function(){return this.replace(/^\s+|\s+$/g,"")},a=Array[i].indexOf||function(t){var e=0,i=this.length;for(;e<i;e++){if(e in this&&this[e]===t){return e}}return-1},o=function(t,e){this.name=t;this.code=DOMException[t];this.message=e},l=function(t,e){if(e===""){throw new o("SYNTAX_ERR","An invalid or illegal string was specified")}if(/\s/.test(e)){throw new o("INVALID_CHARACTER_ERR","String contains an invalid character")}return a.call(t,e)},c=function(t){var e=r.call(t.getAttribute("class")||""),i=e?e.split(/\s+/):[],n=0,s=i.length;for(;n<s;n++){this.push(i[n])}this._updateClassName=function(){t.setAttribute("class",this.toString())}},u=c[i]=[],f=function(){return new c(this)};o[i]=Error[i];u.item=function(t){return this[t]||null};u.contains=function(t){t+="";return l(this,t)!==-1};u.add=function(){var t=arguments,e=0,i=t.length,n,s=false;do{n=t[e]+"";if(l(this,n)===-1){this.push(n);s=true}}while(++e<i);if(s){this._updateClassName()}};u.remove=function(){var t=arguments,e=0,i=t.length,n,s=false,r;do{n=t[e]+"";r=l(this,n);while(r!==-1){this.splice(r,1);s=true;r=l(this,n)}}while(++e<i);if(s){this._updateClassName()}};u.toggle=function(t,e){t+="";var i=this.contains(t),n=i?e!==true&&"remove":e!==false&&"add";if(n){this[n](t)}if(e===true||e===false){return e}else{return!i}};u.toString=function(){return this.join(" ")};if(s.defineProperty){var h={get:f,enumerable:true,configurable:true};try{s.defineProperty(n,e,h)}catch(d){if(d.number===-2146823252){h.enumerable=false;s.defineProperty(n,e,h)}}}else if(s[i].__defineGetter__){n.__defineGetter__(e,f)}})(self)}else{(function(){"use strict";var t=document.createElement("_");t.classList.add("c1","c2");if(!t.classList.contains("c2")){var e=function(t){var e=DOMTokenList.prototype[t];DOMTokenList.prototype[t]=function(t){var i,n=arguments.length;for(i=0;i<n;i++){t=arguments[i];e.call(this,t)}}};e("add");e("remove")}t.classList.toggle("c3",false);if(t.classList.contains("c3")){var i=DOMTokenList.prototype.toggle;DOMTokenList.prototype.toggle=function(t,e){if(1 in arguments&&!this.contains(t)===!e){return e}else{return i.call(this,t)}}}t=null})()}}
 
 // Flex grid fallback – start
 
-	function selectorMatches(el, selector) {
-		
-		return el.className.indexOf(selector) > -1;
+function flexGridFallback() { // Second approach: split all wrapped rows into separate .row.table
 
-	}
-
+	var rows = document.querySelectorAll('.row'); // Node list to array
+	var row_index = 0;
 	
-	// To do: equal height & vertical alignment, prevent IE8 from counting comments as child elements
-
-	function getStyle(el,styleProp) {
-		if (el.currentStyle)
-			var y = el.currentStyle[styleProp];
-		else if (window.getComputedStyle)
-			var y = document.defaultView.getComputedStyle(el,null).getPropertyValue(styleProp);
-		return y;
-	
-	}
-
-	function flexGridFallback() {
+	for(;row_index < rows.length; row_index++) { // All rows
 		
-// 		var rows = Array.prototype.slice.call(document.querySelectorAll('.row')); // Node list to array
-		var rows = document.querySelectorAll('.row'); // Node list to array
-		var row_index = 0;
-		
-		for(;row_index < rows.length; row_index++) { // All rows
+		var row = rows.item(row_index);
 
-			var row = rows.item(row_index);
+		var start_index = new Array('0');
+		var end_index = new Array();
+		var i = 1;
+		for (;i <= row.children.length; i++) { // All columns in current row. Get start and end indices of each wrapped row.
 
-			var start_index = 0;
-			var end_index = 0;
-			var i = 1;
+			var el = row.children[i];
+			if (i === row.children.length || el.offsetLeft === row.offsetLeft)  { // If offset is the same as the row, the row has wrapped and its columns must take up 100% width
 
-			for (;i <= row.children.length; i++) { // All columns in current row.
-				
-				var el = row.children[i];
-				if (i === row.children.length || el.offsetLeft === row.offsetLeft)  { // If offset is the same as the row, the row has wrapped and its columns must take up 100% width
+				end_index[end_index.length] = i - 1;
 
-					end_index = i - 1;
-					var number_auto_columns = 0;
-					var space_taken = 0;
-					
-					var j;
-					for (j = start_index; j <= end_index; j++) { // Cycle columns of the current auto-wrapped row
-						
-						if (selectorMatches(row.children[j], 'col')) {
-							
-							if (getStyle(row.children[j], 'width').indexOf('px') == -1) { // IE8, returning % instead of px
+/* 					console.log('Start: ' + start_index[start_index.length-1] + ', End: ' + end_index[end_index.length-1]); */
+
+				start_index[start_index.length] = end_index[end_index.length-1] + 1;
 	
-								space_taken = parseFloat(getStyle(row.children[j], 'width'));
-							
-							} else {
-							
-								space_taken = parseFloat(getStyle(row.children[j], 'width')) / parseFloat(getStyle(row, 'width'))*100;
-							
-							}
-							
-						} else {
-							
-							number_auto_columns++;
-						
-						}
-						
-					}
-					
-// 					console.log('Start: ' + start_index + ', End: ' + end_index + ', Auto columns: ' + number_auto_columns);
-					
-					var auto_column_width = (100 - space_taken) / number_auto_columns;
-					
-					for (j = start_index; j <= end_index; j++) { // Cycle columns of the current auto-wrapped row
-						
-						if (!selectorMatches(row.children[j], 'col')) {
-
-							row.children[j].style.width = auto_column_width + '%';
-							
-						}
-						
-					}
-
-					start_index = end_index + 1;
-
-				}
-
 			}
+	
+		}
+		
+		start_index.splice(start_index.length-1, 1); // Remove the last one
+
+		for (i = 0; i < start_index.length; i++) {
+			
+			row.insertAdjacentHTML('beforeend', '<div class=table-row></div>');
+			var j = start_index[i];
+			while (j <= end_index[i]) {
+
+				row.children[row.children.length-1].appendChild(row.children[0]);
+				j++;
+				
+			}
+			row.style.fontSize = 'inherit';
+							
 			
 		}
 		
 	}
+
+}
 	
 	document.attachEvent("onreadystatechange", function(){
 	 if (document.readyState === "complete"){

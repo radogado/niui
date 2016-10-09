@@ -1384,7 +1384,7 @@ function scrollToAnimated(to, callback) {
 		
 	}
 	
-	animate(q('html'), '100% { transform: translate3d(0, ' + -1*(to - (document.documentElement.scrollTop || document.body.scrollTop)) + 'px, 0); }', .5, scrollToCallback.bind(null, callback));
+	animate(q('html'), '100% { transform: translate3d(0, ' + -1*(to - (document.documentElement.scrollTop || document.body.scrollTop)) + 'px, 0); }', .5, scrollToCallback.bind(null, callback)); // To do: IE8 error fix
 
 }
 

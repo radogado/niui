@@ -15,8 +15,10 @@ Used for fallback when Flexbox is not supported by the browser.
 	
 	.row {
 	
-		max-width: 800px;
+		max-width: 1000px;
 		margin: 0 auto;
+		font-size: 0;
+		text-align: left;
 		
 	}
 	
@@ -32,6 +34,7 @@ Used for fallback when Flexbox is not supported by the browser.
 		box-sizing: border-box;
 		vertical-align: top;
 		position: relative;
+		word-wrap: break-word;
 
 	}
 	
@@ -71,7 +74,9 @@ Used for fallback when Flexbox is not supported by the browser.
 		display: table-cell;
 		padding: .5em;
 		background: #eee;
-		
+		vertical-align: top;
+		word-wrap: break-word;
+
 	}
 	
 	.row.no-spacing > .table-row {
@@ -84,6 +89,13 @@ Used for fallback when Flexbox is not supported by the browser.
 		
 		padding: 0;
 		
+	}
+		
+	.col1 {
+		
+		width: 100%;
+		max-width: 100%;
+
 	}
 		
 	.col2 {
@@ -158,7 +170,13 @@ Used for fallback when Flexbox is not supported by the browser.
 
 	}
 	
-	.align-middle {
+	.align-middle, .row > .table-row > .align-middle {
+		
+		vertical-align: middle;
+
+	}
+		
+	.align-bottom, .row > .table-row > .align-bottom {
 		
 		vertical-align: middle;
 
@@ -166,8 +184,155 @@ Used for fallback when Flexbox is not supported by the browser.
 		
 </style>
 
+<!--
+<div class='row no-spacing-' id=grid>
+	
+	<div class="col1"> 
+		
+		<h2>Row on: Wrapping Grid</h2> 
+	
+	</div>
+	
+	<div class="col2 align-bottom" style="background: #fee; color: #333;">
+		
+		<div>Use a grid with arbitrary cell elements inside .row. <button>Inline element</button></div>
+	
+	</div>
+	<div class="col4" style="background: #efe; color: #333;">
+		
+		<div>Use vertical alignment in cells, it's finally easy and dependable.<p><br></p><p><br></p></div>
+		
+	</div>
+	<div class="col4 align-right vertical-row" style="background: #eef; color: #333;">
+		<div>Embed any kind of element into any container-type element: Cell, List, Slider, Fold (Accordion).</div>
+		<div class="align-bottom" style="text-align: start;">Vertical row as tall as the parent row with equal-height full-width children</div>
+	</div>
+	<div style="background: #eff; color: #333;"><div>The grid is simpler and doesn't insist on the infamous 12 cols. Just add a div to a .row. Width classes, like .col23, are optional.</div></div>
+	<div>
+		
+		<div>
+
+			<span class="tool">
+				This text has a tooltip.
+			</span>
+		
+		</div>
+
+	</div>
+
+	<div>ThisLineIsTooLongAndMustBeClippedByTheContainerEvenThoughOverflowXandYDontWorkAsExpected</div>
+	<div id=modal><h2> Modal Window </h2><a href="external.html#content" class="modal limited">Open a modal window inside this <span>tab</span>.</a></div>	
+	<div>
+	
+		<a href="http://natuive.net/external.html#content" class="modal">Show external domain content in a modal window.</a> (On PHP enabled host)
+
+	</div>
+	<div class="col5">
+		
+		<h1> Headline 1 </h1>
+		<h2> Headline 2 </h2>
+		<h3> Headline 3 </h3>
+		<h4> Headline 4 </h4>
+		<h5> Headline 5 </h5>
+		<h6> Headline 6 </h6>
+
+	</div>
+
+	<div class="col5" id=buttons>
+		
+		<div>
+			
+			<h2>Buttons</h2>
+			
+			<a href=# class=button>Small button</a>
+			
+			<br>
+			
+			<button disabled>Disabled button</button>
+	
+			<br>
+			
+			<a href=# class='button big'>Big button</a>
+		
+			<p id=copycontent>Here is an <a href=# class=button>Inline button</a> inside a paragraph.</p>
+
+			<p>Click this <a class="button" id=copybutton>copy button</a> to copy the contents of the above paragraph to the clipboard.</p>
+
+		</div>
+
+	</div>	
+	
+	<div>
+		
+		<div class='row border-all'>
+			
+			<div>
+				
+				<div class="row">
+				
+					<div> <h2>Grid with borders</h2> </div>
+				
+					<div class='align-center align-middle'>
+						
+						<div>
+		
+							Middle
+		
+						</div>
+				
+					</div>
+				
+				</div>
+				
+				<div class="row">
+					
+					<div>
+						
+						<div>Full width</div>
+					
+					</div>
+				
+				</div>
+				
+				<div class="row">
+				
+					<div> <div>Top</div> </div>
+					<div class="align-bottom align-center"> <div>Center Bottom</div> </div>
+				
+					<div class=align-right>
+						
+						<div>
+							
+							<div class="row">
+								
+								<div>Right</div>
+							
+							</div>
+							
+							<div class="row">
+								
+								<div>Right</div>
+							
+							</div>
+						
+						</div>
+				
+					</div>
+				
+				</div>
+				
+			</div>
+			
+		</div>
+		
+	</div>
+
+</div>
+-->
+
 <div class='row'>
 	
+	<div class="col1"><div>Single column</div></div>	
 	<div><div>Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto </div></div>
 	<div class="align-right"><div>Auto<br>Right-aligned</div></div>
 	<div class="col2 align-center align-middle"><div>1/2<br>Centered</div></div>
@@ -249,6 +414,7 @@ Used for fallback when Flexbox is not supported by the browser.
 					j++;
 					
 				}
+				row.style.fontSize = 'inherit';
 								
 				
 			}

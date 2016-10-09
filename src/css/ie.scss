@@ -6,6 +6,13 @@ $line-height: 22px;
 @import 'natuive-setup';
 @import 'theme-variables'; /* Rewrite base variables here; add theme CSS below this one in <head> */
 
+.row {
+	
+	font-size: 0;
+	text-align: left;
+
+}
+
 .row > * {
 	
 	font-size: 16px; /* To do: replace by actual font size of column's row's parent */
@@ -56,6 +63,8 @@ $line-height: 22px;
 	
 	display: table-cell;
 	padding: .5em;
+	vertical-align: top;
+	word-wrap: break-word;	
 	
 }
 
@@ -71,6 +80,13 @@ $line-height: 22px;
 	
 }
 	
+.col1 {
+	
+	width: 100%;
+	max-width: 100%;
+
+}
+
 .col2 {
 	
 	width: 50%;
