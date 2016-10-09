@@ -16,7 +16,6 @@ Used for fallback when Flexbox is not supported by the browser.
 	.row {
 	
 		max-width: 800px;
-		font-size: 0;
 		margin: 0 auto;
 		
 	}
@@ -31,39 +30,20 @@ Used for fallback when Flexbox is not supported by the browser.
 		border: none;
 		color: #333;
 		box-sizing: border-box;
-/* 		border: 1px solid #999; */
 		vertical-align: top;
 		position: relative;
 
 	}
 	
-/*
-	.row > *:before {
-		
-		content: "";
-		background: #eee;
-		top: .5em;
-		right: .5em;
-		bottom: .5em;
-		left: .5em;
-		position: absolute;
-		z-index: -1;
-
-	}
-*/
-	
-/*
-	.row > * > * {
-		
-		padding: .5em;
-
-	}
-*/
-	
 	.row > * {
 		
 		max-width: 20%;
 		
+	}
+	
+	.row > * > * {
+		
+
 	}
 	
 	.row > *[class^=col] {
@@ -72,6 +52,40 @@ Used for fallback when Flexbox is not supported by the browser.
 
 	}
 	
+	.row > .table-row {
+		
+		display: table;
+		width: 100%;
+		max-width: 100%;
+		table-layout: fixed;
+		border-spacing: .5em;
+		border-collapse: separate;
+		font-size: inherit;
+		margin-bottom: -.5em;
+		padding: 0;
+
+	}
+
+	.row > .table-row > * {
+		
+		display: table-cell;
+		padding: .5em;
+		background: #eee;
+		
+	}
+	
+	.row.no-spacing > .table-row {
+		
+		border-collapse: collapse;
+		
+	}
+		
+	.row.no-padding > .table-row > * {
+		
+		padding: 0;
+		
+	}
+		
 	.col2 {
 		
 		width: 50%;
@@ -93,6 +107,36 @@ Used for fallback when Flexbox is not supported by the browser.
 	.col4 {
 		
 		width: 25%;
+
+	}
+	
+	.col34 {
+	
+		width: 75%;	
+	
+	}
+	
+	.col5 {
+		
+		width: 20%;	
+		
+	}
+	
+	.col25 {
+	
+		width: 40%;
+	
+	}
+	
+	.col35 {
+
+		width: 60%;
+
+	}
+	
+	.col45 {
+
+		width: 80%;
 
 	}
 	
@@ -119,35 +163,10 @@ Used for fallback when Flexbox is not supported by the browser.
 		vertical-align: middle;
 
 	}
-	
-	.row.table {
-		
-		display: table;
-		width: 100%;
-		table-layout: fixed;
-		border-spacing: .5em;
-		border-collapse: separate;
-		font-size: inherit;
-		margin-bottom: -.5em;
-
-	}
-
-	.row.table > * {
-		
-		display: table-cell;
-		background: #eee;
-		
-	}
-		
-	.row.table > *:before {
-		
-		display: none;
-		
-	}
 		
 </style>
 
-<div class=row>
+<div class='row'>
 	
 	<div><div>Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto Auto </div></div>
 	<div class="align-right"><div>Auto<br>Right-aligned</div></div>
@@ -162,129 +181,36 @@ Used for fallback when Flexbox is not supported by the browser.
 	<div><div>Auto</div></div>
 	<div><div>Auto</div></div>
 	<div><div>Auto</div></div>
-	<div><div>Auto</div></div>
+	<div><div>Auto Last</div></div>
 		
 </div>
 
 <br><br>
 
-<div class=row>
+<div class='row'>
 	
-	<div class="col23"><div>2/3</div></div>
-	<div><div>Auto</div></div>
-	<div><div>Auto</div></div>
-	<div class="col3"><div>1/3</div></div>
-	<div class="col23"><div>2/3</div></div>
+	<div>Auto</div>
+	<div>Auto</div>
+	<div>Auto</div>
+	<div>Auto</div>
+	<div>Auto</div>
+	<div>Auto</div>
+	<div>Auto</div>
+	<div>Auto</div>
+	<div>Auto</div>
+	<div>Auto</div>
+	<div>Auto</div>
+	<div>Auto</div>
+	<div>Auto</div>
+	<div>Auto</div>
+	<div>Auto</div>
+	<div>Auto</div>
 		
 </div>
 
 <script>
 
-	function selectorMatches(el, selector) {
-		
-		return el.className.indexOf(selector) > -1;
-
-	}
-	
-	var previousElementSibling = function( el ) { // IE8 doesn't support Element.previousElementSibling natively
-	    if( el.previousElementSibling ) {
-	        return el.previousElementSibling;
-	    } else {
-	        while( el = el.previousSibling ) {
-	            if( el.nodeType === 1 ) return el;
-	        }
-	    }
-	}
-
-	// To do: equal height & vertical alignment, margin & padding
-
-	function getStyle(el,styleProp) {
-		if (el.currentStyle)
-			var y = el.currentStyle[styleProp];
-		else if (window.getComputedStyle)
-			var y = document.defaultView.getComputedStyle(el,null).getPropertyValue(styleProp);
-		return y;
-	
-	}
-
-	function flexGridFallback() {
-		
-		var rows = document.querySelectorAll('.row'); // Node list to array
-		var row_index = 0;
-		
-		for(;row_index < rows.length; row_index++) { // All rows
-			
-			var row = rows.item(row_index);
-		
-			var start_index = 0;
-			var end_index = 0;
-			var i = 1;
-			for (;i <= row.children.length; i++) { // All columns in current row.
-				
-				var el = row.children[i];
-				if (i === row.children.length || el.offsetLeft === row.offsetLeft)  { // If offset is the same as the row, the row has wrapped and its columns must take up 100% width
-
-					end_index = i - 1;
-					var number_auto_columns = 0;
-					var space_taken = 0;
-					
-					var j;
-					var max_height = 0;
-					for (j = start_index; j <= end_index; j++) { // Cycle columns of the current auto-wrapped row
-						
-						if (selectorMatches(row.children[j], 'col')) {
-							
-							if (getStyle(row.children[j], 'width').indexOf('px') == -1) { // IE8, returning % instead of px
-	
-								space_taken = parseFloat(getStyle(row.children[j], 'width'));
-							
-							} else {
-							
-								space_taken = parseFloat(getStyle(row.children[j], 'width')) / parseFloat(getStyle(row, 'width'))*100;
-							
-							}
-							
-						} else {
-							
-							number_auto_columns++;
-						
-						}
-						if (row.children[j].scrollHeight > max_height) {
-							
-							max_height = row.children[j].scrollHeight + 'px';
-
-						}
-						
-					}
-					
-// 					console.log('Start: ' + start_index + ', End: ' + end_index + ', Auto columns: ' + number_auto_columns);
-					
-					var auto_column_width = (100 - space_taken) / number_auto_columns;
-					
-					for (j = start_index; j <= end_index; j++) { // Cycle columns of the current auto-wrapped row
-						
-						if (!selectorMatches(row.children[j], 'col')) {
-							
-							row.children[j].style.width = auto_column_width + '%';
-							row.children[j].style.maxWidth = 'none';
-							
-						}
-						
-						row.children[j].style.minHeight = max_height;
-						
-					}
-
-					start_index = end_index + 1;
-
-				}
-
-			}
-			
-		}
-		
-	}
-	
-	function flexGridFallbackSplit() { // Second approach: split all wrapped rows into separate .row.table
+	function flexGridFallback() { // Second approach: split all wrapped rows into separate .row.table
 	
 		var rows = document.querySelectorAll('.row'); // Node list to array
 		var row_index = 0;
@@ -292,46 +218,45 @@ Used for fallback when Flexbox is not supported by the browser.
 		for(;row_index < rows.length; row_index++) { // All rows
 			
 			var row = rows.item(row_index);
-			console.log(row);
+
 			var start_index = new Array('0');
-			var end_index = new Array('0');
+			var end_index = new Array();
 			var i = 1;
-			for (;i <= row.children.length; i++) { // All columns in current row.
+			for (;i <= row.children.length; i++) { // All columns in current row. Get start and end indices of each wrapped row.
 
 				var el = row.children[i];
 				if (i === row.children.length || el.offsetLeft === row.offsetLeft)  { // If offset is the same as the row, the row has wrapped and its columns must take up 100% width
 
-					row.insertAdjacentHTML('beforebegin', '<div class="row table"></div>');
 					end_index[end_index.length] = i - 1;
 
-					console.log('Start: ' + start_index[start_index.length-1] + ', End: ' + end_index[end_index.length-1]);
+/* 					console.log('Start: ' + start_index[start_index.length-1] + ', End: ' + end_index[end_index.length-1]); */
 
-					var j;
-					for (j = start_index[start_index.length-1]; j <= end_index[end_index.length-1]; j++) { // Cycle columns of the current auto-wrapped row
-
-// 						row.previousElementSibling.appendChild(row.children[j]);
-
-// 						row.previousElementSibling.insertAdjacentHTML('beforeend', row.children[j].outerHTML); // To do: append the node not to lose events etc
-						previousElementSibling(row).insertAdjacentHTML('beforeend', row.children[j].outerHTML); // To do: append the node not to lose events etc
-						
-					}
-					
 					start_index[start_index.length] = end_index[end_index.length-1] + 1;
 		
 				}
 		
 			}
 			
-			// Move elements here. Afer each element is moved, start_index and end_index should be subtracted by 1?
-			console.log(start_index + '   ' + end_index);
-			
-			row.outerHTML = '';
+			start_index.splice(start_index.length-1, 1); // Remove the last one
+
+			for (i = 0; i < start_index.length; i++) {
+				
+				row.insertAdjacentHTML('beforeend', '<div class=table-row></div>');
+				var j = start_index[i];
+				while (j <= end_index[i]) {
+
+					row.children[row.children.length-1].appendChild(row.children[0]);
+					j++;
+					
+				}
+								
+				
+			}
 			
 		}
 
 	}
 
-// 	flexGridFallback();
-	flexGridFallbackSplit();
+	flexGridFallback();
 
 </script>
