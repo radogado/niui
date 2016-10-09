@@ -2759,6 +2759,9 @@ video a[href] {
   transform: translate3d(0, 0, 0);
   z-index: 0; }
 
+@-moz-document url-prefix() {
+  .no-touch .fixed-background {
+    transform: none; } }
 .no-touch .fixed-background-image {
   display: none; }
 

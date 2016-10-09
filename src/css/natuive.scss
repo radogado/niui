@@ -266,6 +266,16 @@ video a[href] {
 	
 }
 
+@-moz-document url-prefix() {
+
+	.no-touch .fixed-background {
+	
+		transform: none;
+		
+	}
+
+}
+
 .no-touch .fixed-background-image {
 	
 	display: none;
