@@ -675,14 +675,27 @@ function openLightbox(e) {
         }
         var this_index = thisIndex(anchor);
 
-        if (location.href.indexOf('#' + closest(el, '.lightbox').getAttribute('id')) > -1 && typeof getURLParameters()['slide'] != 'undefined') {
-console.log(getURLParameters()['slide'].split('#')[0]);
-	        this_index = getURLParameters()['slide'].split('#')[0] -1;
-	        if (this_index > q('.full-window-wrap .slider').children.length - 1 || this_index < 1) {
-		        
-		        this_index = 0;
-		        
-	        }
+        if (location.href.indexOf('#' + closest(el, '.lightbox').getAttribute('id')) > -1) {
+	        
+	        if (typeof getURLParameters()['slide'] != 'undefined') {
+
+		        this_index = getURLParameters()['slide'].split('#')[0] - 1;
+
+		    }
+
+			if (typeof getURLParameters()['image'] != 'undefined') {
+
+				var target_image = q('.full-window-wrap .slider [data-src*="' + getURLParameters()['image'].split('#')[0] + '"]');
+				if (target_image) {
+			        this_index = thisIndex(target_image.parentNode);
+			    }
+		    
+		    }
+
+        }
+        if (this_index > q('.full-window-wrap .slider').children.length - 1 || this_index < 1) {
+	        
+	        this_index = 0;
 	        
         }
         populateLightbox(makeSlider(q('.full-window-wrap .slider'), this_index), this_index);
