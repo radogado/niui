@@ -393,18 +393,24 @@ function sliderKeyboard(e) {
 	var el = eventElement(e);
 	var tag = el.tagName.toLowerCase();
 
+	function shouldNotSlideVertically() {
+		
+		return !hasClass(el,'vertical') || window.innerHeight < q('body').scrollHeight;
+		
+	}
+
 	if (tag != 'input' && tag != 'textarea' && (el = q('.full-window-wrap .slider') || qa('.slider'))) {
 		
 		if (typeof el.length != 'undefined') { /* An array of sliders */
 			
-			el = el[0]; /* To do: choose the proper, visible in viewport slider, by its index */
+			el = el[0]; /* To do: choose the proper slide, currently visible in viewport, by its index */
 			
 		}
-
+		
         switch (e.which) {
 
             case 38:
-            	if (!hasClass(el,'vertical')) {
+            	if (shouldNotSlideVertically()) { // Page can be scrolled by the arrow key so don't slide
                 	
                 	return;
 
@@ -412,7 +418,7 @@ function sliderKeyboard(e) {
             case 37:
                 slide(el, 'left');
             case 40:
-            	if (!hasClass(el,'vertical')) {
+            	if (shouldNotSlideVertically()) {
                 	
                 	return;
 
