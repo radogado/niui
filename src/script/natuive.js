@@ -1412,7 +1412,7 @@ function scrollToAnimated(to, callback) {
 
 }
 
-/* Fold */
+/* Fold – start */
 
 function toggleAccordion(e) {
 
@@ -1427,7 +1427,7 @@ function toggleAccordion(e) {
     }
 */
 
-    var content = el.querySelector('div');
+    var content = el.querySelector('.content');
 
 	if (hasClass(el, 'open')) {
 		
@@ -1468,7 +1468,7 @@ forEach('.fold > label', function(el, i) {
 
     if (!hasClass(el, 'mobile')) { // Keep the accordion content clickable
 	    
-	    el.querySelector('div').onclick = function(e) {
+	    el.querySelector('.content').onclick = function(e) {
 
 	        stopEvent(e);
 	
@@ -1492,19 +1492,7 @@ addEventHandler(q('body'), 'click', function (e) { // Close all Fold elements wh
 	
 });
 
-addEventHandler(q('body'), 'click', function (e) { // Close all Fold elements when clicking outside of them
-
-	if (!closest(eventElement(e), '.fold')) {
-		
-		forEach('.fold', function (el) {
-			
-			removeClass(el, 'open');
-			
-		});
-		
-	}
-	
-});
+/* Fold – end */
 
 // Clicking a button copies a target element's contents
 

@@ -262,7 +262,7 @@ nav.drop ul li li a[href], nav.drop ul li .trigger:checked ~ a[href] {
 
 }
 
-nav.drop ul li li li a, nav.drop ul li li .trigger:checked ~ a, nav.drop ul li li .trigger:checked ~ b.sub, .no-touch nav.drop ul li li:hover, .no-touch nav.drop ul li li:hover a, nav.drop ul ul ul, .no-touch nav.drop ul li li:hover ul, .no-touch nav.drop ul li li:hover li {
+nav.drop ul li li li a, nav.drop ul li li .trigger:checked ~ a, nav.drop ul li li .trigger:checked ~ b.sub, .no-touch nav.drop ul li:hover, .no-touch nav.drop ul li li:hover a, nav.drop ul ul ul, .no-touch nav.drop ul li li:hover ul, .no-touch nav.drop ul li li:hover li {
 
 	background: #ddd;
 
@@ -302,10 +302,10 @@ nav.drop ul ul {
 	
 }
 
-nav.drop input.trigger:checked ~ ul, .no-touch nav.drop ul ul li:hover ul, nav.drop input.trigger:checked ~ div, .no-touch nav.drop ul ul li:hover div { /* Not '+', because the form reset button stands between them; Touch first, Desktop second */
+nav.drop input.trigger:checked ~ ul, .no-touch nav.drop ul li:hover ul, nav.drop input.trigger:checked ~ div, .no-touch nav.drop ul ul li:hover div { /* Not '+', because the form reset button stands between them; Touch first, Desktop second */
 	
 	visibility: visible;
-	z-index: 4;
+	z-index: 6;
 	
 }
 

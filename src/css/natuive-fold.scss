@@ -8,6 +8,7 @@
 	padding: 0 .5em 0 1em;
 	margin: 0;
 	max-width: 100%;
+	z-index: 1;
 	
 }
 
@@ -49,7 +50,7 @@
 
 	}
 
-	.fold > div { /* hidden fold item */
+	.fold .content { /* hidden fold item */
 
 	    overflow: hidden;
 	    cursor: auto;
@@ -58,19 +59,19 @@
 
 	}
 
-	.fold.mobile > div {
-
-// 	    overflow: visible;
+	.fold.mobile .content { /* hidden fold item */
+		
+		overflow: visible;
 
 	}
-
+	
 	.fold:not(.open):not(.mobile) > div, .fold.open input.trigger:checked ~ div /* also for CSS-only open by default */ {
 
 	    max-height: 0;
 
 	}
 
-	.fold:first-of-type > div {
+	.fold:first-of-type .content {
 
 	    padding-top: 0;
 
@@ -82,13 +83,13 @@
 
 	}
 
-	.fold > div > * {
+	.fold .content > * {
 		
 		margin-top: 0;
 
 	}
 
-	.fold > input.trigger:checked ~ div, .fold.mobile > div, .fold > .open input.trigger:not(:checked) ~ div {
+	.fold > input.trigger:checked ~ div, .fold.mobile .content/* , .fold > .open input.trigger:not(:checked) ~ div */ {
 		
 		max-height: none;
 
@@ -149,18 +150,24 @@
 
 	}
 
-	.fold.mobile:not(.open) > div {
+	.fold.mobile:not(.open) .content {
 	
 		max-height: 0;
 	
 	}
 	
-	.fold.mobile > input.trigger:checked ~ div {
+	.fold.mobile > input.trigger:checked ~ .content {
 		
 		max-height: none;
 		
 	}
 	
+	.fold.mobile .content { /* hidden fold item */
+		
+		overflow: hidden;
+
+	}
+
 	header.fixed .fold.mobile {
 		
 		position: fixed;
@@ -174,7 +181,7 @@
 
 	}
 
-	header.fixed .fold.mobile > div {
+	header.fixed .fold.mobile .content {
 		
 // 		overflow: hidden;
 		padding: 0 $line-height-em/4;
@@ -182,7 +189,7 @@
 
 	}
 	
-	header.fixed .fold.mobile.open > div {
+	header.fixed .fold.mobile.open .content {
 		
 		overflow: auto;
 		-webkit-overflow-scrolling: touch;

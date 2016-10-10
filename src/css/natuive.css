@@ -1557,7 +1557,7 @@ nav.drop ul li li a, nav.drop ul li .trigger:checked ~ a, nav.drop ul li .trigge
 nav.drop ul li li a[href], nav.drop ul li .trigger:checked ~ a[href] {
   z-index: 6; }
 
-nav.drop ul li li li a, nav.drop ul li li .trigger:checked ~ a, nav.drop ul li li .trigger:checked ~ b.sub, .no-touch nav.drop ul li li:hover, .no-touch nav.drop ul li li:hover a, nav.drop ul ul ul, .no-touch nav.drop ul li li:hover ul, .no-touch nav.drop ul li li:hover li {
+nav.drop ul li li li a, nav.drop ul li li .trigger:checked ~ a, nav.drop ul li li .trigger:checked ~ b.sub, .no-touch nav.drop ul li:hover, .no-touch nav.drop ul li li:hover a, nav.drop ul ul ul, .no-touch nav.drop ul li li:hover ul, .no-touch nav.drop ul li li:hover li {
   background: #ddd; }
 
 nav.drop ul ul li {
@@ -1579,10 +1579,10 @@ nav.drop ul ul {
   position: absolute;
   display: block; }
 
-nav.drop input.trigger:checked ~ ul, .no-touch nav.drop ul ul li:hover ul, nav.drop input.trigger:checked ~ div, .no-touch nav.drop ul ul li:hover div {
+nav.drop input.trigger:checked ~ ul, .no-touch nav.drop ul li:hover ul, nav.drop input.trigger:checked ~ div, .no-touch nav.drop ul ul li:hover div {
   /* Not '+', because the form reset button stands between them; Touch first, Desktop second */
   visibility: visible;
-  z-index: 4; }
+  z-index: 6; }
 
 nav.drop input.trigger:checked ~ ul {
   z-index: 6; }
@@ -1816,7 +1816,8 @@ $background: #1E8DaC;
   position: relative;
   padding: 0 .5em 0 1em;
   margin: 0;
-  max-width: 100%; }
+  max-width: 100%;
+  z-index: 1; }
 
 .fold > label {
   margin: 0;
@@ -1845,25 +1846,29 @@ $background: #1E8DaC;
   min-height: 1.5em;
   height: 3em; }
 
-.fold > div {
+.fold .content {
   /* hidden fold item */
   overflow: hidden;
   cursor: auto;
   will-change: transform; }
 
+.fold.mobile .content {
+  /* hidden fold item */
+  overflow: visible; }
+
 .fold:not(.open):not(.mobile) > div, .fold.open input.trigger:checked ~ div {
   max-height: 0; }
 
-.fold:first-of-type > div {
+.fold:first-of-type .content {
   padding-top: 0; }
 
 .fold:first-of-type {
   margin-bottom: 0; }
 
-.fold > div > * {
+.fold .content > * {
   margin-top: 0; }
 
-.fold > input.trigger:checked ~ div, .fold.mobile > div, .fold > .open input.trigger:not(:checked) ~ div {
+.fold > input.trigger:checked ~ div, .fold.mobile .content {
   max-height: none; }
 
 .fold.open > input.trigger + * {
@@ -1898,11 +1903,15 @@ span.burger:after {
     display: flex;
     width: 3em; }
 
-  .fold.mobile:not(.open) > div {
+  .fold.mobile:not(.open) .content {
     max-height: 0; }
 
-  .fold.mobile > input.trigger:checked ~ div {
+  .fold.mobile > input.trigger:checked ~ .content {
     max-height: none; }
+
+  .fold.mobile .content {
+    /* hidden fold item */
+    overflow: hidden; }
 
   header.fixed .fold.mobile {
     position: fixed;
@@ -1911,11 +1920,11 @@ span.burger:after {
   header.fixed .fold.mobile.open {
     bottom: 0; }
 
-  header.fixed .fold.mobile > div {
+  header.fixed .fold.mobile .content {
     padding: 0 0.375em;
     background: #fff; }
 
-  header.fixed .fold.mobile.open > div {
+  header.fixed .fold.mobile.open .content {
     overflow: auto;
     -webkit-overflow-scrolling: touch;
     position: fixed;
