@@ -1282,6 +1282,9 @@ form.language select {
   height: 1.5em;
   line-height: 1.5em; }
 
+fieldset[disabled] {
+  display: none; }
+
 /* Tables */
 /*
 $color: #fff;

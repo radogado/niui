@@ -791,7 +791,7 @@ function animateAnchors(e) {
 
 }
 
-/* Form validation */
+/* Form validation – start */
 
 function submitForm(e) {
 
@@ -800,6 +800,12 @@ function submitForm(e) {
     var ready_to_submit = true;
 
     forEach(el.querySelectorAll('.mandatory'), function(el) {
+	    
+	    if (closest(el, '[disabled]')) { // Ignore disabled conditional fields
+		    
+		    return;
+
+	    }
 
         if (
 			( el.querySelector('input, select, textarea') && !el.querySelector('input, select, textarea').value ) || 
@@ -903,6 +909,26 @@ if (q('form.language')) {
     };
 
 }
+
+function toggleConditionalFieldset(e) {
+	
+	var el = e.target;
+	var fieldset = closest(el, '.condition').nextElementSibling;
+	var attribute = 'disabled';
+	
+	if (el.checked) {
+	
+		fieldset.removeAttribute(attribute);
+	
+	} else {
+		
+		fieldset.setAttribute(attribute, 'disabled');
+		
+	}
+	
+}
+
+/* Form validation – end */
 
 addClass(q('body'), touchSupport() ? 'touch' : 'no-touch');
 
@@ -1406,6 +1432,14 @@ function init() {
 	forEach('input[type=file]', function(el, i) {
 	
 	    el.onchange = updateFileInput;
+	
+	});
+	
+// 	Conditional form fieldsets
+
+	forEach('.checkbox.condition input', function(el, i) {
+		
+		el.onchange = toggleConditionalFieldset;
 	
 	});
 	
