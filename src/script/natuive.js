@@ -293,12 +293,6 @@ function ready(fn) {
 
 /* ––– */
 
-forEach('table', function(el) {
-
-	addClass(wrap(el).parentNode, 'table');
-
-});
-
 /* URI parameters */
 
 function updateURLParameter(url, param, paramVal) { // return input string with updated/added URL parameter
@@ -341,7 +335,7 @@ function getURLParameters() { // return all URL parameters in an array
 
 /* URI parameters relay. Omit links starting with "javascript", "mailto", skip parameters not listed in the array */
 
-var parameters_list = new Array('parameter1', 'parameter2');
+var parameters_list = new Array('parameter1', 'parameter2'); // To do: load this from an external JSON file. Such data has no place in the JS library.
 
 function relayParameters() {
 
@@ -511,7 +505,12 @@ function openFullWindow(el) {
 		addEventHandler(document, 'webkitfullscreenchange', function () {
 			
 			q('html').onkeyup = keyUpClose;
-		    q('.full-window-wrap .slider').focus();
+			var full_window_slider = q('.full-window-wrap .slider');
+			if (full_window_slider) {
+				
+				full_window_slider.focus();
+			
+			}
 			
 		});
 
@@ -547,7 +546,7 @@ function openFullWindow(el) {
 	
 }
 
-/* To improve: Open and close a modal window with a generated element, to fix iOS Safari crash on modal close */
+/* To do: improve: Open and close a modal window with a generated element, to fix iOS Safari crash on modal close */
 var temp_div = document.createElement('div');
 q('body').appendChild(temp_div);
 openFullWindow(temp_div);
@@ -601,7 +600,7 @@ function modalWindow(e) {
             openFullWindow(parsed);
 			transferClass(closest(el, '.modal'), q('.full-window-wrap'), 'limited');
 
-            relayParameters();
+            init(); // Initialise the modal's new JS content like slider, sortable table etc.
 
         } else {
             // Error
@@ -710,34 +709,6 @@ function openLightbox(e) {
 
 /*** Start ***/
 
-/* Relay URI parameters to links */
-
-relayParameters();
-
-/* Tooltip */
-
-forEach('.tool', function(el, i) {
-
-	if (touchSupport()) {
-
-		el.onclick = function (e) {
-
-			toggleClass(eventElement(e), 'open');
-			
-		};
-	
-	}
-
-    var t = el.querySelector('.tip');
-    if (!t) return;
-
-    el.style.position = 'static'; // dangerous with absolutely-positioned containers, which should be avoided anyway
-    el.parentNode.style.position = 'relative'; // dangerous with absolutely-positioned containers, which should be avoided anyway
-    t.style.top = (t.parentNode.offsetTop + t.parentNode.offsetHeight) + 'px';
-    t.style.width = '100%';
-
-});
-
 /* Add 'Back to top' button */
 
 q(q('footer > div > div') ? 'footer > div > div' : 'body').insertAdjacentHTML('beforeend', '<a class="backtotop" href="#"></a>');
@@ -819,82 +790,6 @@ function animateAnchors(e) {
     return false;
 
 }
-
-forEach('a[href^="#"]', function(el, i) {
-
-	if (el.onclick) { // Don't overwrite previous onclick event handler
-		
-		return;
-
-	}
-    el.onclick = animateAnchors;
-
-});
-
-/* Modal window: open a link inside it. */
-
-forEach('a.modal', function(el, i) {
-
-	if (el.href != (location.href.split('#')[0] + '#')) {
-		
-	    el.onclick = modalWindow;
-
-    }
-    
-    if (el.getAttribute && el.getAttribute('rel') === null) {
-	    
-	    el.setAttribute('rel', 'prefetch');
-
-    }
-
-});
-
-/* Also lightbox with images */
-
-forEach('.lightbox a', function(el, i) {
-
-	/* Abort on IE, because of IE bug on dynamic img.src change */
-	if (navigator.userAgent.indexOf('MSIE') != -1 || navigator.userAgent.indexOf('Trident') != -1) {
-		
-		el.target = '_blank';		
-		return;
-
-	}
-
-    el.onclick = openLightbox;
-
-});
-
-/* Auto textarea height */
-
-forEach('textarea', function(el) {
-
-    el.onkeyup = function(e) {
-
-        el = eventElement(e);
-
-        while (el.rows > 1 && el.scrollHeight < el.offsetHeight) {
-
-            el.rows--;
-
-        }
-
-        while (el.scrollHeight > el.offsetHeight) {
-
-            if (el.rows > 20) {
-
-                break;
-
-            }
-            el.rows++;
-
-        }
-
-        el.rows++;
-
-    };
-
-});
 
 /* Form validation */
 
@@ -991,12 +886,6 @@ function submitForm(e) {
 
 }
 
-forEach('form', function(el, i) {
-
-    el.onsubmit = el.onsubmit || submitForm;
-
-});
-
 function updateFileInput(e) {
 
     var el = eventElement(e);
@@ -1004,12 +893,6 @@ function updateFileInput(e) {
     el.parentNode.querySelector('span').innerHTML = el.value.substring(el.value.lastIndexOf('\\') + 1);
 
 }
-
-forEach('input[type=file]', function(el, i) {
-
-    el.onchange = updateFileInput;
-
-});
 
 if (q('form.language')) {
 
@@ -1165,38 +1048,6 @@ function sortTable (table, column, f) {
 
 }
 
-forEach('td[data-sort]', function (el) {
-	// asc or desc
-	if (el.getAttribute('data-sort') != 'asc' && el.getAttribute('data-sort') != 'desc') {
-		
-		el.setAttribute('data-sort', 'asc');
-		
-	}
-	
-	el.onclick = function (e) {
-		
-		stopEvent(e);
-		var el = eventElement(e);
-		var cell = el.type == 'td' ? el : closest(el, 'td');
-		var f; // Ascending
-		if (cell.getAttribute('data-sort') == 'desc') {
-			
-			f = -1;
-			cell.setAttribute('data-sort', 'asc');
-			
-		} else {
-			
-			f = 1;
-			cell.setAttribute('data-sort', 'desc');
-			
-		}
-
-		sortTable(closest(el, 'table'), thisIndex(cell), f);
-		
-	};
-
-});
-
 /* Polyfill to uncheck all radio buttons of a form with form owner attribute. Single set of radios currently, for drop-down menu. */
 if (q('input[type=reset][form]') && !q('input[type=reset][form]').form) {
 	
@@ -1234,42 +1085,6 @@ function notify(content, option) {
 	notifyCloseEvent();
 	
 }
-
-notifyCloseEvent();
-
-/* Automatically open a lightbox specified in the URI */
-
-ready( function () {
-
-	try { // Android Browser etc?
-	
-	    var test_event = new Event('t');
-	
-	} catch (err) {
-	
-	    addClass(q('html'), 'no_new_event_support');
-	
-	}
-
-	setTimeout( function () {
-		
-		try { /* No IE8 :target support */
-			
-			if (q('.lightbox:target')) {
-				
-				openLightbox(q('.lightbox:target > a[href]'));
-				
-			}
-		
-		} catch (err) {
-			
-			return;	
-		
-		}
-	
-	}, 1);
-
-});
 
 /* 
 	
@@ -1444,54 +1259,6 @@ function toggleAccordion(e) {
 
 }
 
-forEach('input.trigger, input[type=reset]', function(el, i) {
-	
-	el.onclick = function(e) {
-		
-		e.stopPropagation();
-
-	};
-
-});
-
-forEach('.fold > label', function(el, i) {
-
-    el.onclick = toggleAccordion;
-
-    el = el.parentNode;
-
-    if (el.querySelector('input.trigger')) { // Remove CSS-only triggers
-
-        el.querySelector('input.trigger').outerHTML = '';
-
-    }
-
-    if (!hasClass(el, 'mobile')) { // Keep the accordion content clickable
-	    
-	    el.querySelector('.content').onclick = function(e) {
-
-	        stopEvent(e);
-	
-	    };
-
-    }
-    
-});
-
-addEventHandler(q('body'), 'click', function (e) { // Close all Fold elements when clicking outside of them
-
-	if (!closest(eventElement(e), '.fold')) {
-		
-		forEach('.fold', function (el) {
-			
-			removeClass(el, 'open');
-			
-		});
-		
-	}
-	
-});
-
 /* Fold – end */
 
 // Clicking a button copies a target element's contents
@@ -1536,3 +1303,261 @@ if (q('.overthrow')) {
     loadScriptFile('overthrow.js');
 	
 }
+
+/* Initialise JS-powered elements */
+
+function init() {
+
+	notifyCloseEvent();
+	
+	/* Enhance sliders: create arrows/numbers navigation etc */
+	forEach('.slider', function(el) {
+	
+	    makeSlider(el);
+	
+	});
+	
+	forEach('input.trigger, input[type=reset]', function(el, i) {
+		
+		el.onclick = function(e) {
+			
+			e.stopPropagation();
+	
+		};
+	
+	});
+	
+	forEach('.fold > label', function(el, i) {
+	
+	    el.onclick = toggleAccordion;
+	
+	    el = el.parentNode;
+	
+	    if (el.querySelector('input.trigger')) { // Remove CSS-only triggers
+	
+	        el.querySelector('input.trigger').outerHTML = '';
+	
+	    }
+	
+	    if (!hasClass(el, 'mobile')) { // Keep the accordion content clickable
+		    
+		    el.querySelector('.content').onclick = function(e) {
+	
+		        stopEvent(e);
+		
+		    };
+	
+	    }
+	    
+	});
+	
+	addEventHandler(q('body'), 'click', function (e) { // Close all Fold elements when clicking outside of them
+	
+		if (!closest(eventElement(e), '.fold')) {
+			
+			forEach('.fold', function (el) {
+				
+				removeClass(el, 'open');
+				
+			});
+			
+		}
+		
+	});
+	
+	forEach('td[data-sort]', function (el) {
+		// asc or desc
+		if (el.getAttribute('data-sort') != 'asc' && el.getAttribute('data-sort') != 'desc') {
+			
+			el.setAttribute('data-sort', 'asc');
+			
+		}
+		
+		el.onclick = function (e) {
+			
+			stopEvent(e);
+			var el = eventElement(e);
+			var cell = el.type == 'td' ? el : closest(el, 'td');
+			var f; // Ascending
+			if (cell.getAttribute('data-sort') == 'desc') {
+				
+				f = -1;
+				cell.setAttribute('data-sort', 'asc');
+				
+			} else {
+				
+				f = 1;
+				cell.setAttribute('data-sort', 'desc');
+				
+			}
+	
+			sortTable(closest(el, 'table'), thisIndex(cell), f);
+			
+		};
+	
+	});
+	
+	forEach('form', function(el, i) {
+	
+	    el.onsubmit = el.onsubmit || submitForm;
+	
+	});
+	
+	forEach('input[type=file]', function(el, i) {
+	
+	    el.onchange = updateFileInput;
+	
+	});
+	
+	/* Auto textarea height */
+	
+	forEach('textarea', function(el) {
+	
+	    el.onkeyup = function(e) {
+	
+	        el = eventElement(e);
+	
+	        while (el.rows > 1 && el.scrollHeight < el.offsetHeight) {
+	
+	            el.rows--;
+	
+	        }
+	
+	        while (el.scrollHeight > el.offsetHeight) {
+	
+	            if (el.rows > 20) {
+	
+	                break;
+	
+	            }
+	            el.rows++;
+	
+	        }
+	
+	        el.rows++;
+	
+	    };
+	
+	});
+	
+	forEach('a[href^="#"]', function(el, i) {
+	
+		if (el.onclick) { // Don't overwrite previous onclick event handler
+			
+			return;
+	
+		}
+	    el.onclick = animateAnchors;
+	
+	});
+	
+	/* Modal window: open a link inside it. */
+	
+	forEach('a.modal', function(el, i) {
+	
+		if (el.href != (location.href.split('#')[0] + '#')) {
+			
+		    el.onclick = modalWindow;
+	
+	    }
+	    
+	    if (el.getAttribute && el.getAttribute('rel') === null) {
+		    
+		    el.setAttribute('rel', 'prefetch');
+	
+	    }
+	
+	});
+	
+	/* Also lightbox with images */
+	
+	forEach('.lightbox a', function(el, i) {
+	
+		/* Abort on IE, because of IE bug on dynamic img.src change */
+		if (navigator.userAgent.indexOf('MSIE') != -1 || navigator.userAgent.indexOf('Trident') != -1) {
+			
+			el.target = '_blank';		
+			return;
+	
+		}
+	
+	    el.onclick = openLightbox;
+	
+	});
+	
+	/* Relay URI parameters to links */
+	
+	relayParameters();
+	
+	/* Tooltip */
+	
+	forEach('.tool', function(el, i) {
+	
+		if (touchSupport()) {
+	
+			el.onclick = function (e) {
+	
+				toggleClass(eventElement(e), 'open');
+				
+			};
+		
+		}
+	
+	    var t = el.querySelector('.tip');
+	    if (!t) return;
+	
+	    el.style.position = 'static'; // dangerous with absolutely-positioned containers, which should be avoided anyway
+	    el.parentNode.style.position = 'relative'; // dangerous with absolutely-positioned containers, which should be avoided anyway
+	    t.style.top = (t.parentNode.offsetTop + t.parentNode.offsetHeight) + 'px';
+	    t.style.width = '100%';
+	
+	});
+	
+	forEach('table', function(el) {
+	
+		if (!hasClass(el.parentNode, 'table')) {
+			
+			addClass(wrap(el).parentNode, 'table');
+		
+		}
+	
+	});
+
+}
+
+ready( function () {
+
+	try { // Android Browser etc?
+	
+	    var test_event = new Event('t');
+	
+	} catch (err) {
+	
+	    addClass(q('html'), 'no_new_event_support');
+	
+	}
+	
+	init();
+
+	/* Automatically open a lightbox specified in the URI */
+
+	setTimeout( function () {
+		
+		try { /* No IE8 :target support */
+			
+			if (q('.lightbox:target')) {
+				
+				openLightbox(q('.lightbox:target > a[href]'));
+				
+			}
+		
+		} catch (err) {
+			
+			return;	
+		
+		}
+	
+	}, 1);
+
+});
+

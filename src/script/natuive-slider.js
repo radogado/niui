@@ -436,12 +436,12 @@ function sliderKeyboard(e) {
 
 function makeSlider(el, current_slide) {
 
-	if (!el.addEventListener) { // IE8
+	if (!el.addEventListener || hasClass(el.parentNode, 'slider-wrap')) { // IE8 or already created
 		
 		return;
 		
 	}
-
+	
     addClass(el, 'slider');
 
 	if (hasClass(el, 'full-window')) {
@@ -591,13 +591,3 @@ function makeSlider(el, current_slide) {
     return el;
 
 }
-
-/* Start */
-
-/* Initialise JS extras: create arrows/numbers navigation */
-forEach('.slider', function(el) {
-
-    makeSlider(el);
-
-});
-
