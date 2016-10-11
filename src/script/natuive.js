@@ -1006,9 +1006,24 @@ function isInViewport(el) { // Thanks http://gomakethings.com/ditching-jquery/
 
 }
 
-function closest(el, selector) { // Thanks http://gomakethings.com/ditching-jquery/ // To do: IE polyfill
+/* Element.matches(selector) polyfill for Android Browser, IE8 */
 
-//     var firstChar = selector.charAt(0);
+if (!Element.prototype.matches) {
+    Element.prototype.matches = 
+        Element.prototype.matchesSelector || 
+        Element.prototype.mozMatchesSelector ||
+        Element.prototype.msMatchesSelector || 
+        Element.prototype.oMatchesSelector || 
+        Element.prototype.webkitMatchesSelector ||
+        function(s) {
+            var matches = (this.document || this.ownerDocument).querySelectorAll(s),
+                i = matches.length;
+            while (--i >= 0 && matches.item(i) !== this) {}
+            return i > -1;            
+        };
+}
+
+function closest(el, selector) { // Thanks http://gomakethings.com/ditching-jquery/ // To do: IE polyfill
 
     for ( ; el && el !== document; el = el.parentNode ) {
 
@@ -1572,7 +1587,7 @@ ready( function () {
 	}
 	
 	init();
-
+	
 	/* Automatically open a lightbox specified in the URI */
 
 	setTimeout( function () {
