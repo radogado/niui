@@ -19,7 +19,7 @@ natUIve: mostly native front-end framework
 - Lightbox gallery supporting huge galleries* and click to zoom. Can be opened automatically by URI page#lightbox_id. Video in lightbox.
 - Tooltips with full HTML content*
 - Nested ordered lists*
-- Forms with validation, dynamic submission without page reload, full customisation and accessibility, including native file drop. Range input with blank style. Auto-expanding textarea*
+- Forms with validation, dynamic submission without page reload, full customisation and accessibility, including native file drop. Range input with blank style. Auto-expanding textarea*. Optional fieldsets.
 - Native sliders*, swipeable on mobile and desktop, with numbered or thumbnail (tabs) navigation, vertical and full window options, slider inside slider, fade in/out option, auto height option
 - Accordions
 - Tabs
@@ -39,9 +39,11 @@ natUIve: mostly native front-end framework
 - URI parameters relay to links*
 - Arabic layout ready*
 - Masonry CSS-only*
-- CSS-only parallax scrolling* and fixed background option
+- CSS-only parallax scrolling* 
+- Fixed background option
 - WordPress theme*
 - Notificaton bar
+- Click to copy to clipboard
 - Functional without JS and accessible without CSS*
 - 6 KB CSS + optional 6 KB JS (combined, minified, macOS gzip)
 - ~~No IE conditional operators~~ HTML5 elements also for IE8 with html5shiv
@@ -54,6 +56,19 @@ natUIve: mostly native front-end framework
 \* exclusive features, missing in popular frameworks
 
 © 2014-2016 [rado.bg](http://rado.bg)
+
+–––
+
+natUIve 1.7
+
+- Video in lightbox
+- **.fold** replaces **.accordion** for universal use
+- **copyButton()** makes a button copy content to clipboard
+- Limited size modal window
+- IE8 fallback for Flex grid
+- Lightbox auto-opening at slide number or image name, depending on URI
+- **init()** initializes new dynamic content
+- Optional form fieldsets
 
 –––
 
