@@ -408,3 +408,27 @@ header nav a[href] {
 	content: ' →';
 
 }
+
+.shadow div {
+
+	box-shadow: 0 15px 35px rgba(50, 50, 93, .1), 0 5px 15px rgba(0, 0, 0, .07);
+	border-radius: 4px;
+	padding: 1.25em 2em .25em 6em;
+	overflow: hidden;
+    position: relative;
+
+}
+
+.shadow div svg {
+	
+    position: absolute;
+    width: 7em;
+    left: -2em;
+	    
+}
+
+.shadow.left div {
+	
+// 	margin-left: -3em;
+	
+}
