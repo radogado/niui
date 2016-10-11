@@ -395,6 +395,7 @@ function sliderKeyboard(e) {
 
 	function shouldNotSlideVertically() {
 		
+		if (q('.full-window-wrap')) { return false; }
 		return !hasClass(el,'vertical') || window.innerHeight < q('body').scrollHeight;
 		
 	}

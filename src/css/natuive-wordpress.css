@@ -3166,6 +3166,12 @@ article {
 .rsswidget img {
   display: none; }
 
+footer {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column; }
+
 @media screen and (max-width: 640px) {
   .lightbox.gallery {
     text-align: center; } }

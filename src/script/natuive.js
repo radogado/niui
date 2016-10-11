@@ -455,6 +455,11 @@ function closeFullWindow() {
 		removeEventHandler(window, 'keydown', arrow_keys_handler);
 // 		document.body.removeEventListener('keyup', keyUpClose);
 		removeEventHandler(q('body'), 'keyup', keyUpClose);
+		if (!q('.slider')) { // No sliders on the page to control with arrow keys
+		
+			document.onkeyup = function () {};
+			
+		}
 		
     }
     
