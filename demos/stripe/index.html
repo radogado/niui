@@ -61,7 +61,14 @@
 	
 					<div>
 						
-						<nav class='drop' id=drop-nav>
+						<div class="fold mobile">
+						
+						<label class=trigger> <span class="burger"></span> </label>
+						<input type=checkbox class=trigger>
+						
+						<div class="content">
+						
+							<nav class='drop' id=drop-nav>
 									
 							<form id="level1"> </form>
 									
@@ -148,6 +155,10 @@
 							</ul>
 						
 						</nav>
+						
+						</div>
+						
+						</div>
 	
 					</div>
 	
@@ -212,9 +223,9 @@
 
 	<!-- Content - Start -->
 	
-	<main id=content class="contain">
+	<main id=content>
 		
-		<div class="row no-spacing">
+		<div class="row no-spacing contain">
 			
 			<div class="col2 align-right">
 				
@@ -255,30 +266,42 @@
 		
 		</div>
 		
-		<div class="row">
+		<div style="position: relative;">
+		
+			<span style="content: '';
+position: absolute;
+z-index: -1;
+width: 100%;
+height: 140%;
+top: 0;
+-webkit-transform: skewY(-12deg);
+transform: skewY(-12deg);
+background: #f6f9fc"></span>
 			
-			<div class="col1 align-center">
-				
-				<div>
-				
-<svg class="heading-icon" style="width: 66px;
-    height: 66px;">
-          <circle fill="#B9F4BC" cx="33" cy="33" r="33"></circle>
-          <path d="M38.4 15l1-3h1l1.2 3c.2.2.5.2.7.3l2.2-2.5 1 .4-.2 3.3c.2 0 .3.2.5.4l3-1.5.7.7-1.4 3 .5.5h3.3l.4.8-2.5 2.2c0 .2 0 .5.2.7l3 1v1l-3 1.2-.3.8 2.5 2-.4 1-3.3-.2-.4.7 1.5 2.8-.7.7-3-1.4c0 .2-.4.4-.6.5l.2 3.3-1 .4-2-2.5c-.3 0-.6 0-1 .2l-1 3h-1l-1-3c-.2-.2-.5-.2-.8-.3l-2 2.5-1-.4.2-3.3-.7-.4-2.8 1.5-.7-.7 1.4-3c-.2 0-.4-.4-.5-.6l-3.3.2-.4-1 2.5-2c0-.3 0-.6-.2-1l-3-1v-1l3-1c.2-.2.2-.4.3-.7l-2.5-2.2.4-1 3.3.2c0-.2.2-.3.4-.5l-1.5-3 .7-.7 3 1.4.5-.5v-3.3l.8-.4 2.2 2.5s.5 0 .7-.2z" fill="#6ED69A" transform="rotate(244.48356000000422 40 25)"></path>
-          <circle fill="#B9F4BC" cx="40" cy="25" r="2"></circle>
-          <path d="M21.6 26.8L19 25l-1.3 1 1.4 3c0 .2-.3.4-.5.6l-3-.8-1 1.4 2.4 2.3-.4.8-3.2.3-.3 1.6 3 1.4v.8l-3 1.4.4 1.6 3.2.3c0 .3.2.5.3.8l-2.4 2.3.8 1.4 3-.8.7.6-1.3 3 1.3 1 2.6-1.8c.3 0 .5.3.8.4l-.3 3.2 1.6.6 2-2.7c.2 0 .5 0 .7.2l1 3h1.5l1-3c0-.2.4-.2.7-.3l2 2.7 1.4-.6-.4-3.2c.3 0 .5-.3.8-.4L37 49l1.3-1-1.4-3c0-.2.3-.4.5-.6l3 .8 1-1.4-2.4-2.3.4-.8 3.2-.3.3-1.6-3-1.4v-.8l3-1.4-.4-1.6-3.2-.3c0-.3-.2-.5-.3-.8l2.4-2.3-.8-1.4-3 .8-.7-.6 1.3-3-1.3-1-2.6 1.8c-.3 0-.5-.3-.8-.4l.3-3.2-1.6-.6-2 2.7c-.2 0-.5 0-.7-.2l-1-3h-1.5l-1 3c0 .2-.4.2-.7.3l-2-2.7-1.4.6.4 3.2c-.3 0-.5.3-.8.4z" fill="#1BB978" transform="rotate(-244.48356000000422 28 37)"></path>
-          <circle fill="#B9F4BC" cx="28" cy="37" r="3"></circle>
-        </svg>
-        
-					<h2>Developers First</h2>
+			<div class="row contain">
+	
+				<div class="col1 align-center">
 					
-					<p>We believe that payments is a problem rooted in code, not finance. We obsessively seek out elegant, composable abstractions that enable robust, scalable, flexible integrations. Because we eliminate needless complexity and extraneous details, you can get up and running with Stripe in just a couple of minutes.</p>
+					<div>
 					
-					<div class="slider tabs right vertical">
+	<svg class="heading-icon" style="width: 66px;
+	    height: 66px;">
+	          <circle fill="#B9F4BC" cx="33" cy="33" r="33"></circle>
+	          <path d="M38.4 15l1-3h1l1.2 3c.2.2.5.2.7.3l2.2-2.5 1 .4-.2 3.3c.2 0 .3.2.5.4l3-1.5.7.7-1.4 3 .5.5h3.3l.4.8-2.5 2.2c0 .2 0 .5.2.7l3 1v1l-3 1.2-.3.8 2.5 2-.4 1-3.3-.2-.4.7 1.5 2.8-.7.7-3-1.4c0 .2-.4.4-.6.5l.2 3.3-1 .4-2-2.5c-.3 0-.6 0-1 .2l-1 3h-1l-1-3c-.2-.2-.5-.2-.8-.3l-2 2.5-1-.4.2-3.3-.7-.4-2.8 1.5-.7-.7 1.4-3c-.2 0-.4-.4-.5-.6l-3.3.2-.4-1 2.5-2c0-.3 0-.6-.2-1l-3-1v-1l3-1c.2-.2.2-.4.3-.7l-2.5-2.2.4-1 3.3.2c0-.2.2-.3.4-.5l-1.5-3 .7-.7 3 1.4.5-.5v-3.3l.8-.4 2.2 2.5s.5 0 .7-.2z" fill="#6ED69A" transform="rotate(244.48356000000422 40 25)"></path>
+	          <circle fill="#B9F4BC" cx="40" cy="25" r="2"></circle>
+	          <path d="M21.6 26.8L19 25l-1.3 1 1.4 3c0 .2-.3.4-.5.6l-3-.8-1 1.4 2.4 2.3-.4.8-3.2.3-.3 1.6 3 1.4v.8l-3 1.4.4 1.6 3.2.3c0 .3.2.5.3.8l-2.4 2.3.8 1.4 3-.8.7.6-1.3 3 1.3 1 2.6-1.8c.3 0 .5.3.8.4l-.3 3.2 1.6.6 2-2.7c.2 0 .5 0 .7.2l1 3h1.5l1-3c0-.2.4-.2.7-.3l2 2.7 1.4-.6-.4-3.2c.3 0 .5-.3.8-.4L37 49l1.3-1-1.4-3c0-.2.3-.4.5-.6l3 .8 1-1.4-2.4-2.3.4-.8 3.2-.3.3-1.6-3-1.4v-.8l3-1.4-.4-1.6-3.2-.3c0-.3-.2-.5-.3-.8l2.4-2.3-.8-1.4-3 .8-.7-.6 1.3-3-1.3-1-2.6 1.8c-.3 0-.5-.3-.8-.4l.3-3.2-1.6-.6-2 2.7c-.2 0-.5 0-.7-.2l-1-3h-1.5l-1 3c0 .2-.4.2-.7.3l-2-2.7-1.4.6.4 3.2c-.3 0-.5.3-.8.4z" fill="#1BB978" transform="rotate(-244.48356000000422 28 37)"></path>
+	          <circle fill="#B9F4BC" cx="28" cy="37" r="3"></circle>
+	        </svg>
+	        
+						<h2>Developers First</h2>
 						
-						<div data-title=Payments>
+						<p style="    padding: 0 15%;">We believe that payments is a problem rooted in code, not finance. We obsessively seek out elegant, composable abstractions that enable robust, scalable, flexible integrations. Because we eliminate needless complexity and extraneous details, you can get up and running with Stripe in just a couple of minutes.</p>
+						
+						<div class="slider tabs right vertical" data-duration=.2>
 							
-							<pre>
+							<div data-tab-title=Payments>
+								<div>
+								<pre>
 const stripe = require('stripe')('sk_test_BQokikJOvBiI2HlWgH4olfQ2');
 
 // Create your first payment from a test card.
@@ -291,14 +314,13 @@ const charge = await stripe.charges.create({
     exp_month: 12,
     exp_year: 2018
   }
-});
-						</pre>
-						
-						</div>
-			
-						<div data-title=Customers>
-							
-							<pre>
+});</pre>
+								</div>
+							</div>
+				
+							<div data-tab-title=Customers>
+								<div>
+								<pre>
 const stripe = require('stripe')('sk_test_BQokikJOvBiI2HlWgH4olfQ2');
 
 // Save customer details and payment information.
@@ -316,20 +338,68 @@ let charge = await stripe.charges.create({
 
 charge = await stripe.charges.refund(charge.id, {
   amount: 1000
-});
-							
-							</pre>
+});</pre>
+								</div>
+							</div>
 						
+							<div data-tab-title=Subscriptions>
+								<div>
+								<pre>
+const stripe = require('stripe')('sk_test_BQokikJOvBiI2HlWgH4olfQ2');
+
+// Create a monthly plan.
+const plan = await stripe.plans.create({
+  amount: 999,
+  currency: 'usd',
+  interval: 'month',
+  name: 'Sapphire Complete',
+  id: 'sapphire-complete-957'
+});
+
+// Subscribe the customer to the plan while applying a coupon.
+const subscription = await stripe.subscriptions.create({
+  customer: customer.id,
+  plan: plan.id,
+  coupon: '25OFF'
+});</pre>
+								</div>
+							</div>
+				
+							<div data-tab-title=Reporting>
+								<div>
+								<pre>
+const stripe = require('stripe')('sk_test_BQokikJOvBiI2HlWgH4olfQ2');
+const moment = require('moment');
+
+// Fetch the latest transactions from the Stripe account.
+const transactions = (await stripe.balance.listTransactions({limit: 75})).data;
+
+// Check what was the most recent transaction.
+const latestTime = moment(transactions[0].created * 1000).fromNow();
+console.log(`Latest transaction: ${transactions[0].type}, ${latestTime}`);
+
+// Plot the evolution of the Stripe balance in USD over the latest transactions.
+let balance = 0;
+const balancePlot = transactions.map(txn => balance += txn.amount / 100);</pre>
+								</div>
+							</div>
+				
 						</div>
-					
+						<br>
+						<a href=#>Full API Reference</a>
+						<br>
 					</div>
-					
-					<a href=#>Full API Reference</a>
 				
 				</div>
 			
 			</div>
-			
+		
+		</div>
+		
+		<div style="background: #fff">	
+		
+			<div class="row contain">
+
 			<div class="col2">
 				
 				<div>
@@ -374,60 +444,93 @@ charge = await stripe.charges.refund(charge.id, {
 		
 		</div>
 		
-		<div class="row" style="    margin-left: -3em;    width: calc(100% + 6em);">
+		</div>
 		
-			<div class="col2 shadow left">
-				
-				<div>
-					
-					<svg viewBox="0 0 130 130">
-  <path class="hover-strokeDark" stroke="#159570" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M113.278 13.722c4.296 4.295 4.296 11.26 0 15.556-4.296 4.296-11.26 4.296-15.556 0"></path>
-  <path class="hover-fillDark" fill="#159570" d="M111.55 109.037l-34.778-.014a7.46 7.46 0 0 1-7.457-7.455l-.023-59.62a7.41 7.41 0 0 1 1.118-3.916c.02-.03.038-.064.06-.095a7.463 7.463 0 0 1 1.71-1.873l15.98-15.96c3.34-3.34 8.61-3.482 11.772-.32l17.242 17.26c.94.94 1.48 2.124 1.63 3.348a7.43 7.43 0 0 1 .172 1.575l.023 59.62a7.445 7.445 0 0 1-7.45 7.45zm-17.44-84.7a9.45 9.45 0 0 0-9.45 9.45 9.448 9.448 0 0 0 18.898-.004c0-5.218-4.23-9.448-9.447-9.447z"></path>
-  <path class="hover-fillLight" fill="#74E4A2" d="M111.986 57.216c0 1.684-.578 3.23-1.54 4.464a9.473 9.473 0 0 1-1.26 1.567l-53.437 53.48a9.442 9.442 0 0 1-13.36 0L11.217 85.53c-3.688-3.692-3.688-9.678 0-13.37l53.438-53.48a9.39 9.39 0 0 1 4.51-2.508c.048-.01.094-.024.14-.034a9.48 9.48 0 0 1 3.216-.144l28.637.018c5.986 0 10.84 4.597 10.84 10.268l-.015 30.936zM99.4 28.583a6.673 6.673 0 0 0-9.445 0 6.69 6.69 0 0 0 0 9.453 6.676 6.676 0 0 0 9.446 0 6.69 6.69 0 0 0 0-9.453z"></path>
-  <path stroke="#FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M34.103 75.93l33.28-33.28M42.95 84.308l37.98-37.98M51.8 93.156l28.577-28.58"></path>
-  <path class="hover-strokeDark" stroke="#159570" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M97.722 29.278c-4.296-4.295-4.296-11.26 0-15.556 4.296-4.296 11.26-4.296 15.556 0"></path>
-</svg>
+		<div style="background: #fff; position: relative;">	
 
-					<h2>See our pricing</h2>
-					
-					<p>No setup fees, monthly fees, or hidden fees. With our predictable and transparent pricing, you’ll always know what you’ll pay.</p>
-					
-					<a href=# class="span-relative-parent"></a>
+			<span style="content: '';
+position: absolute;
+left: 0;
+right: 0;
+top: 150px;
+height: 2000px;
+background: #f6f9fc;
+-webkit-transform: skew(0, -12deg);
+transform: skew(0, -12deg);"></span>
+
+			<div class="contain">
 				
-				</div>
+<ul style="text-align: center;">
+      <li><img class="kickstarter" alt="kickstarter" src="kickstarter2.svg">
+      </li><li><img class="twitter" alt="twitter" src="twitter.svg">
+      </li><li><img class="instacart" alt="instacart" src="instacart.svg">
+      </li><li><img class="pinterest" alt="pinterest" src="pinterest.svg">
+      </li><li><img class="lyft" alt="lyft" src="lyft2.svg">
+      </li><li><img class="shopify" alt="shopify" src="shopify2.svg">
+      </li><li><img class="opentable" alt="opentable" src="opentable2.svg">
+      </li><li><img class="slack" alt="slack" src="slack2.svg"></li>
+</ul>				
+				
+				<div class="row" style="    margin-left: -3em;    width: calc(100% + 6em);">
 			
-			</div>
+					<div class="col2 shadow left">
+						
+						<div>
+							
+							<svg viewBox="0 0 130 130">
+		  <path class="hover-strokeDark" stroke="#159570" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M113.278 13.722c4.296 4.295 4.296 11.26 0 15.556-4.296 4.296-11.26 4.296-15.556 0"></path>
+		  <path class="hover-fillDark" fill="#159570" d="M111.55 109.037l-34.778-.014a7.46 7.46 0 0 1-7.457-7.455l-.023-59.62a7.41 7.41 0 0 1 1.118-3.916c.02-.03.038-.064.06-.095a7.463 7.463 0 0 1 1.71-1.873l15.98-15.96c3.34-3.34 8.61-3.482 11.772-.32l17.242 17.26c.94.94 1.48 2.124 1.63 3.348a7.43 7.43 0 0 1 .172 1.575l.023 59.62a7.445 7.445 0 0 1-7.45 7.45zm-17.44-84.7a9.45 9.45 0 0 0-9.45 9.45 9.448 9.448 0 0 0 18.898-.004c0-5.218-4.23-9.448-9.447-9.447z"></path>
+		  <path class="hover-fillLight" fill="#74E4A2" d="M111.986 57.216c0 1.684-.578 3.23-1.54 4.464a9.473 9.473 0 0 1-1.26 1.567l-53.437 53.48a9.442 9.442 0 0 1-13.36 0L11.217 85.53c-3.688-3.692-3.688-9.678 0-13.37l53.438-53.48a9.39 9.39 0 0 1 4.51-2.508c.048-.01.094-.024.14-.034a9.48 9.48 0 0 1 3.216-.144l28.637.018c5.986 0 10.84 4.597 10.84 10.268l-.015 30.936zM99.4 28.583a6.673 6.673 0 0 0-9.445 0 6.69 6.69 0 0 0 0 9.453 6.676 6.676 0 0 0 9.446 0 6.69 6.69 0 0 0 0-9.453z"></path>
+		  <path stroke="#FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M34.103 75.93l33.28-33.28M42.95 84.308l37.98-37.98M51.8 93.156l28.577-28.58"></path>
+		  <path class="hover-strokeDark" stroke="#159570" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M97.722 29.278c-4.296-4.295-4.296-11.26 0-15.556 4.296-4.296 11.26-4.296 15.556 0"></path>
+		</svg>
+		
+							<h2>See our pricing</h2>
+							
+							<p>No setup fees, monthly fees, or hidden fees. With our predictable and transparent pricing, you’ll always know what you’ll pay.</p>
+							
+							<a href=# class="span-relative-parent"></a>
+						
+						</div>
+					
+					</div>
+					
+					<div class="col2 purple shadow">
+		
+						<div>
+							
+		<svg viewBox="0 0 130 130">
+		  <path class="hover-fillDark" fill="#9251AC" d="M113 112H61.36c-2.224 0-4.466-1.574-5.27-3.277C54.005 104.313 46.457 102 37 102H5a5 5 0 0 1-5-5V25a5 5 0 0 1 5-5h33c11.045 0 20 4.477 20 10v37h60v40a5 5 0 0 1-5 5z"></path>
+		  <path class="hover-fillLight" fill="#F6A4EB" d="M121.993 93c0 6-12.363 10.997-27.384 10.997h-3.464v.01h-23.61c-1.823 0-5.27.637-6.82 1.627-.59.377-1.285.544-1.893.195a1.632 1.632 0 0 1-.817-1.416l.003-74.91c0-4.14 4.815-7.5 10.755-7.5h10.51c.075-.002.148-.008.224-.008h13.17c8.922 0 20.682-2.238 25.62-5.573 1.587-1.072 3.702-.09 3.702 1.82 0 0 .007 67.756 0 74.756z"></path>
+		  <path stroke="#FFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M80.5 86.5h26m-26-10h26m-26-17h26m-26-10h26m-26-10h26"></path>
+		  <path stroke="#FFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M68.992 78.007l3.516 3.494-3.516 3.496m0-43.99l3.516 3.495-3.516 3.496"></path>
+		</svg>
+		
+							<h2>Explore the docs</h2>
+							
+							<p>Start building your integration and accept your first payment in minutes. Stripe libraries are available in every language from Ruby to Go.</p>
+							
+							<a href=# class="span-relative-parent"></a>
+						
+						</div>
+		
+					</div>
 			
-			<div class="col2 purple shadow">
-
-				<div>
-					
-<svg viewBox="0 0 130 130">
-  <path class="hover-fillDark" fill="#9251AC" d="M113 112H61.36c-2.224 0-4.466-1.574-5.27-3.277C54.005 104.313 46.457 102 37 102H5a5 5 0 0 1-5-5V25a5 5 0 0 1 5-5h33c11.045 0 20 4.477 20 10v37h60v40a5 5 0 0 1-5 5z"></path>
-  <path class="hover-fillLight" fill="#F6A4EB" d="M121.993 93c0 6-12.363 10.997-27.384 10.997h-3.464v.01h-23.61c-1.823 0-5.27.637-6.82 1.627-.59.377-1.285.544-1.893.195a1.632 1.632 0 0 1-.817-1.416l.003-74.91c0-4.14 4.815-7.5 10.755-7.5h10.51c.075-.002.148-.008.224-.008h13.17c8.922 0 20.682-2.238 25.62-5.573 1.587-1.072 3.702-.09 3.702 1.82 0 0 .007 67.756 0 74.756z"></path>
-  <path stroke="#FFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M80.5 86.5h26m-26-10h26m-26-17h26m-26-10h26m-26-10h26"></path>
-  <path stroke="#FFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M68.992 78.007l3.516 3.494-3.516 3.496m0-43.99l3.516 3.495-3.516 3.496"></path>
-</svg>
-
-					<h2>Explore the docs</h2>
-					
-					<p>Start building your integration and accept your first payment in minutes. Stripe libraries are available in every language from Ruby to Go.</p>
-					
-					<a href=# class="span-relative-parent"></a>
-				
 				</div>
-
+				
 			</div>
 		
 		</div>
 		
-		<div class="row">
+		<div style="position: relative; ">
+		
+			<div class="row globalFooterCTA contain">
 		
 			<div class="col2">
 				
 				<div>
 					
-					<h3>Ready to get started?</h2>
+					<h3>Ready to get started?</h3>
 					
 					<h3>Get in touch, or create an account.</h3>
 				
@@ -446,18 +549,22 @@ charge = await stripe.charges.refund(charge.id, {
 			</div>
 		
 		</div>
+		
+		</div>
 
 	</main>
 	
 	<!-- Content - End -->
 	
-	<hr>
-	
 	<!-- Footer - Start -->
 	
-	<footer class="contain">
+	<div style="">	
+
+		<hr>
+	
+		<footer class="contain">
 		
-		<div class="row">
+			<div class="row">
 			
 			<div class="col3">
 				
@@ -555,7 +662,9 @@ charge = await stripe.charges.refund(charge.id, {
 		
 		</div>
 
-	</footer>
+		</footer>
+	
+	</div>
 
 	<!-- Footer - End -->
 

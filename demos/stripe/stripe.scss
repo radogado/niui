@@ -63,7 +63,7 @@ main {
 
 .slider > * {
 	
-	padding: 0 1em;
+	padding: 0 1em 0 4px;
 
 }
 
@@ -77,7 +77,14 @@ a[href].button {
 	font-weight: bold;
 	color: #7795f8;
 	font-size: .9em;
+    margin: .5em;
 	
+}
+
+a.button+a.button {
+	
+	margin: 0;
+
 }
 
 a[href].button:first-child {
@@ -421,7 +428,8 @@ header nav a[href] {
 	border-radius: 4px;
 	padding: 1.25em 2em .25em 6em;
 	overflow: hidden;
-    position: relative;
+    position: relative;    background: #fff;
+    
 
 }
 
@@ -438,3 +446,156 @@ header nav a[href] {
 // 	margin-left: -3em;
 	
 }
+
+.slider-wrap.vertical.tabs>.slider-nav a {
+	
+	background: none;
+    color: #6772e5;
+    padding: .5em 1em;
+    	
+}
+
+.slider-wrap.vertical.tabs>.slider-nav a.active {
+	
+	background: #fff;
+    color: #24b47e;
+	box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+	
+}
+
+.slider-wrap.vertical.tabs>.slider-nav.row {
+	
+	width: 20%;
+	
+}
+
+.slider-wrap.vertical.tabs>.slider {
+	
+	width: 80%;
+	
+}
+
+.slider > * > div {
+	
+    box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+    padding: .5em 1em;
+    margin: 0 0 .5em 0;
+    background: #fff;
+	    
+}
+
+.slider-wrap.vertical.tabs.right>.slider-nav.row {
+	
+	padding: 1em 0;
+	
+}
+
+.globalFooterCTA h3 {
+	
+	text-transform: none;
+	color: #32325d;
+	font-size: 30px;
+	line-height: 1;
+	
+}
+
+.globalFooterCTA h3:first-child {
+	
+	color: #6772e5;
+	
+}
+
+.globalFooterCTA a[href].button:after {
+	
+	display: none;
+
+}
+
+footer {
+	
+	font-size: .8em;
+
+}
+
+footer h5 {
+	
+	text-transform: uppercase;
+	font-size: inherit;
+	
+}
+
+article {
+	
+	position: relative;
+// 	background: #fff;
+	
+}
+
+main .row {
+	
+	padding: 3em 0;
+	
+}
+
+a.backtotop[href] {
+	
+	background: #6772e5;
+	
+}
+
+main ul img {
+	
+	height: 1.5em;
+	display: inline-block;
+	margin: 0 1em;
+	
+}
+
+main ul {
+	
+	margin: 0;
+	
+}
+
+.no-touch nav.drop ul ul li, .no-touch nav.drop ul ul li:first-child, nav.drop ul li a {
+	
+	text-align: left;
+		
+}
+
+@media screen and (max-width: 640px) {
+	
+	header.fixed, header.fixed .fold.mobile .content {
+		
+		background: #000;
+		
+	}
+	
+	header nav ul li {
+		
+		display: inline-block;
+		
+	}
+	
+	.banner {
+		
+		padding-top: 3em;
+		
+	}
+	
+	header.fixed a.logo {
+		
+		display: block;
+		text-align: right;
+		
+	}
+	
+	.row>*>.unpad, .unpad {
+		
+		padding: 0;
+		margin: 0;
+		
+	}
+
+}
+
