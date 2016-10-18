@@ -3104,7 +3104,7 @@ button.search-submit {
 }
 */
 .lightbox a {
-  flex-grow: 1; }
+  margin: .75em .66em; }
 
 #full-window .slider-arrow {
   top: 49%; }
