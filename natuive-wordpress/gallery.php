@@ -196,8 +196,31 @@ final class Cleaner_Gallery {
 		$gallery_attr .= sprintf( " class='lightbox full-screen gallery gallery-%s gallery-columns-%s gallery-size-%s'", esc_attr( $this->args['id'] ), esc_attr( $this->args['columns'] ), sanitize_html_class( $this->args['size'] ) );
 		$gallery_attr .= sprintf( " itemscope itemtype='%s'", esc_attr( $this->get_gallery_itemtype() ) );
 
+$script = "
+<script> // If the featured image is also in a lightbox, open it on click
+	
+	var thumbnail = document.querySelector('.attachment-post-thumbnail');
+
+	if (thumbnail) {
+
+		var target_lightbox_image = document.querySelector('.lightbox [href*=\"' + thumbnail.src.split('/').pop() + '\"]');
+		if (target_lightbox_image) {
+	
+			thumbnail.onclick = function () { 
+				
+				document.querySelector('[href*=\"' + this.src.split('/').pop() + '\"]').click(); 
+		
+			};
+			thumbnail.style.cursor = 'pointer';
+	
+		}
+
+	}
+
+</script>";
+
 		/* Return out very nice, valid HTML gallery. */
-		return "\n\t\t\t" . sprintf( '<div %s>', $gallery_attr ) . $output . "\n\t\t\t</div><!-- .gallery -->\n";
+		return "\n\t\t\t" . sprintf( '<div %s>', $gallery_attr ) . $output . "\n\t\t\t</div><!-- .gallery -->\n" . $script;
 	}
 
 	/**

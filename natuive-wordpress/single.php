@@ -69,28 +69,6 @@
 	<!-- /section -->
 	</main>
 
-<script> // If the featured image is also in a lightbox, open it on click
-	
-	var thumbnail = document.querySelector('.attachment-post-thumbnail');
-
-	if (thumbnail) {
-
-		var target_lightbox_image = document.querySelector('.lightbox [href*="' + thumbnail.src.split('/').pop() + '"]');
-		if (target_lightbox_image) {
-	
-			thumbnail.onclick = function () { 
-				
-				document.querySelector('[href*="' + this.src.split('/').pop() + '"]').click(); 
-		
-			};
-			thumbnail.style.cursor = 'pointer';
-	
-		}
-
-	}
-
-</script>
-
 <div class="col4"> <?php get_sidebar(); ?> </div>
 
 <?php get_footer(); ?>
