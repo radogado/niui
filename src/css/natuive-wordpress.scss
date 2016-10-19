@@ -109,11 +109,12 @@
 	display: inline-block;
 }
 
-#content .sidebar ul, #content .sidebar li, #content .comments ul {
+#content .sidebar ul, #content .sidebar li, #content .comments ul, #content .sidebar li a[href] {
 	
 	list-style: none;
 	padding-left: 0;
-	margin-left: 0;
+	margin: 0;
+	display: block;
 	
 }
 
@@ -125,7 +126,7 @@ button.search-submit {
 
 .lightbox.gallery {
 	
-	margin: 0 -.7em;	
+	margin: .5em -.7em;	
 	display: flex;
 	flex-wrap: wrap;
 
