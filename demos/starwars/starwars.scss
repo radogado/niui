@@ -4,11 +4,71 @@ body {
 	color: #aaa;
 	background-color: #151515;
 	background-image: url(bg_starsL-d39a0dc14ce4.jpg);
+	font-family: 'Abel', sans-serif;
 	
 }
 
 h1, h2, h3 {
 	
 	text-transform: uppercase;
+
+}
+
+.aspect {
+	
+	position: relative;
+	
+}
+
+.aspect .reserved-ratio {
+	
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0
+
+}
+
+header {
+	
+	background-color: #222;
+
+}
+
+.banner * {
+	
+	background-size: 200% auto;
+	margin-top: 0;
+	padding-top: 0;
+
+}
+
+.tag {
+	
+	text-transform: uppercase;
+	font-size: .75em;
+	
+}
+
+.tag b {
+	
+	color: #3273c5;
+
+}
+
+.contain {
+	
+	max-width: 1152px;
+
+}
+
+footer {
+	
+	background-color: #1a1a1a;
+	min-height: 272px;
+	background-image: url(vader-ff1f82e6a5fc.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
 
 }
