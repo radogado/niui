@@ -1,16 +1,25 @@
+html {
+	
+	background: #151515 url(bg_starsR-6b43524f1ad3.jpg) right top repeat-y;
+	background-attachment: fixed;
+	
+}
+
 body {
 	
 	font-family: Helvetica Neue;
 	color: #aaa;
-	background-color: #151515;
-	background-image: url(bg_starsL-d39a0dc14ce4.jpg);
+	background: url(bg_starsL-d39a0dc14ce4.jpg) left top repeat-y;
+	background-attachment: fixed;
 	font-family: 'Abel', sans-serif;
+	font-size: 14px;
 	
 }
 
 h1, h2, h3 {
 	
 	text-transform: uppercase;
+	font-size: 1.2em;
 
 }
 
@@ -36,11 +45,24 @@ header {
 
 }
 
+header a[href] {
+	
+	text-transform: uppercase;
+
+}
+
 .banner * {
 	
 	background-size: 200% auto;
 	margin-top: 0;
 	padding-top: 0;
+
+}
+
+main .row > * {
+	
+	background-color: #282727;
+	border-radius: .3em;
 
 }
 
@@ -54,6 +76,7 @@ header {
 .tag b {
 	
 	color: #3273c5;
+	font-weight: normal;
 
 }
 
@@ -70,5 +93,12 @@ footer {
 	background-image: url(vader-ff1f82e6a5fc.jpg);
 	background-position: center;
 	background-repeat: no-repeat;
+	margin-top: 3em;
+
+}
+
+footer li {
+	
+	margin: 0 .5em;
 
 }
