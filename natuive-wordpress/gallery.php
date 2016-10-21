@@ -160,6 +160,9 @@ final class Cleaner_Gallery {
 		/* Allow developers to overwrite the number of columns. This can be useful for reducing columns with with fewer images than number of columns. */
 		//$columns = ( ( $columns <= $attachment_count ) ? intval( $columns ) : intval( $attachment_count ) );
 		$this->args['columns'] = apply_filters( 'cleaner_gallery_columns', intval( $this->args['columns'] ), $attachment_count, $this->args );
+		
+		$width = 0;
+		$height = 0;
 
 		/* Loop through each attachment. */
 		foreach ( $attachments as $attachment ) {
@@ -172,7 +175,10 @@ final class Cleaner_Gallery {
 
 			/* Get the gallery item. */
 			$output .= $this->get_gallery_item( $attachment );
-
+			if ($width == 0) {
+				$width = wp_get_attachment_image_src($attachment->ID)[1];
+				$height = wp_get_attachment_image_src($attachment->ID)[2];
+			}
 			/* Close gallery row. */
 /*
 			if ( $this->args['columns'] > 0 && ++$i % $this->args['columns'] == 0 )
@@ -192,11 +198,22 @@ final class Cleaner_Gallery {
 		remove_filter( 'wp_get_attachment_link',             array( $this, 'get_attachment_link'         ) );
 
 		/* Gallery attributes. */
-		$gallery_attr  = sprintf( "id='%s'", esc_attr( $this->args['id'] ) . '-' . esc_attr( $this->gallery_instance ) );
+		$gallery_attr  = sprintf( "id='%s'", 'gallery' . esc_attr( $this->args['id'] ) . '-' . esc_attr( $this->gallery_instance ) );
 		$gallery_attr .= sprintf( " class='lightbox full-screen gallery gallery-%s gallery-columns-%s gallery-size-%s'", esc_attr( $this->args['id'] ), esc_attr( $this->args['columns'] ), sanitize_html_class( $this->args['size'] ) );
 		$gallery_attr .= sprintf( " itemscope itemtype='%s'", esc_attr( $this->get_gallery_itemtype() ) );
 
 $script = "
+<style>
+
+.lightbox#gallery" . esc_attr( $this->args['id'] ) . '-' . esc_attr( $this->gallery_instance ) . " a {
+	
+	width: " . $width . "px;	
+	height: " . $height . "px;	
+
+}
+
+</style>
+
 <script> // If the featured image is also in a lightbox, open it on click
 	
 	var thumbnail = document.querySelector('.attachment-post-thumbnail');
