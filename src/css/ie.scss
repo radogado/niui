@@ -159,9 +159,15 @@ $line-height: 22px;
 
 }
 
-.align-middle {
+.align-middle, .row > .table-row > .align-middle {
 	
 	vertical-align: middle;
+
+}
+
+.align-bottom, .row > .table-row > .align-bottom {
+	
+	vertical-align: bottom;
 
 }
 
