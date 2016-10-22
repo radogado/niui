@@ -59,10 +59,64 @@ header a[href] {
 
 }
 
-main .row > * {
+/*
+main > .row > * {
+	
+	padding: .375em 1.5em;
+
+}
+*/
+
+main .row > *:not(.vertical-row), main .row > .vertical-row > * {
 	
 	background-color: #282727;
-	border-radius: .3em;
+	border-radius: .5em;
+	margin-left: .75em;
+	margin-right: .5em;
+	padding: 0;
+
+}
+
+main .row .row>*:not(.vertical-row) {
+	
+	margin: 0;
+	
+}
+
+.row > .vertical-row > * {
+	
+	margin: 1em 0;
+
+}
+
+.row > .vertical-row > *, .row > * {
+	
+	overflow: hidden;
+
+}
+
+.row > .vertical-row {
+	
+	border-radius: .5em;
+	margin: 0;
+
+}
+
+.row > .vertical-row > :first-child {
+	
+	margin-top: 0;
+
+}
+
+main .row > .vertical-row > * {
+
+	margin-left: 0;
+
+}
+
+.row > .vertical-row > :last-child {
+	
+	margin-bottom: 0;
 
 }
 
@@ -77,6 +131,12 @@ main .row > * {
 	
 	color: #3273c5;
 	font-weight: normal;
+
+}
+
+.tag date:before {
+	
+	content: ' // ';
 
 }
 
@@ -101,4 +161,33 @@ footer li {
 	
 	margin: 0 .5em;
 
+}
+
+main p {
+	
+	margin-bottom: .25em;
+	line-height: 1.25;
+
+}
+
+main h2 {
+	
+	color: #ddd;
+	
+}
+
+.vertical-row * h2 {
+	
+	padding-top: 0;
+	
+}
+
+main .row img[class*=col] {
+	
+	padding: 0;
+	margin: 0;
+	object-fit: cover;
+	border-radius: 0;
+	border-right: 2px solid #3273c5;
+	
 }
