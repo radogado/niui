@@ -168,20 +168,20 @@
 
 	}
 
-	header.fixed .fold.mobile {
+	header.fixed-mobile .fold.mobile {
 		
 		position: fixed;
 	    top: 0;
 
 	}
 
-	header.fixed .fold.mobile.open {
+	header.fixed-mobile .fold.mobile.open {
 		
 	    bottom: 0;
 
 	}
 
-	header.fixed .fold.mobile .content {
+	header.fixed-mobile .fold.mobile .content {
 		
 // 		overflow: hidden;
 		padding: 0 $line-height-em/4;
@@ -189,7 +189,7 @@
 
 	}
 	
-	header.fixed .fold.mobile.open .content {
+	header.fixed-mobile .fold.mobile.open .content {
 		
 		overflow: auto;
 		-webkit-overflow-scrolling: touch;

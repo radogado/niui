@@ -1917,18 +1917,18 @@ span.burger:after {
     /* hidden fold item */
     overflow: hidden; }
 
-  header.fixed .fold.mobile {
+  header.fixed-mobile .fold.mobile {
     position: fixed;
     top: 0; }
 
-  header.fixed .fold.mobile.open {
+  header.fixed-mobile .fold.mobile.open {
     bottom: 0; }
 
-  header.fixed .fold.mobile .content {
+  header.fixed-mobile .fold.mobile .content {
     padding: 0 0.375em;
     background: #fff; }
 
-  header.fixed .fold.mobile.open .content {
+  header.fixed-mobile .fold.mobile.open .content {
     overflow: auto;
     -webkit-overflow-scrolling: touch;
     position: fixed;
@@ -2827,6 +2827,10 @@ a[href].span-relative-parent {
   right: 0;
   bottom: 0;
   left: 0; }
+
+header [data-threshold] {
+  opacity: calc(1 - var(--threshold));
+  transition: all 0.1s linear; }
 
 /* Narrow Screens */
 @media screen and (max-width: 640px) {

@@ -1577,6 +1577,48 @@ function init() {
 	
 	});
 
+	forEach('[data-threshold]', function(el) { // Set a variable reflecting how much of the element's height has been scrolled; .threshold on scroll over element height
+		
+		q('body').onscroll = function (e) {
+
+			setTimeout(function () {
+				
+				var relativeScroll = q('body').scrollTop;
+				var threshold = el.scrollHeight; // To do: either element height or data-threshold height in px, % or vh
+
+				if (relativeScroll > threshold) {
+					
+					relativeScroll = threshold;
+
+				}
+				
+				if (relativeScroll < 0) {
+					
+					relativeScroll = 0;
+
+				}
+				
+				el.style.setProperty('--height', threshold); // Percentage of threshold reached. 0 – 1. Can be used with CSS calc().
+				el.style.setProperty('--threshold', parseFloat((relativeScroll / threshold), 10).toPrecision(1)); // Percentage of threshold reached. 0 – 1. Can be used with CSS calc().
+
+				if (relativeScroll >= threshold) {
+					
+					addClass(el, 'threshold');
+					addClass(q('body'), 'threshold');
+					
+				} else {
+					
+					removeClass(el, 'threshold');
+					removeClass(q('body'), 'threshold');
+					
+				}
+				
+			}, 50);
+			
+		};
+
+	});
+	
 }
 
 ready( function () {

@@ -357,6 +357,13 @@ a[href].span-relative-parent {
 	
 }
 
+header [data-threshold] {
+	
+	opacity: calc(1 - var(--threshold));
+	transition: all 0.1s linear;
+	
+}
+
 /* Narrow Screens */
 
 @media screen and (max-width: $screen-narrow) {

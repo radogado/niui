@@ -205,7 +205,7 @@ article p {
 
 }
 
-.img-crop h2 {
+.img-crop h2, article h2 a[href] {
 	
 	display: inline-block;
 	vertical-align: bottom;
@@ -214,6 +214,13 @@ article p {
 	font-size: 1.5rem;	
 	background: #488e89;
 	color: 	#fff;
+	text-decoration: none;
+
+}
+
+article h2 a[href]:after {
+	
+	content: ' →';
 
 }
 
@@ -229,7 +236,7 @@ article p {
 
 }
 
-.menu .current_page_item a:link, .menu .current_page_item a:visited {
+.menu .current_page_item a:link, .menu .current_page_item a:visited, .img-crop:hover h2 {
 	
 	color: #e82;
 

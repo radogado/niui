@@ -42,6 +42,7 @@ h1, h2, h3 {
 header {
 	
 	background-color: #222;
+	padding-top: 3em;
 
 }
 
@@ -195,5 +196,48 @@ main .row img[class*=col] {
 	object-fit: cover;
 	border-radius: 0;
 	border-right: 2px solid #3273c5;
+	
+}
+
+header {
+	
+	background: url(10-rogue-one-header_734005e5.jpg) center center no-repeat;
+	background-size: auto 20em;
+	
+}
+
+.head-promo {
+	
+	overflow: hidden;  
+	max-height: calc((var(--height) * (1 - var(--threshold)))*1px); 
+	opacity: calc(1 - var(--threshold)); 
+	transition: all .1s linear;
+	padding: 3em 0;
+
+}
+
+header nav.col1 {
+
+	background: #151515;
+	
+}
+
+header.row > * {
+	
+	padding: 0;
+	margin: 0;
+	
+}
+
+header.row > .col1 {
+
+	flex-basis: 100%;
+
+}
+
+header .head-top {
+	
+	position: fixed;
+	z-index: 1;
 	
 }
