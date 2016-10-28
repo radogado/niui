@@ -52,6 +52,101 @@ header a[href] {
 
 }
 
+header nav.main.col1 {
+
+	background-color: #222;
+
+}
+
+header nav.main ul {
+
+	display: flex;
+	
+}
+
+header nav.main li {
+
+	flex-grow: 1;
+	
+}
+
+header nav.main a[href] {
+
+	border-left: 1px solid #333;
+	border-right: 1px solid #333;
+	padding: 0 .5em 1em .5em;
+	display: block;
+	line-height: .5;
+
+}
+
+header nav.main li:first-child a[href] {
+	
+	border-left-width: 2px;
+
+}
+
+header nav.main li:last-child a[href] {
+	
+	border-right-width: 2px;
+
+}
+
+header nav.main a[href]:before {
+	
+	content: '';
+	display: block;
+	margin: 0 auto;
+	background-repeat: no-repeat;
+	background-image: url(section_icon_sprite-42451d74d996.png);
+	background-size: 1000% 200%;
+	width: 46px;
+	height: 46px;
+
+}
+
+header nav.main li:nth-child(2) a[href]:before {
+
+	background-position: 11.11111% 0%;
+
+}
+
+header nav.main li:nth-child(3) a[href]:before {
+
+	background-position: 22.22222% 0%;
+
+}
+
+header nav.main li:nth-child(4) a[href]:before {
+
+	background-position: 33.33333% 0%;
+
+}
+
+header nav.main li:nth-child(5) a[href]:before {
+
+	background-position: 44.44444% 0%;
+
+}
+
+header nav.main li:nth-child(6) a[href]:before {
+
+	background-position: 55.55555% 0%;
+
+}
+
+header nav.main li:nth-child(7) a[href]:before {
+
+	background-position: 66.66666% 0%;
+
+}
+
+header nav.main li:nth-child(8) a[href]:before {
+
+	background-position: 77.77777% 0%;
+
+}
+
 .banner * {
 	
 	background-size: 200% auto;
@@ -201,8 +296,8 @@ main .row img[class*=col] {
 
 header {
 	
-	background: url(10-rogue-one-header_734005e5.jpg) center center no-repeat;
-	background-size: auto 20em;
+	background: url(10-rogue-one-header_734005e5.jpg) top center no-repeat;
+	background-size: auto 100%;
 	
 }
 
@@ -213,6 +308,7 @@ header {
 	opacity: calc(1 - var(--threshold)); 
 	transition: all .1s linear;
 	padding: 3em 0;
+	padding-bottom: 5em;
 
 }
 
@@ -237,7 +333,51 @@ header.row > .col1 {
 
 header .head-top {
 	
-	position: fixed;
+// 	position: fixed;
 	z-index: 1;
 	
 }
+
+header nav .social a[href] {
+	
+	background-repeat: no-repeat;
+	background-image: url(social_sprite-7398ed481e16.png);
+	background-size: 700% 300%;
+	display: block;
+	width: 36px;
+	height: 36px;
+	margin: 0 .5em;
+	
+}
+
+header nav .social li:nth-child(2) a[href] {
+
+	background-position: 16.66667% 0%;
+
+}
+
+header nav .social li:nth-child(3) a[href] {
+
+	background-position: 33.33333% 0%;
+
+}
+
+header nav .social li:nth-child(4) a[href] {
+
+	background-position: 50% 0%;
+
+}
+
+header nav .social li:nth-child(5) a[href] {
+
+	background-position: 66.66667% 0%;
+
+}
+
+header nav .social li:nth-child(6) a[href] {
+
+	background-position: 83.33333% 0%;
+
+}
+
+
