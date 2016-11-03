@@ -307,8 +307,7 @@ header {
 	max-height: calc((var(--height) * (1 - var(--threshold)))*1px); 
 	opacity: calc(1 - var(--threshold)); 
 	transition: all .1s linear;
-	padding: 3em 0;
-	padding-bottom: 5em;
+	padding: .2em 0 5em 0;
 
 }
 
@@ -331,11 +330,37 @@ header.row > .col1 {
 
 }
 
-header .head-top {
+header .head-top, nav.main ul {
 	
 // 	position: fixed;
 	z-index: 1;
+	max-width: 1400px;
+	margin: 0 auto;
 	
+}
+
+header .head-top nav a[href] {
+
+	color: #fff;
+
+}
+
+header .head-top nav:first-child a[href] {
+
+	text-transform: none;
+
+}
+
+header .head-top nav:first-child ul {
+
+	vertical-align: middle;
+
+}
+
+header .head-top nav:first-child ul:first-child {
+
+	padding-top: .45em;
+
 }
 
 header nav .social a[href] {
@@ -344,8 +369,8 @@ header nav .social a[href] {
 	background-image: url(social_sprite-7398ed481e16.png);
 	background-size: 700% 300%;
 	display: block;
-	width: 36px;
-	height: 36px;
+	width: 32px;
+	height: 32px;
 	margin: 0 .5em;
 	
 }
@@ -380,4 +405,36 @@ header nav .social li:nth-child(6) a[href] {
 
 }
 
+hr {
+	
+	border-top: 1px solid #666;
+	
+}
 
+nav.scroll ul {
+	
+	padding-bottom: 0;
+
+}
+
+@media screen and (max-width: 640px) {
+	
+	nav ul li {
+		
+		display: inline-block;
+	
+	}	
+	
+	.head-promo {
+		
+		padding: 0;
+		
+	}
+	
+	header nav.main.col1 {
+		
+		margin: 0;
+		
+	}
+	
+}

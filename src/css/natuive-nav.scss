@@ -382,7 +382,7 @@ input.trigger, input.trigger ~ input[type=reset] {
 
 	}
 
-	nav ul li, nav li a {
+	nav ul li, nav li a { // Probably not needed for li
 		
 		margin: 0;
 		display: block;
