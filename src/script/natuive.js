@@ -648,8 +648,9 @@ function openLightbox(e) {
 			images += '<div><video poster=' + (el.querySelector('img') ? el.querySelector('img').src : '#') + ' controls=controls preload=none> <source type=video/mp4 src=' + el.href + '> </video></div>';
 			
 		} else {
-
-	        images += '<div><img data-src="' + el.href + '" alt="' + el.title + '" title="' + document.location.protocol + '//'+ document.location.hostname + document.location.pathname + '?image=' + el.href.split('/').pop() + '#' + closest(el, '.lightbox').getAttribute('id') + '">' + (el.title ? ('<p>' + el.title + '</p>') : '') + '</div>';
+			
+			var slide_link = document.location.protocol + '//' + document.location.hostname + document.location.pathname + '?image=' + el.href.split('/').pop() + '#' + closest(el, '.lightbox').getAttribute('id');
+	        images += '<div><img data-src="' + el.href + '" alt="' + el.title + '" title="' + slide_link + '">' + (el.title ? ('<p>' + el.title + '</p>') : '') + '<a class="button copy" href=' + slide_link + '></a></div>';
 
         }
         // Attach onload event to each image to display it only when fully loaded and avoid top-to-bottom reveal?

@@ -183,12 +183,6 @@
 
 }
 
-.slider-wrap > .slider.vertical.lightbox > * {
-
-	height: 100%;
-
-}
-
 .slider > * {
 
 	width: 100%;
@@ -291,47 +285,6 @@
 	padding: 0;
 	border-left: 7px solid transparent;
 	border-right: 7px solid transparent;
-
-}
-
-.slider.lightbox > * {
-
-	height: 100%;
-	text-align: center;
-	position: relative;
-	
-}
-
-.slider.lightbox video {
-
-	display: inline-block;
-	width: 100%;
-	max-height: 100%;
-	vertical-align: middle;
-	
-}
-
-.slider.lightbox > *:before {
-
-	content: ' ';
-    display: inline-block;
-    vertical-align: middle;  /* vertical alignment of the inline element */
-	height: 100%;
-	position: static;
-	width: 0;
-
-}
-
-.slider.lightbox > * p { /* Image captions */
-
-	position: absolute;
-	bottom: 48px;
-	text-align: center;
-	color: #fff;
-	left: 50%;
-	transform: translateX(-50%);
-	padding: .2em .5em;
-	background: rgba(0, 0, 0, .4);
 
 }
 
@@ -571,33 +524,6 @@
 
 }
 
-.lightbox.slider > * > img {
-	
-	display: none;
-
-}
-
-.lightbox.slider > *.visible > img.zoom {
-
-	width: auto;
-	height: auto;
-	max-height: none;
-	max-width: none;
-	position: absolute;
-	top: 50%;
-	bottom: 50%;
-	left: 50%;
-	right: 50%;
-	transform: translate3d(-50%, -50%, 0);
-
-}
-
-.full-window-wrap .lightbox.slider > * {
-	
-	overflow: hidden;
-	
-}
-
 .slider.center > * {
 	
 	display: flex;
@@ -612,39 +538,6 @@
 	height: 0;
 
 }
-
-.lightbox a {
-	
-	display: inline-block;
-	vertical-align: middle;
-	margin: $line-height-em/2 $line-height-em/4;
-// 	margin: var(--line-height-em) calc(var(--line-height-em)/4);
-	position: relative;
-	
-}
-
-	.lightbox a img {
-		
-		display: block;
-		padding-bottom: 0 !important;
-	
-	}
-	
-	.lightbox a.video:before {
-		
-		content: '▸';
-		border: 1px solid #999;
-		position: absolute;
-	    min-width: 1.5em;
-	    text-align: center;
-	    font-size: 2em;
-	    line-height: 1em;
-	    background: rgba(255,255,255,.8);
-	    top: 50%;
-	    transform: translate3d(-50%,-50%,0);
-	    left: 50%;
-    
-	}
 
 @media screen and (max-width: $screen-narrow) {
 
