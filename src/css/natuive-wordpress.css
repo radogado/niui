@@ -1578,12 +1578,12 @@ nav.drop ul ul li {
 nav.drop input:checked ~ input[type=reset], nav.drop input.trigger {
   display: block; }
 
-nav.drop ul ul {
+nav.drop ul ul, nav.drop input.trigger ~ ul input.trigger:checked ~ ul {
   visibility: hidden;
   position: absolute;
   display: block; }
 
-nav.drop input.trigger:checked ~ ul, .no-touch nav.drop ul li:hover ul, nav.drop input.trigger:checked ~ div, .no-touch nav.drop ul ul li:hover div {
+nav.drop input.trigger:checked ~ ul, nav.drop input.trigger:checked ~ ul input.trigger:checked ~ ul, .no-touch nav.drop ul li:hover ul, nav.drop input.trigger:checked ~ div, .no-touch nav.drop ul ul li:hover div {
   /* Not '+', because the form reset button stands between them; Touch first, Desktop second */
   visibility: visible;
   z-index: 6; }
