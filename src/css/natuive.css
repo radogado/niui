@@ -1724,6 +1724,9 @@ ul.indent {
 ul li {
   display: inline-block; }
 
+li ul li {
+  display: block; }
+
 ul.vertical li {
   display: block;
   margin: 1.5em 0 0 0; }
