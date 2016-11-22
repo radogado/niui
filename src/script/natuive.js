@@ -551,11 +551,13 @@ function openFullWindow(el) {
 	
 }
 
-/* To do: improve: Open and close a modal window with a generated element, to fix iOS Safari crash on modal close */
+/* To do: improve: Open and close a modal window with a generated element, to fix iOS Safari crash on modal close. Not crashing on iOS 10. */
+/*
 var temp_div = document.createElement('div');
 q('body').appendChild(temp_div);
 openFullWindow(temp_div);
 closeFullWindow();
+*/
 
 function modalWindow(e) {
 
@@ -659,7 +661,7 @@ function openLightbox(e) {
 
     q('.slider.lightbox').innerHTML = images;
 
-    if (typeof makeSlider == 'function') {
+    if (typeof makeSlider === 'function') {
 
         var anchor = el;
 
@@ -1358,11 +1360,15 @@ function init() {
 	notifyCloseEvent();
 	
 	/* Enhance sliders: create arrows/numbers navigation etc */
-	forEach('.slider', function(el) {
+    if (typeof makeSlider === 'function') {
+
+		forEach('.slider', function(el) {
+		
+		    makeSlider(el);
+		
+		});
 	
-	    makeSlider(el);
-	
-	});
+	}
 	
 	forEach('input.trigger, input[type=reset]', function(el, i) {
 		
@@ -1399,10 +1405,10 @@ function init() {
 	});
 	
 	addEventHandler(q('body'), 'click', function (e) { // Close all Fold elements when clicking outside of them
-	
-		if (!closest(eventElement(e), '.fold')) {
+
+		if (!closest(eventElement(e), '.fold')) { // Clicking outside of a fold element...
 			
-			forEach('.fold', function (el) {
+			forEach('.fold.mobile', function (el) { // ... closes all burger nav menus
 				
 				removeClass(el, 'open');
 				
@@ -1497,7 +1503,7 @@ function init() {
 	
 	forEach('a[href^="#"]', function(el, i) {
 	
-		if (el.onclick) { // Don't overwrite previous onclick event handler
+		if (el.onclick) { // Don't add to previous onclick event handler
 			
 			return;
 	
@@ -1536,7 +1542,7 @@ function init() {
 	
 		}
 	
-	    el.onclick = openLightbox;
+/* 	    el.onclick = openLightbox; */
 	
 	});
 	

@@ -517,7 +517,6 @@ function makeSlider(el, current_slide) {
 
     container.querySelector('.slider-arrow.right').onclick = function(e) {
 
-
         slide(eventElement(e), 'right');
 
     };
