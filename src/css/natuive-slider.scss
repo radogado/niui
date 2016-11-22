@@ -124,6 +124,7 @@
 
 	display: flex;
 	// will-change: transform; // Breaks WebKit full screen video
+    min-height: 4em; // Make controls visible on very short slides
 
 }
 

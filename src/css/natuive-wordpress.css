@@ -2099,7 +2099,8 @@ $background: #1E8DaC;
   transform-style: preserve-3d;
   -webkit-transition: none;
   transition: none;
-  display: flex; }
+  display: flex;
+  min-height: 4em; }
 
 .slider-wrap .slider {
   overflow: visible;
