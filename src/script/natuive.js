@@ -1542,7 +1542,7 @@ function init() {
 	
 		}
 	
-/* 	    el.onclick = openLightbox; */
+	    el.onclick = openLightbox;
 	
 	});
 	
