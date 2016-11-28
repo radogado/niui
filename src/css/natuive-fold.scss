@@ -8,7 +8,6 @@
 	padding: 0 .5em 0 1em;
 	margin: 0;
 	max-width: 100%;
-	z-index: 1;
 	
 }
 
@@ -110,6 +109,7 @@
 		display: inline-block;
 		text-align: center;
 		position: relative;
+		background: #fff;
 
 	}
 	
@@ -172,6 +172,7 @@
 		
 		position: fixed;
 	    top: 0;
+   		z-index: 1;
 
 	}
 

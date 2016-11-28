@@ -1823,8 +1823,7 @@ $background: #1E8DaC;
   position: relative;
   padding: 0 .5em 0 1em;
   margin: 0;
-  max-width: 100%;
-  z-index: 1; }
+  max-width: 100%; }
 
 .fold > label {
   margin: 0;
@@ -1888,7 +1887,8 @@ span.burger {
   font-size: 2em;
   display: inline-block;
   text-align: center;
-  position: relative; }
+  position: relative;
+  background: #fff; }
 
 span.burger:after {
   content: '='; }
@@ -1922,7 +1922,8 @@ span.burger:after {
 
   header.fixed-mobile .fold.mobile {
     position: fixed;
-    top: 0; }
+    top: 0;
+    z-index: 1; }
 
   header.fixed-mobile .fold.mobile.open {
     bottom: 0; }
