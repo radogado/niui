@@ -1694,7 +1694,10 @@ input.trigger, input.trigger ~ input[type=reset] {
   nav.drop ul .trigger:checked ~ ul, nav.drop ul .trigger:checked ~ div, .no-touch nav.drop ul ul li input.trigger {
     display: block;
     animation: slidein .2s 1;
-    will-change: transform; } }
+    will-change: transform; }
+
+  nav.drop ul ul, nav.drop input.trigger ~ ul input.trigger:checked ~ ul {
+    position: relative; } }
 /* natUIve – List */
 /*
 $color: #fff;

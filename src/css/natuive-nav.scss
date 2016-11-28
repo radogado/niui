@@ -497,4 +497,10 @@ input.trigger, input.trigger ~ input[type=reset] {
 		
 	}
 	
+	nav.drop ul ul, nav.drop input.trigger ~ ul input.trigger:checked ~ ul {
+		
+		position: relative;
+	
+	}
+
 }
