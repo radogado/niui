@@ -1827,7 +1827,8 @@ $background: #1E8DaC;
   position: relative;
   padding: 0 .5em 0 1em;
   margin: 0;
-  max-width: 100%; }
+  max-width: 100%;
+  z-index: 1; }
 
 .fold > label {
   margin: 0;
@@ -1927,7 +1928,7 @@ span.burger:after {
   header.fixed-mobile .fold.mobile {
     position: fixed;
     top: 0;
-    z-index: 1; }
+    z-index: 2; }
 
   header.fixed-mobile .fold.mobile.open {
     bottom: 0; }
