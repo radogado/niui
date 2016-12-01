@@ -24,7 +24,7 @@
 	max-height: 100%;
 	z-index: 1;
 	// Fix Safari, Chrome bug where 1px of previous slide is visible during slide
-    padding: 0 .5px;
+//     padding: 0 .5px;
 
 }
 
@@ -169,7 +169,7 @@
 
 }
 
-.slider-wrap > .slider.vertical {
+.slider-wrap .slider.vertical {
 	
 	overflow-x: visible;
 	overflow-y: visible;
@@ -177,11 +177,19 @@
 
 }
 
-.slider-wrap > .slider.vertical > * {
+.slider-wrap .slider.vertical > * {
 
 	height: auto;
 	display: none;
 
+}
+
+.slider-wrap > .pad {
+	
+    padding: 0;
+    margin: 4em;
+    overflow-x: hidden;
+	
 }
 
 .slider > * {
@@ -281,11 +289,13 @@
 	
 }
 
-.row > .slider {
+.row .slider {
 	
 	padding: 0;
+/*
 	border-left: 7px solid transparent;
 	border-right: 7px solid transparent;
+*/
 
 }
 
@@ -399,7 +409,7 @@
 	
 }
 
-.top > .slider-nav {
+.top .slider-nav {
 	
 	bottom: auto;
 	top: .5em;
@@ -452,7 +462,7 @@
 		
 	}
 	
-	.slider-wrap > .slider.vertical > .visible, .vertical > .slider-nav a {
+	.slider-wrap .slider.vertical > .visible, .vertical > .slider-nav a {
 		
 		display: block;
 		overflow: visible;

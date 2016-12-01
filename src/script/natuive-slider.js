@@ -144,14 +144,16 @@ function mouseEvents(el, toggle) {
 	   
 	}
 
+	var slider_wrap = closest(el, '.slider-wrap');
+
     if (toggle == 'off') {
 
-        el.parentNode.removeEventListener('wheel', mouseWheelHandler);
+        slider_wrap.removeEventListener('wheel', mouseWheelHandler);
 
     } else {
 
-        el.parentNode.addEventListener('wheel', mouseWheelHandler);
-        childByClass(el.parentNode, 'slider-nav').addEventListener('wheel', function (e) {
+        slider_wrap.addEventListener('wheel', mouseWheelHandler);
+        childByClass(slider_wrap, 'slider-nav').addEventListener('wheel', function (e) {
 
 	        // Scroll as usual instead of sliding
 
@@ -168,14 +170,18 @@ function endSlide (slider, index) {
 		populateLightbox(slider, index);
         
     }
-
-	addClass(childByClass(slider.parentNode, 'slider-nav').children[index], 'active');
+	
+	var slider_wrap = closest(slider, '.slider-wrap');
+	
+	addClass(childByClass(slider_wrap, 'slider-nav').children[index], 'active');
 	slider.style.pointerEvents = '';
 
 	document.onkeyup = sliderKeyboard;
     setTimeout(function () { 
+
 	    removeClass(q('html'), 'sliding_now');
 	    mouseEvents(slider); 
+
 	}, q('html').getAttribute('data-slide_duration')/2);
 	
 }
@@ -197,7 +203,9 @@ function slide(el, method, index_number) {
 
     }
 
-    mouseEvents(el.parentNode, 'off');
+	var slider_wrap = closest(el, '.slider-wrap');
+
+    mouseEvents(slider_wrap, 'off');
     slider.style.pointerEvents = 'none'; // Speed up animation
     mouseEvents(el, 'off');
 	document.onkeyup = function () { return false; };
@@ -211,7 +219,8 @@ function slide(el, method, index_number) {
 	
 	var index;
 	var old_index;
-	index = old_index = thisIndex(childByClass(slider.parentNode, 'slider-nav').querySelector('a.active'));
+	var slider_wrap = closest(slider, '.slider-wrap');
+	index = old_index = thisIndex(childByClass(slider_wrap, 'slider-nav').querySelector('a.active'));
 
     if (method == 'index') {
 
@@ -280,9 +289,9 @@ function slide(el, method, index_number) {
 
 	var duration = (slider.getAttribute('data-duration') ? slider.getAttribute('data-duration') : q('html').getAttribute('data-slide_duration'));
 
-	if (childByClass(slider.parentNode, 'slider-nav').querySelector('.active')) {
+	if (childByClass(slider_wrap, 'slider-nav').querySelector('.active')) {
 
-	    removeClass(childByClass(slider.parentNode, 'slider-nav').querySelector('.active'), 'active');
+	    removeClass(childByClass(slider_wrap, 'slider-nav').querySelector('.active'), 'active');
 
     }
 
@@ -437,7 +446,7 @@ function sliderKeyboard(e) {
 
 function makeSlider(el, current_slide) {
 
-	if (!el.addEventListener || hasClass(el.parentNode, 'slider-wrap')) { // IE8 or already created
+	if (!el.addEventListener || hasClass(el.parentNode, 'slider-wrap') || hasClass(el.parentNode.parentNode, 'slider-wrap')) { // IE8 or already created
 		
 		return;
 		
@@ -458,6 +467,16 @@ function makeSlider(el, current_slide) {
 	    container = wrap(el).parentNode;
 		addClass(container, 'slider-wrap');
 	    el = container.querySelector('.slider');
+		
+		if (hasClass(el, 'pad')) {
+			
+		    container = wrap(el).parentNode;
+			addClass(container, 'pad');
+		    container = container.parentNode;
+		    el = container.querySelector('.slider');
+
+		}
+		
 	    transferClass(el, container, 'vertical');
         transferClass(el, container, 'wrap');
         transferClass(el, container, 'top');
@@ -468,6 +487,8 @@ function makeSlider(el, current_slide) {
     container.insertAdjacentHTML(hasClass(container, 'top') ? 'afterbegin' : 'beforeend', '<div class=slider-nav></div>');
     container.insertAdjacentHTML('beforeend', '<a class="slider-arrow left"></a><a class="slider-arrow right"></a>');
 
+	var slider_wrap = closest(el, '.slider-wrap');
+
     // Generate controls
 
     for (var i = 0; i < el.children.length; i++) {
@@ -477,15 +498,15 @@ function makeSlider(el, current_slide) {
 
         if (hasClass(el, 'tabs')) {
 
-            var slider_nav = el.parentNode.querySelector('.slider-nav');
-            addClass(el.parentNode, 'tabs');
+            var slider_nav = slider_wrap.querySelector('.slider-nav');
+            addClass(slider_wrap, 'tabs');
             addClass(slider_nav, 'row');
-            transferClass(el.parentNode, slider_nav, 'wrap');
+            transferClass(slider_wrap, slider_nav, 'wrap');
             var tab_title = el.children[i].getAttribute('data-tab-title') || (el.children[i].querySelector('.tab-title') ? el.children[i].querySelector('.tab-title').innerHTML : i+1);
             slider_nav.insertAdjacentHTML('beforeend', (!i ? '<a class=active>' : '<a>') + tab_title + '</a>');
             if (hasClass(el, 'vertical')) {
 	            
-	            addClass(el.parentNode, 'vertical');
+	            addClass(slider_wrap, 'vertical');
 	            
             }
 
@@ -532,16 +553,16 @@ function makeSlider(el, current_slide) {
 
     if (touchSupport()) {
 
-        swipeEvents(el.parentNode);
+        swipeEvents(slider_wrap);
 
-        el.parentNode.addEventListener('swipeLeft', function(e) {
+        slider_wrap.addEventListener('swipeLeft', function(e) {
 
             var el = sliderElement(e);
             slide(el, 'right');
 
         });
 
-        el.parentNode.addEventListener('swipeRight', function(e) {
+        slider_wrap.addEventListener('swipeRight', function(e) {
 
             var el = sliderElement(e);
             slide(el, 'left');
