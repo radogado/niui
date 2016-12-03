@@ -2110,12 +2110,19 @@ $background: #1E8DaC;
   margin-left: -1px;
   width: calc(100% + 2px); }
 
+/*
 .slider-wrap .slider > * {
-  contain: strict; }
+	
+	contain: strict;
+	
+}
 
 .slider-wrap .slider > .visible {
-  contain: none; }
-
+	
+	contain: none;
+	
+}
+*/
 .full-window-wrap .slider-wrap.vertical, .full-window-wrap .slider, .full-window-wrap .slider > * {
   height: 100%; }
 
