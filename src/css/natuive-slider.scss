@@ -132,8 +132,8 @@
 	
 	overflow: visible;
 	// Fix Safari bug where 1px of previous slide is visible during slide
-	margin-left: -1px;
-    width: calc(100% + 2px);
+	margin-left: -.5px;
+    width: calc(100% + 1px);
 
 }
 

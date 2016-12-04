@@ -2107,8 +2107,8 @@ $background: #1E8DaC;
 
 .slider-wrap .slider {
   overflow: visible;
-  margin-left: -1px;
-  width: calc(100% + 2px); }
+  margin-left: -.5px;
+  width: calc(100% + 1px); }
 
 /*
 .slider-wrap .slider > * {
