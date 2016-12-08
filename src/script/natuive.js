@@ -208,7 +208,7 @@ function thisIndex(el) {
 
 function getCookie(k) { // Thanks Simon Steinberger
 	
-	var v=document.cookie.match('(^|;) ?'+k+'=([^;]*)(;|$)');return v?v[2]:null;
+	var v = document.cookie.match('(^|;) ?'+k+'=([^;]*)(;|$)');return v?v[2]:null;
 
 }
 
