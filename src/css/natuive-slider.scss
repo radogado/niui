@@ -119,7 +119,6 @@
 	-ms-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 
-	-webkit-transition: none;
 	transition: none;
 
 	display: flex;
@@ -313,7 +312,6 @@
 	top: 50%;
 	left: 1em;
 	z-index: 3; /* Stay on top of slider-nav if they are aligned vertically */
-	-webkit-transform: translateY(-50%);
 	transform: translateY(-50%);
 	
 }
@@ -336,7 +334,6 @@
 		left: 48%;
 		left: calc(50% - 1em);
 		text-align: center;
-		-webkit-transform: none;
 		transform: none;
 	
 	}
@@ -405,7 +402,6 @@
 	bottom: .5em;
 	white-space: nowrap;
 	left: 50%;
-	-webkit-transform: translateX(-50%);
 	transform: translateX(-50%);
 	z-index: 1;
 	
@@ -439,7 +435,6 @@
 		left: .5em;
 		padding: 1em 0;
 		top: 50%;
-		-webkit-transform: translateY(-50%);
 		transform: translateY(-50%);
 		z-index: 1;
 		
@@ -482,7 +477,6 @@
 		
 		right: auto;
 		position: static;
-		-webkit-transform: none;
 		transform: none;
 		
 	}

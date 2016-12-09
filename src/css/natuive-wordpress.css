@@ -2101,7 +2101,6 @@ $background: #1E8DaC;
   -moz-transform-style: preserve-3d;
   -ms-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  -webkit-transition: none;
   transition: none;
   display: flex;
   min-height: 4em; }
@@ -2226,7 +2225,6 @@ $background: #1E8DaC;
   left: 1em;
   z-index: 3;
   /* Stay on top of slider-nav if they are aligned vertically */
-  -webkit-transform: translateY(-50%);
   transform: translateY(-50%); }
 
 .slider-arrow:before {
@@ -2240,7 +2238,6 @@ $background: #1E8DaC;
   left: 48%;
   left: calc(50% - 1em);
   text-align: center;
-  -webkit-transform: none;
   transform: none; }
 
 .slider-arrow.right {
@@ -2288,7 +2285,6 @@ $background: #1E8DaC;
   bottom: .5em;
   white-space: nowrap;
   left: 50%;
-  -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
   z-index: 1; }
 
@@ -2310,7 +2306,6 @@ $background: #1E8DaC;
   left: .5em;
   padding: 1em 0;
   top: 50%;
-  -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
   z-index: 1; }
 
@@ -2338,7 +2333,6 @@ $background: #1E8DaC;
 .slider-wrap.tabs > .slider-nav {
   right: auto;
   position: static;
-  -webkit-transform: none;
   transform: none; }
 
 .slider-wrap.tabs > .slider-arrow {
