@@ -212,6 +212,12 @@
 
 }
 
+.full-window-wrap .slider > * {
+	
+	padding: 0;
+
+}
+
 .no-flex .slider > * + * { // Fallback
 	
 	margin-left: -.3em;
