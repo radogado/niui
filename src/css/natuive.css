@@ -243,6 +243,7 @@ section:before, section:after {
 
 .masonry > * {
   display: inline-block;
+  display: table;
   margin: 0 1.5em 1.5em 1.5em;
   width: calc(100% - 1.5em*2);
   -webkit-column-break-inside: avoid;
