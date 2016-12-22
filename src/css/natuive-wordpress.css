@@ -2829,10 +2829,6 @@ body {
   background: #fff;
   background: var(--bg); }
 
-main > *:not(.fixed-bg), body > *:not(.fixed-bg) {
-  background: #fff;
-  background: var(--bg); }
-
 body * {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
@@ -2976,6 +2972,10 @@ video {
   will-change: transform;
   transform: translate3d(0, 0, 0); }
 
+@-moz-document url-prefix() {
+  main > *:not(.fixed-bg), body > *:not(.fixed-bg):not(main) {
+    background: #fff;
+    background: var(--bg); } }
 /* Notification bar */
 .notify {
   background: rgba(0, 0, 0, 0.8);

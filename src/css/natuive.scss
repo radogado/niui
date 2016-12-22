@@ -56,13 +56,6 @@ body {
 	
 }
 
-main > *:not(.fixed-bg), body > *:not(.fixed-bg) { // Firefox Developer Edition Windows bug
-	
-	background: $bg;
-	background: var(--bg);
-	
-}
-
 body * {
 	
 	box-sizing: border-box;
@@ -291,6 +284,17 @@ video {
 	background-position: center;
 	will-change: transform;
 	transform: translate3d(0, 0, 0);
+
+}
+
+@-moz-document url-prefix() {
+
+	main > *:not(.fixed-bg), body > *:not(.fixed-bg):not(main) { // Firefox Developer Edition Windows bug
+		
+		background: $bg;
+		background: var(--bg);
+		
+	}
 
 }
 
