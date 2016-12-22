@@ -56,6 +56,13 @@ body {
 	
 }
 
+main > *:not(.fixed-bg), body > *:not(.fixed-bg) { // Firefox Developer Edition Windows bug
+	
+	background: $bg;
+	background: var(--bg);
+	
+}
+
 body * {
 	
 	box-sizing: border-box;

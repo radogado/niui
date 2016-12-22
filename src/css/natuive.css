@@ -2828,6 +2828,10 @@ body {
   background: #fff;
   background: var(--bg); }
 
+main > *:not(.fixed-bg), body > *:not(.fixed-bg) {
+  background: #fff;
+  background: var(--bg); }
+
 body * {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
