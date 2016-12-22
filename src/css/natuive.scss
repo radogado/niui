@@ -287,15 +287,11 @@ video {
 
 }
 
-@-moz-document url-prefix() {
-
-	main > *:not(.fixed-bg), body > *:not(.fixed-bg):not(main) { // Firefox Developer Edition Windows bug
-		
-		background: $bg;
-		background: var(--bg);
-		
-	}
-
+main > *:not(.fixed-bg), body > *:not(.fixed-bg):not(main) { // Firefox Developer Edition Windows bug
+	
+	background: $bg;
+	background: var(--bg);
+	
 }
 
 /* Notification bar */
