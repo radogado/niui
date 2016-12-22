@@ -120,7 +120,7 @@
 
 	}
 	
-	@supports (--a: 1) { // Newer browsers than Android Browser. Lame check if they support CSS variables.
+	@supports (--a: 1) { // Newer browsers than Android Browser get 3-lines burger via box-shadow. Lame check if they support CSS variables.
 
 		span.burger:before {
 			

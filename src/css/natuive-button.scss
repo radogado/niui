@@ -47,7 +47,7 @@
 		
 	}
 
-	a.button + a.button {
+	a.button + a.button { // Space between 2 buttons, but fails when the second one is wrapped beneath the first one
 		
 		margin-left: $line-height-em/2;
 // 		margin-left: calc(var(--line-height-em)/2);

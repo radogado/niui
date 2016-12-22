@@ -3,7 +3,7 @@
 /* natUIve – rado.bg */
 /*
 $color: #fff;
-$background: #1E8DaC;
+$bg: #1E8DaC;
 */
 :root {
   /*
@@ -13,10 +13,10 @@ $background: #1E8DaC;
   */
   /*
   	--color: #fff;
-  	--background: #1E8DaC;
+  	--bg: #1E8DaC;
   */
   --color: #333;
-  --background: #fff; }
+  --bg: #fff; }
 
 /*
 $font-size: 26px;
@@ -26,7 +26,7 @@ $line-height: 34px;
 /* natUIve – Grid */
 /*
 $color: #fff;
-$background: #1E8DaC;
+$bg: #1E8DaC;
 */
 :root {
   /*
@@ -36,10 +36,10 @@ $background: #1E8DaC;
   */
   /*
   	--color: #fff;
-  	--background: #1E8DaC;
+  	--bg: #1E8DaC;
   */
   --color: #333;
-  --background: #fff; }
+  --bg: #fff; }
 
 /* For proper fallback, use .col* for all columns. Automatic column width (no .col*) works for Flexbox only. */
 .row {
@@ -245,7 +245,7 @@ section:before, section:after {
 .masonry > * {
   display: inline-block;
   display: table;
-  margin: 0 1.5em 1.5em 1.5em;
+  margin: 0 1.5em 1.5em;
   width: calc(100% - 1.5em*2);
   -webkit-column-break-inside: avoid;
   page-break-inside: avoid;
@@ -423,7 +423,7 @@ section:before, section:after {
 /* natUIve – Typography */
 /*
 $color: #fff;
-$background: #1E8DaC;
+$bg: #1E8DaC;
 */
 :root {
   /*
@@ -433,10 +433,10 @@ $background: #1E8DaC;
   */
   /*
   	--color: #fff;
-  	--background: #1E8DaC;
+  	--bg: #1E8DaC;
   */
   --color: #333;
-  --background: #fff; }
+  --bg: #fff; }
 
 body {
   color: #333;
@@ -538,7 +538,7 @@ hr {
 /* natUIve – Button */
 /*
 $color: #fff;
-$background: #1E8DaC;
+$bg: #1E8DaC;
 */
 :root {
   /*
@@ -548,10 +548,10 @@ $background: #1E8DaC;
   */
   /*
   	--color: #fff;
-  	--background: #1E8DaC;
+  	--bg: #1E8DaC;
   */
   --color: #333;
-  --background: #fff; }
+  --bg: #fff; }
 
 .button, input[type=submit], button[type=submit], button[type=reset], button, a.button[href] {
   font-size: inherit;
@@ -634,7 +634,7 @@ a.backtotop[href]:before {
 /* natUIve  – Form */
 /*
 $color: #fff;
-$background: #1E8DaC;
+$bg: #1E8DaC;
 */
 :root {
   /*
@@ -644,30 +644,23 @@ $background: #1E8DaC;
   */
   /*
   	--color: #fff;
-  	--background: #1E8DaC;
+  	--bg: #1E8DaC;
   */
   --color: #333;
-  --background: #fff; }
-
-form {
-  overflow: hidden;
-  position: relative; }
+  --bg: #fff; }
 
 form > * {
-  clear: both; }
+  clear: both;
+  display: inline-block;
+  vertical-align: middle; }
 
 input[type=submit], label, form .checkbox span, form label > span {
   line-height: 1.5;
   min-height: 1.5em; }
 
-input[type=submit], form button, input[type=submit], form .file-input, form .file-input span {
+input[type=submit], form button, input[type=submit], form .file, form .file span {
   line-height: 3;
   min-height: 3em; }
-
-form span {
-  /* When used as a wrapper for inline checkboxes */
-  display: inline-block;
-  vertical-align: middle; }
 
 #content form, .banner form {
   padding-top: 1.5em;
@@ -691,12 +684,18 @@ form.wide textarea, form.mast textarea {
 label > input {
   margin-top: -0.75em; }
 
-input[type=submit] {
+input[type=submit], form button {
   height: auto;
   line-height: 1.5;
   white-space: normal;
   word-break: break-all;
-  margin-bottom: 0; }
+  margin: 0;
+  min-width: 50%;
+  max-width: 100%;
+  padding: 0 1em; }
+
+form.sticky-submit {
+  position: relative; }
 
 form.sticky-submit input[type=submit] {
   position: absolute;
@@ -750,7 +749,7 @@ form .checkbox span {
   user-select: none; }
 
 form .checkbox {
-  clear: both;
+  display: block;
   min-height: 1.5em;
   margin-bottom: 1.5em; }
 
@@ -765,19 +764,13 @@ form .checkbox label span {
 form .mandatory span.checkbox:before, form .mandatory span.tip:after, select::-ms-expand {
   display: none; }
 
-form input[type=submit], form button {
-  margin-right: 0;
-  min-width: 50%;
-  max-width: 100%;
-  padding: 0 1em;
-  margin-top: 0; }
-
 form textarea {
   display: block;
   border-bottom: 1px dotted transparent;
   min-height: 4.5em;
   padding-top: 0.75em;
-  padding-top: .85em; }
+  padding-top: .85em;
+  margin: 1.5em 0; }
 
 form .mandatory {
   position: relative; }
@@ -805,7 +798,6 @@ form select {
   text-indent: 0.01px;
   text-overflow: '';
   min-height: 0;
-  width: 100%;
   text-indent: 0px;
   padding: 0 1.6em 0 .8em;
   height: 3em;
@@ -833,6 +825,7 @@ form select {
 	}
 */
 form.wide select {
+  width: 100%;
   height: 3em;
   margin: -0.75em 0 0.75em 0; }
 
@@ -840,7 +833,7 @@ form.wide select {
   padding-left: 0;
   padding-right: .8em; }
 
-form select, form .file-input {
+form select, form .file {
   vertical-align: top;
   border: none;
   overflow: hidden;
@@ -873,7 +866,7 @@ form .checkbox label:last-child {
   background: #eee;
   margin-top: 0;
   line-height: 1.66667;
-  font-size: -0.33333;
+  font-size: -0.33333em;
   text-align: center;
   color: #333;
   margin-right: .5em;
@@ -959,19 +952,23 @@ input[type=file] {
   /* IE10 */
   input[type=file] {
     margin-left: -100%; } }
-form .file-input {
+form .file {
   font-weight: normal;
-  margin: -0.75em 0 1.5em 0;
+  margin: 1.5em 0;
   cursor: pointer;
   font-style: italic;
   padding: 0;
   overflow: hidden;
   position: relative; }
 
-form.wide .file-input, form.mast .file-input {
-  margin-top: 0; }
+/*
+	form.wide .file, form.mast .file {
+		
+		margin-top: 0;
 
-form .file-input span {
+	}
+*/
+form .file span {
   text-align: start;
   white-space: nowrap;
   background: rgba(0, 0, 0, 0.1);
@@ -979,7 +976,11 @@ form .file-input span {
   margin: 0;
   width: 100%;
   border: 1px dotted transparent;
-  padding: 0 0.75em 0 0.8em; }
+  padding: 0 0.75em 0 0.8em;
+  display: block;
+  padding-left: .75em;
+  line-height: 1.5em;
+  padding-top: 0.75em; }
 
 input[type=file]:focus + span {
   border-color: #bbb; }
@@ -999,11 +1000,6 @@ form label, form label span, form .checkbox span {
 form.wide label, form.wide label span, form.wide .checkbox span {
   display: block;
   width: 100%; }
-
-form span.file-input span {
-  padding-left: .75em;
-  line-height: 1.5em;
-  padding-top: 0.75em; }
 
 form input, form select {
   display: inline-block;
@@ -1054,7 +1050,7 @@ form input[type=checkbox], form input[type=radio] {
   input[type=text], input[type=email], input[type=url] {
     padding-top: 0; }
 
-  form .file-input span {
+  form .file span {
     margin-top: -1px; }
 
   input[type=file] {
@@ -1089,160 +1085,293 @@ input[type=range]::-webkit-slider-thumb {
 input[type=range]:focus::-webkit-slider-runnable-track {
   background: rgba(5, 5, 5, 0.1); }
 
-input[type=range]::-moz-range-track {
-  width: 100%;
-  height: .7125em;
-  cursor: pointer;
-  background: rgba(0, 0, 0, 0.1); }
+/*
+	input[type=range]::-moz-range-track {
 
-input[type=range]::-moz-range-thumb {
-  border: 0px solid transparent;
-  height: 1.625em;
-  width: 1.625em;
-  border-radius: 50%;
-  background: #000;
-  cursor: pointer; }
+		width: 100%;
+		height: .7125em;
+		cursor: pointer;
+		background: rgba(0, 0, 0, 0.1);
 
-input[type=range]::-ms-track {
-  width: 100%;
-  height: .7125em;
-  cursor: pointer;
-  background: transparent;
-  border-color: transparent;
-  color: transparent; }
+	}
 
-input[type=range]::-ms-fill-lower {
-  background: rgba(0, 0, 0, 0.1); }
+	input[type=range]::-moz-range-thumb {
 
-input[type=range]::-ms-fill-upper {
-  background: rgba(0, 0, 0, 0.1); }
+		border: 0px solid rgba(0, 0, 0, 0);
+		height: 1.625em;
+		width: 1.625em;
+		border-radius: 50%;
+		background: #000;
+		cursor: pointer;
 
-input[type=range]::-ms-thumb {
-  border: 0px solid transparent;
-  height: 1.625em;
-  width: 1.625em;
-  border-radius: .9375em;
-  background: #000000;
-  cursor: pointer;
-  height: .7125em; }
+	}
 
-input[type=range]:focus::-ms-fill-lower {
-  background: rgba(0, 0, 0, 0.1); }
+	input[type=range]::-ms-track {
 
-input[type=range]:focus::-ms-fill-upper {
-  background: rgba(5, 5, 5, 0.1); }
+		width: 100%;
+		height: .7125em;
+		cursor: pointer;
+		background: transparent;
+		border-color: transparent;
+		color: transparent;
 
-/* Mast form with labels/inputs on either side */
+	}
+
+	input[type=range]::-ms-fill-lower {
+
+		background: rgba(0, 0, 0, 0.1);
+
+	}
+
+	input[type=range]::-ms-fill-upper {
+
+		background: rgba(0, 0, 0, 0.1);
+
+	}
+
+	input[type=range]::-ms-thumb {
+
+		border: 0px solid rgba(0, 0, 0, 0);
+		height: 1.625em;
+		width: 1.625em;
+		border-radius: .9375em;
+		background: #000000;
+		cursor: pointer;
+		height: .7125em;
+
+	}
+
+	input[type=range]:focus::-ms-fill-lower {
+
+		background: rgba(0, 0, 0, 0.1);
+
+	}
+
+	input[type=range]:focus::-ms-fill-upper {
+
+		background: rgba(5, 5, 5, 0.1);
+
+	}
+*/
+/*
 form.mast {
-  padding-top: 1.5em;
-  padding-top: va(--line-height-em); }
+	
+	padding-top: $line-height-em;
+	padding-top: va(--line-height-em);
+	
+}
 
-form.mast label {
-  float: left;
-  margin-bottom: 1.5em;
-  width: 100%; }
+	form.mast label {
+		
+		float: left;
+		margin-bottom: $line-height-em;
+		width: 100%;
+		
+	}
 
-form.mast .checkbox label {
-  margin: 0; }
+	form.mast .checkbox label {
+		
+		margin: 0;
 
-[dir=rtl] form.mast label {
-  float: right; }
+	}
+	
+	[dir=rtl] form.mast label {
+		
+		float: right;
+	
+	}
 
-form.mast label span {
-  text-align: end; }
+	form.mast label span {
+		
+		text-align: end;
+		
+	}
+	
+	form.mast label input, form.mast label textarea, form.mast label input[type=search], form.mast label button {
+		
+		width: 50%;
+		float: right;
+		margin: -$line-height-em/2 0 0 0;
+		
+	}
+	
+	[dir=rtl] form.mast input, [dir=rtl] form.mast select, [dir=rtl] form.mast textarea, [dir=rtl] form.mast input[type=search], [dir=rtl] form.mast button {
+		
+		float: left;
+		
+	}
+	
+	form.mast .mandatory:before {
+	
+		left: 47.5%;
+	
+	}
+	
+	[dir=rtl] form.mast .mandatory:before {
+	
+		right: 47.5%;
+		left: auto;
+	
+	}
+	
+	form.mast label textarea {
+		
+		margin-bottom: $line-height-em/2;
 
-form.mast label input, form.mast label textarea, form.mast label input[type=search], form.mast label button {
+	}
+	
+	form.mast select {
+	
+		width: 45%;
+		margin-bottom: $line-height-em/2;
+	
+	}
+	
+	form.mast select, form.mast .file {
+	
+		width: 50%;
+		margin-top: -$line-height-em/2;
+	
+	}
+	
+	form.mast label > span.file {
+		
+		margin-bottom: $line-height-em/2;
+		padding: 0;
+	
+	}
+	
+	[dir=rtl] form.mast select {
+	
+		background-position: 1em 50%;
+	
+	}
+		
+	form.mast .checkbox label {
+	
+		width: 50%;
+	
+	}
+
+	form.mast .checkbox span {
+	
+		text-align: end;
+		float: left;
+		padding-right: 3%;
+		width: 50%;
+	
+	}
+	
+	[dir=rtl] form.mast .checkbox span {
+		
+		float: right;
+		padding-right: 0;
+		padding-left: 3%;
+	
+	}
+
+	form.mast > label span {
+		
+		position: relative;
+		display: inline-block;
+		padding: 0 3% 0 0;
+		float: left;
+		width: 50%;
+	
+	}
+	
+	[dir=rtl] form.mast > label span {
+		
+		float: right;
+		padding: 0 0 0 3%;
+	
+	}
+
+	form.mast > label .file span {
+
+		width: 100%;
+		padding: calc(1.5em/2 + .3em) 0 0 $line-height-em/2;
+		line-height: $line-height-em/2;
+		text-align: left;
+
+	}
+	
+	form.mast .checkbox label {
+		
+		float: right;
+	
+	}
+
+	[dir=rtl] form.mast .checkbox label {
+		
+		float: left;
+		clear: left;
+		
+	}
+
+	[dir=rtl] form.mast .file span {
+	
+		padding: 0 .8em 0 0;
+	
+	}
+	
+	form.mast input[type=submit], form.mast button {
+		
+		float: right;
+
+	}
+*/
+form.mast > label, form.mast > .checkbox {
+  display: block; }
+
+form.mast > label > *, form.mast > .checkbox > * {
   width: 50%;
   float: right;
-  margin: -0.75em 0 0 0; }
+  margin: -0.75em 0 2.25em 0; }
 
-[dir=rtl] form.mast input, [dir=rtl] form.mast select, [dir=rtl] form.mast textarea, [dir=rtl] form.mast input[type=search], [dir=rtl] form.mast button {
-  float: left; }
+form.mast > label > span, form.mast > .checkbox > span {
+  width: 50%;
+  text-align: right;
+  padding-right: 1em;
+  float: left;
+  margin: 0; }
+
+form.mast > .checkbox > * {
+  margin: 0; }
 
 form.mast .mandatory:before {
-  left: 47.5%; }
+  left: calc(50% - 1em);
+  z-index: -1; }
 
 [dir=rtl] form.mast .mandatory:before {
-  right: 47.5%;
+  right: calc(50% - 1em);
   left: auto; }
 
-form.mast label textarea {
-  margin-bottom: 0.75em; }
-
-form.mast select {
-  width: 45%;
-  margin-bottom: 0.75em; }
-
-form.mast select, form.mast .file-input {
-  width: 50%;
-  margin-top: -0.75em; }
-
-form.mast label > span.file-input {
-  margin-bottom: 0.75em;
-  padding: 0; }
-
-[dir=rtl] form.mast select {
-  background-position: 1em 50%; }
-
-form.mast .checkbox label {
-  width: 50%; }
-
-form.mast .checkbox span {
-  text-align: end;
-  float: left;
-  padding-right: 3%;
-  width: 50%; }
-
-[dir=rtl] form.mast .checkbox span {
-  float: right;
-  padding-right: 0;
-  padding-left: 3%; }
-
-form.mast > label span {
-  position: relative;
-  display: inline-block;
-  padding: 0 3% 0 0;
-  float: left;
-  width: 50%; }
-
-[dir=rtl] form.mast > label span {
-  float: right;
-  padding: 0 0 0 3%; }
-
-form.mast > label .file-input span {
-  width: 100%;
-  padding: calc(1.5em/2 + .3em) 0 0 0.75em;
-  line-height: 0.75em;
-  text-align: left; }
-
-form.mast .checkbox label {
-  float: right; }
-
-[dir=rtl] form.mast .checkbox label {
-  float: left;
-  clear: left; }
-
-[dir=rtl] form.mast .file-input span {
-  padding: 0 .8em 0 0; }
-
-form.mast input[type=submit], form.mast button {
-  float: right; }
-
+/*
 header form {
-  display: inline-block;
-  vertical-align: middle; }
+	
+	display: inline-block;
+	vertical-align: middle;
 
-header form noscript input[type=submit] {
-  margin: 0;
-  padding: 0;
-  min-width: 0;
-  min-height: 1em; }
+}
 
-header form select {
-  width: 100%;
-  display: inline-block;
-  margin: 0; }
+	header form noscript input[type=submit] {
+		
+		margin: 0;
+		padding: 0;
+		min-width: 0;
+		min-height: 1em;
 
+	}
+	
+	header form select {
+		
+		width: 100%;
+		display: inline-block;
+		margin: 0;
+
+	}
+*/
 form {
   --placeholder_color: #aaa; }
 
@@ -1250,29 +1379,41 @@ form {
   color: #aaa;
   color: var(--placeholder_color); }
 
-:-moz-placeholder {
-  /* Firefox 18- */
-  color: #aaa;
-  color: var(--placeholder_color); }
+/*
+:-moz-placeholder { // Firefox 18-
 
-::-moz-placeholder {
-  /* Firefox 19+ */
-  color: #aaa;
-  color: var(--placeholder_color); }
+   color: $placeholder_color;  
+   color: var(--placeholder_color);
 
-:-ms-input-placeholder {
-  color: #aaa;
-  color: var(--placeholder_color); }
+}
 
+::-moz-placeholder {  // Firefox 19+
+
+   color: $placeholder_color;  
+   color: var(--placeholder_color);
+
+}
+
+:-ms-input-placeholder {  
+
+   color: $placeholder_color;  
+   color: var(--placeholder_color);
+
+}
+*/
 legend {
   padding: 0 .5em; }
 
 fieldset {
-  margin-bottom: 1em;
-  border: 1px solid; }
+  border: 1px solid;
+  display: block;
+  margin: 0.75em 0; }
 
 fieldset input:last-of-type {
   margin-bottom: 0.5em; }
+
+fieldset[disabled] {
+  display: none; }
 
 form.language select {
   height: auto;
@@ -1283,13 +1424,10 @@ form.language select {
   height: 1.5em;
   line-height: 1.5em; }
 
-fieldset[disabled] {
-  display: none; }
-
 /* Tables */
 /*
 $color: #fff;
-$background: #1E8DaC;
+$bg: #1E8DaC;
 */
 :root {
   /*
@@ -1299,10 +1437,10 @@ $background: #1E8DaC;
   */
   /*
   	--color: #fff;
-  	--background: #1E8DaC;
+  	--bg: #1E8DaC;
   */
   --color: #333;
-  --background: #fff; }
+  --bg: #fff; }
 
 table {
   width: 100%;
@@ -1379,7 +1517,7 @@ td[data-sort] {
 /* natUIve – Navigation */
 /*
 $color: #fff;
-$background: #1E8DaC;
+$bg: #1E8DaC;
 */
 :root {
   /*
@@ -1389,10 +1527,10 @@ $background: #1E8DaC;
   */
   /*
   	--color: #fff;
-  	--background: #1E8DaC;
+  	--bg: #1E8DaC;
   */
   --color: #333;
-  --background: #fff; }
+  --bg: #fff; }
 
 nav {
   vertical-align: baseline;
@@ -1702,7 +1840,7 @@ input.trigger, input.trigger ~ input[type=reset] {
 /* natUIve – List */
 /*
 $color: #fff;
-$background: #1E8DaC;
+$bg: #1E8DaC;
 */
 :root {
   /*
@@ -1712,10 +1850,10 @@ $background: #1E8DaC;
   */
   /*
   	--color: #fff;
-  	--background: #1E8DaC;
+  	--bg: #1E8DaC;
   */
   --color: #333;
-  --background: #fff; }
+  --bg: #fff; }
 
 ul {
   padding: 0;
@@ -1809,7 +1947,7 @@ ol p {
 /* natUIve – Fold */
 /*
 $color: #fff;
-$background: #1E8DaC;
+$bg: #1E8DaC;
 */
 :root {
   /*
@@ -1819,10 +1957,10 @@ $background: #1E8DaC;
   */
   /*
   	--color: #fff;
-  	--background: #1E8DaC;
+  	--bg: #1E8DaC;
   */
   --color: #333;
-  --background: #fff; }
+  --bg: #fff; }
 
 .fold {
   position: relative;
@@ -1947,7 +2085,7 @@ span.burger:after {
 /* natUIve – Tooltip */
 /*
 $color: #fff;
-$background: #1E8DaC;
+$bg: #1E8DaC;
 */
 :root {
   /*
@@ -1957,10 +2095,10 @@ $background: #1E8DaC;
   */
   /*
   	--color: #fff;
-  	--background: #1E8DaC;
+  	--bg: #1E8DaC;
   */
   --color: #333;
-  --background: #fff; }
+  --bg: #fff; }
 
 .tip, label span .tip {
   font-size: 16px;
@@ -2011,7 +2149,7 @@ $background: #1E8DaC;
 /* natUIve – Slider */
 /*
 $color: #fff;
-$background: #1E8DaC;
+$bg: #1E8DaC;
 */
 :root {
   /*
@@ -2021,10 +2159,10 @@ $background: #1E8DaC;
   */
   /*
   	--color: #fff;
-  	--background: #1E8DaC;
+  	--bg: #1E8DaC;
   */
   --color: #333;
-  --background: #fff; }
+  --bg: #fff; }
 
 .full-window-wrap .slider, .full-window-wrap .slider-wrap {
   height: 100% !important; }
@@ -2146,7 +2284,7 @@ $background: #1E8DaC;
 
 .slider-wrap > .pad {
   padding: 0;
-  margin: 4em;
+  margin: 3em;
   overflow-x: hidden; }
 
 .slider > * {
@@ -2226,7 +2364,7 @@ $background: #1E8DaC;
 .slider-arrow {
   position: absolute;
   top: 50%;
-  left: 1em;
+  left: 0.75em;
   z-index: 3;
   /* Stay on top of slider-nav if they are aligned vertically */
   transform: translateY(-50%); }
@@ -2246,7 +2384,7 @@ $background: #1E8DaC;
 
 .slider-arrow.right {
   left: auto;
-  right: 1em; }
+  right: 0.75em; }
 
 .slider-arrow.right:before {
   content: '→'; }
@@ -2286,7 +2424,7 @@ $background: #1E8DaC;
 .slider-nav {
   text-align: center;
   position: absolute;
-  bottom: .5em;
+  bottom: 0;
   white-space: nowrap;
   left: 50%;
   transform: translateX(-50%);
@@ -2294,7 +2432,7 @@ $background: #1E8DaC;
 
 .top .slider-nav {
   bottom: auto;
-  top: .5em; }
+  top: 0; }
 
 .slider-nav {
   text-align: start;
@@ -2388,7 +2526,7 @@ $background: #1E8DaC;
 /* natUIve – Lightbox */
 /*
 $color: #fff;
-$background: #1E8DaC;
+$bg: #1E8DaC;
 */
 :root {
   /*
@@ -2398,10 +2536,10 @@ $background: #1E8DaC;
   */
   /*
   	--color: #fff;
-  	--background: #1E8DaC;
+  	--bg: #1E8DaC;
   */
   --color: #333;
-  --background: #fff; }
+  --bg: #fff; }
 
 .slider-wrap > .slider.vertical.lightbox > * {
   height: 100%; }
@@ -2494,7 +2632,7 @@ $background: #1E8DaC;
 /* natUIve – Modal */
 /*
 $color: #fff;
-$background: #1E8DaC;
+$bg: #1E8DaC;
 */
 :root {
   /*
@@ -2504,10 +2642,10 @@ $background: #1E8DaC;
   */
   /*
   	--color: #fff;
-  	--background: #1E8DaC;
+  	--bg: #1E8DaC;
   */
   --color: #333;
-  --background: #fff; }
+  --bg: #fff; }
 
 .full-window-wrap {
   z-index: 999999;
@@ -2617,7 +2755,7 @@ html.parallax, html.parallax body {
 /* natUIve  – Card */
 /*
 $color: #fff;
-$background: #1E8DaC;
+$bg: #1E8DaC;
 */
 :root {
   /*
@@ -2627,10 +2765,10 @@ $background: #1E8DaC;
   */
   /*
   	--color: #fff;
-  	--background: #1E8DaC;
+  	--bg: #1E8DaC;
   */
   --color: #333;
-  --background: #fff; }
+  --bg: #fff; }
 
 .card {
   margin: 1em 0;
@@ -2666,17 +2804,14 @@ $background: #1E8DaC;
 
 .contain {
   max-width: 1312px;
-  max-width: 82rem;
   margin: 0 auto;
   width: 100%; }
 
 /* Basic elements */
-html {
-  overflow-x: hidden; }
-
 html, body {
   height: 100%;
-  margin: 0 auto; }
+  margin: 0 auto;
+  overflow-x: hidden; }
 
 body {
   position: relative;
@@ -2692,11 +2827,9 @@ body {
   /* Fallback when CSS variables aren't supported */
   color: var(--color);
   background: #fff;
-  background: var(--background); }
+  background: var(--bg); }
 
 body * {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
   /* iOS: Don't flash on tap */ }
@@ -2704,12 +2837,10 @@ body * {
 body.touch * {
   cursor: pointer; }
 
-img {
+img, picture {
   max-width: 100%;
   height: auto;
-  border: none; }
-
-picture {
+  border: none;
   text-align: center; }
 
 html.nooverflow, html.nooverflow body {
@@ -2742,13 +2873,6 @@ header a.logo {
   min-height: 46px;
   /* Don't shift page after image is loaded */ }
 
-/*
-header form.language select {
-	
-	padding-right: 2em;
-
-}
-*/
 .wide-screen {
   display: block; }
 
@@ -2774,9 +2898,8 @@ video {
   margin: 0 auto;
   display: block;
   max-width: 100%; }
-
-video a[href] {
-  color: #fff; }
+  video a[href] {
+    color: #fff; }
 
 /* Image aspect ratio – don't shift the page after loading the image */
 .aspect {
@@ -2809,15 +2932,15 @@ video a[href] {
   overflow: auto;
   -webkit-overflow-scrolling: touch; }
 
-/* Element as a window to an image spanning viewpoert dimensions. iOS doesn't support it natively and requires div.fixed-background-image */
-.fixed-background {
+/* Element as a window to an image spanning viewpoert dimensions. iOS doesn't support it natively and requires div.fixed-bg-image */
+.fixed-bg {
   background-attachment: fixed;
   position: relative;
   background-size: 0;
   overflow: hidden;
   will-change: scroll-position; }
 
-.no-touch .fixed-background {
+.no-touch .fixed-bg {
   background-position: center;
   background-size: auto;
   background-repeat: no-repeat;
@@ -2825,18 +2948,18 @@ video a[href] {
   z-index: 0; }
 
 @-moz-document url-prefix() {
-  .no-touch .fixed-background {
+  .no-touch .fixed-bg {
     transform: none; } }
-.no-touch .fixed-background-image {
+.no-touch .fixed-bg-image {
   display: none; }
 
-.fixed-background-image {
+.fixed-bg-image {
   position: absolute;
   background-image: inherit;
   background-size: 0;
   z-index: -1; }
 
-.fixed-background-image:before {
+.fixed-bg-image:before {
   content: '';
   position: fixed;
   z-index: -1;
@@ -2902,13 +3025,6 @@ header [data-threshold] {
   header > .row:first-child div {
     text-align: end; }
 
-  /*
-   		header.fixed form.language {
-  	 		
-  	 		display: none;
-  
-   		}
-  */
   header .head-right {
     text-align: start; }
 

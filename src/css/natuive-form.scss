@@ -2,16 +2,11 @@
 
 @import 'natuive-setup';
 
-form {
-	
-	overflow: hidden;
-	position: relative;
-	
-}
-
 	form > * {
 		
 		clear: both;
+		display: inline-block;
+		vertical-align: middle;
 	
 	}
 	
@@ -25,20 +20,13 @@ form {
 	
 	}
 	
-	input[type=submit], form button, input[type=submit], form .file-input, form .file-input span {
+	input[type=submit], form button, input[type=submit], form .file, form .file span {
 		
 		line-height: $line-height * 2;
 	// 	line-height: calc(var(--line-height) * 2);
 		min-height: $line-height-em * 2;
 	// 	min-height: calc(var(--line-height-em) * 2);
 		
-	}
-
-	form span { /* When used as a wrapper for inline checkboxes */
-		
-		display: inline-block;
-		vertical-align: middle;
-
 	}
 
 	#content form, .banner form {
@@ -82,18 +70,29 @@ form {
 	// 			margin-top: calc(-var(--line-height-em)/2);
 	
 	}
+	
+// 	Submit button – start
 
-	input[type=submit] {
+	input[type=submit], form button {
 		
 		height: auto;
 		line-height: $line-height;
 // 		line-height: var(--line-height);
 		white-space: normal;
 		word-break: break-all;
-		margin-bottom: 0;
-
+		margin: 0;
+		min-width: 50%;
+		max-width: 100%;
+		padding: 0 1em;
+		
 	}
 	
+	form.sticky-submit {
+		
+		position: relative;
+		
+	}
+
 	form.sticky-submit input[type=submit] {
 		
 		position: absolute;
@@ -113,6 +112,8 @@ form {
 		
 	}
 	
+// 	Submit button – end
+
 	input, select, textarea, input[type=search], form button {
 		
 		background-color: #eee;
@@ -176,7 +177,7 @@ form {
 	
 	form .checkbox {
 	
-		clear: both;
+		display: block;
 		min-height: $line-height-em;
 	// 		min-height: var(--line-height-em);
 		margin-bottom: $line-height-em;
@@ -204,16 +205,6 @@ form {
 		
 	}
 	
-	form input[type=submit], form button {
-		
-		margin-right: 0;
-		min-width: 50%;
-		max-width: 100%;
-		padding: 0 1em;
-		margin-top: 0;
-		
-	}
-	
 	form textarea {
 		
 		display: block;
@@ -221,7 +212,8 @@ form {
 		min-height: $line-height-em * 3;
 // 		min-height: calc(var(--line-height-em) * 3);
 		padding-top: $line-height-em/2;
-		padding-top: .85em;;
+		padding-top: .85em;
+	    margin: $line-height-em 0;
 	
 	}
 
@@ -267,7 +259,6 @@ form {
 		text-indent: 0.01px;
 		text-overflow: '';
 		min-height: 0;
-		width: 100%;
 		text-indent: 0px;
 		padding: 0 1.6em 0 .8em;
 		height: $line-height-em * 2;
@@ -300,6 +291,7 @@ form {
 	
 	form.wide select {
 		
+		width: 100%;
 		height: $line-height-em * 2;
 		// 		height: calc(var(--line-height-em) * 2);
 		margin: -$line-height-em/2 0 $line-height-em/2 0;
@@ -314,7 +306,7 @@ form {
 	
 	}
 
-	form select, form .file-input {
+	form select, form .file {
 
 		vertical-align: top;
 		border: none;
@@ -371,7 +363,7 @@ form {
 		margin-top: 0;
 		line-height: ($line-height + 1)*(2/3);
 // 		line-height: calc((var(--line-height) + 1)*(2/3));
-		font-size: ($line-height - 2)*(2/3);
+		font-size: ($line-height - 2)*(2em/3);
 // 		font-size: calc((var(--line-height) - 1)*(2/3));
 		text-align: center;
 		color: #333;
@@ -495,10 +487,10 @@ form {
 	
 	}
 	
-	form .file-input {
+	form .file {
 
 		font-weight: normal;
-		margin: -$line-height-em/2 0 $line-height-em 0;
+		margin: $line-height-em 0;
 // 		margin: calc(-1*var(--line-height)/2) 0 calc(var(--line-height)/2) 0;
 		cursor: pointer;
 		font-style: italic;
@@ -508,13 +500,15 @@ form {
 		
 	}
 
-	form.wide .file-input, form.mast .file-input {
+/*
+	form.wide .file, form.mast .file {
 		
 		margin-top: 0;
 
 	}
+*/
 
-	form .file-input span {
+	form .file span {
 
 		text-align: start;
 		white-space: nowrap;
@@ -524,6 +518,10 @@ form {
 		width: 100%;
 		border: 1px dotted transparent;
 		padding: 0 $line-height-em/2 0 .8em;
+		display: block;
+		padding-left: .75em;
+		line-height: $line-height-em;
+		padding-top: $line-height-em/2;
 
 	}
 	
@@ -558,14 +556,6 @@ form {
 		
 		display: block;
 		width: 100%;
-		
-	}
-	
-	form span.file-input span {
-		
-		padding-left: .75em;
-		line-height: $line-height-em;
-		padding-top: $line-height-em/2;
 		
 	}
 	
@@ -636,7 +626,7 @@ form {
 		  border: 0;
 		}
 		input[type=text], input[type=email], input[type=url] { padding-top: 0; }
-		form .file-input span { margin-top: -1px; }
+		form .file span { margin-top: -1px; }
 		input[type=file] { 
 			padding-left: 100%; 
 			text-indent: -1em;
@@ -646,7 +636,7 @@ form {
 
 	}
 	
-// 	Range input
+// 	Range input – start
 	
 	form input[type=range], form.wide input[type=range] {
 
@@ -691,6 +681,7 @@ form {
 
 	}
 
+/*
 	input[type=range]::-moz-range-track {
 
 		width: 100%;
@@ -757,9 +748,13 @@ form {
 		background: rgba(5, 5, 5, 0.1);
 
 	}
+*/
 	
-/* Mast form with labels/inputs on either side */
+// 	Range input – end
 
+// Mast form with labels/inputs on either side – start
+
+/*
 form.mast {
 	
 	padding-top: $line-height-em;
@@ -833,14 +828,14 @@ form.mast {
 	
 	}
 	
-	form.mast select, form.mast .file-input {
+	form.mast select, form.mast .file {
 	
 		width: 50%;
 		margin-top: -$line-height-em/2;
 	
 	}
 	
-	form.mast label > span.file-input {
+	form.mast label > span.file {
 		
 		margin-bottom: $line-height-em/2;
 		padding: 0;
@@ -893,7 +888,7 @@ form.mast {
 	
 	}
 
-	form.mast > label .file-input span {
+	form.mast > label .file span {
 
 		width: 100%;
 		padding: calc(#{$line-height-em}/2 + .3em) 0 0 $line-height-em/2;
@@ -915,7 +910,7 @@ form.mast {
 		
 	}
 
-	[dir=rtl] form.mast .file-input span {
+	[dir=rtl] form.mast .file span {
 	
 		padding: 0 .8em 0 0;
 	
@@ -926,7 +921,55 @@ form.mast {
 		float: right;
 
 	}
+*/
 
+form.mast > label, form.mast > .checkbox {
+
+    display: block;
+
+}
+
+form.mast > label > *, form.mast > .checkbox > * {
+	
+	width: 50%;
+	float: right;
+	margin: -$line-height-em/2 0 $line-height-em*1.5 0;
+
+}
+
+form.mast > label > span, form.mast > .checkbox > span {
+	
+	width: 50%;
+	text-align: right;
+	padding-right: 1em;
+	float: left;
+	margin: 0;
+
+}
+
+form.mast > .checkbox > * {
+	
+	margin: 0;
+
+}
+
+form.mast .mandatory:before {
+
+	left: calc(50% - 1em);
+	z-index: -1;
+
+}
+
+[dir=rtl] form.mast .mandatory:before {
+
+	right: calc(50% - 1em);
+	left: auto;
+
+}
+
+// Mast form with labels/inputs on either side – end
+
+/*
 header form {
 	
 	display: inline-block;
@@ -950,6 +993,7 @@ header form {
 		margin: 0;
 
 	}
+*/
 	
 // Placeholder colour 
 
@@ -968,14 +1012,15 @@ form {
 
 }
 
-:-moz-placeholder { /* Firefox 18- */
+/*
+:-moz-placeholder { // Firefox 18-
 
    color: $placeholder_color;  
    color: var(--placeholder_color);
 
 }
 
-::-moz-placeholder {  /* Firefox 19+ */
+::-moz-placeholder {  // Firefox 19+
 
    color: $placeholder_color;  
    color: var(--placeholder_color);
@@ -988,6 +1033,7 @@ form {
    color: var(--placeholder_color);
 
 }
+*/
 
 legend {
 	
@@ -997,8 +1043,9 @@ legend {
 
 fieldset {
 	
-	margin-bottom: 2*$line-height-em/3;
 	border: 1px solid;
+	display: block;
+    margin: $line-height-em/2 0;
 	
 }
 
@@ -1006,6 +1053,12 @@ fieldset input:last-of-type {
 	
 	margin-bottom: $line-height-em/3;
 	
+}
+
+fieldset[disabled] {
+	
+	display: none;
+
 }
 
 // Language select
@@ -1022,8 +1075,3 @@ form.language select {
 	
 }
 
-fieldset[disabled] {
-	
-	display: none;
-
-}

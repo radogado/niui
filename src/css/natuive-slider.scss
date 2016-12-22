@@ -188,7 +188,7 @@
 .slider-wrap > .pad {
 	
     padding: 0;
-    margin: 4em;
+    margin: $line-height-em*2;
     overflow-x: hidden;
 	
 }
@@ -316,7 +316,7 @@
 	
 	position: absolute;
 	top: 50%;
-	left: 1em;
+	left: $line-height-em/2;
 	z-index: 3; /* Stay on top of slider-nav if they are aligned vertically */
 	transform: translateY(-50%);
 	
@@ -347,7 +347,7 @@
 	.slider-arrow.right {
 	
 		left: auto;
-		right: 1em;
+		right: $line-height-em/2;
 	
 	}
 
@@ -405,7 +405,7 @@
 	
 	text-align: center;
 	position: absolute;
-	bottom: .5em;
+	bottom: 0;
 	white-space: nowrap;
 	left: 50%;
 	transform: translateX(-50%);
@@ -416,7 +416,7 @@
 .top .slider-nav {
 	
 	bottom: auto;
-	top: .5em;
+	top: 0;
 	
 }
 

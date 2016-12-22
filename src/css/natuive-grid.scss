@@ -357,7 +357,7 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 
         display: inline-block; // Unwanted wrapping in Chrome – 2 instead of 3 columns
         display: table; // Unwanted wrapping in Chrome – 2 instead of 3 columns
-		margin: 0 $line-height-em $line-height-em $line-height-em;
+		margin: 0 $line-height-em $line-height-em;
         width: calc(100% - #{$line-height-em}*2);
         -webkit-column-break-inside: avoid;
 		page-break-inside: avoid;           /* FF 20+ */
@@ -407,7 +407,7 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 
 	}
 
-.row.border {
+.row.border { // Too much markup for this
 
 	border: 1px solid #e6e6e6;
 	padding: 0;
@@ -558,12 +558,12 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 
 	}
 
-	.row.no-spacing > * {
-		
-		padding: 0;
-		margin: 0;
+.row.no-spacing > * {
+	
+	padding: 0;
+	margin: 0;
 
-	}
+}
 	
 	.row.spacing-horizontal > * {
 		
@@ -577,12 +577,12 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 
 	}
 	
-	.row > .vertical-row { // Split a column vertically
-		
-		display: flex;
-		flex-direction: column;
+.row > .vertical-row { // Split a column vertically
+	
+	display: flex;
+	flex-direction: column;
 
-	}
+}
 
 	.row > .vertical-row > * {
 		
