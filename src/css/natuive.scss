@@ -227,14 +227,29 @@ video {
 
 .fixed-bg { 
 
+/*
 	background-attachment: fixed;
 	position: relative;
 	background-size: 0;
 	overflow: hidden;
 	will-change: scroll-position;
+*/
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    transform: translate3d(0,0,0);
+    will-change: scroll;
 
 }
 
+.no-touch .fixed-bg {
+	
+    background-attachment: fixed;
+	
+}
+
+/*
 .no-touch .fixed-bg { 
 
 	background-position: center;
@@ -245,10 +260,11 @@ video {
 	z-index: 0;
 	
 }
+*/
 
 @-moz-document url-prefix() {
 
-	.no-touch .fixed-bg {
+	.fixed-bg {
 	
 		transform: none;
 		
@@ -256,12 +272,15 @@ video {
 
 }
 
+/*
 .no-touch .fixed-bg-image {
 	
 	display: none;
 
 }
+*/
 
+/*
 .fixed-bg-image {
 	
 	position: absolute;
@@ -286,13 +305,16 @@ video {
 	transform: translate3d(0, 0, 0);
 
 }
+*/
 
+/*
 main > *:not(.fixed-bg), body > *:not(.fixed-bg):not(main) { // Firefox Developer Edition Windows bug
 	
 	background: $bg;
 	background: var(--bg);
 	
 }
+*/
 
 /* Notification bar */
 

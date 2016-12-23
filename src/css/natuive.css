@@ -1771,7 +1771,7 @@ input.trigger, input.trigger ~ input[type=reset] {
   nav, nav ul {
     width: 100%; }
 
-  nav ul li, nav li a {
+  nav:not(.scroll) ul li, nav li a {
     margin: 0;
     display: block; }
 
@@ -2933,48 +2933,78 @@ video {
 
 /* Element as a window to an image spanning viewpoert dimensions. iOS doesn't support it natively and requires div.fixed-bg-image */
 .fixed-bg {
-  background-attachment: fixed;
-  position: relative;
-  background-size: 0;
-  overflow: hidden;
-  will-change: scroll-position; }
+  /*
+  	background-attachment: fixed;
+  	position: relative;
+  	background-size: 0;
+  	overflow: hidden;
+  	will-change: scroll-position;
+  */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  transform: translate3d(0, 0, 0);
+  will-change: scroll; }
 
 .no-touch .fixed-bg {
-  background-position: center;
-  background-size: auto;
-  background-repeat: no-repeat;
-  transform: translate3d(0, 0, 0);
-  z-index: 0; }
+  background-attachment: fixed; }
 
+/*
+.no-touch .fixed-bg { 
+
+	background-position: center;
+	background-size: auto;
+	background-repeat: no-repeat;
+// 	background-size: cover; // Too slow
+	transform: translate3d(0, 0, 0);
+	z-index: 0;
+	
+}
+*/
 @-moz-document url-prefix() {
-  .no-touch .fixed-bg {
+  .fixed-bg {
     transform: none; } }
+/*
 .no-touch .fixed-bg-image {
-  display: none; }
+	
+	display: none;
 
+}
+*/
+/*
 .fixed-bg-image {
-  position: absolute;
-  background-image: inherit;
-  background-size: 0;
-  z-index: -1; }
+	
+	position: absolute;
+	background-image: inherit;
+	background-size: 0;
+	z-index: -1;
+	
+}
 
 .fixed-bg-image:before {
-  content: '';
-  position: fixed;
-  z-index: -1;
-  height: 100%;
-  width: 100%;
-  background-image: inherit;
-  top: 0;
-  background-size: cover;
-  background-position: center;
-  will-change: transform;
-  transform: translate3d(0, 0, 0); }
+	
+	content: '';
+	position: fixed;
+	z-index: -1;
+	height: 100%;
+	width: 100%;
+	background-image: inherit;
+	top: 0;
+	background-size: cover;
+	background-position: center;
+	will-change: transform;
+	transform: translate3d(0, 0, 0);
 
-main > *:not(.fixed-bg), body > *:not(.fixed-bg):not(main) {
-  background: #fff;
-  background: var(--bg); }
-
+}
+*/
+/*
+main > *:not(.fixed-bg), body > *:not(.fixed-bg):not(main) { // Firefox Developer Edition Windows bug
+	
+	background: $bg;
+	background: var(--bg);
+	
+}
+*/
 /* Notification bar */
 .notify {
   background: rgba(0, 0, 0, 0.8);
