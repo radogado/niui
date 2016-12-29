@@ -375,6 +375,35 @@ section:before, section:after {
 .row > .vertical-row > * {
   flex-grow: 1; }
 
+/* Image aspect ratio – don't shift the page after loading the image */
+.aspect {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  overflow: hidden; }
+
+.aspect > img {
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto; }
+
+.aspect:before {
+  content: '';
+  padding-bottom: calc(100%*1/var(--ratio));
+  /* ratio:1 */ }
+
+@-moz-document url-prefix() {
+  .aspect {
+    display: block;
+    font-size: 0;
+    letter-spacing: 0; }
+
+  .aspect:before {
+    display: inline-block; } }
+.align-bottom.aspect > * {
+  align-self: flex-end;
+  vertical-align: bottom; }
+
 @media screen and (max-width: 640px) {
   .row {
     display: block; }
@@ -2900,31 +2929,6 @@ video {
   video a[href] {
     color: #fff; }
 
-/* Image aspect ratio – don't shift the page after loading the image */
-.aspect {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  overflow: hidden; }
-
-.aspect > img {
-  max-width: 100%;
-  height: auto;
-  margin: 0 auto; }
-
-.aspect:before {
-  content: '';
-  padding-bottom: calc(100%*1/var(--ratio));
-  /*    y / x * 100	*/ }
-
-@-moz-document url-prefix() {
-  .aspect {
-    display: block;
-    font-size: 0;
-    letter-spacing: 0; }
-
-  .aspect:before {
-    display: inline-block; } }
 /* Overthrow CSS:
    For Mobile devices not supporting overflow: scroll. Enable overflow: auto on elements with overthrow class when html element has overthrow class too */
 .overthrow-enabled .overthrow {

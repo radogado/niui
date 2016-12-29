@@ -181,39 +181,6 @@ video {
 
 }
 
-/* Image aspect ratio – don't shift the page after loading the image */
-
-.aspect { // aspect ratio is specified as this element's --ratio CSS variable
-	
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    overflow: hidden;
-    
-}
-
-	.aspect > img {
-		
-		max-width: 100%;
-		height: auto;
-		margin: 0 auto;
-	
-	}
-	
-	.aspect:before {
-		
-		content: '';
-		padding-bottom: calc(100%*1/var(--ratio)); /*    y / x * 100	*/
-	
-	}
-
-	@-moz-document url-prefix() { // No-flex version for FF
-
-		.aspect { display: block; font-size: 0; letter-spacing: 0; }
-		.aspect:before { display: inline-block; }
-
-	}
-
 /* Overthrow CSS:
    For Mobile devices not supporting overflow: scroll. Enable overflow: auto on elements with overthrow class when html element has overthrow class too */
 .overthrow-enabled .overthrow {
