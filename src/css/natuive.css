@@ -6,14 +6,14 @@ $bg: #1E8DaC;
 */
 :root {
   /*
-  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-  	--line-height: 2;
-  	--line-height-em: calc(var(--line-height)*1em);
-  */
+// Crashes Chrome 49 Beta, FF 44 bug can't calc properly
+	--line-height: 2;
+	--line-height-em: calc(var(--line-height)*1em);
+*/
   /*
-  	--color: #fff;
-  	--bg: #1E8DaC;
-  */
+	--color: #fff;
+	--bg: #1E8DaC;
+*/
   --color: #333;
   --bg: #fff; }
 
@@ -29,14 +29,14 @@ $bg: #1E8DaC;
 */
 :root {
   /*
-  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-  	--line-height: 2;
-  	--line-height-em: calc(var(--line-height)*1em);
-  */
+// Crashes Chrome 49 Beta, FF 44 bug can't calc properly
+	--line-height: 2;
+	--line-height-em: calc(var(--line-height)*1em);
+*/
   /*
-  	--color: #fff;
-  	--bg: #1E8DaC;
-  */
+	--color: #fff;
+	--bg: #1E8DaC;
+*/
   --color: #333;
   --bg: #fff; }
 
@@ -52,9 +52,9 @@ $bg: #1E8DaC;
 
 .row > * {
   /*
-  		vertical-align: top;
-  		display: inline-block;
-  */
+		vertical-align: top;
+		display: inline-block;
+*/
   position: relative;
   word-wrap: break-word;
   width: calc(20% - 1.5em);
@@ -68,6 +68,7 @@ $bg: #1E8DaC;
 @-moz-document url-prefix() {
   .row > * {
     margin: calc(0.375em - .0009em); } }
+
 .row > [class^=col] {
   flex-grow: 0; }
 
@@ -180,10 +181,12 @@ $bg: #1E8DaC;
   .row > * {
     width: 25%;
     flex-basis: calc(25% - 1.5em); } }
+
 @media screen and (max-width: 768px) {
   .row > * {
     width: 33.333%;
     flex-basis: calc(33.333% - 1.5em); } }
+
 .row.no-padding, .row.no-padding > * {
   padding: 0; }
 
@@ -337,6 +340,7 @@ section:before, section:after {
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .row.border-all .row {
     margin-left: -0.75em; } }
+
 .row.border-all * .row:not(:first-child) {
   margin-top: 0;
   margin-bottom: 0; }
@@ -397,17 +401,20 @@ section:before, section:after {
     display: block;
     font-size: 0;
     letter-spacing: 0; }
-
   .aspect:before {
     display: inline-block; } }
+
 .align-bottom.aspect > * {
   align-self: flex-end;
   vertical-align: bottom; }
 
+.align-middle.aspect > * {
+  align-self: center;
+  vertical-align: middle; }
+
 @media screen and (max-width: 640px) {
   .row {
     display: block; }
-
   .row > *, .row > [class^=col] {
     padding: .3em;
     width: 100% !important;
@@ -415,39 +422,31 @@ section:before, section:after {
     flex: 0 0 100% !important;
     margin: 0.75em 0;
     box-sizing: border-box; }
-
   .row > *:empty {
     display: none; }
-
   .row > .full-mobile-width, .row > [class^=col].full-mobile-width {
     box-sizing: content-box;
     padding: 0; }
-
   .row.no-spacing > *, .row.no-spacing > [class^=col] {
     margin: 0;
     padding: 0; }
-
   .no-mobile-gutter.row > * {
     padding: 0; }
-
   .row > *, .row.border, .row.border > * {
     border: none; }
-
   .row.half > * {
     width: 50% !important;
     flex: 0 0 50%; }
-
   .row.border-all .row {
     width: calc(100% + 1.5em); }
-
   .row.border-all > *:not(:first-child), .row.border-all .row > *:not(:first-child) {
     border-left: none;
     border-top: 1px solid; }
-
   .masonry, .masonry.col2, .masonry.col4 {
     -moz-column-count: 2;
     -webkit-column-count: 2;
     column-count: 2; } }
+
 /* natUIve – Typography */
 /*
 $color: #fff;
@@ -455,14 +454,14 @@ $bg: #1E8DaC;
 */
 :root {
   /*
-  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-  	--line-height: 2;
-  	--line-height-em: calc(var(--line-height)*1em);
-  */
+// Crashes Chrome 49 Beta, FF 44 bug can't calc properly
+	--line-height: 2;
+	--line-height-em: calc(var(--line-height)*1em);
+*/
   /*
-  	--color: #fff;
-  	--bg: #1E8DaC;
-  */
+	--color: #fff;
+	--bg: #1E8DaC;
+*/
   --color: #333;
   --bg: #fff; }
 
@@ -526,7 +525,7 @@ p {
 .drop-cap:first-letter {
   float: left;
   font-size: 5em;
-  padding: .1em .1em .1em 0;
+  padding: 0.1em 0.1em 0.1em 0;
   margin-top: -.2em;
   line-height: 1em; }
 
@@ -570,14 +569,14 @@ $bg: #1E8DaC;
 */
 :root {
   /*
-  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-  	--line-height: 2;
-  	--line-height-em: calc(var(--line-height)*1em);
-  */
+// Crashes Chrome 49 Beta, FF 44 bug can't calc properly
+	--line-height: 2;
+	--line-height-em: calc(var(--line-height)*1em);
+*/
   /*
-  	--color: #fff;
-  	--bg: #1E8DaC;
-  */
+	--color: #fff;
+	--bg: #1E8DaC;
+*/
   --color: #333;
   --bg: #fff; }
 
@@ -590,12 +589,12 @@ $bg: #1E8DaC;
   cursor: pointer;
   width: auto;
   word-break: break-word;
-  padding: 0 .7em;
+  padding: 0 0.7em;
   -webkit-appearance: none;
   background: #333;
   color: #eee;
-  -webkit-transition: all .1s linear;
-  transition: all .1s linear;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
   border: none;
   font-family: inherit;
   -webkit-touch-callout: none;
@@ -620,7 +619,7 @@ a.button + a.button {
 .button.big, a[href].button.big, input[type=submit], form button, button.big {
   margin: 1.25em 0;
   font-size: 1.2em;
-  padding: .75em 1em;
+  padding: 0.75em 1em;
   line-height: 1.05em;
   min-height: 0;
   font-weight: bold; }
@@ -659,6 +658,7 @@ a.backtotop[href]:before {
   .button.big {
     display: block;
     text-align: center; } }
+
 /* natUIve  – Form */
 /*
 $color: #fff;
@@ -666,14 +666,14 @@ $bg: #1E8DaC;
 */
 :root {
   /*
-  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-  	--line-height: 2;
-  	--line-height-em: calc(var(--line-height)*1em);
-  */
+// Crashes Chrome 49 Beta, FF 44 bug can't calc properly
+	--line-height: 2;
+	--line-height-em: calc(var(--line-height)*1em);
+*/
   /*
-  	--color: #fff;
-  	--bg: #1E8DaC;
-  */
+	--color: #fff;
+	--bg: #1E8DaC;
+*/
   --color: #333;
   --bg: #fff; }
 
@@ -827,7 +827,7 @@ form select {
   text-overflow: '';
   min-height: 0;
   text-indent: 0px;
-  padding: 0 1.6em 0 .8em;
+  padding: 0 1.6em 0 0.8em;
   height: 3em;
   white-space: nowrap;
   -webkit-appearance: none;
@@ -903,7 +903,7 @@ form .checkbox label:last-child {
   border: none; }
 
 [dir=rtl] .checkbox-icon {
-  margin: 0 0 0 .5em; }
+  margin: 0 0 0 0.5em; }
 
 input[type=checkbox] + .checkbox-icon:before {
   content: '✓';
@@ -937,7 +937,7 @@ input[type=checkbox], input[type=radio] {
   width: auto;
   min-height: 0;
   opacity: 0;
-  margin: 0 .5em 0 -1.5em; }
+  margin: 0 0.5em 0 -1.5em; }
 
 input[type=checkbox], input[type=radio] {
   float: right; }
@@ -980,6 +980,7 @@ input[type=file] {
   /* IE10 */
   input[type=file] {
     margin-left: -100%; } }
+
 form .file {
   font-weight: normal;
   margin: 1.5em 0;
@@ -1066,25 +1067,21 @@ form input[type=checkbox], form input[type=radio] {
   form select {
     padding-left: 0;
     text-indent: .3em; }
-
   form select option {
     padding: 0; }
-
   input::-moz-focus-inner,
   button::-moz-focus-inner {
     padding: 0;
     border: 0; }
-
   input[type=text], input[type=email], input[type=url] {
     padding-top: 0; }
-
   form .file span {
     margin-top: -1px; }
-
   input[type=file] {
     padding-left: 100%;
     text-indent: -1em;
     margin-top: -1.5em; } }
+
 form input[type=range], form.wide input[type=range] {
   -webkit-appearance: none;
   width: 100%;
@@ -1430,7 +1427,7 @@ form {
 }
 */
 legend {
-  padding: 0 .5em; }
+  padding: 0 0.5em; }
 
 fieldset {
   border: 1px solid;
@@ -1459,14 +1456,14 @@ $bg: #1E8DaC;
 */
 :root {
   /*
-  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-  	--line-height: 2;
-  	--line-height-em: calc(var(--line-height)*1em);
-  */
+// Crashes Chrome 49 Beta, FF 44 bug can't calc properly
+	--line-height: 2;
+	--line-height-em: calc(var(--line-height)*1em);
+*/
   /*
-  	--color: #fff;
-  	--bg: #1E8DaC;
-  */
+	--color: #fff;
+	--bg: #1E8DaC;
+*/
   --color: #333;
   --bg: #fff; }
 
@@ -1475,8 +1472,7 @@ table {
   overflow: auto;
   border-collapse: collapse;
   -webkit-overflow-scrolling: touch;
-  display: block;
-  margin: 1.5em 0; }
+  display: block; }
 
 table::-webkit-scrollbar {
   display: none; }
@@ -1508,7 +1504,8 @@ div.table {
   scrollbar-face-color: transparent;
   scrollbar-highlight-color: transparent;
   scrollbar-shadow-color: transparent;
-  -webkit-overflow-scrolling: touch; }
+  -webkit-overflow-scrolling: touch;
+  margin: 1.5em 0; }
 
 div.table table {
   display: table; }
@@ -1530,18 +1527,18 @@ td[data-sort] {
 @media screen and (min-width: 1px) {
   td[data-sort] {
     cursor: pointer; }
-
   td[data-sort]:after {
     content: '⇳';
     margin-left: .5em; } }
+
 @media screen and (max-width: 640px) {
   table {
     display: block;
     overflow: scroll;
     table-layout: auto; }
-
   table td {
     word-break: normal; } }
+
 /* natUIve – Navigation */
 /*
 $color: #fff;
@@ -1549,14 +1546,14 @@ $bg: #1E8DaC;
 */
 :root {
   /*
-  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-  	--line-height: 2;
-  	--line-height-em: calc(var(--line-height)*1em);
-  */
+// Crashes Chrome 49 Beta, FF 44 bug can't calc properly
+	--line-height: 2;
+	--line-height-em: calc(var(--line-height)*1em);
+*/
   /*
-  	--color: #fff;
-  	--bg: #1E8DaC;
-  */
+	--color: #fff;
+	--bg: #1E8DaC;
+*/
   --color: #333;
   --bg: #fff; }
 
@@ -1575,11 +1572,14 @@ nav.scroll ul {
   white-space: nowrap;
   overflow: auto;
   max-width: 100%;
-  padding-bottom: 1.5em; }
+  transform: translate3d(0, 0, 0); }
+
+nav.scroll ul li {
+  padding: 0.75em 0; }
 
 nav a {
   position: relative;
-  padding: 0 .5em 0 0; }
+  padding: 0 0.5em 0 0; }
 
 nav a[href].active {
   text-decoration: none;
@@ -1649,9 +1649,9 @@ nav.drop ul li b.sub {
   display: inline-block;
   padding: 1em;
   /*
-  	font-size: $font-size;
-  	font-size: 1rem;
-  */
+	font-size: $font-size;
+	font-size: 1rem;
+*/
   line-height: 1;
   margin-left: -.3em;
   mix-blend-mode: multiply; }
@@ -1694,9 +1694,9 @@ nav.drop ul li li li b.sub {
 nav.drop ul li b.sub:after {
   content: '▾';
   /*
-  	background: transparent url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAG0lEQVR42mNgwAfKy8v/48I4FeA0AacVDFQBAP9wJkE/KhUMAAAAAElFTkSuQmCC") no-repeat scroll center center;
-  	color: transparent;
-  */ }
+	background: transparent url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAG0lEQVR42mNgwAfKy8v/48I4FeA0AacVDFQBAP9wJkE/KhUMAAAAAElFTkSuQmCC") no-repeat scroll center center;
+	color: transparent;
+*/ }
 
 nav.drop ul li li b.sub:after {
   content: '▸';
@@ -1708,9 +1708,9 @@ nav.drop ul li a {
   display: inline-block;
   position: relative;
   /*
-  	font-size: $font-size;
-  	font-size: 1rem;
-  */
+	font-size: $font-size;
+	font-size: 1rem;
+*/
   line-height: 1; }
 
 nav.drop ul li a[href] {
@@ -1768,7 +1768,7 @@ nav.drop ul ul ul {
 .no-touch nav.drop ul ul ul {
   opacity: 0;
   top: 0;
-  transition: 0.2s .4s; }
+  transition: 0.2s 0.4s; }
 
 .no-touch nav.drop ul ul li:hover ul {
   visibility: visible;
@@ -1799,57 +1799,44 @@ input.trigger, input.trigger ~ input[type=reset] {
 @media screen and (max-width: 640px) {
   nav, nav ul {
     width: 100%; }
-
   nav:not(.scroll) ul li, nav li a {
     margin: 0;
     display: block; }
-
   header nav li a {
     padding: .5em 0; }
-
   nav.drop {
     width: 100%;
     min-height: 2em;
     text-align: left;
     display: inline-block;
     position: relative; }
-
   nav.drop ul li {
     display: block;
     width: 100%; }
-
   nav.drop ul li a {
     white-space: normal;
     display: block; }
-
   nav.drop input.trigger:checked ~ ul ul, nav.drop input.trigger:checked ~ div ul {
     width: 100%;
     position: relative;
     left: 0; }
-
   nav.drop ul ul {
     position: relative; }
-
   .no-touch nav.drop ul ul ul {
     opacity: 1; }
-
   .no-touch nav.drop ul ul li {
     position: relative; }
-
   nav.drop ul li b.sub {
     position: absolute;
     right: 0;
     top: 0;
     bottom: 0;
     mix-blend-mode: initial; }
-
   header nav.drop ul li a {
     width: 80%;
     width: calc(100% - 2.5em); }
-
   nav.drop ul li li li a {
     width: 100%; }
-
   @keyframes slidein {
     0% {
       transform: translate3d(-100%, 0, 0); }
@@ -1857,14 +1844,13 @@ input.trigger, input.trigger ~ input[type=reset] {
       transform: translate3d(0, 0, 0); } }
   nav.drop ul ul, nav.drop ul .trigger:not(:checked) ~ ul, .no-touch nav.drop ul li:hover .trigger:not(:checked) ~ ul, nav.drop ul .trigger:not(:checked) ~ div, .no-touch nav.drop ul li:hover .trigger:not(:checked) ~ div {
     display: none; }
-
   nav.drop ul .trigger:checked ~ ul, nav.drop ul .trigger:checked ~ div, .no-touch nav.drop ul ul li input.trigger {
     display: block;
-    animation: slidein .2s 1;
+    animation: slidein 0.2s 1;
     will-change: transform; }
-
   nav.drop ul ul, nav.drop input.trigger ~ ul input.trigger:checked ~ ul {
     position: relative; } }
+
 /* natUIve – List */
 /*
 $color: #fff;
@@ -1872,14 +1858,14 @@ $bg: #1E8DaC;
 */
 :root {
   /*
-  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-  	--line-height: 2;
-  	--line-height-em: calc(var(--line-height)*1em);
-  */
+// Crashes Chrome 49 Beta, FF 44 bug can't calc properly
+	--line-height: 2;
+	--line-height-em: calc(var(--line-height)*1em);
+*/
   /*
-  	--color: #fff;
-  	--bg: #1E8DaC;
-  */
+	--color: #fff;
+	--bg: #1E8DaC;
+*/
   --color: #333;
   --bg: #fff; }
 
@@ -1927,7 +1913,7 @@ ol > li:before {
   counter-increment: level1;
   font-weight: bold;
   background: #999;
-  padding: 0 .5em;
+  padding: 0 0.5em;
   border-radius: 50%;
   margin-right: .5em;
   color: #fff;
@@ -1937,7 +1923,7 @@ ol > li:before {
   text-align: center; }
 
 [dir=rtl] ol > li:before {
-  margin: 0 0 0 .5em; }
+  margin: 0 0 0 0.5em; }
 
 ol > li ol {
   list-style-type: none;
@@ -1979,20 +1965,20 @@ $bg: #1E8DaC;
 */
 :root {
   /*
-  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-  	--line-height: 2;
-  	--line-height-em: calc(var(--line-height)*1em);
-  */
+// Crashes Chrome 49 Beta, FF 44 bug can't calc properly
+	--line-height: 2;
+	--line-height-em: calc(var(--line-height)*1em);
+*/
   /*
-  	--color: #fff;
-  	--bg: #1E8DaC;
-  */
+	--color: #fff;
+	--bg: #1E8DaC;
+*/
   --color: #333;
   --bg: #fff; }
 
 .fold {
   position: relative;
-  padding: 0 .5em 0 1em;
+  padding: 0 0.5em 0 1em;
   margin: 0;
   max-width: 100%;
   z-index: 1; }
@@ -2073,43 +2059,37 @@ span.burger:after {
     width: 1em;
     top: 0.15em;
     box-shadow: 0 0.25em 0 1px #333, 0 0.625em 0 1px #333, 0 1em 0 1px #333; }
-
   span.burger:after {
     display: none; } }
+
 @media screen and (max-width: 640px) {
   .fold.mobile > label, .fold.mobile > input.trigger {
     display: inline-block;
     display: flex;
     width: 3em; }
-
   .fold.mobile:not(.open) .content {
     max-height: 0; }
-
   .fold.mobile > input.trigger:checked ~ .content {
     max-height: none; }
-
   .fold.mobile .content {
     /* hidden fold item */
     overflow: hidden; }
-
   header.fixed-mobile .fold.mobile {
     position: fixed;
     top: 0;
     z-index: 2; }
-
   header.fixed-mobile .fold.mobile.open {
     bottom: 0; }
-
   header.fixed-mobile .fold.mobile .content {
     padding: 0 0.375em;
     background: #fff; }
-
   header.fixed-mobile .fold.mobile.open .content {
     overflow: auto;
     -webkit-overflow-scrolling: touch;
     position: fixed;
     top: 3em;
     bottom: 0; } }
+
 /* natUIve – Tooltip */
 /*
 $color: #fff;
@@ -2117,14 +2097,14 @@ $bg: #1E8DaC;
 */
 :root {
   /*
-  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-  	--line-height: 2;
-  	--line-height-em: calc(var(--line-height)*1em);
-  */
+// Crashes Chrome 49 Beta, FF 44 bug can't calc properly
+	--line-height: 2;
+	--line-height-em: calc(var(--line-height)*1em);
+*/
   /*
-  	--color: #fff;
-  	--bg: #1E8DaC;
-  */
+	--color: #fff;
+	--bg: #1E8DaC;
+*/
   --color: #333;
   --bg: #fff; }
 
@@ -2181,14 +2161,14 @@ $bg: #1E8DaC;
 */
 :root {
   /*
-  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-  	--line-height: 2;
-  	--line-height-em: calc(var(--line-height)*1em);
-  */
+// Crashes Chrome 49 Beta, FF 44 bug can't calc properly
+	--line-height: 2;
+	--line-height-em: calc(var(--line-height)*1em);
+*/
   /*
-  	--color: #fff;
-  	--bg: #1E8DaC;
-  */
+	--color: #fff;
+	--bg: #1E8DaC;
+*/
   --color: #333;
   --bg: #fff; }
 
@@ -2323,10 +2303,10 @@ $bg: #1E8DaC;
   overflow: hidden;
   padding: 0 1px;
   /*
-  	font-size: $font-size;
-  	line-height: $line-height;
-  	min-height: $line-height;
-  */
+	font-size: $font-size;
+	line-height: $line-height;
+	min-height: $line-height;
+*/
   margin: 0;
   flex: 1 0 auto; }
 
@@ -2382,9 +2362,9 @@ $bg: #1E8DaC;
 .row .slider {
   padding: 0;
   /*
-  	border-left: 7px solid transparent;
-  	border-right: 7px solid transparent;
-  */ }
+	border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
+*/ }
 
 .slider-wrap .slider::-webkit-scrollbar {
   display: none; }
@@ -2436,7 +2416,7 @@ $bg: #1E8DaC;
   border-radius: 50%;
   background: rgba(0, 0, 0, 0.1);
   color: #fff;
-  transition: background-color .2s linear;
+  transition: background-color 0.2s linear;
   line-height: 1em;
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
@@ -2526,7 +2506,7 @@ $bg: #1E8DaC;
   text-align: start;
   border-radius: 0;
   line-height: 1.5;
-  padding: 0 .5em;
+  padding: 0 0.5em;
   -webkit-flex: 1;
   flex: 1;
   margin: 0;
@@ -2551,6 +2531,7 @@ $bg: #1E8DaC;
 @media screen and (max-width: 640px) {
   .slider-wrap.tabs > .slider-nav.row {
     display: flex; } }
+
 /* natUIve – Lightbox */
 /*
 $color: #fff;
@@ -2558,14 +2539,14 @@ $bg: #1E8DaC;
 */
 :root {
   /*
-  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-  	--line-height: 2;
-  	--line-height-em: calc(var(--line-height)*1em);
-  */
+// Crashes Chrome 49 Beta, FF 44 bug can't calc properly
+	--line-height: 2;
+	--line-height-em: calc(var(--line-height)*1em);
+*/
   /*
-  	--color: #fff;
-  	--bg: #1E8DaC;
-  */
+	--color: #fff;
+	--bg: #1E8DaC;
+*/
   --color: #333;
   --bg: #fff; }
 
@@ -2600,7 +2581,7 @@ $bg: #1E8DaC;
   color: #fff;
   left: 50%;
   transform: translateX(-50%);
-  padding: .2em .5em;
+  padding: 0.2em 0.5em;
   background: rgba(0, 0, 0, 0.4); }
 
 .lightbox.slider > * > img {
@@ -2664,14 +2645,14 @@ $bg: #1E8DaC;
 */
 :root {
   /*
-  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-  	--line-height: 2;
-  	--line-height-em: calc(var(--line-height)*1em);
-  */
+// Crashes Chrome 49 Beta, FF 44 bug can't calc properly
+	--line-height: 2;
+	--line-height-em: calc(var(--line-height)*1em);
+*/
   /*
-  	--color: #fff;
-  	--bg: #1E8DaC;
-  */
+	--color: #fff;
+	--bg: #1E8DaC;
+*/
   --color: #333;
   --bg: #fff; }
 
@@ -2709,7 +2690,7 @@ $bg: #1E8DaC;
 .full-window-wrap .close {
   color: #fff;
   cursor: pointer;
-  padding: 0 .6em;
+  padding: 0 0.6em;
   font-weight: bold;
   background: #000;
   background: rgba(0, 0, 0, 0.7);
@@ -2771,15 +2752,14 @@ html.parallax, html.parallax body {
     overflow-y: auto;
     perspective: 300px;
     perspective-origin: 100% 100%; }
-
   .parallax-front {
     transform-style: preserve-3d;
     transform: translateZ(0);
     /* Safari H/W acceleration */ }
-
   .parallax-back {
     transform: translateZ(-150px) scale(1.5);
     transform-origin: 100% 100%; } }
+
 /* natUIve  – Card */
 /*
 $color: #fff;
@@ -2787,14 +2767,14 @@ $bg: #1E8DaC;
 */
 :root {
   /*
-  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-  	--line-height: 2;
-  	--line-height-em: calc(var(--line-height)*1em);
-  */
+// Crashes Chrome 49 Beta, FF 44 bug can't calc properly
+	--line-height: 2;
+	--line-height-em: calc(var(--line-height)*1em);
+*/
   /*
-  	--color: #fff;
-  	--bg: #1E8DaC;
-  */
+	--color: #fff;
+	--bg: #1E8DaC;
+*/
   --color: #333;
   --bg: #fff; }
 
@@ -2938,12 +2918,12 @@ video {
 /* Element as a window to an image spanning viewpoert dimensions. iOS doesn't support it natively and requires div.fixed-bg-image */
 .fixed-bg {
   /*
-  	background-attachment: fixed;
-  	position: relative;
-  	background-size: 0;
-  	overflow: hidden;
-  	will-change: scroll-position;
-  */
+	background-attachment: fixed;
+	position: relative;
+	background-size: 0;
+	overflow: hidden;
+	will-change: scroll-position;
+*/
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -2968,6 +2948,7 @@ video {
 @-moz-document url-prefix() {
   .fixed-bg {
     transform: none; } }
+
 /*
 .no-touch .fixed-bg-image {
 	
@@ -3048,23 +3029,17 @@ header [data-threshold] {
 @media screen and (max-width: 640px) {
   header {
     margin: 0; }
-
   .wide-screen {
     display: none !important; }
-
   .narrow-screen {
     display: block !important; }
-
   .viewport.header-and-banner {
     height: auto;
     overflow: hidden; }
-
   header > .row:first-child div {
     text-align: end; }
-
   header .head-right {
     text-align: start; }
-
   header.fixed {
     position: fixed;
     top: 0;
@@ -3072,27 +3047,18 @@ header [data-threshold] {
     right: 0;
     background: #fff;
     z-index: 7; }
-
   header.fixed > .row {
     min-height: 3em; }
-
   header.fixed .row > * {
     padding: 0;
     margin: 0; }
-
   header.fixed a.logo {
     padding: .5em; }
-
   header.fixed .logo img {
     height: 1.5em; }
-
   footer .row > * {
     display: inline-block; }
-
   footer .row p {
     margin: 0; }
-
   header a.logo {
     float: right; } }
-
-/*# sourceMappingURL=natuive.css.map */

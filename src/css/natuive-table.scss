@@ -9,7 +9,7 @@ table {
 	border-collapse: collapse;
 	-webkit-overflow-scrolling: touch;
 	display: block;
-	margin: $line-height-em 0;
+// 	margin: $line-height-em 0;
 
 	}
 
@@ -62,6 +62,7 @@ table {
 	    scrollbar-highlight-color: transparent;
 	    scrollbar-shadow-color: transparent;
 	    -webkit-overflow-scrolling: touch;
+		margin: $line-height-em 0;
 	
 	}
 	

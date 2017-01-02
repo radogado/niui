@@ -24,7 +24,13 @@ nav {
 		white-space: nowrap;
 	    overflow: auto;
 	    max-width: 100%;
-	    padding-bottom: $line-height-em;
+	    transform: translate3d(0, 0, 0); // Safari macOS bug fix when using scrollbars: Not working initially.
+
+	}
+
+	nav.scroll ul li {
+
+	    padding: $line-height-em/2 0;
 
 	}
 
