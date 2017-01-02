@@ -10,7 +10,7 @@ body {
 
 }
 
-a[href] {
+main a[href], footer a[href] {
 	
     color: #c41734;
     cursor: pointer;
@@ -98,6 +98,13 @@ header a[href].logo {
 	
 }
 
+header a[href].logo img {
+
+	margin: 1.5em 2em 0 3em;
+	height: 2.5em;
+
+}
+
 header a[href] {
 	
 	vertical-align: middle;
@@ -109,4 +116,17 @@ header.row > div {
 	padding: 0;
 	margin: 0;
 	
+}
+
+form select {
+	
+	background: none;	
+	border: 3px solid #c3c3c3;
+	    
+}
+
+form select:hover {
+	
+    border-color: #003d50;
+	    
 }

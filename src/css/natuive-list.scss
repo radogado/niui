@@ -10,7 +10,8 @@ ul {
 // 	line-height: var(--line-height);
 	min-height: $line-height-em;
 // 	min-height: var(--line-height-em);
-	margin: $line-height-em 0 $line-height-em 0;
+	margin: 0;
+// 	margin: $line-height-em 0 $line-height-em 0;
 // 	margin: var(--line-height-em) 0 var(--line-height-em) 0;
 
 }
@@ -36,10 +37,18 @@ li ul li {
 ul.vertical li {
 	
 	display: block;
-	margin: $line-height-em 0 0 0;
+	margin: $line-height-em/2 0;
 // 	margin: var(--line-height-em) 0 0 0;
 
 }
+
+/*
+ul.vertical li > a[href] { // Ugly when underlined
+	
+	display: block;
+
+}
+*/
 
 ol {
 

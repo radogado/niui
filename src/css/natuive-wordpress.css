@@ -405,6 +405,10 @@ section:before, section:after {
   align-self: flex-end;
   vertical-align: bottom; }
 
+.align-middle.aspect > * {
+  align-self: center;
+  vertical-align: middle; }
+
 @media screen and (max-width: 640px) {
   .row {
     display: block; }
@@ -1476,8 +1480,7 @@ table {
   overflow: auto;
   border-collapse: collapse;
   -webkit-overflow-scrolling: touch;
-  display: block;
-  margin: 1.5em 0; }
+  display: block; }
 
 table::-webkit-scrollbar {
   display: none; }
@@ -1509,7 +1512,8 @@ div.table {
   scrollbar-face-color: transparent;
   scrollbar-highlight-color: transparent;
   scrollbar-shadow-color: transparent;
-  -webkit-overflow-scrolling: touch; }
+  -webkit-overflow-scrolling: touch;
+  margin: 1.5em 0; }
 
 div.table table {
   display: table; }
@@ -1576,7 +1580,10 @@ nav.scroll ul {
   white-space: nowrap;
   overflow: auto;
   max-width: 100%;
-  padding-bottom: 1.5em; }
+  transform: translate3d(0, 0, 0); }
+
+nav.scroll ul li {
+  padding: 0.75em 0; }
 
 nav a {
   position: relative;
@@ -1888,7 +1895,7 @@ ul {
   padding: 0;
   line-height: 1.5;
   min-height: 1.5em;
-  margin: 1.5em 0 1.5em 0; }
+  margin: 0; }
 
 ul.indent {
   margin-left: 1.5em; }
@@ -1901,8 +1908,15 @@ li ul li {
 
 ul.vertical li {
   display: block;
-  margin: 1.5em 0 0 0; }
+  margin: 0.75em 0; }
 
+/*
+ul.vertical li > a[href] { // Ugly when underlined
+	
+	display: block;
+
+}
+*/
 ol {
   list-style-type: none;
   counter-reset: level1;
