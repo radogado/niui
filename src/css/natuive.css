@@ -242,14 +242,18 @@ section:before, section:after {
   margin: 1.5em 0; }
 
 .masonry > * {
-  display: inline-block;
   display: table;
-  margin: 0 1.5em 1.5em;
-  width: calc(100% - 1.5em*2);
+  width: 100%;
   -webkit-column-break-inside: avoid;
   page-break-inside: avoid;
   /* FF 20+ */
-  break-inside: avoid-column; }
+  break-inside: avoid-column;
+  /*
+  		-webkit-margin-before: 0;
+  		-webkit-margin-after: 0;
+  */
+  margin: 0;
+  padding: 0.75em; }
 
 .masonry.col2 {
   -moz-column-count: 2;
