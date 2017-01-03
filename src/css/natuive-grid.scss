@@ -627,6 +627,7 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 
 		.aspect { display: block; font-size: 0; letter-spacing: 0; }
 		.aspect:before { display: inline-block; }
+		.aspect > * { display: inline-block; font-size: 1rem; }
 
 	}
 	

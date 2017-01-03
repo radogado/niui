@@ -403,7 +403,11 @@ section:before, section:after {
     letter-spacing: 0; }
 
   .aspect:before {
-    display: inline-block; } }
+    display: inline-block; }
+
+  .aspect > * {
+    display: inline-block;
+    font-size: 1rem; } }
 .align-bottom.aspect > * {
   align-self: flex-end;
   vertical-align: bottom; }
@@ -1904,7 +1908,8 @@ ul.indent {
   margin-left: 1.5em; }
 
 ul li {
-  display: inline-block; }
+  display: inline-block;
+  vertical-align: top; }
 
 li ul li {
   display: block; }
