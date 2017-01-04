@@ -726,7 +726,7 @@ function openLightbox(e) {
 
 /* Add 'Back to top' button */
 
-q(q('footer > div > div') ? 'footer > div > div' : 'body').insertAdjacentHTML('beforeend', '<a class="backtotop" href="#"></a>');
+q(q('footer > div > div') ? 'footer > div > div' : 'body').insertAdjacentHTML('beforeend', '<a class="backtotop" href="#">↑</a>');
 
 /* Animate anchor links */
 
