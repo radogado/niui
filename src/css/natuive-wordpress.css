@@ -2011,7 +2011,7 @@ $bg: #1E8DaC;
   max-width: 100%;
   z-index: 1; }
 
-.fold > label {
+.fold > .label {
   margin: 0;
   float: none;
   line-height: 3;
@@ -2031,7 +2031,7 @@ $bg: #1E8DaC;
   padding: 0;
   width: auto; }
 
-.fold.mobile > label, .fold.mobile > input.trigger {
+.fold.mobile > .label, .fold.mobile > input.trigger {
   display: none;
   width: auto;
   line-height: 1.5;
@@ -2048,7 +2048,7 @@ $bg: #1E8DaC;
   /* hidden fold item */
   overflow: visible; }
 
-.fold:not(.open):not(.mobile) > div, .fold.open input.trigger:checked ~ div {
+.fold:not(.open):not(.mobile) > .content, .fold.open input.trigger:checked ~ .content {
   max-height: 0; }
 
 .fold:first-of-type .content {
@@ -2060,10 +2060,10 @@ $bg: #1E8DaC;
 .fold .content > * {
   margin-top: 0; }
 
-.fold > input.trigger:checked ~ div, .fold.mobile .content {
+.fold > input.trigger:checked ~ .content, .fold.mobile .content {
   max-height: none; }
 
-.fold.open > input.trigger + * {
+.fold.open > input.trigger + .content {
   display: inline-block; }
 
 span.burger {
@@ -2091,7 +2091,7 @@ span.burger:after {
   span.burger:after {
     display: none; } }
 @media screen and (max-width: 640px) {
-  .fold.mobile > label, .fold.mobile > input.trigger {
+  .fold.mobile > .label, .fold.mobile > input.trigger {
     display: inline-block;
     display: flex;
     width: 3em; }

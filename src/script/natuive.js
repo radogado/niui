@@ -1387,7 +1387,7 @@ function init() {
 	
 	});
 	
-	forEach('.fold > label', function(el, i) {
+	forEach('.fold > .label', function(el, i) {
 	
 	    el.onclick = toggleAccordion;
 	

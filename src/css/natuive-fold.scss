@@ -12,7 +12,7 @@
 	
 }
 
-	.fold > label {
+	.fold > .label {
 		
 		margin: 0;
 		float: none;
@@ -40,7 +40,7 @@
 
 	}
 	
-	.fold.mobile > label, .fold.mobile > input.trigger {
+	.fold.mobile > .label, .fold.mobile > input.trigger {
 		
 		display: none;
 		width: auto;
@@ -65,7 +65,7 @@
 
 	}
 	
-	.fold:not(.open):not(.mobile) > div, .fold.open input.trigger:checked ~ div /* also for CSS-only open by default */ {
+	.fold:not(.open):not(.mobile) > .content, .fold.open input.trigger:checked ~ .content /* also for CSS-only open by default */ {
 
 	    max-height: 0;
 
@@ -89,13 +89,13 @@
 
 	}
 
-	.fold > input.trigger:checked ~ div, .fold.mobile .content/* , .fold > .open input.trigger:not(:checked) ~ div */ {
+	.fold > input.trigger:checked ~ .content, .fold.mobile .content/* , .fold > .open input.trigger:not(:checked) ~ div */ {
 		
 		max-height: none;
 
 	}
 	
-	.fold.open > input.trigger + * {
+	.fold.open > input.trigger + .content {
 		
 		display: inline-block;
 		
@@ -143,7 +143,7 @@
 
 @media screen and (max-width: $screen-narrow) {
 
-	.fold.mobile > label, .fold.mobile > input.trigger {
+	.fold.mobile > .label, .fold.mobile > input.trigger {
 		
 		display: inline-block; // Android Browser doesn't support the below version (flex)
 		display: flex;

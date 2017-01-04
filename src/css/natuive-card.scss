@@ -41,8 +41,8 @@
 
 .card .head.image:after {
 	
-	content: '';
-	padding-bottom: 56.25%;
+	content: ''; 
+	padding-bottom: 56.25%; // 16:9
 	width: 0;
 	display: inline-block;
 	vertical-align: bottom;
