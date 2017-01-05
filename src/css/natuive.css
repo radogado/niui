@@ -416,7 +416,7 @@ section:before, section:after {
   align-self: center;
   vertical-align: middle; }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 600px) {
   .row {
     display: block; }
 
@@ -456,7 +456,7 @@ section:before, section:after {
     border-left: none;
     border-top: 1px solid; }
 
-  .masonry, .masonry.col2, .masonry.col4 {
+  .masonry, .masonry[class^=col] {
     -moz-column-count: 2;
     -webkit-column-count: 2;
     column-count: 2; } }
@@ -657,7 +657,7 @@ a.backtotop[href] {
   z-index: 999;
   padding: .5em; }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 600px) {
   .button.big {
     display: block;
     text-align: center; } }
@@ -1183,174 +1183,6 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 
 	}
 */
-/*
-form.mast {
-	
-	padding-top: $line-height-em;
-	padding-top: va(--line-height-em);
-	
-}
-
-	form.mast label {
-		
-		float: left;
-		margin-bottom: $line-height-em;
-		width: 100%;
-		
-	}
-
-	form.mast .checkbox label {
-		
-		margin: 0;
-
-	}
-	
-	[dir=rtl] form.mast label {
-		
-		float: right;
-	
-	}
-
-	form.mast label span {
-		
-		text-align: end;
-		
-	}
-	
-	form.mast label input, form.mast label textarea, form.mast label input[type=search], form.mast label button {
-		
-		width: 50%;
-		float: right;
-		margin: -$line-height-em/2 0 0 0;
-		
-	}
-	
-	[dir=rtl] form.mast input, [dir=rtl] form.mast select, [dir=rtl] form.mast textarea, [dir=rtl] form.mast input[type=search], [dir=rtl] form.mast button {
-		
-		float: left;
-		
-	}
-	
-	form.mast .mandatory:before {
-	
-		left: 47.5%;
-	
-	}
-	
-	[dir=rtl] form.mast .mandatory:before {
-	
-		right: 47.5%;
-		left: auto;
-	
-	}
-	
-	form.mast label textarea {
-		
-		margin-bottom: $line-height-em/2;
-
-	}
-	
-	form.mast select {
-	
-		width: 45%;
-		margin-bottom: $line-height-em/2;
-	
-	}
-	
-	form.mast select, form.mast .file {
-	
-		width: 50%;
-		margin-top: -$line-height-em/2;
-	
-	}
-	
-	form.mast label > span.file {
-		
-		margin-bottom: $line-height-em/2;
-		padding: 0;
-	
-	}
-	
-	[dir=rtl] form.mast select {
-	
-		background-position: 1em 50%;
-	
-	}
-		
-	form.mast .checkbox label {
-	
-		width: 50%;
-	
-	}
-
-	form.mast .checkbox span {
-	
-		text-align: end;
-		float: left;
-		padding-right: 3%;
-		width: 50%;
-	
-	}
-	
-	[dir=rtl] form.mast .checkbox span {
-		
-		float: right;
-		padding-right: 0;
-		padding-left: 3%;
-	
-	}
-
-	form.mast > label span {
-		
-		position: relative;
-		display: inline-block;
-		padding: 0 3% 0 0;
-		float: left;
-		width: 50%;
-	
-	}
-	
-	[dir=rtl] form.mast > label span {
-		
-		float: right;
-		padding: 0 0 0 3%;
-	
-	}
-
-	form.mast > label .file span {
-
-		width: 100%;
-		padding: calc(1.5em/2 + .3em) 0 0 $line-height-em/2;
-		line-height: $line-height-em/2;
-		text-align: left;
-
-	}
-	
-	form.mast .checkbox label {
-		
-		float: right;
-	
-	}
-
-	[dir=rtl] form.mast .checkbox label {
-		
-		float: left;
-		clear: left;
-		
-	}
-
-	[dir=rtl] form.mast .file span {
-	
-		padding: 0 .8em 0 0;
-	
-	}
-	
-	form.mast input[type=submit], form.mast button {
-		
-		float: right;
-
-	}
-*/
 form.mast > label, form.mast > .checkbox {
   display: block; }
 
@@ -1536,7 +1368,7 @@ td[data-sort] {
   td[data-sort]:after {
     content: '⇳';
     margin-left: .5em; } }
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 600px) {
   table {
     display: block;
     overflow: scroll;
@@ -1801,7 +1633,7 @@ input.trigger, input.trigger ~ input[type=reset] {
   z-index: 5;
   padding: 0; }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 600px) {
   nav, nav ul {
     width: 100%; }
 
@@ -1898,15 +1730,11 @@ ul.indent {
   margin-left: 1.5em; }
 
 ul li {
-  display: inline-block;
-  vertical-align: top; }
-
-li ul li {
   display: block; }
 
-ul.vertical li {
-  display: block;
-  margin: 0.75em 0; }
+ul.inline li, nav.scroll ul li {
+  vertical-align: top;
+  display: inline-block; }
 
 /*
 ul.vertical li > a[href] { // Ugly when underlined
@@ -2089,7 +1917,7 @@ span.burger:after {
 
   span.burger:after {
     display: none; } }
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 600px) {
   .fold.mobile > .label, .fold.mobile > input.trigger {
     display: inline-block;
     display: flex;
@@ -2561,7 +2389,7 @@ $bg: #1E8DaC;
 .slider.auto-height > *:not(.visible) {
   height: 0; }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 600px) {
   .slider-wrap.tabs > .slider-nav.row {
     display: flex; } }
 /* natUIve – Lightbox */
@@ -3058,7 +2886,7 @@ header [data-threshold] {
   transition: all 0.1s linear; }
 
 /* Narrow Screens */
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 600px) {
   header {
     margin: 0; }
 

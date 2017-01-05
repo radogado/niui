@@ -414,7 +414,7 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 
 	}
 
-.row.border { // Too much markup for this
+.row.border { // To do: Reduce the markup for this
 
 	border: 1px solid #e6e6e6;
 	padding: 0;
@@ -716,7 +716,7 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 
 	}
 
-	.masonry, .masonry.col2, .masonry.col4 {
+	.masonry, .masonry[class^=col] {
 		
 	    -moz-column-count: 2;
 	    -webkit-column-count: 2;

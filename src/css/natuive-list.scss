@@ -24,21 +24,15 @@ ul.indent {
 
 ul li {
 
-	display: inline-block;
-	vertical-align: top;
-
-}
-
-li ul li {
-
 	display: block;
 
 }
 
-ul.vertical li {
+ul.inline li, nav.scroll ul li {
 	
-	display: block;
-	margin: $line-height-em/2 0;
+	vertical-align: top;
+	display: inline-block;
+// 	margin: $line-height-em/2 0;
 // 	margin: var(--line-height-em) 0 0 0;
 
 }
