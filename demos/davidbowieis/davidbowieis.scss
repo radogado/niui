@@ -35,6 +35,18 @@ main iframe {
 
 }
 
+td:first-child {
+	
+	white-space: nowrap;
+
+}
+
+tr:nth-child(2n+1) {
+	
+	background: none;
+
+}
+
 h1, h2, h3 {
 	
 	text-transform: uppercase;
@@ -51,5 +63,14 @@ form.language {
 	
 	background: #000;
 	color: #fff;
+	
+}
+
+hr {
+	
+	display: inline-block;
+	width: 3em;
+	border-color: #FF4500;
+	border-width: 2px;
 	
 }
