@@ -2599,8 +2599,10 @@ html.parallax, html.parallax body {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: -1;
-  background: red; }
+  z-index: -1; }
+
+html.parallax .fixed-bg {
+  transform: none; }
 
 @supports (perspective: 1px) {
   /* CSS Parallax is SUPPORTED */

@@ -16,7 +16,13 @@ html.parallax, html.parallax body {
 	right: 0;
 	bottom: 0;
 	z-index: -1;
-	background: red;
+// 	background: red;
+
+}
+
+html.parallax .fixed-bg {
+
+	transform: none;
 
 }
 
@@ -47,5 +53,5 @@ html.parallax, html.parallax body {
 		transform-origin: 100% 100%;
 
 	}
-
+	
 }
