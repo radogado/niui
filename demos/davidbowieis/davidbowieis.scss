@@ -6,13 +6,13 @@
 
 .header-and-banner .contain {
 	
-	max-width: 1800px;
+	max-width: 1700px;
 
 }
 
 main .contain {
 	
-	max-width: 1000px;
+	max-width: 1100px;
 
 }
 
@@ -28,6 +28,19 @@ main iframe {
 
 }
 
+.news h3 {
+	
+	border-bottom: 4px solid #000;
+	margin-bottom: 1em;
+
+}
+
+.news .table {
+	
+	margin-top: 0;
+
+}
+
 .align-center table td {
 	
 	text-align: left;
@@ -35,15 +48,28 @@ main iframe {
 
 }
 
+td {
+	
+	vertical-align: top;
+
+}
+
 td:first-child {
 	
 	white-space: nowrap;
+	padding-left: 0;
 
 }
 
 tr:nth-child(2n+1) {
 	
 	background: none;
+
+}
+
+td {
+	
+	padding: .25em .5em;
 
 }
 
@@ -63,7 +89,19 @@ form.language {
 	
 	background: #000;
 	color: #fff;
+	display: inline-block;
+	background: #000 url(earth.png) left center no-repeat;
+	background-size: auto 1.5em;
+	padding-left: 2em;
+	background-position: .75em center;
 	
+}
+
+form.language select {
+	
+	margin: .75em 0;
+	text-transform: uppercase;
+
 }
 
 hr {
@@ -72,5 +110,83 @@ hr {
 	width: 3em;
 	border-color: #FF4500;
 	border-width: 2px;
+    margin-top: 0;
+	
+}
+
+nav a[href] {
+	
+	text-decoration: none;
+	
+}
+
+a[href].button {
+	
+	background: none;
+	border: 1px solid #000;
+	color: #000;
+	padding: .5em 1.25em;
+	
+}
+
+a[href].button:hover {
+	
+	background: #000;
+	color: #fff;
+	
+}
+
+.black {
+	
+	color: #fff;
+	padding: 4em 0;
+	 
+}
+
+.black a[href].button {
+	
+	border: 1px solid #fff;
+	color: #fff;
+	
+}
+
+.black a[href].button:hover {
+	
+	background: #fff;
+	color: #000;
+	
+}
+
+a.backtotop[href] {
+	
+	display: none;
+	
+}
+
+.banner-bg {
+	
+	height: calc(100% + 6em); position: absolute; width: 100%; background: url(TOP-BANNER-DB-2.jpg) center bottom no-repeat; background-size: auto calc(100% + 6em);
+	
+}
+
+.banner p {
+	
+	font-size: 1.5vw;
+
+}
+
+@media (max-width: 600px) {
+
+	.banner-bg {	
+
+		height: 100vh;
+
+	}
+	
+	.banner p {
+		
+		font-size: inherit;
+
+	}
 	
 }

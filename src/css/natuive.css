@@ -417,7 +417,7 @@ section:before, section:after {
   vertical-align: middle; }
 
 @media screen and (max-width: 600px) {
-  .row {
+  .row:not(.half) {
     display: block; }
 
   .row > *, .row > [class^=col] {
@@ -447,7 +447,7 @@ section:before, section:after {
 
   .row.half > * {
     width: 50% !important;
-    flex: 0 0 50%; }
+    flex: 0 0 50% !important; }
 
   .row.border-all .row {
     width: calc(100% + 1.5em); }
