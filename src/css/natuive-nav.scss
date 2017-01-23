@@ -25,6 +25,7 @@ nav {
 	    overflow: auto;
 	    max-width: 100%;
 	    transform: translate3d(0, 0, 0); // Safari macOS bug fix when using scrollbars: Not working initially.
+	    -webkit-overflow-scrolling: touch;
 
 	}
 

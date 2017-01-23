@@ -1410,7 +1410,8 @@ nav.scroll ul {
   white-space: nowrap;
   overflow: auto;
   max-width: 100%;
-  transform: translate3d(0, 0, 0); }
+  transform: translate3d(0, 0, 0);
+  -webkit-overflow-scrolling: touch; }
 
 nav.scroll ul li {
   padding: 0.75em 0; }
