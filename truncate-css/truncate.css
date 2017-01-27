@@ -1,3 +1,5 @@
+/* v1.1 – transitions */
+
 .truncate {
 	
 	line-height: 1.25;
@@ -50,11 +52,13 @@
 	max-height: 4.95em;
 	overflow: hidden;
 	margin-bottom: 3em;
+	transition: max-height .2s linear;
 	
 }
 
 .truncate > input:checked ~ :last-child {
 	
-	max-height: none;
+	max-height: 100%;
+	transition: max-height .5s linear;
 	
 }
