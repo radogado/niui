@@ -27,15 +27,10 @@
 	line-height: 2.5;
 	position: absolute;
 	bottom: -3em;
-	
-}
-
-.truncate > :last-child:after {
-
 	content: 'More ↓';
-
-}
 	
+}
+
 .truncate > input:checked {
 	
 	bottom: -3.5em;
@@ -50,7 +45,7 @@
 
 }
 
-.truncate > * {
+.truncate > :last-child {
 	
 	max-height: 4.95em;
 	overflow: hidden;
@@ -58,7 +53,7 @@
 	
 }
 
-.truncate > input:checked ~ * {
+.truncate > input:checked ~ :last-child {
 	
 	max-height: none;
 	
