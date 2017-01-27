@@ -1,0 +1,59 @@
+.truncate {
+	
+	display: flex;
+	flex-direction: column;
+	line-height: 1.25;
+
+}
+
+.truncate > input {
+	
+	order: 1;
+	-webkit-appearance: none;
+	display: block;
+	height: 2.5em;
+	margin: 0;
+	cursor: pointer;
+	border: none;
+	border-radius: 0;
+	border-top: 1px dotted;
+	margin-top: 1.25em;
+	font-size: inherit;
+	font-family: inherit;
+	width: 100%;
+	background: none;
+	
+}
+
+.truncate > input:after {
+
+	content: 'More ↓';
+	line-height: 2.5;
+
+}
+	
+.truncate > input:checked {
+	
+	border: none;
+	margin: 0;
+
+}
+
+.truncate > input:checked:after {
+
+	content: 'Less ↑';
+
+}
+
+.truncate > * {
+	
+	max-height: 5em;
+	overflow: hidden;
+	
+}
+
+.truncate > input:checked ~ * {
+	
+	max-height: none;
+	
+}
