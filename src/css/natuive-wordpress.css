@@ -1843,8 +1843,6 @@ $bg: #1E8DaC;
 .fold > .label {
   margin: 0;
   float: none;
-  line-height: 3;
-  min-height: 3em;
   text-align: left;
   text-align: start;
   width: 100%;
@@ -1878,7 +1876,8 @@ $bg: #1E8DaC;
   overflow: visible; }
 
 .fold:not(.open):not(.mobile) > .content, .fold.open input.trigger:checked ~ .content {
-  max-height: 0; }
+  max-height: 0;
+  max-height: var(--height, 0); }
 
 .fold:first-of-type .content {
   padding-top: 0; }
