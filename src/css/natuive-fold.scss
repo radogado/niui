@@ -16,9 +16,9 @@
 		
 		margin: 0;
 		float: none;
-		line-height: $line-height * 2;
+// 		line-height: $line-height * 2;
 	// 	line-height: calc(var(--line-height) * 2);
-		min-height: $line-height-em * 2;
+// 		min-height: $line-height-em * 2;
 	// 	min-height: calc(var(--line-height-em) * 2);
 		text-align: left;
 		text-align: start;
@@ -68,6 +68,7 @@
 	.fold:not(.open):not(.mobile) > .content, .fold.open input.trigger:checked ~ .content /* also for CSS-only open by default */ {
 
 	    max-height: 0;
+	    max-height: var(--height, 0); // Fallback to 0
 
 	}
 

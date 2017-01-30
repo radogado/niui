@@ -1299,15 +1299,17 @@ function toggleAccordion(e) {
 */
 
     var content = el.querySelector('.content');
-
+	var content_height = content.style.getPropertyValue('--height') || 0;
+	
+	
 	if (hasClass(el, 'open')) {
-		
-		animate(content, '0% { max-height: ' + content.scrollHeight + 'px; } 100% { max-height: 0; }', .2, function () { toggleClass(el, 'open'); });
+
+		animate(content, '0% { max-height: ' + content.scrollHeight + 'px; } 100% { max-height: ' + content_height + '; }', .2, function () { toggleClass(el, 'open'); });
 		
 	} else {
 		
 		toggleClass(el, 'open');
-		animate(content, '0% { max-height: 0; } 100% { max-height: ' + content.scrollHeight + 'px; }', .2);
+		animate(content, '0% { max-height: ' + content_height + '; } 100% { max-height: ' + content.scrollHeight + 'px; }', .2);
 		
 	}
 
