@@ -133,6 +133,7 @@
 	// Fix Safari bug where 1px of previous slide is visible during slide
 	margin-left: -.5px;
     width: calc(100% + 1px);
+    padding: 0; // Because .slider.pad breaks the slider layout
 
 }
 

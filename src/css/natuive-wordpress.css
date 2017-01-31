@@ -2108,7 +2108,8 @@ $bg: #1E8DaC;
 .slider-wrap .slider {
   overflow: visible;
   margin-left: -.5px;
-  width: calc(100% + 1px); }
+  width: calc(100% + 1px);
+  padding: 0; }
 
 /*
 .slider-wrap .slider > * {
