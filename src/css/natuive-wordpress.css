@@ -81,35 +81,26 @@ $bg: #1E8DaC;
   max-width: 100%;
   /* instead of overflow-x:hidden, which would also activate overflow-y:hidden and clip the tooltip */ }
 
-/*
-	.no-flex .row { // Fallback
-		
-		display: block;
-		font-size: 0;
-	
-	}
-
-	.no-flex .row > * {
-		
-		font-size: $font-size;
-		font-size: 1rem;
-		margin: $line-height-em/2 0;
-
-	}
-*/
 /* colXY where the column takes up X/Y of space; colY means 1/Y */
 /*
 	// To do: Future CSS Variables grid with only 1 line per column variant
 	
 	.row > * {
 		
-		width: var(--width);
-		flex: 0 0 calc(var(--width) - 1.5em);
+		--spacing: 1.5em;
+		flex-basis: calc(var(--width) * 100% - var(--spacing));
+
+	}
+	
+	.row.no-spacing > * {
+		
+		--spacing: 0;
+		
 	}
 	
 	.row > .col23 {
 		
-		--width: 66.667%;
+		--width: 2/3; // or with inline style without the need for column classes
 		
 	}
 */
@@ -142,6 +133,16 @@ $bg: #1E8DaC;
 
 .row > .col1, .row > *:only-child:not([class^=col]) {
   flex-basis: calc(100% - 1.5em); }
+
+.row.no-spacing > * {
+  padding: 0;
+  margin: 0; }
+
+.row.spacing-horizontal > * {
+  margin: 0 0.75em; }
+
+.row.spacing-vertical > * {
+  margin: 0.75em 0; }
 
 .row.no-spacing > .col23 {
   flex-basis: 66.667%; }
@@ -362,16 +363,6 @@ section:before, section:after {
   width: 100%;
   flex-basis: calc(100% - 1.5em);
   flex-grow: 1; }
-
-.row.no-spacing > * {
-  padding: 0;
-  margin: 0; }
-
-.row.spacing-horizontal > * {
-  margin: 0 0.75em; }
-
-.row.spacing-vertical > * {
-  margin: 0.75em 0; }
 
 .row > .vertical-row {
   display: flex;
