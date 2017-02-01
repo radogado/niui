@@ -2597,6 +2597,14 @@ html.parallax, html.parallax body {
 html.parallax .fixed-bg {
   transform: none; }
 
+.parallax .fixed-bg {
+  background-attachment: fixed;
+  background-size: cover;
+  position: static; }
+
+.parallax .fixed-bg .fixed-bg-image {
+  display: none; }
+
 @supports (perspective: 1px) {
   /* CSS Parallax is SUPPORTED */
   html.parallax body {
@@ -2773,78 +2781,39 @@ video {
 
 /* Element as a window to an image spanning viewpoert dimensions. iOS doesn't support it natively and requires div.fixed-bg-image */
 .fixed-bg {
-  /*
-  	background-attachment: fixed;
-  	position: relative;
-  	background-size: 0;
-  	overflow: hidden;
-  	will-change: scroll-position;
-  */
-  background-repeat: no-repeat;
   background-size: cover;
-  background-position: center center;
-  transform: translate3d(0, 0, 0);
-  will-change: scroll; }
+  background-position: center center; }
 
-.no-touch .fixed-bg {
-  background-attachment: fixed; }
-
-/*
-.no-touch .fixed-bg { 
-
-	background-position: center;
-	background-size: auto;
-	background-repeat: no-repeat;
-// 	background-size: cover; // Too slow
-	transform: translate3d(0, 0, 0);
-	z-index: 0;
-	
-}
-*/
-@-moz-document url-prefix() {
+@supports (clip: rect(auto, auto, auto, auto)) {
   .fixed-bg {
-    transform: none; } }
-/*
-.no-touch .fixed-bg-image {
-	
-	display: none;
+    will-change: scroll;
+    background-size: 0;
+    position: relative; }
 
-}
-*/
-/*
-.fixed-bg-image {
-	
-	position: absolute;
-	background-image: inherit;
-	background-size: 0;
-	z-index: -1;
-	
-}
+  .fixed-bg .fixed-bg-image, .fixed-bg .fixed-bg-image:before {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: inherit; }
 
-.fixed-bg-image:before {
-	
-	content: '';
-	position: fixed;
-	z-index: -1;
-	height: 100%;
-	width: 100%;
-	background-image: inherit;
-	top: 0;
-	background-size: cover;
-	background-position: center;
-	will-change: transform;
-	transform: translate3d(0, 0, 0);
+  .fixed-bg .fixed-bg-image {
+    position: absolute;
+    background-size: 0;
+    z-index: -1;
+    clip: rect(auto, auto, auto, auto); }
 
-}
-*/
-/*
-main > *:not(.fixed-bg), body > *:not(.fixed-bg):not(main) { // Firefox Developer Edition Windows bug
-	
-	background: $bg;
-	background: var(--bg);
-	
-}
-*/
+  .fixed-bg .fixed-bg-image:before {
+    content: '';
+    position: fixed;
+    background-size: cover;
+    background-position: center center; } }
+@supports (-ms-ime-align: auto) {
+  .fixed-bg {
+    background-size: cover; }
+
+  .fixed-bg .fixed-bg-image {
+    display: none; } }
 /* Notification bar */
 .notify {
   background: rgba(0, 0, 0, 0.8);

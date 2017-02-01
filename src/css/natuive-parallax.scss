@@ -26,6 +26,20 @@ html.parallax .fixed-bg {
 
 }
 
+.parallax .fixed-bg {
+	
+	background-attachment: fixed;
+	background-size: cover;
+	position: static;
+	
+}
+
+.parallax .fixed-bg .fixed-bg-image {
+	
+	display: none;
+
+}
+
 @supports (perspective: 1px) {	/* CSS Parallax is SUPPORTED */
 
 	html.parallax body {
