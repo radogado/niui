@@ -2806,7 +2806,8 @@ video {
     content: '';
     position: fixed;
     background-size: cover;
-    background-position: center center; } }
+    background-position: center center;
+    transform: translate3d(0, 0, 0); } }
 @supports (-ms-ime-align: auto) {
   .fixed-bg {
     background-size: cover; }
