@@ -551,7 +551,7 @@ function makeSlider(el, current_slide) {
 
     mouseEvents(el);
 
-    if (touchSupport()) {
+//     if (touchSupport()) {
 
         swipeEvents(slider_wrap);
 
@@ -580,7 +580,7 @@ function makeSlider(el, current_slide) {
 	        
         });
 
-    }
+//     }
 
     if (el.getAttribute('data-autoslide') !== null) { // auto slide
 

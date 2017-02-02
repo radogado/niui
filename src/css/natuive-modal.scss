@@ -31,7 +31,7 @@
 
 	}
 	
-	.full-window-wrap.limited > .content, .no-touch .full-window-wrap.limited > .content {
+	.full-window-wrap.limited > .content, /* .no-touch */ .full-window-wrap.limited > .content {
 
 		background: #666;
     	color: #eee;
@@ -59,25 +59,25 @@
 	}
 
 	/* On touch, disable fixed-position "close" bar, because it's jumpy */
-	.no-touch .full-window-wrap .close {
+/* 	.no-touch */ .full-window-wrap .close {
 
 		position: fixed;
 
 	}
 
-	.no-touch .full-window-wrap {
+/* 	.no-touch */ .full-window-wrap {
 	
 		overflow-y: scroll;
 	
 	}
 
-	.no-touch .full-window-wrap.headless {
+/* 	.no-touch */ .full-window-wrap.headless {
 		
 		padding-top: 0;
 
 	}
 
-	.no-touch .full-window-wrap > .content {
+/* 	.no-touch */ .full-window-wrap > .content {
 
 		height: 100%;
 		overflow: auto;
@@ -104,3 +104,18 @@
 
 	}
 
+
+@media screen and (max-width: $screen-narrow) {
+
+
+	.full-window-wrap.limited > .content {
+		
+    	height: 60vh;
+   	    margin-top: 20vh;
+	    width: 80vw;
+	    margin-left: 10vw;
+	
+	}
+
+
+}

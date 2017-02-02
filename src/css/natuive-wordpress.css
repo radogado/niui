@@ -1511,7 +1511,7 @@ nav.drop ul li li b.sub:before {
   left: 0;
   z-index: 0; }
 
-nav.drop ul li li .trigger:checked ~ b.sub:before, .no-touch nav.drop ul li li:hover b.sub:before {
+nav.drop ul li li .trigger:checked ~ b.sub:before {
   background-color: #ddd; }
 
 nav.drop ul li li li b.sub {
@@ -1558,17 +1558,20 @@ nav.drop ul li li a, nav.drop ul li .trigger:checked ~ a, nav.drop ul li .trigge
 nav.drop ul li li a[href], nav.drop ul li .trigger:checked ~ a[href] {
   z-index: 6; }
 
-nav.drop ul li li li a, nav.drop ul li li .trigger:checked ~ a, nav.drop ul li li .trigger:checked ~ b.sub, .no-touch nav.drop ul li:hover, .no-touch nav.drop ul li li:hover a, nav.drop ul ul ul, .no-touch nav.drop ul li li:hover ul, .no-touch nav.drop ul li li:hover li {
+nav.drop ul li li li a, nav.drop ul li li .trigger:checked ~ a, nav.drop ul li li .trigger:checked ~ b.sub, nav.drop ul ul ul {
   background: #ddd; }
 
 nav.drop ul ul li {
   display: block;
   background: #eee; }
 
-.no-touch nav.drop ul ul li, .no-touch nav.drop ul ul li:first-child {
+/* .no-touch */
+nav.drop ul ul li, nav.drop ul ul li:first-child {
   position: relative; }
 
-.no-touch nav.drop ul ul li input.trigger, input.trigger ~ input[type=reset], form#level1, form#level2 {
+/* .no-touch */
+/* nav.drop ul ul li input.trigger, */
+input.trigger ~ input[type=reset], form#level1, form#level2 {
   display: none;
   z-index: 5; }
 
@@ -1580,7 +1583,7 @@ nav.drop ul ul, nav.drop input.trigger ~ ul input.trigger:checked ~ ul {
   position: absolute;
   display: block; }
 
-nav.drop input.trigger:checked ~ ul, nav.drop input.trigger:checked ~ ul input.trigger:checked ~ ul, .no-touch nav.drop ul li:hover ul, nav.drop input.trigger:checked ~ div, .no-touch nav.drop ul ul li:hover div {
+nav.drop input.trigger:checked ~ ul, nav.drop input.trigger:checked ~ ul input.trigger:checked ~ ul, nav.drop input.trigger:checked ~ div {
   /* Not '+', because the form reset button stands between them; Touch first, Desktop second */
   visibility: visible;
   z-index: 6; }
@@ -1595,12 +1598,15 @@ nav.drop ul ul ul {
   top: 0;
   width: auto; }
 
-.no-touch nav.drop ul ul ul {
+/* .no-touch */
+nav.drop ul ul ul {
   opacity: 0;
   top: 0;
   transition: 0.2s .4s; }
 
-.no-touch nav.drop ul ul li:hover ul {
+/* .no-touch */
+/* nav.drop ul ul li:hover ul, */
+nav.drop ul input.trigger:checked ~ ul {
   visibility: visible;
   opacity: 1;
   transition-delay: 0.2s;
@@ -1660,10 +1666,12 @@ input.trigger, input.trigger ~ input[type=reset] {
   nav.drop ul ul {
     position: relative; }
 
-  .no-touch nav.drop ul ul ul {
+  /* 	.no-touch */
+  nav.drop ul ul ul {
     opacity: 1; }
 
-  .no-touch nav.drop ul ul li {
+  /* 	.no-touch */
+  nav.drop ul ul li {
     position: relative; }
 
   nav.drop ul li b.sub {
@@ -1685,10 +1693,10 @@ input.trigger, input.trigger ~ input[type=reset] {
       transform: translate3d(-100%, 0, 0); }
     100% {
       transform: translate3d(0, 0, 0); } }
-  nav.drop ul ul, nav.drop ul .trigger:not(:checked) ~ ul, .no-touch nav.drop ul li:hover .trigger:not(:checked) ~ ul, nav.drop ul .trigger:not(:checked) ~ div, .no-touch nav.drop ul li:hover .trigger:not(:checked) ~ div {
+  nav.drop ul ul, nav.drop ul .trigger:not(:checked) ~ ul, nav.drop ul .trigger:not(:checked) ~ div {
     display: none; }
 
-  nav.drop ul .trigger:checked ~ ul, nav.drop ul .trigger:checked ~ div, .no-touch nav.drop ul ul li input.trigger {
+  nav.drop ul .trigger:checked ~ ul, nav.drop ul .trigger:checked ~ div, nav.drop ul ul li input.trigger {
     display: block;
     animation: slidein .2s 1;
     will-change: transform; }
@@ -2002,7 +2010,7 @@ $bg: #1E8DaC;
   width: 20em;
   line-height: 1.15385; }
 
-.tool.open .tip, .no-touch .tool:hover .tip {
+.tool.open .tip {
   opacity: 1;
   display: block;
   top: 2em; }
@@ -2028,7 +2036,8 @@ $bg: #1E8DaC;
 .full-window-wrap .slider, .full-window-wrap .slider-wrap {
   height: 100% !important; }
 
-.no-touch .full-window-wrap .slider-wrap, .no-touch .full-window-wrap .slider-wrap.vertical {
+/* .no-touch  */
+.full-window-wrap .slider-wrap, .full-window-wrap .slider-wrap.vertical {
   margin-top: 3em;
   height: calc(100% - 3em) !important; }
 
@@ -2531,7 +2540,7 @@ $bg: #1E8DaC;
   height: calc(100% - 3em);
   padding-top: 3em; }
 
-.full-window-wrap.limited > .content, .no-touch .full-window-wrap.limited > .content {
+.full-window-wrap.limited > .content, .full-window-wrap.limited > .content {
   background: #666;
   color: #eee;
   padding: 0;
@@ -2553,16 +2562,20 @@ $bg: #1E8DaC;
   overflow: hidden; }
 
 /* On touch, disable fixed-position "close" bar, because it's jumpy */
-.no-touch .full-window-wrap .close {
+/* 	.no-touch */
+.full-window-wrap .close {
   position: fixed; }
 
-.no-touch .full-window-wrap {
+/* 	.no-touch */
+.full-window-wrap {
   overflow-y: scroll; }
 
-.no-touch .full-window-wrap.headless {
+/* 	.no-touch */
+.full-window-wrap.headless {
   padding-top: 0; }
 
-.no-touch .full-window-wrap > .content {
+/* 	.no-touch */
+.full-window-wrap > .content {
   height: 100%;
   overflow: auto; }
 
@@ -2580,6 +2593,12 @@ $bg: #1E8DaC;
   cursor: crosshair;
   background: transparent; }
 
+@media screen and (max-width: 600px) {
+  .full-window-wrap.limited > .content {
+    height: 60vh;
+    margin-top: 20vh;
+    width: 80vw;
+    margin-left: 10vw; } }
 /* CSS-only parallax scrolling. html.parallax with body children .parallax-back and .parallax-front. Thanks http://keithclark.co.uk/articles/pure-css-parallax-websites/ */
 html.parallax, html.parallax body {
   margin: 0;
@@ -2706,9 +2725,13 @@ body * {
   -webkit-tap-highlight-color: transparent;
   /* iOS: Don't flash on tap */ }
 
+/*
 body.touch * {
-  cursor: pointer; }
-
+	
+	cursor: pointer; // Enable click events on touch device
+	
+}
+*/
 img, picture {
   max-width: 100%;
   height: auto;

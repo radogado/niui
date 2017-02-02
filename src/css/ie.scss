@@ -348,9 +348,18 @@ nav.drop ul li li:hover ul, nav.drop ul li li:hover div {
 	
 }
 
+nav.drop ul ul, nav.drop ul div {
+	
+	visibility: hidden;
+	display: none;
+	position: absolute;
+	
+}
+
 nav.drop ul li:hover ul, nav.drop ul li:hover div {
 	
 	visibility: visible;
+	display: block;
 	z-index: 4;
 	
 }

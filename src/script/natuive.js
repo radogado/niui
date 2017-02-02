@@ -212,11 +212,13 @@ function getCookie(k) { // Thanks Simon Steinberger
 
 }
 
-function touchSupport () {
+/*
+function touchSupport () { // Not working properly
 	
 	return (('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
 
 }
+*/
 
 function q(selector) {
 
@@ -445,12 +447,12 @@ function closeFullWindow() {
 		}
 
 	    removeClass(q('html'), 'nooverflow');
-	    if (touchSupport()) {
+// 	    if (touchSupport()) {
 
 		    document.removeEventListener('touchmove', preventEvent, false);
 		    q('body').removeEventListener('touchmove', preventEvent, false);
 	    
-	    }
+// 	    }
 
 		removeEventHandler(window, 'keydown', arrow_keys_handler);
 // 		document.body.removeEventListener('keyup', keyUpClose);
@@ -498,7 +500,7 @@ function openFullWindow(el) {
 		
 	}
 
-	if (touchSupport() && el.children[0] && hasClass(el.children[0], 'slider')) {
+	if (/* touchSupport() && */ el.children[0] && hasClass(el.children[0], 'slider')) {
 
 		document.addEventListener('touchmove', preventEvent, false);
 		q('body').addEventListener('touchmove', preventEvent, false);
@@ -945,7 +947,7 @@ function toggleConditionalFieldset(e) {
 
 /* Form validation – end */
 
-addClass(q('body'), touchSupport() ? 'touch' : 'no-touch');
+// addClass(q('body'), touchSupport() ? 'touch' : 'no-touch');
 
 /* Baseline-align images etc */
 
@@ -1379,6 +1381,7 @@ function init() {
 	
 	}
 	
+/*
 	forEach('input.trigger, input[type=reset]', function(el, i) {
 		
 		el.onclick = function(e) {
@@ -1388,6 +1391,7 @@ function init() {
 		};
 	
 	});
+*/
 	
 	forEach('.fold > .label', function(el, i) {
 	
@@ -1563,7 +1567,7 @@ function init() {
 	
 	forEach('.tool', function(el, i) {
 	
-		if (touchSupport()) {
+/* 		if (touchSupport()) { */
 	
 			el.onclick = function (e) {
 	
@@ -1571,7 +1575,7 @@ function init() {
 				
 			};
 		
-		}
+/* 		} */
 	
 	    var t = el.querySelector('.tip');
 	    if (!t) return;
