@@ -1,0 +1,48 @@
+.banner .slider > div, .banner .slider-wrap {
+	
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-color: #0059a7;
+
+}
+
+.banner .slider .row > div {
+	
+	min-height: 100vh;
+	padding: 0;
+	margin: 0;
+	
+}
+
+.banner .slider-arrow {
+	
+	display: none;
+	
+}
+
+.header-and-banner {
+	
+	color: #fff;
+
+}
+
+header {
+	
+	z-index: 2;
+	position: absolute;
+	width: 100%;
+
+}
+
+footer {
+	
+	background-color: #aca59e;
+	    
+}
+
+footer .about {
+	
+	background: #fff;
+
+}

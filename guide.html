@@ -14,6 +14,7 @@
 	<!--[if lte IE 9]> 
 		<link rel=styleSheet href=src/css/ie.css type=text/css media=screen>
 		<script src=src/script/html5shiv.min.js></script> 
+		<script src=src/script/ie-fallback.js type=text/javascript></script>
 	<![endif]-->
 	
 </head>
@@ -24,60 +25,14 @@
 
 	<div class='header-and-banner viewport push-up'>
 	
-		<header class="fixed">
+		<header class="fixed contain">
 		
-			<div class='row contain'>
+			<a href=# class='logo pad'>
 			
-				<div>
-					
-					<div>
+				<img src=images/natuive.svg alt=Logo onerror='this.src=this.src.replace(".svg",".png");this.onerror=null;'>
 				
-						<a href=# class=logo>
-						
-							<img src=images/natuive.svg alt=Logo onerror='this.src=this.src.replace(".svg",".png");this.onerror=null;'>
-							
-						</a>
-						
-					</div>
-					
-				</div>
-				
-				<div class='col4 align-right'>
-	
-					<div>
-	
-						<form action=. method=get class=language>
+			</a>
 
-							<label class="select">
-							
-								<select name="l" class="mandatory">
-									
-									<option value="en">🇬🇧 English</option>
-									<option value="fr">🇫🇷 Français</option>
-									<option value="cn">🇨🇳 中文</option>
-									<option value="cn">🇧🇬 български</option>
-									<option value="cn">🇯🇵 日本</option>
-									
-											
-								</select>
-							
-							</label>
-																	
-							<noscript>
-							
-								<input type=submit value=▶>
-							
-							</noscript>
-						
-						</form>
-						
-					</div>
-
-				</div>
-			
-			</div>
-			
-			
 		</header>
 
 		<div class=banner>
@@ -128,8 +83,12 @@
 					
 					<div class="col1">
 						
-						<a href=http://github.com/radogado/natuive class='big button'>Get it from GitHub</a>
-						
+						<a href=#content class='button'>Features</a>
+						<a href=#showcase class='button'>Showcase</a>
+						<a href=#content class='button'>Docs</a>
+						<br>
+						<a href=http://github.com/radogado/natuive class='big button'>Download</a>
+
 					</div>
 
 				</div>
@@ -142,7 +101,7 @@
 
 <!-- 	Content - Start -->
 	
-	<main id=content>
+	<main id=content style="min-height: 100vh; padding: 1em;">
 
 		<div class=contain>
 	
@@ -1273,96 +1232,117 @@
 
 		</div>
 
-				<div class=contain>
+				<footer id=footer data-tab-title='Footer'>
 	
-	<div class='row' id=showcase>
-			
-		<div>
-
-			<h2>natUIve Showcase</h2>
-			<h3>Malleable by Design</h3>
-
-		</div>
-
-	</div>
-				
-	<div class='row'>
+					<div class='row contain'>
 		
-		<a href=demos/microsoft title="Microsoft"> <img src='images/natUIve%20Microsoft%20(20151030)%20-.png' alt="Microsoft"> </a>
-		<a href=demos/imperialinnovations title="Imperial Innovations"> <img src='images/natUIve%20(20151030)%20imperial%20-.png' alt="Imperial Innovations"> </a>
-		<a href=demos/pebble title="Pebble"> <img src='images/natUIve%20(20151030)%20pebble%20-.png' alt="Pebble"> </a>
-		<a href=demos/seat61 title="Seat 61"> <img src='images/seat61.png' alt="Seat 61"> </a>
-		<a href=demos/jetblue title="JetBlue"> <img src='images/jetblue.png' alt="JetBlue"> </a>
-		<a href=demos/mrj title="Mitsubishi Regional Jet"> <img src='images/mrj.png' alt="Mitsubishi Regional Jet"> </a>
-		<a href=demos/mubi title="MUBI"> <img src='images/mubi.png' alt="MUBI"> </a>
-		<a href=demos/swiss title="SWISS"> <img src='images/swiss.png' alt="SWISS"> </a>
-		<a href=demos/mapbox title="Mapbox"> <img src='images/mapbox.png' alt="Mapbox"> </a>
-		<a href=demos/airbnb title="Airbnb"> <img src='images/airbnb.png' alt="Airbnb"> </a>
-		<a href=demos/gov.uk title="GOV.UK"> <img src='images/gov.uk.png' alt="GOV.UK"> </a>
-		<a href=demos/google-design title="Google Design"> <img src='images/google-design.png' alt="Google Design"> </a>
-		<a href=demos/daringfireball title="Daring Fireball"> <img src='images/daringfireball.png' alt="Daring Fireball"> </a>
-		<a href=demos/vitsoe title="Vitsœ"> <img src='images/vitsoe.png' alt="Vitsœ"> </a>
-	
-	</div>
-
-</div>
-
-				<footer id=footer>
-	
-		<div class='row contain'>
-
-			<div class=col3>
-				
-				<h3>Copyright copy</h3>
+					<div class=col3>
+						
+						<h3>Copyright copy</h3>
+					
+						<p>
+						
+							&copy; 2014–2016 <a href=http://rado.bg>rado.bg</a>
+						
+						</p>
+						
+					</div>
+		
+					<nav class="col3">
+						
+						<h3>Vertical list of links</h3>
+						
+						<ul class="vertical">
+						
+							<li> <a href=#>Contact</a> </li>
+						
+							<li> <a href=#>Support</a> </li>
+						
+							<li> <a href=#>Jobs</a> </li>
+						
+							<li> <a href=#>Developers</a> </li>
+						
+							<li> <a href=#>Terms & Conditions</a> </li>
+						
+							<li> <a href=#>Privacy Policy</a> </li>
+						
+						</ul>
 			
-				<p>
+					</nav>
+			
+					<div class=social>
+						
+						<h3>Social links</h3>
+						
+						<a href=#><img src=images/facebook.png alt=Facebook></a>
+					
+						<a href=#><img src=images/linkedin.png alt=LinkedIn></a>
+						
+						<a href=#><img src=images/twitter.png alt=Twitter></a>
+			
+					</div>
+		
+				</div>
+		
+				</footer>
 				
-					&copy; 2014–2016 <a href=http://rado.bg>rado.bg</a>
+				<form action=. method=get class=language data-tab-title='Language selector'>
 				
-				</p>
+					<label class="select">
+					
+						<select name="l" class="mandatory">
+							
+							<option value="en">🇬🇧 English</option>
+							<option value="fr">🇫🇷 Français</option>
+							<option value="cn">🇨🇳 中文</option>
+							<option value="cn">🇧🇬 български</option>
+							<option value="cn">🇯🇵 日本</option>
+							
+									
+						</select>
+					
+					</label>
+															
+					<noscript>
+					
+						<input type=submit value=▶>
+					
+					</noscript>
 				
+				</form>
+
+			</div>
+			
+			<div style="min-height: 100vh;">
+			
+				<div class='row' id=showcase>
+					
+				<div class="col1">
+		
+					<h2>natUIve Showcase</h2>
+					<h3>Malleable by Design</h3>
+		
+				</div>
+		
+				<a href=demos/microsoft title="Microsoft"> <img src='images/natUIve%20Microsoft%20(20151030)%20-.png' alt="Microsoft"> </a>
+				<a href=demos/imperialinnovations title="Imperial Innovations"> <img src='images/natUIve%20(20151030)%20imperial%20-.png' alt="Imperial Innovations"> </a>
+				<a href=demos/pebble title="Pebble"> <img src='images/natUIve%20(20151030)%20pebble%20-.png' alt="Pebble"> </a>
+				<a href=demos/seat61 title="Seat 61"> <img src='images/seat61.png' alt="Seat 61"> </a>
+				<a href=demos/jetblue title="JetBlue"> <img src='images/jetblue.png' alt="JetBlue"> </a>
+				<a href=demos/mrj title="Mitsubishi Regional Jet"> <img src='images/mrj.png' alt="Mitsubishi Regional Jet"> </a>
+				<a href=demos/mubi title="MUBI"> <img src='images/mubi.png' alt="MUBI"> </a>
+				<a href=demos/swiss title="SWISS"> <img src='images/swiss.png' alt="SWISS"> </a>
+				<a href=demos/mapbox title="Mapbox"> <img src='images/mapbox.png' alt="Mapbox"> </a>
+				<a href=demos/airbnb title="Airbnb"> <img src='images/airbnb.png' alt="Airbnb"> </a>
+				<a href=demos/gov.uk title="GOV.UK"> <img src='images/gov.uk.png' alt="GOV.UK"> </a>
+				<a href=demos/google-design title="Google Design"> <img src='images/google-design.png' alt="Google Design"> </a>
+				<a href=demos/daringfireball title="Daring Fireball"> <img src='images/daringfireball.png' alt="Daring Fireball"> </a>
+				<a href=demos/vitsoe title="Vitsœ"> <img src='images/vitsoe.png' alt="Vitsœ"> </a>
+
+			</div>
+			
 			</div>
 
-			<nav class="col3">
-				
-				<h3>Vertical list of links</h3>
-				
-				<ul class="vertical">
-				
-					<li> <a href=#>Contact</a> </li>
-				
-					<li> <a href=#>Support</a> </li>
-				
-					<li> <a href=#>Jobs</a> </li>
-				
-					<li> <a href=#>Developers</a> </li>
-				
-					<li> <a href=#>Terms & Conditions</a> </li>
-				
-					<li> <a href=#>Privacy Policy</a> </li>
-				
-				</ul>
-	
-			</nav>
-	
-			<div class=social>
-				
-				<h3>Social links</h3>
-				
-				<a href=#><img src=images/facebook.png alt=Facebook></a>
-			
-				<a href=#><img src=images/linkedin.png alt=LinkedIn></a>
-				
-				<a href=#><img src=images/twitter.png alt=Twitter></a>
-	
-			</div>
-
-		</div>
-
-	</footer>
-
-			</div>
-			
 		</div>
 		
 	</main>
@@ -1376,7 +1356,6 @@
 
 	<script src=src/script/natuive.js type=text/javascript></script>
 	<script src=src/script/natuive-slider.js type=text/javascript></script>
-	<script src=src/script/natuive-fallback.js type=text/javascript></script>
 <!-- 		<script src=dist/natuive.min.js type=text/javascript async></script> -->
 
 </body>
