@@ -238,4 +238,27 @@ footer .about {
 		
 	}
 
+	header.fixed-mobile .fold.mobile.open .content {
+		
+		right: 0;
+		left: 0;
+		background: #000;		
+		
+	}
+	
+	header .row > .col5 {
+		
+		display: none;
+		
+	}
+
+	header .row > * {
+		
+		text-align: right;
+		padding: 0 .5em !important;
+		
+	}
+
 }
+
+
