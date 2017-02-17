@@ -209,7 +209,7 @@ function slide(el, method, index_number) {
     slider.style.pointerEvents = 'none'; // Speed up animation
     mouseEvents(el, 'off');
 	document.onkeyup = function () { return false; };
-	addClass(q('html'), 'sliding_now');
+// 	addClass(q('html'), 'sliding_now'); // iOS errors
 
     if (window.sliderTimeout) {
 

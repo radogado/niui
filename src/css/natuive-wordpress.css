@@ -3165,6 +3165,9 @@ iframe, article h2 a {
 article p {
   color: #000; }
 
+article ul {
+  padding-left: 2px; }
+
 .img-crop {
   width: 100%;
   display: block;
