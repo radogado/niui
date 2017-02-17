@@ -1272,7 +1272,7 @@ function scrollToAnimated(to, callback) {
 	
 	function scrollToCallback (callback) {
 		
-		q('html').scrollTop = to; 
+		q('body').scrollTop = to; 
 		if (typeof callback === 'function') {
 			
 			callback();
@@ -1281,7 +1281,7 @@ function scrollToAnimated(to, callback) {
 		
 	}
 	
-	animate(q('html'), '100% { transform: translate3d(0, ' + -1*(to - (document.documentElement.scrollTop || document.body.scrollTop)) + 'px, 0); }', .5, scrollToCallback.bind(null, callback)); // To do: IE8 error fix
+	animate(q('body'), '100% { transform: translate3d(0, ' + -1*(to - (document.documentElement.scrollTop || document.body.scrollTop)) + 'px, 0); }', .5, scrollToCallback.bind(null, callback)); // To do: IE8 error fix
 
 }
 
