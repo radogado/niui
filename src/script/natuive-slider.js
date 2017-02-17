@@ -444,6 +444,12 @@ function sliderKeyboard(e) {
 
 }
 
+function cancelTouchEvent(el) {
+	
+	addEventHandler(el, 'touchstart', function (e) { e.stopPropagation(); return false; });
+	
+}
+
 function makeSlider(el, current_slide) {
 
 	if (!el.addEventListener || hasClass(el.parentNode, 'slider-wrap') || hasClass(el.parentNode.parentNode, 'slider-wrap')) { // IE8 or already created
@@ -522,8 +528,7 @@ function makeSlider(el, current_slide) {
 
         };
         
-//         container.querySelector('.slider-nav').lastChild.addEventListener('touchstart', function (e) { e.stopPropagation(); return false; });
-        addEventHandler(container.querySelector('.slider-nav').lastChild, 'touchstart', function (e) { e.stopPropagation(); return false; })
+        cancelTouchEvent(container.querySelector('.slider-nav').lastChild);
 
     }
 
@@ -533,8 +538,7 @@ function makeSlider(el, current_slide) {
 
     };
     
-//     container.querySelector('.slider-arrow').addEventListener('touchstart', function (e) { e.stopPropagation(); return false; });
-    addEventHandler(container.querySelector('.slider-arrow'), 'touchstart', function (e) { e.stopPropagation(); return false; });
+    cancelTouchEvent(container.querySelector('.slider-arrow'));
 
     container.querySelector('.slider-arrow.right').onclick = function(e) {
 
@@ -542,8 +546,7 @@ function makeSlider(el, current_slide) {
 
     };
 
-//     container.querySelector('.slider-arrow.right').addEventListener('touchstart', function (e) { e.stopPropagation(); return false; });
-    addEventHandler(container.querySelector('.slider-arrow.right'), 'touchstart', function (e) { e.stopPropagation(); return false; });
+    cancelTouchEvent(container.querySelector('.slider-arrow.right'));
 
     addClass(el.children[0], 'visible');
 
@@ -551,36 +554,32 @@ function makeSlider(el, current_slide) {
 
     mouseEvents(el);
 
-//     if (touchSupport()) {
+    swipeEvents(slider_wrap);
 
-        swipeEvents(slider_wrap);
+    slider_wrap.addEventListener('swipeLeft', function(e) {
 
-        slider_wrap.addEventListener('swipeLeft', function(e) {
+        var el = sliderElement(e);
+        slide(el, 'right');
 
-            var el = sliderElement(e);
-            slide(el, 'right');
+    });
 
-        });
+    slider_wrap.addEventListener('swipeRight', function(e) {
 
-        slider_wrap.addEventListener('swipeRight', function(e) {
+        var el = sliderElement(e);
+        slide(el, 'left');
 
-            var el = sliderElement(e);
-            slide(el, 'left');
-
-        });
+    });
+    
+    forEach(el.querySelectorAll('input[type=range]'), function (el) {
         
-        forEach(el.querySelectorAll('input[type=range]'), function (el) {
-	        
-	        el.ontouchmove = function(e) {
+        el.ontouchmove = function(e) {
 
-				e.stopPropagation();
-				removeClass(q('html'), 'sliding_now');
-		        
-	        };
+			e.stopPropagation();
+			removeClass(q('html'), 'sliding_now');
 	        
-        });
-
-//     }
+        };
+        
+    });
 
     if (el.getAttribute('data-autoslide') !== null) { // auto slide
 
