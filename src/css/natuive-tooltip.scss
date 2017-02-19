@@ -62,7 +62,7 @@
 
 }
 
-.tool.open .tip /* , .no-touch .tool:hover .tip */ {
+.tool.open .tip, html:not(.can-touch) .tool:hover .tip {
 	
 	opacity: 1;
 	display: block;
