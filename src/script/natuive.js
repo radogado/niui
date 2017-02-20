@@ -1229,7 +1229,7 @@ for(var t in animations) {
 }
 
 function animate(el, animation, duration, callback) {
-// To do: add animation-fill-mode: forwards to keep the end state
+// To do: add animation-fill-mode: forwards to keep the end state; old browsers support without animation, just call the callback function
 	if (!el.addEventListener || q('.animation-code')) { // Animation in progress
 		
 		return;
@@ -1306,7 +1306,11 @@ function toggleAccordion(e) {
 	
 	if (hasClass(el, 'open')) {
 
-		animate(content, '0% { max-height: ' + content.scrollHeight + 'px; } 100% { max-height: ' + content_height + '; }', .2, function () { toggleClass(el, 'open'); });
+		animate(content, '0% { max-height: ' + content.scrollHeight + 'px; } 100% { max-height: ' + content_height + '; }', .2, function () { 
+			
+			toggleClass(el, 'open'); 
+			
+		});
 		
 	} else {
 		
@@ -1368,6 +1372,11 @@ if (q('.overthrow')) {
 
 ;(function(){
 
+	if (typeof document.addEventListener == 'undefined') { // IE8
+		
+		return;
+		
+	}
     var isTouch = false; //var to indicate current input type (is touch versus no touch) 
     var isTouchTimer;
     var curRootClass = ''; //var indicating current document root class ("can-touch" or "")
@@ -1399,8 +1408,8 @@ if (q('.overthrow')) {
 
     }
      
-    document.addEventListener('touchstart', addtouchclass, false); //this event only gets called when input type is touch
     document.addEventListener('mouseover', removetouchclass, false); //this event gets called when input type is everything from touch to mouse/ trackpad
+    document.addEventListener('touchstart', addtouchclass, false); //this event only gets called when input type is touch
 
 })();
 

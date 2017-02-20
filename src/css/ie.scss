@@ -377,3 +377,11 @@ nav.drop input:checked ~ input[type=reset], nav.drop input.trigger {
 	overflow: hidden;
 
 }
+
+.tool:hover .tip {
+	
+	opacity: 1;
+	display: block;
+	top: 2em;
+	
+}

@@ -18,7 +18,13 @@ nav {
 		list-style: none;
 	
 	}
+
+	nav.scroll {
 	
+		max-width: 100%;
+
+	}
+		
 	nav.scroll ul {
 
 		white-space: nowrap;

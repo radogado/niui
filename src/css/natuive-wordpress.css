@@ -1397,6 +1397,9 @@ nav ul {
   width: auto;
   list-style: none; }
 
+nav.scroll {
+  max-width: 100%; }
+
 nav.scroll ul {
   white-space: nowrap;
   overflow: auto;
