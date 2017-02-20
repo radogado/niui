@@ -1524,7 +1524,8 @@ nav.drop ul li li li b.sub {
   background-color: #ddd; }
 
 nav.drop ul li b.sub:after {
-  content: '▾';
+  content: '▼';
+  font-size: .5em;
   /*
   	background: transparent url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAG0lEQVR42mNgwAfKy8v/48I4FeA0AacVDFQBAP9wJkE/KhUMAAAAAElFTkSuQmCC") no-repeat scroll center center;
   	color: transparent;
@@ -1532,6 +1533,7 @@ nav.drop ul li b.sub:after {
 
 nav.drop ul li li b.sub:after {
   content: '▸';
+  font-size: 1em;
   position: absolute;
   right: 1em; }
 

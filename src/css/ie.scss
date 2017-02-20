@@ -385,3 +385,15 @@ nav.drop input:checked ~ input[type=reset], nav.drop input.trigger {
 	top: 2em;
 	
 }
+
+.fold > .content {
+
+    max-height: 0;
+
+}
+
+.fold.open > .content {
+
+    max-height: none;
+
+}

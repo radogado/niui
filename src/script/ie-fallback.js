@@ -153,10 +153,12 @@ function flexGridFallback() { // Second approach: split all wrapped rows into se
 
 }
 	
-	document.attachEvent("onreadystatechange", function(){
-	 if (document.readyState === "complete"){
+document.attachEvent("onreadystatechange", function(){
+
+	if (document.readyState === "complete"){
 		flexGridFallback();
-	 }
-	});
+	}
+
+});
 
 // Flex grid fallback – end

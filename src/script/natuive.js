@@ -1230,11 +1230,19 @@ for(var t in animations) {
 
 function animate(el, animation, duration, callback) {
 // To do: add animation-fill-mode: forwards to keep the end state; old browsers support without animation, just call the callback function
-	if (!el.addEventListener || q('.animation-code')) { // Animation in progress
+	if (q('.animation-code')) { // Animation in progress
 		
 		return;
 
 	}
+
+	if (typeof q('body').style.animation == 'undefined') { // No CSS animation support
+		
+		callback();
+		return;
+
+	}
+
 	el.addEventListener(animationEndEvent, function animationEndHandler(e) {
 		
 		var el = e.target;
@@ -1249,6 +1257,7 @@ function animate(el, animation, duration, callback) {
 		}
 	
 	}, false);
+
 	var animation_name = 'a' + new Date().getTime(); // Unique animation name for more animate() as callback
 	var styles = document.createElement('style');
 	styles.innerHTML = '@keyframes ' + animation_name + ' {' + animation + '} .' + animation_name + ' { animation-name: ' + animation_name + '; animation-duration: ' + duration + 's; }'; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
@@ -1292,17 +1301,14 @@ function toggleAccordion(e) {
     stopEvent(e);
     var el = closest(eventElement(e), '.fold');
 
-/*
-    if (closest(el, '.fixed')) {
-	    
-	    toggleFixedBody();
-
-    }
-*/
-
     var content = el.querySelector('.content');
-	var content_height = content.style.getPropertyValue('--height') || 0;
-	
+    if (typeof content.style.animation == 'undefined') { // Browsers without animation support
+	    
+	    toggleClass(el, 'open');
+	    return;
+	    
+    }
+	var content_height = (typeof content.style.getPropertyValue != 'undefined' && content.style.getPropertyValue('--height')) || 0;
 	
 	if (hasClass(el, 'open')) {
 

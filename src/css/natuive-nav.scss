@@ -219,7 +219,8 @@ nav.drop ul li li li b.sub {
 
 nav.drop ul li b.sub:after {
 	
-	content: '▾';
+	content: '▼';
+	font-size: .5em;
 /*
 	background: transparent url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAG0lEQVR42mNgwAfKy8v/48I4FeA0AacVDFQBAP9wJkE/KhUMAAAAAElFTkSuQmCC") no-repeat scroll center center;
 	color: transparent;
@@ -230,6 +231,7 @@ nav.drop ul li b.sub:after {
 nav.drop ul li li b.sub:after {
 	
 	content: '▸';	
+	font-size: 1em;
 	position: absolute;
 // 	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAJUlEQVR42mNgAILy8vL/DLgASBKnApgkVgXIkhgKiNKJ005s4gDLbCZBiSxfygAAAABJRU5ErkJggg==");
 	right: 1em;
