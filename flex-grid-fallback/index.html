@@ -27,7 +27,7 @@ Used for fallback when Flexbox is not supported by the browser.
 		font-size: 16px; /* To do: replace by actual font size of column's row's parent */
 		min-width: 20%; /* To do: support +33% */
 		display: inline-block;
-		padding: .5em;
+		padding: 0;
 		margin: 0;
 		border: none;
 		color: #333;
@@ -42,11 +42,6 @@ Used for fallback when Flexbox is not supported by the browser.
 		
 		max-width: 20%;
 		
-	}
-	
-	.row > * > * {
-		
-
 	}
 	
 	.row > *[class^=col] {
@@ -184,6 +179,38 @@ Used for fallback when Flexbox is not supported by the browser.
 		
 </style>
 
+<div class="row">
+	
+	<a class="col5" href="demos/microsoft" title="Microsoft"> <img src="images/natUIve%20Microsoft%20(20151030)%20-.png" alt="Microsoft"> </a>
+	<a class="col5" href="demos/imperialinnovations" title="Imperial Innovations"> <img src="images/natUIve%20(20151030)%20imperial%20-.png" alt="Imperial Innovations"> </a>
+	<a class="col5" href="demos/pebble" title="Pebble"> <img src="images/natUIve%20(20151030)%20pebble%20-.png" alt="Pebble"> </a>
+	<a class="col5" href="demos/seat61" title="Seat 61"> <img src="images/seat61.png" alt="Seat 61"> </a>
+	<a class="col5" href="demos/jetblue" title="JetBlue"> <img src="images/jetblue.png" alt="JetBlue"> </a>
+	<a class="col5" href="demos/mrj" title="Mitsubishi Regional Jet"> <img src="images/mrj.png" alt="Mitsubishi Regional Jet"> </a>
+	<a class="col5" href="demos/mubi" title="MUBI"> <img src="images/mubi.png" alt="MUBI"> </a>
+	<a class="col5" href="demos/swiss" title="SWISS"> <img src="images/swiss.png" alt="SWISS"> </a>
+	<a class="col5" href="demos/mapbox" title="Mapbox"> <img src="images/mapbox.png" alt="Mapbox"> </a>
+	<a class="col5" href="demos/airbnb" title="Airbnb"> <img src="images/airbnb.png" alt="Airbnb"> </a>
+	<a class="col5" href="demos/gov.uk" title="GOV.UK"> <img src="images/gov.uk.png" alt="GOV.UK"> </a>
+	<a class="col5" href="demos/google-design" title="Google Design"> <img src="images/google-design.png" alt="Google Design"> </a>
+	<a class="col5" href="demos/daringfireball" title="Daring Fireball"> <img src="images/daringfireball.png" alt="Daring Fireball"> </a>
+	<a class="col5" href="demos/vitsoe" title="Vitsœ"> <img src="images/vitsoe.png" alt="Vitsœ"> </a>
+	<a class="col5" href="demos/apple" title="Apple"> <img src="images/apple.png" alt="Apple"> </a>
+	<a class="col5" href="demos/brandunion" title="Brand Union"> <img src="images/brandunion.png" alt="Brand Union"> </a>
+	<a class="col5" href="demos/tesla" title="Tesla"> <img src="images/tesla.png" alt="Tesla"> </a>
+	<a class="col5" href="demos/amnesty" title="Amnesty"> <img src="images/amnesty.png" alt="Amnesty"> </a>
+	<a class="col5" href="demos/stripe" title="Stripe"> <img src="images/stripe.png" alt="Stripe"> </a>
+	<a class="col5" href="demos/starwars" title="Star Wars"> <img src="images/starwars.png" alt="Star Wars"> </a>
+	<a class="col5" href="demos/norwegian" title="Norwegian"> <img src="images/norwegian.png" alt="Norwegian"> </a>
+	<a class="col5" href="demos/davidbowieis" title="David Bowie Is (Japan)"> <img src="images/davidbowieis.png" alt="David Bowie Is (Japan)"> </a>
+	<a class="col5" href="demos/uncharted-the-lost-legacy" title="Uncharted: The Lost Legacy"> <img src="images/uncharted.jpg" alt="Uncharted: The Lost Legacy"> </a>
+	<a class="col5" href="demos/seehotel-jaegerwirt" title="Seehotel Jägerwirt"> <img src="images/seehotel-jaegerwirt.jpg" alt="Seehotel Jägerwirt"> </a>
+	<a class="col5" href="demos/truphone" title="Truphone"> <img src="images/truphone.jpg" alt="Truphone"> </a>
+	
+	<div class="col1"></div>
+
+</div>
+			
 <!--
 <div class='row no-spacing-' id=grid>
 	
@@ -375,54 +402,54 @@ Used for fallback when Flexbox is not supported by the browser.
 
 <script>
 
-	function flexGridFallback() { // Second approach: split all wrapped rows into separate .row.table
+function flexGridFallback() { // Second approach: split all wrapped rows into separate .row.table
+
+	var rows = document.querySelectorAll('.row'); // Node list to array
+	var row_index = 0;
 	
-		var rows = document.querySelectorAll('.row'); // Node list to array
-		var row_index = 0;
+	for(;row_index < rows.length; row_index++) { // All rows
 		
-		for(;row_index < rows.length; row_index++) { // All rows
-			
-			var row = rows.item(row_index);
+		var row = rows.item(row_index);
 
-			var start_index = new Array('0');
-			var end_index = new Array();
-			var i = 1;
-			for (;i <= row.children.length; i++) { // All columns in current row. Get start and end indices of each wrapped row.
+		var start_index = new Array('0');
+		var end_index = new Array();
+		var i = 1;
+		for (;i <= row.children.length; i++) { // All columns in current row. Get start and end indices of each wrapped row.
 
-				var el = row.children[i];
-				if (i === row.children.length || el.offsetLeft === row.offsetLeft)  { // If offset is the same as the row, the row has wrapped and its columns must take up 100% width
+			var el = row.children[i];
+			if (i === row.children.length || el.offsetLeft === row.offsetLeft)  { // If offset is the same as the row, the row has wrapped and its columns must take up 100% width
 
-					end_index[end_index.length] = i - 1;
+				end_index[end_index.length] = i - 1;
 
 /* 					console.log('Start: ' + start_index[start_index.length-1] + ', End: ' + end_index[end_index.length-1]); */
 
-					start_index[start_index.length] = end_index[end_index.length-1] + 1;
-		
-				}
-		
+				start_index[start_index.length] = end_index[end_index.length-1] + 1;
+	
 			}
+	
+		}
+		
+		start_index.splice(start_index.length-1, 1); // Remove the last one
+
+		for (i = 0; i < start_index.length; i++) {
 			
-			start_index.splice(start_index.length-1, 1); // Remove the last one
+			row.insertAdjacentHTML('beforeend', '<div class=table-row></div>');
+			var j = start_index[i];
+			while (j <= end_index[i]) {
 
-			for (i = 0; i < start_index.length; i++) {
-				
-				row.insertAdjacentHTML('beforeend', '<div class=table-row></div>');
-				var j = start_index[i];
-				while (j <= end_index[i]) {
-
-					row.children[row.children.length-1].appendChild(row.children[0]);
-					j++;
-					
-				}
-				row.style.fontSize = 'inherit';
-								
+				row.children[row.children.length-1].appendChild(row.children[0]);
+				j++;
 				
 			}
+			row.style.fontSize = 'inherit';
+							
 			
 		}
-
+		
 	}
 
-	flexGridFallback();
+}
+	
+flexGridFallback();
 
 </script>
