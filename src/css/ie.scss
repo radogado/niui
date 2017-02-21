@@ -352,11 +352,11 @@ nav.drop ul ul, nav.drop ul div {
 	
 }
 
-nav.drop ul li:hover ul, nav.drop ul li:hover div {
+nav.drop ul li:hover > ul, nav.drop ul li:hover div {
 	
 	visibility: visible;
 	display: block;
-	z-index: 4;
+	z-index: 5;
 	
 }
 
@@ -365,6 +365,12 @@ nav.drop input:checked ~ input[type=reset], nav.drop input.trigger {
 	background: url(../images/0.png);
 	background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO
 1AAAAABJRU5ErkJggg=="); /* IE10- */
+
+}
+
+nav.drop ul li a[href] {
+	
+	z-index: 1;
 
 }
 
