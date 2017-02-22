@@ -146,7 +146,7 @@ function mouseEvents(el, toggle) {
 
 	var slider_wrap = closest(el, '.slider-wrap');
 
-    if (toggle == 'off') {
+    if (toggle === 'off') {
 
         slider_wrap.removeEventListener('wheel', mouseWheelHandler);
 
@@ -222,9 +222,9 @@ function slide(el, method, index_number) {
 	var slider_wrap = closest(slider, '.slider-wrap');
 	index = old_index = thisIndex(childByClass(slider_wrap, 'slider-nav').querySelector('a.active'));
 
-    if (method == 'index') {
+    if (method === 'index') {
 
-		if (typeof index_number == 'undefined' || index_number == index) { /* Don't slide to current slide */
+		if (typeof index_number === 'undefined' || index_number === index) { /* Don't slide to current slide */
 
 			endSlide(slider, index);
 			return;
@@ -234,9 +234,9 @@ function slide(el, method, index_number) {
 
     }
 
-    if (method == 'right') {
+    if (method === 'right') {
 
-        if (index == (slider.children.length-1)) {
+        if (index === (slider.children.length-1)) {
 
             index = 0;
 
@@ -248,7 +248,7 @@ function slide(el, method, index_number) {
         
     }
 
-    if (method == 'left') {
+    if (method === 'left') {
 
         if (index === 0) {
 
@@ -277,7 +277,7 @@ function slide(el, method, index_number) {
 	} else {
 	
 		computed_height = getComputedStyle(slider).height;
-		if (slider.getAttribute('dir') == 'rtl') {
+		if (slider.getAttribute('dir') === 'rtl') {
 			
 			offset_sign = '';
 	
@@ -393,7 +393,7 @@ function sliderKeyboard(e) {
 
     e = e || window.event;
 
-    if (typeof e == 'undefined' || hasClass(q('html'), 'sliding_now') || q('.slider.sliding')) {
+    if (typeof e === 'undefined' || hasClass(q('html'), 'sliding_now') || q('.slider.sliding')) {
 
         return;
 
@@ -500,7 +500,7 @@ function makeSlider(el, current_slide) {
     for (var i = 0; i < el.children.length; i++) {
 
         		// IE8 counts comments as children and produces an empty slide.			
-//         		if ( el.children[i].nodeName == '#comment' ) {	}
+//         		if ( el.children[i].nodeName === '#comment' ) {	}
 
         if (hasClass(el, 'tabs')) {
 

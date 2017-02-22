@@ -44,7 +44,7 @@ else
 
 function hasClass(el, className) {
 
-	if (typeof el.classList == 'undefined') { // Because of openFullWindow('asd') (when called with a string) – To do: fix that function instead
+	if (typeof el.classList === undefined) { // Because of openFullWindow('asd') (when called with a string) – To do: fix that function instead
 		
 		return false;
 	
@@ -94,7 +94,7 @@ function parseHTML(str) {
 
 function forEach(selector, fn) { // Accepts both an array and a selector
 
-    var elements = (typeof selector == 'string') ? qa(selector) : selector;
+    var elements = (typeof selector === 'string') ? qa(selector) : selector;
 	if (elements.length > 0) {
 
 	    for (var i = 0; i < elements.length; i++) {
@@ -147,7 +147,7 @@ function stopEvent(e) {
 
     if (!e) {
 
-        if (typeof window.event == 'undefined') {
+        if (typeof window.event === 'undefined') {
 
             return;
 
@@ -155,7 +155,7 @@ function stopEvent(e) {
 
     }
 
-	if ( typeof e == 'undefined' ) {
+	if ( typeof e === 'undefined' ) {
 		
 		return false;
 
@@ -194,7 +194,7 @@ function thisIndex(el) {
 
     while ((node = nodes.item(i++)) && node != el) {
 
-        if (node.nodeType == 1) {
+        if (node.nodeType === 1) {
 
             count++;
 
@@ -347,7 +347,7 @@ function relayParameters() {
 
         for (var name in parameters) {
 
-            if (el.href.indexOf('javascript') == -1 && el.href.indexOf('mailto') == -1 && parameters_list.indexOf(name) != -1) {
+            if (el.href.indexOf('javascript') === -1 && el.href.indexOf('mailto') === -1 && parameters_list.indexOf(name) != -1) {
 	            
 	            var hash = el.href.split('#')[1];
 	            el.href = updateURLParameter(el.href, name, parameters[name]);
@@ -383,7 +383,7 @@ function arrow_keys_handler(e) {
 
 function populateLightboxItem(slider, i) {
 	
-	var img = slider.children[(typeof i == 'undefined') ? 0 : i].querySelector('img');
+	var img = slider.children[(typeof i === 'undefined') ? 0 : i].querySelector('img');
 
 	if (img && !img.src) {
 		
@@ -420,7 +420,7 @@ function preventEvent(e) { // For iOS scrolling behind blackbox
 
 function keyUpClose(e) {
 	
-    if ((e || window.event).keyCode == 27) { // Esc
+    if ((e || window.event).keyCode === 27) { // Esc
 
         closeFullWindow();
 
@@ -473,7 +473,7 @@ function openFullWindow(el) {
 
     addClass(q('html'), 'nooverflow');
 	
-	if (typeof el == 'string') {
+	if (typeof el === 'string') {
 		
 		full_window_content = document.createElement('div');
 		q('body').appendChild(full_window_content);
@@ -674,7 +674,7 @@ function openLightbox(e) {
 
         var anchor = el;
 
-        while (typeof anchor.href == 'undefined') {
+        while (typeof anchor.href === 'undefined') {
 
             anchor = anchor.parentNode;
 
@@ -761,14 +761,14 @@ function getCumulativeOffset(obj) { // Offset from element to top of page
 function animateAnchors(e) {
 
     e = e || window.event;
-    if (typeof e == 'undefined') {
+    if (typeof e === 'undefined') {
 
         return;
 
     }
     var el = e.target || e.srcElement;
 
-    while (typeof el.href == 'undefined') {
+    while (typeof el.href === 'undefined') {
 
         el = el.parentNode;
 
@@ -861,7 +861,7 @@ function submitForm(e) {
 
     }
 
-    el.insertAdjacentHTML('beforeend', '<input name=targetformurl type=hidden value=' + encodeURIComponent( el.method == 'get' ? el.action.replace(/\/?(\?|#|$)/, '/$1') : el.action ) + '>');
+    el.insertAdjacentHTML('beforeend', '<input name=targetformurl type=hidden value=' + encodeURIComponent( el.method === 'get' ? el.action.replace(/\/?(\?|#|$)/, '/$1') : el.action ) + '>');
 
     request = new XMLHttpRequest();
     request.open('POST', scripts_location + 'request.php', true);
@@ -1062,7 +1062,7 @@ var request = new XMLHttpRequest();
 request.open('GET', document.location, true);
 request.onload = function () {
 	
-	php_support = request.getAllResponseHeaders().toLowerCase().indexOf('php') == -1 ? 0 : 1;
+	php_support = request.getAllResponseHeaders().toLowerCase().indexOf('php') === -1 ? 0 : 1;
 
 };
 request.send(null);
@@ -1139,7 +1139,7 @@ function notifyCloseEvent() {
 
 function notify(content, option) {
 	
-	q('body').insertAdjacentHTML('afterbegin', '<div class="notify' + ((option == 'fixed') ? ' fixed' : '') + '">' + content + '</div>');
+	q('body').insertAdjacentHTML('afterbegin', '<div class="notify' + ((option === 'fixed') ? ' fixed' : '') + '">' + content + '</div>');
 	notifyCloseEvent();
 	
 }
@@ -1236,7 +1236,7 @@ function animate(el, animation, duration, callback) {
 
 	}
 
-	if (typeof q('body').style.animation == 'undefined') { // No CSS animation support
+	if (typeof window.AnimationEvent === undefined) { // No CSS animation support. To do: Not working in IE8, because it needs 'undefined', but JSLint needs undefined without quotes.
 		
 		callback();
 		return;
@@ -1250,7 +1250,7 @@ function animate(el, animation, duration, callback) {
 		removeClass(el, q('.animation-code').getAttribute('data-class'));
 		q('.animation-code').outerHTML = '';
  		el.removeEventListener(animationEndEvent, animationEndHandler);
-		if (typeof callback == 'function') {
+		if (typeof callback === 'function') {
 	
 			callback();
 	
@@ -1302,7 +1302,7 @@ function toggleAccordion(e) {
     var el = closest(eventElement(e), '.fold');
 
     var content = el.querySelector('.content');
-    if (typeof content.style.animation == 'undefined') { // Browsers without animation support
+    if (typeof content.style.animation === 'undefined') { // Browsers without animation support
 	    
 	    toggleClass(el, 'open');
 	    return;
@@ -1378,7 +1378,7 @@ if (q('.overthrow')) {
 
 ;(function(){
 
-	if (typeof document.addEventListener == 'undefined') { // IE8
+	if (typeof document.addEventListener === 'undefined') { // IE8
 		
 		return;
 		
@@ -1404,7 +1404,7 @@ if (q('.overthrow')) {
      
     function removetouchclass(e){
 
-        if (!isTouch && curRootClass == 'can-touch'){ //remove 'can-touch' class if not triggered by a touch event and class is present
+        if (!isTouch && curRootClass === 'can-touch'){ //remove 'can-touch' class if not triggered by a touch event and class is present
 
             isTouch = false;
             curRootClass = '';
@@ -1498,9 +1498,9 @@ function init() {
 			
 			stopEvent(e);
 			var el = eventElement(e);
-			var cell = el.type == 'td' ? el : closest(el, 'td');
+			var cell = el.type === 'td' ? el : closest(el, 'td');
 			var f; // Ascending
-			if (cell.getAttribute('data-sort') == 'desc') {
+			if (cell.getAttribute('data-sort') === 'desc') {
 				
 				f = -1;
 				cell.setAttribute('data-sort', 'asc');
