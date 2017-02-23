@@ -61,6 +61,7 @@
 					<!-- nav -->
 					<nav class="nav" role="navigation">
 						<?php html5blank_nav(); ?>
+						<?php if (function_exists(clean_custom_menus())) clean_custom_menus(); ?>
 					</nav>
 					<!-- /nav -->
 					</div>

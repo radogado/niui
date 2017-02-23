@@ -69,10 +69,10 @@ function html5blank_nav()
 	array(
 		'theme_location'  => 'header-menu',
 		'menu'            => '',
-		'container'       => 'div',
+		'container'       => '',
 		'container_class' => 'menu-{menu slug}-container',
 		'container_id'    => '',
-		'menu_class'      => 'menu',
+		'menu_class'      => '',
 		'menu_id'         => '',
 		'echo'            => true,
 		'fallback_cb'     => 'wp_page_menu',
@@ -80,7 +80,7 @@ function html5blank_nav()
 		'after'           => '',
 		'link_before'     => '',
 		'link_after'      => '',
-		'items_wrap'      => '<ul>%3$s</ul>',
+		'items_wrap'      => '',
 		'depth'           => 0,
 		'walker'          => ''
 		)
@@ -522,4 +522,50 @@ function custom_upload_mimes ( $existing_mimes=array() ) {
 	return $existing_mimes;
 
 }
+
+add_filter( 'wp_list_pages', 'new_nav_menu' );
+// Filter wp_nav_menu() to add additional links and other output
+function new_nav_menu($items) {
+
+	libxml_use_internal_errors(true);
+	$DOM = new DOMDocument();
+	$DOM->loadHTML('<?xml encoding="utf-8" ?>' . $items);
+	$DOM->preserveWhiteSpace = false;
+	
+	foreach ($DOM->getElementsByTagName('ul') as $ul) {
+	    $a = $DOM->createElement('b');
+	    $a->setAttribute('class', 'sub');
+	    $ul->parentNode->insertBefore($a, $ul);
+	}
+	
+	foreach ($DOM->getElementsByTagName('a') as $a) {
+	    $input = $DOM->createElement('input');
+	    $input->setAttribute('class', 'trigger'); $input->setAttribute('type', 'radio'); $input->setAttribute('name', 'level1'); $input->setAttribute('form', 'level1');
+	    $a->parentNode->insertBefore($input, $a);
+	    $input = $DOM->createElement('input');
+	    $input->setAttribute('type', 'reset'); $input->setAttribute('form', 'level1');
+	    $a->parentNode->insertBefore($input, $a);
+	}
+
+	$DOM->formatOutput = true;
+	$items = $DOM->saveHTML();
+
+    $items = '<div class="fold mobile"> 
+    			<div class="label"> 
+    				<span class="burger"></span> 
+    			</div> 
+    			<input type=checkbox class=trigger>
+
+				<div class=content> 
+    				<nav class=drop> 
+    					<form id="level1"> </form> <form id="level2"> </form> 
+    					<ul>' . $items . '</ul>
+    				</nav>
+    			</div>
+    		</div>';
+    return $items;
+
+}
+
 ?>
+

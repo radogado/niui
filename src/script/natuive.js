@@ -1236,7 +1236,7 @@ function animate(el, animation, duration, callback) {
 
 	}
 
-	if (typeof window.AnimationEvent === undefined) { // No CSS animation support. To do: Not working in IE8, because it needs 'undefined', but JSLint needs undefined without quotes.
+	if (typeof window.AnimationEvent === undefined) { // No CSS animation support. To do: Not working in IE8, because it needs 'undefined', but JSLint/Closure needs undefined without quotes.
 		
 		callback();
 		return;
