@@ -65,6 +65,7 @@ if (function_exists('add_theme_support'))
 // HTML5 Blank navigation
 function html5blank_nav()
 {
+/*
 	wp_nav_menu(
 	array(
 		'theme_location'  => 'header-menu',
@@ -85,6 +86,9 @@ function html5blank_nav()
 		'walker'          => ''
 		)
 	);
+*/
+	wp_list_pages( array( 'title_li' => '' ) );
+
 }
 
 // Load HTML5 Blank scripts (header.php)
@@ -536,8 +540,29 @@ function new_nav_menu($items) {
 	    $a = $DOM->createElement('b');
 	    $a->setAttribute('class', 'sub');
 	    $ul->parentNode->insertBefore($a, $ul);
+
+	    $input = $DOM->createElement('input');
+	    $input->setAttribute('type', 'reset'); $input->setAttribute('form', 'level1');
+
+		$ul->parentNode->insertBefore($input, $ul->parentNode->firstChild);
+
+	    $input = $DOM->createElement('input');
+	    $input->setAttribute('class', 'trigger'); $input->setAttribute('type', 'radio'); $input->setAttribute('name', 'level1'); $input->setAttribute('form', 'level1');
+
+		$ul->parentNode->insertBefore($input, $ul->parentNode->firstChild);
+
+/*
+	    $input = $DOM->createElement('input');
+	    $input->setAttribute('class', 'trigger'); $input->setAttribute('type', 'radio'); $input->setAttribute('name', 'level1'); $input->setAttribute('form', 'level1');
+	    $ul->parentNode->insertBefore($input, $ul);
+	    $input = $DOM->createElement('input');
+	    $input->setAttribute('type', 'reset'); $input->setAttribute('form', 'level1');
+	    $ul->parentNode->insertBefore($input, $ul);
+*/
+
 	}
 	
+/*
 	foreach ($DOM->getElementsByTagName('a') as $a) {
 	    $input = $DOM->createElement('input');
 	    $input->setAttribute('class', 'trigger'); $input->setAttribute('type', 'radio'); $input->setAttribute('name', 'level1'); $input->setAttribute('form', 'level1');
@@ -546,6 +571,7 @@ function new_nav_menu($items) {
 	    $input->setAttribute('type', 'reset'); $input->setAttribute('form', 'level1');
 	    $a->parentNode->insertBefore($input, $a);
 	}
+*/
 
 	$DOM->formatOutput = true;
 	$items = $DOM->saveHTML();
