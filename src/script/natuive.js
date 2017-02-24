@@ -1228,7 +1228,14 @@ for(var t in animations) {
 
 }
 
+function animationSupport() {
+	
+	return typeof animationEndEvent === 'string';
+
+}
+
 function animate(el, animation, duration, callback) {
+
 // To do: add animation-fill-mode: forwards to keep the end state; old browsers support without animation, just call the callback function
 	if (q('.animation-code')) { // Animation in progress
 		
@@ -1236,36 +1243,37 @@ function animate(el, animation, duration, callback) {
 
 	}
 
-	if (typeof window.AnimationEvent === undefined) { // No CSS animation support. To do: Not working in IE8, because it needs 'undefined', but JSLint/Closure needs undefined without quotes.
+	if (!animationSupport()) { // No CSS animation support. To do: Not working in IE8, because it needs 'undefined', but JSLint/Closure needs undefined without quotes.
 		
 		callback();
-		return;
 
-	}
+	} else {
 
-	el.addEventListener(animationEndEvent, function animationEndHandler(e) {
+		el.addEventListener(animationEndEvent, function animationEndHandler(e) {
+			
+			var el = e.target;
+			el.style.pointerEvents = '';
+			removeClass(el, q('.animation-code').getAttribute('data-class'));
+			q('.animation-code').outerHTML = '';
+	 		el.removeEventListener(animationEndEvent, animationEndHandler);
+			if (typeof callback === 'function') {
 		
-		var el = e.target;
-		el.style.pointerEvents = '';
-		removeClass(el, q('.animation-code').getAttribute('data-class'));
-		q('.animation-code').outerHTML = '';
- 		el.removeEventListener(animationEndEvent, animationEndHandler);
-		if (typeof callback === 'function') {
+				callback();
+		
+			}
+		
+		}, false);
 	
-			callback();
+		var animation_name = 'a' + new Date().getTime(); // Unique animation name for more animate() as callback
+		var styles = document.createElement('style');
+		styles.innerHTML = '@keyframes ' + animation_name + ' {' + animation + '} .' + animation_name + ' { animation-name: ' + animation_name + '; animation-duration: ' + duration + 's; }'; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
+		q('head').appendChild(styles);
+		addClass(styles, 'animation-code');
+		styles.setAttribute('data-class', animation_name);
+		addClass(el, animation_name);
+		el.style.pointerEvents = 'none';
 	
-		}
-	
-	}, false);
-
-	var animation_name = 'a' + new Date().getTime(); // Unique animation name for more animate() as callback
-	var styles = document.createElement('style');
-	styles.innerHTML = '@keyframes ' + animation_name + ' {' + animation + '} .' + animation_name + ' { animation-name: ' + animation_name + '; animation-duration: ' + duration + 's; }'; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
-	q('head').appendChild(styles);
-	addClass(styles, 'animation-code');
-	styles.setAttribute('data-class', animation_name);
-	addClass(el, animation_name);
-	el.style.pointerEvents = 'none';
+	}
 	
 }
 
@@ -1302,17 +1310,17 @@ function toggleAccordion(e) {
     var el = closest(eventElement(e), '.fold');
 
     var content = el.querySelector('.content');
-    if (typeof content.style.animation === 'undefined') { // Browsers without animation support
-	    
+    if (!animationSupport()) { // Browsers without animation support
+
 	    toggleClass(el, 'open');
 	    return;
 	    
     }
-	var content_height = (typeof content.style.getPropertyValue != 'undefined' && content.style.getPropertyValue('--height')) || 0;
+	var content_height = (typeof content.style.getPropertyValue !== 'undefined' && content.style.getPropertyValue('--height')) || 0;
 	
 	if (hasClass(el, 'open')) {
 
-		animate(content, '0% { max-height: ' + content.scrollHeight + 'px; } 100% { max-height: ' + content_height + '; }', .2, function () { 
+		animate(content, '0% { max-height: ' + content.scrollHeight + 'px; } 100% { max-height: ' + content_height + '; }', .2, function () {
 			
 			toggleClass(el, 'open'); 
 			

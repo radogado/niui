@@ -295,7 +295,7 @@ function slide(el, method, index_number) {
 
     }
 
-    if (animationEndEvent) { // CSS animation-enabled browser...
+    if (animationSupport()) { // CSS animation-enabled browser...
 
 		var translate_from, translate_to;
 		
