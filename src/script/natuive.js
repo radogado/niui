@@ -448,7 +448,7 @@ function closeFullWindow() {
 		}
 
 	    removeClass(q('html'), 'nooverflow');
-		q('body').scrollTop = -1 * q('html').getAttribute('data-offset');
+		q('body').scrollTop = -1 * q('html').getAttribute('data-offset'); // Restore the page position. The most acceptable hack fo far.
 
 // 	    if (touchSupport()) {
 
@@ -476,7 +476,7 @@ function openFullWindow(el) {
 	
 	closeFullWindow();
 	
-	q('html').setAttribute('data-offset', q('html').getBoundingClientRect().top);
+	q('html').setAttribute('data-offset', q('html').getBoundingClientRect().top); // Remember the page position.
     addClass(q('html'), 'nooverflow');
 	q('body').scrollTop = -1 * q('html').getAttribute('data-offset');
 
