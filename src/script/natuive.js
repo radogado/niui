@@ -1702,6 +1702,16 @@ function init() {
 
 	});
 	
+	window.onscroll = function () { // Close fixed overlay if its scrolling becomes a window scroll. Idea by a Google mobile nav.
+		
+		if (q('.fixed-mobile .fold.mobile.open')) {
+			
+			removeClass(q('.fixed-mobile .fold.mobile.open'), 'open');
+		
+		}
+		
+	}
+	
 }
 
 ready( function () {
