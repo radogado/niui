@@ -448,10 +448,14 @@ function closeFullWindow() {
 		}
 
 	    removeClass(q('html'), 'nooverflow');
+		q('body').scrollTop = -1 * q('html').getAttribute('data-offset');
+
 // 	    if (touchSupport()) {
 
+/*
 		    document.removeEventListener('touchmove', preventEvent, false);
 		    q('body').removeEventListener('touchmove', preventEvent, false);
+*/
 	    
 // 	    }
 
@@ -471,8 +475,10 @@ function closeFullWindow() {
 function openFullWindow(el) {
 	
 	closeFullWindow();
-
+	
+	q('html').setAttribute('data-offset', q('html').getBoundingClientRect().top);
     addClass(q('html'), 'nooverflow');
+	q('body').scrollTop = -1 * q('html').getAttribute('data-offset');
 
 	if (typeof el === 'string') {
 
@@ -544,6 +550,18 @@ function openFullWindow(el) {
 	
 	}
 		
+/*
+	q('.full-window-wrap .content').addEventListener('touchmove', function(e) {
+		
+		if (q('.full-window-wrap .content').scrollHeight > q('.full-window-wrap .content').offsetHeight) { return true; }
+	    	else {
+		    	e.preventDefault();
+		    	return false;
+		    }
+    	
+	}, false);
+*/
+
     return false;
 	
 }

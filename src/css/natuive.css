@@ -2748,7 +2748,8 @@ img, picture {
   text-align: center; }
 
 html.nooverflow, html.nooverflow body {
-  overflow: hidden; }
+  overflow: hidden;
+  height: 100%; }
 
 .header-and-banner {
   flex: none; }
