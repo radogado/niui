@@ -34,23 +34,24 @@ Element.prototype.addClassPrototype = function (className) { // Not working with
 function removeClass(el, className) {
 
 // 	el.classList.remove(className); // IE8, IE9 errors
-	// To do: remove a single '.' for foolproof operation; Add multiple classes separated by space, dot, comma
-if (el.classList)
-  el.classList.remove(className);
-else
-  el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+	// To do: remove a single '.' for foolproof operation; Support multiple classes separated by space, dot, comma
+	if (el.classList) {
+
+	  el.classList.remove(className);
+
+	}
+	else {
+		
+	  el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+	
+	}
   
 }
 
 function hasClass(el, className) {
 
-	if (typeof el.classList === undefined) { // Because of openFullWindow('asd') (when called with a string) – To do: fix that function instead
-		
-		return false;
-	
-	}
 	return el.classList.contains(className);
-	// To do: remove a single '.' for foolproof operation; Add multiple classes separated by space, dot, comma
+	// To do: remove a single '.' for foolproof operation; Support multiple classes separated by space, dot, comma
 
 }
 
@@ -472,9 +473,9 @@ function openFullWindow(el) {
 	closeFullWindow();
 
     addClass(q('html'), 'nooverflow');
-	
+
 	if (typeof el === 'string') {
-		
+
 		full_window_content = document.createElement('div');
 		q('body').appendChild(full_window_content);
 		full_window_content.innerHTML = el;
@@ -491,7 +492,6 @@ function openFullWindow(el) {
 	    
 	    full_window.insertAdjacentHTML('afterbegin', '<div class=close> ← ' + document.title + '</div>');
 		q('.full-window-wrap-bg').onclick = q('.full-window-wrap .close').onclick = closeFullWindow;
-		
 	    q('html').onkeyup = keyUpClose;
 	   
 	} else {
@@ -500,14 +500,9 @@ function openFullWindow(el) {
 		
 	}
 
-	if (/* touchSupport() && */ el.children[0] && hasClass(el.children[0], 'slider')) {
+// 	window.addEventListener('touchmove', preventEvent, false); // To do: fix. Prevents modal scrolling
 
-		document.addEventListener('touchmove', preventEvent, false);
-		q('body').addEventListener('touchmove', preventEvent, false);
-
-	}
-
-    if (el.childNodes.length > 0 && hasClass(el.childNodes[0], 'full-screen')) {
+	if (el.querySelector('.full-screen')) {
 
 		addEventHandler(document, 'webkitfullscreenchange', function () {
 			
@@ -548,18 +543,10 @@ function openFullWindow(el) {
 		}
 	
 	}
-	
+		
     return false;
 	
 }
-
-/* To do: improve: Open and close a modal window with a generated element, to fix iOS Safari crash on modal close. Not crashing on iOS 10. */
-/*
-var temp_div = document.createElement('div');
-q('body').appendChild(temp_div);
-openFullWindow(temp_div);
-closeFullWindow();
-*/
 
 function modalWindow(e) {
 
@@ -570,7 +557,7 @@ function modalWindow(e) {
     var el = eventElement(e);
 
     var link = closest(el, '.modal').href;
-	
+
     if (!php_support && external.test(link) || !(new XMLHttpRequest().upload)) { // No PHP or XHR?
 
         window.open(link, '_blank');
@@ -1040,7 +1027,7 @@ if (!Element.prototype.matches) {
         };
 }
 
-function closest(el, selector) { // Thanks http://gomakethings.com/ditching-jquery/ // To do: IE polyfill
+function closest(el, selector) { // Thanks http://gomakethings.com/ditching-jquery/
 
     for ( ; el && el !== document; el = el.parentNode ) {
 
@@ -1088,10 +1075,15 @@ function sortTable (table, column, f) {
 		var B = b.querySelectorAll('td')[column].textContent.toUpperCase();
 		
 		if(A < B) {
+			
 			return 1*f;
+			
 		}
+
 		if(A > B) {
+			
 			return -1*f;
+
 		}
 
 		return 0;
@@ -1588,7 +1580,7 @@ function init() {
 	
 	});
 	
-	/* Modal window: open a link inside it. */
+	/* Modal window: open a link's target inside it. */
 	
 	forEach('a.modal', function(el, i) {
 	
