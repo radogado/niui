@@ -635,13 +635,23 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 
 	.row > *, .row > [class^=col] {
 
-		padding: .3em;
-		width: 100% !important; // Important because of Android Browser
+		padding: 0;
+		width: 100%; // Important because of Android Browser
 		border: none;
-		flex: 0 0 100% !important;
 		margin: $line-height-em/2 0;
 		box-sizing: border-box;
 
+	}
+	
+	@supports (--a: 1) {
+
+		.row > *, .row > [class^=col] {
+	
+			padding: .3em;
+			flex: 0 0 100% !important;
+	
+		}
+	
 	}
 	
 	.row > *:empty {

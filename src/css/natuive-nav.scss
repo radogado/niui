@@ -18,27 +18,31 @@ nav {
 		list-style: none;
 	
 	}
-
-	nav.scroll {
 	
-		max-width: 100%;
+	@supports (--a: 1) {
 
-	}
+		nav.scroll {
 		
-	nav.scroll ul {
-
-		white-space: nowrap;
-	    overflow: auto;
-	    max-width: 100%;
-	    transform: translate3d(0, 0, 0); // Safari macOS bug fix when using scrollbars: Not working initially.
-	    -webkit-overflow-scrolling: touch;
-
-	}
-
-	nav.scroll ul li {
-
-	    padding: $line-height-em/2 0;
-
+			max-width: 100%;
+	
+		}
+			
+		nav.scroll ul {
+	
+			white-space: nowrap;
+		    overflow: auto;
+		    max-width: 100%;
+		    transform: translate3d(0, 0, 0); // Safari macOS bug fix when using scrollbars: Not working initially.
+		    -webkit-overflow-scrolling: touch;
+	
+		}
+	
+		nav.scroll ul li {
+	
+		    padding: $line-height-em/2 0;
+	
+		}
+	
 	}
 
 	nav a {

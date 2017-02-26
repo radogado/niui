@@ -16,7 +16,9 @@
 // 		height: calc(100% - var(--line-height-em)*2);
 
 }		
-	
+
+// To do: move all .slider-wrap (enhanced slider) behind a @supports for modern browsers. Leave the basic CSS-only version for old browsers.
+
 .slider-wrap { 
 	
 	position: relative;
@@ -264,30 +266,35 @@
 	
 }
 
-.slider > *:after, .slider > *:before { /* Slide background with full slider height */
+@supports (--a: 1) { // New browsers only
+
+	.slider > *:after, .slider > *:before { /* Slide background with full slider height */
+		
+		content: '<';
+		display: block;
+		position: absolute;
+		top: 50%;
+		bottom: 0;
+		width: 100%;
+		background: transparent;
+		z-index: -1;
+		opacity: .5;
 	
-	content: '<';
-	display: block;
-	position: absolute;
-	top: 50%;
-	bottom: 0;
-	width: 100%;
-	background: transparent;
-	z-index: -1;
-	opacity: .5;
-
-}
-
-.slider > *:after {
+	}
 	
-	content: '>';
-	text-align: end;
+	.slider > *:after {
+		
+		content: '>';
+		text-align: end;
+		
+	}
 	
-}
-
-.slider-wrap .slider > *:after, .slider-wrap .slider > *:before, .slider > *:first-child:before, .slider > *:last-child:after, .slider-wrap .slider > * > div.bg {
-
-	display: none;	
+	
+	.slider-wrap .slider > *:after, .slider-wrap .slider > *:before, .slider > *:first-child:before, .slider > *:last-child:after, .slider-wrap .slider > * > div.bg {
+	
+		display: none;	
+	
+	}
 
 }
 
@@ -559,6 +566,22 @@
 		
 		display: flex;
 		
+	}
+
+	.slider > * { // Stack slides vertically on old mobile browsers
+
+		display: block;
+
+	}
+
+	@supports (--a: 1) { // ...and restore the slider on modern browsers
+		
+		.slider > * {
+	
+			display: inline-block;
+	
+		}
+	
 	}
 
 }

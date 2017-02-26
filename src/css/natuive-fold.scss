@@ -170,36 +170,40 @@
 
 	}
 
-	header.fixed-mobile .fold.mobile {
-		
-		position: fixed;
-	    top: 0;
-   		z-index: 2;
+	@supports (--a: 1) {
 
-	}
-
-	header.fixed-mobile .fold.mobile.open {
-		
-	    bottom: 0;
-
-	}
-
-	header.fixed-mobile .fold.mobile .content {
-		
-// 		overflow: hidden;
-		padding: 0 $line-height-em/4;
-	    background: #fff;
-
-	}
+		header.fixed-mobile .fold.mobile {
+			
+			position: fixed;
+		    top: 0;
+	   		z-index: 2;
 	
-	header.fixed-mobile .fold.mobile.open .content {
+		}
+	
+		header.fixed-mobile .fold.mobile.open {
+			
+		    bottom: 0;
+	
+		}
+	
+		header.fixed-mobile .fold.mobile .content {
+			
+	// 		overflow: hidden;
+			padding: 0 $line-height-em/4;
+		    background: #fff;
+	
+		}
 		
-		overflow: auto;
-		-webkit-overflow-scrolling: touch;
-		position: fixed;
-		top: 3em; // header height, shouldn't be hardcoded
-		bottom: 0;		
-
+		header.fixed-mobile .fold.mobile.open .content {
+			
+			overflow: auto;
+			-webkit-overflow-scrolling: touch;
+			position: fixed;
+			top: 3em; // header height, shouldn't be hardcoded
+			bottom: 0;		
+	
+		}
+	
 	}
 	
 }

@@ -64,7 +64,7 @@
 
 .can-touch .lightbox.slider > * > iframe {
 
-	pointer-events: none; // Restore slider swiping on touch. To do: also allow iframe scrolling.
+	pointer-events: none; // Restore lightbox swiping on touch. To do: also allow iframe scrolling.
 
 }
 
@@ -106,20 +106,24 @@
 	
 	}
 	
-	.lightbox a.video:before {
-		
-		content: '▸';
-		border: 1px solid #999;
-		position: absolute;
-	    min-width: 1.5em;
-	    text-align: center;
-	    font-size: 2em;
-	    line-height: 1em;
-	    background: rgba(255,255,255,.8);
-	    top: 50%;
-	    transform: translate3d(-50%,-50%,0);
-	    left: 50%;
-    
+	@supports (--a: 1) {
+	
+		.lightbox a.video:before {
+			
+			content: '▸';
+			border: 1px solid #999;
+			position: absolute;
+		    min-width: 1.5em;
+		    text-align: center;
+		    font-size: 2em;
+		    line-height: 1em;
+		    background: rgba(255,255,255,.8);
+		    top: 50%;
+		    transform: translate3d(-50%,-50%,0);
+		    left: 50%;
+	    
+		}
+	
 	}
 
 .lightbox.slider a.button.copy {

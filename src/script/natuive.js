@@ -1384,14 +1384,6 @@ function loadScriptFile(file_name) {
 
 }
 
-// Android Browser scrolling polyfill
-
-if (q('.overthrow')) {
-
-    loadScriptFile('overthrow.js');
-	
-}
-
 // Real time touch detection to support devices with both touch and mouse. http://www.javascriptkit.com/dhtmltutors/sticky-hover-issue-solutions.shtml
 
 ;(function(){

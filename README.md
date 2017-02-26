@@ -34,7 +34,6 @@ natUIve: mostly native front-end framework
 - Native video player
 - Good usability without any classes*
 - Aspect ratio image container*
-- Support for Android Browser scrolling via polyfill overthrow.js*
 - CSS-only viewport height header*
 - URI parameters relay to links*
 - Arabic layout ready*

@@ -413,13 +413,16 @@ section:before, section:after {
     display: block; }
 
   .row > *, .row > [class^=col] {
-    padding: .3em;
-    width: 100% !important;
+    padding: 0;
+    width: 100%;
     border: none;
-    flex: 0 0 100% !important;
     margin: 0.75em 0;
     box-sizing: border-box; }
 
+  @supports (--a: 1) {
+    .row > *, .row > [class^=col] {
+      padding: .3em;
+      flex: 0 0 100% !important; } }
   .row > *:empty {
     display: none; }
 
@@ -1397,19 +1400,19 @@ nav ul {
   width: auto;
   list-style: none; }
 
-nav.scroll {
-  max-width: 100%; }
+@supports (--a: 1) {
+  nav.scroll {
+    max-width: 100%; }
 
-nav.scroll ul {
-  white-space: nowrap;
-  overflow: auto;
-  max-width: 100%;
-  transform: translate3d(0, 0, 0);
-  -webkit-overflow-scrolling: touch; }
+  nav.scroll ul {
+    white-space: nowrap;
+    overflow: auto;
+    max-width: 100%;
+    transform: translate3d(0, 0, 0);
+    -webkit-overflow-scrolling: touch; }
 
-nav.scroll ul li {
-  padding: 0.75em 0; }
-
+  nav.scroll ul li {
+    padding: 0.75em 0; } }
 nav a {
   position: relative;
   padding: 0 .5em 0 0; }
@@ -1942,24 +1945,25 @@ span.burger:after {
     /* hidden fold item */
     overflow: hidden; }
 
-  header.fixed-mobile .fold.mobile {
-    position: fixed;
-    top: 0;
-    z-index: 2; }
+  @supports (--a: 1) {
+    header.fixed-mobile .fold.mobile {
+      position: fixed;
+      top: 0;
+      z-index: 2; }
 
-  header.fixed-mobile .fold.mobile.open {
-    bottom: 0; }
+    header.fixed-mobile .fold.mobile.open {
+      bottom: 0; }
 
-  header.fixed-mobile .fold.mobile .content {
-    padding: 0 0.375em;
-    background: #fff; }
+    header.fixed-mobile .fold.mobile .content {
+      padding: 0 0.375em;
+      background: #fff; }
 
-  header.fixed-mobile .fold.mobile.open .content {
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    position: fixed;
-    top: 3em;
-    bottom: 0; } }
+    header.fixed-mobile .fold.mobile.open .content {
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+      position: fixed;
+      top: 3em;
+      bottom: 0; } } }
 /* natUIve – Tooltip */
 /*
 $color: #fff;
@@ -2209,25 +2213,25 @@ $bg: #1E8DaC;
   padding: 0 !important;
   height: auto; }
 
-.slider > *:after, .slider > *:before {
-  /* Slide background with full slider height */
-  content: '<';
-  display: block;
-  position: absolute;
-  top: 50%;
-  bottom: 0;
-  width: 100%;
-  background: transparent;
-  z-index: -1;
-  opacity: .5; }
+@supports (--a: 1) {
+  .slider > *:after, .slider > *:before {
+    /* Slide background with full slider height */
+    content: '<';
+    display: block;
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    width: 100%;
+    background: transparent;
+    z-index: -1;
+    opacity: .5; }
 
-.slider > *:after {
-  content: '>';
-  text-align: end; }
+  .slider > *:after {
+    content: '>';
+    text-align: end; }
 
-.slider-wrap .slider > *:after, .slider-wrap .slider > *:before, .slider > *:first-child:before, .slider > *:last-child:after, .slider-wrap .slider > * > div.bg {
-  display: none; }
-
+  .slider-wrap .slider > *:after, .slider-wrap .slider > *:before, .slider > *:first-child:before, .slider > *:last-child:after, .slider-wrap .slider > * > div.bg {
+    display: none; } }
 .slider > div:before {
   background: transparent; }
 
@@ -2402,7 +2406,14 @@ $bg: #1E8DaC;
 
 @media screen and (max-width: 600px) {
   .slider-wrap.tabs > .slider-nav.row {
-    display: flex; } }
+    display: flex; }
+
+  .slider > * {
+    display: block; }
+
+  @supports (--a: 1) {
+    .slider > * {
+      display: inline-block; } } }
 /* natUIve – Lightbox */
 /*
 $color: #fff;
@@ -2490,19 +2501,19 @@ $bg: #1E8DaC;
   display: block;
   padding-bottom: 0 !important; }
 
-.lightbox a.video:before {
-  content: '▸';
-  border: 1px solid #999;
-  position: absolute;
-  min-width: 1.5em;
-  text-align: center;
-  font-size: 2em;
-  line-height: 1em;
-  background: rgba(255, 255, 255, 0.8);
-  top: 50%;
-  transform: translate3d(-50%, -50%, 0);
-  left: 50%; }
-
+@supports (--a: 1) {
+  .lightbox a.video:before {
+    content: '▸';
+    border: 1px solid #999;
+    position: absolute;
+    min-width: 1.5em;
+    text-align: center;
+    font-size: 2em;
+    line-height: 1em;
+    background: rgba(255, 255, 255, 0.8);
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    left: 50%; } }
 .lightbox.slider a.button.copy {
   position: absolute;
   top: 0.75em;
