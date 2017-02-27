@@ -1417,9 +1417,9 @@ function loadScriptFile(file_name) {
 
 function closeFoldClickOutside(e) {
 
-	if (!closest(eventElement(e), '.fold')) { // Clicking/tapping outside of a fold element...
+	if (!closest(eventElement(e), '.fold') && !closest(eventElement(e), '.tool')) { // Clicking/tapping outside of a fold/tooltip element...
 		
-		forEach('.fold.mobile', function (el) { // ... closes all burger nav menus
+		forEach('.fold.mobile, .tool', function (el) { // ... closes all burger nav menus and tooltips
 			
 			removeClass(el, 'open');
 			
