@@ -2893,10 +2893,10 @@ a[href].span-relative-parent {
   bottom: 0;
   left: 0; }
 
-header [data-threshold] {
-  opacity: calc(1 - var(--threshold));
-  transition: all 0.1s linear; }
-
+@media screen and (min-width: 600px) {
+  header [data-threshold] {
+    opacity: calc(1 - var(--threshold));
+    transition: all 0.1s linear; } }
 /* Narrow Screens */
 @media screen and (max-width: 600px) {
   header {

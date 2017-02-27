@@ -310,11 +310,15 @@ a[href].span-relative-parent {
 	
 }
 
-header [data-threshold] {
-	
-	opacity: calc(1 - var(--threshold));
-	transition: all 0.1s linear;
-	
+@media screen and (min-width: $screen-narrow) {
+
+	header [data-threshold] {
+		
+		opacity: calc(1 - var(--threshold));
+		transition: all 0.1s linear;
+		
+	}
+
 }
 
 /* Narrow Screens */

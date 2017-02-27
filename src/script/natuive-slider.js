@@ -176,7 +176,7 @@ function endSlide (slider, index) {
 	addClass(childByClass(slider_wrap, 'slider-nav').children[index], 'active');
 	slider.style.pointerEvents = '';
 
-	document.onkeyup = sliderKeyboard;
+	window.onkeyup = sliderKeyboard;
     setTimeout(function () { 
 
 	    removeClass(q('html'), 'sliding_now');
@@ -426,7 +426,8 @@ function sliderKeyboard(e) {
 
             	}
             case 37:
-                slide(el, 'left');
+                slide(el, 'left'); 
+                break;
             case 40:
             	if (shouldNotSlideVertically()) {
                 	
@@ -553,7 +554,7 @@ function makeSlider(el, current_slide) {
 
     addClass(el.children[0], 'visible');
 
-    document.onkeyup = sliderKeyboard;
+    window.onkeyup = sliderKeyboard;
 
     mouseEvents(el);
 

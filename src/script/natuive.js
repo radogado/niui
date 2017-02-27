@@ -448,20 +448,10 @@ function closeFullWindow() {
 		}
 
 	    removeClass(q('html'), 'nooverflow');
-		q('body').scrollTop = -1 * q('html').getAttribute('data-offset'); // Restore the page position. The most acceptable hack fo far.
-
-// 	    if (touchSupport()) {
-
-/*
-		    document.removeEventListener('touchmove', preventEvent, false);
-		    q('body').removeEventListener('touchmove', preventEvent, false);
-*/
-	    
-// 	    }
+		q('body').scrollTop = q('html').scrollTop = -1 * q('html').getAttribute('data-offset'); // Restore the page position. The most acceptable hack fo far.
 
 		removeEventHandler(window, 'keydown', arrow_keys_handler);
-// 		document.body.removeEventListener('keyup', keyUpClose);
-		removeEventHandler(q('body'), 'keyup', keyUpClose);
+		removeEventHandler(window, 'keyup', keyUpClose);
 		if (!q('.slider')) { // No sliders on the page to control with arrow keys
 		
 			document.onkeyup = function () {};
@@ -506,21 +496,7 @@ function openFullWindow(el) {
 		
 	}
 
-// 	window.addEventListener('touchmove', preventEvent, false); // To do: fix. Prevents modal scrolling
-
 	if (el.querySelector('.full-screen')) {
-
-		addEventHandler(document, 'webkitfullscreenchange', function () {
-			
-			q('html').onkeyup = keyUpClose;
-			var full_window_slider = q('.full-window-wrap .slider');
-			if (full_window_slider) {
-				
-				full_window_slider.focus();
-			
-			}
-			
-		});
 
 		addEventHandler(document, 'fullscreenchange', function () {
 			
@@ -550,18 +526,6 @@ function openFullWindow(el) {
 	
 	}
 		
-/*
-	q('.full-window-wrap .content').addEventListener('touchmove', function(e) {
-		
-		if (q('.full-window-wrap .content').scrollHeight > q('.full-window-wrap .content').offsetHeight) { return true; }
-	    	else {
-		    	e.preventDefault();
-		    	return false;
-		    }
-    	
-	}, false);
-*/
-
     return false;
 	
 }
@@ -1353,7 +1317,7 @@ function toggleAccordion(e) {
 
 function copyButton (el, target) {
 	
-	if (!q('body').addEventListener) return;
+	if (!window.addEventListener) return;
 	
 	el.addEventListener('click', function(event) {  
 
@@ -1429,6 +1393,22 @@ function loadScriptFile(file_name) {
 
 })();
 
+// Close all Fold elements when clicking/tapping outside of them
+
+function closeFoldClickOutside(e) {
+
+	if (!closest(eventElement(e), '.fold')) { // Clicking/tapping outside of a fold element...
+		
+		forEach('.fold.mobile', function (el) { // ... closes all burger nav menus
+			
+			removeClass(el, 'open');
+			
+		});
+		
+	}
+	
+}
+		
 /* Initialise JS-powered elements */
 
 function init() {
@@ -1482,17 +1462,15 @@ function init() {
 	    
 	});
 	
-	addEventHandler(q('body'), 'click', function (e) { // Close all Fold elements when clicking outside of them
-
-		if (!closest(eventElement(e), '.fold')) { // Clicking outside of a fold element...
-			
-			forEach('.fold.mobile', function (el) { // ... closes all burger nav menus
-				
-				removeClass(el, 'open');
-				
-			});
-			
-		}
+	addEventHandler(window, 'click', function (e) { // Close all Fold elements when clicking outside of them
+		
+		closeFoldClickOutside(e);
+		
+	});
+	
+	addEventHandler(window, 'touchend', function (e) { // Close all Fold elements when clicking outside of them
+		
+		closeFoldClickOutside(e);
 		
 	});
 	
@@ -1663,12 +1641,12 @@ function init() {
 	});
 
 	forEach('[data-threshold]', function(el) { // Set a variable reflecting how much of the element's height has been scrolled; .threshold on scroll over element height
-		
-		q('body').onscroll = function (e) {
 
+		addEventHandler(window, 'scroll', function() {
+	
 			setTimeout(function () {
 				
-				var relativeScroll = q('body').scrollTop;
+				var relativeScroll = q('html').scrollTop || q('body').scrollTop;
 				var threshold = el.scrollHeight; // To do: either element height or data-threshold height in px, % or vh
 
 				if (relativeScroll > threshold) {
@@ -1700,11 +1678,11 @@ function init() {
 				
 			}, 50);
 			
-		};
+		});
 
 	});
-	
-	window.onscroll = function () { // Close fixed overlay if its scrolling becomes a window scroll. Idea by a Google mobile nav.
+
+	addEventHandler(window, 'scroll', function() {  // Close fixed overlay if its scrolling becomes a window scroll. Idea by a Google mobile nav.
 		
 		if (q('.fixed-mobile .fold.mobile.open')) {
 			
@@ -1712,7 +1690,7 @@ function init() {
 		
 		}
 		
-	}
+	});
 	
 }
 
