@@ -1427,6 +1427,16 @@ function closeFoldClickOutside(e) {
 		
 	}
 	
+	if (!closest(eventElement(e), 'nav.drop')) { // reset all forms, closing the drop down
+		
+		forEach('nav.drop form', function (el) {
+			
+			el.reset();
+			
+		});
+		
+	}
+	
 }
 		
 /* Initialise JS-powered elements */
