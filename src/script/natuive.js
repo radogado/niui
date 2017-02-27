@@ -413,7 +413,7 @@ function populateLightbox(slider, i) {
 var external = RegExp('^((f|ht)tps?:)?//(?!' + location.host + ')');
 var full_window_content = null;
 
-function preventEvent(e) { // For iOS scrolling behind blackbox
+function preventEvent(e) {
 	
 	e.preventDefault();
 
@@ -488,7 +488,7 @@ function openFullWindow(el) {
 	    
 	    full_window.insertAdjacentHTML('afterbegin', '<div class=close> ← ' + document.title + '</div>');
 		q('.full-window-wrap-bg').onclick = q('.full-window-wrap .close').onclick = closeFullWindow;
-	    q('html').onkeyup = keyUpClose;
+		addEventHandler(window, 'keyup', keyUpClose);
 	   
 	} else {
 		
@@ -498,12 +498,14 @@ function openFullWindow(el) {
 
 	if (el.querySelector('.full-screen')) {
 
+/*
 		addEventHandler(document, 'fullscreenchange', function () {
 			
 		    q('.full-window-wrap .slider').focus();
 		    q('html').onkeyup = keyUpClose;
 			
 		});
+*/
 
 		if (full_window.webkitRequestFullScreen) { 
 			
@@ -613,9 +615,12 @@ function openLightbox(e) {
 	
     /* Add any <a><img> siblings with description to a .slider and initialise its controls */
     var images = '';
-
-    forEach(closest(el, '.lightbox').querySelectorAll('a[href]'), function(el) {
+    var lightbox = closest(el, '.lightbox');
+	var thumbnails = [];
+    forEach(lightbox.querySelectorAll('a[href]'), function(el) {
 		
+	    thumbnails.push((el.querySelector('img') ? el.querySelector('img').src : '#'));
+
 		if (hasClass(el, 'video')) {
 			// video poster = the anchor's img child, if it exists
 			images += '<div><video poster=' + (el.querySelector('img') ? el.querySelector('img').src : '#') + ' controls=controls preload=none> <source type=video/mp4 src=' + el.href + '> </video></div>';
@@ -630,8 +635,9 @@ function openLightbox(e) {
 			
 		}
 			
-		var slide_link = document.location.protocol + '//' + document.location.hostname + document.location.pathname + '?image=' + el.href.split('/').pop() + '#' + closest(el, '.lightbox').getAttribute('id');
+		var slide_link = document.location.protocol + '//' + document.location.hostname + document.location.pathname + '?image=' + el.href.split('/').pop() + '#' + lightbox.getAttribute('id');
 	    images += '<div><img data-src="' + el.href + '" alt="' + el.title + '" title="' + slide_link + '">' + (el.title ? ('<p>' + el.title + '</p>') : '') + '<a class="button copy" href=' + slide_link + '></a></div>';
+	    
 
         // Attach onload event to each image to display it only when fully loaded and avoid top-to-bottom reveal?
 
@@ -660,7 +666,7 @@ function openLightbox(e) {
         }
         var this_index = thisIndex(anchor);
 
-        if (location.href.indexOf('#' + closest(el, '.lightbox').getAttribute('id')) > -1) {
+        if (location.href.indexOf('#' + lightbox.getAttribute('id')) > -1) {
 	        
 	        if (typeof getURLParameters()['slide'] != 'undefined') {
 
@@ -684,6 +690,20 @@ function openLightbox(e) {
 	        
         }
         populateLightbox(makeSlider(q('.full-window-wrap .slider'), this_index), this_index);
+        transferClass(anchor.parentNode, q('.full-window-wrap .slider-wrap'), 'thumbnails');
+        
+        if (hasClass(anchor.parentNode, 'thumbnails')) {
+        
+	        var i = 0;
+	        var nav = q('.full-window-wrap .slider-nav');
+	        forEach(thumbnails, function (el) {
+
+		        nav.children[i].style.backgroundImage = 'url(' + thumbnails[i] + ')';
+		        i++;
+		        
+	        });
+        
+        }
 
     }
 
@@ -1661,7 +1681,7 @@ function init() {
 
 				}
 				
-				el.style.setProperty('--height', threshold); // Percentage of threshold reached. 0 – 1. Can be used with CSS calc().
+				el.style.setProperty('--height', threshold);
 				el.style.setProperty('--threshold', parseFloat((relativeScroll / threshold), 10).toPrecision(1)); // Percentage of threshold reached. 0 – 1. Can be used with CSS calc().
 
 				if (relativeScroll >= threshold) {

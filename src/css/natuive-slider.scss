@@ -473,6 +473,16 @@
 		
 	}
 	
+	.thumbnails .slider-nav a {
+		
+		line-height: 4em;
+		width: 4em;
+		height: 4em;
+		background-size: cover;
+		border-radius: 0;
+		
+	}
+	
 	.slider-wrap .slider.vertical > .visible, .vertical > .slider-nav a {
 		
 		display: block;
@@ -482,7 +492,7 @@
 		
 	.slider-nav a.active {
 	
-		background: rgba(0, 0, 0, .2);
+		background-color: rgba(0, 0, 0, .2);
 		color: inherit;
 	
 	}
