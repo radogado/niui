@@ -1439,6 +1439,94 @@ function closeFoldClickOutside(e) {
 	
 }
 		
+forEach('.fold > .label', function(el, i) {
+
+    el.onclick = toggleAccordion;
+
+    el = el.parentNode;
+
+    if (el.querySelector('input.trigger')) { // Remove CSS-only triggers
+
+        el.querySelector('input.trigger').outerHTML = '';
+
+    }
+
+    if (!hasClass(el, 'mobile')) { // Keep the accordion content clickable
+	    
+	    el.querySelector('.content').onclick = function(e) {
+
+	        stopEvent(e);
+	
+	    };
+
+    }
+    
+});
+
+addEventHandler(window, 'click', function (e) { // Close all Fold elements when clicking outside of them
+	
+	closeFoldClickOutside(e);
+	
+});
+
+addEventHandler(window, 'touchend', function (e) { // Close all Fold elements when clicking outside of them
+	
+	closeFoldClickOutside(e);
+	
+});
+	
+addEventHandler(window, 'scroll', function() {  // Close fixed overlay if its scrolling becomes a window scroll. Idea by a Google mobile nav.
+	
+	if (q('.fixed-mobile .fold.mobile.open')) {
+		
+		removeClass(q('.fixed-mobile .fold.mobile.open'), 'open');
+	
+	}
+	
+});
+	
+forEach('[data-threshold]', function(el) { // Set a variable reflecting how much of the element's height has been scrolled; .threshold on scroll over element height
+
+	addEventHandler(window, 'scroll', function() {
+
+		setTimeout(function () {
+			
+			var relativeScroll = q('html').scrollTop || q('body').scrollTop;
+			var threshold = el.scrollHeight; // To do: either element height or data-threshold height in px, % or vh
+
+			if (relativeScroll > threshold) {
+				
+				relativeScroll = threshold;
+
+			}
+			
+			if (relativeScroll < 0) {
+				
+				relativeScroll = 0;
+
+			}
+			
+			el.style.setProperty('--height', threshold);
+			el.style.setProperty('--threshold', parseFloat((relativeScroll / threshold), 10).toPrecision(1)); // Percentage of threshold reached. 0 – 1. Can be used with CSS calc().
+
+			if (relativeScroll >= threshold) {
+				
+				addClass(el, 'threshold');
+				addClass(q('body'), 'threshold');
+				
+			} else {
+				
+				removeClass(el, 'threshold');
+				removeClass(q('body'), 'threshold');
+				
+			}
+			
+		}, 50);
+		
+	});
+
+});
+
 /* Initialise JS-powered elements */
 
 function init() {
@@ -1467,42 +1555,6 @@ function init() {
 	
 	});
 */
-	
-	forEach('.fold > .label', function(el, i) {
-	
-	    el.onclick = toggleAccordion;
-	
-	    el = el.parentNode;
-	
-	    if (el.querySelector('input.trigger')) { // Remove CSS-only triggers
-	
-	        el.querySelector('input.trigger').outerHTML = '';
-	
-	    }
-	
-	    if (!hasClass(el, 'mobile')) { // Keep the accordion content clickable
-		    
-		    el.querySelector('.content').onclick = function(e) {
-	
-		        stopEvent(e);
-		
-		    };
-	
-	    }
-	    
-	});
-	
-	addEventHandler(window, 'click', function (e) { // Close all Fold elements when clicking outside of them
-		
-		closeFoldClickOutside(e);
-		
-	});
-	
-	addEventHandler(window, 'touchend', function (e) { // Close all Fold elements when clicking outside of them
-		
-		closeFoldClickOutside(e);
-		
-	});
 	
 	forEach('td[data-sort]', function (el) {
 		// asc or desc
@@ -1670,58 +1722,6 @@ function init() {
 	
 	});
 
-	forEach('[data-threshold]', function(el) { // Set a variable reflecting how much of the element's height has been scrolled; .threshold on scroll over element height
-
-		addEventHandler(window, 'scroll', function() {
-	
-			setTimeout(function () {
-				
-				var relativeScroll = q('html').scrollTop || q('body').scrollTop;
-				var threshold = el.scrollHeight; // To do: either element height or data-threshold height in px, % or vh
-
-				if (relativeScroll > threshold) {
-					
-					relativeScroll = threshold;
-
-				}
-				
-				if (relativeScroll < 0) {
-					
-					relativeScroll = 0;
-
-				}
-				
-				el.style.setProperty('--height', threshold);
-				el.style.setProperty('--threshold', parseFloat((relativeScroll / threshold), 10).toPrecision(1)); // Percentage of threshold reached. 0 – 1. Can be used with CSS calc().
-
-				if (relativeScroll >= threshold) {
-					
-					addClass(el, 'threshold');
-					addClass(q('body'), 'threshold');
-					
-				} else {
-					
-					removeClass(el, 'threshold');
-					removeClass(q('body'), 'threshold');
-					
-				}
-				
-			}, 50);
-			
-		});
-
-	});
-
-	addEventHandler(window, 'scroll', function() {  // Close fixed overlay if its scrolling becomes a window scroll. Idea by a Google mobile nav.
-		
-		if (q('.fixed-mobile .fold.mobile.open')) {
-			
-			removeClass(q('.fixed-mobile .fold.mobile.open'), 'open');
-		
-		}
-		
-	});
-	
 }
 
 ready( function () {
