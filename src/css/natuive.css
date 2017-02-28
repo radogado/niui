@@ -1563,7 +1563,8 @@ nav.drop ul li li a, nav.drop ul li .trigger:checked ~ a, nav.drop ul li .trigge
   color: #333; }
 
 nav.drop ul li li a[href], nav.drop ul li .trigger:checked ~ a[href] {
-  z-index: 6; }
+  z-index: 6;
+  text-decoration: underline; }
 
 nav.drop ul li li li a, nav.drop ul li li .trigger:checked ~ a, nav.drop ul li li .trigger:checked ~ b.sub,
 html:not(.can-touch) nav.drop ul li:hover, html:not(.can-touch) nav.drop ul li li:hover a,
@@ -2761,7 +2762,9 @@ img, picture {
   text-align: center; }
 
 html.nooverflow, html.nooverflow body {
-  overflow: hidden;
+  overflow: hidden; }
+
+html.can-touch.nooverflow, html.can-touch.nooverflow body {
   height: 100%; }
 
 .header-and-banner {

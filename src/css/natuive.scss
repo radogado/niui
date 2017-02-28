@@ -75,6 +75,11 @@ img, picture {
 html.nooverflow, html.nooverflow body {
 	
 	overflow: hidden;
+
+}
+
+html.can-touch.nooverflow, html.can-touch.nooverflow body {
+	
 	height: 100%;
 
 }

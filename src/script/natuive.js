@@ -338,7 +338,7 @@ function getURLParameters() { // return all URL parameters in an array
 
 /* URI parameters relay. Omit links starting with "javascript", "mailto", skip parameters not listed in the array */
 
-var parameters_list = new Array('parameter1', 'parameter2'); // To do: load this from an external JSON file. Such data has no place in the JS library.
+var parameters_list = new Array('parameter1', 'parameter2'); // To do: load this from an external JSON file. Such data has no place here.
 
 function relayParameters() {
 
@@ -448,7 +448,7 @@ function closeFullWindow() {
 		}
 
 	    removeClass(q('html'), 'nooverflow');
-		q('body').scrollTop = q('html').scrollTop = -1 * q('html').getAttribute('data-offset'); // Restore the page position. The most acceptable hack fo far.
+    	q('body').scrollTop = q('html').scrollTop = -1 * q('html').getAttribute('data-offset'); 
 
 		removeEventHandler(window, 'keydown', arrow_keys_handler);
 		removeEventHandler(window, 'keyup', keyUpClose);
@@ -466,9 +466,10 @@ function openFullWindow(el) {
 	
 	closeFullWindow();
 	
-	q('html').setAttribute('data-offset', q('html').getBoundingClientRect().top); // Remember the page position.
+	var offset_top = q('html').getBoundingClientRect().top;
+	q('html').setAttribute('data-offset', offset_top); // Remember the page position.
     addClass(q('html'), 'nooverflow');
-	q('body').scrollTop = -1 * q('html').getAttribute('data-offset');
+	q('body').scrollTop = -1 * offset_top; // Move it back after nooverflow has reset it to 0.
 
 	if (typeof el === 'string') {
 
@@ -1508,6 +1509,7 @@ forEach('[data-threshold]', function(el) { // Set a variable reflecting how much
 			
 			el.style.setProperty('--height', threshold);
 			el.style.setProperty('--threshold', parseFloat((relativeScroll / threshold), 10).toPrecision(1)); // Percentage of threshold reached. 0 – 1. Can be used with CSS calc().
+			// To do: Add --offset-top, --offset-bottom (distance from top/bottom of element to top/bottom of viewport)
 
 			if (relativeScroll >= threshold) {
 				
