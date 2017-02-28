@@ -448,7 +448,8 @@ function closeFullWindow() {
 		}
 
 	    removeClass(q('html'), 'nooverflow');
-    	q('body').scrollTop = q('html').scrollTop = -1 * q('html').getAttribute('data-offset'); 
+    	q('body').scrollTop = q('html').scrollTop = -1 * q('html').getAttribute('data-offset');
+    	q('html').removeAttribute('data-offset');	
 
 		removeEventHandler(window, 'keydown', arrow_keys_handler);
 		removeEventHandler(window, 'keyup', keyUpClose);
@@ -469,7 +470,7 @@ function openFullWindow(el) {
 	var offset_top = q('html').getBoundingClientRect().top;
 	q('html').setAttribute('data-offset', offset_top); // Remember the page position.
     addClass(q('html'), 'nooverflow');
-	q('body').scrollTop = -1 * offset_top; // Move it back after nooverflow has reset it to 0.
+// 	q('body').scrollTop = -1 * offset_top; // Move it back after nooverflow has reset it to 0.
 
 	if (typeof el === 'string') {
 
@@ -709,6 +710,13 @@ function openLightbox(e) {
     }
 
     window.addEventListener('keydown', arrow_keys_handler, false);
+    
+    if (hasClass(q('html'), 'can-touch')) { // iOS Safari bug where the slider nav becomes instantly hidden, if you open it by tapping the first image.
+    
+	    full_window_content.style.display = 'none';
+	    setTimeout(function () { full_window_content.style.display = 'block'; }, 100);
+    
+    }
 
     return false;
 
