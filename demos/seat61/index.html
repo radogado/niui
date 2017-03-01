@@ -23,23 +23,32 @@
 
 	<div class=header-and-banner>
 	
-		<header>
+		<header class="fixed-mobile">
 			
 			<div class="contain row">
 			
-				<nav class="col45">
+				<nav class="col45 align-middle">
 	
-					<ul>
+				<div class='fold mobile'>
+				
+					<div class=label> <span class="burger"></span> </div>
+					<input type=checkbox class=trigger>
+
+					<div class='content'>
+
+						<ul>
+							
+							<li><a href=#>Home</a></li>
+							<li><a href=#>Buy Train Tickets</a></li>
+							<li><a href=#>Buy Ferry Tickets</a></li>
+							<li><a href=#>Book A Hotel</a></li>
+							<li><a href=#>Rail Pass</a></li>
+							<li><a href=#>News</a></li>
+							<li><a href=#>About</a></li>
 						
-						<li><a href=#>Home</a></li>
-						<li><a href=#>Buy Train Tickets</a></li>
-						<li><a href=#>Buy Ferry Tickets</a></li>
-						<li><a href=#>Book A Hotel</a></li>
-						<li><a href=#>Rail Pass</a></li>
-						<li><a href=#>News</a></li>
-						<li><a href=#>About</a></li>
+						</ul>
 					
-					</ul>
+					</div>
 						
 				</nav>
 				
@@ -161,7 +170,7 @@
 			</div>
 			<br>
 			
-			<p>––– Sample info page –––</p>
+			<p id=sample-info>––– Sample info page –––</p>
 			
 			<br>
 			<h2>London to Bulgaria by train, a 48 hour Balkan adventure</h2>
@@ -291,10 +300,15 @@
 			
 			<h2>London to Sofia by train</h2>
 			
-			<h3>Option 1:  London to Sofia via Paris, Munich & Budapest</h3>
-			
-			<p>This is is the fastest and cheapest option, if you use the option B version show below.  Alternatively, the option A version is the most direct and comfortable way, with a whole day free in Budapest as this uses a new direct Budapest-Sofia train which started running in December 2014.</p>
-			
+				<div class='fold'>
+				
+					<h2 class="label">Option 1:  London to Sofia via Paris, Munich & Budapest <small>⬇</small></h2>
+					<input type=checkbox class=trigger>
+
+					<div class="content">
+						
+						<p>This is is the fastest and cheapest option, if you use the option B version show below.  Alternatively, the option A version is the most direct and comfortable way, with a whole day free in Budapest as this uses a new direct Budapest-Sofia train which started running in December 2014.</p>
+					
 			<h4>London → Sofia</h4>
 			
 			<ul>
@@ -303,9 +317,20 @@
 			
 			</ul>
 			
-			<h2>Munich to Budapest by sleeper train Kalman Imre</h2>
+					</div>
+				
+				</div>
 			
+				<div class='fold'>
+
+				<h2 class="label">Munich to Budapest by sleeper train Kalman Imre <small>⬇</small></h2>
+					<input type=checkbox class=trigger>
+				
+				<div class="content">
+					
 			<p>Cosy & inviting, a hotel on rails, this is the modern air-conditioned Hungarian sleeping-car of the Kalman Imre at Munich Hauptbahnhof...  The sleeping-car has 10 compartments with washbasin, each of which can be used as a 1, 2 or 3 berth room, with toilets at the end of the corridor.  The fare includes a light breakfast of coffee, juice & croissant.  Watch the Hungarian sleeping-car video.  There's time for dinner in Munich before boarding, try www.augustinerkeller.de at Arnulfstrasse 52, to the north side of Munich Hbf.</p>
+			
+			</div>
 			
 			<div class="lightbox">
 				

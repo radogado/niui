@@ -71,6 +71,12 @@ nav li {
 	
 }
 
+header nav ul {
+	
+	display: block;
+
+}
+
 ul li {
 	
 	margin: 0;
@@ -111,7 +117,7 @@ form#search input {
 
 form#search input[type=text] {
 	
-	width: 9em;
+	width: calc(100% - 2em);
 	color: $light;
 	line-height: 1.5em;
 	padding: .3em .5em;
@@ -137,7 +143,7 @@ form#search input[type=text] {
 .banner label {
 
 	margin: 0;
-	width: auto;
+	width: 100%;
 	background: url(arrow.svg) right center no-repeat;	
 	background-size: auto 25%;
 	background-position: calc(100% - .7em) 1em;
@@ -154,7 +160,7 @@ form#search input[type=text] {
 	background: none;
 	padding-right: 1.77em;
 	z-index: 9;
-	width: auto;
+	width: 100%;
 
 }
 
@@ -218,5 +224,59 @@ h4 {
 .slider.lightbox > * p {
 	
 	background: rgba(0, 0, 0, .5);
+	
+}
+
+@media (max-width: 600px) {
+	
+	form#search {
+		
+		width: 100%;
+		
+	}
+	
+	form#search input[type=text] {
+		
+		width: calc(100% - 2em);
+		
+	}
+	
+	header .row > nav {
+		
+		position: fixed;
+		left: 0;
+		z-index: 9;
+		
+	}
+	
+	header.fixed-mobile .fold.mobile.open .content {
+		
+		width: 100%;
+	
+	}
+
+	.fold.mobile > .label, header.fixed-mobile .fold.mobile.open .content {
+	
+		margin-left: -.3em;
+		
+	}
+
+	header nav li {
+		
+		text-align: left;
+	
+	}
+
+	header nav a[href] {
+		
+		color: #333;
+	
+	}
+	
+	.banner img {
+		
+		display: none;
+		
+	}
 	
 }
