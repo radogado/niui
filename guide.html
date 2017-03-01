@@ -3,7 +3,7 @@
 
 <head>
 	
-	<title>natUIve</title>
+	<title>natUIve Guide</title>
 	
 	<meta charset=utf-8>
 	<meta name=viewport content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no'>
@@ -25,7 +25,8 @@
 			top: 1em;
 			bottom: 1em;
 			overflow: auto;
-			width:calc(33.33% - 1em)
+			width: calc(25% - 1em);
+			-webkit-overflow-scrolling: touch;
 		
 		}
 		
@@ -37,8 +38,34 @@
 		
 		main > .slider-wrap.vertical.tabs > .slider-nav a {
 			
-			padding-left: 1.5em;
+			padding-left: 1em;
 			
+		}
+		
+		main > .slider-wrap.vertical.tabs > .slider {
+			
+			width: 75%;
+			
+		}
+		
+		main > .slider-wrap .slider-nav a {
+			
+			background: none;
+			color: #333;
+
+		}
+	
+		main > .slider-wrap .slider-nav a.active {
+			
+			background: rgba(0,0,0,.04);
+			color: #111;
+
+		}
+		
+		main#content {
+			
+			padding: 0;
+
 		}
 	
 	</style>
@@ -49,13 +76,13 @@
 <!-- <div class="notify">Whoops</div> -->
 	<!-- Head - Start -->
 
-	<main id=content style="min-height: 100vh; padding: 1em;">
+	<main id=content style="min-height: 100vh;">
 
 		<div class="slider tabs vertical">
 			
-				<div data-tab-title=Home><div class='header-and-banner viewport push-up'>
+				<div data-tab-title='natUIve guide'><div class='header-and-banner viewport push-up'>
 	
-		<header class="fixed contain">
+		<header class="fixed contain align-right">
 		
 			<a href=# class='logo pad'>
 			
@@ -69,57 +96,21 @@
 		
 			<div class='contain row'>
 				
-				<div class="align-middle full-mobile-width">
-
-<!--
-					<span class="aspect">
-
-						<span style="padding-bottom: 100.566%"></span>
-						<img src=images/cat.jpg alt=Portrait>
-
-					</span>
--->
-					<picture>
-					
-						<img src=images/cat.jpg alt=Portrait>
-					
-					</picture>
-					
-				</div>
-		
-				<div class='col23 align-middle'>
+				<div class='align-middle'>
 				
 					<div>					
 
-						<h1 style="font-size: calc(100% + 3vw);">
-							
-							Lightweight, feature-heavy framework
+						<h2>Please select a Guide section</h2>
 						
-						</h1>
-						
-						<h2>
-						
-							with a picture of a cat
-							
-						</h2>
-						
-						<p class=drop-cap>
-						
-							Increase conversion by decreasing page load time down to &lt;5" on slow mobile networks. Improve development by using standard building blocks that are flexible to customise and combine. Improve stability and compatibility by not pushing the browsers more than necessary. Under the negligible weight of ~13 KB, which removes the barrier between your content and your customers everywhere.
-						
-						</p>
-
 					</div>
 					
+<!--
 					<div class="col1">
 						
-						<a href=#content class='button'>Features</a>
-						<a href=#showcase class='button'>Showcase</a>
-						<a href=#content class='button'>Docs</a>
-						<br>
-						<a href=http://github.com/radogado/natuive class='big button'>Download</a>
+						<a href=http://github.com/radogado/natuive class='big button'>Download natUIve from GitHub</a>
 
 					</div>
+-->
 
 				</div>
 			
@@ -128,20 +119,59 @@
 		</div>
 		
 	</div></div>
+
+				<div data-tab-title='Page structure'>					
+
+						<h2>Page structure</h2>
+						
+						<pre>		
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;title&gt;natUIve Guide&lt;/title&gt;
+	&lt;meta charset=utf-8&gt;
+	&lt;meta name=viewport content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no'&gt;
+	&lt;link rel=icon href=images/favicon.ico&gt;
+	&lt;link rel=styleSheet href=natuive.min.css type=text/css media=screen&gt;
+	&lt;!--[if lte IE 9]&gt; 
+		&lt;link rel=styleSheet href=ie.css type=text/css media=screen&gt;
+		&lt;script src=html5shiv.min.js&gt;&lt;/script&gt; 
+		&lt;script src=ie-fallback.js type=text/javascript&gt;&lt;/script&gt;
+	&lt;![endif]--&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;div class=header-and-banner&gt;
+		&lt;header&gt;
+			Header
+		&lt;/header&gt;
+		&lt;div class=&quot;banner&quot;&gt;
+			Banner
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;main&gt;
+		Main
+	&lt;/main&gt;
+	&lt;footer&gt;
+		Footer
+	&lt;/footer&gt;
+	&lt;script src=natuive.min.js type=text/javascript async&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+						</pre>
+						
+					</div>
 				
 				<div data-tab-title=Navigation>
 						
-					<nav>
-			
-				<input type="checkbox" class="trigger burger">
-				
-				<div class='row'>
+					<div class='row'>
 						
 						<div class=col1>
 							
+							<h2>Main navigation</h2>
+							
 							<nav>
 				
-								<ul>
+								<ul class="inline">
 								
 									<li> <a href=#grid class="active">Grid</a> </li>
 				
@@ -153,9 +183,46 @@
 											
 							</nav>
 							
-							<br>
+							<h2>Sub navigation</h2>
 						
 							<nav class=sub>
+					
+								<ul class="inline	">
+								
+									<li> <a href=#buttons>Buttons</a> </li>
+
+									<li> <a href=#drop-nav>Drop-down nav</a> </li>
+								
+									<li> <a href=#lightbox class="active">Lightbox</a> </li>
+								
+									<li> <a href=#fold>Fold</a> </li>
+				
+									<li> <a href=#modal>Modal window</a> </li>
+			
+									<li> <a href=#video>Video</a> </li>
+	
+									<li> <a href=#aspect-ratio>Aspect ratio</a> </li>
+	
+									<li> <a href=#masonry>Masonry</a> </li>
+	
+									<li> <a href=#tables>Tables</a> </li>
+
+									<li> <a href=#tabs>Tabs</a> </li>
+
+									<li> <a href=#lists>Lists</a> </li>
+
+									<li> <a href=#cards>Cards</a> </li>
+
+									<li> <a href=//rado.bg target="_blank">WordPress theme</a> </li>
+
+									<li> <a href=#showcase>Showcase</a> </li>
+								
+								</ul>
+							
+							</nav>
+							
+							<h2>Scroll navigation</h2>
+						<nav class=scroll>
 					
 								<ul>
 								
@@ -190,239 +257,215 @@
 								</ul>
 							
 							</nav>
+							
+							<h2>Drop navigation</h2>
+							
+						<nav class=drop id=drop-nav>
+		
+							<form id="level1"> </form>
+							<form id="level2"> </form>
+						
+							<input type="checkbox" class="trigger burger">
+						
+							<ul>
+								
+								<li> 
+								
+									<input type="radio" class="trigger" form="level1" name="level1">
+						
+									<input type="reset" form="level1">
+								
+									<a>First item</a>
+									
+									<b class="sub"></b>
+									
+									<ul>
+										
+										<li> 
+										
+											<input type="radio" class="trigger" form="level2" name="level2">
+								
+											<input type="reset" form="level2">
+								
+											<a>First item's second level item 1</a>
+										
+											<b class="sub"></b>
+									
+											<ul>
+												
+												<li> 
+													
+													<a href="asd">First item's second level item 1 third level item 1</a>
+												
+												</li>
+												
+												<li> 
+													
+													<a href="fdgdf">First item's second level item 1 third level item 2</a>
+												
+												</li>
+											
+											</ul>
+										
+										</li>
+									
+										<li> 
+										
+											<input type="radio" class="trigger" form="level2" name="level2">
+								
+											<input type="reset" form="level2">
+								
+											<a href=asd>First item's second level item 2</a>
+										
+											<b class="sub"></b>
+									
+											<ul>
+												
+												<li> 
+													
+													<a href="#">First item's second level item 2 third level item 1</a>
+												
+												</li>
+												
+												<li> 
+													
+													<a href="#">First item's second level item 2 third level item 1</a>
+												
+												</li>
+											
+											</ul>
+										
+										</li>
+									
+									</ul>
+								
+								</li>
+						
+								<li> 
+								
+									<input type="radio" class="trigger" form="level1" name="level1">
+						
+									<input type="reset" form="level1">
+								
+									<a href=asd>Second item which is a link with long text</a>
+								
+									<b class="sub"></b>
+									
+									<ul>
+										
+										<li> 
+										
+											<input type="radio" class="trigger" form="level2" name="level2">
+								
+											<input type="reset" form="level2">
+								
+											<a>Second item level two item 1</a>
+										
+											<b class="sub"></b>
+									
+											<ul>
+												
+												<li> 
+													
+													<a href="#">Second item level two item 1 third level item 1</a>
+												
+												</li>
+												
+												<li> 
+													
+													<a href="#">Second item level two item 1 third level item 1</a>
+												
+												</li>
+											
+											</ul>
+										
+										</li>
+									
+									</ul>
+									
+								</li>
+						
+								<li> 
+								
+									<input type="radio" class="trigger" form="level1" name="level1">
+						
+									<input type="reset" form="level1">
+								
+									<a>Third item with one sub level</a>
+								
+									<b class="sub"></b>
+									
+									<ul>
+										
+										<li> 
+										
+											<a href=#>Third item second level item 1</a>
+										
+										</li>
+						
+										<li> 
+										
+											<a href=#>Third item second level item 2</a>
+										
+										</li>
+									
+									</ul>
+									
+								</li>
+							
+								<li> 
+								
+									<input type="radio" class="trigger" form="level1" name="level1">
+						
+									<input type="reset" form="level1">
+								
+									<a>Fourth item with one sub level</a>
+								
+									<b class="sub"></b>
+									
+									<ul>
+										
+										<li> 
+										
+											<a href=#>Fourth item second level item 1</a>
+										
+										</li>
+						
+										<li> 
+										
+											<a href=#>Fourth item second level item 2</a>
+										
+										</li>
+									
+									</ul>
+									
+								</li>
+						
+								<li> 
+								
+									<a href="#">Last item without a sub level</a>
+								
+								</li>
+						
+							</ul>
+							
+						</nav>
+
 			
 						</div>
 								
 					</div>
-	
-			</nav>
-			
-					<nav class=scroll>
 					
-								<ul>
-								
-									<li> <a href=#buttons>Buttons</a> </li>
+				</div>
+				
+				<div data-tab-title=Typography>
+					
+										<p class=drop-cap>
+						
+							Increase conversion by decreasing page load time down to &lt;5" on slow mobile networks. Improve development by using standard building blocks that are flexible to customise and combine. Improve stability and compatibility by not pushing the browsers more than necessary. Under the negligible weight of ~13 KB, which removes the barrier between your content and your customers everywhere.
+						
+						</p>
 
-									<li> <a href=#drop-nav>Drop-down nav</a> </li>
-								
-									<li> <a href=#lightbox class="active">Lightbox</a> </li>
-								
-									<li> <a href=#fold>Fold</a> </li>
-				
-									<li> <a href=#modal>Modal window</a> </li>
-			
-									<li> <a href=#video>Video</a> </li>
-	
-									<li> <a href=#aspect-ratio>Aspect ratio</a> </li>
-	
-									<li> <a href=#masonry>Masonry</a> </li>
-	
-									<li> <a href=#tables>Tables</a> </li>
-
-									<li> <a href=#tabs>Tabs</a> </li>
-
-									<li> <a href=#lists>Lists</a> </li>
-
-									<li> <a href=#cards>Cards</a> </li>
-
-									<li> <a href=//rado.bg target="_blank">WordPress theme</a> </li>
-
-									<li> <a href=#showcase>Showcase</a> </li>
-								
-								</ul>
-							
-							</nav>
-			
-					<nav class=drop id=drop-nav>
-			
-			<form id="level1"> </form>
-			<form id="level2"> </form>
-		
-			<input type="checkbox" class="trigger burger">
-		
-			<ul>
-				
-				<li> 
-				
-					<input type="radio" class="trigger" form="level1" name="level1">
-		
-					<input type="reset" form="level1">
-				
-					<a>First item</a>
-					
-					<b class="sub"></b>
-					
-					<ul>
-						
-						<li> 
-						
-							<input type="radio" class="trigger" form="level2" name="level2">
-				
-							<input type="reset" form="level2">
-				
-							<a>First item's second level item 1</a>
-						
-							<b class="sub"></b>
-					
-							<ul>
-								
-								<li> 
-									
-									<a href="asd">First item's second level item 1 third level item 1</a>
-								
-								</li>
-								
-								<li> 
-									
-									<a href="fdgdf">First item's second level item 1 third level item 2</a>
-								
-								</li>
-							
-							</ul>
-						
-						</li>
-					
-						<li> 
-						
-							<input type="radio" class="trigger" form="level2" name="level2">
-				
-							<input type="reset" form="level2">
-				
-							<a href=asd>First item's second level item 2</a>
-						
-							<b class="sub"></b>
-					
-							<ul>
-								
-								<li> 
-									
-									<a href="#">First item's second level item 2 third level item 1</a>
-								
-								</li>
-								
-								<li> 
-									
-									<a href="#">First item's second level item 2 third level item 1</a>
-								
-								</li>
-							
-							</ul>
-						
-						</li>
-					
-					</ul>
-				
-				</li>
-		
-				<li> 
-				
-					<input type="radio" class="trigger" form="level1" name="level1">
-		
-					<input type="reset" form="level1">
-				
-					<a href=asd>Second item which is a link with long text</a>
-				
-					<b class="sub"></b>
-					
-					<ul>
-						
-						<li> 
-						
-							<input type="radio" class="trigger" form="level2" name="level2">
-				
-							<input type="reset" form="level2">
-				
-							<a>Second item level two item 1</a>
-						
-							<b class="sub"></b>
-					
-							<ul>
-								
-								<li> 
-									
-									<a href="#">Second item level two item 1 third level item 1</a>
-								
-								</li>
-								
-								<li> 
-									
-									<a href="#">Second item level two item 1 third level item 1</a>
-								
-								</li>
-							
-							</ul>
-						
-						</li>
-					
-					</ul>
-					
-				</li>
-		
-				<li> 
-				
-					<input type="radio" class="trigger" form="level1" name="level1">
-		
-					<input type="reset" form="level1">
-				
-					<a>Third item with one sub level</a>
-				
-					<b class="sub"></b>
-					
-					<ul>
-						
-						<li> 
-						
-							<a href=#>Third item second level item 1</a>
-						
-						</li>
-		
-						<li> 
-						
-							<a href=#>Third item second level item 2</a>
-						
-						</li>
-					
-					</ul>
-					
-				</li>
-			
-				<li> 
-				
-					<input type="radio" class="trigger" form="level1" name="level1">
-		
-					<input type="reset" form="level1">
-				
-					<a>Fourth item with one sub level</a>
-				
-					<b class="sub"></b>
-					
-					<ul>
-						
-						<li> 
-						
-							<a href=#>Fourth item second level item 1</a>
-						
-						</li>
-		
-						<li> 
-						
-							<a href=#>Fourth item second level item 2</a>
-						
-						</li>
-					
-					</ul>
-					
-				</li>
-		
-				<li> 
-				
-					<a href="#">Last item without a sub level</a>
-				
-				</li>
-		
-			</ul>
-			
-		</nav>
 
 				</div>
 				
@@ -542,16 +585,16 @@
 	
 				</div>
 
-				<div id=fold data-tab-title=Accordion>
+				<div id=fold data-tab-title='Fold (Accordion)'>
 	
 <h2>Fold</h2>
 	
 <div class='fold open'>
 
-<label class=trigger> How it works </label>
+<label class='trigger label'> How it works </label>
 <input type=checkbox class=trigger>
 
-<div id=i>
+<div id=i class="content">
 
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
 
@@ -561,10 +604,10 @@
 
 <div class=fold>
 
-<label class=trigger> Questions </label>
+<label class='trigger label'> Questions </label>
 <input type=checkbox class=trigger>
 
-<div>
+<div class="content">
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
 </div>
@@ -573,17 +616,17 @@
 
 <div class=fold>
 
-<label class=trigger> Nested Accordions </label>
+<label class='trigger label'> Nested Accordions </label>
 <input type=checkbox class=trigger>
 
-<div>
+<div class="content">
 
 	<div class=fold>
 
-		<label class=trigger> About Inner Accordion </label>
+		<label class='trigger label'> About Inner Accordion </label>
 		<input type=checkbox class=trigger>
 	
-		<div>
+<div class="content">
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 		</div>
 
@@ -591,10 +634,10 @@
 
 	<div class=fold>
 
-		<label class=trigger> About Inner Accordion 2 </label>
+		<label class='trigger label'> About Inner Accordion 2 </label>
 		<input type=checkbox class=trigger>
 	
-		<div>
+<div class="content">
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 		</div>
 
@@ -772,7 +815,7 @@
 				
 				</div>
 		
-				<div id=lists>
+				<div id=lists data-tab-title=Lists>
 		
 	<h2>Nested Ordered List</h2>
 	
@@ -825,7 +868,10 @@
 	
 	<br>
 			
-	<h2 id=tabs>Tabs</h2>
+</div>
+				
+				<div data-tab-title=Tabs>
+						<h2 id=tabs>Tabs</h2>
 	
 	<div class='slider vertical tabs'>
 		
@@ -893,7 +939,7 @@
 	
 </div>
 
-				<div id=form>
+				<div id=form data-tab-title=Forms>
 					
 					<h2>Forms in Slider</h2>
 
@@ -1159,36 +1205,24 @@
 					<p>Text</p>
 				
 				</div>
-
-				<div class="fixed-background" style="background-image: url(images/DSC00470.jpg); color: #fff; background-color: #cb845a;">
-			
-				<div class="fixed-background-image"></div>
-			
-				<div class='row contain'>
 				
-				<div>
+				<div id=masonry data-tab-title=Masonry>
 					
-					<div id=masonry>
+					<h2>Masonry in CSS only</h2>
+					
+					<div class='masonry'>
 						
-						<h2>Fixed background</h2>
-						
-						<p>takes up the full window and is visible only through the current section.</p>
-		
-						<h2>Masonry in CSS only</h2>
-						
-						<div class='masonry'>
-							
-							<a class=align-center>A very long cell which demonstrates how Masonry arranges cells in optimised space.</a>
-							<a class=align-center>Cell</a>
-							<a class=align-center>Cell</a>
-							<a class=align-center>Cell</a>
-							
-						</div>
+						<a class=align-center>A very long cell which demonstrates how Masonry arranges cells in optimised space.</a>
+						<a class=align-center>Cell</a>
+						<a class=align-center>Cell</a>
+						<a class=align-center>Cell</a>
 						
 					</div>
 					
 				</div>
-			
+				
+				<div data-tab-title=Cards>
+				
 				<div>
 					
 					<h2>Cards</h2>
@@ -1250,7 +1284,18 @@
 				</div>
 				
 			</div>
-
+				
+				<div data-tab-title='Fixed background'>
+					
+				<div class="fixed-bg" style="background-image: url(images/DSC00470.jpg); color: #fff; background-color: #cb845a;">
+			
+				<div class="fixed-bg-image"></div>
+			
+					<h2>Fixed background</h2>
+					
+					<p>takes up the full window and is visible only through the current section.</p>
+						
+			
 				<div data-tab-title=Showcase><div class='row' id=showcase>
 					
 				<div class="col1">
@@ -1278,8 +1323,10 @@
 			</div></div>
 
 		</div>
+				
+				</div>
 
-				<footer id=footer data-tab-title='Footer'>
+				<div data-tab-title='Footer'> <footer id=footer>
 	
 					<div class='row contain'>
 		
@@ -1331,9 +1378,9 @@
 		
 				</div>
 		
-				</footer>
+				</footer> </div>
 				
-				<form action=. method=get class=language data-tab-title='Language selector'>
+				<div data-tab-title='Language selector'> <form action=. method=get class=language data-tab-title='Language selector'>
 				
 					<label class="select">
 					
@@ -1356,7 +1403,7 @@
 					
 					</noscript>
 				
-				</form>
+				</form></div>
 
 			</div>
 
