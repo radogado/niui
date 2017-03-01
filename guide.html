@@ -17,13 +17,37 @@
 		<script src=src/script/ie-fallback.js type=text/javascript></script>
 	<![endif]-->
 	
+	<style>
+
+		main > .slider-wrap.vertical.tabs > .slider-nav.row {
+				
+			position: fixed;
+			top: 1em;
+			bottom: 1em;
+			overflow: auto;
+			width:calc(33.33% - 1em)
+		
+		}
+		
+		main > .slider-wrap {
+			
+			min-height: 100vh;
+
+		}
+	
+	</style>
+
 </head>
 	
 <body dir=ltr>
 <!-- <div class="notify">Whoops</div> -->
 	<!-- Head - Start -->
 
-	<div class='header-and-banner viewport push-up'>
+	<main id=content style="min-height: 100vh; padding: 1em;">
+
+		<div class="slider tabs vertical">
+			
+				<div data-tab-title=Home><div class='header-and-banner viewport push-up'>
 	
 		<header class="fixed contain">
 		
@@ -97,15 +121,7 @@
 		
 		</div>
 		
-	</div>
-
-<!-- 	Content - Start -->
-	
-	<main id=content style="min-height: 100vh; padding: 1em;">
-
-		<div class=contain>
-	
-			<div class="slider tabs vertical">
+	</div></div>
 				
 				<div data-tab-title=Navigation>
 						
@@ -403,7 +419,6 @@
 		</nav>
 
 				</div>
-
 				
 				<div id=aspect-ratio data-tab-title='Aspect ratio'>
 			
@@ -1141,9 +1156,9 @@
 
 				<div class="fixed-background" style="background-image: url(images/DSC00470.jpg); color: #fff; background-color: #cb845a;">
 			
-			<div class="fixed-background-image"></div>
+				<div class="fixed-background-image"></div>
 			
-			<div class='row contain'>
+				<div class='row contain'>
 				
 				<div>
 					
@@ -1230,6 +1245,32 @@
 				
 			</div>
 
+				<div data-tab-title=Showcase><div class='row' id=showcase>
+					
+				<div class="col1">
+		
+					<h2>natUIve Showcase</h2>
+					<h3>Malleable by Design</h3>
+		
+				</div>
+		
+				<a href=demos/microsoft title="Microsoft"> <img src='images/natUIve%20Microsoft%20(20151030)%20-.png' alt="Microsoft"> </a>
+				<a href=demos/imperialinnovations title="Imperial Innovations"> <img src='images/natUIve%20(20151030)%20imperial%20-.png' alt="Imperial Innovations"> </a>
+				<a href=demos/pebble title="Pebble"> <img src='images/natUIve%20(20151030)%20pebble%20-.png' alt="Pebble"> </a>
+				<a href=demos/seat61 title="Seat 61"> <img src='images/seat61.png' alt="Seat 61"> </a>
+				<a href=demos/jetblue title="JetBlue"> <img src='images/jetblue.png' alt="JetBlue"> </a>
+				<a href=demos/mrj title="Mitsubishi Regional Jet"> <img src='images/mrj.png' alt="Mitsubishi Regional Jet"> </a>
+				<a href=demos/mubi title="MUBI"> <img src='images/mubi.png' alt="MUBI"> </a>
+				<a href=demos/swiss title="SWISS"> <img src='images/swiss.png' alt="SWISS"> </a>
+				<a href=demos/mapbox title="Mapbox"> <img src='images/mapbox.png' alt="Mapbox"> </a>
+				<a href=demos/airbnb title="Airbnb"> <img src='images/airbnb.png' alt="Airbnb"> </a>
+				<a href=demos/gov.uk title="GOV.UK"> <img src='images/gov.uk.png' alt="GOV.UK"> </a>
+				<a href=demos/google-design title="Google Design"> <img src='images/google-design.png' alt="Google Design"> </a>
+				<a href=demos/daringfireball title="Daring Fireball"> <img src='images/daringfireball.png' alt="Daring Fireball"> </a>
+				<a href=demos/vitsoe title="Vitsœ"> <img src='images/vitsoe.png' alt="Vitsœ"> </a>
+
+			</div></div>
+
 		</div>
 
 				<footer id=footer data-tab-title='Footer'>
@@ -1312,39 +1353,10 @@
 				</form>
 
 			</div>
-			
-			<div style="min-height: 100vh;">
-			
-				<div class='row' id=showcase>
-					
-				<div class="col1">
-		
-					<h2>natUIve Showcase</h2>
-					<h3>Malleable by Design</h3>
-		
-				</div>
-		
-				<a href=demos/microsoft title="Microsoft"> <img src='images/natUIve%20Microsoft%20(20151030)%20-.png' alt="Microsoft"> </a>
-				<a href=demos/imperialinnovations title="Imperial Innovations"> <img src='images/natUIve%20(20151030)%20imperial%20-.png' alt="Imperial Innovations"> </a>
-				<a href=demos/pebble title="Pebble"> <img src='images/natUIve%20(20151030)%20pebble%20-.png' alt="Pebble"> </a>
-				<a href=demos/seat61 title="Seat 61"> <img src='images/seat61.png' alt="Seat 61"> </a>
-				<a href=demos/jetblue title="JetBlue"> <img src='images/jetblue.png' alt="JetBlue"> </a>
-				<a href=demos/mrj title="Mitsubishi Regional Jet"> <img src='images/mrj.png' alt="Mitsubishi Regional Jet"> </a>
-				<a href=demos/mubi title="MUBI"> <img src='images/mubi.png' alt="MUBI"> </a>
-				<a href=demos/swiss title="SWISS"> <img src='images/swiss.png' alt="SWISS"> </a>
-				<a href=demos/mapbox title="Mapbox"> <img src='images/mapbox.png' alt="Mapbox"> </a>
-				<a href=demos/airbnb title="Airbnb"> <img src='images/airbnb.png' alt="Airbnb"> </a>
-				<a href=demos/gov.uk title="GOV.UK"> <img src='images/gov.uk.png' alt="GOV.UK"> </a>
-				<a href=demos/google-design title="Google Design"> <img src='images/google-design.png' alt="Google Design"> </a>
-				<a href=demos/daringfireball title="Daring Fireball"> <img src='images/daringfireball.png' alt="Daring Fireball"> </a>
-				<a href=demos/vitsoe title="Vitsœ"> <img src='images/vitsoe.png' alt="Vitsœ"> </a>
 
-			</div>
 			
-			</div>
-
-		</div>
-		
+<!-- 	Content - Start -->
+	
 	</main>
 	
 	<!-- Content - End -->

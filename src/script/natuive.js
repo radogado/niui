@@ -713,8 +713,19 @@ function openLightbox(e) {
     
     if (hasClass(q('html'), 'can-touch')) { // iOS Safari bug where the slider nav becomes instantly hidden, if you open it by tapping the first image.
     
+/*
 	    full_window_content.style.display = 'none';
 	    setTimeout(function () { full_window_content.style.display = 'block'; }, 100);
+*/
+	    
+	    animate(full_window_content, '0% { opacity: 0; } 100% { opacity: 1; }', .05);
+
+/*
+		var body = q('body');
+		q('body').outerHTML = '';
+		q('html').appendChild(body);
+		q('html').removeChild(q('body'));
+*/
     
     }
 
@@ -1370,10 +1381,14 @@ function copyButton (el, target) {
 
 function loadScriptFile(file_name) {
 	
-    var js_el = document.createElement("script");
-    js_el.type = "text/javascript";
+    var js_el = document.createElement('script');
+    js_el.type = 'text/javascript';
     js_el.src = scripts_location + file_name;
-    document.head.appendChild(js_el);
+    if (!js_el || typeof js_el === 'undefined') {
+	    
+	    document.head.appendChild(js_el);
+	
+	}
 
 }
 
@@ -1493,14 +1508,21 @@ addEventHandler(window, 'scroll', function() {  // Close fixed overlay if its sc
 	}
 	
 });
-	
-forEach('[data-threshold]', function(el) { // Set a variable reflecting how much of the element's height has been scrolled; .threshold on scroll over element height
+
+if (animationSupport()) {
+		
+	forEach('[data-threshold]', function(el) { // Set a variable reflecting how much of the element's height has been scrolled; .threshold on scroll over element height
 
 	addEventHandler(window, 'scroll', function() {
 
 		setTimeout(function () {
 			
 			var relativeScroll = q('html').scrollTop || q('body').scrollTop;
+/*
+			q('html').style.setProperty('--scroll-top', relativeScroll);
+			q('html').style.setProperty('--scroll-bottom', q('html').scrollHeight - relativeScroll - q('html').offsetHeight);
+			q('html').style.setProperty('--page-height', q('html').scrollHeight);
+*/
 			var threshold = el.scrollHeight; // To do: either element height or data-threshold height in px, % or vh
 
 			if (relativeScroll > threshold) {
@@ -1536,6 +1558,8 @@ forEach('[data-threshold]', function(el) { // Set a variable reflecting how much
 	});
 
 });
+
+}
 
 /* Initialise JS-powered elements */
 

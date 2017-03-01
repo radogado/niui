@@ -453,13 +453,19 @@ function cancelTouchEvent(el) {
 
 function makeSlider(el, current_slide) {
 
-	if (hasClass(q('html'), 'no_new_event_support') || hasClass(el.parentNode, 'slider-wrap') || hasClass(el.parentNode.parentNode, 'slider-wrap')) { // IE8, Android Browser, or already created
+	if (hasClass(el.parentNode, 'slider-wrap') || hasClass(el.parentNode.parentNode, 'slider-wrap')) { // Already created
+		
+		return;
+		
+	}
+	
+	if (hasClass(q('html'), 'no_new_event_support')) { // Old browser
 		
 		addClass(el, 'overthrow');
 		loadScriptFile(scripts_location + 'overthrow.js');
 
 		return;
-		
+	
 	}
 	
     addClass(el, 'slider');
