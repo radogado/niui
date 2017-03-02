@@ -274,7 +274,7 @@ section:before, section:after {
   padding: 0.375em; }
 
 .unpad, .row > * > .unpad {
-  margin: 0 -0.75em;
+  margin: -0.75em;
   width: calc(100% + 1.5em);
   max-width: none; }
 
@@ -1392,7 +1392,7 @@ nav a {
   position: relative;
   padding: 0 .5em 0 0; }
 
-nav a[href].active {
+nav .active a[href] {
   text-decoration: none;
   opacity: .7; }
 
@@ -1402,8 +1402,8 @@ nav a[href^='#'] {
 nav li:last-child a, nav .vertical li a {
   padding-right: 0; }
 
-nav li {
-  display: inline; }
+nav ul li {
+  margin: 0; }
 
 nav li:first-child a {
   padding-left: 0; }
@@ -1719,7 +1719,8 @@ ul.indent {
   margin-left: 1.5em; }
 
 ul li {
-  display: block; }
+  display: block;
+  margin-left: 1em; }
 
 ul.inline li, nav.scroll ul li {
   vertical-align: top;
@@ -1839,7 +1840,20 @@ $bg: #1E8DaC;
   -khtml-user-select: none;
   -moz-user-select: none;
   user-select: none;
-  cursor: pointer; }
+  cursor: pointer;
+  position: relative;
+  padding: .75em 0; }
+
+.fold > .label:after {
+  content: '▼';
+  position: absolute;
+  right: 1em;
+  font-size: .5em;
+  top: 50%;
+  transform: translateY(-50%); }
+
+.fold.open > .label:after {
+  content: '▲'; }
 
 .fold.mobile {
   padding: 0;

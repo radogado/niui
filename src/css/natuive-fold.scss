@@ -30,6 +30,25 @@
 		-moz-user-select: none;
 		user-select: none;
 		cursor: pointer;
+		position: relative;
+		padding: .75em 0;
+		
+	}
+	
+	.fold > .label:after {
+		
+		content: '▼';
+		position: absolute;
+		right: 1em;
+		font-size: .5em;
+		top: 50%;
+		transform: translateY(-50%);
+		
+	}
+	
+	.fold.open > .label:after {
+		
+		content: '▲';
 		
 	}
 	

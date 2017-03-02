@@ -52,7 +52,7 @@ nav {
 
 	}
 	
-	nav a[href].active {
+	nav .active a[href] {
 		
 		text-decoration: none;
 		opacity: .7;
@@ -71,9 +71,9 @@ nav {
 
 	}
 
-	nav li {
+	nav ul li {
 	
-		display: inline;
+		margin: 0;
 	
 	}
 

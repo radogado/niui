@@ -9,12 +9,12 @@
 	<meta name=viewport content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no'>
 
 	<link rel=icon href=images/favicon.ico>
-	<link rel=styleSheet href=src/css/natuive.css type=text/css media=screen>
+	<link rel=styleSheet href=dist/natuive.min.css type=text/css media=screen>
 
 	<!--[if lte IE 9]> 
-		<link rel=styleSheet href=src/css/ie.css type=text/css media=screen>
-		<script src=src/script/html5shiv.min.js></script> 
-		<script src=src/script/ie-fallback.js type=text/javascript></script>
+		<link rel=styleSheet href=dist/ie.css type=text/css media=screen>
+		<script src=dist/html5shiv.min.js></script> 
+		<script src=dist/ie-fallback.js type=text/javascript></script>
 	<![endif]-->
 	
 	<style>
@@ -27,6 +27,7 @@
 			overflow: auto;
 			width: calc(25% - 1em);
 			-webkit-overflow-scrolling: touch;
+			flex-wrap: nowrap;
 		
 		}
 		
@@ -38,6 +39,7 @@
 		
 		main > .slider-wrap.vertical.tabs > .slider-nav a {
 			
+			padding: .75em 0.5em;
 			padding-left: 1em;
 			
 		}
@@ -57,14 +59,32 @@
 	
 		main > .slider-wrap .slider-nav a.active {
 			
-			background: rgba(0,0,0,.04);
-			color: #111;
+			color: lightseagreen;
+
+		}
+		
+		main > .slider-wrap .slider.vertical > * {
+			
+/* 			padding: 1.5em 0; */
 
 		}
 		
 		main#content {
 			
 			padding: 0;
+
+		}
+		
+		pre {
+			
+			padding: 0 1em;
+			color: slateblue;
+
+		}
+		
+		.row.grid-demo > * {
+			
+			background: lightsteelblue; 
 
 		}
 	
@@ -80,27 +100,21 @@
 
 		<div class="slider tabs vertical">
 			
-				<div data-tab-title='natUIve guide'><div class='header-and-banner viewport push-up'>
+				<div data-tab-title='Home'><div class='header-and-banner viewport push-up-'>
 	
-		<header class="fixed contain align-right">
-		
-			<a href=# class='logo pad'>
-			
-				<img src=images/natuive.svg alt=Logo onerror='this.src=this.src.replace(".svg",".png");this.onerror=null;'>
-				
-			</a>
-
-		</header>
-
 		<div class=banner>
 		
 			<div class='contain row'>
 				
-				<div class='align-middle'>
+				<div class='align-middle align-center'>
 				
 					<div>					
 
-						<h2>Please select a Guide section</h2>
+						<img src=images/natuive.svg alt=Logo onerror='this.src=this.src.replace(".svg",".png");this.onerror=null;'>
+
+						<h2>guide</h2>
+						
+						<br><br><br><br>
 						
 					</div>
 					
@@ -120,18 +134,20 @@
 		
 	</div></div>
 
-				<div data-tab-title='Page structure'>					
-
+				<div data-tab-title='Page structure'>
+					
+					<div class="row">
+					
+					<div>
+						
 						<h2>Page structure</h2>
 						
-						<pre>		
-&lt;!DOCTYPE html&gt;
+						<h3>Code</h3>
+						<pre>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-	&lt;title&gt;natUIve Guide&lt;/title&gt;
 	&lt;meta charset=utf-8&gt;
 	&lt;meta name=viewport content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no'&gt;
-	&lt;link rel=icon href=images/favicon.ico&gt;
 	&lt;link rel=styleSheet href=natuive.min.css type=text/css media=screen&gt;
 	&lt;!--[if lte IE 9]&gt; 
 		&lt;link rel=styleSheet href=ie.css type=text/css media=screen&gt;
@@ -149,7 +165,7 @@
 		&lt;/div&gt;
 	&lt;/div&gt;
 	&lt;main&gt;
-		Main
+		Main content
 	&lt;/main&gt;
 	&lt;footer&gt;
 		Footer
@@ -159,7 +175,25 @@
 &lt;/html&gt;
 						</pre>
 						
+						<h3>Options</h3>
+						
+						<ul>
+							
+							<li>.header-and-banner<b>.viewport</b> – full-height centered header and banner area
+								<ul>
+									<li>add <b>.push-up</b> to balance at 1/3 height, instead of 1/2</li>
+								</ul>
+							</li>
+							<li>Use <b>section</b> elements in <b>main</b> to clear inner margins at top/bottom</li>
+							<li><b>header.fixed</b> for fixed header on top on narrow screens (below 600px threshold)</li>
+						
+						</ul>
+						
 					</div>
+					
+					</div>
+				
+				</div>
 				
 				<div data-tab-title=Navigation>
 						
@@ -167,13 +201,13 @@
 						
 						<div class=col1>
 							
-							<h2>Main navigation</h2>
+							<h2>Big navigation</h2>
 							
 							<nav>
 				
-								<ul class="inline">
+								<ul class="inline big-text">
 								
-									<li> <a href=#grid class="active">Grid</a> </li>
+									<li class="active"> <a href=#grid>Grid</a> </li>
 				
 									<li> <a href=#slider>Slider</a> </li>
 				
@@ -183,17 +217,17 @@
 											
 							</nav>
 							
-							<h2>Sub navigation</h2>
+							<h2>Normal navigation</h2>
 						
-							<nav class=sub>
+							<nav>
 					
-								<ul class="inline	">
+								<ul class="inline">
 								
 									<li> <a href=#buttons>Buttons</a> </li>
 
 									<li> <a href=#drop-nav>Drop-down nav</a> </li>
 								
-									<li> <a href=#lightbox class="active">Lightbox</a> </li>
+									<li class="active"> <a href=#lightbox>Lightbox</a> </li>
 								
 									<li> <a href=#fold>Fold</a> </li>
 				
@@ -460,18 +494,62 @@
 				
 				<div data-tab-title=Typography>
 					
-										<p class=drop-cap>
+					<div class="row">
+						<div class="col3">
+							
+							<h2>Headlines</h2>
+							
+							<h1> Headline 1 </h1>
+							<h2> Headline 2 </h2>
+							<h3> Headline 3 </h3>
+							<h4> Headline 4 </h4>
+							<h5> Headline 5 </h5>
+							<h6> Headline 6 </h6>
+						
+						</div>
+							
+						<div class="col3">
+							
+							<h2>Drop cap</h2>
+
+							<p class=drop-cap>
 						
 							Increase conversion by decreasing page load time down to &lt;5" on slow mobile networks. Improve development by using standard building blocks that are flexible to customise and combine. Improve stability and compatibility by not pushing the browsers more than necessary. Under the negligible weight of ~13 KB, which removes the barrier between your content and your customers everywhere.
 						
-						</p>
+							</p>
+						
+						</div>
+						<div class="col3">							
+							<h2>Quote</h2>
+							
+							<p class=quote>An in-house study at <b>Walmart.com</b> came out with the results that saw an up to 2% increase in conversions on the site for every single second of improvement on the load time. The accumulative growth of revenues went up to 1% for every 100 milliseconds of load time improvement.</p>
+							
+						
+						</div>
+						<div class="col3">
+							
+							<h2>Links</h2>
+							
+							<p>Here is a <a href=#>link</a>.</p>
+							
+						</div>
+						<div class="col3">
+							
+							<h2>Paragraph</h2>
+							
+							<p>This is a paragraph.</p>
+							
+						</div>
+					</div>
 
 
 				</div>
 				
 				<div id=aspect-ratio data-tab-title='Aspect ratio'>
 			
-					<h2>A New Perspective: Image container with aspect ratio of 2.35:1</h2>
+					<h2>Aspect ratio container</h2>
+					
+					<p>While the image is loading, the layout is already solid and the page doesn't jump after loading.</p>
 					
 					<picture class=aspect style="--ratio: 2.35;">
 					
@@ -480,57 +558,90 @@
 					
 					</picture>
 					
+					<h3>Code</h3>
+					
+<pre>&lt;picture class=aspect style=&quot;--ratio: 2.35;&quot;&gt;
+	&lt;source media=&quot;(max-width: 640px)&quot; srcset=&quot;images/lido-small.jpg&quot;&gt;
+	&lt;img src=images/lido.jpg alt='Lido'&gt;
+&lt;/picture&gt;</pre>
+					
 				</div>
 					
 				<div data-tab-title=Lightbox>
-
-						<h2> Lightbox Image Gallery </h2>
-							
-						<h3> Full screen </h3>
-
-						<div id=lightbox class='lightbox full-screen'>
+					
+					<div class="row">
 						
-							<a href=images/DSC_5823.jpg > <span> Text Lightbox </span> </a>
+						<div>
 							
-							<a href=images/DSC_5975.jpg title='Second Image'> <img src=images/DSC_5975-t.jpg alt=1> </a>
+							<h3> Full screen lightbox</h3>
 							
-							<a href=images/DSC_4225.jpg title='Third Image'> <img src=images/DSC_4225-t.jpg alt=2> </a>
-						
-						</div>
-						
-						<h3> Vertical </h3>
+							<div id=lightbox class='lightbox full-screen'>
 							
-						<div id=lightbox2 class='lightbox vertical'>
-						
-							<a href=images/DSC_5823.jpg title='First Image'> <span> Text Lightbox </span> </a>
+								<a href=images/DSC_5823.jpg title="First Image"> <span> Text Lightbox </span> </a>
+								
+								<a href=images/DSC_5975.jpg title='Second Image'> <img src=images/DSC_5975-t.jpg alt=1> </a>
+								
+								<a href=images/DSC_4225.jpg title='Third Image'> <img src=images/DSC_4225-t.jpg alt=2> </a>
 							
-							<a href=images/DSC_5975.jpg title='Second Image'> <img src=images/DSC_5975-t.jpg alt=1> </a>
+								<a href=external.html title='iframe' class="iframe"> 📑 iframe </a>
 							
-							<a href=images/DSC_4225.jpg title='Third Image'> <img src=images/DSC_4225-t.jpg alt=2> </a>
-						
-						</div>
+							</div>
+							
+							<h3> Vertical lightbox with thumbnails</h3>
+								
+							<div id=lightbox2 class='lightbox vertical row thumbnails'>
+							
+								<a href=images/DSC_5823.jpg title='First Image'> <span> Text Lightbox </span> </a>
+								
+								<a href=images/DSC_5975.jpg title='Second Image'> <img src=images/DSC_5975-t.jpg alt=1> </a>
+								
+								<a href=images/DSC_4225.jpg title='Third Image'> <img src=images/DSC_4225-t.jpg alt=2> </a>
+							
+								<a href=//s3.amazonaws.com/gado/Outlying-Teaser.mp4 title='Video' class="video"> <img src=images/video.jpg alt=Thumbnail> </a>
+							
+								<a href=external.html title='iframe' class="iframe"> 📑 iframe </a>
+							
+							</div>
 			
 					</div>
+					
+					</div>
+				
+				</div>
 				
 				<div data-tab-title=Video>
-									
-					<h2 id=video>Video Is Looking Good</h2>
 					
-					<video poster=images/video.jpg controls=controls preload=none>
+					<div class="row">
+						
+						<div>
+									
+							<h2 id=video>Video</h2>
 							
-						<source type=video/mp4 src=//s3.amazonaws.com/gado/Outlying-Teaser.mp4>
-						
-						<a href=//s3.amazonaws.com/gado/Outlying-Teaser.mp4>//s3.amazonaws.com/gado/Outlying-Teaser.mp4</a>
-						
-					</video>
+							<p>Limited to container width.</p>
+							
+							<video poster=images/video.jpg controls=controls preload=none>
+									
+								<source type=video/mp4 src=//s3.amazonaws.com/gado/Outlying-Teaser.mp4>
+								
+								<a href=//s3.amazonaws.com/gado/Outlying-Teaser.mp4>//s3.amazonaws.com/gado/Outlying-Teaser.mp4</a>
+								
+							</video>
+					
+						</div>
+					
+					</div>
 				
 				</div>
 				
 				<div id=tables data-tab-title=Tables>
 				
-					<h2>Turn the Tables</h2>
-					
 					<div class="row">
+						
+						<div class="col1">
+							
+							<h2>Turn the Tables</h2>
+					
+						</div>
 						
 						<div>
 								
@@ -580,181 +691,373 @@
 					</table>
 						
 						</div>
+						
+						<div class="col1">
+							
+							<div>
+								
+								<h3>Options</h3>
+								
+								<ul>
+									
+									<li>Topmost row column with attribute <b>data-sort</b> makes a sortable column by number/character.</li>
+									
+									<ul>
+										
+										<li>Ascending by default, descending with <b>data-sort=desc</b></li>
+									
+									</ul>
+								
+								</ul>
+
+							</div>
+						
+						</div>
 					
 					</div>
 	
 				</div>
 
 				<div id=fold data-tab-title='Fold (Accordion)'>
+					
+					<div class="row">
+						
+						<div class="col1">
+							
+							<h2>Fold (foldable content, accordion)</h2>
+							
+						</div>
+						
+						<div>
+						
+							<div class='fold'>
+							
+								<h3 class=label> Accordion </h3>
+								<input type=checkbox class=trigger>
+							
+								<div id=i class="content">
+									
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+									
+								</div>
+							
+							</div>
 	
-<h2>Fold</h2>
-	
-<div class='fold open'>
+							<div class='fold open'>
+							
+								<h3 class=label> Open by default </h3>
+								<input type=checkbox class=trigger>
+							
+								<div id=i class="content">
+									
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+									
+								</div>
+							
+							</div>
+							
+							<div class=fold>
+							
+								<h3 class=label> Truncated content </h3>
+								<input type=checkbox class=trigger>
+								
+								<div class="content" style="--height: 6em;">
+									
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-<label class='trigger label'> How it works </label>
-<input type=checkbox class=trigger>
-
-<div id=i class="content">
-
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-
-</div>
-
-</div>
-
-<div class=fold>
-
-<label class='trigger label'> Questions </label>
-<input type=checkbox class=trigger>
-
-<div class="content">
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-</div>
-
-</div>
-
-<div class=fold>
-
-<label class='trigger label'> Nested Accordions </label>
-<input type=checkbox class=trigger>
-
-<div class="content">
-
-	<div class=fold>
-
-		<label class='trigger label'> About Inner Accordion </label>
-		<input type=checkbox class=trigger>
-	
-<div class="content">
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-		</div>
-
-	</div>
-
-	<div class=fold>
-
-		<label class='trigger label'> About Inner Accordion 2 </label>
-		<input type=checkbox class=trigger>
-	
-<div class="content">
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-		</div>
-
-	</div>
-	
-</div>
-
-</div>
-
-</div>
+								</div>
+							
+							</div>
+														
+							<div class=fold>
+							
+								<h3 class=label> Nested Accordions </h3>
+								<input type=checkbox class=trigger>
+								
+								<div class="content">
+							
+									<div class=fold>
+								
+										<h3 class=label> About Inner Accordion </h3>
+										<input type=checkbox class=trigger>
+									
+										<div class="content">
+														<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+										</div>
+								
+									</div>
+								
+									<div class=fold>
+								
+										<h3 class=label> About Inner Accordion 2 </h3>
+										<input type=checkbox class=trigger>
+									
+										<div class="content">
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+										</div>
+								
+									</div>
+									
+								</div>
+							
+							</div>
+						
+						</div>
+					
+					</div>
+					
+				</div>
 				
 				<div data-tab-title=Tooltip>
-					
+
+					<div class="row">
+						<div>
+							<div>
+								<h2>Tooltip</h2>
 					<span class="tool">
 						This text has a tooltip.
-						<span class="tip"><b>Here is the tooltip</b> <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						<span class="tip">
+							<b>Here is the tooltip</b> <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 						</span>
 					</span>
+					<br><br>
+					<h3>Code</h3>
+
+<pre>&lt;span class=tool&gt;
+	Tool content.
+	&lt;span class=tip&gt;Tip content.&lt;/span&gt;
+&lt;/span&gt;				
+</pre>
+					
+					</div></div></div>
 					
 				</div>
 				
 				<div data-tab-title='Modal window'>
-				
-					<h2> Modal Window </h2><a href="external.html#content" class="modal">Open a modal window inside this <span>tab</span>.</a>
-					<br>					
-					<a href="http://natuive.net/external.html#content" class="modal">Show external domain content in a modal window.</a> (On PHP enabled host)
+					
+					<div class="row">
+						
+						<div class="col1">
+							
+							<h2> Modal Window </h2>
+						
+						</div>
+						
+						<div>	
+						
+							<p><a href="external.html#content" class="modal">Open a modal window inside this <span>tab</span>.</a></p>
+						
+						</div>
+						
+						<div>
+
+							<p><a href="http://natuive.net/external.html#content" class="modal">Show external domain content in a modal window.</a> (On PHP enabled host).</p>
+						
+						</div>
+					
+					</div>
 
 				</div>
 				
 				<div data-tab-title=Grid>
 					
-					<div class='row no-spacing-' id=grid>
+					<div class='row'>
 						
 						<div class="col1"> 
 							
-							<h2>Row on: Wrapping Grid</h2> 
+							<h2>Grid</h2> 
 						
 						</div>
 						
-						<div class="col2 align-bottom" style="background: #fee; color: #333;">
+					</div>
+					
+					<div class='row grid-demo'>
+					
+						<div class="col2 align-bottom">
 							
-							<div>Use a grid with arbitrary cell elements inside .row. <button>Inline element</button></div>
+							<div>Bottom-aligned 1/2 wide column</div>
 						
 						</div>
-						<div class="col4" style="background: #efe; color: #333;">
+						<div class="col4 align-right">
 							
-							<div>Use vertical alignment in cells, it's finally easy and dependable.<p><br></p><p><br></p></div>
+							<div>Right-aligned 1/2 wide column.<p><br></p><p><br></p></div>
 							
 						</div>
-						<div class="col4 align-right vertical-row" style="background: #eef; color: #333;">
-							<div>Embed any kind of element into any container-type element: Cell, List, Slider, Fold (Accordion).</div>
-							<div class="align-bottom" style="text-align: start;">Vertical row as tall as the parent row with equal-height full-width children</div>
+						<div class="col4 align-right vertical-row">
+							<div>Top part of a vertical row in a normal column.</div>
+							<div class="align-bottom" style="text-align: start;">Bottom part of a vertical row.</div>
 						</div>
-						<div style="background: #eff; color: #333;"><div>The grid is simpler and doesn't insist on the infamous 12 cols. Just add a div to a .row. Width classes, like .col23, are optional.</div></div>
+						<div class="align-middle align-center"><div>1/5 <br> centered</div></div>
 						<div>
 							
 							<div>
 					
-								<span class="tool">
-									This text has a tooltip.
-									<span class="tip"><b>Here is the tooltip</b> <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-									</span>
-								</span>
+								1/5
 							
 							</div>
 					
 						</div>
 					
 						<div>ThisLineIsTooLongAndMustBeClippedByTheContainerEvenThoughOverflowXandYDontWorkAsExpected</div>
-						<div id=modal><h2> Modal Window </h2><a href="external.html#content" class="modal">Open a modal window inside this <span>tab</span>.</a></div>	
+						<div>1/5</div>	
 						<div>
 						
-							<a href="http://natuive.net/external.html#content" class="modal">Show external domain content in a modal window.</a> (On PHP enabled host)
-					
-						</div>
-						<div class="col5">
-							
-							<h1> Headline 1 </h1>
-							<h2> Headline 2 </h2>
-							<h3> Headline 3 </h3>
-							<h4> Headline 4 </h4>
-							<h5> Headline 5 </h5>
-							<h6> Headline 6 </h6>
+							1/5
 					
 						</div>
 					
-						<div class="col5" id=buttons>
-							
-							<div>
-								
-								<h2>Buttons</h2>
-								
-								<a href=# class=button>Small button</a>
-								
-								<br>
-								
-								<button disabled>Disabled button</button>
+					</div>
+					
+					<div class='row'>
 						
-								<br>
-								
-								<a href=# class='button big'>Big button</a>
+						<div class="col1"> 
 							
-								<p>Here is an <a href=# class=button>Inline button</a> inside a paragraph.</p>
+							<h2>Grid without column padding</h2> 
+						
+						</div>
+						
+					</div>
 					
+					<div class='row grid-demo no-padding'>
+					
+						<div class="col2 align-bottom">
+							
+							<div>Bottom-aligned 1/2 wide column</div>
+						
+						</div>
+						<div class="col4 align-right">
+							
+							<div>Right-aligned 1/2 wide column.<p><br></p><p><br></p></div>
+							
+						</div>
+						<div class="col4 align-right vertical-row">
+							<div>Top part of a vertical row in a normal column.</div>
+							<div class="align-bottom" style="text-align: start;">Bottom part of a vertical row.</div>
+						</div>
+					
+					</div>
+				
+					<div class='row'>
+						
+						<div class="col1"> 
+							
+							<h2>Grid without spacing</h2> 
+						
+						</div>
+						
+					</div>
+					
+					<div class="row">
+						
+						<div>
+					
+							<div class='row grid-demo no-spacing'>
+					
+								<div class="col2 align-center">
+									1
+								</div>
+								<div class="col4 align-center" style="background: lightcoral;">
+									2
+								</div>
+								<div class="col4 align-center">
+									3
+								</div>
+							
 							</div>
 					
-						</div>	
+						</div>
+					
+					</div>
+
+					<div class='row'>
 						
-						<div>
+						<div class="col1"> 
 							
+							<h2>Embedded grid with extra spacing</h2> 
+						
+						</div>
+						
+					</div>
+					
+					<div class='row grid-demo'>
+					
+						<div class="col2">
+							
+							<div class="row">
+								
+								<div>Child column 1</div>
+								<div>Child column 2</div>
+
+							</div>							
+						
+						</div>
+						<div class="col4">
+							
+							<div>Parent grid column</div>
+							
+						</div>
+						<div class="col4">
+							<div>Parent grid column</div>
+						</div>
+					
+					</div>
+				
+					<div class='row'>
+						
+						<div class="col1"> 
+							
+							<h2>Embedded grid without extra spacing</h2> 
+						
+						</div>
+						
+					</div>
+					
+					<div class='row grid-demo'>
+					
+						<div class="col2">
+							
+							<div class="row unpad">
+								
+								<div>Child column 1</div>
+								<div>Child column 2</div>
+
+							</div>							
+						
+						</div>
+						<div class="col4">
+							
+							<div>Parent grid column</div>
+							
+						</div>
+						<div class="col4">
+							<div>Parent grid column</div>
+						</div>
+					
+					</div>
+				
+					<div class='row'>
+						
+						<div class="col1"> 
+							
+							<h3>Grid with borders</h3> 
+						
+						</div>
+						
+					</div>
+					
+					<div class="row">
+
+						<div>
+
 							<div class='row border-all'>
 								
 								<div>
 									
 									<div class="row">
 									
-										<div> <h2>Grid with borders</h2> </div>
+										<div> Left </div>
 									
 										<div class='align-center align-middle'>
 											
@@ -808,11 +1111,45 @@
 								</div>
 								
 							</div>
-							
+
 						</div>
 					
 					</div>
+
+				</div>
 				
+				<div data-tab-title=Buttons>
+					
+					<div class="row">
+					
+						<div class="col1">
+							
+							<h2>Buttons</h2>
+						
+						</div>
+								
+						<div>
+								
+							<div>
+									
+								<a href=# class=button>Small button</a>
+								
+								<br>
+								
+								<button disabled>Disabled button</button>
+						
+								<br>
+								
+								<a href=# class='button big'>Big button</a>
+							
+								<p>Here is an <a href=# class=button>Inline button</a> inside a paragraph.</p>
+					
+							</div>
+					
+						</div>
+					
+					</div>
+						
 				</div>
 		
 				<div id=lists data-tab-title=Lists>
@@ -1227,7 +1564,7 @@
 					
 					<h2>Cards</h2>
 					
-					<div class='slider fade' id=cards>
+					<div id=cards>
 											
 						<div><div class="card">
 							
@@ -1419,9 +1756,11 @@
 
 	<!-- Footer - End -->
 
+<!--
 	<script src=src/script/natuive.js type=text/javascript></script>
 	<script src=src/script/natuive-slider.js type=text/javascript></script>
-<!-- 		<script src=dist/natuive.min.js type=text/javascript async></script> -->
+-->
+		<script src=dist/natuive.min.js type=text/javascript async></script>
 
 </body>
 
