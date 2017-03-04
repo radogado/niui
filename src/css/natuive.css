@@ -1841,7 +1841,8 @@ $bg: #1E8DaC;
   user-select: none;
   cursor: pointer;
   position: relative;
-  padding: .75em 0; }
+  padding: .75em 0;
+  padding-right: 1.5em; }
 
 .fold > .label:after {
   content: '▼';
@@ -1857,6 +1858,9 @@ $bg: #1E8DaC;
 .fold.mobile {
   padding: 0;
   width: auto; }
+
+.fold.mobile > .label:after {
+  display: none; }
 
 .fold.mobile > .label, .fold.mobile > input.trigger {
   display: none;
