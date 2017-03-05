@@ -1927,7 +1927,8 @@ span.burger:after {
   .fold.mobile > .label, .fold.mobile > input.trigger {
     display: inline-block;
     display: flex;
-    width: 3em; }
+    width: 3em;
+    padding: 0; }
 
   .fold.mobile:not(.open) .content {
     max-height: 0; }
