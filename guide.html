@@ -89,6 +89,13 @@
 
 		}
 	
+		.row.grid-demo .row > * {
+			
+			background: lightcyan;
+			color: #111;
+
+		}
+	
 	</style>
 
 </head>
@@ -1132,23 +1139,40 @@
 						</div>
 								
 						<div>
-								
+							
 							<div>
+								
+								<h3>Normal button</h3>
 									
 								<a href=# class=button>Small button</a>
-								
-								<br>
-								
 								<button disabled>Disabled button</button>
-						
-								<br>
 								
+							</div>
+							
+						</div>
+						
+						<div>
+							
+							<div>
+								
+								<h3>Big button</h3>
+						
 								<a href=# class='button big'>Big button</a>
 							
-								<p>Here is an <a href=# class=button>Inline button</a> inside a paragraph.</p>
-					
 							</div>
-					
+						
+						</div>
+
+						<div>
+							
+							<div>
+								
+								<h3>Buttons in paragraph</h3>
+						
+								<p>Here is an <a href=# class=button>Inline button</a> inside a paragraph.</p>
+							
+							</div>
+				
 						</div>
 					
 					</div>
@@ -1210,10 +1234,40 @@
 			
 </div>
 				
+				<div data-tab-title=Slider>
+					
+					<div class="row">
+						
+						<div>
+							
+							<h2>Slider</h2>
+							
+							<h3>Normal</h3>
+							
+							<p>Just add some elements in a <b>.slider</b> container.</p>
+							
+							<div class="slider">
+								
+								<div>One</div>
+								<div>Two</div>
+							
+							</div>
+							
+							<p>Full window, full screen, padded (controls outside), indices on top, vertical with indices on the left or on the right, equal or auto height.</p>
+						
+						</div>
+					
+					</div>
+					
+				</div>
+				
 				<div data-tab-title=Tabs>
-						<h2 id=tabs>Tabs</h2>
+					
+					<h2 id=tabs>Tabs</h2>
 	
-	<div class='slider vertical tabs'>
+					<h3>Vertical tabs on the left</h3>	
+
+					<div class='slider vertical tabs'>
 		
 		<div data-tab-title='Nested slider'>
 			
@@ -1255,9 +1309,9 @@
 		
 	</div>
 	
-	<br>
+					<h3>Horizontal tabs on top</h3>
 	
-	<div class='slider top tabs auto-height' data-duration=1>
+					<div class='slider top tabs auto-height' data-duration=1>
 		
 		<div style="background: mintcream;"> <div class="pad"><h3 class="tab-title">Tab 1</h3> <p>Content of Tab 1</p></div> </div>
 	
@@ -1276,8 +1330,10 @@
 	
 	</div>
 	-->
+
+					<h3>Horizontal tabs on top, equal height</h3>
 	
-</div>
+				</div>
 
 				<div id=form data-tab-title=Forms>
 					

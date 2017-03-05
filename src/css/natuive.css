@@ -188,6 +188,36 @@ $bg: #1E8DaC;
 .row.no-padding, .row.no-padding > * {
   padding: 0; }
 
+.row.no-padding > .col23 {
+  flex-basis: calc(66.667% - 0.75em); }
+
+.row.no-padding > .col34 {
+  flex-basis: calc(75% - 0.75em); }
+
+.row.no-padding > .col4 {
+  flex-basis: calc(25% - 0.75em); }
+
+.row.no-padding > .col5 {
+  flex-basis: calc(20% - 0.75em); }
+
+.row.no-padding > .col25 {
+  flex-basis: calc(40% - 0.75em); }
+
+.row.no-padding > .col35 {
+  flex-basis: calc(60% - 0.75em); }
+
+.row.no-padding > .col45 {
+  flex-basis: calc(80% - 0.75em); }
+
+.row.no-padding > .col3 {
+  flex-basis: calc(33.333% - 0.75em); }
+
+.row.no-padding > .col2 {
+  flex-basis: calc(50% - 0.75em); }
+
+.row.no-padding > .col1, .row.no-padding > *:only-child:not([class^=col]) {
+  flex-basis: calc(100% - 0.75em); }
+
 .align-left, .align-right .align-left *, .align-left *, .row > .align-left {
   text-align: left;
   text-align: start; }

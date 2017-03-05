@@ -77,6 +77,12 @@
 
 	}
 	
+	.row.no-padding > * {
+		
+		--spacing: #{$line-height-em/2};
+		
+	}
+	
 	.row.no-spacing > * {
 		
 		--spacing: 0;
@@ -264,6 +270,66 @@
 	
 	}
 	
+		.row.no-padding > .col23 { // To do: replace with CSS variables
+		
+			flex-basis: calc(66.667% - #{$line-height-em/2});
+		
+		}
+		
+		.row.no-padding > .col34 {
+		
+			flex-basis: calc(75% - #{$line-height-em/2});
+		
+		}
+		
+		.row.no-padding > .col4 {
+		
+			flex-basis: calc(25% - #{$line-height-em/2});
+		
+		}
+		
+		.row.no-padding > .col5 {
+		
+			flex-basis: calc(20% - #{$line-height-em/2});
+		
+		}
+		
+		.row.no-padding > .col25 {
+		
+			flex-basis: calc(40% - #{$line-height-em/2});
+		
+		}
+		
+		.row.no-padding > .col35 {
+		
+			flex-basis: calc(60% - #{$line-height-em/2});
+		
+		}
+		
+		.row.no-padding > .col45 {
+		
+			flex-basis: calc(80% - #{$line-height-em/2});
+		
+		}
+		
+		.row.no-padding > .col3 {
+		
+			flex-basis: calc(33.333% - #{$line-height-em/2});
+		
+		}
+		
+		.row.no-padding > .col2 {
+		
+			flex-basis: calc(50% - #{$line-height-em/2});
+		
+		}
+		
+		.row.no-padding > .col1, .row.no-padding > *:only-child:not([class^=col]) {
+		
+			flex-basis: calc(100% - #{$line-height-em/2});
+		
+		}
+
 .align-left, .align-right .align-left *, .align-left *, .row > .align-left {
 	
 	text-align: left;
