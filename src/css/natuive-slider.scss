@@ -32,14 +32,14 @@
 
 .slider-wrap.vertical.tabs > .slider { // Floats, because flex version is glitching when tab stack is taller than the slider. To do: fix flex version.
 
-	width: 66.667%;
+	width: 75%;
     float: right;
 
 }
 
 .slider-wrap.vertical.tabs > .slider-nav.row {
 	
-	width: 33.333%;
+	width: 25%;
 	float: left;
 	display: flex;
 	flex-direction: column;
@@ -571,6 +571,19 @@
 	height: 0;
 
 }
+
+/*
+.full-window-wrap .slider-wrap.vertical.tabs > .slider-nav.row {
+		
+	position: fixed;
+	top: 1em;
+	bottom: 1em;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+	flex-wrap: nowrap;
+
+}
+*/
 
 @media screen and (max-width: $screen-narrow) {
 
