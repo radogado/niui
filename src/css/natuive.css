@@ -1002,7 +1002,6 @@ input[type=file] {
   text-indent: -100%;
   top: 0;
   bottom: 0;
-  background: transparent;
   padding-left: 200%;
   font-size: 0;
   margin-top: 0;
@@ -1748,18 +1747,28 @@ ul {
   padding: 0;
   line-height: 1.5;
   min-height: 1.5em;
-  margin: 0; }
+  margin: 0.75em 0 0.75em 0; }
 
 ul.indent {
   margin-left: 1.5em; }
 
 ul li {
   display: block;
-  margin-left: 1em; }
+  margin-left: 1em;
+  position: relative; }
+
+ul li:before {
+  content: '·';
+  position: absolute;
+  left: -1em;
+  top: 0; }
 
 ul.inline li, nav.scroll ul li {
   vertical-align: top;
   display: inline-block; }
+
+ul.inline li:before, nav ul li:before {
+  display: none; }
 
 /*
 ul.vertical li > a[href] { // Ugly when underlined
@@ -2185,7 +2194,7 @@ $bg: #1E8DaC;
   overflow: auto;
   -webkit-overflow-scrolling: touch; }
 
-.slider.vertical {
+.slider-wrap .slider.vertical {
   overflow-x: hidden;
   overflow-y: scroll; }
 

@@ -82,7 +82,7 @@
 
 		}
 		
-		.row.grid-demo > * {
+		.row.grid-demo > *, #slider.row .slider > * {
 			
 			background: lightseagreen;
 			color: #fff; 
@@ -211,7 +211,13 @@
 						
 						<div class=col1>
 							
-							<h2>Big navigation</h2>
+							<h2>Navigation</h2>
+							
+						</div>
+						
+						<div class="col3">
+							
+							<h3>Big navigation</h3>
 							
 							<nav>
 				
@@ -226,8 +232,12 @@
 								</ul>
 											
 							</nav>
+						
+						</div>
+						
+						<div class="col3">
 							
-							<h2>Normal navigation</h2>
+							<h3>Normal navigation</h3>
 						
 							<nav>
 					
@@ -264,9 +274,13 @@
 								</ul>
 							
 							</nav>
+						
+						</div>
+
+						<div class="col3">
 							
-							<h2>Scroll navigation</h2>
-						<nav class=scroll>
+							<h3>Scroll navigation</h2>
+							<nav class=scroll>
 					
 								<ul>
 								
@@ -301,10 +315,14 @@
 								</ul>
 							
 							</nav>
+						
+						</div>
+						
+						<div class="col1">
 							
 							<h2>Drop navigation</h2>
 							
-						<nav class=drop id=drop-nav>
+							<nav class=drop id=drop-nav>
 		
 							<form id="level1"> </form>
 							<form id="level2"> </form>
@@ -494,7 +512,6 @@
 							</ul>
 							
 						</nav>
-
 			
 						</div>
 								
@@ -505,6 +522,7 @@
 				<div data-tab-title=Typography>
 					
 					<div class="row">
+						
 						<div class="col3">
 							
 							<h2>Headlines</h2>
@@ -556,24 +574,33 @@
 				</div>
 				
 				<div id=aspect-ratio data-tab-title='Aspect ratio'>
+					
+					<div class="row">
+						
+						<div>
 			
-					<h2>Aspect ratio container</h2>
-					
-					<p>While the image is loading, the layout is already solid and the page doesn't jump after loading.</p>
-					
-					<picture class=aspect style="--ratio: 2.35;">
-					
-						<source media="(max-width: 640px)" srcset="images/lido-small.jpg">
-						<img src=images/lido.jpg alt='Lido'>
-					
-					</picture>
-					
-					<h3>Code</h3>
-					
+							<h2>Aspect ratio container</h2>
+							
+							<p>While the image is loading, the layout is already solid and the page doesn't jump after loading.</p>
+							
+							<picture class=aspect style="--ratio: 2.35;">
+							
+								<source media="(max-width: 640px)" srcset="images/lido-small.jpg">
+								<img src=images/lido.jpg alt='Lido'>
+							
+							</picture>
+							
+							<h3>Code</h3>
+							
 <pre>&lt;picture class=aspect style=&quot;--ratio: 2.35;&quot;&gt;
 	&lt;source media=&quot;(max-width: 640px)&quot; srcset=&quot;images/lido-small.jpg&quot;&gt;
 	&lt;img src=images/lido.jpg alt='Lido'&gt;
-&lt;/picture&gt;</pre>
+&lt;/picture&gt;
+</pre>
+						
+						</div>
+					
+					</div>
 					
 				</div>
 					
@@ -1180,63 +1207,69 @@
 				</div>
 		
 				<div id=lists data-tab-title=Lists>
-		
-	<h2>Nested Ordered List</h2>
-	
-	<ol>
-		
-		<li> How to make a <b>natUIve</b> page
-			
-			<ol>
-				
-				<li>Copy the contents of the <b>dist</b> folder in your site's root folder</li>
-			
-				<li>Edit <b>index.html</b> there</li>
-			
-			</ol>
-		
-		</li>
-			
-		<li>
-			
-			<h4>Did you know?</h4>
-			
-			<p class=quote>An in-house study at <b>Walmart.com</b> came out with the results that saw an up to 2% increase in conversions on the site for every single second of improvement on the load time. The accumulative growth of revenues went up to 1% for every 100 milliseconds of load time improvement.</p>
-			
-			<ol>
-				<li>
-					Supporting IE8+, Chrome, Safari, Firefox, Opera.
-				</li>
-		
-				<li>
-					Supporting iOS and Android tablets and phones.
-					<ol>
-						<li>No hardcoded dimensions except line height.
+					
+					<div class="row">
+						
+						<div>
 							
-							<ul>
+							<h2>Nested Ordered List</h2>
+							
+							<ol>
 								
-								<li>Unordered one</li>
-								<li>Unordered two</li>
+								<li> How to make a <b>natUIve</b> page
+									
+									<ol>
+										
+										<li>Copy the contents of the <b>dist</b> folder in your site's root folder</li>
+									
+										<li>Edit <b>index.html</b> there</li>
+									
+									</ol>
+								
+								</li>
+									
+								<li>
+									
+									<h4>Did you know?</h4>
+									
+									<p class=quote>An in-house study at <b>Walmart.com</b> came out with the results that saw an up to 2% increase in conversions on the site for every single second of improvement on the load time. The accumulative growth of revenues went up to 1% for every 100 milliseconds of load time improvement.</p>
+									
+									<ol>
+										<li>
+											Supporting IE8+, Chrome, Safari, Firefox, Opera.
+										</li>
+								
+										<li>
+											Supporting iOS and Android tablets and phones.
+											<ol>
+												<li>No hardcoded dimensions except line height.
+													
+													<ul>
+														
+														<li>Unordered one</li>
+														<li>Unordered two</li>
+													
+													</ul>
+													
+												</li>
+												<li>The slider only needs a <b>.slider > div</b> structure and is fully flexible.</li>
+											</ol>
+										</li>
+									</ol>
+									
+								</li>
 							
-							</ul>
-							
-						</li>
-						<li>The slider only needs a <b>.slider > div</b> structure and is fully flexible.</li>
-					</ol>
-				</li>
-			</ol>
-			
-		</li>
+							</ol>
 	
-	</ol>
-	
-	<br>
+						</div>
+					
+					</div>
 			
-</div>
+				</div>
 				
 				<div data-tab-title=Slider>
 					
-					<div class="row">
+					<div class="row" id=slider>
 						
 						<div class="col1">
 							
@@ -1275,19 +1308,6 @@
 						
 						<div class="col2">
 							
-							<h3>Padded (controls outside of content)</h3>
-							
-							<div class="slider pad">
-								
-								<div><p>One</p></div>
-								<div><p>Two</p></div>
-							
-							</div>
-						
-						</div>
-
-						<div class="col2">
-							
 							<h3>Vertical</h3>
 							
 							<div class="slider vertical">
@@ -1312,6 +1332,19 @@
 						
 						</div>
 							
+						<div class="col2">
+							
+							<h3>Padded (controls outside of content)</h3>
+							
+							<div class="slider pad">
+								
+								<div><p>One</p></div>
+								<div><p>Two</p></div>
+							
+							</div>
+						
+						</div>
+
 						<div class="col2">
 
 							<h3>Auto height</h3>
@@ -1353,30 +1386,42 @@
 						</div>
 						
 						<div class="col2">
+
+							<h3>Horizontal tabs on top with auto height</h3>
+	
+							<div class='slider top tabs auto-height' data-duration=1>
+		
+		<div style="background: mintcream;"> <div class="pad"><h3 class="tab-title">Tab 1</h3> <p>Content of Tab 1</p></div> </div>
+	
+		<div style="background: cyan;"> <div class="pad"><h3 class="tab-title">Tab 2</h3> <p>And the content of Tab 2 <br> new line <br> new line</p> </div></div>
+	
+	</div>
+						
+						</div>
+	
+						<div class="col2">
+
+							<h3>Horizontal tabs at the bottom</h3>
+	
+							<div class='slider tabs'>
+								
+								<div> <h3 class="tab-title">Tab 1</h3> <p>Content of Tab 1</p> </div>
+							
+								<div> <h3 class="tab-title">Tab 2</h3> <p>And the content of Tab 2 <br> new line <br> new line</p> </div>
+							
+							</div>
+						
+						</div>
+						
+						<div class="col2">
 	
 							<h3>Vertical tabs</h3>	
 		
 							<div class='slider vertical tabs'>
 				
-				<div data-tab-title='Nested slider'>
+				<div data-tab-title='Tab 1'>
 					
-		<!-- 								<p class=tab-title> Slider 2 Slide 1 </p> -->
-					
-					<div class="pad">
-			
-						<div class="slider">
-				
-							<p> natUIve guarantees instant loading, because </p>
-								
-							<p class=quote>
-								
-								"The value of 14 KB has been measured empirically by Google and is the threshold for the first package exchanged between a server and client via towers on a cellular connection." – Smashing Magazine
-							
-							</p>
-						
-						</div>
-			
-					</div>
+					<p class="pad">Tab 1 content</p>
 							
 				</div>
 				
@@ -1406,25 +1451,11 @@
 		
 							<div class='slider vertical tabs right'>
 				
-				<div data-tab-title='Nested slider'>
+				<div data-tab-title='Tab 1'>
 					
 		<!-- 								<p class=tab-title> Slider 2 Slide 1 </p> -->
 					
-					<div class="pad">
-			
-						<div class="slider">
-				
-							<p> natUIve guarantees instant loading, because </p>
-								
-							<p class=quote>
-								
-								"The value of 14 KB has been measured empirically by Google and is the threshold for the first package exchanged between a server and client via towers on a cellular connection." – Smashing Magazine
-							
-							</p>
-						
-						</div>
-			
-					</div>
+					<p class="pad">Tab 1 content</p>
 							
 				</div>
 				
@@ -1448,34 +1479,6 @@
 					
 						</div>
 
-						<div class="col2">
-
-							<h3>Horizontal tabs on top with auto height</h3>
-	
-							<div class='slider top tabs auto-height' data-duration=1>
-		
-		<div style="background: mintcream;"> <div class="pad"><h3 class="tab-title">Tab 1</h3> <p>Content of Tab 1</p></div> </div>
-	
-		<div style="background: cyan;"> <div class="pad"><h3 class="tab-title">Tab 2</h3> <p>And the content of Tab 2 <br> new line <br> new line</p> </div></div>
-	
-	</div>
-						
-						</div>
-	
-						<div class="col2">
-
-							<h3>Horizontal tabs at the bottom</h3>
-	
-							<div class='slider tabs'>
-								
-								<div> <h3 class="tab-title">Tab 1</h3> <p>Content of Tab 1</p> </div>
-							
-								<div> <h3 class="tab-title">Tab 2</h3> <p>And the content of Tab 2 <br> new line <br> new line</p> </div>
-							
-							</div>
-						
-						</div>
-						
 					</div>
 	
 				</div>
@@ -1559,10 +1562,10 @@
 								<label>
 			
 									<span>Select a file</span>
-									<span class=file-input>
+									<div class=file>
 										<input name=file id=file type=file>
 										<span>Drop or browse</span>
-									</span>
+									</div>
 			
 								</label> 
 						
@@ -1599,6 +1602,36 @@
 									<input name=phone type=tel placeholder='Your phone number.'>
 			
 								</label>
+
+								<div class="checkbox condition">
+			
+									<span>Open disabled fieldset below</span>
+									<label>
+										<input name="checkbox" id="checkbox" type="checkbox"> <b class="checkbox-icon"></b>
+									</label>
+			
+								</div>
+								
+								<fieldset disabled="disabled">
+									
+									<legend>Datalist examples</legend>
+
+									<input type="text" list="countries" placeholder="Datalist text">
+									
+									<datalist id="countries">
+										<option value="Afghanistan">Afghanistan</option>
+										<option value="Aland Islands">Aland Islands</option>
+										<option value="Albania">Albania</option>
+									</datalist>
+								
+									<input type="date" list="days">
+									<datalist id="days">
+									  <option label="Independence Day">2013-07-04</option>
+									  <option label="Labor Day">2013-09-02</option>
+									  <option label="Columbus Day">2013-10-14</option>
+									</datalist>
+								
+								</fieldset>
 						
 								<input type=submit value='Request more info' title='Request more info'>
 	<!-- 							<input type='reset' value='Reset' name='reset'> -->
@@ -1669,10 +1702,10 @@
 								<label>
 			
 									<span>Select a file</span>
-									<span class=file-input>
+									<div class=file>
 										<input name=file type=file>
 										<span>Drop or browse</span>
-									</span>
+									</div>
 			
 								</label> 
 						
@@ -1860,6 +1893,8 @@
 			
 									<h2>Fixed background</h2>
 									
+									<div style="min-height: 100vh"></div>
+									
 									<p>takes up the full window and is visible only through the current section.</p>
 								
 									<br><br><br>
@@ -1874,84 +1909,126 @@
 					
 				</div>
 
-				<div data-tab-title='Footer'> <footer id=footer>
-	
-					<div class='row contain'>
-		
-					<div class=col3>
-						
-						<h3>Copyright copy</h3>
+				<div data-tab-title='Footer'> 
 					
-						<p>
+					<div class="row">
 						
-							&copy; 2014–2016 <a href=http://rado.bg>rado.bg</a>
-						
-						</p>
-						
-					</div>
-		
-					<nav class="col3">
-						
-						<h3>Vertical list of links</h3>
-						
-						<ul class="vertical">
-						
-							<li> <a href=#>Contact</a> </li>
-						
-							<li> <a href=#>Support</a> </li>
-						
-							<li> <a href=#>Jobs</a> </li>
-						
-							<li> <a href=#>Developers</a> </li>
-						
-							<li> <a href=#>Terms & Conditions</a> </li>
-						
-							<li> <a href=#>Privacy Policy</a> </li>
-						
-						</ul>
-			
-					</nav>
-			
-					<div class=social>
-						
-						<h3>Social links</h3>
-						
-						<a href=#><img src=images/facebook.png alt=Facebook></a>
+						<div>
 					
-						<a href=#><img src=images/linkedin.png alt=LinkedIn></a>
-						
-						<a href=#><img src=images/twitter.png alt=Twitter></a>
+							<footer id=footer>
 			
-					</div>
-		
-				</div>
-		
-				</footer> </div>
-				
-				<div data-tab-title='Language selector'> <form action=. method=get class=language data-tab-title='Language selector'>
-				
-					<label class="select">
+								<div class='row contain'>
 					
-						<select name="l" class="mandatory">
-							
-							<option value="en">🇬🇧 English</option>
-							<option value="fr">🇫🇷 Français</option>
-							<option value="cn">🇨🇳 中文</option>
-							<option value="cn">🇧🇬 български</option>
-							<option value="cn">🇯🇵 日本</option>
-							
+									<div>
 									
-						</select>
+										<h3>Copyright copy</h3>
+									
+										<p>
+										
+											&copy; 2014–2016 <a href=http://rado.bg>rado.bg</a>
+										
+										</p>
+										
+									</div>
 					
-					</label>
-															
-					<noscript>
+									<nav>
+									
+										<h3>Vertical navigation</h3>
+										
+										<ul>
+										
+											<li> <a href=#>Contact</a> </li>
+										
+											<li> <a href=#>Support</a> </li>
+										
+											<li> <a href=#>Jobs</a> </li>
+										
+											<li> <a href=#>Developers</a> </li>
+										
+											<li> <a href=#>Terms & Conditions</a> </li>
+										
+											<li> <a href=#>Privacy Policy</a> </li>
+										
+										</ul>
+							
+									</nav>
+						
+									<div class=social>
+										
+										<h3>Social links</h3>
+										
+										<a href=#><img src=images/facebook.png alt=Facebook></a>
+									
+										<a href=#><img src=images/linkedin.png alt=LinkedIn></a>
+										
+										<a href=#><img src=images/twitter.png alt=Twitter></a>
+							
+									</div>
 					
-						<input type=submit value=▶>
-					
-					</noscript>
+								</div>
 				
-				</form></div>
+							</footer> 
+						
+						</div>
+					
+					</div>
+				
+				</div>
+				
+				<div data-tab-title='Language selector'> 
+					
+					<div class="row">
+						
+						<div>
+							
+							<h2>Language selector</h2>
+					
+							<form action=. method=get class=language>
+				
+								<label class="select">
+								
+									<select name="l">
+										
+										<option value="en">🇬🇧 English</option>
+										<option value="fr">🇫🇷 Français</option>
+										<option value="cn">🇨🇳 中文</option>
+										<option value="bg">🇧🇬 български</option>
+										<option value="jp">🇯🇵 日本</option>
+										
+												
+									</select>
+								
+								</label>
+																		
+								<noscript>
+								
+									<input type=submit value=▶>
+								
+								</noscript>
+							
+							</form>
+							
+							<h3>Code</h3>
+<pre>
+&lt;form action=. method=get class=language&gt;
+	&lt;label class=&quot;select&quot;&gt;
+		&lt;select name=&quot;l&quot;&gt;
+			&lt;option value=&quot;en&quot;&gt;🇬🇧 English&lt;/option&gt;
+			&lt;option value=&quot;fr&quot;&gt;🇫🇷 Fran&ccedil;ais&lt;/option&gt;
+			&lt;option value=&quot;cn&quot;&gt;🇨🇳 &#20013;&#25991;&lt;/option&gt;
+			&lt;option value=&quot;bg&quot;&gt;🇧🇬 &#1073;&#1098;&#1083;&#1075;&#1072;&#1088;&#1089;&#1082;&#1080;&lt;/option&gt;
+			&lt;option value=&quot;jp&quot;&gt;🇯🇵 &#26085;&#26412;&lt;/option&gt;
+		&lt;/select&gt;
+	&lt;/label&gt;
+	&lt;noscript&gt;
+		&lt;input type=submit value=&#9654;&gt;
+	&lt;/noscript&gt;
+&lt;/form&gt;
+</pre>
+						
+						</div>
+					
+					</div>
 
 			</div>
 			
