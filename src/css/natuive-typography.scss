@@ -141,11 +141,12 @@ hr {
 
 }
 
-.quote, blockquote {
+.quote, blockquote, q {
 	
-	margin-left: 1em;
 	border-left: 1px solid #bbb;
 	padding-left: 1em;
+	display: block;
+	margin: $line-height-em 0 $line-height-em 1em;
 	
 }
 

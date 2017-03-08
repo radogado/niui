@@ -39,8 +39,8 @@
 		
 		main > .slider-wrap.vertical.tabs > .slider-nav a {
 			
-			padding: .75em 0.5em;
-			padding-left: 1em;
+			padding: .375em 0.5em;
+			padding-left: 0;
 			
 		}
 		
@@ -63,22 +63,18 @@
 
 		}
 		
-		main > .slider-wrap > .slider.vertical > * {
-			
-/* 			padding: 1.5em 0; */
-
-		}
-		
 		main#content {
 			
 			padding: 0;
 
 		}
 		
-		pre {
+		pre, .row > pre {
 			
 			padding: 0 1em;
 			color: slateblue;
+			word-wrap: initial;
+			tab-size: 2;
 
 		}
 		
@@ -205,6 +201,314 @@
 				
 				</div>
 				
+				<div data-tab-title=Grid>
+					
+					<div class='row'>
+						
+						<div class="col1"> 
+							
+							<h2>Grid</h2> 
+						
+						</div>
+						
+					</div>
+					
+					<div class='row grid-demo'>
+					
+						<div class="col2 align-bottom">
+							
+							<div>Bottom-aligned 1/2 wide column</div>
+						
+						</div>
+						<div class="col4 align-right">
+							
+							<div>Right-aligned 1/2 wide column.<p><br></p><p><br></p></div>
+							
+						</div>
+						<div class="col4 align-right vertical-row">
+							<div>Top part of a vertical row in a normal column.</div>
+							<div class="align-bottom" style="text-align: start;">Bottom part of a vertical row.</div>
+						</div>
+						<div class="align-middle align-center"><div>1/5 <br> centered</div></div>
+						<div>
+							
+							<div>
+					
+								1/5
+							
+							</div>
+					
+						</div>
+					
+						<div>ThisLineIsTooLongAndMustBeClippedByTheContainerEvenThoughOverflowXandYDontWorkAsExpected</div>
+						<div>1/5</div>	
+						<div>
+						
+							1/5
+					
+						</div>
+					
+					</div>
+					
+					<div class='row'>
+						
+						<div class="col1"> 
+							
+							<h3>Grid without column padding</h3> 
+						
+						</div>
+						
+					</div>
+					
+					<div class='row grid-demo no-padding'>
+					
+						<div class="col2 align-bottom">
+							
+							<div>Bottom-aligned 1/2 wide column</div>
+						
+						</div>
+						<div class="col4 align-right">
+							
+							<div>Right-aligned 1/2 wide column.<p><br></p><p><br></p></div>
+							
+						</div>
+						<div class="col4 align-right vertical-row">
+							<div>Top part of a vertical row in a normal column.</div>
+							<div class="align-bottom" style="text-align: start;">Bottom part of a vertical row.</div>
+						</div>
+					
+					</div>
+				
+					<div class='row'>
+						
+						<div class="col1"> 
+							
+							<h3>Grid without spacing</h3> 
+						
+						</div>
+						
+					</div>
+					
+					<div class="row">
+						
+						<div>
+					
+							<div class='row grid-demo no-spacing'>
+					
+								<div class="col2 align-center">
+									1
+								</div>
+								<div class="col4 align-center" style="background: lightcoral;">
+									2
+								</div>
+								<div class="col4 align-center">
+									3
+								</div>
+							
+							</div>
+					
+						</div>
+					
+					</div>
+
+					<div class='row'>
+						
+						<div class="col1"> 
+							
+							<h3>Embedded grid with extra spacing</h3> 
+						
+						</div>
+						
+					</div>
+					
+					<div class='row grid-demo'>
+					
+						<div class="col2">
+							
+							<div class="row">
+								
+								<div>Child column 1</div>
+								<div>Child column 2</div>
+
+							</div>							
+						
+						</div>
+						<div class="col4">
+							
+							<div>Parent grid column</div>
+							
+						</div>
+						<div class="col4">
+							<div>Parent grid column</div>
+						</div>
+					
+					</div>
+				
+					<div class='row'>
+						
+						<div class="col1"> 
+							
+							<h3>Embedded grid without extra spacing</h3> 
+						
+						</div>
+						
+					</div>
+					
+					<div class='row grid-demo'>
+					
+						<div class="col2">
+							
+							<div class="row unpad">
+								
+								<div>Child column 1</div>
+								<div>Child column 2</div>
+
+							</div>							
+						
+						</div>
+						<div class="col4">
+							
+							<div>Parent grid column</div>
+							
+						</div>
+						<div class="col4">
+							<div>Parent grid column</div>
+						</div>
+					
+					</div>
+				
+					<div class='row'>
+						
+						<div class="col1"> 
+							
+							<h3>Grid with borders</h3> 
+						
+						</div>
+						
+					</div>
+					
+					<div class="row">
+
+						<div>
+
+							<div class='row border-all'>
+								
+								<div>
+									
+									<div class="row">
+									
+										<div> Left </div>
+									
+										<div class='align-center align-middle'>
+											
+											<div>
+							
+												Middle
+							
+											</div>
+									
+										</div>
+									
+									</div>
+									
+									<div class="row">
+										
+										<div>
+											
+											<div>Full width</div>
+										
+										</div>
+									
+									</div>
+									
+									<div class="row">
+									
+										<div> <div>Top</div> </div>
+										<div class="align-bottom align-center"> <div>Center Bottom</div> </div>
+									
+										<div class=align-right>
+											
+											<div>
+												
+												<div class="row">
+													
+													<div>Right</div>
+												
+												</div>
+												
+												<div class="row">
+													
+													<div>Right</div>
+												
+												</div>
+											
+											</div>
+									
+										</div>
+									
+									</div>
+									
+								</div>
+								
+							</div>
+
+						</div>
+					
+					</div>
+					
+					<div class='row'>
+						
+						<div class="col1"> 
+							
+							<h3>Right to left layout</h3> 
+						
+						</div>
+						
+					</div>
+					
+					<div dir="rtl">
+
+						<div class='row grid-demo'>
+
+	<div class="col2 align-bottom">
+		
+		<div>Bottom-aligned 1/2 wide column</div>
+	
+	</div>
+	<div class="col4 align-right">
+		
+		<div>Right-aligned 1/2 wide column.<p><br></p><p><br></p></div>
+		
+	</div>
+	<div class="col4 align-right vertical-row">
+		<div>Top part of a vertical row in a normal column.</div>
+		<div class="align-bottom" style="text-align: start;">Bottom part of a vertical row.</div>
+	</div>
+	<div class="align-middle align-center"><div>1/5 <br> centered</div></div>
+	<div>
+		
+		<div>
+
+			1/5
+		
+		</div>
+
+	</div>
+
+	<div>ThisLineIsTooLongAndMustBeClippedByTheContainerEvenThoughOverflowXandYDontWorkAsExpected</div>
+	<div>1/5</div>	
+	<div>
+	
+		1/5
+
+	</div>
+
+</div>
+					
+					</div>
+
+				</div>
+				
 				<div data-tab-title=Navigation>
 						
 					<div class='row'>
@@ -232,6 +536,17 @@
 								</ul>
 											
 							</nav>
+							
+							<h3>Code</h3>
+<pre>
+&lt;nav&gt;
+	&lt;ul class=&quot;inline big-text&quot;&gt;
+		&lt;li class=&quot;active&quot;&gt; &lt;a href=#grid&gt;Grid&lt;/a&gt; &lt;/li&gt;
+		&lt;li&gt; &lt;a href=#slider&gt;Slider&lt;/a&gt; &lt;/li&gt;
+		&lt;li&gt; &lt;a href=#form&gt;Form&lt;/a&gt; &lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/nav&gt;
+</pre>
 						
 						</div>
 						
@@ -274,12 +589,21 @@
 								</ul>
 							
 							</nav>
+							
+							<h3>Code</h3>
+<pre>
+&lt;nav&gt;
+	&lt;ul class=&quot;inline&quot;&gt;
+		&lt;li&gt; &lt;a href=#buttons&gt;Buttons&lt;/a&gt; &lt;/li&gt;
+	&lt;/ul&gt;							
+&lt;/nav&gt;
+</pre>
 						
 						</div>
 
 						<div class="col3">
 							
-							<h3>Scroll navigation</h2>
+							<h2>Scroll navigation</h2>
 							<nav class=scroll>
 					
 								<ul>
@@ -315,6 +639,15 @@
 								</ul>
 							
 							</nav>
+							
+							<h3>Code</h3>
+<pre>
+&lt;nav class=scroll&gt;
+	&lt;ul&gt;
+		&lt;li&gt; &lt;a href=#buttons&gt;Buttons&lt;/a&gt; &lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/nav&gt;
+</pre>
 						
 						</div>
 						
@@ -512,6 +845,36 @@
 							</ul>
 							
 						</nav>
+							
+							<h3>Code</h3>
+<pre>
+&lt;nav class=drop&gt;
+&lt;form id=&quot;level1&quot;&gt; &lt;/form&gt;
+&lt;form id=&quot;level2&quot;&gt; &lt;/form&gt;
+&lt;input type=&quot;checkbox&quot; class=&quot;trigger burger&quot;&gt;
+&lt;ul&gt;
+	&lt;li&gt; 
+		&lt;input type=&quot;radio&quot; class=&quot;trigger&quot; form=&quot;level1&quot; name=&quot;level1&quot;&gt;
+		&lt;input type=&quot;reset&quot; form=&quot;level1&quot;&gt;
+		&lt;a&gt;First item&lt;/a&gt;
+		&lt;b class=&quot;sub&quot;&gt;&lt;/b&gt;
+		&lt;ul&gt;
+			&lt;li&gt; 
+				&lt;input type=&quot;radio&quot; class=&quot;trigger&quot; form=&quot;level2&quot; name=&quot;level2&quot;&gt;
+				&lt;input type=&quot;reset&quot; form=&quot;level2&quot;&gt;
+				&lt;a&gt;First item's second level item 1&lt;/a&gt;
+				&lt;b class=&quot;sub&quot;&gt;&lt;/b&gt;
+				&lt;ul&gt;
+					&lt;li&gt; 
+						&lt;a href=&quot;asd&quot;&gt;First item's second level item 1 third level item 1&lt;/a&gt;
+					&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;
+</pre>
 			
 						</div>
 								
@@ -550,7 +913,7 @@
 						<div class="col3">							
 							<h2>Quote</h2>
 							
-							<p class=quote>An in-house study at <b>Walmart.com</b> came out with the results that saw an up to 2% increase in conversions on the site for every single second of improvement on the load time. The accumulative growth of revenues went up to 1% for every 100 milliseconds of load time improvement.</p>
+							<q>An in-house study at <b>Walmart.com</b> came out with the results that saw an up to 2% increase in conversions on the site for every single second of improvement on the load time. The accumulative growth of revenues went up to 1% for every 100 milliseconds of load time improvement.</q>
 							
 						
 						</div>
@@ -892,263 +1255,6 @@
 
 							<p><a href="http://natuive.net/external.html#content" class="modal">Show external domain content in a modal window.</a> (On PHP enabled host).</p>
 						
-						</div>
-					
-					</div>
-
-				</div>
-				
-				<div data-tab-title=Grid>
-					
-					<div class='row'>
-						
-						<div class="col1"> 
-							
-							<h2>Grid</h2> 
-						
-						</div>
-						
-					</div>
-					
-					<div class='row grid-demo'>
-					
-						<div class="col2 align-bottom">
-							
-							<div>Bottom-aligned 1/2 wide column</div>
-						
-						</div>
-						<div class="col4 align-right">
-							
-							<div>Right-aligned 1/2 wide column.<p><br></p><p><br></p></div>
-							
-						</div>
-						<div class="col4 align-right vertical-row">
-							<div>Top part of a vertical row in a normal column.</div>
-							<div class="align-bottom" style="text-align: start;">Bottom part of a vertical row.</div>
-						</div>
-						<div class="align-middle align-center"><div>1/5 <br> centered</div></div>
-						<div>
-							
-							<div>
-					
-								1/5
-							
-							</div>
-					
-						</div>
-					
-						<div>ThisLineIsTooLongAndMustBeClippedByTheContainerEvenThoughOverflowXandYDontWorkAsExpected</div>
-						<div>1/5</div>	
-						<div>
-						
-							1/5
-					
-						</div>
-					
-					</div>
-					
-					<div class='row'>
-						
-						<div class="col1"> 
-							
-							<h2>Grid without column padding</h2> 
-						
-						</div>
-						
-					</div>
-					
-					<div class='row grid-demo no-padding'>
-					
-						<div class="col2 align-bottom">
-							
-							<div>Bottom-aligned 1/2 wide column</div>
-						
-						</div>
-						<div class="col4 align-right">
-							
-							<div>Right-aligned 1/2 wide column.<p><br></p><p><br></p></div>
-							
-						</div>
-						<div class="col4 align-right vertical-row">
-							<div>Top part of a vertical row in a normal column.</div>
-							<div class="align-bottom" style="text-align: start;">Bottom part of a vertical row.</div>
-						</div>
-					
-					</div>
-				
-					<div class='row'>
-						
-						<div class="col1"> 
-							
-							<h2>Grid without spacing</h2> 
-						
-						</div>
-						
-					</div>
-					
-					<div class="row">
-						
-						<div>
-					
-							<div class='row grid-demo no-spacing'>
-					
-								<div class="col2 align-center">
-									1
-								</div>
-								<div class="col4 align-center" style="background: lightcoral;">
-									2
-								</div>
-								<div class="col4 align-center">
-									3
-								</div>
-							
-							</div>
-					
-						</div>
-					
-					</div>
-
-					<div class='row'>
-						
-						<div class="col1"> 
-							
-							<h2>Embedded grid with extra spacing</h2> 
-						
-						</div>
-						
-					</div>
-					
-					<div class='row grid-demo'>
-					
-						<div class="col2">
-							
-							<div class="row">
-								
-								<div>Child column 1</div>
-								<div>Child column 2</div>
-
-							</div>							
-						
-						</div>
-						<div class="col4">
-							
-							<div>Parent grid column</div>
-							
-						</div>
-						<div class="col4">
-							<div>Parent grid column</div>
-						</div>
-					
-					</div>
-				
-					<div class='row'>
-						
-						<div class="col1"> 
-							
-							<h2>Embedded grid without extra spacing</h2> 
-						
-						</div>
-						
-					</div>
-					
-					<div class='row grid-demo'>
-					
-						<div class="col2">
-							
-							<div class="row unpad">
-								
-								<div>Child column 1</div>
-								<div>Child column 2</div>
-
-							</div>							
-						
-						</div>
-						<div class="col4">
-							
-							<div>Parent grid column</div>
-							
-						</div>
-						<div class="col4">
-							<div>Parent grid column</div>
-						</div>
-					
-					</div>
-				
-					<div class='row'>
-						
-						<div class="col1"> 
-							
-							<h3>Grid with borders</h3> 
-						
-						</div>
-						
-					</div>
-					
-					<div class="row">
-
-						<div>
-
-							<div class='row border-all'>
-								
-								<div>
-									
-									<div class="row">
-									
-										<div> Left </div>
-									
-										<div class='align-center align-middle'>
-											
-											<div>
-							
-												Middle
-							
-											</div>
-									
-										</div>
-									
-									</div>
-									
-									<div class="row">
-										
-										<div>
-											
-											<div>Full width</div>
-										
-										</div>
-									
-									</div>
-									
-									<div class="row">
-									
-										<div> <div>Top</div> </div>
-										<div class="align-bottom align-center"> <div>Center Bottom</div> </div>
-									
-										<div class=align-right>
-											
-											<div>
-												
-												<div class="row">
-													
-													<div>Right</div>
-												
-												</div>
-												
-												<div class="row">
-													
-													<div>Right</div>
-												
-												</div>
-											
-											</div>
-									
-										</div>
-									
-									</div>
-									
-								</div>
-								
-							</div>
-
 						</div>
 					
 					</div>
@@ -2029,6 +2135,159 @@
 						</div>
 					
 					</div>
+
+			</div>
+
+				<div data-tab-title='Parallax scrolling'> 
+					
+					<div class="row">
+						
+						<div>
+							
+							<h2>Parallax scrolling</h2>
+					
+							<form action=. method=get class=language>
+				
+								<label class="select">
+								
+									<select name="l">
+										
+										<option value="en">🇬🇧 English</option>
+										<option value="fr">🇫🇷 Français</option>
+										<option value="cn">🇨🇳 中文</option>
+										<option value="bg">🇧🇬 български</option>
+										<option value="jp">🇯🇵 日本</option>
+										
+												
+									</select>
+								
+								</label>
+																		
+								<noscript>
+								
+									<input type=submit value=▶>
+								
+								</noscript>
+							
+							</form>
+							
+							<h3>Code</h3>
+<pre>
+</pre>
+						
+						</div>
+					
+					</div>
+
+				</div>
+
+				<div data-tab-title='Scroll effects'> 
+					
+					<div class="row">
+						
+						<div>
+							
+							<h2>Scroll effects</h2>
+					
+							<h3>Code</h3>
+<pre>
+</pre>
+						
+						</div>
+					
+					</div>
+
+				</div>
+
+				<div data-tab-title='URI parameters'> 
+					
+					<div class="row">
+						
+						<div>
+							
+							<h2>URI parameters</h2>
+					
+							<h3>Code</h3>
+<pre>
+</pre>
+						
+						</div>
+					
+					</div>
+
+				</div>
+
+				<div data-tab-title='Notification bar'> 
+					
+					<div class="row">
+						
+						<div>
+							
+							<h2>Notification bar</h2>
+					
+							<h3>Code</h3>
+<pre>
+</pre>
+						
+						</div>
+					
+					</div>
+
+				</div>
+
+				<div data-tab-title='Copy to clipboard'>
+					
+					<div class="row">
+						
+						<div>
+							
+							<h2>Copy to clipboard</h2>
+					
+							<h3>Code</h3>
+<pre>
+</pre>
+						
+						</div>
+					
+					</div>
+
+				</div>
+
+				<div data-tab-title="'Back to top' button">
+					
+					<div class="row">
+						
+						<div>
+							
+							<h2>'Back to top' button</h2>
+					
+							<h3>Code</h3>
+<pre>
+</pre>
+						
+						</div>
+					
+					</div>
+
+				</div>
+
+				<div data-tab-title="animate() function">
+					
+					<div class="row">
+						
+						<div>
+							
+							<h2>animate() function</h2>
+					
+							<h3>Code</h3>
+<pre>
+</pre>
+						
+						</div>
+					
+					</div>
+
+				</div>
 
 			</div>
 			
