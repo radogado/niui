@@ -64,7 +64,8 @@ $bg: #1E8DaC;
   flex-grow: 1;
   text-align: left;
   text-align: start;
-  box-sizing: content-box; }
+  box-sizing: content-box;
+  min-width: 0; }
 
 @-moz-document url-prefix() {
   .row > * {
@@ -1600,18 +1601,19 @@ input.trigger ~ input[type=reset], form#level1, form#level2 {
 nav.drop input:checked ~ input[type=reset], nav.drop input.trigger {
   display: block; }
 
-nav.drop ul ul, nav.drop input.trigger ~ ul input.trigger:checked ~ ul {
+nav.drop ul input.trigger:checked ~ ul,
+nav.drop ul input.trigger:checked ~ div,
+nav.drop ul input.trigger:checked ~ ul input.trigger:checked ~ ul,
+html:not(.can-touch) nav.drop ul li:hover ul,
+html:not(.can-touch) nav.drop ul ul li:hover div {
+  visibility: visible;
+  z-index: 6; }
+
+nav.drop ul ul,
+nav.drop ul ul input.trigger:checked ~ ul {
   visibility: hidden;
   position: absolute;
   display: block; }
-
-nav.drop input.trigger:checked ~ ul, nav.drop input.trigger:checked ~ ul input.trigger:checked ~ ul,
-html:not(.can-touch) nav.drop ul li:hover ul,
-nav.drop input.trigger:checked ~ div,
-html:not(.can-touch) nav.drop ul ul li:hover div {
-  /* Not '+', because the form reset button stands between them; Touch first, Desktop second */
-  visibility: visible;
-  z-index: 6; }
 
 nav.drop input.trigger:checked ~ ul {
   z-index: 6; }
@@ -1628,7 +1630,7 @@ html:not(.can-touch) nav.drop ul ul ul {
   top: 0;
   transition: 0.2s .4s; }
 
-html:not(.can-touch) nav.drop ul ul li:hover ul, nav.drop ul input.trigger:checked ~ ul {
+html:not(.can-touch) nav.drop ul ul li:hover ul {
   visibility: visible;
   opacity: 1;
   transition-delay: 0.2s;

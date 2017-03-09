@@ -32,6 +32,7 @@
 		text-align: left;
 		text-align: start;
 		box-sizing: content-box; // IE11 padding. To do: only for IE11-
+		min-width: 0; // FF flex-basis bug when a child is wider
 
 	}
 	

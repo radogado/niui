@@ -298,7 +298,7 @@ nav.drop ul ul li {
 
 }
 
-/* .no-touch */ nav.drop ul ul li, /* .no-touch */ nav.drop ul ul li:first-child {
+nav.drop ul ul li, nav.drop ul ul li:first-child {
 	
 	position: relative;
 	
@@ -318,33 +318,31 @@ nav.drop input:checked ~ input[type=reset], nav.drop input.trigger {
 
 }
 
-nav.drop ul ul, nav.drop input.trigger ~ ul input.trigger:checked ~ ul {
-	
-	visibility: hidden;		
-	position: absolute;
-	display: block;
-	
-}
-
-nav.drop input.trigger:checked ~ ul, nav.drop input.trigger:checked ~ ul input.trigger:checked ~ ul, 
+nav.drop ul input.trigger:checked ~ ul, 
+nav.drop ul input.trigger:checked ~ div,
+nav.drop ul input.trigger:checked ~ ul input.trigger:checked ~ ul,
 html:not(.can-touch) nav.drop ul li:hover ul,
-nav.drop input.trigger:checked ~ div,
-html:not(.can-touch) nav.drop ul ul li:hover div { /* Not '+', because the form reset button stands between them; Touch first, Desktop second */
-	
+html:not(.can-touch) nav.drop ul ul li:hover div
+{
+
 	visibility: visible;
 	z-index: 6;
+
+}
+
+nav.drop ul ul, 
+nav.drop ul ul input.trigger:checked ~ ul
+{
+	
+	visibility: hidden;
+	position: absolute;
+	display: block;
 	
 }
 
 nav.drop input.trigger:checked ~ ul {
 	
 	z-index: 6;
-	
-}
-
-nav.drop input.trigger:not(:checked) ~ ul input.trigger:checked ~ ul, nav.drop input.trigger:not(:checked) ~ div input.trigger:checked ~ div {
-	
-// 	visibility: hidden;
 	
 }
 
@@ -366,7 +364,7 @@ html:not(.can-touch) nav.drop ul ul ul {
 	
 }
 
-html:not(.can-touch) nav.drop ul ul li:hover ul, nav.drop ul input.trigger:checked ~ ul {
+html:not(.can-touch) nav.drop ul ul li:hover ul/* , nav.drop ul input.trigger:checked ~ ul */ {
 	
 	visibility: visible;
 	opacity: 1;

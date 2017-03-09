@@ -9,7 +9,8 @@
 	<meta name=viewport content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no'>
 
 	<link rel=icon href=images/favicon.ico>
-	<link rel=styleSheet href=dist/natuive.min.css type=text/css media=screen>
+	<link rel=styleSheet href=src/css/natuive.css type=text/css media=screen>
+<!-- 	<link rel=styleSheet href=dist/natuive.min.css type=text/css media=screen> -->
 
 	<!--[if lte IE 9]> 
 		<link rel=styleSheet href=dist/ie.css type=text/css media=screen>
@@ -327,8 +328,8 @@
 							
 							<div class="row">
 								
-								<div>Child column 1</div>
-								<div>Child column 2</div>
+								<div>Child grid column</div>
+								<div>Child grid column</div>
 
 							</div>							
 						
@@ -360,8 +361,8 @@
 							
 							<div class="row unpad">
 								
-								<div>Child column 1</div>
-								<div>Child column 2</div>
+								<div>Child grid column</div>
+								<div>Child grid column</div>
 
 							</div>							
 						
@@ -521,6 +522,41 @@
 						
 						<div class="col3">
 							
+							<h3>Standard navigation</h3>
+							
+							<nav>
+					
+								<ul class="inline">
+								
+									<li> <a href=#buttons>Buttons</a> </li>
+
+									<li> <a href=#drop-nav>Drop-down nav</a> </li>
+								
+									<li class="active"> <a href=#lightbox>Lightbox</a> </li>
+								
+									<li> <a href=#fold>Fold</a> </li>
+				
+									<li> <a href=#modal>Modal window</a> </li>
+			
+								</ul>
+							
+							</nav>
+							
+							<br><br>
+							
+							<h3>Code</h3>
+<pre>
+&lt;nav&gt;
+	&lt;ul class=&quot;inline&quot;&gt;
+		&lt;li&gt; &lt;a href=#buttons&gt;Buttons&lt;/a&gt; &lt;/li&gt;
+	&lt;/ul&gt;							
+&lt;/nav&gt;
+</pre>
+						
+						</div>
+
+						<div class="col3">
+							
 							<h3>Big navigation</h3>
 							
 							<nav>
@@ -537,6 +573,8 @@
 											
 							</nav>
 							
+							<br><br>
+							
 							<h3>Code</h3>
 <pre>
 &lt;nav&gt;
@@ -550,57 +588,6 @@
 						
 						</div>
 						
-						<div class="col3">
-							
-							<h3>Normal navigation</h3>
-						
-							<nav>
-					
-								<ul class="inline">
-								
-									<li> <a href=#buttons>Buttons</a> </li>
-
-									<li> <a href=#drop-nav>Drop-down nav</a> </li>
-								
-									<li class="active"> <a href=#lightbox>Lightbox</a> </li>
-								
-									<li> <a href=#fold>Fold</a> </li>
-				
-									<li> <a href=#modal>Modal window</a> </li>
-			
-									<li> <a href=#video>Video</a> </li>
-	
-									<li> <a href=#aspect-ratio>Aspect ratio</a> </li>
-	
-									<li> <a href=#masonry>Masonry</a> </li>
-	
-									<li> <a href=#tables>Tables</a> </li>
-
-									<li> <a href=#tabs>Tabs</a> </li>
-
-									<li> <a href=#lists>Lists</a> </li>
-
-									<li> <a href=#cards>Cards</a> </li>
-
-									<li> <a href=//rado.bg target="_blank">WordPress theme</a> </li>
-
-									<li> <a href=#showcase>Showcase</a> </li>
-								
-								</ul>
-							
-							</nav>
-							
-							<h3>Code</h3>
-<pre>
-&lt;nav&gt;
-	&lt;ul class=&quot;inline&quot;&gt;
-		&lt;li&gt; &lt;a href=#buttons&gt;Buttons&lt;/a&gt; &lt;/li&gt;
-	&lt;/ul&gt;							
-&lt;/nav&gt;
-</pre>
-						
-						</div>
-
 						<div class="col3">
 							
 							<h2>Scroll navigation</h2>
@@ -639,7 +626,7 @@
 								</ul>
 							
 							</nav>
-							
+							<br><br>
 							<h3>Code</h3>
 <pre>
 &lt;nav class=scroll&gt;
@@ -655,7 +642,7 @@
 							
 							<h2>Drop navigation</h2>
 							
-							<nav class=drop id=drop-nav>
+							<nav class=drop>
 		
 							<form id="level1"> </form>
 							<form id="level2"> </form>
@@ -845,7 +832,7 @@
 							</ul>
 							
 						</nav>
-							
+							<br><br>
 							<h3>Code</h3>
 <pre>
 &lt;nav class=drop&gt;
@@ -948,15 +935,13 @@
 							
 							<picture class=aspect style="--ratio: 2.35;">
 							
-								<source media="(max-width: 640px)" srcset="images/lido-small.jpg">
 								<img src=images/lido.jpg alt='Lido'>
 							
 							</picture>
-							
+							<br>
 							<h3>Code</h3>
 							
 <pre>&lt;picture class=aspect style=&quot;--ratio: 2.35;&quot;&gt;
-	&lt;source media=&quot;(max-width: 640px)&quot; srcset=&quot;images/lido-small.jpg&quot;&gt;
 	&lt;img src=images/lido.jpg alt='Lido'&gt;
 &lt;/picture&gt;
 </pre>
