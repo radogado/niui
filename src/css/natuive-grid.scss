@@ -694,7 +694,7 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 
 @media screen and (max-width: $screen-narrow) {
 
-	.row:not(.half) {
+	.row:not(.half) { // To do: revert to flex in order to use the order property on mobile
 		
 		display: block;
 

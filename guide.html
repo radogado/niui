@@ -76,6 +76,19 @@
 			color: slateblue;
 			word-wrap: initial;
 			tab-size: 2;
+			background: #fff;
+
+		}
+		
+		.row.grid-demo pre {
+			
+			display: inline-block;
+
+		}
+		
+		.row.grid-demo b {
+			
+			padding: 0 1em;
 
 		}
 		
@@ -98,12 +111,12 @@
 </head>
 	
 <body dir=ltr>
-<!-- <div class="notify">Whoops</div> -->
+<!-- <div class='notify'>Whoops</div> -->
 	<!-- Head - Start -->
 
-	<main id=content style="min-height: 100vh;">
+	<main id=content style='min-height: 100vh;'>
 
-		<div class="slider tabs vertical">
+		<div class='slider tabs vertical'>
 			
 				<div data-tab-title='Home'><div class='header-and-banner viewport push-up-'>
 	
@@ -120,11 +133,12 @@
 						<h2>guide</h2>
 						
 						<br><br><br><br>
+						<a href=//github.com/radogado/natuive>GitHub page</a>
 						
 					</div>
 					
 <!--
-					<div class="col1">
+					<div class='col1'>
 						
 						<a href=http://github.com/radogado/natuive class='big button'>Download natUIve from GitHub</a>
 
@@ -133,7 +147,7 @@
 
 				</div>
 				
-				<div class="col3"></div>
+				<div class='col3'></div>
 			
 			</div>
 		
@@ -143,13 +157,12 @@
 
 				<div data-tab-title='Page structure'>
 					
-					<div class="row">
+					<div class='row'>
 					
 					<div>
 						
 						<h2>Page structure</h2>
 						
-						<h3>Code</h3>
 						<pre>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -167,7 +180,7 @@
 		&lt;header&gt;
 			Header
 		&lt;/header&gt;
-		&lt;div class=&quot;banner&quot;&gt;
+		&lt;div class='banner'&gt;
 			Banner
 		&lt;/div&gt;
 	&lt;/div&gt;
@@ -206,7 +219,7 @@
 					
 					<div class='row'>
 						
-						<div class="col1"> 
+						<div class='col1'> 
 							
 							<h2>Grid</h2> 
 						
@@ -216,44 +229,200 @@
 					
 					<div class='row grid-demo'>
 					
-						<div class="col2 align-bottom">
+						<div class='col5 align-center'>
 							
-							<div>Bottom-aligned 1/2 wide column</div>
+							<div><b>1/5</b><pre>.col5</pre></div>
+							
+						</div>
+					
+						<div class='col45 align-center'>
+							
+							<div><b>4/5</b><pre>.col45</pre></div>
+							
+						</div>
+					
+						<div class='col4 align-center'>
+							
+							<div><b>1/4</b><pre>.col4</pre></div>
+							
+						</div>
+					
+						<div class='col34 align-center'>
+							
+							<div><b>3/4</b><pre>.col34</pre></div>
+							
+						</div>
+					
+						<div class='col3 align-center'>
+							
+							<div><b>1/3</b><pre>.col3</pre></div>
+							
+						</div>
+					
+						<div class='col23 align-center'>
+							
+							<div><b>2/3</b><pre>.col23</pre></div>
+							
+						</div>
+					
+						<div class='col25 align-center'>
+							
+							<div><b>2/5</b><pre>.col25</pre></div>
+							
+						</div>
+					
+						<div class='col35 align-center'>
+							
+							<div><b>3/5</b><pre>.col35</pre></div>
+							
+						</div>
+					
+						<div class='col2 align-center'>
+							
+							<div><b>1/2</b><pre>.col2</pre></div>
 						
 						</div>
-						<div class="col4 align-right">
+
+						<div class='col2 align-center'>
 							
-							<div>Right-aligned 1/2 wide column.<p><br></p><p><br></p></div>
+							<div><b>1/2</b><pre>.col2</pre></div>
+						
+						</div>
+
+						<div class='col1 align-center'>
 							
+							<div><b>1/1</b><pre>.col5</pre></div>
+						
 						</div>
-						<div class="col4 align-right vertical-row">
-							<div>Top part of a vertical row in a normal column.</div>
-							<div class="align-bottom" style="text-align: start;">Bottom part of a vertical row.</div>
+
+					</div>
+					
+					<div class='row'>
+						
+						<div class='col1'> 
+							
+
+<pre>
+&lt;div class=row&gt;
+	&lt;div&gt;
+		&lt;div&gt;...&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class=col3&gt;
+		&lt;div&gt;...&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+					
 						</div>
-						<div class="align-middle align-center"><div>1/5 <br> centered</div></div>
+						
+					</div>
+					
+					<div class='row'>
+						
+						<div class='col1'> 
+							
+							<h2>Grid alignment</h2> 
+						
+						</div>
+						
+					</div>
+					
+					<div class='row grid-demo'>
+					
 						<div>
 							
-							<div>
-					
-								1/5
-							
-							</div>
-					
+							<div>Left Top<p><br></p></div>
+						
 						</div>
-					
+						<div class='align-center'>
+							
+							<div>Center Top</div>
+							
+						</div>
+						<div class='align-right'>
+							
+							<div>Right Top</div>
+							
+						</div>
+						<div class='align-middle'>
+							
+							<div>Left Middle</div>
+							
+						</div>
+						<div class='align-bottom'>
+							
+							<div>Left Bottom</div>
+							
+						</div>
+						<div class='align-center align-middle'>
+							
+							<div>Center Middle</div>
+							
+						</div>
+						<div class='align-right align-middle'>
+							
+							<div>Right Middle</div>
+							
+						</div>
+						<div class='align-center align-bottom'>
+							
+							<div>Center Bottom</div>
+							
+						</div>
+						<div class='align-right align-bottom'>
+							
+							<div>Right Bottom</div>
+							
+						</div>
 						<div>ThisLineIsTooLongAndMustBeClippedByTheContainerEvenThoughOverflowXandYDontWorkAsExpected</div>
-						<div>1/5</div>	
-						<div>
-						
-							1/5
-					
-						</div>
 					
 					</div>
 					
 					<div class='row'>
 						
-						<div class="col1"> 
+						<div class='col1'> 
+							
+
+<pre>
+&lt;div class='row'&gt;
+	&lt;div&gt;
+		&lt;div&gt;Left Top&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class='align-center'&gt;
+		&lt;div&gt;Center Top&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class='align-right'&gt;
+		&lt;div&gt;Right Top&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class='align-middle'&gt;
+		&lt;div&gt;Left Middle&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class='align-bottom'&gt;
+		&lt;div&gt;Left Bottom&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class='align-center align-middle'&gt;
+		&lt;div&gt;Center Middle&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class='align-right align-middle'&gt;
+		&lt;div&gt;Right Middle&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class='align-center align-bottom'&gt;
+		&lt;div&gt;Center Bottom&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class='align-right align-bottom'&gt;
+		&lt;div&gt;Right Bottom&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div&gt;ThisLineIsTooLongAndMustBeClippedByTheContainerEvenThoughOverflowXandYDontWorkAsExpected&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+					
+						</div>
+						
+					</div>
+					
+					<div class='row'>
+						
+						<div class='col1'> 
 							
 							<h3>Grid without column padding</h3> 
 						
@@ -263,26 +432,43 @@
 					
 					<div class='row grid-demo no-padding'>
 					
-						<div class="col2 align-bottom">
+						<div class='col2 align-bottom'>
 							
 							<div>Bottom-aligned 1/2 wide column</div>
 						
 						</div>
-						<div class="col4 align-right">
+						<div class='col4 align-right'>
 							
 							<div>Right-aligned 1/2 wide column.<p><br></p><p><br></p></div>
 							
 						</div>
-						<div class="col4 align-right vertical-row">
+						<div class='col4 align-right vertical-row'>
 							<div>Top part of a vertical row in a normal column.</div>
-							<div class="align-bottom" style="text-align: start;">Bottom part of a vertical row.</div>
+							<div class='align-bottom' style='text-align: start;'>Bottom part of a vertical row.</div>
 						</div>
 					
 					</div>
 				
 					<div class='row'>
 						
-						<div class="col1"> 
+						<div class='col1'> 
+							
+
+<pre>
+&lt;div class='row no-padding'&gt;
+	&lt;div&gt;
+		&lt;div&gt;...&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+					
+						</div>
+						
+					</div>
+					
+					<div class='row'>
+						
+						<div class='col1'> 
 							
 							<h3>Grid without spacing</h3> 
 						
@@ -290,19 +476,19 @@
 						
 					</div>
 					
-					<div class="row">
+					<div class='row'>
 						
 						<div>
 					
 							<div class='row grid-demo no-spacing'>
 					
-								<div class="col2 align-center">
+								<div class='col2 align-center'>
 									1
 								</div>
-								<div class="col4 align-center" style="background: lightcoral;">
+								<div class='col4 align-center' style='background: lightcoral;'>
 									2
 								</div>
-								<div class="col4 align-center">
+								<div class='col4 align-center'>
 									3
 								</div>
 							
@@ -314,9 +500,26 @@
 
 					<div class='row'>
 						
-						<div class="col1"> 
+						<div class='col1'> 
 							
-							<h3>Embedded grid with extra spacing</h3> 
+
+<pre>
+&lt;div class='row no-spacing'&gt;
+	&lt;div&gt;
+		&lt;div&gt;...&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+					
+						</div>
+						
+					</div>
+					
+					<div class='row'>
+						
+						<div class='col1'> 
+							
+							<h3>Embedded grid</h3> 
 						
 						</div>
 						
@@ -324,9 +527,9 @@
 					
 					<div class='row grid-demo'>
 					
-						<div class="col2">
+						<div>
 							
-							<div class="row">
+							<div class='row'>
 								
 								<div>Child grid column</div>
 								<div>Child grid column</div>
@@ -334,20 +537,40 @@
 							</div>							
 						
 						</div>
-						<div class="col4">
+						<div class='col3'>
 							
 							<div>Parent grid column</div>
 							
-						</div>
-						<div class="col4">
-							<div>Parent grid column</div>
 						</div>
 					
 					</div>
 				
 					<div class='row'>
 						
-						<div class="col1"> 
+						<div class='col1'> 
+							
+
+<pre>
+&lt;div class='row'&gt;
+	&lt;div&gt;
+		&lt;div class='row'&gt;
+			&lt;div&gt;Child grid column&lt;/div&gt;
+			&lt;div&gt;Child grid column&lt;/div&gt;
+		&lt;/div&gt;							
+	&lt;/div&gt;
+	&lt;div class='col3'&gt;
+		&lt;div&gt;Parent grid column&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+					
+						</div>
+						
+					</div>
+					
+					<div class='row'>
+						
+						<div class='col1'> 
 							
 							<h3>Embedded grid without extra spacing</h3> 
 						
@@ -357,9 +580,9 @@
 					
 					<div class='row grid-demo'>
 					
-						<div class="col2">
+						<div>
 							
-							<div class="row unpad">
+							<div class='row unpad'>
 								
 								<div>Child grid column</div>
 								<div>Child grid column</div>
@@ -367,20 +590,40 @@
 							</div>							
 						
 						</div>
-						<div class="col4">
+						<div class='col3'>
 							
 							<div>Parent grid column</div>
 							
 						</div>
-						<div class="col4">
-							<div>Parent grid column</div>
-						</div>
-					
+
 					</div>
 				
 					<div class='row'>
 						
-						<div class="col1"> 
+						<div class='col1'> 
+							
+
+<pre>
+&lt;div class='row'&gt;
+	&lt;div&gt;
+		&lt;div class='row unpad'&gt;
+			&lt;div&gt;Child grid column&lt;/div&gt;
+			&lt;div&gt;Child grid column&lt;/div&gt;
+		&lt;/div&gt;							
+	&lt;/div&gt;
+	&lt;div class='col3'&gt;
+		&lt;div&gt;Parent grid column&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+					
+						</div>
+						
+					</div>
+					
+					<div class='row'>
+						
+						<div class='col1'> 
 							
 							<h3>Grid with borders</h3> 
 						
@@ -388,7 +631,7 @@
 						
 					</div>
 					
-					<div class="row">
+					<div class='row'>
 
 						<div>
 
@@ -396,7 +639,7 @@
 								
 								<div>
 									
-									<div class="row">
+									<div class='row'>
 									
 										<div> Left </div>
 									
@@ -412,7 +655,7 @@
 									
 									</div>
 									
-									<div class="row">
+									<div class='row'>
 										
 										<div>
 											
@@ -422,22 +665,22 @@
 									
 									</div>
 									
-									<div class="row">
+									<div class='row'>
 									
 										<div> <div>Top</div> </div>
-										<div class="align-bottom align-center"> <div>Center Bottom</div> </div>
+										<div class='align-bottom align-center'> <div>Center Bottom</div> </div>
 									
 										<div class=align-right>
 											
 											<div>
 												
-												<div class="row">
+												<div class='row'>
 													
 													<div>Right</div>
 												
 												</div>
 												
-												<div class="row">
+												<div class='row'>
 													
 													<div>Right</div>
 												
@@ -459,7 +702,22 @@
 					
 					<div class='row'>
 						
-						<div class="col1"> 
+						<div class='col1'> 
+							
+
+<pre>
+&lt;div class='row border-all'&gt;
+	&lt;div&gt;...&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+					
+						</div>
+						
+					</div>
+					
+					<div class='row'>
+						
+						<div class='col1'> 
 							
 							<h3>Right to left layout</h3> 
 						
@@ -467,25 +725,25 @@
 						
 					</div>
 					
-					<div dir="rtl">
+					<div dir='rtl'>
 
 						<div class='row grid-demo'>
 
-	<div class="col2 align-bottom">
+	<div class='col2 align-bottom'>
 		
 		<div>Bottom-aligned 1/2 wide column</div>
 	
 	</div>
-	<div class="col4 align-right">
+	<div class='col4 align-right'>
 		
 		<div>Right-aligned 1/2 wide column.<p><br></p><p><br></p></div>
 		
 	</div>
-	<div class="col4 align-right vertical-row">
+	<div class='col4 align-right vertical-row'>
 		<div>Top part of a vertical row in a normal column.</div>
-		<div class="align-bottom" style="text-align: start;">Bottom part of a vertical row.</div>
+		<div class='align-bottom' style='text-align: start;'>Bottom part of a vertical row.</div>
 	</div>
-	<div class="align-middle align-center"><div>1/5 <br> centered</div></div>
+	<div class='align-middle align-center'><div>1/5 <br> centered</div></div>
 	<div>
 		
 		<div>
@@ -507,6 +765,37 @@
 </div>
 					
 					</div>
+					
+					<div class='row'>
+						
+						<div class='col1'> 
+							
+
+<pre>
+&lt;div dir='rtl'&gt;
+	...
+&lt;/div&gt;
+</pre>
+					
+						</div>
+						
+					</div>
+					
+					<div class='row'>
+						
+						<div class='col1'>
+							
+							<h3>Options</h3>
+							
+							<ul>
+								
+								<li>Column class not mandatory. Minimum width 20%.</li>
+							
+							</ul>
+						
+						</div>
+					
+					</div>
 
 				</div>
 				
@@ -520,19 +809,19 @@
 							
 						</div>
 						
-						<div class="col3">
+						<div class='col3'>
 							
 							<h3>Standard navigation</h3>
 							
 							<nav>
 					
-								<ul class="inline">
+								<ul class='inline'>
 								
 									<li> <a href=#buttons>Buttons</a> </li>
 
 									<li> <a href=#drop-nav>Drop-down nav</a> </li>
 								
-									<li class="active"> <a href=#lightbox>Lightbox</a> </li>
+									<li class='active'> <a href=#lightbox>Lightbox</a> </li>
 								
 									<li> <a href=#fold>Fold</a> </li>
 				
@@ -544,10 +833,10 @@
 							
 							<br><br>
 							
-							<h3>Code</h3>
+
 <pre>
 &lt;nav&gt;
-	&lt;ul class=&quot;inline&quot;&gt;
+	&lt;ul class='inline'&gt;
 		&lt;li&gt; &lt;a href=#buttons&gt;Buttons&lt;/a&gt; &lt;/li&gt;
 	&lt;/ul&gt;							
 &lt;/nav&gt;
@@ -555,15 +844,15 @@
 						
 						</div>
 
-						<div class="col3">
+						<div class='col3'>
 							
 							<h3>Big navigation</h3>
 							
 							<nav>
 				
-								<ul class="inline big-text">
+								<ul class='inline big-text'>
 								
-									<li class="active"> <a href=#grid>Grid</a> </li>
+									<li class='active'> <a href=#grid>Grid</a> </li>
 				
 									<li> <a href=#slider>Slider</a> </li>
 				
@@ -575,11 +864,11 @@
 							
 							<br><br>
 							
-							<h3>Code</h3>
+
 <pre>
 &lt;nav&gt;
-	&lt;ul class=&quot;inline big-text&quot;&gt;
-		&lt;li class=&quot;active&quot;&gt; &lt;a href=#grid&gt;Grid&lt;/a&gt; &lt;/li&gt;
+	&lt;ul class='inline big-text'&gt;
+		&lt;li class='active'&gt; &lt;a href=#grid&gt;Grid&lt;/a&gt; &lt;/li&gt;
 		&lt;li&gt; &lt;a href=#slider&gt;Slider&lt;/a&gt; &lt;/li&gt;
 		&lt;li&gt; &lt;a href=#form&gt;Form&lt;/a&gt; &lt;/li&gt;
 	&lt;/ul&gt;
@@ -588,7 +877,7 @@
 						
 						</div>
 						
-						<div class="col3">
+						<div class='col3'>
 							
 							<h2>Scroll navigation</h2>
 							<nav class=scroll>
@@ -599,7 +888,7 @@
 
 									<li> <a href=#drop-nav>Drop-down nav</a> </li>
 								
-									<li> <a href=#lightbox class="active">Lightbox</a> </li>
+									<li> <a href=#lightbox class='active'>Lightbox</a> </li>
 								
 									<li> <a href=#fold>Fold</a> </li>
 				
@@ -619,7 +908,7 @@
 
 									<li> <a href=#cards>Cards</a> </li>
 
-									<li> <a href=//rado.bg target="_blank">WordPress theme</a> </li>
+									<li> <a href=//rado.bg target='_blank'>WordPress theme</a> </li>
 
 									<li> <a href=#showcase>Showcase</a> </li>
 								
@@ -627,7 +916,7 @@
 							
 							</nav>
 							<br><br>
-							<h3>Code</h3>
+
 <pre>
 &lt;nav class=scroll&gt;
 	&lt;ul&gt;
@@ -638,52 +927,52 @@
 						
 						</div>
 						
-						<div class="col1">
+						<div class='col1'>
 							
 							<h2>Drop navigation</h2>
 							
 							<nav class=drop>
 		
-							<form id="level1"> </form>
-							<form id="level2"> </form>
+							<form id='level1'> </form>
+							<form id='level2'> </form>
 						
-							<input type="checkbox" class="trigger burger">
+							<input type='checkbox' class='trigger burger'>
 						
 							<ul>
 								
 								<li> 
 								
-									<input type="radio" class="trigger" form="level1" name="level1">
+									<input type='radio' class='trigger' form='level1' name='level1'>
 						
-									<input type="reset" form="level1">
+									<input type='reset' form='level1'>
 								
 									<a>First item</a>
 									
-									<b class="sub"></b>
+									<b class='sub'></b>
 									
 									<ul>
 										
 										<li> 
 										
-											<input type="radio" class="trigger" form="level2" name="level2">
+											<input type='radio' class='trigger' form='level2' name='level2'>
 								
-											<input type="reset" form="level2">
+											<input type='reset' form='level2'>
 								
 											<a>First item's second level item 1</a>
 										
-											<b class="sub"></b>
+											<b class='sub'></b>
 									
 											<ul>
 												
 												<li> 
 													
-													<a href="asd">First item's second level item 1 third level item 1</a>
+													<a href='asd'>First item's second level item 1 third level item 1</a>
 												
 												</li>
 												
 												<li> 
 													
-													<a href="fdgdf">First item's second level item 1 third level item 2</a>
+													<a href='fdgdf'>First item's second level item 1 third level item 2</a>
 												
 												</li>
 											
@@ -693,25 +982,25 @@
 									
 										<li> 
 										
-											<input type="radio" class="trigger" form="level2" name="level2">
+											<input type='radio' class='trigger' form='level2' name='level2'>
 								
-											<input type="reset" form="level2">
+											<input type='reset' form='level2'>
 								
 											<a href=asd>First item's second level item 2</a>
 										
-											<b class="sub"></b>
+											<b class='sub'></b>
 									
 											<ul>
 												
 												<li> 
 													
-													<a href="#">First item's second level item 2 third level item 1</a>
+													<a href='#'>First item's second level item 2 third level item 1</a>
 												
 												</li>
 												
 												<li> 
 													
-													<a href="#">First item's second level item 2 third level item 1</a>
+													<a href='#'>First item's second level item 2 third level item 1</a>
 												
 												</li>
 											
@@ -725,37 +1014,37 @@
 						
 								<li> 
 								
-									<input type="radio" class="trigger" form="level1" name="level1">
+									<input type='radio' class='trigger' form='level1' name='level1'>
 						
-									<input type="reset" form="level1">
+									<input type='reset' form='level1'>
 								
 									<a href=asd>Second item which is a link with long text</a>
 								
-									<b class="sub"></b>
+									<b class='sub'></b>
 									
 									<ul>
 										
 										<li> 
 										
-											<input type="radio" class="trigger" form="level2" name="level2">
+											<input type='radio' class='trigger' form='level2' name='level2'>
 								
-											<input type="reset" form="level2">
+											<input type='reset' form='level2'>
 								
 											<a>Second item level two item 1</a>
 										
-											<b class="sub"></b>
+											<b class='sub'></b>
 									
 											<ul>
 												
 												<li> 
 													
-													<a href="#">Second item level two item 1 third level item 1</a>
+													<a href='#'>Second item level two item 1 third level item 1</a>
 												
 												</li>
 												
 												<li> 
 													
-													<a href="#">Second item level two item 1 third level item 1</a>
+													<a href='#'>Second item level two item 1 third level item 1</a>
 												
 												</li>
 											
@@ -769,13 +1058,13 @@
 						
 								<li> 
 								
-									<input type="radio" class="trigger" form="level1" name="level1">
+									<input type='radio' class='trigger' form='level1' name='level1'>
 						
-									<input type="reset" form="level1">
+									<input type='reset' form='level1'>
 								
 									<a>Third item with one sub level</a>
 								
-									<b class="sub"></b>
+									<b class='sub'></b>
 									
 									<ul>
 										
@@ -797,13 +1086,13 @@
 							
 								<li> 
 								
-									<input type="radio" class="trigger" form="level1" name="level1">
+									<input type='radio' class='trigger' form='level1' name='level1'>
 						
-									<input type="reset" form="level1">
+									<input type='reset' form='level1'>
 								
 									<a>Fourth item with one sub level</a>
 								
-									<b class="sub"></b>
+									<b class='sub'></b>
 									
 									<ul>
 										
@@ -825,7 +1114,7 @@
 						
 								<li> 
 								
-									<a href="#">Last item without a sub level</a>
+									<a href='#'>Last item without a sub level</a>
 								
 								</li>
 						
@@ -833,27 +1122,27 @@
 							
 						</nav>
 							<br><br>
-							<h3>Code</h3>
+
 <pre>
 &lt;nav class=drop&gt;
-&lt;form id=&quot;level1&quot;&gt; &lt;/form&gt;
-&lt;form id=&quot;level2&quot;&gt; &lt;/form&gt;
-&lt;input type=&quot;checkbox&quot; class=&quot;trigger burger&quot;&gt;
+&lt;form id='level1'&gt; &lt;/form&gt;
+&lt;form id='level2'&gt; &lt;/form&gt;
+&lt;input type='checkbox' class='trigger burger'&gt;
 &lt;ul&gt;
 	&lt;li&gt; 
-		&lt;input type=&quot;radio&quot; class=&quot;trigger&quot; form=&quot;level1&quot; name=&quot;level1&quot;&gt;
-		&lt;input type=&quot;reset&quot; form=&quot;level1&quot;&gt;
+		&lt;input type='radio' class='trigger' form='level1' name='level1'&gt;
+		&lt;input type='reset' form='level1'&gt;
 		&lt;a&gt;First item&lt;/a&gt;
-		&lt;b class=&quot;sub&quot;&gt;&lt;/b&gt;
+		&lt;b class='sub'&gt;&lt;/b&gt;
 		&lt;ul&gt;
 			&lt;li&gt; 
-				&lt;input type=&quot;radio&quot; class=&quot;trigger&quot; form=&quot;level2&quot; name=&quot;level2&quot;&gt;
-				&lt;input type=&quot;reset&quot; form=&quot;level2&quot;&gt;
+				&lt;input type='radio' class='trigger' form='level2' name='level2'&gt;
+				&lt;input type='reset' form='level2'&gt;
 				&lt;a&gt;First item's second level item 1&lt;/a&gt;
-				&lt;b class=&quot;sub&quot;&gt;&lt;/b&gt;
+				&lt;b class='sub'&gt;&lt;/b&gt;
 				&lt;ul&gt;
 					&lt;li&gt; 
-						&lt;a href=&quot;asd&quot;&gt;First item's second level item 1 third level item 1&lt;/a&gt;
+						&lt;a href='asd'&gt;First item's second level item 1 third level item 1&lt;/a&gt;
 					&lt;/li&gt;
 				&lt;/ul&gt;
 			&lt;/li&gt;
@@ -871,9 +1160,9 @@
 				
 				<div data-tab-title=Typography>
 					
-					<div class="row">
+					<div class='row'>
 						
-						<div class="col3">
+						<div class='col3'>
 							
 							<h2>Headlines</h2>
 							
@@ -886,36 +1175,47 @@
 						
 						</div>
 							
-						<div class="col3">
+						<div class='col3'>
 							
 							<h2>Drop cap</h2>
 
 							<p class=drop-cap>
 						
-							Increase conversion by decreasing page load time down to &lt;5" on slow mobile networks. Improve development by using standard building blocks that are flexible to customise and combine. Improve stability and compatibility by not pushing the browsers more than necessary. Under the negligible weight of ~13 KB, which removes the barrier between your content and your customers everywhere.
+							Call me Ishmael. Some years ago - never mind how long precisely - having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.
 						
 							</p>
+
+<pre>
+&lt;p class='drop-cap'&gt;
+	...
+&lt;/p&gt;
+</pre>
 						
 						</div>
-						<div class="col3">							
+						<div class='col3'>							
 							<h2>Quote</h2>
 							
-							<q>An in-house study at <b>Walmart.com</b> came out with the results that saw an up to 2% increase in conversions on the site for every single second of improvement on the load time. The accumulative growth of revenues went up to 1% for every 100 milliseconds of load time improvement.</q>
+							<q>The sky above the port was the color of television, tuned to a dead channel.</q>
 							
-						
+
+<pre>
+&lt;q&gt;
+	...
+&lt;/q&gt;
+</pre>
 						</div>
-						<div class="col3">
+						<div class='col3'>
 							
 							<h2>Links</h2>
 							
 							<p>Here is a <a href=#>link</a>.</p>
 							
 						</div>
-						<div class="col3">
+						<div class='col3'>
 							
 							<h2>Paragraph</h2>
 							
-							<p>This is a paragraph.</p>
+							<p>All elements except images are baseline-aligned with height divisible by the default line height.</p>
 							
 						</div>
 					</div>
@@ -925,7 +1225,7 @@
 				
 				<div id=aspect-ratio data-tab-title='Aspect ratio'>
 					
-					<div class="row">
+					<div class='row'>
 						
 						<div>
 			
@@ -933,15 +1233,15 @@
 							
 							<p>While the image is loading, the layout is already solid and the page doesn't jump after loading.</p>
 							
-							<picture class=aspect style="--ratio: 2.35;">
+							<picture class=aspect style='--ratio: 2.35;'>
 							
 								<img src=images/lido.jpg alt='Lido'>
 							
 							</picture>
 							<br>
-							<h3>Code</h3>
+
 							
-<pre>&lt;picture class=aspect style=&quot;--ratio: 2.35;&quot;&gt;
+<pre>&lt;picture class=aspect style='--ratio: 2.35;'&gt;
 	&lt;img src=images/lido.jpg alt='Lido'&gt;
 &lt;/picture&gt;
 </pre>
@@ -954,49 +1254,121 @@
 					
 				<div data-tab-title=Lightbox>
 					
-					<div class="row">
+					<div class='row'>
+						
+						<div class='col1'>
+							
+							<h2>Lightbox</h2>
+							
+						</div>
+						
+					</div>
+					
+					<div class='row'>
 						
 						<div>
 							
-							<h3> Full screen lightbox</h3>
+							<h3>Standard</h3>
+							
+							<div class='lightbox'>
+							
+								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756.jpg title='First Taipei photo'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756-88x88.jpg alt=1> </a>
+								
+								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00770.jpg title='Second Taipei photo'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00770-88x88.jpg alt=2> </a>
+
+								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00795.jpg title='Third Taipei photo'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00795-88x88.jpg alt=2> </a>
+							
+							</div>
+							
+
+<pre>						
+&lt;div class='lightbox'&gt;
+	&lt;a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756.jpg title='First Taipei photo'&gt;
+		&lt;img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756-88x88.jpg alt=1&gt;
+	&lt;/a&gt;
+	...
+&lt;/div&gt;
+</pre>
+							
+						</div>
+						
+						<div>
+							
+							<h3> Full screen </h3>
 							
 							<div id=lightbox class='lightbox full-screen'>
 							
-								<a href=images/DSC_5823.jpg title="First Image"> <span> Text Lightbox </span> </a>
+								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/07/DSC02506.jpg title='First Hong Kong photo'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/07/DSC02506-88x88.jpg alt=1> </a>
 								
-								<a href=images/DSC_5975.jpg title='Second Image'> <img src=images/DSC_5975-t.jpg alt=1> </a>
-								
-								<a href=images/DSC_4225.jpg title='Third Image'> <img src=images/DSC_4225-t.jpg alt=2> </a>
-							
-								<a href=external.html title='iframe' class="iframe"> 📑 iframe </a>
+								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/07/DSC02321.jpg title='Second Hong Kong photo'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/07/DSC02321-88x88.jpg alt=2> </a>
+
+								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/07/DSC02548.jpg title='Second Hong Kong photo'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/07/DSC02548-88x88.jpg alt=2> </a>
 							
 							</div>
+						
+
+<pre>						
+&lt;div class='lightbox full-screen'&gt;
+	&lt;a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756.jpg title='First Taipei photo'&gt;
+		&lt;img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756-88x88.jpg alt=1&gt;
+	&lt;/a&gt;
+	...
+&lt;/div&gt;
+</pre>
 							
-							<h3> Vertical lightbox with thumbnails</h3>
+						</div>
+						
+						<div>
+							
+							<h3> Vertical with thumbnails </h3>
 								
-							<div id=lightbox2 class='lightbox vertical row thumbnails'>
+							<div id=lightbox class='lightbox vertical thumbnails'>
 							
-								<a href=images/DSC_5823.jpg title='First Image'> <span> Text Lightbox </span> </a>
+								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/06/DSC00134.jpg title='First photo from Japan'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/06/DSC00134-88x88.jpg alt=1> </a>
 								
-								<a href=images/DSC_5975.jpg title='Second Image'> <img src=images/DSC_5975-t.jpg alt=1> </a>
-								
-								<a href=images/DSC_4225.jpg title='Third Image'> <img src=images/DSC_4225-t.jpg alt=2> </a>
-							
-								<a href=//s3.amazonaws.com/gado/Outlying-Teaser.mp4 title='Video' class="video"> <img src=images/video.jpg alt=Thumbnail> </a>
-							
-								<a href=external.html title='iframe' class="iframe"> 📑 iframe </a>
+								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/06/DSC00193.jpg title='Second photo from Japan'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/06/DSC00193-88x88.jpg alt=2> </a>
+
+								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/06/DSC00229.jpg title='Third photo from Japan'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/06/DSC00229-88x88.jpg alt=2> </a>
 							
 							</div>
 			
-					</div>
+
+<pre>						
+&lt;div class='lightbox vertical thumbnails'&gt;
+	&lt;a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756.jpg title='First Taipei photo'&gt;
+		&lt;img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756-88x88.jpg alt=1&gt;
+	&lt;/a&gt;
+	...
+&lt;/div&gt;
+</pre>
+							
+						</div>
 					
 					</div>
 				
+					<div class='row'>
+						
+						<div class='col1'>
+							
+							<h3>Options</h3>
+							
+							<ul>
+								
+								<li>Open automatically by URI</li>
+								<li>Items listed as thumbnails or any content</li>
+								<li>Captions</li>
+							
+							</ul>
+							
+						</div>
+						
+					</div>
+					
 				</div>
 				
 				<div data-tab-title=Video>
 					
-					<div class="row">
+					<div class='row'>
 						
 						<div>
 									
@@ -1011,7 +1383,12 @@
 								<a href=//s3.amazonaws.com/gado/Outlying-Teaser.mp4>//s3.amazonaws.com/gado/Outlying-Teaser.mp4</a>
 								
 							</video>
-					
+<pre>					
+&lt;video poster=images/video.jpg controls=controls preload=none&gt;
+	&lt;source type=video/mp4 src=//s3.amazonaws.com/gado/Outlying-Teaser.mp4&gt;
+	&lt;a href=//s3.amazonaws.com/gado/Outlying-Teaser.mp4&gt;Video link as fallback&lt;/a&gt;
+&lt;/video&gt;
+</pre>				
 						</div>
 					
 					</div>
@@ -1020,64 +1397,138 @@
 				
 				<div id=tables data-tab-title=Tables>
 				
-					<div class="row">
+					<div class='row'>
 						
-						<div class="col1">
+						<div class='col1'>
 							
-							<h2>Turn the Tables</h2>
+							<h2>Tables</h2>
 					
 						</div>
 						
 						<div>
-								
-							<table>
-					
-						<tr>
-							<td>Short title</td> 
-							<td> <a>One Time</a> </td> 
-							<td> <a>Second Long col</a> </td> 
-							<td> <a>Three</a> </td> 
-							<td> <a>Four</a> </td>
-						</tr>
-						<tr>
-							<td>Row One</td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td>
-						</tr>
-						<tr>
-							<td>Row Two with Long Headline to Test Table on Narrow Screens</td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td>
-						</tr>
-
-					</table>
-						
-						</div>
-					
-						<div>
+							
+							<h3>Standard</h3>
 							
 							<table>
 						
 						<thead>
 							<tr>
-								<td data-sort>TheTableWillBeScrollableOnNarrowScreensBecauseOfWideCell</td>
-								<td data-sort> <a>One Time</a> </td>
-								<td data-sort> <a>Second Long col</a> </td>
+								<td>TheTableWillBeScrollableOnNarrowScreensBecauseOfWideCell</td>
+								<td> <a>One Time</a> </td>
+								<td> <a>Second Long col</a> </td>
 								<td> <a>Three</a> </td>
 								<td> <a>Four</a> </td>
 							</tr>
 						</thead>
 						<tr>
-							<td>B</td> <td><b>3</b></td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td>
+							<td>B</td> <td><b>3</b></td> <td><b>✔︎</b></td> <td><b>✔︎</b></td> <td><b>✔︎</b></td>
 						</tr>
 						<tr>
-							<td>Row Two with Long Headline to Test Table on Narrow Screens</td> <td><b>1</b></td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td>
+							<td>Row Two with Long Headline to Test Table on Narrow Screens</td> <td><b>1</b></td> <td><b>✔︎</b></td> <td><b>✔︎</b></td> <td><b>✔︎</b></td>
 						</tr>
 						<tr>
-							<td>A</td> <td><b>2</b></td> <td><b>√</b></td> <td><b>√</b></td> <td><b>√</b></td>
+							<td>A</td> <td><b>2</b></td> <td><b>✔︎</b></td> <td><b>✔︎</b></td> <td><b>✔︎</b></td>
+						</tr>
+
+					</table>
+							
+<pre>
+&lt;table&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;td&gt;Head&lt;/td&gt;
+			...
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tr&gt;
+		&lt;td&gt;First&lt;/td&gt;
+		...
+	&lt;/tr&gt;
+	...
+&lt;/table&gt;
+</pre>
+						
+						</div>
+						
+						<div>
+							<h3>Headless</h3>
+										
+							<table>
+					
+						<tr>
+							<td> <a>First</a> </td> 
+							<td> <a>Second</a> </td> 
+							<td> <a>Third</a> </td> 
+						</tr>
+						<tr>
+							<td><b>✔︎</b></td> <td><b>✔︎</b></td> <td><b>✔︎</b></td></td>
+						</tr>
+						<tr>
+							<td><b>✔︎</b></td> <td><b>✔︎</b></td> <td><b>✔︎</b></td></td>
 						</tr>
 
 					</table>
 						
+<pre>
+&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td&gt;First&lt;/td&gt;
+		...
+	&lt;/tr&gt;
+	...
+&lt;/table&gt;
+</pre>
+						</div>
+					
+						<div>
+							
+							<h3>Sortable</h3>
+							
+							<table>
+						
+						<thead>
+							<tr>
+								<td data-sort>First</td>
+								<td data-sort> <a>Second</a> </td>
+								<td data-sort> <a>Third</a> </td>
+							</tr>
+						</thead>
+						<tr>
+							<td>Bee</td> <td><b>3</b></td> <td><b>7</b></td></td>
+						</tr>
+						<tr>
+							<td>Candy</td> <td><b>1</b></td> <td><b>6</b></td></td>
+						</tr>
+						<tr>
+							<td>Asteroid</td> <td><b>4</b></td> <td><b>9</b></td></td>
+						</tr>
+						<tr>
+							<td>Edgar</td> <td><b>0</b></td> <td><b>8</b></td></td>
+						</tr>
+						<tr>
+							<td>Due</td> <td><b>2</b></td> <td><b>5</b></td></td>
+						</tr>
+
+					</table>
+						
+<pre>
+&lt;table&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;td data-sort&gt;Head&lt;/td&gt;
+			...
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tr&gt;
+		&lt;td&gt;First&lt;/td&gt;
+		...
+	&lt;/tr&gt;
+	...
+&lt;/table&gt;
+</pre>
 						</div>
 						
-						<div class="col1">
+						<div class='col1'>
 							
 							<div>
 								
@@ -1105,9 +1556,9 @@
 
 				<div id=fold data-tab-title='Fold (Accordion)'>
 					
-					<div class="row">
+					<div class='row'>
 						
-						<div class="col1">
+						<div class='col1'>
 							
 							<h2>Fold (foldable content, accordion)</h2>
 							
@@ -1120,33 +1571,58 @@
 								<h3 class=label> Accordion </h3>
 								<input type=checkbox class=trigger>
 							
-								<div id=i class="content">
+								<div id=i class='content'>
 									
 									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
 									
 								</div>
 							
 							</div>
+<pre>
+&lt;div class='fold'&gt;
+	&lt;h3 class=label&gt; Label &lt;/h3&gt;
+	&lt;input type=checkbox class=trigger&gt;
+	&lt;div class='content'&gt;
+		&lt;p&gt; Content. &lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>						
+						</div>
+						
+						<div>
 	
 							<div class='fold open'>
 							
 								<h3 class=label> Open by default </h3>
 								<input type=checkbox class=trigger>
 							
-								<div id=i class="content">
+								<div id=i class='content'>
 									
 									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
 									
 								</div>
 							
 							</div>
+<pre>
+&lt;div class='fold open'&gt;
+	&lt;h3 class=label&gt; Label &lt;/h3&gt;
+	&lt;input type=checkbox class=trigger&gt;
+	&lt;div class='content'&gt;
+		&lt;p&gt; Content. &lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>						
+						
+						</div>
+						
+						<div>
 							
 							<div class=fold>
 							
 								<h3 class=label> Truncated content </h3>
 								<input type=checkbox class=trigger>
 								
-								<div class="content" style="--height: 6em;">
+								<div class='content' style='--height: 6em;'>
 									
 									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 							
@@ -1155,20 +1631,33 @@
 								</div>
 							
 							</div>
+						
+<pre>
+&lt;div class='fold'&gt;
+	&lt;h3 class=label&gt; Label &lt;/h3&gt;
+	&lt;input type=checkbox class=trigger&gt;
+	&lt;div class='content' style='--height: 6em;'&gt;
+		&lt;p&gt; Content. &lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>						
+						</div>
+						
+						<div class="col1">
 														
 							<div class=fold>
 							
 								<h3 class=label> Nested Accordions </h3>
 								<input type=checkbox class=trigger>
 								
-								<div class="content">
+								<div class='content'>
 							
 									<div class=fold>
 								
 										<h3 class=label> About Inner Accordion </h3>
 										<input type=checkbox class=trigger>
 									
-										<div class="content">
+										<div class='content'>
 														<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 										</div>
 								
@@ -1179,7 +1668,7 @@
 										<h3 class=label> About Inner Accordion 2 </h3>
 										<input type=checkbox class=trigger>
 									
-										<div class="content">
+										<div class='content'>
 											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 										</div>
 								
@@ -1197,22 +1686,21 @@
 				
 				<div data-tab-title=Tooltip>
 
-					<div class="row">
+					<div class='row'>
 						<div>
 							<div>
 								<h2>Tooltip</h2>
-					<span class="tool">
+					<span class='tool'>
 						This text has a tooltip.
-						<span class="tip">
+						<span class='tip'>
 							<b>Here is the tooltip</b> <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 						</span>
 					</span>
 					<br><br>
-					<h3>Code</h3>
 
-<pre>&lt;span class=tool&gt;
+<pre>&lt;span class='tool'&gt;
 	Tool content.
-	&lt;span class=tip&gt;Tip content.&lt;/span&gt;
+	&lt;span class='tip'&gt;Tip content.&lt;/span&gt;
 &lt;/span&gt;				
 </pre>
 					
@@ -1222,9 +1710,9 @@
 				
 				<div data-tab-title='Modal window'>
 					
-					<div class="row">
+					<div class='row'>
 						
-						<div class="col1">
+						<div class='col1'>
 							
 							<h2> Modal Window </h2>
 						
@@ -1232,13 +1720,19 @@
 						
 						<div>	
 						
-							<p><a href="external.html#content" class="modal">Open a modal window inside this <span>tab</span>.</a></p>
+							<p><a href='external.html#content' class='modal'>Open a modal window inside this <span>tab</span>.</a></p>
+<pre>
+&lt;a href='external.html#content' class='modal'&gt;Open a modal window here.&lt;/a&gt;
+</pre>
 						
 						</div>
 						
 						<div>
 
-							<p><a href="http://natuive.net/external.html#content" class="modal">Show external domain content in a modal window.</a> (On PHP enabled host).</p>
+							<p><a href='http://natuive.net/external.html#content' class='modal'>Show external domain content in a modal window.</a> (On PHP enabled host).</p>
+<pre>
+&lt;a href='http://natuive.net/external.html#content' class='modal'&gt;Open a modal window with external content.&lt;/a&gt;
+</pre>
 						
 						</div>
 					
@@ -1248,9 +1742,9 @@
 				
 				<div data-tab-title=Buttons>
 					
-					<div class="row">
+					<div class='row'>
 					
-						<div class="col1">
+						<div class='col1'>
 							
 							<h2>Buttons</h2>
 						
@@ -1264,7 +1758,11 @@
 									
 								<a href=# class=button>Small button</a>
 								<button disabled>Disabled button</button>
-								
+<pre>
+&lt;a href=# class='button'&gt;Small button&lt;/a&gt;
+&lt;button disabled&gt;Disabled button&lt;/button&gt;
+</pre>
+									
 							</div>
 							
 						</div>
@@ -1277,6 +1775,9 @@
 						
 								<a href=# class='button big'>Big button</a>
 							
+<pre>
+&lt;a href=# class='button big'&gt;Big button&lt;/a&gt;
+</pre>
 							</div>
 						
 						</div>
@@ -1292,162 +1793,6 @@
 							</div>
 				
 						</div>
-					
-					</div>
-						
-				</div>
-		
-				<div id=lists data-tab-title=Lists>
-					
-					<div class="row">
-						
-						<div>
-							
-							<h2>Nested Ordered List</h2>
-							
-							<ol>
-								
-								<li> How to make a <b>natUIve</b> page
-									
-									<ol>
-										
-										<li>Copy the contents of the <b>dist</b> folder in your site's root folder</li>
-									
-										<li>Edit <b>index.html</b> there</li>
-									
-									</ol>
-								
-								</li>
-									
-								<li>
-									
-									<h4>Did you know?</h4>
-									
-									<p class=quote>An in-house study at <b>Walmart.com</b> came out with the results that saw an up to 2% increase in conversions on the site for every single second of improvement on the load time. The accumulative growth of revenues went up to 1% for every 100 milliseconds of load time improvement.</p>
-									
-									<ol>
-										<li>
-											Supporting IE8+, Chrome, Safari, Firefox, Opera.
-										</li>
-								
-										<li>
-											Supporting iOS and Android tablets and phones.
-											<ol>
-												<li>No hardcoded dimensions except line height.
-													
-													<ul>
-														
-														<li>Unordered one</li>
-														<li>Unordered two</li>
-													
-													</ul>
-													
-												</li>
-												<li>The slider only needs a <b>.slider > div</b> structure and is fully flexible.</li>
-											</ol>
-										</li>
-									</ol>
-									
-								</li>
-							
-							</ol>
-	
-						</div>
-					
-					</div>
-			
-				</div>
-				
-				<div data-tab-title=Slider>
-					
-					<div class="row" id=slider>
-						
-						<div class="col1">
-							
-							<h2>Slider</h2>
-							
-							<p>Just add some elements in a <b>.slider</b> container.</p>
-							
-						</div>
-						
-						<div class="col2">
-							
-							<h3>Normal</h3>
-							
-							<div class="slider">
-								
-								<div class="align-center"><p><br><br>One<br><br></p></div>
-								<div class="align-center"><p><br><br>Two<br><br></p></div>
-							
-							</div>
-						
-						</div>
-						
-						<div class="col2">
-
-							
-							<h3>Controls on top</h3>
-							
-							<div class="slider top">
-								
-								<div class="align-center"><p><br><br>One<br><br></p></div>
-								<div class="align-center"><p><br><br>Two<br><br></p></div>
-							
-							</div>
-						
-						</div>
-						
-						<div class="col2">
-							
-							<h3>Vertical</h3>
-							
-							<div class="slider vertical">
-								
-								<div class="align-center"><p><br><br>One<br><br></p></div>
-								<div class="align-center"><p><br><br>Two<br><br></p></div>
-							
-							</div>
-						
-						</div>
-							
-						<div class="col2">
-
-							<h3>Vertical with controls on the right</h3>
-							
-							<div class="slider vertical right">
-								
-								<div class="align-center"><p><br><br>One<br><br></p></div>
-								<div class="align-center"><p><br><br>Two<br><br></p></div>
-							
-							</div>
-						
-						</div>
-							
-						<div class="col2">
-							
-							<h3>Padded (controls outside of content)</h3>
-							
-							<div class="slider pad">
-								
-								<div><p>One</p></div>
-								<div><p>Two</p></div>
-							
-							</div>
-						
-						</div>
-
-						<div class="col2">
-
-							<h3>Auto height</h3>
-							
-							<div class="slider auto-height pad">
-								
-								<div class="align-center"><p>One</p></div>
-								<div class="align-center"><p><br><br>Two<br><br>taller than One</p></div>
-							
-							</div>
-						
-						</div>
 						
 						<div class="col1">
 							
@@ -1455,8 +1800,232 @@
 							
 							<ul>
 								
-								<li>Full window</li>
-								<li>Full screen</li>
+								<li>Both <b>&lt;a href...</b> and <b>&lt;button...</b> supported.</li>
+
+							</ul>
+						
+						</div>
+					
+					</div>
+						
+				</div>
+		
+				<div id=lists data-tab-title=Lists>
+					
+					<div class='row'>
+						
+						<div class="col1">
+							
+							<h2>Lists</h2>
+						
+						</div>
+						
+						<div>
+							
+							<h3>Ordered</h3>
+												
+							<ol>
+							
+							<li> First item
+								
+								<ol>
+									
+									<li>First item sub item 1</li>
+								
+									<li>First item sub item 2</li>
+								
+								</ol>
+							
+							</li>
+								
+							<li>
+								
+								<h4>Second item</h4>
+								
+								<p>An in-house study at <b>Walmart.com</b> came out with the results that saw an up to 2% increase in conversions on the site for every single second of improvement on the load time. The accumulative growth of revenues went up to 1% for every 100 milliseconds of load time improvement.</p>
+								
+								<ol>
+									<li>
+										Second item's sub item 1
+									</li>
+							
+									<li>
+										Second item's sub item 2
+										<ol>
+											<li>Sub sub item</li>
+											<li>Another sub sub item</li>
+										</ol>
+									</li>
+								</ol>
+								
+							</li>
+						
+						</ol>
+						
+						</div>
+					
+						<div>
+							
+							<h3>Unordered</h3>
+							
+							<ul>
+							
+							<li>Unordered one</li>
+							<li>Unordered two
+							
+								<ul>
+									
+									<li>Nested one</li>
+									<li>Nested two</li>
+								
+								</ul>
+							</li>
+							<li>Unordered three</li>
+						
+						</ul>
+						
+						</div>
+						
+					</div>
+			
+				</div>
+				
+				<div data-tab-title=Slider>
+					
+					<div class='row' id=slider>
+						
+						<div class='col1'>
+							
+							<h2>Slider</h2>
+							
+						</div>
+						
+						<div class='col2'>
+							
+							<h3>Standard</h3>
+							
+							<div class='slider'>
+								
+								<div class='align-center'><p><br><br>One<br><br></p></div>
+								<div class='align-center'><p><br><br>Two<br><br></p></div>
+							
+							</div>
+<pre>						
+&lt;div class='slider'&gt;
+	&lt;div&gt;Slide 1&lt;/div&gt;
+	&lt;div&gt;Slide 2&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+						
+						</div>
+						
+						<div class='col2'>
+
+							
+							<h3>Controls on top</h3>
+							
+							<div class='slider top'>
+								
+								<div class='align-center'><p><br><br>One<br><br></p></div>
+								<div class='align-center' style="background: lightcoral;"><p><br><br>Two<br><br></p></div>
+								<div class='align-center'><p><br><br>Three<br><br></p></div>
+							
+							</div>
+						
+<pre>						
+&lt;div class='slider top'&gt;
+	&lt;div&gt;Slide 1&lt;/div&gt;
+	&lt;div&gt;Slide 2&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+						</div>
+						
+						<div class='col2'>
+							
+							<h3>Vertical</h3>
+							
+							<div class='slider vertical'>
+								
+								<div class='align-center'><p><br><br>One<br><br></p></div>
+								<div class='align-center'><p><br><br>Two<br><br></p></div>
+								<div class='align-center'><p><br><br>Three<br><br></p></div>
+							
+							</div>
+						
+<pre>						
+&lt;div class='slider vertical'&gt;
+	&lt;div&gt;Slide 1&lt;/div&gt;
+	&lt;div&gt;Slide 2&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+						</div>
+							
+						<div class='col2'>
+
+							<h3>Vertical with controls on the right</h3>
+							
+							<div class='slider vertical right'>
+								
+								<div class='align-center'><p><br><br>One<br><br></p></div>
+								<div class='align-center'><p><br><br>Two<br><br></p></div>
+							
+							</div>
+						
+<pre>						
+&lt;div class='slider vertical right'&gt;
+	&lt;div&gt;Slide 1&lt;/div&gt;
+	&lt;div&gt;Slide 2&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+						</div>
+							
+						<div class='col2'>
+							
+							<h3>Padded (controls outside of content)</h3>
+							
+							<div class='slider pad'>
+								
+								<div><p>One</p></div>
+								<div><p>Two</p></div>
+							
+							</div>
+						
+<pre>						
+&lt;div class='slider pad'&gt;
+	&lt;div&gt;Slide 1&lt;/div&gt;
+	&lt;div&gt;Slide 2&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+						</div>
+
+						<div class='col2'>
+
+							<h3>Auto height</h3>
+							
+							<div class='slider auto-height pad'>
+								
+								<div class='align-center'><p>One</p></div>
+								<div class='align-center'><p><br><br>Two<br><br>taller than One</p></div>
+							
+							</div>
+						
+<pre>						
+&lt;div class='slider auto-height pad'&gt;
+	&lt;div&gt;Slide 1&lt;/div&gt;
+	&lt;div&gt;Slide 2&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+						</div>
+						
+						<div class='col1'>
+							
+							<h3>Options</h3>
+							
+							<ul>
+								
+								<li>Full window: <b>&lt;div class='slider full-window'&gt;</b></li>
+								<li>Full screen: <b>&lt;div class='slider full-screen'&gt;</b></li>
+								<li>Slide duration <b>&lt;div class='slider' data-duration=1&gt;</b> in seconds. Default is <b>.2</b>.</li>
 							
 							</ul>
 						
@@ -1468,43 +2037,43 @@
 				
 				<div data-tab-title=Tabs>
 					
-					<div class="row">
+					<div class='row'>
 						
-						<div class="col1">
+						<div class='col1'>
 					
 							<h2 id=tabs>Tabs</h2>
 					
 						</div>
 						
-						<div class="col2">
+						<div class='col2'>
 
 							<h3>Horizontal tabs on top with auto height</h3>
 	
 							<div class='slider top tabs auto-height' data-duration=1>
 		
-		<div style="background: mintcream;"> <div class="pad"><h3 class="tab-title">Tab 1</h3> <p>Content of Tab 1</p></div> </div>
+		<div style='background: mintcream;'> <div class='pad'><h3 class='tab-title'>Tab 1</h3> <p>Content of Tab 1</p></div> </div>
 	
-		<div style="background: cyan;"> <div class="pad"><h3 class="tab-title">Tab 2</h3> <p>And the content of Tab 2 <br> new line <br> new line</p> </div></div>
+		<div style='background: cyan;'> <div class='pad'><h3 class='tab-title'>Tab 2</h3> <p>And the content of Tab 2 <br> new line <br> new line</p> </div></div>
 	
 	</div>
 						
 						</div>
 	
-						<div class="col2">
+						<div class='col2'>
 
 							<h3>Horizontal tabs at the bottom</h3>
 	
 							<div class='slider tabs'>
 								
-								<div> <h3 class="tab-title">Tab 1</h3> <p>Content of Tab 1</p> </div>
+								<div> <h3 class='tab-title'>Tab 1</h3> <p>Content of Tab 1</p> </div>
 							
-								<div> <h3 class="tab-title">Tab 2</h3> <p>And the content of Tab 2 <br> new line <br> new line</p> </div>
+								<div> <h3 class='tab-title'>Tab 2</h3> <p>And the content of Tab 2 <br> new line <br> new line</p> </div>
 							
 							</div>
 						
 						</div>
 						
-						<div class="col2">
+						<div class='col2'>
 	
 							<h3>Vertical tabs</h3>	
 		
@@ -1512,7 +2081,7 @@
 				
 				<div data-tab-title='Tab 1'>
 					
-					<p class="pad">Tab 1 content</p>
+					<p class='pad'>Tab 1 content</p>
 							
 				</div>
 				
@@ -1536,7 +2105,7 @@
 					
 						</div>
 	
-						<div class="col2">
+						<div class='col2'>
 
 							<h3>Vertical tabs on the right</h3>	
 		
@@ -1546,7 +2115,7 @@
 					
 		<!-- 								<p class=tab-title> Slider 2 Slide 1 </p> -->
 					
-					<p class="pad">Tab 1 content</p>
+					<p class='pad'>Tab 1 content</p>
 							
 				</div>
 				
@@ -1576,19 +2145,19 @@
 
 				<div id=form data-tab-title=Forms>
 					
-					<div class="row">
+					<div class='row'>
 						
-						<div class="col1">
+						<div class='col1'>
 					
 							<h2>Forms</h2>
 					
 						</div>
 
-						<div class="col2">
+						<div class='col2'>
 							
 							<h3>Wide</h3>
 	
-							<form action=# method=post target=_blank id=f novalidate class="wide">
+							<form action=# method=post target=_blank id=f novalidate class='wide'>
 								
 								<label class=mandatory>
 			
@@ -1636,7 +2205,7 @@
 			
 								</label>
 						
-								<label class="mandatory">
+								<label class='mandatory'>
 			
 									<span>Website</span>
 									<input name=URL id=URL type=url placeholder='URL of your website.'>
@@ -1660,7 +2229,7 @@
 			
 								</label> 
 						
-								<label class="select">
+								<label class='select'>
 			
 									<span>Country of residence</span>
 
@@ -1694,32 +2263,32 @@
 			
 								</label>
 
-								<div class="checkbox condition">
+								<div class='checkbox condition'>
 			
 									<span>Open disabled fieldset below</span>
 									<label>
-										<input name="checkbox" id="checkbox" type="checkbox"> <b class="checkbox-icon"></b>
+										<input name='checkbox' id='checkbox' type='checkbox'> <b class='checkbox-icon'></b>
 									</label>
 			
 								</div>
 								
-								<fieldset disabled="disabled">
+								<fieldset disabled='disabled'>
 									
 									<legend>Datalist examples</legend>
 
-									<input type="text" list="countries" placeholder="Datalist text">
+									<input type='text' list='countries' placeholder='Datalist text'>
 									
-									<datalist id="countries">
-										<option value="Afghanistan">Afghanistan</option>
-										<option value="Aland Islands">Aland Islands</option>
-										<option value="Albania">Albania</option>
+									<datalist id='countries'>
+										<option value='Afghanistan'>Afghanistan</option>
+										<option value='Aland Islands'>Aland Islands</option>
+										<option value='Albania'>Albania</option>
 									</datalist>
 								
-									<input type="date" list="days">
-									<datalist id="days">
-									  <option label="Independence Day">2013-07-04</option>
-									  <option label="Labor Day">2013-09-02</option>
-									  <option label="Columbus Day">2013-10-14</option>
+									<input type='date' list='days'>
+									<datalist id='days'>
+									  <option label='Independence Day'>2013-07-04</option>
+									  <option label='Labor Day'>2013-09-02</option>
+									  <option label='Columbus Day'>2013-10-14</option>
 									</datalist>
 								
 								</fieldset>
@@ -1731,7 +2300,7 @@
 							
 						</div>
 	
-						<div class="col2">
+						<div class='col2'>
 							
 							<h3>Mast</h3>
 							
@@ -1800,7 +2369,7 @@
 			
 								</label> 
 						
-								<label class="select">
+								<label class='select'>
 			
 									<span>Country of residence</span>
 	
@@ -1840,7 +2409,7 @@
 
 						</div>
 		
-						<div class="col2"> 
+						<div class='col2'> 
 							
 							<h3>Default</h3>
 							
@@ -1859,7 +2428,7 @@
 						
 						</div>
 						
-						<div class="col1">
+						<div class='col1'>
 							
 							<h3>Options</h3>
 								
@@ -1879,21 +2448,27 @@
 				
 				<div id=masonry data-tab-title=Masonry>
 					
-					<div class="row">
+					<div class='row'>
 						
 						<div>
 					
-							<h2>Masonry in CSS only</h2>
+							<h2>Masonry</h2>
 							
 							<div class='masonry'>
 								
 								<a class=align-center>A very long cell which demonstrates how Masonry arranges cells in optimised space.</a>
-								<a class=align-center>Cell</a>
+								<div class=align-center><a>Cell</a></div>
 								<a class=align-center>Cell</a>
 								<a class=align-center>Cell</a>
 								
 							</div>
-							
+
+<pre>
+&lt;div class='masonry'&gt;
+	&lt;div&gt;Item&lt;/div&gt;
+	...
+&lt;/div&gt;
+</pre>
 						</div>
 					
 					</div>
@@ -1902,89 +2477,147 @@
 				
 				<div data-tab-title=Cards>
 				
-					<div class="row">
+					<div class='row'>
 						
-						<div>
+						<div class="col1">
 					
 							<h2>Cards</h2>
+						
+						</div>
 							
-							<div id=cards>
-													
-								<div><div class="card">
-									
-									<div class="head image" style="background-image: url(images/DSC_4225.jpg)">
-										
-										<h3>Title</h3>
-									
-									</div>
-									
-									<div class="content">
-										
-										<p>Card content.</p>
-										
-										<a href=#>Link</a>.
-									
-									</div>
+						<div>
+							<h3>Standard</h3>
+							
+							<div class='card'>
+							
+								<div class='content'>
 								
-								</div></div>
-		
-								<div><div class="card">
-									
-									<div class="head">
-										
-										<h3>Title</h3>
-									
-									</div>
-									
-									<div class="content">
-										
-										<p>Card content.</p>
-										
-										<a href=#>Link</a>.
-									
-									</div>
+								<p>Card content.</p>
 								
-								</div></div>
-								
-								<div><div class="card">
-									
-									<img src=images/DSC_4225.jpg alt=Image>
-									
-									<div class="content">
-										
-										<p>Card content.</p>
-										
-										<a href=#>Link</a>.
-									
-									</div>
-								
-								</div></div>
+								<a href=#>Link</a>.
 							
 							</div>
-					
+						
+							</div>
+							
+<pre>
+&lt;div class='card'&gt;
+	&lt;div class='content'&gt; Content &lt;/div&gt;
+&lt;/div&gt;
+</pre>
 						</div>
 					
+						<div>
+							<h3>Card with headline</h3>
+							
+							<div class='card'>
+							
+								<div class='head'>
+									
+									<h3>Title</h3>
+								
+								</div>
+								
+								<div class='content'>
+									
+									<p>Card content.</p>
+									
+									<a href=#>Link</a>.
+								
+								</div>
+						
+							</div>
+
+<pre>
+&lt;div class='card'&gt;
+	&lt;div class='head'&gt; Headline &lt;/div&gt;
+	&lt;div class='content'&gt; Content &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+						</div>
+						
+						<div>
+							<h3>Card with image</h3>
+							
+							<div class='card'>
+							
+								<img src=images/DSC_4225.jpg alt=Image>
+							
+								<div class='content'>
+									
+									<p>Card content.</p>
+									
+									<a href=#>Link</a>.
+								
+								</div>
+							
+							</div>
+<pre>
+&lt;div class='card'&gt;
+	&lt;img src=image.jpg alt=Image&gt;
+	&lt;div class='content'&gt; Content &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+						</div>
+					
+						<div>
+							
+							<h3>Card with headline and image</h3>
+							
+							<div class='card'>
+							
+								<div class='head image' style='background-image: url(images/DSC_4225.jpg)'>
+									
+									<h3>Title</h3>
+								
+								</div>
+								
+								<div class='content'>
+									
+									<p>Card content.</p>
+									
+									<a href=#>Link</a>.
+								
+								</div>
+							
+							</div>
+<pre>
+&lt;div class='card'&gt;
+	&lt;div class='head image' style='background-image: url(image.jpg)'&gt; Headline &lt;/div&gt;
+	&lt;div class='content'&gt; Content &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+						</div>
+
 					</div>
 
 				</div>
 				
 				<div data-tab-title='Fixed background'>
 					
-					<div class="row">
+					<div class='row'>
 						
-						<div class="align-middle" style="min-height: 100vh;">
+						<div class='align-middle' style='min-height: 100vh;'>
 					
-							<div class="fixed-bg" style="background-image: url(images/DSC00470.jpg); color: #fff; background-color: #cb845a;">
+							<div class='fixed-bg' style='background-image: url(images/DSC00470.jpg); color: #fff; background-color: #cb845a;'>
 								
-								<div class="fixed-bg-image"></div>
+								<div class='fixed-bg-image'></div>
 								
-								<div class="pad">
+								<div class='pad'>
 
-									<br><br><br>
+									<br><br>
 			
 									<h2>Fixed background</h2>
-									
-									<div style="min-height: 100vh"></div>
+<pre>
+&lt;div class='fixed-bg' style='background-image: url(image.jpg);'&gt;
+	&lt;div class='fixed-bg-image'&gt;&lt;/div&gt;
+	...
+&lt;/div&gt;
+</pre>
+									<div style='min-height: 100vh'></div>
 									
 									<p>takes up the full window and is visible only through the current section.</p>
 								
@@ -2002,7 +2635,7 @@
 
 				<div data-tab-title='Footer'> 
 					
-					<div class="row">
+					<div class='row'>
 						
 						<div>
 					
@@ -2068,7 +2701,7 @@
 				
 				<div data-tab-title='Language selector'> 
 					
-					<div class="row">
+					<div class='row'>
 						
 						<div>
 							
@@ -2076,15 +2709,15 @@
 					
 							<form action=. method=get class=language>
 				
-								<label class="select">
+								<label class='select'>
 								
-									<select name="l">
+									<select name='l'>
 										
-										<option value="en">🇬🇧 English</option>
-										<option value="fr">🇫🇷 Français</option>
-										<option value="cn">🇨🇳 中文</option>
-										<option value="bg">🇧🇬 български</option>
-										<option value="jp">🇯🇵 日本</option>
+										<option value='en'>🇬🇧 English</option>
+										<option value='fr'>🇫🇷 Français</option>
+										<option value='cn'>🇨🇳 中文</option>
+										<option value='bg'>🇧🇬 български</option>
+										<option value='jp'>🇯🇵 日本</option>
 										
 												
 									</select>
@@ -2099,16 +2732,16 @@
 							
 							</form>
 							
-							<h3>Code</h3>
+
 <pre>
 &lt;form action=. method=get class=language&gt;
-	&lt;label class=&quot;select&quot;&gt;
-		&lt;select name=&quot;l&quot;&gt;
-			&lt;option value=&quot;en&quot;&gt;🇬🇧 English&lt;/option&gt;
-			&lt;option value=&quot;fr&quot;&gt;🇫🇷 Fran&ccedil;ais&lt;/option&gt;
-			&lt;option value=&quot;cn&quot;&gt;🇨🇳 &#20013;&#25991;&lt;/option&gt;
-			&lt;option value=&quot;bg&quot;&gt;🇧🇬 &#1073;&#1098;&#1083;&#1075;&#1072;&#1088;&#1089;&#1082;&#1080;&lt;/option&gt;
-			&lt;option value=&quot;jp&quot;&gt;🇯🇵 &#26085;&#26412;&lt;/option&gt;
+	&lt;label class='select'&gt;
+		&lt;select name='l'&gt;
+			&lt;option value='en'&gt;🇬🇧 English&lt;/option&gt;
+			&lt;option value='fr'&gt;🇫🇷 Fran&ccedil;ais&lt;/option&gt;
+			&lt;option value='cn'&gt;🇨🇳 &#20013;&#25991;&lt;/option&gt;
+			&lt;option value='bg'&gt;🇧🇬 &#1073;&#1098;&#1083;&#1075;&#1072;&#1088;&#1089;&#1082;&#1080;&lt;/option&gt;
+			&lt;option value='jp'&gt;🇯🇵 &#26085;&#26412;&lt;/option&gt;
 		&lt;/select&gt;
 	&lt;/label&gt;
 	&lt;noscript&gt;
@@ -2125,39 +2758,21 @@
 
 				<div data-tab-title='Parallax scrolling'> 
 					
-					<div class="row">
+					<div class='row'>
 						
 						<div>
 							
 							<h2>Parallax scrolling</h2>
-					
-							<form action=. method=get class=language>
-				
-								<label class="select">
-								
-									<select name="l">
-										
-										<option value="en">🇬🇧 English</option>
-										<option value="fr">🇫🇷 Français</option>
-										<option value="cn">🇨🇳 中文</option>
-										<option value="bg">🇧🇬 български</option>
-										<option value="jp">🇯🇵 日本</option>
-										
-												
-									</select>
-								
-								</label>
-																		
-								<noscript>
-								
-									<input type=submit value=▶>
-								
-								</noscript>
 							
-							</form>
-							
-							<h3>Code</h3>
+							<p><a href=//radogado.github.io/natuive/demos/swiss/ target="_blank">Open demo page</a>.</p>
+
 <pre>
+&lt;html class='parallax'&gt;
+    &lt;body&gt;
+        &lt;div class='parallax-back'&gt; ... &lt;/div&gt;
+        &lt;div class='parallax-front'&gt; ... &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
 </pre>
 						
 						</div>
@@ -2168,13 +2783,13 @@
 
 				<div data-tab-title='Scroll effects'> 
 					
-					<div class="row">
+					<div class='row'>
 						
 						<div>
 							
 							<h2>Scroll effects</h2>
 					
-							<h3>Code</h3>
+
 <pre>
 </pre>
 						
@@ -2186,13 +2801,13 @@
 
 				<div data-tab-title='URI parameters'> 
 					
-					<div class="row">
+					<div class='row'>
 						
 						<div>
 							
 							<h2>URI parameters</h2>
 					
-							<h3>Code</h3>
+
 <pre>
 </pre>
 						
@@ -2204,15 +2819,30 @@
 
 				<div data-tab-title='Notification bar'> 
 					
-					<div class="row">
+					<div class='row'>
 						
 						<div>
 							
 							<h2>Notification bar</h2>
 					
-							<h3>Code</h3>
+
 <pre>
+&lt;body&gt;
+    &lt;div class='notify'&gt; Message &lt;/div&gt;
+    ...
+&lt;/body&gt;
 </pre>
+<p>or</p>
+<pre>
+notify('Message');
+</pre>						
+<h3>Options</h3>
+							
+							<ul>
+								
+								<li>Fixed on top: <b>&lt;div class='notify fixed'&gt;</b> or <b>notify('Message', 'fixed');</b></li>
+							
+							</ul>
 						
 						</div>
 					
@@ -2222,13 +2852,13 @@
 
 				<div data-tab-title='Copy to clipboard'>
 					
-					<div class="row">
+					<div class='row'>
 						
 						<div>
 							
 							<h2>Copy to clipboard</h2>
 					
-							<h3>Code</h3>
+
 <pre>
 </pre>
 						
@@ -2240,13 +2870,13 @@
 
 				<div data-tab-title="'Back to top' button">
 					
-					<div class="row">
+					<div class='row'>
 						
 						<div>
 							
 							<h2>'Back to top' button</h2>
 					
-							<h3>Code</h3>
+
 <pre>
 </pre>
 						
@@ -2256,17 +2886,28 @@
 
 				</div>
 
-				<div data-tab-title="animate() function">
+				<div data-tab-title='animate() function'>
 					
-					<div class="row">
+					<div class='row'>
 						
 						<div>
 							
 							<h2>animate() function</h2>
 					
-							<h3>Code</h3>
+							<button onclick="animate(q('body'), '0% { opacity: 1; transform: translateX(0); } 50% { opacity: 0; transform: translateX(-100px); } 100% { opacity: 1;  transform: translateX(0); }', 2);">Animate now</button>
+
 <pre>
+animate(q('body'), 
+'0% { opacity: 1; transform: translateX(0); } 50% { opacity: 0; transform: translateX(-100px); } 100% { opacity: 1;  transform: translateX(0); }', 
+2);
 </pre>
+							<h3>Options</h3>
+							
+							<ul>
+								
+								<li>Callback function as a fourth parameter</li>
+							
+							</ul>
 						
 						</div>
 					
@@ -2278,7 +2919,8 @@
 			
 	</main>
 
-	<script src=dist/natuive.min.js type=text/javascript async></script>
+	<script src=src/script/natuive.js type=text/javascript></script>
+	<script src=src/script/natuive-slider.js type=text/javascript></script>
 
 </body>
 
