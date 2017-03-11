@@ -454,6 +454,20 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 	    
     }
 
+    .masonry.col4 {
+
+	    -moz-column-count: 5;
+	    -webkit-column-count: 5;
+	    column-count: 5;
+	    
+    }
+
+	ul.masonry {
+		
+		min-height: 0;
+
+	}
+
 .pad {
 	
 	padding: $line-height-em/2;

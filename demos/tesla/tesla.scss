@@ -130,10 +130,17 @@ footer a[href]:first-child {
 	
 }
 
+.slider-wrap {
+	
+	text-align: center;
+	
+}
+
 .slider-wrap.tabs > .slider-nav.row {
 	
     margin: 2em 0;
     justify-content: center;
+    display: inline-block;
 
 }
 

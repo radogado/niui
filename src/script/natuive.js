@@ -735,10 +735,6 @@ function openLightbox(e) {
 
 /*** Start ***/
 
-/* Add 'Back to top' button */
-
-q(q('footer > div > div') ? 'footer > div > div' : 'body').insertAdjacentHTML('beforeend', '<a class="backtotop" href="#">↑</a>');
-
 /* Animate anchor links */
 
 function getCumulativeOffset(obj) { // Offset from element to top of page
