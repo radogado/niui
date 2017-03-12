@@ -1737,8 +1737,10 @@ function init() {
 	
 	    el.style.position = 'static'; // dangerous with absolutely-positioned containers, which should be avoided anyway
 	    el.parentNode.style.position = 'relative'; // dangerous with absolutely-positioned containers, which should be avoided anyway
+/*
 	    t.style.top = (t.parentNode.offsetTop + t.parentNode.offsetHeight) + 'px';
 	    t.style.width = '100%';
+*/
 	
 	});
 	
