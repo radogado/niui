@@ -26,13 +26,14 @@
 		position: relative;
 		word-wrap: break-word;
 		width: calc(20% - #{$line-height-em});
+		--width: 1/5; // Minimum auto column width is 20%
 		padding: calc(#{$line-height-em/4});
 		margin: calc(#{$line-height-em/4});
 		flex-grow: 1;
 		text-align: left;
 		text-align: start;
 		box-sizing: content-box; // IE11 padding. To do: only for IE11-
-		min-width: 0; // FF flex-basis bug when a child is wider
+		min-width: 0; // FF flex-basis bug fix for when a column child is wider than the column
 
 	}
 	
@@ -66,176 +67,6 @@
 		
 	}
 
-/* colXY where the column takes up X/Y of space; colY means 1/Y */
-
-/*
-	// To do: Future CSS Variables grid with only 1 line per column variant
-	
-	.row > * {
-		
-		--spacing: #{$line-height-em};
-		flex-basis: calc(var(--width) * 100% - var(--spacing));
-
-	}
-	
-	.row.no-padding > * {
-		
-		--spacing: #{$line-height-em/2};
-		
-	}
-	
-	.row.no-spacing > * {
-		
-		--spacing: 0;
-		
-	}
-	
-	.row > .col23 {
-		
-		--width: 2/3; // or with inline style without the need for column classes
-		
-	}
-*/
-
-	.row > .col23 { // body used for rules override
-
-		flex-basis: calc(66.667% - #{$line-height-em}); // To do: spacing as CSS variable, which can be zeroed by the .no-spacing class
-
-	}
-	
-	.row > .col34 {
-
-		flex-basis: calc(75% - #{$line-height-em});
-
-	}
-
-	.row > .col4 {
-
-		flex-basis: calc(25% - #{$line-height-em});
-
-	}
-
-	.row > .col5 {
-
-		flex-basis: calc(20% - #{$line-height-em});
-
-	}
-
-	.row > .col25 {
-
-		flex-basis: calc(40% - #{$line-height-em});
-
-	}
-
-	.row > .col35 {
-
-		flex-basis: calc(60% - #{$line-height-em});
-
-	}
-
-	.row > .col45 {
-
-		flex-basis: calc(80% - #{$line-height-em});
-
-	}
-
-	.row > .col3 {
-
-		flex-basis: calc(33.333% - #{$line-height-em});
-
-	}
-
-	.row > .col2 {
-
-		flex-basis: calc(50% - #{$line-height-em});
-
-	}
-	
-	.row > .col1, .row > *:only-child:not([class^=col]) {
-
-		flex-basis: calc(100% - #{$line-height-em});
-
-	}
-	
-.row.no-spacing > * {
-	
-	padding: 0;
-	margin: 0;
-
-}
-	
-	.row.spacing-horizontal > * {
-		
-		margin: 0 $line-height-em/2;
-
-	}
-	
-	.row.spacing-vertical > * {
-		
-		margin: $line-height-em/2 0;
-
-	}
-	
-	.row.no-spacing > .col23 {
-	
-		flex-basis: 66.667%;
-	
-	}
-	
-	.row.no-spacing > .col34 {
-	
-		flex-basis: 75%;
-	
-	}
-	
-	.row.no-spacing > .col4 {
-	
-		flex-basis: 25%;
-	
-	}
-	
-	.row.no-spacing > .col5 {
-	
-		flex-basis: 20%;
-	
-	}
-	
-	.row.no-spacing > .col25 {
-	
-		flex-basis: 40%;
-	
-	}
-	
-	.row.no-spacing > .col35 {
-	
-		flex-basis: 60%;
-	
-	}
-	
-	.row.no-spacing > .col45 {
-	
-		flex-basis: 80%;
-	
-	}
-	
-	.row.no-spacing > .col3 {
-	
-		flex-basis: 33.333%;
-	
-	}
-	
-	.row.no-spacing > .col2 {
-	
-		flex-basis: 50%;
-	
-	}
-	
-	.row.no-spacing > .col1 {
-	
-		flex-basis: 100%;
-	
-	}
-
 	.row > * > img {
 		
 		display: block;
@@ -243,94 +74,139 @@
 		
 	}
 
-	@media screen and (max-width: 1024px) {
-	
-		.row > * {
-			
-			width: 25%;
-			flex-basis: calc(25% - #{$line-height-em});
-		
-		}
-	
-	}
-	
-	@media screen and (max-width: 768px) {
-	
-		.row > * {
-			
-			width: 33.333%;
-			flex-basis: calc(33.333% - #{$line-height-em});
-		
-		}
-	
-	}
-	
-	.row.no-padding, .row.no-padding > * {
-		
-		padding: 0;
-	
-	}
-	
-		.row.no-padding > .col23 { // To do: replace with CSS variables
-		
-			flex-basis: calc(66.667% - #{$line-height-em/2});
-		
-		}
-		
-		.row.no-padding > .col34 {
-		
-			flex-basis: calc(75% - #{$line-height-em/2});
-		
-		}
-		
-		.row.no-padding > .col4 {
-		
-			flex-basis: calc(25% - #{$line-height-em/2});
-		
-		}
-		
-		.row.no-padding > .col5 {
-		
-			flex-basis: calc(20% - #{$line-height-em/2});
-		
-		}
-		
-		.row.no-padding > .col25 {
-		
-			flex-basis: calc(40% - #{$line-height-em/2});
-		
-		}
-		
-		.row.no-padding > .col35 {
-		
-			flex-basis: calc(60% - #{$line-height-em/2});
-		
-		}
-		
-		.row.no-padding > .col45 {
-		
-			flex-basis: calc(80% - #{$line-height-em/2});
-		
-		}
-		
-		.row.no-padding > .col3 {
-		
-			flex-basis: calc(33.333% - #{$line-height-em/2});
-		
-		}
-		
-		.row.no-padding > .col2 {
-		
-			flex-basis: calc(50% - #{$line-height-em/2});
-		
-		}
-		
-		.row.no-padding > .col1, .row.no-padding > *:only-child:not([class^=col]) {
-		
-			flex-basis: calc(100% - #{$line-height-em/2});
-		
-		}
+/* colXY where the column takes up X/Y of space; colY means 1/Y */
 
+	// CSS Variables grid with only 1 line per column variant. To do: fallback.
+	
+	.row > .col23 {
+		
+		--width: 2/3; // or with inline style without the need for column classes
+		flex-basis: calc(66.667% - #{$line-height-em}); // Fallback for browsers not supporting CSS variables
+		
+	}
+
+	.row > .col34 {
+
+		--width: 3/4;
+		flex-basis: calc(75% - #{$line-height-em});
+
+	}
+
+	.row > .col4 {
+
+		--width: 1/4;
+		flex-basis: calc(25% - #{$line-height-em});
+
+	}
+
+	.row > .col5 {
+
+		--width: 1/5;
+		flex-basis: calc(20% - #{$line-height-em});
+
+	}
+
+	.row > .col25 {
+
+		--width: 2/5;
+		flex-basis: calc(40% - #{$line-height-em});
+
+	}
+
+	.row > .col35 {
+
+		--width: 3/5;
+		flex-basis: calc(60% - #{$line-height-em});
+
+	}
+
+	.row > .col45 {
+
+		--width: 4/5;
+		flex-basis: calc(80% - #{$line-height-em});
+
+	}
+
+	.row > .col3 {
+
+		--width: 1/3;
+		flex-basis: calc(33.333% - #{$line-height-em});
+
+	}
+
+	.row > .col2 {
+
+		--width: 1/2;
+		flex-basis: calc(50% - #{$line-height-em});
+
+	}
+	
+	.row > .col1, .row > *:only-child:not([class^=col]) { // .col1 or a single classless item
+
+		--width: 1;
+		flex-basis: calc(100% - #{$line-height-em});
+
+	}
+
+	@supports (--a: 1) {
+		
+		// Overwrite the fallback flex-basis with CSS variable
+		.row > *, .row > *[class^=col] {
+			
+			--spacing: #{$line-height-em};
+			flex-basis: calc(var(--width) * 100% - var(--spacing));
+	
+		}
+		
+		@media screen and (max-width: 1024px) {
+		
+			.row > * {
+				
+				--width: 1/5;
+			
+			}
+		
+		}
+		
+		@media screen and (max-width: 900px) {
+		
+			.row > * {
+				
+				--width: 1/3;
+			
+			}
+		
+		}
+	
+		.row.no-padding, .row.no-padding > * {
+			
+			--spacing: $line-height-em/2;
+			padding: 0;
+			
+		}
+		
+		.row.no-spacing > * {
+			
+			--spacing: 0em;
+			padding: 0;
+			margin: 0;
+			
+		}
+		
+		.row.spacing-horizontal > * {
+			
+			margin: 0 $line-height-em/2;
+	
+		}
+		
+		.row.spacing-vertical > * {
+			
+			margin: $line-height-em/2 0;
+	
+		}
+	
+	}
+	
 .align-left, .align-right .align-left *, .align-left *, .row > .align-left {
 	
 	text-align: left;

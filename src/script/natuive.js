@@ -1753,7 +1753,7 @@ function init() {
 		}
 	
 	});
-
+	
 }
 
 ready( function () {

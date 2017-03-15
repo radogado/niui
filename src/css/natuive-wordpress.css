@@ -59,6 +59,7 @@ $bg: #1E8DaC;
   position: relative;
   word-wrap: break-word;
   width: calc(20% - 1.5em);
+  --width: 1/5;
   padding: calc(0.375em);
   margin: calc(0.375em);
   flex-grow: 1;
@@ -82,150 +83,76 @@ $bg: #1E8DaC;
   max-width: 100%;
   /* instead of overflow-x:hidden, which would also activate overflow-y:hidden and clip the tooltip */ }
 
-/* colXY where the column takes up X/Y of space; colY means 1/Y */
-/*
-	// To do: Future CSS Variables grid with only 1 line per column variant
-	
-	.row > * {
-		
-		--spacing: 1.5em;
-		flex-basis: calc(var(--width) * 100% - var(--spacing));
-
-	}
-	
-	.row.no-padding > * {
-		
-		--spacing: 0.75em;
-		
-	}
-	
-	.row.no-spacing > * {
-		
-		--spacing: 0;
-		
-	}
-	
-	.row > .col23 {
-		
-		--width: 2/3; // or with inline style without the need for column classes
-		
-	}
-*/
-.row > .col23 {
-  flex-basis: calc(66.667% - 1.5em); }
-
-.row > .col34 {
-  flex-basis: calc(75% - 1.5em); }
-
-.row > .col4 {
-  flex-basis: calc(25% - 1.5em); }
-
-.row > .col5 {
-  flex-basis: calc(20% - 1.5em); }
-
-.row > .col25 {
-  flex-basis: calc(40% - 1.5em); }
-
-.row > .col35 {
-  flex-basis: calc(60% - 1.5em); }
-
-.row > .col45 {
-  flex-basis: calc(80% - 1.5em); }
-
-.row > .col3 {
-  flex-basis: calc(33.333% - 1.5em); }
-
-.row > .col2 {
-  flex-basis: calc(50% - 1.5em); }
-
-.row > .col1, .row > *:only-child:not([class^=col]) {
-  flex-basis: calc(100% - 1.5em); }
-
-.row.no-spacing > * {
-  padding: 0;
-  margin: 0; }
-
-.row.spacing-horizontal > * {
-  margin: 0 0.75em; }
-
-.row.spacing-vertical > * {
-  margin: 0.75em 0; }
-
-.row.no-spacing > .col23 {
-  flex-basis: 66.667%; }
-
-.row.no-spacing > .col34 {
-  flex-basis: 75%; }
-
-.row.no-spacing > .col4 {
-  flex-basis: 25%; }
-
-.row.no-spacing > .col5 {
-  flex-basis: 20%; }
-
-.row.no-spacing > .col25 {
-  flex-basis: 40%; }
-
-.row.no-spacing > .col35 {
-  flex-basis: 60%; }
-
-.row.no-spacing > .col45 {
-  flex-basis: 80%; }
-
-.row.no-spacing > .col3 {
-  flex-basis: 33.333%; }
-
-.row.no-spacing > .col2 {
-  flex-basis: 50%; }
-
-.row.no-spacing > .col1 {
-  flex-basis: 100%; }
-
 .row > * > img {
   display: block;
   margin: 0 auto; }
 
-@media screen and (max-width: 1024px) {
-  .row > * {
-    width: 25%;
-    flex-basis: calc(25% - 1.5em); } }
-@media screen and (max-width: 768px) {
-  .row > * {
-    width: 33.333%;
-    flex-basis: calc(33.333% - 1.5em); } }
-.row.no-padding, .row.no-padding > * {
-  padding: 0; }
+/* colXY where the column takes up X/Y of space; colY means 1/Y */
+.row > .col23 {
+  --width: 2/3;
+  flex-basis: calc(66.667% - 1.5em); }
 
-.row.no-padding > .col23 {
-  flex-basis: calc(66.667% - 0.75em); }
+.row > .col34 {
+  --width: 3/4;
+  flex-basis: calc(75% - 1.5em); }
 
-.row.no-padding > .col34 {
-  flex-basis: calc(75% - 0.75em); }
+.row > .col4 {
+  --width: 1/4;
+  flex-basis: calc(25% - 1.5em); }
 
-.row.no-padding > .col4 {
-  flex-basis: calc(25% - 0.75em); }
+.row > .col5 {
+  --width: 1/5;
+  flex-basis: calc(20% - 1.5em); }
 
-.row.no-padding > .col5 {
-  flex-basis: calc(20% - 0.75em); }
+.row > .col25 {
+  --width: 2/5;
+  flex-basis: calc(40% - 1.5em); }
 
-.row.no-padding > .col25 {
-  flex-basis: calc(40% - 0.75em); }
+.row > .col35 {
+  --width: 3/5;
+  flex-basis: calc(60% - 1.5em); }
 
-.row.no-padding > .col35 {
-  flex-basis: calc(60% - 0.75em); }
+.row > .col45 {
+  --width: 4/5;
+  flex-basis: calc(80% - 1.5em); }
 
-.row.no-padding > .col45 {
-  flex-basis: calc(80% - 0.75em); }
+.row > .col3 {
+  --width: 1/3;
+  flex-basis: calc(33.333% - 1.5em); }
 
-.row.no-padding > .col3 {
-  flex-basis: calc(33.333% - 0.75em); }
+.row > .col2 {
+  --width: 1/2;
+  flex-basis: calc(50% - 1.5em); }
 
-.row.no-padding > .col2 {
-  flex-basis: calc(50% - 0.75em); }
+.row > .col1, .row > *:only-child:not([class^=col]) {
+  --width: 1;
+  flex-basis: calc(100% - 1.5em); }
 
-.row.no-padding > .col1, .row.no-padding > *:only-child:not([class^=col]) {
-  flex-basis: calc(100% - 0.75em); }
+@supports (--a: 1) {
+  .row > *, .row > *[class^=col] {
+    --spacing: 1.5em;
+    flex-basis: calc(var(--width) * 100% - var(--spacing)); }
 
+  @media screen and (max-width: 1024px) {
+    .row > * {
+      --width: 1/5; } }
+  @media screen and (max-width: 900px) {
+    .row > * {
+      --width: 1/3; } }
+  .row.no-padding, .row.no-padding > * {
+    --spacing: 0.75em;
+    padding: 0; }
+
+  .row.no-spacing > * {
+    --spacing: 0em;
+    padding: 0;
+    margin: 0; }
+
+  .row.spacing-horizontal > * {
+    margin: 0 0.75em; }
+
+  .row.spacing-vertical > * {
+    margin: 0.75em 0; } }
 .align-left, .align-right .align-left *, .align-left *, .row > .align-left {
   text-align: left;
   text-align: start; }
@@ -3277,7 +3204,7 @@ article ul {
   display: inline-block;
   vertical-align: middle;
   content: '';
-  padding-top: 17%; }
+  padding-top: 25vmin; }
 
 .img-crop h2, article h2 a[href] {
   display: inline-block;
