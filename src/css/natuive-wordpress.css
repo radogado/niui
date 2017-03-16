@@ -253,6 +253,32 @@ ul.masonry {
 .unpad-vertical {
   margin: -1.5em 0; }
 
+.row.border-all {
+  box-shadow: 0 0 0 2px #000;
+  margin: -0.75em 0; }
+
+.row.border-all > * {
+  margin: -0.375em 0.375em; }
+
+.row.border-all .row {
+  margin: 0 -0.75em;
+  width: calc(100% + 1.5em);
+  max-width: none; }
+
+.row.border-all .row > * {
+  box-shadow: 0 0 0 1px #000;
+  margin: 0; }
+
+.row.border-all .row .row {
+  margin: 0 -0.375em;
+  width: calc(100% + 0.75em); }
+
+.row.border-all .row .row:first-child {
+  margin-top: -0.375em; }
+
+.row.border-all .row .row:last-child {
+  margin-bottom: -0.375em; }
+
 .row.border {
   border: 1px solid #e6e6e6;
   padding: 0; }
@@ -267,74 +293,6 @@ ul.masonry {
   /* Boxes inside grid cells */
   background: #fff;
   border: 1px solid #e6e6e6; }
-
-.row.border-all {
-  border: 1px solid;
-  padding: 0;
-  width: 100%;
-  margin: 0 auto; }
-
-.row.border-all > *, .row.border-all .row > * {
-  padding: 0.75em;
-  margin: 0; }
-
-.row.border-all > *:only-child {
-  flex: 0 0 100%; }
-
-.row.border-all > *:not(:first-child), .row.border-all .row > *:not(:first-child) {
-  border-left: 1px solid; }
-
-[dir=rtl] .row.border-all > *:not(:first-child), [dir=rtl] .row.border-all .row > *:not(:first-child) {
-  border-right: 1px solid;
-  border-left: none; }
-
-.row.border-all .row {
-  border-top: 1px solid;
-  padding-top: 0;
-  margin-top: -0.75em;
-  max-width: none;
-  margin-left: 0;
-  width: 100%;
-  margin-left: -0.75em; }
-
-.row.border-all .row .row {
-  margin-left: -0.75em;
-  width: calc(100% + 1.5em); }
-
-[dir=rtl] .row.border-all .row {
-  margin-left: 0;
-  margin-right: -0.75em; }
-
-.row.border-all > :not(:first-child), .row.border-all .row > :not(:first-child) {
-  border-left: 1px solid;
-  margin-left: -1px; }
-
-.row.border-all > :only-child {
-  flex: 0 0 100%; }
-
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-  .row.border-all .row {
-    margin-left: -0.75em; } }
-.row.border-all * .row:not(:first-child) {
-  margin-top: 0;
-  margin-bottom: 0; }
-
-.row.border-all .row:first-child {
-  border-top: none; }
-
-.row.border-all .row:last-child {
-  margin-bottom: -0.75em; }
-
-.row.border-all .row .row:last-child {
-  margin-bottom: -0.75em; }
-
-.row.border-all .row.border-off > * {
-  border: none; }
-
-.row.border-all .row > .col1, .row.border-all .row > *:only-child:not([class^=col]) {
-  width: 100%;
-  flex-basis: calc(100% - 1.5em);
-  flex-grow: 1; }
 
 .row > .vertical-row {
   display: flex;

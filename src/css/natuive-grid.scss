@@ -370,6 +370,53 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 
 	}
 
+.row.border-all {
+	
+	box-shadow: 0 0 0 2px #000;
+	margin: -$line-height-em/2 0;
+	
+}
+
+.row.border-all > * {
+
+	margin: -$line-height-em/4 $line-height-em/4;
+
+}
+
+.row.border-all .row {
+	
+	margin: 0 -#{$line-height-em/2};
+	width: calc(100% + #{$line-height-em});
+	max-width: none;
+	
+}
+
+.row.border-all .row > * {
+
+	box-shadow: 0 0 0 1px #000;
+	margin: 0;
+
+}
+
+.row.border-all .row .row {
+	
+	margin: 0 -#{$line-height-em/4};
+	width: calc(100% + #{$line-height-em/2});
+	
+}
+
+.row.border-all .row .row:first-child {
+	
+	margin-top: -#{$line-height-em/4};
+	
+}
+
+.row.border-all .row .row:last-child {
+	
+	margin-bottom: -#{$line-height-em/4};
+	
+}
+
 .row.border { // To do: Reduce the markup for this, try with box-shadow instead of border
 
 	border: 1px solid #e6e6e6;
@@ -394,131 +441,6 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 		background: #fff;
 		border: 1px solid #e6e6e6;
 		
-	}
-	
-	.row.border-all {
-		
-		border: 1px solid;
-		padding: 0;
-// 		margin: 0;
-		width: 100%;
-		margin: 0 auto;
-
-	}
-	
-	.row.border-all > *, .row.border-all .row > * {
-		
-		padding: $line-height-em/2;
-		margin: 0;
-		
-		
-	}
-	
-	.row.border-all > *:only-child {
-		
-		flex: 0 0 100%;
-		
-	}
-	
-	.row.border-all > *:not(:first-child), .row.border-all .row > *:not(:first-child) {
-		
-		border-left: 1px solid;
-		
-	}
-	
-	[dir=rtl] .row.border-all > *:not(:first-child), [dir=rtl] .row.border-all .row > *:not(:first-child) {
-		
-		border-right: 1px solid;
-		border-left: none;
-		
-	}
-	
-	.row.border-all .row {
-		
-		border-top: 1px solid;
-		padding-top: 0;
-		margin-top: -$line-height-em/2;
-		max-width: none;
-		margin-left: 0;
-		width: 100%;
-		margin-left: -$line-height-em/2; // Buggy in Android Browser
-		
-	}
-	
-	.row.border-all .row .row {
-		
-		margin-left: -$line-height-em/2;
-		width: calc(100% + #{$line-height-em});
-		
-	}
-
-	[dir=rtl] .row.border-all .row {
-		
-		margin-left: 0;
-		margin-right: -$line-height-em/2;
-		
-	}
-	
-	.row.border-all > :not(:first-child), .row.border-all .row > :not(:first-child) {
-		
-		border-left: 1px solid;
-		margin-left: -1px;
-
-	}
-	
-	.row.border-all > :only-child {
-		
-		flex: 0 0 100%;
-		
-	}
-	
-	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-
-		.row.border-all .row {
-			
-			margin-left: -$line-height-em/2;
-			
-		}
-
-	}
-
-	.row.border-all * .row:not(:first-child) {
-		
-		margin-top: 0;
-		margin-bottom: 0
-		
-	}
-
-	.row.border-all .row:first-child {
-		
-		border-top: none;
-		
-	}
-
-	.row.border-all .row:last-child {
-		
-		margin-bottom: -$line-height-em/2;
-
-	}
-	
-	.row.border-all .row .row:last-child {
-		
-		margin-bottom: -$line-height-em/2;
-		
-	}
-	
-	.row.border-all .row.border-off > * {
-		
-		border: none;
-
-	}
-	
-	.row.border-all .row > .col1, .row.border-all .row > *:only-child:not([class^=col]) {
-
-		width: 100%;
-		flex-basis: calc(100% - #{$line-height-em});
-		flex-grow: 1;
-
 	}
 
 .row > .vertical-row { // Split a column vertically
