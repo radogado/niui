@@ -1,8 +1,49 @@
-@import url('//fonts.googleapis.com/css?family=Open+Sans');
-@import url('//fonts.googleapis.com/css?family=Abril+Fatface');
+@font-face {
+
+  font-family: 'Font';
+  src: url('font-regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+
+  font-family: 'Font';
+  src: url('font-italic.woff2') format('woff2');
+  font-weight: normal;
+  font-style: italic;
+
+}
+
+@font-face {
+
+  font-family: 'Font';
+  src: url('font-bold-italic.woff2') format('woff2');
+  font-weight: bold;
+  font-style: italic;
+
+}
+
+@font-face {
+
+  font-family: 'Font';
+  src: url('font-bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+
+}
 
 body {
 
+  font-family: 'Font';
+
+}
+
+header nav {
+	
+	text-transform: uppercase;
+	font-weight: bold;
 
 }
 
@@ -10,5 +51,54 @@ footer {
 	
 	background: #000;
 	color: #fff;
+
+}
+
+.banner .row .row {
+	
+	background: #AD2C1E;
+	color: #fff;
+	border-radius: 20px;
+	padding: 20px;
+
+}
+
+.content--brand-green {
+	
+	background-color: #6FB89B;
+	color: #fff;
+
+}
+
+.content--brand-orange {
+	
+	background-color: #D3582E;
+	color: #fff;
+
+}
+
+.content--brand-black {
+	
+	background-color: #000;
+	color: #fff;
+
+}
+
+.partners img {
+	
+	height: 4em;
+	margin: 1em;
+
+}
+
+a.button[href] {
+
+	border: solid 3px #D3582E;
+	background: #fff;
+	color: #D3582E;
+	border-radius: 12px;
+	padding: .7rem 1.1rem;
+	text-transform: uppercase;
+	letter-spacing: .1em;
 
 }
