@@ -7,7 +7,7 @@ var scripts_location = document.getElementsByTagName('script');
 scripts_location = scripts_location[scripts_location.length-1].src;
 scripts_location = scripts_location.slice(0, scripts_location.length - scripts_location.split('/').pop().length);
 
-addClass(q('body'), 'js');
+// addClass(q('body'), 'js');
 
 // DOM functions
 
@@ -470,7 +470,6 @@ function openFullWindow(el) {
 	var offset_top = q('html').getBoundingClientRect().top;
 	q('html').setAttribute('data-offset', offset_top); // Remember the page position.
     addClass(q('html'), 'nooverflow');
-// 	q('body').scrollTop = -1 * offset_top; // Move it back after nooverflow has reset it to 0.
 
 	if (typeof el === 'string') {
 
@@ -500,36 +499,24 @@ function openFullWindow(el) {
 
 	if (el.querySelector('.full-screen')) {
 
-/*
-		addEventHandler(document, 'fullscreenchange', function () {
-			
-		    q('.full-window-wrap .slider').focus();
-		    q('html').onkeyup = keyUpClose;
-			
-		});
-*/
-
 		if (full_window.webkitRequestFullScreen) { 
 			
 			full_window.webkitRequestFullScreen(); 
-			return false; 
 		
 		}
 		if (full_window.mozRequestFullScreen) { 
 			
 			full_window.mozRequestFullScreen(); 
-			return false; 
 		
 		}
 		if (full_window.requestFullScreen) {
 			
 			full_window.requestFullScreen(); 
-			return false; 
 		
 		}
 	
 	}
-		
+
     return false;
 	
 }
@@ -1246,14 +1233,9 @@ function animationSupport() {
 
 function animate(el, animation, duration, callback) {
 
-// To do: add animation-fill-mode: forwards to keep the end state; old browsers support without animation, just call the callback function
-	if (q('.animation-code')) { // Animation in progress
-		
-		return;
+// To do: add animation-fill-mode: forwards to keep the end state
 
-	}
-
-	if (!animationSupport()) { // No CSS animation support. To do: Not working in IE8, because it needs 'undefined', but JSLint/Closure needs undefined without quotes.
+	if (!animationSupport()) { // No CSS animation support
 		
 		callback();
 
@@ -1261,10 +1243,10 @@ function animate(el, animation, duration, callback) {
 
 		el.addEventListener(animationEndEvent, function animationEndHandler(e) {
 			
-			var el = e.target;
-			el.style.pointerEvents = '';
-			removeClass(el, q('.animation-code').getAttribute('data-class'));
-			q('.animation-code').outerHTML = '';
+			stopEvent(e);
+			var el = e.target; 
+			q('head').removeChild(q('.' + el.getAttribute('data-animation')));
+			el.removeAttribute('data-animation');
 	 		el.removeEventListener(animationEndEvent, animationEndHandler);
 			if (typeof callback === 'function') {
 		
@@ -1274,14 +1256,12 @@ function animate(el, animation, duration, callback) {
 		
 		}, false);
 	
-		var animation_name = 'a' + new Date().getTime(); // Unique animation name for more animate() as callback
+		var animation_name = 'a' + new Date().getTime(); // Unique animation name
 		var styles = document.createElement('style');
-		styles.innerHTML = '@keyframes ' + animation_name + ' {' + animation + '} .' + animation_name + ' { animation-name: ' + animation_name + '; animation-duration: ' + duration + 's; }'; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
+		styles.innerHTML = '@keyframes ' + animation_name + ' {' + animation + '} [data-animation=' + animation_name + '] { animation-name: ' + animation_name + '; animation-duration: ' + duration + 's; }'; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
 		q('head').appendChild(styles);
-		addClass(styles, 'animation-code');
-		styles.setAttribute('data-class', animation_name);
-		addClass(el, animation_name);
-		el.style.pointerEvents = 'none';
+		addClass(styles, animation_name);
+		el.setAttribute('data-animation', animation_name);
 	
 	}
 	

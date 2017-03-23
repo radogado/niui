@@ -185,6 +185,13 @@
 			
 		}
 		
+		.row.no-margin, .row.no-margin > * {
+			
+			--spacing: $line-height-em/2;
+			margin: 0;
+			
+		}
+		
 		.row.no-spacing > * {
 			
 			--spacing: 0em;

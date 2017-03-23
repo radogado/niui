@@ -97,8 +97,43 @@ a.button[href] {
 	background: #fff;
 	color: #D3582E;
 	border-radius: 12px;
-	padding: .7rem 1.1rem;
+	padding: 0.7rem 1.1rem .5rem 1.1rem;
 	text-transform: uppercase;
-	letter-spacing: .1em;
+	letter-spacing: .15em;
+	box-shadow: 0 4px 6px rgba(50,50,93,0.18), 0 1px 3px rgba(27,26,25,0.1);
 
+}
+
+a.button[href].primary, input[type=submit] {
+	
+    background-color: #D3582E;
+    color: #fff;
+	
+}
+
+.content a.button[href] {
+	
+	border-color: transparent;
+	
+}
+
+.content.content--brand-orange a.button[href] {
+	
+	background-color: #6FB89B;
+	color: #fff;
+	
+}
+
+.content img {
+	
+	border-radius: 50%;
+	border: .75em solid #6FB89B;
+
+}
+
+.content .row .row {
+	
+	background: #fff;
+	border-radius: 20px;
+	
 }

@@ -307,6 +307,12 @@ a[href].span-relative-parent {
 	
 }
 
+[data-animation] { // Speed up animated elements
+	
+	pointer-events: none;
+
+}
+
 /* Narrow Screens */
 
 @media screen and (max-width: $screen-narrow) {

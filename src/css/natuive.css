@@ -142,6 +142,10 @@ $bg: #1E8DaC;
     --spacing: 0.75em;
     padding: 0; }
 
+  .row.no-margin, .row.no-margin > * {
+    --spacing: 0.75em;
+    margin: 0; }
+
   .row.no-spacing > * {
     --spacing: 0em;
     padding: 0;
@@ -2843,6 +2847,9 @@ a[href].span-relative-parent {
   right: 0;
   bottom: 0;
   left: 0; }
+
+[data-animation] {
+  pointer-events: none; }
 
 /* Narrow Screens */
 @media screen and (max-width: 600px) {
