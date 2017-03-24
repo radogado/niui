@@ -1953,18 +1953,19 @@ $bg: #1E8DaC;
   top: auto;
   left: 0;
   right: 0;
-  display: none;
   cursor: default;
   overflow: hidden;
   z-index: 999;
   text-align: left;
+  visibility: hidden;
   opacity: 0;
+  transition: opacity .2s ease-in-out;
   width: 20em;
   line-height: 1.15385; }
 
 .tool.open .tip, html:not(.can-touch) .tool:hover .tip {
   opacity: 1;
-  display: block;
+  visibility: visible;
   top: 100%; }
 
 /* natUIve – Slider */
