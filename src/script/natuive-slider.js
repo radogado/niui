@@ -177,10 +177,17 @@ function endSlide (slider, index) {
 	slider.style.pointerEvents = '';
 
 	window.onkeyup = sliderKeyboard;
-    setTimeout(function () { 
+    setTimeout(function () {
 
 	    removeClass(q('html'), 'sliding_now');
-	    mouseEvents(slider); 
+	    mouseEvents(slider);
+/*
+	    if (!q('.full-window-wrap')) { // Fix embedded fixed background in a slider, but only if not full screen, becuase then active slide is hidden
+
+		    slider.style.cssText = ''; 
+	    
+	    }
+*/
 
 	}, q('html').getAttribute('data-slide_duration')/2);
 	
