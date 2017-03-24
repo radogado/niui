@@ -234,11 +234,16 @@ video {
 			position: fixed;
 			background-size: cover;
 			background-position: center center;
-			transform: translate3d(0,0,0); // Force refresh while scrolling (iPad), fix missing image parts on (macOS Safari)
 			height: 100vh; // Mobile browser resize when hiding/showing toolbars
 		
 		}
 
+		.fixed-bg .fixed-bg-image:before {
+
+			transform: translate3d(0,0,0); // Force refresh while scrolling (iPad), fix missing image parts on (macOS Safari)
+
+		}
+		
 }
 
 @supports (-ms-ime-align:auto) { // Disable jumpy Edge

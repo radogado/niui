@@ -2048,11 +2048,8 @@ $bg: #1E8DaC;
   /* IE8 fix */
   position: relative;
   -webkit-overflow-scrolling: touch;
-  -webkit-transform: translate3d(0, 0, 0);
-  /* fast, hardware-accelerated scrolling */
   -ms-overflow-style: none;
   /* No scrollbars on IE10+ */
-  -webkit-transform-style: preserve-3d;
   left: 0;
   -webkit-animation-timing-function: ease;
   -webkit-animation-iteration-count: 1;
@@ -2060,10 +2057,12 @@ $bg: #1E8DaC;
   animation-timing-function: ease;
   animation-iteration-count: 1;
   animation-duration: .4s;
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
-  transform-style: preserve-3d;
+  /*
+  	-webkit-transform-style: preserve-3d;
+  	-moz-transform-style: preserve-3d;
+  	-ms-transform-style: preserve-3d;
+  	transform-style: preserve-3d;
+  */
   transition: none;
   display: flex;
   min-height: 4em; }
@@ -2810,8 +2809,10 @@ video {
     position: fixed;
     background-size: cover;
     background-position: center center;
-    transform: translate3d(0, 0, 0);
-    height: 100vh; } }
+    height: 100vh; }
+
+  .fixed-bg .fixed-bg-image:before {
+    transform: translate3d(0, 0, 0); } }
 @supports (-ms-ime-align: auto) {
   .fixed-bg {
     background-size: cover; }

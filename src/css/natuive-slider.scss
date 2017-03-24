@@ -106,9 +106,8 @@
 	word-wrap: normal; /* IE8 fix */
 	position: relative;
 	-webkit-overflow-scrolling: touch;
-    -webkit-transform: translate3d(0, 0, 0); /* fast, hardware-accelerated scrolling */
+//     -webkit-transform: translate3d(0, 0, 0); // fast, hardware-accelerated scrolling
 	-ms-overflow-style: none; /* No scrollbars on IE10+ */
-	-webkit-transform-style: preserve-3d;
 	left: 0;
 
 	-webkit-animation-timing-function: ease;
@@ -118,10 +117,12 @@
 	animation-iteration-count: 1;
 	animation-duration: .4s;
 
+/*
 	-webkit-transform-style: preserve-3d;
 	-moz-transform-style: preserve-3d;
 	-ms-transform-style: preserve-3d;
 	transform-style: preserve-3d;
+*/
 
 	transition: none;
 
