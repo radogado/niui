@@ -432,39 +432,44 @@ function keyUpClose(e) {
 function closeFullWindow() {
 	
 	var full_window = q('.full-window-wrap');
-    if (full_window) {
-		
-		if (full_window_content) { // Remove disposable generated content
 
-			 // If lightbox/slider, crashes iOS Safari. not crashing with an empty div
-			full_window.parentNode.removeChild(full_window);
-			full_window_content = null;
+	if (full_window) {
 
-				
-		} else { // or keep previously existing content
-
-			full_window.parentNode.replaceChild(full_window.querySelector('.content > *'), full_window);
-		
-		}
-
-	    removeClass(q('html'), 'nooverflow');
-    	q('body').scrollTop = q('html').scrollTop = -1 * q('html').getAttribute('data-offset');
-    	q('html').removeAttribute('data-offset');	
-
-		removeEventHandler(window, 'keydown', arrow_keys_handler);
-		removeEventHandler(window, 'keyup', keyUpClose);
-		if (!q('.slider')) { // No sliders on the page to control with arrow keys
-		
-			document.onkeyup = function () {};
+		animate(full_window, '0% { transform: translate3d(0,0,0) } 100% { transform: translate3d(0,-100vh,0) }', .2, function (e) {
+	
+			if (full_window_content) { // Remove disposable generated content
+	
+				 // If lightbox/slider, crashes iOS Safari. not crashing with an empty div
+				full_window.parentNode.removeChild(full_window);
+				full_window_content = null;
+	
+					
+			} else { // or keep previously existing content
+	
+				full_window.parentNode.replaceChild(full_window.querySelector('.content > *'), full_window);
 			
-		}
-		
-    }
+			}
+	
+		    removeClass(q('html'), 'nooverflow');
+	    	q('body').scrollTop = q('html').scrollTop = -1 * q('html').getAttribute('data-offset');
+	    	q('html').removeAttribute('data-offset');	
+	
+			removeEventHandler(window, 'keydown', arrow_keys_handler);
+			removeEventHandler(window, 'keyup', keyUpClose);
+			if (!q('.slider')) { // No sliders on the page to control with arrow keys
+			
+				document.onkeyup = function () {};
+				
+			}
+				
+		});
+
+	}
     
 }
 
 function openFullWindow(el) {
-	
+
 	closeFullWindow();
 	
 	var offset_top = q('html').getBoundingClientRect().top;
@@ -516,7 +521,9 @@ function openFullWindow(el) {
 		}
 	
 	}
-
+	
+	animate(full_window, '0% { transform: translate3d(0,-100vh,0) } 100% { transform: translate3d(0,0,0) }');
+	
     return false;
 	
 }
@@ -524,8 +531,6 @@ function openFullWindow(el) {
 function modalWindow(e) {
 
     // Modal window of an external file
-
-	openFullWindow('...');
 
     var el = eventElement(e);
 
@@ -1231,7 +1236,7 @@ function animationSupport() {
 
 }
 
-function animate(el, animation, duration, callback) {
+function animate(el, animation, duration, callback) { // Default duration = .2s, callback optional
 
 // To do: add animation-fill-mode: forwards to keep the end state
 
@@ -1255,10 +1260,10 @@ function animate(el, animation, duration, callback) {
 			}
 		
 		}, false);
-	
+
 		var animation_name = 'a' + new Date().getTime(); // Unique animation name
 		var styles = document.createElement('style');
-		styles.innerHTML = '@keyframes ' + animation_name + ' {' + animation + '} [data-animation=' + animation_name + '] { animation-name: ' + animation_name + '; animation-duration: ' + duration + 's; }'; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
+		styles.innerHTML = '@keyframes ' + animation_name + ' {' + animation + '} [data-animation=' + animation_name + '] { animation-name: ' + animation_name + '; animation-duration: ' + ((typeof duration === 'undefined') ? .2 : duration) + 's; }'; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
 		q('head').appendChild(styles);
 		addClass(styles, animation_name);
 		el.setAttribute('data-animation', animation_name);
@@ -1319,7 +1324,7 @@ function toggleAccordion(e) {
 	} else {
 		
 		toggleClass(el, 'open');
-		animate(content, '0% { max-height: ' + content_height + '; } 100% { max-height: ' + content.scrollHeight + 'px; }', .2);
+		animate(content, '0% { max-height: ' + content_height + '; } 100% { max-height: ' + content.scrollHeight + 'px; }');
 		
 	}
 
