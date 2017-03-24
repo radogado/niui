@@ -2114,7 +2114,7 @@ $bg: #1E8DaC;
 
 .slider > * {
   width: 100%;
-  display: inline-block;
+  display: none;
   white-space: normal;
   vertical-align: top;
   overflow: hidden;

@@ -174,6 +174,11 @@ function endSlide (slider, index) {
 	var slider_wrap = closest(slider, '.slider-wrap');
 	
 	addClass(childByClass(slider_wrap, 'slider-nav').children[index], 'active');
+// 	    if (!q('.full-window-wrap')) { // Fix embedded fixed background in a slider, but only if not full screen, becuase then active slide is hidden
+
+		    slider.style.cssText = ''; 
+	    
+// 	    }
 	slider.style.pointerEvents = '';
 
 	window.onkeyup = sliderKeyboard;
@@ -181,13 +186,6 @@ function endSlide (slider, index) {
 
 	    removeClass(q('html'), 'sliding_now');
 	    mouseEvents(slider);
-/*
-	    if (!q('.full-window-wrap')) { // Fix embedded fixed background in a slider, but only if not full screen, becuase then active slide is hidden
-
-		    slider.style.cssText = ''; 
-	    
-	    }
-*/
 
 	}, q('html').getAttribute('data-slide_duration')/2);
 	

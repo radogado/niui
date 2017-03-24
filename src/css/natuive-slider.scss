@@ -202,7 +202,7 @@
 .slider > * {
 
 	width: 100%;
-	display: inline-block;
+	display: none; // Only display .visible slides
 	white-space: normal;
 	vertical-align: top;
 	overflow: hidden;
