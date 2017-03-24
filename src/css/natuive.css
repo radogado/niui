@@ -2113,7 +2113,7 @@ $bg: #1E8DaC;
 
 .slider > * {
   width: 100%;
-  display: none;
+  display: inline-block;
   white-space: normal;
   vertical-align: top;
   overflow: hidden;
@@ -2125,6 +2125,9 @@ $bg: #1E8DaC;
   */
   margin: 0;
   flex: 1 0 auto; }
+
+.slider-wrap .slider > * {
+  display: none; }
 
 .full-window-wrap .slider > * {
   padding: 0; }
