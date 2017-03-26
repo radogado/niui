@@ -430,6 +430,7 @@
 	max-width: 100%;
 	max-height: 100%;
 	overflow: auto;
+	box-sizing: content-box; // For hard scrollbars (mouse without trackpad)
 	
 }
 

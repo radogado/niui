@@ -2259,7 +2259,8 @@ $bg: #1E8DaC;
   z-index: 1;
   max-width: 100%;
   max-height: 100%;
-  overflow: auto; }
+  overflow: auto;
+  box-sizing: content-box; }
 
 .top .slider-nav {
   bottom: auto;
