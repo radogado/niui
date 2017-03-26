@@ -520,9 +520,11 @@ function openFullWindow(el) {
 		
 		}
 	
+	} else {
+		
+		animate(full_window, '0% { transform: translate3d(0,-100vh,0) } 100% { transform: translate3d(0,0,0) }');
+
 	}
-	
-	animate(full_window, '0% { transform: translate3d(0,-100vh,0) } 100% { transform: translate3d(0,0,0) }');
 	
     return false;
 	

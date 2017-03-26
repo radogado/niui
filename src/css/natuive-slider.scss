@@ -427,6 +427,9 @@
 	left: 50%;
 	transform: translateX(-50%);
 	z-index: 1;
+	max-width: 100%;
+	max-height: 100%;
+	overflow: auto;
 	
 }
 
@@ -454,7 +457,9 @@
 	.vertical > .slider-nav {
 		
 		width: auto;
-		display: table;
+		display: flex;
+		flex-direction: column;
+		bottom: auto;
 		left: .5em;
 		padding: 1em 0;
 		top: 50%;

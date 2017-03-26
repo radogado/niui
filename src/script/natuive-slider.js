@@ -123,6 +123,12 @@ function mouseWheelHandler(e) {
 	}
 
 	var el = eventElement(e);
+	
+	if (closest(el, '.slider-nav')) {
+		
+		return;
+
+	}
 
     var deltaX = (e.deltaX * -10) || e.wheelDeltaX || -e.detail; // Firefox provides 'detail' with opposite value
     var deltaY = (e.deltaY * -10) || e.wheelDeltaY || -e.detail;
