@@ -137,7 +137,8 @@
 	overflow: visible;
 	// Fix Safari bug where 1px of previous slide is visible during slide
 	margin-left: -.5px;
-    width: calc(100% + 1px);
+//     width: calc(100% + 1px); // Eliminate unwanted pixels on the sides
+    width: 100%;
     padding: 0; // Because .slider.pad breaks the slider layout
 
 }
@@ -220,7 +221,8 @@
 
 .slider-wrap .slider > * {
 
-	display: none; // Only display .visible slides
+// 	display: none; // Only display .visible slides. Because if slider has transforms (showing only current slide while others are still in the flow), there are problems with its children of position fixed etc. Breaks non-auto height sliders, can't set to height to the tallest slide. Make it with margin-left after the animation is done.
+	display: inline-block;
 
 }
 

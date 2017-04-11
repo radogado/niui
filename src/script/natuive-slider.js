@@ -180,7 +180,14 @@ function endSlide (slider, index) {
 	var slider_wrap = closest(slider, '.slider-wrap');
 	
 	addClass(childByClass(slider_wrap, 'slider-nav').children[index], 'active');
-    slider.style.cssText = ''; 
+    slider.style.cssText = '';
+
+    if (!hasClass(slider, 'vertical')) {
+	    
+	    slider.style.marginLeft = -100*index + '%';
+	   
+	}
+
 	slider.style.pointerEvents = '';
 
 	window.onkeyup = sliderKeyboard;
@@ -347,6 +354,7 @@ function slide(el, method, index_number) {
 
 		addClass(slider, 'sliding');
 
+		slider.style.margin = 0;
 		animate(slider, animation_code, duration, function slideEndHandler(e) { // On slide end
 
 			removeClass(slider, 'sliding');
@@ -358,7 +366,7 @@ function slide(el, method, index_number) {
 	
 			}
 
-			slider.style.transform = hasClass(slider, 'vertical') ? 'translate3d(0, 0, 0)' : 'translate3d(' + offset_sign + index + '00%, 0, 0)';
+// 			slider.style.transform = hasClass(slider, 'vertical') ? 'translate3d(0, 0, 0)' : 'translate3d(' + offset_sign + index + '00%, 0, 0)';
 			slider.style.height = '';
 			endSlide(slider, index);
 

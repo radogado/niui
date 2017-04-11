@@ -2071,7 +2071,7 @@ $bg: #1E8DaC;
 .slider-wrap .slider {
   overflow: visible;
   margin-left: -.5px;
-  width: calc(100% + 1px);
+  width: 100%;
   padding: 0; }
 
 /*
@@ -2128,7 +2128,7 @@ $bg: #1E8DaC;
   flex: 1 0 auto; }
 
 .slider-wrap .slider > * {
-  display: none; }
+  display: inline-block; }
 
 .full-window-wrap .slider > * {
   padding: 0; }
@@ -3150,7 +3150,8 @@ iframe, article h2 a {
 .home article, .archive article, .search-results article {
   margin-bottom: 44px;
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+  padding-left: 2px; }
 
 article p {
   color: #000; }

@@ -137,3 +137,25 @@ a.button[href].primary, input[type=submit] {
 	border-radius: 20px;
 	
 }
+
+.speakers {
+	
+	color: #000;
+	
+}
+
+.speakers .row .row {
+	
+	width: 75%;
+	margin: 1em 0 1em 25%;
+	 
+}
+
+.speakers img {
+	
+	margin-top: -1em; 
+	position: absolute;
+	height: calc(100% + 2em);
+	margin-left: -25%;
+ 
+}
