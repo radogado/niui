@@ -2069,7 +2069,6 @@ $bg: #1E8DaC;
 
 .slider-wrap .slider {
   overflow: visible;
-  margin-left: -.5px;
   width: 100%;
   padding: 0; }
 
@@ -2117,7 +2116,6 @@ $bg: #1E8DaC;
   white-space: normal;
   vertical-align: top;
   overflow: hidden;
-  padding: 0 1px;
   /*
   	font-size: $font-size;
   	line-height: $line-height;
@@ -2144,7 +2142,7 @@ $bg: #1E8DaC;
 .slider-wrap .slider.sliding > *:not(.visible) {
   display: none; }
 
-.slider > *.visible, .lightbox.slider > *.visible > img {
+.slider > *.visible, .full-window-wrap .lightbox.slider > *.visible > img {
   display: inline-block; }
 
 .slider.vertical > img {
@@ -2348,8 +2346,7 @@ $bg: #1E8DaC;
   max-height: 100%;
   vertical-align: middle;
   margin: 0 auto;
-  display: block;
-  padding-bottom: 0 !important; }
+  display: block; }
 
 .slider.center > * {
   display: flex;
@@ -2404,9 +2401,16 @@ $bg: #1E8DaC;
   height: 100%; }
 
 .slider.lightbox > * {
-  height: 100%;
   text-align: center;
   position: relative; }
+
+.slider.lightbox.inline > * {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+
+.full-window-wrap .slider.lightbox > * {
+  height: 100%; }
 
 .slider.lightbox video {
   display: inline-block;
@@ -2415,10 +2419,12 @@ $bg: #1E8DaC;
   vertical-align: middle; }
 
 .slider.lightbox > *:before {
+  display: none; }
+
+.full-window-wrap .slider.lightbox > *:before {
   content: ' ';
   display: inline-block;
   vertical-align: middle;
-  /* vertical alignment of the inline element */
   height: 100%;
   position: static;
   width: 0; }
@@ -2434,7 +2440,7 @@ $bg: #1E8DaC;
   padding: .2em .5em;
   background: rgba(0, 0, 0, 0.4); }
 
-.lightbox.slider > * > img {
+.full-window-wrap .lightbox.slider > * > img {
   display: none; }
 
 .lightbox.slider > * > iframe {

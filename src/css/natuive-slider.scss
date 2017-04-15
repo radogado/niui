@@ -136,7 +136,7 @@
 	
 	overflow: visible;
 	// Fix Safari bug where 1px of previous slide is visible during slide
-	margin-left: -.5px;
+// 	margin-left: -.5px;
 //     width: calc(100% + 1px); // Eliminate unwanted pixels on the sides
     width: 100%;
     padding: 0; // Because .slider.pad breaks the slider layout
@@ -207,7 +207,7 @@
 	white-space: normal;
 	vertical-align: top;
 	overflow: hidden;
-	padding: 0 1px;
+// 	padding: 0 1px;
 /*
 	font-size: $font-size;
 	line-height: $line-height;
@@ -256,7 +256,7 @@
 
 }
 
-.slider > *.visible, .lightbox.slider > *.visible > img {
+.slider > *.visible, .full-window-wrap .lightbox.slider > *.visible > img {
 
 	display: inline-block;
 
@@ -568,7 +568,6 @@
     vertical-align: middle;
 	margin: 0 auto;
 	display: block;
-	padding-bottom: 0 !important;
 
 }
 

@@ -606,12 +606,25 @@ function openLightbox(e) {
 		el = e;
 	}
 	
-	openFullWindow('<div class="slider lightbox' + (hasClass(el.parentNode.parentNode, 'full-screen') ? ' full-screen' : '') + '"></div>');
-	q('.full-window-wrap').style.overflow = 'hidden';
+    var lightbox = closest(el, '.lightbox');
+
+	if (hasClass(lightbox, 'inline')) {
+		
+		lightbox.insertAdjacentHTML('afterend', '<div class="slider lightbox inline"></div>');
+		var lightbox_target = lightbox.parentNode.querySelector('.slider.lightbox');
+		lightbox.style.display = 'none';
+		
+		
+	} else {
+		
+		openFullWindow('<div class="slider lightbox' + (hasClass(lightbox, 'full-screen') ? ' full-screen' : '') + '"></div>');
+		q('.full-window-wrap').style.overflow = 'hidden';
+		var lightbox_target = q('.full-window-wrap .slider.lightbox');
+		
+	}
 	
     /* Add any <a><img> siblings with description to a .slider and initialise its controls */
     var images = '';
-    var lightbox = closest(el, '.lightbox');
 	var thumbnails = [];
     forEach(lightbox.querySelectorAll('a[href]'), function(el) {
 		
@@ -630,16 +643,18 @@ function openLightbox(e) {
 			return;
 			
 		}
-			
+		
 		var slide_link = document.location.protocol + '//' + document.location.hostname + document.location.pathname + '?image=' + el.href.split('/').pop() + '#' + lightbox.getAttribute('id');
-	    images += '<div><img data-src="' + el.href + '" alt="' + el.title + '" title="' + slide_link + '">' + (el.title ? ('<p>' + el.title + '</p>') : '') + '<a class="button copy" href=' + slide_link + '></a></div>';
 	    
+	    var link_element = (hasClass(lightbox,'inline')) ? '' : '<a class="button copy" href=' + slide_link + '></a>';
+	    
+	    images += '<div><img data-src="' + el.href + '" alt="' + el.title + '" title="' + slide_link + '">' + (el.title ? ('<p>' + el.title + '</p>') : '') + link_element + '</div>';
 
         // Attach onload event to each image to display it only when fully loaded and avoid top-to-bottom reveal?
 
     });
 
-    q('.slider.lightbox').innerHTML = images;
+    lightbox_target.innerHTML = images;
 
     if (typeof makeSlider === 'function') {
 
@@ -651,8 +666,8 @@ function openLightbox(e) {
 
         }
 
-        transferClass(anchor.parentNode, q('.full-window-wrap .slider'), 'vertical');
-        transferClass(anchor.parentNode, q('.full-window-wrap .slider'), 'right');
+        transferClass(anchor.parentNode, lightbox_target, 'vertical');
+        transferClass(anchor.parentNode, lightbox_target, 'right');
 
         // Load the images in the current slide and its neighbours
         while ( anchor.tagName.toLowerCase() != 'a' ) {
@@ -672,7 +687,7 @@ function openLightbox(e) {
 
 			if (typeof getURLParameters()['image'] != 'undefined') {
 
-				var target_image = q('.full-window-wrap .slider [data-src*="' + getURLParameters()['image'].split('#')[0] + '"]');
+				var target_image = lightbox_target.querySelector('[data-src*="' + getURLParameters()['image'].split('#')[0] + '"]');
 				if (target_image) {
 			        this_index = thisIndex(target_image.parentNode);
 			    }
@@ -680,18 +695,20 @@ function openLightbox(e) {
 		    }
 
         }
-        if (this_index > q('.full-window-wrap .slider').children.length - 1 || this_index < 1) {
+
+        if (this_index > lightbox_target.children.length - 1 || this_index < 1) {
 	        
 	        this_index = 0;
 	        
         }
-        populateLightbox(makeSlider(q('.full-window-wrap .slider'), this_index), this_index);
-        transferClass(anchor.parentNode, q('.full-window-wrap .slider-wrap'), 'thumbnails');
+        
+        populateLightbox(makeSlider(lightbox_target, this_index), this_index);
+        transferClass(anchor.parentNode, lightbox_target.parentNode, 'thumbnails');
         
         if (hasClass(anchor.parentNode, 'thumbnails')) {
         
 	        var i = 0;
-	        var nav = q('.full-window-wrap .slider-nav');
+	        var nav = closest(lightbox_target, '.slider-wrap').querySelector('.slider-nav');
 	        forEach(thumbnails, function (el) {
 
 		        nav.children[i].style.backgroundImage = 'url(' + thumbnails[i] + ')';
@@ -707,20 +724,8 @@ function openLightbox(e) {
     
     if (hasClass(q('html'), 'can-touch')) { // iOS Safari bug where the slider nav becomes instantly hidden, if you open it by tapping the first image.
     
-/*
-	    full_window_content.style.display = 'none';
-	    setTimeout(function () { full_window_content.style.display = 'block'; }, 100);
-*/
-	    
-	    animate(full_window_content, '0% { opacity: 0; } 100% { opacity: 1; }', .05);
+	    animate(lightbox_target, '0% { opacity: 0; } 100% { opacity: 1; }', .05);
 
-/*
-		var body = q('body');
-		q('body').outerHTML = '';
-		q('html').appendChild(body);
-		q('html').removeChild(q('body'));
-*/
-    
     }
 
     return false;
@@ -1687,17 +1692,28 @@ function init() {
 	
 	/* Also lightbox with images */
 	
-	forEach('.lightbox a', function(el, i) {
+	forEach('.lightbox', function(el, i) {
 	
 		/* Abort on IE, because of IE bug on dynamic img.src change */
 		if (navigator.userAgent.indexOf('MSIE') != -1 || navigator.userAgent.indexOf('Trident') != -1) {
 			
-			el.target = '_blank';		
 			return;
 	
 		}
-	
-	    el.onclick = openLightbox;
+		
+		if (hasClass(el, 'inline')) {
+			
+			openLightbox(el.querySelector('a'));
+			
+		} else {
+			
+			forEach(el.querySelectorAll('a'), function(el, i) {
+		
+			    el.onclick = openLightbox;
+			
+			});
+		
+		}
 	
 	});
 	
