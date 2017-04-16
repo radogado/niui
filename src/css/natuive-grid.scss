@@ -471,6 +471,7 @@ section:before, section:after { // Prevent inner edge margins from creating blan
     flex-direction: row;
     align-items: flex-start;
     overflow: hidden;
+    position: relative;
     
 }
 

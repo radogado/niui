@@ -1310,14 +1310,18 @@
 						<div class="col1">
 							
 							<h3> Inline </h3>
-								
-							<div id=lightbox class='lightbox inline thumbnails'>
 							
-								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/06/DSC00134.jpg title='First photo from Japan'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/06/DSC00134-88x88.jpg alt=1> </a>
+							<div class="aspect" style="--ratio: 1.67">
 								
-								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/06/DSC00193.jpg title='Second photo from Japan'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/06/DSC00193-88x88.jpg alt=2> </a>
+								<div id=lightbox class='lightbox inline thumbnails'>
+							
+								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916.jpg title='First photo from Paris'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916-88x88.jpg alt=2> </a>
 
-								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/06/DSC00229.jpg title='Third photo from Japan'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/06/DSC00229-88x88.jpg alt=2> </a>
+								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00894.jpg title='Second photo from Paris'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00894-88x88.jpg alt=1> </a>
+								
+								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00957.jpg title='Third photo from Paris'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00957-88x88.jpg alt=2> </a>
+							
+							</div>
 							
 							</div>
 			
@@ -1345,6 +1349,8 @@
 								
 								<li>Open automatically by URI: <b>https://site.com?image=DSC00193.jpg#lightboxid</b> or <b>https://site.com?slide=3#lightboxid</b></li>
 								<li>Captions from link title</li>
+								
+								<li>An inline lightbox inside an <b>.aspect</b> container will avoid page jump during initialisation</li>
 							
 							</ul>
 							

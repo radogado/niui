@@ -310,7 +310,8 @@ ul.masonry {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  overflow: hidden; }
+  overflow: hidden;
+  position: relative; }
 
 .aspect > img {
   max-width: 100%;
@@ -2029,6 +2030,10 @@ $bg: #1E8DaC;
   left: 0px;
   width: 100%;
   z-index: 1;
+  position: absolute; }
+
+.aspect > .slider-wrap {
+  height: 100%;
   position: absolute; }
 
 *:-webkit-full-screen .slider-wrap {
