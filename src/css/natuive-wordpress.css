@@ -2036,6 +2036,9 @@ $bg: #1E8DaC;
   height: 100%;
   position: absolute; }
 
+.aspect > .slider-wrap .slider {
+  height: 100%; }
+
 *:-webkit-full-screen .slider-wrap {
   background: #000; }
 
