@@ -727,12 +727,6 @@ function openLightbox(e) {
 
     window.addEventListener('keydown', arrow_keys_handler, false);
     
-    if (hasClass(q('html'), 'can-touch')) { // iOS Safari bug where the slider nav becomes instantly hidden, if you open it by tapping the first image.
-    
-	    animate(lightbox_target, '0% { opacity: 0; } 100% { opacity: 1; }', .05);
-
-    }
-
     return false;
 
 }

@@ -2453,7 +2453,8 @@ $bg: #1E8DaC;
 
 .lightbox.slider > * > iframe {
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  background: #fff; }
 
 .can-touch .lightbox.slider > * > iframe {
   pointer-events: none; }
