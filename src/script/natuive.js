@@ -1251,28 +1251,32 @@ function animate(el, animation, duration, callback) { // Default duration = .2s,
 		callback();
 
 	} else {
+		
+		if (!el.getAttribute('data-animation')) {
 
-		el.addEventListener(animationEndEvent, function animationEndHandler(e) {
+			el.addEventListener(animationEndEvent, function animationEndHandler(e) {
+				
+				stopEvent(e);
+				var el = e.target; 
+				q('head').removeChild(q('.' + el.getAttribute('data-animation')));
+				el.removeAttribute('data-animation');
+		 		el.removeEventListener(animationEndEvent, animationEndHandler);
+				if (typeof callback === 'function') {
 			
-			stopEvent(e);
-			var el = e.target; 
-			q('head').removeChild(q('.' + el.getAttribute('data-animation')));
-			el.removeAttribute('data-animation');
-	 		el.removeEventListener(animationEndEvent, animationEndHandler);
-			if (typeof callback === 'function') {
+					callback();
+			
+				}
+			
+			}, false);
+	
+			var animation_name = 'a' + new Date().getTime(); // Unique animation name
+			var styles = document.createElement('style');
+			styles.innerHTML = '@keyframes ' + animation_name + ' {' + animation + '} [data-animation=' + animation_name + '] { animation-name: ' + animation_name + '; animation-duration: ' + ((typeof duration === 'undefined') ? .2 : duration) + 's; }'; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
+			q('head').appendChild(styles);
+			addClass(styles, animation_name);
+			el.setAttribute('data-animation', animation_name);
 		
-				callback();
-		
-			}
-		
-		}, false);
-
-		var animation_name = 'a' + new Date().getTime(); // Unique animation name
-		var styles = document.createElement('style');
-		styles.innerHTML = '@keyframes ' + animation_name + ' {' + animation + '} [data-animation=' + animation_name + '] { animation-name: ' + animation_name + '; animation-duration: ' + ((typeof duration === 'undefined') ? .2 : duration) + 's; }'; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
-		q('head').appendChild(styles);
-		addClass(styles, animation_name);
-		el.setAttribute('data-animation', animation_name);
+		}
 	
 	}
 	
