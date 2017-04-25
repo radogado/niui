@@ -34,15 +34,41 @@
 
 }
 
+.contain {
+	
+	max-width: 1240px;
+
+}
+
+html {
+	
+	font-size: 18px;
+
+}
+
 body {
 
   font-family: 'Font';
+  font-size: calc(1rem + .5vw);
 
 }
 
 header {
 	
 	border-bottom: #6FB89B .4em solid;
+	font-size: 70%;
+
+}
+
+header .contain {
+	
+	padding: 0 .4em;
+
+}
+
+header img {
+	
+	height: 4rem;
 
 }
 
@@ -51,6 +77,78 @@ header nav {
 	text-transform: uppercase;
 	font-weight: bold;
 
+}
+
+header nav li + li {
+	
+	margin-left: 2em;
+
+}
+
+.banner h1 {
+	
+	font-weight: bold;
+	font-size: 175%;
+	margin-bottom: 1.5rem
+
+}
+
+.banner img {
+	
+	border-radius: 50%;
+	background: #fff;
+	width: 7rem;
+
+}
+
+.banner time {
+	
+	font-weight: bold;
+
+}
+
+.banner h2 {
+	
+	text-transform: uppercase;
+	font-weight: bold;
+	line-height: 1.25;
+	
+}
+
+.banner a[href] {
+	
+	color: #aa4624;
+
+}
+
+.banner h6 {
+	
+	font-weight: bold;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.65);
+	letter-spacing: 0.1em;
+	font-size: 80%;
+	margin: 0;
+	padding: 0;
+
+}
+
+.banner h2 a[href] {
+	
+	color: inherit;
+
+}
+
+.banner p {
+	
+	margin: 0;
+
+}
+
+.banner h2 a[href] {
+	
+	text-decoration: none;
+	
 }
 
 footer {
@@ -107,6 +205,8 @@ a.button[href] {
 	text-transform: uppercase;
 	letter-spacing: .15em;
 	box-shadow: 0 4px 6px rgba(50,50,93,0.18), 0 1px 3px rgba(27,26,25,0.1);
+	font-weight: 700;
+	font-size: 60%;
 
 }
 
