@@ -1403,7 +1403,7 @@ function loadScriptFile(file_name) {
         if (curRootClass != 'can-touch') { //add "can-touch' class if it's not already present
 
             curRootClass = 'can-touch';
-            document.documentElement.classList.add(curRootClass);
+            addClass(q('html'), curRootClass);
 
         }
 
@@ -1417,7 +1417,7 @@ function loadScriptFile(file_name) {
 
             isTouch = false;
             curRootClass = '';
-            document.documentElement.classList.remove('can-touch');
+            removeClass(q('html'), 'can-touch');
 
         }
 

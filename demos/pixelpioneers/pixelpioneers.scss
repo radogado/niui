@@ -257,20 +257,30 @@ a.button[href].primary, input[type=submit] {
 	
 }
 
-.speakers .row .row {
+@media (min-width: 600px) {
 	
-	width: 75%;
-	margin: 1em 0 1em 25%;
+	.speakers img {
+		
+		margin-top: -1em; 
+		position: absolute;
+		height: calc(100% + 2em);
+		margin-left: -25%;
 	 
+	}
+
+	.speakers .row .row {
+		
+		width: 75%;
+		margin: 1em 0 1em 25%;
+		 
+	}
+
 }
 
-.speakers img {
+.speakers p {
 	
-	margin-top: -1em; 
-	position: absolute;
-	height: calc(100% + 2em);
-	margin-left: -25%;
- 
+	margin: .25em 0;
+
 }
 
 main h2 {
@@ -289,6 +299,8 @@ input[type=text] {
 	background: #f5f5f5;
 	border: solid 3px #e7eaec;
 	box-sizing: border-box;
+	margin-bottom: 1em;
+	margin-right: 1em;
 
 }
 
@@ -366,7 +378,8 @@ q:before {
 .connect a {
 	
 	text-align: center;
-	
+	padding: 1em 0;
+
 }
 
 .connect a + a {
@@ -380,3 +393,84 @@ footer p b {
 	text-transform: uppercase;
 	
 }
+
+.content.blog img {
+	
+	width: 3.5em;
+	border-width: .25em;
+
+}
+
+.content.blog img + div {
+	
+	display: inline-block;
+	width: calc(100% - 5em);
+	vertical-align: top;
+	padding-left: 1em;
+
+}
+
+.content.blog .tag {
+	
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: .8em;
+	
+}
+
+.blog h4 {
+	
+	font-weight: bold;
+	
+}
+
+.blog time {
+	
+	margin-right: 1em;
+
+}
+
+.purple, .blue {
+	
+	background-color: #8A2E5D;	
+	color: #fff;
+	border-radius: 20px;
+	padding: 20px;
+	margin-bottom: 1em;
+	
+}
+
+.blue {
+	
+	background-color: #71A4D0;
+	
+}
+
+a[href].button.wide {
+	
+	display: block;
+	text-align: center;
+	clear: both;
+
+
+
+}
+
+@media (max-width: 600px) {
+	
+	.speakers img {
+
+		width: 50%;
+		margin: 1em auto;
+		display: block;
+
+	}
+	
+	.speakers .row .pad, .speakers .row p {
+		
+		text-align: center;
+		
+	}
+		
+}
+
