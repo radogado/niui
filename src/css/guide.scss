@@ -1,12 +1,15 @@
 main > .slider-wrap.vertical.tabs > .slider-nav.row {
 		
-	position: fixed;
+// 	position: fixed;
 	top: 1em;
 	bottom: 1em;
 	overflow: auto;
 	width: calc(25% - 1em);
 	-webkit-overflow-scrolling: touch;
 	flex-wrap: nowrap;
+	max-height: 100vh;
+	padding: 1em;
+	box-sizing: border-box;
 
 }
 
@@ -47,6 +50,13 @@ main > .slider-wrap > .slider-nav a.active {
 	flex: 1 !important;
 
 
+}
+
+main > .slider-wrap > .slider.vertical > .visible {
+	
+	height: 100vh;
+	overflow-y: auto;	
+	
 }
 
 main#content {
