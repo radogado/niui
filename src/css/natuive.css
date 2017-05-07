@@ -297,6 +297,9 @@ ul.masonry {
   background: #fff;
   border: 1px solid #e6e6e6; }
 
+.row.border-off, .row.border-off * {
+  box-shadow: none !important; }
+
 .row > .vertical-row {
   display: flex;
   flex-direction: column; }

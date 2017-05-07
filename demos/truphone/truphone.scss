@@ -96,6 +96,18 @@ footer {
 
 }
 
+footer ul li {
+	
+	margin: 0;
+	
+}
+
+footer ul li:before {
+	
+	content: '';
+
+}
+
 .grey {
 	
 	background-color: #f6f6f6;
