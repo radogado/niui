@@ -2,9 +2,14 @@
 
 @import 'natuive-setup';
 
-	form > * {
+	form {
 		
-		clear: both;
+		padding-top: $line-height-em;
+		
+	}
+
+	form * {
+		
 		display: inline-block;
 		vertical-align: middle;
 	
@@ -29,17 +34,8 @@
 		
 	}
 
-	#content form, .banner form {
-		
-		padding-top: $line-height-em;
-// 		padding-top: var(--line-height-em);
-		overflow: hidden;
-
-	}
-
 	label {
 		
-		display: inline-block;
 		font-weight: bold;
 		max-width: 100%;
 		position: relative;

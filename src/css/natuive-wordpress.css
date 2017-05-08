@@ -348,7 +348,8 @@ ul.masonry {
 
 @media screen and (max-width: 600px) {
   .row:not(.half) {
-    display: block; }
+    display: block;
+    overflow-x: hidden; }
 
   .row > *, .row > [class^=col] {
     padding: 0;
@@ -613,8 +614,10 @@ $bg: #1E8DaC;
   --color: #333;
   --bg: #fff; }
 
-form > * {
-  clear: both;
+form {
+  padding-top: 1.5em; }
+
+form * {
   display: inline-block;
   vertical-align: middle; }
 
@@ -626,12 +629,7 @@ input[type=submit], form button, input[type=submit], form .file, form .file span
   line-height: 3;
   min-height: 3em; }
 
-#content form, .banner form {
-  padding-top: 1.5em;
-  overflow: hidden; }
-
 label {
-  display: inline-block;
   font-weight: bold;
   max-width: 100%;
   position: relative;
