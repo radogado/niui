@@ -351,6 +351,12 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 
 	}
 
+	ol.masonry > * {
+		
+	    padding-left: 2.5em;
+
+	}
+
 .pad {
 	
 	padding: $line-height-em/2;

@@ -243,6 +243,9 @@ section:before, section:after {
 ul.masonry {
   min-height: 0; }
 
+ol.masonry > * {
+  padding-left: 2.5em; }
+
 .pad {
   padding: 0.75em; }
 
@@ -1662,8 +1665,7 @@ ul li {
 ul li:before {
   content: '·';
   position: absolute;
-  left: -.75em;
-  top: 0; }
+  margin-left: -.75em; }
 
 ul.inline li, nav.scroll ul li {
   vertical-align: top;
