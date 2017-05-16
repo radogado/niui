@@ -515,124 +515,128 @@ function makeSlider(el, current_slide) {
     
     }
 	
-    container.insertAdjacentHTML(hasClass(container, 'top') ? 'afterbegin' : 'beforeend', '<div class=slider-nav></div>');
-    container.insertAdjacentHTML('beforeend', '<a class="slider-arrow left"></a><a class="slider-arrow right"></a>');
-
-	var slider_wrap = closest(el, '.slider-wrap');
-
-    // Generate controls
-
-    for (var i = 0; i < el.children.length; i++) {
-
-        		// IE8 counts comments as children and produces an empty slide.			
-//         		if ( el.children[i].nodeName === '#comment' ) {	}
-
-        if (hasClass(el, 'tabs')) {
-
-            var slider_nav = slider_wrap.querySelector('.slider-nav');
-            addClass(slider_wrap, 'tabs');
-            addClass(slider_nav, 'row');
-            transferClass(slider_wrap, slider_nav, 'wrap');
-            var tab_title = el.children[i].getAttribute('data-tab-title') || (el.children[i].querySelector('.tab-title') ? el.children[i].querySelector('.tab-title').innerHTML : i+1);
-            slider_nav.insertAdjacentHTML('beforeend', (!i ? '<a class=active>' : '<a>') + tab_title + '</a>');
-            if (hasClass(el, 'vertical')) {
-	            
-	            addClass(slider_wrap, 'vertical');
-	            
-            }
-
-        } else {
-
-            container.querySelector('.slider-nav').insertAdjacentHTML('beforeend', (!i ? '<a class=active>' : '<a>') + (i + 1) + '</a>');
-
-        }
-
-		container.querySelector('.slider-nav').lastChild.onclick = function(e) {
-			
-            slide(eventElement(e), 'index', thisIndex(eventElement(e)));
-
-        };
-        
-        cancelTouchEvent(container.querySelector('.slider-nav').lastChild);
-
-    }
-
-    container.querySelector('.slider-arrow').onclick = function(e) {
-
-        slide(eventElement(e), 'left');
-
-    };
-    
-    cancelTouchEvent(container.querySelector('.slider-arrow'));
-
-    container.querySelector('.slider-arrow.right').onclick = function(e) {
-
-        slide(eventElement(e), 'right');
-
-    };
-
-    cancelTouchEvent(container.querySelector('.slider-arrow.right'));
-
-    addClass(el.children[0], 'visible');
-
-    window.onkeyup = sliderKeyboard;
-
-    mouseEvents(el);
-
-    swipeEvents(slider_wrap);
-
-    slider_wrap.addEventListener('swipeLeft', function(e) {
-
-        var el = sliderElement(e);
-        slide(el, 'right');
-
-    });
-
-    slider_wrap.addEventListener('swipeRight', function(e) {
-
-        var el = sliderElement(e);
-        slide(el, 'left');
-
-    });
-    
-    forEach(el.querySelectorAll('input[type=range]'), function (el) {
-        
-        el.ontouchmove = function(e) {
-
-			e.stopPropagation();
-			removeClass(q('html'), 'sliding_now');
+	if (el.children.length > 1) { // Add controls only to a slider with multiple slides
+	
+	    container.insertAdjacentHTML(hasClass(container, 'top') ? 'afterbegin' : 'beforeend', '<div class=slider-nav></div>');
+	    container.insertAdjacentHTML('beforeend', '<a class="slider-arrow left"></a><a class="slider-arrow right"></a>');
+	
+		var slider_wrap = closest(el, '.slider-wrap');
+	
+	    // Generate controls
+	
+	    for (var i = 0; i < el.children.length; i++) {
+	
+	        		// IE8 counts comments as children and produces an empty slide.			
+	//         		if ( el.children[i].nodeName === '#comment' ) {	}
+	
+	        if (hasClass(el, 'tabs')) {
+	
+	            var slider_nav = slider_wrap.querySelector('.slider-nav');
+	            addClass(slider_wrap, 'tabs');
+	            addClass(slider_nav, 'row');
+	            transferClass(slider_wrap, slider_nav, 'wrap');
+	            var tab_title = el.children[i].getAttribute('data-tab-title') || (el.children[i].querySelector('.tab-title') ? el.children[i].querySelector('.tab-title').innerHTML : i+1);
+	            slider_nav.insertAdjacentHTML('beforeend', (!i ? '<a class=active>' : '<a>') + tab_title + '</a>');
+	            if (hasClass(el, 'vertical')) {
+		            
+		            addClass(slider_wrap, 'vertical');
+		            
+	            }
+	
+	        } else {
+	
+	            container.querySelector('.slider-nav').insertAdjacentHTML('beforeend', (!i ? '<a class=active>' : '<a>') + (i + 1) + '</a>');
+	
+	        }
+	
+			container.querySelector('.slider-nav').lastChild.onclick = function(e) {
+				
+	            slide(eventElement(e), 'index', thisIndex(eventElement(e)));
+	
+	        };
 	        
-        };
-        
-    });
+	        cancelTouchEvent(container.querySelector('.slider-nav').lastChild);
+	
+	    }
+	
+	    container.querySelector('.slider-arrow').onclick = function(e) {
+	
+	        slide(eventElement(e), 'left');
+	
+	    };
+	    
+	    cancelTouchEvent(container.querySelector('.slider-arrow'));
+	
+	    container.querySelector('.slider-arrow.right').onclick = function(e) {
+	
+	        slide(eventElement(e), 'right');
+	
+	    };
+	
+	    cancelTouchEvent(container.querySelector('.slider-arrow.right'));
+	
+	    mouseEvents(el);
+	
+	    swipeEvents(slider_wrap);
+	
+	    slider_wrap.addEventListener('swipeLeft', function(e) {
+	
+	        var el = sliderElement(e);
+	        slide(el, 'right');
+	
+	    });
+	
+	    slider_wrap.addEventListener('swipeRight', function(e) {
+	
+	        var el = sliderElement(e);
+	        slide(el, 'left');
+	
+	    });
+	    
+	    forEach(el.querySelectorAll('input[type=range]'), function (el) {
+	        
+	        el.ontouchmove = function(e) {
+	
+				e.stopPropagation();
+				removeClass(q('html'), 'sliding_now');
+		        
+	        };
+	        
+	    });
+	
+	    if (el.getAttribute('data-autoslide') !== null) { // auto slide
+	
+			var delay = el.getAttribute('data-autoslide');
+			delay = delay.length > 0 ? (1000 * el.getAttribute('data-autoslide')) : 4000;
+	        var autoSlide = function() {
+	
+	            slide(el, 'right');
+	            window.sliderTimeout = setTimeout(autoSlide, delay);
+	
+	        };
+	
+	        setTimeout(autoSlide, delay);
+	
+	    }
+	
+	    if (current_slide) {
+	
+			slide(el, 'index', current_slide);
+			
+	    }
+	    
+	}
 
-    if (el.getAttribute('data-autoslide') !== null) { // auto slide
-
-		var delay = el.getAttribute('data-autoslide');
-		delay = delay.length > 0 ? (1000 * el.getAttribute('data-autoslide')) : 4000;
-        var autoSlide = function() {
-
-            slide(el, 'right');
-            window.sliderTimeout = setTimeout(autoSlide, delay);
-
-        };
-
-        setTimeout(autoSlide, delay);
-
-    }
-
-	if (window.getComputedStyle) { // Detect direction
+	if (window.getComputedStyle) { // Detect text direction
 
         el.setAttribute('dir', getComputedStyle(el, null).getPropertyValue('direction'));
 
     }
-    
-    if (current_slide) {
+	    
+    addClass(el.children[0], 'visible');
 
-		slide(el, 'index', current_slide);
-		
-    }
-
+    window.onkeyup = sliderKeyboard;
+	
     return el;
 
 }
