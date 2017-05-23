@@ -47,7 +47,7 @@
 
 	}
 	
-	form.wide label {
+	form.wide label, form.wide .file {
 		
 		width: 100%;
 
@@ -252,6 +252,8 @@
 	form select {
 		
 		-moz-appearance: none;
+		-webkit-appearance: none;
+		appearance: none;
 		text-indent: 0.01px;
 		text-overflow: '';
 		min-height: 0;
@@ -260,9 +262,7 @@
 		height: $line-height-em * 2;
 // 		height: calc(var(--line-height-em) * 2);
 		white-space: nowrap;
-		-webkit-appearance: none;
-		appearance: none;
-		font-family: inherit;
+// 		font-family: inherit;
 	    text-indent: -1px;
 	    text-overflow: '';	
 	    margin: 0;
@@ -494,14 +494,6 @@
 	    position: relative;
 		
 	}
-
-/*
-	form.wide .file, form.mast .file {
-		
-		margin-top: 0;
-
-	}
-*/
 
 	form .file span {
 
@@ -750,6 +742,7 @@
 form.mast > label, form.mast > .checkbox {
 
     display: block;
+    clear: both;
 
 }
 
@@ -893,7 +886,7 @@ form.language select {
 	width: 100%;
 	background-position: calc(100% - .5em);
 	margin-left: 0;
-	background-color: transparent;
+	background-color: unset;
     height: $line-height-em;
     line-height: $line-height-em;
 	

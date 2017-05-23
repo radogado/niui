@@ -640,7 +640,7 @@ label {
   margin: 0 0 1.5em 0;
   min-height: 3em; }
 
-form.wide label {
+form.wide label, form.wide .file {
   width: 100%; }
 
 form.wide textarea, form.mast textarea {
@@ -760,6 +760,8 @@ form .mandatory.alert span.tip {
 
 form select {
   -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
   text-indent: 0.01px;
   text-overflow: '';
   min-height: 0;
@@ -767,9 +769,6 @@ form select {
   padding: 0 1.6em 0 .8em;
   height: 3em;
   white-space: nowrap;
-  -webkit-appearance: none;
-  appearance: none;
-  font-family: inherit;
   text-indent: -1px;
   text-overflow: '';
   margin: 0;
@@ -925,13 +924,6 @@ form .file {
   overflow: hidden;
   position: relative; }
 
-/*
-	form.wide .file, form.mast .file {
-		
-		margin-top: 0;
-
-	}
-*/
 form .file span {
   text-align: start;
   white-space: nowrap;
@@ -1093,7 +1085,8 @@ input[type=range]:focus::-ms-fill-upper {
   background: rgba(5, 5, 5, 0.1); }
 
 form.mast > label, form.mast > .checkbox {
-  display: block; }
+  display: block;
+  clear: both; }
 
 form.mast > label > *, form.mast > .checkbox > * {
   width: 50%;
@@ -1191,7 +1184,7 @@ form.language select {
   width: 100%;
   background-position: calc(100% - .5em);
   margin-left: 0;
-  background-color: transparent;
+  background-color: unset;
   height: 1.5em;
   line-height: 1.5em; }
 
@@ -2052,7 +2045,7 @@ $bg: #1E8DaC;
   background: #000; }
 
 .slider {
-  overflow-x: visible;
+  overflow: visible;
   overflow-y: hidden;
   white-space: nowrap;
   /* keep inline-block elements together */
@@ -2063,19 +2056,20 @@ $bg: #1E8DaC;
   -ms-overflow-style: none;
   /* No scrollbars on IE10+ */
   left: 0;
-  -webkit-animation-timing-function: ease;
-  -webkit-animation-iteration-count: 1;
-  -webkit-animation-duration: .4s;
-  animation-timing-function: ease;
-  animation-iteration-count: 1;
-  animation-duration: .4s;
+  /*
+  	-webkit-animation-timing-function: ease;
+  	-webkit-animation-iteration-count: 1;
+  	-webkit-animation-duration: .4s;
+  	animation-timing-function: ease;
+  	animation-iteration-count: 1;
+  	animation-duration: .4s;
+  */
   /*
   	-webkit-transform-style: preserve-3d;
   	-moz-transform-style: preserve-3d;
   	-ms-transform-style: preserve-3d;
   	transform-style: preserve-3d;
   */
-  transition: none;
   display: flex;
   min-height: 4em; }
 
@@ -2105,15 +2099,14 @@ $bg: #1E8DaC;
   -webkit-overflow-scrolling: touch; }
 
 .slider-wrap .slider.vertical {
-  overflow-x: hidden;
+  overflow: hidden;
   overflow-y: scroll; }
 
 .slider-wrap .slider.vertical {
-  overflow-x: visible;
-  overflow-y: visible;
+  overflow: visible;
   flex-direction: column; }
 
-.slider-wrap .slider.vertical > * {
+.slider-wrap .slider.vertical > *, .slider-wrap .slider.sliding > *:not(.visible), .slider-wrap .slider::-webkit-scrollbar, .slider-wrap.tabs > .slider-arrow {
   height: auto;
   display: none; }
 
@@ -2150,9 +2143,6 @@ $bg: #1E8DaC;
 
 .full-window-wrap .slider.vertical > * {
   height: 100%; }
-
-.slider-wrap .slider.sliding > *:not(.visible) {
-  display: none; }
 
 .slider > *.visible, .full-window-wrap .lightbox.slider > *.visible > img {
   display: inline-block; }
@@ -2194,9 +2184,6 @@ $bg: #1E8DaC;
   	border-left: 7px solid transparent;
   	border-right: 7px solid transparent;
   */ }
-
-.slider-wrap .slider::-webkit-scrollbar {
-  display: none; }
 
 .slider-arrow {
   position: absolute;
@@ -2247,15 +2234,11 @@ $bg: #1E8DaC;
   color: #fff;
   transition: background-color .2s linear;
   line-height: 1em;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
   box-sizing: content-box; }
 
 .slider-arrow, .slider-nav {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
   user-select: none; }
 
 .slider-nav {
@@ -2326,9 +2309,6 @@ $bg: #1E8DaC;
   right: auto;
   position: static;
   transform: none; }
-
-.slider-wrap.tabs > .slider-arrow {
-  display: none; }
 
 .slider-wrap.tabs > .slider-nav.row {
   padding: 0;

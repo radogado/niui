@@ -1,24 +1,34 @@
 /* natUIve by rado.bg */
 /* DOM functions via http://youmightnotneedjquery.com */
 
-"use strict";
+// Stop JS if old browser (IE9-). They will get the CSS-only experience. Remove below fallbacks that supported them.
+
+(function () {
+
+	"use strict";
+	if (Function.prototype.bind && !this) { // Supports ES5
+
+		return;
+
+	} else { // Doesn't support ES5, going CSS-only
+	
+	  noSuchFunction();
+	  return;
+
+	}
+
+}());
 
 var scripts_location = document.getElementsByTagName('script');
 scripts_location = scripts_location[scripts_location.length-1].src;
 scripts_location = scripts_location.slice(0, scripts_location.length - scripts_location.split('/').pop().length);
 
-// addClass(q('body'), 'js');
-
 // DOM functions
 
 function addClass(el, className) {
-// IE8, IE9 errors
-// 	el.classList.add(className);
-	// To do: remove a single '.' for foolproof operation; Add multiple classes separated by space, dot, comma
-if (el.classList)
-  el.classList.add(className);
-else
-  el.className += ' ' + className;
+
+	el.classList.add(className);
+
 }
 
 /* To do: Convert to Prototype functions: el.addClass('class'); instead of addClass(el, 'class'); */
@@ -33,18 +43,8 @@ Element.prototype.addClassPrototype = function (className) { // Not working with
 
 function removeClass(el, className) {
 
-// 	el.classList.remove(className); // IE8, IE9 errors
 	// To do: remove a single '.' for foolproof operation; Support multiple classes separated by space, dot, comma
-	if (el.classList) {
-
-	  el.classList.remove(className);
-
-	}
-	else {
-		
-	  el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
-	
-	}
+	el.classList.remove(className);
   
 }
 
@@ -79,16 +79,11 @@ function transferClass(el_origin, el_target, className) {
 
 }
 
-function eventElement(e) {
-	
-	return e ? e.target : window.event.srcElement;
-
-}
-
 function parseHTML(str) {
 
     var tmp = document.implementation.createHTMLDocument('Parsed');
     tmp.body.innerHTML = str;
+    // To do: destroy the HTMLDocument before returning
     return tmp.body;
 
 }
@@ -103,6 +98,8 @@ function forEach(selector, fn) { // Accepts both an array and a selector
 	        fn(elements[i], i);
 	
 	    }
+	    
+// 	    elements.forEach(fn); // Not working in Edge
     
     }
 
@@ -110,37 +107,13 @@ function forEach(selector, fn) { // Accepts both an array and a selector
 
 function addEventHandler(el, eventType, handler) {
 
-    if (el.addEventListener) {
-
-        el.addEventListener(eventType, handler, false);
-
-    } else {
-
-        if (el.attachEvent) {
-
-            el.attachEvent('on' + eventType, handler);
-
-        }
-
-    }
+	el.addEventListener(eventType, handler, false);
 
 }
 
 function removeEventHandler(el, eventType, handler) {
 
-    if (el.removeEventListener) {
-
-        el.removeEventListener(eventType, handler, false);
-
-    } else {
-
-        if (el.detachEvent) {
-
-            el.detachEvent('on' + eventType, handler);
-
-        }
-
-    }
+	el.removeEventListener(eventType, handler, false);
 
 }
 
@@ -204,6 +177,12 @@ function thisIndex(el) {
     }
 
     return (count);
+
+/*
+    var nodes = el.parentNode.childNodes;
+
+	return nodes.indexOf(el);
+*/
 
 }
 
@@ -296,7 +275,8 @@ function ready(fn) {
 
 /* ––– */
 
-/* URI parameters */
+/*
+// URI parameters
 
 function updateURLParameter(url, param, paramVal) { // return input string with updated/added URL parameter
 
@@ -336,7 +316,7 @@ function getURLParameters() { // return all URL parameters in an array
 
 }
 
-/* URI parameters relay. Omit links starting with "javascript", "mailto", skip parameters not listed in the array */
+// URI parameters relay. Omit links starting with "javascript", "mailto", skip parameters not listed in the array
 
 var parameters_list = new Array('parameter1', 'parameter2'); // To do: load this from an external JSON file. Such data has no place here.
 
@@ -365,6 +345,7 @@ function relayParameters() {
     });
 
 }
+*/
 
 function arrow_keys_handler(e) {
 
@@ -391,12 +372,12 @@ function populateLightboxItem(slider, i) {
 		img.src = img.getAttribute('data-src');
 		img.onload = function (e) {
 			
-			addClass(eventElement(e).parentNode, 'loaded');
+			addClass(e.target.parentNode, 'loaded');
 
 		}
 		img.onclick = function (e) {
 			
-			toggleClass(eventElement(e), 'zoom');
+			toggleClass(e.target, 'zoom');
 
 		};
 		return false;
@@ -417,12 +398,6 @@ function populateLightbox(slider, i) {
 
 var external = RegExp('^((f|ht)tps?:)?//(?!' + location.host + ')');
 var full_window_content = null;
-
-function preventEvent(e) {
-	
-	e.preventDefault();
-
-}
 
 function keyUpClose(e) {
 	
@@ -539,7 +514,7 @@ function modalWindow(e) {
 
     // Modal window of an external file
 
-    var el = eventElement(e);
+    var el = e.target;
 
     var link = closest(el, '.modal').href;
 
@@ -605,10 +580,11 @@ function modalWindow(e) {
 
 function openLightbox(e) {
 
-	var el = eventElement(e);
+	var el = e.target;
 	if (el.length === 0) {
 		
 		el = e;
+
 	}
 	
     var lightbox = closest(el, '.lightbox');
@@ -763,13 +739,12 @@ function getCumulativeOffset(obj) { // Offset from element to top of page
 
 function animateAnchors(e) {
 
-    e = e || window.event;
     if (typeof e === 'undefined') {
 
         return;
 
     }
-    var el = e.target || e.srcElement;
+    var el = e.target;
 
     while (typeof el.href === 'undefined') {
 
@@ -815,7 +790,7 @@ function animateAnchors(e) {
 
 function submitForm(e) {
 
-    var el = eventElement(e);
+    var el = e.target;
 
     var ready_to_submit = true;
 
@@ -914,13 +889,13 @@ function submitForm(e) {
 
 function updateFileInput(e) {
 
-    var el = eventElement(e);
+    var el = e.target;
 
     el.parentNode.querySelector('span').innerHTML = el.value.substring(el.value.lastIndexOf('\\') + 1);
 
 }
 
-if (q('form.language')) {
+if (q('form.language')) { // To do: make it universal .submitonchange and for more than 1 form
 
     q('form.language select').onchange = function(e) {
 
@@ -1014,6 +989,7 @@ addEventHandler(window, 'resize', function () {
 });
 */
 
+/*
 function isInViewport(el) { // Thanks http://gomakethings.com/ditching-jquery/
 
     var distance = el.getBoundingClientRect();
@@ -1025,14 +1001,16 @@ function isInViewport(el) { // Thanks http://gomakethings.com/ditching-jquery/
     );
 
 }
+*/
 
-/* Element.matches(selector) polyfill for Android Browser, IE8 */
+// Element.matches(selector) polyfill for Android Browser, IE8, Edge (!)
 
 if (!Element.prototype.matches) {
     Element.prototype.matches = 
         Element.prototype.matchesSelector || 
         Element.prototype.mozMatchesSelector ||
-        Element.prototype.msMatchesSelector || 
+        Element.prototype.msMatchesSelector /*
+|| 
         Element.prototype.oMatchesSelector || 
         Element.prototype.webkitMatchesSelector ||
         function(s) {
@@ -1040,7 +1018,9 @@ if (!Element.prototype.matches) {
                 i = matches.length;
             while (--i >= 0 && matches.item(i) !== this) {}
             return i > -1;            
-        };
+        }
+*/
+        ;
 }
 
 function closest(el, selector) { // Thanks http://gomakethings.com/ditching-jquery/
@@ -1073,18 +1053,8 @@ request.send(null);
 /* Sort parent table's rows by matching column number alternatively desc/asc on click */
 function sortTable (table, column, f) {
 	
-	var rows;
+	var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'), 0);;
 	
-	try { // IE8
-	
-		rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'), 0);
-	
-	} catch (err) {
-	
-	    return;
-	
-	}
-
 	rows.sort(function(a, b) {
 	
 		var A = a.querySelectorAll('td')[column].textContent.toUpperCase();
@@ -1114,14 +1084,15 @@ function sortTable (table, column, f) {
 
 }
 
-/* Polyfill to uncheck all radio buttons of a form with form owner attribute. Single set of radios currently, for drop-down menu. */
+/*
+// Polyfill to uncheck all radio buttons of a form with form owner attribute. Single set of radios currently, for drop-down menu.
 if (q('input[type=reset][form]') && !q('input[type=reset][form]').form) {
 	
 	forEach('input[type=reset][form]', function(el) {
 
 		el.onclick = function (e) { // Assuming a single set of radios per form (for drop down menu)
 			
-			el = eventElement(e);
+			el = e.target;
 			q('input[type=radio][form=' + el.getAttribute('form') + ']:checked').checked = false;
 			
 		};
@@ -1129,6 +1100,7 @@ if (q('input[type=reset][form]') && !q('input[type=reset][form]').form) {
 	});
 
 }
+*/
 
 function notifyCloseEvent() {
 
@@ -1136,8 +1108,7 @@ function notifyCloseEvent() {
 
 		q('.notify').onclick = function (e) {
 			
-			var el = eventElement(e);
-			el.parentNode.removeChild(el);
+			e.target.parentNode.removeChild(el);
 			
 		};
 	
@@ -1236,47 +1207,33 @@ for(var t in animations) {
 
 }
 
-function animationSupport() {
-	
-	return typeof animationEndEvent === 'string';
-
-}
-
 function animate(el, animation, duration, callback) { // Default duration = .2s, callback optional
 
 // To do: add animation-fill-mode: forwards to keep the end state
 
-	if (!animationSupport()) { // No CSS animation support
-		
-		callback();
+	if (!el.getAttribute('data-animation')) {
 
-	} else {
+		el.addEventListener(animationEndEvent, function animationEndHandler(e) {
+			
+			stopEvent(e);
+			var el = e.target; 
+			q('head').removeChild(q('.' + el.getAttribute('data-animation')));
+			el.removeAttribute('data-animation');
+	 		el.removeEventListener(animationEndEvent, animationEndHandler);
+			if (typeof callback === 'function') {
 		
-		if (!el.getAttribute('data-animation')) {
+				callback();
+		
+			}
+		
+		}, false);
 
-			el.addEventListener(animationEndEvent, function animationEndHandler(e) {
-				
-				stopEvent(e);
-				var el = e.target; 
-				q('head').removeChild(q('.' + el.getAttribute('data-animation')));
-				el.removeAttribute('data-animation');
-		 		el.removeEventListener(animationEndEvent, animationEndHandler);
-				if (typeof callback === 'function') {
-			
-					callback();
-			
-				}
-			
-			}, false);
-	
-			var animation_name = 'a' + new Date().getTime(); // Unique animation name
-			var styles = document.createElement('style');
-			styles.innerHTML = '@keyframes ' + animation_name + ' {' + animation + '} [data-animation=' + animation_name + '] { animation-name: ' + animation_name + '; animation-duration: ' + ((typeof duration === 'undefined') ? .2 : duration) + 's; }'; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
-			q('head').appendChild(styles);
-			addClass(styles, animation_name);
-			el.setAttribute('data-animation', animation_name);
-		
-		}
+		var animation_name = 'a' + new Date().getTime(); // Unique animation name
+		var styles = document.createElement('style');
+		styles.innerHTML = '@keyframes ' + animation_name + ' {' + animation + '} [data-animation=' + animation_name + '] { animation-name: ' + animation_name + '; animation-duration: ' + ((typeof duration === 'undefined') ? .2 : duration) + 's; }'; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
+		q('head').appendChild(styles);
+		addClass(styles, animation_name);
+		el.setAttribute('data-animation', animation_name);
 	
 	}
 	
@@ -1312,15 +1269,19 @@ function scrollToAnimated(to, callback) {
 function toggleAccordion(e) {
 
     stopEvent(e);
-    var el = closest(eventElement(e), '.fold');
+    var el = closest(e.target, '.fold');
 
     var content = el.querySelector('.content');
+
+/*
     if (!animationSupport()) { // Browsers without animation support
 
 	    toggleClass(el, 'open');
 	    return;
 	    
     }
+*/
+
 	var content_height = (typeof content.style.getPropertyValue !== 'undefined' && content.style.getPropertyValue('--height')) || 0;
 	
 	if (hasClass(el, 'open')) {
@@ -1370,6 +1331,7 @@ function copyButton (el, target) {
 	
 }
 
+/*
 function loadScriptFile(file_name) {
 	
     var js_el = document.createElement('script');
@@ -1382,16 +1344,12 @@ function loadScriptFile(file_name) {
 	}
 
 }
+*/
 
 // Real time touch detection to support devices with both touch and mouse. http://www.javascriptkit.com/dhtmltutors/sticky-hover-issue-solutions.shtml
 
 ;(function(){
 
-	if (typeof document.addEventListener === 'undefined') { // IE8
-		
-		return;
-		
-	}
     var isTouch = false; //var to indicate current input type (is touch versus no touch) 
     var isTouchTimer;
     var curRootClass = ''; //var indicating current document root class ("can-touch" or "")
@@ -1432,7 +1390,7 @@ function loadScriptFile(file_name) {
 
 function closeFoldClickOutside(e) {
 
-	if (!closest(eventElement(e), '.fold') && !closest(eventElement(e), '.tool')) { // Clicking/tapping outside of a fold/tooltip element...
+	if (!closest(e.target, '.fold') && !closest(e.target, '.tool')) { // Clicking/tapping outside of a fold/tooltip element...
 		
 		forEach('.fold.mobile, .tool', function (el) { // ... closes all burger nav menus and tooltips
 			
@@ -1442,7 +1400,7 @@ function closeFoldClickOutside(e) {
 		
 	}
 	
-	if (!closest(eventElement(e), 'nav.drop')) { // reset all forms, closing the drop down
+	if (!closest(e.target, 'nav.drop')) { // reset all forms, closing the drop down
 		
 		forEach('nav.drop form', function (el) {
 			
@@ -1500,9 +1458,8 @@ addEventHandler(window, 'scroll', function() {  // Close fixed overlay if its sc
 	
 });
 
-if (animationSupport()) {
-		
-	forEach('[data-threshold]', function(el) { // Set a variable reflecting how much of the element's height has been scrolled; .threshold on scroll over element height
+// Scroll effects
+forEach('[data-threshold]', function(el) { // Set a variable reflecting how much of the element's height has been scrolled; .threshold on scroll over element height
 
 	addEventHandler(window, 'scroll', function() {
 
@@ -1550,8 +1507,6 @@ if (animationSupport()) {
 
 });
 
-}
-
 /* Initialise JS-powered elements */
 
 function init() {
@@ -1592,7 +1547,7 @@ function init() {
 		el.onclick = function (e) {
 			
 			stopEvent(e);
-			var el = eventElement(e);
+			var el = e.target;
 			var cell = el.type === 'td' ? el : closest(el, 'td');
 			var f; // Ascending
 			if (cell.getAttribute('data-sort') === 'desc') {
@@ -1633,13 +1588,14 @@ function init() {
 	
 	});
 	
-	/* Auto textarea height */
+	// Auto textarea height. To do: make it optional
 	
+/*
 	forEach('textarea', function(el) {
 	
 	    el.onkeyup = function(e) {
 	
-	        el = eventElement(e);
+	        el = e.target;
 	
 	        while (el.rows > 1 && el.scrollHeight < el.offsetHeight) {
 	
@@ -1663,7 +1619,9 @@ function init() {
 	    };
 	
 	});
+*/
 	
+	// Animate anchor link jumps
 	forEach('a[href^="#"]', function(el, i) {
 	
 		if (el.onclick) { // Don't add to previous onclick event handler
@@ -1675,7 +1633,7 @@ function init() {
 	
 	});
 	
-	/* Modal window: open a link's target inside it. */
+	// Modal window: open a link's target inside it
 	
 	forEach('a.modal', function(el, i) {
 	
@@ -1693,11 +1651,11 @@ function init() {
 	
 	});
 	
-	/* Also lightbox with images */
+	// Lightbox with images
 	
 	forEach('.lightbox', function(el, i) {
 	
-		/* Abort on IE, because of IE bug on dynamic img.src change */
+		// Abort on IE, because of IE bug on dynamic img.src change
 		if (navigator.userAgent.indexOf('MSIE') != -1 || navigator.userAgent.indexOf('Trident') != -1) {
 			
 			return;
@@ -1720,9 +1678,11 @@ function init() {
 	
 	});
 	
-	/* Relay URI parameters to links */
+/*
+	// Relay URI parameters to links
 	
 	relayParameters();
+*/
 	
 	/* Tooltip */
 	
@@ -1732,7 +1692,7 @@ function init() {
 
 			if (hasClass(q('html'), 'can-touch')) {
 	
-				toggleClass(eventElement(e), 'open');
+				toggleClass(e.target, 'open');
 					
 			}
 
@@ -1764,37 +1724,18 @@ function init() {
 
 ready( function () {
 
-	try { // Android Browser etc?
-	
-	    var test_event = new Event('t');
-	
-	} catch (err) {
-	
-	    addClass(q('html'), 'no_new_event_support');
-	
-	}
-	
 	init();
 	
-	/* Automatically open a lightbox specified in the URI */
+	// Automatically open a lightbox specified in the URI
 
 	setTimeout( function () {
 		
-		try { /* No IE8 :target support */
-			
 			if (q('.lightbox:target')) {
 				
 				openLightbox(q('.lightbox:target > a[href]'));
 				
 			}
 		
-		} catch (err) {
-			
-			return;	
-		
-		}
-	
 	}, 1);
 
 });
-

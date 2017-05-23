@@ -2,12 +2,28 @@
 
 // "use strict";
 
+(function () {
+
+	"use strict";
+	if (Function.prototype.bind && !this) { // Supports ES5
+
+		return;
+
+	} else { // Doesn't support ES5, going CSS-only
+	
+	  noSuchFunction();
+	  return;
+
+	}
+
+}());
+
 q('html').setAttribute('data-last_slide', '14045017000');
 q('html').setAttribute('data-slide_duration', '0.5');
 
 function sliderElement(e) {
 
-    var el = eventElement(e);
+    var el = e.target;
 
     if (hasClass(el, 'slider-wrap')) {
 
@@ -74,17 +90,8 @@ function swipeEvents(el) {
 
             if (Math.abs(delta) > 50) {
 
-                if (!hasClass(q('html'), 'no_new_event_support')) {
-
-                    var event = new Event((delta >= 50) ? 'swipeLeft' : 'swipeRight');
-                    el.dispatchEvent(event);
-
-                } else {
-
-                    initScroll(e, -1 * delta);
-
-                }
-
+                var event = new Event((delta >= 50) ? 'swipeLeft' : 'swipeRight');
+                el.dispatchEvent(event);
                 el.removeEventListener('touchmove', touchMove);
 
             }
@@ -122,7 +129,7 @@ function mouseWheelHandler(e) {
 	
 	}
 
-	var el = eventElement(e);
+	var el = e.target;
 	
 	if (closest(el, '.slider-nav')) {
 		
@@ -309,98 +316,66 @@ function slide(el, method, index_number) {
 
     }
 
-    if (animationSupport()) { // CSS animation-enabled browser...
-
-		var translate_from, translate_to;
-		
-	    if (hasClass(slider, 'vertical')) {
-		
-		    translate_from = 'translate3d(0,' + ((index<old_index) ? '-100%' : '0') + ',0)';
-			
-			computed_height = parseInt(computed_height, 10);
-			computed_height_old = parseInt(computed_height_old, 10);
-		    var difference = Math.abs(computed_height - computed_height_old);
-		    if (computed_height > computed_height_old) {
-			    
-			    difference = Math.max(computed_height, computed_height_old) - difference;
-			    
-		    } else {
-			    
-			    difference = Math.min(computed_height, computed_height_old) + difference;
-			    
-		    }
-		    translate_to = 'translate3d(0,' + ((index<old_index) ? '0' : ('-' + difference + 'px')) + ',0)';
-		    slider.children[old_index].style.transition = 'opacity ' + duration/2 + 's linear';
-		    slider.children[old_index].style.opacity = 0;
-		
-		} else {
-			
-		    translate_from = 'translate3d(' + offset_sign + ((index<old_index) ? 1 : 0) + '00%,0,0)';
-		    translate_to = 'translate3d(' + offset_sign + ((index<old_index) ? 0 : 1) + '00%,0,0)';
-			
-		}
-	    
-		var animation_code;
-
-		if (hasClass(slider, 'fade')) {
-
-			animation_code = '0% { opacity: 1; transform: ' + translate_from + ' } 49% { transform: ' + translate_from + ' } 51% { opacity: 0; transform:' + translate_to + ' } 100% { opacity: 1; transform:' + translate_to + ' }';
-		
-		} else {
-			
-			animation_code = '0% { transform: ' + translate_from + '; } 100% { transform: ' + translate_to + '; }';
-
-		}
-
-		addClass(slider, 'sliding');
-
-		slider.style.margin = 0;
-		animate(slider, animation_code, duration, function slideEndHandler(e) { // On slide end
-
-			removeClass(slider, 'sliding');
-			if (slider.children[old_index]) {
+	var translate_from, translate_to;
 	
-				removeClass(slider.children[old_index], 'visible');
-			    slider.children[old_index].style.transition = '';
-			    slider.children[old_index].style.opacity = '';
+    if (hasClass(slider, 'vertical')) {
 	
-			}
+	    translate_from = 'translate3d(0,' + ((index<old_index) ? '-100%' : '0') + ',0)';
+		
+		computed_height = parseInt(computed_height, 10);
+		computed_height_old = parseInt(computed_height_old, 10);
+	    var difference = Math.abs(computed_height - computed_height_old);
+	    if (computed_height > computed_height_old) {
+		    
+		    difference = Math.max(computed_height, computed_height_old) - difference;
+		    
+	    } else {
+		    
+		    difference = Math.min(computed_height, computed_height_old) + difference;
+		    
+	    }
+	    translate_to = 'translate3d(0,' + ((index<old_index) ? '0' : ('-' + difference + 'px')) + ',0)';
+	    slider.children[old_index].style.transition = 'opacity ' + duration/2 + 's linear';
+	    slider.children[old_index].style.opacity = 0;
+	
+	} else {
+		
+	    translate_from = 'translate3d(' + offset_sign + ((index<old_index) ? 1 : 0) + '00%,0,0)';
+	    translate_to = 'translate3d(' + offset_sign + ((index<old_index) ? 0 : 1) + '00%,0,0)';
+		
+	}
+    
+	var animation_code;
+
+	if (hasClass(slider, 'fade')) {
+
+		animation_code = '0% { opacity: 1; transform: ' + translate_from + ' } 49% { transform: ' + translate_from + ' } 51% { opacity: 0; transform:' + translate_to + ' } 100% { opacity: 1; transform:' + translate_to + ' }';
+	
+	} else {
+		
+		animation_code = '0% { transform: ' + translate_from + '; } 100% { transform: ' + translate_to + '; }';
+
+	}
+
+	addClass(slider, 'sliding');
+
+	slider.style.margin = 0;
+	animate(slider, animation_code, duration, function slideEndHandler(e) { // On slide end
+
+		removeClass(slider, 'sliding');
+		if (slider.children[old_index]) {
+
+			removeClass(slider.children[old_index], 'visible');
+		    slider.children[old_index].style.transition = '';
+		    slider.children[old_index].style.opacity = '';
+
+		}
 
 // 			slider.style.transform = hasClass(slider, 'vertical') ? 'translate3d(0, 0, 0)' : 'translate3d(' + offset_sign + index + '00%, 0, 0)';
-			slider.style.height = '';
-			endSlide(slider, index);
-
-        });
-
-    } else { // ... or without animation on old browsers
-
-		slider.style.transition = 'all ' + duration + 's ease-in-out';
-
-		removeClass(slider.children[old_index], 'visible');
-		
-		if (hasClass(slider, 'vertical')) {
-			
-			if (q('.full-window-wrap')) {
-				
-				forEach(slider.children, function (el) {
-					
-					addClass(el, 'visible');
-					
-				});
-			
-			}
-			
-			slider.style.top = offset_sign + index + '00%';
-		
-		} else {
-			
-			slider.style.left = offset_sign + index + '00%';
-
-		}
-
+		slider.style.height = '';
 		endSlide(slider, index);
 
-    }
+    });
 
 }
 
@@ -414,7 +389,7 @@ function sliderKeyboard(e) {
 
     }
 
-	var el = eventElement(e);
+	var el = e.target;
 	var tag = el.tagName.toLowerCase();
 
 	function shouldNotSlideVertically() {
@@ -474,15 +449,6 @@ function makeSlider(el, current_slide) {
 		
 	}
 	
-	if (hasClass(q('html'), 'no_new_event_support')) { // Old browser
-		
-		addClass(el, 'overthrow');
-		loadScriptFile(scripts_location + 'overthrow.js');
-
-		return;
-	
-	}
-	
     addClass(el, 'slider');
 
 	if (hasClass(el, 'full-window')) {
@@ -526,9 +492,6 @@ function makeSlider(el, current_slide) {
 	
 	    for (var i = 0; i < el.children.length; i++) {
 	
-	        		// IE8 counts comments as children and produces an empty slide.			
-	//         		if ( el.children[i].nodeName === '#comment' ) {	}
-	
 	        if (hasClass(el, 'tabs')) {
 	
 	            var slider_nav = slider_wrap.querySelector('.slider-nav');
@@ -551,7 +514,7 @@ function makeSlider(el, current_slide) {
 	
 			container.querySelector('.slider-nav').lastChild.onclick = function(e) {
 				
-	            slide(eventElement(e), 'index', thisIndex(eventElement(e)));
+	            slide(e.target, 'index', thisIndex(e.target));
 	
 	        };
 	        
@@ -561,7 +524,7 @@ function makeSlider(el, current_slide) {
 	
 	    container.querySelector('.slider-arrow').onclick = function(e) {
 	
-	        slide(eventElement(e), 'left');
+	        slide(e.target, 'left');
 	
 	    };
 	    
@@ -569,7 +532,7 @@ function makeSlider(el, current_slide) {
 	
 	    container.querySelector('.slider-arrow.right').onclick = function(e) {
 	
-	        slide(eventElement(e), 'right');
+	        slide(e.target, 'right');
 	
 	    };
 	
@@ -593,6 +556,7 @@ function makeSlider(el, current_slide) {
 	
 	    });
 	    
+	    // Don't slide when using a range input in a form in a slider
 	    forEach(el.querySelectorAll('input[type=range]'), function (el) {
 	        
 	        el.ontouchmove = function(e) {
@@ -627,11 +591,8 @@ function makeSlider(el, current_slide) {
 	    
 	}
 
-	if (window.getComputedStyle) { // Detect text direction
-
-        el.setAttribute('dir', getComputedStyle(el, null).getPropertyValue('direction'));
-
-    }
+	// Detect text direction
+	el.setAttribute('dir', getComputedStyle(el, null).getPropertyValue('direction'));
 	    
     addClass(el.children[0], 'visible');
 

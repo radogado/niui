@@ -113,22 +113,23 @@
 	
 .slider {
 
-	overflow-x: visible;
+	overflow: visible;
 	overflow-y: hidden;
 	white-space: nowrap; /* keep inline-block elements together */
 	word-wrap: normal; /* IE8 fix */
 	position: relative;
 	-webkit-overflow-scrolling: touch;
-//     -webkit-transform: translate3d(0, 0, 0); // fast, hardware-accelerated scrolling
 	-ms-overflow-style: none; /* No scrollbars on IE10+ */
 	left: 0;
 
+/*
 	-webkit-animation-timing-function: ease;
 	-webkit-animation-iteration-count: 1;
 	-webkit-animation-duration: .4s;
 	animation-timing-function: ease;
 	animation-iteration-count: 1;
 	animation-duration: .4s;
+*/
 
 /*
 	-webkit-transform-style: preserve-3d;
@@ -137,7 +138,7 @@
 	transform-style: preserve-3d;
 */
 
-	transition: none;
+// 	transition: none;
 
 	display: flex;
 	// will-change: transform; // Breaks WebKit full screen video
@@ -185,20 +186,19 @@
 
 .slider-wrap .slider.vertical {
 	
-	overflow-x: hidden;
+	overflow: hidden;
 	overflow-y: scroll;
 
 }
 
 .slider-wrap .slider.vertical {
 	
-	overflow-x: visible;
-	overflow-y: visible;
+	overflow: visible;
 	flex-direction: column;
 
 }
 
-.slider-wrap .slider.vertical > * {
+.slider-wrap .slider.vertical > *, .slider-wrap .slider.sliding > *:not(.visible), .slider-wrap .slider::-webkit-scrollbar, .slider-wrap.tabs > .slider-arrow {
 
 	height: auto;
 	display: none;
@@ -260,12 +260,6 @@
 .full-window-wrap .slider.vertical > * {
 	
 	height: 100%;
-
-}
-
-.slider-wrap .slider.sliding > *:not(.visible) {
-
-	display: none;
 
 }
 
@@ -335,12 +329,6 @@
 	border-left: 7px solid transparent;
 	border-right: 7px solid transparent;
 */
-
-}
-
-.slider-wrap .slider::-webkit-scrollbar {
-
-    display: none;
 
 }
 
@@ -417,8 +405,6 @@
 		color: #fff;
 		transition: background-color .2s linear;
 		line-height: 1em;
-		-webkit-box-sizing: content-box;
-		-moz-box-sizing: content-box;
 		box-sizing: content-box;
 	
 	}
@@ -427,8 +413,6 @@
 
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
 	user-select: none;
 
 }
@@ -535,12 +519,6 @@
 		
 	}
 
-	.slider-wrap.tabs > .slider-arrow {
-
-		display: none;
-		
-	}
-	
 	.slider-wrap.tabs > .slider-nav.row {
 		
 		padding: 0;
