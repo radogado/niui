@@ -438,7 +438,8 @@ function closeFullWindow() {
 			removeEventHandler(window, 'keyup', keyUpClose);
 			if (!q('.slider')) { // No sliders on the page to control with arrow keys
 			
-				document.onkeyup = function () {};
+// 				document.onkeyup = function () {};
+				window.removeEventListener('keydown', arrow_keys_handler, false);
 				
 			}
 				
@@ -701,7 +702,11 @@ function openLightbox(e) {
 
     }
 
-    window.addEventListener('keydown', arrow_keys_handler, false);
+	if (!hasClass(lightbox, 'inline')) { // Don't block global keyboard if the lightbox is inline
+	
+	    window.addEventListener('keydown', arrow_keys_handler, false);
+    
+    }
     
     return false;
 
@@ -1309,8 +1314,6 @@ function toggleAccordion(e) {
 
 function copyButton (el, target) {
 	
-	if (!window.addEventListener) return;
-	
 	el.addEventListener('click', function(event) {  
 
 	  var range = document.createRange();  
@@ -1590,7 +1593,6 @@ function init() {
 	
 	// Auto textarea height. To do: make it optional
 	
-/*
 	forEach('textarea', function(el) {
 	
 	    el.onkeyup = function(e) {
@@ -1619,7 +1621,6 @@ function init() {
 	    };
 	
 	});
-*/
 	
 	// Animate anchor link jumps
 	forEach('a[href^="#"]', function(el, i) {

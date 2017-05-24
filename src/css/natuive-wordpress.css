@@ -3170,7 +3170,8 @@ iframe, article h2 a {
   padding-left: 2px; }
 
 article p {
-  color: #000; }
+  max-width: 40em;
+  margin: 1.5em auto; }
 
 article ul {
   padding-left: 2px; }
