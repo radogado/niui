@@ -522,6 +522,12 @@
 		
 	}
 	
+	.slider-wrap.thumbnails.outside:not(.inline) {
+		
+		padding-bottom: 4em;
+		
+	}
+
 	.slider-wrap .slider.vertical > .visible, .vertical > .slider-nav a {
 		
 		display: block;
