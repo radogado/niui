@@ -686,6 +686,7 @@ function openLightbox(e) {
         
         populateLightbox(makeSlider(lightbox_target, this_index), this_index);
         transferClass(anchor.parentNode, lightbox_target.parentNode, 'thumbnails');
+        transferClass(anchor.parentNode, lightbox_target.parentNode, 'outside');
         
         if (hasClass(anchor.parentNode, 'thumbnails')) {
         

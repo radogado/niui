@@ -87,6 +87,12 @@
 
 }
 
+.aspect > .slider-wrap.outside {
+	
+	padding-bottom: 4em;	
+
+}
+
 .aspect > .slider-wrap .slider {
 	
 	height: 100%;
@@ -487,6 +493,18 @@
 		
 	}
 	
+	.slider-nav a:first-child {
+		
+		margin-left: 0;
+		
+	}
+	
+	.slider-nav a:last-child {
+		
+		margin-right: 0;
+		
+	}
+	
 	.thumbnails .slider-nav a {
 		
 		line-height: 4em;
@@ -494,6 +512,13 @@
 		height: 4em;
 		background-size: cover;
 		border-radius: 0;
+		
+	}
+	
+	.thumbnails.outside .slider-nav {
+		
+		position: static;
+		transform: none;
 		
 	}
 	
