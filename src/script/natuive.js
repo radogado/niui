@@ -166,7 +166,7 @@ function thisIndex(el) {
     var i = 0;
     var count = 0;
 
-    while ((node = nodes.item(i++)) && node != el) {
+    while ((node = nodes.item(i++)) && node !== el) {
 
         if (node.nodeType === 1) {
 
@@ -369,7 +369,7 @@ function populateLightboxItem(slider, i) {
 
 	if (img && !img.src) {
 		
-		img.src = img.getAttribute('data-src');
+		img.src = img.dataset.src;
 		img.onload = function (e) {
 			
 			addClass(e.target.parentNode, 'loaded');
@@ -431,7 +431,7 @@ function closeFullWindow() {
 			}
 	
 		    removeClass(q('html'), 'nooverflow');
-	    	q('body').scrollTop = q('html').scrollTop = -1 * q('html').getAttribute('data-offset');
+	    	q('body').scrollTop = q('html').scrollTop = -1 * q('html').dataset.offset;
 	    	q('html').removeAttribute('data-offset');	
 	
 			removeEventHandler(window, 'keydown', arrow_keys_handler);
@@ -454,7 +454,7 @@ function openFullWindow(el) {
 	closeFullWindow();
 	
 	var offset_top = q('html').getBoundingClientRect().top;
-	q('html').setAttribute('data-offset', offset_top); // Remember the page position.
+	q('html').dataset.offset = offset_top; // Remember the page position.
     addClass(q('html'), 'nooverflow');
 
 	if (typeof el === 'string') {
@@ -594,7 +594,7 @@ function openLightbox(e) {
 		
 		lightbox.insertAdjacentHTML('afterend', '<div class="slider lightbox inline"></div>');
 		var lightbox_target = lightbox.parentNode.querySelector('.slider.lightbox');
-		lightbox.style.display = 'none';
+		lightbox.outerHTML = '';
 		
 		
 	} else {
@@ -815,7 +815,7 @@ function submitForm(e) {
 			( el.querySelector('input[type=url]') && !RegExp(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/).test(el.querySelector('input[type=url]').value) ) ||
 			( el.querySelector('input[type=number]') && 
 				!(RegExp(/^\d+$/).test(el.querySelector('input[type=number]').value)) ||
-				(el.querySelector('input[type=number][data-digits]') && (el.querySelector('input[type=number]').value.length != el.querySelector('input[type=number]').getAttribute('data-digits')))
+				(el.querySelector('input[type=number][data-digits]') && (el.querySelector('input[type=number]').value.length != el.querySelector('input[type=number]').dataset.digits))
 			) ||
 			( el.querySelector('input[type=radio]') && !el.querySelector('input[type=radio]').checked )
         ) {
@@ -1217,13 +1217,13 @@ function animate(el, animation, duration, callback) { // Default duration = .2s,
 
 // To do: add animation-fill-mode: forwards to keep the end state
 
-	if (!el.getAttribute('data-animation')) {
+	if (!el.dataset.animation) {
 
 		el.addEventListener(animationEndEvent, function animationEndHandler(e) {
 			
 			stopEvent(e);
 			var el = e.target; 
-			q('head').removeChild(q('.' + el.getAttribute('data-animation')));
+			q('head').removeChild(q('.' + el.dataset.animation));
 			el.removeAttribute('data-animation');
 	 		el.removeEventListener(animationEndEvent, animationEndHandler);
 			if (typeof callback === 'function') {
@@ -1239,7 +1239,7 @@ function animate(el, animation, duration, callback) { // Default duration = .2s,
 		styles.innerHTML = '@keyframes ' + animation_name + ' {' + animation + '} [data-animation=' + animation_name + '] { animation-name: ' + animation_name + '; animation-duration: ' + ((typeof duration === 'undefined') ? .2 : duration) + 's; }'; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
 		q('head').appendChild(styles);
 		addClass(styles, animation_name);
-		el.setAttribute('data-animation', animation_name);
+		el.dataset.animation = animation_name;
 	
 	}
 	
@@ -1288,7 +1288,7 @@ function toggleAccordion(e) {
     }
 */
 
-	var content_height = (typeof content.style.getPropertyValue !== 'undefined' && content.style.getPropertyValue('--height')) || 0;
+	var content_height = content.style.getPropertyValue('--height') || 0;
 	
 	if (hasClass(el, 'open')) {
 
@@ -1542,9 +1542,9 @@ function init() {
 	
 	forEach('td[data-sort]', function (el) {
 		// asc or desc
-		if (el.getAttribute('data-sort') != 'asc' && el.getAttribute('data-sort') != 'desc') {
+		if (el.dataset.sort !== 'asc' && el.dataset.sort !== 'desc') {
 			
-			el.setAttribute('data-sort', 'asc');
+			el.dataset.sort = 'asc';
 			
 		}
 		
@@ -1554,15 +1554,15 @@ function init() {
 			var el = e.target;
 			var cell = el.type === 'td' ? el : closest(el, 'td');
 			var f; // Ascending
-			if (cell.getAttribute('data-sort') === 'desc') {
+			if (cell.dataset.sort === 'desc') {
 				
 				f = -1;
-				cell.setAttribute('data-sort', 'asc');
+				cell.dataset.sort = 'asc';
 				
 			} else {
 				
 				f = 1;
-				cell.setAttribute('data-sort', 'desc');
+				cell.dataset.sort = 'desc';
 				
 			}
 	
@@ -1645,7 +1645,7 @@ function init() {
 	
 	    }
 	    
-	    if (el.getAttribute && el.getAttribute('rel') === null) {
+	    if (el.getAttribute('rel') === null) {
 		    
 		    el.setAttribute('rel', 'prefetch');
 	
@@ -1657,14 +1657,23 @@ function init() {
 	
 	forEach('.lightbox', function(el, i) {
 	
+/*
 		// Abort on IE, because of IE bug on dynamic img.src change
 		if (navigator.userAgent.indexOf('MSIE') != -1 || navigator.userAgent.indexOf('Trident') != -1) {
 			
 			return;
 	
 		}
+*/
+
+		if (hasClass(el.parentNode, 'slider-wrap')) {
+			
+			return;
+	
+		}
 		
 		if (hasClass(el, 'inline')) {
+			
 			
 			openLightbox(el.querySelector('a'));
 			

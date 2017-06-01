@@ -810,6 +810,12 @@ form.wide input, form.wide textarea, form.wide select {
 
 }
 
+form.mast label {
+	
+	width: 100%;
+	
+}
+
 form.mast label > input {
 	
 	margin-top: -$line-height-em/2;

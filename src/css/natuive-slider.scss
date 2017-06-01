@@ -493,7 +493,7 @@
 		
 	}
 	
-	.slider-nav a:first-child {
+	.slider-wrap:not(.vertical) .slider-nav a:first-child {
 		
 		margin-left: 0;
 		

@@ -1135,6 +1135,9 @@ form.wide input, form.wide textarea, form.wide select {
   width: 100%;
   margin: 0 0 1.5em 0; }
 
+form.mast label {
+  width: 100%; }
+
 form.mast label > input {
   margin-top: -0.75em; }
 
@@ -2300,7 +2303,7 @@ $bg: #1E8DaC;
   height: 2em;
   text-align: center; }
 
-.slider-nav a:first-child {
+.slider-wrap:not(.vertical) .slider-nav a:first-child {
   margin-left: 0; }
 
 .slider-nav a:last-child {

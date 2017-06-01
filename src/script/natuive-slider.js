@@ -18,8 +18,8 @@
 
 }());
 
-q('html').setAttribute('data-last_slide', '14045017000');
-q('html').setAttribute('data-slide_duration', '0.5');
+q('html').dataset.last_slide = 14045017000;
+q('html').dataset.slide_duration = 0.5;
 
 function sliderElement(e) {
 
@@ -107,15 +107,14 @@ function initScroll(e, delta) { // Scroll happens
     var timeNow = new Date().getTime();
 
     // Cancel scroll if currently animating or within quiet period – don't slide again automatically after a slide
-    if ((timeNow - q('html').getAttribute('data-last_slide')) < q('html').getAttribute('data-slide_duration')*2000 || hasClass(q('html'), 'sliding_now')) {
+    if ((timeNow - q('html').dataset.last_slide) < q('html').dataset.slide_duration*2000 || hasClass(q('html'), 'sliding_now')) {
 
         stopEvent(e);
 		return;
 
     }
 
-    q('html').setAttribute('data-last_slide', timeNow);
-
+	q('html').dataset.last_slide = timeNow;
     slide(sliderElement(e), delta < 0 ? 'right' : 'left');
 
 }
@@ -203,7 +202,7 @@ function endSlide (slider, index) {
 	    removeClass(q('html'), 'sliding_now');
 	    mouseEvents(slider);
 
-	}, q('html').getAttribute('data-slide_duration')/2);
+	}, q('html').slide_duration/2);
 	
 }
 
@@ -308,7 +307,7 @@ function slide(el, method, index_number) {
 
 	slider.style.height = computed_height;
 
-	var duration = (slider.getAttribute('data-duration') ? slider.getAttribute('data-duration') : q('html').getAttribute('data-slide_duration'));
+	var duration = slider.dataset.duration ? slider.dataset.duration : q('html').dataset.slide_duration;
 
 	if (childByClass(slider_wrap, 'slider-nav').querySelector('.active')) {
 
@@ -399,9 +398,9 @@ function sliderKeyboard(e) {
 		
 	}
 
-	if (tag != 'input' && tag != 'textarea' && (el = q('.full-window-wrap .slider') || qa('.slider'))) {
+	if (tag !== 'input' && tag !== 'textarea' && (el = q('.full-window-wrap .slider') || qa('.slider'))) {
 		
-		if (typeof el.length != 'undefined') { /* An array of sliders */
+		if (typeof el.length !== 'undefined') { /* An array of sliders */
 			
 			el = el[0]; /* To do: choose the proper slide, currently visible in viewport, by its index */
 			
@@ -498,7 +497,7 @@ function makeSlider(el, current_slide) {
 	            addClass(slider_wrap, 'tabs');
 	            addClass(slider_nav, 'row');
 	            transferClass(slider_wrap, slider_nav, 'wrap');
-	            var tab_title = el.children[i].getAttribute('data-tab-title') || (el.children[i].querySelector('.tab-title') ? el.children[i].querySelector('.tab-title').innerHTML : i+1);
+	            var tab_title = el.children[i].dataset.tab_title || (el.children[i].querySelector('.tab-title') ? el.children[i].querySelector('.tab-title').innerHTML : i+1);
 	            slider_nav.insertAdjacentHTML('beforeend', (!i ? '<a class=active>' : '<a>') + tab_title + '</a>');
 	            if (hasClass(el, 'vertical')) {
 		            
@@ -568,10 +567,10 @@ function makeSlider(el, current_slide) {
 	        
 	    });
 	
-	    if (el.getAttribute('data-autoslide') !== null) { // auto slide
+	    if (el.dataset.autoslide) { // auto slide
 	
-			var delay = el.getAttribute('data-autoslide');
-			delay = delay.length > 0 ? (1000 * el.getAttribute('data-autoslide')) : 4000;
+			var delay = el.dataset.autoslide;
+			delay = delay.length > 0 ? (1000 * delay) : 4000;
 	        var autoSlide = function() {
 	
 	            slide(el, 'right');
