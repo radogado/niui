@@ -369,7 +369,7 @@ function populateLightboxItem(slider, i) {
 
 	if (img && !img.src) {
 		
-		img.src = img.dataset.src;
+		img.src = img.getAttribute('data-src');
 		img.onload = function (e) {
 			
 			addClass(e.target.parentNode, 'loaded');
@@ -431,7 +431,7 @@ function closeFullWindow() {
 			}
 	
 		    removeClass(q('html'), 'nooverflow');
-	    	q('body').scrollTop = q('html').scrollTop = -1 * q('html').dataset.offset;
+	    	q('body').scrollTop = q('html').scrollTop = -1 * q('html').getAttribute('data-offset');
 	    	q('html').removeAttribute('data-offset');	
 	
 			removeEventHandler(window, 'keydown', arrow_keys_handler);
@@ -454,7 +454,7 @@ function openFullWindow(el) {
 	closeFullWindow();
 	
 	var offset_top = q('html').getBoundingClientRect().top;
-	q('html').dataset.offset = offset_top; // Remember the page position.
+	q('html').setAttribute('data-offset', offset_top); // Remember the page position.
     addClass(q('html'), 'nooverflow');
 
 	if (typeof el === 'string') {
@@ -809,16 +809,24 @@ function submitForm(e) {
 	    }
 
         if (
-			( el.querySelector('input, select, textarea') && !el.querySelector('input, select, textarea').value ) || 
-			( el.querySelector('input[type=checkbox]') && !el.querySelector('input[type=checkbox]').checked ) ||
-			( el.querySelector('input[type=email]') && !RegExp(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/).test(el.querySelector('input[type=email]').value) ) ||
-			( el.querySelector('input[type=url]') && !RegExp(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/).test(el.querySelector('input[type=url]').value) ) ||
-			( el.querySelector('input[type=number]') && 
-				!(RegExp(/^\d+$/).test(el.querySelector('input[type=number]').value)) ||
-				(el.querySelector('input[type=number][data-digits]') && (el.querySelector('input[type=number]').value.length != el.querySelector('input[type=number]').dataset.digits))
+			( el.querySelector('input, select, textarea') && !el.querySelector('input, select, textarea').value ) 
+			|| 
+			( el.querySelector('input[type=checkbox]') && !el.querySelector('input[type=checkbox]').checked ) 
+			||
+			( el.querySelector('input[type=email]') && !RegExp(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/).test(el.querySelector('input[type=email]').value) ) 
+			||
+			( el.querySelector('input[type=url]') && !RegExp(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/).test(el.querySelector('input[type=url]').value) ) 
+			||
+			( el.querySelector('input[type=number]') 
+				&& 
+				!(RegExp(/^\d+$/).test(el.querySelector('input[type=number]').value))
+				||
+				(el.querySelector('input[type=number][data-digits]') && (el.querySelector('input[type=number]').value.length != el.querySelector('input[type=number]').getAttribute('data-digits')))
 			) ||
 			( el.querySelector('input[type=radio]') && !el.querySelector('input[type=radio]').checked )
-        ) {
+		   ) 
+		
+		{
 
             ready_to_submit = false;
             el.querySelector('input').focus();
@@ -1213,17 +1221,17 @@ for(var t in animations) {
 
 }
 
-function animate(el, animation, duration, callback) { // Default duration = .2s, callback optional
+function animate(el, animation_code, duration, callback) { // Default duration = .2s, callback optional
 
 // To do: add animation-fill-mode: forwards to keep the end state
 
-	if (!el.dataset.animation) {
+	if (!el.getAttribute('data-animation')) {
 
 		el.addEventListener(animationEndEvent, function animationEndHandler(e) {
 			
 			stopEvent(e);
 			var el = e.target; 
-			q('head').removeChild(q('.' + el.dataset.animation));
+			q('head').removeChild(q('.' + el.getAttribute('data-animation')));
 			el.removeAttribute('data-animation');
 	 		el.removeEventListener(animationEndEvent, animationEndHandler);
 			if (typeof callback === 'function') {
@@ -1236,10 +1244,12 @@ function animate(el, animation, duration, callback) { // Default duration = .2s,
 
 		var animation_name = 'a' + new Date().getTime(); // Unique animation name
 		var styles = document.createElement('style');
-		styles.innerHTML = '@keyframes ' + animation_name + ' {' + animation + '} [data-animation=' + animation_name + '] { animation-name: ' + animation_name + '; animation-duration: ' + ((typeof duration === 'undefined') ? .2 : duration) + 's; }'; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
+		styles.innerHTML = '@keyframes ' + animation_name + ' {' + animation_code + '} [data-animation=' + animation_name + '] { animation-name: ' + animation_name + '; animation-duration: ' + ((typeof duration === 'undefined') ? .2 : duration) + 's; }'; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
 		q('head').appendChild(styles);
 		addClass(styles, animation_name);
-		el.dataset.animation = animation_name;
+
+// 		el.dataset.animation = animation_name;
+		el.setAttribute('data-animation', animation_name);
 	
 	}
 	
