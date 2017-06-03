@@ -275,6 +275,21 @@ function ready(fn) {
 
 /* ––– */
 
+function getURLParameters() { // return all URL parameters in an array
+
+    var res = {};
+    var re = /[?&]([^?&]+)=([^?&]+)/g;
+
+    location.href.replace(re, function(_, k, v) {
+
+        res[k] = v;
+
+    });
+
+    return res;
+
+}
+
 /*
 // URI parameters
 
@@ -298,21 +313,6 @@ function updateURLParameter(url, param, paramVal) { // return input string with 
 
     var rows_txt = temp + '' + param + '=' + paramVal;
     return baseURL + '?' + newAdditionalURL + rows_txt.split('#')[0];
-
-}
-
-function getURLParameters() { // return all URL parameters in an array
-
-    var res = {};
-    var re = /[?&]([^?&]+)=([^?&]+)/g;
-
-    location.href.replace(re, function(_, k, v) {
-
-        res[k] = v;
-
-    });
-
-    return res;
 
 }
 
@@ -627,8 +627,8 @@ function openLightbox(e) {
 		}
 		
 		var slide_link = document.location.protocol + '//' + document.location.hostname + document.location.pathname + '?image=' + el.href.split('/').pop() + '#' + lightbox.getAttribute('id');
-	    
-	    var link_element = (hasClass(lightbox,'inline')) ? '' : '<a class="button copy" href=' + slide_link + '></a>';
+
+	    var link_element = (hasClass(lightbox,'inline') || !lightbox.getAttribute('id')) ? '' : '<a class="button copy" href=' + slide_link + '></a>';
 	    
 	    images += '<div><img data-src="' + el.href + '" alt="' + el.title + '" title="' + slide_link + '">' + (el.title ? ('<p>' + el.title + '</p>') : '') + link_element + '</div>';
 
