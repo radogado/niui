@@ -286,6 +286,13 @@ function slide(el, method, index_number) {
 
     }
 
+	var duration = slider.getAttribute('data-duration') ? slider.getAttribute('data-duration') : q('html').getAttribute('data-slide_duration');
+	if (!slider.querySelector('.visible')) { // Slider in construction, don't animate to initial slide
+		
+		duration = .01;
+
+	}
+
     var offset_sign = '-'; // Slider offset depending on direction. '-' for LTR or '' (plus) for RTL. Vertical is always '-'
 
 	// To do: auto-height slider to take the height of the taller element
@@ -310,8 +317,6 @@ function slide(el, method, index_number) {
 	}
 
 	slider.style.height = computed_height;
-
-	var duration = slider.getAttribute('data-duration') ? slider.getAttribute('data-duration') : q('html').getAttribute('data-slide_duration');
 
 	if (childByClass(slider_wrap, 'slider-nav').querySelector('.active')) {
 
