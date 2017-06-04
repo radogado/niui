@@ -1116,14 +1116,20 @@ if (q('input[type=reset][form]') && !q('input[type=reset][form]').form) {
 }
 */
 
+function notifyClose(el) {
+	
+	el.parentNode.removeChild(el);
+	
+}
+
 function notifyCloseEvent() {
 
 	if (q('.notify')) {
 
 		q('.notify').onclick = function (e) {
 			
-			e.target.parentNode.removeChild(el);
-			
+			notifyClose(e.target);	
+				
 		};
 	
 	}
@@ -1132,8 +1138,13 @@ function notifyCloseEvent() {
 
 function notify(content, option) {
 	
-	q('body').insertAdjacentHTML('afterbegin', '<div class="notify' + ((option === 'fixed') ? ' fixed' : '') + '">' + content + '</div>');
+	q('body').insertAdjacentHTML('afterbegin', '<div class="notify' + (option && (option.indexOf('fixed') !== -1) ? ' fixed' : '') + '">' + content + '</div>');
 	notifyCloseEvent();
+	if (option && option.indexOf('timeout') !== -1) {
+		
+		setTimeout(function() { notifyClose(q('.notify')) }, 2000);
+
+	}
 	
 }
 
@@ -1333,7 +1344,8 @@ function copyButton (el, target) {
 	
 	  try {  
 
-		  document.execCommand('copy');  
+		  document.execCommand('copy');
+		  notify('📋 ' + target.textContent, 'fixed timeout');
 
 	  } catch(err) {
 
