@@ -192,6 +192,8 @@ function endSlide (slider, index) {
 	addClass(childByClass(slider_wrap, 'slider-nav').children[index], 'active');
     slider.style.cssText = '';
 
+	addClass(slider.children[index], 'visible');
+
     if (!hasClass(slider, 'vertical')) {
 	    
 	    slider.style.marginLeft = -100*index + '%';
@@ -248,9 +250,9 @@ function slide(el, method, index_number) {
 
     if (method === 'index') {
 
-		if (typeof index_number === 'undefined' || index_number === index) { /* Don't slide to current slide */
-
-			endSlide(slider, index);
+		if (typeof index_number === 'undefined' || index_number === index || !slider.querySelector('.visible')) { /* Don't slide to current slide */
+			
+			endSlide(slider, index_number);
 			return;
 
 		}
@@ -286,24 +288,18 @@ function slide(el, method, index_number) {
 
     }
 
-	var duration = slider.getAttribute('data-duration') ? slider.getAttribute('data-duration') : q('html').getAttribute('data-slide_duration');
-	if (!slider.querySelector('.visible')) { // Slider in construction, don't animate to initial slide
-		
-		duration = .01;
-
-	}
-
     var offset_sign = '-'; // Slider offset depending on direction. '-' for LTR or '' (plus) for RTL. Vertical is always '-'
 
 	// To do: auto-height slider to take the height of the taller element
 	var computed_height;
 	var computed_height_old;
-	addClass(slider.children[index], 'visible');
 
 	if (hasClass(slider, 'vertical')) {
-		
-		computed_height = getComputedStyle(slider.children[index]).height; // To do: get proper target slide height
-		computed_height_old = getComputedStyle(slider.children[old_index]).height; // To do: get proper target slide height
+		var target_slide = slider.children[index];
+		target_slide.style.cssText = 'display: block'; // Temporarilt display the target slide to get its height
+		computed_height = getComputedStyle(target_slide).height;
+		target_slide.style.cssText = '';
+		computed_height_old = getComputedStyle(slider.children[old_index]).height;
 
 	} else {
 	
@@ -324,10 +320,14 @@ function slide(el, method, index_number) {
 
     }
 
+	var duration = slider.getAttribute('data-duration') ? slider.getAttribute('data-duration') : q('html').getAttribute('data-slide_duration');
+
+	addClass(slider.children[index], 'visible');
+
 	var translate_from, translate_to;
 	
     if (hasClass(slider, 'vertical')) {
-	
+
 	    translate_from = 'translate3d(0,' + ((index<old_index) ? '-100%' : '0') + ',0)';
 		
 		computed_height = parseInt(computed_height, 10);
@@ -368,18 +368,14 @@ function slide(el, method, index_number) {
 	addClass(slider, 'sliding');
 
 	slider.style.margin = 0;
+
 	animate(slider, animation_code, duration, function slideEndHandler(e) { // On slide end
 
 		removeClass(slider, 'sliding');
-		if (slider.children[old_index]) {
+		removeClass(slider.children[old_index], 'visible');
+	    slider.children[old_index].style.transition = '';
+	    slider.children[old_index].style.opacity = '';
 
-			removeClass(slider.children[old_index], 'visible');
-		    slider.children[old_index].style.transition = '';
-		    slider.children[old_index].style.opacity = '';
-
-		}
-
-// 			slider.style.transform = hasClass(slider, 'vertical') ? 'translate3d(0, 0, 0)' : 'translate3d(' + offset_sign + index + '00%, 0, 0)';
 		slider.style.height = '';
 		endSlide(slider, index);
 
@@ -507,7 +503,7 @@ function makeSlider(el, current_slide) {
 	            addClass(slider_nav, 'row');
 	            transferClass(slider_wrap, slider_nav, 'wrap');
 	            var tab_title = el.children[i].getAttribute('data-tab_title') || (el.children[i].querySelector('.tab-title') ? el.children[i].querySelector('.tab-title').innerHTML : i+1);
-	            slider_nav.insertAdjacentHTML('beforeend', (!i ? '<a class=active>' : '<a>') + tab_title + '</a>');
+	            slider_nav.insertAdjacentHTML('beforeend', '<a>' + tab_title + '</a>');
 	            if (hasClass(el, 'vertical')) {
 		            
 		            addClass(slider_wrap, 'vertical');
@@ -516,7 +512,7 @@ function makeSlider(el, current_slide) {
 	
 	        } else {
 	
-	            container.querySelector('.slider-nav').insertAdjacentHTML('beforeend', (!i ? '<a class=active>' : '<a>') + (i + 1) + '</a>');
+	            container.querySelector('.slider-nav').insertAdjacentHTML('beforeend', '<a>' + (i + 1) + '</a>');
 	
 	        }
 	
@@ -591,19 +587,13 @@ function makeSlider(el, current_slide) {
 	
 	    }
 	
-	    if (current_slide) {
-	
-			slide(el, 'index', current_slide);
-			
-	    }
+		endSlide(el, current_slide || 0); // Start from (other than) the first slide
 	    
 	}
 
 	// Detect text direction
 	el.setAttribute('dir', getComputedStyle(el, null).getPropertyValue('direction'));
 	    
-    addClass(el.children[0], 'visible');
-
     window.onkeyup = sliderKeyboard;
 	
     return el;
