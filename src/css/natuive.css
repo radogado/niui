@@ -2428,7 +2428,14 @@ $bg: #1E8DaC;
   justify-content: center; }
 
 .full-window-wrap .slider.lightbox > * {
-  height: 100%; }
+  height: 100%;
+  overflow: hidden; }
+
+.full-window-wrap .slider.lightbox.vertical > * {
+  display: none; }
+
+.full-window-wrap .slider.lightbox.vertical > .visible {
+  display: block; }
 
 .slider.lightbox video {
   display: inline-block;
@@ -2502,9 +2509,6 @@ $bg: #1E8DaC;
   100% {
     transform: scale(1);
     opacity: 0; } }
-.full-window-wrap .lightbox.slider > * {
-  overflow: hidden; }
-
 .lightbox a {
   display: inline-block;
   vertical-align: middle;

@@ -26,7 +26,20 @@
 .full-window-wrap .slider.lightbox > * {
 
 	height: 100%;
+	overflow: hidden;
 	
+}
+
+.full-window-wrap .slider.lightbox.vertical > * { // Firefox fix
+
+	display: none;
+
+}
+
+.full-window-wrap .slider.lightbox.vertical > .visible { // Firefox fix
+
+	display: block;
+
 }
 
 .slider.lightbox video {
@@ -124,7 +137,7 @@
 
 }
 
-@keyframes sk-scaleout { // Thanks to SpinKit
+@keyframes sk-scaleout { // Loading spinner animation. Thanks to SpinKit
 
   0% { 
 
@@ -138,12 +151,6 @@
     opacity: 0;
 
   }
-
-}
-
-.full-window-wrap .lightbox.slider > * {
-	
-	overflow: hidden;
 
 }
 
