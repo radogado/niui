@@ -621,7 +621,7 @@ function openLightbox(e) {
 			
 		if (hasClass(el, 'iframe')) {
 
-			images += '<div><iframe src=' + el.href + '></div>';
+			images += '<div><iframe src=' + el.href + '></iframe></div>';
 			return;
 			
 		}
@@ -693,8 +693,12 @@ function openLightbox(e) {
 	        var i = 0;
 	        var nav = closest(lightbox_target, '.slider-wrap').querySelector('.slider-nav');
 	        forEach(thumbnails, function (el) {
+				
+				if (nav.children[i]) {
 
-		        nav.children[i].style.backgroundImage = 'url(' + thumbnails[i] + ')';
+			        nav.children[i].style.backgroundImage = 'url(' + thumbnails[i] + ')';
+
+			    }
 		        i++;
 		        
 	        });
