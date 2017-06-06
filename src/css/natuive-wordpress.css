@@ -2120,7 +2120,11 @@ $bg: #1E8DaC;
   overflow: visible;
   flex-direction: column; }
 
-.slider-wrap .slider.vertical > *, .slider-wrap .slider.sliding > *:not(.visible), .slider-wrap .slider::-webkit-scrollbar, .slider-wrap.tabs > .slider-arrow {
+.slider-wrap .slider.vertical > *, .slider-wrap .slider.sliding > *:not(.visible), .slider-wrap.tabs > .slider-arrow {
+  height: auto;
+  display: none; }
+
+.slider-wrap .slider::-webkit-scrollbar {
   height: auto;
   display: none; }
 
