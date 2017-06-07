@@ -378,6 +378,12 @@ function populateLightboxItem(slider, i) {
 		img.onclick = function (e) {
 			
 			toggleClass(e.target, 'zoom');
+			e.target.onmousemove = function (e) {
+
+				e.target.style.setProperty('--x', e.screenX/window.innerWidth);
+				e.target.style.setProperty('--y', e.screenY/window.innerHeight);
+
+			};
 
 		};
 		return false;

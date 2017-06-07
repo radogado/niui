@@ -299,7 +299,7 @@ background: #f6f9fc"></span>
 						
 						<div class="slider tabs right vertical" data-duration=.2>
 							
-							<div data-tab-title=Payments>
+							<div data-tab_title=Payments>
 								<div>
 								<pre>
 const stripe = require('stripe')('sk_test_BQokikJOvBiI2HlWgH4olfQ2');
@@ -318,7 +318,7 @@ const charge = await stripe.charges.create({
 								</div>
 							</div>
 				
-							<div data-tab-title=Customers>
+							<div data-tab_title=Customers>
 								<div>
 								<pre>
 const stripe = require('stripe')('sk_test_BQokikJOvBiI2HlWgH4olfQ2');
@@ -342,7 +342,7 @@ charge = await stripe.charges.refund(charge.id, {
 								</div>
 							</div>
 						
-							<div data-tab-title=Subscriptions>
+							<div data-tab_title=Subscriptions>
 								<div>
 								<pre>
 const stripe = require('stripe')('sk_test_BQokikJOvBiI2HlWgH4olfQ2');
@@ -365,7 +365,7 @@ const subscription = await stripe.subscriptions.create({
 								</div>
 							</div>
 				
-							<div data-tab-title=Reporting>
+							<div data-tab_title=Reporting>
 								<div>
 								<pre>
 const stripe = require('stripe')('sk_test_BQokikJOvBiI2HlWgH4olfQ2');
