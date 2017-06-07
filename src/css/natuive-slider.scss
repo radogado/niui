@@ -170,7 +170,7 @@
 	
 }
 
-.slider-wrap .slider > .visible {
+.slider-wrap .slider > .active {
 	
 	contain: none;
 	
@@ -204,7 +204,7 @@
 
 }
 
-.slider-wrap .slider.vertical > *, .slider-wrap .slider.sliding > *:not(.visible), .slider-wrap.tabs > .slider-arrow {
+.slider-wrap .slider.vertical > *, .slider-wrap .slider.sliding > *:not(.active), .slider-wrap.tabs > .slider-arrow {
 
 	height: auto;
 	display: none;
@@ -247,7 +247,7 @@
 
 .slider-wrap .slider > * {
 
-// 	display: none; // Only display .visible slides. Because if slider has transforms (showing only current slide while others are still in the flow), there are problems with its children of position fixed etc. Breaks non-auto height sliders, can't set to height to the tallest slide. Make it with margin-left after the animation is done.
+// 	display: none; // Only display .active slides. Because if slider has transforms (showing only current slide while others are still in the flow), there are problems with its children of position fixed etc. Breaks non-auto height sliders, can't set to height to the tallest slide. Make it with margin-left after the animation is done.
 	display: inline-block;
 
 }
@@ -276,7 +276,7 @@
 
 }
 
-.slider > *.visible, .full-window-wrap .lightbox.slider > *.visible > img {
+.slider > *.active, .full-window-wrap .lightbox.slider > *.active > img {
 
 	display: inline-block;
 
@@ -535,7 +535,7 @@
 		
 	}
 
-	.slider-wrap .slider.vertical > .visible, .vertical > .slider-nav a {
+	.slider-wrap .slider.vertical > .active, .vertical > .slider-nav a {
 		
 		display: block;
 		overflow: visible;
@@ -609,7 +609,7 @@
 	
 }
 
-.slider.auto-height > *:not(.visible) {
+.slider.auto-height > *:not(.active) {
 	
 	height: 0;
 

@@ -36,7 +36,7 @@
 
 }
 
-.full-window-wrap .slider.lightbox.vertical > .visible { // Firefox fix
+.full-window-wrap .slider.lightbox.vertical > .active { // Firefox fix
 
 	display: block;
 
@@ -107,7 +107,7 @@
 
 }
 
-.lightbox.slider > .visible > img.zoom {
+.full-window-wrap .lightbox.slider > .active > img.zoom {
 
 	width: auto;
 	height: auto;
@@ -122,7 +122,7 @@
 
 }
 
-.lightbox.slider > .visible:not(.loaded):after { // Loading spinner
+.lightbox.slider > .active:not(.loaded):after { // Loading spinner
 
 	content: '';
 	position: absolute;

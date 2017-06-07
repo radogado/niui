@@ -1419,8 +1419,10 @@ function loadScriptFile(file_name) {
 // Close all Fold elements when clicking/tapping outside of them
 
 function closeFoldClickOutside(e) {
+	
+	var el = e.target;
 
-	if (!closest(e.target, '.fold') && !closest(e.target, '.tool')) { // Clicking/tapping outside of a fold/tooltip element...
+	if (!closest(el, '.fold') && !closest(el, '.tool')) { // Clicking/tapping outside of a fold/tooltip element...
 		
 		forEach('.fold.mobile, .tool', function (el) { // ... closes all burger nav menus and tooltips
 			
@@ -1430,13 +1432,25 @@ function closeFoldClickOutside(e) {
 		
 	}
 	
-	if (!closest(e.target, 'nav.drop')) { // reset all forms, closing the drop down
+	if (!closest(el, 'nav.drop')) { // reset all forms, closing the drop down
 		
 		forEach('nav.drop form', function (el) {
 			
 			el.reset();
 			
 		});
+		
+	}
+	
+	if (q('.slider-wrap.active')) {
+		
+		removeClass(q('.slider-wrap.active'), 'active')
+		
+	}
+	
+	if (closest(el, '.slider')) {
+		
+		addClass(closest(el, '.slider-wrap'), 'active');
 		
 	}
 	

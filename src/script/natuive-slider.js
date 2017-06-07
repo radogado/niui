@@ -192,7 +192,7 @@ function endSlide (slider, index) {
 	addClass(childByClass(slider_wrap, 'slider-nav').children[index], 'active');
     slider.style.cssText = '';
 
-	addClass(slider.children[index], 'visible');
+	addClass(slider.children[index], 'active');
 
     if (!hasClass(slider, 'vertical')) {
 	    
@@ -250,7 +250,7 @@ function slide(el, method, index_number) {
 
     if (method === 'index') {
 
-		if (typeof index_number === 'undefined' || index_number === index || !slider.querySelector('.visible')) { /* Don't slide to current slide */
+		if (typeof index_number === 'undefined' || index_number === index || !slider.querySelector('.active')) { /* Don't slide to current slide */
 			
 			endSlide(slider, index_number);
 			return;
@@ -322,7 +322,7 @@ function slide(el, method, index_number) {
 
 	var duration = slider.getAttribute('data-duration') ? slider.getAttribute('data-duration') : q('html').getAttribute('data-slide_duration');
 
-	addClass(slider.children[index], 'visible');
+	addClass(slider.children[index], 'active');
 
 	var translate_from, translate_to;
 	
@@ -372,7 +372,7 @@ function slide(el, method, index_number) {
 	animate(slider, animation_code, duration, function slideEndHandler(e) { // On slide end
 
 		removeClass(slider, 'sliding');
-		removeClass(slider.children[old_index], 'visible');
+		removeClass(slider.children[old_index], 'active');
 	    slider.children[old_index].style.transition = '';
 	    slider.children[old_index].style.opacity = '';
 
@@ -384,8 +384,6 @@ function slide(el, method, index_number) {
 }
 
 function sliderKeyboard(e) {
-
-    e = e || window.event;
 
     if (typeof e === 'undefined' || hasClass(q('html'), 'sliding_now') || q('.slider.sliding')) {
 
@@ -403,14 +401,8 @@ function sliderKeyboard(e) {
 		
 	}
 
-	if (tag !== 'input' && tag !== 'textarea' && (el = q('.full-window-wrap .slider') || qa('.slider'))) {
-		
-		if (typeof el.length !== 'undefined') { /* An array of sliders */
-			
-			el = el[0]; /* To do: choose the proper slide, currently visible in viewport, by its index */
-			
-		}
-		
+	if (tag !== 'input' && tag !== 'textarea' && (el = q('.full-window-wrap .slider') || q('.slider-wrap.active .slider') || q('.slider'))) { // Priority: full window slider, active slider, first slider
+		console.log(el);
         switch (e.which) {
 
             case 38:
