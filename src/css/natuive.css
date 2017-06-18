@@ -6,14 +6,14 @@ $bg: #1E8DaC;
 */
 :root {
   /*
-// Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-	--line-height: 2;
-	--line-height-em: calc(var(--line-height)*1em);
-*/
+  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
+  	--line-height: 2;
+  	--line-height-em: calc(var(--line-height)*1em);
+  */
   /*
-	--color: #fff;
-	--bg: #1E8DaC;
-*/
+  	--color: #fff;
+  	--bg: #1E8DaC;
+  */
   --color: #333;
   --bg: #fff; }
 
@@ -29,14 +29,14 @@ $bg: #1E8DaC;
 */
 :root {
   /*
-// Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-	--line-height: 2;
-	--line-height-em: calc(var(--line-height)*1em);
-*/
+  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
+  	--line-height: 2;
+  	--line-height-em: calc(var(--line-height)*1em);
+  */
   /*
-	--color: #fff;
-	--bg: #1E8DaC;
-*/
+  	--color: #fff;
+  	--bg: #1E8DaC;
+  */
   --color: #333;
   --bg: #fff; }
 
@@ -52,9 +52,9 @@ $bg: #1E8DaC;
 
 .row > * {
   /*
-		vertical-align: top;
-		display: inline-block;
-*/
+  		vertical-align: top;
+  		display: inline-block;
+  */
   position: relative;
   word-wrap: break-word;
   width: calc(20% - 1.5em);
@@ -70,7 +70,6 @@ $bg: #1E8DaC;
 @-moz-document url-prefix() {
   .row > * {
     margin: calc(0.375em - .0009em); } }
-
 .row > [class^=col] {
   flex-grow: 0; }
 
@@ -132,6 +131,7 @@ $bg: #1E8DaC;
   .row > *, .row > *[class^=col] {
     --spacing: 1.5em;
     flex-basis: calc(var(--width) * 100% - var(--spacing)); }
+
   @media screen and (max-width: 1024px) {
     .row > * {
       --width: 1/5; } }
@@ -141,18 +141,21 @@ $bg: #1E8DaC;
   .row.no-padding, .row.no-padding > * {
     --spacing: 0.75em;
     padding: 0; }
+
   .row.no-margin, .row.no-margin > * {
     --spacing: 0.75em;
     margin: 0; }
+
   .row.no-spacing > * {
     --spacing: 0em;
     padding: 0;
     margin: 0; }
+
   .row.spacing-horizontal > * {
     margin: 0 0.75em; }
+
   .row.spacing-vertical > * {
     margin: 0.75em 0; } }
-
 .align-left, .align-right .align-left *, .align-left *, .row > .align-left {
   text-align: left;
   text-align: start; }
@@ -215,9 +218,9 @@ section:before, section:after {
   /* FF 20+ */
   break-inside: avoid-column;
   /*
-		-webkit-margin-before: 0;
-		-webkit-margin-after: 0;
-*/
+  		-webkit-margin-before: 0;
+  		-webkit-margin-after: 0;
+  */
   margin: 0;
   padding: 0.75em; }
 
@@ -330,12 +333,13 @@ ol.masonry > * {
     display: block;
     font-size: 0;
     letter-spacing: 0; }
+
   .aspect:before {
     display: inline-block; }
+
   .aspect > * {
     display: inline-block;
     font-size: 1rem; } }
-
 .align-bottom.aspect > * {
   align-self: flex-end;
   vertical-align: bottom; }
@@ -348,41 +352,50 @@ ol.masonry > * {
   .row:not(.half) {
     display: block;
     overflow-x: hidden; }
+
   .row > *, .row > [class^=col] {
     padding: 0;
     width: 100%;
     border: none;
     margin: 0.75em 0;
     box-sizing: border-box; }
+
   @supports (--a: 1) {
     .row > *, .row > [class^=col] {
       padding: .3em;
       flex: 0 0 100% !important; } }
   .row > *:empty {
     display: none; }
+
   .row > .full-mobile-width, .row > [class^=col].full-mobile-width {
     box-sizing: content-box;
     padding: 0; }
+
   .row.no-spacing > *, .row.no-spacing > [class^=col] {
     margin: 0;
     padding: 0; }
+
   .no-mobile-gutter.row > * {
     padding: 0; }
+
   .row > *, .row.border, .row.border > * {
     border: none; }
+
   .row.half > * {
     width: 50% !important;
     flex: 0 0 50% !important; }
+
   .row.border-all .row {
     width: calc(100% + 1.5em); }
+
   .row.border-all > *:not(:first-child), .row.border-all .row > *:not(:first-child) {
     border-left: none;
     border-top: 1px solid; }
+
   .masonry, .masonry[class^=col] {
     -moz-column-count: 2;
     -webkit-column-count: 2;
     column-count: 2; } }
-
 /* natUIve – Typography */
 /*
 $color: #fff;
@@ -390,14 +403,14 @@ $bg: #1E8DaC;
 */
 :root {
   /*
-// Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-	--line-height: 2;
-	--line-height-em: calc(var(--line-height)*1em);
-*/
+  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
+  	--line-height: 2;
+  	--line-height-em: calc(var(--line-height)*1em);
+  */
   /*
-	--color: #fff;
-	--bg: #1E8DaC;
-*/
+  	--color: #fff;
+  	--bg: #1E8DaC;
+  */
   --color: #333;
   --bg: #fff; }
 
@@ -461,7 +474,7 @@ p {
 .drop-cap:first-letter {
   float: left;
   font-size: 5em;
-  padding: 0.1em 0.1em 0.1em 0;
+  padding: .1em .1em .1em 0;
   margin-top: -.2em;
   line-height: 1em; }
 
@@ -506,14 +519,14 @@ $bg: #1E8DaC;
 */
 :root {
   /*
-// Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-	--line-height: 2;
-	--line-height-em: calc(var(--line-height)*1em);
-*/
+  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
+  	--line-height: 2;
+  	--line-height-em: calc(var(--line-height)*1em);
+  */
   /*
-	--color: #fff;
-	--bg: #1E8DaC;
-*/
+  	--color: #fff;
+  	--bg: #1E8DaC;
+  */
   --color: #333;
   --bg: #fff; }
 
@@ -526,12 +539,12 @@ $bg: #1E8DaC;
   cursor: pointer;
   width: auto;
   word-break: break-word;
-  padding: 0 0.7em;
+  padding: 0 .7em;
   -webkit-appearance: none;
   background: #333;
   color: #eee;
-  -webkit-transition: all 0.1s linear;
-  transition: all 0.1s linear;
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
   border: none;
   font-family: inherit;
   -webkit-touch-callout: none;
@@ -556,7 +569,7 @@ a.button + a.button {
 .button.big, a[href].button.big, input[type=submit], form button, button.big {
   margin: 0.5em 0;
   font-size: 1.2em;
-  padding: 0.75em 1em;
+  padding: .75em 1em;
   line-height: 1.05em;
   min-height: 0;
   font-weight: bold; }
@@ -585,7 +598,6 @@ a.backtotop[href] {
   .button.big {
     display: block;
     text-align: center; } }
-
 /* natUIve  – Form */
 /*
 $color: #fff;
@@ -593,14 +605,14 @@ $bg: #1E8DaC;
 */
 :root {
   /*
-// Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-	--line-height: 2;
-	--line-height-em: calc(var(--line-height)*1em);
-*/
+  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
+  	--line-height: 2;
+  	--line-height-em: calc(var(--line-height)*1em);
+  */
   /*
-	--color: #fff;
-	--bg: #1E8DaC;
-*/
+  	--color: #fff;
+  	--bg: #1E8DaC;
+  */
   --color: #333;
   --bg: #fff; }
 
@@ -745,7 +757,7 @@ select {
   text-overflow: '';
   min-height: 0;
   text-indent: 0px;
-  padding: 0 1.6em 0 0.8em;
+  padding: 0 1.6em 0 .8em;
   height: 3em;
   white-space: nowrap;
   text-indent: -1px;
@@ -827,7 +839,7 @@ form .checkbox label:last-child {
   border: none; }
 
 [dir=rtl] .checkbox-icon {
-  margin: 0 0 0 0.5em; }
+  margin: 0 0 0 .5em; }
 
 input[type=checkbox] + .checkbox-icon:before {
   content: '✓';
@@ -861,7 +873,7 @@ input[type=checkbox], input[type=radio] {
   width: auto;
   min-height: 0;
   opacity: 0;
-  margin: 0 0.5em 0 -1.5em;
+  margin: 0 .5em 0 -1.5em;
   float: right; }
 
 input[type=radio] + .checkbox-icon {
@@ -912,7 +924,6 @@ input[type=file] {
   /* IE10 */
   input[type=file] {
     margin-left: -100%; } }
-
 form .file {
   font-weight: normal;
   margin: 1.5em 0;
@@ -969,20 +980,24 @@ form input[type=submit] {
   select {
     padding-left: 0;
     text-indent: .3em; }
+
   select option {
     padding: 0; }
+
   input::-moz-focus-inner, button::-moz-focus-inner {
     padding: 0;
     border: 0; }
+
   input[type=text], input[type=email], input[type=url] {
     padding-top: 0; }
+
   form .file span {
     margin-top: -1px; }
+
   input[type=file] {
     padding-left: 100%;
     text-indent: -1em;
     margin-top: -1.5em; } }
-
 form input[type=range] {
   -webkit-appearance: none;
   width: 100%;
@@ -1084,7 +1099,7 @@ form {
 }
 */
 legend {
-  padding: 0 0.5em; }
+  padding: 0 .5em; }
 
 fieldset {
   border: 1px solid;
@@ -1190,14 +1205,14 @@ $bg: #1E8DaC;
 */
 :root {
   /*
-// Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-	--line-height: 2;
-	--line-height-em: calc(var(--line-height)*1em);
-*/
+  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
+  	--line-height: 2;
+  	--line-height-em: calc(var(--line-height)*1em);
+  */
   /*
-	--color: #fff;
-	--bg: #1E8DaC;
-*/
+  	--color: #fff;
+  	--bg: #1E8DaC;
+  */
   --color: #333;
   --bg: #fff; }
 
@@ -1261,18 +1276,18 @@ td[data-sort] {
 @media screen and (min-width: 1px) {
   td[data-sort] {
     cursor: pointer; }
+
   td[data-sort]:after {
     content: '⇳';
     margin-left: .5em; } }
-
 @media screen and (max-width: 600px) {
   table {
     display: block;
     overflow: scroll;
     table-layout: auto; }
+
   table td {
     word-break: normal; } }
-
 /* natUIve – Navigation */
 /*
 $color: #fff;
@@ -1280,14 +1295,14 @@ $bg: #1E8DaC;
 */
 :root {
   /*
-// Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-	--line-height: 2;
-	--line-height-em: calc(var(--line-height)*1em);
-*/
+  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
+  	--line-height: 2;
+  	--line-height-em: calc(var(--line-height)*1em);
+  */
   /*
-	--color: #fff;
-	--bg: #1E8DaC;
-*/
+  	--color: #fff;
+  	--bg: #1E8DaC;
+  */
   --color: #333;
   --bg: #fff; }
 
@@ -1305,18 +1320,19 @@ nav ul {
 @supports (--a: 1) {
   nav.scroll {
     max-width: 100%; }
+
   nav.scroll ul {
     white-space: nowrap;
     overflow: auto;
     max-width: 100%;
     transform: translate3d(0, 0, 0);
     -webkit-overflow-scrolling: touch; }
+
   nav.scroll ul li {
     padding: 0.75em 0; } }
-
 nav a {
   position: relative;
-  padding: 0 0.5em 0 0; }
+  padding: 0 .5em 0 0; }
 
 nav .active a[href] {
   text-decoration: none;
@@ -1386,9 +1402,9 @@ nav.drop ul li b.sub {
   display: inline-block;
   padding: 1em;
   /*
-	font-size: $font-size;
-	font-size: 1rem;
-*/
+  	font-size: $font-size;
+  	font-size: 1rem;
+  */
   line-height: 1;
   margin-left: -.3em;
   mix-blend-mode: multiply; }
@@ -1432,9 +1448,9 @@ nav.drop ul li b.sub:after {
   content: '▼';
   font-size: .5em;
   /*
-	background: transparent url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAG0lEQVR42mNgwAfKy8v/48I4FeA0AacVDFQBAP9wJkE/KhUMAAAAAElFTkSuQmCC") no-repeat scroll center center;
-	color: transparent;
-*/ }
+  	background: transparent url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAG0lEQVR42mNgwAfKy8v/48I4FeA0AacVDFQBAP9wJkE/KhUMAAAAAElFTkSuQmCC") no-repeat scroll center center;
+  	color: transparent;
+  */ }
 
 nav.drop ul li li b.sub:after {
   content: '▸';
@@ -1447,9 +1463,9 @@ nav.drop ul li a {
   display: inline-block;
   position: relative;
   /*
-	font-size: $font-size;
-	font-size: 1rem;
-*/
+  	font-size: $font-size;
+  	font-size: 1rem;
+  */
   line-height: 1; }
 
 nav.drop ul li a[href] {
@@ -1516,7 +1532,7 @@ nav.drop ul ul ul {
 html:not(.can-touch) nav.drop ul ul ul {
   opacity: 0;
   top: 0;
-  transition: 0.2s 0.4s; }
+  transition: 0.2s .4s; }
 
 html:not(.can-touch) nav.drop ul ul li:hover ul {
   visibility: visible;
@@ -1547,44 +1563,57 @@ input.trigger, input.trigger ~ input[type=reset] {
 @media screen and (max-width: 600px) {
   nav, nav ul {
     width: 100%; }
+
   nav:not(.scroll) ul li, nav li a {
     margin: 0;
     display: block; }
+
   header nav li a {
     padding: .5em 0; }
+
   nav.drop {
     width: 100%;
     min-height: 2em;
     text-align: left;
     display: inline-block;
     position: relative; }
+
   nav.drop ul li {
     display: block;
     width: 100%; }
+
   nav.drop ul li a {
     white-space: normal;
     display: block; }
+
   nav.drop input.trigger:checked ~ ul ul, nav.drop input.trigger:checked ~ div ul {
     width: 100%;
     position: relative;
     left: 0; }
+
   nav.drop ul ul {
     position: relative; }
+
   html:not(.can-touch) nav.drop ul ul ul {
     opacity: 1; }
+
   html:not(.can-touch) nav.drop ul ul li {
     position: relative; }
+
   nav.drop ul li b.sub {
     position: absolute;
     right: 0;
     top: 0;
     bottom: 0;
     mix-blend-mode: initial; }
+
   header nav.drop ul li a {
     width: 80%;
     width: calc(100% - 2.5em); }
+
   nav.drop ul li li li a {
     width: 100%; }
+
   @keyframes slidein {
     0% {
       transform: translate3d(-100%, 0, 0); }
@@ -1595,14 +1624,15 @@ input.trigger, input.trigger ~ input[type=reset] {
   nav.drop ul .trigger:not(:checked) ~ div,
   html:not(.can-touch) nav.drop ul li:hover .trigger:not(:checked) ~ div {
     display: none; }
+
   nav.drop ul .trigger:checked ~ ul, nav.drop ul .trigger:checked ~ div,
   html:not(.can-touch) nav.drop ul ul li input.trigger {
     display: block;
-    animation: slidein 0.2s 1;
+    animation: slidein .2s 1;
     will-change: transform; }
+
   nav.drop ul ul, nav.drop input.trigger ~ ul input.trigger:checked ~ ul {
     position: relative; } }
-
 /* natUIve – List */
 /*
 $color: #fff;
@@ -1610,14 +1640,14 @@ $bg: #1E8DaC;
 */
 :root {
   /*
-// Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-	--line-height: 2;
-	--line-height-em: calc(var(--line-height)*1em);
-*/
+  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
+  	--line-height: 2;
+  	--line-height-em: calc(var(--line-height)*1em);
+  */
   /*
-	--color: #fff;
-	--bg: #1E8DaC;
-*/
+  	--color: #fff;
+  	--bg: #1E8DaC;
+  */
   --color: #333;
   --bg: #fff; }
 
@@ -1679,7 +1709,7 @@ ol > li:before {
   counter-increment: level1;
   font-weight: bold;
   background: #999;
-  padding: 0 0.5em;
+  padding: 0 .5em;
   border-radius: 50%;
   margin-right: .5em;
   color: #fff;
@@ -1689,7 +1719,7 @@ ol > li:before {
   text-align: center; }
 
 [dir=rtl] ol > li:before {
-  margin: 0 0 0 0.5em; }
+  margin: 0 0 0 .5em; }
 
 ol > li ol {
   list-style-type: none;
@@ -1731,20 +1761,20 @@ $bg: #1E8DaC;
 */
 :root {
   /*
-// Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-	--line-height: 2;
-	--line-height-em: calc(var(--line-height)*1em);
-*/
+  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
+  	--line-height: 2;
+  	--line-height-em: calc(var(--line-height)*1em);
+  */
   /*
-	--color: #fff;
-	--bg: #1E8DaC;
-*/
+  	--color: #fff;
+  	--bg: #1E8DaC;
+  */
   --color: #333;
   --bg: #fff; }
 
 .fold {
   position: relative;
-  padding: 0 0.5em 0 1em;
+  padding: 0 .5em 0 1em;
   margin: 0;
   max-width: 100%;
   z-index: 1; }
@@ -1841,39 +1871,45 @@ span.burger:after {
     width: 1em;
     top: 0.15em;
     box-shadow: 0 0.25em 0 1px #333, 0 0.625em 0 1px #333, 0 1em 0 1px #333; }
+
   span.burger:after {
     display: none; } }
-
 @media screen and (max-width: 600px) {
   .fold.mobile > .label, .fold.mobile > input.trigger {
     display: inline-block;
     display: flex;
     width: 3em;
     padding: 0; }
+
   .fold.mobile:not(.open) .content {
     max-height: 0; }
+
   .fold.mobile > input.trigger:checked ~ .content {
     max-height: none; }
+
   .fold.mobile .content {
     /* hidden fold item */
     overflow: hidden; }
+
   @supports (--a: 1) {
     header.fixed-mobile .fold.mobile {
       position: fixed;
       top: 0;
       z-index: 2; }
+
     header.fixed-mobile .fold.mobile.open {
       bottom: 0; }
+
     header.fixed-mobile .fold.mobile .content {
       padding: 0 0.375em;
       background: #fff; }
+
     header.fixed-mobile .fold.mobile.open .content {
       overflow: auto;
       -webkit-overflow-scrolling: touch;
       position: fixed;
       top: 3em;
       bottom: 0; } } }
-
 /* natUIve – Tooltip */
 /*
 $color: #fff;
@@ -1881,14 +1917,14 @@ $bg: #1E8DaC;
 */
 :root {
   /*
-// Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-	--line-height: 2;
-	--line-height-em: calc(var(--line-height)*1em);
-*/
+  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
+  	--line-height: 2;
+  	--line-height-em: calc(var(--line-height)*1em);
+  */
   /*
-	--color: #fff;
-	--bg: #1E8DaC;
-*/
+  	--color: #fff;
+  	--bg: #1E8DaC;
+  */
   --color: #333;
   --bg: #fff; }
 
@@ -1930,7 +1966,7 @@ $bg: #1E8DaC;
   text-align: left;
   visibility: hidden;
   opacity: 0;
-  transition: opacity 0.2s ease-in-out;
+  transition: opacity .2s ease-in-out;
   width: 20em;
   line-height: 1.15385; }
 
@@ -1946,14 +1982,14 @@ $bg: #1E8DaC;
 */
 :root {
   /*
-// Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-	--line-height: 2;
-	--line-height-em: calc(var(--line-height)*1em);
-*/
+  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
+  	--line-height: 2;
+  	--line-height-em: calc(var(--line-height)*1em);
+  */
   /*
-	--color: #fff;
-	--bg: #1E8DaC;
-*/
+  	--color: #fff;
+  	--bg: #1E8DaC;
+  */
   --color: #333;
   --bg: #fff; }
 
@@ -2034,19 +2070,19 @@ $bg: #1E8DaC;
   /* No scrollbars on IE10+ */
   left: 0;
   /*
-	-webkit-animation-timing-function: ease;
-	-webkit-animation-iteration-count: 1;
-	-webkit-animation-duration: .4s;
-	animation-timing-function: ease;
-	animation-iteration-count: 1;
-	animation-duration: .4s;
-*/
+  	-webkit-animation-timing-function: ease;
+  	-webkit-animation-iteration-count: 1;
+  	-webkit-animation-duration: .4s;
+  	animation-timing-function: ease;
+  	animation-iteration-count: 1;
+  	animation-duration: .4s;
+  */
   /*
-	-webkit-transform-style: preserve-3d;
-	-moz-transform-style: preserve-3d;
-	-ms-transform-style: preserve-3d;
-	transform-style: preserve-3d;
-*/
+  	-webkit-transform-style: preserve-3d;
+  	-moz-transform-style: preserve-3d;
+  	-ms-transform-style: preserve-3d;
+  	transform-style: preserve-3d;
+  */
   display: flex;
   min-height: 4em; }
 
@@ -2103,10 +2139,10 @@ $bg: #1E8DaC;
   vertical-align: top;
   overflow: hidden;
   /*
-	font-size: $font-size;
-	line-height: $line-height;
-	min-height: $line-height;
-*/
+  	font-size: $font-size;
+  	line-height: $line-height;
+  	min-height: $line-height;
+  */
   margin: 0;
   flex: 1 0 auto; }
 
@@ -2149,21 +2185,22 @@ $bg: #1E8DaC;
     background: transparent;
     z-index: -1;
     opacity: .5; }
+
   .slider > *:after {
     content: '>';
     text-align: end; }
+
   .slider-wrap .slider > *:after, .slider-wrap .slider > *:before, .slider > *:first-child:before, .slider > *:last-child:after, .slider-wrap .slider > * > div.bg {
     display: none; } }
-
 .slider > div:before {
   background: transparent; }
 
 .row .slider {
   padding: 0;
   /*
-	border-left: 7px solid transparent;
-	border-right: 7px solid transparent;
-*/ }
+  	border-left: 7px solid transparent;
+  	border-right: 7px solid transparent;
+  */ }
 
 .slider-arrow {
   position: absolute;
@@ -2212,7 +2249,7 @@ $bg: #1E8DaC;
   border-radius: 50%;
   background: rgba(0, 0, 0, 0.1);
   color: #fff;
-  transition: background-color 0.2s linear;
+  transition: background-color .2s linear;
   line-height: 1em;
   box-sizing: content-box; }
 
@@ -2321,7 +2358,7 @@ $bg: #1E8DaC;
   text-align: start;
   border-radius: 0;
   line-height: 1.5;
-  padding: 0 0.5em;
+  padding: 0 .5em;
   -webkit-flex: 1;
   flex: 1;
   margin: 0;
@@ -2357,12 +2394,13 @@ $bg: #1E8DaC;
 @media screen and (max-width: 600px) {
   .slider-wrap.tabs > .slider-nav.row {
     display: flex; }
+
   .slider > * {
     display: block; }
+
   @supports (--a: 1) {
     .slider > * {
       display: inline-block; } } }
-
 /* natUIve – Lightbox */
 /*
 $color: #fff;
@@ -2370,14 +2408,14 @@ $bg: #1E8DaC;
 */
 :root {
   /*
-// Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-	--line-height: 2;
-	--line-height-em: calc(var(--line-height)*1em);
-*/
+  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
+  	--line-height: 2;
+  	--line-height-em: calc(var(--line-height)*1em);
+  */
   /*
-	--color: #fff;
-	--bg: #1E8DaC;
-*/
+  	--color: #fff;
+  	--bg: #1E8DaC;
+  */
   --color: #333;
   --bg: #fff; }
 
@@ -2428,7 +2466,7 @@ $bg: #1E8DaC;
   color: #fff;
   left: 50%;
   transform: translateX(-50%);
-  padding: 0.2em 0.5em;
+  padding: .2em .5em;
   background: rgba(0, 0, 0, 0.4); }
 
 .slider-wrap.outside .slider.lightbox > * p {
@@ -2457,15 +2495,15 @@ $bg: #1E8DaC;
   right: 50%;
   transform: translate3d(-50%, -50%, 0) scale(2);
   zoom: 0.5;
-  transition: transfrom 0.2s linear; }
+  transition: transfrom .2s linear; }
 
 .full-window-wrap .lightbox.slider > .active > img.zoom {
   /*
-	top: 0;
-	bottom: auto;
-	left: 0;
-	right: auto;
-*/
+  	top: 0;
+  	bottom: auto;
+  	left: 0;
+  	right: auto;
+  */
   zoom: 0;
   transform: translate3d(var(--x), var(--y), 0); }
 
@@ -2490,7 +2528,7 @@ $bg: #1E8DaC;
   height: 40px;
   background-color: #999;
   border-radius: 100%;
-  animation: sk-scaleout 1s infinite ease-in-out; }
+  animation: sk-scaleout 1.0s infinite ease-in-out; }
 
 @keyframes sk-scaleout {
   0% {
@@ -2498,7 +2536,6 @@ $bg: #1E8DaC;
   100% {
     transform: scale(1);
     opacity: 0; } }
-
 .lightbox a {
   display: inline-block;
   vertical-align: middle;
@@ -2522,7 +2559,6 @@ $bg: #1E8DaC;
     top: 50%;
     transform: translate3d(-50%, -50%, 0);
     left: 50%; } }
-
 .lightbox.slider a.button.copy {
   position: absolute;
   top: 0.75em;
@@ -2539,14 +2575,14 @@ $bg: #1E8DaC;
 */
 :root {
   /*
-// Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-	--line-height: 2;
-	--line-height-em: calc(var(--line-height)*1em);
-*/
+  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
+  	--line-height: 2;
+  	--line-height-em: calc(var(--line-height)*1em);
+  */
   /*
-	--color: #fff;
-	--bg: #1E8DaC;
-*/
+  	--color: #fff;
+  	--bg: #1E8DaC;
+  */
   --color: #333;
   --bg: #fff; }
 
@@ -2584,7 +2620,7 @@ $bg: #1E8DaC;
 .full-window-wrap .close {
   color: #fff;
   cursor: pointer;
-  padding: 0 0.6em;
+  padding: 0 .6em;
   font-weight: bold;
   background: #000;
   background: rgba(0, 0, 0, 0.7);
@@ -2631,7 +2667,6 @@ $bg: #1E8DaC;
     margin-top: 20vh;
     width: 80vw;
     margin-left: 10vw; } }
-
 /* CSS-only parallax scrolling. html.parallax with body children .parallax-back and .parallax-front. Thanks http://keithclark.co.uk/articles/pure-css-parallax-websites/ */
 html.parallax, html.parallax body {
   margin: 0;
@@ -2667,14 +2702,15 @@ html.parallax .fixed-bg {
     overflow-y: auto;
     perspective: 300px;
     perspective-origin: 100% 100%; }
+
   .parallax-front {
     transform-style: preserve-3d;
     transform: translateZ(0);
     /* Safari H/W acceleration */ }
+
   .parallax-back {
     transform: translateZ(-150px) scale(1.5);
     transform-origin: 100% 100%; } }
-
 /* natUIve  – Card */
 /*
 $color: #fff;
@@ -2682,14 +2718,14 @@ $bg: #1E8DaC;
 */
 :root {
   /*
-// Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-	--line-height: 2;
-	--line-height-em: calc(var(--line-height)*1em);
-*/
+  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
+  	--line-height: 2;
+  	--line-height-em: calc(var(--line-height)*1em);
+  */
   /*
-	--color: #fff;
-	--bg: #1E8DaC;
-*/
+  	--color: #fff;
+  	--bg: #1E8DaC;
+  */
   --color: #333;
   --bg: #fff; }
 
@@ -2840,32 +2876,35 @@ video {
     will-change: scroll;
     background-size: 0;
     position: relative; }
+
   .fixed-bg .fixed-bg-image, .fixed-bg .fixed-bg-image:before {
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-image: inherit; }
+
   .fixed-bg .fixed-bg-image {
     position: absolute;
     background-size: 0;
     z-index: -1;
     clip: rect(auto, auto, auto, auto); }
+
   .fixed-bg .fixed-bg-image:before {
     content: '';
     position: fixed;
     background-size: cover;
     background-position: center center;
     height: 100vh; }
+
   .fixed-bg .fixed-bg-image:before {
     transform: translate3d(0, 0, 0); } }
-
 @supports (-ms-ime-align: auto) {
   .fixed-bg {
     background-size: cover; }
+
   .fixed-bg .fixed-bg-image {
     display: none; } }
-
 /* Notification bar */
 .notify {
   background: rgba(0, 0, 0, 0.8);
@@ -2904,17 +2943,23 @@ a[href].span-relative-parent {
 @media screen and (max-width: 600px) {
   header {
     margin: 0; }
+
   .wide-screen {
     display: none !important; }
+
   .narrow-screen {
     display: block !important; }
+
   .viewport.header-and-banner {
     height: auto;
     overflow: hidden; }
+
   header > .row:first-child div {
     text-align: end; }
+
   header .head-right {
     text-align: start; }
+
   header.fixed {
     position: fixed;
     top: 0;
@@ -2922,18 +2967,27 @@ a[href].span-relative-parent {
     right: 0;
     background: #fff;
     z-index: 7; }
+
   header.fixed > .row {
     min-height: 3em; }
+
   header.fixed .row > * {
     padding: 0;
     margin: 0; }
+
   header.fixed a.logo {
     padding: .5em; }
+
   header.fixed .logo img {
     height: 1.5em; }
+
   footer .row > * {
     display: inline-block; }
+
   footer .row p {
     margin: 0; }
+
   header a.logo {
     float: right; } }
+
+/*# sourceMappingURL=natuive.css.map */

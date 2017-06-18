@@ -2495,11 +2495,30 @@ $bg: #1E8DaC;
   left: 50%;
   right: 50%;
   transform: translate3d(-50%, -50%, 0) scale(2);
-  zoom: 0.5; }
+  zoom: 0.5;
+  transition: transfrom .2s linear; }
 
-@-moz-document url-prefix() {
-  .full-window-wrap .lightbox.slider > .active > img.zoom {
-    transform: translate3d(-50%, -50%, 0); } }
+.full-window-wrap .lightbox.slider > .active > img.zoom {
+  /*
+  	top: 0;
+  	bottom: auto;
+  	left: 0;
+  	right: auto;
+  */
+  zoom: 0;
+  transform: translate3d(var(--x), var(--y), 0); }
+
+/*
+	@-moz-document url-prefix() {
+	
+		.full-window-wrap .lightbox.slider > .active > img.zoom {
+	
+			transform: translate3d(-50%, -50%, 0);
+			
+		}
+	
+	}
+*/
 .lightbox.slider > .active:not(.loaded):after {
   content: '';
   position: absolute;
