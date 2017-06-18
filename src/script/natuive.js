@@ -375,13 +375,37 @@ function populateLightboxItem(slider, i) {
 			addClass(e.target.parentNode, 'loaded');
 
 		}
-		img.onclick = function (e) {
-			
-			toggleClass(e.target, 'zoom');
-			e.target.onmousemove = function (e) {
+		img.onclick = function (e) { // Zoom and scan
 
-				e.target.style.setProperty('--x', e.screenX/window.innerWidth);
-				e.target.style.setProperty('--y', e.screenY/window.innerHeight);
+// transformY = -50% + (poxY/sizeY)*overflowY
+
+			toggleClass(e.target, 'zoom');
+			e.target.style.cssText = '';
+			e.target.style.setProperty('--x', '-50%');
+			e.target.style.setProperty('--y', '-50%');
+			e.target.onmousemove = function (e) {
+				
+				var width = q('.full-window-wrap .slider-wrap').offsetWidth;
+				var height = q('.full-window-wrap .slider-wrap').offsetHeight;
+				
+				var overflowX = e.target.width - width;
+				var overflowY = e.target.height - height;
+
+				if (overflowX > 0) {
+	
+					e.target.style.setProperty('--x', (-1 * overflowX * e.x / width) + 'px');
+					e.target.style.left = 0;
+					e.target.style.right = 'auto';
+	
+				}
+				
+				if (overflowY > 0) {
+
+					e.target.style.setProperty('--y', (-1 * overflowY * e.y / height) + 'px');
+					e.target.style.top = 0;
+					e.target.style.bottom = 'auto';
+				
+				}
 
 			};
 
@@ -636,7 +660,7 @@ function openLightbox(e) {
 
 	    var link_element = (hasClass(lightbox,'inline') || !lightbox.getAttribute('id')) ? '' : '<a class="button copy" href=' + slide_link + '></a>';
 	    
-	    images += '<div><img data-src="' + el.href + '" alt="' + el.title + '" title="' + slide_link + '">' + (el.title ? ('<p>' + el.title + '</p>') : '') + link_element + '</div>';
+	    images += '<div><img data-src="' + el.href + '" alt="' + el.title + '" data-link="' + slide_link + '">' + (el.title ? ('<p>' + el.title + '</p>') : '') + link_element + '</div>';
 
         // Attach onload event to each image to display it only when fully loaded and avoid top-to-bottom reveal?
 

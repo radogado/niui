@@ -402,7 +402,6 @@ function sliderKeyboard(e) {
 	}
 
 	if (tag !== 'input' && tag !== 'textarea' && (el = q('.full-window-wrap .slider') || q('.slider-wrap.active .slider') || q('.slider'))) { // Priority: full window slider, active slider, first slider
-		console.log(el);
         switch (e.which) {
 
             case 38:

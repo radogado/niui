@@ -2494,8 +2494,12 @@ $bg: #1E8DaC;
   bottom: 50%;
   left: 50%;
   right: 50%;
-  transform: translate3d(-50%, -50%, 0); }
+  transform: translate3d(-50%, -50%, 0) scale(2);
+  zoom: 0.5; }
 
+@-moz-document url-prefix() {
+  .full-window-wrap .lightbox.slider > .active > img.zoom {
+    transform: translate3d(-50%, -50%, 0); } }
 .lightbox.slider > .active:not(.loaded):after {
   content: '';
   position: absolute;
@@ -2771,7 +2775,7 @@ body * {
   -webkit-tap-highlight-color: transparent;
   /* iOS: Don't flash on tap */ }
 
-img, picture {
+img, picture, .lightbox a {
   max-width: 100%;
   height: auto;
   border: none;
