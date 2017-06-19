@@ -19,8 +19,10 @@ html, body, .row.wrap>*, nav.sub a, p, li, .lightbox a, .button, input[type=subm
 
 .row.border-all, .row.border-all .row, .row.border-all .row>:not(:first-child) {
 	
+/*
 	background: #fff;
 	border-color: #ddd;
+*/
 
 }
 
@@ -65,6 +67,19 @@ h5 {
 	
 	font-size: 1.3em;
 	font-weight: normal;
+
+}
+
+footer h2 {
+	
+	margin-left: 0;
+	padding-left: 0;
+	
+}
+
+footer {
+	
+	padding: 0;
 
 }
 
@@ -445,4 +460,10 @@ thead td, tr:nth-child(2n+1) {
 	color: inherit;
 	background: transparent;
 	
+}
+
+.contain > .border-all {
+	
+	background: #fff;
+	    	    
 }

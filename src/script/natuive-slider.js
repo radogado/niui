@@ -580,6 +580,10 @@ function makeSlider(el, current_slide) {
 	
 		endSlide(el, current_slide || 0); // Start from (other than) the first slide
 	    
+	} else {
+		
+		addClass(el.children[0], 'active');
+
 	}
 
 	// Detect text direction

@@ -33,6 +33,13 @@ main > .slider-wrap.vertical.tabs > .slider {
 	
 }
 
+.slider-wrap .slider.vertical:not(.sliding) > .active {
+
+	max-height: 100vh;
+	overflow: auto;	
+	
+}
+
 main > .slider-wrap > .slider-nav a {
 	
 	background: none;
