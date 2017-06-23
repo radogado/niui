@@ -445,6 +445,10 @@ function closeFullWindow() {
 
 	if (full_window) {
 
+	    removeClass(q('html'), 'nooverflow');
+    	q('body').scrollTop = q('html').scrollTop = -1 * q('html').getAttribute('data-offset');
+    	q('html').removeAttribute('data-offset');	
+	
 		animate(full_window, '0% { transform: translate3d(0,0,0) } 100% { transform: translate3d(0,-100vh,0) }', .2, function (e) {
 	
 			if (full_window_content) { // Remove disposable generated content
@@ -459,10 +463,6 @@ function closeFullWindow() {
 				full_window.parentNode.replaceChild(full_window.querySelector('.content > *'), full_window);
 			
 			}
-	
-		    removeClass(q('html'), 'nooverflow');
-	    	q('body').scrollTop = q('html').scrollTop = -1 * q('html').getAttribute('data-offset');
-	    	q('html').removeAttribute('data-offset');	
 	
 			removeEventHandler(window, 'keydown', arrow_keys_handler);
 			removeEventHandler(window, 'keyup', keyUpClose);
@@ -1725,16 +1725,14 @@ function init() {
 	
 	// Lightbox with images
 	
-	forEach('.lightbox', function(el, i) {
+	forEach('.lightbox', function(el) {
 	
-/*
 		// Abort on IE, because of IE bug on dynamic img.src change
 		if (navigator.userAgent.indexOf('MSIE') != -1 || navigator.userAgent.indexOf('Trident') != -1) {
 			
 			return;
 	
 		}
-*/
 
 		if (hasClass(el.parentNode, 'slider-wrap')) {
 			
@@ -1744,12 +1742,11 @@ function init() {
 		
 		if (hasClass(el, 'inline')) {
 			
-			
 			openLightbox(el.querySelector('a'));
 			
 		} else {
 			
-			forEach(el.querySelectorAll('a'), function(el, i) {
+			forEach(el.querySelectorAll('a'), function(el) {
 		
 			    el.onclick = openLightbox;
 			

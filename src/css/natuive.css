@@ -334,12 +334,9 @@ ol.masonry > * {
     font-size: 0;
     letter-spacing: 0; }
 
-  .aspect:before {
-    display: inline-block; }
-
-  .aspect > * {
+  .aspect:before, .aspect > * {
     display: inline-block;
-    font-size: 1rem; } }
+    font-size: initial; } }
 .align-bottom.aspect > * {
   align-self: flex-end;
   vertical-align: bottom; }

@@ -60,6 +60,17 @@ natUIve: mostly native front-end framework
 
 –––
 
+natUIve 1.9
+
+- CSS variables in grid
+- Lightbox: inline, loading animation, zoom and scan
+- Copy to clipboard indication
+- **notify()** timeout option
+- Focused slider keyboard control
+- Old browsers CSS-only
+
+–––
+
 natUIve 1.8
 
 - Guide
