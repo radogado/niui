@@ -1881,7 +1881,7 @@ span.burger:after {
   .fold.mobile:not(.open) .content {
     max-height: 0; }
 
-  .fold.mobile > input.trigger:checked ~ .content {
+  .fold.mobile > input.trigger:checked ~ .content, .fold.mobile > input.trigger:checked + .content {
     max-height: none; }
 
   .fold.mobile .content {

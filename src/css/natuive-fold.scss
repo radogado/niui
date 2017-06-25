@@ -185,7 +185,7 @@
 	
 	}
 	
-	.fold.mobile > input.trigger:checked ~ .content {
+	.fold.mobile > input.trigger:checked ~ .content, .fold.mobile > input.trigger:checked + .content {
 		
 		max-height: none;
 		
