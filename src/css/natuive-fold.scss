@@ -185,7 +185,7 @@
 	
 	}
 	
-	.fold.mobile > input.trigger:checked ~ .content, .fold.mobile > input.trigger:checked + .content {
+	.fold.mobile > input.trigger:checked ~ .content, .fold.mobile > input.trigger:checked + .content { // Android Browser doesn't support "~", only "+"
 		
 		max-height: none;
 		

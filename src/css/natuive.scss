@@ -14,11 +14,12 @@
 @import 'natuive-list';
 @import 'natuive-fold';
 @import 'natuive-tooltip';
-@import 'natuive-slider';
-@import 'natuive-lightbox';
-@import 'natuive-modal';
-@import 'natuive-parallax';
 @import 'natuive-card';
+@import 'natuive-parallax';
+@import 'natuive-slider';
+@import 'natuive-slider-extra'; // Not core
+@import 'natuive-lightbox'; // Not core
+@import 'natuive-modal'; // Not core
 
 .contain {
 

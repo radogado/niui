@@ -36,6 +36,7 @@ table {
 		font-size: 1.1em;
 		background: rgba(0,0,0,.1);
 		text-align: left;
+		text-align: start; // RTL support
 
 	}
 
@@ -54,6 +55,7 @@ table {
 	div.table {
 		
 		overflow-x: auto;
+/*
 	    scrollbar-3dlight-color: grey;
 	    scrollbar-arrow-color: grey;
 	    scrollbar-base-color: transparent;
@@ -61,6 +63,7 @@ table {
 	    scrollbar-face-color: transparent;
 	    scrollbar-highlight-color: transparent;
 	    scrollbar-shadow-color: transparent;
+*/
 	    -webkit-overflow-scrolling: touch;
 		margin: $line-height-em 0;
 	

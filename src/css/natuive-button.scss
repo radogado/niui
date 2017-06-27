@@ -47,13 +47,6 @@
 		
 	}
 
-	a.button + a.button { // Space between 2 buttons, but fails when the second one is wrapped beneath the first one
-		
-		margin-left: $line-height-em/2;
-// 		margin-left: calc(var(--line-height-em)/2);
-		
-	}
-
 	.button.big, a[href].button.big, input[type=submit], form button, button.big {
 
 		margin: $line-height-em/3 0; // Re-calculate margin, because font-size has changed. To do: fix baseline.
@@ -87,6 +80,20 @@ a.backtotop[href] {
 	z-index: 999;
     padding: .5em;
 
+}
+
+// A group of buttons etc with proper horizontal margins also when wrapped
+
+.group {
+	
+	margin: 0 -.25em;
+}
+
+.group > *, .group > .button.big, .group > a[href].button.big {
+	
+	margin-right: .25em;
+	margin-left: .25em;
+	
 }
 
 @media screen and (max-width: $screen-narrow) {

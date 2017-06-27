@@ -560,9 +560,6 @@ button[disabled] {
   background: #eee;
   color: #333; }
 
-a.button + a.button {
-  margin-left: 0.75em; }
-
 .button.big, a[href].button.big, input[type=submit], form button, button.big {
   margin: 0.5em 0;
   font-size: 1.2em;
@@ -590,6 +587,13 @@ a.backtotop[href] {
   text-decoration: none;
   z-index: 999;
   padding: .5em; }
+
+.group {
+  margin: 0 -.25em; }
+
+.group > *, .group > .button.big, .group > a[href].button.big {
+  margin-right: .25em;
+  margin-left: .25em; }
 
 @media screen and (max-width: 600px) {
   .button.big {
@@ -1233,7 +1237,8 @@ th, thead td {
   padding-bottom: 1.5em;
   font-size: 1.1em;
   background: rgba(0, 0, 0, 0.1);
-  text-align: left; }
+  text-align: left;
+  text-align: start; }
 
 tr:nth-child(2n+1) {
   background: rgba(0, 0, 0, 0.1); }
@@ -1243,13 +1248,15 @@ tr, td, th, iframe {
 
 div.table {
   overflow-x: auto;
-  scrollbar-3dlight-color: grey;
-  scrollbar-arrow-color: grey;
-  scrollbar-base-color: transparent;
-  scrollbar-darkshadow-color: grey;
-  scrollbar-face-color: transparent;
-  scrollbar-highlight-color: transparent;
-  scrollbar-shadow-color: transparent;
+  /*
+  	    scrollbar-3dlight-color: grey;
+  	    scrollbar-arrow-color: grey;
+  	    scrollbar-base-color: transparent;
+  	    scrollbar-darkshadow-color: grey;
+  	    scrollbar-face-color: transparent;
+  	    scrollbar-highlight-color: transparent;
+  	    scrollbar-shadow-color: transparent;
+  */
   -webkit-overflow-scrolling: touch;
   margin: 1.5em 0; }
 
@@ -1972,7 +1979,236 @@ $bg: #1E8DaC;
   visibility: visible;
   top: 100%; }
 
-/* natUIve – Slider */
+/* natUIve  – Card */
+/*
+$color: #fff;
+$bg: #1E8DaC;
+*/
+:root {
+  /*
+  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
+  	--line-height: 2;
+  	--line-height-em: calc(var(--line-height)*1em);
+  */
+  /*
+  	--color: #fff;
+  	--bg: #1E8DaC;
+  */
+  --color: #333;
+  --bg: #fff; }
+
+.card {
+  margin: 1em 0;
+  background: rgba(0, 0, 0, 0.1); }
+
+.card > * {
+  padding: 1em; }
+
+.card .content {
+  background: rgba(0, 0, 0, 0.1); }
+
+.card > img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  padding: 0; }
+
+.card .head.image {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff; }
+
+.card .head.image:after {
+  content: '';
+  padding-bottom: 56.25%;
+  width: 0;
+  display: inline-block;
+  vertical-align: bottom; }
+
+.card .head.image > * {
+  display: inline-block; }
+
+/* CSS-only parallax scrolling. html.parallax with body children .parallax-back and .parallax-front. Thanks http://keithclark.co.uk/articles/pure-css-parallax-websites/ */
+html.parallax, html.parallax body {
+  margin: 0;
+  padding: 0;
+  height: 100%; }
+
+.parallax-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1; }
+
+html.parallax .fixed-bg {
+  transform: none; }
+
+.parallax .fixed-bg {
+  background-attachment: fixed;
+  background-size: cover;
+  position: static; }
+
+.parallax .fixed-bg .fixed-bg-image {
+  display: none; }
+
+@supports (perspective: 1px) {
+  /* CSS Parallax is SUPPORTED */
+  html.parallax body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    perspective: 300px;
+    perspective-origin: 100% 100%; }
+
+  .parallax-front {
+    transform-style: preserve-3d;
+    transform: translateZ(0);
+    /* Safari H/W acceleration */ }
+
+  .parallax-back {
+    transform: translateZ(-150px) scale(1.5);
+    transform-origin: 100% 100%; } }
+/* natUIve – Slider – CSS-only */
+/*
+$color: #fff;
+$bg: #1E8DaC;
+*/
+:root {
+  /*
+  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
+  	--line-height: 2;
+  	--line-height-em: calc(var(--line-height)*1em);
+  */
+  /*
+  	--color: #fff;
+  	--bg: #1E8DaC;
+  */
+  --color: #333;
+  --bg: #fff; }
+
+.slider {
+  overflow: visible;
+  overflow-y: hidden;
+  white-space: nowrap;
+  /* keep inline-block elements together */
+  word-wrap: normal;
+  /* IE8 fix */
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  /* No scrollbars on IE10+ */
+  left: 0;
+  /*
+  	-webkit-animation-timing-function: ease;
+  	-webkit-animation-iteration-count: 1;
+  	-webkit-animation-duration: .4s;
+  	animation-timing-function: ease;
+  	animation-iteration-count: 1;
+  	animation-duration: .4s;
+  */
+  /*
+  	-webkit-transform-style: preserve-3d;
+  	-moz-transform-style: preserve-3d;
+  	-ms-transform-style: preserve-3d;
+  	transform-style: preserve-3d;
+  */
+  display: flex;
+  min-height: 4em; }
+
+.slider > * {
+  width: 100%;
+  display: inline-block;
+  white-space: normal;
+  vertical-align: top;
+  overflow: hidden;
+  /*
+  	font-size: $font-size;
+  	line-height: $line-height;
+  	min-height: $line-height;
+  */
+  margin: 0;
+  flex: 1 0 auto; }
+
+.slider.vertical > * {
+  display: block; }
+
+.slider.vertical > img {
+  max-width: none;
+  width: auto;
+  max-height: 100%; }
+
+@supports (--a: 1) {
+  .slider > *:after, .slider > *:before {
+    /* Slide background with full slider height */
+    content: '<';
+    display: block;
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    width: 100%;
+    background: transparent;
+    z-index: -1;
+    opacity: .5; }
+
+  .slider > *:after {
+    content: '>';
+    text-align: end; }
+
+  .slider-wrap .slider > *:after, .slider-wrap .slider > *:before, .slider > *:first-child:before, .slider > *:last-child:after, .slider-wrap .slider > * > div.bg {
+    display: none; } }
+.slider > div:before {
+  background: transparent; }
+
+.row .slider {
+  padding: 0;
+  /*
+  	border-left: 7px solid transparent;
+  	border-right: 7px solid transparent;
+  */ }
+
+.slider > * > img {
+  max-height: 100%;
+  vertical-align: middle;
+  margin: 0 auto;
+  display: block; }
+
+.slider.center > * {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center; }
+
+.slider.auto-height > *:not(.active) {
+  height: 0; }
+
+/*
+.full-window-wrap .slider-wrap.vertical.tabs > .slider-nav.row {
+		
+	position: fixed;
+	top: 1em;
+	bottom: 1em;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+	flex-wrap: nowrap;
+
+}
+*/
+@media screen and (max-width: 600px) {
+  .slider-wrap.tabs > .slider-nav.row {
+    display: flex; }
+
+  .slider > * {
+    display: block; }
+
+  @supports (--a: 1) {
+    .slider > * {
+      display: inline-block; } } }
+/* natUIve – Slider – JS-enhanced */
 /*
 $color: #fff;
 $bg: #1E8DaC;
@@ -2054,35 +2290,6 @@ $bg: #1E8DaC;
 *:fullscreen .slider-wrap {
   background: #000; }
 
-.slider {
-  overflow: visible;
-  overflow-y: hidden;
-  white-space: nowrap;
-  /* keep inline-block elements together */
-  word-wrap: normal;
-  /* IE8 fix */
-  position: relative;
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: none;
-  /* No scrollbars on IE10+ */
-  left: 0;
-  /*
-  	-webkit-animation-timing-function: ease;
-  	-webkit-animation-iteration-count: 1;
-  	-webkit-animation-duration: .4s;
-  	animation-timing-function: ease;
-  	animation-iteration-count: 1;
-  	animation-duration: .4s;
-  */
-  /*
-  	-webkit-transform-style: preserve-3d;
-  	-moz-transform-style: preserve-3d;
-  	-ms-transform-style: preserve-3d;
-  	transform-style: preserve-3d;
-  */
-  display: flex;
-  min-height: 4em; }
-
 .slider-wrap .slider {
   overflow: visible;
   width: 100%;
@@ -2129,20 +2336,6 @@ $bg: #1E8DaC;
   margin: 3em;
   overflow-x: hidden; }
 
-.slider > * {
-  width: 100%;
-  display: inline-block;
-  white-space: normal;
-  vertical-align: top;
-  overflow: hidden;
-  /*
-  	font-size: $font-size;
-  	line-height: $line-height;
-  	min-height: $line-height;
-  */
-  margin: 0;
-  flex: 1 0 auto; }
-
 .slider-wrap .slider > * {
   display: inline-block; }
 
@@ -2152,52 +2345,15 @@ $bg: #1E8DaC;
 .no-flex .slider > * + * {
   margin-left: -.3em; }
 
-.slider.vertical > * {
-  display: block; }
-
 .full-window-wrap .slider.vertical > * {
   height: 100%; }
 
 .slider > *.active, .full-window-wrap .lightbox.slider > *.active > img {
   display: inline-block; }
 
-.slider.vertical > img {
-  max-width: none;
-  width: auto;
-  max-height: 100%; }
-
 .full-window-wrap .slider > img {
   padding: 0 !important;
   height: auto; }
-
-@supports (--a: 1) {
-  .slider > *:after, .slider > *:before {
-    /* Slide background with full slider height */
-    content: '<';
-    display: block;
-    position: absolute;
-    top: 50%;
-    bottom: 0;
-    width: 100%;
-    background: transparent;
-    z-index: -1;
-    opacity: .5; }
-
-  .slider > *:after {
-    content: '>';
-    text-align: end; }
-
-  .slider-wrap .slider > *:after, .slider-wrap .slider > *:before, .slider > *:first-child:before, .slider > *:last-child:after, .slider-wrap .slider > * > div.bg {
-    display: none; } }
-.slider > div:before {
-  background: transparent; }
-
-.row .slider {
-  padding: 0;
-  /*
-  	border-left: 7px solid transparent;
-  	border-right: 7px solid transparent;
-  */ }
 
 .slider-arrow {
   position: absolute;
@@ -2361,43 +2517,6 @@ $bg: #1E8DaC;
   margin: 0;
   white-space: normal; }
 
-.slider > * > img {
-  max-height: 100%;
-  vertical-align: middle;
-  margin: 0 auto;
-  display: block; }
-
-.slider.center > * {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center; }
-
-.slider.auto-height > *:not(.active) {
-  height: 0; }
-
-/*
-.full-window-wrap .slider-wrap.vertical.tabs > .slider-nav.row {
-		
-	position: fixed;
-	top: 1em;
-	bottom: 1em;
-	overflow: auto;
-	-webkit-overflow-scrolling: touch;
-	flex-wrap: nowrap;
-
-}
-*/
-@media screen and (max-width: 600px) {
-  .slider-wrap.tabs > .slider-nav.row {
-    display: flex; }
-
-  .slider > * {
-    display: block; }
-
-  @supports (--a: 1) {
-    .slider > * {
-      display: inline-block; } } }
 /* natUIve – Lightbox */
 /*
 $color: #fff;
@@ -2664,100 +2783,6 @@ $bg: #1E8DaC;
     margin-top: 20vh;
     width: 80vw;
     margin-left: 10vw; } }
-/* CSS-only parallax scrolling. html.parallax with body children .parallax-back and .parallax-front. Thanks http://keithclark.co.uk/articles/pure-css-parallax-websites/ */
-html.parallax, html.parallax body {
-  margin: 0;
-  padding: 0;
-  height: 100%; }
-
-.parallax-back {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1; }
-
-html.parallax .fixed-bg {
-  transform: none; }
-
-.parallax .fixed-bg {
-  background-attachment: fixed;
-  background-size: cover;
-  position: static; }
-
-.parallax .fixed-bg .fixed-bg-image {
-  display: none; }
-
-@supports (perspective: 1px) {
-  /* CSS Parallax is SUPPORTED */
-  html.parallax body {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
-    perspective: 300px;
-    perspective-origin: 100% 100%; }
-
-  .parallax-front {
-    transform-style: preserve-3d;
-    transform: translateZ(0);
-    /* Safari H/W acceleration */ }
-
-  .parallax-back {
-    transform: translateZ(-150px) scale(1.5);
-    transform-origin: 100% 100%; } }
-/* natUIve  – Card */
-/*
-$color: #fff;
-$bg: #1E8DaC;
-*/
-:root {
-  /*
-  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-  	--line-height: 2;
-  	--line-height-em: calc(var(--line-height)*1em);
-  */
-  /*
-  	--color: #fff;
-  	--bg: #1E8DaC;
-  */
-  --color: #333;
-  --bg: #fff; }
-
-.card {
-  margin: 1em 0;
-  background: rgba(0, 0, 0, 0.1); }
-
-.card > * {
-  padding: 1em; }
-
-.card .content {
-  background: rgba(0, 0, 0, 0.1); }
-
-.card > img {
-  display: block;
-  margin: 0 auto;
-  max-width: 100%;
-  padding: 0; }
-
-.card .head.image {
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: #fff; }
-
-.card .head.image:after {
-  content: '';
-  padding-bottom: 56.25%;
-  width: 0;
-  display: inline-block;
-  vertical-align: bottom; }
-
-.card .head.image > * {
-  display: inline-block; }
-
 .contain {
   max-width: 1312px;
   margin: 0 auto;
