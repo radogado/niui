@@ -701,7 +701,7 @@ function openLightbox(e) {
 
 				var target_image = lightbox_target.querySelector('[data-src*="' + getURLParameters()['image'].split('#')[0] + '"]');
 				if (target_image) {
-			        this_index = thisIndex(target_image.parentNode);
+			        this_index = thisIndex(target_image.parentNode); // To do: Wrong, count only the thumbnail siblings, not all children of .lightbox
 			    }
 		    
 		    }
