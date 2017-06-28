@@ -687,10 +687,13 @@ function openLightbox(e) {
 	        anchor = anchor.parentNode;
 	        
         }
-        var this_index = thisIndex(anchor);
+		// To do: after closing an URI-invoked lightbox and opening a lightbox again, the index is incorrect
+		var lightbox_items = lightbox.querySelectorAll('a[href]');
+        var this_index = Array.prototype.indexOf.call(lightbox_items, anchor); // Ignore non-anchor children of the lightbox container
 
-        if (location.href.indexOf('#' + lightbox.getAttribute('id')) > -1) {
+        if (location.href.indexOf('#' + lightbox.getAttribute('id')) > -1 && hasClass(lightbox, 'uri-target')) {
 	        
+	        removeClass(lightbox, 'uri-target'); // Open URI-specified index only once, because subsequent lightbox instances would have incorrect index
 	        if (typeof getURLParameters()['slide'] != 'undefined') {
 
 		        this_index = getURLParameters()['slide'].split('#')[0] - 1;
@@ -701,7 +704,9 @@ function openLightbox(e) {
 
 				var target_image = lightbox_target.querySelector('[data-src*="' + getURLParameters()['image'].split('#')[0] + '"]');
 				if (target_image) {
-			        this_index = thisIndex(target_image.parentNode); // To do: Wrong, count only the thumbnail siblings, not all children of .lightbox
+
+			        this_index = thisIndex(target_image.parentNode);
+
 			    }
 		    
 		    }
@@ -1808,11 +1813,12 @@ ready( function () {
 
 	setTimeout( function () {
 		
-			if (q('.lightbox:target')) {
-				
-				openLightbox(q('.lightbox:target > a[href]'));
-				
-			}
+		if (q('.lightbox:target')) {
+			
+			addClass(q('.lightbox:target'), 'uri-target');
+			openLightbox(q('.lightbox:target > a[href]'));
+			
+		}
 		
 	}, 1);
 
