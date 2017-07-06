@@ -441,17 +441,21 @@ function keyUpClose(e) {
 
 function closeFullWindow() {
 	
-	var full_window = q('.full-window-wrap');
+	var full_window = q('.full-window-wrap:last-of-type') || q('.full-window-wrap');
 
 	if (full_window) {
-
-	    removeClass(q('html'), 'nooverflow');
-    	q('body').scrollTop = q('html').scrollTop = -1 * q('html').getAttribute('data-offset');
-    	q('html').removeAttribute('data-offset');	
+		
+		if (qa('.full-window-wrap').length === 1) { // A single overlay
+			
+		    removeClass(q('html'), 'nooverflow');
+	    	q('body').scrollTop = q('html').scrollTop = -1 * q('html').getAttribute('data-offset');
+	    	q('html').removeAttribute('data-offset');	
+			
+		}
 	
 		animate(full_window, '0% { transform: translate3d(0,0,0) } 100% { transform: translate3d(0,-100vh,0) }', .2, function (e) {
-	
-			if (full_window_content) { // Remove disposable generated content
+
+			if (true/* full_window_content */) { // Remove disposable generated content. To do: In which case it's not dynamic?
 	
 				 // If lightbox/slider, crashes iOS Safari. not crashing with an empty div
 				full_window.parentNode.removeChild(full_window);
@@ -464,13 +468,17 @@ function closeFullWindow() {
 			
 			}
 	
-			removeEventHandler(window, 'keydown', arrow_keys_handler);
-			removeEventHandler(window, 'keyup', keyUpClose);
-			if (!q('.slider')) { // No sliders on the page to control with arrow keys
-			
-// 				document.onkeyup = function () {};
-				window.removeEventListener('keydown', arrow_keys_handler, false);
+			if (qa('.full-window-wrap').length === 0) { // A single overlay
+
+				removeEventHandler(window, 'keydown', arrow_keys_handler);
+				removeEventHandler(window, 'keyup', keyUpClose);
+				if (!q('.slider')) { // No sliders on the page to control with arrow keys
 				
+	// 				document.onkeyup = function () {};
+					window.removeEventListener('keydown', arrow_keys_handler, false);
+					
+				}
+			
 			}
 				
 		});
@@ -481,7 +489,7 @@ function closeFullWindow() {
 
 function openFullWindow(el) {
 
-	closeFullWindow();
+//	closeFullWindow();
 	
 	var offset_top = q('html').getBoundingClientRect().top;
 	q('html').setAttribute('data-offset', offset_top); // Remember the page position.
@@ -493,18 +501,19 @@ function openFullWindow(el) {
 		q('body').appendChild(full_window_content);
 		full_window_content.innerHTML = el;
 		el = full_window_content;
-		
+		addClass(el, 'dynamic');
+
 	}
-	    
+
     addClass(wrap(el).parentNode, 'content');
     wrap(el.parentNode).parentNode.setAttribute('class', 'full-window-wrap');
-	var full_window = q('.full-window-wrap');
+	var full_window = q('.full-window-wrap:last-of-type') || q('.full-window-wrap');
 	full_window.insertAdjacentHTML('beforeend', '<div class=full-window-wrap-bg></div>');
 
     if (!hasClass(el, 'headless')) {
 	    
 	    full_window.insertAdjacentHTML('afterbegin', '<div class=close> ← ' + document.title + '</div>');
-		q('.full-window-wrap-bg').onclick = q('.full-window-wrap .close').onclick = closeFullWindow;
+		full_window.querySelector('.full-window-wrap-bg').onclick = full_window.querySelector('.full-window-wrap .close').onclick = closeFullWindow;
 		addEventHandler(window, 'keyup', keyUpClose);
 	   
 	} else {

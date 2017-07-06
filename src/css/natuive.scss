@@ -15,9 +15,11 @@
 @import 'natuive-fold';
 @import 'natuive-tooltip';
 @import 'natuive-card';
-@import 'natuive-parallax';
 @import 'natuive-slider';
+
+// Separating the below would eliminate 1.5KB from first view
 @import 'natuive-slider-extra'; // Not core
+@import 'natuive-parallax'; // Not core
 @import 'natuive-lightbox'; // Not core
 @import 'natuive-modal'; // Not core
 
