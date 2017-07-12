@@ -452,8 +452,20 @@ function closeFullWindow() {
 	    	q('html').removeAttribute('data-offset');	
 			
 		}
-	
-		animate(full_window, '0% { transform: translate3d(0,0,0) } 100% { transform: translate3d(0,-100vh,0) }', .2, function (e) {
+		var animation = full_window.querySelector('.content > div').getAttribute('data-anim'); // Custom animation?
+
+		if (animation === 'null' || animation === 'undefined') {
+			
+			animation = '0% { transform: translate3d(0,0,0) } 100% { transform: translate3d(0,-100vh,0) }';
+			
+		} else {
+			
+// 			full_window.style.animationDirection = 'reverse'; // Not working with Closure Compiler, hence:
+			full_window.style.cssText = 'animation-direction: reverse;';
+
+		}
+
+		animate(full_window, animation, .2, function (e) {
 
 			if (true/* full_window_content */) { // Remove disposable generated content. To do: In which case it's not dynamic?
 	
@@ -487,7 +499,7 @@ function closeFullWindow() {
     
 }
 
-function openFullWindow(el) {
+function openFullWindow(el, animation) {
 
 //	closeFullWindow();
 	
@@ -501,10 +513,9 @@ function openFullWindow(el) {
 		q('body').appendChild(full_window_content);
 		full_window_content.innerHTML = el;
 		el = full_window_content;
-		addClass(el, 'dynamic');
 
 	}
-
+	el.setAttribute('data-anim', animation);
     addClass(wrap(el).parentNode, 'content');
     wrap(el.parentNode).parentNode.setAttribute('class', 'full-window-wrap');
 	var full_window = q('.full-window-wrap:last-of-type') || q('.full-window-wrap');
@@ -541,8 +552,8 @@ function openFullWindow(el) {
 		}
 	
 	} else {
-		
-		animate(full_window, '0% { transform: translate3d(0,-100vh,0) } 100% { transform: translate3d(0,0,0) }');
+
+		animate(full_window, typeof animation === 'string' ? animation : '0% { transform: translate3d(0,-100vh,0) } 100% { transform: translate3d(0,0,0) }');
 
 	}
 	
@@ -557,6 +568,7 @@ function modalWindow(e) {
     var el = e.target;
 
     var link = closest(el, '.modal').href;
+    var animation = closest(el, '.modal').getAttribute('data-anim');
 
     if (!php_support && external.test(link) || !(new XMLHttpRequest().upload)) { // No PHP or XHR?
 
@@ -593,7 +605,7 @@ function modalWindow(e) {
 
             }
 
-            openFullWindow(parsed);
+            openFullWindow(parsed, animation); // To do: If .modal[data-animation], pass it to openFullWindow() as second parameter. Also in openLightbox().
 			transferClass(closest(el, '.modal'), q('.full-window-wrap'), 'limited');
 
             init(); // Initialise the modal's new JS content like slider, sortable table etc.
@@ -628,6 +640,7 @@ function openLightbox(e) {
 	}
 	
     var lightbox = closest(el, '.lightbox');
+    var animation = lightbox.getAttribute('data-anim');
 
 	if (hasClass(lightbox, 'inline')) {
 		
@@ -638,7 +651,7 @@ function openLightbox(e) {
 		
 	} else {
 		
-		openFullWindow('<div class="slider lightbox' + (hasClass(lightbox, 'full-screen') ? ' full-screen' : '') + '"></div>');
+		openFullWindow('<div class="slider lightbox' + (hasClass(lightbox, 'full-screen') ? ' full-screen' : '') + '"></div>', animation);
 		q('.full-window-wrap').style.overflow = 'hidden';
 		var lightbox_target = q('.full-window-wrap .slider.lightbox');
 		
