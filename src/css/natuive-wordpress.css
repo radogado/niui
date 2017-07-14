@@ -2869,7 +2869,7 @@ main#content {
 footer {
   flex: none;
   position: relative;
-  padding-bottom: 3em; }
+  padding: 1em 0; }
 
 footer .row > * {
   position: static; }
