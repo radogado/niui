@@ -2,13 +2,13 @@
 
 @import 'natuive-setup';
 
-.full-window-wrap .slider, .full-window-wrap .slider-wrap {
+.overlay .slider, .overlay .slider-wrap {
 	
 	height: 100% !important;
 	
 }
 
-/* .no-touch  */.full-window-wrap .slider-wrap, /* .no-touch */ .full-window-wrap .slider-wrap.vertical {
+/* .no-touch  */.overlay .slider-wrap, /* .no-touch */ .overlay .slider-wrap.vertical {
 			
 	margin-top: $line-height-em*2;
 // 		margin-top: calc(var(--line-height-em)*2);
@@ -66,7 +66,7 @@
 
 }
 
-.full-window-wrap .slider-wrap {
+.overlay .slider-wrap {
 	
 	top: 0px;
 	bottom: 0px;
@@ -142,13 +142,13 @@
 }
 */
 
-.full-window-wrap .slider-wrap.vertical, .full-window-wrap .slider, .full-window-wrap .slider > * {
+.overlay .slider-wrap.vertical, .overlay .slider, .overlay .slider > * {
 	
 	height: 100%;
 
 }
 
-.full-window-wrap .slider:not(.vertical) > * {
+.overlay .slider:not(.vertical) > * {
 	
 	overflow: auto;
 	-webkit-overflow-scrolling: touch;
@@ -198,7 +198,7 @@
 
 }
 
-.full-window-wrap .slider > * {
+.overlay .slider > * {
 	
 	padding: 0;
 
@@ -210,19 +210,19 @@
 	
 }
 
-.full-window-wrap .slider.vertical > * {
+.overlay .slider.vertical > * {
 	
 	height: 100%;
 
 }
 
-.slider > *.active, .full-window-wrap .lightbox.slider > *.active > img {
+.slider > *.active, .overlay .lightbox.slider > *.active > img {
 
 	display: inline-block;
 
 }
 
-.full-window-wrap .slider > img {
+.overlay .slider > img {
 	
 	padding: 0 !important;
 	height: auto;

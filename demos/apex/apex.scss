@@ -139,7 +139,7 @@ footer {
 
 }
 
-.full-window-wrap {
+.overlay {
 	
 	background: rgba(0, 0, 0, .1);
 	text-align: right;
@@ -147,7 +147,7 @@ footer {
 	
 }
 
-.full-window-wrap .content {
+.overlay .content {
 	
 // 	margin-left: 50%;
 	background: #fff;
@@ -159,7 +159,7 @@ footer {
 
 }
 
-.full-window-wrap .close {
+.overlay .close {
 	
 	width: 2rem;
 	right: 1rem;
@@ -172,7 +172,7 @@ footer {
 	
 }
 
-.full-window-wrap .close:after {
+.overlay .close:after {
 	
 	font-size: 1rem;
 	content: '╳';
@@ -180,7 +180,7 @@ footer {
 	
 }
 
-.full-window-wrap .slider-wrap {
+.overlay .slider-wrap {
 	
 	margin: 0;
 	position: fixed;

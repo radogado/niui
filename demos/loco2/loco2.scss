@@ -36,3 +36,30 @@ footer ul {
 	margin-left: -1em;
 	    
 }
+
+.staff li {
+	
+	width: 24%;
+	text-align: center;
+	margin: 0;
+	font-weight: bold;
+	padding: 0 2em;
+
+}
+
+.staff img {
+	
+	display: block;
+	border-radius: 50%;
+	border: 2px solid teal;
+	margin-bottom: 2em;
+
+
+}
+
+.app img, .trustpilot img {
+	
+	height: 2.5em;
+	margin: 0 .25em;
+
+}

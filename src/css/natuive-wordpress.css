@@ -421,7 +421,7 @@ body {
   letter-spacing: .02em; }
 
 /* Elements with double line-height */
-h1, h2, h3, .full-window-wrap .close {
+h1, h2, h3, .overlay .close {
   line-height: 3; }
 
 h1, h2, h3, h4, h5, h6 {
@@ -2183,11 +2183,11 @@ $bg: #1E8DaC;
   --color: #333;
   --bg: #fff; }
 
-.full-window-wrap .slider, .full-window-wrap .slider-wrap {
+.overlay .slider, .overlay .slider-wrap {
   height: 100% !important; }
 
 /* .no-touch  */
-.full-window-wrap .slider-wrap, .full-window-wrap .slider-wrap.vertical {
+.overlay .slider-wrap, .overlay .slider-wrap.vertical {
   margin-top: 3em;
   height: calc(100% - 3em) !important; }
 
@@ -2218,7 +2218,7 @@ $bg: #1E8DaC;
   box-sizing: border-box;
   padding: 1.5em 0.5em; }
 
-.full-window-wrap .slider-wrap {
+.overlay .slider-wrap {
   top: 0px;
   bottom: 0px;
   height: 100%;
@@ -2265,10 +2265,10 @@ $bg: #1E8DaC;
 	
 }
 */
-.full-window-wrap .slider-wrap.vertical, .full-window-wrap .slider, .full-window-wrap .slider > * {
+.overlay .slider-wrap.vertical, .overlay .slider, .overlay .slider > * {
   height: 100%; }
 
-.full-window-wrap .slider:not(.vertical) > * {
+.overlay .slider:not(.vertical) > * {
   overflow: auto;
   -webkit-overflow-scrolling: touch; }
 
@@ -2296,19 +2296,19 @@ $bg: #1E8DaC;
 .slider-wrap .slider > * {
   display: inline-block; }
 
-.full-window-wrap .slider > * {
+.overlay .slider > * {
   padding: 0; }
 
 .no-flex .slider > * + * {
   margin-left: -.3em; }
 
-.full-window-wrap .slider.vertical > * {
+.overlay .slider.vertical > * {
   height: 100%; }
 
-.slider > *.active, .full-window-wrap .lightbox.slider > *.active > img {
+.slider > *.active, .overlay .lightbox.slider > *.active > img {
   display: inline-block; }
 
-.full-window-wrap .slider > img {
+.overlay .slider > img {
   padding: 0 !important;
   height: auto; }
 
@@ -2703,7 +2703,7 @@ $bg: #1E8DaC;
   --color: #333;
   --bg: #fff; }
 
-.full-window-wrap {
+.overlay {
   z-index: 999999;
   background: #fff;
   background: rgba(255, 255, 255, 0.97);
@@ -2717,7 +2717,7 @@ $bg: #1E8DaC;
   -webkit-overflow-scrolling: touch;
   padding-top: 0; }
 
-.full-window-wrap > .content {
+.overlay > .content {
   overflow-y: scroll;
   position: relative;
   background: transparent;
@@ -2725,7 +2725,7 @@ $bg: #1E8DaC;
   height: calc(100% - 3em);
   padding-top: 3em; }
 
-.full-window-wrap.limited > .content, .full-window-wrap.limited > .content {
+.overlay.limited > .content, .overlay.limited > .content {
   background: #666;
   color: #eee;
   padding: 0;
@@ -2734,7 +2734,7 @@ $bg: #1E8DaC;
   width: 50vw;
   margin-left: 25vw; }
 
-.full-window-wrap .close {
+.overlay .close {
   color: #fff;
   cursor: pointer;
   padding: 0 .6em;
@@ -2748,27 +2748,27 @@ $bg: #1E8DaC;
 
 /* On touch, disable fixed-position "close" bar, because it's jumpy */
 /* 	.no-touch */
-.full-window-wrap .close {
+.overlay .close {
   position: fixed; }
 
 /* 	.no-touch */
-.full-window-wrap {
+.overlay {
   overflow-y: scroll; }
 
 /* 	.no-touch */
-.full-window-wrap.headless {
+.overlay.headless {
   padding-top: 0; }
 
 /* 	.no-touch */
-.full-window-wrap > .content {
+.overlay > .content {
   height: 100%;
   overflow: auto; }
 
-.full-window-wrap > * {
+.overlay > * {
   background: #fff;
   position: relative; }
 
-.full-window-wrap-bg {
+.overlay-bg {
   position: absolute;
   top: 0;
   right: 0;
@@ -2779,7 +2779,7 @@ $bg: #1E8DaC;
   background: transparent; }
 
 @media screen and (max-width: 600px) {
-  .full-window-wrap.limited > .content {
+  .overlay.limited > .content {
     height: 60vh;
     margin-top: 20vh;
     width: 80vw;

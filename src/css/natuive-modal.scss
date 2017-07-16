@@ -2,7 +2,7 @@
 
 @import 'natuive-setup';
 
-.full-window-wrap {
+.overlay {
 
 	z-index: 999999;
 	background: #fff;
@@ -19,7 +19,7 @@
 
 }
 	
-	.full-window-wrap > .content {
+	.overlay > .content {
 		
 		overflow-y: scroll;
 		position: relative;
@@ -31,7 +31,7 @@
 
 	}
 	
-	.full-window-wrap.limited > .content, /* .no-touch */ .full-window-wrap.limited > .content {
+	.overlay.limited > .content, /* .no-touch */ .overlay.limited > .content {
 
 		background: #666;
     	color: #eee;
@@ -43,7 +43,7 @@
 
 	}
 	
-	.full-window-wrap .close {
+	.overlay .close {
 
 		color: #fff;
 		cursor: pointer;
@@ -59,39 +59,39 @@
 	}
 
 	/* On touch, disable fixed-position "close" bar, because it's jumpy */
-/* 	.no-touch */ .full-window-wrap .close {
+/* 	.no-touch */ .overlay .close {
 
 		position: fixed;
 
 	}
 
-/* 	.no-touch */ .full-window-wrap {
+/* 	.no-touch */ .overlay {
 	
 		overflow-y: scroll;
 	
 	}
 
-/* 	.no-touch */ .full-window-wrap.headless {
+/* 	.no-touch */ .overlay.headless {
 		
 		padding-top: 0;
 
 	}
 
-/* 	.no-touch */ .full-window-wrap > .content {
+/* 	.no-touch */ .overlay > .content {
 
 		height: 100%;
 		overflow: auto;
 	
 	}
 
-	.full-window-wrap > * {
+	.overlay > * {
 		
 		background: #fff;
 		position: relative;
 		
 	}
 	
-	.full-window-wrap-bg {
+	.overlay-bg {
 		
 		position: absolute;
 		top: 0;
@@ -108,7 +108,7 @@
 @media screen and (max-width: $screen-narrow) {
 
 
-	.full-window-wrap.limited > .content {
+	.overlay.limited > .content {
 		
     	height: 60vh;
    	    margin-top: 20vh;

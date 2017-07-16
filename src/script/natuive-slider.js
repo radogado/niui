@@ -75,7 +75,7 @@ function swipeEvents(el) {
         var touches = e.touches;
 // 	    var slider = sliderElement(e);
 
-        if (touches && touches.length && !(hasClass(el, 'vertical') && !closest(el, '.full-window-wrap'))) { // Don't slide vertically if not full window
+        if (touches && touches.length && !(hasClass(el, 'vertical') && !closest(el, '.overlay'))) { // Don't slide vertically if not full window
 
             var deltaX = startX - touches[0].pageX;
             var deltaY = startY - touches[0].pageY;
@@ -154,7 +154,7 @@ function mouseWheelHandler(e) {
 
 function mouseEvents(el, toggle) {
 
-    if (!('onwheel' in window) || (hasClass(el, 'vertical') && !closest(el, '.full-window-wrap'))) { // Check for mouse wheel and Don't slide vertically if not full window
+    if (!('onwheel' in window) || (hasClass(el, 'vertical') && !closest(el, '.overlay'))) { // Check for mouse wheel and Don't slide vertically if not full window
 	    
 	    return;
 	   
@@ -396,12 +396,12 @@ function sliderKeyboard(e) {
 
 	function shouldNotSlideVertically() {
 		
-		if (q('.full-window-wrap')) { return false; }
+		if (q('.overlay')) { return false; }
 		return !hasClass(el,'vertical') || window.innerHeight < q('body').scrollHeight;
 		
 	}
 
-	if (tag !== 'input' && tag !== 'textarea' && (el = q('.full-window-wrap .slider') || q('.slider-wrap.active .slider') || q('.slider'))) { // Priority: full window slider, active slider, first slider
+	if (tag !== 'input' && tag !== 'textarea' && (el = q('.overlay .slider') || q('.slider-wrap.active .slider') || q('.slider'))) { // Priority: full window slider, active slider, first slider
         switch (e.which) {
 
             case 38:

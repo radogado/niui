@@ -18,7 +18,7 @@ body {
 
 /* Elements with double line-height */
 
-h1, h2, h3, .full-window-wrap .close {
+h1, h2, h3, .overlay .close {
 	
 	line-height: $line-height * 2;
 // 	line-height: calc(var(--line-height) * 2);
