@@ -385,8 +385,8 @@ function populateLightboxItem(slider, i) {
 			e.target.style.setProperty('--y', '-50%');
 			e.target.onmousemove = function (e) {
 				
-				var width = q('.full-window-wrap .slider-wrap').offsetWidth;
-				var height = q('.full-window-wrap .slider-wrap').offsetHeight;
+				var width = q('.overlay .slider-wrap').offsetWidth;
+				var height = q('.overlay .slider-wrap').offsetHeight;
 				
 				var overflowX = e.target.width - width;
 				var overflowY = e.target.height - height;
@@ -441,11 +441,11 @@ function keyUpClose(e) {
 
 function closeFullWindow() {
 	
-	var full_window = q('.full-window-wrap:last-of-type') || q('.full-window-wrap');
+	var full_window = q('.overlay:last-of-type') || q('.overlay');
 
 	if (full_window) {
 		
-		if (qa('.full-window-wrap').length === 1) { // A single overlay
+		if (qa('.overlay').length === 1) { // A single overlay
 			
 		    removeClass(q('html'), 'nooverflow');
 	    	q('body').scrollTop = q('html').scrollTop = -1 * q('html').getAttribute('data-offset');
@@ -480,7 +480,7 @@ function closeFullWindow() {
 			
 			}
 	
-			if (qa('.full-window-wrap').length === 0) { // A single overlay
+			if (qa('.overlay').length === 0) { // A single overlay
 
 				removeEventHandler(window, 'keydown', arrow_keys_handler);
 				removeEventHandler(window, 'keyup', keyUpClose);
@@ -517,14 +517,14 @@ function openFullWindow(el, animation) {
 	}
 	el.setAttribute('data-anim', animation);
     addClass(wrap(el).parentNode, 'content');
-    wrap(el.parentNode).parentNode.setAttribute('class', 'full-window-wrap');
-	var full_window = q('.full-window-wrap:last-of-type') || q('.full-window-wrap');
-	full_window.insertAdjacentHTML('beforeend', '<div class=full-window-wrap-bg></div>');
+    wrap(el.parentNode).parentNode.setAttribute('class', 'overlay');
+	var full_window = q('.overlay:last-of-type') || q('.overlay');
+	full_window.insertAdjacentHTML('beforeend', '<div class=overlay-bg></div>');
 
     if (!hasClass(el, 'headless')) {
 	    
 	    full_window.insertAdjacentHTML('afterbegin', '<div class=close> ← ' + document.title + '</div>');
-		full_window.querySelector('.full-window-wrap-bg').onclick = full_window.querySelector('.full-window-wrap .close').onclick = closeFullWindow;
+		full_window.querySelector('.overlay-bg').onclick = full_window.querySelector('.overlay .close').onclick = closeFullWindow;
 		addEventHandler(window, 'keyup', keyUpClose);
 	   
 	} else {
@@ -606,7 +606,7 @@ function modalWindow(e) {
             }
 
             openFullWindow(parsed, animation); // To do: If .modal[data-animation], pass it to openFullWindow() as second parameter. Also in openLightbox().
-			transferClass(closest(el, '.modal'), q('.full-window-wrap'), 'limited');
+			transferClass(closest(el, '.modal'), q('.overlay'), 'limited');
 
             init(); // Initialise the modal's new JS content like slider, sortable table etc.
 
@@ -652,8 +652,8 @@ function openLightbox(e) {
 	} else {
 		
 		openFullWindow('<div class="slider lightbox' + (hasClass(lightbox, 'full-screen') ? ' full-screen' : '') + '"></div>', animation);
-		q('.full-window-wrap').style.overflow = 'hidden';
-		var lightbox_target = q('.full-window-wrap .slider.lightbox');
+		q('.overlay').style.overflow = 'hidden';
+		var lightbox_target = q('.overlay .slider.lightbox');
 		
 	}
 	

@@ -23,20 +23,20 @@
 	
 }
 
-.full-window-wrap .slider.lightbox > * {
+.overlay .slider.lightbox > * {
 
 	height: 100%;
 	overflow: hidden;
 	
 }
 
-.full-window-wrap .slider.lightbox.vertical > * { // Firefox fix
+.overlay .slider.lightbox.vertical > * { // Firefox fix
 
 	display: none;
 
 }
 
-.full-window-wrap .slider.lightbox.vertical > .active { // Firefox fix
+.overlay .slider.lightbox.vertical > .active { // Firefox fix
 
 	display: block;
 
@@ -57,7 +57,7 @@
 
 }
 
-.full-window-wrap .slider.lightbox > *:before {
+.overlay .slider.lightbox > *:before {
 
 	content: ' ';
     display: inline-block;
@@ -87,7 +87,7 @@
 	
 }
 
-.full-window-wrap .lightbox.slider > * > img {
+.overlay .lightbox.slider > * > img {
 	
 	display: none;
 
@@ -107,7 +107,7 @@
 
 }
 
-.full-window-wrap .lightbox.slider > .active > img.zoom {
+.overlay .lightbox.slider > .active > img.zoom {
 
 	width: auto;
 	height: auto;
@@ -124,7 +124,7 @@
 
 }
 
-.full-window-wrap .lightbox.slider > .active > img.zoom {
+.overlay .lightbox.slider > .active > img.zoom {
 
 /*
 	top: 0;
@@ -141,7 +141,7 @@
 /*
 	@-moz-document url-prefix() {
 	
-		.full-window-wrap .lightbox.slider > .active > img.zoom {
+		.overlay .lightbox.slider > .active > img.zoom {
 	
 			transform: translate3d(-50%, -50%, 0);
 			
