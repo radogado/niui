@@ -1,6 +1,6 @@
 $pink: #ff3b79;
 
-body {
+body, .coverage .col4 b, a[href].button.big, form input[type=submit] {
 	
 	font-weight: 400;
 
@@ -8,7 +8,7 @@ body {
 
 .contain {
 	
-	max-width: 1400px;
+	max-width: 1412px;
 
 }
 
@@ -17,44 +17,51 @@ body {
 	color: #fff;
 	background: #e6e6e6;
 
+	.row:first-child {
+		
+		padding-top: 7em;
+		padding-bottom: 1em;
+		background: url(original-51f1faec1ad3aee78ae35a84d1887940.jpg); 
+		background-size: cover; 
+		background-position: center center;
+	
+	}
+	
+	h1 {
+		
+		font-weight: 400;
+		font-size: 3.25em;
+	
+	}
+	
+	h3 {
+		
+		font-weight: 400;
+		font-size: 1.5em;
+	
+	}
+	
+	form {
+		
+		padding: 0 0 7.5em 0;
+	
+	}
+
 }
 
-.banner .row:first-child {
+header em {
 	
-	padding-top: 7em;
-	padding-bottom: 1em;
-	background: url(original-51f1faec1ad3aee78ae35a84d1887940.jpg); 
-	background-size: cover; 
-	background-position: center center;
-
-}
-
-.banner h1 {
-	
-	font-weight: 400;
-	font-size: 3.25em;
-
-}
-
-.banner h3 {
-	
-	font-weight: 400;
-	font-size: 1.5em;
-
-}
-
-.banner form {
-	
-	padding: 0 0 7.5em 0;
+	font-style: normal;
 
 }
 
 input[type=text] {
 	
 	background: #fff;
-	margin: 0;
+	margin: .25em 0;
 	text-align: left;
 	color: #666;
+	min-width: 20em;
 
 }
 
@@ -195,8 +202,8 @@ footer ul {
 
 .discover.row > div {
 
-	background-position: center center;
-	background-size: cover;
+	background-position: top center;
+	background-size: 100% auto;
 
 }
 
@@ -221,6 +228,7 @@ footer ul {
 .discover.row > div:nth-child(2) ~ div:not(:last-child) {
 
 	min-height: 25em;
+	box-shadow: 0 0 0 1px #ddd;
 
 }
 
