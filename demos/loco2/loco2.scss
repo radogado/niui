@@ -89,6 +89,7 @@ main form {
 main .align-right form {
 	
 	text-align: left;
+    margin-right: -1em;
 	
 }
 
@@ -200,6 +201,12 @@ footer ul {
 
 }
 
+.coverage a.button.big {
+	
+	white-space: nowrap;
+
+}
+
 .discover.row > div {
 
 	background-position: top center;
@@ -264,6 +271,7 @@ footer ul {
 
 	padding-left: 8em;
 	padding-top: 5em;
+	white-space: nowrap;
 
 }
 
@@ -272,6 +280,7 @@ footer ul {
 	display: block;
 	font-size: 3em;
 	margin-bottom: -.25em;
+	white-space: nowrap;
 
 }
 
