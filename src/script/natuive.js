@@ -1611,6 +1611,17 @@ forEach('[data-threshold]', function(el) { // Set a variable reflecting how much
 /* Initialise JS-powered elements */
 
 function init() {
+	
+	// Load extra CSS for JS-generated content
+	
+	var css = q('head [href*="natuive.min.css"]');
+	if (css) {
+
+		var extra_css = css.cloneNode()
+		extra_css.href = extra_css.href.replace('natuive.min', 'natuive-extra.min');
+		q('head').insertBefore(extra_css, css.nextSibling); // Insert it after natuive.min.css, not at the end of <head>, to allow subsequent CSS files to overwrite it
+
+	}
 
 	notifyCloseEvent();
 	

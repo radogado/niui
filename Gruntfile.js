@@ -5,6 +5,7 @@ module.exports = function(grunt) {
 			dist: { 
 				files: {
 					'src/css/natuive.css': 'src/css/natuive.scss',
+					'src/css/natuive-extra.css': 'src/css/natuive-extra.scss',
 					'src/css/natuive-wordpress.css': 'src/css/natuive-wordpress.scss'
 					}
 				}
@@ -17,6 +18,7 @@ module.exports = function(grunt) {
 		  target: {
 		    files: {
 		      'dist/natuive.min.css': ['src/css/natuive.css'],
+		      'dist/natuive-extra.min.css': ['src/css/natuive-extra.css'],
 		      'natuive-wordpress/natuive-wordpress.min.css': ['src/css/natuive-wordpress.css']
 		    }
 		  }

@@ -1,11 +1,11 @@
-/* natUIve – JS-enhanced – rado.bg */
+/* natUIve – CSS for JS-enhanced content – rado.bg */
 
 @charset 'utf-8';
 
 @import 'natuive-setup';
 @import 'theme-variables'; /* Rewrite base variables here; add theme CSS below this one in <head> */
 
-@import 'natuive-slider-extra'; // Not core
-@import 'natuive-parallax'; // Not core
-@import 'natuive-lightbox'; // Not core
-@import 'natuive-modal'; // Not core
+@import 'natuive-slider-extra';
+@import 'natuive-parallax';
+@import 'natuive-lightbox';
+@import 'natuive-modal';

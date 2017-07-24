@@ -8,7 +8,7 @@
 	
 }
 
-/* .no-touch  */.overlay .slider-wrap, /* .no-touch */ .overlay .slider-wrap.vertical {
+.overlay .slider-wrap, .overlay .slider-wrap.vertical {
 			
 	margin-top: $line-height-em*2;
 // 		margin-top: calc(var(--line-height-em)*2);
@@ -19,7 +19,7 @@
 
 // To do: move all .slider-wrap (enhanced slider) behind a @supports for modern browsers. Leave the basic CSS-only version for old browsers.
 
-.slider-wrap { 
+.slider-wrap {
 	
 	position: relative;
 	overflow: hidden;

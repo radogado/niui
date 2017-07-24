@@ -2,7 +2,6 @@
 
 @charset 'utf-8';
 
-// Maybe drop SCSS when CSS variables become widely supported in March 2016. Combine with Grunt.
 @import 'natuive-setup';
 @import 'theme-variables'; /* Rewrite base variables here; add theme CSS below this one in <head> */
 @import 'natuive-grid';
@@ -17,11 +16,13 @@
 @import 'natuive-card';
 @import 'natuive-slider';
 
-// Separating the below would eliminate 1.5KB from first view
+// Separate natuive-extra.css for JS-enhanced content
+/*
 @import 'natuive-slider-extra'; // Not core
 @import 'natuive-parallax'; // Not core
 @import 'natuive-lightbox'; // Not core
 @import 'natuive-modal'; // Not core
+*/
 
 .contain {
 
@@ -319,6 +320,14 @@ a[href].span-relative-parent {
 [data-animation] { // Speed up animated elements
 	
 	pointer-events: none;
+
+}
+
+// Fallback before loading the full parallax CSS
+
+.parallax-back {
+
+	position: absolute;
 
 }
 

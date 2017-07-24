@@ -30,12 +30,6 @@ h1, h2, h3, h4 {
 
 }
 
-.backtotop {
-	
-	display: none !important;
-
-}
-
 header, #content, footer {
 	
 	background: #fff;
@@ -350,7 +344,7 @@ footer .about nav a {
 	display: block;
 	margin-bottom: -1em;
 	border-bottom: 4px solid #d6d3cc;
-	padding-bottom: 0 !important;
+	padding-bottom: 0;
 	
 }
 
