@@ -46,7 +46,7 @@ natUIve: mostly native front-end framework
 - Notificaton bar
 - Click to copy to clipboard
 - Functional without JS and accessible without CSS*
-- 6 KB CSS + optional 6 KB JS (combined, minified, macOS gzip)
+- 7 KB First View CSS + optional 8 KB JS (combined, minified, macOS gzip)
 - ~~No IE conditional operators~~ HTML5 elements also for IE8 with html5shiv
 - No jQuery or other dependencies*
 - Supporting IE8+, Safari, Chrome, Firefox, Opera, Android 2.3+, iOS, Windows Phone

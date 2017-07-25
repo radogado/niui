@@ -241,7 +241,7 @@
 	
 }
 
-.align-top, .row > .align-top, .align-top .row > * {
+.row > .align-top, .align-top .row > * {
 	
 	vertical-align: top;
 	justify-content: flex-start;
@@ -250,7 +250,7 @@
 	
 }
 
-.align-middle, .row > .align-middle, .align-middle .row > * {
+.row > .align-middle, .align-middle .row > * {
 	
 	vertical-align: middle;
 	justify-content: center;
@@ -259,7 +259,7 @@
 	
 }
 
-.align-bottom, .row > .align-bottom, .align-bottom .row > * {
+.row > .align-bottom, .align-bottom .row > * {
 	
 	vertical-align: bottom;
 	justify-content: flex-end;

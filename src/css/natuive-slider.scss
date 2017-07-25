@@ -142,6 +142,20 @@
 
 }
 
+.slider-wrap .slider.align-middle > *, .slider.align-middle > * {
+	
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+}
+
+.slider.align-middle > * > * {
+	
+	text-align: center;
+
+}
+
 /*
 .overlay .slider-wrap.vertical.tabs > .slider-nav.row {
 		
