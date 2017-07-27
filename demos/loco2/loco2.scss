@@ -211,7 +211,18 @@ footer ul {
 
 	background-position: top center;
 	background-size: 100% auto;
+	background-repeat: no-repeat;
 
+}
+
+@media (max-width: 900px) {
+	
+	.discover.row > div {
+	
+	    background-size: cover;
+	
+	}
+	
 }
 
 .discover.row > div.align-bottom > div {
