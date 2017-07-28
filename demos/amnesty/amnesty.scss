@@ -23,6 +23,13 @@ header li a {
 	
 }
 
+header form {
+	
+	display: inline-block;
+	padding: 0;
+	
+}
+
 footer, .banner h2 {
 	
 	color: #fff;
@@ -110,6 +117,7 @@ form#language-selector select {
     background: none;
     font-weight: bold;
     width: 5em;
+    margin: 0;
 	    
 }
 

@@ -1675,7 +1675,7 @@ ul li:before {
   position: absolute;
   margin-left: -.75em; }
 
-ul.inline li, nav.scroll ul li {
+ul.inline, ul.inline li, nav.scroll ul li {
   vertical-align: top;
   display: inline-block; }
 
