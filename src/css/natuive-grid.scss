@@ -385,7 +385,7 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 
 .row.border-all {
 	
-	box-shadow: 0 0 0 2px #000;
+	box-shadow: inset 0 0 0 0.5px #000;
 	margin: -$line-height-em/2 0;
 	
 }
@@ -406,7 +406,7 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 
 .row.border-all .row > * {
 
-	box-shadow: 0 0 0 1px #000;
+	box-shadow: 0 0 0 0.5px #000;
 	margin: 0;
 
 }
@@ -484,6 +484,7 @@ section:before, section:after { // Prevent inner edge margins from creating blan
     align-items: flex-start;
     overflow: hidden;
     position: relative;
+    text-align: center;
     
 }
 
@@ -502,10 +503,11 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 	
 	}
 
-	@-moz-document url-prefix() { // No-flex version for FF. FF devs insist flexbox item's vertical paddign to be 0 without explicit parent height, instead of % of width like Chrome, Safari etc.
+	@-moz-document url-prefix() { // No-flex version for FF. FF devs insist flexbox item's vertical paddign to be 0 without explicit parent height, instead of % of width like Chrome, Safari etc. Disabled because of many problems.
 
 		.aspect { display: block; font-size: 0; letter-spacing: 0; }
 		.aspect:before, .aspect > * { display: inline-block; font-size: initial; }
+		.aspect:before { display: none; }
 
 	}
 	

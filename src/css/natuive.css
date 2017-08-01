@@ -260,7 +260,7 @@ ol.masonry > * {
   margin: -1.5em 0; }
 
 .row.border-all {
-  box-shadow: 0 0 0 2px #000;
+  box-shadow: inset 0 0 0 0.5px #000;
   margin: -0.75em 0; }
 
 .row.border-all > * {
@@ -272,7 +272,7 @@ ol.masonry > * {
   max-width: none; }
 
 .row.border-all .row > * {
-  box-shadow: 0 0 0 1px #000;
+  box-shadow: 0 0 0 0.5px #000;
   margin: 0; }
 
 .row.border-all .row .row {
@@ -316,7 +316,8 @@ ol.masonry > * {
   flex-direction: row;
   align-items: flex-start;
   overflow: hidden;
-  position: relative; }
+  position: relative;
+  text-align: center; }
 
 .aspect > img {
   max-width: 100%;
@@ -336,7 +337,10 @@ ol.masonry > * {
 
   .aspect:before, .aspect > * {
     display: inline-block;
-    font-size: initial; } }
+    font-size: initial; }
+
+  .aspect:before {
+    display: none; } }
 .align-bottom.aspect > * {
   align-self: flex-end;
   vertical-align: bottom; }
