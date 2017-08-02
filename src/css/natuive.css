@@ -349,7 +349,7 @@ ol.masonry > * {
   align-self: center;
   vertical-align: middle; }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 599.9px) {
   .row:not(.half) {
     display: block;
     overflow-x: hidden; }
@@ -599,7 +599,7 @@ a.backtotop[href] {
   margin-right: .25em;
   margin-left: .25em; }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 599.9px) {
   .button.big {
     display: block;
     text-align: center; } }
@@ -1288,7 +1288,7 @@ td[data-sort] {
   td[data-sort]:after {
     content: '⇳';
     margin-left: .5em; } }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 599.9px) {
   table {
     display: block;
     overflow: scroll;
@@ -1568,7 +1568,7 @@ input.trigger, input.trigger ~ input[type=reset] {
   z-index: 5;
   padding: 0; }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 599.9px) {
   nav, nav ul {
     width: 100%; }
 
@@ -1882,7 +1882,7 @@ span.burger:after {
 
   span.burger:after {
     display: none; } }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 599.9px) {
   .fold.mobile > .label, .fold.mobile > input.trigger {
     display: inline-block;
     display: flex;
@@ -2166,7 +2166,7 @@ $bg: #1E8DaC;
 
 }
 */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 599.9px) {
   .slider-wrap.tabs > .slider-nav.row {
     display: flex; }
 
@@ -2364,7 +2364,7 @@ a[href].span-relative-parent {
   position: absolute; }
 
 /* Narrow Screens */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 599.9px) {
   header {
     margin: 0; }
 

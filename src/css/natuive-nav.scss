@@ -399,7 +399,7 @@ input.trigger, input.trigger ~ input[type=reset] {
 
 }
 
-@media screen and (max-width: $screen-narrow) {
+@media screen and (max-width: $screen-narrow-max) {
 	
 	nav, nav ul {
 		

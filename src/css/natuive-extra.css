@@ -634,7 +634,7 @@ $bg: #1E8DaC;
   cursor: crosshair;
   background: transparent; }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 599.9px) {
   .overlay.limited > .content {
     height: 60vh;
     margin-top: 20vh;
