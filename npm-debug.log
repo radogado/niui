@@ -1,0 +1,188 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@4.1.2
+3 info using node@v7.6.0
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   escapedName: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Library/WebServer/Documents/natuive',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/radoslavsharapanov/.npm/natuive/0.1.9/package.tgz not in flight; packing
+9 verbose correctMkdir /Users/radoslavsharapanov/.npm correctMkdir not in flight; initializing
+10 info lifecycle natuive@0.1.9~prepublish: natuive@0.1.9
+11 silly lifecycle natuive@0.1.9~prepublish: no script for prepublish, continuing
+12 info lifecycle natuive@0.1.9~prepare: natuive@0.1.9
+13 silly lifecycle natuive@0.1.9~prepare: no script for prepare, continuing
+14 verbose tar pack [ '/Users/radoslavsharapanov/.npm/natuive/0.1.9/package.tgz',
+14 verbose tar pack   '/Library/WebServer/Documents/natuive' ]
+15 verbose tarball /Users/radoslavsharapanov/.npm/natuive/0.1.9/package.tgz
+16 verbose folder /Library/WebServer/Documents/natuive
+17 verbose addLocalTarball adding from inside cache /Users/radoslavsharapanov/.npm/natuive/0.1.9/package.tgz
+18 verbose correctMkdir /Users/radoslavsharapanov/.npm correctMkdir not in flight; initializing
+19 silly cache afterAdd natuive@0.1.9
+20 verbose afterAdd /Users/radoslavsharapanov/.npm/natuive/0.1.9/package/package.json not in flight; writing
+21 verbose correctMkdir /Users/radoslavsharapanov/.npm correctMkdir not in flight; initializing
+22 verbose afterAdd /Users/radoslavsharapanov/.npm/natuive/0.1.9/package/package.json written
+23 silly publish { name: 'natuive',
+23 silly publish   version: '0.1.9',
+23 silly publish   devDependencies:
+23 silly publish    { 'graceful-fs': '^4.1.3',
+23 silly publish      grunt: '^0.4.5',
+23 silly publish      'grunt-contrib-copy': '^1.0.0',
+23 silly publish      'grunt-contrib-cssmin': '^0.14.0',
+23 silly publish      'grunt-contrib-jshint': '~0.10.0',
+23 silly publish      'grunt-contrib-nodeunit': '~0.4.1',
+23 silly publish      'grunt-contrib-sass': '^0.9.2',
+23 silly publish      'grunt-contrib-scss': '^0.1.2',
+23 silly publish      'grunt-contrib-uglify': '~0.5.0',
+23 silly publish      'grunt-imageoptim': '^1.4.1' },
+23 silly publish   description: 'natUIve: mostly native front-end framework',
+23 silly publish   main: 'Gruntfile.js',
+23 silly publish   dependencies:
+23 silly publish    { 'closure-compiler': '^0.2.12',
+23 silly publish      'clean-css': '^3.4.8',
+23 silly publish      concat: '^1.0.0',
+23 silly publish      grunt: '^0.4.5',
+23 silly publish      'grunt-closure-compiler': '^0.0.21',
+23 silly publish      'grunt-contrib-jshint': '^0.10.0',
+23 silly publish      'grunt-contrib-cssmin': '^0.14.0',
+23 silly publish      'grunt-contrib-nodeunit': '^0.4.1',
+23 silly publish      'grunt-contrib-sass': '^0.9.2',
+23 silly publish      'grunt-contrib-uglify': '^0.5.1',
+23 silly publish      'grunt-contrib-scss': '^0.1.2',
+23 silly publish      'grunt-imageoptim': '^1.4.1' },
+23 silly publish   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+23 silly publish   repository:
+23 silly publish    { type: 'git',
+23 silly publish      url: 'git+https://github.com/radogado/natuive.git' },
+23 silly publish   author:
+23 silly publish    { name: 'Radoslav Sharapanov',
+23 silly publish      email: 'spacest@gmail.com',
+23 silly publish      url: 'http://github.com/radogado' },
+23 silly publish   license: 'ISC',
+23 silly publish   bugs: { url: 'https://github.com/radogado/natuive/issues' },
+23 silly publish   homepage: 'https://github.com/radogado/natuive#readme',
+23 silly publish   readme: 'natUIve: mostly native front-end framework\n===\n\n~15 KB framework leveraging browsers\' built-in capabilities, with subtle customisation. \n\n[Guide](http://radogado.github.io/natuive/guide.html), [Features demo](http://radogado.github.io/natuive/) ([minified](http://natuive.net)), [WordPress theme](http://rado.bg), [Classless demo](http://radogado.github.io/natuive/demos/classless.html), [Microsoft](http://radogado.github.io/natuive/demos/microsoft/), [Imperial Innovations](http://radogado.github.io/natuive/demos/imperialinnovations/), [Pebble homepage](http://radogado.github.io/natuive/demos/pebble/), [Seat 61](http://radogado.github.io/natuive/demos/seat61/), [JetBlue](http://radogado.github.io/natuive/demos/jetblue/), [Mitsubishi Regional Jet](http://radogado.github.io/natuive/demos/mrj/), [MUBI](http://radogado.github.io/natuive/demos/mubi/), [SWISS](http://radogado.github.io/natuive/demos/swiss/), [Mapbox](http://radogado.github.io/natuive/demos/mapbox/), [Airbnb](http://radogado.github.io/natuive/demos/airbnb/), [GOV.UK](http://radogado.github.io/natuive/demos/gov.uk/), [Google Design](http://radogado.github.io/natuive/demos/google-design/), [Daring Fireball](http://radogado.github.io/natuive/demos/daringfireball/), [Vitsœ](http://radogado.github.io/natuive/demos/vitsoe/), [Apple](http://radogado.github.io/natuive/demos/apple/), [Brand Union](http://radogado.github.io/natuive/demos/brandunion/), [Tesla](http://radogado.github.io/natuive/demos/tesla/), [Amnesty](http://radogado.github.io/natuive/demos/amnesty/), [Stripe](http://radogado.github.io/natuive/demos/stripe/), [Star Wars](http://radogado.github.io/natuive/demos/starwars/), [Norwegian](http://radogado.github.io/natuive/demos/norwegian/), [David Bowie Is (Japan)](http://radogado.github.io/natuive/demos/davidbowieis/), [Uncharted: The Lost Legacy](http://radogado.github.io/natuive/demos/uncharted-the-lost-legacy/), [Seehotel Jägerwirt](http://radogado.github.io/natuive/demos/seehotel-jaegerwirt/), [Truphone](http://radogado.github.io/natuive/demos/truphone/), [Pixel Pioneers](http://radogado.github.io/natuive/demos/pixelpioneers/), [Apex](http://radogado.github.io/natuive/demos/apex/), [Loco2](http://radogado.github.io/natuive/demos/loco2/)\n---\n\n- Unbreakable, flexible (no hardcoded dimensions), responsive grid. Supports Bootstrap-style wrapping columns, but with .col3 (1/3) etc., instead of .col...4 (4/12). Auto equal width columns with equal height and vertical alignment.\n- Baseline-aligned text elements*\n- Embeddable grid and elements*\n- Built around edge cases (overflowing content etc)*\n- CSS reset\n- Really blank default style, unlike frameworks with baked-in rounded edges, shadows etc*\n- Semantic structure\n- Balanced functional layout\n- (Mobile) navigation\n- Drop-down nav: Touch-first, CSS-only, JS enhanced, 1-3 levels, responsive, label/link items support\n- Buttons\n- Modal windows with local or external content\n- Lightbox gallery supporting huge galleries* and click to zoom. Can be opened automatically by URI page#lightbox_id. Video in lightbox.\n- Tooltips with full HTML content*\n- Nested ordered lists*\n- Forms with validation, dynamic submission without page reload, full customisation and accessibility, including native file drop. Range input with blank style. Auto-expanding textarea*. Optional fieldsets.\n- Native sliders*, swipeable on mobile and desktop, with numbered or thumbnail (tabs) navigation, vertical and full window options, slider inside slider, fade in/out option, auto height option\n- Accordions\n- Tabs\n- Cards\n- Quote block\n- Drop Caps\n- Tables accessible on narrow screens by scrolling; sortable*\n- Footer sticking to the very bottom on short pages*\n- \'Back to top\' button\n- Animated anchor links\n- Language selector\n- Native video player\n- Good usability without any classes*\n- Aspect ratio image container*\n- CSS-only viewport height header*\n- URI parameters relay to links*\n- Arabic layout ready*\n- Masonry CSS-only*\n- CSS-only parallax scrolling* \n- Fixed background option\n- WordPress theme*\n- Notificaton bar\n- Click to copy to clipboard\n- Functional without JS and accessible without CSS*\n- 7 KB First View CSS + optional 8 KB JS (combined, minified, macOS gzip)\n- ~~No IE conditional operators~~ HTML5 elements also for IE8 with html5shiv\n- No jQuery or other dependencies*\n- Supporting IE8+, Safari, Chrome, Firefox, Opera, Android 2.3+, iOS, Windows Phone\n- Graceful degradation\n- Full documentation in [natUIve.pdf](http://radogado.github.io/natuive/natUIve.pdf)\n- Includes a FREE picture of a cat\n\n\\* exclusive features, missing in popular frameworks\n\n© 2014-2016 [rado.bg](http://rado.bg)\n\n–––\n\nnatUIve 1.9\n\n- CSS variables in grid\n- Lightbox: inline, loading animation, zoom and scan\n- Copy to clipboard indication\n- **notify()** timeout option\n- Focused slider keyboard control\n- Old browsers CSS-only\n\n–––\n\nnatUIve 1.8\n\n- Guide\n- Proper touch support\n- Scroll effects\n- Lightbox with thumbnails\n- iframe in lightbox\n- Slider with outside contols\n- Accordion with truncated content\n\n–––\n\nnatUIve 1.7\n\n- Video in lightbox\n- **.fold** replaces **.accordion** for universal use\n- **copyButton()** makes a button copy content to clipboard\n- Limited size modal window\n- IE8 fallback for Flex grid\n- Lightbox auto-opening at slide number or image name, depending on URI\n- **init()** initializes new dynamic content\n- Optional form fieldsets\n\n–––\n\nnatUIve 1.6\n\n- animate() function for CSS animations\n- Slider with Fade option\n- Nested sliders\n- Scrollable horizontal nav\n- Animated off-screen mobile nav\n- Automatically open a lightbox by loading url#lightbox-id\n- Notification bar\n- Range input\n- CSS-only parallax scrolling\n- Fixed background behind an element\n- Close burger content by clicking outside\n- Aspect ratio container now a single element\n- Properly inherited font size\n\n–––\n\nnatUIve 1.5\n\n- Unified Flexbox grid with equal height, vertical alignment and auto wrapping\n- Modular source code\n- Cards\n- Balanced for 10 common page designs\n- Vertically centered viewport banner\n- Click to zoom in lightbox\n- Full screen lightbox\n\n–––\n\nnatUIve 1.4\n\n- New\n    - Sortable tables\n    - Masonry CSS-only\n    - isInViewport()\n    - Drop-down nav: Touch-first, CSS-only, JS enhanced, 1-3 levels, responsive, label/link items supporting\n- Improved\n    - Tooltip for touch\n    - parentByClass() replaced by versatile getClosest()\n    - Slider in CSS-only more now has visual cues\n    - Form validation for email and URL inputs\n    - Form: input type=number with optional data-digits to specify exact digits required\n    - WordPress Gallery captions\n\n–––\n\nnatUIve 1.3\n\n- Core\n\t- Sass CSS for $font-size and $line-height\n\t- Reduced class dependencies\n\t- HTML5 elements\n\t- Themes support\n\t- openFullWindow(‘content’)\n\t- Overflowing mobile nav scrollable\n\t- Node manipulation preserves events\n\t- Aspect ratio image container\n\t- Scroll polyfill for Android Browser with overthrow.js\n\t- Option for Header+Banner (“Hero”) to take up .viewport-height (CSS only)\n\t- Optimisations and fixes\n- natUIve WordPress theme\n- Lightbox\n\t- Lazy loading images to support huge galleries\n- Slider\n\t- Rewritten slide animation to support huge sliders\n\t- Headless full-window option\n- Video player\n- Tabs\n\n–––\n\nnatUIve 1.2\n\n- Core\n\t- 50% wide columns option on narrow screens\n\t- Rows with border option\n\t- Anchor links animated by CSS\n\t- Various code optimisations\n- Slider\n\t- Vertical version\n\t- Full-screen version\n- Form\n\t- Border on focus\n\t- Dynamic form submit without page reload\n- Modal\n\t- External content via PHP\n\n–––\n\nnatUIve 1.1\n\n- More stability and compatibility\n- Core:\n\t- Clean, seamless row embedding without padding creep\n\t- Wrap Grid, which wraps equal-width columns on multiple lines\n\t- Browser capabilities detection, instead of user agent\n- Tables: \n\t- Highlight row by hover\n- Lightbox:\n\t- Image captions\n\t- Centered/downscaled images by CSS only\n\t- Lightbox link can be anything, not just a thumbnail image\n- Modal windows: \n\t- The link can have child elements\n\t- A modal window can have any content – modalWindow(\'HTML\')\n- Form:\n\t- Supports dragging a file to a file input\n\t- Flat version with stacked labels/inputs\n- Slider:\n\t- Auto-slide option\n\t- Jumping from last to first and first to last\n\n',
+23 silly publish   readmeFilename: 'README.md',
+23 silly publish   gitHead: 'b23833a3a77dd14762ec11ab8b243e89a77b6556',
+23 silly publish   _id: 'natuive@0.1.9',
+23 silly publish   _shasum: '51ded783a245a2f37cecd5a107c5bf97c72e15be',
+23 silly publish   _from: '.' }
+24 info lifecycle natuive@0.1.9~prepublishOnly: natuive@0.1.9
+25 silly lifecycle natuive@0.1.9~prepublishOnly: no script for prepublishOnly, continuing
+26 verbose getPublishConfig undefined
+27 silly mapToRegistry name natuive
+28 silly mapToRegistry using default registry
+29 silly mapToRegistry registry https://registry.npmjs.org/
+30 silly mapToRegistry data Result {
+30 silly mapToRegistry   raw: 'natuive',
+30 silly mapToRegistry   scope: null,
+30 silly mapToRegistry   escapedName: 'natuive',
+30 silly mapToRegistry   name: 'natuive',
+30 silly mapToRegistry   rawSpec: '',
+30 silly mapToRegistry   spec: 'latest',
+30 silly mapToRegistry   type: 'tag' }
+31 silly mapToRegistry uri https://registry.npmjs.org/natuive
+32 verbose publish registryBase https://registry.npmjs.org/
+33 silly publish uploading /Users/radoslavsharapanov/.npm/natuive/0.1.9/package.tgz
+34 verbose request uri https://registry.npmjs.org/natuive
+35 verbose request sending authorization for write operation
+36 info attempt registry request try #1 at 5:25:39 PM
+37 verbose request using bearer token for auth
+38 verbose request id a8f1f708256cef53
+39 http request PUT https://registry.npmjs.org/natuive
+40 http 503 https://registry.npmjs.org/natuive
+41 verbose bad json <?xml version="1.0" encoding="utf-8"?>
+41 verbose bad json <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+41 verbose bad json  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+41 verbose bad json <html>
+41 verbose bad json   <head>
+41 verbose bad json     <title>503 first byte timeout</title>
+41 verbose bad json   </head>
+41 verbose bad json   <body>
+41 verbose bad json     <h1>Error 503 first byte timeout</h1>
+41 verbose bad json     <p>first byte timeout</p>
+41 verbose bad json     <h3>Guru Mediation:</h3>
+41 verbose bad json     <p>Details: cache-hhn1534-HHN 1501770741 2625513489</p>
+41 verbose bad json     <hr>
+41 verbose bad json     <p>Varnish cache server</p>
+41 verbose bad json   </body>
+41 verbose bad json </html>
+42 error registry error parsing json
+43 verbose headers { server: 'Varnish',
+43 verbose headers   'retry-after': '0',
+43 verbose headers   'content-type': 'text/html; charset=utf-8',
+43 verbose headers   'content-length': '448',
+43 verbose headers   'accept-ranges': 'bytes',
+43 verbose headers   date: 'Thu, 03 Aug 2017 14:32:21 GMT',
+43 verbose headers   via: '1.1 varnish',
+43 verbose headers   connection: 'close',
+43 verbose headers   'x-served-by': 'cache-hhn1534-HHN',
+43 verbose headers   'x-cache': 'MISS',
+43 verbose headers   'x-cache-hits': '0',
+43 verbose headers   'x-timer': 'S1501770341.960383,VS0,VE400163' }
+44 info retry will retry, error on last attempt: SyntaxError: Unexpected token < in JSON at position 1
+44 info retry
+44 info retry <?xml version="1.0" encoding="utf-8"?>
+44 info retry <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+44 info retry  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+44 info retry <html>
+44 info retry   <head>
+44 info retry     <title>503 first byte timeout</title>
+44 info retry   </head>
+44 info retry   <body>
+44 info retry     <h1>Error 503 first byte timeout</h1>
+44 info retry     <p>first byte timeout</p>
+44 info retry     <h3>Guru Mediation:</h3>
+44 info retry     <p>Details: cache-hhn1534-HHN 1501770741 2625513489</p>
+44 info retry     <hr>
+44 info retry     <p>Varnish cache server</p>
+44 info retry   </body>
+44 info retry </html>
+45 info attempt registry request try #2 at 5:32:31 PM
+46 verbose request using bearer token for auth
+47 http request PUT https://registry.npmjs.org/natuive
+48 http 403 https://registry.npmjs.org/natuive
+49 verbose headers { 'content-type': 'application/json',
+49 verbose headers   'cache-control': 'max-age=300',
+49 verbose headers   'content-length': '95',
+49 verbose headers   'accept-ranges': 'bytes',
+49 verbose headers   date: 'Thu, 03 Aug 2017 14:32:47 GMT',
+49 verbose headers   via: '1.1 varnish',
+49 verbose headers   connection: 'keep-alive',
+49 verbose headers   'x-served-by': 'cache-hhn1522-HHN',
+49 verbose headers   'x-cache': 'MISS',
+49 verbose headers   'x-cache-hits': '0',
+49 verbose headers   'x-timer': 'S1501770753.766287,VS0,VE15081',
+49 verbose headers   vary: 'Accept-Encoding, Accept' }
+50 verbose request invalidating /Users/radoslavsharapanov/.npm/registry.npmjs.org/natuive on PUT
+51 error publish Failed PUT 403
+52 verbose stack Error: "You cannot publish over the previously published version 0.1.9." : natuive
+52 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:304:12)
+52 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:292:14)
+52 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:212:14)
+52 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:186:22)
+52 verbose stack     at emitTwo (events.js:106:13)
+52 verbose stack     at Request.emit (events.js:192:7)
+52 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1081:10)
+52 verbose stack     at emitOne (events.js:96:13)
+52 verbose stack     at Request.emit (events.js:189:7)
+52 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1001:12)
+53 verbose statusCode 403
+54 verbose pkgid natuive
+55 verbose cwd /Library/WebServer/Documents/natuive
+56 error Darwin 16.7.0
+57 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "publish"
+58 error node v7.6.0
+59 error npm  v4.1.2
+60 error code E403
+61 error "You cannot publish over the previously published version 0.1.9." : natuive
+62 error If you need help, you may report this error at:
+62 error     <https://github.com/npm/npm/issues>
+63 verbose exit [ 1, true ]

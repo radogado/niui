@@ -712,6 +712,8 @@ form {
 
    color: $placeholder_color;
    color: var(--placeholder_color);
+	-webkit-text-fill-color: $placeholder_color;
+	-webkit-text-fill-color: var(--placeholder_color);
 
 }
 

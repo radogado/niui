@@ -1,6 +1,6 @@
 {
   "name": "natuive",
-  "version": "0.1.5",
+  "version": "0.1.9",
   "devDependencies": {
     "graceful-fs": "^4.1.3",
     "grunt": "^0.4.5",
@@ -13,7 +13,7 @@
     "grunt-contrib-uglify": "~0.5.0",
     "grunt-imageoptim": "^1.4.1"
   },
-  "description": "natUIve: mostly native front-end framework ===",
+  "description": "natUIve: mostly native front-end framework",
   "main": "Gruntfile.js",
   "dependencies": {
     "closure-compiler": "^0.2.12",
