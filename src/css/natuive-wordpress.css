@@ -1080,7 +1080,9 @@ form {
 
 ::-webkit-input-placeholder {
   color: #aaa;
-  color: var(--placeholder_color); }
+  color: var(--placeholder_color);
+  -webkit-text-fill-color: #aaa;
+  -webkit-text-fill-color: var(--placeholder_color); }
 
 /*
 :-moz-placeholder { // Firefox 18-

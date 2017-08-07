@@ -11,6 +11,10 @@ main > .slider-wrap.vertical.tabs > .slider-nav.row {
 	padding: 1em;
 	box-sizing: border-box;
 
+    position: fixed;
+    bottom: auto;
+    padding-bottom: 2em;
+
 }
 
 main > .slider-wrap {
@@ -35,7 +39,7 @@ main > .slider-wrap.vertical.tabs > .slider {
 
 .slider-wrap .slider.vertical:not(.sliding) > .active {
 
-	max-height: 100vh;
+// 	max-height: 100vh;
 	overflow: auto;	
 	
 }

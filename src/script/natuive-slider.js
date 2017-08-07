@@ -296,7 +296,7 @@ function slide(el, method, index_number) {
 
 	if (hasClass(slider, 'vertical')) {
 		var target_slide = slider.children[index];
-		target_slide.style.cssText = 'display: block'; // Temporarilt display the target slide to get its height
+		target_slide.style.cssText = 'display: block'; // Temporarily display the target slide to get its height
 		computed_height = getComputedStyle(target_slide).height;
 		target_slide.style.cssText = '';
 		computed_height_old = getComputedStyle(slider.children[old_index]).height;
