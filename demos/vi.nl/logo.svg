@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132 92" xmlns:xlink="http://www.w3.org/1999/xlink" class="c-site-nav__logo c-site-nav__logo-menu" xml:space="preserve">
+<title>Voetbal International</title>
+<defs>
+<linearGradient id="c" x1="58.563%" x2="41.177%" y1="52.516%" y2="47.444%">
+<stop offset="0%" stop-opacity="0"></stop>
+<stop offset="100%"></stop>
+</linearGradient>
+</defs>
+<g fill="none">
+<mask id="b" fill="#fff">
+<path d="M131.703.074l.075 91.436-32.333-.074L99.37 0c11.347 0 21.358.297 32.333.074z"></path>
+</mask>
+<path fill="#009ee0" d="M131.703.074l.075 91.436-32.333-.074L99.37 0c11.347 0 21.358.297 32.333.074z"></path>
+<path fill="url(#c)" d="M115.092-4.153l5.488 2.744-26.03 51.614-5.413-2.817" mask="url(#b)"></path>
+<path fill="#e30613" d="M32.036 53.542l-.074 23.952c4.375.52 10.16 1.04 13.867-2.002l3.707-4.375L82.39 0l33.073.074-34.41 74.602c-3.336 5.71-8.75 11.05-15.127 13.942-6.897 3.04-13.72 2.67-21.58 2.818H.148c0-3.708.074-7.045-.148-10.382V.667L.074.074 31.962 0l.074 53.542z"></path>
+</g>
+</svg>
