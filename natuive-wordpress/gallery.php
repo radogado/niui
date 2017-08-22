@@ -312,13 +312,13 @@ $script = "
 
 		/* Set up the itemtype for the media based off the mime type. */
 		if ( 'image' === $type )
-			$itemtype = 'http://schema.org/ImageObject';
+			$itemtype = '//schema.org/ImageObject';
 		elseif ( 'video' === $type )
-			$itemtype = 'http://schema.org/VideoObject';
+			$itemtype = '//schema.org/VideoObject';
 		elseif ( 'audio' === $type )
-			$itemtype = 'http://schema.org/AudioObject';
+			$itemtype = '//schema.org/AudioObject';
 		else
-			$itemtype = 'http://schema.org/MediaObject';
+			$itemtype = '//schema.org/MediaObject';
 
 		/* Open each gallery item. */
 		$output = "";
@@ -439,15 +439,15 @@ $script = "
 
 		/* If the only mime type is 'image'. */
 		if ( 1 === $mime_count && 'image' === $this->mime_types[0] )
-			$itemtype = 'http://schema.org/ImageGallery';
+			$itemtype = '//schema.org/ImageGallery';
 
 		/* If the only mime type is 'video'. */
 		elseif ( 1 === $mime_count && 'video' === $this->mime_types[0] )
-			$itemtype = 'http://schema.org/VideoGallery';
+			$itemtype = '//schema.org/VideoGallery';
 
 		/* Else, set up a generall "collection". */
 		else
-			$itemtype = 'http://schema.org/CollectionPage';
+			$itemtype = '//schema.org/CollectionPage';
 
 		/* Return the itemtype. */
 		return $itemtype;
