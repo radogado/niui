@@ -5,7 +5,8 @@
 .fold {
 
 	position: relative;
-	padding: 0 .5em 0 1em;
+// 	padding: 0 .5em 0 1em;
+	overflow: hidden;
 	margin: 0;
 	max-width: 100%;
 	z-index: 1;
@@ -52,7 +53,19 @@
 		content: '▲';
 		
 	}
-	
+
+	.fold.horizontal > .label:after {
+		
+		content: '▶';
+
+	}
+		
+	.fold.horizontal.open > .label:after {
+		
+		content: '◀';
+
+	}
+		
 	.fold.mobile {
 		
 		padding: 0;
@@ -80,7 +93,8 @@
 
 	    overflow: hidden;
 	    cursor: auto;
-	    will-change: transform;
+	    will-change: max-width;
+	    transition: width .2s ease-in-out;
 // 	    margin-top: - .375*$line-height-em; // Weird offset
 
 	}
@@ -91,13 +105,31 @@
 
 	}
 	
-	.fold:not(.open):not(.mobile) > .content, .fold.open input.trigger:checked ~ .content /* also for CSS-only open by default */ {
+	.fold:not(.open):not(.mobile):not(.horizontal) > .content, .fold.open:not(.horizontal) input.trigger:checked ~ .content /* also for CSS-only open by default */ {
 
 	    max-height: 0;
-	    max-height: var(--height, 0); // Fallback to 0
+	    max-height: var(--start-height, 0); // Fallback to 0
 
 	}
+	
+	.fold.open .content {
+		
+		max-height: none;
 
+	}
+	
+	.fold.horizontal > .content {
+		
+		width: 0;
+		
+	}
+
+	.fold.open.horizontal > .content, .fold.horizontal > .content > * {
+		
+		width: var(--width);
+
+	}
+	
 	.fold:first-of-type .content {
 
 	    padding-top: 0;
@@ -116,12 +148,18 @@
 
 	}
 
-	.fold > input.trigger:checked ~ .content, .fold.mobile .content/* , .fold > .open input.trigger:not(:checked) ~ div */ {
+	.fold:not(.horizontal) > input.trigger:checked ~ .content, .fold.mobile:not(.horizontal) .content/* , .fold > .open input.trigger:not(:checked) ~ div */ {
 		
 		max-height: none;
 
 	}
-	
+
+	.fold.horizontal > input.trigger:checked ~ .content {
+		
+		width: 100%;
+		
+	}	
+
 	.fold.open > input.trigger + .content {
 		
 		display: inline-block;

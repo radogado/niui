@@ -1369,22 +1369,36 @@ function toggleAccordion(e) {
 	    
     }
 */
+	content.style.setProperty('--width', el.scrollWidth + 'px');
+	content.style.setProperty('--max-height', content.scrollHeight + 'px');
 
-	var content_height = content.style.getPropertyValue('--height') || 0;
+	var content_height = content.style.getPropertyValue('--start-height') || 0;
 	
-	if (hasClass(el, 'open')) {
-
-		animate(content, '0% { max-height: ' + content.scrollHeight + 'px; } 100% { max-height: ' + content_height + '; }', .2, function () {
-			
-			toggleClass(el, 'open'); 
-			
-		});
-		
-	} else {
+// 	toggleClass(el, 'open');
+	
+	// Animation, not CSS, because of nested accordions
+	
+	if (hasClass(el, 'horizontal')) {
 		
 		toggleClass(el, 'open');
-		animate(content, '0% { max-height: ' + content_height + '; } 100% { max-height: ' + content.scrollHeight + 'px; }');
 		
+	} else {
+	
+		if (hasClass(el, 'open')) {
+	
+			animate(content, '0% { max-height: ' + content.scrollHeight + 'px; } 100% { max-height: ' + content_height + '; }', .2, function () {
+				
+				toggleClass(el, 'open'); 
+				
+			});
+			
+		} else {
+			
+			toggleClass(el, 'open');
+			animate(content, '0% { max-height: ' + content_height + '; } 100% { max-height: ' + content.scrollHeight + 'px; }');
+			
+		}
+	
 	}
 
     return false;
@@ -1518,6 +1532,10 @@ forEach('.fold > .label', function(el, i) {
     el.onclick = toggleAccordion;
 
     el = el.parentNode;
+	var content = el.querySelector('.content');
+
+	content.style.setProperty('--width', el.scrollWidth + 'px');
+	content.style.setProperty('--max-height', content.scrollHeight + 'px');
 
     if (el.querySelector('input.trigger')) { // Remove CSS-only triggers
 
@@ -1527,7 +1545,7 @@ forEach('.fold > .label', function(el, i) {
 
     if (!hasClass(el, 'mobile')) { // Keep the accordion content clickable
 	    
-	    el.querySelector('.content').onclick = function(e) {
+	    content.onclick = function(e) {
 
 	        stopEvent(e);
 	
