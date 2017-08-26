@@ -89,12 +89,11 @@
 
 	}
 
-	.fold .content { /* hidden fold item */
+	.fold:not(.init) .content { /* hidden fold item */
 
 	    overflow: hidden;
 	    cursor: auto;
 	    will-change: max-width;
-	    transition: width .2s ease-in-out;
 // 	    margin-top: - .375*$line-height-em; // Weird offset
 
 	}
@@ -118,13 +117,19 @@
 
 	}
 	
-	.fold.horizontal > .content {
+	.fold.horizontal:not(.init) > .content {
 		
 		width: 0;
 		
 	}
 
-	.fold.open.horizontal > .content, .fold.horizontal > .content > * {
+	.fold.horizontal.init > .content, .fold.open.horizontal > .content, .fold.horizontal > input.trigger:checked ~ .content {
+		
+		width: 100%;
+
+	}
+
+	.fold.horizontal > .content > * {
 		
 		width: var(--width);
 
@@ -153,12 +158,6 @@
 		max-height: none;
 
 	}
-
-	.fold.horizontal > input.trigger:checked ~ .content {
-		
-		width: 100%;
-		
-	}	
 
 	.fold.open > input.trigger + .content {
 		

@@ -1369,7 +1369,8 @@ function toggleAccordion(e) {
 	    
     }
 */
-	content.style.setProperty('--width', el.scrollWidth + 'px');
+
+	content.style.setProperty('--width', content.scrollWidth + 'px');
 	content.style.setProperty('--max-height', content.scrollHeight + 'px');
 
 	var content_height = content.style.getPropertyValue('--start-height') || 0;
@@ -1533,8 +1534,16 @@ forEach('.fold > .label', function(el, i) {
 
     el = el.parentNode;
 	var content = el.querySelector('.content');
+	
+	if (hasClass(el, 'horizontal')) {
+		
+		addClass(el, 'init');
+		content.style.setProperty('--width', content.scrollWidth + 'px');
+		removeClass(el, 'init');
+		setTimeout(function () { content.style.transition = 'width .2s ease-in-out'; }, 100);
+		
+	}
 
-	content.style.setProperty('--width', el.scrollWidth + 'px');
 	content.style.setProperty('--max-height', content.scrollHeight + 'px');
 
     if (el.querySelector('input.trigger')) { // Remove CSS-only triggers
