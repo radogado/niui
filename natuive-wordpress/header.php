@@ -43,7 +43,7 @@
 						        
 <!-- 						        <img src='<?php echo esc_url( get_theme_mod( 'themeslug_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'> -->
 
-<img src='<?php echo esc_url( get_theme_mod( 'themeslug_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?> Logo' class="img-responsive full" height="<?php echo($themelogo_height);?>" width="<?php echo($themelogo_width);?>">
+<img src='<?php echo str_replace( 'http://', '//', esc_url( get_theme_mod( 'themeslug_logo' ) ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?> Logo' class="img-responsive full" height="<?php echo($themelogo_height);?>" width="<?php echo($themelogo_width);?>">
 						        
 						        </a>
 					    </div>

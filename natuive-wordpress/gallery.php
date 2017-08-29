@@ -237,7 +237,7 @@ $script = "
 </script>";
 
 		/* Return out very nice, valid HTML gallery. */
-		return "\n\t\t\t" . sprintf( '<div %s>', $gallery_attr ) . $output . "\n\t\t\t</div><!-- .gallery -->\n" . $script;
+		return "\n\t\t\t" . sprintf( '<div %s>', $gallery_attr ) . str_replace( 'http://', '//', $output ) . "\n\t\t\t</div><!-- .gallery -->\n" . $script;
 	}
 
 	/**
