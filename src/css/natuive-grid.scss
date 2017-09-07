@@ -47,7 +47,7 @@
 		
 	}
 
-	.row > [class^=col] {
+	.row > [class^=col], .row > [class*=' col'] { // If it has a col* class 
 		
 		flex-grow: 0;
 		
