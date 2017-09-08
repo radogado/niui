@@ -168,7 +168,7 @@
 		
 		}
 		
-		@media screen and (max-width: 900px) {
+		@media screen and (max-width: $screen-limited-max) {
 		
 			.row > * {
 				
@@ -180,14 +180,14 @@
 	
 		.row.no-padding, .row.no-padding > * {
 			
-			--spacing: $line-height-em/2;
+			--spacing: #{$line-height-em/2};
 			padding: 0;
 			
 		}
 		
 		.row.no-margin, .row.no-margin > * {
 			
-			--spacing: $line-height-em/2;
+			--spacing: #{$line-height-em/2};
 			margin: 0;
 			
 		}
