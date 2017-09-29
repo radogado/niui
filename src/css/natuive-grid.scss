@@ -505,9 +505,9 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 
 	@-moz-document url-prefix() { // No-flex version for FF. FF devs insist flexbox item's vertical paddign to be 0 without explicit parent height, instead of % of width like Chrome, Safari etc. Disabled because of many problems.
 
-		.aspect { display: block; font-size: 0; letter-spacing: 0; }
+		.aspect { display: block; font-size: 0; letter-spacing: 0; text-align: left; }
 		.aspect:before, .aspect > * { display: inline-block; font-size: initial; }
-		.aspect:before { display: none; }
+// 		.aspect:before { display: none; }
 
 	}
 	

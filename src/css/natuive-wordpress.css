@@ -334,14 +334,12 @@ ol.masonry > * {
   .aspect {
     display: block;
     font-size: 0;
-    letter-spacing: 0; }
+    letter-spacing: 0;
+    text-align: left; }
 
   .aspect:before, .aspect > * {
     display: inline-block;
-    font-size: initial; }
-
-  .aspect:before {
-    display: none; } }
+    font-size: initial; } }
 .align-bottom.aspect > * {
   align-self: flex-end;
   vertical-align: bottom; }
@@ -631,7 +629,7 @@ $bg: #1E8DaC;
 form {
   padding: 1.5em 0; }
 
-form * {
+form *:not(option) {
   display: inline-block;
   vertical-align: middle; }
 

@@ -10,7 +10,7 @@ form {
 	
 }
 
-form * {
+form *:not(option) { // option because of Firefox
 	
 	display: inline-block;
 	vertical-align: middle;

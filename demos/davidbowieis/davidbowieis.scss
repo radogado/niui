@@ -169,6 +169,21 @@ a[href].button:hover {
 
 }
 
+.aspect:before {
+	
+	display: none; // Firefox bug
+
+}
+
+.parallax-back .aspect {
+	
+	--ratio: 1.89; 
+	overflow: visible; 
+	position: relative;
+	height: 100vh;
+ 
+}
+
 @media (max-width: 600px) {
 
 	.banner-bg {	
