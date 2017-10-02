@@ -157,34 +157,34 @@ $bg: #1E8DaC;
 
   .row.spacing-vertical > * {
     margin: 0.75em 0; } }
-.align-left, .align-right .align-left *, .align-left *, .row > .align-left {
+.align-left, .align-left > *, .row > .align-left {
   text-align: left;
   text-align: start; }
 
-.align-right, .align-left .align-right *, .align-right *, .row > .align-right {
+.align-right, .align-right > *, .row > .align-right {
   text-align: right;
   text-align: end; }
 
-.align-center, .align-center *, .row > .align-center {
+.align-center, .align-center > *, .row > .align-center {
   text-align: center; }
 
 .row > .align-top, .row > .align-middle, .row > .align-bottom {
   display: inline-block;
   display: flex; }
 
-.row > .align-top, .align-top .row > * {
+.row > .align-top, .align-top.row > * {
   vertical-align: top;
   justify-content: flex-start;
   flex-direction: column;
   display: flex; }
 
-.row > .align-middle, .align-middle .row > * {
+.row > .align-middle, .align-middle.row > * {
   vertical-align: middle;
   justify-content: center;
   flex-direction: column;
   display: flex; }
 
-.row > .align-bottom, .align-bottom .row > * {
+.row > .align-bottom, .align-bottom.row > * {
   vertical-align: bottom;
   justify-content: flex-end;
   flex-direction: column;
@@ -681,7 +681,6 @@ input, select, textarea, input[type=search], form button {
   min-height: 3em;
   border: 0;
   font-size: 1em;
-  width: 100%;
   outline: none;
   border: 1px dotted transparent;
   color: inherit; }

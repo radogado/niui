@@ -214,21 +214,21 @@
 	
 	}
 	
-.align-left, .align-right .align-left *, .align-left *, .row > .align-left {
+.align-left, .align-left > *, .row > .align-left {
 	
 	text-align: left;
 	text-align: start;
 
 }
 
-.align-right, .align-left .align-right *, .align-right *, .row > .align-right {
+.align-right, .align-right > *, .row > .align-right {
 	
 	text-align: right;	
 	text-align: end;
 
 }
 
-.align-center, .align-center *, .row > .align-center {
+.align-center, .align-center > *, .row > .align-center {
 	
 	text-align: center;
 
@@ -241,7 +241,7 @@
 	
 }
 
-.row > .align-top, .align-top .row > * {
+.row > .align-top, .align-top.row > * {
 	
 	vertical-align: top;
 	justify-content: flex-start;
@@ -250,7 +250,7 @@
 	
 }
 
-.row > .align-middle, .align-middle .row > * {
+.row > .align-middle, .align-middle.row > * {
 	
 	vertical-align: middle;
 	justify-content: center;
@@ -259,7 +259,7 @@
 	
 }
 
-.row > .align-bottom, .align-bottom .row > * {
+.row > .align-bottom, .align-bottom.row > * {
 	
 	vertical-align: bottom;
 	justify-content: flex-end;
