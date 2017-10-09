@@ -1727,9 +1727,9 @@ function init() {
 	
 	});
 	
-	// Auto textarea height. To do: make it optional
+	// Auto textarea height.
 	
-	forEach('textarea', function(el) {
+	forEach('textarea[data-auto]', function(el) {
 	
 	    el.onkeyup = function(e) {
 	
