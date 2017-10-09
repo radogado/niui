@@ -3331,8 +3331,7 @@ iframe, article h2 a {
 .home article, .archive article, .search-results article {
   margin-bottom: 44px;
   position: relative;
-  overflow: hidden;
-  padding-left: 2px; }
+  overflow: hidden; }
 
 section > article > p {
   max-width: 40em;

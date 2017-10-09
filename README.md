@@ -39,7 +39,7 @@ natUIve: mostly native front-end framework
 - CSS-only viewport height header*
 - URI parameters relay to links*
 - Arabic layout ready*
-- Masonry CSS-only*
+- Masonry CSS-only* (vertical track only)
 - CSS-only parallax scrolling* 
 - Fixed background option
 - WordPress theme*
