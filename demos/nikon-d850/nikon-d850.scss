@@ -1,5 +1,25 @@
 $yellow: #fd0;
 
+body {
+	
+	font-size: 14px;
+
+}
+
+h3 {
+	
+	font-size: 24px;
+	font-weight: 300;
+
+}
+
+h1, h2 {
+	
+	font-size: 48px;
+	font-weight: 300;
+	
+}
+
 header a.button[href] {
 	
 	background: $yellow;
@@ -136,6 +156,13 @@ nav.drop ul li b.sub {
 
 }
 
+footer {
+	
+	background: #e6e6e6;
+	border-top: 1px solid #d8d8d8;
+
+}
+
 footer ul.social li {
 	
 	margin: 0 1em;
@@ -144,8 +171,15 @@ footer ul.social li {
 
 footer ul.social li a {
 	
-	padding-left: 30px;	
+	padding-left: 30px;
+	min-height: 24px;
 	
+}
+
+footer ul.social li a span {
+	
+	vertical-align: middle;
+
 }
 
 footer li:before {
@@ -176,4 +210,26 @@ ul.two-column {
 footer ul.row > li > span {
 	
 	font-weight: bold;
+}
+
+.picture-control .slider div {
+	
+	background-size: cover;
+	background-position: center center;
+	
+}
+
+.picture-control .slider .row > * {
+
+	min-height: 20em;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 24px;
+
+}
+
+.picture-control .pad {
+
+	padding: 4em 3em;
+
 }
