@@ -53,6 +53,12 @@ ul.inline li:before, nav ul li:before {
 
 }
 
+ul.inline > li:first-child {
+	
+	margin-left: 0;
+
+}
+
 /*
 ul.vertical li > a[href] { // Ugly when underlined
 	

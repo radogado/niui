@@ -135,3 +135,45 @@ nav.drop ul li b.sub {
 	color: #fff;
 
 }
+
+footer ul.social li {
+	
+	margin: 0 1em;
+	
+}
+
+footer ul.social li a {
+	
+	padding-left: 30px;	
+	
+}
+
+footer li:before {
+	
+	display: none;
+
+}
+
+footer li li {
+	
+	margin: 0;
+	
+	
+}
+
+footer ul.row > li {
+	
+	--width: 1/6;
+	
+}
+
+ul.two-column {
+	
+	column-count: 2;
+	
+}
+
+footer ul.row > li > span {
+	
+	font-weight: bold;
+}

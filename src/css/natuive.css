@@ -1696,6 +1696,9 @@ ul.inline, ul.inline li, nav.scroll ul li {
 ul.inline li:before, nav ul li:before {
   display: none; }
 
+ul.inline > li:first-child {
+  margin-left: 0; }
+
 /*
 ul.vertical li > a[href] { // Ugly when underlined
 	
