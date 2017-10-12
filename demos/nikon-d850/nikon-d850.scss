@@ -30,7 +30,7 @@ header a.button[href] {
 
 }
 
-.header-and-banner .contain {
+.header-and-banner header.contain {
 	
 	max-width: 990px;
 	padding-top: 1em;
@@ -101,9 +101,9 @@ nav.drop ul li b.sub {
 
 .banner {
 	
-	background: url(hero-bg-xl.jpg) center center no-repeat;
+	background: url(hero-bg-xl.jpg) top center no-repeat / 100%;
 	color: #fff;
-	padding: 4em 0 0;
+	padding: 9em 0 0;
 	margin-top: 1em;
 
 }
@@ -112,26 +112,29 @@ nav.drop ul li b.sub {
 
     background: linear-gradient(to bottom,rgba(0,0,0,0.1), rgba(0,0,0,0.4) 75%);
     background-color: rgba(255,255,255,0.1);
-    padding: 1em;
+    padding: 1.25em 0 2em 0;
     margin-top: 20em;
    
 }
 
 .banner img {
 	
-	height: 7em;
+	height: 8em;
 
 }
 
 .banner li {
 
 	text-align: center;
+	font-weight: 200;
 
 }
 
 .banner ul b {
 	
 	display: block;
+	font-size: 36px;
+	font-weight: 200;
 	
 }
 
@@ -232,4 +235,16 @@ footer ul.row > li > span {
 
 	padding: 4em 3em;
 
+}
+
+.round-images img {
+	
+	border-radius: 50%;
+	
+}
+
+.headlines {
+	
+	padding: 5em 0;
+	
 }
