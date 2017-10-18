@@ -6,6 +6,12 @@ body {
 
 }
 
+.contain {
+	
+	max-width: 1152px;
+
+}
+
 h3 {
 	
 	font-size: 24px;
@@ -101,7 +107,7 @@ nav.drop ul li b.sub {
 
 .banner {
 	
-	background: url(hero-bg-xl.jpg) top center no-repeat / 100%;
+	background: #000 url(hero-bg-xl.jpg) top center no-repeat / 100%;
 	color: #fff;
 	padding: 9em 0 0;
 	margin-top: 1em;
@@ -240,6 +246,9 @@ footer ul.row > li > span {
 .round-images img {
 	
 	border-radius: 50%;
+	max-width: 75%;
+	display: inline-block;
+	margin: 0 auto;
 	
 }
 
