@@ -169,13 +169,48 @@ footer {
 	
 	background: #e6e6e6;
 	border-top: 1px solid #d8d8d8;
+	font-size: 12px;
+	color: #666;
 
 }
 
 footer ul.social li {
 	
 	margin: 0 1em;
+	font-size: .83333em;
 	
+}
+
+footer .corporate-links {
+	
+	font-size: .83333em;
+	
+}
+
+footer .corporate-links a[href] {
+	
+	padding-left: 1.5em;
+	background: url(icon_link_black.gif) no-repeat center left;	
+	
+}
+
+footer a[href]:not(:hover) {
+	
+	text-decoration: none;
+	
+}
+
+footer ul.third-level {
+
+	border-top: 1px solid #ccc;
+	padding-top: 1em;
+	
+}
+
+footer ul.third-level a[href] {
+	
+	padding: .25em 0;
+
 }
 
 footer ul.social li a {
@@ -187,13 +222,20 @@ footer ul.social li a {
 
 footer ul.social li a span {
 	
-	vertical-align: middle;
+	line-height: 2.25;
 
 }
 
 footer li:before {
 	
 	display: none;
+
+}
+
+footer h4 {
+	
+	font-size: 1.5em;
+	font-weight: normal;
 
 }
 
@@ -208,6 +250,13 @@ footer ul.row > li {
 	
 	--width: 1/6;
 	
+}
+
+footer .contain > div {
+	
+	max-width: 912px;
+	margin: 0 auto;
+
 }
 
 ul.two-column {
@@ -255,5 +304,18 @@ footer ul.row > li > span {
 .headlines {
 	
 	padding: 5em 0;
+	
+}
+
+.fold {
+	
+	border-bottom: 1px solid #ddd;
+	
+}
+
+.fold .label {
+	
+	font-size: 30px;
+	font-weight: 300;
 	
 }
