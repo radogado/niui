@@ -236,6 +236,7 @@ footer h4 {
 	
 	font-size: 1.5em;
 	font-weight: normal;
+	padding-bottom: 0;
 
 }
 
@@ -317,5 +318,92 @@ footer ul.row > li > span {
 	
 	font-size: 30px;
 	font-weight: 300;
+	padding: .25em .5em;
 	
+}
+
+.slider-wrap.tabs > .slider-nav.row {
+	
+	width: calc(50% - 2em);
+	margin: 0 1em -5em 0;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: .75em;
+	z-index: 2;
+
+}
+
+.photographer .slider-wrap.tabs > .slider-nav.row {
+
+	margin-left: 50%;
+
+}
+
+.slider-wrap.tabs > .slider {
+	
+	z-index: -1;
+
+}
+
+.slider-wrap.tabs > .slider-nav a, .slider-wrap.tabs > .slider-nav a.active {
+	
+	background: none;
+	color: #000;
+	border-bottom: 9px solid #ddd;
+	text-align: center;
+	margin: 0 1em;
+	padding-bottom: .5em;
+
+}
+
+.slider-wrap.tabs > .slider-nav a.active {
+	
+	border-bottom-color: $yellow;
+	
+}
+
+.slider-wrap:not(.vertical) .slider-nav a:first-child {
+	
+	margin-left: 1em;
+
+}
+
+.slider-nav a {
+	
+	text-indent: -9em;
+	overflow: hidden;
+	background: #d8d8d8;
+
+}
+
+.slider-nav a.active {
+	
+	background: $yellow;
+
+}
+
+.slider-arrow.left {
+	
+	display: none;
+	
+}
+
+.zoom {
+	
+	position: relative;
+	
+}
+
+.zoom .loupe {
+	
+	position: absolute;
+	top: 20%;
+	left: 20%;
+	width: 250px;
+	height: 250px;
+	border-radius: 50%;
+	border: 3px solid #fff;
+	background: url(zoom.jpg) center center no-repeat;
+	background-position: -450px -300px;
+
 }
