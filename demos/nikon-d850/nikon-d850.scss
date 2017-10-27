@@ -57,8 +57,9 @@ header img[src*="d850-logo"] {
 
 header form {
 	
-	padding: .25em 0;
+	padding: 0;
 	font-size: .75em;
+	margin: .75em 0;
 
 }
 
@@ -68,9 +69,30 @@ header form input, header p {
 	
 }
 
+header a[href] {
+	
+	text-decoration: none;
+	
+}
+
+header a small {
+	
+	font-size: .7em;
+
+}
+
 header input[type=search] {
 	
 	padding-right: 5em;
+	background: none;
+	border: 1px solid #ddd;
+
+}
+
+header input[type=submit] {
+	
+	background: #eee url(search_12x12.png) center center no-repeat;
+	padding: 0 1.5em;
 
 }
 
@@ -80,6 +102,9 @@ header nav.drop {
 	width: 100%;
 	margin-bottom: 2em;
 	z-index: 1;
+	border-radius: 4px;
+	max-width: none;
+// 	overflow-x: scroll;
 
 }
 
@@ -88,6 +113,8 @@ header nav.drop > ul {
 	display: flex;
 	flex-wrap: nowrap;
 	overflow: visible;
+	border-bottom: 1px solid #ccc;
+	border-radius: 4px;
 
 }
 
@@ -99,6 +126,51 @@ nav.drop ul li {
 
 }
 
+nav.drop > ul > li {
+	
+	border-left: 1px solid #ccc;
+
+}
+
+nav.drop > ul > li:first-child {
+	
+	border-radius: 4px 0 0 4px;
+	border-left: none;
+
+}
+
+nav.drop ul li:last-child {
+	
+	border-radius: 0 4px 4px 0;
+
+}
+
+html:not(.can-touch) nav.drop ul li:hover {
+	
+	background: $yellow;
+	color: #000;
+	
+}
+
+html:not(.can-touch) nav.drop ul li li:hover a {
+	
+	background: inherit;
+	
+}
+
+nav .active a[href] {
+	
+	opacity: initial;
+
+}
+
+nav.drop ul li.active {
+	
+	background: #666;
+	color: #fff;
+
+}
+
 nav.drop ul li b.sub {
 	
 	display: none;
@@ -107,7 +179,7 @@ nav.drop ul li b.sub {
 
 .banner {
 	
-	background: #000 url(hero-bg-xl.jpg) top center no-repeat / 100%;
+	background: #000 url(hero-bg-xl.jpg) center center no-repeat / 100%;
 	color: #fff;
 	padding: 9em 0 0;
 	margin-top: 1em;
@@ -345,6 +417,12 @@ footer ul.row > li > span {
 
 }
 
+.slider-wrap.tabs .row .align-middle {
+	
+	padding-top: 3em;
+
+}
+
 .slider-wrap.tabs > .slider-nav a, .slider-wrap.tabs > .slider-nav a.active {
 	
 	background: none;
@@ -398,12 +476,12 @@ footer ul.row > li > span {
 	
 	position: absolute;
 	top: 20%;
-	left: 20%;
+	left: 25%;
 	width: 250px;
 	height: 250px;
 	border-radius: 50%;
 	border: 3px solid #fff;
 	background: url(zoom.jpg) center center no-repeat;
-	background-position: -450px -300px;
+	background-position: -580px -300px;
 
 }
