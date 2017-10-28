@@ -111,7 +111,7 @@ header nav.drop {
 header nav.drop > ul {
 	
 	display: flex;
-	flex-wrap: nowrap;
+	flex-wrap: wrap;
 	overflow: visible;
 	border-bottom: 1px solid #ccc;
 	border-radius: 4px;
@@ -129,6 +129,7 @@ nav.drop ul li {
 nav.drop > ul > li {
 	
 	border-left: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
 
 }
 
@@ -179,7 +180,8 @@ nav.drop ul li b.sub {
 
 .banner {
 	
-	background: #000 url(hero-bg-xl.jpg) center center no-repeat / 100%;
+	background: #000 url(hero-bg-xl.jpg) center center no-repeat;
+	background-size: 100%;
 	color: #fff;
 	padding: 9em 0 0;
 	margin-top: 1em;
@@ -193,6 +195,12 @@ nav.drop ul li b.sub {
     padding: 1.25em 0 2em 0;
     margin-top: 20em;
    
+}
+
+.banner .band ul.inline {
+	
+	padding: 0 5px;
+
 }
 
 .banner img {
@@ -332,12 +340,6 @@ footer .contain > div {
 
 }
 
-ul.two-column {
-	
-	column-count: 2;
-	
-}
-
 footer ul.row > li > span {
 	
 	font-weight: bold;
@@ -396,18 +398,10 @@ footer ul.row > li > span {
 
 .slider-wrap.tabs > .slider-nav.row {
 	
-	width: calc(50% - 2em);
-	margin: 0 1em -5em 0;
 	text-transform: uppercase;
 	font-weight: bold;
 	font-size: .75em;
 	z-index: 2;
-
-}
-
-.photographer .slider-wrap.tabs > .slider-nav.row {
-
-	margin-left: 50%;
 
 }
 
@@ -469,7 +463,14 @@ footer ul.row > li > span {
 .zoom {
 	
 	position: relative;
+	overflow: hidden;
 	
+}
+
+.zoom img {
+	
+	display: block;
+
 }
 
 .zoom .loupe {
@@ -483,5 +484,50 @@ footer ul.row > li > span {
 	border: 3px solid #fff;
 	background: url(zoom.jpg) center center no-repeat;
 	background-position: -580px -300px;
+
+}
+
+@media (min-width: 600px) {
+
+	.photographer .slider-wrap.tabs > .slider-nav.row {
+	
+		margin-left: 50%;
+	
+	}
+
+	.slider-wrap.tabs > .slider-nav.row {
+		
+		width: calc(50% - 2em);
+		margin: 0 1em -5em 0;
+	
+	}
+
+	ul.two-column {
+		
+		column-count: 2;
+		
+	}
+
+	nav.drop ul li input ~ a[href] {
+		
+		width: auto;
+		
+	}
+
+}
+
+@media (max-width: 599.9px) {
+
+	header > .row:first-child div {
+		
+		text-align: center;
+		
+	}
+	
+	header nav.drop ul li a, nav.drop ul li input ~ a[href] {
+		
+		width: 100%;
+		
+	}
 
 }

@@ -1341,7 +1341,7 @@ nav ul {
   nav.scroll {
     max-width: 100%; }
 
-  nav.scroll ul {
+  nav.scroll > ul {
     white-space: nowrap;
     overflow: auto;
     max-width: 100%;
