@@ -129,6 +129,12 @@
 
 	}
 
+	.fold.horizontal > .content {
+		
+		height: 0;
+
+	}
+	
 	.fold.horizontal > .content > * {
 		
 		width: var(--width);

@@ -1539,6 +1539,7 @@ forEach('.fold > .label', function(el, i) {
 		
 		addClass(el, 'init');
 		content.style.setProperty('--width', content.scrollWidth + 'px');
+		content.style.height = 'auto';
 		removeClass(el, 'init');
 		setTimeout(function () { content.style.transition = 'width .2s ease-in-out'; }, 100);
 		

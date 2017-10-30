@@ -1872,6 +1872,9 @@ $bg: #1E8DaC;
 .fold.horizontal.init > .content, .fold.open.horizontal > .content, .fold.horizontal > input.trigger:checked ~ .content {
   width: 100%; }
 
+.fold.horizontal > .content {
+  height: 0; }
+
 .fold.horizontal > .content > * {
   width: var(--width); }
 
@@ -2253,7 +2256,9 @@ img, picture, .lightbox a {
   text-align: center; }
 
 html.nooverflow, html.nooverflow body {
-  overflow: hidden; }
+  overflow: hidden;
+  width: 100%;
+  position: fixed; }
 
 html.can-touch.nooverflow, html.can-touch.nooverflow body {
   height: 100%; }
