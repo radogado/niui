@@ -297,6 +297,12 @@ footer { // Stick footer to the bottom
 		
 }
 
+nav.drop ul li a[href] {
+	
+	text-decoration: underline;
+
+}
+
 @media screen and (max-width: 640px) {
 
 	.lightbox.gallery {
@@ -306,3 +312,4 @@ footer { // Stick footer to the bottom
 	}
 
 }
+

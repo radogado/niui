@@ -3421,6 +3421,9 @@ footer {
 .comment-form p label {
   margin-right: 1em; }
 
+nav.drop ul li a[href] {
+  text-decoration: underline; }
+
 @media screen and (max-width: 640px) {
   .lightbox.gallery {
     text-align: center; } }
