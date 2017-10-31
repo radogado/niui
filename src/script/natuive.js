@@ -445,6 +445,8 @@ function closeFullWindow() {
 
 	if (full_window) {
 		
+	   	q('html').style.pointerEvents = 'none';
+
 		if (qa('.overlay').length === 1) { // A single overlay
 			
 		    removeClass(q('html'), 'nooverflow');
@@ -492,6 +494,8 @@ function closeFullWindow() {
 				}
 			
 			}
+			
+		   	q('html').style.pointerEvents = 'initial';
 				
 		});
 
@@ -503,9 +507,9 @@ function openFullWindow(el, animation) {
 
 //	closeFullWindow();
 	
+   	q('html').style.pointerEvents = 'none';
 	var offset_top = q('html').getBoundingClientRect().top;
 	q('html').setAttribute('data-offset', offset_top); // Remember the page position.
-    addClass(q('html'), 'nooverflow');
 
 	if (typeof el === 'string') {
 
@@ -551,9 +555,17 @@ function openFullWindow(el, animation) {
 		
 		}
 	
+    	q('html').style.pointerEvents = 'initial';
+
 	} else {
 
-		animate(full_window, typeof animation === 'string' ? animation : '0% { transform: translate3d(0,-100vh,0) } 100% { transform: translate3d(0,0,0) }');
+		animate(full_window, typeof animation === 'string' ? animation : '0% { transform: translate3d(0,-100vh,0) } 100% { transform: translate3d(0,0,0) }', .2, function () { 
+			
+			addClass(q('html'), 'nooverflow');
+	    	q('body').scrollTop = q('html').scrollTop = -1 * q('html').getAttribute('data-offset');
+	    	q('html').style.pointerEvents = 'initial';
+		
+		});
 
 	}
 	
