@@ -225,6 +225,7 @@
 	.fold.mobile:not(.open) .content {
 	
 		max-height: 0;
+		max-width: 0;
 	
 	}
 	
@@ -253,6 +254,7 @@
 		header.fixed-mobile .fold.mobile.open {
 			
 		    bottom: 0;
+		    overflow: visible; // iPhone fix
 	
 		}
 	
