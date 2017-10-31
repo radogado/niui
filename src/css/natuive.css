@@ -1955,6 +1955,9 @@ span.burger:after {
       position: fixed;
       top: 3em;
       bottom: 0; } } }
+@media screen and (min-width: 600px) {
+  .fold.mobile {
+    overflow: visible; } }
 /* natUIve – Tooltip */
 /*
 $color: #fff;
@@ -2259,8 +2262,7 @@ img, picture, .lightbox a {
 
 html.nooverflow, html.nooverflow body {
   overflow: hidden;
-  width: 100%;
-  position: fixed; }
+  width: 100%; }
 
 html.can-touch.nooverflow, html.can-touch.nooverflow body {
   height: 100%; }

@@ -279,3 +279,13 @@
 	}
 	
 }
+
+@media screen and (min-width: $screen-narrow) {
+
+	.fold.mobile {
+		
+		overflow: visible;
+		
+	}	
+
+}
