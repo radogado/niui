@@ -40,41 +40,41 @@ $bg: #1E8DaC;
   --color: #333;
   --bg: #fff; }
 
-.overlay .slider, .overlay .slider-wrap {
+.n-ovrl .slider, .n-ovrl .n-sldr {
   height: 100% !important; }
 
-.overlay .slider-wrap, .overlay .slider-wrap.vertical {
+.n-ovrl .n-sldr, .n-ovrl .n-sldr.vertical {
   margin-top: 3em;
   height: calc(100% - 3em) !important; }
 
-.slider-wrap {
+.n-sldr {
   position: relative;
   overflow: hidden;
   max-height: 100%;
   z-index: 1; }
 
-.slider-wrap.vertical.tabs > .slider {
+.n-sldr.vertical.tabs > .slider {
   width: 75%;
   float: right; }
 
-.slider-wrap.vertical.tabs > .slider-nav.row {
+.n-sldr.vertical.tabs > .slider-nav.row {
   width: 25%;
   float: left;
   display: flex;
   flex-direction: column; }
 
-.slider-wrap.vertical.tabs.right > .slider {
+.n-sldr.vertical.tabs.right > .slider {
   float: left; }
 
-.slider-wrap.vertical.tabs.right > .slider-nav.row {
+.n-sldr.vertical.tabs.right > .slider-nav.row {
   float: right; }
 
-.slider-wrap.vertical.tabs > .slider-nav a {
+.n-sldr.vertical.tabs > .slider-nav a {
   display: block;
   box-sizing: border-box;
   padding: 1.5em 0.5em; }
 
-.overlay .slider-wrap {
+.n-ovrl .n-sldr {
   top: 0px;
   bottom: 0px;
   height: 100%;
@@ -84,87 +84,87 @@ $bg: #1E8DaC;
   z-index: 1;
   position: absolute; }
 
-.aspect > .slider-wrap {
+.aspect > .n-sldr {
   height: 100%;
   position: absolute; }
 
-.aspect > .slider-wrap.outside {
+.aspect > .n-sldr.outside {
   padding-bottom: 4em; }
 
-.aspect > .slider-wrap .slider {
+.aspect > .n-sldr .slider {
   height: 100%; }
 
-*:-webkit-full-screen .slider-wrap {
+*:-webkit-full-screen .n-sldr {
   background: #000; }
 
-*:-moz-full-screen .slider-wrap {
+*:-moz-full-screen .n-sldr {
   background: #000; }
 
-*:fullscreen .slider-wrap {
+*:fullscreen .n-sldr {
   background: #000; }
 
-.slider-wrap .slider {
+.n-sldr .slider {
   overflow: visible;
   width: 100%;
   padding: 0; }
 
 /*
-.slider-wrap .slider > * {
+.n-sldr .slider > * {
 	
 	contain: strict;
 	
 }
 
-.slider-wrap .slider > .active {
+.n-sldr .slider > .active {
 	
 	contain: none;
 	
 }
 */
-.overlay .slider-wrap.vertical, .overlay .slider, .overlay .slider > * {
+.n-ovrl .n-sldr.vertical, .n-ovrl .slider, .n-ovrl .slider > * {
   height: 100%; }
 
-.overlay .slider:not(.vertical) > * {
+.n-ovrl .slider:not(.vertical) > * {
   overflow: auto;
   -webkit-overflow-scrolling: touch; }
 
-.slider-wrap .slider.vertical {
+.n-sldr .slider.vertical {
   overflow: hidden;
   overflow-y: scroll; }
 
-.slider-wrap .slider.vertical {
+.n-sldr .slider.vertical {
   overflow: visible;
   flex-direction: column; }
 
-.slider-wrap .slider.vertical > *, .slider-wrap .slider.sliding > *:not(.active), .slider-wrap.tabs > .slider-arrow {
+.n-sldr .slider.vertical > *, .n-sldr .slider.sliding > *:not(.active), .n-sldr.tabs > .slider-arrow {
   height: auto;
   display: none; }
 
-.slider-wrap .slider::-webkit-scrollbar {
+.n-sldr .slider::-webkit-scrollbar {
   height: auto;
   display: none; }
 
-.slider-wrap > .pad {
+.n-sldr > .pad {
   padding: 0;
   margin: 3em;
   overflow-x: hidden; }
 
-.slider-wrap .slider > * {
+.n-sldr .slider > * {
   display: inline-block; }
 
-.overlay .slider > * {
+.n-ovrl .slider > * {
   padding: 0; }
 
 .no-flex .slider > * + * {
   margin-left: -.3em; }
 
-.overlay .slider.vertical > * {
+.n-ovrl .slider.vertical > * {
   height: 100%; }
 
-.slider > *.active, .overlay .lightbox.slider > *.active > img {
+.slider > *.active, .n-ovrl .lightbox.slider > *.active > img {
   display: inline-block; }
 
-.overlay .slider > img {
+.n-ovrl .slider > img {
   padding: 0 !important;
   height: auto; }
 
@@ -245,7 +245,7 @@ $bg: #1E8DaC;
   text-align: start;
   justify-content: flex-start; }
 
-.slider-wrap.tabs > .slider-nav a {
+.n-sldr.tabs > .slider-nav a {
   -webkit-flex: 0 1 auto;
   flex: 0 1 auto; }
 
@@ -273,7 +273,7 @@ $bg: #1E8DaC;
   height: 2em;
   text-align: center; }
 
-.slider-wrap:not(.vertical) .slider-nav a:first-child {
+.n-sldr:not(.vertical) .slider-nav a:first-child {
   margin-left: 0; }
 
 .slider-nav a:last-child {
@@ -290,10 +290,10 @@ $bg: #1E8DaC;
   position: static;
   transform: none; }
 
-.slider-wrap.thumbnails.outside:not(.inline) {
+.n-sldr.thumbnails.outside:not(.inline) {
   padding-bottom: 4em; }
 
-.slider-wrap .slider.vertical > .active, .vertical > .slider-nav a {
+.n-sldr .slider.vertical > .active, .vertical > .slider-nav a {
   display: block;
   overflow: visible; }
 
@@ -301,22 +301,22 @@ $bg: #1E8DaC;
   background-color: rgba(0, 0, 0, 0.2);
   color: inherit; }
 
-.slider-wrap.tabs > .slider-nav {
+.n-sldr.tabs > .slider-nav {
   right: auto;
   position: static;
   transform: none; }
 
-.slider-wrap.tabs > .slider-nav.row {
+.n-sldr.tabs > .slider-nav.row {
   padding: 0;
   margin: 0;
   width: auto; }
 
-.full-window .slider-wrap.tabs > .slider-nav {
+.full-window .n-sldr.tabs > .slider-nav {
   position: absolute;
   bottom: 0;
   padding: 0; }
 
-.slider-wrap.tabs > .slider-nav a {
+.n-sldr.tabs > .slider-nav a {
   text-indent: 0;
   width: auto;
   height: auto;
@@ -392,7 +392,7 @@ $bg: #1E8DaC;
   --color: #333;
   --bg: #fff; }
 
-.slider-wrap > .slider.vertical.lightbox > * {
+.n-sldr > .slider.vertical.lightbox > * {
   height: 100%; }
 
 .slider.lightbox > * {
@@ -404,14 +404,14 @@ $bg: #1E8DaC;
   flex-direction: column;
   justify-content: center; }
 
-.overlay .slider.lightbox > * {
+.n-ovrl .slider.lightbox > * {
   height: 100%;
   overflow: hidden; }
 
-.overlay .slider.lightbox.vertical > * {
+.n-ovrl .slider.lightbox.vertical > * {
   display: none; }
 
-.overlay .slider.lightbox.vertical > .active {
+.n-ovrl .slider.lightbox.vertical > .active {
   display: block; }
 
 .slider.lightbox video {
@@ -423,7 +423,7 @@ $bg: #1E8DaC;
 .slider.lightbox > *:before {
   display: none; }
 
-.overlay .slider.lightbox > *:before {
+.n-ovrl .slider.lightbox > *:before {
   content: ' ';
   display: inline-block;
   vertical-align: middle;
@@ -442,10 +442,10 @@ $bg: #1E8DaC;
   padding: .2em .5em;
   background: rgba(0, 0, 0, 0.4); }
 
-.slider-wrap.outside .slider.lightbox > * p {
+.n-sldr.outside .slider.lightbox > * p {
   bottom: 0; }
 
-.overlay .lightbox.slider > * > img {
+.n-ovrl .lightbox.slider > * > img {
   display: none; }
 
 .lightbox.slider > * > iframe {
@@ -456,7 +456,7 @@ $bg: #1E8DaC;
 .can-touch .lightbox.slider > * > iframe {
   pointer-events: none; }
 
-.overlay .lightbox.slider > .active > img.zoom {
+.n-ovrl .lightbox.slider > .active > img.zoom {
   width: auto;
   height: auto;
   max-height: none;
@@ -470,7 +470,7 @@ $bg: #1E8DaC;
   zoom: 0.5;
   transition: transfrom .2s linear; }
 
-.overlay .lightbox.slider > .active > img.zoom {
+.n-ovrl .lightbox.slider > .active > img.zoom {
   /*
   	top: 0;
   	bottom: auto;
@@ -483,7 +483,7 @@ $bg: #1E8DaC;
 /*
 	@-moz-document url-prefix() {
 	
-		.overlay .lightbox.slider > .active > img.zoom {
+		.n-ovrl .lightbox.slider > .active > img.zoom {
 	
 			transform: translate3d(-50%, -50%, 0);
 			
@@ -559,7 +559,7 @@ $bg: #1E8DaC;
   --color: #333;
   --bg: #fff; }
 
-.overlay {
+.n-ovrl {
   z-index: 999999;
   background: #fff;
   background: rgba(255, 255, 255, 0.97);
@@ -573,7 +573,7 @@ $bg: #1E8DaC;
   -webkit-overflow-scrolling: touch;
   padding-top: 0; }
 
-.overlay > .content {
+.n-ovrl > .content {
   overflow-y: scroll;
   position: relative;
   background: transparent;
@@ -581,7 +581,7 @@ $bg: #1E8DaC;
   height: calc(100% - 3em);
   padding-top: 3em; }
 
-.overlay.limited > .content, .overlay.limited > .content {
+.n-ovrl.limited > .content, .n-ovrl.limited > .content {
   background: #666;
   color: #eee;
   padding: 0;
@@ -590,10 +590,10 @@ $bg: #1E8DaC;
   width: 50vw;
   margin-left: 25vw; }
 
-.overlay .close {
+.n-ovrl .close {
   color: #fff;
   cursor: pointer;
-  padding: 0 .6em;
+  padding: .75em;
   font-weight: bold;
   background: #000;
   background: rgba(0, 0, 0, 0.7);
@@ -604,23 +604,23 @@ $bg: #1E8DaC;
 
 /* On touch, disable fixed-position "close" bar, because it's jumpy */
 /* 	.no-touch */
-.overlay .close {
+.n-ovrl .close {
   position: fixed; }
 
 /* 	.no-touch */
-.overlay {
+.n-ovrl {
   overflow-y: scroll; }
 
 /* 	.no-touch */
-.overlay.headless {
+.n-ovrl.headless {
   padding-top: 0; }
 
 /* 	.no-touch */
-.overlay > .content {
+.n-ovrl > .content {
   height: 100%;
   overflow: auto; }
 
-.overlay > * {
+.n-ovrl > * {
   background: #fff;
   position: relative; }
 
@@ -635,7 +635,7 @@ $bg: #1E8DaC;
   background: transparent; }
 
 @media screen and (max-width: 599.9px) {
-  .overlay.limited > .content {
+  .n-ovrl.limited > .content {
     height: 60vh;
     margin-top: 20vh;
     width: 80vw;

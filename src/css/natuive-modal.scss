@@ -2,7 +2,7 @@
 
 @import 'natuive-setup';
 
-.overlay {
+.n-ovrl {
 
 	z-index: 999999;
 	background: #fff;
@@ -19,7 +19,7 @@
 
 }
 	
-	.overlay > .content {
+	.n-ovrl > .content {
 		
 		overflow-y: scroll;
 		position: relative;
@@ -31,7 +31,7 @@
 
 	}
 	
-	.overlay.limited > .content, /* .no-touch */ .overlay.limited > .content {
+	.n-ovrl.limited > .content, /* .no-touch */ .n-ovrl.limited > .content {
 
 		background: #666;
     	color: #eee;
@@ -43,11 +43,11 @@
 
 	}
 	
-	.overlay .close {
+	.n-ovrl .close {
 
 		color: #fff;
 		cursor: pointer;
-		padding: 0 .6em;
+		padding: .75em;
 		font-weight: bold;
 		background: #000;
 		background: rgba(0,0,0,.7);
@@ -59,32 +59,32 @@
 	}
 
 	/* On touch, disable fixed-position "close" bar, because it's jumpy */
-/* 	.no-touch */ .overlay .close {
+/* 	.no-touch */ .n-ovrl .close {
 
 		position: fixed;
 
 	}
 
-/* 	.no-touch */ .overlay {
+/* 	.no-touch */ .n-ovrl {
 	
 		overflow-y: scroll;
 	
 	}
 
-/* 	.no-touch */ .overlay.headless {
+/* 	.no-touch */ .n-ovrl.headless {
 		
 		padding-top: 0;
 
 	}
 
-/* 	.no-touch */ .overlay > .content {
+/* 	.no-touch */ .n-ovrl > .content {
 
 		height: 100%;
 		overflow: auto;
 	
 	}
 
-	.overlay > * {
+	.n-ovrl > * {
 		
 		background: #fff;
 		position: relative;
@@ -104,11 +104,10 @@
 
 	}
 
-
 @media screen and (max-width: $screen-narrow-max) {
 
 
-	.overlay.limited > .content {
+	.n-ovrl.limited > .content {
 		
     	height: 60vh;
    	    margin-top: 20vh;

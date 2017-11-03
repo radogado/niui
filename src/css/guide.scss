@@ -1,4 +1,4 @@
-main > .slider-wrap.vertical.tabs > .slider-nav.row {
+main > .n-sldr.vertical.tabs > .slider-nav.row {
 		
 // 	position: fixed;
 	top: 1em;
@@ -17,13 +17,13 @@ main > .slider-wrap.vertical.tabs > .slider-nav.row {
 
 }
 
-main > .slider-wrap {
+main > .n-sldr {
 	
 	min-height: 100vh;
 
 }
 
-main > .slider-wrap.vertical.tabs > .slider-nav a {
+main > .n-sldr.vertical.tabs > .slider-nav a {
 	
 	padding: .25em 0.5em;
 	padding-left: 0;
@@ -31,40 +31,33 @@ main > .slider-wrap.vertical.tabs > .slider-nav a {
 	
 }
 
-main > .slider-wrap.vertical.tabs > .slider {
+main > .n-sldr.vertical.tabs > .slider {
 	
 	width: 75%;
 	
 }
 
-.slider-wrap .slider.vertical:not(.sliding) > .active {
-
-// 	max-height: 100vh;
-	overflow: auto;	
-	
-}
-
-main > .slider-wrap > .slider-nav a {
+main > .n-sldr > .slider-nav a {
 	
 	background: none;
 	color: #333;
 
 }
 
-main > .slider-wrap > .slider-nav a.active {
+main > .n-sldr > .slider-nav a.active {
 	
 	color: lightseagreen;
 
 }
 
-.slider-wrap.tabs > .slider-nav a {
+.n-sldr.tabs > .slider-nav a {
 	
 	flex: 1 !important;
 
 
 }
 
-main > .slider-wrap > .slider.vertical > .visible {
+main > .n-sldr > .slider.vertical > .visible {
 	
 	height: 100vh;
 	overflow-y: auto;	

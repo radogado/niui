@@ -139,54 +139,53 @@ footer {
 
 }
 
-.overlay {
+.n-ovrl {
 	
 	background: rgba(0, 0, 0, .1);
 	text-align: right;
 	font-size: 0;
 	
+	.content {
+		
+	// 	margin-left: 50%;
+		background: #fff;
+		padding: 2em 5em 5em 5em;
+		width: 950px;
+		max-width: 100%;
+		display: inline-block;
+		font-size: 1rem;
+	
+	}
+	
+	.close {
+		
+		width: 2rem;
+		right: 1rem;
+		height: 2rem;
+		font-size: 0;
+		background: #fff;
+		color: #000;
+		text-align: center;
+		top: 1rem;
+		
+	}
+	
+	.close:after {
+		
+		font-size: 1rem;
+		content: '╳';
+		line-height: 2;
+		
+	}
+	
+	.n-sldr {
+		
+		margin: 0;
+		position: fixed;
+		background: #fff;
+		bottom: 0;
+		height: 100% !important;
+	
+	}
+
 }
-
-.overlay .content {
-	
-// 	margin-left: 50%;
-	background: #fff;
-	padding: 2em 5em 5em 5em;
-	width: 950px;
-	max-width: 100%;
-	display: inline-block;
-	font-size: 1rem;
-
-}
-
-.overlay .close {
-	
-	width: 2rem;
-	right: 1rem;
-	height: 2rem;
-	font-size: 0;
-	background: #fff;
-	color: #000;
-	text-align: center;
-	top: 1rem;
-	
-}
-
-.overlay .close:after {
-	
-	font-size: 1rem;
-	content: '╳';
-	line-height: 2;
-	
-}
-
-.overlay .slider-wrap {
-	
-	margin: 0;
-	position: fixed;
-	background: #fff;
-	bottom: 0;
-	height: 100% !important;
-
-}
-

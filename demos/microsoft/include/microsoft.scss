@@ -107,13 +107,13 @@ header > .row, header > nav {
 
 }
 
-.banner .slider-wrap {
+.banner .n-sldr {
 	
 	margin-bottom: 1.4rem;
 
 }
 
-.banner .slider-wrap .slider {
+.banner .n-sldr .slider {
 	
 	margin-bottom: 0;
 
@@ -229,7 +229,7 @@ a[href]:hover {
 	
 }
 
-.slider-wrap:before {
+.n-sldr:before {
 	
 	content: '';	
     display: inline-block;
@@ -238,7 +238,7 @@ a[href]:hover {
 	
 }
 
-.slider-wrap .slider {
+.n-sldr .slider {
 	
     position: absolute;
     top: 0;
@@ -288,7 +288,7 @@ a[href]:hover {
 
 }
 
-.slider-wrap .slider > div {
+.n-sldr .slider > div {
 	
 	padding: 2rem;
 
@@ -347,7 +347,7 @@ a.span-relative-parent ~ a:after {
 	
 }
 
-.slider-wrap .slider > div:before {
+.n-sldr .slider > div:before {
 
 	padding: 0;
 	height: 100%;

@@ -247,7 +247,7 @@ nav.drop ul li b.sub:after {
 
 }
 
-.banner .slider-wrap {
+.banner .n-sldr {
 	
 	margin-top: -3em;
 
@@ -377,7 +377,7 @@ footer .about nav a {
 
 }
 
-.slider-wrap.tabs > .slider-nav a {
+.n-sldr.tabs > .slider-nav a {
 	
 	background: $grey;
 	padding: .75em 4em .75em .75em;
@@ -387,13 +387,13 @@ footer .about nav a {
 	
 }
 
-.slider-wrap.tabs > .slider-nav a:first-child {
+.n-sldr.tabs > .slider-nav a:first-child {
 	
 	border-left: 1px solid #e1dfda;
 	
 }
 
-.slider-wrap.tabs > .slider-nav a.active {
+.n-sldr.tabs > .slider-nav a.active {
 	
 	background: $darker-grey;
 	border-top: 1px solid $darker-grey;
@@ -401,7 +401,7 @@ footer .about nav a {
 	
 }
 
-.slider-wrap.tabs > .slider-nav a.active:first-child {
+.n-sldr.tabs > .slider-nav a.active:first-child {
 	
 	border-left: 1px solid $darker-grey;
 	
@@ -468,67 +468,67 @@ footer .about nav a {
 
 }
 
-.slider-wrap.tabs>.slider-nav.row {
+.n-sldr.tabs>.slider-nav.row {
 	
 	margin-top: 0;
 
 }
 
-.slider-wrap.tabs>.slider-nav a:first-child {
+.n-sldr.tabs>.slider-nav a:first-child {
 	
 	background: #f5f4f1 url(takeoff-dark.png) no-repeat calc(100% - 1rem) 50%;
 
 }
 
-.slider-wrap.tabs>.slider-nav a.active:first-child {
+.n-sldr.tabs>.slider-nav a.active:first-child {
 	
 	background: $darker-grey url(takeoff-white.png) no-repeat calc(100% - 1rem) 50%;
 
 }
 
-.slider-wrap.tabs>.slider-nav a:nth-child(2) {
+.n-sldr.tabs>.slider-nav a:nth-child(2) {
 	
 	background: #f5f4f1 url(car-dark.png) no-repeat calc(100% - 1rem) 50%;
 
 }
 
-.slider-wrap.tabs>.slider-nav a.active:nth-child(2) {
+.n-sldr.tabs>.slider-nav a.active:nth-child(2) {
 	
 	background: $darker-grey url(car-white.png) no-repeat calc(100% - 1rem) 50%;
 
 }
 
-.slider-wrap.tabs>.slider-nav a:nth-child(3) {
+.n-sldr.tabs>.slider-nav a:nth-child(3) {
 	
 	background: #f5f4f1 url(hotel-dark.png) no-repeat calc(100% - 1rem) 50%;
 
 }
 
-.slider-wrap.tabs>.slider-nav a.active:nth-child(3) {
+.n-sldr.tabs>.slider-nav a.active:nth-child(3) {
 	
 	background: $darker-grey url(hotel-white.png) no-repeat calc(100% - 1rem) 50%;
 
 }
 
-.slider-wrap.tabs>.slider-nav a:nth-child(4) {
+.n-sldr.tabs>.slider-nav a:nth-child(4) {
 	
 	background: #f5f4f1 url(bookings-dark.png) no-repeat calc(100% - 1rem) 50%;
 
 }
 
-.slider-wrap.tabs>.slider-nav a.active:nth-child(4) {
+.n-sldr.tabs>.slider-nav a.active:nth-child(4) {
 	
 	background: $darker-grey url(bookings-white.png) no-repeat calc(100% - 1rem) 50%;
 
 }
 
-.slider-wrap.tabs>.slider-nav a:nth-child(5) {
+.n-sldr.tabs>.slider-nav a:nth-child(5) {
 	
 	background: #f5f4f1 url(checkin-dark.png) no-repeat calc(100% - 1rem) 50%;
 
 }
 
-.slider-wrap.tabs>.slider-nav a.active:nth-child(5) {
+.n-sldr.tabs>.slider-nav a.active:nth-child(5) {
 	
 	background: $darker-grey url(checkin-white.png) no-repeat calc(100% - 1rem) 50%;
 
@@ -600,7 +600,7 @@ ul.inline li {
 
 @media screen and (max-width: 640px) {
 
-	.slider-wrap.tabs>.slider-nav a {
+	.n-sldr.tabs>.slider-nav a {
 		
 		background-image: none !important;
 	

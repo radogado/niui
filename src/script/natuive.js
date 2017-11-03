@@ -385,8 +385,8 @@ function populateLightboxItem(slider, i) {
 			e.target.style.setProperty('--y', '-50%');
 			e.target.onmousemove = function (e) {
 				
-				var width = q('.overlay .slider-wrap').offsetWidth;
-				var height = q('.overlay .slider-wrap').offsetHeight;
+				var width = q('.n-ovrl .n-sldr').offsetWidth;
+				var height = q('.n-ovrl .n-sldr').offsetHeight;
 				
 				var overflowX = e.target.width - width;
 				var overflowY = e.target.height - height;
@@ -441,13 +441,13 @@ function keyUpClose(e) {
 
 function closeFullWindow() {
 	
-	var full_window = q('.overlay:last-of-type') || q('.overlay');
+	var full_window = q('.n-ovrl:last-of-type') || q('.n-ovrl');
 
 	if (full_window) {
 		
 	   	q('html').style.pointerEvents = 'none';
 
-		if (qa('.overlay').length === 1) { // A single overlay
+		if (qa('.n-ovrl').length === 1) { // A single overlay
 			
 		    removeClass(q('html'), 'nooverflow');
 	    	q('body').scrollTop = q('html').scrollTop = -1 * q('html').getAttribute('data-offset');
@@ -482,7 +482,7 @@ function closeFullWindow() {
 			
 			}
 	
-			if (qa('.overlay').length === 0) { // A single overlay
+			if (qa('.n-ovrl').length === 0) { // A single overlay
 
 				removeEventHandler(window, 'keydown', arrow_keys_handler);
 				removeEventHandler(window, 'keyup', keyUpClose);
@@ -521,14 +521,14 @@ function openFullWindow(el, animation) {
 	}
 	el.setAttribute('data-anim', animation);
     addClass(wrap(el).parentNode, 'content');
-    wrap(el.parentNode).parentNode.setAttribute('class', 'overlay');
-	var full_window = q('.overlay:last-of-type') || q('.overlay');
+    wrap(el.parentNode).parentNode.setAttribute('class', 'n-ovrl');
+	var full_window = q('.n-ovrl:last-of-type') || q('.n-ovrl');
 	full_window.insertAdjacentHTML('beforeend', '<div class=overlay-bg></div>');
 
     if (!hasClass(el, 'headless')) {
 	    
 	    full_window.insertAdjacentHTML('afterbegin', '<div class=close> ← ' + document.title + '</div>');
-		full_window.querySelector('.overlay-bg').onclick = full_window.querySelector('.overlay .close').onclick = closeFullWindow;
+		full_window.querySelector('.overlay-bg').onclick = full_window.querySelector('.n-ovrl .close').onclick = closeFullWindow;
 		addEventHandler(window, 'keyup', keyUpClose);
 	   
 	} else {
@@ -618,7 +618,7 @@ function modalWindow(e) {
             }
 
             openFullWindow(parsed, animation); // To do: If .modal[data-animation], pass it to openFullWindow() as second parameter. Also in openLightbox().
-			transferClass(closest(el, '.modal'), q('.overlay'), 'limited');
+			transferClass(closest(el, '.modal'), q('.n-ovrl'), 'limited');
 
             init(); // Initialise the modal's new JS content like slider, sortable table etc.
 
@@ -664,8 +664,8 @@ function openLightbox(e) {
 	} else {
 		
 		openFullWindow('<div class="slider lightbox' + (hasClass(lightbox, 'full-screen') ? ' full-screen' : '') + '"></div>', animation);
-		q('.overlay').style.overflow = 'hidden';
-		var lightbox_target = q('.overlay .slider.lightbox');
+		q('.n-ovrl').style.overflow = 'hidden';
+		var lightbox_target = q('.n-ovrl .slider.lightbox');
 		
 	}
 	
@@ -760,7 +760,7 @@ function openLightbox(e) {
         if (hasClass(anchor.parentNode, 'thumbnails')) {
         
 	        var i = 0;
-	        var nav = closest(lightbox_target, '.slider-wrap').querySelector('.slider-nav');
+	        var nav = closest(lightbox_target, '.n-sldr').querySelector('.slider-nav');
 	        forEach(thumbnails, function (el) {
 				
 				if (nav.children[i]) {
@@ -1526,15 +1526,15 @@ function closeFoldClickOutside(e) {
 		
 	}
 	
-	if (q('.slider-wrap.active')) {
+	if (q('.n-sldr.active')) {
 		
-		removeClass(q('.slider-wrap.active'), 'active')
+		removeClass(q('.n-sldr.active'), 'active')
 		
 	}
 	
 	if (closest(el, '.slider')) {
 		
-		addClass(closest(el, '.slider-wrap'), 'active');
+		addClass(closest(el, '.n-sldr'), 'active');
 		
 	}
 	
@@ -1589,7 +1589,7 @@ addEventHandler(window, 'touchend', function (e) { // Close all Fold elements wh
 	
 });
 	
-addEventHandler(window, 'scroll', function() {  // Close fixed overlay if its scrolling becomes a window scroll. Idea by a Google mobile nav.
+addEventHandler(window, 'scroll', function() {  // Close fixed n-ovrl if its scrolling becomes a window scroll. Idea by a Google mobile nav.
 	
 	if (q('.fixed-mobile .fold.mobile.open')) {
 		
@@ -1812,7 +1812,7 @@ function init() {
 	
 		}
 
-		if (hasClass(el.parentNode, 'slider-wrap')) {
+		if (hasClass(el.parentNode, 'n-sldr')) {
 			
 			return;
 	
@@ -1868,9 +1868,9 @@ function init() {
 	
 	forEach('table', function(el) {
 	
-		if (!hasClass(el.parentNode, 'table')) {
+		if (!hasClass(el.parentNode, 'n-tbl')) {
 			
-			addClass(wrap(el).parentNode, 'table');
+			addClass(wrap(el).parentNode, 'n-tbl');
 		
 		}
 	

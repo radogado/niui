@@ -27,13 +27,13 @@ function sliderElement(e) {
 
     var el = e.target;
 
-    if (hasClass(el, 'slider-wrap')) {
+    if (hasClass(el, 'n-sldr')) {
 
         return el.querySelector('.slider');
 
     } else {
 
-        var container = closest(el, '.slider-wrap');
+        var container = closest(el, '.n-sldr');
         return container && container.querySelector('.slider');
 
     }
@@ -75,7 +75,7 @@ function swipeEvents(el) {
         var touches = e.touches;
 // 	    var slider = sliderElement(e);
 
-        if (touches && touches.length && !(hasClass(el, 'vertical') && !closest(el, '.overlay'))) { // Don't slide vertically if not full window
+        if (touches && touches.length && !(hasClass(el, 'vertical') && !closest(el, '.n-ovrl'))) { // Don't slide vertically if not full window
 
             var deltaX = startX - touches[0].pageX;
             var deltaY = startY - touches[0].pageY;
@@ -154,13 +154,13 @@ function mouseWheelHandler(e) {
 
 function mouseEvents(el, toggle) {
 
-    if (!('onwheel' in window) || (hasClass(el, 'vertical') && !closest(el, '.overlay'))) { // Check for mouse wheel and Don't slide vertically if not full window
+    if (!('onwheel' in window) || (hasClass(el, 'vertical') && !closest(el, '.n-ovrl'))) { // Check for mouse wheel and Don't slide vertically if not full window
 	    
 	    return;
 	   
 	}
 
-	var slider_wrap = closest(el, '.slider-wrap');
+	var slider_wrap = closest(el, '.n-sldr');
 
     if (toggle === 'off') {
 
@@ -187,7 +187,7 @@ function endSlide (slider, index) {
         
     }
 	
-	var slider_wrap = closest(slider, '.slider-wrap');
+	var slider_wrap = closest(slider, '.n-sldr');
 	
 	addClass(childByClass(slider_wrap, 'slider-nav').children[index], 'active');
     slider.style.cssText = '';
@@ -220,16 +220,16 @@ function slide(el, method, index_number) {
 	
 	}
 
-    var slider = closest(el, '.slider-wrap').querySelector('.slider');
+    var slider = closest(el, '.n-sldr').querySelector('.slider');
 
-    if (closest(el, '.slider-wrap').querySelector('.slider').children.length < 2) {
+    if (closest(el, '.n-sldr').querySelector('.slider').children.length < 2) {
 
 		endSlide(el, 0);
         return el;
 
     }
 
-	var slider_wrap = closest(el, '.slider-wrap');
+	var slider_wrap = closest(el, '.n-sldr');
 
     mouseEvents(slider_wrap, 'off');
     slider.style.pointerEvents = 'none'; // Speed up animation
@@ -245,7 +245,7 @@ function slide(el, method, index_number) {
 	
 	var index;
 	var old_index;
-	var slider_wrap = closest(slider, '.slider-wrap');
+	var slider_wrap = closest(slider, '.n-sldr');
 	index = old_index = thisIndex(childByClass(slider_wrap, 'slider-nav').querySelector('a.active'));
 
     if (method === 'index') {
@@ -396,12 +396,12 @@ function sliderKeyboard(e) {
 
 	function shouldNotSlideVertically() {
 		
-		if (q('.overlay')) { return false; }
+		if (q('.n-ovrl')) { return false; }
 		return !hasClass(el,'vertical') || window.innerHeight < q('body').scrollHeight;
 		
 	}
 
-	if (tag !== 'input' && tag !== 'textarea' && (el = q('.overlay .slider') || q('.slider-wrap.active .slider') || q('.slider'))) { // Priority: full window slider, active slider, first slider
+	if (tag !== 'input' && tag !== 'textarea' && (el = q('.n-ovrl .slider') || q('.n-sldr.active .slider') || q('.slider'))) { // Priority: full window slider, active slider, first slider
         switch (e.which) {
 
             case 38:
@@ -438,7 +438,7 @@ function cancelTouchEvent(el) {
 
 function makeSlider(el, current_slide) {
 
-	if (hasClass(el.parentNode, 'slider-wrap') || hasClass(el.parentNode.parentNode, 'slider-wrap')) { // Already created
+	if (hasClass(el.parentNode, 'n-sldr') || hasClass(el.parentNode.parentNode, 'n-sldr')) { // Already created
 		
 		return;
 		
@@ -454,10 +454,10 @@ function makeSlider(el, current_slide) {
 
 	var container = el.parentNode;
 
-	if (!hasClass(container, 'slider-wrap')) {
+	if (!hasClass(container, 'n-sldr')) {
 
 	    container = wrap(el).parentNode;
-		addClass(container, 'slider-wrap');
+		addClass(container, 'n-sldr');
 	    el = container.querySelector('.slider');
 		
 		if (hasClass(el, 'pad')) {
@@ -481,7 +481,7 @@ function makeSlider(el, current_slide) {
 	    container.insertAdjacentHTML(hasClass(container, 'top') ? 'afterbegin' : 'beforeend', '<div class=slider-nav></div>');
 	    container.insertAdjacentHTML('beforeend', '<a class="slider-arrow left"></a><a class="slider-arrow right"></a>');
 	
-		var slider_wrap = closest(el, '.slider-wrap');
+		var slider_wrap = closest(el, '.n-sldr');
 	
 	    // Generate controls
 	

@@ -90,7 +90,7 @@ form.news {
 
 }
 
-footer, form.news, .banner .slider-wrap {
+footer, form.news, .banner .n-sldr {
 	
 	background: #e3e3e3;
 	    
@@ -208,19 +208,19 @@ form select {
 
 }
 
-.slider, .slider-wrap.tabs>.slider-nav a.active {
+.slider, .n-sldr.tabs>.slider-nav a.active {
 	
 	background-color: #e3e3e3;
 
 }
 
-.slider-wrap.tabs>.slider-nav a.active {
+.n-sldr.tabs>.slider-nav a.active {
 	
 	color: #003d50;
 
 }
 
-.slider-wrap.tabs>.slider-nav a {
+.n-sldr.tabs>.slider-nav a {
 	
 	color: #fff;
 	background-color: #002a37;
@@ -236,7 +236,7 @@ form select {
 
 @media (min-width: 900px) {
 
-	.banner .slider-wrap {
+	.banner .n-sldr {
 		
 		max-width: 75%;
 		margin: 0 auto;

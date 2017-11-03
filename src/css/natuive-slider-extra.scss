@@ -2,13 +2,13 @@
 
 @import 'natuive-setup';
 
-.overlay .slider, .overlay .slider-wrap {
+.n-ovrl .slider, .n-ovrl .n-sldr {
 	
 	height: 100% !important;
 	
 }
 
-.overlay .slider-wrap, .overlay .slider-wrap.vertical {
+.n-ovrl .n-sldr, .n-ovrl .n-sldr.vertical {
 			
 	margin-top: $line-height-em*2;
 // 		margin-top: calc(var(--line-height-em)*2);
@@ -17,9 +17,9 @@
 
 }		
 
-// To do: move all .slider-wrap (enhanced slider) behind a @supports for modern browsers. Leave the basic CSS-only version for old browsers.
+// To do: move all .n-sldr (enhanced slider) behind a @supports for modern browsers. Leave the basic CSS-only version for old browsers.
 
-.slider-wrap {
+.n-sldr {
 	
 	position: relative;
 	overflow: hidden;
@@ -30,14 +30,14 @@
 
 }
 
-.slider-wrap.vertical.tabs > .slider { // Floats, because flex version is glitching when tab stack is taller than the slider. To do: fix flex version.
+.n-sldr.vertical.tabs > .slider { // Floats, because flex version is glitching when tab stack is taller than the slider. To do: fix flex version.
 
 	width: 75%;
     float: right;
 
 }
 
-.slider-wrap.vertical.tabs > .slider-nav.row {
+.n-sldr.vertical.tabs > .slider-nav.row {
 	
 	width: 25%;
 	float: left;
@@ -46,19 +46,19 @@
 
 }
 
-.slider-wrap.vertical.tabs.right > .slider {
+.n-sldr.vertical.tabs.right > .slider {
 
     float: left;
 
 }
 
-.slider-wrap.vertical.tabs.right > .slider-nav.row {
+.n-sldr.vertical.tabs.right > .slider-nav.row {
 	
 	float: right;
 
 }
 
-.slider-wrap.vertical.tabs > .slider-nav a {
+.n-sldr.vertical.tabs > .slider-nav a {
 	
 	display: block;
 	box-sizing: border-box;
@@ -66,7 +66,7 @@
 
 }
 
-.overlay .slider-wrap {
+.n-ovrl .n-sldr {
 	
 	top: 0px;
 	bottom: 0px;
@@ -80,44 +80,44 @@
 
 }
 
-.aspect > .slider-wrap {
+.aspect > .n-sldr {
 	
 	height: 100%;
 	position: absolute;
 
 }
 
-.aspect > .slider-wrap.outside {
+.aspect > .n-sldr.outside {
 	
 	padding-bottom: 4em;	
 
 }
 
-.aspect > .slider-wrap .slider {
+.aspect > .n-sldr .slider {
 	
 	height: 100%;
 
 }
 
-*:-webkit-full-screen  .slider-wrap {
+*:-webkit-full-screen .n-sldr {
 
 	background: #000;
 
 }
 	
-*:-moz-full-screen  .slider-wrap {
+*:-moz-full-screen .n-sldr {
 
 	background: #000;
 
 }
 	
-*:fullscreen  .slider-wrap {
+*:fullscreen .n-sldr {
 
 	background: #000;
 
 }
 	
-.slider-wrap .slider {
+.n-sldr .slider {
 	
 	overflow: visible;
 	// Fix Safari bug where 1px of previous slide is visible during slide
@@ -129,61 +129,61 @@
 }
 
 /*
-.slider-wrap .slider > * {
+.n-sldr .slider > * {
 	
 	contain: strict;
 	
 }
 
-.slider-wrap .slider > .active {
+.n-sldr .slider > .active {
 	
 	contain: none;
 	
 }
 */
 
-.overlay .slider-wrap.vertical, .overlay .slider, .overlay .slider > * {
+.n-ovrl .n-sldr.vertical, .n-ovrl .slider, .n-ovrl .slider > * {
 	
 	height: 100%;
 
 }
 
-.overlay .slider:not(.vertical) > * {
+.n-ovrl .slider:not(.vertical) > * {
 	
 	overflow: auto;
 	-webkit-overflow-scrolling: touch;
 	
 }
 
-.slider-wrap .slider.vertical {
+.n-sldr .slider.vertical {
 	
 	overflow: hidden;
 	overflow-y: scroll;
 
 }
 
-.slider-wrap .slider.vertical {
+.n-sldr .slider.vertical {
 	
 	overflow: visible;
 	flex-direction: column;
 
 }
 
-.slider-wrap .slider.vertical > *, .slider-wrap .slider.sliding > *:not(.active), .slider-wrap.tabs > .slider-arrow {
+.n-sldr .slider.vertical > *, .n-sldr .slider.sliding > *:not(.active), .n-sldr.tabs > .slider-arrow {
 
 	height: auto;
 	display: none;
 
 }
 
-.slider-wrap .slider::-webkit-scrollbar {
+.n-sldr .slider::-webkit-scrollbar {
 
 	height: auto;
 	display: none;
 
 }
 
-.slider-wrap > .pad {
+.n-sldr > .pad {
 	
     padding: 0;
     margin: $line-height-em*2;
@@ -191,14 +191,14 @@
 	
 }
 
-.slider-wrap .slider > * {
+.n-sldr .slider > * {
 
 // 	display: none; // Only display .active slides. Because if slider has transforms (showing only current slide while others are still in the flow), there are problems with its children of position fixed etc. Breaks non-auto height sliders, can't set to height to the tallest slide. Make it with margin-left after the animation is done.
 	display: inline-block;
 
 }
 
-.overlay .slider > * {
+.n-ovrl .slider > * {
 	
 	padding: 0;
 
@@ -210,19 +210,19 @@
 	
 }
 
-.overlay .slider.vertical > * {
+.n-ovrl .slider.vertical > * {
 	
 	height: 100%;
 
 }
 
-.slider > *.active, .overlay .lightbox.slider > *.active > img {
+.slider > *.active, .n-ovrl .lightbox.slider > *.active > img {
 
 	display: inline-block;
 
 }
 
-.overlay .slider > img {
+.n-ovrl .slider > img {
 	
 	padding: 0 !important;
 	height: auto;
@@ -344,7 +344,7 @@
 
 	}
 
-	.slider-wrap.tabs > .slider-nav a {
+	.n-sldr.tabs > .slider-nav a {
 		
 		-webkit-flex: 0 1 auto;
 		flex: 0 1 auto;
@@ -384,7 +384,7 @@
 		
 	}
 	
-	.slider-wrap:not(.vertical) .slider-nav a:first-child {
+	.n-sldr:not(.vertical) .slider-nav a:first-child {
 		
 		margin-left: 0;
 		
@@ -413,13 +413,13 @@
 		
 	}
 	
-	.slider-wrap.thumbnails.outside:not(.inline) {
+	.n-sldr.thumbnails.outside:not(.inline) {
 		
 		padding-bottom: 4em;
 		
 	}
 
-	.slider-wrap .slider.vertical > .active, .vertical > .slider-nav a {
+	.n-sldr .slider.vertical > .active, .vertical > .slider-nav a {
 		
 		display: block;
 		overflow: visible;
@@ -433,7 +433,7 @@
 	
 	}
 
-	.slider-wrap.tabs > .slider-nav {
+	.n-sldr.tabs > .slider-nav {
 		
 		right: auto;
 		position: static;
@@ -441,7 +441,7 @@
 		
 	}
 
-	.slider-wrap.tabs > .slider-nav.row {
+	.n-sldr.tabs > .slider-nav.row {
 		
 		padding: 0;
 		margin: 0;
@@ -449,7 +449,7 @@
 
 	}
 	
-	.full-window .slider-wrap.tabs > .slider-nav {
+	.full-window .n-sldr.tabs > .slider-nav {
 		
 		position: absolute;
 		bottom: 0;
@@ -457,7 +457,7 @@
 	
 	}
 	
-	.slider-wrap.tabs > .slider-nav a {
+	.n-sldr.tabs > .slider-nav a {
 		
 		text-indent: 0;
 		width: auto;

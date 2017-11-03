@@ -396,7 +396,7 @@ footer ul.row > li > span {
 	
 }
 
-.slider-wrap.tabs > .slider-nav.row {
+.n-sldr.tabs > .slider-nav.row {
 	
 	text-transform: uppercase;
 	font-weight: bold;
@@ -405,19 +405,19 @@ footer ul.row > li > span {
 
 }
 
-.slider-wrap.tabs > .slider {
+.n-sldr.tabs > .slider {
 	
 	z-index: -1;
 
 }
 
-.slider-wrap.tabs .row .align-middle {
+.n-sldr.tabs .row .align-middle {
 	
 	padding-top: 3em;
 
 }
 
-.slider-wrap.tabs > .slider-nav a, .slider-wrap.tabs > .slider-nav a.active {
+.n-sldr.tabs > .slider-nav a, .n-sldr.tabs > .slider-nav a.active {
 	
 	background: none;
 	color: #000;
@@ -428,13 +428,13 @@ footer ul.row > li > span {
 
 }
 
-.slider-wrap.tabs > .slider-nav a.active {
+.n-sldr.tabs > .slider-nav a.active {
 	
 	border-bottom-color: $yellow;
 	
 }
 
-.slider-wrap:not(.vertical) .slider-nav a:first-child {
+.n-sldr:not(.vertical) .slider-nav a:first-child {
 	
 	margin-left: 1em;
 
@@ -489,13 +489,13 @@ footer ul.row > li > span {
 
 @media (min-width: 600px) {
 
-	.photographer .slider-wrap.tabs > .slider-nav.row {
+	.photographer .n-sldr.tabs > .slider-nav.row {
 	
 		margin-left: 50%;
 	
 	}
 
-	.slider-wrap.tabs > .slider-nav.row {
+	.n-sldr.tabs > .slider-nav.row {
 		
 		width: calc(50% - 2em);
 		margin: 0 1em -5em 0;
