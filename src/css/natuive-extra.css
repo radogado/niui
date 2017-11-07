@@ -293,14 +293,16 @@ $bg: #1E8DaC;
 .n-sldr.thumbnails.outside:not(.inline) {
   padding-bottom: 4em; }
 
+.n-sldr.thumbnails .slider-nav a.active {
+  text-shadow: 1px 1px 0px #fff, -1px -1px 0px #fff, 0px 1px 0px #fff, 1px 0px 0px #fff, -1px 1px 0px #fff, 1px -1px 0px #fff; }
+
 .n-sldr .slider.vertical > .active, .vertical > .slider-nav a {
   display: block;
   overflow: visible; }
 
 .slider-nav a.active {
   background-color: rgba(0, 0, 0, 0.2);
-  color: inherit;
-  text-shadow: 1px 1px 0px #fff, -1px -1px 0px #fff, 0px 1px 0px #fff, 1px 0px 0px #fff, -1px 1px 0px #fff, 1px -1px 0px #fff; }
+  color: inherit; }
 
 .n-sldr.tabs > .slider-nav {
   right: auto;

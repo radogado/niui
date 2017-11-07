@@ -419,6 +419,12 @@
 		
 	}
 
+	.n-sldr.thumbnails .slider-nav a.active {
+	
+		text-shadow: 1px 1px 0px #fff, -1px -1px 0px #fff, 0px 1px 0px #fff, 1px 0px 0px #fff, -1px 1px 0px #fff, 1px -1px 0px #fff;
+	
+	}
+
 	.n-sldr .slider.vertical > .active, .vertical > .slider-nav a {
 		
 		display: block;
@@ -430,7 +436,6 @@
 	
 		background-color: rgba(0, 0, 0, .2);
 		color: inherit;
-		text-shadow: 1px 1px 0px #fff, -1px -1px 0px #fff, 0px 1px 0px #fff, 1px 0px 0px #fff, -1px 1px 0px #fff, 1px -1px 0px #fff;
 	
 	}
 
