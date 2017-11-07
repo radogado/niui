@@ -208,6 +208,16 @@ function endSlide (slider, index) {
 	    removeClass(q('html'), 'sliding_now');
 	    mouseEvents(slider);
 
+	    // Make this slider active
+	
+		if (q('.n-sldr.active')) {
+			
+			removeClass(q('.n-sldr.active'), 'active')
+			
+		}
+	
+		addClass(closest(slider, '.n-sldr'), 'active');
+
 	}, q('html').slide_duration/2);
 	
 }
@@ -222,13 +232,13 @@ function slide(el, method, index_number) {
 
     var slider = closest(el, '.n-sldr').querySelector('.slider');
 
-    if (closest(el, '.n-sldr').querySelector('.slider').children.length < 2) {
+    if (slider.children.length < 2) {
 
 		endSlide(el, 0);
         return el;
 
     }
-
+    
 	var slider_wrap = closest(el, '.n-sldr');
 
     mouseEvents(slider_wrap, 'off');

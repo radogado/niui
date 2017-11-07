@@ -379,6 +379,12 @@ function populateLightboxItem(slider, i) {
 
 // transformY = -50% + (poxY/sizeY)*overflowY
 
+			if (!q('.n-ovrl .n-sldr')) {
+				
+				return;
+				
+			}
+
 			toggleClass(e.target, 'zoom');
 			e.target.style.cssText = '';
 			e.target.style.setProperty('--x', '-50%');
@@ -1525,6 +1531,8 @@ function closeFoldClickOutside(e) {
 		});
 		
 	}
+	
+	// Focus on clicked slider
 	
 	if (q('.n-sldr.active')) {
 		
