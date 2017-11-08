@@ -316,7 +316,6 @@
 
 .slider-nav {
 	
-	text-align: center;
 	position: absolute;
 	bottom: 0;
 	white-space: nowrap;
@@ -327,6 +326,9 @@
 	max-height: 100%;
 	overflow: auto;
 	box-sizing: content-box; // For hard scrollbars (mouse without trackpad)
+	text-align: left;
+	text-align: start;
+	justify-content: flex-start;
 	
 }
 
@@ -336,20 +338,6 @@
 	top: 0;
 	
 }
-
-	.slider-nav {
-		
-		text-align: start;
-		justify-content: flex-start;
-
-	}
-
-	.n-sldr.tabs > .slider-nav a {
-		
-		-webkit-flex: 0 1 auto;
-		flex: 0 1 auto;
-
-	}
 
 	.vertical > .slider-nav {
 		
@@ -465,10 +453,12 @@
 	
 	.n-sldr.tabs > .slider-nav a {
 		
+		flex: 0 1 auto;
 		text-indent: 0;
 		width: auto;
 		height: auto;
-		display: table-cell;
+// 		display: table-cell;
+		text-align: left;
 		text-align: start;
 		border-radius: 0;
 		line-height: $line-height;
