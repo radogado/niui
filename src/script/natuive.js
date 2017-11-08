@@ -1,6 +1,22 @@
 /* natUIve by rado.bg */
 /* DOM functions via http://youmightnotneedjquery.com */
 
+function wrapTables() {
+	
+	forEach('table', function(el) {
+	
+		if (!hasClass(el.parentNode, 'n-tbl')) {
+			
+			addClass(wrap(el).parentNode, 'n-tbl');
+		
+		}
+	
+	});
+	
+}
+
+wrapTables();
+	
 // Stop JS if old browser (IE9-). They will get the CSS-only experience. Remove below fallbacks that supported them.
 
 (function () {
@@ -1696,37 +1712,41 @@ function init() {
 	});
 */
 	
-	forEach('td[data-sort]', function (el) {
-		// asc or desc
-		if (el.dataset.sort !== 'asc' && el.dataset.sort !== 'desc') {
-			
-			el.dataset.sort = 'asc';
-			
-		}
-		
-		el.onclick = function (e) {
-			
-			stopEvent(e);
-			var el = e.target;
-			var cell = el.type === 'td' ? el : closest(el, 'td');
-			var f; // Ascending
-			if (cell.dataset.sort === 'desc') {
+	if (typeof q('body').dataset !== 'undefined') { // el.dataset.sort not supported by IE10
+	
+		forEach('td[data-sort]', function (el) {
+			// asc or desc
+			if (el.dataset.sort !== 'asc' && el.dataset.sort !== 'desc') {
 				
-				f = -1;
-				cell.dataset.sort = 'asc';
-				
-			} else {
-				
-				f = 1;
-				cell.dataset.sort = 'desc';
+				el.dataset.sort = 'asc';
 				
 			}
-	
-			sortTable(closest(el, 'table'), thisIndex(cell), f);
 			
-		};
+			el.onclick = function (e) {
+				
+				stopEvent(e);
+				var el = e.target;
+				var cell = el.type === 'td' ? el : closest(el, 'td');
+				var f; // Ascending
+				if (cell.dataset.sort === 'desc') {
+					
+					f = -1;
+					cell.dataset.sort = 'asc';
+					
+				} else {
+					
+					f = 1;
+					cell.dataset.sort = 'desc';
+					
+				}
+		
+				sortTable(closest(el, 'table'), thisIndex(cell), f);
+				
+			};
+		
+		});
 	
-	});
+	}
 	
 	forEach('form', function(el, i) {
 	
@@ -1874,15 +1894,7 @@ function init() {
 	
 	});
 	
-	forEach('table', function(el) {
-	
-		if (!hasClass(el.parentNode, 'n-tbl')) {
-			
-			addClass(wrap(el).parentNode, 'n-tbl');
-		
-		}
-	
-	});
+	wrapTables();
 	
 }
 
