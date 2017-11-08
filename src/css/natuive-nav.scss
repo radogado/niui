@@ -314,7 +314,17 @@ input.trigger ~ input[type=reset], form#level1, form#level2 {
 
 nav.drop input:checked ~ input[type=reset], nav.drop input.trigger {
 	
-	display: block;
+	display: none;
+
+}
+
+@supports (--a: 1) { // Because of IE11
+
+	nav.drop input:checked ~ input[type=reset], nav.drop input.trigger {
+		
+		display: block;
+	
+	}
 
 }
 

@@ -212,6 +212,56 @@
 	
 		}
 	
+		/* Image aspect ratio – don't shift the page after loading the image */
+		
+		.aspect { // aspect ratio is specified as this element's --ratio CSS variable
+			
+		    display: flex;
+		    flex-direction: row;
+		    align-items: flex-start;
+		    overflow: hidden;
+		    position: relative;
+		    text-align: center;
+		    
+		}
+		
+			.aspect > img {
+				
+				max-width: 100%;
+				height: auto;
+				margin: 0 auto;
+			
+			}
+			
+			.aspect:before {
+				
+				content: '';
+				padding-bottom: calc(100%*1/var(--ratio)); /* ratio:1 */
+			
+			}
+		
+			@-moz-document url-prefix() { // No-flex version for FF. FF devs insist flexbox item's vertical paddign to be 0 without explicit parent height, instead of % of width like Chrome, Safari etc. Disabled because of many problems.
+		
+				.aspect { display: block; font-size: 0; letter-spacing: 0; text-align: left; }
+				.aspect:before, .aspect > * { display: inline-block; font-size: initial; }
+		// 		.aspect:before { display: none; }
+		
+			}
+			
+			.align-bottom.aspect > * {
+				
+				align-self: flex-end;
+				vertical-align: bottom;
+		
+			}
+		
+			.align-middle.aspect > * {
+				
+				align-self: center;
+				vertical-align: middle;
+		
+			}
+
 	}
 	
 .align-left, .align-left > *, .row > .align-left {
@@ -475,56 +525,6 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 
 	}
 	
-/* Image aspect ratio – don't shift the page after loading the image */
-
-.aspect { // aspect ratio is specified as this element's --ratio CSS variable
-	
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    overflow: hidden;
-    position: relative;
-    text-align: center;
-    
-}
-
-	.aspect > img {
-		
-		max-width: 100%;
-		height: auto;
-		margin: 0 auto;
-	
-	}
-	
-	.aspect:before {
-		
-		content: '';
-		padding-bottom: calc(100%*1/var(--ratio)); /* ratio:1 */
-	
-	}
-
-	@-moz-document url-prefix() { // No-flex version for FF. FF devs insist flexbox item's vertical paddign to be 0 without explicit parent height, instead of % of width like Chrome, Safari etc. Disabled because of many problems.
-
-		.aspect { display: block; font-size: 0; letter-spacing: 0; text-align: left; }
-		.aspect:before, .aspect > * { display: inline-block; font-size: initial; }
-// 		.aspect:before { display: none; }
-
-	}
-	
-	.align-bottom.aspect > * {
-		
-		align-self: flex-end;
-		vertical-align: bottom;
-
-	}
-
-	.align-middle.aspect > * {
-		
-		align-self: center;
-		vertical-align: middle;
-
-	}
-
 @media screen and (max-width: $screen-narrow-max) {
 
 	.row:not(.half) { // To do: revert to flex in order to use the order property on mobile

@@ -54,18 +54,6 @@
 		
 	}
 
-	.fold.horizontal > .label:after {
-		
-		content: '▶';
-
-	}
-		
-	.fold.horizontal.open > .label:after {
-		
-		content: '◀';
-
-	}
-		
 	.fold.mobile {
 		
 		padding: 0;
@@ -104,6 +92,12 @@
 
 	}
 	
+	.fold.open .content {
+		
+		max-height: none;
+
+	}
+	
 	.fold:not(.open):not(.mobile):not(.horizontal) > .content, .fold.open:not(.horizontal) input.trigger:checked ~ .content /* also for CSS-only open by default */ {
 
 	    max-height: 0;
@@ -111,12 +105,34 @@
 
 	}
 	
-	.fold.open .content {
+	.fold.horizontal > * { // Not working in IE11-
 		
-		max-height: none;
+		display: none;
 
 	}
 	
+	@supports (--a: 1) {
+			
+		.fold.horizontal > * {
+			
+			display: block;
+	
+		}
+	
+	}
+
+	.fold.horizontal > .label:after {
+		
+		content: '▶';
+
+	}
+		
+	.fold.horizontal.open > .label:after {
+		
+		content: '◀';
+
+	}
+		
 	.fold.horizontal:not(.init) > .content {
 		
 		width: 0;
@@ -140,6 +156,7 @@
 		width: var(--width);
 
 	}
+
 	
 	.fold:first-of-type .content {
 
