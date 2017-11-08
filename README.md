@@ -65,6 +65,17 @@ natUIve demo pages: [Features demo](http://radogado.github.io/natuive/kitchen.ht
 
 –––
 
+natUIve 1.10
+
+- Buttons groups
+- Multiple modals/lightboxes
+- Custom open/close animation for modal/lightbox
+- Separate CSS for dynamic content
+- Vertically-centered slides
+- Horizontal fold
+
+–––
+
 natUIve 1.9
 
 - CSS variables in grid
