@@ -490,6 +490,9 @@ a[href] {
   color: inherit;
   display: inline-block; }
 
+p a[href] {
+  display: inline; }
+
 hr {
   display: block;
   height: 1px;

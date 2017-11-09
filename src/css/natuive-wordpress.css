@@ -491,6 +491,9 @@ a[href] {
   color: inherit;
   display: inline-block; }
 
+p a[href] {
+  display: inline; }
+
 hr {
   display: block;
   height: 1px;
@@ -3433,6 +3436,9 @@ footer {
 
 nav.drop ul li a[href] {
   text-decoration: underline; }
+
+article a[href] {
+  display: inline; }
 
 @media screen and (max-width: 640px) {
   .lightbox.gallery {
