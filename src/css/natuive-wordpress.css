@@ -3437,9 +3437,6 @@ footer {
 nav.drop ul li a[href] {
   text-decoration: underline; }
 
-article a[href] {
-  display: inline; }
-
 @media screen and (max-width: 640px) {
   .lightbox.gallery {
     text-align: center; } }
