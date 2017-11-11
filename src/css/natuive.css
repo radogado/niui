@@ -185,7 +185,8 @@ $bg: #1E8DaC;
 
     .aspect:before, .aspect > * {
       display: inline-block;
-      font-size: initial; } }
+      font-size: initial;
+      vertical-align: middle; } }
   .align-bottom.aspect > * {
     align-self: flex-end;
     vertical-align: bottom; }

@@ -1,5 +1,22 @@
 @charset "UTF-8";
 /* natUIve WordPress – rado.bg */
+/*
+$color: #fff;
+$bg: #1E8DaC;
+*/
+:root {
+  /*
+  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
+  	--line-height: 2;
+  	--line-height-em: calc(var(--line-height)*1em);
+  */
+  /*
+  	--color: #fff;
+  	--bg: #1E8DaC;
+  */
+  --color: #333;
+  --bg: #fff; }
+
 /* natUIve – rado.bg */
 /*
 $color: #fff;
@@ -186,7 +203,8 @@ $bg: #1E8DaC;
 
     .aspect:before, .aspect > * {
       display: inline-block;
-      font-size: initial; } }
+      font-size: initial;
+      vertical-align: middle; } }
   .align-bottom.aspect > * {
     align-self: flex-end;
     vertical-align: bottom; }
@@ -3411,7 +3429,8 @@ article h2 a[href]:after {
   padding-bottom: 0 !important; }
 
 #head .logo a {
-  display: block; }
+  display: block;
+  max-width: calc(100% - .5em); }
 
 .menu .current_page_item a:link, .menu .current_page_item a:visited, .img-crop:hover h2 {
   color: #e82; }
@@ -3437,8 +3456,9 @@ footer {
 nav.drop ul li a[href] {
   text-decoration: underline; }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 599.9px) {
   .lightbox.gallery {
-    text-align: center; } }
+    text-align: center;
+    justify-content: center; } }
 
 /*# sourceMappingURL=natuive-wordpress.css.map */

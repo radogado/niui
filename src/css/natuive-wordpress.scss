@@ -3,6 +3,7 @@
 @charset 'utf-8';
 
 // Maybe drop SCSS when CSS variables become widely supported in March 2016. Combine with Grunt.
+@import 'natuive-setup';
 @import 'natuive';
 @import 'natuive-extra';
 @import 'theme';
@@ -108,6 +109,7 @@
 #content .aspect img {
 	
 	display: inline-block;
+
 }
 
 #content .sidebar ul, #content .sidebar li, #content .comments ul, #content .sidebar li a[href] {
@@ -256,6 +258,7 @@ article h2 a[href]:after {
 #head .logo a {
 	
 	display: block;
+	max-width: calc(100% - .5em);
 
 }
 
@@ -303,11 +306,12 @@ nav.drop ul li a[href] {
 
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: $screen-narrow-max) {
 
 	.lightbox.gallery {
 		
-		text-align: center;		
+		text-align: center;
+		justify-content: center;
 
 	}
 
