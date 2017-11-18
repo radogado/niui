@@ -632,9 +632,9 @@ $bg: #1E8DaC;
   --color: #333;
   --bg: #fff; }
 
-form {
-  padding: 1.5em 0; }
-
+@supports (--a: 1) {
+  form {
+    padding: 1.5em 0; } }
 form *:not(option) {
   display: inline-block;
   vertical-align: middle; }

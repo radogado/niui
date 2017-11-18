@@ -4,10 +4,14 @@
 
 // Default form
 
-form {
-	
-	padding: $line-height-em 0;
-	
+@supports (--a: 1) { // Cut out IE because of drop nav
+
+	form {
+		
+		padding: $line-height-em 0;
+		
+	}
+
 }
 
 form *:not(option) { // option because of Firefox
