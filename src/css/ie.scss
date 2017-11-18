@@ -384,6 +384,18 @@ nav.drop {
 	
 	}
 
+	ul li li li a, 
+	ul li:hover, 
+	ul li li:hover a,
+	nav.drop ul ul ul,
+	ul li li:hover ul, 
+	ul li li:hover li 
+	{
+	
+		background: #ddd;
+	
+	}
+
 }
 
 .header-and-banner.viewport {

@@ -1510,10 +1510,14 @@ nav.drop ul li li a[href], nav.drop ul li .trigger:checked ~ a[href] {
   z-index: 6;
   text-decoration: underline; }
 
-nav.drop ul li li li a, nav.drop ul li li .trigger:checked ~ a, nav.drop ul li li .trigger:checked ~ b.sub,
-html:not(.can-touch) nav.drop ul li:hover, html:not(.can-touch) nav.drop ul li li:hover a,
+nav.drop ul li li li a,
+nav.drop ul li li .trigger:checked ~ a,
+nav.drop ul li li .trigger:checked ~ b.sub,
+html:not(.can-touch) nav.drop ul li:hover,
+html:not(.can-touch) nav.drop ul li li:hover a,
 nav.drop ul ul ul,
-html:not(.can-touch) nav.drop ul li li:hover ul, html:not(.can-touch) nav.drop ul li li:hover li {
+html:not(.can-touch) nav.drop ul li li:hover ul,
+html:not(.can-touch) nav.drop ul li li:hover li {
   background: #ddd; }
 
 nav.drop ul ul li {
