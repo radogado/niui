@@ -783,16 +783,21 @@ function openLightbox(e) {
         
 	        var i = 0;
 	        var nav = closest(lightbox_target, '.n-sldr').querySelector('.slider-nav');
-	        forEach(thumbnails, function (el) {
-				
-				if (nav.children[i]) {
+	        
+	        if (nav) { // Multiple slides?
 
-			        nav.children[i].style.backgroundImage = 'url(' + thumbnails[i] + ')';
+		        forEach(thumbnails, function (el) {
+					
+					if (nav.children[i]) {
+	
+				        nav.children[i].style.backgroundImage = 'url(' + thumbnails[i] + ')';
+	
+				    }
+			        i++;
+			        
+		        });
 
-			    }
-		        i++;
-		        
-	        });
+	        }
         
         }
 
