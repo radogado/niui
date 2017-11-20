@@ -3091,7 +3091,10 @@ $bg: #1E8DaC;
   width: 100%;
   z-index: 99999;
   top: 0;
-  overflow: hidden; }
+  overflow: hidden;
+  height: 3em;
+  overflow-x: auto;
+  white-space: nowrap; }
 
 /* On touch, disable fixed-position "close" bar, because it's jumpy */
 /* 	.no-touch */
