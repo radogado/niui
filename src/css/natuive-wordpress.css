@@ -2717,7 +2717,7 @@ $bg: #1E8DaC;
   -webkit-user-select: none;
   user-select: none; }
 
-.slider-nav {
+.n-sldr .slider-nav {
   position: absolute;
   bottom: 0;
   white-space: nowrap;
