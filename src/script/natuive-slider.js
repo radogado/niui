@@ -23,7 +23,7 @@ q('html').setAttribute('data-last_slide', 14045017000);
 // q('html').dataset.slide_duration = 0.5;
 q('html').setAttribute('data-slide_duration', 0.5);
 
-function sliderElement(e) {
+function sliderElement(e) { // Get the active slider instance
 
     var el = e.target;
 
@@ -37,6 +37,24 @@ function sliderElement(e) {
         return container && container.querySelector('.slider');
 
     }
+
+}
+
+function getSliderNav(slider_wrap) {
+
+	// Select either a child slider-nav or the one specified by the slider id, if it exists
+	var slider = slider_wrap.querySelector('.slider');
+	var slider_nav;
+
+	if (slider.id && (slider_nav = q('.slider-nav[data-for-slider=' + slider.id + ']'))) { // Detached nav
+		
+		return slider_nav;
+
+	} else {
+
+		return childByClass(slider_wrap, 'slider-nav');
+
+	}
 
 }
 
@@ -169,9 +187,9 @@ function mouseEvents(el, toggle) {
     } else {
 
         slider_wrap.addEventListener('wheel', mouseWheelHandler);
-        if (childByClass(slider_wrap, 'slider-nav')) {
+        if (getSliderNav(slider_wrap)) {
 
-	        childByClass(slider_wrap, 'slider-nav').addEventListener('wheel', function (e) {
+	        getSliderNav(slider_wrap).addEventListener('wheel', function (e) {
 	
 		        // Scroll as usual instead of sliding
 	
@@ -193,9 +211,9 @@ function endSlide (slider, index) {
 	
 	var slider_wrap = closest(slider, '.n-sldr');
 	
-	if (childByClass(slider_wrap, 'slider-nav')) { // Multiple slides?
+	if (getSliderNav(slider_wrap)) { // Multiple slides? // To do: get the proper slider nav, if it's detached
 		
-		addClass(childByClass(slider_wrap, 'slider-nav').children[index], 'active');
+		addClass(getSliderNav(slider_wrap).children[index], 'active');
 	
 	}
     slider.style.cssText = '';
@@ -264,7 +282,8 @@ function slide(el, method, index_number) {
 	var index;
 	var old_index;
 	var slider_wrap = closest(slider, '.n-sldr');
-	index = old_index = thisIndex(childByClass(slider_wrap, 'slider-nav').querySelector('a.active'));
+	var slider_nav = getSliderNav(slider_wrap);
+	index = old_index = thisIndex(slider_nav.querySelector('a.active'));
 
     if (method === 'index') {
 
@@ -332,9 +351,9 @@ function slide(el, method, index_number) {
 
 	slider.style.height = computed_height;
 
-	if (childByClass(slider_wrap, 'slider-nav').querySelector('.active')) {
+	if (slider_nav.querySelector('.active')) {
 
-	    removeClass(childByClass(slider_wrap, 'slider-nav').querySelector('.active'), 'active');
+	    removeClass(slider_nav.querySelector('.active'), 'active');
 
     }
 
@@ -495,8 +514,20 @@ function makeSlider(el, current_slide) {
     }
 	
 	if (el.children.length > 1) { // Add controls only to a slider with multiple slides
+		
+		var slider_nav;
+		
+		if (el.id && (slider_nav = q('.slider-nav[data-for-slider=' + el.id + ']'))) { // Detached nav
+			
+			console.log(slider_nav);
 	
-	    container.insertAdjacentHTML(hasClass(container, 'top') ? 'afterbegin' : 'beforeend', '<div class=slider-nav></div>');
+		} else {
+
+		    container.insertAdjacentHTML(hasClass(container, 'top') ? 'afterbegin' : 'beforeend', '<div class=slider-nav></div>');
+            slider_nav = container.querySelector('.slider-nav');
+		
+		}
+		
 	    container.insertAdjacentHTML('beforeend', '<a class="slider-arrow left"></a><a class="slider-arrow right"></a>');
 	
 		var slider_wrap = closest(el, '.n-sldr');
@@ -507,7 +538,6 @@ function makeSlider(el, current_slide) {
 	
 	        if (hasClass(el, 'tabs')) {
 	
-	            var slider_nav = slider_wrap.querySelector('.slider-nav');
 	            addClass(slider_wrap, 'tabs');
 	            addClass(slider_nav, 'row');
 	            transferClass(slider_wrap, slider_nav, 'wrap');
@@ -521,17 +551,20 @@ function makeSlider(el, current_slide) {
 	
 	        } else {
 	
-	            container.querySelector('.slider-nav').insertAdjacentHTML('beforeend', '<a>' + (i + 1) + '</a>');
+	            slider_nav.insertAdjacentHTML('beforeend', '<a>' + (i + 1) + '</a>');
 	
 	        }
 	
-			container.querySelector('.slider-nav').lastChild.onclick = function(e) {
+			slider_nav.lastChild.onclick = function(e) {
 				
-	            slide(e.target, 'index', thisIndex(e.target));
+	            slide( // Select slider either through id or as a parent
+		            slider_nav.getAttribute('data-for-slider') ? q('.slider#' + slider_nav.getAttribute('data-for-slider')) : e.target,
+					'index', thisIndex(e.target)
+				);
 	
 	        };
 	        
-	        cancelTouchEvent(container.querySelector('.slider-nav').lastChild);
+	        cancelTouchEvent(slider_nav.lastChild);
 	
 	    }
 	
