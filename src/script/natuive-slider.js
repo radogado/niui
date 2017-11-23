@@ -40,24 +40,6 @@ function sliderElement(e) { // Get the active slider instance
 
 }
 
-function getSliderNav(slider_wrap) {
-
-	// Select either a child slider-nav or the one specified by the slider id, if it exists
-	var slider = slider_wrap.querySelector('.slider');
-	var slider_nav;
-
-	if (slider.id && (slider_nav = q('.slider-nav[data-for-slider=' + slider.id + ']'))) { // Detached nav
-		
-		return slider_nav;
-
-	} else {
-
-		return childByClass(slider_wrap, 'slider-nav');
-
-	}
-
-}
-
 /* Thanks to Pete & Eike Send for the swipe events – http://www.thepetedesign.com/demos/purejs_onepage_scroll_demo.html */
 
 function swipeEvents(el) {
@@ -516,8 +498,8 @@ function makeSlider(el, current_slide) {
 	if (el.children.length > 1) { // Add controls only to a slider with multiple slides
 		
 		var slider_nav;
-		
-		if (el.id && (slider_nav = q('.slider-nav[data-for-slider=' + el.id + ']'))) { // Detached nav
+console.log(el.outerHTML);		
+		if (el.id && (slider_nav = q('.slider-nav[data-for=' + el.id + ']'))) { // Detached nav
 			
 			console.log(slider_nav);
 	
@@ -558,7 +540,7 @@ function makeSlider(el, current_slide) {
 			slider_nav.lastChild.onclick = function(e) {
 				
 	            slide( // Select slider either through id or as a parent
-		            slider_nav.getAttribute('data-for-slider') ? q('.slider#' + slider_nav.getAttribute('data-for-slider')) : e.target,
+		            slider_nav.getAttribute('data-for') ? q('.slider#' + slider_nav.getAttribute('data-for')) : e.target,
 					'index', thisIndex(e.target)
 				);
 	

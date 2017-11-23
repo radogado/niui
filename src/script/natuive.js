@@ -461,6 +461,24 @@ function keyUpClose(e) {
 
 }
 
+function getSliderNav(slider_wrap) {
+
+	// Select either a child slider-nav or the one specified by the slider id, if it exists
+	var slider = slider_wrap.querySelector('.slider');
+	var slider_nav;
+
+	if (slider.id && (slider_nav = q('.slider-nav[data-for=' + slider.id + ']'))) { // Detached nav
+		
+		return slider_nav;
+
+	} else {
+
+		return childByClass(slider_wrap, 'slider-nav');
+
+	}
+
+}
+
 function closeFullWindow() {
 	
 	var full_window = q('.n-ovrl:last-of-type') || q('.n-ovrl');
@@ -678,7 +696,7 @@ function openLightbox(e) {
 
 	if (hasClass(lightbox, 'inline')) {
 		
-		lightbox.insertAdjacentHTML('afterend', '<div class="slider lightbox inline"></div>');
+		lightbox.insertAdjacentHTML('afterend', '<div class="slider lightbox inline" id="' + (lightbox.id ? lightbox.id : '') + '"></div>');
 		var lightbox_target = lightbox.parentNode.querySelector('.slider.lightbox');
 		lightbox.outerHTML = '';
 		
@@ -782,8 +800,9 @@ function openLightbox(e) {
         if (hasClass(anchor.parentNode, 'thumbnails')) {
         
 	        var i = 0;
-	        var nav = closest(lightbox_target, '.n-sldr').querySelector('.slider-nav');
-	        
+// 	        var nav = closest(lightbox_target, '.n-sldr').querySelector('.slider-nav');
+	        var nav = getSliderNav(closest(lightbox_target, '.n-sldr'));
+
 	        if (nav) { // Multiple slides?
 
 		        forEach(thumbnails, function (el) {
