@@ -194,7 +194,7 @@ function endSlide (slider, index) {
 	var slider_wrap = closest(slider, '.n-sldr');
 	
 	if (getSliderNav(slider_wrap)) { // Multiple slides? // To do: get the proper slider nav, if it's detached
-		
+
 		addClass(getSliderNav(slider_wrap).children[index], 'active');
 	
 	}
@@ -498,15 +498,14 @@ function makeSlider(el, current_slide) {
 	if (el.children.length > 1) { // Add controls only to a slider with multiple slides
 		
 		var slider_nav;
-console.log(el.outerHTML);		
+
 		if (el.id && (slider_nav = q('.slider-nav[data-for=' + el.id + ']'))) { // Detached nav
-			
-			console.log(slider_nav);
+
 	
 		} else {
 
 		    container.insertAdjacentHTML(hasClass(container, 'top') ? 'afterbegin' : 'beforeend', '<div class=slider-nav></div>');
-            slider_nav = container.querySelector('.slider-nav');
+            slider_nav = container.querySelector('.slider-nav:not([data-for])'); // Not data-for to avoid nested detached nav for nested sliders
 		
 		}
 		
@@ -515,7 +514,7 @@ console.log(el.outerHTML);
 		var slider_wrap = closest(el, '.n-sldr');
 	
 	    // Generate controls
-	
+
 	    for (var i = 0; i < el.children.length; i++) {
 	
 	        if (hasClass(el, 'tabs')) {
@@ -523,14 +522,10 @@ console.log(el.outerHTML);
 	            addClass(slider_wrap, 'tabs');
 	            addClass(slider_nav, 'row');
 	            transferClass(slider_wrap, slider_nav, 'wrap');
+	            transferClass(el, slider_wrap, 'vertical');
 	            var tab_title = el.children[i].getAttribute('data-tab_title') || (el.children[i].querySelector('.tab-title') ? el.children[i].querySelector('.tab-title').innerHTML : i+1);
 	            slider_nav.insertAdjacentHTML('beforeend', '<a>' + tab_title + '</a>');
-	            if (hasClass(el, 'vertical')) {
-		            
-		            addClass(slider_wrap, 'vertical');
-		            
-	            }
-	
+
 	        } else {
 	
 	            slider_nav.insertAdjacentHTML('beforeend', '<a>' + (i + 1) + '</a>');

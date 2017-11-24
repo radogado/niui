@@ -468,7 +468,7 @@ function getSliderNav(slider_wrap) {
 	var slider_nav;
 
 	if (slider.id && (slider_nav = q('.slider-nav[data-for=' + slider.id + ']'))) { // Detached nav
-		
+
 		return slider_nav;
 
 	} else {
