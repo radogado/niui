@@ -2540,6 +2540,10 @@ $bg: #1E8DaC;
   margin-top: 3em;
   height: calc(100% - 3em) !important; }
 
+@media screen and (max-width: 599.9px) {
+  .n-ovrl .n-sldr, .n-ovrl .n-sldr.vertical {
+    margin-top: 1.5em;
+    height: calc(100% - 1.5em) !important; } }
 .n-sldr {
   position: relative;
   overflow: hidden;
@@ -2717,7 +2721,7 @@ $bg: #1E8DaC;
   -webkit-user-select: none;
   user-select: none; }
 
-.n-sldr .slider-nav {
+.n-sldr > .slider-nav, .n-sldr > .pad > .slider-nav {
   position: absolute;
   bottom: 0;
   white-space: nowrap;
@@ -2765,23 +2769,6 @@ $bg: #1E8DaC;
 
 .slider-nav a:last-child {
   margin-right: 0; }
-
-.thumbnails .slider-nav a {
-  line-height: 4em;
-  width: 4em;
-  height: 4em;
-  background-size: cover;
-  border-radius: 0; }
-
-.thumbnails.outside .slider-nav {
-  position: static;
-  transform: none; }
-
-.n-sldr.thumbnails.outside:not(.inline) {
-  padding-bottom: 4em; }
-
-.n-sldr.thumbnails .slider-nav a.active {
-  text-shadow: 1px 1px 0px #fff, -1px -1px 0px #fff, 0px 1px 0px #fff, 1px 0px 0px #fff, -1px 1px 0px #fff, 1px -1px 0px #fff; }
 
 .n-sldr .slider.vertical > .active, .vertical > .slider-nav a {
   display: block;
@@ -2933,6 +2920,9 @@ $bg: #1E8DaC;
   padding: .2em .5em;
   background: rgba(0, 0, 0, 0.4); }
 
+.slider.lightbox.detached-nav > * p {
+  bottom: 0; }
+
 .n-sldr.outside .slider.lightbox > * p {
   bottom: 0; }
 
@@ -3032,6 +3022,33 @@ $bg: #1E8DaC;
 .lightbox.slider a.button.copy:before {
   content: 'Link'; }
 
+.thumbnails .slider-nav a {
+  line-height: 4em;
+  width: 4em;
+  height: 4em;
+  background-size: cover;
+  border-radius: 0; }
+.thumbnails.outside .slider-nav {
+  position: static;
+  transform: none; }
+.thumbnails.n-sldr.outside:not(.inline) {
+  padding-bottom: 4em; }
+.thumbnails.n-sldr .slider-nav a.active {
+  text-shadow: 1px 1px 0px #fff, -1px -1px 0px #fff, 0px 1px 0px #fff, 1px 0px 0px #fff, -1px 1px 0px #fff, 1px -1px 0px #fff; }
+
+@media (max-height: 599.9px) {
+  .thumbnails.n-sldr .slider-nav a, .thumbnails.n-sldr .slider-nav a.active {
+    line-height: 1.5;
+    width: 1.5em;
+    height: 1.5em;
+    color: transparent;
+    text-shadow: none; }
+  .thumbnails.n-sldr .slider.lightbox > * p {
+    bottom: auto;
+    top: -1.5em; }
+  .thumbnails.n-sldr .slider.lightbox.vertical > * p {
+    bottom: -1.5em;
+    top: auto; } }
 /* natUIve – Modal */
 /*
 $color: #fff;
@@ -3055,6 +3072,7 @@ $bg: #1E8DaC;
   background: #fff;
   background: rgba(255, 255, 255, 0.97);
   overflow: hidden;
+  overflow-y: scroll;
   position: fixed;
   top: 0;
   right: 0;
@@ -3069,8 +3087,8 @@ $bg: #1E8DaC;
   position: relative;
   background: transparent;
   height: 100%;
-  height: calc(100% - 3em);
-  padding-top: 3em; }
+  padding-top: 3em;
+  overflow: auto; }
 
 .n-ovrl.limited > .content, .n-ovrl.limited > .content {
   background: #666;
@@ -3094,25 +3112,12 @@ $bg: #1E8DaC;
   overflow: hidden;
   height: 3em;
   overflow-x: auto;
-  white-space: nowrap; }
-
-/* On touch, disable fixed-position "close" bar, because it's jumpy */
-/* 	.no-touch */
-.n-ovrl .close {
+  white-space: nowrap;
   position: fixed; }
-
-/* 	.no-touch */
-.n-ovrl {
-  overflow-y: scroll; }
 
 /* 	.no-touch */
 .n-ovrl.headless {
   padding-top: 0; }
-
-/* 	.no-touch */
-.n-ovrl > .content {
-  height: 100%;
-  overflow: auto; }
 
 .n-ovrl > * {
   background: #fff;
@@ -3133,7 +3138,12 @@ $bg: #1E8DaC;
     height: 60vh;
     margin-top: 20vh;
     width: 80vw;
-    margin-left: 10vw; } }
+    margin-left: 10vw; }
+  .n-ovrl > .content {
+    padding-top: 1.5em; }
+  .n-ovrl .close {
+    height: 1.5em;
+    padding: 0 .75em; } }
 /*
 $color: #fff;
 $bg: #1E8DaC;

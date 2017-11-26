@@ -81,6 +81,12 @@
 
 }
 
+.slider.lightbox.detached-nav > * p {
+	
+	bottom: 0;
+
+}
+
 .n-sldr.outside .slider.lightbox > * p {
 	
 	bottom: 0;
@@ -235,3 +241,72 @@
 	
 	}
 
+
+.thumbnails {
+	
+	.slider-nav a {
+	
+		line-height: 4em;
+		width: 4em;
+		height: 4em;
+		background-size: cover;
+		border-radius: 0;
+		
+	}
+	
+	&.outside .slider-nav {
+		
+		position: static;
+		transform: none;
+		
+	}
+	
+	&.n-sldr.outside:not(.inline) {
+		
+		padding-bottom: 4em;
+		
+	}
+	
+	&.n-sldr .slider-nav a.active {
+	
+		text-shadow: 1px 1px 0px #fff, -1px -1px 0px #fff, 0px 1px 0px #fff, 1px 0px 0px #fff, -1px 1px 0px #fff, 1px -1px 0px #fff;
+	
+	}
+	
+}
+
+@media (max-height: $screen-narrow-max) {
+
+	.thumbnails.n-sldr {
+		
+		.slider-nav {
+			
+			a, a.active {
+		
+				line-height: 1.5;
+				width: 1.5em;
+				height: 1.5em;
+				color: transparent;
+				text-shadow: none;
+				
+			}
+		
+		}
+		
+		.slider.lightbox > * p {
+			
+			bottom: auto;
+		    top: -1.5em;
+			
+		}
+
+		.slider.lightbox.vertical > * p {
+			
+			bottom: -1.5em;
+			top: auto;
+			
+		}
+
+	}
+
+}

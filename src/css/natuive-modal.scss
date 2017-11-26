@@ -8,6 +8,7 @@
 	background: #fff;
 	background: rgba(255,255,255,.97);
 	overflow: hidden;
+	overflow-y: scroll;
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -25,9 +26,10 @@
 		position: relative;
 		background: transparent;
 		height: 100%; // For Android Browser, which doesn't understand the bottom line
-		height: calc(100% - #{$line-height-em*2});
+// 		height: calc(100% - #{$line-height-em*2});
 // 		height: calc(100% - var(--line-height-em)*2);
 		padding-top: $line-height-em*2;
+		overflow: auto;
 
 	}
 	
@@ -58,33 +60,14 @@
 		height: 3em;
 	    overflow-x: auto;
 	    white-space: nowrap;
-
-	}
-
-	/* On touch, disable fixed-position "close" bar, because it's jumpy */
-/* 	.no-touch */ .n-ovrl .close {
-
 		position: fixed;
 
-	}
-
-/* 	.no-touch */ .n-ovrl {
-	
-		overflow-y: scroll;
-	
 	}
 
 /* 	.no-touch */ .n-ovrl.headless {
 		
 		padding-top: 0;
 
-	}
-
-/* 	.no-touch */ .n-ovrl > .content {
-
-		height: 100%;
-		overflow: auto;
-	
 	}
 
 	.n-ovrl > * {
@@ -109,15 +92,31 @@
 
 @media screen and (max-width: $screen-narrow-max) {
 
-
-	.n-ovrl.limited > .content {
+	.n-ovrl {
 		
-    	height: 60vh;
-   	    margin-top: 20vh;
-	    width: 80vw;
-	    margin-left: 10vw;
+		&.limited > .content {
+		
+	    	height: 60vh;
+	   	    margin-top: 20vh;
+		    width: 80vw;
+		    margin-left: 10vw;
+		
+		}
 	
+		> .content {
+			
+			padding-top: $line-height-em;
+// 			height: 100%;
+	
+		}
+	
+		.close {
+			
+			height: 1.5em;
+			padding: 0 .75em;			
+			
+		}
+
 	}
-
-
+	
 }

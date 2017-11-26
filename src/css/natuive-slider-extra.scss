@@ -17,6 +17,19 @@
 
 }		
 
+@media screen and (max-width: $screen-narrow-max) {
+
+	.n-ovrl .n-sldr, .n-ovrl .n-sldr.vertical {
+				
+		margin-top: $line-height-em;
+	// 		margin-top: calc(var(--line-height-em)*2);
+		height: calc(100% - #{$line-height-em}) !important;
+	// 		height: calc(100% - var(--line-height-em)*2);
+	
+	}
+
+}		
+
 // To do: move all .n-sldr (enhanced slider) behind a @supports for modern browsers. Leave the basic CSS-only version for old browsers.
 
 .n-sldr {
@@ -314,7 +327,7 @@
 
 }
 
-.n-sldr .slider-nav {
+.n-sldr > .slider-nav, .n-sldr > .pad > .slider-nav {
 	
 	position: absolute;
 	bottom: 0;
@@ -384,35 +397,6 @@
 		
 	}
 	
-	.thumbnails .slider-nav a {
-		
-		line-height: 4em;
-		width: 4em;
-		height: 4em;
-		background-size: cover;
-		border-radius: 0;
-		
-	}
-	
-	.thumbnails.outside .slider-nav {
-		
-		position: static;
-		transform: none;
-		
-	}
-	
-	.n-sldr.thumbnails.outside:not(.inline) {
-		
-		padding-bottom: 4em;
-		
-	}
-
-	.n-sldr.thumbnails .slider-nav a.active {
-	
-		text-shadow: 1px 1px 0px #fff, -1px -1px 0px #fff, 0px 1px 0px #fff, 1px 0px 0px #fff, -1px 1px 0px #fff, 1px -1px 0px #fff;
-	
-	}
-
 	.n-sldr .slider.vertical > .active, .vertical > .slider-nav a {
 		
 		display: block;

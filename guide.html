@@ -1278,7 +1278,7 @@
 							
 							<h3> Vertical with thumbnails </h3>
 								
-							<div id=lightbox2 class='lightbox vertical thumbnails'>
+							<div id=lightbox2 class='lightbox vertical- thumbnails'>
 							
 								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/06/DSC00134.jpg title='First photo from Japan'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/06/DSC00134-88x88.jpg alt=1> </a>
 								
@@ -1314,7 +1314,7 @@
 								
 								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00957.jpg title='Third photo from Paris'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00957-88x88.jpg alt=2> </a>
 							
-							</div>
+								</div>
 							
 							</div>
 			
@@ -1328,6 +1328,56 @@
 &lt;/div&gt;
 </pre>
 							
+						</div>
+
+						<div class="col1">
+							
+							<h3> Inline lightbox with detached nav </h3>
+							
+							<div class="row unpad">
+							
+								<div>
+									
+									<div class="aspect" style="--ratio: 1.67">
+								
+								<div id=lightbox4 class='lightbox inline thumbnails'>
+							
+								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916.jpg title='First photo from Paris'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916-88x88.jpg alt=2> </a>
+
+								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00894.jpg title='Second photo from Paris'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00894-88x88.jpg alt=1> </a>
+								
+								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00957.jpg title='Third photo from Paris'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00957-88x88.jpg alt=2> </a>
+							
+								</div>
+							
+							</div>
+								
+								</div>
+
+								<div class="align-middle align-center">
+									
+									<div>
+									
+										<div class="slider-nav" data-for=lightbox4></div>
+									
+									</div>
+								
+								</div>
+							
+							</div>
+
+<pre>						
+&lt;div class='lightbox inline thumbnails' id='lightbox4'&gt;
+	&lt;a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756.jpg title='First Taipei photo'&gt;
+		&lt;img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756-88x88.jpg alt=1&gt;
+	&lt;/a&gt;
+	...
+&lt;/div&gt;
+
+&lt;div class="slider-nav" data-for=lightbox4&gt;&lt;/div&gt;
+
+</pre>
+
 						</div>
 					
 					</div>
@@ -2166,6 +2216,7 @@
 								<li>Full screen: <pre>&lt;div class='slider full-screen'&gt;</pre></li>
 								<li>Slide duration <pre>&lt;div class='slider' data-duration=1&gt;</pre> in seconds. Default is <b>.2</b>.</li>
 								<li>Vertically center slides' content with <pre>&lt;div class='slider align-middle'&gt;</pre></li>
+								<li>Detach slider nav by adding an <b>id</b> to the slider and creating <pre>&lt;div class='slider-nav' data-for='slider-id'&gt;</pre> elsewhere</li>
 							
 							</ul>
 						

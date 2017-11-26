@@ -500,7 +500,9 @@ function makeSlider(el, current_slide) {
 		var slider_nav;
 
 		if (el.id && (slider_nav = q('.slider-nav[data-for=' + el.id + ']'))) { // Detached nav
-
+			
+			addClass(container, 'detached-nav');
+			addClass(el, 'detached-nav');
 	
 		} else {
 
