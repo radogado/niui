@@ -427,11 +427,9 @@ $bg: #1E8DaC;
   padding: .2em .5em;
   background: rgba(0, 0, 0, 0.4); }
 
-.slider.lightbox.detached-nav > * p {
-  bottom: 0; }
-
-.n-sldr.outside .slider.lightbox > * p {
-  bottom: 0; }
+.slider.lightbox.detached-nav > * p, .n-sldr.outside .slider.lightbox > * p {
+  bottom: 0;
+  margin-bottom: .5em; }
 
 .n-ovrl .lightbox.slider > * > img {
   display: none; }

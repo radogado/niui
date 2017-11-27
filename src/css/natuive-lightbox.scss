@@ -81,16 +81,11 @@
 
 }
 
-.slider.lightbox.detached-nav > * p {
+.slider.lightbox.detached-nav > * p, .n-sldr.outside .slider.lightbox > * p {
 	
 	bottom: 0;
+	margin-bottom: .5em;
 
-}
-
-.n-sldr.outside .slider.lightbox > * p {
-	
-	bottom: 0;
-	
 }
 
 .n-ovrl .lightbox.slider > * > img {
