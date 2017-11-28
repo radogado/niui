@@ -343,6 +343,13 @@ footer .contain > div {
 footer ul.row > li > span {
 	
 	font-weight: bold;
+
+}
+
+.picture-control {
+	
+	background: #f2f2f2;
+ 
 }
 
 .picture-control .slider div {
@@ -364,6 +371,27 @@ footer ul.row > li > span {
 .picture-control .pad {
 
 	padding: 4em 3em;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+
+}
+
+.picture-control .pad p {
+
+	flex-grow: 1;
+
+}
+
+.picture-control > :first-child {
+	
+	min-height: 20em;
+	
+}
+
+.picture-control > :first-child > div {
+	
+	height: 100%;	
 
 }
 
