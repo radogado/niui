@@ -122,6 +122,7 @@
 	transform: translate3d(-50%, -50%, 0) scale(2);
 	zoom: 0.5; // scale(2) + zoom: 0.5 restores fixes the blur imposed by transform. Great in Safari, not so much in Chrome.
 	transition: transfrom .2s linear;
+	cursor: zoom-out;
 
 }
 
@@ -246,6 +247,7 @@
 		height: 4em;
 		background-size: cover;
 		border-radius: 0;
+		cursor: zoom-in;
 		
 	}
 	

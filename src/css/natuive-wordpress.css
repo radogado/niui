@@ -2661,6 +2661,9 @@ $bg: #1E8DaC;
 .slider > *.active, .n-ovrl .lightbox.slider > *.active > img {
   display: inline-block; }
 
+.n-ovrl .lightbox.slider img {
+  cursor: zoom-in; }
+
 .n-ovrl .slider > img {
   padding: 0 !important;
   height: auto; }
@@ -2947,7 +2950,8 @@ $bg: #1E8DaC;
   right: 50%;
   transform: translate3d(-50%, -50%, 0) scale(2);
   zoom: 0.5;
-  transition: transfrom .2s linear; }
+  transition: transfrom .2s linear;
+  cursor: zoom-out; }
 
 .n-ovrl .lightbox.slider > .active > img.zoom {
   /*
@@ -3025,7 +3029,8 @@ $bg: #1E8DaC;
   width: 4em;
   height: 4em;
   background-size: cover;
-  border-radius: 0; }
+  border-radius: 0;
+  cursor: zoom-in; }
 .thumbnails.outside .slider-nav {
   position: static;
   transform: none; }
