@@ -13,6 +13,13 @@ body {
 
 }
 
+.row>*, .row>[class^=col] {
+	
+	padding: 1.5em;
+	--spacing: 2em;
+	
+}
+
 blockquote {
 	
 	color: #ddd;
