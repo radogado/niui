@@ -29,7 +29,7 @@
 
 		<div class='slider tabs vertical'>
 			
-				<div data-tab_title='Home'><div class='header-and-banner viewport push-up-'>
+				<div data-tab_title='Home' id=home><div class='header-and-banner viewport push-up-'>
 	
 		<div class=banner>
 		
@@ -58,7 +58,7 @@
 		
 	</div></div>
 
-				<div data-tab_title='Page structure'>
+				<div data-tab_title='Page structure' id=page-structure>
 					
 					<div class='row'>
 					
@@ -118,7 +118,7 @@
 				
 				</div>
 				
-				<div data-tab_title=Grid>
+				<div data-tab_title=Grid id=grid>
 					
 					<div class='row'>
 						
@@ -755,7 +755,7 @@
 
 				</div>
 				
-				<div data-tab_title=Navigation>
+				<div data-tab_title=Navigation id=nav>
 						
 					<div class='row'>
 						
@@ -1114,7 +1114,7 @@
 					
 				</div>
 				
-				<div data-tab_title=Typography>
+				<div data-tab_title=Typography id=typography>
 					
 					<div class='row'>
 						
@@ -1179,7 +1179,7 @@
 
 				</div>
 				
-				<div id=aspect-ratio data-tab_title='Aspect ratio'>
+				<div id=aspect-ratio data-tab_title='Aspect ratio' id=aspect-ratio>
 					
 					<div class='row'>
 						
@@ -1208,7 +1208,7 @@
 					
 				</div>
 					
-				<div data-tab_title=Lightbox>
+				<div data-tab_title=Lightbox id=lightbox>
 					
 					<div class='row'>
 						
@@ -1409,7 +1409,7 @@
 					
 				</div>
 				
-				<div data-tab_title=Video>
+				<div data-tab_title=Video id=video>
 					
 					<div class='row'>
 						
@@ -1438,7 +1438,7 @@
 				
 				</div>
 				
-				<div id=tables data-tab_title=Tables>
+				<div id=tables data-tab_title=Tables id=tables>
 				
 					<div class='row'>
 						
@@ -1597,7 +1597,7 @@
 	
 				</div>
 
-				<div id=fold data-tab_title='Fold (Accordion)'>
+				<div id=fold data-tab_title='Fold (Accordion)' id=fold>
 					
 					<div class='row'>
 						
@@ -1769,7 +1769,7 @@
 					
 				</div>
 				
-				<div data-tab_title=Tooltip>
+				<div data-tab_title=Tooltip id=tooltip>
 
 					<div class='row'>
 						<div>
@@ -1794,7 +1794,7 @@
 					
 				</div>
 				
-				<div data-tab_title='Modal window'>
+				<div data-tab_title='Modal window' id=modal-window>
 					
 					<div class='row'>
 						
@@ -1847,7 +1847,7 @@
 
 				</div>
 				
-				<div data-tab_title=Buttons>
+				<div data-tab_title=Buttons id=buttons>
 					
 					<div class='row'>
 					
@@ -1953,7 +1953,7 @@
 						
 				</div>
 		
-				<div id=lists data-tab_title=Lists>
+				<div id=lists data-tab_title=Lists id=lists>
 					
 					<div class='row'>
 						
@@ -2033,7 +2033,7 @@
 			
 				</div>
 				
-				<div data-tab_title=Slider>
+				<div data-tab_title=Slider id=slider>
 					
 					<div class='row' id=slider>
 						
@@ -2217,6 +2217,7 @@
 								<li>Slide duration <pre>&lt;div class='slider' data-duration=1&gt;</pre> in seconds. Default is <b>.2</b>.</li>
 								<li>Vertically center slides' content with <pre>&lt;div class='slider align-middle'&gt;</pre></li>
 								<li>Detach slider nav by adding an <b>id</b> to the slider and creating <pre>&lt;div class='slider-nav' data-for='slider-id'&gt;</pre> elsewhere</li>
+								<li>URI with hash matching a slide id in a slider, auto slides to it.</li>
 							
 							</ul>
 						
@@ -2226,7 +2227,7 @@
 					
 				</div>
 				
-				<div data-tab_title=Tabs>
+				<div data-tab_title=Tabs id=tabs>
 					
 					<div class='row'>
 						
@@ -2374,7 +2375,7 @@
 	
 				</div>
 
-				<div id=form data-tab_title=Forms>
+				<div id=form data-tab_title=Forms id=forms>
 					
 					<div class='row'>
 						
@@ -2672,7 +2673,7 @@
 							
 							<h3>Elements</h3>
 
-<div class="row">
+							<div class="row">
 							
 	<div class="col3">
 <h4>Text input</h4>							
@@ -2799,7 +2800,7 @@
 								
 							<ul>
 								
-								<li>Validation enabled by <pre>&lt;label class='mandatory'&gt;</label></li>
+								<li>Validation enabled by <pre>&lt;label class='mandatory'&gt;</pre></li>
 								<li>Dynamic submit without page reload: <pre>&lt;form class='dynamic'&gt;</pre>. Requires PHP host.</li>
 								<li>Optional fieldsets are ignored by validation when disabled.</li>
 								<li>Set the placeholder colour with CSS variable <b>--placeholder_color</b>.</li>
@@ -2814,7 +2815,7 @@
 				
 				</div>
 				
-				<div id=masonry data-tab_title=Masonry>
+				<div id=masonry data-tab_title=Masonry id=masonry>
 					
 					<div class='row'>
 						
@@ -2843,7 +2844,7 @@
 					
 				</div>
 				
-				<div data-tab_title=Cards>
+				<div data-tab_title=Cards id=cards>
 				
 					<div class='row'>
 						
@@ -2964,7 +2965,7 @@
 
 				</div>
 				
-				<div data-tab_title='Fixed background'>
+				<div data-tab_title='Fixed background' id=fixed-background>
 					
 					<div class='row'>
 						
@@ -3001,7 +3002,7 @@
 					
 				</div>
 
-				<div data-tab_title='Language selector'> 
+				<div data-tab_title='Language selector' id=language=selector>
 					
 					<div class='row'>
 						
@@ -3058,7 +3059,7 @@
 
 			</div>
 
-				<div data-tab_title='Parallax scrolling'> 
+				<div data-tab_title='Parallax scrolling' id=parallax> 
 					
 					<div class='row'>
 						
@@ -3083,7 +3084,7 @@
 
 				</div>
 
-				<div data-tab_title='Scroll effects'> 
+				<div data-tab_title='Scroll effects' id=scroll> 
 					
 					<div class='row'>
 						
@@ -3143,7 +3144,7 @@ var parameters_list = new Array('parameter1', 'parameter2');
 				</div>
 -->
 
-				<div data-tab_title='Notification bar'> 
+				<div data-tab_title='Notification bar' id=notifications> 
 					
 					<div class='row'>
 						
@@ -3179,7 +3180,7 @@ notify('Message');
 
 				</div>
 
-				<div data-tab_title='Copy to clipboard'>
+				<div data-tab_title='Copy to clipboard' id=copy>
 					
 					<div class='row'>
 						
@@ -3201,7 +3202,7 @@ copyButton(q('#copybutton'), q('#copycontent'));
 
 				</div>
 
-				<div data-tab_title="'Back to top' button">
+				<div data-tab_title="'Back to top' button" id=back-to-top>
 					
 					<div class='row'>
 						
@@ -3219,7 +3220,7 @@ copyButton(q('#copybutton'), q('#copycontent'));
 
 				</div>
 
-				<div data-tab_title='animate() function'>
+				<div data-tab_title='animate() function' id=animate>
 					
 					<div class='row'>
 						

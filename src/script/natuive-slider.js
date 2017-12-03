@@ -190,7 +190,7 @@ function endSlide (slider, index) {
 		populateLightbox(slider, index);
         
     }
-	
+
 	var slider_wrap = closest(slider, '.n-sldr');
 	
 	if (getSliderNav(slider_wrap)) { // Multiple slides? // To do: get the proper slider nav, if it's detached
@@ -201,6 +201,11 @@ function endSlide (slider, index) {
     slider.style.cssText = '';
 
 	addClass(slider.children[index], 'active');
+	if (slider.children[index].id) {
+		
+		window.location.hash = slider.children[index].id;
+		
+	}
 
     if (!hasClass(slider, 'vertical')) {
 	    
@@ -607,7 +612,14 @@ function makeSlider(el, current_slide) {
 	        setTimeout(autoSlide, delay);
 	
 	    }
-	
+		
+		
+		// If URI #id matches a slide #id, go to that slide and scroll the page to the slider.
+		if (!current_slide && window.location.hash && el.querySelector(window.location.hash)) {
+			
+			var current_slide = thisIndex(el.querySelector(window.location.hash));
+			
+		} 
 		endSlide(el, current_slide || 0); // Start from (other than) the first slide
 	    
 	} else {

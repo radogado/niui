@@ -422,7 +422,7 @@ $bg: #1E8DaC;
 .slider.lightbox > * p {
   /* Image captions */
   position: absolute;
-  bottom: 48px;
+  bottom: 57px;
   text-align: center;
   color: #fff;
   left: 50%;
