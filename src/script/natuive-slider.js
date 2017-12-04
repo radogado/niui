@@ -201,11 +201,6 @@ function endSlide (slider, index) {
     slider.style.cssText = '';
 
 	addClass(slider.children[index], 'active');
-	if (slider.children[index].id) {
-		
-		window.location.hash = slider.children[index].id;
-		
-	}
 
     if (!hasClass(slider, 'vertical')) {
 	    
@@ -318,8 +313,9 @@ function slide(el, method, index_number) {
 	var computed_height;
 	var computed_height_old;
 
+	var target_slide = slider.children[index];
+
 	if (hasClass(slider, 'vertical')) {
-		var target_slide = slider.children[index];
 		target_slide.style.cssText = 'display: block'; // Temporarily display the target slide to get its height
 		computed_height = getComputedStyle(target_slide).height;
 		target_slide.style.cssText = '';
@@ -346,7 +342,7 @@ function slide(el, method, index_number) {
 
 	var duration = slider.getAttribute('data-duration') ? slider.getAttribute('data-duration') : q('html').getAttribute('data-slide_duration');
 
-	addClass(slider.children[index], 'active');
+	addClass(target_slide, 'active');
 
 	var translate_from, translate_to;
 	
@@ -404,6 +400,16 @@ function slide(el, method, index_number) {
 		endSlide(slider, index);
 
     });
+
+	if (target_slide.id) { // Scroll page to slide hash
+
+		scrollToAnimated(getCumulativeOffset(target_slide).y, .2, function () {
+
+			window.location.hash = target_slide.id;
+
+		});
+		
+	}
 
 }
 

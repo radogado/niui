@@ -901,7 +901,7 @@ function animateAnchors(e) {
 
 	}
 
-    scrollToAnimated((hash === null) ? 0 : getCumulativeOffset(hash).y, function(e) { // To do: fix jumping to new hash – is the fallback executed properly in animate()?
+    scrollToAnimated((hash === null) ? 0 : getCumulativeOffset(hash).y, .5, function(e) { // To do: fix jumping to new hash – is the fallback executed properly in animate()?
 
         window.location = el.href.split('#')[0] + '#' + el.href.split('#').pop();
 
@@ -1387,7 +1387,7 @@ function animate(el, animation_code, duration, callback) { // Default duration =
 
 // Scroll the page to any position
 
-function scrollToAnimated(to, callback) {
+function scrollToAnimated(to, duration, callback) {
 	
 	if (to > (document.body.clientHeight - window.innerHeight) ) {
 
@@ -1406,7 +1406,7 @@ function scrollToAnimated(to, callback) {
 		
 	}
 	
-	animate(q('body'), '100% { transform: translate3d(0, ' + -1*(to - (document.documentElement.scrollTop || document.body.scrollTop)) + 'px, 0); }', .5, scrollToCallback.bind(null, callback)); // To do: IE8 error fix
+	animate(q('body'), '100% { transform: translate3d(0, ' + -1*(to - (document.documentElement.scrollTop || document.body.scrollTop)) + 'px, 0); }', duration, scrollToCallback.bind(null, callback)); // To do: IE8 error fix
 
 }
 
