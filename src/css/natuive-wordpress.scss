@@ -135,6 +135,24 @@ button.search-submit {
 
 }
 
+body.home .lightbox.gallery {
+	
+	max-height: 20em;
+	overflow: hidden;
+	position: relative;
+
+}
+
+body.home .lightbox.gallery:before {
+	
+	content: '';
+	position: absolute;
+	width: 100%;
+	border-bottom: 1px dotted;
+	top: calc(20em - 1px);	
+
+}
+
 /*
 .lightbox.gallery:after { // Push last row left
 	
