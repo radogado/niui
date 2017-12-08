@@ -1396,8 +1396,8 @@ function scrollToAnimated(to, duration, callback) {
 	}
 	
 	function scrollToCallback (callback) {
-		
-		q('body').scrollTop = to; 
+
+		q('html').scrollTop = q('body').scrollTop = to;
 		if (typeof callback === 'function') {
 			
 			callback();
@@ -1406,7 +1406,7 @@ function scrollToAnimated(to, duration, callback) {
 		
 	}
 	
-	animate(q('body'), '100% { transform: translate3d(0, ' + -1*(to - (document.documentElement.scrollTop || document.body.scrollTop)) + 'px, 0); }', duration, scrollToCallback.bind(null, callback)); // To do: IE8 error fix
+	animate(q('html'), '100% { transform: translate3d(0, ' + -1*(to - (document.documentElement.scrollTop || document.body.scrollTop)) + 'px, 0); }', duration, scrollToCallback.bind(null, callback)); // To do: IE8 error fix
 
 }
 
