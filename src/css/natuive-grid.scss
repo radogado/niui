@@ -458,6 +458,7 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 
 	box-shadow: 0 0 0 0.5px #000;
 	margin: 0;
+	flex-basis: calc(var(--width) * 100% - var(--spacing)*.5);
 
 }
 

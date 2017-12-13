@@ -31,15 +31,15 @@
     width: 100%;
 
 }
-	
+
 /* Basic elements */
 
 html, body {
-	
+
 	height: 100%;
 	margin: 0 auto;
 	overflow-x: hidden;
-	
+
 }
 
 body {
@@ -52,51 +52,51 @@ body {
 	display: flex;  /* Sticky footer */
 	flex-direction: column;
 	-webkit-tap-highlight-color: rgba(0,0,0,.5);
-	
+
 	color: $color; /* Fallback when CSS variables aren't supported */
 	color: var(--color);
 	background: $bg;
 	background: var(--bg);
-	
+
 }
 
 body * {
-	
+
 	box-sizing: border-box;
 	-webkit-tap-highlight-color: rgba(0,0,0,0); /* iOS: Don't flash on tap */
-	
+
 }
 
 img, picture, .lightbox a {
-	
+
 	max-width: 100%; // Prevent images overflowing
 	height: auto;
 	border: none;
 	text-align: center;
-	
+
 }
 
 html.nooverflow, html.nooverflow body {
-	
+
 	overflow: hidden;
 	width: 100%;
 
 }
 
 html.can-touch.nooverflow, html.can-touch.nooverflow body {
-	
+
 	height: 100%;
 
 }
 
 .header-and-banner {
 
-	flex: none;	
+	flex: none;
 
 }
 
 .viewport.header-and-banner {
-	
+
 	min-height: 100vh;
 	overflow: auto;
 	display: flex;
@@ -114,65 +114,65 @@ html.can-touch.nooverflow, html.can-touch.nooverflow body {
 }
 
 .viewport.header-and-banner.push-up:after { // Move centered content up, because the middle seems low
-	
+
 	content: '';
 	flex-grow: 1;
 
 }
 
 header .row {
-	
+
 	padding: 0;
-	
+
 }
 
 
 header a.logo {
-	
+
 	display: inline-block;
 	min-height: 46px; /* Don't shift page after image is loaded */
 
 }
 
 .wide-screen {
-	
+
 	display: block;
-	
+
 }
 
 .narrow-screen {
-	
+
 	display: none !important;
-	
+
 }
-	
+
 /* Main */
 
 main#content {
-	
+
 	flex: 1 0 auto; // Sticky footer
-	
+
 }
 
 /* Footer */
 
 footer {
-	
+
 	flex: none;
 	position: relative; // Because of the backtotop button
 // 	padding-bottom: 3em;
     padding: 1em 0;
-	
+
 }
 
 footer .row > * {
-	
+
 	position: static;
 
 }
 
 video {
-	
+
 	height: auto !important;
 	background: #000;
 	margin: 0 auto;
@@ -180,9 +180,9 @@ video {
 	max-width: 100%;
 
 	a[href] {
-		
+
 		color: #fff;
-	
+
 	}
 
 }
@@ -207,41 +207,41 @@ video {
 
 @supports (clip: rect(auto, auto, auto, auto)) {
 
-	.fixed-bg { 
-	
+	.fixed-bg {
+
 	    will-change: scroll;
 	    background-size: 0;
 	    position: relative;
-	
+
 	}
-	
+
 		.fixed-bg .fixed-bg-image, .fixed-bg .fixed-bg-image:before {
-	
+
 			top: 0;
 			left: 0;
 			width: 100%;
 			height: 100%;
 			background-image: inherit;
-	
+
 		}
-		
+
 		.fixed-bg .fixed-bg-image {
-			
+
 			position: absolute;
 			background-size: 0;
 			z-index: -1;
 			clip: rect(auto, auto, auto, auto);
-		
+
 		}
-		
+
 		.fixed-bg .fixed-bg-image:before {
-			
+
 			content: '';
 			position: fixed;
 			background-size: cover;
 			background-position: center center;
 			height: 100vh; // Mobile browser resize when hiding/showing toolbars
-		
+
 		}
 
 		.fixed-bg .fixed-bg-image:before {
@@ -249,23 +249,23 @@ video {
 			transform: translate3d(0,0,0); // Force refresh while scrolling (iPad), fix missing image parts on (macOS Safari)
 
 		}
-		
+
 }
 
 @supports (-ms-ime-align:auto) { // Disable jumpy Edge
-	
+
 	.fixed-bg {
-		
+
 		background-size: cover;
-		
+
 	}
-		
+
 	.fixed-bg .fixed-bg-image {
-		
+
 		display: none;
 
 	}
-	
+
 }
 
 /* Notification bar */
@@ -281,8 +281,7 @@ video {
 }
 
 .notify:after {
-	
-	content: ' ✕';
+content: ' ✕';
 
 }
 
@@ -297,29 +296,29 @@ video {
 }
 
 .fixed {
-	
+
 	position: fixed;
 
 }
 
 header.fixed {
-	
-	position: static;	
-	
+
+	position: static;
+
 }
 
 a[href].span-relative-parent {
-	
+
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-	
+
 }
 
 [data-animation] { // Speed up animated elements
-	
+
 	pointer-events: none;
 
 }
@@ -337,51 +336,51 @@ a[href].span-relative-parent {
 @media screen and (max-width: $screen-narrow-max) {
 
 	header {
-		
+
 		margin: 0;
-		
+
 	}
-		
+
 	.wide-screen {
-		
+
 		display: none !important;
-		
+
 	}
 
 	.narrow-screen {
-		
+
 		display: block !important;
-		
+
 	}
 
 	.viewport.header-and-banner {
-		
+
 		height: auto;
 		overflow: hidden;
-		
+
 	}
-	
+
 	header > .row:first-child div {
-		
+
 		text-align: end;
-		
+
 	}
- 		
+
 		header .head-right {
-			
+
 			text-align: start;
-		
+
 		}
-	
+
 	header.fixed {
-		
+
 		position: fixed;
 		top: 0;
 		left: 0;
 		right: 0;
 		background: #fff;
 		z-index: 7;
-	
+
 	}
 
 	header.fixed > .row {
@@ -389,42 +388,42 @@ a[href].span-relative-parent {
 		min-height: $line-height-em*2;
 
 	}
-		
+
 	header.fixed .row > * {
-		
+
 		padding: 0;
 		margin: 0;
 
 	}
-	
+
 	header.fixed a.logo {
-		
+
 		padding: .5em;
 
 	}
-	
+
 	header.fixed .logo img {
-		
+
 		height: 1.5em;
 
 	}
-	
+
 	footer .row > * {
-		
+
 		display: inline-block;
-		
+
 	}
 
 	footer .row p {
-		
+
 		margin: 0;
-		
+
 	}
-	
+
 	header a.logo {
-		
+
 		float: right;
-	
+
 	}
 
 }

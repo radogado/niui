@@ -1,5 +1,5 @@
 main > .n-sldr.vertical.tabs > .slider-nav.row {
-		
+
 // 	position: fixed;
 	top: 1em;
 	bottom: 1em;
@@ -18,60 +18,60 @@ main > .n-sldr.vertical.tabs > .slider-nav.row {
 }
 
 main > .n-sldr {
-	
+
 	min-height: 100vh;
 
 }
 
 main > .n-sldr.vertical.tabs > .slider-nav a {
-	
+
 	padding: .25em 0.5em;
 	padding-left: 0;
 	margin: .25em 0;
-	
+
 }
 
 main > .n-sldr.vertical.tabs > .slider {
-	
+
 	width: 75%;
-	
+
 }
 
 main > .n-sldr > .slider-nav a {
-	
+
 	background: none;
 	color: #333;
 
 }
 
 main > .n-sldr > .slider-nav a.active {
-	
+
 	color: lightseagreen;
 
 }
 
 .n-sldr.tabs > .slider-nav a {
-	
+
 	flex: 1 !important;
 
 
 }
 
 main > .n-sldr > .slider.vertical > .visible {
-	
+
 	height: 100vh;
-	overflow-y: auto;	
-	
+	overflow-y: auto;
+
 }
 
 main#content {
-	
+
 	padding: 0;
 
 }
 
 pre, .row > pre {
-	
+
 	padding: 0 1em;
 	color: slateblue;
 	word-wrap: initial;
@@ -81,13 +81,13 @@ pre, .row > pre {
 }
 
 .row.grid-demo pre {
-	
+
 	display: inline-block;
 
 }
 
 li pre {
-	
+
 	display: inline-block;
 	padding: 0;
 	margin: 0;
@@ -98,20 +98,20 @@ li pre {
 }
 
 .row.grid-demo b {
-	
+
 	padding: 0 1em;
 
 }
 
 .row.grid-demo > *, #slider.row .slider > * {
-	
+
 	background: lightseagreen;
-	color: #fff; 
+	color: #fff;
 
 }
 
 .row.grid-demo .row > * {
-	
+
 	background: lightcyan;
 	color: #111;
 
