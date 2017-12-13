@@ -495,6 +495,13 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 	margin: 0;
 	flex-basis: calc(var(--width) * 100% - var(--spacing)/2);
 
+/*
+	box-sizing: border-box;
+	flex-basis: calc(var(--width) * 100%);
+	border-right: 1px solid;
+	border-bottom: 1px solid;
+*/
+
 }
 
 .row.border {
