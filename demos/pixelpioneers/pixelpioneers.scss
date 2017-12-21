@@ -264,8 +264,14 @@ a.button[href].primary, input[type=submit] {
 		margin-top: -1em; 
 		position: absolute;
 		height: calc(100% + 2em);
-		margin-left: -25%;
+		margin-left: -40%;
 	 
+	}
+	
+	.speakers .pad {
+		
+		padding-left: 30%;
+
 	}
 
 	.speakers .row .row {
