@@ -3452,7 +3452,8 @@ article ul {
   padding-left: 2px; }
 
 .comments p {
-  width: 100%; }
+  width: 100%;
+  margin-bottom: 0; }
 
 .comments form textarea, .comments form input {
   margin: 0;
@@ -3513,7 +3514,7 @@ footer {
   flex-direction: column; }
 
 .comment-form p label {
-  margin-right: 1em; }
+  display: block; }
 
 nav.drop ul li a[href] {
   text-decoration: underline; }

@@ -214,6 +214,7 @@ article ul {
 .comments p {
 	
 	width: 100%;
+	margin-bottom: 0;
 
 }
 
@@ -314,7 +315,7 @@ footer { // Stick footer to the bottom
 
 .comment-form p label {
 	
-	margin-right: 1em;
+	display: block;
 		
 }
 
