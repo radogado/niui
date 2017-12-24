@@ -257,20 +257,21 @@ a.button[href].primary, input[type=submit] {
 	
 }
 
-@media (min-width: 600px) {
+@media (min-width: 900px) {
 	
 	.speakers img {
 		
 		margin-top: -1em; 
 		position: absolute;
-		height: calc(100% + 2em);
-		margin-left: -40%;
+		height: 290px;
+		margin-left: -120px;
 	 
 	}
 	
 	.speakers .pad {
 		
-		padding-left: 30%;
+		padding-left: 176px;
+		min-height: 240px;
 
 	}
 
