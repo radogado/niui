@@ -3406,12 +3406,12 @@ button.search-submit {
   display: flex;
   flex-wrap: wrap; }
 
-body.home .lightbox.gallery {
+body.home .lightbox.gallery, body.archive .lightbox.gallery {
   max-height: 20em;
   overflow: hidden;
   position: relative; }
 
-body.home .lightbox.gallery:before {
+body.home .lightbox.gallery:before, body.archive .lightbox.gallery:before {
   content: '';
   position: absolute;
   width: 100%;
@@ -3517,6 +3517,9 @@ footer {
 
 nav.drop ul li a[href] {
   text-decoration: underline; }
+
+.single h1 {
+  margin-top: .25em; }
 
 @media screen and (max-width: 599.9px) {
   .lightbox.gallery {
