@@ -687,6 +687,9 @@ form *:not(option) {
   display: inline-block;
   vertical-align: middle; }
 
+form :focus {
+  outline: auto; }
+
 input[type=submit], label, form .checkbox span, form label > span {
   line-height: 1.5;
   min-height: 1.5em; }
@@ -735,13 +738,16 @@ input, select, textarea, input[type=search], form button {
   min-height: 3em;
   border: 0;
   font-size: 1em;
-  outline: none;
   border: 1px dotted transparent;
   color: inherit; }
 
+/*
 input:focus, select:focus, textarea:focus {
-  border-color: #bbb; }
-
+	
+	border-color: #bbb;
+	
+}
+*/
 form .checkbox span {
   display: inline-block;
   font-weight: bold;
@@ -858,7 +864,6 @@ label.select:after {
 select, form .file {
   vertical-align: top;
   border: none;
-  overflow: hidden;
   margin-left: 0; }
 
 select option {
@@ -937,7 +942,6 @@ input[type=checkbox], input[type=radio] {
   padding: 0;
   border: 1px dotted transparent;
   left: 0;
-  outline: none;
   float: left;
   width: auto;
   min-height: 0;
@@ -973,21 +977,29 @@ input[type=checkbox]:focus + .checkbox-icon, input[type=radio]:focus + .checkbox
 
 }
 */
-input[type=file] {
-  position: absolute;
-  left: 0;
+.file input[type=file] {
+  /*
+  	position: absolute;
+  	left: 0;
+  */
   width: 100%;
-  margin: 0;
-  padding: 0;
+  /*
+  	margin: 0;
+  	padding: 0;
+  */
   cursor: pointer;
-  z-index: 1;
-  text-indent: -100%;
-  top: 0;
-  bottom: 0;
-  padding-left: 200%;
-  font-size: 0;
-  margin-top: 0;
-  background: transparent; }
+  border: none;
+  opacity: 0;
+  /*
+  	z-index: 1;
+  	text-indent: -100%;
+  	top: 0;
+  	bottom: 0;
+  	padding-left: 200%;
+  	font-size: 0;
+  	margin-top: 0;
+  	background: transparent;
+  */ }
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   /* IE10 */
@@ -995,29 +1007,34 @@ input[type=file] {
     margin-left: -100%; } }
 form .file {
   font-weight: normal;
-  margin: 1.5em 0;
+  margin: 0 0 1.5em 0;
   cursor: pointer;
   font-style: italic;
   padding: 0;
-  overflow: hidden;
   position: relative; }
 
 form .file span {
   text-align: start;
+  border: none;
   white-space: nowrap;
-  background: rgba(0, 0, 0, 0.1);
-  z-index: 0;
-  margin: 0;
-  width: 100%;
-  border: 1px dotted transparent;
-  padding: 0 0.75em 0 0.8em;
+  background: #ddd;
+  /*
+  	z-index: 0;
+  	margin: 0;
+  	width: 100%;
+  */
+  padding: 0 0.75em 0 0.75em;
   display: block;
-  padding-left: .75em;
   line-height: 1.5em;
-  padding-top: 0.75em; }
+  padding-top: 0.75em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
 
-input[type=file]:focus + span {
-  border-color: #bbb; }
+input[type=file]:focus + span, input[type=checkbox]:focus + .checkbox-icon, input[type=radio]:focus + .checkbox-icon {
+  outline: auto; }
 
 input[type=search] {
   -webkit-appearance: textfield;
@@ -1074,9 +1091,13 @@ form input[type=range] {
   margin: 0;
   padding: 0; }
 
+/*
 input[type=range]:focus {
-  outline: none; }
 
+	outline: none;
+
+}
+*/
 input[type=range]::-webkit-slider-runnable-track {
   width: 100%;
   height: .7125em;
@@ -1204,6 +1225,7 @@ form.wide label, form.wide label span, form.wide .checkbox span, form.wide label
 form.wide input, form.wide textarea, form.wide select {
   display: block;
   width: 100%;
+  border: none;
   margin: 0 0 1.5em 0; }
 
 form.mast label {

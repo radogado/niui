@@ -21,6 +21,12 @@ form *:not(option) { // option because of Firefox
 
 }
 
+form :focus {
+	
+	outline: auto;
+
+}
+
 input[type=submit], label, form .checkbox span, form label > span {
 	
 // 		font-size: $font-size;
@@ -103,17 +109,19 @@ input, select, textarea, input[type=search], form button {
 	border: 0;
 	font-size: 1em;
 // 	width: 100%;
-	outline: none;
+// 	outline: none;
 	border: 1px dotted transparent;
 	color: inherit;
 
 }
 
+/*
 input:focus, select:focus, textarea:focus {
 	
 	border-color: #bbb;
 	
 }
+*/
 
 form .checkbox span {
 	
@@ -296,7 +304,7 @@ select, form .file {
 
 	vertical-align: top;
 	border: none;
-	overflow: hidden;
+// 	overflow: hidden;
 	margin-left: 0;
 
 }
@@ -402,7 +410,7 @@ input[type=checkbox], input[type=radio] {
 	padding: 0;
 	border: 1px dotted transparent;
 	left: 0;
-	outline: none;
+// 	outline: none;
 	float: left;
 	width: auto;
 	min-height: 0;
@@ -455,14 +463,21 @@ input[type=checkbox]:focus + .checkbox-icon, input[type=radio]:focus + .checkbox
 
 // File input
 
-input[type=file] {
+.file input[type=file] {
 	
+/*
 	position: absolute;
 	left: 0;
+*/
 	width: 100%;
+/*
 	margin: 0;
 	padding: 0;
+*/
 	cursor: pointer;
+	border: none;
+	opacity: 0;
+/*
 	z-index: 1;
 	text-indent: -100%;
 	top: 0;
@@ -471,6 +486,7 @@ input[type=file] {
 	font-size: 0;
 	margin-top: 0;
 	background: transparent;
+*/
 
 }
 
@@ -487,12 +503,12 @@ input[type=file] {
 form .file {
 
 	font-weight: normal;
-	margin: $line-height-em 0;
+	margin: 0 0 $line-height-em 0;
 // 		margin: calc(-1*var(--line-height)/2) 0 calc(var(--line-height)/2) 0;
 	cursor: pointer;
 	font-style: italic;
 	padding: 0;
-	overflow: hidden;
+// 	overflow: hidden;
     position: relative;
 	
 }
@@ -500,23 +516,30 @@ form .file {
 form .file span {
 
 	text-align: start;
+	border: none;
 	white-space: nowrap;
-	background: rgba(0, 0, 0, 0.1);
+	background: #ddd;
+/*
 	z-index: 0;
 	margin: 0;
 	width: 100%;
-	border: 1px dotted transparent;
-	padding: 0 $line-height-em/2 0 .8em;
+*/
+	padding: 0 $line-height-em/2 0 .75em;
 	display: block;
-	padding-left: .75em;
 	line-height: $line-height-em;
 	padding-top: $line-height-em/2;
 
+	position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    
 }
 
-input[type=file]:focus + span {
+input[type=file]:focus + span, input[type=checkbox]:focus + .checkbox-icon, input[type=radio]:focus + .checkbox-icon {
 	
-	border-color: #bbb;
+	outline: auto;
 
 }
 
@@ -612,11 +635,13 @@ form input[type=range] {
 
 }
 
+/*
 input[type=range]:focus {
 
 	outline: none;
 
 }
+*/
 
 input[type=range]::-webkit-slider-runnable-track {
 
@@ -823,6 +848,7 @@ form.wide input, form.wide textarea, form.wide select {
 	
 	display: block;
 	width: 100%;
+	border: none;
 	margin: 0 0 $line-height-em 0;
 // 		margin: 0 0 calc(var(--line-height-em) / 2) 0;
 
