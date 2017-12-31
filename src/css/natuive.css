@@ -884,26 +884,24 @@ form .checkbox label:last-child {
   height: 1em;
   display: inline-block;
   background: #eee;
-  margin-top: 0;
   line-height: 1.66667;
   font-size: -0.33333em;
   text-align: center;
   color: #333;
-  margin-right: .5em;
   display: none;
-  border: 1px dotted transparent;
-  border: none; }
-
-[dir=rtl] .checkbox-icon {
-  margin: 0 0 0 .5em; }
+  border: none;
+  margin: 0;
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  top: .25em; }
 
 input[type=checkbox] + .checkbox-icon:before {
   content: '✓';
   opacity: 0;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 1em; }
+  display: block;
+  height: 1em;
+  line-height: 1; }
 
 :root .checkbox-icon {
   /* Not IE8 */
@@ -917,23 +915,18 @@ input[type=checkbox], input[type=radio] {
   -webkit-appearance: none;
   -moz-appearance: window;
   -ms-appearance: none;
-  position: absolute;
   background: transparent;
   cursor: pointer;
-  opacity: 0;
   padding: 0;
-  border: 1px dotted transparent;
-  left: 0;
-  float: left;
-  width: auto;
   min-height: 0;
-  opacity: 0;
-  margin: 0 .5em 0 -1.5em;
-  float: right; }
+  height: 1em;
+  width: 1em;
+  display: inline-block;
+  margin: 0;
+  border: none; }
 
 input[type=radio] + .checkbox-icon {
-  border-radius: 50%;
-  position: relative; }
+  border-radius: 50%; }
 
 input[type=radio]:checked + .checkbox-icon:before {
   content: '';
@@ -947,10 +940,6 @@ input[type=radio]:checked + .checkbox-icon:before {
 
 form .checkbox label:last-child {
   margin-bottom: 0; }
-
-form input[type=checkbox], form input[type=radio] {
-  width: auto;
-  margin-top: 0; }
 
 /*
 input[type=checkbox]:focus + .checkbox-icon, input[type=radio]:focus + .checkbox-icon {
@@ -1204,7 +1193,7 @@ form.wide label, form.wide label span, form.wide .checkbox span, form.wide label
   width: 100%;
   clear: both; }
 
-form.wide input, form.wide textarea, form.wide select {
+form.wide input:not([type=checkbox]):not([type=radio]), form.wide textarea, form.wide select {
   display: block;
   width: 100%;
   border: none;
