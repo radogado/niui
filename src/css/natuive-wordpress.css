@@ -1182,7 +1182,7 @@ form {
 legend {
   padding: 0 .5em; }
 
-fieldset {
+form fieldset {
   border: 1px solid;
   display: block;
   margin: 0.75em 0; }
