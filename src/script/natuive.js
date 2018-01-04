@@ -1,6 +1,8 @@
 /* natUIve by rado.bg */
 /* DOM functions via http://youmightnotneedjquery.com */
 
+var aria_expanded = 'aria-expanded';
+
 function wrapTables() {
 	
 	forEach('table', function(el) {
@@ -80,6 +82,20 @@ function toggleClass(el, className) {
     } else {
 
         addClass(el, className);
+
+    }
+
+}
+
+function toggleAttribute(el, attribute) {
+
+    if (el.getAttribute(attribute)) {
+
+        el.removeAttribute(attribute);
+
+    } else {
+
+        el.setAttribute(attribute, true);
 
     }
 
@@ -1441,21 +1457,21 @@ function toggleAccordion(e) {
 	
 	if (hasClass(el, 'horizontal')) {
 		
-		toggleClass(el, 'open');
+		toggleAttribute(el, aria_expanded);
 		
 	} else {
 	
-		if (hasClass(el, 'open')) {
+		if (el.hasAttribute(aria_expanded)) {
 	
 			animate(content, '0% { max-height: ' + content.scrollHeight + 'px; } 100% { max-height: ' + content_height + '; }', .2, function () {
 				
-				toggleClass(el, 'open'); 
+				toggleAttribute(el, aria_expanded);
 				
 			});
 			
 		} else {
 			
-			toggleClass(el, 'open');
+			toggleAttribute(el, aria_expanded);
 			animate(content, '0% { max-height: ' + content_height + '; } 100% { max-height: ' + content.scrollHeight + 'px; }');
 			
 		}
@@ -1558,7 +1574,7 @@ function closeFoldClickOutside(e) {
 		
 		forEach('.fold.mobile, .tool', function (el) { // ... closes all burger nav menus and tooltips
 			
-			removeClass(el, 'open');
+			el.removeAttribute(aria_expanded);
 			
 		});
 		
@@ -1641,9 +1657,9 @@ addEventHandler(window, 'touchend', function (e) { // Close all Fold elements wh
 	
 addEventHandler(window, 'scroll', function() {  // Close fixed n-ovrl if its scrolling becomes a window scroll. Idea by a Google mobile nav.
 	
-	if (q('.fixed-mobile .fold.mobile.open')) {
+	if (q('.fixed-mobile .fold.mobile[aria-expanded]')) {
 		
-		removeClass(q('.fixed-mobile .fold.mobile.open'), 'open');
+		q('.fixed-mobile .fold.mobile[aria-expanded]').removeAttribute(aria_expanded);
 	
 	}
 	
@@ -1903,6 +1919,7 @@ function init() {
 			if (hasClass(q('html'), 'can-touch')) {
 	
 				toggleClass(e.target, 'open');
+// 				toggleAttribute(e.target, aria_expanded);
 					
 			}
 

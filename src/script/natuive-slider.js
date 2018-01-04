@@ -628,16 +628,10 @@ function makeSlider(el, current_slide) {
 	
 	    }
 		
-		
 		// If URI #id matches a slide #id, go to that slide and scroll the page to the slider.
 		if (!current_slide && window.location.hash && el.querySelector(window.location.hash)) {
 			
 			var current_slide = thisIndex(el.querySelector(window.location.hash));
-			if (q('.n-sldr.active')) { // Make the hash-matching slider active
-	
-				removeClass(q('.n-sldr.active', 'active'));
-	
-			}
 			addClass(slider_wrap, 'active');
 			
 		} 

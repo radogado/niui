@@ -1881,7 +1881,7 @@ $bg: #1E8DaC;
   top: 50%;
   transform: translateY(-50%); }
 
-.fold.open > .label:after {
+.fold[aria-expanded] > .label:after {
   content: '▲'; }
 
 .fold.mobile {
@@ -1908,10 +1908,10 @@ $bg: #1E8DaC;
   /* hidden fold item */
   overflow: visible; }
 
-.fold.open .content {
+.fold[aria-expanded] .content {
   max-height: none; }
 
-.fold:not(.open):not(.mobile):not(.horizontal) > .content, .fold.open:not(.horizontal) input.trigger:checked ~ .content {
+.fold:not([aria-expanded]):not(.mobile):not(.horizontal) > .content, .fold[aria-expanded]:not(.horizontal) input.trigger:checked ~ .content {
   max-height: 0;
   max-height: var(--start-height, 0); }
 
@@ -1924,13 +1924,13 @@ $bg: #1E8DaC;
 .fold.horizontal > .label:after {
   content: '▶'; }
 
-.fold.horizontal.open > .label:after {
+.fold.horizontal[aria-expanded] > .label:after {
   content: '◀'; }
 
 .fold.horizontal:not(.init) > .content {
   width: 0; }
 
-.fold.horizontal.init > .content, .fold.open.horizontal > .content, .fold.horizontal > input.trigger:checked ~ .content {
+.fold.horizontal.init > .content, .fold[aria-expanded].horizontal > .content, .fold.horizontal > input.trigger:checked ~ .content {
   width: 100%; }
 
 .fold.horizontal > .content {
@@ -1951,7 +1951,7 @@ $bg: #1E8DaC;
 .fold:not(.horizontal) > input.trigger:checked ~ .content, .fold.mobile:not(.horizontal) .content {
   max-height: none; }
 
-.fold.open > input.trigger + .content {
+.fold[aria-expanded] > input.trigger + .content {
   display: inline-block; }
 
 span.burger {
@@ -1985,7 +1985,7 @@ span.burger:after {
     width: 3em;
     padding: 0; }
 
-  .fold.mobile:not(.open) .content {
+  .fold.mobile:not([aria-expanded]) .content {
     max-height: 0;
     max-width: 0; }
 
@@ -2002,7 +2002,7 @@ span.burger:after {
       top: 0;
       z-index: 2; }
 
-    header.fixed-mobile .fold.mobile.open {
+    header.fixed-mobile .fold.mobile[aria-expanded] {
       bottom: 0;
       overflow: visible; }
 
@@ -2010,7 +2010,7 @@ span.burger:after {
       padding: 0 0.375em;
       background: #fff; }
 
-    header.fixed-mobile .fold.mobile.open .content {
+    header.fixed-mobile .fold.mobile[aria-expanded] .content {
       overflow: auto;
       -webkit-overflow-scrolling: touch;
       position: fixed;
