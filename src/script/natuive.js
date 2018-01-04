@@ -563,6 +563,7 @@ function openFullWindow(el, animation) {
     addClass(wrap(el).parentNode, 'content');
     wrap(el.parentNode).parentNode.setAttribute('class', 'n-ovrl');
 	var full_window = q('.n-ovrl:last-of-type') || q('.n-ovrl');
+    full_window.querySelector('.content').setAttribute('tabindex', 0);
 	full_window.insertAdjacentHTML('beforeend', '<div class=overlay-bg></div>');
 
     if (!hasClass(el, 'headless')) {
@@ -609,6 +610,7 @@ function openFullWindow(el, animation) {
 
 	}
 	
+    full_window.querySelector('.content').focus();
     return false;
 	
 }
@@ -1918,6 +1920,13 @@ function init() {
 	
 	});
 	
+	forEach('nav.drop ul > li', function(el, i) { // Keyboard accessibility for drop nav
+		
+		el.setAttribute('tabindex', 0);
+		// Also process Enter key and set aria-expanded
+		
+	});
+
 	wrapTables();
 	
 }
@@ -1934,6 +1943,12 @@ ready( function () {
 			
 			addClass(q('.lightbox:target'), 'uri-target');
 			openLightbox(q('.lightbox:target > a[href]'));
+			
+		}
+		
+		if (q('.modal:target')) {
+			
+			q('.modal:target').click();
 			
 		}
 		

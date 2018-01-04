@@ -415,13 +415,16 @@ function slide(el, method, index_number) {
 
 function sliderKeyboard(e) {
 
-    if (typeof e === 'undefined' || hasClass(q('html'), 'sliding_now') || q('.slider.sliding')) {
+    if (typeof e === 'undefined' || hasClass(q('html'), 'sliding_now') || q('.slider.sliding') || 
+    	(e.target.nodeName !== 'BODY') // Another element (like a modal window), not the body, has the keyboard event, skip.
+		) {
 
         return;
 
     }
 
 	var el = e.target;
+
 	var tag = el.tagName.toLowerCase();
 
 	function shouldNotSlideVertically() {
@@ -537,7 +540,7 @@ function makeSlider(el, current_slide) {
 	            transferClass(slider_wrap, slider_nav, 'wrap');
 	            transferClass(el, slider_wrap, 'vertical');
 	            var tab_title = el.children[i].getAttribute('data-tab_title') || (el.children[i].querySelector('.tab-title') ? el.children[i].querySelector('.tab-title').innerHTML : i+1);
-	            slider_nav.insertAdjacentHTML('beforeend', '<a>' + tab_title + '</a>');
+	            slider_nav.insertAdjacentHTML('beforeend', '<a tabindex="0">' + tab_title + '</a>');
 
 	        } else {
 	
@@ -545,7 +548,13 @@ function makeSlider(el, current_slide) {
 	
 	        }
 	
-			slider_nav.lastChild.onclick = function(e) {
+			slider_nav.lastChild.onclick = slider_nav.lastChild.onkeyup = function(e) {
+				
+				if (e.type === 'keyup' && e.keyCode !== 13) { // Slide on Enter key
+					
+					return;
+
+				}
 				
 	            slide( // Select slider either through id or as a parent
 		            slider_nav.getAttribute('data-for') ? q('.slider#' + slider_nav.getAttribute('data-for')) : e.target,
@@ -624,6 +633,12 @@ function makeSlider(el, current_slide) {
 		if (!current_slide && window.location.hash && el.querySelector(window.location.hash)) {
 			
 			var current_slide = thisIndex(el.querySelector(window.location.hash));
+			if (q('.n-sldr.active')) { // Make the hash-matching slider active
+	
+				removeClass(q('.n-sldr.active', 'active'));
+	
+			}
+			addClass(slider_wrap, 'active');
 			
 		} 
 		endSlide(el, current_slide || 0); // Start from (other than) the first slide
