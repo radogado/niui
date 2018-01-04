@@ -416,7 +416,7 @@ function slide(el, method, index_number) {
 function sliderKeyboard(e) {
 
     if (typeof e === 'undefined' || hasClass(q('html'), 'sliding_now') || q('.slider.sliding') || 
-    	(e.target.nodeName !== 'BODY') // Another element (like a modal window), not the body, has the keyboard event, skip.
+    	(q('.n-ovrl') && !q('.n-ovrl .n-sldr.active')) // There is an overlay open and it doesn't have a slider in it
 		) {
 
         return;
