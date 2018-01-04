@@ -1847,6 +1847,11 @@
 							<ul>
 								
 								<li>Open a modal window with any content using <b>openFullWindow('Any content');</b></li>
+								<li>Modals with <pre>id</pre> matching the URI hash are opened automatically</li>
+								<li><pre>#content</pre> is recommended to avoid HTML head parts</li>
+								<li><pre>openFullWindow(HTML, '0% { … } 100% { … }')</pre> for custom animation, automatically reversed on close</li>
+								<li><pre>a.modal[data-anim]</pre> parameter specifies custom animation</li>
+								<li><pre>a.modal.limited</pre> for limited width/height modal window</pre>
 							
 							</ul>
 						
