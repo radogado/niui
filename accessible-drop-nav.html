@@ -8,6 +8,13 @@
 
 	}
 	
+	.nav.drop ul ul ul {
+		
+		transform: translateX(100%);
+		top: 0;
+
+	}
+	
 	.nav.drop li {
 		
 		display: inline-block;
@@ -64,6 +71,8 @@
 		
 	});
 	
+	// When focused on a top-level item, bottom arrow key should move focus to its first child item
+	
 </script>
 
 <h1>Keyboard-accessible drop-down navigation</h1>
@@ -74,30 +83,62 @@
 		
 		<li>
 		
-			<label>
-			
 				One
 				
 				<input type="radio" name="level-0">
 				
-				<ul> 
+				<ul>
 					
 					<li>
 					
-						One 1
-					
+							One 1
+						
+							<input type="radio" name="level-0-1">
+
+							<ul>
+								
+								<li>
+								
+									<a href=#>One 1 1</a>
+								
+								</li>
+								
+								<li>
+								
+									<a href=#>One 1 2</a>
+								
+								</li>
+								
+							</ul>
+						
 					</li>
 					
 					<li>
-					
-						One 2
-					
+						
+							One 2
+						
+							<input type="radio" name="level-0-1">
+	
+							<ul>
+								
+								<li>
+								
+									<a href=#>One 2 1</a>
+								
+								</li>
+								
+								<li>
+								
+									<a href=#>One 2 2</a>
+								
+								</li>
+								
+							</ul>
+						
 					</li>
 					
 				</ul>
 				
-			</label>
-		
 		</li>
 		
 		<li>
