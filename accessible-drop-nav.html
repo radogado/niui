@@ -1,0 +1,129 @@
+<style>
+	
+	.nav.drop ul ul {
+		
+		padding: 0;
+		position: absolute;
+		left: 0;
+
+	}
+	
+	.nav.drop li {
+		
+		display: inline-block;
+		vertical-align: top;
+		margin: 0;
+		padding: 1em;
+		
+	}
+	
+	.nav.drop li {
+		
+/* 		padding-left: 0; */
+		z-index: 0;
+		position: relative;
+		
+	}
+	
+	.nav.drop input:not(:checked) ~ ul {
+		
+		display: none;
+
+	}
+	
+	.nav.drop [type=radio] {
+		
+		-webkit-appearance: none;
+		display: block;
+		position: absolute;
+/* 		background: red; */
+		margin: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: -1;
+		background: url(images/select.png) right center no-repeat;
+					
+	}
+
+</style>
+
+<script>
+	
+	document.querySelectorAll('.nav.drop input[type=radio]').forEach ( function () {
+		
+		this.onclick = function (e) {
+			alert(e.target);
+			if (e.target.checked) {
+				
+				e.target.checked = false;
+			}
+			
+		};	
+		
+	});
+	
+</script>
+
+<h1>Keyboard-accessible drop-down navigation</h1>
+
+<div class="nav drop">
+	
+	<ul>
+		
+		<li>
+		
+			<label>
+			
+				One
+				
+				<input type="radio" name="level-0">
+				
+				<ul> 
+					
+					<li>
+					
+						One 1
+					
+					</li>
+					
+					<li>
+					
+						One 2
+					
+					</li>
+					
+				</ul>
+				
+			</label>
+		
+		</li>
+		
+		<li>
+		
+			<a href=#>Two</a>
+			
+			<input type="radio" name="level-0">
+			
+			<ul> 
+				
+				<li>
+				
+					Two 1
+				
+				</li>
+				
+				<li>
+				
+					Two 2
+				
+				</li>
+				
+			</ul>
+		
+		</li>
+		
+	</ul>
+
+</div>

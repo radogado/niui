@@ -1939,7 +1939,7 @@ function init() {
 	
 	forEach('nav.drop ul > li', function(el, i) { // Keyboard accessibility for drop nav
 		
-		el.setAttribute('tabindex', 0);
+// 		el.setAttribute('tabindex', 0);
 		// Also process Enter key and set aria-expanded
 		
 	});

@@ -1645,12 +1645,13 @@ input.trigger, input.trigger ~ input[type=reset] {
   height: 3em;
   border: 0;
   margin: 0;
-  opacity: 0;
   cursor: pointer;
   -webkit-appearance: none;
   border-radius: 0;
   z-index: 5;
-  padding: 0; }
+  padding: 0;
+  background: transparent;
+  font-size: 0; }
 
 @media screen and (max-width: 599.9px) {
   nav, nav ul {

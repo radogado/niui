@@ -392,7 +392,6 @@ nav.drop ul ul ul li, input.trigger:checked ~ input[type=reset] {
 	
 	display: block;
 	padding: 0;
-	background: #ddd;
 	
 }
 
@@ -405,12 +404,13 @@ input.trigger, input.trigger ~ input[type=reset] {
 	height: 3em;
 	border: 0;
 	margin: 0;
-	opacity: 0;
 	cursor: pointer;
 	-webkit-appearance: none;
 	border-radius: 0;
 	z-index: 5;
 	padding: 0;
+	background: transparent;
+	color: transparent;
 
 }
 
