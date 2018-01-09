@@ -1,16 +1,25 @@
 <style>
 	
+	.nav.drop :focus {
+		
+		outline: solid 2px blue;
+		outline-offset: -.4em;
+    
+	}
+	
 	.nav.drop ul ul {
 		
 		padding: 0;
 		position: absolute;
 		left: 0;
+		top: 3em;
+		background: #fff;
 
 	}
 	
 	.nav.drop ul ul ul {
 		
-		transform: translateX(100%);
+		margin-left: 100%;
 		top: 0;
 
 	}
@@ -20,8 +29,16 @@
 		display: inline-block;
 		vertical-align: top;
 		margin: 0;
-		padding: 1em;
+		padding: 0;
+		padding-right: 2em;
 		
+	}
+	
+	.nav.drop li > a {
+		
+		padding: 1em;
+		display: block;
+
 	}
 	
 	.nav.drop li {
@@ -29,7 +46,14 @@
 /* 		padding-left: 0; */
 		z-index: 0;
 		position: relative;
+		white-space: nowrap;
 		
+	}
+
+	.nav.drop li li {
+		
+		display: block;
+
 	}
 	
 	.nav.drop input:not(:checked) ~ ul {
@@ -38,9 +62,10 @@
 
 	}
 	
-	.nav.drop [type=radio] {
+	.nav.drop input {
 		
 		-webkit-appearance: none;
+		-moz-appearance: none;
 		display: block;
 		position: absolute;
 /* 		background: red; */
@@ -49,33 +74,29 @@
 		right: 0;
 		bottom: 0;
 		left: 0;
-		z-index: -1;
+		width: 100%;
 		background: url(images/select.png) right center no-repeat;
+		background-position-x: calc(100% - 1em);
 					
+	}
+
+	.nav.drop li li input {
+
+		background-image: url(images/select-right.png);
+
+	}
+
+	.nav.drop a[href] ~ input {
+
+		z-index: -1;
+
 	}
 
 </style>
 
-<script>
-	
-	document.querySelectorAll('.nav.drop input[type=radio]').forEach ( function () {
-		
-		this.onclick = function (e) {
-			alert(e.target);
-			if (e.target.checked) {
-				
-				e.target.checked = false;
-			}
-			
-		};	
-		
-	});
-	
-	// When focused on a top-level item, bottom arrow key should move focus to its first child item
-	
-</script>
-
 <h1>Keyboard-accessible drop-down navigation</h1>
+
+<a tabindex="0">Focusable before</a>
 
 <div class="nav drop">
 	
@@ -83,7 +104,7 @@
 		
 		<li>
 		
-				One
+				<a>One</a>
 				
 				<input type="radio" name="level-0">
 				
@@ -91,7 +112,7 @@
 					
 					<li>
 					
-							One 1
+							<a>One 1</a>
 						
 							<input type="radio" name="level-0-1">
 
@@ -115,7 +136,7 @@
 					
 					<li>
 						
-							One 2
+							<a>One 2</a>
 						
 							<input type="radio" name="level-0-1">
 	
@@ -123,7 +144,7 @@
 								
 								<li>
 								
-									<a href=#>One 2 1</a>
+									<a href=# tabindex="0">One 2 1</a>
 								
 								</li>
 								
@@ -143,7 +164,7 @@
 		
 		<li>
 		
-			<a href=#>Two</a>
+			<a href=# tabindex="-1">Two</a>
 			
 			<input type="radio" name="level-0">
 			
@@ -151,13 +172,13 @@
 				
 				<li>
 				
-					Two 1
+					<a href=#>Two 1</a>
 				
 				</li>
 				
 				<li>
 				
-					Two 2
+					<a href=#>Two 2</a>
 				
 				</li>
 				
@@ -168,3 +189,134 @@
 	</ul>
 
 </div>
+
+<a tabindex="0">Focusable after</a>
+
+<script>
+
+var active_item = null;	
+
+	document.querySelectorAll('.nav.drop input[name="level-0"]').forEach ( function (el) {
+		
+		el.onkeyup = el.onkeydown = el.onkeypress = function(e) {
+			
+			if (e.key === 'ArrowDown') {
+			
+				e.preventDefault();
+			
+			}
+			
+		};
+		
+	});
+	
+	document.querySelectorAll('.nav.drop input').forEach ( function (el) {
+		
+		el.addEventListener('click', function (e) {
+			
+			var el = e.target;	
+			if (el.checked && el.getAttribute('data-checked')) {
+
+				el.removeAttribute('data-checked');
+				el.checked = false;
+				
+				el.parentNode.querySelector('ul').querySelectorAll('input').forEach( function (el) {
+					
+					el.checked = false;
+					el.removeAttribute('data-checked');
+					
+				});
+				
+			} else {
+				
+				// Clear data-attribute from all other inputs
+				
+				document.querySelectorAll('input[name=' + el.name + ']').forEach( function (el) {
+					
+					el.checked = false;
+					el.removeAttribute('data-checked');
+					
+				});
+				
+				el.checked = true;
+				el.setAttribute('data-checked', 'true');
+				el.focus();
+				
+			}
+
+		});
+		
+		el.addEventListener('keyup', function (e) {
+
+			if (e.key === 'Enter') {
+	
+				el.previousElementSibling.click();
+			
+			}
+			
+		});
+		
+		el.addEventListener('keydown', function (e) {
+
+			if (e.key === 'ArrowDown') { // Focus on sub nav
+				
+				console.log(e.target.parentNode.querySelector('ul'));
+				if (e.target.parentNode.querySelector('ul').querySelector('input')) {
+					
+					e.stopPropagation();
+					e.target.parentNode.querySelector('ul').querySelector('input').focus();
+				
+				}
+// 				e.target.parentNode.querySelector('ul').querySelector('input').focus();
+				
+			}
+			
+		});
+		
+	});
+	
+	document.querySelectorAll('.nav.drop input, .nav.drop a[href]').forEach ( function (el) {
+		
+/*
+		if (el.nextElementSibling.type === 'radio') {
+			
+			el.setAttribute('tabindex', '-1');
+			
+		}
+*/
+		
+		el.addEventListener('keyup', function (e) {
+
+			if (e.key === 'Escape') {
+				
+				e.target.blur();
+				document.querySelectorAll('.nav.drop input[data-checked]').forEach ( function (el) {
+				
+					el.checked = false;
+					el.removeAttribute('data-checked');
+
+				});
+				
+			}
+
+		});
+
+	});
+
+	document.querySelector('.nav.drop li li:first-child > input').addEventListener('keydown', function (e) {
+		
+		if (e.key === 'ArrowUp') {
+
+			e.stopPropagation();
+			e.preventDefault();
+			e.target.parentNode.parentNode.parentNode.querySelector('input').focus();
+			return false;
+		
+		}
+		
+	});
+	
+	// When focused on a top-level item, bottom arrow key should move focus to its first child item
+	
+</script>
+
