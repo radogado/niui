@@ -210,40 +210,53 @@ var active_item = null;
 		
 	});
 	
+	function focusItem(e) {
+			
+		var el = e.target;	
+		if (el.checked && el.getAttribute('data-checked')) {
+
+			el.removeAttribute('data-checked');
+			el.checked = false;
+			
+			el.parentNode.querySelector('ul').querySelectorAll('input').forEach( function (el) {
+				
+				el.checked = false;
+				el.removeAttribute('data-checked');
+				
+			});
+			
+		} else {
+			
+			// Clear data-attribute from all other inputs
+			
+			document.querySelectorAll('input[name=' + el.name + ']').forEach( function (el) {
+				
+				el.checked = false;
+				el.removeAttribute('data-checked');
+				
+			});
+			
+			el.checked = true;
+			el.setAttribute('data-checked', 'true');
+			el.focus();
+			
+		}
+		
+		return false;
+
+	}
+
 	document.querySelectorAll('.nav.drop input').forEach ( function (el) {
 		
-		el.addEventListener('click', function (e) {
+		el.addEventListener('click', focusItem);
+		el.addEventListener('focus', function(e) {
 			
-			var el = e.target;	
-			if (el.checked && el.getAttribute('data-checked')) {
-
-				el.removeAttribute('data-checked');
-				el.checked = false;
+			if (!e.target.getAttribute('data-checked')) {
 				
-				el.parentNode.querySelector('ul').querySelectorAll('input').forEach( function (el) {
-					
-					el.checked = false;
-					el.removeAttribute('data-checked');
-					
-				});
-				
-			} else {
-				
-				// Clear data-attribute from all other inputs
-				
-				document.querySelectorAll('input[name=' + el.name + ']').forEach( function (el) {
-					
-					el.checked = false;
-					el.removeAttribute('data-checked');
-					
-				});
-				
-				el.checked = true;
-				el.setAttribute('data-checked', 'true');
-				el.focus();
+				focusItem(e);
 				
 			}
-
+			
 		});
 		
 		el.addEventListener('keyup', function (e) {
