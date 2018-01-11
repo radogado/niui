@@ -1634,8 +1634,7 @@ html:not(.can-touch) nav.drop ul ul li:hover ul {
 
 nav.drop ul ul ul li, input.trigger:checked ~ input[type=reset] {
   display: block;
-  padding: 0;
-  background: #ddd; }
+  padding: 0; }
 
 input.trigger, input.trigger ~ input[type=reset] {
   position: absolute;
@@ -1651,7 +1650,7 @@ input.trigger, input.trigger ~ input[type=reset] {
   z-index: 5;
   padding: 0;
   background: transparent;
-  font-size: 0; }
+  color: transparent; }
 
 @media screen and (max-width: 599.9px) {
   nav, nav ul {

@@ -748,7 +748,7 @@ function openLightbox(e) {
 			
 		}
 		
-		var slide_link = document.location.protocol + '//' + document.location.hostname + document.location.pathname + '?image=' + el.href.split('/').pop() + '#' + lightbox.getAttribute('id');
+		var slide_link = document.location.href.split('#')[0] + (document.location.href.indexOf('?') >= 0 ? '&' : '?') + 'image=' + el.href.split('/').pop() + '#' + lightbox.getAttribute('id');
 
 	    var link_element = (hasClass(lightbox,'inline') || !lightbox.getAttribute('id')) ? '' : '<a class="button copy" href=' + slide_link + '></a>';
 	    
