@@ -135,21 +135,33 @@ button.search-submit {
 
 }
 
-body.home .lightbox.gallery, body.archive .lightbox.gallery {
-	
-	max-height: 20em;
-	overflow: hidden;
-	position: relative;
+body {
 
-}
+	&.home, &.archive, &.search-results {
 
-body.home .lightbox.gallery:before, body.archive .lightbox.gallery:before {
+		.lightbox.gallery {
+			
+			max-height: 20em;
+			overflow: hidden;
+			position: relative;
+		
+		}
 	
-	content: '';
-	position: absolute;
-	width: 100%;
-	border-bottom: 1px dotted;
-	top: calc(20em - 1px);	
+	}
+
+	&.home, &.archive, &.search-results {
+
+		.lightbox.gallery:before {
+	
+			content: '';
+			position: absolute;
+			width: 100%;
+			border-bottom: 1px dotted;
+			top: calc(20em - 1px);	
+		
+		}
+	
+	}
 
 }
 
