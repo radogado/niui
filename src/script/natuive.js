@@ -1174,11 +1174,11 @@ if (!Element.prototype.matches) {
         ;
 }
 
-function closest(el, selector) { // Thanks http://gomakethings.com/ditching-jquery/
+function closest(el, target) { // Thanks http://gomakethings.com/ditching-jquery/ – Accepts either a selector string or an actual element
 
     for ( ; el && el !== document; el = el.parentNode ) {
 
-		if (el.matches(selector)) {
+		if (typeof target === 'string' ? el.matches(target) : el === target) {
 			
 			return el;
 
