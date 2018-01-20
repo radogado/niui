@@ -1438,275 +1438,549 @@ nav input.trigger, nav [for=nav-trigger] {
 }
 */
 /* nav.drop */
+/*
 nav.drop {
-  position: relative;
-  display: inline-block; }
+	
+	position: relative;
+	display: inline-block;
+
+}
 
 nav.drop * {
-  box-sizing: border-box;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  user-select: none; }
+	
+	box-sizing: border-box;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+
+}
 
 nav.drop ul {
-  display: flex;
-  flex-wrap: wrap; }
+	
+	display: flex; // No space between top-level items
+	flex-wrap: wrap;
+
+}
 
 nav.drop ul, nav.drop li {
-  margin: 0;
-  padding: 0;
-  list-style: none; }
+	
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+} 
 
 nav.drop ul li {
-  display: inline-block;
-  vertical-align: top;
-  white-space: nowrap;
-  position: relative; }
+	
+	display: inline-block;
+	vertical-align: top;
+	white-space: nowrap;
+	position: relative;
+// 	background: #fbfbfb;
+	
+}
 
 nav.drop ul li b.sub {
-  display: inline-block;
-  padding: 1em;
-  /*
-  	font-size: $font-size;
-  	font-size: 1rem;
-  */
-  line-height: 1;
-  margin-left: -.31em;
-  mix-blend-mode: multiply; }
+	
+	display: inline-block;
+	padding: 1em;
+// 	background: #fbfbfb;
+	line-height: 1;
+	margin-left: -.31em;
+	mix-blend-mode: multiply;
+
+}
 
 [dir=rtl] nav.drop ul li b.sub {
-  margin-left: 0;
-  margin-right: -.3em; }
+
+	margin-left: 0;
+	margin-right: -.3em;
+
+}
 
 nav.drop ul li li b.sub {
-  display: inline-block;
-  padding: 1em;
-  font-size: 16px;
-  font-size: 1rem;
-  background-color: #eee;
-  padding-right: 1.5em;
-  z-index: 3;
-  mix-blend-mode: normal; }
+	
+	display: inline-block;
+	padding: 1em;
+	font-size: $font-size;
+	font-size: 1rem;
+	background-color: #eee;
+	padding-right: 1.5em;
+	z-index: 3;
+	mix-blend-mode: normal;
 
+}
+	
 nav.drop ul li li b.sub:before {
-  content: '';
-  display: block;
-  position: absolute;
-  background-color: #eee;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 0; }
+	
+	content: '';
+	display: block;
+	position: absolute;
+	background-color: #eee;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 0;
+
+}
 
 nav.drop ul li li .trigger:checked ~ b.sub:before, html:not(.can-touch) nav.drop ul li li:hover b.sub:before {
-  background-color: #ddd; }
+	
+	background-color: #ddd;
+
+}
 
 nav.drop ul li li li b.sub {
-  display: inline-block;
-  padding: 1em;
-  font-size: 16px;
-  font-size: 1rem;
-  background-color: #ddd; }
+	
+	display: inline-block;
+	padding: 1em;
+	font-size: $font-size;
+	font-size: 1rem;
+	background-color: #ddd;
+
+}
 
 nav.drop ul li b.sub:after {
-  content: '▼';
-  font-size: .5em;
-  /*
-  	background: transparent url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAG0lEQVR42mNgwAfKy8v/48I4FeA0AacVDFQBAP9wJkE/KhUMAAAAAElFTkSuQmCC") no-repeat scroll center center;
-  	color: transparent;
-  */ }
+	
+	content: '▼';
+	font-size: .5em;
+
+}
 
 nav.drop ul li li b.sub:after {
-  content: '▸';
-  font-size: 1em;
-  position: absolute;
-  right: 1em; }
+	
+	content: '▸';	
+	font-size: 1em;
+	position: absolute;
+// 	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAJUlEQVR42mNgAILy8vL/DLgASBKnApgkVgXIkhgKiNKJ005s4gDLbCZBiSxfygAAAABJRU5ErkJggg==");
+	right: 1em;
+
+}
 
 nav.drop ul li a {
-  padding: 1em;
-  display: inline-block;
-  position: relative;
-  /*
-  	font-size: $font-size;
-  	font-size: 1rem;
-  */
-  line-height: 1; }
+	
+	padding: 1em;
+	display: inline-block;
+	position: relative;
+	line-height: 1;
+	
+}
 
 nav.drop ul li a[href] {
-  z-index: 5; }
 
-nav.drop ul li input ~ a[href] {
-  /* Arrow space */
-  width: calc(100% - 2.5em); }
+	z-index: 5;
+
+}
+
+nav.drop ul li input ~ a[href] { // Arrow space
+
+	width: calc(100% - 2.5em);
+
+}
 
 nav.drop ul li li a, nav.drop ul li .trigger:checked ~ a, nav.drop ul li .trigger:checked ~ b.sub {
-  background: #eee;
-  z-index: 1;
-  color: #333; }
+
+	background: #eee;
+	z-index: 1;
+	color: #333;
+
+}
 
 nav.drop ul li li a[href], nav.drop ul li .trigger:checked ~ a[href] {
-  z-index: 6;
-  text-decoration: underline; }
+	
+	z-index: 6;
+	text-decoration: underline;
 
-nav.drop ul li li li a,
-nav.drop ul li li .trigger:checked ~ a,
-nav.drop ul li li .trigger:checked ~ b.sub,
-html:not(.can-touch) nav.drop ul li:hover,
+}
+
+nav.drop ul li li li a, 
+nav.drop ul li li .trigger:checked ~ a, 
+nav.drop ul li li .trigger:checked ~ b.sub, 
+html:not(.can-touch) nav.drop ul li:hover, 
 html:not(.can-touch) nav.drop ul li li:hover a,
 nav.drop ul ul ul,
-html:not(.can-touch) nav.drop ul li li:hover ul,
-html:not(.can-touch) nav.drop ul li li:hover li {
-  background: #ddd; }
+html:not(.can-touch) nav.drop ul li li:hover ul, 
+html:not(.can-touch) nav.drop ul li li:hover li 
+{
+
+	background: #ddd;
+
+}
 
 nav.drop ul ul li {
-  display: block;
-  background: #eee; }
+	
+	display: block;
+	background: #eee;
+
+}
 
 nav.drop ul ul li, nav.drop ul ul li:first-child {
-  position: relative; }
+	
+	position: relative;
+	
+}
 
 html:not(.can-touch) nav.drop ul ul li input.trigger,
 input.trigger ~ input[type=reset], form#level1, form#level2 {
-  display: none;
-  z-index: 5; }
+	
+	display: none;
+	z-index: 5;
+	
+}
 
 nav.drop input:checked ~ input[type=reset], nav.drop input.trigger {
-  display: none; }
+	
+	display: none;
 
-@supports (--a: 1) {
-  nav.drop input:checked ~ input[type=reset], nav.drop input.trigger {
-    display: block; } }
-nav.drop ul input.trigger:checked ~ ul,
+}
+
+@supports (--a: 1) { // Because of IE11
+
+	nav.drop input:checked ~ input[type=reset], nav.drop input.trigger {
+		
+		display: block;
+	
+	}
+
+}
+
+nav.drop ul input.trigger:checked ~ ul, 
 nav.drop ul input.trigger:checked ~ div,
 nav.drop ul input.trigger:checked ~ ul input.trigger:checked ~ ul,
 html:not(.can-touch) nav.drop ul li:hover ul,
-html:not(.can-touch) nav.drop ul ul li:hover div {
-  visibility: visible;
-  z-index: 6; }
+html:not(.can-touch) nav.drop ul ul li:hover div
+{
 
-nav.drop ul ul,
-nav.drop ul ul input.trigger:checked ~ ul {
-  visibility: hidden;
-  position: absolute;
-  display: block; }
+	visibility: visible;
+	z-index: 6;
+
+}
+
+nav.drop ul ul, 
+nav.drop ul ul input.trigger:checked ~ ul
+{
+	
+	visibility: hidden;
+	position: absolute;
+	display: block;
+	
+}
 
 nav.drop input.trigger:checked ~ ul {
-  z-index: 6; }
+	
+	z-index: 6;
+	
+}
 
 nav.drop ul ul ul {
-  display: inline-block;
-  vertical-align: top;
-  left: 100%;
-  top: 0;
-  width: auto; }
+	
+	display: inline-block;
+	vertical-align: top;
+	left: 100%;
+	top: 0;
+	width: auto;
+	
+}
 
 html:not(.can-touch) nav.drop ul ul ul {
-  opacity: 0;
-  top: 0;
-  transition: 0.2s .4s; }
+	
+	opacity: 0;
+	top: 0;
+	transition: 0.2s .4s;
+	
+}
 
 html:not(.can-touch) nav.drop ul ul li:hover ul {
-  visibility: visible;
-  opacity: 1;
-  transition-delay: 0.2s;
-  z-index: 7; }
+	
+	visibility: visible;
+	opacity: 1;
+	transition-delay: 0.2s;
+	z-index: 7;
+	
+}
 
 nav.drop ul ul ul li, input.trigger:checked ~ input[type=reset] {
-  display: block;
-  padding: 0; }
+	
+	display: block;
+	padding: 0;
+	
+}
 
 input.trigger, input.trigger ~ input[type=reset] {
+	
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 3em;
+	border: 0;
+	margin: 0;
+	cursor: pointer;
+	-webkit-appearance: none;
+	border-radius: 0;
+	z-index: 5;
+	padding: 0;
+	background: transparent;
+	color: transparent;
+
+}
+
+@media screen and (max-width: $screen-narrow-max) {
+	
+	nav, nav ul {
+		
+		width: 100%;
+
+	}
+
+	nav:not(.scroll) ul li, nav li a { // Probably not needed for li
+		
+		margin: 0;
+		display: block;
+
+	}
+	
+	header nav li a {
+		
+		padding: .5em 0;
+
+	}
+		
+	nav.drop {
+		
+		width: 100%;
+		min-height: 2em;
+		text-align: left;
+		display: inline-block;
+		position: relative;
+
+	}
+	
+	nav.drop ul li {
+		
+		display: block;
+		width: 100%;
+
+	}
+	
+	nav.drop ul li a {
+		
+		white-space: normal;
+		display: block;
+
+	}
+	
+	nav.drop input.trigger:checked ~ ul ul, nav.drop input.trigger:checked ~ div ul {
+		
+		width: 100%;
+		position: relative;
+		left: 0;
+
+	}
+	
+	nav.drop ul ul {
+		
+		position: relative;
+
+	}
+	
+	html:not(.can-touch) nav.drop ul ul ul {
+		
+		opacity: 1;
+		
+	}
+	
+	html:not(.can-touch) nav.drop ul ul li {
+		
+		position: relative;
+
+	}
+	
+	nav.drop ul li b.sub {
+		
+		position: absolute;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		mix-blend-mode: initial;
+
+	}
+	
+	header nav.drop ul li a {
+		
+		width: 80%;
+		width: calc(100% - 2.5em);
+
+	}
+	
+	nav.drop ul li li li a {
+		
+		width: 100%;
+
+	}
+
+	@keyframes slidein {
+		
+		0% {
+			
+			transform: translate3d(-100%,0,0);
+			
+		} 
+		100% {
+			
+			transform: translate3d(0,0,0);
+			
+		}
+
+	}
+	
+	nav.drop ul ul, nav.drop ul .trigger:not(:checked) ~ ul, 
+	html:not(.can-touch) nav.drop ul li:hover .trigger:not(:checked) ~ ul, 
+	nav.drop ul .trigger:not(:checked) ~ div, 
+	html:not(.can-touch) nav.drop ul li:hover .trigger:not(:checked) ~ div {
+		
+		display: none;
+		
+	}
+
+	nav.drop ul .trigger:checked ~ ul, nav.drop ul .trigger:checked ~ div, 
+	html:not(.can-touch) nav.drop ul ul li input.trigger {
+		
+		display: block;
+		animation: slidein .2s 1;
+		will-change: transform;
+		
+	}
+	
+	nav.drop ul ul, nav.drop input.trigger ~ ul input.trigger:checked ~ ul {
+		
+		position: relative;
+	
+	}
+
+}
+*/
+nav.drop {
+  --nav-bg: #fff; }
+
+nav.drop :focus {
+  outline: solid 2px rgba(0, 0, 0, 0.2);
+  outline-offset: -.3em; }
+
+nav.drop ul {
+  padding: 0;
+  min-height: 0; }
+
+nav.drop ul ul {
+  padding: 0;
   position: absolute;
   left: 0;
-  top: 0;
-  width: 100%;
-  height: 3em;
-  border: 0;
+  top: 3em;
+  background: var(--nav-bg); }
+
+nav.drop ul ul ul {
+  margin-left: 100%;
+  top: 0; }
+
+nav.drop li {
+  display: inline-block;
+  vertical-align: top;
   margin: 0;
-  cursor: pointer;
-  -webkit-appearance: none;
-  border-radius: 0;
-  z-index: 5;
   padding: 0;
-  background: transparent;
-  color: transparent; }
+  box-sizing: border-box; }
 
-@media screen and (max-width: 599.9px) {
-  nav, nav ul {
-    width: 100%; }
+nav.drop li:not([tabindex]) {
+  padding-right: 2em; }
 
-  nav:not(.scroll) ul li, nav li a {
-    margin: 0;
-    display: block; }
+nav.drop li > a {
+  padding: 1em;
+  display: block; }
 
-  header nav li a {
-    padding: .5em 0; }
+nav.drop a[href] {
+  z-index: 1;
+  position: relative; }
 
-  nav.drop {
-    width: 100%;
-    min-height: 2em;
-    text-align: left;
-    display: inline-block;
-    position: relative; }
+nav.drop li {
+  position: relative; }
 
-  nav.drop ul li {
-    display: block;
-    width: 100%; }
+nav.drop li li {
+  display: block; }
 
-  nav.drop ul li a {
-    white-space: normal;
-    display: block; }
+nav.drop ul ul, nav.drop li li:not(:focus) ul {
+  max-height: 0;
+  min-height: 0;
+  visibility: hidden;
+  z-index: 2; }
 
-  nav.drop input.trigger:checked ~ ul ul, nav.drop input.trigger:checked ~ div ul {
-    width: 100%;
-    position: relative;
-    left: 0; }
+nav.drop input:checked ~ ul, nav.drop input:focus ~ ul,
+nav.drop li:focus ul, nav.drop ul ul[aria-expanded], nav.drop li li ul[aria-expanded], nav.drop li li:not(:focus) :checked ~ ul {
+  max-height: none;
+  visibility: visible;
+  opacity: 1; }
 
-  nav.drop ul ul {
-    position: relative; }
+nav.drop input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: block;
+  position: absolute;
+  margin: -4.75em 0 0 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent 75%, #000 75%) 0 0 no-repeat;
+  background-size: 1em 1em;
+  background-position: calc(100% - 1em);
+  border: none;
+  border-radius: 0; }
 
-  html:not(.can-touch) nav.drop ul ul ul {
+nav.drop li[aria-haspopup]:after {
+  content: '';
+  position: absolute;
+  right: .5em;
+  width: 1em;
+  height: 1em;
+  top: .5em;
+  background: linear-gradient(45deg, transparent 75%, #000 75%) 0 0 no-repeat;
+  background-size: 1em 1em;
+  transform: rotate(135deg); }
+
+nav.drop li li[aria-haspopup]:after {
+  right: 1em;
+  top: 1em;
+  transform: rotate(45deg); }
+
+nav.drop li[aria-haspopup] {
+  padding-right: 2em; }
+
+@media (min-width: 600px) {
+  html:not(.can-touch) nav.drop ul ul ul:not([aria-expanded]) {
+    transition: .1s .2s;
+    opacity: 0; }
+  html:not(.can-touch) nav.drop > ul > li > ul li {
+    background: var(--nav-bg); }
+  html:not(.can-touch) nav.drop > ul > li:hover > ul, html:not(.can-touch) nav.drop > ul li ul li:hover ul {
+    max-height: none;
+    visibility: visible;
     opacity: 1; }
+  html:not(.can-touch) nav.drop > ul li ul li:hover ul {
+    transition-delay: 0.2s; }
 
-  html:not(.can-touch) nav.drop ul ul li {
-    position: relative; }
+  nav.drop li {
+    white-space: nowrap; } }
+@media (max-width: 599.9px) {
+  nav.drop ul ul {
+    position: static;
+    width: calc(100% + 1.5em);
+    padding-left: .5em;
+    overflow: hidden; }
 
-  nav.drop ul li b.sub {
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    mix-blend-mode: initial; }
-
-  header nav.drop ul li a {
-    width: 80%;
-    width: calc(100% - 2.5em); }
-
-  nav.drop ul li li li a {
+  nav.drop li {
     width: 100%; }
 
-  @keyframes slidein {
-    0% {
-      transform: translate3d(-100%, 0, 0); }
-    100% {
-      transform: translate3d(0, 0, 0); } }
-  nav.drop ul ul, nav.drop ul .trigger:not(:checked) ~ ul,
-  html:not(.can-touch) nav.drop ul li:hover .trigger:not(:checked) ~ ul,
-  nav.drop ul .trigger:not(:checked) ~ div,
-  html:not(.can-touch) nav.drop ul li:hover .trigger:not(:checked) ~ div {
-    display: none; }
-
-  nav.drop ul .trigger:checked ~ ul, nav.drop ul .trigger:checked ~ div,
-  html:not(.can-touch) nav.drop ul ul li input.trigger {
-    display: block;
-    animation: slidein .2s 1;
-    will-change: transform; }
-
-  nav.drop ul ul, nav.drop input.trigger ~ ul input.trigger:checked ~ ul {
-    position: relative; } }
+  nav.drop ul ul ul {
+    margin: 0; } }
 /* natUIve – List */
 /*
 $color: #fff;

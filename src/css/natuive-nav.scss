@@ -113,6 +113,7 @@ nav input.trigger, nav [for=nav-trigger] {
 
 /* nav.drop */
 
+/*
 nav.drop {
 	
 	position: relative;
@@ -160,10 +161,6 @@ nav.drop ul li b.sub {
 	
 	display: inline-block;
 	padding: 1em;
-/*
-	font-size: $font-size;
-	font-size: 1rem;
-*/
 // 	background: #fbfbfb;
 	line-height: 1;
 	margin-left: -.31em;
@@ -225,10 +222,6 @@ nav.drop ul li b.sub:after {
 	
 	content: '▼';
 	font-size: .5em;
-/*
-	background: transparent url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAG0lEQVR42mNgwAfKy8v/48I4FeA0AacVDFQBAP9wJkE/KhUMAAAAAElFTkSuQmCC") no-repeat scroll center center;
-	color: transparent;
-*/
 
 }
 
@@ -247,10 +240,6 @@ nav.drop ul li a {
 	padding: 1em;
 	display: inline-block;
 	position: relative;
-/*
-	font-size: $font-size;
-	font-size: 1rem;
-*/
 	line-height: 1;
 	
 }
@@ -261,7 +250,7 @@ nav.drop ul li a[href] {
 
 }
 
-nav.drop ul li input ~ a[href] { /* Arrow space */
+nav.drop ul li input ~ a[href] { // Arrow space
 
 	width: calc(100% - 2.5em);
 
@@ -379,7 +368,7 @@ html:not(.can-touch) nav.drop ul ul ul {
 	
 }
 
-html:not(.can-touch) nav.drop ul ul li:hover ul/* , nav.drop ul input.trigger:checked ~ ul */ {
+html:not(.can-touch) nav.drop ul ul li:hover ul {
 	
 	visibility: visible;
 	opacity: 1;
@@ -545,6 +534,216 @@ input.trigger, input.trigger ~ input[type=reset] {
 		
 		position: relative;
 	
+	}
+
+}
+*/
+
+
+nav.drop {
+
+	--nav-bg: #fff;
+
+}
+
+nav.drop :focus {
+	
+	outline: solid 2px rgba(0,0,0,.2);
+	outline-offset: -.3em;
+
+}
+
+nav.drop ul {
+	
+	padding: 0;
+	min-height: 0;
+
+}
+
+nav.drop ul ul {
+	
+	padding: 0;
+	position: absolute;
+	left: 0;
+	top: 3em;
+	background: var(--nav-bg);
+
+}
+
+nav.drop ul ul ul {
+	
+	margin-left: 100%;
+	top: 0;
+
+}
+
+nav.drop li {
+	
+	display: inline-block;
+	vertical-align: top;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	
+}
+
+nav.drop li:not([tabindex]) {
+
+	padding-right: 2em;
+
+}
+
+nav.drop li > a {
+	
+	padding: 1em;
+	display: block;
+
+}
+
+nav.drop a[href] {
+	
+	z-index: 1;
+	position: relative;
+
+}
+
+nav.drop li {
+	
+	position: relative;
+	
+}
+
+nav.drop li li {
+	
+	display: block;
+
+}
+
+nav.drop ul ul, nav.drop li li:not(:focus) ul {
+	
+	max-height: 0;
+	min-height: 0;
+	visibility: hidden;
+	z-index: 2;
+
+}
+
+nav.drop input:checked ~ ul, nav.drop input:focus ~ ul, 
+nav.drop li:focus ul, nav.drop ul ul[aria-expanded], nav.drop li li ul[aria-expanded], nav.drop li li:not(:focus) :checked ~ ul {
+	
+	max-height: none;
+	visibility: visible;
+	opacity: 1;
+
+}
+
+nav.drop input {
+	
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	display: block;
+	position: absolute;
+	margin: -4.75em 0 0 0;
+	width: 100%; // iOS doesn't work with left/right
+	height: 100%; 
+	background: linear-gradient(45deg, transparent 75%, #000 75%) 0 0 no-repeat;
+	background-size: 1em 1em;
+	background-position: calc(100% - 1em);
+	border: none;
+	border-radius: 0;
+				
+}
+
+nav.drop li[aria-haspopup]:after {
+
+	content: '';
+	position: absolute;
+	right: .5em;
+	width: 1em;
+	height: 1em;
+	top: .5em;
+	background: linear-gradient(45deg, transparent 75%, #000 75%) 0 0 no-repeat;
+	background-size: 1em 1em;
+	transform: rotate(135deg);
+
+}
+
+nav.drop li li[aria-haspopup]:after {
+	
+	right: 1em;
+	top: 1em;
+	transform: rotate(45deg);
+
+}
+
+nav.drop li[aria-haspopup] {
+	
+	padding-right: 2em;
+				
+}
+
+@media (min-width: 600px) {
+
+	html:not(.can-touch) { // Hover rules here
+		
+		nav.drop ul ul ul:not([aria-expanded]) {
+		
+			transition: .1s .2s;
+			opacity: 0;
+		
+		}
+		
+		nav.drop > ul > li > ul li {
+			
+			background: var(--nav-bg);
+			
+		}
+
+		nav.drop > ul > li:hover > ul, nav.drop > ul li ul li:hover ul {
+			
+			max-height: none;
+			visibility: visible;
+			opacity: 1;
+			
+		}
+		
+		nav.drop > ul li ul li:hover ul {
+
+			transition-delay: 0.2s;
+
+		}
+
+	}
+
+	nav.drop li {
+		
+		white-space: nowrap;
+		
+	}
+
+}
+
+@media (max-width: 599.9px) {
+
+	nav.drop ul ul {
+		
+		position: static;
+		width: calc(100% + 1.5em);
+		padding-left: .5em;
+		overflow: hidden;
+	
+	}
+
+	nav.drop li {
+		
+		width: 100%;
+	
+	}
+
+	nav.drop ul ul ul {
+		
+		margin: 0;	
+
 	}
 
 }
