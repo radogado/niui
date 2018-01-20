@@ -15,7 +15,7 @@
 	
 }
 
-.slider.lightbox.inline > * {
+.slider.lightbox.inline > .active {
 
 	display: flex;
 	flex-direction: column;
@@ -236,7 +236,6 @@
 		content: 'Link';
 	
 	}
-
 
 .thumbnails {
 	

@@ -10,6 +10,7 @@ function wrapTables() {
 		if (!hasClass(el.parentNode, 'n-tbl')) {
 			
 			addClass(wrap(el).parentNode, 'n-tbl');
+			el.parentNode.setAttribute('tabindex', 0);
 		
 		}
 	
@@ -416,32 +417,34 @@ function populateLightboxItem(slider, i) {
 				return;
 				
 			}
-
-			toggleClass(e.target, 'zoom');
-			e.target.style.cssText = '';
-			e.target.style.setProperty('--x', '-50%');
-			e.target.style.setProperty('--y', '-50%');
-			e.target.onmousemove = function (e) {
+			
+			var el = e.target;
+			toggleClass(el, 'zoom');
+			el.style.cssText = '';
+			el.style.setProperty('--x', '-50%');
+			el.style.setProperty('--y', '-50%');
+			el.onmousemove = function (e) {
 				
 				var width = q('.n-ovrl .n-sldr').offsetWidth;
 				var height = q('.n-ovrl .n-sldr').offsetHeight;
 				
-				var overflowX = e.target.width - width;
-				var overflowY = e.target.height - height;
+				var el = e.target;
+				var overflowX = el.width - width;
+				var overflowY = el.height - height;
 
 				if (overflowX > 0) {
 	
-					e.target.style.setProperty('--x', (-1 * overflowX * e.x / width) + 'px');
-					e.target.style.left = 0;
-					e.target.style.right = 'auto';
+					el.style.setProperty('--x', (-1 * overflowX * e.x / width) + 'px');
+					el.style.left = 0;
+					el.style.right = 'auto';
 	
 				}
 				
 				if (overflowY > 0) {
 
-					e.target.style.setProperty('--y', (-1 * overflowY * e.y / height) + 'px');
-					e.target.style.top = 0;
-					e.target.style.bottom = 'auto';
+					el.style.setProperty('--y', (-1 * overflowY * e.y / height) + 'px');
+					el.style.top = 0;
+					el.style.bottom = 'auto';
 				
 				}
 
@@ -731,7 +734,7 @@ function openLightbox(e) {
     var images = '';
 	var thumbnails = [];
     forEach(lightbox.querySelectorAll('a[href]'), function(el) {
-		
+		el.setAttribute('tabindex', 0);
 	    thumbnails.push((el.querySelector('img') ? el.querySelector('img').src : '#'));
 
 		if (hasClass(el, 'video')) {
@@ -1434,7 +1437,6 @@ function toggleAccordion(e) {
 
     stopEvent(e);
     var el = closest(e.target, '.fold');
-
     var content = el.querySelector('.content');
 
 /*
@@ -1599,6 +1601,16 @@ function closeFoldClickOutside(e) {
 forEach('.fold > .label', function(el, i) {
 
     el.onclick = toggleAccordion;
+	el.setAttribute('tabindex', 0);
+	el.onkeyup = function (e) {
+
+		if (e.key === 'Enter') {
+			
+			toggleAccordion(e);
+
+		}
+		
+	};
 
     el = el.parentNode;
 	var content = el.querySelector('.content');
@@ -1718,19 +1730,57 @@ function closeDropNavClickedOutside(e) { // Close the nav when clicking outside
 	
 }
 
-function initDropNav(el) {
+function initNav(el) {
 
-	// Delete all trigger inputs, add tabindex=0 to each li
+	el.setAttribute('role', 'menubar');
+
+	el.querySelectorAll('li').forEach(function (el) {
+		
+		el.setAttribute('tabindex', 0);
 	
+		el.addEventListener('keyup', function (e) {
+			
+			if (e.key === 'Enter' && e.target.querySelector('a[href]')) {
+				
+				e.target.querySelector('a[href]').click();
+				
+			}
+			
+		});
+		
+	});
+	
+	if (!closest(el, 'nav.drop')) { // The rest is for drop nav only
+		
+		return;
+
+	}
+
 	el.querySelectorAll('input').forEach(function (el) {
 		
 		el.outerHTML = '';
 		
 	});
-	
+
 	el.querySelectorAll('li').forEach(function (el) {
 		
-		el.setAttribute('tabindex', 0); // For all nav
+		el.addEventListener('keyup', function (e) {
+		
+		// Check for sibling or children to expand on control keys Left/Right/etc
+	
+			if (e.key === 'Escape') {
+			
+				closest(e.target, 'nav.drop').querySelectorAll('ul').forEach ( function (el) {
+					
+					el.removeAttribute('aria-expanded');
+					
+				});
+				
+				q(':focus').blur();
+				
+			}
+		
+		});
 	
 		el.addEventListener('focus', function (e) {
 	
@@ -1757,31 +1807,11 @@ function initDropNav(el) {
 			
 		});
 	
-		el.addEventListener('keyup', function (e) { // For all nav
-			
-			if (e.key === 'Enter' && e.target.querySelector('a[href]')) {
-				
-				e.target.querySelector('a[href]').click();
-				
-			}
-			
-		});
-		
 		if (el.querySelector('ul')) {
 	
 			el.setAttribute('aria-haspopup', true);
 		
 		}
-	
-	/*
-		if (el.querySelector('a')) {
-	
-			el.querySelector('a').setAttribute('tabindex', -1);
-		
-		}
-	*/
-	
-	// parent blurs, child focuses, script hides child
 	
 		el.addEventListener('blur', function (e) {
 			
@@ -1829,26 +1859,6 @@ function initDropNav(el) {
 	
 	}
 	
-	el.addEventListener('keyup', function (e) { // For all nav
-		
-		// Check for sibling or children to expand on control keys Left/Right/etc
-	
-		if (e.key === 'Escape') {
-			
-			closest(e.target, 'nav.drop').querySelectorAll('ul').forEach ( function (el) {
-				
-				el.removeAttribute('aria-expanded');
-				
-			});
-			
-			q(':focus').blur();
-			
-		}
-		
-	});
-	
-	el.querySelector('ul').setAttribute('role', 'menubar'); // For all nav
-
 }
 
 /* Initialise JS-powered elements */
@@ -2032,7 +2042,8 @@ function init() {
 		} else {
 			
 			forEach(el.querySelectorAll('a'), function(el) {
-		
+
+				el.setAttribute('tabindex', 0);
 			    el.onclick = openLightbox;
 			
 			});
@@ -2076,9 +2087,9 @@ function init() {
 	
 	wrapTables();
 	
-	document.querySelectorAll('nav.drop > ul:not([role])').forEach( function (el) { // To do: for all nav, not only nav.drop
+	document.querySelectorAll('nav > ul:not([role])').forEach( function (el) {
 		
-		initDropNav(el);
+		initNav(el);
 		
 	});
 

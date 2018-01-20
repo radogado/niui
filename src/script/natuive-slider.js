@@ -25,6 +25,12 @@ q('html').setAttribute('data-slide_duration', 0.5);
 
 function sliderElement(e) { // Get the active slider instance
 
+	if (q('.n-sldr:focus-within')) {
+		
+		return q('.n-sldr:focus-within').querySelector('.slider');
+
+	}
+
     var el = e.target;
 
     if (hasClass(el, 'n-sldr')) {
@@ -525,7 +531,7 @@ function makeSlider(el, current_slide) {
 		
 		}
 		
-	    container.insertAdjacentHTML('beforeend', '<a class="slider-arrow left"></a><a class="slider-arrow right"></a>');
+	    container.insertAdjacentHTML('beforeend', '<a class="slider-arrow left" tabindex=0></a><a class="slider-arrow right" tabindex=0></a>');
 	
 		var slider_wrap = closest(el, '.n-sldr');
 	
@@ -544,7 +550,7 @@ function makeSlider(el, current_slide) {
 
 	        } else {
 	
-	            slider_nav.insertAdjacentHTML('beforeend', '<a>' + (i + 1) + '</a>');
+	            slider_nav.insertAdjacentHTML('beforeend', '<a tabindex=0>' + (i + 1) + '</a>');
 	
 	        }
 	
@@ -564,19 +570,36 @@ function makeSlider(el, current_slide) {
 	        };
 	        
 	        cancelTouchEvent(slider_nav.lastChild);
-	
+	        
+	        if (el.children[i].querySelector('video')) { // Because tabbing scrolls to video and breaks the slider. To do: allow focusing video when it's in the active slide.
+	        
+		        el.children[i].querySelector('video').setAttribute('tabindex', -1);
+	        
+	        }
+	        
 	    }
 	
-	    container.querySelector('.slider-arrow').onclick = function(e) {
+	    container.querySelector('.slider-arrow').onclick = container.querySelector('.slider-arrow').onkeyup = function(e) {
 	
+			if (e.type === 'keyup' && e.keyCode !== 13) { // Slide on Enter key
+				
+				return;
+
+			}
+
 	        slide(e.target, 'left');
 	
 	    };
 	    
 	    cancelTouchEvent(container.querySelector('.slider-arrow'));
 	
-	    container.querySelector('.slider-arrow.right').onclick = function(e) {
+	    container.querySelector('.slider-arrow.right').onclick = container.querySelector('.slider-arrow.right').onkeyup = function(e) {
 	
+			if (e.type === 'keyup' && e.keyCode !== 13) { // Slide on Enter key
+				
+				return;
+
+			}
 	        slide(e.target, 'right');
 	
 	    };
