@@ -439,8 +439,11 @@ function sliderKeyboard(e) {
 		return !hasClass(el,'vertical') || window.innerHeight < q('body').scrollHeight;
 		
 	}
-
-	if (tag !== 'input' && tag !== 'textarea' && (el = q('.n-ovrl .slider') || q('.n-sldr.active .slider') || q('.slider'))) { // Priority: full window slider, active slider, first slider
+console.log(el.scrollWidth <= el.clientWidth);
+	if (tag !== 'input' && tag !== 'textarea' && 
+		(q(':focus') === el ? (el.scrollWidth <= el.clientWidth) : true) &&
+		(el = q('.n-ovrl .slider') || q('.n-sldr.active .slider') || q('.slider'))
+		) { // Priority: full window slider, active slider, first slider
         switch (e.which) {
 
             case 38:
