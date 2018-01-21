@@ -439,7 +439,7 @@ function sliderKeyboard(e) {
 		return !hasClass(el,'vertical') || window.innerHeight < q('body').scrollHeight;
 		
 	}
-console.log(el.scrollWidth <= el.clientWidth);
+
 	if (tag !== 'input' && tag !== 'textarea' && 
 		(q(':focus') === el ? (el.scrollWidth <= el.clientWidth) : true) &&
 		(el = q('.n-ovrl .slider') || q('.n-sldr.active .slider') || q('.slider'))
