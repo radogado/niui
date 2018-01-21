@@ -43,14 +43,14 @@
 
 }
 
-.n-sldr.vertical.tabs > .slider { // Floats, because flex version is glitching when tab stack is taller than the slider. To do: fix flex version.
+.vertical.tabs > .slider { // Floats, because flex version is glitching when tab stack is taller than the slider. To do: fix flex version.
 
 	width: 75%;
     float: right;
 
 }
 
-.n-sldr.vertical.tabs > .slider-nav.row {
+.vertical.tabs > .slider-nav.row {
 	
 	width: 25%;
 	float: left;
@@ -59,19 +59,19 @@
 
 }
 
-.n-sldr.vertical.tabs.right > .slider {
+.vertical.tabs.right > .slider {
 
     float: left;
 
 }
 
-.n-sldr.vertical.tabs.right > .slider-nav.row {
+.vertical.tabs.right > .slider-nav.row {
 	
 	float: right;
 
 }
 
-.n-sldr.vertical.tabs > .slider-nav a {
+.vertical.tabs > .slider-nav a {
 	
 	display: block;
 	box-sizing: border-box;
@@ -130,7 +130,7 @@
 
 }
 	
-.n-sldr .slider {
+.slider {
 	
 	overflow: visible;
 	// Fix Safari bug where 1px of previous slide is visible during slide
@@ -168,28 +168,28 @@
 	
 }
 
-.n-sldr .slider.vertical {
+.slider.vertical {
 	
 	overflow: hidden;
 	overflow-y: scroll;
 
 }
 
-.n-sldr .slider.vertical {
+.slider.vertical {
 	
 	overflow: visible;
 	flex-direction: column;
 
 }
 
-.n-sldr .slider.vertical > *, .n-sldr .slider.sliding > *:not(.active), .n-sldr.tabs > .slider-arrow {
+.slider.vertical > *, .slider.sliding > *:not(.active), .n-sldr.tabs > .slider-arrow {
 
 	height: auto;
 	display: none;
 
 }
 
-.n-sldr .slider::-webkit-scrollbar {
+.slider::-webkit-scrollbar {
 
 	height: auto;
 	display: none;
@@ -204,7 +204,7 @@
 	
 }
 
-.n-sldr .slider > *:not(.active) {
+.slider > *:not(.active) {
 
 // 	display: none; // Only display .active slides. Because if slider has transforms (showing only current slide while others are still in the flow), there are problems with its children of position fixed etc. Breaks non-auto height sliders, can't set to height to the tallest slide. Make it with margin-left after the animation is done.
 	display: inline-block;
@@ -409,7 +409,7 @@
 	}
 */
 	
-	.n-sldr .slider.vertical > .active, .vertical > .slider-nav a {
+	.slider.vertical > .active, .vertical > .slider-nav a {
 		
 		display: block;
 		overflow: visible;
@@ -431,7 +431,7 @@
 		
 	}
 
-	.n-sldr.tabs > .slider-nav.row {
+	.tabs > .slider-nav.row {
 		
 		padding: 0;
 		margin: 0;
@@ -439,12 +439,14 @@
 
 	}
 
+/*
 	.n-sldr.tabs > .slider-nav a:focus {
 		
 		outline: solid 2px rgba(0,0,0,.2);
 		outline-offset: -.1em;
 	
 	}
+*/
 	
 	.full-window .n-sldr.tabs > .slider-nav {
 		
@@ -466,11 +468,12 @@
 		border-radius: 0;
 		line-height: $line-height;
 // 		line-height: var(--line-height);
-		padding: 0 .5em;
+		padding: .5em;
 		-webkit-flex: 1;
 		flex: 1;
 		margin: 0;
 		white-space: normal;
+		outline-offset: -5px;
 	
 	}
 

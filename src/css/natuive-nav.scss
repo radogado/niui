@@ -40,6 +40,7 @@ nav {
 		    max-width: 100%;
 		    transform: translate3d(0, 0, 0); // Safari macOS bug fix when using scrollbars: Not working initially.
 		    -webkit-overflow-scrolling: touch;
+		    padding: .25em 0;
 	
 		}
 	
@@ -103,6 +104,7 @@ nav.drop {
 
 }
 
+/*
 nav.drop, nav.scroll {
 	
 	:focus {
@@ -113,6 +115,7 @@ nav.drop, nav.scroll {
 	}
 
 }
+*/
 
 nav.drop ul {
 	
@@ -145,7 +148,14 @@ nav.drop li {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	position: relative;
 	
+}
+
+nav.drop li:focus {
+	
+	z-index: 2;
+
 }
 
 nav.drop li:not([tabindex]) {
@@ -166,12 +176,6 @@ nav.drop a[href] {
 	z-index: 1;
 	position: relative;
 
-}
-
-nav.drop li {
-	
-	position: relative;
-	
 }
 
 nav.drop li li {

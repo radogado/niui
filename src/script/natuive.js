@@ -555,6 +555,8 @@ function closeFullWindow() {
 			}
 			
 		   	q('html').style.pointerEvents = 'initial';
+		   	
+		   	window.previouslyFocused.focus();
 				
 		});
 
@@ -563,8 +565,8 @@ function closeFullWindow() {
 }
 
 function openFullWindow(el, animation) {
-
-//	closeFullWindow();
+	
+	window.previouslyFocused = q(':focus');
 	
    	q('html').style.pointerEvents = 'none';
 	var offset_top = q('html').getBoundingClientRect().top;

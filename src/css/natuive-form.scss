@@ -21,11 +21,13 @@ form *:not(option) { // option because of Firefox
 
 }
 
+/*
 form :focus {
 	
 	outline: auto;
 
 }
+*/
 
 input[type=submit], label, form .checkbox span, form label > span {
 	
@@ -461,6 +463,7 @@ input[type=checkbox]:focus + .checkbox-icon, input[type=radio]:focus + .checkbox
 	cursor: pointer;
 	border: none;
 	opacity: 0;
+	margin: 0;
 /*
 	z-index: 1;
 	text-indent: -100%;
@@ -521,7 +524,7 @@ form .file span {
     
 }
 
-input[type=file]:focus + span, input[type=checkbox]:focus + .checkbox-icon, input[type=radio]:focus + .checkbox-icon {
+input[type=file]:focus + span {
 	
 	outline: auto;
 
