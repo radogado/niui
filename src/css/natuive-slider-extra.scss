@@ -215,6 +215,12 @@
 
 }
 
+.slider.vertical > *:not(.active) {
+	
+	display: none;
+
+}
+
 .n-ovrl .slider > * {
 	
 	padding: 0;
