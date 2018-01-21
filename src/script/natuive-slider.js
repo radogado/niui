@@ -571,12 +571,6 @@ function makeSlider(el, current_slide) {
 	        
 	        cancelTouchEvent(slider_nav.lastChild);
 	        
-	        if (el.children[i].querySelector('video')) { // Because tabbing scrolls to video and breaks the slider. To do: allow focusing video when it's in the active slide.
-	        
-		        el.children[i].querySelector('video').setAttribute('tabindex', -1);
-	        
-	        }
-	        
 	    }
 	
 	    container.querySelector('.slider-arrow').onclick = container.querySelector('.slider-arrow').onkeyup = function(e) {

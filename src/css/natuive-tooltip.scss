@@ -32,7 +32,7 @@
 
 }
 
-.tool.open:after {
+.tool[aria-expanded]:after {
 	
 	content: '✕';
 
@@ -63,7 +63,7 @@
 
 }
 
-.tool.open .tip, html:not(.can-touch) .tool:hover .tip {
+.tool[aria-expanded] .tip, html:not(.can-touch) .tool:hover .tip {
 	
 	opacity: 1;
 	visibility: visible;

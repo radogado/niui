@@ -1439,21 +1439,10 @@ function toggleAccordion(e) {
     var el = closest(e.target, '.fold');
     var content = el.querySelector('.content');
 
-/*
-    if (!animationSupport()) { // Browsers without animation support
-
-	    toggleClass(el, 'open');
-	    return;
-	    
-    }
-*/
-
 	content.style.setProperty('--width', content.scrollWidth + 'px');
 	content.style.setProperty('--max-height', content.scrollHeight + 'px');
 
 	var content_height = content.style.getPropertyValue('--start-height') || 0;
-	
-// 	toggleClass(el, 'open');
 	
 	// Animation, not CSS, because of nested accordions
 	
@@ -1737,6 +1726,12 @@ function initNav(el) {
 	el.querySelectorAll('li').forEach(function (el) {
 		
 		el.setAttribute('tabindex', 0);
+		
+		if (el.querySelector('a')) { // Avoid double tabbing
+			
+			el.querySelector('a').setAttribute('tabindex', -1);
+
+		}
 	
 		el.addEventListener('keyup', function (e) {
 			
@@ -2064,12 +2059,7 @@ function init() {
 		
 		el.onclick = function (e) {
 
-			if (hasClass(q('html'), 'can-touch')) {
-	
-				toggleClass(e.target, 'open');
-// 				toggleAttribute(e.target, aria_expanded);
-					
-			}
+			toggleAttribute(closest(e.target, '.tool'), aria_expanded);
 
 		};		
 	
@@ -2082,6 +2072,28 @@ function init() {
 	    t.style.top = (t.parentNode.offsetTop + t.parentNode.offsetHeight) + 'px';
 	    t.style.width = '100%';
 */
+
+		var label = el.querySelector('.label');
+		if (label) {
+			
+			label.setAttribute('tabindex', 0);
+			label.onkeyup = function (e) {
+				
+				if (e.key === 'Enter') {
+					
+					toggleAttribute(closest(e.target, '.tool'), 'aria-expanded');
+
+				}
+				
+			}
+
+			label.onblur = function (e) {
+				
+				closest(e.target, '.tool').removeAttribute('aria-expanded');
+
+			}
+
+		}
 	
 	});
 	

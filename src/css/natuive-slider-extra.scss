@@ -208,6 +208,10 @@
 
 // 	display: none; // Only display .active slides. Because if slider has transforms (showing only current slide while others are still in the flow), there are problems with its children of position fixed etc. Breaks non-auto height sliders, can't set to height to the tallest slide. Make it with margin-left after the animation is done.
 	display: inline-block;
+	
+	// Disable focusing elements by tab key in inactive slides
+	visibility: hidden;
+	pointer-events: none;
 
 }
 
@@ -391,6 +395,7 @@
 		
 	}
 	
+/*
 	.n-sldr:not(.vertical) .slider-nav a:first-child {
 		
 		margin-left: 0;
@@ -402,6 +407,7 @@
 		margin-right: 0;
 		
 	}
+*/
 	
 	.n-sldr .slider.vertical > .active, .vertical > .slider-nav a {
 		
@@ -431,6 +437,13 @@
 		margin: 0;
 		width: auto;
 
+	}
+
+	.n-sldr.tabs > .slider-nav a:focus {
+		
+		outline: solid 2px rgba(0,0,0,.2);
+		outline-offset: -.1em;
+	
 	}
 	
 	.full-window .n-sldr.tabs > .slider-nav {
