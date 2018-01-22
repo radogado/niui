@@ -29,7 +29,7 @@ wrapTables();
 
 		return;
 
-	} else { // Doesn't support ES5, going CSS-only
+	} else { // ES5 unsupported, going CSS-only
 	
 	  noSuchFunction();
 	  return;
@@ -51,14 +51,6 @@ function addClass(el, className) {
 }
 
 /* To do: Convert to Prototype functions: el.addClass('class'); instead of addClass(el, 'class'); */
-/*
-Element.prototype.addClassPrototype = function (className) { // Not working with an array of elements
-	
-	this.classList.add(className);
-
-};
-
-*/
 
 function removeClass(el, className) {
 
@@ -211,12 +203,6 @@ function thisIndex(el) {
 
     return (count);
 
-/*
-    var nodes = el.parentNode.childNodes;
-
-	return nodes.indexOf(el);
-*/
-
 }
 
 function getCookie(k) { // Thanks Simon Steinberger
@@ -224,14 +210,6 @@ function getCookie(k) { // Thanks Simon Steinberger
 	var v = document.cookie.match('(^|;) ?'+k+'=([^;]*)(;|$)');return v?v[2]:null;
 
 }
-
-/*
-function touchSupport () { // Not working properly
-	
-	return (('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
-
-}
-*/
 
 function q(selector) {
 
@@ -1518,7 +1496,7 @@ function loadScriptFile(file_name) {
 */
 
 // Real time touch detection to support devices with both touch and mouse. http://www.javascriptkit.com/dhtmltutors/sticky-hover-issue-solutions.shtml
-
+// To do: use an attribtue instead of class
 ;(function(){
 
     var isTouch = false; //var to indicate current input type (is touch versus no touch) 
@@ -1709,11 +1687,11 @@ forEach('[data-threshold]', function(el) { // Set a variable reflecting how much
 
 function closeDropNavClickedOutside(e) { // Close the nav when clicking outside
 	
-	if (!closest(e.target, 'nav.drop li')) {
+	if (!closest(e.target, 'nav li')) {
 
-		document.querySelectorAll('nav.drop ul').forEach ( function (el) {
+		qa('nav ul').forEach ( function (el) {
 			
-			el.removeAttribute('aria-expanded');
+			el.removeAttribute(aria_expanded);
 			
 		});
 		
@@ -1723,24 +1701,14 @@ function closeDropNavClickedOutside(e) { // Close the nav when clicking outside
 
 function initNav(el) {
 
+// Note: Safari needs alt+Tab in order to cycle through all the nav items. To do: fix. Chrome and Firefox are fine.
+
 	el.setAttribute('role', 'menubar');
 
 	el.querySelectorAll('li').forEach(function (el) {
 		
 		var anchor = el.querySelector('a');
 		anchor.setAttribute('tabindex', 0);
-		
-/*
-		el.addEventListener('keyup', function (e) {
-			
-			if (e.key === 'Enter' && e.target.querySelector('a[href]')) {
-				
-				e.target.querySelector('a[href]').click();
-				
-			}
-			
-		});
-*/
 		
 	});
 	
@@ -1750,7 +1718,7 @@ function initNav(el) {
 
 	}
 
-	el.querySelectorAll('input').forEach(function (el) {
+	el.querySelectorAll('input').forEach(function (el) { // Remove obsolete CSS-only inputs
 		
 		el.outerHTML = '';
 		
@@ -1764,10 +1732,10 @@ function initNav(el) {
 	
 			var el = e.target;
 	
-			el.parentNode.parentNode.setAttribute('aria-expanded', true);
+			el.parentNode.parentNode.setAttribute(aria_expanded, true);
 			if (el.parentNode.querySelector('ul')) {
 	
-				el.parentNode.querySelector('ul').setAttribute('aria-expanded', 'true');
+				el.parentNode.querySelector('ul').setAttribute(aria_expanded, 'true');
 	
 			}
 			
@@ -1777,7 +1745,7 @@ function initNav(el) {
 	
 				if (el !== current_item && el.nodeName === 'LI' && el.querySelector('ul')) {
 	
-					el.querySelector('ul').removeAttribute('aria-expanded');
+					el.querySelector('ul').removeAttribute(aria_expanded);
 				
 				}
 				
@@ -1791,14 +1759,6 @@ function initNav(el) {
 		
 		}
 	
-	/*
-		if (el.querySelector('a')) {
-	
-			el.querySelector('a').setAttribute('tabindex', -1);
-		
-		}
-	*/
-	
 		el.addEventListener('click', function (e) {
 			
 			if (e.target.querySelector('a')) {
@@ -1809,17 +1769,15 @@ function initNav(el) {
 		
 		});
 
-	// parent blurs, child focuses, script hides child
-	
 		anchor.addEventListener('blur', function (e) {
 
-			var this_nav = closest(e.target, 'nav.drop');
+			var this_nav = closest(e.target, 'nav');
 			
 			if (!closest(e.relatedTarget, this_nav)) { // if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
 	
 				this_nav.querySelectorAll('ul').forEach ( function (el) {
 					
-					el.removeAttribute('aria-expanded');
+					el.removeAttribute(aria_expanded);
 					
 				});
 				return;
@@ -1831,7 +1789,7 @@ function initNav(el) {
 			var target_parent = closest(el, '[aria-haspopup]');
 			target_parent.querySelectorAll('ul[aria-expanded]').forEach(function (el) { // Disable active grandchildren
 
-				el.removeAttribute('aria-expanded');
+				el.removeAttribute(aria_expanded);
 
 			});
 
@@ -1840,7 +1798,7 @@ function initNav(el) {
 				el.parentNode.parentNode.nodeName === 'LI' && // of third-level nav
 				!el.parentNode.parentNode.nextElementSibling) {
 					
-					el.parentNode.parentNode.parentNode.removeAttribute('aria-expanded');
+					el.parentNode.parentNode.parentNode.removeAttribute(aria_expanded);
 			
 			}
 
@@ -1862,13 +1820,13 @@ function initNav(el) {
 	
 		if (e.key === 'Escape') {
 			
-			closest(e.target, 'nav.drop').querySelectorAll('ul').forEach ( function (el) {
+			closest(e.target, 'nav').querySelectorAll('ul').forEach ( function (el) {
 				
-				el.removeAttribute('aria-expanded');
+				el.removeAttribute(aria_expanded);
 				
 			});
 			
-			document.querySelector(':focus').blur();
+			q(':focus').blur();
 			
 		}
 		
@@ -2101,7 +2059,7 @@ function init() {
 				
 				if (e.key === 'Enter') {
 					
-					toggleAttribute(closest(e.target, '.tool'), 'aria-expanded');
+					toggleAttribute(closest(e.target, '.tool'), aria_expanded);
 
 				}
 				
@@ -2109,7 +2067,7 @@ function init() {
 
 			label.onblur = function (e) {
 				
-				closest(e.target, '.tool').removeAttribute('aria-expanded');
+				closest(e.target, '.tool').removeAttribute(aria_expanded);
 
 			}
 
@@ -2119,7 +2077,7 @@ function init() {
 	
 	wrapTables();
 	
-	document.querySelectorAll('nav > ul:not([role])').forEach( function (el) {
+	qa('nav > ul:not([role])').forEach( function (el) {
 		
 		initNav(el);
 		

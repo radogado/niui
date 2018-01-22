@@ -104,19 +104,6 @@ nav.drop {
 
 }
 
-/*
-nav.drop, nav.scroll {
-	
-	:focus {
-	
-		outline: solid 2px rgba(0,0,0,.2);
-		outline-offset: -.3em;
-
-	}
-
-}
-*/
-
 nav.drop ul {
 	
 	padding: 0;
@@ -148,17 +135,11 @@ nav.drop li {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	position: relative;
+	background: var(--nav-bg);
 	
 }
 
-nav.drop li:focus {
-	
-	z-index: 2;
-
-}
-
-nav.drop li:not([tabindex]) {
+nav.drop li[aria-haspopup]:not([tabindex]) {
 
 	padding-right: 2em;
 
@@ -171,17 +152,28 @@ nav.drop li > a {
 
 }
 
+nav.drop a:focus, nav.drop li > :focus {
+
+	outline-offset: -7px;
+
+}
+
 nav.drop a[href] {
 	
-// 	z-index: 1;
 	position: relative;
 
 }
 
-nav.drop a:focus {
+nav.drop li:not([aria-haspopup]) a {
+	
+    margin-right: 1em;	
+	
+}
 
-	outline-offset: -6px;
-
+nav.drop li {
+	
+	position: relative;
+	
 }
 
 nav.drop li li {
@@ -199,17 +191,22 @@ nav.drop ul ul:not([aria-expanded]) {
 
 }
 
-nav.drop input:checked ~ ul, nav.drop input:focus ~ ul, 
+nav.drop ul li > :checked ~ ul, nav.drop :focus ~ ul, 
 nav.drop a:focus ~ ul, nav.drop ul ul[aria-expanded], nav.drop li li ul[aria-expanded], nav.drop li li:not(:focus) :checked ~ ul {
 	
 	max-height: none;
 	overflow: visible;
 	opacity: 1;
-	z-index: 1;
 
 }
 
-nav.drop input {
+nav.drop ul ul[aria-expanded], nav.drop li li ul[aria-expanded], nav.drop li li:not(:focus) :checked ~ ul {
+
+	z-index: 1; // Problem with CSS-only input method
+
+}
+
+nav.drop li > input {
 	
 	-webkit-appearance: none;
 	-moz-appearance: none;
