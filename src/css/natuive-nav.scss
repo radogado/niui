@@ -173,8 +173,14 @@ nav.drop li > a {
 
 nav.drop a[href] {
 	
-	z-index: 1;
+// 	z-index: 1;
 	position: relative;
+
+}
+
+nav.drop a:focus {
+
+	outline-offset: -6px;
 
 }
 
@@ -184,7 +190,7 @@ nav.drop li li {
 
 }
 
-nav.drop ul ul, nav.drop li li:not(:focus) ul {
+nav.drop ul ul:not([aria-expanded]) {
 	
 	min-height: 0;
 	max-height: 0;
@@ -194,11 +200,12 @@ nav.drop ul ul, nav.drop li li:not(:focus) ul {
 }
 
 nav.drop input:checked ~ ul, nav.drop input:focus ~ ul, 
-nav.drop li:focus ul, nav.drop ul ul[aria-expanded], nav.drop li li ul[aria-expanded], nav.drop li li:not(:focus) :checked ~ ul {
+nav.drop a:focus ~ ul, nav.drop ul ul[aria-expanded], nav.drop li li ul[aria-expanded], nav.drop li li:not(:focus) :checked ~ ul {
 	
 	max-height: none;
 	overflow: visible;
 	opacity: 1;
+	z-index: 1;
 
 }
 

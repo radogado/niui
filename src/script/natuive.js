@@ -1727,14 +1727,10 @@ function initNav(el) {
 
 	el.querySelectorAll('li').forEach(function (el) {
 		
-		el.setAttribute('tabindex', 0);
+		var anchor = el.querySelector('a');
+		anchor.setAttribute('tabindex', 0);
 		
-		if (el.querySelector('a')) { // Avoid double tabbing
-			
-			el.querySelector('a').setAttribute('tabindex', -1);
-
-		}
-	
+/*
 		el.addEventListener('keyup', function (e) {
 			
 			if (e.key === 'Enter' && e.target.querySelector('a[href]')) {
@@ -1744,6 +1740,7 @@ function initNav(el) {
 			}
 			
 		});
+*/
 		
 	});
 	
@@ -1761,38 +1758,22 @@ function initNav(el) {
 
 	el.querySelectorAll('li').forEach(function (el) {
 		
-		el.addEventListener('keyup', function (e) {
-		
-		// Check for sibling or children to expand on control keys Left/Right/etc
-	
-			if (e.key === 'Escape') {
-			
-				closest(e.target, 'nav.drop').querySelectorAll('ul').forEach ( function (el) {
-					
-					el.removeAttribute('aria-expanded');
-					
-				});
-				
-				q(':focus').blur();
-				
-			}
-		
-		});
-	
-		el.addEventListener('focus', function (e) {
+		var anchor = el.querySelector('a');
+
+		anchor.addEventListener('focus', function (e) {
 	
 			var el = e.target;
 	
-			el.parentNode.setAttribute('aria-expanded', true);
-			if (el.querySelector('ul')) {
+			el.parentNode.parentNode.setAttribute('aria-expanded', true);
+			if (el.parentNode.querySelector('ul')) {
 	
-				el.querySelector('ul').setAttribute('aria-expanded', 'true');
+				el.parentNode.querySelector('ul').setAttribute('aria-expanded', 'true');
 	
 			}
 			
-			var current_item = e.target;
+			var current_item = e.target.parentNode;
 	
-			current_item.parentNode.childNodes.forEach(function (el) {
+			current_item.parentNode.parentNode.childNodes.forEach(function (el) {
 	
 				if (el !== current_item && el.nodeName === 'LI' && el.querySelector('ul')) {
 	
@@ -1810,13 +1791,33 @@ function initNav(el) {
 		
 		}
 	
-		el.addEventListener('blur', function (e) {
+	/*
+		if (el.querySelector('a')) {
+	
+			el.querySelector('a').setAttribute('tabindex', -1);
+		
+		}
+	*/
+	
+		el.addEventListener('click', function (e) {
 			
+			if (e.target.querySelector('a')) {
+
+				e.target.querySelector('a').focus();
+			
+			}
+		
+		});
+
+	// parent blurs, child focuses, script hides child
+	
+		anchor.addEventListener('blur', function (e) {
+
 			var this_nav = closest(e.target, 'nav.drop');
 			
-			if (!closest(e.relatedTarget, this_nav)) { // if next focused item is in this nav, not any nav.drop. if e.relatedTarget is a child of this_nav
+			if (!closest(e.relatedTarget, this_nav)) { // if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
 	
-				document.querySelectorAll('nav.drop ul').forEach ( function (el) {
+				this_nav.querySelectorAll('ul').forEach ( function (el) {
 					
 					el.removeAttribute('aria-expanded');
 					
@@ -1825,24 +1826,23 @@ function initNav(el) {
 				
 			}
 	
-			// If it's the last child of the last child of a top-level nav item which isn't the last child
+			// Close neighboring parent nav's sub navs
 			var el = e.target;
-			if (!el.nextElementSibling && 
-				el.parentNode.parentNode.nodeName === 'LI' && 
-				!el.parentNode.parentNode.nextElementSibling && 
-				el.parentNode.parentNode.parentNode.parentNode.nodeName === 'LI' && 
-				el.parentNode.parentNode.parentNode.parentNode.nextElementSibling !== null) {
-					
-					el.removeAttribute('aria-expanded');
-					el.parentNode.removeAttribute('aria-expanded');
-			
-			}
-				
-			el.querySelectorAll('ul ul[aria-expanded]').forEach(function (el) { // Disable active grandchildren
+			var target_parent = closest(el, '[aria-haspopup]');
+			target_parent.querySelectorAll('ul[aria-expanded]').forEach(function (el) { // Disable active grandchildren
 
 				el.removeAttribute('aria-expanded');
 
 			});
+
+			var el = e.target.parentNode;
+			if (!el.nextElementSibling && // last item
+				el.parentNode.parentNode.nodeName === 'LI' && // of third-level nav
+				!el.parentNode.parentNode.nextElementSibling) {
+					
+					el.parentNode.parentNode.parentNode.removeAttribute('aria-expanded');
+			
+			}
 
 		});
 		
@@ -1856,6 +1856,24 @@ function initNav(el) {
 	
 	}
 	
+	el.addEventListener('keyup', function (e) {
+		
+		// Check for sibling or children to expand on control keys Left/Right/etc
+	
+		if (e.key === 'Escape') {
+			
+			closest(e.target, 'nav.drop').querySelectorAll('ul').forEach ( function (el) {
+				
+				el.removeAttribute('aria-expanded');
+				
+			});
+			
+			document.querySelector(':focus').blur();
+			
+		}
+		
+	});
+
 }
 
 /* Initialise JS-powered elements */
