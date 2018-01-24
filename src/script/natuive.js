@@ -1686,14 +1686,20 @@ forEach('[data-threshold]', function(el) { // Set a variable reflecting how much
 });
 
 function closeDropNavClickedOutside(e) { // Close the nav when clicking outside
-	
+
 	if (!closest(e.target, 'nav li')) {
 
-		qa('nav ul').forEach ( function (el) {
+		document.querySelectorAll('nav ul').forEach ( function (el) {
 			
-			el.removeAttribute(aria_expanded);
+			el.removeAttribute('aria-expanded');
 			
 		});
+		
+		if (document.querySelector('nav :focus')) {
+
+			document.querySelector('nav :focus').blur();
+		
+		}
 		
 	}
 	
@@ -1701,41 +1707,50 @@ function closeDropNavClickedOutside(e) { // Close the nav when clicking outside
 
 function initNav(el) {
 
-// Note: Safari needs alt+Tab in order to cycle through all the nav items. To do: fix. Chrome and Firefox are fine.
-
+	// Delete all trigger inputs, add tabindex=0 to each li
+	
+	el.querySelectorAll('input').forEach(function (el) {
+		
+		el.outerHTML = '';
+		
+	});
+	
 	el.setAttribute('role', 'menubar');
 
 	el.querySelectorAll('li').forEach(function (el) {
 		
-		var anchor = el.querySelector('a');
-		anchor.setAttribute('tabindex', 0);
-		
+		el.querySelector('a').setAttribute('tabindex', 0);
+
 	});
-	
+
 	if (!closest(el, 'nav.drop')) { // The rest is for drop nav only
 		
 		return;
 
 	}
 
-	el.querySelectorAll('input').forEach(function (el) { // Remove obsolete CSS-only inputs
-		
-		el.outerHTML = '';
-		
-	});
-
 	el.querySelectorAll('li').forEach(function (el) {
 		
 		var anchor = el.querySelector('a');
 
 		anchor.addEventListener('focus', function (e) {
-	
+
 			var el = e.target;
 	
-			el.parentNode.parentNode.setAttribute(aria_expanded, true);
+			// If a main item is focused, hide all sub items from the other main items. To do: fix error when there's no open sub nav
+
+/*
+			if (el.parentNode.parentNode.getAttribute('role')) {
+				
+				closest(el, 'nav').querySelector('ul[aria-expanded]').removeAttribute('aria-expanded');
+				
+			}
+*/
+
+			el.parentNode.parentNode.setAttribute('aria-expanded', true);
 			if (el.parentNode.querySelector('ul')) {
 	
-				el.parentNode.querySelector('ul').setAttribute(aria_expanded, 'true');
+				el.parentNode.querySelector('ul').setAttribute('aria-expanded', 'true');
 	
 			}
 			
@@ -1745,11 +1760,13 @@ function initNav(el) {
 	
 				if (el !== current_item && el.nodeName === 'LI' && el.querySelector('ul')) {
 	
-					el.querySelector('ul').removeAttribute(aria_expanded);
+					el.querySelector('ul').removeAttribute('aria-expanded');
 				
 				}
 				
 			});
+			
+			
 			
 		});
 	
@@ -1759,8 +1776,8 @@ function initNav(el) {
 		
 		}
 	
-		el.addEventListener('click', function (e) {
-			
+		el.addEventListener('touchend', function (e) {
+
 			if (e.target.querySelector('a')) {
 
 				e.target.querySelector('a').focus();
@@ -1769,46 +1786,45 @@ function initNav(el) {
 		
 		});
 
+	// parent blurs, child focuses, script hides child
+	
 		anchor.addEventListener('blur', function (e) {
 
 			var this_nav = closest(e.target, 'nav');
-			
 			if (!closest(e.relatedTarget, this_nav)) { // if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
-	
+				
 				this_nav.querySelectorAll('ul').forEach ( function (el) {
-					
-					el.removeAttribute(aria_expanded);
+
+					el.removeAttribute('aria-expanded');
 					
 				});
 				return;
 				
 			}
-	
 			// Close neighboring parent nav's sub navs
 			var el = e.target;
 			var target_parent = closest(el, '[aria-haspopup]');
 			target_parent.querySelectorAll('ul[aria-expanded]').forEach(function (el) { // Disable active grandchildren
 
-				el.removeAttribute(aria_expanded);
+				el.removeAttribute('aria-expanded');
 
 			});
 
-			var el = e.target.parentNode;
+			el = e.target.parentNode;
 			if (!el.nextElementSibling && // last item
 				el.parentNode.parentNode.nodeName === 'LI' && // of third-level nav
 				!el.parentNode.parentNode.nextElementSibling) {
 					
-					el.parentNode.parentNode.parentNode.removeAttribute(aria_expanded);
+					el.parentNode.parentNode.parentNode.removeAttribute('aria-expanded');
 			
 			}
-
+			
 		});
 		
 	});
-	
+
 	if (!window.closeDropNavClickedOutsideEnabled) {
 		
-		window.addEventListener('click', closeDropNavClickedOutside);
 		window.addEventListener('touchend', closeDropNavClickedOutside);
 		window.closeDropNavClickedOutsideEnabled = true;
 	
@@ -1822,16 +1838,16 @@ function initNav(el) {
 			
 			closest(e.target, 'nav').querySelectorAll('ul').forEach ( function (el) {
 				
-				el.removeAttribute(aria_expanded);
+				el.removeAttribute('aria-expanded');
 				
 			});
 			
-			q(':focus').blur();
+			document.querySelector(':focus').blur();
 			
 		}
 		
 	});
-
+	
 }
 
 /* Initialise JS-powered elements */
