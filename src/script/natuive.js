@@ -1706,7 +1706,7 @@ function closeDropNavClickedOutside(e) { // Close the nav when clicking outside
 }
 
 function initNav(el) {
-
+	
 	// Delete all trigger inputs, add tabindex=0 to each li
 	
 	el.querySelectorAll('input').forEach(function (el) {
@@ -1737,15 +1737,25 @@ function initNav(el) {
 
 			var el = e.target;
 	
-			// If a main item is focused, hide all sub items from the other main items. To do: fix error when there's no open sub nav
+			// Close focused third level child when focus moves to another top-level item
+			
+			el = closest(el, 'nav > ul > li');
+			
+			el.parentNode.childNodes.forEach( function (a) {
 
-/*
-			if (el.parentNode.parentNode.getAttribute('role')) {
+				if (a.nodeName === 'LI' && a !== el) {
 				
-				closest(el, 'nav').querySelector('ul[aria-expanded]').removeAttribute('aria-expanded');
+					a.querySelectorAll('[aria-expanded]').forEach( function (el) {
+						
+						el.removeAttribute('aria-expanded');
+						
+					});
 				
-			}
-*/
+				}
+				
+			});
+			
+			el = e.target;
 
 			el.parentNode.parentNode.setAttribute('aria-expanded', true);
 			if (el.parentNode.querySelector('ul')) {
@@ -1801,7 +1811,7 @@ function initNav(el) {
 				return;
 				
 			}
-			// Close neighboring parent nav's sub navs
+			// Close neighboring parent nav's sub navs.
 			var el = e.target;
 			var target_parent = closest(el, '[aria-haspopup]');
 			target_parent.querySelectorAll('ul[aria-expanded]').forEach(function (el) { // Disable active grandchildren

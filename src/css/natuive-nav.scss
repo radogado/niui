@@ -177,7 +177,7 @@ nav.drop li:not([aria-haspopup]) > a {
 nav.drop ul[role=menubar] li > a {
 	
     margin-right: 0;
-	padding-right: 1em;
+    padding-right: 1em;
 	
 }
 
@@ -275,6 +275,15 @@ nav.drop li[aria-haspopup] {
 			opacity: 1;
 			z-index: 2;
 			
+		}
+		
+		nav.drop > ul > li:hover > input:not(:checked) ~ ul, nav.drop > ul li ul li:hover input:not(:checked) ~ ul {
+			
+			min-height: 0;
+			max-height: 0;
+			overflow: hidden;
+			z-index: 1;
+
 		}
 		
 		nav.drop > ul li ul li:hover ul {
