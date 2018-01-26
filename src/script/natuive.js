@@ -1689,15 +1689,15 @@ function closeDropNavClickedOutside(e) { // Close the nav when clicking outside
 
 	if (!closest(e.target, 'nav li')) {
 
-		document.querySelectorAll('nav ul').forEach ( function (el) {
+		qa('nav ul').forEach ( function (el) {
 			
 			el.removeAttribute('aria-expanded');
 			
 		});
 		
-		if (document.querySelector('nav :focus')) {
+		if (q('nav :focus')) {
 
-			document.querySelector('nav :focus').blur();
+			q('nav :focus').blur();
 		
 		}
 		
@@ -1852,7 +1852,7 @@ function initNav(el) {
 				
 			});
 			
-			document.querySelector(':focus').blur();
+			q(':focus').blur();
 			
 		}
 		
