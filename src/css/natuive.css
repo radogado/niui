@@ -1517,6 +1517,9 @@ nav.drop li > input, nav.drop li[aria-haspopup] {
   background-repeat: no-repeat;
   background-position: calc(100% - 16px) 1.5em; }
 
+nav.drop li > input {
+  background-position-y: 2.4em; }
+
 nav.drop li li > input, nav.drop li li[aria-haspopup] {
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAALElEQVR4AWMAAmaiMJQoAeK1xCr8DcVrCSpEwyUEFGJqoJrCEoKeoTx4iMEALSggYbbu0bQAAAAASUVORK5CYII="); }
 
