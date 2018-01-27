@@ -1844,13 +1844,26 @@ function initNav(el) {
 		el.addEventListener('touchend', function (e) {
 
 			e.preventDefault();
+			e.stopPropagation();
+			
+			var el = e.target;
+			
+			if (el.nodeName === 'LI') {
+				
+				el = el.querySelector('a');
+				
+			}
+			
+			if (el === document.activeElement) {
 
-			if (e.target.querySelector('a')) {
+				el.blur();
 
-				e.target.querySelector('a').focus();
+			} else {
+			
+				el.focus();
 			
 			}
-		
+				
 		});
 
 		var anchor = el.querySelector('a');
