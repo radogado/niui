@@ -308,9 +308,10 @@ nav.drop li[aria-haspopup] {
 	nav.drop ul ul {
 		
 		position: static;
-		width: calc(100% + 1.5em);
+		width: calc(100% + 42px);
 		padding-left: .5em;
 		overflow: hidden;
+		box-sizing: border-box;
 	
 	}
 
