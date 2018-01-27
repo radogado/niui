@@ -1507,7 +1507,8 @@ nav.drop li li {
 nav.drop ul ul:not([aria-expanded]) {
   min-height: 0;
   max-height: 0;
-  overflow: hidden; }
+  overflow: hidden;
+  position: absolute; }
 
 nav.drop ul li > :checked ~ ul, nav.drop :focus ~ ul,
 nav.drop a:focus ~ ul, nav.drop ul ul[aria-expanded], nav.drop li li ul[aria-expanded], nav.drop li li:not(:focus) :checked ~ ul {
@@ -1532,7 +1533,7 @@ nav.drop li > input {
 nav.drop li > input, nav.drop li[aria-haspopup] {
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAPUlEQVR4AY3MgQUAMBBD0ZKVs9ZNWOihJY5EwweerB5+epAphdVtUylEgJiw7JtC8woHKYgJYr4lyJuDuQMkSiBhTevZ/AAAAABJRU5ErkJggg==");
   background-repeat: no-repeat;
-  background-position: calc(100% - 16px) 1.25em; }
+  background-position: calc(100% - 16px) 1.5em; }
 
 nav.drop li li > input, nav.drop li li[aria-haspopup] {
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAALElEQVR4AWMAAmaiMJQoAeK1xCr8DcVrCSpEwyUEFGJqoJrCEoKeoTx4iMEALSggYbbu0bQAAAAASUVORK5CYII="); }
@@ -1543,7 +1544,8 @@ nav.drop li[aria-haspopup] {
 @media (min-width: 600px) {
   html:not(.can-touch) nav.drop ul ul ul:not([aria-expanded]) {
     transition: .1s .2s;
-    opacity: 0; }
+    opacity: 0;
+    position: absolute; }
   html:not(.can-touch) nav.drop > ul > li > ul li {
     background-color: var(--nav-bg); }
   html:not(.can-touch) nav.drop > ul > li:hover > ul, html:not(.can-touch) nav.drop > ul li ul li:hover ul, html:not(.can-touch) nav.drop ul ul :checked ~ ul:not([aria-expanded]) {
@@ -1555,7 +1557,8 @@ nav.drop li[aria-haspopup] {
     min-height: 0;
     max-height: 0;
     overflow: hidden;
-    z-index: 1; }
+    z-index: 1;
+    position: absolute; }
   html:not(.can-touch) nav.drop > ul li ul li:hover ul {
     transition-delay: 0.2s; }
 

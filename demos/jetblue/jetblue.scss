@@ -200,6 +200,7 @@ header nav.drop ul li b.sub {
 nav.drop ul ul {
 
 	flex-direction: column;	
+	padding: 0;
 	
 }
 
@@ -673,12 +674,20 @@ input[type=text].search {
 		margin: 0;
 		
 	}
+	
+	header nav ul.inline li {
+		
+		background: #fff;
 
+	}
+
+/*
 	nav.drop ul ul li, nav.drop ul ul li:first-child {
 		
 		margin-left: 1rem;
 		
 	}
+*/
 	
 	nav.drop input:checked ~ input[type=reset] {
 		

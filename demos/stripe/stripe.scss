@@ -187,6 +187,12 @@ header nav a[href] {
     background: #a1ffc8
 }
 
+nav.drop li {
+	
+	background-color: transparent;
+
+}
+
 @media (min-width:670px) {
     #stripes span {
         height: 150px
@@ -593,6 +599,7 @@ nav.drop ul li li a {
 		
 		display: block;
 		text-align: right;
+		position: absolute;
 		
 	}
 	
@@ -603,11 +610,13 @@ nav.drop ul li li a {
 		
 	}
 
+/*
 	header nav a[href] {
 		
 		color: #000;
 	
 	}
+*/
 
 }
 

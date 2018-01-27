@@ -62,6 +62,7 @@ header nav ul li a[href] {
 	
 	color: #333;
 	line-height: 1;
+	padding: 0;
 
 }
 
@@ -133,6 +134,7 @@ header nav.drop ul li a, nav.drop ul li b.sub, header .top nav ul li a[href], he
 	text-transform: uppercase;
 	font-weight: bold;
 	color: $brown;
+	display: inline-block;
 
 }
 
@@ -187,6 +189,7 @@ header .top input[type=search] {
 	padding: .7em .5em;
 	width: 7em;
 	transition: width .2s ease-in-out;
+	text-align: end;
 
 }
 
@@ -214,6 +217,12 @@ header .row.logo nav, header .row.logo nav ul {
 	
 	width: 100%;
 
+}
+
+header .row.logo nav ul {
+	
+	padding: 0 .75em;
+	
 }
 
 header .row.logo nav ul li + li a {
@@ -253,7 +262,7 @@ nav.drop ul li b.sub:after {
 
 .banner {
 	
-	height: 33em;
+	min-height: 33em;
 
 }
 
@@ -596,7 +605,7 @@ form .checkbox, form .checkbox label:first-of-type {
 	
 	background: none;
 	border-right: 1px solid;
-	line-height: 1;
+	line-height: 1.5;
 	margin-right: 1rem;
 	padding-right: 1rem
 	
@@ -608,7 +617,7 @@ ul.inline li {
 
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 599.9px) {
 
 	.n-sldr.tabs>.slider-nav a {
 		
@@ -636,23 +645,16 @@ ul.inline li {
 		
 	}
 	
+	header form {
+	
+		display: block;
+
+	}
+
 	nav.drop {
 		
 		width: auto;
 
-	}
-	
-	header nav.drop {
-		
-		float: left;
-
-	}
-	
-	header .row.logo nav ul li:first-child {
-		
-		display: block;
-		margin-bottom: 1em;
-		
 	}
 	
 	header .row.logo nav ul li+li a {
@@ -665,7 +667,7 @@ ul.inline li {
 
 	.banner {
 		
-		height: 47em;
+		min-height: 47em;
 	
 	}
 	
@@ -691,6 +693,18 @@ ul.inline li {
 		
 		background: #fff;
 		
+	}
+
+	header .row.logo nav ul li:last-child {
+		
+		margin-top: 0;
+	
+	}
+	
+	.row:not(.half) {
+		
+		overflow: hidden;
+
 	}
 
 }

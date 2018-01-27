@@ -319,7 +319,7 @@ input[type=submit] {
 
 }
 
-nav input[type=reset], nav input.trigger, nav input.trigger.burger, nav.drop > ul input.trigger {
+nav input[type=reset], nav input.trigger, nav input.trigger.burger {
 	
 	display: none;
 
@@ -370,7 +370,7 @@ nav.drop {
 		
 	}
 	
-	input:checked ~ input[type=reset], input.trigger {
+	li > input {
 		
 		background: url(../images/0.png);
 		background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO
@@ -395,7 +395,7 @@ nav.drop {
 		background: #ddd;
 	
 	}
-
+	
 }
 
 .header-and-banner.viewport {
