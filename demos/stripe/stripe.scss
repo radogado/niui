@@ -563,7 +563,13 @@ main ul {
 		
 }
 
-@media screen and (max-width: 640px) {
+nav.drop ul li li a {
+
+	color: #000;	
+
+}
+
+@media screen and (max-width: 599.9px) {
 	
 	header.fixed, header.fixed .fold.mobile .content {
 		
@@ -595,6 +601,12 @@ main ul {
 		padding: 0;
 		margin: 0;
 		
+	}
+
+	header nav a[href] {
+		
+		color: #000;
+	
 	}
 
 }

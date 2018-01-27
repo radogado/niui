@@ -183,11 +183,23 @@ nav a {
 
 }
 
+nav.drop li[aria-haspopup] {
+	
+	background-position: calc(100% - .75em) 1.75em;
+	
+}
+
 header nav.drop ul li b.sub {
 	
 	margin: 0;
 	mix-blend-mode: normal;
 	color: transparent;
+	
+}
+
+nav.drop ul ul {
+
+	flex-direction: column;	
 	
 }
 
@@ -654,7 +666,7 @@ input[type=text].search {
 
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 599.9px) {
 	
 	nav.drop ul li {
 		
@@ -706,6 +718,12 @@ input[type=text].search {
 		
 		margin: 1em;
 		width: calc(100% - 2em);
+	
+	}
+
+	nav.drop ul {
+		
+		display: block;
 	
 	}
 

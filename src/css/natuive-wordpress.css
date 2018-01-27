@@ -1530,8 +1530,9 @@ nav.drop li > input {
   border-radius: 0; }
 
 nav.drop li > input, nav.drop li[aria-haspopup] {
-  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAPUlEQVR4AY3MgQUAMBBD0ZKVs9ZNWOihJY5EwweerB5+epAphdVtUylEgJiw7JtC8woHKYgJYr4lyJuDuQMkSiBhTevZ/AAAAABJRU5ErkJggg==") right center no-repeat;
-  background-position-x: calc(100% - .75em); }
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAPUlEQVR4AY3MgQUAMBBD0ZKVs9ZNWOihJY5EwweerB5+epAphdVtUylEgJiw7JtC8woHKYgJYr4lyJuDuQMkSiBhTevZ/AAAAABJRU5ErkJggg==");
+  background-repeat: no-repeat;
+  background-position: calc(100% - .75em) 1.25em; }
 
 nav.drop li li > input, nav.drop li li[aria-haspopup] {
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAALElEQVR4AWMAAmaiMJQoAeK1xCr8DcVrCSpEwyUEFGJqoJrCEoKeoTx4iMEALSggYbbu0bQAAAAASUVORK5CYII="); }

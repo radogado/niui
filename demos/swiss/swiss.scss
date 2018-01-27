@@ -43,9 +43,11 @@ header {
 	
 }
 
-header nav a {
+header nav.drop ul li a {
 	
 	font-size: 1.5em;
+	padding-top: .5em;
+    padding-bottom: .5em;
 
 }
 
@@ -82,11 +84,13 @@ form.wide input {
 
 }
 
+/*
 header form {
 
 	margin-top: -3px;
 
 }
+*/
 
 form input[type=submit] {
 	
@@ -123,12 +127,18 @@ header nav ul {
 header nav.drop ul li a, nav.drop ul li b.sub, header .top nav ul li a[href], header .top input[type=search] {
 	
 	font-size: .7rem;
-	padding: 0 .5em;
+	padding: .5em;
 	background: none;
 	min-height: 0;
 	text-transform: uppercase;
 	font-weight: bold;
 	color: $brown;
+
+}
+
+nav.drop li[aria-haspopup] {
+	
+	background-position: calc(100% - .75em) .5em;
 
 }
 
