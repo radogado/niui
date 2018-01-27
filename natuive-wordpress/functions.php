@@ -537,19 +537,9 @@ function new_nav_menu($items) {
 	$DOM->preserveWhiteSpace = false;
 	
 	foreach ($DOM->getElementsByTagName('ul') as $ul) {
-	    $a = $DOM->createElement('b');
-	    $a->setAttribute('class', 'sub');
+	    $a = $DOM->createElement('input');
+	    $a->setAttribute('type', 'checkbox');
 	    $ul->parentNode->insertBefore($a, $ul);
-
-	    $input = $DOM->createElement('input');
-	    $input->setAttribute('type', 'reset'); $input->setAttribute('form', 'level1');
-
-		$ul->parentNode->insertBefore($input, $ul->parentNode->firstChild);
-
-	    $input = $DOM->createElement('input');
-	    $input->setAttribute('class', 'trigger'); $input->setAttribute('type', 'radio'); $input->setAttribute('name', 'level1'); $input->setAttribute('form', 'level1');
-
-		$ul->parentNode->insertBefore($input, $ul->parentNode->firstChild);
 
 /*
 	    $input = $DOM->createElement('input');
@@ -584,7 +574,6 @@ function new_nav_menu($items) {
 
 				<div class=content> 
     				<nav class=drop> 
-    					<form id="level1"> </form> <form id="level2"> </form> 
     					<ul>' . $items . '</ul>
     				</nav>
     			</div>
