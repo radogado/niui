@@ -1685,23 +1685,102 @@ forEach('[data-threshold]', function(el) { // Set a variable reflecting how much
 
 });
 
+/* Drop nav */
+
 function closeDropNavClickedOutside(e) { // Close the nav when clicking outside
 
 	if (!closest(e.target, 'nav li')) {
 
-		qa('nav ul').forEach ( function (el) {
+		document.querySelectorAll('nav ul').forEach ( function (el) {
 			
 			el.removeAttribute('aria-expanded');
 			
 		});
 		
-		if (q('nav :focus')) {
+		if (document.querySelector('nav :focus')) {
 
-			q('nav :focus').blur();
+			document.querySelector('nav :focus').blur();
 		
 		}
 		
 	}
+	
+}
+
+function dropNavBlur(e) {
+
+	var this_nav = closest(e.target, 'nav');
+	
+	if (!closest(e.relatedTarget, this_nav)) { // if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
+		
+		this_nav.querySelectorAll('ul').forEach ( function (el) {
+
+			el.removeAttribute('aria-expanded');
+			
+		});
+		return;
+		
+	}
+	// Close neighboring parent nav's sub navs.
+	var el = e.target;
+	var target_parent = closest(el, '[aria-haspopup]');
+	target_parent.querySelectorAll('ul[aria-expanded]').forEach(function (el) { // Disable active grandchildren
+
+		el.removeAttribute('aria-expanded');
+
+	});
+
+	el = e.target.parentNode;
+	if (!el.nextElementSibling && // last item
+		el.parentNode.parentNode.nodeName === 'LI' && // of third-level nav
+		!el.parentNode.parentNode.nextElementSibling) {
+			
+			el.parentNode.parentNode.parentNode.removeAttribute('aria-expanded');
+	
+	}
+	
+}
+		
+function dropNavFocus(e) {
+
+	// Close focused third level child when focus moves to another top-level item
+	
+	var el = closest(e.target, 'nav > ul > li');
+	
+	el.parentNode.childNodes.forEach( function (a) {
+
+		if (a.nodeName === 'LI' && a !== el) {
+		
+			a.querySelectorAll('[aria-expanded]').forEach( function (el) {
+				
+				el.removeAttribute('aria-expanded');
+				
+			});
+		
+		}
+		
+	});
+	
+	el = e.target;
+
+	el.parentNode.parentNode.setAttribute('aria-expanded', true);
+	if (el.parentNode.querySelector('ul')) {
+
+		el.parentNode.querySelector('ul').setAttribute('aria-expanded', 'true');
+
+	}
+	
+	var current_item = e.target.parentNode;
+
+	current_item.parentNode.parentNode.childNodes.forEach(function (el) {
+
+		if (el !== current_item && el.nodeName === 'LI' && el.querySelector('ul')) {
+
+			el.querySelector('ul').removeAttribute('aria-expanded');
+		
+		}
+		
+	});
 	
 }
 
@@ -1729,110 +1808,6 @@ function initNav(el) {
 
 	}
 
-	el.querySelectorAll('li').forEach(function (el) {
-		
-		var anchor = el.querySelector('a');
-
-		anchor.addEventListener('focus', function (e) {
-
-			var el = e.target;
-	
-			// Close focused third level child when focus moves to another top-level item
-			
-			el = closest(el, 'nav > ul > li');
-			
-			el.parentNode.childNodes.forEach( function (a) {
-
-				if (a.nodeName === 'LI' && a !== el) {
-				
-					a.querySelectorAll('[aria-expanded]').forEach( function (el) {
-						
-						el.removeAttribute('aria-expanded');
-						
-					});
-				
-				}
-				
-			});
-			
-			el = e.target;
-
-			el.parentNode.parentNode.setAttribute('aria-expanded', true);
-			if (el.parentNode.querySelector('ul')) {
-	
-				el.parentNode.querySelector('ul').setAttribute('aria-expanded', 'true');
-	
-			}
-			
-			var current_item = e.target.parentNode;
-	
-			current_item.parentNode.parentNode.childNodes.forEach(function (el) {
-	
-				if (el !== current_item && el.nodeName === 'LI' && el.querySelector('ul')) {
-	
-					el.querySelector('ul').removeAttribute('aria-expanded');
-				
-				}
-				
-			});
-			
-			
-			
-		});
-	
-		if (el.querySelector('ul')) {
-	
-			el.setAttribute('aria-haspopup', true);
-		
-		}
-	
-		el.addEventListener('touchend', function (e) {
-
-			if (e.target.querySelector('a')) {
-
-				e.target.querySelector('a').focus();
-			
-			}
-		
-		});
-
-	// parent blurs, child focuses, script hides child
-	
-		anchor.addEventListener('blur', function (e) {
-
-			var this_nav = closest(e.target, 'nav');
-			if (!closest(e.relatedTarget, this_nav)) { // if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
-				
-				this_nav.querySelectorAll('ul').forEach ( function (el) {
-
-					el.removeAttribute('aria-expanded');
-					
-				});
-				return;
-				
-			}
-			// Close neighboring parent nav's sub navs.
-			var el = e.target;
-			var target_parent = closest(el, '[aria-haspopup]');
-			target_parent.querySelectorAll('ul[aria-expanded]').forEach(function (el) { // Disable active grandchildren
-
-				el.removeAttribute('aria-expanded');
-
-			});
-
-			el = e.target.parentNode;
-			if (!el.nextElementSibling && // last item
-				el.parentNode.parentNode.nodeName === 'LI' && // of third-level nav
-				!el.parentNode.parentNode.nextElementSibling) {
-					
-					el.parentNode.parentNode.parentNode.removeAttribute('aria-expanded');
-			
-			}
-			
-		});
-		
-	});
-
 	if (!window.closeDropNavClickedOutsideEnabled) {
 		
 		window.addEventListener('touchend', closeDropNavClickedOutside);
@@ -1852,12 +1827,40 @@ function initNav(el) {
 				
 			});
 			
-			q(':focus').blur();
+			document.querySelector(':focus').blur();
 			
 		}
 		
 	});
 	
+	el.querySelectorAll('li').forEach(function (el) {
+		
+		if (el.querySelector('ul')) {
+	
+			el.setAttribute('aria-haspopup', true);
+		
+		}
+	
+		el.addEventListener('touchend', function (e) {
+
+			e.preventDefault();
+
+			if (e.target.querySelector('a')) {
+
+				e.target.querySelector('a').focus();
+			
+			}
+		
+		});
+
+		var anchor = el.querySelector('a');
+
+		anchor.addEventListener('focus', dropNavFocus);
+	
+		anchor.addEventListener('blur', dropNavBlur);
+		
+	});
+
 }
 
 /* Initialise JS-powered elements */

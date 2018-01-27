@@ -143,7 +143,7 @@ nav.drop li {
 
 nav.drop li[aria-haspopup]:not([tabindex]) {
 
-	padding-right: 2em;
+	padding-right: 42px;
 
 }
 
@@ -236,7 +236,7 @@ nav.drop li > input, nav.drop li[aria-haspopup] {
 	
 	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAPUlEQVR4AY3MgQUAMBBD0ZKVs9ZNWOihJY5EwweerB5+epAphdVtUylEgJiw7JtC8woHKYgJYr4lyJuDuQMkSiBhTevZ/AAAAABJRU5ErkJggg==');
 	background-repeat: no-repeat;
-	background-position: calc(100% - .75em) 1.25em;
+	background-position: calc(100% - 16px) 1.25em;
 
 }
 
