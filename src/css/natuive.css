@@ -1442,6 +1442,7 @@ nav.drop ul ul {
   padding: 0;
   position: absolute;
   left: 0;
+  background-color: #fff;
   background-color: var(--nav-bg); }
 
 nav.drop ul ul ul {
@@ -1454,6 +1455,7 @@ nav.drop li {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: #fff;
   background-color: var(--nav-bg);
   position: relative; }
 
@@ -1471,9 +1473,8 @@ nav.drop a[href] {
   position: relative; }
 
 nav.drop li:not([aria-haspopup]) > a {
-  margin-right: 2em;
-  z-index: 1;
-  padding-right: 0; }
+  margin-right: 42px;
+  z-index: 1; }
 
 nav.drop ul[role=menubar] li > a {
   margin-right: 0;
@@ -1518,7 +1519,7 @@ nav.drop li > input, nav.drop li[aria-haspopup] {
   background-position: calc(100% - 16px) 1.5em; }
 
 nav.drop li > input {
-  background-position-y: 2.4em; }
+  background-position-y: 2.75em; }
 
 nav.drop li li > input, nav.drop li li[aria-haspopup] {
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAALElEQVR4AWMAAmaiMJQoAeK1xCr8DcVrCSpEwyUEFGJqoJrCEoKeoTx4iMEALSggYbbu0bQAAAAASUVORK5CYII="); }
@@ -1532,6 +1533,7 @@ nav.drop li[aria-haspopup] {
     opacity: 0;
     position: absolute; }
   html:not(.can-touch) nav.drop > ul > li > ul li {
+    background-color: #fff;
     background-color: var(--nav-bg); }
   html:not(.can-touch) nav.drop > ul > li:hover > ul, html:not(.can-touch) nav.drop > ul li ul li:hover ul, html:not(.can-touch) nav.drop ul ul :checked ~ ul:not([aria-expanded]) {
     max-height: none;

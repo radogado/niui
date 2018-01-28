@@ -1141,8 +1141,10 @@ function isInViewport(el) { // Thanks http://gomakethings.com/ditching-jquery/
 
 if (!Element.prototype.matches) {
     Element.prototype.matches = 
+/*
         Element.prototype.matchesSelector || 
         Element.prototype.mozMatchesSelector ||
+*/
         Element.prototype.msMatchesSelector /*
 || 
         Element.prototype.oMatchesSelector || 
@@ -1691,7 +1693,7 @@ function closeDropNavClickedOutside(e) { // Close the nav when clicking outside
 
 	if (!closest(e.target, 'nav li')) {
 
-		document.querySelectorAll('nav ul').forEach ( function (el) {
+		forEach ('nav ul', function (el) {
 			
 			el.removeAttribute('aria-expanded');
 			
@@ -1713,7 +1715,7 @@ function dropNavBlur(e) {
 	
 	if (!closest(e.relatedTarget, this_nav)) { // if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
 		
-		this_nav.querySelectorAll('ul').forEach ( function (el) {
+		forEach ( this_nav.querySelectorAll('ul'), function (el) {
 
 			el.removeAttribute('aria-expanded');
 			
@@ -1724,7 +1726,7 @@ function dropNavBlur(e) {
 	// Close neighboring parent nav's sub navs.
 	var el = e.target;
 	var target_parent = closest(el, '[aria-haspopup]');
-	target_parent.querySelectorAll('ul[aria-expanded]').forEach(function (el) { // Disable active grandchildren
+	forEach(target_parent.querySelectorAll('ul[aria-expanded]'), function (el) { // Disable active grandchildren
 
 		el.removeAttribute('aria-expanded');
 
@@ -1747,11 +1749,11 @@ function dropNavFocus(e) {
 	
 	var el = closest(e.target, 'nav > ul > li');
 	
-	el.parentNode.childNodes.forEach( function (a) {
+	forEach(el.parentNode.childNodes, function (a) {
 
 		if (a.nodeName === 'LI' && a !== el) {
 		
-			a.querySelectorAll('[aria-expanded]').forEach( function (el) {
+			forEach(a.querySelectorAll('[aria-expanded]'), function (el) {
 				
 				el.removeAttribute('aria-expanded');
 				
@@ -1772,7 +1774,7 @@ function dropNavFocus(e) {
 	
 	var current_item = e.target.parentNode;
 
-	current_item.parentNode.parentNode.childNodes.forEach(function (el) {
+	forEach(current_item.parentNode.parentNode.childNodes, function (el) {
 
 		if (el !== current_item && el.nodeName === 'LI' && el.querySelector('ul')) {
 
@@ -1788,7 +1790,7 @@ function initNav(el) {
 	
 	// Delete all trigger inputs, add tabindex=0 to each li
 	
-	el.querySelectorAll('input').forEach(function (el) {
+	forEach(el.querySelectorAll('input'), function (el) {
 		
 		el.outerHTML = '';
 		
@@ -1796,7 +1798,7 @@ function initNav(el) {
 	
 	el.setAttribute('role', 'menubar');
 
-	el.querySelectorAll('li').forEach(function (el) {
+	forEach(el.querySelectorAll('li'), function (el) {
 		
 		el.querySelector('a').setAttribute('tabindex', 0);
 
@@ -1821,7 +1823,7 @@ function initNav(el) {
 	
 		if (e.key === 'Escape') {
 			
-			closest(e.target, 'nav').querySelectorAll('ul').forEach ( function (el) {
+			forEach (closest(e.target, 'nav').querySelectorAll('ul'), function (el) {
 				
 				el.removeAttribute('aria-expanded');
 				
@@ -1833,7 +1835,7 @@ function initNav(el) {
 		
 	});
 	
-	el.querySelectorAll('li').forEach(function (el) {
+	forEach(el.querySelectorAll('li'), function (el) {
 		
 		if (el.querySelector('ul')) {
 	
@@ -2119,7 +2121,7 @@ function init() {
 	
 	wrapTables();
 	
-	qa('nav > ul:not([role])').forEach( function (el) {
+	forEach('nav > ul:not([role])', function (el) {
 		
 		initNav(el);
 		

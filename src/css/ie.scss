@@ -327,72 +327,15 @@ nav input[type=reset], nav input.trigger, nav input.trigger.burger {
 
 nav.drop {
 
-	> ul, > ul > li {
-		
-		display: inline-block;
-		visibility: visible;
-		opacity: 1;
-	
-	}
-	
-	ul li a {
-		
-		font-size: $font-size;
-		z-index: 1;
-	
-	}
-	
-	ul li li ul, ul li li div {
+	li > input, ul ul {
 		
 		display: none;
-		
+	
 	}
 	
-	ul li li:hover ul, ul li li:hover div {
-		
+	li:hover > ul {
+	
 		display: block;
-		
-	}
-	
-	ul ul, ul div {
-		
-		visibility: hidden;
-		display: none;
-		position: absolute;
-		
-	}
-	
-	ul li:hover > ul, ul li:hover div {
-		
-		visibility: visible;
-		display: block;
-		z-index: 5;
-		
-	}
-	
-	li > input {
-		
-		background: url(../images/0.png);
-		background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO
-	1AAAAABJRU5ErkJggg=="); /* IE10- */
-	
-	}
-	
-	ul li a[href] {
-		
-		z-index: 1;
-	
-	}
-
-	ul li li li a, 
-	ul li:hover, 
-	ul li li:hover a,
-	nav.drop ul ul ul,
-	ul li li:hover ul, 
-	ul li li:hover li 
-	{
-	
-		background: #ddd;
 	
 	}
 	
@@ -407,20 +350,14 @@ nav.drop {
 .tool:hover .tip {
 	
 	opacity: 1;
-	display: block;
-	top: 2em;
+	visibility: visible;
+	top: 100%;
 	
 }
 
 .fold {
 
 	> .content {
-	
-	    max-height: 0;
-	
-	}
-	
-	&.open > .content, &.mobile > .content {
 	
 	    max-height: none;
 	

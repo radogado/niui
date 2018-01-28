@@ -98,6 +98,8 @@ nav {
 	
 // Drop nav
 
+$nav-bg: #fff; // fallback for browsers unsupporting CSS variables
+
 nav.drop {
 
 	--nav-bg: #fff;
@@ -118,6 +120,7 @@ nav.drop ul ul {
 	padding: 0;
 	position: absolute;
 	left: 0;
+	background-color: $nav-bg;
 	background-color: var(--nav-bg);
 
 }
@@ -136,6 +139,7 @@ nav.drop li {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	background-color: $nav-bg;
 	background-color: var(--nav-bg);
 	position: relative;
 	
@@ -168,9 +172,9 @@ nav.drop a[href] {
 
 nav.drop li:not([aria-haspopup]) > a {
 	
-    margin-right: 2em;
+    margin-right: 42px;
 	z-index: 1;
-	padding-right: 0;
+// 	padding-right: 0;
 	
 }
 
@@ -243,7 +247,7 @@ nav.drop li > input, nav.drop li[aria-haspopup] {
 
 nav.drop li > input {
 	
-	background-position-y: 2.4em;
+	background-position-y: 2.75em;
 	
 }
 
@@ -273,6 +277,7 @@ nav.drop li[aria-haspopup] {
 		
 		nav.drop > ul > li > ul li {
 			
+			background-color: $nav-bg;
 			background-color: var(--nav-bg);
 			
 		}
