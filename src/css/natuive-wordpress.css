@@ -1534,7 +1534,7 @@ nav.drop li > input {
 nav.drop li > input, nav.drop li[aria-haspopup] {
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAPUlEQVR4AY3MgQUAMBBD0ZKVs9ZNWOihJY5EwweerB5+epAphdVtUylEgJiw7JtC8woHKYgJYr4lyJuDuQMkSiBhTevZ/AAAAABJRU5ErkJggg==");
   background-repeat: no-repeat;
-  background-position: calc(100% - 16px) 1.5em; }
+  background-position: calc(100% - 16px) 50%; }
 
 nav.drop li > input {
   background-position-y: 2.75em; }
@@ -1581,7 +1581,10 @@ nav.drop li[aria-haspopup] {
     width: 100%; }
 
   nav.drop ul ul ul {
-    margin: 0; } }
+    margin: 0; }
+
+  nav.drop li > input, nav.drop li[aria-haspopup] {
+    background-position-y: 1.5em; } }
 /* natUIve – List */
 /*
 $color: #fff;
@@ -2284,7 +2287,6 @@ video {
   .fixed-bg .fixed-bg-image {
     position: absolute;
     background-size: 0;
-    z-index: -1;
     clip: rect(auto, auto, auto, auto); }
 
   .fixed-bg .fixed-bg-image:before {
@@ -2338,6 +2340,11 @@ a[href].span-relative-parent {
 
 .parallax-back {
   position: absolute; }
+
+:focus {
+  outline-offset: -1px;
+  outline-style: dashed;
+  outline-width: 1px; }
 
 /* Narrow Screens */
 @media screen and (max-width: 599.9px) {
@@ -2726,8 +2733,7 @@ $bg: #1E8DaC;
   -webkit-flex: 1;
   flex: 1;
   margin: 0;
-  white-space: normal;
-  outline-offset: -5px; }
+  white-space: normal; }
 
 /* CSS-only parallax scrolling. html.parallax with body children .parallax-back and .parallax-front. Thanks http://keithclark.co.uk/articles/pure-css-parallax-websites/ */
 html.parallax, html.parallax body {

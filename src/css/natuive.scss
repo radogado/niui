@@ -229,7 +229,7 @@ video {
 
 			position: absolute;
 			background-size: 0;
-			z-index: -1;
+// 			z-index: -1;
 			clip: rect(auto, auto, auto, auto);
 
 		}
@@ -328,6 +328,14 @@ a[href].span-relative-parent {
 .parallax-back {
 
 	position: absolute;
+
+}
+
+:focus {
+
+	outline-offset: -1px;
+	outline-style: dashed;
+	outline-width: 1px;
 
 }
 

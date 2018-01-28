@@ -336,8 +336,7 @@ $bg: #1E8DaC;
   -webkit-flex: 1;
   flex: 1;
   margin: 0;
-  white-space: normal;
-  outline-offset: -5px; }
+  white-space: normal; }
 
 /* CSS-only parallax scrolling. html.parallax with body children .parallax-back and .parallax-front. Thanks http://keithclark.co.uk/articles/pure-css-parallax-websites/ */
 html.parallax, html.parallax body {
