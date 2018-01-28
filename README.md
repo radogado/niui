@@ -65,6 +65,17 @@ natUIve demo pages: [Features demo](http://radogado.github.io/natuive/kitchen.ht
 
 –––
 
+natUIve 1.11
+
+- Keyboard access to drop nav, fold, lightbox, slider, tabs, form, modal
+- Slider with detached nav
+- Slider opening at a slide whose id matches URI hash
+- Lightbox mobile with smaller controls, larger images
+- WordPress: Crop tall galleries on home/search/archive pages
+- Modal window auto-opening when id matches URI hash
+
+–––
+
 natUIve 1.10
 
 - Buttons groups
