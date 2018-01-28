@@ -241,7 +241,7 @@ nav.drop li > input, nav.drop li[aria-haspopup] {
 	
 	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAPUlEQVR4AY3MgQUAMBBD0ZKVs9ZNWOihJY5EwweerB5+epAphdVtUylEgJiw7JtC8woHKYgJYr4lyJuDuQMkSiBhTevZ/AAAAABJRU5ErkJggg==');
 	background-repeat: no-repeat;
-	background-position: calc(100% - 16px) 1.5em;
+	background-position: calc(100% - 16px) 50%;
 
 }
 
@@ -339,6 +339,12 @@ nav.drop li[aria-haspopup] {
 		
 		margin: 0;	
 
+	}
+
+	nav.drop li > input, nav.drop li[aria-haspopup] {
+		
+		background-position-y: 1.5em;
+	
 	}
 
 }
