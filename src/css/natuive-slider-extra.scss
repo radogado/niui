@@ -182,7 +182,7 @@
 
 }
 
-.slider.vertical > *, .slider.sliding > *:not(.active), .n-sldr.tabs > .slider-arrow {
+.slider.vertical > *, .slider[data-sliding] > *:not(.active), .n-sldr.tabs > .slider-arrow {
 
 	height: auto;
 	display: none;

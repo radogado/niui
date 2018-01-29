@@ -487,8 +487,7 @@ function closeFullWindow() {
 		if (qa('.n-ovrl').length === 1) { // A single overlay
 			
 		    removeClass(q('html'), 'nooverflow');
-	    	q('body').scrollTop = q('html').scrollTop = -1 * q('html').getAttribute('data-offset');
-	    	q('html').removeAttribute('data-offset');	
+	    	q('body').scrollTop = q('html').scrollTop = -1 * window.previousScrollOffset;
 			
 		}
 		var animation = full_window.querySelector('.content > div').getAttribute('data-anim'); // Custom animation?
@@ -534,7 +533,11 @@ function closeFullWindow() {
 			
 		   	q('html').style.pointerEvents = 'initial';
 		   	
-		   	window.previouslyFocused.focus();
+		   	if (window.previouslyFocused) {
+
+			   	window.previouslyFocused.focus();
+			   
+			}
 				
 		});
 
@@ -544,11 +547,11 @@ function closeFullWindow() {
 
 function openFullWindow(el, animation) {
 	
-	window.previouslyFocused = q(':focus');
+	window.previouslyFocused = document.activeElement;
 	
    	q('html').style.pointerEvents = 'none';
 	var offset_top = q('html').getBoundingClientRect().top;
-	q('html').setAttribute('data-offset', offset_top); // Remember the page position.
+	window.previousScrollOffset = offset_top; // Remember the page position.
 
 	if (typeof el === 'string') {
 
@@ -602,7 +605,7 @@ function openFullWindow(el, animation) {
 		animate(full_window, typeof animation === 'string' ? animation : '0% { transform: translate3d(0,-100vh,0) } 100% { transform: translate3d(0,0,0) }', .2, function () { 
 			
 			addClass(q('html'), 'nooverflow');
-	    	q('body').scrollTop = q('html').scrollTop = -1 * q('html').getAttribute('data-offset');
+	    	q('body').scrollTop = q('html').scrollTop = -1 * window.previousScrollOffset;
 	    	q('html').style.pointerEvents = 'initial';
 		
 		});
@@ -1639,7 +1642,7 @@ addEventHandler(window, 'scroll', function() {  // Close fixed n-ovrl if its scr
 });
 
 // Scroll effects
-forEach('[data-threshold]', function(el) { // Set a variable reflecting how much of the element's height has been scrolled; .threshold on scroll over element height
+forEach('body [data-threshold]', function(el) { // Set a variable reflecting how much of the element's height has been scrolled; .threshold on scroll over element height
 
 	addEventHandler(window, 'scroll', function() {
 
@@ -1672,12 +1675,13 @@ forEach('[data-threshold]', function(el) { // Set a variable reflecting how much
 			if (relativeScroll >= threshold) {
 				
 				addClass(el, 'threshold');
-				addClass(q('body'), 'threshold');
+				q('body').setAttribute('data-threshold', true);
 				
 			} else {
 				
 				removeClass(el, 'threshold');
 				removeClass(q('body'), 'threshold');
+				q('body').removeAttribute('data-threshold');
 				
 			}
 			
@@ -1699,9 +1703,9 @@ function closeDropNavClickedOutside(e) { // Close the nav when clicking outside
 			
 		});
 		
-		if (document.querySelector('nav :focus')) {
+		if (q('nav :focus')) {
 
-			document.querySelector('nav :focus').blur();
+			q('nav :focus').blur();
 		
 		}
 		
@@ -1829,7 +1833,7 @@ function initNav(el) {
 				
 			});
 			
-			document.querySelector(':focus').blur();
+			document.activeElement.blur();
 			
 		}
 		

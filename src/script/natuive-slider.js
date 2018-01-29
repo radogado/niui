@@ -19,14 +19,15 @@
 }());
 
 // q('html').dataset.last_slide = 14045017000;
-q('html').setAttribute('data-last_slide', 14045017000);
+// q('html').setAttribute('data-last_slide', 14045017000);
+window.lastSlideTime = 14045017000;
 // q('html').dataset.slide_duration = 0.5;
-q('html').setAttribute('data-slide_duration', 0.5);
+window.slideDuration = .5;
 
 function sliderElement(e) { // Get the active slider instance
 
-	if (q('.n-sldr:focus-within')) {
-		
+	if (closest(document.activeElement, 'n-sldr') === q('.n-sldr:focus-within')) {
+
 		return q('.n-sldr:focus-within').querySelector('.slider');
 
 	}
@@ -115,15 +116,14 @@ function initScroll(e, delta) { // Scroll happens
     var timeNow = new Date().getTime();
 
     // Cancel scroll if currently animating or within quiet period – don't slide again automatically after a slide
-    if ((timeNow - q('html').getAttribute('data-last_slide')) < q('html').getAttribute('data-slide_duration')*2000 || hasClass(q('html'), 'sliding_now')) {
+    if ((timeNow - window.lastSlideTime) < window.slideDuration * 2000 || hasClass(q('html'), 'sliding_now')) {
 
         stopEvent(e);
 		return;
 
     }
 
-// 	q('html').dataset.last_slide = timeNow;
-	q('html').setAttribute('data-last_slide', timeNow);
+	window.lastSlideTime = timeNow;
 
     slide(sliderElement(e), delta < 0 ? 'right' : 'left');
 
@@ -232,7 +232,7 @@ function endSlide (slider, index) {
 	
 		addClass(closest(slider, '.n-sldr'), 'active');
 
-	}, q('html').slide_duration/2);
+	}, window.slideDuration/2);
 	
 }
 
@@ -346,7 +346,7 @@ function slide(el, method, index_number) {
 
     }
 
-	var duration = slider.getAttribute('data-duration') ? slider.getAttribute('data-duration') : q('html').getAttribute('data-slide_duration');
+	var duration = slider.getAttribute('data-duration') ? slider.getAttribute('data-duration') : window.slideDuration;
 
 	addClass(target_slide, 'active');
 
@@ -391,13 +391,13 @@ function slide(el, method, index_number) {
 
 	}
 
-	addClass(slider, 'sliding');
+	slider.setAttribute('data-sliding', true);
 
 	slider.style.margin = 0;
 
 	animate(slider, animation_code, duration, function slideEndHandler(e) { // On slide end
 
-		removeClass(slider, 'sliding');
+		slider.removeAttribute('data-sliding');
 		removeClass(slider.children[old_index], 'active');
 	    slider.children[old_index].style.transition = '';
 	    slider.children[old_index].style.opacity = '';
@@ -421,7 +421,7 @@ function slide(el, method, index_number) {
 
 function sliderKeyboard(e) {
 
-    if (typeof e === 'undefined' || hasClass(q('html'), 'sliding_now') || q('.slider.sliding') || 
+    if (typeof e === 'undefined' || hasClass(q('html'), 'sliding_now') || q('.slider[data-sliding]') || 
     	(q('.n-ovrl') && !q('.n-ovrl .n-sldr.active')) // There is an overlay open and it doesn't have a slider in it
 		) {
 
@@ -441,7 +441,7 @@ function sliderKeyboard(e) {
 	}
 
 	if (tag !== 'input' && tag !== 'textarea' && 
-		(q(':focus') === el ? (el.scrollWidth <= el.clientWidth) : true) &&
+		(document.activeElement === el ? (el.scrollWidth <= el.clientWidth) : true) &&
 		(el = q('.n-ovrl .slider') || q('.n-sldr.active .slider') || q('.slider'))
 		) { // Priority: full window slider, active slider, first slider
         switch (e.which) {
