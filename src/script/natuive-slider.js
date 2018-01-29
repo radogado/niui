@@ -419,6 +419,17 @@ function slide(el, method, index_number) {
 
 }
 
+function shouldNotSlideVertically(el) {
+	
+	if (q('.n-ovrl')) { 
+		
+		return false; 
+	
+	}
+	return !hasClass(el,'vertical') || window.innerHeight < q('body').scrollHeight;
+	
+}
+
 function sliderKeyboard(e) {
 
     if (typeof e === 'undefined' || hasClass(q('html'), 'sliding_now') || q('.slider[data-sliding]') || 
@@ -431,14 +442,8 @@ function sliderKeyboard(e) {
 
 	var el = e.target;
 
-	var tag = el.tagName.toLowerCase();
 
-	function shouldNotSlideVertically() {
-		
-		if (q('.n-ovrl')) { return false; }
-		return !hasClass(el,'vertical') || window.innerHeight < q('body').scrollHeight;
-		
-	}
+	var tag = el.tagName.toLowerCase();
 
 	if (tag !== 'input' && tag !== 'textarea' && 
 		(document.activeElement === el ? (el.scrollWidth <= el.clientWidth) : true) &&
@@ -447,16 +452,16 @@ function sliderKeyboard(e) {
         switch (e.which) {
 
             case 38:
-            	if (shouldNotSlideVertically()) { // Page can be scrolled by the arrow key so don't slide
+            	if (shouldNotSlideVertically(el)) { // Page can be scrolled by the arrow key so don't slide
                 	
                 	return;
 
             	}
             case 37:
-                slide(el, 'left'); 
+                slide(el, 'left');
                 break;
             case 40:
-            	if (shouldNotSlideVertically()) {
+            	if (shouldNotSlideVertically(el)) {
                 	
                 	return;
 
