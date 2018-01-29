@@ -19,11 +19,9 @@
 }());
 
 // q('html').dataset.last_slide = 14045017000;
-// q('html').setAttribute('data-last_slide', 14045017000);
-window.lastSlideTime = 14045017000;
+q('html').setAttribute('data-last_slide', 14045017000);
 // q('html').dataset.slide_duration = 0.5;
-// q('html').setAttribute('data-slide_duration', 0.5);
-window.slideDuration = .5;
+q('html').setAttribute('data-slide_duration', 0.5);
 
 function sliderElement(e) { // Get the active slider instance
 
@@ -58,7 +56,7 @@ function swipeEvents(el) {
 
     function touchStart(e) {
 
-		if (/* hasClass(q('html'), 'sliding_now') */ window.slidingNow) {
+		if (hasClass(q('html'), 'sliding_now')) {
 
 			endSlide(sliderElement(e));
 			return;
@@ -73,7 +71,6 @@ function swipeEvents(el) {
             el.addEventListener('touchmove', touchMove);
 
 //             addClass(q('html'), 'sliding_now');
-			window.slidingNow = true;
 
         }
 
@@ -92,8 +89,7 @@ function swipeEvents(el) {
 
             if ((hasClass(el, 'vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !q('.slider.lightbox')) {
 
-//                 removeClass(q('html'), 'sliding_now');
-                window.slidingNow = false;
+                removeClass(q('html'), 'sliding_now');
                 return;
 
             }
@@ -119,7 +115,7 @@ function initScroll(e, delta) { // Scroll happens
     var timeNow = new Date().getTime();
 
     // Cancel scroll if currently animating or within quiet period – don't slide again automatically after a slide
-    if ((timeNow - /* q('html').getAttribute('data-last_slide') */ window.lastSlideTime) < /* q('html').getAttribute('data-slide_duration') */ window.slideDuration *2000 || /* hasClass(q('html'), 'sliding_now') */ window.slidingNow) {
+    if ((timeNow - q('html').getAttribute('data-last_slide')) < q('html').getAttribute('data-slide_duration')*2000 || hasClass(q('html'), 'sliding_now')) {
 
         stopEvent(e);
 		return;
@@ -127,8 +123,7 @@ function initScroll(e, delta) { // Scroll happens
     }
 
 // 	q('html').dataset.last_slide = timeNow;
-// 	q('html').setAttribute('data-last_slide', timeNow);
-	window.lastSlideTime = timeNow;
+	q('html').setAttribute('data-last_slide', timeNow);
 
     slide(sliderElement(e), delta < 0 ? 'right' : 'left');
 
@@ -136,7 +131,7 @@ function initScroll(e, delta) { // Scroll happens
 
 function mouseWheelHandler(e) {
 
-	if (/* hasClass(q('html'), 'sliding_now') */ window.slidingNow) {
+	if (hasClass(q('html'), 'sliding_now')) {
 		
 		stopEvent(e); 
 		return;
@@ -154,7 +149,7 @@ function mouseWheelHandler(e) {
     var deltaX = (e.deltaX * -10) || e.wheelDeltaX || -e.detail; // Firefox provides 'detail' with opposite value
     var deltaY = (e.deltaY * -10) || e.wheelDeltaY || -e.detail;
 /* To do: stop generating events while sliding */	
-    if (/* !hasClass(q('html'), 'sliding_now') */ !window.slidingNow && Math.abs(hasClass(sliderElement(e), 'vertical') ? deltaY : deltaX) > 50) {
+    if (!hasClass(q('html'), 'sliding_now') && Math.abs(hasClass(sliderElement(e), 'vertical') ? deltaY : deltaX) > 50) {
 
         e.preventDefault();
         initScroll(e, (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY);
@@ -224,8 +219,7 @@ function endSlide (slider, index) {
 	window.onkeyup = sliderKeyboard;
     setTimeout(function () {
 
-// 	    removeClass(q('html'), 'sliding_now');
-	    window.slidingNow = false;
+	    removeClass(q('html'), 'sliding_now');
 	    mouseEvents(slider);
 
 	    // Make this slider active
@@ -244,7 +238,7 @@ function endSlide (slider, index) {
 
 function slide(el, method, index_number) {
 
-	if (/* hasClass(q('html'), 'sliding_now') */ window.slidingNow) {
+	if (hasClass(q('html'), 'sliding_now')) {
 		
 		return;
 	
@@ -352,7 +346,7 @@ function slide(el, method, index_number) {
 
     }
 
-	var duration = slider.getAttribute('data-duration') ? slider.getAttribute('data-duration') : /* q('html').getAttribute('data-slide_duration') */ window.slideDuration;
+	var duration = slider.getAttribute('data-duration') ? slider.getAttribute('data-duration') : q('html').getAttribute('data-slide_duration');
 
 	addClass(target_slide, 'active');
 
@@ -427,7 +421,7 @@ function slide(el, method, index_number) {
 
 function sliderKeyboard(e) {
 
-    if (typeof e === 'undefined' || /* hasClass(q('html'), 'sliding_now') */ window.slidingNow || q('.slider.sliding') || 
+    if (typeof e === 'undefined' || hasClass(q('html'), 'sliding_now') || q('.slider.sliding') || 
     	(q('.n-ovrl') && !q('.n-ovrl .n-sldr.active')) // There is an overlay open and it doesn't have a slider in it
 		) {
 
@@ -633,8 +627,7 @@ function makeSlider(el, current_slide) {
 	        el.ontouchmove = function(e) {
 	
 				e.stopPropagation();
-// 				removeClass(q('html'), 'sliding_now');
-				window.slidingNow = false;
+				removeClass(q('html'), 'sliding_now');
 		        
 	        };
 	        
