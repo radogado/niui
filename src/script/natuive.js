@@ -1730,11 +1730,15 @@ function dropNavBlur(e) {
 	// Close neighboring parent nav's sub navs.
 	var el = e.target;
 	var target_parent = closest(el, '[aria-haspopup]');
-	forEach(target_parent.querySelectorAll('ul[aria-expanded]'), function (el) { // Disable active grandchildren
-
-		el.removeAttribute('aria-expanded');
-
-	});
+	if (target_parent) { // Skip if it's a top-level-only item
+		
+		forEach(target_parent.querySelectorAll('ul[aria-expanded]'), function (el) { // Disable active grandchildren
+	
+			el.removeAttribute('aria-expanded');
+	
+		});
+	
+	}
 
 	el = e.target.parentNode;
 	if (!el.nextElementSibling && // last item
