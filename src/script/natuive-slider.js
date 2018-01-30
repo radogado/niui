@@ -25,7 +25,7 @@ window.lastSlideTime = 14045017000;
 window.slideDuration = .5;
 
 function sliderElement(e) { // Get the active slider instance
-
+console.log(e.target);
 	if (closest(document.activeElement, 'n-sldr') === q('.n-sldr:focus-within')) {
 
 		return q('.n-sldr:focus-within').querySelector('.slider');
@@ -442,13 +442,23 @@ function sliderKeyboard(e) {
 
 	var el = e.target;
 
-
 	var tag = el.tagName.toLowerCase();
+
+	if (!closest(el, '.n-sldr')) { // Focused element is outside of any slider
+		
+		if (q('.n-sldr')) {
+			
+			addClass(q('.n-sldr'), 'active');
+
+		}
+		
+	}
 
 	if (tag !== 'input' && tag !== 'textarea' && 
 		(document.activeElement === el ? (el.scrollWidth <= el.clientWidth) : true) &&
 		(el = q('.n-ovrl .slider') || q('.n-sldr.active .slider') || q('.slider'))
 		) { // Priority: full window slider, active slider, first slider
+
         switch (e.which) {
 
             case 38:
