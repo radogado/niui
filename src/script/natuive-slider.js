@@ -25,7 +25,7 @@ window.lastSlideTime = 14045017000;
 window.slideDuration = .5;
 
 function sliderElement(e) { // Get the active slider instance
-console.log(e.target);
+
 	if (closest(document.activeElement, 'n-sldr') === q('.n-sldr:focus-within')) {
 
 		return q('.n-sldr:focus-within').querySelector('.slider');
@@ -87,8 +87,9 @@ function swipeEvents(el) {
             var deltaX = startX - touches[0].pageX;
             var deltaY = startY - touches[0].pageY;
             var delta = (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY;
-
-            if ((hasClass(el, 'vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !q('.slider.lightbox')) {
+			
+			// Allow vertical page scrol by swiping over the slider 
+            if ((hasClass(el, 'vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !q('.n-ovrl .n-sldr')) {
 
                 removeClass(q('html'), 'sliding_now');
                 return;
