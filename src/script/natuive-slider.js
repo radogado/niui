@@ -433,7 +433,9 @@ function shouldNotSlideVertically(el) {
 
 function sliderKeyboard(e) {
 
-    if (typeof e === 'undefined' || q('html').hasClass('sliding_now') || q('.slider[data-sliding]') || 
+    if (typeof e === 'undefined' || 
+    	q('html').hasClass('sliding_now') || 
+    	q('.slider[data-sliding]') || 
     	(q('.n-ovrl') && !q('.n-ovrl .n-sldr.active')) // There is an overlay open and it doesn't have a slider in it
 		) {
 
@@ -455,8 +457,15 @@ function sliderKeyboard(e) {
 		
 	}
 
-	if (tag !== 'input' && tag !== 'textarea' && 
-		(document.activeElement === el ? (el.scrollWidth <= el.clientWidth) : true) &&
+	if (el.nodeName !== 'BODY' && el.scrollWidth > el.clientWidth) { // Don't slide when current element is scrollable hozirontally
+		
+		return;
+
+	}
+	
+	if 	(tag !== 'input' && tag !== 'textarea' && 
+// 		(document.activeElement === el ? (el.scrollWidth <= el.clientWidth) : true) &&
+// 		(!closest(document.activeElement, '.n-sldr.active') && (el.scrollWidth <= el.clientWidth) ) &&
 		(el = q('.n-ovrl .slider') || q('.n-sldr.active .slider') || q('.slider'))
 		) { // Priority: full window slider, active slider, first slider
 

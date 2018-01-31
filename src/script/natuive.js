@@ -125,6 +125,7 @@ function forEach(selector, fn) { // Accepts both an array and a selector
 
 	}
     var elements = (typeof selector === 'string') ? qa(selector) : selector;
+// 	    elements.forEach(fn); // Not working in Edge
 	if (elements.length > 0) {
 
 	    for (var i = 0; i < elements.length; i++) {
@@ -133,7 +134,6 @@ function forEach(selector, fn) { // Accepts both an array and a selector
 	
 	    }
 	    
-// 	    elements.forEach(fn); // Not working in Edge
     
     }
 
