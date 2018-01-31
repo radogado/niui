@@ -3,23 +3,6 @@
 
 var aria_expanded = 'aria-expanded';
 
-function wrapTables() {
-	
-	forEach('table', function(el) {
-	
-		if (!hasClass(el.parentNode, 'n-tbl')) {
-			
-			addClass(wrap(el).parentNode, 'n-tbl');
-			el.parentNode.setAttribute('tabindex', 0);
-		
-		}
-	
-	});
-	
-}
-
-wrapTables();
-	
 // Stop JS if old browser (IE9-). They will get the CSS-only experience. Remove below fallbacks that supported them.
 
 (function () {
@@ -38,67 +21,88 @@ wrapTables();
 
 }());
 
-var scripts_location = document.getElementsByTagName('script');
+var scripts_location = document.getElementsByTagName('script'); // To do: maybe move this global variable to window.scripts_location
 scripts_location = scripts_location[scripts_location.length-1].src;
 scripts_location = scripts_location.slice(0, scripts_location.length - scripts_location.split('/').pop().length);
 
 // DOM functions
 
-function addClass(el, className) {
+function q(selector) {
 
-	el.classList.add(className);
+	return document.querySelector(selector);
 
-}
+};
 
-/* To do: Convert to Prototype functions: el.addClass('class'); instead of addClass(el, 'class'); */
+Element.prototype.q = function(selector) {
 
-function removeClass(el, className) {
+	return this.querySelector(selector);
+
+};
+
+function qa(selector) {
+
+	return document.querySelectorAll(selector);
+
+};
+
+Element.prototype.qa = function(selector) {
+
+	return this.querySelectorAll(selector);
+
+};
+
+Element.prototype.addClass = function(className) {
+
+	this.classList.add(className);
+
+};
+
+Element.prototype.removeClass = function(className) {
 
 	// To do: remove a single '.' for foolproof operation; Support multiple classes separated by space, dot, comma
-	el.classList.remove(className);
-  
-}
+	this.classList.remove(className);
 
-function hasClass(el, className) {
+};
 
-	return el.classList.contains(className);
-	// To do: remove a single '.' for foolproof operation; Support multiple classes separated by space, dot, comma
+Element.prototype.hasClass = function(className) {
 
-}
+	return this.classList.contains(className);
 
-function toggleClass(el, className) {
+};
 
-    if (hasClass(el, className)) {
+Element.prototype.toggleClass = function(className) {
 
-        removeClass(el, className);
+    if (this.hasClass(className)) {
+
+        this.removeClass(className);
 
     } else {
 
-        addClass(el, className);
+        this.addClass(className);
 
     }
 
-}
+};
 
-function toggleAttribute(el, attribute) {
+Element.prototype.toggleAttribute = function(attribute) {
 
-    if (el.getAttribute(attribute)) {
+    if (this.getAttribute(attribute)) {
 
-        el.removeAttribute(attribute);
+        this.removeAttribute(attribute);
 
     } else {
 
-        el.setAttribute(attribute, true);
+        this.setAttribute(attribute, true);
 
     }
 
-}
+};
 
 function transferClass(el_origin, el_target, className) {
 
-    if (hasClass(el_origin, className)) {
+    if (el_origin.hasClass(className)) {
 
-        addClass(el_target, className);
+        el_target.addClass(className);
 
     }
 
@@ -114,7 +118,12 @@ function parseHTML(str) {
 }
 
 function forEach(selector, fn) { // Accepts both an array and a selector
+	
+	if (!selector || !fn) {
+		
+		return;
 
+	}
     var elements = (typeof selector === 'string') ? qa(selector) : selector;
 	if (elements.length > 0) {
 
@@ -130,16 +139,19 @@ function forEach(selector, fn) { // Accepts both an array and a selector
 
 }
 
-function addEventHandler(el, eventType, handler) {
-
-	el.addEventListener(eventType, handler, false);
-
-}
-
-function removeEventHandler(el, eventType, handler) {
-
-	el.removeEventListener(eventType, handler, false);
-
+function wrapTables() {
+	
+	forEach('table', function(el) {
+	
+		if (!el.parentNode.hasClass('n-tbl')) {
+			
+			wrap(el).parentNode.addClass('n-tbl');
+			el.parentNode.setAttribute('tabindex', 0);
+		
+		}
+	
+	});
+	
 }
 
 function stopEvent(e) {
@@ -211,18 +223,6 @@ function getCookie(k) { // Thanks Simon Steinberger
 
 }
 
-function q(selector) {
-
-	return document.querySelector(selector);
-	
-}
-
-function qa(selector) {
-	
-	return document.querySelectorAll(selector);
-	
-}
-
 function wrap(toWrap, wrapper) { // Thanks yckart
 
     wrapper = wrapper || document.createElement('div');
@@ -239,28 +239,6 @@ function wrap(toWrap, wrapper) { // Thanks yckart
 
     return wrapper.appendChild(toWrap);
 
-}
-
-function childByClass (el, cl) {
-
-	if ( el ) {
-
-		var i = 0;
-		while(i < el.children.length) {
-			
-			if (hasClass(el.children[i], cl)) {
-				
-				return el.children[i];
-	
-			}
-			i++;
-			
-		}
-
-	}
-
-	return false;
-		
 }
 
 function ready(fn) {
@@ -376,14 +354,14 @@ function arrow_keys_handler(e) {
 
 function populateLightboxItem(slider, i) {
 	
-	var img = slider.children[(typeof i === 'undefined') ? 0 : i].querySelector('img');
+	var img = slider.children[(typeof i === 'undefined') ? 0 : i].q('img');
 
 	if (img && !img.src) {
 		
 		img.src = img.getAttribute('data-src');
 		img.onload = function (e) {
 			
-			addClass(e.target.parentNode, 'loaded');
+			e.target.parentNode.addClass('loaded');
 
 		}
 		img.onclick = function (e) { // Zoom and scan
@@ -397,7 +375,7 @@ function populateLightboxItem(slider, i) {
 			}
 			
 			var el = e.target;
-			toggleClass(el, 'zoom');
+			el.toggleClass('zoom');
 			el.style.cssText = '';
 			el.style.setProperty('--x', '-50%');
 			el.style.setProperty('--y', '-50%');
@@ -461,7 +439,7 @@ function keyUpClose(e) {
 function getSliderNav(slider_wrap) {
 
 	// Select either a child slider-nav or the one specified by the slider id, if it exists
-	var slider = slider_wrap.querySelector('.slider');
+	var slider = slider_wrap.q('.slider');
 	var slider_nav;
 
 	if (slider.id && (slider_nav = q('.slider-nav[data-for=' + slider.id + ']'))) { // Detached nav
@@ -470,7 +448,7 @@ function getSliderNav(slider_wrap) {
 
 	} else {
 
-		return childByClass(slider_wrap, 'slider-nav');
+		return slider_wrap.q('.slider-nav');
 
 	}
 
@@ -486,11 +464,11 @@ function closeFullWindow() {
 
 		if (qa('.n-ovrl').length === 1) { // A single overlay
 			
-		    removeClass(q('html'), 'nooverflow');
+		    q('html').removeClass('nooverflow');
 	    	q('body').scrollTop = q('html').scrollTop = -1 * window.previousScrollOffset;
 			
 		}
-		var animation = full_window.querySelector('.content > div').getAttribute('data-anim'); // Custom animation?
+		var animation = full_window.q('.content > div').getAttribute('data-anim'); // Custom animation?
 
 		if (animation === 'null' || animation === 'undefined') {
 			
@@ -514,14 +492,14 @@ function closeFullWindow() {
 					
 			} else { // or keep previously existing content
 	
-				full_window.parentNode.replaceChild(full_window.querySelector('.content > *'), full_window);
+				full_window.parentNode.replaceChild(full_window.q('.content > *'), full_window);
 			
 			}
 	
 			if (qa('.n-ovrl').length === 0) { // A single overlay
 
-				removeEventHandler(window, 'keydown', arrow_keys_handler);
-				removeEventHandler(window, 'keyup', keyUpClose);
+				window.removeEventListener('keydown', arrow_keys_handler);
+				window.removeEventListener('keyup', keyUpClose);
 				if (!q('.slider')) { // No sliders on the page to control with arrow keys
 				
 	// 				document.onkeyup = function () {};
@@ -562,25 +540,25 @@ function openFullWindow(el, animation) {
 
 	}
 	el.setAttribute('data-anim', animation);
-    addClass(wrap(el).parentNode, 'content');
+    wrap(el).parentNode.addClass('content');
     wrap(el.parentNode).parentNode.setAttribute('class', 'n-ovrl');
 	var full_window = q('.n-ovrl:last-of-type') || q('.n-ovrl');
-    full_window.querySelector('.content').setAttribute('tabindex', 0);
+    full_window.q('.content').setAttribute('tabindex', 0);
 	full_window.insertAdjacentHTML('beforeend', '<div class=overlay-bg></div>');
 
-    if (!hasClass(el, 'headless')) {
+    if (!el.hasClass('headless')) {
 	    
 	    full_window.insertAdjacentHTML('afterbegin', '<div class=close> ← ' + document.title + '</div>');
-		full_window.querySelector('.overlay-bg').onclick = full_window.querySelector('.n-ovrl .close').onclick = closeFullWindow;
-		addEventHandler(window, 'keyup', keyUpClose);
+		full_window.q('.overlay-bg').onclick = full_window.q('.n-ovrl .close').onclick = closeFullWindow;
+		window.addEventListener('keyup', keyUpClose);
 	   
 	} else {
 		
-		addClass(full_window, 'headless');
+		full_window.addClass('headless');
 		
 	}
 
-	if (el.querySelector('.full-screen')) {
+	if (el.q('.full-screen')) {
 
 		if (full_window.webkitRequestFullScreen) { 
 			
@@ -604,7 +582,7 @@ function openFullWindow(el, animation) {
 
 		animate(full_window, typeof animation === 'string' ? animation : '0% { transform: translate3d(0,-100vh,0) } 100% { transform: translate3d(0,0,0) }', .2, function () { 
 			
-			addClass(q('html'), 'nooverflow');
+			q('html').addClass('nooverflow');
 	    	q('body').scrollTop = q('html').scrollTop = -1 * window.previousScrollOffset;
 	    	q('html').style.pointerEvents = 'initial';
 		
@@ -612,7 +590,7 @@ function openFullWindow(el, animation) {
 
 	}
 	
-    full_window.querySelector('.content').focus();
+    full_window.q('.content').focus();
     return false;
 	
 }
@@ -653,11 +631,11 @@ function modalWindow(e) {
             if (container) {
 
                 parsed = parseHTML(request.responseText);
-                if (!parsed.querySelector(container)) {
+                if (!parsed.q(container)) {
                     closeFullWindow();
                     return false;
                 }
-                parsed = parsed.querySelector(container).innerHTML;
+                parsed = parsed.q(container).innerHTML;
 
             }
 
@@ -698,16 +676,16 @@ function openLightbox(e) {
     var lightbox = closest(el, '.lightbox');
     var animation = lightbox.getAttribute('data-anim');
 
-	if (hasClass(lightbox, 'inline')) {
+	if (lightbox.hasClass('inline')) {
 		
 		lightbox.insertAdjacentHTML('afterend', '<div class="slider lightbox inline" id="' + (lightbox.id ? lightbox.id : '') + '"></div>');
-		var lightbox_target = lightbox.parentNode.querySelector('.slider.lightbox');
+		var lightbox_target = lightbox.parentNode.q('.slider.lightbox');
 		lightbox.outerHTML = '';
 		
 		
 	} else {
 		
-		openFullWindow('<div class="slider lightbox' + (hasClass(lightbox, 'full-screen') ? ' full-screen' : '') + '"></div>', animation);
+		openFullWindow('<div class="slider lightbox' + (lightbox.hasClass('full-screen') ? ' full-screen' : '') + '"></div>', animation);
 		q('.n-ovrl').style.overflow = 'hidden';
 		var lightbox_target = q('.n-ovrl .slider.lightbox');
 		
@@ -716,18 +694,18 @@ function openLightbox(e) {
     /* Add any <a><img> siblings with description to a .slider and initialise its controls */
     var images = '';
 	var thumbnails = [];
-    forEach(lightbox.querySelectorAll('a[href]'), function(el) {
+    forEach(lightbox.qa('a[href]'), function(el) {
 		el.setAttribute('tabindex', 0);
-	    thumbnails.push((el.querySelector('img') ? el.querySelector('img').src : '#'));
+	    thumbnails.push((el.q('img') ? el.q('img').src : '#'));
 
-		if (hasClass(el, 'video')) {
+		if (el.hasClass('video')) {
 			// video poster = the anchor's img child, if it exists
-			images += '<div><video poster=' + (el.querySelector('img') ? el.querySelector('img').src : '#') + ' controls=controls preload=none> <source type=video/mp4 src=' + el.href + '> </video></div>';
+			images += '<div><video poster=' + (el.q('img') ? el.q('img').src : '#') + ' controls=controls preload=none> <source type=video/mp4 src=' + el.href + '> </video></div>';
 			return;
 			
 		}
 			
-		if (hasClass(el, 'iframe')) {
+		if (el.hasClass('iframe')) {
 
 			images += '<div><iframe src=' + el.href + '></iframe></div>';
 			return;
@@ -736,7 +714,7 @@ function openLightbox(e) {
 		
 		var slide_link = document.location.href.split('#')[0] + (document.location.href.indexOf('?') >= 0 ? '&' : '?') + 'image=' + el.href.split('/').pop() + '#' + lightbox.getAttribute('id');
 
-	    var link_element = (hasClass(lightbox,'inline') || !lightbox.getAttribute('id')) ? '' : '<a class="button copy" href=' + slide_link + '></a>';
+	    var link_element = (lightbox.hasClass('inline') || !lightbox.getAttribute('id')) ? '' : '<a class="button copy" href=' + slide_link + '></a>';
 	    
 	    images += '<div><img data-src="' + el.href + '" alt="' + el.title + '" data-link="' + slide_link + '">' + (el.title ? ('<p>' + el.title + '</p>') : '') + link_element + '</div>';
 
@@ -766,12 +744,12 @@ function openLightbox(e) {
 	        
         }
 		// To do: after closing an URI-invoked lightbox and opening a lightbox again, the index is incorrect
-		var lightbox_items = lightbox.querySelectorAll('a[href]');
+		var lightbox_items = lightbox.qa('a[href]');
         var this_index = Array.prototype.indexOf.call(lightbox_items, anchor); // Ignore non-anchor children of the lightbox container
 
-        if (location.href.indexOf('#' + lightbox.getAttribute('id')) > -1 && hasClass(lightbox, 'uri-target')) {
+        if (location.href.indexOf('#' + lightbox.getAttribute('id')) > -1 && lightbox.hasClass('uri-target')) {
 	        
-	        removeClass(lightbox, 'uri-target'); // Open URI-specified index only once, because subsequent lightbox instances would have incorrect index
+	        lightbox.removeClass('uri-target'); // Open URI-specified index only once, because subsequent lightbox instances would have incorrect index
 	        if (typeof getURLParameters()['slide'] != 'undefined') {
 
 		        this_index = getURLParameters()['slide'].split('#')[0] - 1;
@@ -780,7 +758,7 @@ function openLightbox(e) {
 
 			if (typeof getURLParameters()['image'] != 'undefined') {
 
-				var target_image = lightbox_target.querySelector('[data-src*="' + getURLParameters()['image'].split('#')[0] + '"]');
+				var target_image = lightbox_target.q('[data-src*="' + getURLParameters()['image'].split('#')[0] + '"]');
 				if (target_image) {
 
 			        this_index = thisIndex(target_image.parentNode);
@@ -801,10 +779,10 @@ function openLightbox(e) {
         transferClass(anchor.parentNode, lightbox_target.parentNode, 'thumbnails');
         transferClass(anchor.parentNode, lightbox_target.parentNode, 'outside');
         
-        if (hasClass(anchor.parentNode, 'thumbnails')) {
+        if (anchor.parentNode.hasClass('thumbnails')) {
         
 	        var i = 0;
-// 	        var nav = closest(lightbox_target, '.n-sldr').querySelector('.slider-nav');
+// 	        var nav = closest(lightbox_target, '.n-sldr').q('.slider-nav');
 	        var nav = getSliderNav(closest(lightbox_target, '.n-sldr'));
 
 	        if (nav) { // Multiple slides?
@@ -826,7 +804,7 @@ function openLightbox(e) {
 
     }
 
-	if (!hasClass(lightbox, 'inline')) { // Don't block global keyboard if the lightbox is inline
+	if (!lightbox.hasClass('inline')) { // Don't block global keyboard if the lightbox is inline
 	
 	    window.addEventListener('keydown', arrow_keys_handler, false);
     
@@ -899,7 +877,7 @@ function animateAnchors(e) {
 	    q('#nav-trigger').checked = false;
 	    if (q('header > nav > div')) {
 		    
-			removeClass(q('header > nav > div'), 'open');
+			q('header > nav > div').removeClass('open');
 			
 		}
 
@@ -923,7 +901,7 @@ function submitForm(e) {
 
     var ready_to_submit = true;
 
-    forEach(el.querySelectorAll('.mandatory'), function(el) {
+    forEach(el.qa('.mandatory'), function(el) {
 	    
 	    if (closest(el, '[disabled]')) { // Ignore disabled conditional fields
 		    
@@ -932,33 +910,33 @@ function submitForm(e) {
 	    }
 
         if (
-			( el.querySelector('input, select, textarea') && !el.querySelector('input, select, textarea').value ) 
+			( el.q('input, select, textarea') && !el.q('input, select, textarea').value ) 
 			|| 
-			( el.querySelector('input[type=checkbox]') && !el.querySelector('input[type=checkbox]').checked ) 
+			( el.q('input[type=checkbox]') && !el.q('input[type=checkbox]').checked ) 
 			||
-			( el.querySelector('input[type=email]') && !RegExp(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/).test(el.querySelector('input[type=email]').value) ) 
+			( el.q('input[type=email]') && !RegExp(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/).test(el.q('input[type=email]').value) ) 
 			||
-			( el.querySelector('input[type=url]') && !RegExp(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/).test(el.querySelector('input[type=url]').value) ) 
+			( el.q('input[type=url]') && !RegExp(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/).test(el.q('input[type=url]').value) ) 
 			||
-			( el.querySelector('input[type=number]') 
+			( el.q('input[type=number]') 
 				&& 
-				!(RegExp(/^\d+$/).test(el.querySelector('input[type=number]').value))
+				!(RegExp(/^\d+$/).test(el.q('input[type=number]').value))
 				||
-				(el.querySelector('input[type=number][data-digits]') && (el.querySelector('input[type=number]').value.length != el.querySelector('input[type=number]').getAttribute('data-digits')))
+				(el.q('input[type=number][data-digits]') && (el.q('input[type=number]').value.length != el.q('input[type=number]').getAttribute('data-digits')))
 			) ||
-			( el.querySelector('input[type=radio]') && !el.querySelector('input[type=radio]').checked )
+			( el.q('input[type=radio]') && !el.q('input[type=radio]').checked )
 		   ) 
 		
 		{
 
             ready_to_submit = false;
-            el.querySelector('input').focus();
-            addClass(el, 'alert');
+            el.q('input').focus();
+            el.addClass('alert');
             return;
 
         } else {
 
-            removeClass(el, 'alert');
+            el.removeClass('alert');
 
         }
 
@@ -970,7 +948,7 @@ function submitForm(e) {
 
     }
 
-    if (!hasClass(el, 'dynamic') || !(new XMLHttpRequest().upload) || !php_support) { // Browser unable to submit dynamically.
+    if (!el.hasClass('dynamic') || !(new XMLHttpRequest().upload) || !php_support) { // Browser unable to submit dynamically.
 
         return true;
 
@@ -1028,7 +1006,7 @@ function updateFileInput(e) {
 
     var el = e.target;
 
-    el.parentNode.querySelector('span').innerHTML = el.value.substring(el.value.lastIndexOf('\\') + 1);
+    el.parentNode.q('span').innerHTML = el.value.substring(el.value.lastIndexOf('\\') + 1);
 
 }
 
@@ -1153,7 +1131,7 @@ if (!Element.prototype.matches) {
         Element.prototype.oMatchesSelector || 
         Element.prototype.webkitMatchesSelector ||
         function(s) {
-            var matches = (this.document || this.ownerDocument).querySelectorAll(s),
+            var matches = (this.document || this.ownerDocument).qa(s),
                 i = matches.length;
             while (--i >= 0 && matches.item(i) !== this) {}
             return i > -1;            
@@ -1192,12 +1170,12 @@ request.send(null);
 /* Sort parent table's rows by matching column number alternatively desc/asc on click */
 function sortTable (table, column, f) {
 	
-	var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'), 0);;
+	var rows = Array.prototype.slice.call(table.qa('tbody tr'), 0);;
 	
 	rows.sort(function(a, b) {
 	
-		var A = a.querySelectorAll('td')[column].textContent.toUpperCase();
-		var B = b.querySelectorAll('td')[column].textContent.toUpperCase();
+		var A = a.qa('td')[column].textContent.toUpperCase();
+		var B = b.qa('td')[column].textContent.toUpperCase();
 		
 		if(A < B) {
 			
@@ -1217,7 +1195,7 @@ function sortTable (table, column, f) {
 
     for (var i = 0; i < rows.length; i++) {
 
-        table.querySelector('tbody').appendChild(rows[i]);
+        table.q('tbody').appendChild(rows[i]);
 
     }
 
@@ -1382,7 +1360,7 @@ function animate(el, animation_code, duration, callback) { // Default duration =
 		var styles = document.createElement('style');
 		styles.innerHTML = '@keyframes ' + animation_name + ' {' + animation_code + '} [data-animation=' + animation_name + '] { animation-name: ' + animation_name + '; animation-duration: ' + ((typeof duration === 'undefined') ? .2 : duration) + 's; }'; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
 		q('head').appendChild(styles);
-		addClass(styles, animation_name);
+		styles.addClass(animation_name);
 
 // 		el.dataset.animation = animation_name;
 		el.setAttribute('data-animation', animation_name);
@@ -1422,7 +1400,7 @@ function toggleAccordion(e) {
 
     stopEvent(e);
     var el = closest(e.target, '.fold');
-    var content = el.querySelector('.content');
+    var content = el.q('.content');
 
 	content.style.setProperty('--width', content.scrollWidth + 'px');
 	content.style.setProperty('--max-height', content.scrollHeight + 'px');
@@ -1431,9 +1409,9 @@ function toggleAccordion(e) {
 	
 	// Animation, not CSS, because of nested accordions
 	
-	if (hasClass(el, 'horizontal')) {
+	if (el.hasClass('horizontal')) {
 		
-		toggleAttribute(el, aria_expanded);
+		el.toggleAttribute(aria_expanded);
 		
 	} else {
 	
@@ -1441,13 +1419,13 @@ function toggleAccordion(e) {
 	
 			animate(content, '0% { max-height: ' + content.scrollHeight + 'px; } 100% { max-height: ' + content_height + '; }', .2, function () {
 				
-				toggleAttribute(el, aria_expanded);
+				el.toggleAttribute(aria_expanded);
 				
 			});
 			
 		} else {
 			
-			toggleAttribute(el, aria_expanded);
+			el.toggleAttribute(aria_expanded);
 			animate(content, '0% { max-height: ' + content_height + '; } 100% { max-height: ' + content.scrollHeight + 'px; }');
 			
 		}
@@ -1515,7 +1493,7 @@ function loadScriptFile(file_name) {
         if (curRootClass != 'can-touch') { //add "can-touch' class if it's not already present
 
             curRootClass = 'can-touch';
-            addClass(q('html'), curRootClass);
+            q('html').addClass(curRootClass);
 
         }
 
@@ -1529,7 +1507,7 @@ function loadScriptFile(file_name) {
 
             isTouch = false;
             curRootClass = '';
-            removeClass(q('html'), 'can-touch');
+            q('html').removeClass('can-touch');
 
         }
 
@@ -1560,13 +1538,13 @@ function closeFoldClickOutside(e) {
 	
 	if (q('.n-sldr.active')) {
 		
-		removeClass(q('.n-sldr.active'), 'active')
+		q('.n-sldr.active').removeClass('active')
 		
 	}
 	
 	if (closest(el, '.slider')) {
 		
-		addClass(closest(el, '.n-sldr'), 'active');
+		closest(el, '.n-sldr').addClass('active');
 		
 	}
 	
@@ -1587,27 +1565,27 @@ forEach('.fold > .label', function(el, i) {
 	};
 
     el = el.parentNode;
-	var content = el.querySelector('.content');
+	var content = el.q('.content');
 	
-	if (hasClass(el, 'horizontal')) {
+	if (el.hasClass('horizontal')) {
 		
-		addClass(el, 'init');
+		el.addClass('init');
 		content.style.setProperty('--width', content.scrollWidth + 'px');
 		content.style.height = 'auto';
-		removeClass(el, 'init');
+		el.removeClass('init');
 		setTimeout(function () { content.style.transition = 'width .2s ease-in-out'; }, 100);
 		
 	}
 
 	content.style.setProperty('--max-height', content.scrollHeight + 'px');
 
-    if (el.querySelector('input.trigger')) { // Remove CSS-only triggers
+    if (el.q('input.trigger')) { // Remove CSS-only triggers
 
-        el.querySelector('input.trigger').outerHTML = '';
+        el.q('input.trigger').outerHTML = '';
 
     }
 
-    if (!hasClass(el, 'mobile')) { // Keep the accordion content clickable
+    if (!el.hasClass('mobile')) { // Keep the accordion content clickable
 	    
 	    content.onclick = function(e) {
 
@@ -1619,19 +1597,19 @@ forEach('.fold > .label', function(el, i) {
     
 });
 
-addEventHandler(window, 'click', function (e) { // Close all Fold elements when clicking outside of them
+window.addEventListener('click', function (e) { // Close all Fold elements when clicking outside of them
 	
 	closeFoldClickOutside(e);
 	
 });
 
-addEventHandler(window, 'touchend', function (e) { // Close all Fold elements when clicking outside of them
+window.addEventListener('touchend', function (e) { // Close all Fold elements when clicking outside of them
 	
 	closeFoldClickOutside(e);
 	
 });
 	
-addEventHandler(window, 'scroll', function() {  // Close fixed n-ovrl if its scrolling becomes a window scroll. Idea by a Google mobile nav.
+window.addEventListener('scroll', function() {  // Close fixed n-ovrl if its scrolling becomes a window scroll. Idea by a Google mobile nav.
 	
 	if (q('.fixed-mobile .fold.mobile[aria-expanded]')) {
 		
@@ -1644,7 +1622,7 @@ addEventHandler(window, 'scroll', function() {  // Close fixed n-ovrl if its scr
 // Scroll effects
 forEach('body [data-threshold]', function(el) { // Set a variable reflecting how much of the element's height has been scrolled; .threshold on scroll over element height
 
-	addEventHandler(window, 'scroll', function() {
+	window.addEventListener('scroll', function() {
 
 		setTimeout(function () {
 			
@@ -1674,13 +1652,13 @@ forEach('body [data-threshold]', function(el) { // Set a variable reflecting how
 
 			if (relativeScroll >= threshold) {
 				
-				addClass(el, 'threshold');
+				el.addClass('threshold');
 				q('body').setAttribute('data-threshold', true);
 				
 			} else {
 				
-				removeClass(el, 'threshold');
-				removeClass(q('body'), 'threshold');
+				el.removeClass('threshold');
+				q('body').removeClass('threshold');
 				q('body').removeAttribute('data-threshold');
 				
 			}
@@ -1719,7 +1697,7 @@ function dropNavBlur(e) {
 	
 	if (!closest(e.relatedTarget, this_nav)) { // if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
 		
-		forEach ( this_nav.querySelectorAll('ul'), function (el) {
+		forEach ( this_nav.qa('ul'), function (el) {
 
 			el.removeAttribute('aria-expanded');
 			
@@ -1732,7 +1710,7 @@ function dropNavBlur(e) {
 	var target_parent = closest(el, '[aria-haspopup]');
 	if (target_parent) { // Skip if it's a top-level-only item
 		
-		forEach(target_parent.querySelectorAll('ul[aria-expanded]'), function (el) { // Disable active grandchildren
+		forEach(target_parent.qa('ul[aria-expanded]'), function (el) { // Disable active grandchildren
 	
 			el.removeAttribute('aria-expanded');
 	
@@ -1761,7 +1739,7 @@ function dropNavFocus(e) {
 
 		if (a.nodeName === 'LI' && a !== el) {
 		
-			forEach(a.querySelectorAll('[aria-expanded]'), function (el) {
+			forEach(a.qa('[aria-expanded]'), function (el) {
 				
 				el.removeAttribute('aria-expanded');
 				
@@ -1774,9 +1752,9 @@ function dropNavFocus(e) {
 	el = e.target;
 
 	el.parentNode.parentNode.setAttribute('aria-expanded', true);
-	if (el.parentNode.querySelector('ul')) {
+	if (el.parentNode.q('ul')) {
 
-		el.parentNode.querySelector('ul').setAttribute('aria-expanded', 'true');
+		el.parentNode.q('ul').setAttribute('aria-expanded', 'true');
 
 	}
 	
@@ -1784,9 +1762,9 @@ function dropNavFocus(e) {
 
 	forEach(current_item.parentNode.parentNode.childNodes, function (el) {
 
-		if (el !== current_item && el.nodeName === 'LI' && el.querySelector('ul')) {
+		if (el !== current_item && el.nodeName === 'LI' && el.q('ul')) {
 
-			el.querySelector('ul').removeAttribute('aria-expanded');
+			el.q('ul').removeAttribute('aria-expanded');
 		
 		}
 		
@@ -1798,7 +1776,7 @@ function initNav(el) {
 	
 	// Delete all trigger inputs, add tabindex=0 to each li
 	
-	forEach(el.querySelectorAll('input'), function (el) {
+	forEach(el.qa('input'), function (el) {
 		
 		el.outerHTML = '';
 		
@@ -1806,9 +1784,9 @@ function initNav(el) {
 	
 	el.setAttribute('role', 'menubar');
 
-	forEach(el.querySelectorAll('li'), function (el) {
+	forEach(el.qa('li'), function (el) {
 		
-		el.querySelector('a').setAttribute('tabindex', 0);
+		el.q('a').setAttribute('tabindex', 0);
 
 	});
 
@@ -1831,7 +1809,7 @@ function initNav(el) {
 	
 		if (e.key === 'Escape') {
 			
-			forEach (closest(e.target, 'nav').querySelectorAll('ul'), function (el) {
+			forEach (closest(e.target, 'nav').qa('ul'), function (el) {
 				
 				el.removeAttribute('aria-expanded');
 				
@@ -1843,9 +1821,9 @@ function initNav(el) {
 		
 	});
 	
-	forEach(el.querySelectorAll('li'), function (el) {
+	forEach(el.qa('li'), function (el) {
 		
-		if (el.querySelector('ul')) {
+		if (el.q('ul')) {
 	
 			el.setAttribute('aria-haspopup', true);
 		
@@ -1866,7 +1844,7 @@ function initNav(el) {
 			
 			if (el.nodeName === 'LI') {
 				
-				el = el.querySelector('a');
+				el = el.q('a');
 				
 			}
 			
@@ -1882,7 +1860,7 @@ function initNav(el) {
 				
 		});
 
-		var anchor = el.querySelector('a');
+		var anchor = el.q('a');
 
 		anchor.addEventListener('focus', dropNavFocus);
 	
@@ -2074,19 +2052,19 @@ function init() {
 	
 		}
 
-		if (hasClass(el.parentNode, 'n-sldr')) {
+		if (el.parentNode.hasClass('n-sldr')) {
 			
 			return;
 	
 		}
 		
-		if (hasClass(el, 'inline')) {
+		if (el.hasClass('inline')) {
 			
-			openLightbox(el.querySelector('a'));
+			openLightbox(el.q('a'));
 			
 		} else {
 			
-			forEach(el.querySelectorAll('a'), function(el) {
+			forEach(el.qa('a'), function(el) {
 
 				el.setAttribute('tabindex', 0);
 			    el.onclick = openLightbox;
@@ -2109,11 +2087,11 @@ function init() {
 		
 		el.onclick = function (e) {
 
-			toggleAttribute(closest(e.target, '.tool'), aria_expanded);
+			closest(e.target, '.tool').toggleAttribute(aria_expanded);
 
 		};		
 	
-	    var t = el.querySelector('.tip');
+	    var t = el.q('.tip');
 	    if (!t) return;
 	
 	    el.style.position = 'static'; // dangerous with absolutely-positioned containers, which should be avoided anyway
@@ -2123,7 +2101,7 @@ function init() {
 	    t.style.width = '100%';
 */
 
-		var label = el.querySelector('.label');
+		var label = el.q('.label');
 		if (label) {
 			
 			label.setAttribute('tabindex', 0);
@@ -2131,7 +2109,7 @@ function init() {
 				
 				if (e.key === 'Enter') {
 					
-					toggleAttribute(closest(e.target, '.tool'), aria_expanded);
+					closest(e.target, '.tool').toggleAttribute(aria_expanded);
 
 				}
 				
@@ -2167,7 +2145,7 @@ ready( function () {
 		
 		if (q('.lightbox:target')) {
 			
-			addClass(q('.lightbox:target'), 'uri-target');
+			q('.lightbox:target').addClass('uri-target');
 			openLightbox(q('.lightbox:target > a[href]'));
 			
 		}

@@ -28,20 +28,20 @@ function sliderElement(e) { // Get the active slider instance
 
 	if (closest(document.activeElement, 'n-sldr') === q('.n-sldr:focus-within')) {
 
-		return q('.n-sldr:focus-within').querySelector('.slider');
+		return q('.n-sldr:focus-within .slider');
 
 	}
 
     var el = e.target;
 
-    if (hasClass(el, 'n-sldr')) {
+    if (el.hasClass('n-sldr')) {
 
-        return el.querySelector('.slider');
+        return el.q('.slider');
 
     } else {
 
         var container = closest(el, '.n-sldr');
-        return container && container.querySelector('.slider');
+        return container && container.q('.slider');
 
     }
 
@@ -57,7 +57,7 @@ function swipeEvents(el) {
 
     function touchStart(e) {
 
-		if (hasClass(q('html'), 'sliding_now')) {
+		if (q('html').hasClass('sliding_now')) {
 
 			endSlide(sliderElement(e));
 			return;
@@ -71,7 +71,7 @@ function swipeEvents(el) {
             startY = touches[0].pageY;
             el.addEventListener('touchmove', touchMove);
 
-//             addClass(q('html'), 'sliding_now');
+//             q('html').addClass('sliding_now');
 
         }
 
@@ -82,16 +82,16 @@ function swipeEvents(el) {
         var touches = e.touches;
 // 	    var slider = sliderElement(e);
 
-        if (touches && touches.length && !(hasClass(el, 'vertical') && !closest(el, '.n-ovrl'))) { // Don't slide vertically if not full window
+        if (touches && touches.length && !(el.hasClass('vertical') && !closest(el, '.n-ovrl'))) { // Don't slide vertically if not full window
 
             var deltaX = startX - touches[0].pageX;
             var deltaY = startY - touches[0].pageY;
             var delta = (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY;
 			
 			// Allow vertical page scrol by swiping over the slider 
-            if ((hasClass(el, 'vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !q('.n-ovrl .n-sldr')) {
+            if ((el.hasClass('vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !q('.n-ovrl .n-sldr')) {
 
-                removeClass(q('html'), 'sliding_now');
+                q('html').removeClass('sliding_now');
                 return;
 
             }
@@ -117,7 +117,7 @@ function initScroll(e, delta) { // Scroll happens
     var timeNow = new Date().getTime();
 
     // Cancel scroll if currently animating or within quiet period – don't slide again automatically after a slide
-    if ((timeNow - window.lastSlideTime) < window.slideDuration * 2000 || hasClass(q('html'), 'sliding_now')) {
+    if ((timeNow - window.lastSlideTime) < window.slideDuration * 2000 || q('html').hasClass('sliding_now')) {
 
         stopEvent(e);
 		return;
@@ -132,7 +132,7 @@ function initScroll(e, delta) { // Scroll happens
 
 function mouseWheelHandler(e) {
 
-	if (hasClass(q('html'), 'sliding_now')) {
+	if (q('html').hasClass('sliding_now')) {
 		
 		stopEvent(e); 
 		return;
@@ -150,7 +150,7 @@ function mouseWheelHandler(e) {
     var deltaX = (e.deltaX * -10) || e.wheelDeltaX || -e.detail; // Firefox provides 'detail' with opposite value
     var deltaY = (e.deltaY * -10) || e.wheelDeltaY || -e.detail;
 /* To do: stop generating events while sliding */	
-    if (!hasClass(q('html'), 'sliding_now') && Math.abs(hasClass(sliderElement(e), 'vertical') ? deltaY : deltaX) > 50) {
+    if (!q('html').hasClass('sliding_now') && Math.abs(sliderElement(e).hasClass('vertical') ? deltaY : deltaX) > 50) {
 
         e.preventDefault();
         initScroll(e, (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY);
@@ -161,7 +161,7 @@ function mouseWheelHandler(e) {
 
 function mouseEvents(el, toggle) {
 
-    if (!('onwheel' in window) || (hasClass(el, 'vertical') && !closest(el, '.n-ovrl'))) { // Check for mouse wheel and Don't slide vertically if not full window
+    if (!('onwheel' in window) || (el.hasClass('vertical') && !closest(el, '.n-ovrl'))) { // Check for mouse wheel and Don't slide vertically if not full window
 	    
 	    return;
 	   
@@ -192,7 +192,7 @@ function mouseEvents(el, toggle) {
 
 function endSlide (slider, index) {
 
-    if (hasClass(slider, 'lightbox')) {
+    if (slider.hasClass('lightbox')) {
 		
 		populateLightbox(slider, index);
         
@@ -202,14 +202,14 @@ function endSlide (slider, index) {
 	
 	if (getSliderNav(slider_wrap)) { // Multiple slides? // To do: get the proper slider nav, if it's detached
 
-		addClass(getSliderNav(slider_wrap).children[index], 'active');
+		getSliderNav(slider_wrap).children[index].addClass('active');
 	
 	}
     slider.style.cssText = '';
 
-	addClass(slider.children[index], 'active');
+	slider.children[index].addClass('active');
 
-    if (!hasClass(slider, 'vertical')) {
+    if (!slider.hasClass('vertical')) {
 	    
 	    slider.style.marginLeft = -100*index + '%';
 	   
@@ -220,18 +220,18 @@ function endSlide (slider, index) {
 	window.onkeyup = sliderKeyboard;
     setTimeout(function () {
 
-	    removeClass(q('html'), 'sliding_now');
+	    q('html').removeClass('sliding_now');
 	    mouseEvents(slider);
 
 	    // Make this slider active
 	
 		if (q('.n-sldr.active')) {
 			
-			removeClass(q('.n-sldr.active'), 'active')
+			q('.n-sldr.active').removeClass('active')
 			
 		}
 	
-		addClass(closest(slider, '.n-sldr'), 'active');
+		closest(slider, '.n-sldr').addClass('active');
 
 	}, window.slideDuration/2);
 	
@@ -239,13 +239,13 @@ function endSlide (slider, index) {
 
 function slide(el, method, index_number) {
 
-	if (hasClass(q('html'), 'sliding_now')) {
+	if (q('html').hasClass('sliding_now')) {
 		
 		return;
 	
 	}
 
-    var slider = closest(el, '.n-sldr').querySelector('.slider');
+    var slider = closest(el, '.n-sldr').q('.slider');
 
     if (slider.children.length < 2) {
 
@@ -260,7 +260,7 @@ function slide(el, method, index_number) {
     slider.style.pointerEvents = 'none'; // Speed up animation
     mouseEvents(el, 'off');
 	document.onkeyup = function () { return false; };
-// 	addClass(q('html'), 'sliding_now'); // iOS errors
+// 	q('html').addClass('sliding_now'); // iOS errors
 
     if (window.sliderTimeout) {
 
@@ -272,11 +272,11 @@ function slide(el, method, index_number) {
 	var old_index;
 	var slider_wrap = closest(slider, '.n-sldr');
 	var slider_nav = getSliderNav(slider_wrap);
-	index = old_index = thisIndex(slider_nav.querySelector('a.active'));
+	index = old_index = thisIndex(slider_nav.q('a.active'));
 
     if (method === 'index') {
 
-		if (typeof index_number === 'undefined' || index_number === index || !slider.querySelector('.active')) { /* Don't slide to current slide */
+		if (typeof index_number === 'undefined' || index_number === index || !slider.q('.active')) { /* Don't slide to current slide */
 			
 			endSlide(slider, index_number);
 			return;
@@ -322,7 +322,7 @@ function slide(el, method, index_number) {
 
 	var target_slide = slider.children[index];
 
-	if (hasClass(slider, 'vertical')) {
+	if (slider.hasClass('vertical')) {
 		target_slide.style.cssText = 'display: block'; // Temporarily display the target slide to get its height
 		computed_height = getComputedStyle(target_slide).height;
 		target_slide.style.cssText = '';
@@ -341,19 +341,19 @@ function slide(el, method, index_number) {
 
 	slider.style.height = computed_height;
 
-	if (slider_nav.querySelector('.active')) {
+	if (slider_nav.q('.active')) {
 
-	    removeClass(slider_nav.querySelector('.active'), 'active');
+	    slider_nav.q('.active').removeClass('active');
 
     }
 
 	var duration = slider.getAttribute('data-duration') ? slider.getAttribute('data-duration') : window.slideDuration;
 
-	addClass(target_slide, 'active');
+	target_slide.addClass('active');
 
 	var translate_from, translate_to;
 	
-    if (hasClass(slider, 'vertical')) {
+    if (slider.hasClass('vertical')) {
 
 	    translate_from = 'translate3d(0,' + ((index<old_index) ? '-100%' : '0') + ',0)';
 		
@@ -382,7 +382,7 @@ function slide(el, method, index_number) {
     
 	var animation_code;
 
-	if (hasClass(slider, 'fade')) {
+	if (slider.hasClass('fade')) {
 
 		animation_code = '0% { opacity: 1; transform: ' + translate_from + ' } 49% { transform: ' + translate_from + ' } 51% { opacity: 0; transform:' + translate_to + ' } 100% { opacity: 1; transform:' + translate_to + ' }';
 	
@@ -399,7 +399,7 @@ function slide(el, method, index_number) {
 	animate(slider, animation_code, duration, function slideEndHandler(e) { // On slide end
 
 		slider.removeAttribute('data-sliding');
-		removeClass(slider.children[old_index], 'active');
+		slider.children[old_index].removeClass('active');
 	    slider.children[old_index].style.transition = '';
 	    slider.children[old_index].style.opacity = '';
 
@@ -427,13 +427,13 @@ function shouldNotSlideVertically(el) {
 		return false; 
 	
 	}
-	return !hasClass(el,'vertical') || window.innerHeight < q('body').scrollHeight;
+	return !el.hasClass('vertical') || window.innerHeight < q('body').scrollHeight;
 	
 }
 
 function sliderKeyboard(e) {
 
-    if (typeof e === 'undefined' || hasClass(q('html'), 'sliding_now') || q('.slider[data-sliding]') || 
+    if (typeof e === 'undefined' || q('html').hasClass('sliding_now') || q('.slider[data-sliding]') || 
     	(q('.n-ovrl') && !q('.n-ovrl .n-sldr.active')) // There is an overlay open and it doesn't have a slider in it
 		) {
 
@@ -449,7 +449,7 @@ function sliderKeyboard(e) {
 		
 		if (q('.n-sldr')) {
 			
-			addClass(q('.n-sldr'), 'active');
+			q('.n-sldr').addClass('active');
 
 		}
 		
@@ -490,21 +490,21 @@ function sliderKeyboard(e) {
 
 function cancelTouchEvent(el) {
 	
-	addEventHandler(el, 'touchstart', function (e) { e.stopPropagation(); return false; });
+	el.addEventListener('touchstart', function (e) { e.stopPropagation(); return false; });
 	
 }
 
 function makeSlider(el, current_slide) {
 
-	if (hasClass(el.parentNode, 'n-sldr') || hasClass(el.parentNode.parentNode, 'n-sldr')) { // Already created
+	if (el.parentNode.hasClass('n-sldr') || el.parentNode.parentNode.hasClass('n-sldr')) { // Already created
 		
 		return;
 		
 	}
 	
-    addClass(el, 'slider');
+    el.addClass('slider');
 
-	if (hasClass(el, 'full-window')) {
+	if (el.hasClass('full-window')) {
 		
 		openFullWindow(el);
 		
@@ -512,18 +512,18 @@ function makeSlider(el, current_slide) {
 
 	var container = el.parentNode;
 
-	if (!hasClass(container, 'n-sldr')) {
+	if (!container.hasClass('n-sldr')) {
 
 	    container = wrap(el).parentNode;
-		addClass(container, 'n-sldr');
-	    el = container.querySelector('.slider');
+		container.addClass('n-sldr');
+	    el = container.q('.slider');
 		
-		if (hasClass(el, 'pad')) {
+		if (el.hasClass('pad')) {
 			
 		    container = wrap(el).parentNode;
-			addClass(container, 'pad');
+			container.addClass('pad');
 		    container = container.parentNode;
-		    el = container.querySelector('.slider');
+		    el = container.q('.slider');
 
 		}
 		
@@ -540,13 +540,13 @@ function makeSlider(el, current_slide) {
 
 		if (el.id && (slider_nav = q('.slider-nav[data-for=' + el.id + ']'))) { // Detached nav
 			
-			addClass(container, 'detached-nav');
-			addClass(el, 'detached-nav');
+			container.addClass('detached-nav');
+			el.addClass('detached-nav');
 	
 		} else {
 
-		    container.insertAdjacentHTML(hasClass(container, 'top') ? 'afterbegin' : 'beforeend', '<div class=slider-nav></div>');
-            slider_nav = container.querySelector('.slider-nav:not([data-for])'); // Not data-for to avoid nested detached nav for nested sliders
+		    container.insertAdjacentHTML(container.hasClass('top') ? 'afterbegin' : 'beforeend', '<div class=slider-nav></div>');
+            slider_nav = container.q('.slider-nav:not([data-for])'); // Not data-for to avoid nested detached nav for nested sliders
 		
 		}
 		
@@ -558,13 +558,13 @@ function makeSlider(el, current_slide) {
 
 	    for (var i = 0; i < el.children.length; i++) {
 	
-	        if (hasClass(el, 'tabs')) {
+	        if (el.hasClass('tabs')) {
 	
-	            addClass(slider_wrap, 'tabs');
-	            addClass(slider_nav, 'row');
+	            slider_wrap.addClass('tabs');
+	            slider_nav.addClass('row');
 	            transferClass(slider_wrap, slider_nav, 'wrap');
 	            transferClass(el, slider_wrap, 'vertical');
-	            var tab_title = el.children[i].getAttribute('data-tab_title') || (el.children[i].querySelector('.tab-title') ? el.children[i].querySelector('.tab-title').innerHTML : i+1);
+	            var tab_title = el.children[i].getAttribute('data-tab_title') || (el.children[i].q('.tab-title') ? el.children[i].q('.tab-title').innerHTML : i+1);
 	            slider_nav.insertAdjacentHTML('beforeend', '<a tabindex="0">' + tab_title + '</a>');
 
 	        } else {
@@ -592,7 +592,7 @@ function makeSlider(el, current_slide) {
 	        
 	    }
 	
-	    container.querySelector('.slider-arrow').onclick = container.querySelector('.slider-arrow').onkeyup = function(e) {
+	    container.q('.slider-arrow').onclick = container.q('.slider-arrow').onkeyup = function(e) {
 	
 			if (e.type === 'keyup' && e.keyCode !== 13) { // Slide on Enter key
 				
@@ -604,9 +604,9 @@ function makeSlider(el, current_slide) {
 	
 	    };
 	    
-	    cancelTouchEvent(container.querySelector('.slider-arrow'));
+	    cancelTouchEvent(container.q('.slider-arrow'));
 	
-	    container.querySelector('.slider-arrow.right').onclick = container.querySelector('.slider-arrow.right').onkeyup = function(e) {
+	    container.q('.slider-arrow.right').onclick = container.q('.slider-arrow.right').onkeyup = function(e) {
 	
 			if (e.type === 'keyup' && e.keyCode !== 13) { // Slide on Enter key
 				
@@ -617,7 +617,7 @@ function makeSlider(el, current_slide) {
 	
 	    };
 	
-	    cancelTouchEvent(container.querySelector('.slider-arrow.right'));
+	    cancelTouchEvent(container.q('.slider-arrow.right'));
 	
 	    mouseEvents(el);
 	
@@ -638,12 +638,12 @@ function makeSlider(el, current_slide) {
 	    });
 	    
 	    // Don't slide when using a range input in a form in a slider
-	    forEach(el.querySelectorAll('input[type=range]'), function (el) {
+	    forEach(el.q('input[type=range]'), function (el) {
 	        
 	        el.ontouchmove = function(e) {
 	
 				e.stopPropagation();
-				removeClass(q('html'), 'sliding_now');
+				q('html').removeClass('sliding_now');
 		        
 	        };
 	        
@@ -665,17 +665,17 @@ function makeSlider(el, current_slide) {
 	    }
 		
 		// If URI #id matches a slide #id, go to that slide and scroll the page to the slider.
-		if (!current_slide && window.location.hash && el.querySelector(window.location.hash)) {
+		if (!current_slide && window.location.hash && el.q(window.location.hash)) {
 			
-			var current_slide = thisIndex(el.querySelector(window.location.hash));
-			addClass(slider_wrap, 'active');
+			var current_slide = thisIndex(el.q(window.location.hash));
+			slider_wrap.addClass('active');
 			
 		} 
 		endSlide(el, current_slide || 0); // Start from (other than) the first slide
 	    
 	} else {
 		
-		addClass(el.children[0], 'active');
+		el.children[0].addClass('active');
 
 	}
 
