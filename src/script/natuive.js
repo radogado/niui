@@ -448,7 +448,7 @@ function getSliderNav(slider_wrap) {
 
 	} else {
 
-		return slider_wrap.q('.slider-nav');
+		return slider_wrap.qa('.slider-nav')[slider_wrap.qa('.slider-nav').length-1]; // With a simple query, it would get the nav of an eventual nested slider, instead of the current one. Current nav is either a direct child or a .pad direct child, taken as the last one of all.
 
 	}
 

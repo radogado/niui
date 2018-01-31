@@ -199,7 +199,7 @@ function endSlide (slider, index) {
     }
 
 	var slider_wrap = closest(slider, '.n-sldr');
-	
+
 	if (getSliderNav(slider_wrap)) { // Multiple slides? // To do: get the proper slider nav, if it's detached
 
 		getSliderNav(slider_wrap).children[index].addClass('active');
