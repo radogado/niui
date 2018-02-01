@@ -24,13 +24,23 @@
 <!-- <div class='notify'>Whoops</div> -->
 	<!-- Head - Start -->
 
-	<main id=content style='min-height: 100vh;'>
-
-		<div class='slider tabs vertical'>
+	<main id=content class="row no-spacing">
+		
+		<div class="col4 nav-column">
 			
-				<div data-tab_title='Home' id=home><div class='header-and-banner viewport push-up-'>
+			<div class='slider-nav' data-for='guide-slider'></div>		
+		
+		</div>
+		
+		<div class="col34">
+
+			<div class='slider tabs vertical' id='guide-slider'>
+			
+				<div data-tab_title='Home' id=home>
+					
+					<div class='header-and-banner viewport push-up-'>
 	
-		<div class=banner>
+						<div class=banner>
 		
 			<div class='contain row'>
 				
@@ -55,7 +65,9 @@
 		
 		</div>
 		
-	</div></div>
+					</div>
+				
+				</div>
 
 				<div data-tab_title='Page structure' id=page-structure>
 					
@@ -116,7 +128,7 @@
 				
 				</div>
 				
-				<div data-tab_title=Grid id=grid>
+				<div data-tab_title=Grid id=grid> <div> 
 					
 					<div class='row'>
 						
@@ -762,7 +774,7 @@
 					
 					</div>
 
-				</div>
+				 </div> </div>
 				
 				<div data-tab_title=Navigation id=nav>
 						
@@ -1749,7 +1761,7 @@
 								<h2>Tooltip</h2>
 								<p>
 					<span class='tool'>
-						This text has a tooltip.
+						<span class=label>This text has a tooltip.</span>
 						<span class='tip'>
 							<b>Here is the tooltip</b> <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 						</span>
@@ -1757,7 +1769,7 @@
 					</p>
 
 <pre>&lt;span class='tool'&gt;
-	Tool content.
+	&lt;span class='label'&gt;Tool content.&lt;/span&gt;
 	&lt;span class='tip'&gt;Tip content.&lt;/span&gt;
 &lt;/span&gt;				
 </pre>
@@ -3206,13 +3218,13 @@ copyButton(q('#copybutton'), q('#copycontent'));
 							<h2>animate() function</h2>
 					
 <pre>
-animate(q('body'), 
+animate(document.querySelector('body'), 
 	'0% { opacity: 1; transform: translateX(0); } 
 	50% { opacity: 0; transform: translateX(-50vw); } 
 	100% { opacity: 1;  transform: translateX(0); }', 
 	2);
 </pre>
-							<button onclick="window.animate(q('body'), '0% { opacity: 1; transform: translateX(0); } 50% { opacity: 0; transform: translateX(-50vw); } 100% { opacity: 1;  transform: translateX(0); }', 2);">Animate now</button>
+							<button onclick="window.animate(document.querySelector('body'), '0% { opacity: 1; transform: translateX(0); } 50% { opacity: 0; transform: translateX(-50vw); } 100% { opacity: 1;  transform: translateX(0); }', 2);">Animate now</button>
 
 							<h3>Options</h3>
 							
@@ -3230,6 +3242,8 @@ animate(q('body'),
 				</div>
 
 			</div>
+		
+		</div>
 			
 	</main>
 

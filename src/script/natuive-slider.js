@@ -233,6 +233,16 @@ function endSlide (slider, index) {
 	
 		closest(slider, '.n-sldr').addClass('active');
 
+		if (slider.children[index].id) { // Scroll page to slide hash. To do: restore focus
+	
+			scrollToAnimated(getCumulativeOffset(slider.children[index]).y, .2, function () {
+	
+				window.location.hash = slider.children[index].id;
+	
+			});
+			
+		}
+
 	}, window.slideDuration/2);
 	
 }
@@ -407,16 +417,6 @@ function slide(el, method, index_number) {
 		endSlide(slider, index);
 
     });
-
-	if (target_slide.id) { // Scroll page to slide hash
-
-		scrollToAnimated(getCumulativeOffset(target_slide).y, .2, function () {
-
-			window.location.hash = target_slide.id;
-
-		});
-		
-	}
 
 }
 

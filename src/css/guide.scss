@@ -1,4 +1,4 @@
-main > .n-sldr.vertical.tabs > .slider-nav.row {
+main .nav-column .slider-nav.row {
 
 // 	position: fixed;
 	top: 0;
@@ -14,12 +14,50 @@ main > .n-sldr.vertical.tabs > .slider-nav.row {
     position: fixed;
     bottom: auto;
     padding-bottom: 2em;
+    
+
+	height: 100%;
+    display: flex;
+    flex-direction: column;    
 
 }
 
-main > .n-sldr {
+main, main .nav-column .slider-nav.row, main.row > *, main > .n-sldr {
+	
+	height: 100vh;
+    box-sizing: border-box;
 
-	min-height: 100vh;
+}
+
+.slider.vertical > * {
+	
+	height: 100vh;
+    box-sizing: border-box;
+    overflow: hidden;
+	
+}
+
+.slider.vertical > .active {
+	
+	overflow: auto;
+	
+}
+
+.nav-column .slider-nav a {
+
+	display: block;
+    width: auto;
+    border-radius: 0;	
+	background: none;
+    color: initial;
+	text-align: start;
+    padding: 0 .5em;
+	
+}
+
+.nav-column .slider-nav a.active {
+
+	color: lightseagreen;
 
 }
 
@@ -31,9 +69,17 @@ main > .n-sldr.vertical.tabs > .slider-nav a {
 
 }
 
-main > .n-sldr.vertical.tabs > .slider {
+.slider.vertical {
+	
+	flex-direction: column;
+	
+}
 
-	width: 75%;
+main > .col34 > .n-sldr.vertical.tabs > .slider {
+
+	width: 100%;
+	height: 100vh !important;
+	float: none;
 
 }
 
@@ -115,4 +161,42 @@ li pre {
 	background: lightcyan;
 	color: #111;
 
+}
+
+@media (max-width: 599.9px) {
+	
+main.row.no-spacing > [class^=col].col34 {
+
+    width: 75%;
+    margin: 0 0 0 25%;	
+	
+}
+
+main.row.no-spacing > [class^=col].col4 {
+
+    width: 25%;
+    margin: 0;	
+    float: left;
+	
+}
+
+.nav-column .slider-nav a {
+	
+	height: auto;
+	
+}
+
+main .nav-column .slider-nav.row {
+	
+	display: block;
+	
+}
+
+.nav-column .slider-nav a {
+	
+	padding: 0;
+    margin: .5em 0;
+
+}
+	
 }

@@ -56,12 +56,13 @@ natUIve demo pages: [Features demo](http://radogado.github.io/natuive/kitchen.ht
 - No jQuery or other dependencies*
 - Supporting IE8+, Safari, Chrome, Firefox, Opera, Android 2.3+, iOS, Windows Phone
 - Graceful degradation
+- All components are accessible by keyboard
 - Full documentation in [natUIve.pdf](http://radogado.github.io/natuive/natUIve.pdf)
 - Includes a FREE picture of a cat
 
 \* exclusive features, missing in popular frameworks
 
-© 2014-2016 [rado.bg](http://rado.bg)
+© 2014-2018 [rado.bg](http://rado.bg)
 
 –––
 
