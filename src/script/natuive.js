@@ -728,7 +728,7 @@ function openLightbox(e) {
 
         var anchor = el;
 
-        while (typeof anchor.href === 'undefined') {
+        while (typeof anchor.href !== 'string') {
 
             anchor = anchor.parentNode;
 
@@ -853,7 +853,7 @@ function animateAnchors(e) {
     }
     var el = e.target;
 
-    while (typeof el.href === 'undefined') {
+    while (typeof el.href !== 'string') { // If a child of the link is clicked
 
         el = el.parentNode;
 
@@ -1833,7 +1833,7 @@ function initNav(el) {
 
 			var el = e.target;
 
-			if (window.dragging || el.getAttribute('href')) {
+			if (window.dragging || typeof el.href === 'string') {
 				
 				return;
 				
@@ -2025,15 +2025,15 @@ function init() {
 	
 	// Modal window: open a link's target inside it
 	
-	forEach('a.modal', function(el, i) {
+	forEach('a.modal[href]', function(el) {
 	
-		if (el.href != (location.href.split('#')[0] + '#')) {
+		if (el.href !== (location.href.split('#')[0] + '#')) { // Is it an empty anchor?
 			
 		    el.onclick = modalWindow;
 	
 	    }
 	    
-	    if (el.getAttribute('rel') === null) {
+	    if (!el.getAttribute('rel')) {
 		    
 		    el.setAttribute('rel', 'prefetch');
 	
