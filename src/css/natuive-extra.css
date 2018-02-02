@@ -519,7 +519,7 @@ $bg: #1E8DaC;
   100% {
     transform: scale(1);
     opacity: 0; } }
-.lightbox a {
+.lightbox:not(.slider) a {
   display: inline-block;
   vertical-align: middle;
   margin: 0.75em 0.375em;
@@ -527,7 +527,8 @@ $bg: #1E8DaC;
 
 .lightbox a img {
   display: block;
-  padding-bottom: 0 !important; }
+  padding-bottom: 0 !important;
+  margin: 0 auto; }
 
 @supports (--a: 1) {
   .lightbox a.video:before {

@@ -185,7 +185,7 @@
 
 }
 
-.lightbox a {
+.lightbox:not(.slider) a {
 	
 	display: inline-block;
 	vertical-align: middle;
@@ -199,6 +199,7 @@
 		
 		display: block;
 		padding-bottom: 0 !important;
+		margin: 0 auto;
 	
 	}
 	

@@ -236,8 +236,10 @@ function endSlide (slider, index) {
 		if (slider.children[index].id) { // Scroll page to slide hash. To do: restore focus
 	
 			scrollToAnimated(getCumulativeOffset(slider.children[index]).y, .2, function () {
-	
+				
+				var focused = document.activeElement;
 				window.location.hash = slider.children[index].id;
+				focused.focus();
 	
 			});
 			
