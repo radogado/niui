@@ -29,11 +29,9 @@ main, main .nav-column .slider-nav.row, main.row > *, main > .n-sldr {
 
 }
 
-.slider.vertical > * {
+main > 	.col34 > .n-sldr > .slider.vertical > * {
 	
 	height: 100vh;
-    box-sizing: border-box;
-    overflow: hidden;
 	
 }
 
@@ -52,6 +50,8 @@ main, main .nav-column .slider-nav.row, main.row > *, main > .n-sldr {
     color: initial;
 	text-align: start;
     padding: 0 .5em;
+    line-height: 1.25;
+    height: auto;
 	
 }
 

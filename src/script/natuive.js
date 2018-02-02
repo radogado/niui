@@ -1831,20 +1831,20 @@ function initNav(el) {
 	
 		el.addEventListener('touchend', function (e) {
 
-			if (window.dragging) {
+			var el = e.target;
+
+			if (window.dragging || el.getAttribute('href')) {
 				
 				return;
 				
 			}
-
+			
 			e.preventDefault();
 			e.stopPropagation();
 			
-			var el = e.target;
-			
 			if (el.nodeName === 'LI') {
 				
-				el = el.q('a');
+				el = el.querySelector('a');
 				
 			}
 			
