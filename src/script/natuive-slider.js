@@ -458,8 +458,8 @@ function sliderKeyboard(e) {
 		}
 		
 	}
-
-	if (el.nodeName !== 'BODY' && el.scrollWidth > el.clientWidth) { // Don't slide when current element is scrollable hozirontally
+console.log(el);
+	if (el.nodeName !== 'BODY' && (el.scrollWidth > el.clientWidth || el.scrollHeight > el.clientHeight)) { // Don't slide when current element is scrollable. To do: check all parent nodes for scrollability.
 		
 		return;
 
@@ -649,16 +649,20 @@ function makeSlider(el, current_slide) {
 	    });
 	    
 	    // Don't slide when using a range input in a form in a slider
-	    forEach(el.q('input[type=range]'), function (el) {
+	    if (el.q('input[type=range]')) {
+		   	
+		   	forEach(el.q('input[type=range]'), function (el) {
 	        
-	        el.ontouchmove = function(e) {
-	
-				e.stopPropagation();
-				q('html').removeClass('sliding_now');
+		        el.ontouchmove = function(e) {
+		
+					e.stopPropagation();
+					q('html').removeClass('sliding_now');
+			        
+		        };
 		        
-	        };
-	        
-	    });
+		    });
+	    
+	    }
 	
 	    if (el.getAttribute('data-autoslide')) { // auto slide
 	

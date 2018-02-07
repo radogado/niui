@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
 
-	grunt.initConfig({ /* To do: compile SCSS first */
+	grunt.initConfig({
 		'sass': {
 			dist: { 
 				files: {
@@ -23,18 +23,29 @@ module.exports = function(grunt) {
 		    }
 		  }
 		},
+		'concat': {
+		    options: {
+		      separator: ';',
+		      banner: '(function(){',
+		      footer: '}());'
+		    },
+		    dist: {
+		      src: ['src/script/natuive.js', 'src/script/natuive-slider.js'],
+		      dest: 'src/script/natuive-combined.js',
+		    },
+		},
 		'closure-compiler': {
-		frontend: {
-		  closurePath: './node_modules/closure-compiler',
-		  js: ['src/script/natuive.js', 'src/script/natuive-slider.js'],
-		  jsOutputFile: 'dist/natuive.min.js',
-		  maxBuffer: 500,
-		  noreport: true,
-		  options: {
-		    compilation_level: 'ADVANCED_OPTIMIZATIONS',
-		    language_in: 'ECMASCRIPT5_STRICT',
-		  }
-		}
+			frontend: {
+			  closurePath: './node_modules/closure-compiler',
+			  js: ['src/script/natuive-combined.js'],
+			  jsOutputFile: 'dist/natuive.min.js',
+			  maxBuffer: 500,
+			  noreport: true,
+			  options: {
+			    compilation_level: 'ADVANCED_OPTIMIZATIONS',
+			    language_in: 'ECMASCRIPT5_STRICT',
+			  }
+			}
 		},
 		'copy': {
 		  main: {
@@ -48,10 +59,11 @@ module.exports = function(grunt) {
 
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
+	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-closure-compiler');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 
 	// Default task(s).
-	grunt.registerTask('default', ['sass', 'cssmin', 'closure-compiler', 'copy']);
+	grunt.registerTask('default', ['sass', 'cssmin', 'concat', 'closure-compiler', 'copy']);
 
 };
