@@ -5,7 +5,7 @@ var aria_expanded = 'aria-expanded';
 
 // Stop JS if old browser (IE9-). They will get the CSS-only experience. Remove below fallbacks that supported them.
 
-(function () {
+(function () { // To do: move to main encapsulator function and don't make an error, just return to stop JS functionality.
 
 	"use strict";
 	if (Function.prototype.bind && !this) { // Supports ES5
@@ -25,7 +25,7 @@ var scripts_location = document.getElementsByTagName('script'); // To do: maybe 
 scripts_location = scripts_location[scripts_location.length-1].src;
 scripts_location = scripts_location.slice(0, scripts_location.length - scripts_location.split('/').pop().length);
 
-// DOM functions
+// DOM functions – start
 
 function q(selector) {
 
@@ -51,58 +51,77 @@ Element.prototype.qa = function(selector) {
 
 };
 
-Element.prototype.addClass = function(className) {
+function addClass(el, className) {
 
-	this.classList.add(className);
+	el.classList.add(className);
 
-};
+}
 
-Element.prototype.removeClass = function(className) {
+function removeClass(el, className) {
 
 	// To do: remove a single '.' for foolproof operation; Support multiple classes separated by space, dot, comma
-	this.classList.remove(className);
+	el.classList.remove(className);
+  
+}
 
-};
+function hasClass(el, className) {
 
-Element.prototype.hasClass = function(className) {
+	return el.classList.contains(className);
+	// To do: remove a single '.' for foolproof operation; Support multiple classes separated by space, dot, comma
 
-	return this.classList.contains(className);
+}
 
-};
+function toggleClass(el, className) {
 
-Element.prototype.toggleClass = function(className) {
+    if (hasClass(el, className)) {
 
-    if (this.hasClass(className)) {
-
-        this.removeClass(className);
-
-    } else {
-
-        this.addClass(className);
-
-    }
-
-};
-
-Element.prototype.toggleAttribute = function(attribute) {
-
-    if (this.getAttribute(attribute)) {
-
-        this.removeAttribute(attribute);
+        removeClass(el, className);
 
     } else {
 
-        this.setAttribute(attribute, true);
+        addClass(el, className);
 
     }
 
-};
+}
+
+function toggleAttribute(el, attribute) {
+
+    if (el.getAttribute(attribute)) {
+
+        el.removeAttribute(attribute);
+
+    } else {
+
+        el.setAttribute(attribute, true);
+
+    }
+
+}
+
+function forEach(selector, fn) { // Because IE11 doesn't support el.forEach(). Accepts both an array and a selector
+	
+    var elements = (typeof selector === 'string') ? qa(selector) : selector;
+
+	if (elements.length > 0) {
+
+	    for (var i = 0; i < elements.length; i++) {
+	
+	        fn(elements[i], i);
+	
+	    }
+    
+    }
+
+}
+
+// DOM functions – end
 
 function transferClass(el_origin, el_target, className) {
 
-    if (el_origin.hasClass(className)) {
+    if (hasClass(el_origin, className)) {
 
-        el_target.addClass(className);
+        addClass(el_target, className);
 
     }
 
@@ -134,29 +153,13 @@ Object.prototype.each = String.prototype.each = function (fn) { // To do: as thi
 }
 */
 
-function forEach(selector, fn) { // Because IE11 doesn't support el.forEach(). Accepts both an array and a selector
-	
-    var elements = (typeof selector === 'string') ? qa(selector) : selector;
-
-	if (elements.length > 0) {
-
-	    for (var i = 0; i < elements.length; i++) {
-	
-	        fn(elements[i], i);
-	
-	    }
-    
-    }
-
-}
-
 function wrapTables() {
 	
 	forEach('table', function(el) {
 	
-		if (!el.parentNode.hasClass('n-tbl')) {
+		if (!hasClass(el.parentNode, 'n-tbl')) {
 			
-			wrap(el).parentNode.addClass('n-tbl');
+			addClass(wrap(el).parentNode, 'n-tbl');
 			el.parentNode.setAttribute('tabindex', 0);
 		
 		}
@@ -372,7 +375,7 @@ function populateLightboxItem(slider, i) {
 		img.src = img.getAttribute('data-src');
 		img.onload = function (e) {
 			
-			e.target.parentNode.addClass('loaded');
+			addClass(e.target.parentNode, 'loaded');
 
 		}
 		img.onclick = function (e) { // Zoom and scan
@@ -386,7 +389,7 @@ function populateLightboxItem(slider, i) {
 			}
 			
 			var el = e.target;
-			el.toggleClass('zoom');
+			toggleClass(el, 'zoom');
 			el.style.cssText = '';
 			el.style.setProperty('--x', '-50%');
 			el.style.setProperty('--y', '-50%');
@@ -475,7 +478,7 @@ function closeFullWindow() {
 
 		if (qa('.n-ovrl').length === 1) { // A single overlay
 			
-		    q('html').removeClass('nooverflow');
+		    removeClass(q('html'), 'nooverflow');
 	    	q('body').scrollTop = q('html').scrollTop = -1 * window.previousScrollOffset;
 			
 		}
@@ -551,13 +554,13 @@ function openFullWindow(el, animation) {
 
 	}
 	el.setAttribute('data-anim', animation);
-    wrap(el).parentNode.addClass('content');
+    addClass(wrap(el).parentNode, 'content');
     wrap(el.parentNode).parentNode.setAttribute('class', 'n-ovrl');
 	var full_window = q('.n-ovrl:last-of-type') || q('.n-ovrl');
     full_window.q('.content').setAttribute('tabindex', 0);
 	full_window.insertAdjacentHTML('beforeend', '<div class=overlay-bg></div>');
 
-    if (!el.hasClass('headless')) {
+    if (!hasClass(el, 'headless')) {
 	    
 	    full_window.insertAdjacentHTML('afterbegin', '<div class=close> ← ' + document.title + '</div>');
 		full_window.q('.overlay-bg').onclick = full_window.q('.n-ovrl .close').onclick = closeFullWindow;
@@ -565,7 +568,7 @@ function openFullWindow(el, animation) {
 	   
 	} else {
 		
-		full_window.addClass('headless');
+		addClass(full_window, 'headless');
 		
 	}
 
@@ -593,7 +596,7 @@ function openFullWindow(el, animation) {
 
 		animate(full_window, typeof animation === 'string' ? animation : '0% { transform: translate3d(0,-100vh,0) } 100% { transform: translate3d(0,0,0) }', .2, function () { 
 			
-			q('html').addClass('nooverflow');
+			addClass(q('html'), 'nooverflow');
 	    	q('body').scrollTop = q('html').scrollTop = -1 * window.previousScrollOffset;
 	    	q('html').style.pointerEvents = 'initial';
 		
@@ -696,7 +699,7 @@ function openLightbox(e) {
 		
 	} else {
 		
-		openFullWindow('<div class="slider lightbox' + (lightbox.hasClass('full-screen') ? ' full-screen' : '') + '"></div>', animation);
+		openFullWindow('<div class="slider lightbox' + (hasClass(lightbox, 'full-screen') ? ' full-screen' : '') + '"></div>', animation);
 		q('.n-ovrl').style.overflow = 'hidden';
 		var lightbox_target = q('.n-ovrl .slider.lightbox');
 		
@@ -709,14 +712,14 @@ function openLightbox(e) {
 		el.setAttribute('tabindex', 0);
 	    thumbnails.push((el.q('img') ? el.q('img').src : '#'));
 
-		if (el.hasClass('video')) {
+		if (hasClass(el, 'video')) {
 			// video poster = the anchor's img child, if it exists
 			images += '<div><video poster=' + (el.q('img') ? el.q('img').src : '#') + ' controls=controls preload=none> <source type=video/mp4 src=' + el.href + '> </video></div>';
 			return;
 			
 		}
 			
-		if (el.hasClass('iframe')) {
+		if (hasClass(el, 'iframe')) {
 
 			images += '<div><iframe src=' + el.href + '></iframe></div>';
 			return;
@@ -725,7 +728,7 @@ function openLightbox(e) {
 		
 		var slide_link = document.location.href.split('#')[0] + (document.location.href.indexOf('?') >= 0 ? '&' : '?') + 'image=' + el.href.split('/').pop() + '#' + lightbox.getAttribute('id');
 
-	    var link_element = (lightbox.hasClass('inline') || !lightbox.getAttribute('id')) ? '' : '<a class="button copy" href=' + slide_link + '></a>';
+	    var link_element = (hasClass(lightbox, 'inline') || !lightbox.getAttribute('id')) ? '' : '<a class="button copy" href=' + slide_link + '></a>';
 	    
 	    images += '<div><img data-src="' + el.href + '" alt="' + el.title + '" data-link="' + slide_link + '">' + (el.title ? ('<p>' + el.title + '</p>') : '') + link_element + '</div>';
 
@@ -758,9 +761,9 @@ function openLightbox(e) {
 		var lightbox_items = lightbox.qa('a[href]');
         var this_index = Array.prototype.indexOf.call(lightbox_items, anchor); // Ignore non-anchor children of the lightbox container
 
-        if (location.href.indexOf('#' + lightbox.getAttribute('id')) > -1 && lightbox.hasClass('uri-target')) {
+        if (location.href.indexOf('#' + lightbox.getAttribute('id')) > -1 && hasClass(lightbox, 'uri-target')) {
 	        
-	        lightbox.removeClass('uri-target'); // Open URI-specified index only once, because subsequent lightbox instances would have incorrect index
+	        removeClass(lightbox, 'uri-target'); // Open URI-specified index only once, because subsequent lightbox instances would have incorrect index
 	        if (typeof getURLParameters()['slide'] != 'undefined') {
 
 		        this_index = getURLParameters()['slide'].split('#')[0] - 1;
@@ -790,7 +793,7 @@ function openLightbox(e) {
         transferClass(anchor.parentNode, lightbox_target.parentNode, 'thumbnails');
         transferClass(anchor.parentNode, lightbox_target.parentNode, 'outside');
         
-        if (anchor.parentNode.hasClass('thumbnails')) {
+        if (hasClass(anchor.parentNode, 'thumbnails')) {
         
 	        var i = 0;
 // 	        var nav = closest(lightbox_target, '.n-sldr').q('.slider-nav');
@@ -815,7 +818,7 @@ function openLightbox(e) {
 
     }
 
-	if (!lightbox.hasClass('inline')) { // Don't block global keyboard if the lightbox is inline
+	if (!hasClass(lightbox, 'inline')) { // Don't block global keyboard if the lightbox is inline
 	
 	    window.addEventListener('keydown', arrow_keys_handler, false);
     
@@ -888,7 +891,7 @@ function animateAnchors(e) {
 	    q('#nav-trigger').checked = false;
 	    if (q('header > nav > div')) {
 		    
-			q('header > nav > div').removeClass('open');
+			removeClass(q('header > nav > div'), 'open');
 			
 		}
 
@@ -942,12 +945,12 @@ function submitForm(e) {
 
             ready_to_submit = false;
             el.q('input').focus();
-            el.addClass('alert');
+            addClass(el, 'alert');
             return;
 
         } else {
 
-            el.removeClass('alert');
+            removeClass(el, 'alert');
 
         }
 
@@ -959,7 +962,7 @@ function submitForm(e) {
 
     }
 
-    if (!el.hasClass('dynamic') || !(new XMLHttpRequest().upload) || !php_support) { // Browser unable to submit dynamically.
+    if (!hasClass(el, 'dynamic') || !(new XMLHttpRequest().upload) || !php_support) { // Browser unable to submit dynamically.
 
         return true;
 
@@ -1371,7 +1374,7 @@ function animate(el, animation_code, duration, callback) { // Default duration =
 		var styles = document.createElement('style');
 		styles.innerHTML = '@keyframes ' + animation_name + ' {' + animation_code + '} [data-animation=' + animation_name + '] { animation-name: ' + animation_name + '; animation-duration: ' + ((typeof duration === 'undefined') ? .2 : duration) + 's; }'; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
 		q('head').appendChild(styles);
-		styles.addClass(animation_name);
+		addClass(styles, animation_name);
 
 // 		el.dataset.animation = animation_name;
 		el.setAttribute('data-animation', animation_name);
@@ -1420,9 +1423,9 @@ function toggleAccordion(e) {
 	
 	// Animation, not CSS, because of nested accordions
 	
-	if (el.hasClass('horizontal')) {
+	if (hasClass(el, 'horizontal')) {
 		
-		el.toggleAttribute(aria_expanded);
+		toggleAttribute(el, aria_expanded);
 		
 	} else {
 	
@@ -1430,13 +1433,13 @@ function toggleAccordion(e) {
 	
 			animate(content, '0% { max-height: ' + content.scrollHeight + 'px; } 100% { max-height: ' + content_height + '; }', .2, function () {
 				
-				el.toggleAttribute(aria_expanded);
+				toggleAttribute(el, aria_expanded);
 				
 			});
 			
 		} else {
 			
-			el.toggleAttribute(aria_expanded);
+			toggleAttribute(el, aria_expanded);
 			animate(content, '0% { max-height: ' + content_height + '; } 100% { max-height: ' + content.scrollHeight + 'px; }');
 			
 		}
@@ -1504,7 +1507,7 @@ function loadScriptFile(file_name) {
         if (curRootClass != 'can-touch') { //add "can-touch' class if it's not already present
 
             curRootClass = 'can-touch';
-            q('html').addClass(curRootClass);
+            addClass(q('html'), curRootClass);
 
         }
 
@@ -1518,7 +1521,7 @@ function loadScriptFile(file_name) {
 
             isTouch = false;
             curRootClass = '';
-            q('html').removeClass('can-touch');
+            removeClass(q('html'), 'can-touch');
 
         }
 
@@ -1549,13 +1552,13 @@ function closeFoldClickOutside(e) {
 	
 	if (q('.n-sldr.active')) {
 		
-		q('.n-sldr.active').removeClass('active')
+		removeClass(q('.n-sldr.active'), 'active')
 		
 	}
 	
 	if (closest(el, '.slider')) {
 		
-		closest(el, '.n-sldr').addClass('active');
+		addClass(closest(el, '.n-sldr'), 'active');
 		
 	}
 	
@@ -1578,12 +1581,12 @@ forEach('.fold > .label', function(el, i) {
     el = el.parentNode;
 	var content = el.q('.content');
 	
-	if (el.hasClass('horizontal')) {
+	if (hasClass(el, 'horizontal')) {
 		
-		el.addClass('init');
+		addClass(el, 'init');
 		content.style.setProperty('--width', content.scrollWidth + 'px');
 		content.style.height = 'auto';
-		el.removeClass('init');
+		removeClass(el, 'init');
 		setTimeout(function () { content.style.transition = 'width .2s ease-in-out'; }, 100);
 		
 	}
@@ -1596,7 +1599,7 @@ forEach('.fold > .label', function(el, i) {
 
     }
 
-    if (!el.hasClass('mobile')) { // Keep the accordion content clickable
+    if (!hasClass(el, 'mobile')) { // Keep the accordion content clickable
 	    
 	    content.onclick = function(e) {
 
@@ -1663,13 +1666,13 @@ forEach('body [data-threshold]', function(el) { // Set a variable reflecting how
 
 			if (relativeScroll >= threshold) {
 				
-				el.addClass('threshold');
+				addClass(el, 'threshold');
 				q('body').setAttribute('data-threshold', true);
 				
 			} else {
 				
-				el.removeClass('threshold');
-				q('body').removeClass('threshold');
+				removeClass(el, 'threshold');
+				removeClass(q('body'), 'threshold');
 				q('body').removeAttribute('data-threshold');
 				
 			}
@@ -2063,13 +2066,13 @@ function init() {
 	
 		}
 
-		if (el.parentNode.hasClass('n-sldr')) {
+		if (hasClass(el.parentNode, 'n-sldr')) {
 			
 			return;
 	
 		}
 		
-		if (el.hasClass('inline')) {
+		if (hasClass(el, 'inline')) {
 			
 			openLightbox(el.q('a'));
 			
@@ -2098,7 +2101,7 @@ function init() {
 		
 		el.onclick = function (e) {
 
-			closest(e.target, '.tool').toggleAttribute(aria_expanded);
+			toggleAttribute(closest(e.target, '.tool'), aria_expanded);
 
 		};		
 	
@@ -2120,7 +2123,7 @@ function init() {
 				
 				if (e.key === 'Enter') {
 					
-					closest(e.target, '.tool').toggleAttribute(aria_expanded);
+					toggleAttribute(closest(e.target, '.tool'), aria_expanded);
 
 				}
 				
@@ -2156,7 +2159,7 @@ ready( function () {
 		
 		if (q('.lightbox:target')) {
 			
-			q('.lightbox:target').addClass('uri-target');
+			addClass(q('.lightbox:target'), 'uri-target');
 			openLightbox(q('.lightbox:target > a[href]'));
 			
 		}
@@ -2206,7 +2209,7 @@ function sliderElement(e) { // Get the active slider instance
 
     var el = e.target;
 
-    if (el.hasClass('n-sldr')) {
+    if (hasClass(el, 'n-sldr')) {
 
         return el.q('.slider');
 
@@ -2229,7 +2232,7 @@ function swipeEvents(el) {
 
     function touchStart(e) {
 
-		if (q('html').hasClass('sliding_now')) {
+		if (hasClass(q('html'), 'sliding_now')) {
 
 			endSlide(sliderElement(e));
 			return;
@@ -2254,16 +2257,16 @@ function swipeEvents(el) {
         var touches = e.touches;
 // 	    var slider = sliderElement(e);
 
-        if (touches && touches.length && !(el.hasClass('vertical') && !closest(el, '.n-ovrl'))) { // Don't slide vertically if not full window
+        if (touches && touches.length && !(hasClass(el, 'vertical') && !closest(el, '.n-ovrl'))) { // Don't slide vertically if not full window
 
             var deltaX = startX - touches[0].pageX;
             var deltaY = startY - touches[0].pageY;
             var delta = (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY;
 			
 			// Allow vertical page scrol by swiping over the slider 
-            if ((el.hasClass('vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !q('.n-ovrl .n-sldr')) {
+            if ((hasClass(el, 'vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !q('.n-ovrl .n-sldr')) {
 
-                q('html').removeClass('sliding_now');
+                removeClass(q('html'), 'sliding_now');
                 return;
 
             }
@@ -2289,7 +2292,7 @@ function initScroll(e, delta) { // Scroll happens
     var timeNow = new Date().getTime();
 
     // Cancel scroll if currently animating or within quiet period – don't slide again automatically after a slide
-    if ((timeNow - window.lastSlideTime) < window.slideDuration * 2000 || q('html').hasClass('sliding_now')) {
+    if ((timeNow - window.lastSlideTime) < window.slideDuration * 2000 || hasClass(q('html'), 'sliding_now')) {
 
         stopEvent(e);
 		return;
@@ -2304,7 +2307,7 @@ function initScroll(e, delta) { // Scroll happens
 
 function mouseWheelHandler(e) {
 
-	if (q('html').hasClass('sliding_now')) {
+	if (hasClass(q('html'), 'sliding_now')) {
 		
 		stopEvent(e); 
 		return;
@@ -2322,7 +2325,7 @@ function mouseWheelHandler(e) {
     var deltaX = (e.deltaX * -10) || e.wheelDeltaX || -e.detail; // Firefox provides 'detail' with opposite value
     var deltaY = (e.deltaY * -10) || e.wheelDeltaY || -e.detail;
 /* To do: stop generating events while sliding */	
-    if (!q('html').hasClass('sliding_now') && Math.abs(sliderElement(e).hasClass('vertical') ? deltaY : deltaX) > 50) {
+    if (!hasClass(q('html'), 'sliding_now') && Math.abs(hasClass(sliderElement(e), 'vertical') ? deltaY : deltaX) > 50) {
 
         e.preventDefault();
         initScroll(e, (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY);
@@ -2333,7 +2336,7 @@ function mouseWheelHandler(e) {
 
 function mouseEvents(el, toggle) {
 
-    if (!('onwheel' in window) || (el.hasClass('vertical') && !closest(el, '.n-ovrl'))) { // Check for mouse wheel and Don't slide vertically if not full window
+    if (!('onwheel' in window) || (hasClass(el, 'vertical') && !closest(el, '.n-ovrl'))) { // Check for mouse wheel and Don't slide vertically if not full window
 	    
 	    return;
 	   
@@ -2364,7 +2367,7 @@ function mouseEvents(el, toggle) {
 
 function endSlide (slider, index) {
 
-    if (slider.hasClass('lightbox')) {
+    if (hasClass(slider, 'lightbox')) {
 		
 		populateLightbox(slider, index);
         
@@ -2374,14 +2377,14 @@ function endSlide (slider, index) {
 
 	if (getSliderNav(slider_wrap)) { // Multiple slides? // To do: get the proper slider nav, if it's detached
 
-		getSliderNav(slider_wrap).children[index].addClass('active');
+		addClass(getSliderNav(slider_wrap).children[index], 'active');
 	
 	}
     slider.style.cssText = '';
 
-	slider.children[index].addClass('active');
+	addClass(slider.children[index], 'active');
 
-    if (!slider.hasClass('vertical')) {
+    if (!hasClass(slider, 'vertical')) {
 	    
 	    slider.style.marginLeft = -100*index + '%';
 	   
@@ -2392,18 +2395,18 @@ function endSlide (slider, index) {
 	window.onkeyup = sliderKeyboard;
     setTimeout(function () {
 
-	    q('html').removeClass('sliding_now');
+	    removeClass(q('html'), 'sliding_now');
 	    mouseEvents(slider);
 
 	    // Make this slider active
 	
 		if (q('.n-sldr.active')) {
 			
-			q('.n-sldr.active').removeClass('active')
+			removeClass(q('.n-sldr.active'), 'active')
 			
 		}
 	
-		closest(slider, '.n-sldr').addClass('active');
+		addClass(closest(slider, '.n-sldr'), 'active');
 
 		if (slider.children[index].id) { // Scroll page to slide hash. To do: restore focus
 	
@@ -2423,7 +2426,7 @@ function endSlide (slider, index) {
 
 function slide(el, method, index_number) {
 
-	if (q('html').hasClass('sliding_now')) {
+	if (hasClass(q('html'), 'sliding_now')) {
 		
 		return;
 	
@@ -2506,7 +2509,7 @@ function slide(el, method, index_number) {
 
 	var target_slide = slider.children[index];
 
-	if (slider.hasClass('vertical')) {
+	if (hasClass(slider, 'vertical')) {
 		target_slide.style.cssText = 'display: block'; // Temporarily display the target slide to get its height
 		computed_height = getComputedStyle(target_slide).height;
 		target_slide.style.cssText = '';
@@ -2527,17 +2530,17 @@ function slide(el, method, index_number) {
 
 	if (slider_nav.q('.active')) {
 
-	    slider_nav.q('.active').removeClass('active');
+	    removeClass(slider_nav.q('.active'), 'active');
 
     }
 
 	var duration = slider.getAttribute('data-duration') ? slider.getAttribute('data-duration') : window.slideDuration;
 
-	target_slide.addClass('active');
+	addClass(target_slide, 'active');
 
 	var translate_from, translate_to;
 	
-    if (slider.hasClass('vertical')) {
+    if (hasClass(slider, 'vertical')) {
 
 	    translate_from = 'translate3d(0,' + ((index<old_index) ? '-100%' : '0') + ',0)';
 		
@@ -2566,7 +2569,7 @@ function slide(el, method, index_number) {
     
 	var animation_code;
 
-	if (slider.hasClass('fade')) {
+	if (hasClass(slider, 'fade')) {
 
 		animation_code = '0% { opacity: 1; transform: ' + translate_from + ' } 49% { transform: ' + translate_from + ' } 51% { opacity: 0; transform:' + translate_to + ' } 100% { opacity: 1; transform:' + translate_to + ' }';
 	
@@ -2583,7 +2586,7 @@ function slide(el, method, index_number) {
 	animate(slider, animation_code, duration, function slideEndHandler(e) { // On slide end
 
 		slider.removeAttribute('data-sliding');
-		slider.children[old_index].removeClass('active');
+		removeClass(slider.children[old_index], 'active');
 	    slider.children[old_index].style.transition = '';
 	    slider.children[old_index].style.opacity = '';
 
@@ -2601,14 +2604,14 @@ function shouldNotSlideVertically(el) {
 		return false; 
 	
 	}
-	return !el.hasClass('vertical') || window.innerHeight < q('body').scrollHeight;
+	return !hasClass(el, 'vertical') || window.innerHeight < q('body').scrollHeight;
 	
 }
 
 function sliderKeyboard(e) {
 
     if (typeof e === 'undefined' || 
-    	q('html').hasClass('sliding_now') || 
+    	hasClass(q('html'), 'sliding_now') || 
     	q('.slider[data-sliding]') || 
     	(q('.n-ovrl') && !q('.n-ovrl .n-sldr.active')) // There is an overlay open and it doesn't have a slider in it
 		) {
@@ -2625,12 +2628,12 @@ function sliderKeyboard(e) {
 		
 		if (q('.n-sldr')) {
 			
-			q('.n-sldr').addClass('active');
+			addClass(q('.n-sldr'), 'active');
 
 		}
 		
 	}
-console.log(el);
+
 	if (el.nodeName !== 'BODY' && (el.scrollWidth > el.clientWidth || el.scrollHeight > el.clientHeight)) { // Don't slide when current element is scrollable. To do: check all parent nodes for scrollability.
 		
 		return;
@@ -2679,15 +2682,15 @@ function cancelTouchEvent(el) {
 
 function makeSlider(el, current_slide) {
 
-	if (el.parentNode.hasClass('n-sldr') || el.parentNode.parentNode.hasClass('n-sldr')) { // Already created
+	if (hasClass(el.parentNode, 'n-sldr') || hasClass(el.parentNode.parentNode, 'n-sldr')) { // Already created
 		
 		return;
 		
 	}
 	
-    el.addClass('slider');
+    addClass(el, 'slider');
 
-	if (el.hasClass('full-window')) {
+	if (hasClass(el, 'full-window')) {
 		
 		openFullWindow(el);
 		
@@ -2695,16 +2698,16 @@ function makeSlider(el, current_slide) {
 
 	var container = el.parentNode;
 
-	if (!container.hasClass('n-sldr')) {
+	if (!hasClass(container, 'n-sldr')) {
 
 	    container = wrap(el).parentNode;
-		container.addClass('n-sldr');
+		addClass(container, 'n-sldr');
 	    el = container.q('.slider');
 		
-		if (el.hasClass('pad')) {
+		if (hasClass(el, 'pad')) {
 			
 		    container = wrap(el).parentNode;
-			container.addClass('pad');
+			addClass(container, 'pad');
 		    container = container.parentNode;
 		    el = container.q('.slider');
 
@@ -2723,12 +2726,12 @@ function makeSlider(el, current_slide) {
 
 		if (el.id && (slider_nav = q('.slider-nav[data-for=' + el.id + ']'))) { // Detached nav
 			
-			container.addClass('detached-nav');
-			el.addClass('detached-nav');
+			addClass(container, 'detached-nav');
+			addClass(el, 'detached-nav');
 	
 		} else {
 
-		    container.insertAdjacentHTML(container.hasClass('top') ? 'afterbegin' : 'beforeend', '<div class=slider-nav></div>');
+		    container.insertAdjacentHTML(hasClass(container, 'top') ? 'afterbegin' : 'beforeend', '<div class=slider-nav></div>');
             slider_nav = container.q('.slider-nav:not([data-for])'); // Not data-for to avoid nested detached nav for nested sliders
 		
 		}
@@ -2741,10 +2744,10 @@ function makeSlider(el, current_slide) {
 
 	    for (var i = 0; i < el.children.length; i++) {
 	
-	        if (el.hasClass('tabs')) {
+	        if (hasClass(el, 'tabs')) {
 	
-	            slider_wrap.addClass('tabs');
-	            slider_nav.addClass('row');
+	            addClass(slider_wrap, 'tabs');
+	            addClass(slider_nav, 'row');
 	            transferClass(slider_wrap, slider_nav, 'wrap');
 	            transferClass(el, slider_wrap, 'vertical');
 	            var tab_title = el.children[i].getAttribute('data-tab_title') || (el.children[i].q('.tab-title') ? el.children[i].q('.tab-title').innerHTML : i+1);
@@ -2828,7 +2831,7 @@ function makeSlider(el, current_slide) {
 		        el.ontouchmove = function(e) {
 		
 					e.stopPropagation();
-					q('html').removeClass('sliding_now');
+					removeClass(q('html'), 'sliding_now');
 			        
 		        };
 		        
@@ -2855,14 +2858,14 @@ function makeSlider(el, current_slide) {
 		if (!current_slide && window.location.hash && el.q(window.location.hash)) {
 			
 			var current_slide = thisIndex(el.q(window.location.hash));
-			slider_wrap.addClass('active');
+			addClass(slider_wrap, 'active');
 			
 		} 
 		endSlide(el, current_slide || 0); // Start from (other than) the first slide
 	    
 	} else {
 		
-		el.children[0].addClass('active');
+		addClass(el.children[0], 'active');
 
 	}
 

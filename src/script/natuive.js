@@ -25,7 +25,7 @@ var scripts_location = document.getElementsByTagName('script'); // To do: maybe 
 scripts_location = scripts_location[scripts_location.length-1].src;
 scripts_location = scripts_location.slice(0, scripts_location.length - scripts_location.split('/').pop().length);
 
-// DOM functions
+// DOM functions – start
 
 function q(selector) {
 
@@ -51,58 +51,77 @@ Element.prototype.qa = function(selector) {
 
 };
 
-Element.prototype.addClass = function(className) {
+function addClass(el, className) {
 
-	this.classList.add(className);
+	el.classList.add(className);
 
-};
+}
 
-Element.prototype.removeClass = function(className) {
+function removeClass(el, className) {
 
 	// To do: remove a single '.' for foolproof operation; Support multiple classes separated by space, dot, comma
-	this.classList.remove(className);
+	el.classList.remove(className);
+  
+}
 
-};
+function hasClass(el, className) {
 
-Element.prototype.hasClass = function(className) {
+	return el.classList.contains(className);
+	// To do: remove a single '.' for foolproof operation; Support multiple classes separated by space, dot, comma
 
-	return this.classList.contains(className);
+}
 
-};
+function toggleClass(el, className) {
 
-Element.prototype.toggleClass = function(className) {
+    if (hasClass(el, className)) {
 
-    if (this.hasClass(className)) {
-
-        this.removeClass(className);
-
-    } else {
-
-        this.addClass(className);
-
-    }
-
-};
-
-Element.prototype.toggleAttribute = function(attribute) {
-
-    if (this.getAttribute(attribute)) {
-
-        this.removeAttribute(attribute);
+        removeClass(el, className);
 
     } else {
 
-        this.setAttribute(attribute, true);
+        addClass(el, className);
 
     }
 
-};
+}
+
+function toggleAttribute(el, attribute) {
+
+    if (el.getAttribute(attribute)) {
+
+        el.removeAttribute(attribute);
+
+    } else {
+
+        el.setAttribute(attribute, true);
+
+    }
+
+}
+
+function forEach(selector, fn) { // Because IE11 doesn't support el.forEach(). Accepts both an array and a selector
+	
+    var elements = (typeof selector === 'string') ? qa(selector) : selector;
+
+	if (elements.length > 0) {
+
+	    for (var i = 0; i < elements.length; i++) {
+	
+	        fn(elements[i], i);
+	
+	    }
+    
+    }
+
+}
+
+// DOM functions – end
 
 function transferClass(el_origin, el_target, className) {
 
-    if (el_origin.hasClass(className)) {
+    if (hasClass(el_origin, className)) {
 
-        el_target.addClass(className);
+        addClass(el_target, className);
 
     }
 
@@ -134,29 +153,13 @@ Object.prototype.each = String.prototype.each = function (fn) { // To do: as thi
 }
 */
 
-function forEach(selector, fn) { // Because IE11 doesn't support el.forEach(). Accepts both an array and a selector
-	
-    var elements = (typeof selector === 'string') ? qa(selector) : selector;
-
-	if (elements.length > 0) {
-
-	    for (var i = 0; i < elements.length; i++) {
-	
-	        fn(elements[i], i);
-	
-	    }
-    
-    }
-
-}
-
 function wrapTables() {
 	
 	forEach('table', function(el) {
 	
-		if (!el.parentNode.hasClass('n-tbl')) {
+		if (!hasClass(el.parentNode, 'n-tbl')) {
 			
-			wrap(el).parentNode.addClass('n-tbl');
+			addClass(wrap(el).parentNode, 'n-tbl');
 			el.parentNode.setAttribute('tabindex', 0);
 		
 		}
@@ -372,7 +375,7 @@ function populateLightboxItem(slider, i) {
 		img.src = img.getAttribute('data-src');
 		img.onload = function (e) {
 			
-			e.target.parentNode.addClass('loaded');
+			addClass(e.target.parentNode, 'loaded');
 
 		}
 		img.onclick = function (e) { // Zoom and scan
@@ -386,7 +389,7 @@ function populateLightboxItem(slider, i) {
 			}
 			
 			var el = e.target;
-			el.toggleClass('zoom');
+			toggleClass(el, 'zoom');
 			el.style.cssText = '';
 			el.style.setProperty('--x', '-50%');
 			el.style.setProperty('--y', '-50%');
@@ -475,7 +478,7 @@ function closeFullWindow() {
 
 		if (qa('.n-ovrl').length === 1) { // A single overlay
 			
-		    q('html').removeClass('nooverflow');
+		    removeClass(q('html'), 'nooverflow');
 	    	q('body').scrollTop = q('html').scrollTop = -1 * window.previousScrollOffset;
 			
 		}
@@ -551,13 +554,13 @@ function openFullWindow(el, animation) {
 
 	}
 	el.setAttribute('data-anim', animation);
-    wrap(el).parentNode.addClass('content');
+    addClass(wrap(el).parentNode, 'content');
     wrap(el.parentNode).parentNode.setAttribute('class', 'n-ovrl');
 	var full_window = q('.n-ovrl:last-of-type') || q('.n-ovrl');
     full_window.q('.content').setAttribute('tabindex', 0);
 	full_window.insertAdjacentHTML('beforeend', '<div class=overlay-bg></div>');
 
-    if (!el.hasClass('headless')) {
+    if (!hasClass(el, 'headless')) {
 	    
 	    full_window.insertAdjacentHTML('afterbegin', '<div class=close> ← ' + document.title + '</div>');
 		full_window.q('.overlay-bg').onclick = full_window.q('.n-ovrl .close').onclick = closeFullWindow;
@@ -565,7 +568,7 @@ function openFullWindow(el, animation) {
 	   
 	} else {
 		
-		full_window.addClass('headless');
+		addClass(full_window, 'headless');
 		
 	}
 
@@ -593,7 +596,7 @@ function openFullWindow(el, animation) {
 
 		animate(full_window, typeof animation === 'string' ? animation : '0% { transform: translate3d(0,-100vh,0) } 100% { transform: translate3d(0,0,0) }', .2, function () { 
 			
-			q('html').addClass('nooverflow');
+			addClass(q('html'), 'nooverflow');
 	    	q('body').scrollTop = q('html').scrollTop = -1 * window.previousScrollOffset;
 	    	q('html').style.pointerEvents = 'initial';
 		
@@ -696,7 +699,7 @@ function openLightbox(e) {
 		
 	} else {
 		
-		openFullWindow('<div class="slider lightbox' + (lightbox.hasClass('full-screen') ? ' full-screen' : '') + '"></div>', animation);
+		openFullWindow('<div class="slider lightbox' + (hasClass(lightbox, 'full-screen') ? ' full-screen' : '') + '"></div>', animation);
 		q('.n-ovrl').style.overflow = 'hidden';
 		var lightbox_target = q('.n-ovrl .slider.lightbox');
 		
@@ -709,14 +712,14 @@ function openLightbox(e) {
 		el.setAttribute('tabindex', 0);
 	    thumbnails.push((el.q('img') ? el.q('img').src : '#'));
 
-		if (el.hasClass('video')) {
+		if (hasClass(el, 'video')) {
 			// video poster = the anchor's img child, if it exists
 			images += '<div><video poster=' + (el.q('img') ? el.q('img').src : '#') + ' controls=controls preload=none> <source type=video/mp4 src=' + el.href + '> </video></div>';
 			return;
 			
 		}
 			
-		if (el.hasClass('iframe')) {
+		if (hasClass(el, 'iframe')) {
 
 			images += '<div><iframe src=' + el.href + '></iframe></div>';
 			return;
@@ -725,7 +728,7 @@ function openLightbox(e) {
 		
 		var slide_link = document.location.href.split('#')[0] + (document.location.href.indexOf('?') >= 0 ? '&' : '?') + 'image=' + el.href.split('/').pop() + '#' + lightbox.getAttribute('id');
 
-	    var link_element = (lightbox.hasClass('inline') || !lightbox.getAttribute('id')) ? '' : '<a class="button copy" href=' + slide_link + '></a>';
+	    var link_element = (hasClass(lightbox, 'inline') || !lightbox.getAttribute('id')) ? '' : '<a class="button copy" href=' + slide_link + '></a>';
 	    
 	    images += '<div><img data-src="' + el.href + '" alt="' + el.title + '" data-link="' + slide_link + '">' + (el.title ? ('<p>' + el.title + '</p>') : '') + link_element + '</div>';
 
@@ -758,9 +761,9 @@ function openLightbox(e) {
 		var lightbox_items = lightbox.qa('a[href]');
         var this_index = Array.prototype.indexOf.call(lightbox_items, anchor); // Ignore non-anchor children of the lightbox container
 
-        if (location.href.indexOf('#' + lightbox.getAttribute('id')) > -1 && lightbox.hasClass('uri-target')) {
+        if (location.href.indexOf('#' + lightbox.getAttribute('id')) > -1 && hasClass(lightbox, 'uri-target')) {
 	        
-	        lightbox.removeClass('uri-target'); // Open URI-specified index only once, because subsequent lightbox instances would have incorrect index
+	        removeClass(lightbox, 'uri-target'); // Open URI-specified index only once, because subsequent lightbox instances would have incorrect index
 	        if (typeof getURLParameters()['slide'] != 'undefined') {
 
 		        this_index = getURLParameters()['slide'].split('#')[0] - 1;
@@ -790,7 +793,7 @@ function openLightbox(e) {
         transferClass(anchor.parentNode, lightbox_target.parentNode, 'thumbnails');
         transferClass(anchor.parentNode, lightbox_target.parentNode, 'outside');
         
-        if (anchor.parentNode.hasClass('thumbnails')) {
+        if (hasClass(anchor.parentNode, 'thumbnails')) {
         
 	        var i = 0;
 // 	        var nav = closest(lightbox_target, '.n-sldr').q('.slider-nav');
@@ -815,7 +818,7 @@ function openLightbox(e) {
 
     }
 
-	if (!lightbox.hasClass('inline')) { // Don't block global keyboard if the lightbox is inline
+	if (!hasClass(lightbox, 'inline')) { // Don't block global keyboard if the lightbox is inline
 	
 	    window.addEventListener('keydown', arrow_keys_handler, false);
     
@@ -888,7 +891,7 @@ function animateAnchors(e) {
 	    q('#nav-trigger').checked = false;
 	    if (q('header > nav > div')) {
 		    
-			q('header > nav > div').removeClass('open');
+			removeClass(q('header > nav > div'), 'open');
 			
 		}
 
@@ -942,12 +945,12 @@ function submitForm(e) {
 
             ready_to_submit = false;
             el.q('input').focus();
-            el.addClass('alert');
+            addClass(el, 'alert');
             return;
 
         } else {
 
-            el.removeClass('alert');
+            removeClass(el, 'alert');
 
         }
 
@@ -959,7 +962,7 @@ function submitForm(e) {
 
     }
 
-    if (!el.hasClass('dynamic') || !(new XMLHttpRequest().upload) || !php_support) { // Browser unable to submit dynamically.
+    if (!hasClass(el, 'dynamic') || !(new XMLHttpRequest().upload) || !php_support) { // Browser unable to submit dynamically.
 
         return true;
 
@@ -1371,7 +1374,7 @@ function animate(el, animation_code, duration, callback) { // Default duration =
 		var styles = document.createElement('style');
 		styles.innerHTML = '@keyframes ' + animation_name + ' {' + animation_code + '} [data-animation=' + animation_name + '] { animation-name: ' + animation_name + '; animation-duration: ' + ((typeof duration === 'undefined') ? .2 : duration) + 's; }'; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
 		q('head').appendChild(styles);
-		styles.addClass(animation_name);
+		addClass(styles, animation_name);
 
 // 		el.dataset.animation = animation_name;
 		el.setAttribute('data-animation', animation_name);
@@ -1420,9 +1423,9 @@ function toggleAccordion(e) {
 	
 	// Animation, not CSS, because of nested accordions
 	
-	if (el.hasClass('horizontal')) {
+	if (hasClass(el, 'horizontal')) {
 		
-		el.toggleAttribute(aria_expanded);
+		toggleAttribute(el, aria_expanded);
 		
 	} else {
 	
@@ -1430,13 +1433,13 @@ function toggleAccordion(e) {
 	
 			animate(content, '0% { max-height: ' + content.scrollHeight + 'px; } 100% { max-height: ' + content_height + '; }', .2, function () {
 				
-				el.toggleAttribute(aria_expanded);
+				toggleAttribute(el, aria_expanded);
 				
 			});
 			
 		} else {
 			
-			el.toggleAttribute(aria_expanded);
+			toggleAttribute(el, aria_expanded);
 			animate(content, '0% { max-height: ' + content_height + '; } 100% { max-height: ' + content.scrollHeight + 'px; }');
 			
 		}
@@ -1504,7 +1507,7 @@ function loadScriptFile(file_name) {
         if (curRootClass != 'can-touch') { //add "can-touch' class if it's not already present
 
             curRootClass = 'can-touch';
-            q('html').addClass(curRootClass);
+            addClass(q('html'), curRootClass);
 
         }
 
@@ -1518,7 +1521,7 @@ function loadScriptFile(file_name) {
 
             isTouch = false;
             curRootClass = '';
-            q('html').removeClass('can-touch');
+            removeClass(q('html'), 'can-touch');
 
         }
 
@@ -1549,13 +1552,13 @@ function closeFoldClickOutside(e) {
 	
 	if (q('.n-sldr.active')) {
 		
-		q('.n-sldr.active').removeClass('active')
+		removeClass(q('.n-sldr.active'), 'active')
 		
 	}
 	
 	if (closest(el, '.slider')) {
 		
-		closest(el, '.n-sldr').addClass('active');
+		addClass(closest(el, '.n-sldr'), 'active');
 		
 	}
 	
@@ -1578,12 +1581,12 @@ forEach('.fold > .label', function(el, i) {
     el = el.parentNode;
 	var content = el.q('.content');
 	
-	if (el.hasClass('horizontal')) {
+	if (hasClass(el, 'horizontal')) {
 		
-		el.addClass('init');
+		addClass(el, 'init');
 		content.style.setProperty('--width', content.scrollWidth + 'px');
 		content.style.height = 'auto';
-		el.removeClass('init');
+		removeClass(el, 'init');
 		setTimeout(function () { content.style.transition = 'width .2s ease-in-out'; }, 100);
 		
 	}
@@ -1596,7 +1599,7 @@ forEach('.fold > .label', function(el, i) {
 
     }
 
-    if (!el.hasClass('mobile')) { // Keep the accordion content clickable
+    if (!hasClass(el, 'mobile')) { // Keep the accordion content clickable
 	    
 	    content.onclick = function(e) {
 
@@ -1663,13 +1666,13 @@ forEach('body [data-threshold]', function(el) { // Set a variable reflecting how
 
 			if (relativeScroll >= threshold) {
 				
-				el.addClass('threshold');
+				addClass(el, 'threshold');
 				q('body').setAttribute('data-threshold', true);
 				
 			} else {
 				
-				el.removeClass('threshold');
-				q('body').removeClass('threshold');
+				removeClass(el, 'threshold');
+				removeClass(q('body'), 'threshold');
 				q('body').removeAttribute('data-threshold');
 				
 			}
@@ -2063,13 +2066,13 @@ function init() {
 	
 		}
 
-		if (el.parentNode.hasClass('n-sldr')) {
+		if (hasClass(el.parentNode, 'n-sldr')) {
 			
 			return;
 	
 		}
 		
-		if (el.hasClass('inline')) {
+		if (hasClass(el, 'inline')) {
 			
 			openLightbox(el.q('a'));
 			
@@ -2098,7 +2101,7 @@ function init() {
 		
 		el.onclick = function (e) {
 
-			closest(e.target, '.tool').toggleAttribute(aria_expanded);
+			toggleAttribute(closest(e.target, '.tool'), aria_expanded);
 
 		};		
 	
@@ -2120,7 +2123,7 @@ function init() {
 				
 				if (e.key === 'Enter') {
 					
-					closest(e.target, '.tool').toggleAttribute(aria_expanded);
+					toggleAttribute(closest(e.target, '.tool'), aria_expanded);
 
 				}
 				
@@ -2156,7 +2159,7 @@ ready( function () {
 		
 		if (q('.lightbox:target')) {
 			
-			q('.lightbox:target').addClass('uri-target');
+			addClass(q('.lightbox:target'), 'uri-target');
 			openLightbox(q('.lightbox:target > a[href]'));
 			
 		}

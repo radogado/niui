@@ -34,7 +34,7 @@ function sliderElement(e) { // Get the active slider instance
 
     var el = e.target;
 
-    if (el.hasClass('n-sldr')) {
+    if (hasClass(el, 'n-sldr')) {
 
         return el.q('.slider');
 
@@ -57,7 +57,7 @@ function swipeEvents(el) {
 
     function touchStart(e) {
 
-		if (q('html').hasClass('sliding_now')) {
+		if (hasClass(q('html'), 'sliding_now')) {
 
 			endSlide(sliderElement(e));
 			return;
@@ -82,16 +82,16 @@ function swipeEvents(el) {
         var touches = e.touches;
 // 	    var slider = sliderElement(e);
 
-        if (touches && touches.length && !(el.hasClass('vertical') && !closest(el, '.n-ovrl'))) { // Don't slide vertically if not full window
+        if (touches && touches.length && !(hasClass(el, 'vertical') && !closest(el, '.n-ovrl'))) { // Don't slide vertically if not full window
 
             var deltaX = startX - touches[0].pageX;
             var deltaY = startY - touches[0].pageY;
             var delta = (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY;
 			
 			// Allow vertical page scrol by swiping over the slider 
-            if ((el.hasClass('vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !q('.n-ovrl .n-sldr')) {
+            if ((hasClass(el, 'vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !q('.n-ovrl .n-sldr')) {
 
-                q('html').removeClass('sliding_now');
+                removeClass(q('html'), 'sliding_now');
                 return;
 
             }
@@ -117,7 +117,7 @@ function initScroll(e, delta) { // Scroll happens
     var timeNow = new Date().getTime();
 
     // Cancel scroll if currently animating or within quiet period – don't slide again automatically after a slide
-    if ((timeNow - window.lastSlideTime) < window.slideDuration * 2000 || q('html').hasClass('sliding_now')) {
+    if ((timeNow - window.lastSlideTime) < window.slideDuration * 2000 || hasClass(q('html'), 'sliding_now')) {
 
         stopEvent(e);
 		return;
@@ -132,7 +132,7 @@ function initScroll(e, delta) { // Scroll happens
 
 function mouseWheelHandler(e) {
 
-	if (q('html').hasClass('sliding_now')) {
+	if (hasClass(q('html'), 'sliding_now')) {
 		
 		stopEvent(e); 
 		return;
@@ -150,7 +150,7 @@ function mouseWheelHandler(e) {
     var deltaX = (e.deltaX * -10) || e.wheelDeltaX || -e.detail; // Firefox provides 'detail' with opposite value
     var deltaY = (e.deltaY * -10) || e.wheelDeltaY || -e.detail;
 /* To do: stop generating events while sliding */	
-    if (!q('html').hasClass('sliding_now') && Math.abs(sliderElement(e).hasClass('vertical') ? deltaY : deltaX) > 50) {
+    if (!hasClass(q('html'), 'sliding_now') && Math.abs(hasClass(sliderElement(e), 'vertical') ? deltaY : deltaX) > 50) {
 
         e.preventDefault();
         initScroll(e, (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY);
@@ -161,7 +161,7 @@ function mouseWheelHandler(e) {
 
 function mouseEvents(el, toggle) {
 
-    if (!('onwheel' in window) || (el.hasClass('vertical') && !closest(el, '.n-ovrl'))) { // Check for mouse wheel and Don't slide vertically if not full window
+    if (!('onwheel' in window) || (hasClass(el, 'vertical') && !closest(el, '.n-ovrl'))) { // Check for mouse wheel and Don't slide vertically if not full window
 	    
 	    return;
 	   
@@ -192,7 +192,7 @@ function mouseEvents(el, toggle) {
 
 function endSlide (slider, index) {
 
-    if (slider.hasClass('lightbox')) {
+    if (hasClass(slider, 'lightbox')) {
 		
 		populateLightbox(slider, index);
         
@@ -202,14 +202,14 @@ function endSlide (slider, index) {
 
 	if (getSliderNav(slider_wrap)) { // Multiple slides? // To do: get the proper slider nav, if it's detached
 
-		getSliderNav(slider_wrap).children[index].addClass('active');
+		addClass(getSliderNav(slider_wrap).children[index], 'active');
 	
 	}
     slider.style.cssText = '';
 
-	slider.children[index].addClass('active');
+	addClass(slider.children[index], 'active');
 
-    if (!slider.hasClass('vertical')) {
+    if (!hasClass(slider, 'vertical')) {
 	    
 	    slider.style.marginLeft = -100*index + '%';
 	   
@@ -220,18 +220,18 @@ function endSlide (slider, index) {
 	window.onkeyup = sliderKeyboard;
     setTimeout(function () {
 
-	    q('html').removeClass('sliding_now');
+	    removeClass(q('html'), 'sliding_now');
 	    mouseEvents(slider);
 
 	    // Make this slider active
 	
 		if (q('.n-sldr.active')) {
 			
-			q('.n-sldr.active').removeClass('active')
+			removeClass(q('.n-sldr.active'), 'active')
 			
 		}
 	
-		closest(slider, '.n-sldr').addClass('active');
+		addClass(closest(slider, '.n-sldr'), 'active');
 
 		if (slider.children[index].id) { // Scroll page to slide hash. To do: restore focus
 	
@@ -251,7 +251,7 @@ function endSlide (slider, index) {
 
 function slide(el, method, index_number) {
 
-	if (q('html').hasClass('sliding_now')) {
+	if (hasClass(q('html'), 'sliding_now')) {
 		
 		return;
 	
@@ -334,7 +334,7 @@ function slide(el, method, index_number) {
 
 	var target_slide = slider.children[index];
 
-	if (slider.hasClass('vertical')) {
+	if (hasClass(slider, 'vertical')) {
 		target_slide.style.cssText = 'display: block'; // Temporarily display the target slide to get its height
 		computed_height = getComputedStyle(target_slide).height;
 		target_slide.style.cssText = '';
@@ -355,17 +355,17 @@ function slide(el, method, index_number) {
 
 	if (slider_nav.q('.active')) {
 
-	    slider_nav.q('.active').removeClass('active');
+	    removeClass(slider_nav.q('.active'), 'active');
 
     }
 
 	var duration = slider.getAttribute('data-duration') ? slider.getAttribute('data-duration') : window.slideDuration;
 
-	target_slide.addClass('active');
+	addClass(target_slide, 'active');
 
 	var translate_from, translate_to;
 	
-    if (slider.hasClass('vertical')) {
+    if (hasClass(slider, 'vertical')) {
 
 	    translate_from = 'translate3d(0,' + ((index<old_index) ? '-100%' : '0') + ',0)';
 		
@@ -394,7 +394,7 @@ function slide(el, method, index_number) {
     
 	var animation_code;
 
-	if (slider.hasClass('fade')) {
+	if (hasClass(slider, 'fade')) {
 
 		animation_code = '0% { opacity: 1; transform: ' + translate_from + ' } 49% { transform: ' + translate_from + ' } 51% { opacity: 0; transform:' + translate_to + ' } 100% { opacity: 1; transform:' + translate_to + ' }';
 	
@@ -411,7 +411,7 @@ function slide(el, method, index_number) {
 	animate(slider, animation_code, duration, function slideEndHandler(e) { // On slide end
 
 		slider.removeAttribute('data-sliding');
-		slider.children[old_index].removeClass('active');
+		removeClass(slider.children[old_index], 'active');
 	    slider.children[old_index].style.transition = '';
 	    slider.children[old_index].style.opacity = '';
 
@@ -429,14 +429,14 @@ function shouldNotSlideVertically(el) {
 		return false; 
 	
 	}
-	return !el.hasClass('vertical') || window.innerHeight < q('body').scrollHeight;
+	return !hasClass(el, 'vertical') || window.innerHeight < q('body').scrollHeight;
 	
 }
 
 function sliderKeyboard(e) {
 
     if (typeof e === 'undefined' || 
-    	q('html').hasClass('sliding_now') || 
+    	hasClass(q('html'), 'sliding_now') || 
     	q('.slider[data-sliding]') || 
     	(q('.n-ovrl') && !q('.n-ovrl .n-sldr.active')) // There is an overlay open and it doesn't have a slider in it
 		) {
@@ -453,12 +453,12 @@ function sliderKeyboard(e) {
 		
 		if (q('.n-sldr')) {
 			
-			q('.n-sldr').addClass('active');
+			addClass(q('.n-sldr'), 'active');
 
 		}
 		
 	}
-console.log(el);
+
 	if (el.nodeName !== 'BODY' && (el.scrollWidth > el.clientWidth || el.scrollHeight > el.clientHeight)) { // Don't slide when current element is scrollable. To do: check all parent nodes for scrollability.
 		
 		return;
@@ -507,15 +507,15 @@ function cancelTouchEvent(el) {
 
 function makeSlider(el, current_slide) {
 
-	if (el.parentNode.hasClass('n-sldr') || el.parentNode.parentNode.hasClass('n-sldr')) { // Already created
+	if (hasClass(el.parentNode, 'n-sldr') || hasClass(el.parentNode.parentNode, 'n-sldr')) { // Already created
 		
 		return;
 		
 	}
 	
-    el.addClass('slider');
+    addClass(el, 'slider');
 
-	if (el.hasClass('full-window')) {
+	if (hasClass(el, 'full-window')) {
 		
 		openFullWindow(el);
 		
@@ -523,16 +523,16 @@ function makeSlider(el, current_slide) {
 
 	var container = el.parentNode;
 
-	if (!container.hasClass('n-sldr')) {
+	if (!hasClass(container, 'n-sldr')) {
 
 	    container = wrap(el).parentNode;
-		container.addClass('n-sldr');
+		addClass(container, 'n-sldr');
 	    el = container.q('.slider');
 		
-		if (el.hasClass('pad')) {
+		if (hasClass(el, 'pad')) {
 			
 		    container = wrap(el).parentNode;
-			container.addClass('pad');
+			addClass(container, 'pad');
 		    container = container.parentNode;
 		    el = container.q('.slider');
 
@@ -551,12 +551,12 @@ function makeSlider(el, current_slide) {
 
 		if (el.id && (slider_nav = q('.slider-nav[data-for=' + el.id + ']'))) { // Detached nav
 			
-			container.addClass('detached-nav');
-			el.addClass('detached-nav');
+			addClass(container, 'detached-nav');
+			addClass(el, 'detached-nav');
 	
 		} else {
 
-		    container.insertAdjacentHTML(container.hasClass('top') ? 'afterbegin' : 'beforeend', '<div class=slider-nav></div>');
+		    container.insertAdjacentHTML(hasClass(container, 'top') ? 'afterbegin' : 'beforeend', '<div class=slider-nav></div>');
             slider_nav = container.q('.slider-nav:not([data-for])'); // Not data-for to avoid nested detached nav for nested sliders
 		
 		}
@@ -569,10 +569,10 @@ function makeSlider(el, current_slide) {
 
 	    for (var i = 0; i < el.children.length; i++) {
 	
-	        if (el.hasClass('tabs')) {
+	        if (hasClass(el, 'tabs')) {
 	
-	            slider_wrap.addClass('tabs');
-	            slider_nav.addClass('row');
+	            addClass(slider_wrap, 'tabs');
+	            addClass(slider_nav, 'row');
 	            transferClass(slider_wrap, slider_nav, 'wrap');
 	            transferClass(el, slider_wrap, 'vertical');
 	            var tab_title = el.children[i].getAttribute('data-tab_title') || (el.children[i].q('.tab-title') ? el.children[i].q('.tab-title').innerHTML : i+1);
@@ -656,7 +656,7 @@ function makeSlider(el, current_slide) {
 		        el.ontouchmove = function(e) {
 		
 					e.stopPropagation();
-					q('html').removeClass('sliding_now');
+					removeClass(q('html'), 'sliding_now');
 			        
 		        };
 		        
@@ -683,14 +683,14 @@ function makeSlider(el, current_slide) {
 		if (!current_slide && window.location.hash && el.q(window.location.hash)) {
 			
 			var current_slide = thisIndex(el.q(window.location.hash));
-			slider_wrap.addClass('active');
+			addClass(slider_wrap, 'active');
 			
 		} 
 		endSlide(el, current_slide || 0); // Start from (other than) the first slide
 	    
 	} else {
 		
-		el.children[0].addClass('active');
+		addClass(el.children[0], 'active');
 
 	}
 
