@@ -467,7 +467,7 @@ function closeFullWindow() {
 		if (qa('.n-ovrl').length === 1) { // A single overlay
 			
 		    removeClass(q('html'), 'nooverflow');
-	    	q('body').scrollTop = q('html').scrollTop = -1 * window.previousScrollOffset;
+	    	q('body').scrollTop = q('html').scrollTop = -1 * previousScrollOffset;
 			
 		}
 		var animation = full_window.querySelector('.content > div').getAttribute('data-anim'); // Custom animation?
@@ -513,9 +513,9 @@ function closeFullWindow() {
 			
 		   	q('html').style.pointerEvents = 'initial';
 		   	
-		   	if (window.previouslyFocused) {
+		   	if (previouslyFocused) {
 
-			   	window.previouslyFocused.focus();
+			   	previouslyFocused.focus();
 			   
 			}
 				
@@ -525,13 +525,16 @@ function closeFullWindow() {
     
 }
 
+var previousScrollOffset = 0;
+var previouslyFocused = false;
+
 function openFullWindow(el, animation) {
 	
-	window.previouslyFocused = document.activeElement;
+	previouslyFocused = document.activeElement;
 	
    	q('html').style.pointerEvents = 'none';
 	var offset_top = q('html').getBoundingClientRect().top;
-	window.previousScrollOffset = offset_top; // Remember the page position.
+	previousScrollOffset = offset_top; // Remember the page position.
 
 	if (typeof el === 'string') {
 
@@ -585,7 +588,7 @@ function openFullWindow(el, animation) {
 		animate(full_window, typeof animation === 'string' ? animation : '0% { transform: translate3d(0,-100vh,0) } 100% { transform: translate3d(0,0,0) }', .2, function () { 
 			
 			addClass(q('html'), 'nooverflow');
-	    	q('body').scrollTop = q('html').scrollTop = -1 * window.previousScrollOffset;
+	    	q('body').scrollTop = q('html').scrollTop = -1 * previousScrollOffset;
 	    	q('html').style.pointerEvents = 'initial';
 		
 		});
@@ -1774,6 +1777,9 @@ function dropNavFocus(e) {
 	
 }
 
+var closeDropNavClickedOutsideEnabled = false;
+var draggingNow = false;
+
 function initNav(el) {
 	
 	// Delete all trigger inputs, add tabindex=0 to each li
@@ -1798,10 +1804,10 @@ function initNav(el) {
 
 	}
 
-	if (!window.closeDropNavClickedOutsideEnabled) {
+	if (!closeDropNavClickedOutsideEnabled) {
 		
 		window.addEventListener('touchend', closeDropNavClickedOutside);
-		window.closeDropNavClickedOutsideEnabled = true;
+		closeDropNavClickedOutsideEnabled = true;
 	
 	}
 	
@@ -1835,7 +1841,7 @@ function initNav(el) {
 
 			var el = e.target;
 
-			if (window.dragging || typeof el.href === 'string') {
+			if (draggingNow || typeof el.href === 'string') {
 				
 				return;
 				
@@ -1870,17 +1876,17 @@ function initNav(el) {
 		
 	});
 
-	window.dragging = false;
+	draggingNow = false;
 
 	window.addEventListener('touchstart', function (e) {
 		
-		window.dragging = false;
+		draggingNow = false;
 		
 	});
 
 	window.addEventListener('touchmove', function (e) {
 		
-		window.dragging = true;
+		draggingNow = true;
 		
 	});
 
