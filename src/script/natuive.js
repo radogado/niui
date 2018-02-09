@@ -33,21 +33,9 @@ function q(selector) {
 
 };
 
-Element.prototype.q = function(selector) {
-
-	return this.querySelector(selector);
-
-};
-
 function qa(selector) {
 
 	return document.querySelectorAll(selector);
-
-};
-
-Element.prototype.qa = function(selector) {
-
-	return this.querySelectorAll(selector);
 
 };
 
@@ -368,7 +356,7 @@ function arrow_keys_handler(e) {
 
 function populateLightboxItem(slider, i) {
 	
-	var img = slider.children[(typeof i === 'undefined') ? 0 : i].q('img');
+	var img = slider.children[(typeof i === 'undefined') ? 0 : i].querySelector('img');
 
 	if (img && !img.src) {
 		
@@ -453,7 +441,7 @@ function keyUpClose(e) {
 function getSliderNav(slider_wrap) {
 
 	// Select either a child slider-nav or the one specified by the slider id, if it exists
-	var slider = slider_wrap.q('.slider');
+	var slider = slider_wrap.querySelector('.slider');
 	var slider_nav;
 
 	if (slider.id && (slider_nav = q('.slider-nav[data-for=' + slider.id + ']'))) { // Detached nav
@@ -462,7 +450,7 @@ function getSliderNav(slider_wrap) {
 
 	} else {
 
-		return slider_wrap.qa('.slider-nav')[slider_wrap.qa('.slider-nav').length-1]; // With a simple query, it would get the nav of an eventual nested slider, instead of the current one. Current nav is either a direct child or a .pad direct child, taken as the last one of all.
+		return slider_wrap.querySelectorAll('.slider-nav')[slider_wrap.querySelectorAll('.slider-nav').length-1]; // With a simple query, it would get the nav of an eventual nested slider, instead of the current one. Current nav is either a direct child or a .pad direct child, taken as the last one of all.
 
 	}
 
@@ -482,7 +470,7 @@ function closeFullWindow() {
 	    	q('body').scrollTop = q('html').scrollTop = -1 * window.previousScrollOffset;
 			
 		}
-		var animation = full_window.q('.content > div').getAttribute('data-anim'); // Custom animation?
+		var animation = full_window.querySelector('.content > div').getAttribute('data-anim'); // Custom animation?
 
 		if (animation === 'null' || animation === 'undefined') {
 			
@@ -506,7 +494,7 @@ function closeFullWindow() {
 					
 			} else { // or keep previously existing content
 	
-				full_window.parentNode.replaceChild(full_window.q('.content > *'), full_window);
+				full_window.parentNode.replaceChild(full_window.querySelector('.content > *'), full_window);
 			
 			}
 	
@@ -557,13 +545,13 @@ function openFullWindow(el, animation) {
     addClass(wrap(el).parentNode, 'content');
     wrap(el.parentNode).parentNode.setAttribute('class', 'n-ovrl');
 	var full_window = q('.n-ovrl:last-of-type') || q('.n-ovrl');
-    full_window.q('.content').setAttribute('tabindex', 0);
+    full_window.querySelector('.content').setAttribute('tabindex', 0);
 	full_window.insertAdjacentHTML('beforeend', '<div class=overlay-bg></div>');
 
     if (!hasClass(el, 'headless')) {
 	    
 	    full_window.insertAdjacentHTML('afterbegin', '<div class=close> ← ' + document.title + '</div>');
-		full_window.q('.overlay-bg').onclick = full_window.q('.n-ovrl .close').onclick = closeFullWindow;
+		full_window.querySelector('.overlay-bg').onclick = full_window.querySelector('.n-ovrl .close').onclick = closeFullWindow;
 		window.addEventListener('keyup', keyUpClose);
 	   
 	} else {
@@ -572,7 +560,7 @@ function openFullWindow(el, animation) {
 		
 	}
 
-	if (el.q('.full-screen')) {
+	if (el.querySelector('.full-screen')) {
 
 		if (full_window.webkitRequestFullScreen) { 
 			
@@ -604,7 +592,7 @@ function openFullWindow(el, animation) {
 
 	}
 	
-    full_window.q('.content').focus();
+    full_window.querySelector('.content').focus();
     return false;
 	
 }
@@ -645,11 +633,11 @@ function modalWindow(e) {
             if (container) {
 
                 parsed = parseHTML(request.responseText);
-                if (!parsed.q(container)) {
+                if (!parsed.querySelector(container)) {
                     closeFullWindow();
                     return false;
                 }
-                parsed = parsed.q(container).innerHTML;
+                parsed = parsed.querySelector(container).innerHTML;
 
             }
 
@@ -693,7 +681,7 @@ function openLightbox(e) {
 	if (lightbox.matches('.inline:not(.slider)')) { // Because if it's a slider, it's an existing lightbox and the new one should be separate and full screen
 		
 		lightbox.insertAdjacentHTML('afterend', '<div class="slider lightbox inline" id="' + (lightbox.id ? lightbox.id : '') + '"></div>');
-		var lightbox_target = lightbox.parentNode.q('.slider.lightbox');
+		var lightbox_target = lightbox.parentNode.querySelector('.slider.lightbox');
 		lightbox.outerHTML = '';
 		
 		
@@ -708,13 +696,13 @@ function openLightbox(e) {
     /* Add any <a><img> siblings with description to a .slider and initialise its controls */
     var images = '';
 	var thumbnails = [];
-    forEach(lightbox.qa('a[href]'), function(el) { // To do: facilitate a[href] extraction also from within div slides, if lightbox is existing and needs to be recreated for full screen. Get them in an array item[i].link, item[i].img
+    forEach(lightbox.querySelectorAll('a[href]'), function(el) { // To do: facilitate a[href] extraction also from within div slides, if lightbox is existing and needs to be recreated for full screen. Get them in an array item[i].link, item[i].img
 		el.setAttribute('tabindex', 0);
-	    thumbnails.push((el.q('img') ? el.q('img').src : '#'));
+	    thumbnails.push((el.querySelector('img') ? el.querySelector('img').src : '#'));
 
 		if (hasClass(el, 'video')) {
 			// video poster = the anchor's img child, if it exists
-			images += '<div><video poster=' + (el.q('img') ? el.q('img').src : '#') + ' controls=controls preload=none> <source type=video/mp4 src=' + el.href + '> </video></div>';
+			images += '<div><video poster=' + (el.querySelector('img') ? el.querySelector('img').src : '#') + ' controls=controls preload=none> <source type=video/mp4 src=' + el.href + '> </video></div>';
 			return;
 			
 		}
@@ -758,7 +746,7 @@ function openLightbox(e) {
 	        
         }
 		// To do: after closing an URI-invoked lightbox and opening a lightbox again, the index is incorrect
-		var lightbox_items = lightbox.qa('a[href]');
+		var lightbox_items = lightbox.querySelectorAll('a[href]');
         var this_index = Array.prototype.indexOf.call(lightbox_items, anchor); // Ignore non-anchor children of the lightbox container
 
         if (location.href.indexOf('#' + lightbox.getAttribute('id')) > -1 && hasClass(lightbox, 'uri-target')) {
@@ -772,7 +760,7 @@ function openLightbox(e) {
 
 			if (typeof getURLParameters()['image'] != 'undefined') {
 
-				var target_image = lightbox_target.q('[data-src*="' + getURLParameters()['image'].split('#')[0] + '"]');
+				var target_image = lightbox_target.querySelector('[data-src*="' + getURLParameters()['image'].split('#')[0] + '"]');
 				if (target_image) {
 
 			        this_index = thisIndex(target_image.parentNode);
@@ -796,7 +784,7 @@ function openLightbox(e) {
         if (hasClass(anchor.parentNode, 'thumbnails')) {
         
 	        var i = 0;
-// 	        var nav = closest(lightbox_target, '.n-sldr').q('.slider-nav');
+// 	        var nav = closest(lightbox_target, '.n-sldr').querySelector('.slider-nav');
 	        var nav = getSliderNav(closest(lightbox_target, '.n-sldr'));
 
 	        if (nav) { // Multiple slides?
@@ -915,7 +903,7 @@ function submitForm(e) {
 
     var ready_to_submit = true;
 
-    forEach(el.qa('.mandatory'), function(el) {
+    forEach(el.querySelectorAll('.mandatory'), function(el) {
 	    
 	    if (closest(el, '[disabled]')) { // Ignore disabled conditional fields
 		    
@@ -924,27 +912,27 @@ function submitForm(e) {
 	    }
 
         if (
-			( el.q('input, select, textarea') && !el.q('input, select, textarea').value ) 
+			( el.querySelector('input, select, textarea') && !el.querySelector('input, select, textarea').value ) 
 			|| 
-			( el.q('input[type=checkbox]') && !el.q('input[type=checkbox]').checked ) 
+			( el.querySelector('input[type=checkbox]') && !el.querySelector('input[type=checkbox]').checked ) 
 			||
-			( el.q('input[type=email]') && !RegExp(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/).test(el.q('input[type=email]').value) ) 
+			( el.querySelector('input[type=email]') && !RegExp(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/).test(el.querySelector('input[type=email]').value) ) 
 			||
-			( el.q('input[type=url]') && !RegExp(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/).test(el.q('input[type=url]').value) ) 
+			( el.querySelector('input[type=url]') && !RegExp(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/).test(el.querySelector('input[type=url]').value) ) 
 			||
-			( el.q('input[type=number]') 
+			( el.querySelector('input[type=number]') 
 				&& 
-				!(RegExp(/^\d+$/).test(el.q('input[type=number]').value))
+				!(RegExp(/^\d+$/).test(el.querySelector('input[type=number]').value))
 				||
-				(el.q('input[type=number][data-digits]') && (el.q('input[type=number]').value.length != el.q('input[type=number]').getAttribute('data-digits')))
+				(el.querySelector('input[type=number][data-digits]') && (el.querySelector('input[type=number]').value.length != el.querySelector('input[type=number]').getAttribute('data-digits')))
 			) ||
-			( el.q('input[type=radio]') && !el.q('input[type=radio]').checked )
+			( el.querySelector('input[type=radio]') && !el.querySelector('input[type=radio]').checked )
 		   ) 
 		
 		{
 
             ready_to_submit = false;
-            el.q('input').focus();
+            el.querySelector('input').focus();
             addClass(el, 'alert');
             return;
 
@@ -1020,7 +1008,7 @@ function updateFileInput(e) {
 
     var el = e.target;
 
-    el.parentNode.q('span').innerHTML = el.value.substring(el.value.lastIndexOf('\\') + 1);
+    el.parentNode.querySelector('span').innerHTML = el.value.substring(el.value.lastIndexOf('\\') + 1);
 
 }
 
@@ -1145,7 +1133,7 @@ if (!Element.prototype.matches) {
         Element.prototype.oMatchesSelector || 
         Element.prototype.webkitMatchesSelector ||
         function(s) {
-            var matches = (this.document || this.ownerDocument).qa(s),
+            var matches = (this.document || this.ownerDocument).querySelectorAll(s),
                 i = matches.length;
             while (--i >= 0 && matches.item(i) !== this) {}
             return i > -1;            
@@ -1184,12 +1172,12 @@ request.send(null);
 /* Sort parent table's rows by matching column number alternatively desc/asc on click */
 function sortTable (table, column, f) {
 	
-	var rows = Array.prototype.slice.call(table.qa('tbody tr'), 0);;
+	var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'), 0);;
 	
 	rows.sort(function(a, b) {
 	
-		var A = a.qa('td')[column].textContent.toUpperCase();
-		var B = b.qa('td')[column].textContent.toUpperCase();
+		var A = a.querySelectorAll('td')[column].textContent.toUpperCase();
+		var B = b.querySelectorAll('td')[column].textContent.toUpperCase();
 		
 		if(A < B) {
 			
@@ -1209,7 +1197,7 @@ function sortTable (table, column, f) {
 
     for (var i = 0; i < rows.length; i++) {
 
-        table.q('tbody').appendChild(rows[i]);
+        table.querySelector('tbody').appendChild(rows[i]);
 
     }
 
@@ -1414,7 +1402,7 @@ function toggleAccordion(e) {
 
     stopEvent(e);
     var el = closest(e.target, '.fold');
-    var content = el.q('.content');
+    var content = el.querySelector('.content');
 
 	content.style.setProperty('--width', content.scrollWidth + 'px');
 	content.style.setProperty('--max-height', content.scrollHeight + 'px');
@@ -1579,7 +1567,7 @@ forEach('.fold > .label', function(el, i) {
 	};
 
     el = el.parentNode;
-	var content = el.q('.content');
+	var content = el.querySelector('.content');
 	
 	if (hasClass(el, 'horizontal')) {
 		
@@ -1593,9 +1581,9 @@ forEach('.fold > .label', function(el, i) {
 
 	content.style.setProperty('--max-height', content.scrollHeight + 'px');
 
-    if (el.q('input.trigger')) { // Remove CSS-only triggers
+    if (el.querySelector('input.trigger')) { // Remove CSS-only triggers
 
-        el.q('input.trigger').outerHTML = '';
+        el.querySelector('input.trigger').outerHTML = '';
 
     }
 
@@ -1711,7 +1699,7 @@ function dropNavBlur(e) {
 	
 	if (!closest(e.relatedTarget, this_nav)) { // if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
 		
-		forEach(this_nav.qa('ul'), function (el) {
+		forEach(this_nav.querySelectorAll('ul'), function (el) {
 
 			el.removeAttribute('aria-expanded');
 			
@@ -1724,7 +1712,7 @@ function dropNavBlur(e) {
 	var target_parent = closest(el, '[aria-haspopup]');
 	if (target_parent) { // Skip if it's a top-level-only item
 		
-		forEach(target_parent.qa('ul[aria-expanded]'), function (el) { // Disable active grandchildren
+		forEach(target_parent.querySelectorAll('ul[aria-expanded]'), function (el) { // Disable active grandchildren
 	
 			el.removeAttribute('aria-expanded');
 	
@@ -1753,7 +1741,7 @@ function dropNavFocus(e) {
 
 		if (a.nodeName === 'LI' && a !== el) {
 		
-			forEach(a.qa('[aria-expanded]'), function (el) {
+			forEach(a.querySelectorAll('[aria-expanded]'), function (el) {
 				
 				el.removeAttribute('aria-expanded');
 				
@@ -1766,9 +1754,9 @@ function dropNavFocus(e) {
 	el = e.target;
 
 	el.parentNode.parentNode.setAttribute('aria-expanded', true);
-	if (el.parentNode.q('ul')) {
+	if (el.parentNode.querySelector('ul')) {
 
-		el.parentNode.q('ul').setAttribute('aria-expanded', 'true');
+		el.parentNode.querySelector('ul').setAttribute('aria-expanded', 'true');
 
 	}
 	
@@ -1776,9 +1764,9 @@ function dropNavFocus(e) {
 
 	forEach(current_item.parentNode.parentNode.childNodes, function (el) {
 
-		if (el !== current_item && el.nodeName === 'LI' && el.q('ul')) {
+		if (el !== current_item && el.nodeName === 'LI' && el.querySelector('ul')) {
 
-			el.q('ul').removeAttribute('aria-expanded');
+			el.querySelector('ul').removeAttribute('aria-expanded');
 		
 		}
 		
@@ -1790,7 +1778,7 @@ function initNav(el) {
 	
 	// Delete all trigger inputs, add tabindex=0 to each li
 	
-	forEach(el.qa('input'), function (el) {
+	forEach(el.querySelectorAll('input'), function (el) {
 		
 		el.outerHTML = '';
 		
@@ -1798,9 +1786,9 @@ function initNav(el) {
 	
 	el.setAttribute('role', 'menubar');
 
-	forEach(el.qa('li'), function (el) {
+	forEach(el.querySelectorAll('li'), function (el) {
 		
-		el.q('a').setAttribute('tabindex', 0);
+		el.querySelector('a').setAttribute('tabindex', 0);
 
 	});
 
@@ -1823,7 +1811,7 @@ function initNav(el) {
 	
 		if (e.key === 'Escape') {
 			
-			forEach (closest(e.target, 'nav').qa('ul'), function (el) {
+			forEach (closest(e.target, 'nav').querySelectorAll('ul'), function (el) {
 				
 				el.removeAttribute('aria-expanded');
 				
@@ -1835,9 +1823,9 @@ function initNav(el) {
 		
 	});
 	
-	forEach(el.qa('li'), function (el) {
+	forEach(el.querySelectorAll('li'), function (el) {
 		
-		if (el.q('ul')) {
+		if (el.querySelector('ul')) {
 	
 			el.setAttribute('aria-haspopup', true);
 		
@@ -1874,7 +1862,7 @@ function initNav(el) {
 				
 		});
 
-		var anchor = el.q('a');
+		var anchor = el.querySelector('a');
 
 		anchor.addEventListener('focus', dropNavFocus);
 	
@@ -2074,11 +2062,11 @@ function init() {
 		
 		if (hasClass(el, 'inline')) {
 			
-			openLightbox(el.q('a'));
+			openLightbox(el.querySelector('a'));
 			
 		} else {
 			
-			forEach(el.qa('a'), function(el) {
+			forEach(el.querySelectorAll('a'), function(el) {
 
 				el.setAttribute('tabindex', 0);
 			    el.onclick = openLightbox;
@@ -2105,7 +2093,7 @@ function init() {
 
 		};		
 	
-	    var t = el.q('.tip');
+	    var t = el.querySelector('.tip');
 	    if (!t) return;
 	
 	    el.style.position = 'static'; // dangerous with absolutely-positioned containers, which should be avoided anyway
@@ -2115,7 +2103,7 @@ function init() {
 	    t.style.width = '100%';
 */
 
-		var label = el.q('.label');
+		var label = el.querySelector('.label');
 		if (label) {
 			
 			label.setAttribute('tabindex', 0);

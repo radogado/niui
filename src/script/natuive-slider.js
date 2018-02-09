@@ -36,12 +36,12 @@ function sliderElement(e) { // Get the active slider instance
 
     if (hasClass(el, 'n-sldr')) {
 
-        return el.q('.slider');
+        return el.querySelector('.slider');
 
     } else {
 
         var container = closest(el, '.n-sldr');
-        return container && container.q('.slider');
+        return container && container.querySelector('.slider');
 
     }
 
@@ -257,7 +257,7 @@ function slide(el, method, index_number) {
 	
 	}
 
-    var slider = closest(el, '.n-sldr').q('.slider');
+    var slider = closest(el, '.n-sldr').querySelector('.slider');
 
     if (slider.children.length < 2) {
 
@@ -284,11 +284,11 @@ function slide(el, method, index_number) {
 	var old_index;
 	var slider_wrap = closest(slider, '.n-sldr');
 	var slider_nav = getSliderNav(slider_wrap);
-	index = old_index = thisIndex(slider_nav.q('a.active'));
+	index = old_index = thisIndex(slider_nav.querySelector('a.active'));
 
     if (method === 'index') {
 
-		if (typeof index_number === 'undefined' || index_number === index || !slider.q('.active')) { /* Don't slide to current slide */
+		if (typeof index_number === 'undefined' || index_number === index || !slider.querySelector('.active')) { /* Don't slide to current slide */
 			
 			endSlide(slider, index_number);
 			return;
@@ -353,9 +353,9 @@ function slide(el, method, index_number) {
 
 	slider.style.height = computed_height;
 
-	if (slider_nav.q('.active')) {
+	if (slider_nav.querySelector('.active')) {
 
-	    removeClass(slider_nav.q('.active'), 'active');
+	    removeClass(slider_nav.querySelector('.active'), 'active');
 
     }
 
@@ -527,14 +527,14 @@ function makeSlider(el, current_slide) {
 
 	    container = wrap(el).parentNode;
 		addClass(container, 'n-sldr');
-	    el = container.q('.slider');
+	    el = container.querySelector('.slider');
 		
 		if (hasClass(el, 'pad')) {
 			
 		    container = wrap(el).parentNode;
 			addClass(container, 'pad');
 		    container = container.parentNode;
-		    el = container.q('.slider');
+		    el = container.querySelector('.slider');
 
 		}
 		
@@ -557,7 +557,7 @@ function makeSlider(el, current_slide) {
 		} else {
 
 		    container.insertAdjacentHTML(hasClass(container, 'top') ? 'afterbegin' : 'beforeend', '<div class=slider-nav></div>');
-            slider_nav = container.q('.slider-nav:not([data-for])'); // Not data-for to avoid nested detached nav for nested sliders
+            slider_nav = container.querySelector('.slider-nav:not([data-for])'); // Not data-for to avoid nested detached nav for nested sliders
 		
 		}
 		
@@ -575,7 +575,7 @@ function makeSlider(el, current_slide) {
 	            addClass(slider_nav, 'row');
 	            transferClass(slider_wrap, slider_nav, 'wrap');
 	            transferClass(el, slider_wrap, 'vertical');
-	            var tab_title = el.children[i].getAttribute('data-tab_title') || (el.children[i].q('.tab-title') ? el.children[i].q('.tab-title').innerHTML : i+1);
+	            var tab_title = el.children[i].getAttribute('data-tab_title') || (el.children[i].querySelector('.tab-title') ? el.children[i].querySelector('.tab-title').innerHTML : i+1);
 	            slider_nav.insertAdjacentHTML('beforeend', '<a tabindex="0">' + tab_title + '</a>');
 
 	        } else {
@@ -603,7 +603,7 @@ function makeSlider(el, current_slide) {
 	        
 	    }
 	
-	    container.q('.slider-arrow').onclick = container.q('.slider-arrow').onkeyup = function(e) {
+	    container.querySelector('.slider-arrow').onclick = container.querySelector('.slider-arrow').onkeyup = function(e) {
 	
 			if (e.type === 'keyup' && e.keyCode !== 13) { // Slide on Enter key
 				
@@ -615,9 +615,9 @@ function makeSlider(el, current_slide) {
 	
 	    };
 	    
-	    cancelTouchEvent(container.q('.slider-arrow'));
+	    cancelTouchEvent(container.querySelector('.slider-arrow'));
 	
-	    container.q('.slider-arrow.right').onclick = container.q('.slider-arrow.right').onkeyup = function(e) {
+	    container.querySelector('.slider-arrow.right').onclick = container.querySelector('.slider-arrow.right').onkeyup = function(e) {
 	
 			if (e.type === 'keyup' && e.keyCode !== 13) { // Slide on Enter key
 				
@@ -628,7 +628,7 @@ function makeSlider(el, current_slide) {
 	
 	    };
 	
-	    cancelTouchEvent(container.q('.slider-arrow.right'));
+	    cancelTouchEvent(container.querySelector('.slider-arrow.right'));
 	
 	    mouseEvents(el);
 	
@@ -649,9 +649,9 @@ function makeSlider(el, current_slide) {
 	    });
 	    
 	    // Don't slide when using a range input in a form in a slider
-	    if (el.q('input[type=range]')) {
+	    if (el.querySelector('input[type=range]')) {
 		   	
-		   	forEach(el.q('input[type=range]'), function (el) {
+		   	forEach(el.querySelector('input[type=range]'), function (el) {
 	        
 		        el.ontouchmove = function(e) {
 		
@@ -680,9 +680,9 @@ function makeSlider(el, current_slide) {
 	    }
 		
 		// If URI #id matches a slide #id, go to that slide and scroll the page to the slider.
-		if (!current_slide && window.location.hash && el.q(window.location.hash)) {
+		if (!current_slide && window.location.hash && el.querySelector(window.location.hash)) {
 			
-			var current_slide = thisIndex(el.q(window.location.hash));
+			var current_slide = thisIndex(el.querySelector(window.location.hash));
 			addClass(slider_wrap, 'active');
 			
 		} 
