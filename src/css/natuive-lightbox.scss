@@ -88,6 +88,12 @@
 
 }
 
+.n-ovrl .lightbox.slider img, .lightbox.inline img {
+
+	cursor: zoom-in;
+
+}
+
 .n-ovrl .lightbox.slider > * > img {
 	
 	display: none;
@@ -255,6 +261,9 @@
 		
 		position: static;
 		transform: none;
+		width: calc(100% + 1em);
+		max-width: none;
+		margin: .5em 0 0 -.5em;
 		
 	}
 	

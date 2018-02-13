@@ -699,13 +699,24 @@ function openLightbox(e) {
     /* Add any <a><img> siblings with description to a .slider and initialise its controls */
     var images = '';
 	var thumbnails = [];
-    forEach(lightbox.querySelectorAll('a[href]'), function(el) { // To do: facilitate a[href] extraction also from within div slides, if lightbox is existing and needs to be recreated for full screen. Get them in an array item[i].link, item[i].img
+    forEach(lightbox.children, function(el) { // To do: facilitate a[href] extraction also from within div slides, if lightbox is existing and needs to be recreated for full screen. Get them in an array item[i].link, item[i].img
 		el.setAttribute('tabindex', 0);
-	    thumbnails.push((el.querySelector('img') ? el.querySelector('img').src : '#'));
 
-		if (hasClass(el, 'video')) {
+	    thumbnails.push((el.querySelector('img') ? (el.querySelector('img').getAttribute('data-src') || el.querySelector('img').src) : '#'));
+
+		if (hasClass(el, 'video') || el.querySelector('video')) {
 			// video poster = the anchor's img child, if it exists
-			images += '<div><video poster=' + (el.querySelector('img') ? el.querySelector('img').src : '#') + ' controls=controls preload=none> <source type=video/mp4 src=' + el.href + '> </video></div>';
+
+			if (hasClass(lightbox, 'slider')) { // Secondary lightbox
+				
+				images += '<div>' + el.querySelector('video').outerHTML + '</div>';
+				
+			} else {
+				
+				images += '<div><video poster=' + (el.querySelector('img') ? el.querySelector('img').src : '#') + ' controls=controls preload=none> <source type=video/mp4 src=' + el.href + '> </video></div>';
+				
+			}
+			
 			return;
 			
 		}
@@ -716,41 +727,82 @@ function openLightbox(e) {
 			return;
 			
 		}
+
+		var slide_link;
 		
-		var slide_link = document.location.href.split('#')[0] + (document.location.href.indexOf('?') >= 0 ? '&' : '?') + 'image=' + el.href.split('/').pop() + '#' + lightbox.getAttribute('id');
+		if (hasClass(lightbox, 'slider')) {
+			
+			slide_link = '';
+
+		} else {
+			
+			slide_link = document.location.href.split('#')[0] + (document.location.href.indexOf('?') >= 0 ? '&' : '?') + 'image=' + el.href.split('/').pop() + '#' + lightbox.getAttribute('id');
+			
+		}
 
 	    var link_element = (hasClass(lightbox, 'inline') || !lightbox.getAttribute('id')) ? '' : '<a class="button copy" href=' + slide_link + '></a>';
+
+	    var url = hasClass(lightbox, 'slider') ? (el.querySelector('img') ? el.querySelector('img').getAttribute('data-src') : '') : el.href;
 	    
-	    images += '<div><img data-src="' + el.href + '" alt="' + el.title + '" data-link="' + slide_link + '">' + (el.title ? ('<p>' + el.title + '</p>') : '') + link_element + '</div>';
+	    images += '<div><img data-src="' + url + '" alt="' + el.title + '" data-link="' + slide_link + '">' + (el.title ? ('<p>' + el.title + '</p>') : '') + link_element + '</div>';
 
         // Attach onload event to each image to display it only when fully loaded and avoid top-to-bottom reveal?
 
     });
 
     lightbox_target.innerHTML = images;
+    
+    if (lightbox.matches('.inline:not(.slider)')) { // It's an inline lightbox and needs to become full window/screen when clicked
+	    
+	    lightbox_target.onclick = function(e) {
+		    
+		    if (e.target.tagName === 'IMG') {
+			    
+			    openLightbox(e);
+
+		    }
+		    
+	    };
+	    
+    }
 
     if (typeof makeSlider === 'function') {
 
         var anchor = el;
+		
+		if (anchor.href) { // If it's a standard lightbox with a[href], not a secondary full screen lightbox from an inline one
 
-        while (typeof anchor.href !== 'string') {
-
-            anchor = anchor.parentNode;
-
+	        while (typeof anchor.href !== 'string') {
+	
+	            anchor = anchor.parentNode;
+	
+	        }
+	
+	        transferClass(anchor.parentNode, lightbox_target, 'vertical');
+	        transferClass(anchor.parentNode, lightbox_target, 'right');
+	
+	        // Load the images in the current slide and its neighbours
+	        while ( anchor.tagName.toLowerCase() !== 'a' ) {
+		        
+		        anchor = anchor.parentNode;
+		        
+	        }
+        
         }
 
-        transferClass(anchor.parentNode, lightbox_target, 'vertical');
-        transferClass(anchor.parentNode, lightbox_target, 'right');
-
-        // Load the images in the current slide and its neighbours
-        while ( anchor.tagName.toLowerCase() !== 'a' ) {
-	        
-	        anchor = anchor.parentNode;
-	        
-        }
 		// To do: after closing an URI-invoked lightbox and opening a lightbox again, the index is incorrect
-		var lightbox_items = lightbox.querySelectorAll('a[href]');
-        var this_index = Array.prototype.indexOf.call(lightbox_items, anchor); // Ignore non-anchor children of the lightbox container
+		var this_index = 0;
+
+
+		if (hasClass(lightbox, 'inline')) { // Secondary lightbox
+
+        	this_index = Array.prototype.indexOf.call(lightbox.children, anchor.parentNode); // Ignore non-anchor children of the lightbox container
+			
+		} else {
+			
+	        this_index = Array.prototype.indexOf.call(lightbox.querySelectorAll('a[href]'), anchor); // Ignore non-anchor children of the lightbox container
+
+		}
 
         if (location.href.indexOf('#' + lightbox.getAttribute('id')) > -1 && hasClass(lightbox, 'uri-target')) {
 	        
@@ -774,7 +826,7 @@ function openLightbox(e) {
 
         }
 
-        if (this_index > lightbox_target.children.length - 1 || this_index < 1) {
+        if (this_index > lightbox_target.children.length - 1 || this_index < 1) { // To do: fix this_index for a secondary full screen lightbox
 	        
 	        this_index = 0;
 	        

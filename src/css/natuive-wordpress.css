@@ -2571,9 +2571,6 @@ $bg: #1E8DaC;
 .slider > *.active, .n-ovrl .lightbox.slider > *.active > img {
   display: inline-block; }
 
-.n-ovrl .lightbox.slider img {
-  cursor: zoom-in; }
-
 .n-ovrl .slider > img {
   padding: 0 !important;
   height: auto; }
@@ -2852,6 +2849,9 @@ $bg: #1E8DaC;
   bottom: 0;
   margin-bottom: .5em; }
 
+.n-ovrl .lightbox.slider img, .lightbox.inline img {
+  cursor: zoom-in; }
+
 .n-ovrl .lightbox.slider > * > img {
   display: none; }
 
@@ -2959,7 +2959,10 @@ $bg: #1E8DaC;
   cursor: zoom-in; }
 .thumbnails.outside .slider-nav {
   position: static;
-  transform: none; }
+  transform: none;
+  width: calc(100% + 1em);
+  max-width: none;
+  margin: .5em 0 0 -.5em; }
 .thumbnails.n-sldr.outside:not(.inline) {
   padding-bottom: 4em; }
 .thumbnails.n-sldr .slider-nav a.active {
