@@ -1533,15 +1533,16 @@ nav.drop li > input {
   border-radius: 0; }
 
 nav.drop li > input, nav.drop li[aria-haspopup] {
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAPUlEQVR4AY3MgQUAMBBD0ZKVs9ZNWOihJY5EwweerB5+epAphdVtUylEgJiw7JtC8woHKYgJYr4lyJuDuQMkSiBhTevZ/AAAAABJRU5ErkJggg==");
+  background-image: url("data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M50%20100L0%200h100z%22%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: calc(100% - 16px) 50%; }
+  background-position: calc(100% - 16px) 50%;
+  background-size: .5em; }
 
 nav.drop li > input {
   background-position-y: 2.75em; }
 
 nav.drop li li > input, nav.drop li li[aria-haspopup] {
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAALElEQVR4AWMAAmaiMJQoAeK1xCr8DcVrCSpEwyUEFGJqoJrCEoKeoTx4iMEALSggYbbu0bQAAAAASUVORK5CYII="); }
+  background-image: url("data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M100%2050L0%20100V0z%22%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E"); }
 
 nav.drop li[aria-haspopup] {
   padding-right: 2em; }
@@ -3065,10 +3066,10 @@ $bg: #1E8DaC;
   cursor: crosshair;
   background: transparent; }
 
-@media screen and (max-width: 599.9px) {
+@media (max-width: 599.9px) {
   .n-ovrl.limited > .content {
-    height: 60vh;
-    margin-top: 20vh;
+    height: 69vh;
+    margin-top: 1vh;
     width: 80vw;
     margin-left: 10vw; }
   .n-ovrl > .content {
@@ -3076,6 +3077,36 @@ $bg: #1E8DaC;
   .n-ovrl .close {
     height: 1.5em;
     padding: 0 .75em; } }
+@media (orientation: landscape) {
+  html.can-touch.nooverflow, html.can-touch.nooverflow body {
+    height: calc(100% + 1px); }
+
+  .n-ovrl > .content {
+    padding: 0; }
+
+  .n-ovrl .close {
+    top: calc(50% - 20px);
+    left: 2px;
+    right: auto;
+    bottom: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column; }
+
+  .n-ovrl .close:after {
+    content: '╳';
+    font-size: 1rem;
+    display: inline-block;
+    width: 40px;
+    text-align: center; }
+
+  .n-ovrl .n-sldr {
+    margin: 0;
+    height: calc(100% + 1px) !important; } }
 /*
 $color: #fff;
 $bg: #1E8DaC;

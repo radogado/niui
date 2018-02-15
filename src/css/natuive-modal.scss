@@ -90,14 +90,14 @@
 
 	}
 
-@media screen and (max-width: $screen-narrow-max) {
+@media (max-width: $screen-narrow-max) {
 
 	.n-ovrl {
 		
 		&.limited > .content {
 		
-	    	height: 60vh;
-	   	    margin-top: 20vh;
+	    	height: 69vh;
+	   	    margin-top: 1vh;
 		    width: 80vw;
 		    margin-left: 10vw;
 		
@@ -119,4 +119,53 @@
 
 	}
 	
+}
+
+@media (orientation: landscape) { // Move the close bar to the side, because it's inaccessible with certain toolbar configurations
+	
+	html.can-touch.nooverflow, html.can-touch.nooverflow body {
+	
+		height: calc(100% + 1px); // iOS Safari workaround for toolbars
+	
+	}
+	
+	.n-ovrl > .content {
+		
+		padding: 0;
+
+	}
+
+	.n-ovrl .close {
+	
+		top: calc(50% - 20px);
+		left: 2px;
+		right: auto;
+		bottom: 0;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;	
+		font-size: 0;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		
+	}
+
+	.n-ovrl .close:after {
+		
+		content: '╳';
+		font-size: 1rem;
+		display: inline-block;
+		width: 40px;
+		text-align: center;
+
+	}
+	
+	.n-ovrl .n-sldr {
+		
+		margin: 0;
+		height: calc(100% + 1px) !important;
+
+	}
+
 }

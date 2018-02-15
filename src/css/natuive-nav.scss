@@ -239,9 +239,10 @@ nav.drop li > input {
 
 nav.drop li > input, nav.drop li[aria-haspopup] {
 	
-	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAPUlEQVR4AY3MgQUAMBBD0ZKVs9ZNWOihJY5EwweerB5+epAphdVtUylEgJiw7JtC8woHKYgJYr4lyJuDuQMkSiBhTevZ/AAAAABJRU5ErkJggg==');
+	background-image: url('data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M50%20100L0%200h100z%22%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E');
 	background-repeat: no-repeat;
 	background-position: calc(100% - 16px) 50%;
+	background-size: .5em;
 
 }
 
@@ -253,7 +254,7 @@ nav.drop li > input {
 
 nav.drop li li > input, nav.drop li li[aria-haspopup] {
 
-	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAALElEQVR4AWMAAmaiMJQoAeK1xCr8DcVrCSpEwyUEFGJqoJrCEoKeoTx4iMEALSggYbbu0bQAAAAASUVORK5CYII=');
+	background-image: url('data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M100%2050L0%20100V0z%22%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E');
 
 }
 
