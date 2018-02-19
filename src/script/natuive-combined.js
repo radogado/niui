@@ -2438,7 +2438,8 @@ function endSlide (slider, index) {
 
 	slider.style.pointerEvents = '';
 
-	window.onkeyup = sliderKeyboard;
+// 	window.onkeyup = sliderKeyboard;
+    window.addEventListener('keyup', sliderKeyboard);
     setTimeout(function () {
 
 	    removeClass(q('html'), 'sliding_now');
@@ -2492,7 +2493,8 @@ function slide(el, method, index_number) {
     mouseEvents(slider_wrap, 'off');
     slider.style.pointerEvents = 'none'; // Speed up animation
     mouseEvents(el, 'off');
-	document.onkeyup = function () { return false; };
+    window.removeEventListener('keyup', sliderKeyboard);
+// 	document.onkeyup = function () { return false; };
 // 	q('html').addClass('sliding_now'); // iOS errors
 
     if (window.sliderTimeout) {
@@ -2918,7 +2920,8 @@ function makeSlider(el, current_slide) {
 	// Detect text direction
 	el.setAttribute('dir', getComputedStyle(el, null).getPropertyValue('direction'));
 	    
-    window.onkeyup = sliderKeyboard;
+//     window.onkeyup = sliderKeyboard;
+    window.addEventListener('keyup', sliderKeyboard);
 	
     return el;
 
