@@ -226,6 +226,7 @@ function endSlide (slider, index) {
 
 	    // Make this slider active
 	
+/*
 		if (q('.n-sldr.active')) {
 			
 			removeClass(q('.n-sldr.active'), 'active')
@@ -233,6 +234,9 @@ function endSlide (slider, index) {
 		}
 	
 		addClass(closest(slider, '.n-sldr'), 'active');
+*/
+
+		current_slider = slider; 
 
 		if (slider.children[index].id) { // Scroll page to slide hash. To do: restore focus
 	
@@ -440,7 +444,7 @@ function sliderKeyboard(e) {
     if (typeof e === 'undefined' || 
     	hasClass(q('html'), 'sliding_now') || 
     	q('.slider[data-sliding]') || 
-    	(q('.n-ovrl') && !q('.n-ovrl .n-sldr.active')) // There is an overlay open and it doesn't have a slider in it
+    	(q('.n-ovrl') && !q('.n-ovrl .n-sldr')) // There is an overlay open and it doesn't have a slider in it
 		) {
 
         return;
@@ -449,15 +453,9 @@ function sliderKeyboard(e) {
 
 	var el = e.target;
 
-	var tag = el.tagName.toLowerCase();
-
-	if (!closest(el, '.n-sldr')) { // Focused element is outside of any slider
+	if (!closest(el, '.n-sldr') && q('.n-sldr')) { // Focused element is outside of any slider
 		
-		if (q('.n-sldr')) {
-			
-			addClass(q('.n-sldr'), 'active');
-
-		}
+		current_slider = q('.n-sldr').querySelector('.slider');
 		
 	}
 
@@ -467,10 +465,10 @@ function sliderKeyboard(e) {
 
 	}
 	
-	if 	(tag !== 'input' && tag !== 'textarea' && 
+	if 	(el.tagName !== 'INPUT' && el.tagName !== 'TEXTAREA' && 
 // 		(document.activeElement === el ? (el.scrollWidth <= el.clientWidth) : true) &&
 // 		(!closest(document.activeElement, '.n-sldr.active') && (el.scrollWidth <= el.clientWidth) ) &&
-		(el = q('.n-ovrl .slider') || q('.n-sldr.active .slider') || q('.slider'))
+		(el = q('.n-ovrl .slider') || current_slider || q('.slider'))
 		) { // Priority: full window slider, active slider, first slider
 
         switch (e.which) {
@@ -685,7 +683,8 @@ function makeSlider(el, current_slide) {
 		if (!current_slide && window.location.hash && el.querySelector(window.location.hash)) {
 			
 			var current_slide = thisIndex(el.querySelector(window.location.hash));
-			addClass(slider_wrap, 'active');
+// 			addClass(slider_wrap, 'active');
+			current_slider = slider_wrap;
 			
 		} 
 		endSlide(el, current_slide || 0); // Start from (other than) the first slide

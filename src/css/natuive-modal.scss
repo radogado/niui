@@ -121,7 +121,7 @@
 	
 }
 
-@media (orientation: landscape) { // Move the close bar to the side, because it's inaccessible with certain toolbar configurations
+@media (max-height: 512px) and (orientation: landscape) { // Move the close bar to the side, because it's inaccessible with certain toolbar configurations
 	
 	html.can-touch.nooverflow, html.can-touch.nooverflow body {
 	

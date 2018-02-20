@@ -700,6 +700,13 @@ function openLightbox(e) {
     var images = '';
 	var thumbnails = [];
     forEach(lightbox.children, function(el) { // To do: facilitate a[href] extraction also from within div slides, if lightbox is existing and needs to be recreated for full screen. Get them in an array item[i].link, item[i].img
+	    
+	    if (!el.href && !hasClass(lightbox, 'slider')) { // Ignore non-links in regular lightboxes
+		    
+		    return;
+
+	    }
+	    
 		el.setAttribute('tabindex', 0);
 
 	    thumbnails.push((el.querySelector('img') ? (el.querySelector('img').getAttribute('data-src') || el.querySelector('img').src) : '#'));
@@ -730,12 +737,12 @@ function openLightbox(e) {
 
 		var slide_link;
 		
-		if (hasClass(lightbox, 'slider')) {
+		if (hasClass(lightbox, 'slider') || !el.href ) {
 			
 			slide_link = '';
 
 		} else {
-			
+
 			slide_link = document.location.href.split('#')[0] + (document.location.href.indexOf('?') >= 0 ? '&' : '?') + 'image=' + el.href.split('/').pop() + '#' + lightbox.getAttribute('id');
 			
 		}
@@ -782,7 +789,7 @@ function openLightbox(e) {
 	        transferClass(anchor.parentNode, lightbox_target, 'right');
 	
 	        // Load the images in the current slide and its neighbours
-	        while ( anchor.tagName.toLowerCase() !== 'a' ) {
+	        while (anchor.tagName !== 'A') {
 		        
 		        anchor = anchor.parentNode;
 		        
@@ -793,14 +800,15 @@ function openLightbox(e) {
 		// To do: after closing an URI-invoked lightbox and opening a lightbox again, the index is incorrect
 		var this_index = 0;
 
-
 		if (hasClass(lightbox, 'inline')) { // Secondary lightbox
 
         	this_index = Array.prototype.indexOf.call(lightbox.children, anchor.parentNode); // Ignore non-anchor children of the lightbox container
 			
 		} else {
-			
-	        this_index = Array.prototype.indexOf.call(lightbox.querySelectorAll('a[href]'), anchor); // Ignore non-anchor children of the lightbox container
+			console.log(anchor);
+			console.log(lightbox);
+			// To do: fix the following wrong line. Ignore children which aren't links to images
+	        this_index = Array.prototype.indexOf.call(lightbox.querySelectorAll('[href]'), closest(anchor, '[href]')); // Ignore non-anchor children of the lightbox container
 
 		}
 
@@ -826,7 +834,7 @@ function openLightbox(e) {
 
         }
 
-        if (this_index > lightbox_target.children.length - 1 || this_index < 1) { // To do: fix this_index for a secondary full screen lightbox
+        if (this_index > (lightbox_target.children.length - 1) || this_index < 1) { // To do: fix this_index for a secondary full screen lightbox
 	        
 	        this_index = 0;
 	        
@@ -1593,6 +1601,7 @@ function closeFoldClickOutside(e) {
 	
 	// Focus on clicked slider
 	
+/*
 	if (q('.n-sldr.active')) {
 		
 		removeClass(q('.n-sldr.active'), 'active')
@@ -1603,6 +1612,13 @@ function closeFoldClickOutside(e) {
 		
 		addClass(closest(el, '.n-sldr'), 'active');
 		
+	}
+*/
+
+	if (closest(el, '.slider')) {
+
+		current_slider = closest(el, '.slider');
+	
 	}
 	
 }
@@ -1944,6 +1960,8 @@ function initNav(el) {
 
 }
 
+var current_slider = null;
+
 /* Initialise JS-powered elements */
 
 function init() {
@@ -1963,7 +1981,9 @@ function init() {
 	
 	/* Enhance sliders: create arrows/numbers navigation etc */
     if (typeof makeSlider === 'function') {
-
+		
+		current_slider = q('.slider');
+		
 		forEach('.slider', function(el) {
 		
 		    makeSlider(el);
@@ -2447,6 +2467,7 @@ function endSlide (slider, index) {
 
 	    // Make this slider active
 	
+/*
 		if (q('.n-sldr.active')) {
 			
 			removeClass(q('.n-sldr.active'), 'active')
@@ -2454,6 +2475,9 @@ function endSlide (slider, index) {
 		}
 	
 		addClass(closest(slider, '.n-sldr'), 'active');
+*/
+
+		current_slider = slider; 
 
 		if (slider.children[index].id) { // Scroll page to slide hash. To do: restore focus
 	
@@ -2661,7 +2685,7 @@ function sliderKeyboard(e) {
     if (typeof e === 'undefined' || 
     	hasClass(q('html'), 'sliding_now') || 
     	q('.slider[data-sliding]') || 
-    	(q('.n-ovrl') && !q('.n-ovrl .n-sldr.active')) // There is an overlay open and it doesn't have a slider in it
+    	(q('.n-ovrl') && !q('.n-ovrl .n-sldr')) // There is an overlay open and it doesn't have a slider in it
 		) {
 
         return;
@@ -2670,15 +2694,9 @@ function sliderKeyboard(e) {
 
 	var el = e.target;
 
-	var tag = el.tagName.toLowerCase();
-
-	if (!closest(el, '.n-sldr')) { // Focused element is outside of any slider
+	if (!closest(el, '.n-sldr') && q('.n-sldr')) { // Focused element is outside of any slider
 		
-		if (q('.n-sldr')) {
-			
-			addClass(q('.n-sldr'), 'active');
-
-		}
+		current_slider = q('.n-sldr').querySelector('.slider');
 		
 	}
 
@@ -2688,10 +2706,10 @@ function sliderKeyboard(e) {
 
 	}
 	
-	if 	(tag !== 'input' && tag !== 'textarea' && 
+	if 	(el.tagName !== 'INPUT' && el.tagName !== 'TEXTAREA' && 
 // 		(document.activeElement === el ? (el.scrollWidth <= el.clientWidth) : true) &&
 // 		(!closest(document.activeElement, '.n-sldr.active') && (el.scrollWidth <= el.clientWidth) ) &&
-		(el = q('.n-ovrl .slider') || q('.n-sldr.active .slider') || q('.slider'))
+		(el = q('.n-ovrl .slider') || current_slider || q('.slider'))
 		) { // Priority: full window slider, active slider, first slider
 
         switch (e.which) {
@@ -2906,7 +2924,8 @@ function makeSlider(el, current_slide) {
 		if (!current_slide && window.location.hash && el.querySelector(window.location.hash)) {
 			
 			var current_slide = thisIndex(el.querySelector(window.location.hash));
-			addClass(slider_wrap, 'active');
+// 			addClass(slider_wrap, 'active');
+			current_slider = slider_wrap;
 			
 		} 
 		endSlide(el, current_slide || 0); // Start from (other than) the first slide

@@ -700,6 +700,13 @@ function openLightbox(e) {
     var images = '';
 	var thumbnails = [];
     forEach(lightbox.children, function(el) { // To do: facilitate a[href] extraction also from within div slides, if lightbox is existing and needs to be recreated for full screen. Get them in an array item[i].link, item[i].img
+	    
+	    if (!el.href && !hasClass(lightbox, 'slider')) { // Ignore non-links in regular lightboxes
+		    
+		    return;
+
+	    }
+	    
 		el.setAttribute('tabindex', 0);
 
 	    thumbnails.push((el.querySelector('img') ? (el.querySelector('img').getAttribute('data-src') || el.querySelector('img').src) : '#'));
@@ -730,12 +737,12 @@ function openLightbox(e) {
 
 		var slide_link;
 		
-		if (hasClass(lightbox, 'slider')) {
+		if (hasClass(lightbox, 'slider') || !el.href ) {
 			
 			slide_link = '';
 
 		} else {
-			
+
 			slide_link = document.location.href.split('#')[0] + (document.location.href.indexOf('?') >= 0 ? '&' : '?') + 'image=' + el.href.split('/').pop() + '#' + lightbox.getAttribute('id');
 			
 		}
@@ -782,7 +789,7 @@ function openLightbox(e) {
 	        transferClass(anchor.parentNode, lightbox_target, 'right');
 	
 	        // Load the images in the current slide and its neighbours
-	        while ( anchor.tagName.toLowerCase() !== 'a' ) {
+	        while (anchor.tagName !== 'A') {
 		        
 		        anchor = anchor.parentNode;
 		        
@@ -793,14 +800,13 @@ function openLightbox(e) {
 		// To do: after closing an URI-invoked lightbox and opening a lightbox again, the index is incorrect
 		var this_index = 0;
 
-
 		if (hasClass(lightbox, 'inline')) { // Secondary lightbox
 
         	this_index = Array.prototype.indexOf.call(lightbox.children, anchor.parentNode); // Ignore non-anchor children of the lightbox container
 			
 		} else {
-			
-	        this_index = Array.prototype.indexOf.call(lightbox.querySelectorAll('a[href]'), anchor); // Ignore non-anchor children of the lightbox container
+
+	        this_index = Array.prototype.indexOf.call(lightbox.querySelectorAll('[href]'), closest(anchor, '[href]')); // Ignore non-anchor children of the lightbox container
 
 		}
 
@@ -826,7 +832,7 @@ function openLightbox(e) {
 
         }
 
-        if (this_index > lightbox_target.children.length - 1 || this_index < 1) { // To do: fix this_index for a secondary full screen lightbox
+        if (this_index > (lightbox_target.children.length - 1) || this_index < 1) { // To do: fix this_index for a secondary full screen lightbox
 	        
 	        this_index = 0;
 	        
@@ -1593,6 +1599,7 @@ function closeFoldClickOutside(e) {
 	
 	// Focus on clicked slider
 	
+/*
 	if (q('.n-sldr.active')) {
 		
 		removeClass(q('.n-sldr.active'), 'active')
@@ -1603,6 +1610,13 @@ function closeFoldClickOutside(e) {
 		
 		addClass(closest(el, '.n-sldr'), 'active');
 		
+	}
+*/
+
+	if (closest(el, '.slider')) {
+
+		current_slider = closest(el, '.slider');
+	
 	}
 	
 }
@@ -1944,6 +1958,8 @@ function initNav(el) {
 
 }
 
+var current_slider = null;
+
 /* Initialise JS-powered elements */
 
 function init() {
@@ -1963,7 +1979,9 @@ function init() {
 	
 	/* Enhance sliders: create arrows/numbers navigation etc */
     if (typeof makeSlider === 'function') {
-
+		
+		current_slider = q('.slider');
+		
 		forEach('.slider', function(el) {
 		
 		    makeSlider(el);
