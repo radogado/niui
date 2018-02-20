@@ -805,9 +805,7 @@ function openLightbox(e) {
         	this_index = Array.prototype.indexOf.call(lightbox.children, anchor.parentNode); // Ignore non-anchor children of the lightbox container
 			
 		} else {
-			console.log(anchor);
-			console.log(lightbox);
-			// To do: fix the following wrong line. Ignore children which aren't links to images
+
 	        this_index = Array.prototype.indexOf.call(lightbox.querySelectorAll('[href]'), closest(anchor, '[href]')); // Ignore non-anchor children of the lightbox container
 
 		}

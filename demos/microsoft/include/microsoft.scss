@@ -811,7 +811,7 @@ nav.drop ul li, nav.drop ul li b.sub {
 
 	.mini-features a p {
 		
-		padding-bottom: 0;
+		padding-bottom: 1em;
 		margin: 0;
 		
 	}
@@ -830,6 +830,7 @@ nav.drop ul li, nav.drop ul li b.sub {
 	.mini-features.row .row {
 		
 		padding: 0;
+		overflow: hidden;
 	
 	}
 	

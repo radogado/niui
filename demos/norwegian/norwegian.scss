@@ -115,6 +115,18 @@ footer ul, footer li {
 	
 }
 
+footer nav a {
+	
+	padding: 0;
+
+}
+
+nav ul {
+	
+	margin: 0;
+
+}
+
 .banner {
 	
 	background: url(front-header.jpg) center left no-repeat;
@@ -332,6 +344,13 @@ header span.burger:before {
 		
 		padding: 0;
 
+	}
+
+	.row > * > .unpad, .unpad {
+		
+		margin: 0;
+		width: auto;
+	
 	}
 
 }

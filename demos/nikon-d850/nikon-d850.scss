@@ -559,4 +559,10 @@ footer ul.row > li > span {
 		
 	}
 
+	.n-sldr.tabs > .slider-nav a, .n-sldr.tabs > .slider-nav a.active, .n-sldr:not(.vertical) .slider-nav a:first-child {
+		
+		margin: 0;
+
+	}
+
 }

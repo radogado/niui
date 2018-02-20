@@ -1217,7 +1217,7 @@ form.wide label, form.wide label span, form.wide .checkbox span, form.wide label
   width: 100%;
   clear: both; }
 
-form.wide input:not([type=checkbox]):not([type=radio]), form.wide textarea, form.wide select {
+form.wide:not(.sticky-submit) input:not([type=checkbox]):not([type=radio]), form.wide textarea, form.wide select {
   display: block;
   width: 100%;
   border: none;
@@ -2289,6 +2289,7 @@ video {
   .fixed-bg .fixed-bg-image {
     position: absolute;
     background-size: 0;
+    z-index: -1;
     clip: rect(auto, auto, auto, auto); }
 
   .fixed-bg .fixed-bg-image:before {

@@ -184,6 +184,13 @@ a[href].button:hover {
  
 }
 
+.red-box {
+	
+	box-shadow: 0 0 0px 5px #FF4500 inset; 
+	margin: 12px;
+
+}
+
 @media (max-width: 600px) {
 
 	.banner-bg {	
@@ -198,4 +205,10 @@ a[href].button:hover {
 
 	}
 	
+	.red-box {
+		
+		margin: 0;
+	
+	}
+
 }

@@ -669,6 +669,13 @@ input[type=text].search {
 
 @media screen and (max-width: 599.9px) {
 	
+	body.contain {
+		
+	    padding: 1em;
+	    width: calc(100% - 2em);
+
+	}
+	
 	nav.drop ul li {
 		
 		margin: 0;

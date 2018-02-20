@@ -312,3 +312,26 @@ footer ul {
 	color: $pink;
 	
 }
+
+@media (max-width: 599.9px) {
+	
+	ul.inline li {
+		
+		display: block;
+		width: auto;
+		
+	}
+	
+	ul.inline {
+		
+		width: 100%;
+	
+	}
+	
+	.staff img {
+		
+		margin: 1em auto;
+		
+	}
+
+}

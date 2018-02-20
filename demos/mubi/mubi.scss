@@ -195,3 +195,15 @@ form.flat input[type=text] {
 	color: #fff;
 
 }
+
+@media (max-width: 599.9px) {
+	
+	.review > div:after {
+		
+		content: '';
+		display: table;
+		clear: both;
+	
+	}
+
+}
