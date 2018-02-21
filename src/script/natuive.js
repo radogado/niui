@@ -1858,9 +1858,9 @@ function initNav(el) {
 	
 	el.setAttribute('role', 'menubar');
 
-	forEach(el.querySelectorAll('li'), function (el) {
+	forEach(el.querySelectorAll('li > a'), function (el) {
 		
-		el.querySelector('a').setAttribute('tabindex', 0);
+		el.setAttribute('tabindex', 0);
 
 	});
 

@@ -1858,9 +1858,9 @@ function initNav(el) {
 	
 	el.setAttribute('role', 'menubar');
 
-	forEach(el.querySelectorAll('li'), function (el) {
+	forEach(el.querySelectorAll('li > a'), function (el) {
 		
-		el.querySelector('a').setAttribute('tabindex', 0);
+		el.setAttribute('tabindex', 0);
 
 	});
 
@@ -2259,9 +2259,9 @@ ready( function () {
 
 // q('html').dataset.last_slide = 14045017000;
 // q('html').setAttribute('data-last_slide', 14045017000);
-window.lastSlideTime = 14045017000;
+var last_slide_time = 14045017000;
 // q('html').dataset.slide_duration = 0.5;
-window.slideDuration = .5;
+var slide_duration = .5;
 
 function sliderElement(e) { // Get the active slider instance
 
@@ -2356,14 +2356,14 @@ function initScroll(e, delta) { // Scroll happens
     var timeNow = new Date().getTime();
 
     // Cancel scroll if currently animating or within quiet period – don't slide again automatically after a slide
-    if ((timeNow - window.lastSlideTime) < window.slideDuration * 2000 || hasClass(q('html'), 'sliding_now')) {
+    if ((timeNow - last_slide_time) < slide_duration * 2000 || hasClass(q('html'), 'sliding_now')) {
 
         stopEvent(e);
 		return;
 
     }
 
-	window.lastSlideTime = timeNow;
+	last_slide_time = timeNow;
 
     slide(sliderElement(e), delta < 0 ? 'right' : 'left');
 
@@ -2489,7 +2489,7 @@ function endSlide (slider, index) {
 			
 		}
 
-	}, window.slideDuration/2);
+	}, slide_duration/2);
 	
 }
 
@@ -2604,7 +2604,7 @@ function slide(el, method, index_number) {
 
     }
 
-	var duration = slider.getAttribute('data-duration') ? slider.getAttribute('data-duration') : window.slideDuration;
+	var duration = slider.getAttribute('data-duration') || slide_duration;
 
 	addClass(target_slide, 'active');
 
