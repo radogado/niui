@@ -165,38 +165,54 @@ li pre {
 
 @media (max-width: 599.9px) {
 	
-main.row.no-spacing > [class^=col].col34 {
-
-    width: 75%;
-    margin: 0 0 0 25%;	
+	main.row.no-spacing > [class^=col].col34 {
+	
+	    width: 75%;
+	    margin: 0 0 0 25%;	
+		
+	}
+	
+	main.row.no-spacing > [class^=col].col4 {
+	
+	    width: 25%;
+	    margin: 0;	
+	    float: left;
+		
+	}
+	
+	.nav-column .slider-nav a {
+		
+		height: auto;
+		
+	}
+	
+	main .nav-column .slider-nav.row {
+		
+		display: block;
+		
+	}
+	
+	.nav-column .slider-nav a {
+		
+		padding: 0;
+	    margin: .5em 0;
+	
+	}
 	
 }
 
-main.row.no-spacing > [class^=col].col4 {
-
-    width: 25%;
-    margin: 0;	
-    float: left;
+.code {
+	
+	position: relative;
+	margin-bottom: 1.5em;
 	
 }
 
-.nav-column .slider-nav a {
+.code button {
 	
-	height: auto;
-	
-}
+	position: absolute;
+	bottom: -1.5em;
+    right: 0;
+	font-size: .75em;
 
-main .nav-column .slider-nav.row {
-	
-	display: block;
-	
-}
-
-.nav-column .slider-nav a {
-	
-	padding: 0;
-    margin: .5em 0;
-
-}
-	
 }

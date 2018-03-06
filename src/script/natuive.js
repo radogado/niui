@@ -1503,25 +1503,29 @@ function toggleAccordion(e) {
 
 // Clicking a button copies a target element's contents
 
-function copyButton (el, target) {
+function copyButton (el, target, echo) {
 	
 	el.addEventListener('click', function(event) {  
 
+	  window.getSelection().removeAllRanges(); // Clear previous clipboard
 	  var range = document.createRange();  
 	  range.selectNode(target);  
-	  window.getSelection().addRange(range);  
+	  window.getSelection().addRange(range);
 	
 	  try {  
 
 		  document.execCommand('copy');
-		  notify('📋 ' + target.textContent, 'fixed timeout');
+		  
+		  if (typeof echo !== 'undefined') {
+	
+			  notify('📋 ' + target.textContent, 'fixed timeout');
+		  
+		  }
 
 	  } catch(err) {
 
 	  }  
 	
-	  window.getSelection().removeAllRanges();  
-
 	});
 	
 }
