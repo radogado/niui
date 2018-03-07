@@ -9,7 +9,6 @@
 	<meta name=viewport content='width=device-width,initial-scale=1.0,maximum-scale=5,user-scalable=yes'>
 
 	<link rel=icon href=images/favicon.ico>
-<!-- 	<link rel=styleSheet href=src/css/natuive.css type=text/css media=screen> -->
 	<link rel=styleSheet href=dist/natuive.min.css type=text/css media=screen>
 	<link rel=styleSheet href=src/css/guide.css type=text/css media=screen>
 
@@ -79,7 +78,7 @@
 						
 						<div class="code">
 						
-						<pre>&lt;!DOCTYPE html&gt;
+							<pre>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
 	&lt;meta charset=utf-8&gt;
@@ -2677,15 +2676,16 @@
 								<input type=submit value='Request more info' title='Request more info'>
 
 							</form> 
-<div class="code">							
 
-<pre>
-&lt;form class='mast'&gt;
-	...
-&lt;/form&gt;
-</pre>	
-
-</div>
+							<div class="code">
+							
+								<pre>
+								&lt;form class='mast'&gt;
+									...
+								&lt;/form&gt;
+								</pre>	
+							
+							</div>
 
 						</div>
 		
@@ -2852,171 +2852,173 @@
 
 							<div class="row">
 							
-	<div class="col3">
-<h4>Text input</h4>							
-
-<div class="code">							
-
-<pre>
-&lt;label&gt;
-	&lt;span&gt;Label&lt;/span&gt;
-	&lt;input type='text'&gt;
-&lt;/label&gt;
-</pre>
-
-</div>
-
-</div>
-
-	<div class="col3">
-
-<h4>Number input</h4>							
-<div class="code">							
-
-<pre>
-&lt;label&gt;
-	&lt;span&gt;Label&lt;/span&gt;
-	&lt;input type='number' data-digits=5&gt;
-&lt;/label&gt;
-</pre>
-
-</div>
-
-</div>
-
-	<div class="col3">
-
-<h4>Checkbox</h4>
-<div class="code">							
-
-<pre>
-&lt;div class='checkbox'&gt;
-	&lt;span&gt;Global label&lt;/span&gt;
-	&lt;label&gt; 
-		&lt;input type='checkbox'&gt; &lt;b class=checkbox-icon&gt;&lt;/b&gt;
-		Checkbox-specific label
-	&lt;/label&gt;
-&lt;/div&gt;
-</pre>
-
-</div>
-
-</div>
-
-	<div class="col3">
-
-<h4>Radio buttons</h4>
-<div class="code">							
-
-<pre>
-&lt;div class='checkbox'&gt;
-	&lt;span&gt;Label for all buttons&lt;/span&gt;
-	&lt;label&gt; 
-		&lt;input type='radio' name='radiodemo'&gt; &lt;b class=checkbox-icon&gt;&lt;/b&gt;
-		Label for this button
-	&lt;/label&gt;
-	&lt;label&gt; 
-		&lt;input type='radio' name='radiodemo'&gt; &lt;b class=checkbox-icon&gt;&lt;/b&gt;
-		Label for this button
-	&lt;/label&gt;
-	...
-&lt;/div&gt;
-</pre>
-
-</div>
-
-</div>
-
-	<div class="col3">
-
-<h4>Textarea</h4>
-<div class="code">							
-
-<pre>
-&lt;label&gt;
-	&lt;span&gt;Label&lt;/span&gt;
-	&lt;textarea&gt;&lt;/textarea&gt;
-&lt;/label&gt;
-</pre>
-
-</div>
-
-</div>
-
-	<div class="col3">
-
-<h4>Range input</h4>
-<div class="code">							
-
-<pre>
-&lt;label&gt;
-	&lt;span&gt;Label&lt;/span&gt;
-	&lt;input type='range'&gt;
-&lt;/label&gt;
-</pre>
-
-</div>
-
-</div>
-
-	<div class="col3">
-
-<h4>File input</h4>
-<div class="code">							
-
-<pre>
-&lt;label&gt;
-	&lt;span&gt;Label&lt;/span&gt;
-	&lt;div class='file'&gt;
-		&lt;input type='file'&gt;
-		&lt;span&gt;Placeholder&lt;/span&gt;
-	&lt;/div&gt;
-&lt;/label&gt; 
-</pre>
-
-</div>
-
-</div>
-
-	<div class="col3">
-
-<h4>Select</h4>
-<div class="code">							
-
-<pre>
-&lt;label class='select'&gt;
-	&lt;span&gt;Label&lt;/span&gt;
-	&lt;select&gt;
-		&lt;option value='First option'&gt;First option&lt;/option&gt;
-		&lt;option value='Second option'&gt;Second option&lt;/option&gt;
-		...
-	&lt;/select&gt;
-&lt;/label&gt;
-</pre>
-
-</div>
-
-</div>
-
-<div class="col3">
-<h4>Optional sections</h4>
-<div class="code">							
-
-<pre>
-&lt;div class='checkbox condition'&gt;
-	&lt;span&gt;Enable fieldset below&lt;/span&gt;
-	&lt;label&gt;
-		&lt;input type='checkbox'&gt; &lt;b class=checkbox-icon&gt;&lt;/b&gt;
-	&lt;/label&gt;
-&lt;/div&gt;
-&lt;fieldset disabled&gt;
-	...
-&lt;/fieldset&gt;
-</pre>
-
-</div>
-
-</div>							
+								<div class="col3">
+							
+									<h4>Text input</h4>							
+							
+									<div class="code">							
+							
+							<pre>
+							&lt;label&gt;
+								&lt;span&gt;Label&lt;/span&gt;
+								&lt;input type='text'&gt;
+							&lt;/label&gt;
+							</pre>
+							
+							</div>
+							
+								</div>
+							
+								<div class="col3">
+							
+							<h4>Number input</h4>
+							<div class="code">							
+							
+							<pre>
+							&lt;label&gt;
+								&lt;span&gt;Label&lt;/span&gt;
+								&lt;input type='number' data-digits=5&gt;
+							&lt;/label&gt;
+							</pre>
+							
+							</div>
+							
+							</div>
+							
+								<div class="col3">
+							
+							<h4>Checkbox</h4>
+							<div class="code">							
+							
+							<pre>
+							&lt;div class='checkbox'&gt;
+								&lt;span&gt;Global label&lt;/span&gt;
+								&lt;label&gt; 
+									&lt;input type='checkbox'&gt; &lt;b class=checkbox-icon&gt;&lt;/b&gt;
+									Checkbox-specific label
+								&lt;/label&gt;
+							&lt;/div&gt;
+							</pre>
+							
+							</div>
+							
+							</div>
+							
+								<div class="col3">
+							
+							<h4>Radio buttons</h4>
+							<div class="code">							
+							
+							<pre>
+							&lt;div class='checkbox'&gt;
+								&lt;span&gt;Label for all buttons&lt;/span&gt;
+								&lt;label&gt; 
+									&lt;input type='radio' name='radiodemo'&gt; &lt;b class=checkbox-icon&gt;&lt;/b&gt;
+									Label for this button
+								&lt;/label&gt;
+								&lt;label&gt; 
+									&lt;input type='radio' name='radiodemo'&gt; &lt;b class=checkbox-icon&gt;&lt;/b&gt;
+									Label for this button
+								&lt;/label&gt;
+								...
+							&lt;/div&gt;
+							</pre>
+							
+							</div>
+							
+							</div>
+							
+								<div class="col3">
+							
+							<h4>Textarea</h4>
+							<div class="code">							
+							
+							<pre>
+							&lt;label&gt;
+								&lt;span&gt;Label&lt;/span&gt;
+								&lt;textarea&gt;&lt;/textarea&gt;
+							&lt;/label&gt;
+							</pre>
+							
+							</div>
+							
+							</div>
+							
+								<div class="col3">
+							
+							<h4>Range input</h4>
+							<div class="code">							
+							
+							<pre>
+							&lt;label&gt;
+								&lt;span&gt;Label&lt;/span&gt;
+								&lt;input type='range'&gt;
+							&lt;/label&gt;
+							</pre>
+							
+							</div>
+							
+							</div>
+							
+								<div class="col3">
+							
+							<h4>File input</h4>
+							<div class="code">							
+							
+							<pre>
+							&lt;label&gt;
+								&lt;span&gt;Label&lt;/span&gt;
+								&lt;div class='file'&gt;
+									&lt;input type='file'&gt;
+									&lt;span&gt;Placeholder&lt;/span&gt;
+								&lt;/div&gt;
+							&lt;/label&gt; 
+							</pre>
+							
+							</div>
+							
+							</div>
+							
+								<div class="col3">
+							
+							<h4>Select</h4>
+							<div class="code">							
+							
+							<pre>
+							&lt;label class='select'&gt;
+								&lt;span&gt;Label&lt;/span&gt;
+								&lt;select&gt;
+									&lt;option value='First option'&gt;First option&lt;/option&gt;
+									&lt;option value='Second option'&gt;Second option&lt;/option&gt;
+									...
+								&lt;/select&gt;
+							&lt;/label&gt;
+							</pre>
+							
+							</div>
+							
+							</div>
+							
+								<div class="col3">
+							<h4>Optional sections</h4>
+							<div class="code">							
+							
+							<pre>
+							&lt;div class='checkbox condition'&gt;
+								&lt;span&gt;Enable fieldset below&lt;/span&gt;
+								&lt;label&gt;
+									&lt;input type='checkbox'&gt; &lt;b class=checkbox-icon&gt;&lt;/b&gt;
+								&lt;/label&gt;
+							&lt;/div&gt;
+							&lt;fieldset disabled&gt;
+								...
+							&lt;/fieldset&gt;
+							</pre>
+							
+							</div>
+							
+							</div>							
+	
 							</div>
 
 							<h3>Options</h3>
@@ -3384,7 +3386,7 @@
 
 				</div>
 
-<!--
+				<!--
 				<div data-tab_title='URI parameters'> 
 					
 					<div class='row'>
@@ -3439,21 +3441,18 @@ notify('Message');
 
 </div>
 
-							<button onclick="notify('Notified.');">Notify me now</button>
-							<button onclick="notify('Fixed.', 'fixed');">Fixed notification bar</button>
-<h3>Options</h3>
+					<button onclick="notify('Notified.');">Notify me now</button>
+					<button onclick="notify('Fixed.', 'fixed');">Fixed notification bar</button>
+
+					<h3>Options</h3>
 							
-							<ul>
+					<ul>
 								
 								<li>Fixed on top: <pre>&lt;div class='notify fixed'&gt;</pre> or <pre>notify('Message', 'fixed');</pre></li>
 								<li><pre>notify('Text', 'timeout')</pre> to hide it automatically after 2 seconds</li>
 							
 							</ul>
 						
-						</div>
-					
-					</div>
-
 				</div>
 
 				<div data-tab_title='Copy to clipboard' id=copy>
@@ -3554,14 +3553,13 @@ animate(document.querySelector('body'),
 		</div>
 			
 	</main>
-
+	
+	<!-- JS not minified, because copyButton() is used in the page -->
 	<script src=src/script/natuive.js type=text/javascript></script>
 	<script src=src/script/natuive-slider.js type=text/javascript></script>
-	<script> copyButton(q('#copybutton'), q('#copycontent')); </script>
-<!-- 	<script src=dist/natuive.min.js type=text/javascript></script> -->
-
 	<script>
 		
+		copyButton(q('#copybutton'), q('#copycontent'));
 		forEach('.code', function (el) {
 			
 			el.insertAdjacentHTML('beforeend', '<button>Copy</button>');
