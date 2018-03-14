@@ -1971,7 +1971,7 @@ function init() {
 	// Load extra CSS for JS-generated content
 	
 	var css = q('head [href*="natuive.min.css"]');
-	if (css) {
+	if (css && !q('head [href*="natuive-extra.min"]')) {
 
 		var extra_css = css.cloneNode()
 		extra_css.href = extra_css.href.replace('natuive.min', 'natuive-extra.min');
