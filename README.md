@@ -8,10 +8,7 @@ To use natUIve, copy **dist** and edit **dist/index.html**. Check the [Guide](ht
 NPM usage:
 
 - npm install --save-dev natuive
-- require('./node\_modules/natuive/dist/natuive.min.js');
-require('./node\_modules/natuive/dist/natuive.min.css');
-require('./node\_modules/natuive/dist/natuive-extra.min.css');
-
+- require('./node_modules/natuive/index.js');
 
 ---
 

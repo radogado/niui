@@ -6,4 +6,5 @@ src/
 *.html
 *.md
 natUIve.*
-*.js
+Gruntfile.js
+
