@@ -1971,7 +1971,7 @@ function init() {
 	// Load extra CSS for JS-generated content
 	
 	var css = q('head [href*="natuive.min.css"]');
-	if (css) {
+	if (css && !q('head [href*="natuive-extra.min"]')) {
 
 		var extra_css = css.cloneNode()
 		extra_css.href = extra_css.href.replace('natuive.min', 'natuive-extra.min');
@@ -2702,12 +2702,19 @@ function sliderKeyboard(e) {
 		
 	}
 
-	if (el.nodeName !== 'BODY' && (el.scrollWidth > el.clientWidth || el.scrollHeight > el.clientHeight)) { // Don't slide when current element is scrollable. To do: check all parent nodes for scrollability.
+	var scrollable = el; // Don't slide when current element is scrollable. Check all parent nodes for scrollability – cheak each parent until body.
+	while (scrollable.nodeName !== 'BODY') {
 		
-		return;
+		if (scrollable.scrollWidth > scrollable.clientWidth || scrollable.scrollHeight > scrollable.clientHeight) { 
+			
+			return;
+	
+		}
+	
+		scrollable = scrollable.parentElement;
 
 	}
-	
+
 	if 	(el.tagName !== 'INPUT' && el.tagName !== 'TEXTAREA' && 
 // 		(document.activeElement === el ? (el.scrollWidth <= el.clientWidth) : true) &&
 // 		(!closest(document.activeElement, '.n-sldr.active') && (el.scrollWidth <= el.clientWidth) ) &&
