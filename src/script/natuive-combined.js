@@ -2505,7 +2505,8 @@ function slide(el, method, index_number) {
 	
 	}
 
-    var slider = closest(el, '.n-sldr').querySelector('.slider');
+	var slider_wrap = closest(el, '.n-sldr');
+    var slider = slider_wrap.querySelector('.slider');
 
     if (slider.children.length < 2) {
 
@@ -2514,7 +2515,6 @@ function slide(el, method, index_number) {
 
     }
     
-	var slider_wrap = closest(el, '.n-sldr');
 
     mouseEvents(slider_wrap, 'off');
     slider.style.pointerEvents = 'none'; // Speed up animation
@@ -2523,17 +2523,18 @@ function slide(el, method, index_number) {
 // 	document.onkeyup = function () { return false; };
 // 	q('html').addClass('sliding_now'); // iOS errors
 
-    if (window.sliderTimeout) {
-
-        clearTimeout(window.sliderTimeout);
-
-    }
+	clearTimeout(slider.getAttribute('data-timeout'));
 	
 	var index;
 	var old_index;
-	var slider_wrap = closest(slider, '.n-sldr');
 	var slider_nav = getSliderNav(slider_wrap);
-	index = old_index = thisIndex(slider_nav.querySelector('a.active'));
+	var active_nav_item = slider_nav.querySelector('a.active');
+	if (!active_nav_item) {
+
+		return;
+
+	}
+	index = old_index = thisIndex(active_nav_item);
 
     if (method === 'index') {
 
@@ -2898,6 +2899,12 @@ function makeSlider(el, current_slide) {
 	
 	    });
 	    
+	    slider_wrap.addEventListener('mouseover', function(e) {
+
+		    clearTimeout(el.getAttribute('data-timeout'));
+		   
+		});
+	    
 	    // Don't slide when using a range input in a form in a slider
 	    if (el.querySelector('input[type=range]')) {
 		   	
@@ -2921,7 +2928,7 @@ function makeSlider(el, current_slide) {
 	        var autoSlide = function() {
 	
 	            slide(el, 'right');
-	            window.sliderTimeout = setTimeout(autoSlide, delay);
+	            el.setAttribute('data-timeout', setTimeout(autoSlide, delay));
 	
 	        };
 	
