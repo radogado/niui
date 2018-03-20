@@ -219,3 +219,12 @@ li pre {
 	font-size: .75em;
 
 }
+
+.grid-inline-popup > div:not(.popup) {
+
+	text-align: center;
+	cursor: pointer;	
+	background: lightseagreen;
+	color: #fff;
+	
+}

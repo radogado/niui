@@ -396,6 +396,20 @@ ol.masonry > * {
 .row > .vertical-row > * {
   flex-grow: 1; }
 
+.grid-inline-popup > .popup {
+  width: 100%;
+  flex-basis: 100%;
+  order: 0;
+  will-change: max-height;
+  /* avoid glitchy animation: */
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0; }
+
+.grid-inline-popup > .popup:not([aria-expanded]) {
+  display: none; }
+
 @media screen and (max-width: 599.9px) {
   .row:not(.half) {
     display: block;
@@ -474,6 +488,7 @@ body {
   font-size: 16px;
   line-height: 1.5;
   font-family: Helvetica Neue, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   letter-spacing: .02em; }
 
 /* Elements with double line-height */
