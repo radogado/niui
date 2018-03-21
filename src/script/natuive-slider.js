@@ -217,7 +217,6 @@ function endSlide (slider, index) {
 
 	slider.style.pointerEvents = '';
 
-// 	window.onkeyup = sliderKeyboard;
     window.addEventListener('keyup', sliderKeyboard);
     setTimeout(function () {
 
@@ -277,8 +276,6 @@ function slide(el, method, index_number) {
     slider.style.pointerEvents = 'none'; // Speed up animation
     mouseEvents(el, 'off');
     window.removeEventListener('keyup', sliderKeyboard);
-// 	document.onkeyup = function () { return false; };
-// 	q('html').addClass('sliding_now'); // iOS errors
 
 	clearTimeout(slider.getAttribute('data-timeout'));
 	
@@ -456,21 +453,30 @@ function sliderKeyboard(e) {
 
 	if (!closest(el, '.n-sldr') && q('.n-sldr')) { // Focused element is outside of any slider
 		
-		current_slider = q('.n-sldr').querySelector('.slider');
-		
-	}
-
-	var scrollable = el; // Don't slide when current element is scrollable. Check all parent nodes for scrollability – cheak each parent until body.
-	while (scrollable.nodeName !== 'BODY') {
-		
-		if (scrollable.scrollWidth > scrollable.clientWidth || scrollable.scrollHeight > scrollable.clientHeight) { 
+// 		current_slider = q('.n-sldr').querySelector('.slider');
+		var scrollable = el; // Don't slide when current element is scrollable. Check all parent nodes for scrollability – cheak each parent until body.
+		while (scrollable.nodeName !== 'BODY') {
 			
-			return;
+			if (scrollable.scrollWidth > scrollable.clientWidth || scrollable.scrollHeight > scrollable.clientHeight) { 
+				
+				return;
+		
+			}
+	
+			scrollable = scrollable.parentElement;
 	
 		}
-	
-		scrollable = scrollable.parentElement;
+		
+	} else {
+		
+		current_slider = closest(el, '.n-sldr').querySelector('.slider');
 
+	}
+
+	if (q('.slider:focus-within')) {
+		
+		current_slider = q('.slider:focus-within');
+		
 	}
 
 	if 	(el.tagName !== 'INPUT' && el.tagName !== 'TEXTAREA' && 
@@ -712,7 +718,6 @@ function makeSlider(el, current_slide) {
 	// Detect text direction
 	el.setAttribute('dir', getComputedStyle(el, null).getPropertyValue('direction'));
 	    
-//     window.onkeyup = sliderKeyboard;
     window.addEventListener('keyup', sliderKeyboard);
 	
     return el;
