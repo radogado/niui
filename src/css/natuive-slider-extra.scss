@@ -182,7 +182,7 @@
 
 }
 
-.slider.vertical > *, .slider[data-sliding] > *:not(.active), .n-sldr.tabs > .slider-arrow {
+.slider.vertical > *, /* .slider[data-sliding] > *:not(.active), */ .n-sldr.tabs > .slider-arrow {
 
 	height: auto;
 	display: none;
@@ -209,9 +209,14 @@
 // 	display: none; // Only display .active slides. Because if slider has transforms (showing only current slide while others are still in the flow), there are problems with its children of position fixed etc. Breaks non-auto height sliders, can't set to height to the tallest slide. Make it with margin-left after the animation is done.
 	display: inline-block;
 	
+	pointer-events: none;
+
+}
+
+.slider:not([data-peek]) > *:not(.active) {
+
 	// Disable focusing elements by tab key in inactive slides
 	visibility: hidden;
-	pointer-events: none;
 
 }
 
@@ -239,7 +244,7 @@
 
 }
 
-.slider > *.active, .n-ovrl .lightbox.slider > *.active > img {
+.slider > *.active, .n-ovrl .lightbox.slider > * > img {
 
 	display: inline-block;
 

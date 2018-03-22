@@ -140,7 +140,7 @@ $bg: #1E8DaC;
   overflow: visible;
   flex-direction: column; }
 
-.slider.vertical > *, .slider[data-sliding] > *:not(.active), .n-sldr.tabs > .slider-arrow {
+.slider.vertical > *, .n-sldr.tabs > .slider-arrow {
   height: auto;
   display: none; }
 
@@ -155,8 +155,10 @@ $bg: #1E8DaC;
 
 .slider > *:not(.active) {
   display: inline-block;
-  visibility: hidden;
   pointer-events: none; }
+
+.slider:not([data-peek]) > *:not(.active) {
+  visibility: hidden; }
 
 .slider.vertical > *:not(.active) {
   display: none; }
@@ -170,7 +172,7 @@ $bg: #1E8DaC;
 .n-ovrl .slider.vertical > * {
   height: 100%; }
 
-.slider > *.active, .n-ovrl .lightbox.slider > *.active > img {
+.slider > *.active, .n-ovrl .lightbox.slider > * > img {
   display: inline-block; }
 
 .n-ovrl .slider > img {
@@ -404,7 +406,7 @@ $bg: #1E8DaC;
   text-align: center;
   position: relative; }
 
-.slider.lightbox.inline > .active {
+.slider.lightbox.inline > * {
   display: flex;
   flex-direction: column;
   justify-content: center; }
@@ -453,9 +455,6 @@ $bg: #1E8DaC;
 
 .n-ovrl .lightbox.slider img, .lightbox.inline img {
   cursor: zoom-in; }
-
-.n-ovrl .lightbox.slider > * > img {
-  display: none; }
 
 .lightbox.slider > * > iframe {
   width: 100%;
@@ -687,9 +686,9 @@ $bg: #1E8DaC;
 
   .n-ovrl .close {
     top: calc(50% - 20px);
-    left: 2px;
+    left: .5rem;
     right: auto;
-    bottom: 0;
+    top: .5rem;
     width: 40px;
     height: 40px;
     border-radius: 50%;

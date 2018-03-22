@@ -205,7 +205,7 @@ function endSlide (slider, index) {
 		addClass(getSliderNav(slider_wrap).children[index], 'active');
 	
 	}
-    slider.style.cssText = '';
+    //slider.style.cssText = '';
 
 	addClass(slider.children[index], 'active');
 
@@ -330,7 +330,7 @@ function slide(el, method, index_number) {
 
     }
 
-    var offset_sign = '-'; // Slider offset depending on direction. '-' for LTR or '' (plus) for RTL. Vertical is always '-'
+    var offset_sign = -1; // Slider offset depending on direction. '-' for LTR or '' (plus) for RTL. Vertical is always '-'
 
 	// To do: auto-height slider to take the height of the taller element
 	var computed_height;
@@ -349,7 +349,7 @@ function slide(el, method, index_number) {
 		computed_height = getComputedStyle(slider).height;
 		if (slider.getAttribute('dir') === 'rtl') {
 			
-			offset_sign = '';
+			offset_sign = 1;
 	
 		}
 		
@@ -391,11 +391,11 @@ function slide(el, method, index_number) {
 	
 	} else {
 		
-	    translate_from = 'translate3d(' + offset_sign + ((index<old_index) ? 1 : 0) + '00%,0,0)';
-	    translate_to = 'translate3d(' + offset_sign + ((index<old_index) ? 0 : 1) + '00%,0,0)';
+	    translate_from = 'translate3d(0,0,0)';
+	    translate_to = 'translate3d(' + (offset_sign * (index - old_index)) + '00%,0,0)';
 		
 	}
-    
+
 	var animation_code;
 
 	if (hasClass(slider, 'fade')) {
@@ -410,7 +410,7 @@ function slide(el, method, index_number) {
 
 	slider.setAttribute('data-sliding', true);
 
-	slider.style.margin = 0;
+	//slider.style.margin = 0;
 
 	animate(slider, animation_code, duration, function slideEndHandler(e) { // On slide end
 
@@ -556,6 +556,20 @@ function makeSlider(el, current_slide) {
         transferClass(el, container, 'wrap');
         transferClass(el, container, 'top');
         transferClass(el, container, 'right');
+		var peek = el.getAttribute('data-peek');
+		if (peek) {
+			
+			if (hasClass(el, 'vertical')) {
+
+	        	container.style.padding = peek + ' 0';
+			
+			} else {
+
+	        	container.style.padding = '0 ' + peek;
+				
+			}
+
+		}
     
     }
 	

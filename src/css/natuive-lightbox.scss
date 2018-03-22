@@ -15,7 +15,7 @@
 	
 }
 
-.slider.lightbox.inline > .active {
+.slider.lightbox.inline > * {
 
 	display: flex;
 	flex-direction: column;
@@ -96,7 +96,7 @@
 
 .n-ovrl .lightbox.slider > * > img {
 	
-	display: none;
+// 	display: none;
 
 }
 

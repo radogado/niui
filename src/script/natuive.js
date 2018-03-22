@@ -695,6 +695,15 @@ function openLightbox(e) {
 		var lightbox_target = q('.n-ovrl .slider.lightbox');
 		
 	}
+
+	transferClass(lightbox, lightbox_target, 'vertical');
+	transferClass(lightbox, lightbox_target, 'right');
+
+	if (lightbox.getAttribute('data-peek')) {
+				
+		lightbox_target.setAttribute('data-peek', lightbox.getAttribute('data-peek'));
+
+	}	
 	
     /* Add any <a><img> siblings with description to a .slider and initialise its controls */
     var images = '';
@@ -784,9 +793,6 @@ function openLightbox(e) {
 	            anchor = anchor.parentNode;
 	
 	        }
-	
-	        transferClass(anchor.parentNode, lightbox_target, 'vertical');
-	        transferClass(anchor.parentNode, lightbox_target, 'right');
 	
 	        // Load the images in the current slide and its neighbours
 	        while (anchor.tagName !== 'A') {
