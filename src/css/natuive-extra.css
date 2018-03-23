@@ -157,6 +157,13 @@ $bg: #1E8DaC;
   display: inline-block;
   pointer-events: none; }
 
+/*
+.slider > .active + div ~ div:not(:last-child) { // Hide all slides after the next one, for speed
+	
+	display: none;
+	
+}
+*/
 .slider:not([data-peek]) > *:not(.active) {
   visibility: hidden; }
 

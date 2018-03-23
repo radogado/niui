@@ -208,10 +208,17 @@
 
 // 	display: none; // Only display .active slides. Because if slider has transforms (showing only current slide while others are still in the flow), there are problems with its children of position fixed etc. Breaks non-auto height sliders, can't set to height to the tallest slide. Make it with margin-left after the animation is done.
 	display: inline-block;
-	
 	pointer-events: none;
 
 }
+
+/*
+.slider > .active + div ~ div:not(:last-child) { // Hide all slides after the next one, for speed
+	
+	display: none;
+	
+}
+*/
 
 .slider:not([data-peek]) > *:not(.active) {
 
