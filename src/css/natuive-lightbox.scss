@@ -23,6 +23,14 @@
 	
 }
 
+// Disable flex in Edge and IE, because img get 100% width there
+
+_:-ms-lang(x), .slider.lightbox.inline > * {
+
+	display: block;
+	
+}
+
 .n-ovrl .slider.lightbox > * {
 
 	height: 100%;

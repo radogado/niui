@@ -10,9 +10,9 @@ var slide_duration = .5;
 
 function sliderElement(e) { // Get the active slider instance
 
-	if (closest(document.activeElement, 'n-sldr') === q('.n-sldr:focus-within')) {
+	if (closest(document.activeElement, 'n-sldr') === focusWithin('.n-sldr')) {
 
-		return q('.n-sldr:focus-within .slider');
+		return focusWithin('.n-sldr').querySelector('.slider');
 
 	}
 
@@ -41,12 +41,14 @@ function swipeEvents(el) {
 
     function touchStart(e) {
 
+/*
 		if (hasClass(q('html'), 'sliding_now')) {
 
 			endSlide(sliderElement(e));
 			return;
 
 		}
+*/
 
         var touches = e.touches;
         if (touches && touches.length) {
@@ -75,7 +77,7 @@ function swipeEvents(el) {
 			// Allow vertical page scrol by swiping over the slider 
             if ((hasClass(el, 'vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !q('.n-ovrl .n-sldr')) {
 
-                removeClass(q('html'), 'sliding_now');
+//                 removeClass(q('html'), 'sliding_now');
                 return;
 
             }
@@ -101,7 +103,7 @@ function initScroll(e, delta) { // Scroll happens
     var timeNow = new Date().getTime();
 
     // Cancel scroll if currently animating or within quiet period – don't slide again automatically after a slide
-    if ((timeNow - last_slide_time) < slide_duration * 2000 || hasClass(q('html'), 'sliding_now')) {
+    if ((timeNow - last_slide_time) < slide_duration * 2000 /* || hasClass(q('html'), 'sliding_now') */) {
 
         stopEvent(e);
 		return;
@@ -116,12 +118,14 @@ function initScroll(e, delta) { // Scroll happens
 
 function mouseWheelHandler(e) {
 
+/*
 	if (hasClass(q('html'), 'sliding_now')) {
 		
 		stopEvent(e); 
 		return;
 	
 	}
+*/
 
 	var el = e.target;
 	
@@ -134,7 +138,7 @@ function mouseWheelHandler(e) {
     var deltaX = (e.deltaX * -10) || e.wheelDeltaX || -e.detail; // Firefox provides 'detail' with opposite value
     var deltaY = (e.deltaY * -10) || e.wheelDeltaY || -e.detail;
 /* To do: stop generating events while sliding */	
-    if (!hasClass(q('html'), 'sliding_now') && Math.abs(hasClass(sliderElement(e), 'vertical') ? deltaY : deltaX) > 50) {
+    if (/* !hasClass(q('html'), 'sliding_now') && */ Math.abs(hasClass(sliderElement(e), 'vertical') ? deltaY : deltaX) > 50) {
 
         e.preventDefault();
         initScroll(e, (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY);
@@ -204,7 +208,7 @@ function endSlide (slider, index) {
     window.addEventListener('keyup', sliderKeyboard);
     setTimeout(function () {
 
-	    removeClass(q('html'), 'sliding_now');
+// 	    removeClass(q('html'), 'sliding_now');
 	    mouseEvents(slider);
 
 	    // Make this slider active
@@ -239,11 +243,13 @@ function endSlide (slider, index) {
 
 function slide(el, method, index_number) {
 
+/*
 	if (hasClass(q('html'), 'sliding_now')) {
 		
 		return;
 	
 	}
+*/
 
 	var slider_wrap = closest(el, '.n-sldr');
     var slider = slider_wrap.querySelector('.slider');
@@ -424,7 +430,7 @@ function shouldNotSlideVertically(el) {
 function sliderKeyboard(e) {
 
     if (typeof e === 'undefined' || 
-    	hasClass(q('html'), 'sliding_now') || 
+//     	hasClass(q('html'), 'sliding_now') || 
     	q('.slider[data-sliding]') || 
     	(q('.n-ovrl') && !q('.n-ovrl .n-sldr')) // There is an overlay open and it doesn't have a slider in it
 		) {
@@ -457,9 +463,9 @@ function sliderKeyboard(e) {
 
 	}
 
-	if (q('.slider:focus-within')) {
+	if (focusWithin('.slider')) {
 		
-		current_slider = q('.slider:focus-within');
+		current_slider = focusWithin('.slider');
 		
 	}
 
@@ -505,13 +511,14 @@ function cancelTouchEvent(el) {
 
 function makeSlider(el, current_slide) {
 
-	if (hasClass(el.parentNode, 'n-sldr') || hasClass(el.parentNode.parentNode, 'n-sldr')) { // Already created
+	if (el.getAttribute('data-ready')) { // Already created
 		
 		return;
 		
 	}
 	
     addClass(el, 'slider');
+    el.setAttribute('data-ready', true);
 
 	if (hasClass(el, 'full-window')) {
 		
@@ -674,7 +681,7 @@ function makeSlider(el, current_slide) {
 		        el.ontouchmove = function(e) {
 		
 					e.stopPropagation();
-					removeClass(q('html'), 'sliding_now');
+// 					removeClass(q('html'), 'sliding_now');
 			        
 		        };
 		        

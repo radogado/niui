@@ -418,6 +418,9 @@ $bg: #1E8DaC;
   flex-direction: column;
   justify-content: center; }
 
+_:-ms-lang(x), .slider.lightbox.inline > * {
+  display: block; }
+
 .n-ovrl .slider.lightbox > * {
   height: 100%;
   overflow: hidden; }

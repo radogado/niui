@@ -1987,7 +1987,7 @@ function initGridInlinePopups() { // Limitation: each row must have equal width 
 			
 			function openNewItem(e, current_popup) {
 		
-				var cell = e.target.closest('.grid-inline-popup > div');
+				var cell = closest(e.target, '.grid-inline-popup > div');
 				var columns = Math.round(cell.parentElement.scrollWidth/cell.scrollWidth);
 				var el = cell.nextElementSibling;
 				if (el === current_popup) {
@@ -2095,6 +2095,25 @@ function initGridInlinePopups() { // Limitation: each row must have equal width 
 		el.setAttribute('data-ready', true);
 		
 	});
+	
+}
+
+function focusWithin(selector) {
+
+	// To do: If not IE/Edge, return q(selector + ':focus-within');
+
+	var result = null;
+	forEach(qa(selector), function (el) {
+		
+		if (el.querySelector(':focus')) {
+			
+			result = el;
+
+		}
+		
+	});
+	
+	return result;
 	
 }
 
