@@ -1758,7 +1758,7 @@ function closeDropNavClickedOutside(e) { // Close the nav when clicking outside
 
 		forEach ('nav ul', function (el) {
 			
-			el.removeAttribute('aria-expanded');
+			el.removeAttribute(aria_expanded);
 			
 		});
 		
@@ -1780,7 +1780,7 @@ function dropNavBlur(e) {
 		
 		forEach(this_nav.querySelectorAll('ul'), function (el) {
 
-			el.removeAttribute('aria-expanded');
+			el.removeAttribute(aria_expanded);
 			
 		});
 		return;
@@ -1793,7 +1793,7 @@ function dropNavBlur(e) {
 		
 		forEach(target_parent.querySelectorAll('ul[aria-expanded]'), function (el) { // Disable active grandchildren
 	
-			el.removeAttribute('aria-expanded');
+			el.removeAttribute(aria_expanded);
 	
 		});
 	
@@ -1804,7 +1804,7 @@ function dropNavBlur(e) {
 		el.parentNode.parentNode.nodeName === 'LI' && // of third-level nav
 		!el.parentNode.parentNode.nextElementSibling) {
 			
-			el.parentNode.parentNode.parentNode.removeAttribute('aria-expanded');
+			el.parentNode.parentNode.parentNode.removeAttribute(aria_expanded);
 	
 	}
 	
@@ -1822,7 +1822,7 @@ function dropNavFocus(e) {
 		
 			forEach(a.querySelectorAll('[aria-expanded]'), function (el) {
 				
-				el.removeAttribute('aria-expanded');
+				el.removeAttribute(aria_expanded);
 				
 			});
 		
@@ -1832,10 +1832,10 @@ function dropNavFocus(e) {
 	
 	el = e.target;
 
-	el.parentNode.parentNode.setAttribute('aria-expanded', true);
+	el.parentNode.parentNode.setAttribute(aria_expanded, true);
 	if (el.parentNode.querySelector('ul')) {
 
-		el.parentNode.querySelector('ul').setAttribute('aria-expanded', 'true');
+		el.parentNode.querySelector('ul').setAttribute(aria_expanded, 'true');
 
 	}
 	
@@ -1845,7 +1845,7 @@ function dropNavFocus(e) {
 
 		if (el !== current_item && el.nodeName === 'LI' && el.querySelector('ul')) {
 
-			el.querySelector('ul').removeAttribute('aria-expanded');
+			el.querySelector('ul').removeAttribute(aria_expanded);
 		
 		}
 		
@@ -1895,7 +1895,7 @@ function initNav(el) {
 			
 			forEach (closest(e.target, 'nav').querySelectorAll('ul'), function (el) {
 				
-				el.removeAttribute('aria-expanded');
+				el.removeAttribute(aria_expanded);
 				
 			});
 			
@@ -1967,13 +1967,11 @@ function initNav(el) {
 	});
 
 }
-
-	// Limitation: each row must have equal width columns.
 	
-function initGridInlinePopups() {
+function initGridInlinePopups() { // Limitation: each row must have equal width columns.
 		
-		forEach(qa('.grid-inline-popup:not([data-ready])'), function (el) {
-		
+	forEach(qa('.grid-inline-popup:not([data-ready])'), function (el) {
+	
 		var cells = el.querySelectorAll(':scope > div:not(.popup)');
 		var popups = el.querySelectorAll(':scope > .popup');
 		forEach(cells, function (el) {
@@ -2036,13 +2034,12 @@ function initGridInlinePopups() {
 					
 				}
 	
-				el.setAttribute('aria-expanded', 'true');
+				el.setAttribute(aria_expanded, 'true');
 				var height = el.scrollHeight;
 				el.style.maxHeight = 0;
 				el.style.overflow = 'hidden';
 				animate(el, '100% { max-height: ' + height + 'px; }', .2, function () {
 		
-					el.setAttribute('aria-expanded', 'true');
 					el.style.cssText = '';
 					
 				});
@@ -2058,7 +2055,7 @@ function initGridInlinePopups() {
 					current_popup.style.overflow = 'hidden';
 					animate(current_popup, '100% { max-height: 0; }', .2, function () {
 						
-						current_popup.removeAttribute('aria-expanded');
+						current_popup.removeAttribute(aria_expanded);
 						current_popup.style.cssText = '';
 						openNewItem(e, current_popup);
 				
@@ -2090,7 +2087,7 @@ function initGridInlinePopups() {
 		
 	});
 	
-	}
+}
 
 var current_slider = null;
 
@@ -2103,7 +2100,7 @@ function init() {
 	var css = q('head [href*="natuive.min.css"]');
 	if (css && !q('head [href*="natuive-extra.min"]')) {
 
-		var extra_css = css.cloneNode()
+		var extra_css = css.cloneNode();
 		extra_css.href = extra_css.href.replace('natuive.min', 'natuive-extra.min');
 		q('head').insertBefore(extra_css, css.nextSibling); // Insert it after natuive.min.css, not at the end of <head>, to allow subsequent CSS files to overwrite it
 
@@ -2376,22 +2373,6 @@ ready( function () {
 ;/* natUIve Slider */
 
 // "use strict";
-
-(function () {
-
-	"use strict";
-	if (Function.prototype.bind && !this) { // Supports ES5
-
-		return;
-
-	} else { // Doesn't support ES5, going CSS-only
-	
-	  noSuchFunction();
-	  return;
-
-	}
-
-}());
 
 // q('html').dataset.last_slide = 14045017000;
 // q('html').setAttribute('data-last_slide', 14045017000);

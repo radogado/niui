@@ -2,22 +2,6 @@
 
 // "use strict";
 
-(function () {
-
-	"use strict";
-	if (Function.prototype.bind && !this) { // Supports ES5
-
-		return;
-
-	} else { // Doesn't support ES5, going CSS-only
-	
-	  noSuchFunction();
-	  return;
-
-	}
-
-}());
-
 // q('html').dataset.last_slide = 14045017000;
 // q('html').setAttribute('data-last_slide', 14045017000);
 var last_slide_time = 14045017000;
