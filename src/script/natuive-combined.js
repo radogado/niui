@@ -1971,9 +1971,18 @@ function initNav(el) {
 function initGridInlinePopups() { // Limitation: each row must have equal width columns.
 		
 	forEach(qa('.grid-inline-popup:not([data-ready])'), function (el) {
-	
-		var cells = el.querySelectorAll(':scope > div:not(.popup)');
-		var popups = el.querySelectorAll(':scope > .popup');
+		
+		var id = 'id' + new Date().getTime(); // Unique id
+		el.id = el.id || id;
+		var cells = el.querySelectorAll('#' + el.id + ' > div:not(.popup)');
+		var popups = el.querySelectorAll('#' + el.id + ' > .popup');
+		
+		if (el.id === id) {
+			
+			el.removeAttribute('id');
+
+		}
+		
 		forEach(cells, function (el) {
 			
 			function openNewItem(e, current_popup) {
