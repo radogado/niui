@@ -2,13 +2,13 @@
 
 @import 'natuive-setup';
 
-.n-ovrl .slider, .n-ovrl .n-sldr {
+.slider.overlay, .n-sldr.overlay {
 	
 	height: 100% !important;
 	
 }
 
-.n-ovrl .n-sldr, .n-ovrl .n-sldr.vertical {
+.n-sldr.overlay, .n-sldr.vertical.overlay {
 			
 	margin-top: $line-height-em*2;
 // 		margin-top: calc(var(--line-height-em)*2);
@@ -19,7 +19,7 @@
 
 @media screen and (max-width: $screen-narrow-max) {
 
-	.n-ovrl .n-sldr, .n-ovrl .n-sldr.vertical {
+	.n-sldr.overlay, .n-sldr.vertical.overlay {
 				
 		margin-top: $line-height-em;
 	// 		margin-top: calc(var(--line-height-em)*2);
@@ -79,7 +79,7 @@
 
 }
 
-.n-ovrl .n-sldr {
+.n-sldr.overlay {
 	
 	top: 0px;
 	bottom: 0px;
@@ -130,7 +130,7 @@
 
 }
 	
-.slider {
+.slider[data-ready] {
 	
 	overflow: visible;
 	// Fix Safari bug where 1px of previous slide is visible during slide
@@ -155,13 +155,13 @@
 }
 */
 
-.n-ovrl .n-sldr.vertical, .n-ovrl .slider, .n-ovrl .slider > * {
+.n-sldr.vertical.overlay, .slider.overlay, .overlay.slider > * {
 	
 	height: 100%;
 
 }
 
-.n-ovrl .slider:not(.vertical) > * {
+.overlay.slider:not(.vertical) > * {
 	
 	overflow: auto;
 	-webkit-overflow-scrolling: touch;
@@ -220,7 +220,7 @@
 }
 */
 
-.slider:not([data-peek]) > *:not(.active) {
+.slider[data-ready]:not([data-peek]) > *:not(.active) {
 
 	// Disable focusing elements by tab key in inactive slides
 	visibility: hidden;
@@ -233,7 +233,7 @@
 
 }
 
-.n-ovrl .slider > * {
+.overlay.slider > * {
 	
 	padding: 0;
 
@@ -245,19 +245,19 @@
 	
 }
 
-.n-ovrl .slider.vertical > * {
+.overlay.slider.vertical > * {
 	
 	height: 100%;
 
 }
 
-.slider > *.active, .n-ovrl .lightbox.slider > * > img {
+.slider > *.active, .overlay.lightbox.slider > * > img {
 
 	display: inline-block;
 
 }
 
-.n-ovrl .slider > img {
+.overlay.slider > img {
 	
 	padding: 0 !important;
 	height: auto;

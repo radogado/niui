@@ -141,21 +141,6 @@ Object.prototype.each = String.prototype.each = function (fn) { // To do: as thi
 }
 */
 
-function wrapTables() {
-	
-	forEach('table', function(el) {
-	
-		if (!hasClass(el.parentNode, 'n-tbl')) {
-			
-			addClass(wrap(el).parentNode, 'n-tbl');
-			el.parentNode.setAttribute('tabindex', 0);
-		
-		}
-	
-	});
-	
-}
-
 function stopEvent(e) {
 
     if (!e) {
@@ -227,19 +212,31 @@ function getCookie(k) { // Thanks Simon Steinberger
 
 function wrap(toWrap, wrapper) { // Thanks yckart
 
+// 	observerOff();
+
     wrapper = wrapper || document.createElement('div');
-
-    if (toWrap.nextSibling) {
-
-        toWrap.parentNode.insertBefore(wrapper, toWrap.nextSibling);
-
-    } else {
-
-        toWrap.parentNode.appendChild(wrapper);
-
+	
+	var sibling = toWrap.nextSibling;
+	var parent = toWrap.parentNode;
+	wrapper.appendChild(toWrap);
+	
+	if (parent) { // Already attached to DOM
+	
+	    if (sibling) { // Attach the wrapper
+	
+	        parent.insertBefore(wrapper, sibling);
+	
+	    } else {
+	
+	        parent.appendChild(wrapper);
+	
+	    }
+    
     }
+    
+//     observerOn();
 
-    return wrapper.appendChild(toWrap);
+    return wrapper;
 
 }
 
@@ -512,6 +509,7 @@ function closeFullWindow() {
 			}
 			
 		   	q('html').style.pointerEvents = 'initial';
+		   	removeClass(q('html'), 'nooverflow');
 		   	
 		   	if (previouslyFocused) {
 
@@ -528,7 +526,9 @@ function closeFullWindow() {
 var previousScrollOffset = 0;
 var previouslyFocused = false;
 
-function openFullWindow(el, animation) {
+function openFullWindow(el, animation) { // el is an HTML string
+
+// 	observerOff();
 	
 	previouslyFocused = document.activeElement;
 	
@@ -536,48 +536,61 @@ function openFullWindow(el, animation) {
 	var offset_top = q('html').getBoundingClientRect().top;
 	previousScrollOffset = offset_top; // Remember the page position.
 
+	full_window_content = document.createElement('div');
+	
 	if (typeof el === 'string') {
 
-		full_window_content = document.createElement('div');
-		q('body').appendChild(full_window_content);
 		full_window_content.innerHTML = el;
-		el = full_window_content;
+
+	} else {
+
+		full_window_content.appendChild(el);
 
 	}
-	el.setAttribute('data-anim', animation);
-    addClass(wrap(el).parentNode, 'content');
-    wrap(el.parentNode).parentNode.setAttribute('class', 'n-ovrl');
-	var full_window = q('.n-ovrl:last-of-type') || q('.n-ovrl');
-    full_window.querySelector('.content').setAttribute('tabindex', 0);
-	full_window.insertAdjacentHTML('beforeend', '<div class=overlay-bg></div>');
 
-    if (!hasClass(el, 'headless')) {
+
+	full_window_content.setAttribute('data-anim', animation);
+
+	var wrapper = document.createElement('div');
+	addClass(wrapper, 'n-ovrl');
+	wrapper.insertAdjacentHTML('beforeend', '<div class=content tabindex=0></div><div class=overlay-bg></div>');
+	wrapper.firstChild.prepend(full_window_content);
+	full_window_content = wrapper;
+
+/*     if (!hasClass(el, 'headless')) { */
 	    
-	    full_window.insertAdjacentHTML('afterbegin', '<div class=close> ← ' + document.title + '</div>');
-		full_window.querySelector('.overlay-bg').onclick = full_window.querySelector('.n-ovrl .close').onclick = closeFullWindow;
+	    full_window_content.insertAdjacentHTML('afterbegin', '<div class=close> ← ' + document.title + '</div>');
+		full_window_content.querySelector('.overlay-bg').onclick = full_window_content.querySelector('.close').onclick = closeFullWindow;
 		window.addEventListener('keyup', keyUpClose);
 	   
+/*
 	} else {
 		
-		addClass(full_window, 'headless');
+		addClass(full_window_content, 'headless');
 		
 	}
+*/
 
-	if (el.querySelector('.full-screen')) {
+	q('body').appendChild(full_window_content);
+	init(full_window_content.querySelector('.content')); // To do: replace by Mutation Observer
 
-		if (full_window.webkitRequestFullScreen) { 
+    full_window_content.querySelector('.content').focus();
+
+	if (full_window_content.querySelector('.full-screen')) {
+
+		if (full_window_content.webkitRequestFullScreen) { 
 			
-			full_window.webkitRequestFullScreen(); 
+			full_window_content.webkitRequestFullScreen(); 
 		
 		}
-		if (full_window.mozRequestFullScreen) { 
+		if (full_window_content.mozRequestFullScreen) { 
 			
-			full_window.mozRequestFullScreen(); 
+			full_window_content.mozRequestFullScreen(); 
 		
 		}
-		if (full_window.requestFullScreen) {
+		if (full_window_content.requestFullScreen) {
 			
-			full_window.requestFullScreen(); 
+			full_window_content.requestFullScreen(); 
 		
 		}
 	
@@ -585,7 +598,7 @@ function openFullWindow(el, animation) {
 
 	} else {
 
-		animate(full_window, typeof animation === 'string' ? animation : '0% { transform: translate3d(0,-100vh,0) } 100% { transform: translate3d(0,0,0) }', .2, function () { 
+		animate(full_window_content, typeof animation === 'string' ? animation : '0% { transform: translate3d(0,-100vh,0) } 100% { transform: translate3d(0,0,0) }', .2, function () { 
 			
 			addClass(q('html'), 'nooverflow');
 	    	q('body').scrollTop = q('html').scrollTop = -1 * previousScrollOffset;
@@ -595,7 +608,7 @@ function openFullWindow(el, animation) {
 
 	}
 	
-    full_window.querySelector('.content').focus();
+// 	observerOn();
     return false;
 	
 }
@@ -647,8 +660,6 @@ function modalWindow(e) {
             openFullWindow(parsed, animation); // To do: If .modal[data-animation], pass it to openFullWindow() as second parameter. Also in openLightbox().
 			transferClass(closest(el, '.modal'), q('.n-ovrl'), 'limited');
 
-            init(); // Initialise the modal's new JS content like slider, sortable table etc.
-
         } else {
             // Error
             closeFullWindow();
@@ -669,7 +680,15 @@ function modalWindow(e) {
 
 }
 
-function openLightbox(e) {
+function openLightbox(e) { // To do: create all content in an unattached element and call openFullWindow(el), which will take over
+
+// 	observerOff();
+
+    if (typeof makeSlider !== 'function') { // slider JS not present
+	    
+	    return;
+
+	}
 
 	var el = e.target;
 	if (el.length === 0) {
@@ -680,20 +699,23 @@ function openLightbox(e) {
 	
     var lightbox = closest(el, '.lightbox');
     var animation = lightbox.getAttribute('data-anim');
+	var lightbox_target = document.createElement('div');
+	var inline_static = lightbox.matches('.inline:not(.slider)');
 
-	if (lightbox.matches('.inline:not(.slider)')) { // Because if it's a slider, it's an existing lightbox and the new one should be separate and full screen
+
+	if (inline_static) { // If it's inline, it must become a slider/lightbox to replace the original lightbox element
+		// Replace the lightbox by a slider lightbox. Generate the new slider/lightbox in place of the original one
+		lightbox_target.classList = 'slider lightbox inline';
+		lightbox_target.id = lightbox.id ? lightbox.id : '';
+		var parent = lightbox.parentNode;
+		var next_sibling = lightbox.nextElementSibling;
+		lightbox.outerHTML = ''; // Remove from DOM, but still existing as a variable
 		
-		lightbox.insertAdjacentHTML('afterend', '<div class="slider lightbox inline" id="' + (lightbox.id ? lightbox.id : '') + '"></div>');
-		var lightbox_target = lightbox.parentNode.querySelector('.slider.lightbox');
-		lightbox.outerHTML = '';
+	} else { // else it's an existing lightbox and the new one should be separate and full screen
 		
-		
-	} else {
-		
-		openFullWindow('<div class="slider lightbox' + (hasClass(lightbox, 'full-screen') ? ' full-screen' : '') + '"></div>', animation);
-		q('.n-ovrl').style.overflow = 'hidden';
-		var lightbox_target = q('.n-ovrl .slider.lightbox');
-		
+//		openFullWindow('<div class="slider lightbox full-window' + (hasClass(lightbox, 'full-screen') ? ' full-screen' : '') + '"></div>', animation); // openFullWindow to be moved at the end
+		lightbox_target.classList = 'slider lightbox inline' + (hasClass(lightbox, 'full-screen') ? ' full-screen' : '');
+
 	}
 
 	transferClass(lightbox, lightbox_target, 'vertical');
@@ -768,7 +790,7 @@ function openLightbox(e) {
 
     lightbox_target.innerHTML = images;
     
-    if (lightbox.matches('.inline:not(.slider)')) { // It's an inline lightbox and needs to become full window/screen when clicked
+    if (inline_static) { // It's an inline lightbox and needs to become full window/screen when clicked
 	    
 	    lightbox_target.onclick = function(e) {
 		    
@@ -782,95 +804,119 @@ function openLightbox(e) {
 	    
     }
 
-    if (typeof makeSlider === 'function') {
+// If secondary, openFullWindow(lightbox_target)
+// If normal, attach lightbox_target on the former place of the lightbox and init(their_parent)
 
-        var anchor = el;
-		
-		if (anchor.href) { // If it's a standard lightbox with a[href], not a secondary full screen lightbox from an inline one
 
-	        while (typeof anchor.href !== 'string') {
+    var anchor = el;
 	
-	            anchor = anchor.parentNode;
-	
-	        }
-	
-	        // Load the images in the current slide and its neighbours
-	        while (anchor.tagName !== 'A') {
-		        
-		        anchor = anchor.parentNode;
-		        
-	        }
-        
+	if (anchor.href) { // If it's a standard lightbox with a[href], not a secondary full screen lightbox from an inline one
+
+        while (typeof anchor.href !== 'string') {
+
+            anchor = anchor.parentNode;
+
         }
 
-		// To do: after closing an URI-invoked lightbox and opening a lightbox again, the index is incorrect
-		var this_index = 0;
+        // Load the images in the current slide and its neighbours
+        while (anchor.tagName !== 'A') {
+	        
+	        anchor = anchor.parentNode;
+	        
+        }
+    
+    }
 
-		if (hasClass(lightbox, 'inline')) { // Secondary lightbox
+	// To do: after closing an URI-invoked lightbox and opening a lightbox again, the index is incorrect
+	var this_index = 0;
 
-        	this_index = Array.prototype.indexOf.call(lightbox.children, anchor.parentNode); // Ignore non-anchor children of the lightbox container
-			
+	if (hasClass(lightbox, 'inline')) { // Secondary lightbox
+
+    	this_index = Array.prototype.indexOf.call(lightbox.children, anchor.parentNode); // Ignore non-anchor children of the lightbox container
+		
+	} else {
+
+        this_index = Array.prototype.indexOf.call(lightbox.querySelectorAll('[href]'), closest(anchor, '[href]')); // Ignore non-anchor children of the lightbox container
+
+	}
+
+    if (location.href.indexOf('#' + lightbox.id) > -1 && hasClass(lightbox, 'uri-target')) {
+        
+        removeClass(lightbox, 'uri-target'); // Open URI-specified index only once, because subsequent lightbox instances would have incorrect index
+        if (typeof getURLParameters()['slide'] != 'undefined') {
+
+	        this_index = getURLParameters()['slide'].split('#')[0] - 1;
+
+	    }
+
+		if (typeof getURLParameters()['image'] != 'undefined') {
+
+			var target_image = lightbox_target.querySelector('[data-src*="' + getURLParameters()['image'].split('#')[0] + '"]');
+			if (target_image) {
+
+		        this_index = thisIndex(target_image.parentNode);
+
+		    }
+	    
+	    }
+
+    }
+
+    if (this_index > (lightbox_target.children.length - 1) || this_index < 1) { // To do: fix this_index for a secondary full screen lightbox
+        
+        this_index = 0;
+        
+    }
+
+    populateLightbox(lightbox_target, this_index);
+
+	var slider = makeSlider(lightbox_target, this_index); // To do: Replace by init() and Observer, but this_index needs to be specified, by an .active nav item
+// attach lightbox_target to the DOM
+	if (inline_static) {
+
+		if (!next_sibling) {
+
+			parent.appendChild(slider);
+		
 		} else {
 
-	        this_index = Array.prototype.indexOf.call(lightbox.querySelectorAll('[href]'), closest(anchor, '[href]')); // Ignore non-anchor children of the lightbox container
-
+			next_sibling.insertBefore(slider);
+		
 		}
 
-        if (location.href.indexOf('#' + lightbox.getAttribute('id')) > -1 && hasClass(lightbox, 'uri-target')) {
-	        
-	        removeClass(lightbox, 'uri-target'); // Open URI-specified index only once, because subsequent lightbox instances would have incorrect index
-	        if (typeof getURLParameters()['slide'] != 'undefined') {
 
-		        this_index = getURLParameters()['slide'].split('#')[0] - 1;
+	} else { // OpenFullWindow() and attach the slider to it
+		
+		addClass(slider, 'overlay');
+		addClass(slider.querySelector('.slider'), 'overlay');
+		openFullWindow(slider); // To do: fix layout, add .overlay
 
-		    }
+	}
 
-			if (typeof getURLParameters()['image'] != 'undefined') {
+    transferClass(anchor.parentNode, lightbox_target.parentNode, 'outside');
+    
+    if (hasClass(anchor.parentNode, 'thumbnails')) {
+    
+	    transferClass(anchor.parentNode, lightbox_target.parentNode, 'thumbnails');
+        var i = 0;
+// 	        var nav = closest(lightbox_target, '.n-sldr').querySelector('.slider-nav');
+        var nav = getSliderNav(closest(lightbox_target, '.n-sldr'));
 
-				var target_image = lightbox_target.querySelector('[data-src*="' + getURLParameters()['image'].split('#')[0] + '"]');
-				if (target_image) {
+        if (nav) { // Multiple slides?
 
-			        this_index = thisIndex(target_image.parentNode);
+	        forEach(thumbnails, function (el) {
+				
+				if (nav.children[i]) {
+
+			        nav.children[i].style.backgroundImage = 'url(' + thumbnails[i] + ')';
 
 			    }
-		    
-		    }
+		        i++;
+		        
+	        });
 
         }
-
-        if (this_index > (lightbox_target.children.length - 1) || this_index < 1) { // To do: fix this_index for a secondary full screen lightbox
-	        
-	        this_index = 0;
-	        
-        }
-        
-        populateLightbox(makeSlider(lightbox_target, this_index), this_index);
-        transferClass(anchor.parentNode, lightbox_target.parentNode, 'thumbnails');
-        transferClass(anchor.parentNode, lightbox_target.parentNode, 'outside');
-        
-        if (hasClass(anchor.parentNode, 'thumbnails')) {
-        
-	        var i = 0;
-// 	        var nav = closest(lightbox_target, '.n-sldr').querySelector('.slider-nav');
-	        var nav = getSliderNav(closest(lightbox_target, '.n-sldr'));
-
-	        if (nav) { // Multiple slides?
-
-		        forEach(thumbnails, function (el) {
-					
-					if (nav.children[i]) {
-	
-				        nav.children[i].style.backgroundImage = 'url(' + thumbnails[i] + ')';
-	
-				    }
-			        i++;
-			        
-		        });
-
-	        }
-        
-        }
-
+    
     }
 
 	if (!hasClass(lightbox, 'inline')) { // Don't block global keyboard if the lightbox is inline
@@ -879,6 +925,8 @@ function openLightbox(e) {
     
     }
     
+// 	observerOn();
+
     return false;
 
 }
@@ -1238,7 +1286,7 @@ request.send(null);
 
 /* Sort parent table's rows by matching column number alternatively desc/asc on click */
 function sortTable (table, column, f) {
-	
+
 	var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'), 0);;
 	
 	rows.sort(function(a, b) {
@@ -1262,11 +1310,15 @@ function sortTable (table, column, f) {
 	
 	});
 
+// 	observerOff();
+
     for (var i = 0; i < rows.length; i++) {
 
         table.querySelector('tbody').appendChild(rows[i]);
 
     }
+    
+// 	observerOn();
 
 }
 
@@ -1591,6 +1643,12 @@ function loadScriptFile(file_name) {
 
 })();
 
+function makeReady(el) {
+	
+	el.setAttribute('data-ready', true);
+
+}
+
 // Close all Fold elements when clicking/tapping outside of them
 
 function closeFoldClickOutside(e) {
@@ -1630,53 +1688,59 @@ function closeFoldClickOutside(e) {
 	}
 	
 }
-		
-forEach('.fold > .label', function(el, i) {
 
-    el.onclick = toggleAccordion;
-	el.setAttribute('tabindex', 0);
-	el.onkeyup = function (e) {
+function initFold(host) {
+	
+	forEach(host.querySelectorAll('.fold:not([data-ready]) > .label'), function(el) {
 
-		if (e.key === 'Enter') {
+	    el.onclick = toggleAccordion;
+		el.setAttribute('tabindex', 0);
+		el.onkeyup = function (e) {
+	
+			if (e.key === 'Enter') {
+				
+				toggleAccordion(e);
+	
+			}
 			
-			toggleAccordion(e);
-
+		};
+	
+	    el = el.parentNode;
+		var content = el.querySelector('.content');
+		
+		if (hasClass(el, 'horizontal')) {
+			
+			el.setAttribute('data-init', true);
+			content.style.setProperty('--width', content.scrollWidth + 'px');
+			content.style.height = 'auto';
+			el.removeAttribute('data-init');
+			setTimeout(function () { content.style.transition = 'width .2s ease-in-out'; }, 100);
+			
 		}
-		
-	};
-
-    el = el.parentNode;
-	var content = el.querySelector('.content');
 	
-	if (hasClass(el, 'horizontal')) {
+		content.style.setProperty('--max-height', content.scrollHeight + 'px');
+	
+	    if (el.querySelector('input.trigger')) { // Remove CSS-only triggers
+	
+	        el.querySelector('input.trigger').outerHTML = '';
+	
+	    }
+	
+	    if (!hasClass(el, 'mobile')) { // Keep the accordion content clickable
+		    
+		    content.onclick = function(e) {
+	
+		        stopEvent(e);
 		
-		addClass(el, 'init');
-		content.style.setProperty('--width', content.scrollWidth + 'px');
-		content.style.height = 'auto';
-		removeClass(el, 'init');
-		setTimeout(function () { content.style.transition = 'width .2s ease-in-out'; }, 100);
-		
-	}
-
-	content.style.setProperty('--max-height', content.scrollHeight + 'px');
-
-    if (el.querySelector('input.trigger')) { // Remove CSS-only triggers
-
-        el.querySelector('input.trigger').outerHTML = '';
-
-    }
-
-    if (!hasClass(el, 'mobile')) { // Keep the accordion content clickable
+		    };
+	
+	    }
 	    
-	    content.onclick = function(e) {
-
-	        stopEvent(e);
+	    makeReady(el);
+	    
+	});
 	
-	    };
-
-    }
-    
-});
+}
 
 window.addEventListener('click', function (e) { // Close all Fold elements when clicking outside of them
 	
@@ -1700,55 +1764,60 @@ window.addEventListener('scroll', function() {  // Close fixed n-ovrl if its scr
 	
 });
 
+function initThreshold(host) {
+
 // Scroll effects
-forEach('body [data-threshold]', function(el) { // Set a variable reflecting how much of the element's height has been scrolled; .threshold on scroll over element height
-
-	window.addEventListener('scroll', function() {
-
-		setTimeout(function () {
+	forEach(host.querySelectorAll('[data-threshold]:not([data-ready])'), function(el) { // Set a variable reflecting how much of the element's height has been scrolled; .threshold on scroll over element height
+	
+		window.addEventListener('scroll', function() {
+	
+			setTimeout(function () {
+				
+				var relativeScroll = q('html').scrollTop || q('body').scrollTop;
+	/*
+				q('html').style.setProperty('--scroll-top', relativeScroll);
+				q('html').style.setProperty('--scroll-bottom', q('html').scrollHeight - relativeScroll - q('html').offsetHeight);
+				q('html').style.setProperty('--page-height', q('html').scrollHeight);
+	*/
+				var threshold = el.scrollHeight; // To do: either element height or data-threshold height in px, % or vh
+	
+				if (relativeScroll > threshold) {
+					
+					relativeScroll = threshold;
+	
+				}
+				
+				if (relativeScroll < 0) {
+					
+					relativeScroll = 0;
+	
+				}
+				
+				el.style.setProperty('--height', threshold);
+				el.style.setProperty('--threshold', parseFloat((relativeScroll / threshold), 10).toPrecision(1)); // Percentage of threshold reached. 0 – 1. Can be used with CSS calc().
+				// To do: Add --offset-top, --offset-bottom (distance from top/bottom of element to top/bottom of viewport)
+	
+				if (relativeScroll >= threshold) {
+					
+					addClass(el, 'threshold');
+					q('body').setAttribute('data-threshold', true);
+					
+				} else {
+					
+					removeClass(el, 'threshold');
+					removeClass(q('body'), 'threshold');
+					q('body').removeAttribute('data-threshold');
+					
+				}
+				
+			}, 50);
 			
-			var relativeScroll = q('html').scrollTop || q('body').scrollTop;
-/*
-			q('html').style.setProperty('--scroll-top', relativeScroll);
-			q('html').style.setProperty('--scroll-bottom', q('html').scrollHeight - relativeScroll - q('html').offsetHeight);
-			q('html').style.setProperty('--page-height', q('html').scrollHeight);
-*/
-			var threshold = el.scrollHeight; // To do: either element height or data-threshold height in px, % or vh
-
-			if (relativeScroll > threshold) {
-				
-				relativeScroll = threshold;
-
-			}
-			
-			if (relativeScroll < 0) {
-				
-				relativeScroll = 0;
-
-			}
-			
-			el.style.setProperty('--height', threshold);
-			el.style.setProperty('--threshold', parseFloat((relativeScroll / threshold), 10).toPrecision(1)); // Percentage of threshold reached. 0 – 1. Can be used with CSS calc().
-			// To do: Add --offset-top, --offset-bottom (distance from top/bottom of element to top/bottom of viewport)
-
-			if (relativeScroll >= threshold) {
-				
-				addClass(el, 'threshold');
-				q('body').setAttribute('data-threshold', true);
-				
-			} else {
-				
-				removeClass(el, 'threshold');
-				removeClass(q('body'), 'threshold');
-				q('body').removeAttribute('data-threshold');
-				
-			}
-			
-		}, 50);
-		
+		});
+		makeReady(el);
+	
 	});
 
-});
+}
 
 /* Drop nav */
 
@@ -1968,9 +2037,9 @@ function initNav(el) {
 
 }
 	
-function initGridInlinePopups() { // Limitation: each row must have equal width columns.
+function initGridInlinePopups(host) { // Limitation: each row must have equal width columns.
 		
-	forEach(qa('.grid-inline-popup:not([data-ready])'), function (el) {
+	forEach(host.querySelectorAll('.grid-inline-popup:not([data-ready])'), function (el) {
 		
 		var id = 'id' + new Date().getTime(); // Unique id
 		el.id = el.id || id;
@@ -2092,7 +2161,7 @@ function initGridInlinePopups() { // Limitation: each row must have equal width 
 			});
 			
 		});
-		el.setAttribute('data-ready', true);
+		makeReady(el);
 		
 	});
 	
@@ -2117,31 +2186,20 @@ function focusWithin(selector) {
 	
 }
 
-var current_slider = null;
+var current_slider = q('.slider');
 
 /* Initialise JS-powered elements */
 
-function init() {
+function init(host) {
+	// To do: include the parent in addition to its children
+// 	observerOff();
 	
-	// Load extra CSS for JS-generated content
-	
-	var css = q('head [href*="natuive.min.css"]');
-	if (css && !q('head [href*="natuive-extra.min"]')) {
-
-		var extra_css = css.cloneNode();
-		extra_css.href = extra_css.href.replace('natuive.min', 'natuive-extra.min');
-		q('head').insertBefore(extra_css, css.nextSibling); // Insert it after natuive.min.css, not at the end of <head>, to allow subsequent CSS files to overwrite it
-
-	}
-
 	notifyCloseEvent();
 	
 	/* Enhance sliders: create arrows/numbers navigation etc */
     if (typeof makeSlider === 'function') {
 		
-		current_slider = q('.slider');
-		
-		forEach('.slider', function(el) {
+		forEach(host.querySelectorAll('.slider:not([data-ready])'), function(el) {
 		
 		    makeSlider(el);
 		
@@ -2163,7 +2221,7 @@ function init() {
 	
 	if (typeof q('body').dataset !== 'undefined') { // el.dataset.sort not supported by IE10
 	
-		forEach('td[data-sort]', function (el) {
+		forEach(host.querySelectorAll('td[data-sort]'), function (el) { // To do: work only on tables that aren't ready
 			// asc or desc
 			if (el.dataset.sort !== 'asc' && el.dataset.sort !== 'desc') {
 				
@@ -2197,13 +2255,13 @@ function init() {
 	
 	}
 	
-	forEach('form', function(el, i) {
+	forEach(host.querySelectorAll('form'), function(el, i) {
 	
 	    el.onsubmit = el.onsubmit || submitForm;
 	
 	});
 	
-	forEach('input[type=file]', function(el, i) {
+	forEach(host.querySelectorAll('input[type=file]'), function(el, i) {
 	
 	    el.onchange = updateFileInput;
 	
@@ -2211,7 +2269,7 @@ function init() {
 	
 // 	Conditional form fieldsets
 
-	forEach('.checkbox.condition input', function(el, i) {
+	forEach(host.querySelectorAll('.checkbox.condition input'), function(el, i) {
 		
 		el.onchange = toggleConditionalFieldset;
 	
@@ -2219,7 +2277,7 @@ function init() {
 	
 	// Auto textarea height.
 	
-	forEach('textarea[data-auto]', function(el) {
+	forEach(host.querySelectorAll('textarea[data-auto]'), function(el) {
 	
 	    el.onkeyup = function(e) {
 	
@@ -2249,20 +2307,15 @@ function init() {
 	});
 	
 	// Animate anchor link jumps
-	forEach('a[href^="#"]', function(el, i) {
+	forEach(host.querySelectorAll('a[href^="#"]'), function(el) {
 	
-		if (el.onclick) { // Don't add to previous onclick event handler
-			
-			return;
-	
-		}
-	    el.onclick = animateAnchors;
+		el.onclick = el.onclick || animateAnchors; // Don't add to previous onclick event handler
 	
 	});
 	
 	// Modal window: open a link's target inside it
 	
-	forEach('a.modal[href]', function(el) {
+	forEach(host.querySelectorAll('a.modal[href]'), function(el) {
 	
 		if (el.href !== (location.href.split('#')[0] + '#')) { // Is it an empty anchor?
 			
@@ -2280,21 +2333,15 @@ function init() {
 	
 	// Lightbox with images
 	
-	forEach('.lightbox', function(el) {
+	forEach(host.querySelectorAll('.lightbox:not([data-ready])'), function(el) {
 	
 		// Abort on IE, because of IE bug on dynamic img.src change
-		if (navigator.userAgent.indexOf('MSIE') != -1 || navigator.userAgent.indexOf('Trident') != -1) {
+		if (navigator.userAgent.indexOf('MSIE') != -1 || navigator.userAgent.indexOf('Trident') != -1 || hasClass(el.parentNode, 'n-sldr')) {
 			
 			return;
 	
 		}
 
-		if (hasClass(el.parentNode, 'n-sldr')) {
-			
-			return;
-	
-		}
-		
 		if (hasClass(el, 'inline')) {
 			
 			openLightbox(el.querySelector('a'));
@@ -2309,6 +2356,8 @@ function init() {
 			});
 		
 		}
+		
+		makeReady(el);
 	
 	});
 	
@@ -2320,7 +2369,7 @@ function init() {
 	
 	/* Tooltip */
 	
-	forEach('.tool', function(el, i) {
+	forEach(host.querySelectorAll('.tool'), function(el, i) {
 		
 		el.onclick = function (e) {
 
@@ -2362,22 +2411,108 @@ function init() {
 	
 	});
 	
-	wrapTables();
-	
-	forEach('nav > ul:not([role])', function (el) {
+	forEach(host.querySelectorAll('nav:not([data-ready]) > ul:not([role])'), function (el) {
 		
 		initNav(el);
+		makeReady(el);
 		
 	});
 
-	initGridInlinePopups();
+	forEach(host.querySelectorAll('table:not([data-ready])'), function(el) {
+	
+		addClass(wrap(el), 'n-tbl');
+		el.setAttribute('data-ready', true);
+		el.parentNode.setAttribute('tabindex', 0);
+	
+	});
 
+	initFold(host);
+	
+	initGridInlinePopups(host);
+
+	initThreshold(host);
+
+// 	observerOn();
+
+}
+
+// Load extra CSS for JS-generated content
+
+var css = q('head [href*="natuive.min.css"]');
+if (css && !q('head [href*="natuive-extra.min"]')) {
+
+	var extra_css = css.cloneNode();
+	extra_css.href = extra_css.href.replace('natuive.min', 'natuive-extra.min');
+	q('head').insertBefore(extra_css, css.nextSibling); // Insert it after natuive.min.css, not at the end of <head>, to allow subsequent CSS files to overwrite it
+
+}
+
+/*
+var observer = false;
+
+function observerOn() {
+	
+	if (observer) {
+		
+		observer.observe(q('body'), {childList: true, subtree: true});
+
+	}
+	
+}
+
+function observerOff() {
+
+	if (observer) {
+		
+		observer.disconnect();
+		
+	}
+	
+}
+*/
+
+function addComponent(host, el) {
+	
+	host.insertAdjacentHTML('beforeend', el);
+	init(host);
+	
 }
 
 ready( function () {
 
-	init();
+	init(q('body'));
+
+/*
+	if (typeof MutationObserver === 'function') {
 	
+		observer = new MutationObserver(function(mutations, observer) {
+
+            observerOff();
+
+			var mutation = mutations[0];
+	        if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+
+				var i = 0;
+				while (i < mutation.addedNodes.length) {
+					
+					var el = mutation.addedNodes[i++];
+		            if (typeof el === 'object' && el.nodeName !== '#text' && !el.getAttribute('data-ready')) {
+			            
+			            init(el.parentNode);
+			            
+		            }
+					
+				}
+
+	        }
+
+            observerOn();
+		    
+		});
+		
+	}
+*/
+
 	// Automatically open a lightbox specified in the URI
 
 	setTimeout( function () {
@@ -2634,6 +2769,10 @@ function endSlide (slider, index) {
 				focused.focus();
 	
 			});
+			
+		} else { // To do: If previous slide id is in URI, remove URI hash
+			
+			
 			
 		}
 
@@ -2916,27 +3055,30 @@ function makeSlider(el, current_slide) {
 		return;
 		
 	}
+
+// 	observerOff();
 	
     addClass(el, 'slider');
     el.setAttribute('data-ready', true);
 
 	if (hasClass(el, 'full-window')) {
 		
-		openFullWindow(el);
+	    addClass(el, 'overlay');
+		openFullWindow(el.outerHTML);
 		
 	}
 
 	var container = el.parentNode;
 
-	if (!hasClass(container, 'n-sldr')) {
+	if (!container || !hasClass(container, 'n-sldr')) {
 
-	    container = wrap(el).parentNode;
+	    container = wrap(el);
 		addClass(container, 'n-sldr');
 	    el = container.querySelector('.slider');
 		
 		if (hasClass(el, 'pad')) {
 			
-		    container = wrap(el).parentNode;
+		    container = wrap(el);
 			addClass(container, 'pad');
 		    container = container.parentNode;
 		    el = container.querySelector('.slider');
@@ -2947,6 +3089,7 @@ function makeSlider(el, current_slide) {
         transferClass(el, container, 'wrap');
         transferClass(el, container, 'top');
         transferClass(el, container, 'right');
+        transferClass(el, container, 'overlay');
 		var peek = el.getAttribute('data-peek');
 		if (peek) {
 			
@@ -2982,18 +3125,16 @@ function makeSlider(el, current_slide) {
 		
 	    container.insertAdjacentHTML('beforeend', '<a class="slider-arrow left" tabindex=0></a><a class="slider-arrow right" tabindex=0></a>');
 	
-		var slider_wrap = closest(el, '.n-sldr');
-	
 	    // Generate controls
 
 	    for (var i = 0; i < el.children.length; i++) {
 	
 	        if (hasClass(el, 'tabs')) {
 	
-	            addClass(slider_wrap, 'tabs');
+	            addClass(container, 'tabs');
 	            addClass(slider_nav, 'row');
-	            transferClass(slider_wrap, slider_nav, 'wrap');
-	            transferClass(el, slider_wrap, 'vertical');
+	            transferClass(container, slider_nav, 'wrap');
+	            transferClass(el, container, 'vertical');
 	            var tab_title = el.children[i].getAttribute('data-tab_title') || (el.children[i].querySelector('.tab-title') ? el.children[i].querySelector('.tab-title').innerHTML : i+1);
 	            slider_nav.insertAdjacentHTML('beforeend', '<a tabindex="0">' + tab_title + '</a>');
 
@@ -3051,23 +3192,23 @@ function makeSlider(el, current_slide) {
 	
 	    mouseEvents(el);
 	
-	    swipeEvents(slider_wrap);
+	    swipeEvents(container);
 	
-	    slider_wrap.addEventListener('swipeLeft', function(e) {
+	    container.addEventListener('swipeLeft', function(e) {
 	
 	        var el = sliderElement(e);
 	        slide(el, 'right');
 	
 	    });
 	
-	    slider_wrap.addEventListener('swipeRight', function(e) {
+	    container.addEventListener('swipeRight', function(e) {
 	
 	        var el = sliderElement(e);
 	        slide(el, 'left');
 	
 	    });
 	    
-	    slider_wrap.addEventListener('mouseover', function(e) {
+	    container.addEventListener('mouseover', function(e) {
 
 		    clearTimeout(el.getAttribute('data-timeout'));
 		   
@@ -3108,8 +3249,7 @@ function makeSlider(el, current_slide) {
 		if (!current_slide && window.location.hash && el.querySelector(window.location.hash)) {
 			
 			var current_slide = thisIndex(el.querySelector(window.location.hash));
-// 			addClass(slider_wrap, 'active');
-			current_slider = slider_wrap;
+			current_slider = container;
 			
 		} 
 		endSlide(el, current_slide || 0); // Start from (other than) the first slide
@@ -3125,7 +3265,9 @@ function makeSlider(el, current_slide) {
 	    
     window.addEventListener('keyup', sliderKeyboard);
 	
-    return el;
+// 	observerOn();
+
+    return container;
 
 }
 }());

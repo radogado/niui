@@ -31,22 +31,22 @@ _:-ms-lang(x), .slider.lightbox.inline > * {
 	
 }
 
-.n-ovrl .slider.lightbox > * {
+.overlay.slider.lightbox > * {
 
 	height: 100%;
 	overflow: hidden;
 	
 }
 
-.n-ovrl .slider.lightbox.vertical > * { // Firefox fix
+.overlay.slider.lightbox.vertical > * { // Firefox fix
 
 	display: none;
 
 }
 
-.n-ovrl .slider.lightbox.vertical > .active { // Firefox fix
+.overlay.slider.lightbox.vertical > .active { // Firefox fix
 
-	display: block;
+	display: flex;
 
 }
 
@@ -65,7 +65,8 @@ _:-ms-lang(x), .slider.lightbox.inline > * {
 
 }
 
-.n-ovrl .slider.lightbox > *:before {
+/*
+.overlay.slider.lightbox > *:before {
 
 	content: ' ';
     display: inline-block;
@@ -75,6 +76,7 @@ _:-ms-lang(x), .slider.lightbox.inline > * {
 	width: 0;
 
 }
+*/
 
 .slider.lightbox > * p { /* Image captions */
 
@@ -96,13 +98,13 @@ _:-ms-lang(x), .slider.lightbox.inline > * {
 
 }
 
-.n-ovrl .lightbox.slider img, .lightbox.inline img {
+.overlay.lightbox.slider img, .lightbox.inline img {
 
 	cursor: zoom-in;
 
 }
 
-.n-ovrl .lightbox.slider > * > img {
+.overlay.lightbox.slider > * > img {
 	
 // 	display: none;
 
@@ -122,7 +124,7 @@ _:-ms-lang(x), .slider.lightbox.inline > * {
 
 }
 
-.n-ovrl .lightbox.slider > .active > img.zoom {
+.overlay.lightbox.slider > .active > img.zoom {
 
 	width: auto;
 	height: auto;
@@ -140,7 +142,7 @@ _:-ms-lang(x), .slider.lightbox.inline > * {
 
 }
 
-.n-ovrl .lightbox.slider > .active > img.zoom {
+.overlay.lightbox.slider > .active > img.zoom {
 
 /*
 	top: 0;

@@ -1774,7 +1774,7 @@ $bg: #1E8DaC;
   min-height: 1.5em;
   height: 3em; }
 
-.fold:not(.init) .content {
+.fold:not([data-init]) .content {
   /* hidden fold item */
   overflow: hidden;
   cursor: auto;
@@ -1803,10 +1803,10 @@ $bg: #1E8DaC;
 .fold.horizontal[aria-expanded] > .label:after {
   content: '◀'; }
 
-.fold.horizontal:not(.init) > .content {
+.fold.horizontal:not([data-init]) > .content {
   width: 0; }
 
-.fold.horizontal.init > .content, .fold[aria-expanded].horizontal > .content, .fold.horizontal > input.trigger:checked ~ .content {
+.fold.horizontal[data-init] > .content, .fold[aria-expanded].horizontal > .content, .fold.horizontal > input.trigger:checked ~ .content {
   width: 100%; }
 
 .fold.horizontal > .content {
@@ -2029,7 +2029,7 @@ $bg: #1E8DaC;
   --bg: #fff; }
 
 .slider {
-  overflow: visible;
+  overflow: auto;
   overflow-y: hidden;
   white-space: nowrap;
   /* keep inline-block elements together */

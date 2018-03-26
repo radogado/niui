@@ -3703,6 +3703,37 @@ animate(document.querySelector('body'),
 					</div>
 
 				</div>
+				
+				<div data-tab_title='Dynamic components' id=dynamic-components>
+					
+					<div class="row">
+						
+						<div>
+							
+							<div>
+								
+								<h2>Dynamically add a natUIve component</h2>
+								
+								<button onclick="addComponent(this.parentNode, '<div class=slider><div>New</div><div>Slider</div>');">Add a slider</button>
+								
+								<button onclick="addComponent(this.parentNode, '<div class=fold><h3 class=label> Label </h3><input type=checkbox class=trigger><div class=content><p> Content. </p><p> Content. </p><p> Content. </p></div></div>');">Add an accordion</button>
+								
+							
+<div class="code">							
+
+<pre>
+addComponent(this.parentNode, '&lt;div class=slider&gt;&lt;div&gt;New&lt;/div&gt;&lt;div&gt;Slider&lt;/div&gt;');
+</pre>
+
+</div>
+							</div>
+							
+						</div>
+					
+					</div>
+				
+				
+				</div>
 
 			</div>
 		

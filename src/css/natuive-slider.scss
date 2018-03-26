@@ -4,7 +4,7 @@
 
 .slider {
 
-	overflow: visible;
+	overflow: auto;
 	overflow-y: hidden;
 	white-space: nowrap; /* keep inline-block elements together */
 	word-wrap: normal; /* IE8 fix */

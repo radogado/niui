@@ -235,6 +235,10 @@ function endSlide (slider, index) {
 	
 			});
 			
+		} else { // To do: If previous slide id is in URI, remove URI hash
+			
+			
+			
 		}
 
 	}, slide_duration/2);
@@ -516,27 +520,30 @@ function makeSlider(el, current_slide) {
 		return;
 		
 	}
+
+// 	observerOff();
 	
     addClass(el, 'slider');
     el.setAttribute('data-ready', true);
 
 	if (hasClass(el, 'full-window')) {
 		
-		openFullWindow(el);
+	    addClass(el, 'overlay');
+		openFullWindow(el.outerHTML);
 		
 	}
 
 	var container = el.parentNode;
 
-	if (!hasClass(container, 'n-sldr')) {
+	if (!container || !hasClass(container, 'n-sldr')) {
 
-	    container = wrap(el).parentNode;
+	    container = wrap(el);
 		addClass(container, 'n-sldr');
 	    el = container.querySelector('.slider');
 		
 		if (hasClass(el, 'pad')) {
 			
-		    container = wrap(el).parentNode;
+		    container = wrap(el);
 			addClass(container, 'pad');
 		    container = container.parentNode;
 		    el = container.querySelector('.slider');
@@ -547,6 +554,7 @@ function makeSlider(el, current_slide) {
         transferClass(el, container, 'wrap');
         transferClass(el, container, 'top');
         transferClass(el, container, 'right');
+        transferClass(el, container, 'overlay');
 		var peek = el.getAttribute('data-peek');
 		if (peek) {
 			
@@ -582,18 +590,16 @@ function makeSlider(el, current_slide) {
 		
 	    container.insertAdjacentHTML('beforeend', '<a class="slider-arrow left" tabindex=0></a><a class="slider-arrow right" tabindex=0></a>');
 	
-		var slider_wrap = closest(el, '.n-sldr');
-	
 	    // Generate controls
 
 	    for (var i = 0; i < el.children.length; i++) {
 	
 	        if (hasClass(el, 'tabs')) {
 	
-	            addClass(slider_wrap, 'tabs');
+	            addClass(container, 'tabs');
 	            addClass(slider_nav, 'row');
-	            transferClass(slider_wrap, slider_nav, 'wrap');
-	            transferClass(el, slider_wrap, 'vertical');
+	            transferClass(container, slider_nav, 'wrap');
+	            transferClass(el, container, 'vertical');
 	            var tab_title = el.children[i].getAttribute('data-tab_title') || (el.children[i].querySelector('.tab-title') ? el.children[i].querySelector('.tab-title').innerHTML : i+1);
 	            slider_nav.insertAdjacentHTML('beforeend', '<a tabindex="0">' + tab_title + '</a>');
 
@@ -651,23 +657,23 @@ function makeSlider(el, current_slide) {
 	
 	    mouseEvents(el);
 	
-	    swipeEvents(slider_wrap);
+	    swipeEvents(container);
 	
-	    slider_wrap.addEventListener('swipeLeft', function(e) {
+	    container.addEventListener('swipeLeft', function(e) {
 	
 	        var el = sliderElement(e);
 	        slide(el, 'right');
 	
 	    });
 	
-	    slider_wrap.addEventListener('swipeRight', function(e) {
+	    container.addEventListener('swipeRight', function(e) {
 	
 	        var el = sliderElement(e);
 	        slide(el, 'left');
 	
 	    });
 	    
-	    slider_wrap.addEventListener('mouseover', function(e) {
+	    container.addEventListener('mouseover', function(e) {
 
 		    clearTimeout(el.getAttribute('data-timeout'));
 		   
@@ -708,8 +714,7 @@ function makeSlider(el, current_slide) {
 		if (!current_slide && window.location.hash && el.querySelector(window.location.hash)) {
 			
 			var current_slide = thisIndex(el.querySelector(window.location.hash));
-// 			addClass(slider_wrap, 'active');
-			current_slider = slider_wrap;
+			current_slider = container;
 			
 		} 
 		endSlide(el, current_slide || 0); // Start from (other than) the first slide
@@ -725,6 +730,8 @@ function makeSlider(el, current_slide) {
 	    
     window.addEventListener('keyup', sliderKeyboard);
 	
-    return el;
+// 	observerOn();
+
+    return container;
 
 }
