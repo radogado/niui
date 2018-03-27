@@ -1285,7 +1285,7 @@ request.onload = function () {
 request.send(null);
 
 /* Sort parent table's rows by matching column number alternatively desc/asc on click */
-function sortTable (table, column, f) {
+function sortTable(table, column, f) {
 
 	var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'), 0);;
 	
@@ -2229,7 +2229,7 @@ function init(host) {
 				
 			}
 			
-			el.onclick = function (e) {
+			function sortTableEvent (e) {
 				
 				stopEvent(e);
 				var el = e.target;
@@ -2249,7 +2249,9 @@ function init(host) {
 		
 				sortTable(closest(el, 'table'), thisIndex(cell), f);
 				
-			};
+			}
+			
+			el.onclick = el.ontouchend = sortTableEvent;
 		
 		});
 	

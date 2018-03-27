@@ -93,22 +93,26 @@
 
 }
 
-.aspect > .n-sldr {
+@supports (--a: 1) {
 	
-	height: 100%;
-	position: absolute;
-
-}
-
-.aspect > .n-sldr.outside {
+	.aspect > .n-sldr {
+		
+		height: 100%;
+		position: absolute;
 	
-	padding-bottom: 4em;	
-
-}
-
-.aspect > .n-sldr .slider {
+	}
 	
-	height: 100%;
+	.aspect > .n-sldr.outside {
+		
+		padding-bottom: 4em;	
+	
+	}
+	
+	.aspect > .n-sldr .slider {
+		
+		height: 100%;
+	
+	}
 
 }
 

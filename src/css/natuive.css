@@ -2310,7 +2310,8 @@ video {
   text-align: center;
   padding: 1em;
   color: #fff;
-  cursor: pointer; }
+  cursor: pointer;
+  z-index: 1; }
 
 .notify:after {
   content: ' ✕'; }

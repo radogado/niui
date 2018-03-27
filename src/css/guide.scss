@@ -48,6 +48,7 @@ main > 	.col34 > .n-sldr > .slider.vertical > * {
     border-radius: 0;	
 	background: none;
     color: initial;
+	text-align: left;
 	text-align: start;
     padding: .25em .5em;
     line-height: 1.25;
@@ -208,14 +209,23 @@ li pre {
 	
 	position: relative;
 	margin-bottom: 1.5em;
+	padding: 0 1em;
+	display: inline-block;
+	max-width: 100%;
 	
+}
+
+.code pre {
+	
+	padding: 0;
+
 }
 
 .code button {
 	
 	position: absolute;
-	bottom: -1.5em;
-    right: 0;
+	bottom: -.5em;
+    right: 1.25em;
 	font-size: .75em;
 
 }

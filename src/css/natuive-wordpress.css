@@ -2328,7 +2328,8 @@ video {
   text-align: center;
   padding: 1em;
   color: #fff;
-  cursor: pointer; }
+  cursor: pointer;
+  z-index: 1; }
 
 .notify:after {
   content: ' ✕'; }
@@ -2503,16 +2504,16 @@ $bg: #1E8DaC;
   z-index: 1;
   position: absolute; }
 
-.aspect > .n-sldr {
-  height: 100%;
-  position: absolute; }
+@supports (--a: 1) {
+  .aspect > .n-sldr {
+    height: 100%;
+    position: absolute; }
 
-.aspect > .n-sldr.outside {
-  padding-bottom: 4em; }
+  .aspect > .n-sldr.outside {
+    padding-bottom: 4em; }
 
-.aspect > .n-sldr .slider {
-  height: 100%; }
-
+  .aspect > .n-sldr .slider {
+    height: 100%; } }
 *:-webkit-full-screen .n-sldr {
   background: #000; }
 
