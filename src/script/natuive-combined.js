@@ -554,7 +554,7 @@ function openFullWindow(el, animation) { // el is an HTML string
 	var wrapper = document.createElement('div');
 	addClass(wrapper, 'n-ovrl');
 	wrapper.insertAdjacentHTML('beforeend', '<div class=content tabindex=0></div><div class=overlay-bg></div>');
-	wrapper.firstChild.prepend(full_window_content);
+	wrapper.firstChild.appendChild(full_window_content);
 	full_window_content = wrapper;
 
 /*     if (!hasClass(el, 'headless')) { */
