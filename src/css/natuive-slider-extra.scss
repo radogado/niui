@@ -116,6 +116,12 @@
 
 }
 
+_:-ms-lang(x), .aspect > .n-sldr { // Aspect ratio not working in IE/Edge
+		
+	position: static;
+
+}
+
 *:-webkit-full-screen .n-sldr {
 
 	background: #000;

@@ -703,9 +703,13 @@ function openLightbox(e) { // To do: create all content in an unattached element
 	var inline_static = lightbox.matches('.inline:not(.slider)');
 
 
+	addClass(lightbox_target, 'slider');
+	addClass(lightbox_target, 'lightbox');
+	addClass(lightbox_target, 'inline');
+
 	if (inline_static) { // If it's inline, it must become a slider/lightbox to replace the original lightbox element
 		// Replace the lightbox by a slider lightbox. Generate the new slider/lightbox in place of the original one
-		lightbox_target.classList = 'slider lightbox inline';
+// 		lightbox_target.classList = 'slider lightbox inline'; // Not working in Edge
 		lightbox_target.id = lightbox.id ? lightbox.id : '';
 		var parent = lightbox.parentNode;
 		var next_sibling = lightbox.nextElementSibling;
@@ -714,7 +718,13 @@ function openLightbox(e) { // To do: create all content in an unattached element
 	} else { // else it's an existing lightbox and the new one should be separate and full screen
 		
 //		openFullWindow('<div class="slider lightbox full-window' + (hasClass(lightbox, 'full-screen') ? ' full-screen' : '') + '"></div>', animation); // openFullWindow to be moved at the end
-		lightbox_target.classList = 'slider lightbox inline' + (hasClass(lightbox, 'full-screen') ? ' full-screen' : '');
+// 		lightbox_target.classList = 'slider lightbox inline' + (hasClass(lightbox, 'full-screen') ? ' full-screen' : ''); // Not working in Edge
+		if (hasClass(lightbox, 'full-screen')) {
+	
+			addClass(lightbox_target, 'full-screen');
+			
+			
+		}
 
 	}
 
@@ -1494,9 +1504,10 @@ function animate(el, animation_code, duration, callback) { // Default duration =
 
 function scrollToAnimated(to, duration, callback) {
 	
-	if (to > (document.body.clientHeight - window.innerHeight) ) {
+	var difference = document.body.clientHeight - window.innerHeight;
+	if (to > difference) {
 
-		to = document.body.clientHeight - window.innerHeight;
+		to = difference;
 
 	}
 	
@@ -1511,7 +1522,7 @@ function scrollToAnimated(to, duration, callback) {
 		
 	}
 	
-	animate(q('html'), '100% { transform: translate3d(0, ' + -1*(to - (document.documentElement.scrollTop || document.body.scrollTop)) + 'px, 0); }', duration, scrollToCallback.bind(null, callback)); // To do: IE8 error fix
+	animate(q('html'), '100% { transform: translate3d(0, ' + -1*(to - (document.documentElement.scrollTop || document.body.scrollTop)) + 'px, 0); }', duration, scrollToCallback.bind(null, callback));
 
 }
 
@@ -2423,7 +2434,7 @@ function init(host) {
 	forEach(host.querySelectorAll('table:not([data-ready])'), function(el) {
 	
 		addClass(wrap(el), 'n-tbl');
-		el.setAttribute('data-ready', true);
+		makeReady(el);
 		el.parentNode.setAttribute('tabindex', 0);
 	
 	});
@@ -3061,7 +3072,7 @@ function makeSlider(el, current_slide) {
 // 	observerOff();
 	
     addClass(el, 'slider');
-    el.setAttribute('data-ready', true);
+    makeReady(el);
 
 	if (hasClass(el, 'full-window')) {
 		

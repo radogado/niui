@@ -524,7 +524,7 @@ function makeSlider(el, current_slide) {
 // 	observerOff();
 	
     addClass(el, 'slider');
-    el.setAttribute('data-ready', true);
+    makeReady(el);
 
 	if (hasClass(el, 'full-window')) {
 		

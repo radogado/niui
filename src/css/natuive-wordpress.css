@@ -2514,6 +2514,9 @@ $bg: #1E8DaC;
 
   .aspect > .n-sldr .slider {
     height: 100%; } }
+_:-ms-lang(x), .aspect > .n-sldr {
+  position: static; }
+
 *:-webkit-full-screen .n-sldr {
   background: #000; }
 
@@ -2832,10 +2835,8 @@ $bg: #1E8DaC;
 .slider.lightbox.inline > * {
   display: flex;
   flex-direction: column;
-  justify-content: center; }
-
-_:-ms-lang(x), .slider.lightbox.inline > * {
-  display: block; }
+  justify-content: center;
+  align-items: center; }
 
 .overlay.slider.lightbox > * {
   height: 100%;
