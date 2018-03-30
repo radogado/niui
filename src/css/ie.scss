@@ -193,9 +193,11 @@ $line-height: 22px;
 
 }
 
-input {
+input, textarea {
 	
 	line-height: $line-height*2;
+	width: 100%;
+	display: block;
 
 }
 
@@ -210,13 +212,19 @@ form {
 	
 	}
 	
-	select, .file-input {
+	.checkbox {
+		
+		clear: both;
+
+	}
+	
+	select, .file {
 		
 		background-image: none;
 	
 	}
 	
-	.file-input span {
+	.file span {
 		
 		min-height: $line-height-em;
 	
@@ -235,6 +243,24 @@ form {
 		float: left;
 		width: auto;
 	
+	}
+	
+	&.mast textarea, &.mast label > input, &.mast label > .file, &.mast label > select {
+		
+		clear: right;
+
+	}
+	
+	&.wide textarea, &.wide select, &.mast > label > * {
+		
+		margin-top: 0;
+
+	}
+	
+	&.mast label > input {
+		
+		margin-top: .25em;
+		
 	}
 
 }

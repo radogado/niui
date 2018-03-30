@@ -687,7 +687,7 @@ $bg: #1E8DaC;
 @media (max-width: 599.9px) {
   .n-ovrl.limited > .content {
     height: 69vh;
-    margin-top: 1vh;
+    margin-top: 15vh;
     width: 80vw;
     margin-left: 10vw; }
   .n-ovrl > .content {
