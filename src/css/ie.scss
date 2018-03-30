@@ -335,6 +335,12 @@ nav.drop {
 		z-index: 2 !important;
 	
 	}
+
+	ul ul {
+	
+		overflow: visible !important;
+	
+	}
 	
 }
 
@@ -356,7 +362,7 @@ nav.drop {
 
 	> .content {
 	
-	    max-height: none;
+	    max-height: none !important;
 	
 	}
 	
