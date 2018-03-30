@@ -253,7 +253,6 @@ input[type=checkbox], input[type=radio], form.wide input[type=checkbox], form.wi
 	position: static;
 	display: inline-block;
 	clear: left;
-	margin-top: 1em;
 
 }
 
@@ -278,9 +277,10 @@ input[type=submit] {
 
 .checkbox-icon {
 	
-	margin-right: 1em;
+// 	margin-right: 1em;
 // 	display: inline-block;
 	opacity: 0;
+	position: static;
 
 }
 
@@ -328,9 +328,11 @@ nav.drop {
 	
 	}
 	
-	li:hover > ul {
+	ul li:hover > ul, ul ul li:hover > ul {
 	
 		display: block !important;
+		max-height: none !important;
+		z-index: 2 !important;
 	
 	}
 	
@@ -370,4 +372,16 @@ nav.drop {
 		
 	}	
 
+}
+
+table {
+	
+	table-layout: fixed; // Overflow fix
+
+}
+
+.row.grid-inline-popup > .table-row > * {
+	
+	display: block;
+	
 }

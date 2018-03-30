@@ -10,17 +10,30 @@ main .nav-column .slider-nav.row {
 	max-height: 100vh;
 	padding: 1em;
 	box-sizing: border-box;
-
     position: fixed;
     bottom: auto;
-    padding-bottom: 2em;
-    
-
 	height: 100%;
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
+    
+}
+
+@-moz-document url-prefix() {
+
+	main .nav-column .slider-nav.row:after { // FF & Edge fix
+		    
+	    padding-top: 1em;
+	
+	}
 
 }
+
+_:-ms-lang(x), main .nav-column .slider-nav.row:after { // FF & Edge fix
+	    
+    padding-top: 1em;
+
+}
+
 
 main, main .nav-column .slider-nav.row, main.row > *, main > .n-sldr {
 	
@@ -47,7 +60,7 @@ main > 	.col34 > .n-sldr > .slider.vertical > * {
     width: auto;
     border-radius: 0;	
 	background: none;
-    color: initial;
+    color: #333;
 	text-align: left;
 	text-align: start;
     padding: .25em .5em;

@@ -19,6 +19,20 @@ nav {
 	
 	}
 	
+	nav.scroll {
+		
+		overflow: auto;
+			max-width: 100%;
+		
+	}
+	
+	nav.scroll > ul {
+		
+		white-space: nowrap;
+	    padding: .25em 0;
+		
+	}
+	
 	@supports (--a: 1) {
 		
 		nav.scroll a {
@@ -27,20 +41,12 @@ nav {
 
 		}
 		
-		nav.scroll {
-		
-			max-width: 100%;
-	
-		}
-			
 		nav.scroll > ul {
 	
-			white-space: nowrap;
 		    overflow: auto;
 		    max-width: 100%;
 		    transform: translate3d(0, 0, 0); // Safari macOS bug fix when using scrollbars: Not working initially.
 		    -webkit-overflow-scrolling: touch;
-		    padding: .25em 0;
 	
 		}
 	

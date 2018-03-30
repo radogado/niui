@@ -67,6 +67,9 @@ $bg: #1E8DaC;
   display: flex;
   flex-direction: column; }
 
+.n-sldr.tabs.vertical > .slider-nav.row a {
+  flex: 0 1 auto; }
+
 .vertical.tabs.right > .slider {
   float: left; }
 
@@ -113,7 +116,9 @@ _:-ms-lang(x), .aspect > .n-sldr {
 .slider[data-ready] {
   overflow: visible;
   width: 100%;
-  padding: 0; }
+  padding: 0;
+  -ms-overflow-style: none;
+  /* No scrollbars on IE10+ */ }
 
 /*
 .n-sldr .slider > * {
@@ -333,7 +338,6 @@ _:-ms-lang(x), .aspect > .n-sldr {
   padding: 0; }
 
 .n-sldr.tabs > .slider-nav a {
-  flex: 0 1 auto;
   text-indent: 0;
   width: auto;
   height: auto;
@@ -342,7 +346,6 @@ _:-ms-lang(x), .aspect > .n-sldr {
   border-radius: 0;
   line-height: 1.5;
   padding: .5em;
-  -webkit-flex: 1;
   flex: 1;
   margin: 0;
   white-space: normal; }

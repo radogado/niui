@@ -59,6 +59,12 @@
 
 }
 
+.n-sldr.tabs.vertical > .slider-nav.row a {
+	
+	flex: 0 1 auto;
+
+}
+
 .vertical.tabs.right > .slider {
 
     float: left;
@@ -148,6 +154,7 @@ _:-ms-lang(x), .aspect > .n-sldr { // Aspect ratio not working in IE/Edge
 //     width: calc(100% + 1px); // Eliminate unwanted pixels on the sides
     width: 100%;
     padding: 0; // Because .slider.pad breaks the slider layout
+	-ms-overflow-style: none; /* No scrollbars on IE10+ */
 
 }
 
@@ -480,7 +487,6 @@ _:-ms-lang(x), .aspect > .n-sldr { // Aspect ratio not working in IE/Edge
 	
 	.n-sldr.tabs > .slider-nav a {
 		
-		flex: 0 1 auto;
 		text-indent: 0;
 		width: auto;
 		height: auto;
@@ -491,7 +497,6 @@ _:-ms-lang(x), .aspect > .n-sldr { // Aspect ratio not working in IE/Edge
 		line-height: $line-height;
 // 		line-height: var(--line-height);
 		padding: .5em;
-		-webkit-flex: 1;
 		flex: 1;
 		margin: 0;
 		white-space: normal;
