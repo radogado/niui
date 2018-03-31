@@ -293,13 +293,13 @@ _:-ms-lang(x), .aspect > .n-sldr { // Aspect ratio not working in IE/Edge
 
 	.slider-arrow:before {
 	
-		content: '←';
+		content: "←";
 	
 	}
 
 	.vertical > .slider-arrow:before {
 	
-		content: '↑';
+		content: "↑";
 	
 	}
 
@@ -322,13 +322,13 @@ _:-ms-lang(x), .aspect > .n-sldr { // Aspect ratio not working in IE/Edge
 
 	.slider-arrow.right:before {
 	
-		content: '→';
+		content: "→";
 	
 	}
 
 	.vertical > .slider-arrow.right:before {
 	
-		content: '↓';
+		content: "↓";
 	
 	}
 

@@ -164,7 +164,7 @@
 
 .lightbox.slider > .active:not(.loaded):after { // Loading spinner
 
-	content: '';
+	content: "";
 	position: absolute;
 	display: block;
 	top: calc(50% - 20px);
@@ -216,7 +216,7 @@
 	
 		.lightbox a.video:before {
 			
-			content: '▸';
+			content: "▸";
 			border: 1px solid #999;
 			position: absolute;
 		    min-width: 1.5em;
@@ -243,7 +243,7 @@
 
 	.lightbox.slider a.button.copy:before {
 		
-		content: 'Link';
+		content: "🔗";
 	
 	}
 

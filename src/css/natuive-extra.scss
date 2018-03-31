@@ -1,7 +1,5 @@
 /* natUIve – CSS for JS-enhanced content – rado.bg */
 
-@charset 'utf-8';
-
 @import 'natuive-setup';
 @import 'theme-variables'; /* Rewrite base variables here; add theme CSS below this one in <head> */
 
@@ -9,3 +7,4 @@
 @import 'natuive-parallax';
 @import 'natuive-lightbox';
 @import 'natuive-modal';
+@import 'natuive-fold';

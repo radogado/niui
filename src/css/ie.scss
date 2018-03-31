@@ -203,18 +203,32 @@ input, textarea {
 
 form {
 	
+	padding-top: 1em;
+	
 	select {
 		
 		padding-right: 0;
-		height: $line-height;
 		margin-top: $line-height/2;
-		
+		height: auto;
+		padding: .75em;
 	
 	}
 	
 	.checkbox {
 		
 		clear: both;
+		
+		span {
+			
+			padding-bottom: 1em;
+
+		}
+		
+	}
+	
+	label textarea, label .file, label select {
+		
+		margin-top: 1em !important;
 
 	}
 	
@@ -256,19 +270,34 @@ form {
 		margin-top: 0;
 
 	}
-	
+
+	&.mast label {
+		
+		display: block;
+		clear: both;
+
+	}
+		
 	&.mast label > input {
 		
 		margin-top: .25em;
 		
 	}
+	
+	&.wide select {
+		
+		height: auto;
+		padding: .75em;
+		
+	}
 
 }
 
-:root select { /* IE9 not IE8 */
+:root form select, :root form.wide select { /* IE9 not IE8 */
 	
 	height: $line-height*2;
 	margin-top: 0;
+	height: $line-height;
 
 }
 

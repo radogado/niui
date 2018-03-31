@@ -39,7 +39,7 @@
 	
 	.fold > .label:after {
 		
-		content: '▼';
+		content: "▼";
 		position: absolute;
 		right: 1em;
 		font-size: .5em;
@@ -50,7 +50,7 @@
 	
 	.fold[aria-expanded] > .label:after {
 		
-		content: '▲';
+		content: "▲";
 		
 	}
 
@@ -123,13 +123,13 @@
 
 	.fold.horizontal > .label:after {
 		
-		content: '▶';
+		content: "▶";
 
 	}
 		
 	.fold.horizontal[aria-expanded] > .label:after {
 		
-		content: '◀';
+		content: "◀";
 
 	}
 		
@@ -203,7 +203,7 @@
 	
 	span.burger:after {
 		
-		content: '=';
+		content: "=";
 
 	}
 	
@@ -211,7 +211,7 @@
 
 		span.burger:before {
 			
-			content: '';
+			content: "";
 			position: absolute;
 			left: $line-height-em/6;
 			width: $line-height-em/1.5;

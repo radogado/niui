@@ -2449,8 +2449,9 @@ function init(host) {
 
 }
 
-// Load extra CSS for JS-generated content
+// Load extra CSS for JS-generated content – replaced by inserting the extra CSS into the JS
 
+/*
 var css = q('head [href*="natuive.min.css"]');
 if (css && !q('head [href*="natuive-extra.min"]')) {
 
@@ -2459,6 +2460,7 @@ if (css && !q('head [href*="natuive-extra.min"]')) {
 	q('head').insertBefore(extra_css, css.nextSibling); // Insert it after natuive.min.css, not at the end of <head>, to allow subsequent CSS files to overwrite it
 
 }
+*/
 
 /*
 var observer = false;
