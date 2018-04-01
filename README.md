@@ -56,7 +56,7 @@ natUIve demo pages: [Features demo](http://radogado.github.io/natuive/kitchen.ht
 - Notificaton bar
 - Click to copy to clipboard
 - Functional without JS and accessible without CSS*
-- 7 KB First View CSS + optional 8 KB JS (combined, minified, macOS gzip)
+- 9 KB First View CSS + optional 8 KB JS (combined, minified, macOS gzip)
 - ~~No IE conditional operators~~ HTML5 elements also for IE8 with html5shiv
 - No jQuery or other dependencies*
 - Supporting IE8+, Safari, Chrome, Firefox, Opera, Android 2.3+, iOS, Windows Phone
@@ -68,6 +68,19 @@ natUIve demo pages: [Features demo](http://radogado.github.io/natuive/kitchen.ht
 \* exclusive features, missing in popular frameworks
 
 © 2014-2018 [rado.bg](http://rado.bg)
+
+–––
+
+natUIve 1.12
+
+- Dynamically add components
+- Switch inline lightbox to full screen
+- Grid with inline popups
+- Multiple auto-sliding sliders
+- Slider peeking at neighboring slides
+- Guide: button to copy HTML snippets to clipboard
+- NPM install
+- JS encapsulation
 
 –––
 

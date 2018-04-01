@@ -1,6 +1,6 @@
 {
   "name": "natuive",
-  "version": "0.1.11.8",
+  "version": "0.1.12",
   "description": "natUIve: mostly native front-end framework",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

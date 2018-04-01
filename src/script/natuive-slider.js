@@ -190,12 +190,12 @@ function endSlide (slider, index) {
 
 	if (getSliderNav(slider_wrap)) { // Multiple slides? // To do: get the proper slider nav, if it's detached
 
-		addClass(getSliderNav(slider_wrap).children[index], 'active');
+		getSliderNav(slider_wrap).children[index].setAttribute('data-active', true);
 	
 	}
     //slider.style.cssText = '';
 
-	addClass(slider.children[index], 'active');
+	slider.children[index].setAttribute('data-active', true);
 
     if (!hasClass(slider, 'vertical')) {
 	    
@@ -276,7 +276,7 @@ function slide(el, method, index_number) {
 	var index;
 	var old_index;
 	var slider_nav = getSliderNav(slider_wrap);
-	var active_nav_item = slider_nav.querySelector('a.active');
+	var active_nav_item = slider_nav.querySelector('a[data-active]');
 	if (!active_nav_item) {
 
 		return;
@@ -286,7 +286,7 @@ function slide(el, method, index_number) {
 
     if (method === 'index') {
 
-		if (typeof index_number === 'undefined' || index_number === index || !slider.querySelector('.active')) { /* Don't slide to current slide */
+		if (typeof index_number === 'undefined' || index_number === index || !slider.querySelector('[data-active]')) { /* Don't slide to current slide */
 			
 			endSlide(slider, index_number);
 			return;
@@ -324,7 +324,7 @@ function slide(el, method, index_number) {
 
     }
 
-    var offset_sign = -1; // Slider offset depending on direction. '-' for LTR or '' (plus) for RTL. Vertical is always '-'
+    var offset_sign = -1; // Slider offset depending on direction. -1 for LTR or 1 for RTL. Vertical is always '-'
 
 	// To do: auto-height slider to take the height of the taller element
 	var computed_height;
@@ -351,15 +351,15 @@ function slide(el, method, index_number) {
 
 	slider.style.height = computed_height;
 
-	if (slider_nav.querySelector('.active')) {
+	if (slider_nav.querySelector('[data-active]')) {
 
-	    removeClass(slider_nav.querySelector('.active'), 'active');
+	    slider_nav.querySelector('[data-active]').removeAttribute('data-active');
 
     }
 
 	var duration = slider.getAttribute('data-duration') || slide_duration;
 
-	addClass(target_slide, 'active');
+	target_slide.setAttribute('data-active', true);
 
 	var translate_from, translate_to;
 	
@@ -385,8 +385,22 @@ function slide(el, method, index_number) {
 	
 	} else {
 		
-	    translate_from = 'translate3d(0,0,0)';
-	    translate_to = 'translate3d(' + (offset_sign * (index - old_index)) + '00%,0,0)';
+		if (slider.getAttribute('data-peek')) {
+		
+		    translate_from = 'translate3d(0,0,0)';
+		    translate_to = 'translate3d(' + (offset_sign * (index - old_index)) + '00%,0,0)';
+	    
+	    } else {
+
+
+/*
+		    translate_from = 'translate3d(0,0,0)';
+		    translate_to = 'translate3d(' + (offset_sign * (index - old_index)) + '00%,0,0)';
+*/
+		    translate_from = 'translate3d(' + offset_sign * ((index<old_index) ? 1 : 0) + '00%,0,0)';
+		    translate_to = 'translate3d(' + offset_sign * ((index<old_index) ? 0 : 1) + '00%,0,0)';
+		    
+	    }
 		
 	}
 
@@ -404,12 +418,16 @@ function slide(el, method, index_number) {
 
 	slider.setAttribute('data-sliding', true);
 
-	//slider.style.margin = 0;
+	if (!slider.getAttribute('data-peek')) {
+		
+		slider.style.margin = 0;
+		
+	}
 
 	animate(slider, animation_code, duration, function slideEndHandler(e) { // On slide end
 
 		slider.removeAttribute('data-sliding');
-		removeClass(slider.children[old_index], 'active');
+		slider.children[old_index].removeAttribute('data-active');
 	    slider.children[old_index].style.transition = '';
 	    slider.children[old_index].style.opacity = '';
 
@@ -509,7 +527,11 @@ function sliderKeyboard(e) {
 
 function cancelTouchEvent(el) {
 	
-	el.addEventListener('touchstart', function (e) { e.stopPropagation(); return false; });
+	el.addEventListener('touchstart', function (e) {
+		
+		e.stopPropagation(); return false; 
+	
+	});
 	
 }
 
@@ -721,7 +743,7 @@ function makeSlider(el, current_slide) {
 	    
 	} else {
 		
-		addClass(el.children[0], 'active');
+		el.children[0].setAttribute('data-active', true);
 
 	}
 

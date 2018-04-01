@@ -1952,7 +1952,7 @@ $bg: #1E8DaC;
   justify-content: center;
   text-align: center; }
 
-.slider.auto-height > *:not(.active) {
+.slider.auto-height > *:not([data-active]) {
   height: 0; }
 
 .n-sldr .slider.align-middle > *, .slider.align-middle > * {
@@ -1985,24 +1985,6 @@ $bg: #1E8DaC;
   @supports (--a: 1) {
     .slider > * {
       display: inline-block; } } }
-/* natUIve – Slider – JS-enhanced */
-/*
-$color: #fff;
-$bg: #1E8DaC;
-*/
-:root {
-  /*
-  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-  	--line-height: 2;
-  	--line-height-em: calc(var(--line-height)*1em);
-  */
-  /*
-  	--color: #fff;
-  	--bg: #1E8DaC;
-  */
-  --color: #333;
-  --bg: #fff; }
-
 .slider.overlay, .n-sldr.overlay {
   height: 100% !important; }
 
@@ -2124,7 +2106,7 @@ _:-ms-lang(x), .aspect > .n-sldr {
   margin: 3em;
   overflow-x: hidden; }
 
-.slider > *:not(.active) {
+.slider > *:not([data-active]) {
   display: inline-block;
   pointer-events: none; }
 
@@ -2135,10 +2117,13 @@ _:-ms-lang(x), .aspect > .n-sldr {
 	
 }
 */
-.slider[data-ready]:not([data-peek]) > *:not(.active) {
+.slider[data-ready]:not([data-peek]) > *:not([data-active]) {
   visibility: hidden; }
 
-.slider.vertical > *:not(.active) {
+.slider[data-sliding]:not([data-peek]) > *:not([data-active]) {
+  display: none; }
+
+.slider.vertical > *:not([data-active]) {
   display: none; }
 
 .overlay.slider > * {
@@ -2150,7 +2135,7 @@ _:-ms-lang(x), .aspect > .n-sldr {
 .overlay.slider.vertical > * {
   height: 100%; }
 
-.slider > *.active, .overlay.lightbox.slider > * > img {
+.slider > *[data-active], .overlay.lightbox.slider > * > img {
   display: inline-block; }
 
 .overlay.slider > img {
@@ -2269,11 +2254,11 @@ _:-ms-lang(x), .aspect > .n-sldr {
 		
 	}
 */
-.slider.vertical > .active, .vertical > .slider-nav a {
+.slider.vertical > [data-active], .vertical > .slider-nav a {
   display: block;
-  overflow: visible; }
+  overflow: auto; }
 
-.slider-nav a.active {
+.slider-nav a[data-active] {
   background-color: rgba(0, 0, 0, 0.2);
   color: inherit; }
 
