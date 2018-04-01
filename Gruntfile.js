@@ -5,7 +5,6 @@ module.exports = function(grunt) {
 			dist: { 
 				files: {
 					'src/css/natuive.css': 'src/css/natuive.scss',
-					'src/css/natuive-extra.css': 'src/css/natuive-extra.scss',
 					'src/css/natuive-wordpress.css': 'src/css/natuive-wordpress.scss'
 					}
 				}
@@ -18,28 +17,18 @@ module.exports = function(grunt) {
 		  target: {
 		    files: {
 		      'dist/natuive.min.css': ['src/css/natuive.css'],
-		      'src/css/natuive-extra.min.css': ['src/css/natuive-extra.css'],
 		      'natuive-wordpress/natuive-wordpress.min.css': ['src/css/natuive-wordpress.css']
 		    }
 		  }
 		},
 		'concat': {
-			css: {
-			    options: {
-			      separator: '',
-			      banner: "document.head.insertAdjacentHTML('beforeend', '<style>",
-			      footer: "</style>');"
-			    },
-		      src: 'src/css/natuive-extra.min.css',
-		      dest: 'src/script/natuive-extra-css.js',
-		    },
 			js: {
 			    options: {
 		      separator: ';',
 		      banner: '(function(){',
 		      footer: '}());'
 		    },
-		      src: ['src/script/natuive-extra-css.js', 'src/script/natuive.js', 'src/script/natuive-slider.js'],
+		      src: ['src/script/natuive.js', 'src/script/natuive-slider.js'],
 		      dest: 'src/script/natuive-combined.js',
 		    }
 		},
