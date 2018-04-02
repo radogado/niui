@@ -1946,6 +1946,9 @@ $bg: #1E8DaC;
   margin: 0 auto;
   display: block; }
 
+.slider[data-peek] > * > img {
+  padding: 0 .25em; }
+
 .slider.center > * {
   display: flex;
   flex-direction: column;

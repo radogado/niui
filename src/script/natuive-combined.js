@@ -1458,7 +1458,7 @@ var animations = {
 
 for(var t in animations) {
 
-    if (temp.style[t] !== undefined) {
+    if (temp.style[t] !== 'undefined') {
 
         var animationEndEvent = animations[t];
 
@@ -3307,4 +3307,4 @@ function makeSlider(el, current_slide) {
     return container;
 
 }
-return { init: init, animate: animate, copyButton: copyButton, openFullWindow: openFullWindow, closeFullWindow: closeFullWindow, notify: notify, addComponent: addComponent }; })();
+return { init: init, animate: animate, copyButton: copyButton, openFullWindow: openFullWindow, closeFullWindow: closeFullWindow, notify: notify, addComponent: addComponent, makeSlider: makeSlider }; })();

@@ -1458,7 +1458,7 @@ var animations = {
 
 for(var t in animations) {
 
-    if (temp.style[t] !== undefined) {
+    if (temp.style[t] !== 'undefined') {
 
         var animationEndEvent = animations[t];
 

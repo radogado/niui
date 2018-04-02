@@ -26,7 +26,7 @@ module.exports = function(grunt) {
 			    options: {
 		      separator: ';',
 		      banner: 'var nui = (function(){',
-		      footer: 'return { init: init, animate: animate, copyButton: copyButton, openFullWindow: openFullWindow, closeFullWindow: closeFullWindow, notify: notify, addComponent: addComponent }; })();'
+		      footer: 'return { init: init, animate: animate, copyButton: copyButton, openFullWindow: openFullWindow, closeFullWindow: closeFullWindow, notify: notify, addComponent: addComponent, makeSlider: makeSlider }; })();'
 		    },
 		      src: ['src/script/natuive.js', 'src/script/natuive-slider.js'],
 		      dest: 'src/script/natuive-combined.js',
