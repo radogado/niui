@@ -73,12 +73,13 @@ natUIve demo pages: [Features demo](http://radogado.github.io/natuive/kitchen.ht
 
 natUIve 1.12
 
-- Dynamically add components
 - Switch inline lightbox to full screen
 - Grid with inline popups
 - Multiple auto-sliding sliders
-- Slider peeking at neighboring slides
+- Lightbox peeking at neighboring slides
 - Guide: button to copy HTML snippets to clipboard
+- Exported functions: nui.animate() etc
+- Dynamically add components
 - NPM install
 - JS encapsulation
 
