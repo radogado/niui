@@ -370,7 +370,7 @@ function slide(el, method, index_number) {
 		computed_height = parseInt(computed_height, 10);
 		computed_height_old = parseInt(computed_height_old, 10);
 	    var difference = Math.abs(computed_height - computed_height_old);
-	    if (computed_height > computed_height_old) {
+	    if (computed_height > computed_height_old) { // Shortened statement results in larger Closure Compiler file, let it optimise
 		    
 		    difference = Math.max(computed_height, computed_height_old) - difference;
 		    
@@ -392,11 +392,6 @@ function slide(el, method, index_number) {
 	    
 	    } else {
 
-
-/*
-		    translate_from = 'translate3d(0,0,0)';
-		    translate_to = 'translate3d(' + (offset_sign * (index - old_index)) + '00%,0,0)';
-*/
 		    translate_from = 'translate3d(' + offset_sign * ((index<old_index) ? 1 : 0) + '00%,0,0)';
 		    translate_to = 'translate3d(' + offset_sign * ((index<old_index) ? 0 : 1) + '00%,0,0)';
 		    
