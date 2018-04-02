@@ -385,21 +385,16 @@ _:-ms-lang(x), .aspect > .n-sldr { // Aspect ratio not working in IE/Edge
 	
 }
 
-.slider.vertical {
+.slider.vertical[data-ready] {
 	
 	overflow: hidden;
 	overflow-y: scroll;
-
-}
-
-.slider.vertical {
-	
 	overflow: visible;
 	flex-direction: column;
 
 }
 
-.slider.vertical > *, /* .slider[data-sliding] > *:not(.active), */ .n-sldr.tabs > .slider-arrow {
+.slider.vertical[data-ready] > *, /* .slider[data-sliding] > *:not(.active), */ .n-sldr.tabs > .slider-arrow {
 
 	height: auto;
 	display: none;
@@ -421,7 +416,7 @@ _:-ms-lang(x), .aspect > .n-sldr { // Aspect ratio not working in IE/Edge
 	
 }
 
-.slider > *:not([data-active]) {
+.slider[data-ready] > *:not([data-active]) {
 
 // 	display: none; // Only display .active slides. Because if slider has transforms (showing only current slide while others are still in the flow), there are problems with its children of position fixed etc. Breaks non-auto height sliders, can't set to height to the tallest slide. Make it with margin-left after the animation is done.
 	display: inline-block;
@@ -450,7 +445,7 @@ _:-ms-lang(x), .aspect > .n-sldr { // Aspect ratio not working in IE/Edge
 
 }
 
-.slider.vertical > *:not([data-active]) {
+.slider.vertical[data-ready] > *:not([data-active]) {
 	
 	display: none;
 
@@ -462,11 +457,13 @@ _:-ms-lang(x), .aspect > .n-sldr { // Aspect ratio not working in IE/Edge
 
 }
 
+/*
 .no-flex .slider > * + * { // Fallback
 	
 	margin-left: -.3em;
 	
 }
+*/
 
 .overlay.slider.vertical > * {
 	
@@ -474,7 +471,7 @@ _:-ms-lang(x), .aspect > .n-sldr { // Aspect ratio not working in IE/Edge
 
 }
 
-.slider > *[data-active], .overlay.lightbox.slider > * > img {
+.slider[data-ready] > [data-active], .overlay.lightbox.slider > * > img {
 
 	display: inline-block;
 
