@@ -455,7 +455,7 @@ nav.drop li {
     	
 }
 
-.n-sldr.vertical.tabs>.slider-nav a.active {
+.n-sldr.vertical.tabs>.slider-nav a[data-active] {
 	
 	background: #fff;
     color: #24b47e;

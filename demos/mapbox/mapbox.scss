@@ -260,7 +260,7 @@ main a[href] {
 	
 }
 
-.n-sldr.tabs>.slider-nav a.active {
+.n-sldr.tabs>.slider-nav a[data-active] {
 	
 	background-color: #39adcc;
 	color: white;

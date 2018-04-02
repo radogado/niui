@@ -25,8 +25,8 @@ module.exports = function(grunt) {
 			js: {
 			    options: {
 		      separator: ';',
-		      banner: '(function(){',
-		      footer: '}());'
+		      banner: 'var nui = (function(){',
+		      footer: 'return { init: init, animate: animate, copyButton: copyButton, openFullWindow: openFullWindow, closeFullWindow: closeFullWindow, notify: notify, addComponent: addComponent }; })();'
 		    },
 		      src: ['src/script/natuive.js', 'src/script/natuive-slider.js'],
 		      dest: 'src/script/natuive-combined.js',

@@ -1,4 +1,4 @@
-(function(){/* natUIve by rado.bg */
+var nui = (function(){/* natUIve by rado.bg */
 /* DOM functions via http://youmightnotneedjquery.com */
 
 var aria_expanded = 'aria-expanded';
@@ -3307,4 +3307,4 @@ function makeSlider(el, current_slide) {
     return container;
 
 }
-}());
+return { init: init, animate: animate, copyButton: copyButton, openFullWindow: openFullWindow, closeFullWindow: closeFullWindow, notify: notify, addComponent: addComponent }; })();

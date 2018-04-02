@@ -439,7 +439,7 @@ a.arrow:after {
 
 }
 
-.slider-nav a.active {
+.slider-nav a[data-active] {
 	
 	background: $orange;
 

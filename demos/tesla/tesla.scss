@@ -156,7 +156,7 @@ footer a[href]:first-child {
 
 }
 
-.n-sldr.tabs > .slider-nav.row a.active {
+.n-sldr.tabs > .slider-nav.row a[data-active] {
 	
 	background: #eee;
 

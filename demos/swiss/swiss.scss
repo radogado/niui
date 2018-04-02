@@ -418,7 +418,7 @@ footer .about nav a {
 	
 }
 
-.n-sldr.tabs > .slider-nav a.active {
+.n-sldr.tabs > .slider-nav a[data-active] {
 	
 	background: $darker-grey;
 	border-top: 1px solid $darker-grey;
@@ -426,7 +426,7 @@ footer .about nav a {
 	
 }
 
-.n-sldr.tabs > .slider-nav a.active:first-child {
+.n-sldr.tabs > .slider-nav a[data-active]:first-child {
 	
 	border-left: 1px solid $darker-grey;
 	
@@ -505,7 +505,7 @@ footer .about nav a {
 
 }
 
-.n-sldr.tabs>.slider-nav a.active:first-child {
+.n-sldr.tabs>.slider-nav a[data-active]:first-child {
 	
 	background: $darker-grey url(takeoff-white.png) no-repeat calc(100% - 1rem) 50%;
 
@@ -517,7 +517,7 @@ footer .about nav a {
 
 }
 
-.n-sldr.tabs>.slider-nav a.active:nth-child(2) {
+.n-sldr.tabs>.slider-nav a[data-active]:nth-child(2) {
 	
 	background: $darker-grey url(car-white.png) no-repeat calc(100% - 1rem) 50%;
 
@@ -529,7 +529,7 @@ footer .about nav a {
 
 }
 
-.n-sldr.tabs>.slider-nav a.active:nth-child(3) {
+.n-sldr.tabs>.slider-nav a[data-active]:nth-child(3) {
 	
 	background: $darker-grey url(hotel-white.png) no-repeat calc(100% - 1rem) 50%;
 
@@ -541,7 +541,7 @@ footer .about nav a {
 
 }
 
-.n-sldr.tabs>.slider-nav a.active:nth-child(4) {
+.n-sldr.tabs>.slider-nav a[data-active]:nth-child(4) {
 	
 	background: $darker-grey url(bookings-white.png) no-repeat calc(100% - 1rem) 50%;
 
@@ -553,7 +553,7 @@ footer .about nav a {
 
 }
 
-.n-sldr.tabs>.slider-nav a.active:nth-child(5) {
+.n-sldr.tabs>.slider-nav a[data-active]:nth-child(5) {
 	
 	background: $darker-grey url(checkin-white.png) no-repeat calc(100% - 1rem) 50%;
 

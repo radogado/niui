@@ -150,7 +150,7 @@ main .slider .col3 .image {
 	
 }
 
-.slider-nav a.active, .banner .slider-nav a.active {
+.slider-nav a[data-active], .banner .slider-nav a[data-active] {
 	
 	background: #eecf3f;
 

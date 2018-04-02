@@ -70,7 +70,7 @@ header {
 
 }
 
-.slider-nav a.active {
+.slider-nav a[data-active] {
 	
 	background: none;
 	border: 1px solid #0070c9;

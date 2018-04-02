@@ -446,7 +446,7 @@ footer ul.row > li > span {
 
 }
 
-.n-sldr.tabs > .slider-nav a, .n-sldr.tabs > .slider-nav a.active {
+.n-sldr.tabs > .slider-nav a, .n-sldr.tabs > .slider-nav a[data-active] {
 	
 	background: none;
 	color: #000;
@@ -457,7 +457,7 @@ footer ul.row > li > span {
 
 }
 
-.n-sldr.tabs > .slider-nav a.active {
+.n-sldr.tabs > .slider-nav a[data-active] {
 	
 	border-bottom-color: $yellow;
 	
@@ -477,7 +477,7 @@ footer ul.row > li > span {
 
 }
 
-.slider-nav a.active {
+.slider-nav a[data-active] {
 	
 	background: $yellow;
 
@@ -559,7 +559,7 @@ footer ul.row > li > span {
 		
 	}
 
-	.n-sldr.tabs > .slider-nav a, .n-sldr.tabs > .slider-nav a.active, .n-sldr:not(.vertical) .slider-nav a:first-child {
+	.n-sldr.tabs > .slider-nav a, .n-sldr.tabs > .slider-nav a[data-active], .n-sldr:not(.vertical) .slider-nav a:first-child {
 		
 		margin: 0;
 

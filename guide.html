@@ -156,6 +156,7 @@ require('./node_modules/natuive/index.js');
 							</li>
 							<li>Use <pre>section</pre> elements in <pre>main</pre> to clear inner margins at top/bottom</li>
 							<li><pre>header.fixed</pre> for fixed header on top on narrow screens (below 600px threshold)</li>
+							<li>Include <b>natuive-combined.js</b> from src/script instead of <b>natuive.min.js</b> to use <pre>nui.animate()</pre> etc.</li>
 						
 						</ul>
 						
@@ -2011,10 +2012,10 @@ require('./node_modules/natuive/index.js');
 							
 							<ul>
 								
-								<li>Open a modal window with any content using <b>openFullWindow('Any content');</b></li>
+								<li>Open a modal window with any content using <pre>nui.openFullWindow('Any content');</pre></li>
 								<li>Modals with <pre>id</pre> matching the URI hash are opened automatically</li>
 								<li><pre>#content</pre> is recommended to avoid HTML head parts</li>
-								<li><pre>openFullWindow(HTML, '0% { … } 100% { … }')</pre> for custom animation, automatically reversed on close</li>
+								<li><pre>nui.openFullWindow(HTML, '0% { … } 100% { … }')</pre> for custom animation, automatically reversed on close</li>
 								<li><pre>a.modal[data-anim]</pre> parameter specifies custom animation</li>
 								<li><pre>a.modal.limited</pre> for limited width/height modal window</li>
 							
@@ -3517,15 +3518,15 @@ notify('Message');
 
 </div>
 
-					<button onclick="notify('Notified.');">Notify me now</button>
-					<button onclick="notify('Fixed.', 'fixed');">Fixed notification bar</button>
+					<button onclick="nui.notify('Notified.');">Notify me now</button>
+					<button onclick="nui.notify('Fixed.', 'fixed');">Fixed notification bar</button>
 
 					<h3>Options</h3>
 							
 					<ul>
 								
-								<li>Fixed on top: <pre>&lt;div class='notify fixed'&gt;</pre> or <pre>notify('Message', 'fixed');</pre></li>
-								<li><pre>notify('Text', 'timeout')</pre> to hide it automatically after 2 seconds</li>
+								<li>Fixed on top: <pre>&lt;div class='notify fixed'&gt;</pre> or <pre>nui.notify('Message', 'fixed');</pre></li>
+								<li><pre>nui.notify('Text', 'timeout')</pre> to hide it automatically after 2 seconds</li>
 							
 							</ul>
 						
@@ -3546,7 +3547,7 @@ notify('Message');
 <div class="code">							
 
 <pre>
-copyButton(q('#copybutton'), q('#copycontent'));
+nui.copyButton(document.getElementById('copybutton'), document.getElementById('copycontent'));
 </pre>
 
 </div>
@@ -3598,7 +3599,7 @@ copyButton(q('#copybutton'), q('#copycontent'));
 <div class="code">							
 
 <pre>
-animate(document.querySelector('body'), 
+nui.animate(document.querySelector('body'), 
 	'0% { opacity: 1; transform: translateX(0); } 
 	50% { opacity: 0; transform: translateX(-50vw); } 
 	100% { opacity: 1;  transform: translateX(0); }', 
@@ -3607,7 +3608,7 @@ animate(document.querySelector('body'),
 
 </div>
 <br>
-							<button onclick="window.animate(document.querySelector('body'), '0% { opacity: 1; transform: translateX(0); } 50% { opacity: 0; transform: translateX(-50vw); } 100% { opacity: 1;  transform: translateX(0); }', 2);">Animate now</button>
+							<button onclick="nui.animate(document.querySelector('body'), '0% { opacity: 1; transform: translateX(0); } 50% { opacity: 0; transform: translateX(-50vw); } 100% { opacity: 1;  transform: translateX(0); }', 2);">Animate now</button>
 
 							<h3>Options</h3>
 							
@@ -3723,15 +3724,15 @@ animate(document.querySelector('body'),
 								
 								<h2>Dynamically add a natUIve component</h2>
 								<br>
-								<button onclick="addComponent(this.parentNode, '<div class=slider><div>New</div><div>Slider</div></div>');">Add a slider</button>
+								<button onclick="nui.addComponent(this.parentNode, '<div class=slider><div>New</div><div>Slider</div></div>');">Add a slider</button>
 								
-								<button onclick="addComponent(this.parentNode, '<div class=fold><h3 class=label> Label </h3><input type=checkbox class=trigger><div class=content><p> Content. </p><p> Content. </p><p> Content. </p></div></div>');">Add an accordion</button>
+								<button onclick="nui.addComponent(this.parentNode, '<div class=fold><h3 class=label> Label </h3><input type=checkbox class=trigger><div class=content><p> Content. </p><p> Content. </p><p> Content. </p></div></div>');">Add an accordion</button>
 								
 <br>
 <div class="code">							
 
 <pre>
-addComponent(host, '&lt;div class=slider&gt;&lt;div&gt;New&lt;/div&gt;&lt;div&gt;Slider&lt;/div&gt;&lt;/div&gt;');
+nui.addComponent(host, '&lt;div class=slider&gt;&lt;div&gt;New&lt;/div&gt;&lt;div&gt;Slider&lt;/div&gt;&lt;/div&gt;');
 </pre>
 
 </div>
@@ -3752,15 +3753,20 @@ addComponent(host, '&lt;div class=slider&gt;&lt;div&gt;New&lt;/div&gt;&lt;div&gt
 	</main>
 	
 	<!-- JS not minified, because copyButton() is used in the page -->
+<!--
 	<script src=src/script/natuive.js type=text/javascript></script>
 	<script src=src/script/natuive-slider.js type=text/javascript></script>
+-->
+
+	<script src=src/script/natuive-combined.js type=text/javascript></script>
+
 	<script>
 		
-		copyButton(q('#copybutton'), q('#copycontent'));
-		forEach('.code', function (el) {
+		nui.copyButton(document.getElementById('copybutton'), document.getElementById('copycontent'));
+		document.querySelectorAll('.code').forEach(function (el) {
 			
 			el.insertAdjacentHTML('beforeend', '<button>Copy</button>');
-			copyButton(el.querySelector('button'), el.querySelector('pre'));
+			nui.copyButton(el.querySelector('button'), el.querySelector('pre'));
 			
 		});
 		

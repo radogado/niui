@@ -48,7 +48,7 @@ main > 	.col34 > .n-sldr > .slider.vertical > * {
 	
 }
 
-.slider.vertical > .active {
+.slider.vertical > [data-active] {
 	
 	overflow: auto;
 	
@@ -72,7 +72,7 @@ main > 	.col34 > .n-sldr > .slider.vertical > * {
 	
 }
 
-.nav-column .slider-nav a.active {
+.nav-column .slider-nav a[data-active] {
 
 	color: lightseagreen;
 
@@ -107,7 +107,7 @@ main > .n-sldr > .slider-nav a {
 
 }
 
-main > .n-sldr > .slider-nav a.active {
+main > .n-sldr > .slider-nav a[data-active] {
 
 	color: lightseagreen;
 
