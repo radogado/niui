@@ -784,7 +784,7 @@ function openLightbox(e) { // To do: create all content in an unattached element
 
 		} else {
 
-			slide_link = document.location.href.split('#')[0] + (document.location.href.indexOf('?') >= 0 ? '&' : '?') + 'image=' + el.href.split('/').pop() + '#' + lightbox.getAttribute('id');
+			slide_link = document.location.href.split('#')[0].split('?')[0] + '?image=' + el.href.split('/').pop() + '#' + lightbox.getAttribute('id');
 			
 		}
 
