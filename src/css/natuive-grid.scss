@@ -486,7 +486,6 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 .row.border-all {
 	
 	--color: #000;
-
 	box-shadow: inset 0 0 0 2px var(--color);
 
 }
@@ -508,7 +507,8 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 
 .row.border {
 
-	box-shadow: inset 0 0 0 1px #000;
+	--color: #000;
+	box-shadow: inset 0 0 0 1px var(--color);
 
 }
 		

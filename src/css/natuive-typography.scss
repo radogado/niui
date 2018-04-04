@@ -126,7 +126,7 @@ p {
 a[href] {
 	
 	color: inherit;
-	display: inline-block; // Remove vertical breaks on multi-line anchors. This is wrong for line breaks in a paragraph, hence the next rule:
+//	display: inline-block; // Remove vertical breaks on multi-line anchors. This is wrong for line breaks in a paragraph
 
 }
 

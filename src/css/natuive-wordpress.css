@@ -380,7 +380,8 @@ ol.masonry > * {
   */ }
 
 .row.border {
-  box-shadow: inset 0 0 0 1px #000; }
+  --color: #000;
+  box-shadow: inset 0 0 0 1px var(--color); }
 
 .row * .box {
   /* Boxes inside grid cells */
@@ -557,8 +558,7 @@ p {
   float: right; }
 
 a[href] {
-  color: inherit;
-  display: inline-block; }
+  color: inherit; }
 
 p a[href] {
   display: inline; }
