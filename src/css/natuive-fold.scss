@@ -24,13 +24,12 @@
 		text-align: left;
 		text-align: start;
 		width: 100%;
-		cursor: pointer;
 		-webkit-touch-callout: none;
 		-webkit-user-select: none;
 		-khtml-user-select: none;
 		-moz-user-select: none;
 		user-select: none;
-		cursor: pointer;
+		cursor: zoom-in;
 		position: relative;
 		padding: .75em 0;
 		padding-right: 1.5em;
@@ -51,6 +50,12 @@
 	.fold[aria-expanded] > .label:after {
 		
 		content: "▲";
+		
+	}
+
+	.fold[aria-expanded] > .label {
+		
+		cursor: zoom-out;
 		
 	}
 
