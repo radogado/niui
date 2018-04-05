@@ -1279,6 +1279,395 @@ require('./node_modules/natuive/index.js');
 					
 				</div>
 					
+				<div data-tab_title=Slider id=slider>
+					
+					<div class='row' id=slider>
+						
+						<div class='col1'>
+							
+							<h2>Slider</h2>
+							
+						</div>
+						
+						<div class='col2'>
+							
+							<h3>Standard</h3>
+							
+							<div class='slider'>
+								
+								<div class='align-center'><p><br>One<br></p></div>
+								<div class='align-center'><p><br><br>Two<br><br></p></div>
+							
+							</div>
+<div class="code">							
+
+<pre>
+&lt;div class='slider'&gt;
+	&lt;div&gt;Slide 1&lt;/div&gt;
+	&lt;div&gt;Slide 2&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+</div>
+						
+						</div>
+						
+						<div class='col2'>
+
+							
+							<h3>Controls on top</h3>
+							
+							<div class='slider top'>
+								
+								<div class='align-center'><p><br><br>One<br><br></p></div>
+								<div class='align-center' style="background: lightcoral;"><p><br><br>Two<br><br></p></div>
+								<div class='align-center'><p><br><br>Three<br><br></p></div>
+							
+							</div>
+						
+<div class="code">							
+
+<pre>
+&lt;div class='slider top'&gt;
+	&lt;div&gt;Slide 1&lt;/div&gt;
+	&lt;div&gt;Slide 2&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+</div>
+						</div>
+						
+						<div class='col2'>
+							
+							<h3>Vertical</h3>
+							
+							<div class='slider vertical'>
+								
+								<div class='align-center'><p><br><br>One<br><br></p></div>
+								<div class='align-center'><p><br><br>Two<br><br></p></div>
+								<div class='align-center'><p><br><br>Three<br><br></p></div>
+							
+							</div>
+						
+<div class="code">							
+
+<pre>
+&lt;div class='slider vertical'&gt;
+	&lt;div&gt;Slide 1&lt;/div&gt;
+	&lt;div&gt;Slide 2&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+</div>
+						</div>
+							
+						<div class='col2'>
+
+							<h3>Vertical with controls on the right</h3>
+							
+							<div class='slider vertical right'>
+								
+								<div class='align-center'><p><br><br>One<br><br></p></div>
+								<div class='align-center'><p><br><br>Two<br><br></p></div>
+							
+							</div>
+						
+<div class="code">							
+
+<pre>
+&lt;div class='slider vertical right'&gt;
+	&lt;div&gt;Slide 1&lt;/div&gt;
+	&lt;div&gt;Slide 2&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+</div>
+						</div>
+							
+						<div class='col2'>
+							
+							<h3>Padded (controls outside of content)</h3>
+							
+							<div class='slider pad'>
+								
+								<div><p>One</p></div>
+								<div><p>Two</p></div>
+							
+							</div>
+						
+<div class="code">							
+
+<pre>
+&lt;div class='slider pad'&gt;
+	&lt;div&gt;Slide 1&lt;/div&gt;
+	&lt;div&gt;Slide 2&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+</div>
+						</div>
+
+						<div class='col2'>
+							
+							<h3>Fade in/out</h3>
+							
+							<div class='slider fade pad'>
+								
+								<div><p>One</p></div>
+								<div><p>Two</p></div>
+							
+							</div>
+						
+<div class="code">							
+
+<pre>
+&lt;div class='slider fade'&gt;
+	&lt;div&gt;Slide 1&lt;/div&gt;
+	&lt;div&gt;Slide 2&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+</div>
+						</div>
+
+						<div class='col2'>
+
+							<h3>Auto height</h3>
+							
+							<div class='slider auto-height pad'>
+								
+								<div class='align-center'><p>One</p></div>
+								<div class='align-center'><p><br><br>Two<br><br>taller than One</p></div>
+							
+							</div>
+						
+<div class="code">							
+
+<pre>
+&lt;div class='slider auto-height pad'&gt;
+	&lt;div&gt;Slide 1&lt;/div&gt;
+	&lt;div&gt;Slide 2&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+</div>
+
+						</div>
+						
+						<div class="col1"> <h2> Slider with detached nav </h2> </div>
+						
+						<div>
+					
+							<h3>Slider here...</h3>
+							
+							<div class="slider" id=detached-nav-slider>
+								
+								<div>Slide 1</div>
+								<div>Slide 2</div>
+								
+							</div>
+						
+						</div>
+						
+						<div class="align-center">
+							
+							<div>
+								
+								<h3>...detached nav here</h3>
+								
+								<div class="slider-nav" data-for=detached-nav-slider></div>
+								
+							</div>
+							
+						</div>
+						
+						<div class='col1'>
+							
+							<h3>Options</h3>
+							
+							<ul>
+								
+								<li>Full window: <pre>&lt;div class='slider full-window'&gt;</pre></li>
+								<li>Full screen: <pre>&lt;div class='slider full-screen'&gt;</pre></li>
+								<li>Slide duration <pre>&lt;div class='slider' data-duration=1&gt;</pre> in seconds. Default is <b>.2</b>.</li>
+								<li>Vertically center slides' content with <pre>&lt;div class='slider align-middle'&gt;</pre></li>
+								<li>Detach slider nav by adding an <b>id</b> to the slider and creating <pre>&lt;div class='slider-nav' data-for='slider-id'&gt;</pre> elsewhere</li>
+								<li>URI with hash matching a slide id in a slider, auto slides to it.</li>
+								<li><pre>data-peek=20%</pre> to peek at neighboring slides, where 20% becomes 20% padding on left and right</li>
+							
+							</ul>
+						
+						</div>
+					
+					</div>
+					
+				</div>
+				
+				<div data-tab_title=Tabs id=tabs>
+					
+					<div class='row'>
+						
+						<div class='col1'>
+					
+							<h2 id=tabs>Tabs</h2>
+					
+						</div>
+						
+						<div class='col2'>
+
+							<h3>Tabs at the bottom</h3>
+	
+							<div class='slider tabs'>
+								
+								<div> <h3 class='tab-title'>Tab 1</h3> <p>Content of Tab 1</p> </div>
+							
+								<div> <h3 class='tab-title'>Tab 2</h3> <p>The content of Tab 2</p> <p>New line</p> <p>New line</p> </div>
+							
+							</div>
+						
+<div class="code">							
+
+<pre>
+&lt;div class='slider tabs'&gt;
+	&lt;div&gt; ... &lt;/div&gt;
+	&lt;div data-tab_title='Tab 1'&gt; ... &lt;/div&gt;
+	&lt;div&gt; &lt;h2 class='tab-title'&gt;Tab title and content&lt;/h2&gt; ... &lt;/div&gt;
+	...
+&lt;/div&gt;
+</pre>
+
+</div>
+
+						</div>
+						
+						<div class='col2'>
+
+							<h3>Tabs on top with auto height</h3>
+	
+							<div class='slider top tabs auto-height' data-duration=1>
+		
+								<div style='background: mintcream;'> <div class='pad'><h3 class='tab-title'>Tab 1</h3> <p>Content of Tab 1</p></div> </div>
+	
+								<div style='background: cyan;'> <div class='pad'><h3 class='tab-title'>Tab 2</h3> <p>The content of Tab 2</p> <p>New line</p> <p>New line</p> </div></div>
+	
+							</div>
+						
+<div class="code">							
+
+<pre>
+&lt;div class='slider top tabs auto-height'&gt;
+	&lt;div data-tab_title='Tab 1'&gt; ... &lt;/div&gt;
+	...
+&lt;/div&gt;
+</pre>
+
+</div>
+						</div>
+	
+						<div class='col2'>
+	
+							<h3>Vertical tabs</h3>	
+		
+							<div class='slider vertical tabs'>
+				
+				<div data-tab_title='Tab 1'>
+					
+					<p class='pad'>Tab 1 content</p>
+							
+				</div>
+				
+				<div>
+							
+					<p class=tab-title> Tab 2 </p>
+							
+					<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				
+				</div>
+			
+				<div>
+				
+					<p class=tab-title> Tab 3 Very Long Title which Shows the Flexible Dimensions  </p>
+							
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+							
+				</div>
+				
+			</div>
+					
+<div class="code">							
+
+<pre>
+&lt;div class='slider vertical tabs'&gt;
+	&lt;div data-tab_title='Tab 1'&gt; ... &lt;/div&gt;
+	...
+&lt;/div&gt;
+</pre>
+
+</div>
+						</div>
+	
+						<div class='col2'>
+
+							<h3>Vertical tabs on the right</h3>	
+		
+							<div class='slider vertical tabs right'>
+				
+				<div data-tab_title='Tab 1'>
+					
+		<!-- 								<p class=tab-title> Slider 2 Slide 1 </p> -->
+					
+					<p class='pad'>Tab 1 content</p>
+							
+				</div>
+				
+				<div>
+							
+					<p class=tab-title> Tab 2 </p>
+							
+					<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				
+				</div>
+			
+				<div>
+				
+					<p class=tab-title> Tab 3 Very Long Title which Shows the Flexible tabs Dimensions  </p>
+							
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+							
+				</div>
+				
+			</div>
+							
+<div class="code">							
+
+<pre>
+&lt;div class='slider vertical tabs right'&gt;
+	&lt;div data-tab_title='Tab 1'&gt; ... &lt;/div&gt;
+	...
+&lt;/div&gt;
+</pre>
+
+</div>
+					
+						</div>
+						
+						<div class="col1">
+							
+							<h3>Options</h3>
+							
+							<ul>
+								
+								<li>Tab titles are taken from <pre>data-tab_title</pre>, <pre>.tab-title</pre> on a child or index by default</li>
+								<li><pre>data-duration=2</pre> for 2 seconds slide duration</li>
+
+							</ul>
+							
+						</div>
+
+					</div>
+	
+				</div>
+
 				<div data-tab_title=Lightbox id=lightbox>
 					
 					<div class='row'>
@@ -2231,395 +2620,6 @@ require('./node_modules/natuive/index.js');
 			
 				</div>
 				
-				<div data-tab_title=Slider id=slider>
-					
-					<div class='row' id=slider>
-						
-						<div class='col1'>
-							
-							<h2>Slider</h2>
-							
-						</div>
-						
-						<div class='col2'>
-							
-							<h3>Standard</h3>
-							
-							<div class='slider'>
-								
-								<div class='align-center'><p><br>One<br></p></div>
-								<div class='align-center'><p><br><br>Two<br><br></p></div>
-							
-							</div>
-<div class="code">							
-
-<pre>
-&lt;div class='slider'&gt;
-	&lt;div&gt;Slide 1&lt;/div&gt;
-	&lt;div&gt;Slide 2&lt;/div&gt;
-&lt;/div&gt;
-</pre>
-
-</div>
-						
-						</div>
-						
-						<div class='col2'>
-
-							
-							<h3>Controls on top</h3>
-							
-							<div class='slider top'>
-								
-								<div class='align-center'><p><br><br>One<br><br></p></div>
-								<div class='align-center' style="background: lightcoral;"><p><br><br>Two<br><br></p></div>
-								<div class='align-center'><p><br><br>Three<br><br></p></div>
-							
-							</div>
-						
-<div class="code">							
-
-<pre>
-&lt;div class='slider top'&gt;
-	&lt;div&gt;Slide 1&lt;/div&gt;
-	&lt;div&gt;Slide 2&lt;/div&gt;
-&lt;/div&gt;
-</pre>
-
-</div>
-						</div>
-						
-						<div class='col2'>
-							
-							<h3>Vertical</h3>
-							
-							<div class='slider vertical'>
-								
-								<div class='align-center'><p><br><br>One<br><br></p></div>
-								<div class='align-center'><p><br><br>Two<br><br></p></div>
-								<div class='align-center'><p><br><br>Three<br><br></p></div>
-							
-							</div>
-						
-<div class="code">							
-
-<pre>
-&lt;div class='slider vertical'&gt;
-	&lt;div&gt;Slide 1&lt;/div&gt;
-	&lt;div&gt;Slide 2&lt;/div&gt;
-&lt;/div&gt;
-</pre>
-
-</div>
-						</div>
-							
-						<div class='col2'>
-
-							<h3>Vertical with controls on the right</h3>
-							
-							<div class='slider vertical right'>
-								
-								<div class='align-center'><p><br><br>One<br><br></p></div>
-								<div class='align-center'><p><br><br>Two<br><br></p></div>
-							
-							</div>
-						
-<div class="code">							
-
-<pre>
-&lt;div class='slider vertical right'&gt;
-	&lt;div&gt;Slide 1&lt;/div&gt;
-	&lt;div&gt;Slide 2&lt;/div&gt;
-&lt;/div&gt;
-</pre>
-
-</div>
-						</div>
-							
-						<div class='col2'>
-							
-							<h3>Padded (controls outside of content)</h3>
-							
-							<div class='slider pad'>
-								
-								<div><p>One</p></div>
-								<div><p>Two</p></div>
-							
-							</div>
-						
-<div class="code">							
-
-<pre>
-&lt;div class='slider pad'&gt;
-	&lt;div&gt;Slide 1&lt;/div&gt;
-	&lt;div&gt;Slide 2&lt;/div&gt;
-&lt;/div&gt;
-</pre>
-
-</div>
-						</div>
-
-						<div class='col2'>
-							
-							<h3>Fade in/out</h3>
-							
-							<div class='slider fade pad'>
-								
-								<div><p>One</p></div>
-								<div><p>Two</p></div>
-							
-							</div>
-						
-<div class="code">							
-
-<pre>
-&lt;div class='slider fade'&gt;
-	&lt;div&gt;Slide 1&lt;/div&gt;
-	&lt;div&gt;Slide 2&lt;/div&gt;
-&lt;/div&gt;
-</pre>
-
-</div>
-						</div>
-
-						<div class='col2'>
-
-							<h3>Auto height</h3>
-							
-							<div class='slider auto-height pad'>
-								
-								<div class='align-center'><p>One</p></div>
-								<div class='align-center'><p><br><br>Two<br><br>taller than One</p></div>
-							
-							</div>
-						
-<div class="code">							
-
-<pre>
-&lt;div class='slider auto-height pad'&gt;
-	&lt;div&gt;Slide 1&lt;/div&gt;
-	&lt;div&gt;Slide 2&lt;/div&gt;
-&lt;/div&gt;
-</pre>
-
-</div>
-
-						</div>
-						
-						<div class="col1"> <h2> Slider with detached nav </h2> </div>
-						
-						<div>
-					
-							<h3>Slider here...</h3>
-							
-							<div class="slider" id=detached-nav-slider>
-								
-								<div>Slide 1</div>
-								<div>Slide 2</div>
-								
-							</div>
-						
-						</div>
-						
-						<div class="align-center">
-							
-							<div>
-								
-								<h3>...detached nav here</h3>
-								
-								<div class="slider-nav" data-for=detached-nav-slider></div>
-								
-							</div>
-							
-						</div>
-						
-						<div class='col1'>
-							
-							<h3>Options</h3>
-							
-							<ul>
-								
-								<li>Full window: <pre>&lt;div class='slider full-window'&gt;</pre></li>
-								<li>Full screen: <pre>&lt;div class='slider full-screen'&gt;</pre></li>
-								<li>Slide duration <pre>&lt;div class='slider' data-duration=1&gt;</pre> in seconds. Default is <b>.2</b>.</li>
-								<li>Vertically center slides' content with <pre>&lt;div class='slider align-middle'&gt;</pre></li>
-								<li>Detach slider nav by adding an <b>id</b> to the slider and creating <pre>&lt;div class='slider-nav' data-for='slider-id'&gt;</pre> elsewhere</li>
-								<li>URI with hash matching a slide id in a slider, auto slides to it.</li>
-								<li><pre>data-peek=20%</pre> to peek at neighboring slides, where 20% becomes 20% padding on left and right</li>
-							
-							</ul>
-						
-						</div>
-					
-					</div>
-					
-				</div>
-				
-				<div data-tab_title=Tabs id=tabs>
-					
-					<div class='row'>
-						
-						<div class='col1'>
-					
-							<h2 id=tabs>Tabs</h2>
-					
-						</div>
-						
-						<div class='col2'>
-
-							<h3>Tabs at the bottom</h3>
-	
-							<div class='slider tabs'>
-								
-								<div> <h3 class='tab-title'>Tab 1</h3> <p>Content of Tab 1</p> </div>
-							
-								<div> <h3 class='tab-title'>Tab 2</h3> <p>The content of Tab 2</p> <p>New line</p> <p>New line</p> </div>
-							
-							</div>
-						
-<div class="code">							
-
-<pre>
-&lt;div class='slider tabs'&gt;
-	&lt;div&gt; ... &lt;/div&gt;
-	&lt;div data-tab_title='Tab 1'&gt; ... &lt;/div&gt;
-	&lt;div&gt; &lt;h2 class='tab-title'&gt;Tab title and content&lt;/h2&gt; ... &lt;/div&gt;
-	...
-&lt;/div&gt;
-</pre>
-
-</div>
-
-						</div>
-						
-						<div class='col2'>
-
-							<h3>Tabs on top with auto height</h3>
-	
-							<div class='slider top tabs auto-height' data-duration=1>
-		
-								<div style='background: mintcream;'> <div class='pad'><h3 class='tab-title'>Tab 1</h3> <p>Content of Tab 1</p></div> </div>
-	
-								<div style='background: cyan;'> <div class='pad'><h3 class='tab-title'>Tab 2</h3> <p>The content of Tab 2</p> <p>New line</p> <p>New line</p> </div></div>
-	
-							</div>
-						
-<div class="code">							
-
-<pre>
-&lt;div class='slider top tabs auto-height'&gt;
-	&lt;div data-tab_title='Tab 1'&gt; ... &lt;/div&gt;
-	...
-&lt;/div&gt;
-</pre>
-
-</div>
-						</div>
-	
-						<div class='col2'>
-	
-							<h3>Vertical tabs</h3>	
-		
-							<div class='slider vertical tabs'>
-				
-				<div data-tab_title='Tab 1'>
-					
-					<p class='pad'>Tab 1 content</p>
-							
-				</div>
-				
-				<div>
-							
-					<p class=tab-title> Tab 2 </p>
-							
-					<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				
-				</div>
-			
-				<div>
-				
-					<p class=tab-title> Tab 3 Very Long Title which Shows the Flexible Dimensions  </p>
-							
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-							
-				</div>
-				
-			</div>
-					
-<div class="code">							
-
-<pre>
-&lt;div class='slider vertical tabs'&gt;
-	&lt;div data-tab_title='Tab 1'&gt; ... &lt;/div&gt;
-	...
-&lt;/div&gt;
-</pre>
-
-</div>
-						</div>
-	
-						<div class='col2'>
-
-							<h3>Vertical tabs on the right</h3>	
-		
-							<div class='slider vertical tabs right'>
-				
-				<div data-tab_title='Tab 1'>
-					
-		<!-- 								<p class=tab-title> Slider 2 Slide 1 </p> -->
-					
-					<p class='pad'>Tab 1 content</p>
-							
-				</div>
-				
-				<div>
-							
-					<p class=tab-title> Tab 2 </p>
-							
-					<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				
-				</div>
-			
-				<div>
-				
-					<p class=tab-title> Tab 3 Very Long Title which Shows the Flexible tabs Dimensions  </p>
-							
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-							
-				</div>
-				
-			</div>
-							
-<div class="code">							
-
-<pre>
-&lt;div class='slider vertical tabs right'&gt;
-	&lt;div data-tab_title='Tab 1'&gt; ... &lt;/div&gt;
-	...
-&lt;/div&gt;
-</pre>
-
-</div>
-					
-						</div>
-						
-						<div class="col1">
-							
-							<h3>Options</h3>
-							
-							<ul>
-								
-								<li>Tab titles are taken from <pre>data-tab_title</pre>, <pre>.tab-title</pre> on a child or index by default</li>
-								<li><pre>data-duration=2</pre> for 2 seconds slide duration</li>
-
-							</ul>
-							
-						</div>
-
-					</div>
-	
-				</div>
-
 				<div id=form data-tab_title=Forms id=forms>
 					
 					<div class='row'>

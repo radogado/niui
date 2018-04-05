@@ -2884,6 +2884,8 @@ function slide(el, method, index_number) {
 
 	var target_slide = slider.children[index];
 
+	var height_change = (hasClass(slider, 'auto-height') ? 'height: ' + target_slide.scrollHeight + 'px;': '');
+
 	if (hasClass(slider, 'vertical')) {
 		target_slide.style.cssText = 'display: block'; // Temporarily display the target slide to get its height
 		computed_height = getComputedStyle(target_slide).height;
@@ -2959,7 +2961,7 @@ function slide(el, method, index_number) {
 	
 	} else {
 		
-		animation_code = '0% { transform: ' + translate_from + '; } 100% { transform: ' + translate_to + '; }';
+		animation_code = '0% { transform: ' + translate_from + '; } 100% { ' + height_change + ' transform: ' + translate_to + '; }';
 
 	}
 
