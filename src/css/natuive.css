@@ -230,6 +230,13 @@ $bg: #1E8DaC;
 .align-children *, .row.align-children > * {
   text-align: inherit; }
 
+.row.vertical {
+  flex-direction: column;
+  min-height: 100%; }
+  .row.vertical > *, .row.vertical > [class^=col], .row.vertical > [class*=' col'] {
+    width: 100%;
+    box-sizing: border-box; }
+
 section {
   position: relative; }
 
