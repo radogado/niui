@@ -178,7 +178,7 @@ function mouseEvents(el, toggle) {
 
 }
 
-function endSlide (slider, index) {
+function endSlide(slider, index) {
 
     if (hasClass(slider, 'lightbox')) {
 		
@@ -222,8 +222,6 @@ function endSlide (slider, index) {
 	
 		addClass(closest(slider, '.n-sldr'), 'active');
 */
-
-		current_slider = slider; 
 
 		if (slider.children[index].id) { // Scroll page to slide hash. To do: restore focus
 	
@@ -429,6 +427,7 @@ function slide(el, method, index_number) {
 	    slider.children[old_index].style.opacity = '';
 
 		slider.style.height = '';
+		current_slider = slider;
 		endSlide(slider, index);
 
     });

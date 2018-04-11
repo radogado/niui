@@ -2207,6 +2207,12 @@ function init(host) {
 	// To do: include the parent in addition to its children
 // 	observerOff();
 	
+	if (typeof host === 'undefined') {
+		
+		var host = q('body');
+
+	}
+	
 	notifyCloseEvent();
 	
 	/* Enhance sliders: create arrows/numbers navigation etc */
@@ -2497,7 +2503,7 @@ function addComponent(host, el) {
 
 ready( function () {
 
-	init(q('body'));
+	init();
 
 /*
 	if (typeof MutationObserver === 'function') {
