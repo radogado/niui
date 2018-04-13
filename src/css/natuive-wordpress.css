@@ -2118,7 +2118,8 @@ _:-ms-lang(x), .aspect > .n-sldr {
 
 .n-sldr > .pad {
   padding: 0;
-  margin: 3em; }
+  margin: 3em;
+  overflow-x: hidden; }
 
 .slider[data-ready] > *:not([data-active]) {
   display: inline-block;
@@ -3388,7 +3389,7 @@ iframe, article h2 a {
   position: relative;
   overflow: hidden; }
 
-section > article > p {
+section > article > p, section > article > ol, section > article > ul {
   max-width: 40em;
   margin: 1.5em auto; }
 

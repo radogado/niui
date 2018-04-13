@@ -209,10 +209,14 @@ iframe, article h2 a {
 
 }
 
-section > article > p {
+section > article > {
 	
-	max-width: 40em;
-	margin: 1.5em auto;
+	p, ol, ul {
+	
+		max-width: 40em;
+		margin: 1.5em auto;
+	
+	}
 
 }
 

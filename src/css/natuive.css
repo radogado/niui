@@ -2100,7 +2100,8 @@ _:-ms-lang(x), .aspect > .n-sldr {
 
 .n-sldr > .pad {
   padding: 0;
-  margin: 3em; }
+  margin: 3em;
+  overflow-x: hidden; }
 
 .slider[data-ready] > *:not([data-active]) {
   display: inline-block;

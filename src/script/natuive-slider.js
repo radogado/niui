@@ -31,6 +31,24 @@ function sliderElement(e) { // Get the active slider instance
 
 }
 
+function getSliderNav(slider_wrap) {
+
+	// Select either a child slider-nav or the one specified by the slider id, if it exists
+	var slider = slider_wrap.querySelector('.slider');
+	var slider_nav;
+
+	if (slider.id && (slider_nav = q('.slider-nav[data-for=' + slider.id + ']'))) { // Detached nav
+
+		return slider_nav;
+
+	} else {
+
+		return slider_wrap.querySelectorAll('.slider-nav')[slider_wrap.querySelectorAll('.slider-nav').length-1]; // With a simple query, it would get the nav of an eventual nested slider, instead of the current one. Current nav is either a direct child or a .pad direct child, taken as the last one of all.
+
+	}
+
+}
+
 /* Thanks to Pete & Eike Send for the swipe events – http://www.thepetedesign.com/demos/purejs_onepage_scroll_demo.html */
 
 function swipeEvents(el) {
