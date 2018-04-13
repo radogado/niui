@@ -24,3 +24,132 @@ header {
 	padding: 1em;
 
 }
+
+.dark-grey {
+	
+	background-color: #303030;
+	color: #fff;
+	
+	.card {
+		
+		background: #fff;
+		color: #000;
+
+	}
+	
+	.row.card-grid > * {
+		
+		border: none;
+	
+	}
+
+}
+
+.row.card-grid {
+	
+	padding: 1em 0;
+	
+	> * {
+		
+		background: #fff;
+		border-radius: 3px;
+		border: solid 1px #e4e4e4;
+		box-sizing: border-box;
+		padding: 0;
+		
+	}
+	
+	.card, .card .content {
+		
+		background: none;
+		margin: 0;
+	
+	}
+
+}
+
+.meta {
+	
+	font-size: .75em;	
+	
+	&.row > * > img {
+		
+		display: inline-block;
+	    width: 34px;
+	    float: left;
+	    margin-right: .5em;
+	    border-radius: 50%;
+	
+	}
+	
+	a[href] {
+	
+		color: #c94e4b;
+		font-weight: bold;
+		text-transform: uppercase;
+		text-decoration: none;
+	
+	}
+
+}
+
+header a[href] {
+	
+	text-decoration: none;
+
+}
+
+header nav.drop {
+	
+	
+	--nav-bg: #282828;
+	
+}
+
+
+
+header nav.drop a[href] {
+	
+	color: #fff;
+	
+}
+
+.diagram {
+	
+	padding: 100px 0;
+	background-image: url(landingpage_tuts_bg1@2x-936130b73bdc6b8299071bfc0a322608.jpg), url(landingpage_tuts_bg2@2x-b8124807eafcda4a5d4d358a2398225b.jpg);
+	background-repeat: no-repeat;
+	background-size: auto 80%;
+	background-position: calc(50% - 950px) 70%, calc(50% + 950px) 70%;
+	background-origin: right, left;
+	
+	.row {
+		
+		max-width: 1180px;
+		margin: 0 auto;
+
+	}
+	
+	.row .row img {
+		
+		width: 82px;
+		display: block;
+		margin: 1em auto;
+		
+	}
+
+}
+
+footer {
+	
+	background: #000;
+	color: #fff;
+	
+	a[href] {
+		
+		text-decoration: none;
+
+	}
+
+}
+

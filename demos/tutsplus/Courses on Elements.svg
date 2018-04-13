@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 46 46" style="enable-background:new 0 0 46 46;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#SVGID_1_);}
+	.st1{fill:url(#SVGID_2_);}
+	.st2{opacity:0.2;fill:none;stroke:#6D47D9;stroke-linejoin:round;stroke-dasharray:2,1;enable-background:new    ;}
+</style>
+<title>Courses on Elements</title>
+<g>
+	
+		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="23" y1="36.235" x2="23" y2="13.9818" gradientTransform="matrix(1 0 0 -1 0 48)">
+		<stop  offset="0" style="stop-color:#FEB748"/>
+		<stop  offset="1" style="stop-color:#F93D66"/>
+	</linearGradient>
+	<path class="st0" d="M32.7,22.1h-8.8v-8.8c0-0.5-0.4-0.9-0.9-0.9l0,0c-0.5,0-0.9,0.4-0.9,0.9v8.8h-8.8c-0.5,0-0.9,0.4-0.9,0.9
+		s0.4,0.9,0.9,0.9l0,0h8.8v8.8c0,0.5,0.4,0.9,0.9,0.9l0,0l0,0c0.5,0,0.9-0.4,0.9-0.9l0,0v-8.8h8.8c0.5,0,0.9-0.4,0.9-0.9
+		C33.6,22.5,33.2,22.1,32.7,22.1L32.7,22.1z"/>
+	
+		<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="23" y1="36.235" x2="23" y2="13.9818" gradientTransform="matrix(1 0 0 -1 0 48)">
+		<stop  offset="0" style="stop-color:#FEB748"/>
+		<stop  offset="1" style="stop-color:#F93D66"/>
+	</linearGradient>
+	<path class="st1" d="M23,33.9c-0.7,0-1.2-0.5-1.2-1.2v-8.5h-8.5c-0.7,0-1.2-0.5-1.2-1.2s0.5-1.2,1.2-1.2h8.5v-8.5
+		c0-0.7,0.5-1.2,1.2-1.2s1.2,0.5,1.2,1.2v8.5h8.5c0.7,0,1.2,0.5,1.2,1.2s-0.5,1.2-1.2,1.2h-8.5v8.5C24.2,33.4,23.7,33.9,23,33.9z
+		 M13.3,22.5c-0.3,0-0.5,0.2-0.5,0.5s0.2,0.5,0.5,0.5h9.2v9.1c0,0.3,0.2,0.6,0.5,0.6s0.5-0.2,0.5-0.6v-9.1h9.2
+		c0.3,0,0.5-0.2,0.5-0.5s-0.2-0.5-0.5-0.5h-9.2v-9.1c0-0.3-0.2-0.6-0.5-0.6s-0.5,0.2-0.5,0.6v9.1C22.5,22.5,13.3,22.5,13.3,22.5z"/>
+</g>
+<circle class="st2" cx="23" cy="23" r="22.5"/>
+</svg>
