@@ -1,3 +1,15 @@
+body {
+	
+	font-family: Roboto, sans-serif;
+	
+}
+
+.contain {
+	
+    max-width: 1302px;
+	    
+}
+
 header {
 	
 	background: #282828;
@@ -7,7 +19,7 @@ header {
 
 .banner {
 	
-	padding: 0 .75em;
+	padding: 0 .25em;
 
 }
 
@@ -19,9 +31,59 @@ header {
 
 }
 
+.banner h2 {
+
+	font-size: 30px;
+
+}
+
+.banner a[href].button {
+	
+	color: #49b293;
+	background: #fff;
+	
+}
+
+main a[href].button {
+	
+	color: #fff;
+	background-color: #f93d66;	
+
+}
+
+main a[href].button.big {
+	
+	background: none;
+	color: #82b541;
+	border-radius: 4px;
+	border: 2px #82b541 solid;	
+
+}
+
+form {
+	
+	padding: 0;
+
+}
+
+input[type=search] {
+	
+	margin: 0;
+	border: 1px solid #666;
+	border-radius: 4px;
+    min-height: 2em;
+
+}
+
 .banner .vertical.row > div > div {
 	
 	padding: 1em;
+
+}
+
+.card > img {
+	
+	width: 100%;
 
 }
 
@@ -119,7 +181,7 @@ header nav.drop a[href] {
 	padding: 100px 0;
 	background-image: url(landingpage_tuts_bg1@2x-936130b73bdc6b8299071bfc0a322608.jpg), url(landingpage_tuts_bg2@2x-b8124807eafcda4a5d4d358a2398225b.jpg);
 	background-repeat: no-repeat;
-	background-size: auto 80%;
+	background-size: auto 125%;
 	background-position: calc(50% - 950px) 70%, calc(50% + 950px) 70%;
 	background-origin: right, left;
 	
@@ -139,6 +201,13 @@ header nav.drop a[href] {
 	}
 
 }
+
+nav.drop li[aria-haspopup] {
+	
+    background-image: url(data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M50%20100L0%200h100z%22%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E);
+	
+}
+
 
 footer {
 	
