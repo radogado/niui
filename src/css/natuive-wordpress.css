@@ -160,7 +160,7 @@ $bg: #1E8DaC;
     --spacing: 0.75em;
     padding: 0; }
 
-  .row.no-margin, .row.no-margin > * {
+  .row.no-margin, .row.no-margin > *, .row.vertical > * {
     --spacing: 0.75em;
     margin: 0; }
 

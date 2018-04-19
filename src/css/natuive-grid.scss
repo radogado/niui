@@ -185,7 +185,7 @@
 			
 		}
 		
-		.row.no-margin, .row.no-margin > * {
+		.row.no-margin, .row.no-margin > *, .row.vertical > * {
 			
 			--spacing: #{$line-height-em/2};
 			margin: 0;
