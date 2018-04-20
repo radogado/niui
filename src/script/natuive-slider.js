@@ -196,7 +196,7 @@ function mouseEvents(el, toggle) {
 
 }
 
-function endSlide(slider, index) {
+function endSlide(slider, index, old_index) {
 
     if (hasClass(slider, 'lightbox')) {
 		
@@ -253,7 +253,11 @@ function endSlide(slider, index) {
 			
 		} else { // To do: If previous slide id is in URI, remove URI hash
 			
-			
+			if (typeof old_index !== 'undefined' && location.hash === '#' + slider.children[old_index].id) {
+				
+				removeHash();
+				
+			}
 			
 		}
 
@@ -446,7 +450,7 @@ function slide(el, method, index_number) {
 
 		slider.style.height = '';
 		current_slider = slider;
-		endSlide(slider, index);
+		endSlide(slider, index, old_index);
 
     });
 

@@ -3350,7 +3350,22 @@ button.search-submit {
 .lightbox.gallery {
   margin: .5em -.7em;
   display: flex;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  margin: 1rem 0; }
+
+.lightbox.gallery a {
+  width: 20%;
+  margin: 0; }
+
+.lightbox.gallery a:before {
+  content: '';
+  display: inline-block;
+  padding-top: 100%;
+  vertical-align: middle; }
+
+#content .lightbox.gallery a img {
+  display: inline-block;
+  vertical-align: middle; }
 
 body.home .lightbox.gallery, body.archive .lightbox.gallery, body.search-results .lightbox.gallery {
   max-height: 20em;
@@ -3371,9 +3386,6 @@ body.home .lightbox.gallery:before, body.archive .lightbox.gallery:before, body.
 
 }
 */
-.lightbox a {
-  margin: .75em .66em; }
-
 #full-window .slider-arrow {
   top: 49%; }
 

@@ -203,6 +203,8 @@ final class Cleaner_Gallery {
 		$gallery_attr .= sprintf( " itemscope itemtype='%s'", esc_attr( $this->get_gallery_itemtype() ) );
 
 $script = "
+
+<!--
 <style>
 
 .lightbox#gallery" . esc_attr( $this->args['id'] ) . '-' . esc_attr( $this->gallery_instance ) . " a {
@@ -213,6 +215,7 @@ $script = "
 }
 
 </style>
+-->
 
 <script> // If the featured image is also in a lightbox, open it on click
 	

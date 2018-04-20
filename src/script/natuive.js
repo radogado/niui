@@ -261,6 +261,12 @@ function ready(fn) {
 
 }
 
+function removeHash() {
+
+    history.pushState("", document.title, window.location.pathname + window.location.search);
+
+}
+
 /* ––– */
 
 function getURLParameters() { // return all URL parameters in an array
