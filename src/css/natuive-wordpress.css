@@ -1587,17 +1587,17 @@ nav.drop li[aria-haspopup] {
   html:not(.can-touch) nav.drop > ul > li > ul li {
     background-color: #fff;
     background-color: var(--nav-bg); }
-  html:not(.can-touch) nav.drop > ul > li:hover > ul, html:not(.can-touch) nav.drop > ul li ul li:hover ul, html:not(.can-touch) nav.drop ul ul :checked ~ ul:not([aria-expanded]) {
-    max-height: none;
-    overflow: visible;
-    opacity: 1;
-    z-index: 2; }
   html:not(.can-touch) nav.drop > ul > li:hover > input:not(:checked) ~ ul, html:not(.can-touch) nav.drop > ul li ul li:hover input:not(:checked) ~ ul {
     min-height: 0;
     max-height: 0;
     overflow: hidden;
     z-index: 1;
     position: absolute; }
+  html:not(.can-touch) nav.drop > ul > li:not([aria-haspopup]):hover > input:not(:checked) ~ ul, html:not(.can-touch) nav.drop > ul > li:hover > ul, html:not(.can-touch) nav.drop > ul li ul li:hover ul, html:not(.can-touch) nav.drop ul ul :checked ~ ul:not([aria-expanded]), html:not(.can-touch) nav.drop > ul li:not([aria-haspopup]) ul li:hover input:not(:checked) ~ ul {
+    max-height: none;
+    overflow: visible;
+    opacity: 1;
+    z-index: 2; }
   html:not(.can-touch) nav.drop > ul li ul li:hover ul {
     transition-delay: 0.2s; }
 

@@ -2528,7 +2528,7 @@ ready( function () {
 
 	setTimeout( function () {
 		
-		if (q('.lightbox:target')) {
+		if (q('.lightbox:target:not(.inline)')) {
 			
 			addClass(q('.lightbox:target'), 'uri-target');
 			openLightbox(q('.lightbox:target > a[href]'));

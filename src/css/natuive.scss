@@ -42,7 +42,7 @@ body {
 	position: relative;
 	overflow: hidden;
 	width: 100%;
-	height: auto;
+	height: auto; // Problem with Chrome 66
 	min-height: 100%;
 	display: flex;  /* Sticky footer */
 	flex-direction: column;

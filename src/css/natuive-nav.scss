@@ -289,15 +289,6 @@ nav.drop li[aria-haspopup] {
 			
 		}
 
-		nav.drop > ul > li:hover > ul, nav.drop > ul li ul li:hover ul, nav.drop ul ul :checked ~ ul:not([aria-expanded]) {
-			
-			max-height: none;
-			overflow: visible;
-			opacity: 1;
-			z-index: 2;
-			
-		}
-		
 		nav.drop > ul > li:hover > input:not(:checked) ~ ul, nav.drop > ul li ul li:hover input:not(:checked) ~ ul {
 			
 			min-height: 0;
@@ -306,6 +297,15 @@ nav.drop li[aria-haspopup] {
 			z-index: 1;
 			position: absolute;
 
+		}
+		
+		nav.drop > ul > li:not([aria-haspopup]):hover > input:not(:checked) ~ ul, nav.drop > ul > li:hover > ul, nav.drop > ul li ul li:hover ul, nav.drop ul ul :checked ~ ul:not([aria-expanded]), nav.drop > ul li:not([aria-haspopup]) ul li:hover input:not(:checked) ~ ul {
+			
+			max-height: none;
+			overflow: visible;
+			opacity: 1;
+			z-index: 2;
+			
 		}
 		
 		nav.drop > ul li ul li:hover ul {
