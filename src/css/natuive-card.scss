@@ -5,7 +5,8 @@
 .card {
 	
 	margin: 1em 0;
-	background: rgba(0,0,0,.1);
+	--card-bg: #{rgba(0,0,0,.1)};
+	background: var(--card-bg);
 
 }
 
@@ -17,7 +18,7 @@
 
 .card .content {
 	
-	background: rgba(0,0,0,.1);
+	background: var(--card-bg);
 
 }
 

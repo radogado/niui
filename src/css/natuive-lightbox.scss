@@ -207,7 +207,7 @@
 	.lightbox a img {
 		
 		display: block;
-		padding-bottom: 0 !important;
+// 		padding-bottom: 0; // used to be necessary for the baseline compensation
 		margin: 0 auto;
 	
 	}

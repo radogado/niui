@@ -137,7 +137,7 @@ header a.logo {
 
 .narrow-screen {
 
-	display: none !important;
+	display: none;
 
 }
 
@@ -168,7 +168,7 @@ footer .row > * {
 
 video {
 
-	height: auto !important;
+	height: auto;
 	background: #000;
 	margin: 0 auto;
 	display: block;
@@ -347,13 +347,13 @@ a[href].span-relative-parent {
 
 	.wide-screen {
 
-		display: none !important;
+		display: none;
 
 	}
 
 	.narrow-screen {
 
-		display: block !important;
+		display: block;
 
 	}
 

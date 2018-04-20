@@ -535,7 +535,7 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 	
 .row.border-off, .row.border-off * {
 	
-	box-shadow: none !important;
+	box-shadow: none;
 
 }
 
@@ -612,7 +612,7 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 		.row > *, .row > [class^=col] {
 	
 			padding: .3em;
-			flex: 0 0 100% !important;
+			flex: 0 0 100%;
 	
 		}
 	
@@ -652,8 +652,8 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 
 	.row.half > * {
 		
-		width: 50% !important;
-		flex: 0 0 50% !important;
+		width: 50%;
+		flex: 0 0 50%;
 
 	}
 	
