@@ -103,6 +103,10 @@ $bg: #1E8DaC;
   --width: 1/5;
   flex-basis: calc(20% - 1.5em); }
 
+.row > .col6 {
+  --width: 1/6;
+  flex-basis: calc(16.667% - 1.5em); }
+
 .row > .col25 {
   --width: 2/5;
   flex-basis: calc(40% - 1.5em); }
@@ -416,8 +420,10 @@ ol.masonry > * {
     padding: 0;
     width: 100%;
     border: none;
-    margin: 0.75em 0;
     box-sizing: border-box; }
+
+  .row:not(.no-margin) > *, .row:not(.no-margin) > [class^=col] {
+    margin: 0.75em 0; }
 
   @supports (--a: 1) {
     .row > *, .row > [class^=col] {
@@ -2946,7 +2952,7 @@ header a.logo {
   display: none; }
 
 /* Main */
-main#content {
+main {
   flex: 1 0 auto; }
 
 /* Footer */

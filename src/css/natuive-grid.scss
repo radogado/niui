@@ -106,6 +106,13 @@
 
 	}
 
+	.row > .col6 {
+
+		--width: 1/6;
+		flex-basis: calc(16.667% - #{$line-height-em});
+
+	}
+
 	.row > .col25 {
 
 		--width: 2/5;
@@ -602,8 +609,13 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 		padding: 0;
 		width: 100%; // Important because of Android Browser
 		border: none;
-		margin: $line-height-em/2 0;
 		box-sizing: border-box;
+
+	}
+	
+	.row:not(.no-margin) > *, .row:not(.no-margin) > [class^=col] {
+
+		margin: $line-height-em/2 0;
 
 	}
 	
