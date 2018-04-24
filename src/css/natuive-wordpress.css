@@ -918,7 +918,8 @@ form .checkbox label:first-of-type { // To do: not needed when checkboxes are in
 :root form .checkbox label {
   /* Not IE9 */
   padding-left: 0;
-  padding-bottom: 0; }
+  padding-bottom: 0;
+  display: inline; }
 
 /*
 form .checkbox label + label {
