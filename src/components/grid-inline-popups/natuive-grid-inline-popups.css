@@ -1,0 +1,40 @@
+@charset "UTF-8";
+/* natUIve – Grid with inline popups */
+/*
+$color: #fff;
+$bg: #1E8DaC;
+*/
+:root {
+  /*
+  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
+  	--line-height: 2;
+  	--line-height-em: calc(var(--line-height)*1em);
+  */
+  /*
+  	--color: #fff;
+  	--bg: #1E8DaC;
+  */
+  --color: #333;
+  --bg: #fff; }
+
+.grid-inline-popup > .popup {
+  width: 100%;
+  flex-basis: 100%;
+  order: 0;
+  will-change: max-height;
+  /* avoid glitchy animation: */
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0; }
+
+.grid-inline-popup > div:not(.popup) {
+  cursor: zoom-in; }
+
+.grid-inline-popup > div:not(.popup)[aria-expanded] {
+  cursor: zoom-out; }
+
+.grid-inline-popup > .popup:not([aria-expanded]) {
+  display: none; }
+
+/*# sourceMappingURL=natuive-grid-inline-popups.css.map */

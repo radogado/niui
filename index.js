@@ -1,2 +1,2 @@
-require('./dist/natuive.min.css'); 
-require('./src/script/natuive-combined.js'); 
+require('./src/css/natuive.css');
+require('./src/script/natuive.js');

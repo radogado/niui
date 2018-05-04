@@ -1,0 +1,942 @@
+/* natUIve  – Form */
+
+@import '../../css/natuive-setup';
+
+// Default form
+
+@supports (--a: 1) { // Cut out IE because of drop nav
+
+	form {
+		
+		padding: $line-height-em 0;
+		
+	}
+
+}
+
+form *:not(option) { // option because of Firefox
+	
+	display: inline-block;
+	vertical-align: middle;
+
+}
+
+/*
+form :focus {
+	
+	outline: auto;
+
+}
+*/
+
+input[type=submit], label, form .checkbox span, form label > span {
+	
+// 		font-size: $font-size;
+	line-height: $line-height;
+// 	line-height: var(--line-height);
+	min-height: $line-height-em;
+// 	min-height: var(--line-height-em);
+
+}
+
+input[type=submit], form button, input[type=submit], form .file, form .file span {
+	
+	line-height: $line-height * 2;
+// 	line-height: calc(var(--line-height) * 2);
+	min-height: $line-height-em * 2;
+// 	min-height: calc(var(--line-height-em) * 2);
+	
+}
+
+label {
+	
+	font-weight: bold;
+	max-width: 100%;
+	position: relative;
+	padding: 0;
+	margin: 0 0 $line-height-em 0;
+// 		margin: 0 0 var(--line-height-em) 0;
+	min-height: $line-height-em*2;
+// 		min-height: calc(var(--line-height-em)*2);
+
+}
+
+// 	Submit button – start
+
+input[type=submit], form button {
+	
+	height: auto;
+	line-height: $line-height;
+// 		line-height: var(--line-height);
+	white-space: normal;
+	word-break: break-all;
+	margin: 0;
+	min-width: 50%;
+	max-width: 100%;
+	padding: 0 1em;
+	
+}
+
+form.sticky-submit {
+	
+	position: relative;
+	
+}
+
+form.sticky-submit input[type=submit] {
+	
+	position: absolute;
+	top: 50%;
+	right: 0;
+	transform: translateY(-50%);
+
+}
+
+// 	Submit button – end
+
+input, select, textarea, input[type=search], form button {
+	
+	background-color: #eee;
+	background-color: rgba(0, 0, 0, .1);
+	font-family: inherit;
+	display: inline-block;
+	overflow: hidden;
+	resize: none;
+	vertical-align: top;
+	border-radius: 0;
+	padding: 0 $line-height-em/2;
+// 		padding: 0 calc(var(--line-height-em)/2);
+	min-height: $line-height-em * 2;
+// 		min-height: calc(var(--line-height) * 2em);
+	border: 0;
+	font-size: 1em;
+// 	width: 100%;
+// 	outline: none;
+	border: 1px dotted transparent;
+	color: inherit;
+
+}
+
+/*
+input:focus, select:focus, textarea:focus {
+	
+	border-color: #bbb;
+	
+}
+*/
+
+form .checkbox span {
+	
+	display: inline-block;
+	font-weight: bold;
+	margin-top: 0;
+	cursor: default;
+
+}
+
+.checkbox label {
+	
+	text-align: start;
+	font-weight: normal;
+	clear: right;
+	margin: 0;
+	cursor: pointer;
+	min-height: 0;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	
+}
+
+form .checkbox {
+
+	display: block;
+	min-height: $line-height-em;
+// 		min-height: var(--line-height-em);
+	margin-bottom: $line-height-em;
+// 		margin-bottom: var(--line-height-em);
+
+}
+
+form .checkbox:after {
+	
+	content: '';
+	display: block;
+	clear: both;
+
+}
+	
+form .checkbox label span {
+	
+	width: auto;
+
+}
+
+form .mandatory span.checkbox:before, form .mandatory span.tip:after, select::-ms-expand {
+
+	display: none;
+	
+}
+
+textarea {
+	
+	border-bottom: 1px dotted transparent;
+	min-height: $line-height-em * 3;
+// 		min-height: calc(var(--line-height-em) * 3);
+	padding-top: $line-height-em/2;
+// 	padding-top: .85em;
+    margin: $line-height-em 0;
+
+}
+
+textarea:not([data-auto]) {
+	
+	overflow: auto;
+	
+}
+
+textarea[data-auto] {
+
+	transform: translate3d(0, 0, 0); // Fix for disappearing textarea after deleting its overflowed text
+
+}
+
+form .mandatory {
+	
+	position: relative;
+	
+}
+
+form .mandatory:before {
+	
+	content: '*';
+	color: #a00;
+	position: absolute;
+	top: 0;
+	font-weight: bold;
+	
+}
+
+form .mandatory.alert span, form .mandatory.alert p {
+	
+	background: #666;
+	color: #eee;
+	
+}
+
+form .mandatory.alert span.checkbox {
+	
+	background: none;
+	color: #555;
+	
+}
+
+form .mandatory.alert span.tip {
+	
+	background: #222;
+	
+}
+
+form .mandatory:before {
+	
+	left: auto;
+	right: 0;
+
+}
+
+[dir=rtl] form .mandatory:before {
+	
+	left: 0;
+	right: auto;
+
+}
+
+select {
+	
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	text-indent: 0.01px;
+	text-overflow: '';
+	min-height: 0;
+	text-indent: 0px;
+	padding: 0 1.6em 0 .8em;
+	height: $line-height-em * 2;
+// 		height: calc(var(--line-height-em) * 2);
+	white-space: nowrap;
+// 		font-family: inherit;
+    text-indent: -1px;
+    text-overflow: '';	
+    margin: 0;
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAG0lEQVR42mNgwAfKy8v/48I4FeA0AacVDFQBAP9wJkE/KhUMAAAAAElFTkSuQmCC");
+	background-repeat: no-repeat;
+	background-position: calc(100% - 1em) 50%;
+	text-indent: 1px;
+
+}
+
+select:hover {
+	
+	cursor: pointer;
+	
+}
+
+/*
+label.select:after {
+	
+    position: absolute;
+    right: .5em;
+    width: 1em;
+    bottom: .9em;
+    content: '▾';
+	    
+}
+*/
+
+[dir=rtl] select {
+	
+	padding-left: 0;
+	padding-right: .8em;
+
+}
+
+select, form .file {
+
+	vertical-align: top;
+	border: none;
+// 	overflow: hidden;
+	margin-left: 0;
+
+}
+
+select option {
+	
+	padding: 0 1.5em 0 0;
+
+}
+
+/*
+form .checkbox label:first-of-type { // To do: not needed when checkboxes are inline
+	
+// 		margin-top: $line-height-em/2;
+// 		margin-top: var(--line-height-em);
+	
+}
+*/
+
+:root form .checkbox label { /* Not IE9 */
+
+	padding-left: 0;
+	padding-bottom: 0;
+	display: inline;
+
+}
+
+/*
+form .checkbox label + label {
+	
+	margin-top: 0; 
+
+}
+*/
+
+/*
+form .checkbox label:last-child {
+	
+	margin-bottom: $line-height-em;
+// 		margin-bottom: var(--line-height-em);
+
+}
+*/
+
+.checkbox-icon {
+	
+	width: 1em;
+	height: 1em;
+	display: inline-block;
+	background: #eee;
+	line-height: ($line-height + 1)*(2/3);
+// 		line-height: calc((var(--line-height) + 1)*(2/3));
+	font-size: ($line-height - 2)*(2em/3);
+// 		font-size: calc((var(--line-height) - 1)*(2/3));
+	text-align: center;
+	color: #333;
+	display: none;
+	border: none;
+
+	margin: 0;
+	position: absolute;
+	left: 0;
+	z-index: 1;
+	top: .25em;
+
+}
+
+input[type=checkbox] + .checkbox-icon:before {
+	
+	content: '✓';
+	opacity: 0;
+	display: block;
+	height: 1em;
+	line-height: 1;
+
+}
+
+:root .checkbox-icon { /* Not IE8 */
+
+	display: inline-block;
+	vertical-align: middle;
+
+}
+
+input[type=checkbox]:checked + .checkbox-icon:before {
+	
+	opacity: 1;
+
+}
+
+input[type=checkbox], input[type=radio] {
+	
+	-webkit-appearance: none;
+	-moz-appearance: window;
+	-ms-appearance: none;
+	background: transparent;
+	cursor: pointer;
+	padding: 0;
+	min-height: 0;
+
+	height: 1em;
+	width: 1em;
+	display: inline-block;
+	margin: 0;
+	border: none;
+	opacity: 0;
+
+}
+
+input[type=radio] + .checkbox-icon {
+	
+	border-radius: 50%;
+
+}
+
+input[type=radio]:checked + .checkbox-icon:before {
+	
+	content: '';
+	position: absolute;
+	background: #333;
+	top: 25%;
+	right: 25%;
+	bottom: 25%;
+	left: 25%;
+	border-radius: 50%;
+
+}
+
+form .checkbox label:last-child {
+	
+	margin-bottom: 0;
+	
+}
+
+/*
+input[type=checkbox]:focus + .checkbox-icon, input[type=radio]:focus + .checkbox-icon {
+	
+	border: 1px dotted #666;
+
+}
+*/
+
+// File input
+
+.file input[type=file] {
+	
+/*
+	position: absolute;
+	left: 0;
+*/
+	width: 100%;
+/*
+	margin: 0;
+	padding: 0;
+*/
+	cursor: pointer;
+	border: none;
+	opacity: 0;
+	margin: 0;
+/*
+	z-index: 1;
+	text-indent: -100%;
+	top: 0;
+	bottom: 0;
+	padding-left: 200%;
+	font-size: 0;
+	margin-top: 0;
+	background: transparent;
+*/
+
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) { /* IE10 */
+
+	input[type=file] {
+		
+		margin-left: -100%;
+
+	}
+
+}
+
+form .file {
+
+	font-weight: normal;
+	margin: 0 0 $line-height-em 0;
+// 		margin: calc(-1*var(--line-height)/2) 0 calc(var(--line-height)/2) 0;
+	cursor: pointer;
+	font-style: italic;
+	padding: 0;
+// 	overflow: hidden;
+    position: relative;
+	
+}
+
+form .file span {
+
+	text-align: start;
+	border: none;
+	white-space: nowrap;
+	overflow: hidden;
+	background: #ddd;
+/*
+	z-index: 0;
+	margin: 0;
+	width: 100%;
+*/
+	padding: 0 $line-height-em/2 0 .75em;
+	display: block;
+	line-height: $line-height-em;
+	padding-top: $line-height-em/2;
+
+	position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    
+}
+
+input[type=file]:focus + span {
+	
+	outline: auto;
+
+}
+
+input[type=search] {
+
+    -webkit-appearance: textfield; // Prevent iOS from rounding the input edges
+    border-radius: 0;
+
+}
+
+input[type=search]::-webkit-search-decoration,
+input[type=search]::-webkit-search-cancel-button {
+
+    -webkit-appearance: none;
+
+}
+
+label, label span, form .checkbox span {
+	
+	margin: 0;
+	text-align: start;
+	
+}
+
+input, select {
+	
+	display: inline-block;
+	width: auto;
+	padding-top: 0;
+	margin: $line-height-em 0;
+	vertical-align: middle;
+	
+}
+
+form input[type=submit] {
+	
+	width: auto;
+	min-width: 0;
+	padding: 0 1em;
+	min-height: $line-height-em*1.6667;
+// 		margin-top: $line-height-em/2;
+// 		margin-top: calc(var(--line-height-em) / 2);
+	text-align: start;
+
+}
+
+@-moz-document url-prefix() { // FF fixes
+
+	select { 
+		
+		padding-left: 0; text-indent: .3em; 
+	
+	}
+	select option { 
+		
+		padding: 0; 
+	
+	}
+	input::-moz-focus-inner, button::-moz-focus-inner {
+	  padding: 0;
+	  border: 0;
+	}
+	input[type=text], input[type=email], input[type=url] { 
+		
+		padding-top: 0; 
+	
+	}
+	form .file span { 
+		
+		margin-top: -1px; 
+	
+	}
+	input[type=file] { 
+
+		padding-left: 100%; 
+		text-indent: -1em;
+		margin-top: -$line-height-em; 
+// 			margin-top: -var(--line-height-em); 
+
+	}
+
+}
+
+// 	Range input – start
+
+form input[type=range] {
+
+	-webkit-appearance: none;
+	width: 100%;
+	background: none;
+	margin: 0;
+	padding: 0;
+
+}
+
+/*
+input[type=range]:focus {
+
+	outline: none;
+
+}
+*/
+
+input[type=range]::-webkit-slider-runnable-track {
+
+	width: 100%;
+	height: .7125em;
+	cursor: pointer;
+	background: rgba(0, 0, 0, 0.1);
+
+}
+
+input[type=range]::-webkit-slider-thumb {
+
+	height: 1.625em;
+	width: 1.625em;
+	border-radius: 50%;
+	background: #000;
+	cursor: pointer;
+	-webkit-appearance: none;
+	margin-top: -.45625em;
+
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+
+	background: rgba(5, 5, 5, 0.1);
+
+}
+
+input[type=range]::-moz-range-track {
+
+	width: 100%;
+	height: .7125em;
+	cursor: pointer;
+	background: rgba(0, 0, 0, 0.1);
+
+}
+
+input[type=range]::-moz-range-thumb {
+
+	border: 0px solid rgba(0, 0, 0, 0);
+	height: 1.625em;
+	width: 1.625em;
+	border-radius: 50%;
+	background: #000;
+	cursor: pointer;
+
+}
+
+input[type=range]::-ms-track {
+
+	width: 100%;
+	height: .7125em;
+	cursor: pointer;
+	background: transparent;
+	border-color: transparent;
+	color: transparent;
+
+}
+
+input[type=range]::-ms-fill-lower {
+
+	background: rgba(0, 0, 0, 0.1);
+
+}
+
+input[type=range]::-ms-fill-upper {
+
+	background: rgba(0, 0, 0, 0.1);
+
+}
+
+input[type=range]::-ms-thumb {
+
+	border: 0px solid rgba(0, 0, 0, 0);
+	height: 1.625em;
+	width: 1.625em;
+	border-radius: .9375em;
+	background: #000000;
+	cursor: pointer;
+	height: .7125em;
+
+}
+
+input[type=range]:focus::-ms-fill-lower {
+
+	background: rgba(0, 0, 0, 0.1);
+
+}
+
+input[type=range]:focus::-ms-fill-upper {
+
+	background: rgba(5, 5, 5, 0.1);
+
+}
+	
+// 	Range input – end
+
+// Placeholder colour
+
+$placeholder_color: #aaa;
+
+form {
+	
+	--placeholder_color: #aaa;
+
+}
+
+::-webkit-input-placeholder {
+
+   color: $placeholder_color;
+   color: var(--placeholder_color);
+	-webkit-text-fill-color: $placeholder_color;
+	-webkit-text-fill-color: var(--placeholder_color);
+
+}
+
+/*
+:-moz-placeholder { // Firefox 18-
+
+   color: $placeholder_color;  
+   color: var(--placeholder_color);
+
+}
+
+::-moz-placeholder {  // Firefox 19+
+
+   color: $placeholder_color;  
+   color: var(--placeholder_color);
+
+}
+
+:-ms-input-placeholder {  
+
+   color: $placeholder_color;  
+   color: var(--placeholder_color);
+
+}
+*/
+
+legend {
+	
+    padding: 0 .5em;
+
+}
+
+form fieldset {
+	
+	border: 1px solid;
+	display: block;
+    margin: $line-height-em/2 0;
+	
+}
+
+fieldset input:last-of-type {
+	
+	margin-bottom: $line-height-em/3;
+	
+}
+
+fieldset[disabled] {
+	
+	display: none;
+
+}
+
+// Wide form
+
+form.wide textarea, form.mast textarea {
+	
+	margin: -$line-height-em/2 0 $line-height-em/2 0;
+	// 		margin: calc(-1*var(--line-height-em)/2) 0 calc(var(--line-height-em)/2) 0;
+	
+}
+
+form.wide input[type=submit] {
+
+	margin-bottom: calc(#{$line-height-em} - 5px); /* fix for the failed box-sizing: border-box */
+// 		margin-bottom: calc(var(--line-height-em) - 2px); /* fix for the failed box-sizing: border-box */
+//		min-height: calc(#{$line-height-em}*2 - 2px);
+// 		min-height: calc(var(--line-height-em)*2 + 2px);
+	line-height: 2*$line-height-em/3;
+	
+}
+
+form.wide select {
+	
+	width: 100%;
+	height: $line-height-em * 2;
+	// 		height: calc(var(--line-height-em) * 2);
+	margin: -$line-height-em/2 0 $line-height-em/2 0;
+	// 		margin: calc(-1*var(--line-height-em)/2) 0 calc(var(--line-height-em)/2) 0;
+	
+}
+
+form.wide label, form.wide label span, form.wide .checkbox span, form.wide label, form.wide .file {
+	
+	display: block;
+	width: 100%;
+	clear: both;
+	
+}
+
+form.wide:not(.sticky-submit) input:not([type=checkbox]):not([type=radio]), form.wide textarea, form.wide select {
+	
+	display: block;
+	width: 100%;
+	border: none;
+	margin: 0 0 $line-height-em 0;
+// 		margin: 0 0 calc(var(--line-height-em) / 2) 0;
+
+}
+
+form.mast label {
+	
+	width: 100%;
+	
+}
+
+form.mast label > input {
+	
+	margin-top: -$line-height-em/2;
+// 			margin-top: calc(-var(--line-height-em)/2);
+
+}
+
+// Mast form with labels/inputs on either side – start
+
+form.mast > label > *, form.mast > .checkbox > * {
+	
+	width: 50%;
+	float: right;
+	margin: -$line-height-em/2 0 $line-height-em*1.5 0;
+
+}
+
+form.mast > label > span, form.mast > .checkbox > span {
+	
+	width: 50%;
+	text-align: right;
+	padding-right: 1em;
+	float: left;
+	margin: 0;
+
+}
+
+form.mast > .checkbox > * {
+	
+	margin: 0;
+
+}
+
+form.mast .mandatory:before {
+
+	left: calc(50% - 1em);
+	z-index: -1;
+
+}
+
+[dir=rtl] form.mast .mandatory:before {
+
+	right: calc(50% - 1em);
+	left: auto;
+
+}
+
+// Mast form with labels/inputs on either side – end
+
+/*
+header form {
+	
+	display: inline-block;
+	vertical-align: middle;
+
+}
+
+	header form noscript input[type=submit] {
+		
+		margin: 0;
+		padding: 0;
+		min-width: 0;
+		min-height: 1em;
+
+	}
+	
+	header form select {
+		
+		width: 100%;
+		display: inline-block;
+		margin: 0;
+
+	}
+*/
+	
+// Language select
+
+form.language select {
+	
+	height: auto;
+	width: 100%;
+	background-position: calc(100% - .5em);
+	margin-left: 0;
+	background-color: unset;
+    height: $line-height-em;
+    line-height: $line-height-em;
+	
+}
+
+// To do: focus visual indication on checkboxes, radios, selects

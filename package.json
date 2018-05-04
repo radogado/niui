@@ -14,5 +14,13 @@
   "bugs": {
     "url": "https://github.com/radogado/natuive/issues"
   },
-  "homepage": "https://github.com/radogado/natuive#readme"
+  "homepage": "https://github.com/radogado/natuive#readme",
+  "devDependencies": {
+    "grunt": "^1.0.2",
+    "grunt-closure-compiler": "0.0.21",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^2.2.1",
+    "grunt-contrib-sass": "^1.0.0"
+  }
 }

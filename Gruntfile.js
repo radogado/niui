@@ -1,42 +1,94 @@
 module.exports = function(grunt) {
 
+	grunt.loadNpmTasks('grunt-contrib-sass');
+	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
+	grunt.loadNpmTasks('grunt-closure-compiler');
+	grunt.loadNpmTasks('grunt-contrib-copy');
+
 	grunt.initConfig({
 		'sass': {
-			dist: { 
+			core: { 
 				files: {
-					'src/css/natuive.css': 'src/css/natuive.scss',
+					'src/css/natuive-core.css': 'src/css/natuive-core.scss'
+					}
+				},
+			components: {
+				files: [{
+					expand: true,
+						cwd: "src/components",
+						src: ["**/*.scss"],
+						dest: "src/components",
+						ext: ".css"
+					}]
+				},
+			WordPress: {
+				files: {
 					'src/css/natuive-wordpress.css': 'src/css/natuive-wordpress.scss'
 					}
 				}
 		},
-		'cssmin': {
-		  options: {
-		    shorthandCompacting: false,
-		    roundingPrecision: -1
+		'concat': {
+		  JS: {
+			options: {
+				separator: ';',
+				banner: 'var nui = (function(){',
+				footer: 'return { initComponents: initComponents, animate: animate, copyButton: copyButton, openFullWindow: openFullWindow, closeFullWindow: closeFullWindow, notify: notify, addComponent: addComponent }; })();'
+		    },
+		    src: ['src/script/natuive-core.js', 'src/components/**/*.js'],
+		    dest: 'src/script/natuive.js'
 		  },
-		  target: {
-		    files: {
-		      'dist/natuive.min.css': ['src/css/natuive.css'],
-		      'natuive-wordpress/natuive-wordpress.min.css': ['src/css/natuive-wordpress.css']
-		    }
+		  CSS: {
+		    src: ['src/css/natuive-core.css', 'src/components/**/*.css'],
+		    dest: 'src/css/natuive.css'
+		  },
+		  JS_lite: {
+			options: {
+				separator: ';',
+				banner: 'var nui = (function(){',
+				footer: 'return { initComponents: initComponents, animate: animate, copyButton: copyButton, openFullWindow: openFullWindow, closeFullWindow: closeFullWindow, notify: notify, addComponent: addComponent }; })();'
+		    },
+		    src: ['src/script/natuive-core.js', 'src/components/form/*.js', 'src/components/nav/*.js', 'src/components/table/*.js', 'src/components/tooltip/*.js'],
+		    dest: 'src/script/natuive-lite.js'
+		  },
+		  CSS_lite: {
+		    src: ['src/css/natuive-core.css', 'src/components/button/*.css', 'src/components/form/*.css', 'src/components/grid/*.css', 'src/components/list/*.css', 'src/components/nav/*.css', 'src/components/table/*.css', 'src/components/tooltip/*.css', 'src/components/typography/*.css'],
+		    dest: 'src/css/natuive-lite.css'
+		  },
+		  WordPress: {
+		    src: ['src/css/natuive.css', 'src/css/natuive-wordpress.css'],
+		    dest: 'src/css/natuive-wordpress-bundle.css'
 		  }
 		},
-		'concat': {
-			js: {
-			    options: {
-		      separator: ';',
-		      banner: 'var nui = (function(){',
-		      footer: 'return { init: init, animate: animate, copyButton: copyButton, openFullWindow: openFullWindow, closeFullWindow: closeFullWindow, notify: notify, addComponent: addComponent, makeSlider: makeSlider }; })();'
-		    },
-		      src: ['src/script/natuive.js', 'src/script/natuive-slider.js'],
-		      dest: 'src/script/natuive-combined.js',
-		    }
+		'cssmin': {
+			  options: {
+			    shorthandCompacting: false,
+			    roundingPrecision: -1
+			  },
+			  target: {
+			    files: {
+			      'dist/natuive.min.css': ['src/css/natuive.css'],
+			      'dist/natuive-lite.min.css': ['src/css/natuive-lite.css'],
+			      'natuive-wordpress/natuive-wordpress.min.css': ['src/css/natuive-wordpress-bundle.css']
+			    }
+			  }
 		},
 		'closure-compiler': {
-			frontend: {
+			dist: {
 			  closurePath: './node_modules/closure-compiler',
-			  js: ['src/script/natuive-combined.js'],
+			  js: 'src/script/natuive.js',
 			  jsOutputFile: 'dist/natuive.min.js',
+			  maxBuffer: 500,
+			  noreport: true,
+			  options: {
+			    compilation_level: 'ADVANCED_OPTIMIZATIONS',
+			    language_in: 'ECMASCRIPT5_STRICT',
+			  }
+			},
+			lite: {
+			  closurePath: './node_modules/closure-compiler',
+			  js: 'src/script/natuive-lite.js',
+			  jsOutputFile: 'dist/natuive-lite.min.js',
 			  maxBuffer: 500,
 			  noreport: true,
 			  options: {
@@ -55,13 +107,6 @@ module.exports = function(grunt) {
 		}  
 	});
 
-	grunt.loadNpmTasks('grunt-contrib-sass');
-	grunt.loadNpmTasks('grunt-contrib-cssmin');
-	grunt.loadNpmTasks('grunt-contrib-concat');
-	grunt.loadNpmTasks('grunt-closure-compiler');
-	grunt.loadNpmTasks('grunt-contrib-copy');
-
-	// Default task(s).
-	grunt.registerTask('default', ['sass', 'cssmin', 'concat', 'closure-compiler', 'copy']);
+	grunt.registerTask('default', ['sass', 'concat', 'cssmin', 'closure-compiler', 'copy']);
 
 };
