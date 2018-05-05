@@ -138,13 +138,12 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 
 /* Grid with inline popups – end */
 
-	var selector = '.grid-inline-popups';
 	var init = function (host){
 
 		initGridInlinePopups(host);
 		
 	};
-	registerComponent('grid-inline-popups', selector, init);
+	registerComponent('grid-inline-popups', init);
 
 })();
 

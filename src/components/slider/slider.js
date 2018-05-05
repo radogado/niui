@@ -775,7 +775,6 @@ var componentSlider = (function (){
 	
 	}
 
-	var selector = '.slider';
 	var init = function(host) {
 		
 		forEach(host.querySelectorAll('.slider:not([data-ready])'), function(el) {
@@ -785,7 +784,7 @@ var componentSlider = (function (){
 		});
 		
 	};
-	registerComponent('slider', selector, init);
+	registerComponent('slider', init);
 	
 	return { makeSlider: makeSlider, getSliderNav: getSliderNav };
 

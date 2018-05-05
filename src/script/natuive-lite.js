@@ -924,13 +924,14 @@ function openFullWindow(el, animation) { // el is an HTML string
 }
 
 var current_slider = q('.slider');
+var draggingNow = false;
 
 var components = new Array;
 
-function registerComponent(name, selector, init) {
+function registerComponent(name, init) {
 
 	components[name] = new Array;
-	components[name].push({ selector: selector, init: init });
+	components[name].push({ init: init });
 
 }
 
@@ -949,15 +950,6 @@ function initComponents(host) {
 	    components[key][0].init(host);
 	
 	}
-
-	// Animate anchor link jumps
-	forEach(host.querySelectorAll('a[href^="#"]'), function(el) {
-	
-		el.onclick = el.onclick || animateAnchors; // Don't add to previous onclick event handler
-	
-	});
-	
-	notifyCloseEvent();
 
 // 	observerOn();
 
@@ -1022,6 +1014,28 @@ ready(function(){
 
 	initComponents();
 	initThreshold(q('body'));
+/*
+	// Animate anchor link jumps
+	forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
+	
+		el.onclick = el.onclick || animateAnchors; // Don't add to previous onclick event handler
+	
+	});
+	
+	notifyCloseEvent();
+
+	window.addEventListener('touchstart', function (e) {
+		
+		draggingNow = false;
+		
+	});
+
+	window.addEventListener('touchmove', function (e) {
+		
+		draggingNow = true;
+		
+	});
+*/
 	
 });
 ;// Component Form – start
@@ -1175,12 +1189,12 @@ function toggleConditionalFieldset(e) {
 
 /* Form – end */
 
-	var selector = 'form';
 	var init = function(host) {
 		
 		forEach(host.querySelectorAll('form'), function(el, i) {
 		
 		    el.onsubmit = el.onsubmit || submitForm;
+		    makeReady(el);
 		
 		});
 		
@@ -1230,7 +1244,7 @@ function toggleConditionalFieldset(e) {
 		});
 	
 	};
-	registerComponent('form', selector, init);
+	registerComponent('form', init);
 
 })();
 
@@ -1343,7 +1357,6 @@ function dropNavFocus(e) {
 }
 
 var closeDropNavClickedOutsideEnabled = false;
-var draggingNow = false;
 
 function initNav(el) {
 	
@@ -1443,34 +1456,21 @@ function initNav(el) {
 
 	draggingNow = false;
 
-	window.addEventListener('touchstart', function (e) {
-		
-		draggingNow = false;
-		
-	});
-
-	window.addEventListener('touchmove', function (e) {
-		
-		draggingNow = true;
-		
-	});
-
 }
 	
 /* Nav – end */
 
-	var selector = 'nav';
 	var init = function (host) {
 		
 		forEach(host.querySelectorAll('nav:not([data-ready]) > ul:not([role])'), function (el) {
 			
 			initNav(el);
-			makeReady(el);
+			makeReady(closest(el, 'nav'));
 			
 		});
 
 	};
-	registerComponent('nav', selector, init);
+	registerComponent('nav', init);
 
 })();
 
@@ -1517,7 +1517,6 @@ function initNav(el) {
 
 }
 
-	var selector = 'table';
 	var init = function (host) {
 		
 		forEach(host.querySelectorAll('table:not([data-ready])'), function(el) {
@@ -1567,7 +1566,7 @@ function initNav(el) {
 		}
 	
 	};
-	registerComponent('table', selector, init);
+	registerComponent('table', init);
 
 })();
 
@@ -1576,7 +1575,6 @@ function initNav(el) {
 
 (function (){
     
-	var selector = '.tool';
 	var init = function (host) {
 		
 		/* Tooltip */
@@ -1620,11 +1618,12 @@ function initNav(el) {
 				}
 	
 			}
+			makeReady(el);
 		
 		});
 		
 	};
-	registerComponent('tooltip', selector, init);
+	registerComponent('tooltip', init);
 
 })();
 

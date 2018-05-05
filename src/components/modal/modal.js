@@ -69,12 +69,11 @@ function modalWindow(e) {
 
 }
 
-	var selector = '.modal';
 	var init = function(host) {
 		
 	// Modal window: open a link's target inside it
 	
-		forEach(host.querySelectorAll('a.modal[href]'), function(el) {
+		forEach(host.querySelectorAll('a.modal[href]:not([data-ready])'), function(el) {
 		
 			if (el.href !== (location.href.split('#')[0] + '#')) { // Is it an empty anchor?
 				
@@ -87,11 +86,13 @@ function modalWindow(e) {
 			    el.setAttribute('rel', 'prefetch');
 		
 		    }
+		    
+		    makeReady(el);
 		
 		});
 		
 	};
-	registerComponent('modal', selector, init);
+	registerComponent('modal', init);
 
 /* Modal – start */
 

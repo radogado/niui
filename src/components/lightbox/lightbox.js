@@ -353,7 +353,6 @@ var componentLightbox = (function (){
 		
 	}, 1);
 	
-	var selector = '.lightbox';
 	var init = function (host){
 		
 		forEach(host.querySelectorAll('.lightbox:not([data-ready])'), function(el) {
@@ -385,7 +384,7 @@ var componentLightbox = (function (){
 		});
 		
 	};
-	registerComponent('lightbox', selector, init);
+	registerComponent('lightbox', init);
 
 /* Lightbox – end */
 

@@ -924,13 +924,14 @@ function openFullWindow(el, animation) { // el is an HTML string
 }
 
 var current_slider = q('.slider');
+var draggingNow = false;
 
 var components = new Array;
 
-function registerComponent(name, selector, init) {
+function registerComponent(name, init) {
 
 	components[name] = new Array;
-	components[name].push({ selector: selector, init: init });
+	components[name].push({ init: init });
 
 }
 
@@ -949,15 +950,6 @@ function initComponents(host) {
 	    components[key][0].init(host);
 	
 	}
-
-	// Animate anchor link jumps
-	forEach(host.querySelectorAll('a[href^="#"]'), function(el) {
-	
-		el.onclick = el.onclick || animateAnchors; // Don't add to previous onclick event handler
-	
-	});
-	
-	notifyCloseEvent();
 
 // 	observerOn();
 
@@ -1022,6 +1014,28 @@ ready(function(){
 
 	initComponents();
 	initThreshold(q('body'));
+/*
+	// Animate anchor link jumps
+	forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
+	
+		el.onclick = el.onclick || animateAnchors; // Don't add to previous onclick event handler
+	
+	});
+	
+	notifyCloseEvent();
+
+	window.addEventListener('touchstart', function (e) {
+		
+		draggingNow = false;
+		
+	});
+
+	window.addEventListener('touchmove', function (e) {
+		
+		draggingNow = true;
+		
+	});
+*/
 	
 });
 ;// Component Fold – start
@@ -1187,13 +1201,7 @@ window.addEventListener('scroll', function() {  // Close fixed n-ovrl if its scr
 
 /* Fold – end */
 
-	var selector = '.fold';
-	var init = function (host){
-		
-		initFold(host);
-	
-	};
-	registerComponent('fold', selector, init);
+	registerComponent('fold', initFold);
 
 })();
 
@@ -1349,12 +1357,12 @@ function toggleConditionalFieldset(e) {
 
 /* Form – end */
 
-	var selector = 'form';
 	var init = function(host) {
 		
 		forEach(host.querySelectorAll('form'), function(el, i) {
 		
 		    el.onsubmit = el.onsubmit || submitForm;
+		    makeReady(el);
 		
 		});
 		
@@ -1404,7 +1412,7 @@ function toggleConditionalFieldset(e) {
 		});
 	
 	};
-	registerComponent('form', selector, init);
+	registerComponent('form', init);
 
 })();
 
@@ -1549,13 +1557,12 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 
 /* Grid with inline popups – end */
 
-	var selector = '.grid-inline-popups';
 	var init = function (host){
 
 		initGridInlinePopups(host);
 		
 	};
-	registerComponent('grid-inline-popups', selector, init);
+	registerComponent('grid-inline-popups', init);
 
 })();
 
@@ -1915,7 +1922,6 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		
 	}, 1);
 	
-	var selector = '.lightbox';
 	var init = function (host){
 		
 		forEach(host.querySelectorAll('.lightbox:not([data-ready])'), function(el) {
@@ -1947,7 +1953,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		});
 		
 	};
-	registerComponent('lightbox', selector, init);
+	registerComponent('lightbox', init);
 
 /* Lightbox – end */
 
@@ -2025,12 +2031,11 @@ function modalWindow(e) {
 
 }
 
-	var selector = '.modal';
 	var init = function(host) {
 		
 	// Modal window: open a link's target inside it
 	
-		forEach(host.querySelectorAll('a.modal[href]'), function(el) {
+		forEach(host.querySelectorAll('a.modal[href]:not([data-ready])'), function(el) {
 		
 			if (el.href !== (location.href.split('#')[0] + '#')) { // Is it an empty anchor?
 				
@@ -2043,11 +2048,13 @@ function modalWindow(e) {
 			    el.setAttribute('rel', 'prefetch');
 		
 		    }
+		    
+		    makeReady(el);
 		
 		});
 		
 	};
-	registerComponent('modal', selector, init);
+	registerComponent('modal', init);
 
 /* Modal – start */
 
@@ -2160,7 +2167,6 @@ function dropNavFocus(e) {
 }
 
 var closeDropNavClickedOutsideEnabled = false;
-var draggingNow = false;
 
 function initNav(el) {
 	
@@ -2260,34 +2266,21 @@ function initNav(el) {
 
 	draggingNow = false;
 
-	window.addEventListener('touchstart', function (e) {
-		
-		draggingNow = false;
-		
-	});
-
-	window.addEventListener('touchmove', function (e) {
-		
-		draggingNow = true;
-		
-	});
-
 }
 	
 /* Nav – end */
 
-	var selector = 'nav';
 	var init = function (host) {
 		
 		forEach(host.querySelectorAll('nav:not([data-ready]) > ul:not([role])'), function (el) {
 			
 			initNav(el);
-			makeReady(el);
+			makeReady(closest(el, 'nav'));
 			
 		});
 
 	};
-	registerComponent('nav', selector, init);
+	registerComponent('nav', init);
 
 })();
 
@@ -3069,7 +3062,6 @@ var componentSlider = (function (){
 	
 	}
 
-	var selector = '.slider';
 	var init = function(host) {
 		
 		forEach(host.querySelectorAll('.slider:not([data-ready])'), function(el) {
@@ -3079,7 +3071,7 @@ var componentSlider = (function (){
 		});
 		
 	};
-	registerComponent('slider', selector, init);
+	registerComponent('slider', init);
 	
 	return { makeSlider: makeSlider, getSliderNav: getSliderNav };
 
@@ -3128,7 +3120,6 @@ var componentSlider = (function (){
 
 }
 
-	var selector = 'table';
 	var init = function (host) {
 		
 		forEach(host.querySelectorAll('table:not([data-ready])'), function(el) {
@@ -3178,7 +3169,7 @@ var componentSlider = (function (){
 		}
 	
 	};
-	registerComponent('table', selector, init);
+	registerComponent('table', init);
 
 })();
 
@@ -3187,7 +3178,6 @@ var componentSlider = (function (){
 
 (function (){
     
-	var selector = '.tool';
 	var init = function (host) {
 		
 		/* Tooltip */
@@ -3231,11 +3221,12 @@ var componentSlider = (function (){
 				}
 	
 			}
+			makeReady(el);
 		
 		});
 		
 	};
-	registerComponent('tooltip', selector, init);
+	registerComponent('tooltip', init);
 
 })();
 

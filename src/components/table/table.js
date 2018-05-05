@@ -40,7 +40,6 @@
 
 }
 
-	var selector = 'table';
 	var init = function (host) {
 		
 		forEach(host.querySelectorAll('table:not([data-ready])'), function(el) {
@@ -90,7 +89,7 @@
 		}
 	
 	};
-	registerComponent('table', selector, init);
+	registerComponent('table', init);
 
 })();
 

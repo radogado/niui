@@ -924,13 +924,14 @@ function openFullWindow(el, animation) { // el is an HTML string
 }
 
 var current_slider = q('.slider');
+var draggingNow = false;
 
 var components = new Array;
 
-function registerComponent(name, selector, init) {
+function registerComponent(name, init) {
 
 	components[name] = new Array;
-	components[name].push({ selector: selector, init: init });
+	components[name].push({ init: init });
 
 }
 
@@ -949,15 +950,6 @@ function initComponents(host) {
 	    components[key][0].init(host);
 	
 	}
-
-	// Animate anchor link jumps
-	forEach(host.querySelectorAll('a[href^="#"]'), function(el) {
-	
-		el.onclick = el.onclick || animateAnchors; // Don't add to previous onclick event handler
-	
-	});
-	
-	notifyCloseEvent();
 
 // 	observerOn();
 
@@ -1022,5 +1014,27 @@ ready(function(){
 
 	initComponents();
 	initThreshold(q('body'));
+/*
+	// Animate anchor link jumps
+	forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
+	
+		el.onclick = el.onclick || animateAnchors; // Don't add to previous onclick event handler
+	
+	});
+	
+	notifyCloseEvent();
+
+	window.addEventListener('touchstart', function (e) {
+		
+		draggingNow = false;
+		
+	});
+
+	window.addEventListener('touchmove', function (e) {
+		
+		draggingNow = true;
+		
+	});
+*/
 	
 });

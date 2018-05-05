@@ -2,7 +2,6 @@
 
 (function (){
     
-	var selector = '.tool';
 	var init = function (host) {
 		
 		/* Tooltip */
@@ -46,11 +45,12 @@
 				}
 	
 			}
+			makeReady(el);
 		
 		});
 		
 	};
-	registerComponent('tooltip', selector, init);
+	registerComponent('tooltip', init);
 
 })();
 

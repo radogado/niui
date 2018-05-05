@@ -149,12 +149,12 @@ function toggleConditionalFieldset(e) {
 
 /* Form – end */
 
-	var selector = 'form';
 	var init = function(host) {
 		
 		forEach(host.querySelectorAll('form'), function(el, i) {
 		
 		    el.onsubmit = el.onsubmit || submitForm;
+		    makeReady(el);
 		
 		});
 		
@@ -204,7 +204,7 @@ function toggleConditionalFieldset(e) {
 		});
 	
 	};
-	registerComponent('form', selector, init);
+	registerComponent('form', init);
 
 })();
 

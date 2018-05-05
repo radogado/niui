@@ -161,13 +161,7 @@ window.addEventListener('scroll', function() {  // Close fixed n-ovrl if its scr
 
 /* Fold – end */
 
-	var selector = '.fold';
-	var init = function (host){
-		
-		initFold(host);
-	
-	};
-	registerComponent('fold', selector, init);
+	registerComponent('fold', initFold);
 
 })();
 

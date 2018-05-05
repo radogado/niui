@@ -106,7 +106,6 @@ function dropNavFocus(e) {
 }
 
 var closeDropNavClickedOutsideEnabled = false;
-var draggingNow = false;
 
 function initNav(el) {
 	
@@ -206,34 +205,21 @@ function initNav(el) {
 
 	draggingNow = false;
 
-	window.addEventListener('touchstart', function (e) {
-		
-		draggingNow = false;
-		
-	});
-
-	window.addEventListener('touchmove', function (e) {
-		
-		draggingNow = true;
-		
-	});
-
 }
 	
 /* Nav – end */
 
-	var selector = 'nav';
 	var init = function (host) {
 		
 		forEach(host.querySelectorAll('nav:not([data-ready]) > ul:not([role])'), function (el) {
 			
 			initNav(el);
-			makeReady(el);
+			makeReady(closest(el, 'nav'));
 			
 		});
 
 	};
-	registerComponent('nav', selector, init);
+	registerComponent('nav', init);
 
 })();
 
