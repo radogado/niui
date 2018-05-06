@@ -223,7 +223,8 @@ function wrap(toWrap, wrapper) { // Thanks yckart
 
 }
 
-function ready(fn) {
+/*
+function ready(fn) { // Not working with async and defer
 
   if (document.readyState != 'loading') {
 
@@ -243,6 +244,7 @@ function ready(fn) {
   }
 
 }
+*/
 
 function removeHash() {
 
@@ -944,7 +946,7 @@ function initComponents(host) {
 		var host = q('body');
 
 	}
-	
+
 	for (var key in components) {
 	
 	    components[key][0].init(host);
@@ -979,8 +981,6 @@ function observerOff() {
 }
 */
 
-ready(function(){
-	
 /*
 	if (typeof MutationObserver === 'function') {
 	
@@ -1012,7 +1012,6 @@ ready(function(){
 	}
 */
 
-	initComponents();
 	initThreshold(q('body'));
 /*
 	// Animate anchor link jumps
@@ -1036,5 +1035,3 @@ ready(function(){
 		
 	});
 */
-	
-});

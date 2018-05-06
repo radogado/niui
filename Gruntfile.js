@@ -33,7 +33,7 @@ module.exports = function(grunt) {
 			options: {
 				separator: ';',
 				banner: 'var nui = (function(){',
-				footer: 'return { initComponents: initComponents, animate: animate, copyButton: copyButton, openFullWindow: openFullWindow, closeFullWindow: closeFullWindow, notify: notify, addComponent: addComponent }; })();'
+				footer: 'initComponents(); return { initComponents: initComponents, animate: animate, copyButton: copyButton, openFullWindow: openFullWindow, closeFullWindow: closeFullWindow, notify: notify, addComponent: addComponent }; })();'
 		    },
 		    src: ['src/script/natuive-core.js', 'src/components/**/*.js'],
 		    dest: 'src/script/natuive.js'
@@ -46,7 +46,7 @@ module.exports = function(grunt) {
 			options: {
 				separator: ';',
 				banner: 'var nui = (function(){',
-				footer: 'return { initComponents: initComponents, animate: animate, copyButton: copyButton, openFullWindow: openFullWindow, closeFullWindow: closeFullWindow, notify: notify, addComponent: addComponent }; })();'
+				footer: 'initComponents(); return { initComponents: initComponents, animate: animate, copyButton: copyButton, openFullWindow: openFullWindow, closeFullWindow: closeFullWindow, notify: notify, addComponent: addComponent }; })();'
 		    },
 		    src: ['src/script/natuive-core.js', 'src/components/form/*.js', 'src/components/nav/*.js', 'src/components/table/*.js', 'src/components/tooltip/*.js'],
 		    dest: 'src/script/natuive-lite.js'
