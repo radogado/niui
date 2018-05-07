@@ -568,7 +568,7 @@ var componentSlider = (function (){
 		if (hasClass(el, 'full-window')) {
 			
 		    addClass(el, 'overlay');
-			openFullWindow(el.outerHTML);
+			componentModal.openFullWindow(el.outerHTML);
 			
 		}
 	

@@ -103,7 +103,7 @@ function submitForm(e) {
 
     };
 
-    openFullWindow('<div id=formresult>Submitting form...</div>');
+    componentModal.openFullWindow('<div id=formresult>Submitting form...</div>');
 
     request.send(new FormData(el));
 

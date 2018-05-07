@@ -292,7 +292,7 @@ var componentLightbox = (function (){
 			
 			addClass(slider, 'overlay');
 			addClass(slider.querySelector('.slider'), 'overlay');
-			openFullWindow(slider); // To do: fix layout, add .overlay
+			componentModal.openFullWindow(slider); // To do: fix layout, add .overlay
 	
 		}
 	
