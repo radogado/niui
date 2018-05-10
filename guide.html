@@ -1174,6 +1174,36 @@ require('./node_modules/natuive/index.js');
 			
 </div>
 							
+							<h2>Mobile navigation behind a burger</h2>
+
+<div class="code">
+<pre>
+&lt;header class=&quot;fixed-mobile&quot;&gt;
+	
+	&lt;div class=&quot;fold mobile&quot;&gt;
+				
+		&lt;div class=&quot;label&quot;&gt; &lt;span class=&quot;burger&quot;&gt;&lt;/span&gt; &lt;/div&gt;
+
+		&lt;nav&gt;
+			
+			&lt;ul class=&quot;inline&quot;&gt;
+			
+				&lt;li class=&quot;active&quot;&gt; &lt;a href=&quot;#grid&quot; tabindex=&quot;0&quot;&gt;Grid&lt;/a&gt; &lt;/li&gt;
+
+				&lt;li&gt; &lt;a href=&quot;#slider&quot; tabindex=&quot;0&quot;&gt;Slider&lt;/a&gt; &lt;/li&gt;
+
+				&lt;li&gt; &lt;a href=&quot;#form&quot; tabindex=&quot;0&quot;&gt;Form&lt;/a&gt; &lt;/li&gt;
+
+			&lt;/ul&gt;
+			
+		&lt;/nav&gt;
+						
+	&lt;/div&gt;
+
+&lt;/header&gt;				
+</pre>
+</div>
+
 							<h3>Options</h3>
 							
 							<ul>
@@ -1183,7 +1213,7 @@ require('./node_modules/natuive/index.js');
 							</ul>
 
 						</div>
-								
+						
 					</div>
 					
 				</div>
@@ -2335,6 +2365,7 @@ require('./node_modules/natuive/index.js');
 							<ul>
 								
 								<li>Horizontal fold with <pre>.fold.horizontal</pre>, needs extra wrapper inside <pre>.content</pre>.</li>
+								<li>Folded on mobile, always visible on desktop with <pre>.fold.mobile</pre>.
 							
 							</ul>
 						

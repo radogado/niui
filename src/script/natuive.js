@@ -851,15 +851,16 @@ if (typeof MutationObserver === 'function') {
 	
 }
 
-	initThreshold(q('body'));
+initThreshold(q('body'));
+
+// Animate anchor link jumps
+forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
+
+	el.onclick = el.onclick || animateAnchors; // Don't add to previous onclick event handler
+
+});
+	
 /*
-	// Animate anchor link jumps
-	forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
-	
-		el.onclick = el.onclick || animateAnchors; // Don't add to previous onclick event handler
-	
-	});
-	
 	notifyCloseEvent();
 
 	window.addEventListener('touchstart', function (e) {
