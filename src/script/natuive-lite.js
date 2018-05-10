@@ -699,7 +699,7 @@ function focusWithin(selector) {
 function addComponent(host, el) {
 	
 	host.insertAdjacentHTML('beforeend', el);
-	initComponents(host);
+// 	initComponents(host); // No need, observer does it automatically
 
 }
 
@@ -782,7 +782,7 @@ function registerComponent(name, init) {
 
 function initComponents(host) {
 
-// 	observerOff();
+	observerOff();
 
 	if (typeof host === 'undefined') {
 		
@@ -796,11 +796,10 @@ function initComponents(host) {
 	
 	}
 
-// 	observerOn();
+	observerOn();
 
 }
   
-/*
 var observer = false;
 
 function observerOn() {
@@ -822,38 +821,35 @@ function observerOff() {
 	}
 	
 }
-*/
 
-/*
-	if (typeof MutationObserver === 'function') {
+if (typeof MutationObserver === 'function') {
+
+	observer = new MutationObserver(function(mutations, observer) {
+
+        observerOff();
+
+		var mutation = mutations[0];
+        if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+
+			var i = 0;
+			while (i < mutation.addedNodes.length) {
+				
+				var el = mutation.addedNodes[i++];
+	            if (typeof el === 'object' && el.nodeName !== '#text' && !el.getAttribute('data-ready')) {
+		            
+		            initComponents(el.parentNode);
+		            
+	            }
+				
+			}
+
+        }
+
+        observerOn();
+	    
+	});
 	
-		observer = new MutationObserver(function(mutations, observer) {
-
-            observerOff();
-
-			var mutation = mutations[0];
-	        if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-
-				var i = 0;
-				while (i < mutation.addedNodes.length) {
-					
-					var el = mutation.addedNodes[i++];
-		            if (typeof el === 'object' && el.nodeName !== '#text' && !el.getAttribute('data-ready')) {
-			            
-			            initComponents(el.parentNode);
-			            
-		            }
-					
-				}
-
-	        }
-
-            observerOn();
-		    
-		});
-		
-	}
-*/
+}
 
 	initThreshold(q('body'));
 /*
@@ -884,148 +880,148 @@ function observerOff() {
     
 /* Form – start */
 
-function submitForm(e) {
-
-    var el = e.target;
-
-    var ready_to_submit = true;
-
-    forEach(el.querySelectorAll('.mandatory'), function(el) {
-	    
-	    if (closest(el, '[disabled]')) { // Ignore disabled conditional fields
+	function submitForm(e) {
+	
+	    var el = e.target;
+	
+	    var ready_to_submit = true;
+	
+	    forEach(el.querySelectorAll('.mandatory'), function(el) {
 		    
-		    return;
-
-	    }
-
-        if (
-			( el.querySelector('input, select, textarea') && !el.querySelector('input, select, textarea').value ) 
-			|| 
-			( el.querySelector('input[type=checkbox]') && !el.querySelector('input[type=checkbox]').checked ) 
-			||
-			( el.querySelector('input[type=email]') && !RegExp(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/).test(el.querySelector('input[type=email]').value) ) 
-			||
-			( el.querySelector('input[type=url]') && !RegExp(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/).test(el.querySelector('input[type=url]').value) ) 
-			||
-			( el.querySelector('input[type=number]') 
-				&& 
-				!(RegExp(/^\d+$/).test(el.querySelector('input[type=number]').value))
+		    if (closest(el, '[disabled]')) { // Ignore disabled conditional fields
+			    
+			    return;
+	
+		    }
+	
+	        if (
+				( el.querySelector('input, select, textarea') && !el.querySelector('input, select, textarea').value ) 
+				|| 
+				( el.querySelector('input[type=checkbox]') && !el.querySelector('input[type=checkbox]').checked ) 
 				||
-				(el.querySelector('input[type=number][data-digits]') && (el.querySelector('input[type=number]').value.length != el.querySelector('input[type=number]').getAttribute('data-digits')))
-			) ||
-			( el.querySelector('input[type=radio]') && !el.querySelector('input[type=radio]').checked )
-		   ) 
-		
-		{
-
-            ready_to_submit = false;
-            el.querySelector('input').focus();
-            addClass(el, 'alert');
-            return;
-
-        } else {
-
-            removeClass(el, 'alert');
-
-        }
-
-    });
-
-    if (!ready_to_submit) {
-
-        return false;
-
-    }
-
-    if (!hasClass(el, 'dynamic') || !(new XMLHttpRequest().upload) || !php_support) { // Browser unable to submit dynamically.
-
-        return true;
-
-    }
-
-    el.insertAdjacentHTML('beforeend', '<input name=targetformurl type=hidden value=' + encodeURIComponent( el.method === 'get' ? el.action.replace(/\/?(\?|#|$)/, '/$1') : el.action ) + '>');
-
-    request = new XMLHttpRequest();
-    request.open('POST', scripts_location + 'request.php', true);
-
-    request.onreadystatechange = function() {
-
-        if (request.readyState != 4 || request.status != 200) {
-
-            // php script unreachable, submit form normally
-            return true;
-
-        }
-
-        if (!request.responseText || !php_support) {
-
-            // php script unreachable, submit form normally
-            el.onsubmit = function() {};
-			el.constructor.prototype.submit.call(el); // el.submit();
-            return true;
-
-        }
-
-        // strip id's from response HTML
-        if (request.responseText.indexOf('---error---') != -1) {
-
-            // Error
-            document.getElementById('formresult').innerHTML = 'Error submitting form.';
-            return;
-
-        } else {
-
-            // Success
-            var loaded_html = parseHTML(request.responseText);
-            document.getElementById('formresult').innerHTML = loaded_html.innerHTML;
-
-        }
-
-    };
-
-    componentModal.openFullWindow('<div id=formresult>Submitting form...</div>');
-
-    request.send(new FormData(el));
-
-    return false;
-
-}
-
-function updateFileInput(e) {
-
-    var el = e.target;
-
-    el.parentNode.querySelector('span').innerHTML = el.value.substring(el.value.lastIndexOf('\\') + 1);
-
-}
-
-if (q('form.language')) { // To do: make it universal .submitonchange and for more than 1 form
-
-    q('form.language select').onchange = function(e) {
-
-        q('form.language').submit();
-
-    };
-
-}
-
-function toggleConditionalFieldset(e) {
+				( el.querySelector('input[type=email]') && !RegExp(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/).test(el.querySelector('input[type=email]').value) ) 
+				||
+				( el.querySelector('input[type=url]') && !RegExp(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/).test(el.querySelector('input[type=url]').value) ) 
+				||
+				( el.querySelector('input[type=number]') 
+					&& 
+					!(RegExp(/^\d+$/).test(el.querySelector('input[type=number]').value))
+					||
+					(el.querySelector('input[type=number][data-digits]') && (el.querySelector('input[type=number]').value.length != el.querySelector('input[type=number]').getAttribute('data-digits')))
+				) ||
+				( el.querySelector('input[type=radio]') && !el.querySelector('input[type=radio]').checked )
+			   ) 
+			
+			{
 	
-	var el = e.target;
-	var fieldset = closest(el, '.condition').nextElementSibling;
-	var attribute = 'disabled';
+	            ready_to_submit = false;
+	            el.querySelector('input').focus();
+	            addClass(el, 'alert');
+	            return;
 	
-	if (el.checked) {
+	        } else {
 	
-		fieldset.removeAttribute(attribute);
+	            removeClass(el, 'alert');
 	
-	} else {
-		
-		fieldset.setAttribute(attribute, 'disabled');
-		
+	        }
+	
+	    });
+	
+	    if (!ready_to_submit) {
+	
+	        return false;
+	
+	    }
+	
+	    if (!hasClass(el, 'dynamic') || !(new XMLHttpRequest().upload) || !php_support) { // Browser unable to submit dynamically.
+	
+	        return true;
+	
+	    }
+	
+	    el.insertAdjacentHTML('beforeend', '<input name=targetformurl type=hidden value=' + encodeURIComponent( el.method === 'get' ? el.action.replace(/\/?(\?|#|$)/, '/$1') : el.action ) + '>');
+	
+	    request = new XMLHttpRequest();
+	    request.open('POST', scripts_location + 'request.php', true);
+	
+	    request.onreadystatechange = function() {
+	
+	        if (request.readyState != 4 || request.status != 200) {
+	
+	            // php script unreachable, submit form normally
+	            return true;
+	
+	        }
+	
+	        if (!request.responseText || !php_support) {
+	
+	            // php script unreachable, submit form normally
+	            el.onsubmit = function() {};
+				el.constructor.prototype.submit.call(el); // el.submit();
+	            return true;
+	
+	        }
+	
+	        // strip id's from response HTML
+	        if (request.responseText.indexOf('---error---') != -1) {
+	
+	            // Error
+	            document.getElementById('formresult').innerHTML = 'Error submitting form.';
+	            return;
+	
+	        } else {
+	
+	            // Success
+	            var loaded_html = parseHTML(request.responseText);
+	            document.getElementById('formresult').innerHTML = loaded_html.innerHTML;
+	
+	        }
+	
+	    };
+	
+	    componentModal.openFullWindow('<div id=formresult>Submitting form...</div>');
+	
+	    request.send(new FormData(el));
+	
+	    return false;
+	
 	}
 	
-}
+	function updateFileInput(e) {
+	
+	    var el = e.target;
+	
+	    el.parentNode.querySelector('span').innerHTML = el.value.substring(el.value.lastIndexOf('\\') + 1);
+	
+	}
+	
+	if (q('form.language')) { // To do: make it universal .submitonchange and for more than 1 form
+	
+	    q('form.language select').onchange = function(e) {
+	
+	        q('form.language').submit();
+	
+	    };
+	
+	}
+	
+	function toggleConditionalFieldset(e) {
+		
+		var el = e.target;
+		var fieldset = closest(el, '.condition').nextElementSibling;
+		var attribute = 'disabled';
+		
+		if (el.checked) {
+		
+			fieldset.removeAttribute(attribute);
+		
+		} else {
+			
+			fieldset.setAttribute(attribute, 'disabled');
+			
+		}
+		
+	}
 
 /* Form – end */
 
@@ -1084,6 +1080,7 @@ function toggleConditionalFieldset(e) {
 		});
 	
 	};
+
 	registerComponent('form', init);
 
 })();
@@ -1095,208 +1092,208 @@ function toggleConditionalFieldset(e) {
     
 /* Nav – start */
 
-function closeDropNavClickedOutside(e) { // Close the nav when clicking outside
-
-	if (!closest(e.target, 'nav li')) {
-
-		forEach ('nav ul', function (el) {
-			
-			el.removeAttribute(aria_expanded);
-			
-		});
-		
-		if (q('nav :focus')) {
-
-			q('nav :focus').blur();
-		
-		}
-		
-	}
+	function closeDropNavClickedOutside(e) { // Close the nav when clicking outside
 	
-}
-
-function dropNavBlur(e) {
-
-	var this_nav = closest(e.target, 'nav');
+		if (!closest(e.target, 'nav li')) {
 	
-	if (!closest(e.relatedTarget, this_nav)) { // if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
-		
-		forEach(this_nav.querySelectorAll('ul'), function (el) {
-
-			el.removeAttribute(aria_expanded);
-			
-		});
-		return;
-		
-	}
-	// Close neighboring parent nav's sub navs.
-	var el = e.target;
-	var target_parent = closest(el, '[aria-haspopup]');
-	if (target_parent) { // Skip if it's a top-level-only item
-		
-		forEach(target_parent.querySelectorAll('ul[aria-expanded]'), function (el) { // Disable active grandchildren
-	
-			el.removeAttribute(aria_expanded);
-	
-		});
-	
-	}
-
-	el = e.target.parentNode;
-	if (!el.nextElementSibling && // last item
-		el.parentNode.parentNode.nodeName === 'LI' && // of third-level nav
-		!el.parentNode.parentNode.nextElementSibling) {
-			
-			el.parentNode.parentNode.parentNode.removeAttribute(aria_expanded);
-	
-	}
-	
-}
-		
-function dropNavFocus(e) {
-
-	// Close focused third level child when focus moves to another top-level item
-	
-	var el = closest(e.target, 'nav > ul > li');
-	
-	forEach(el.parentNode.childNodes, function (a) {
-
-		if (a.nodeName === 'LI' && a !== el) {
-		
-			forEach(a.querySelectorAll('[aria-expanded]'), function (el) {
-				
-				el.removeAttribute(aria_expanded);
-				
-			});
-		
-		}
-		
-	});
-	
-	el = e.target;
-
-	el.parentNode.parentNode.setAttribute(aria_expanded, true);
-	if (el.parentNode.querySelector('ul')) {
-
-		el.parentNode.querySelector('ul').setAttribute(aria_expanded, 'true');
-
-	}
-	
-	var current_item = e.target.parentNode;
-
-	forEach(current_item.parentNode.parentNode.childNodes, function (el) {
-
-		if (el !== current_item && el.nodeName === 'LI' && el.querySelector('ul')) {
-
-			el.querySelector('ul').removeAttribute(aria_expanded);
-		
-		}
-		
-	});
-	
-}
-
-var closeDropNavClickedOutsideEnabled = false;
-
-function initNav(el) {
-	
-	// Delete all trigger inputs, add tabindex=0 to each li
-	
-	forEach(el.querySelectorAll('input'), function (el) {
-		
-		el.outerHTML = '';
-		
-	});
-	
-	el.setAttribute('role', 'menubar');
-
-	forEach(el.querySelectorAll('li > a'), function (el) {
-		
-		el.setAttribute('tabindex', 0);
-
-	});
-
-	if (!closest(el, 'nav.drop')) { // The rest is for drop nav only
-		
-		return;
-
-	}
-
-	if (!closeDropNavClickedOutsideEnabled) {
-		
-		window.addEventListener('touchend', closeDropNavClickedOutside);
-		closeDropNavClickedOutsideEnabled = true;
-	
-	}
-	
-	el.addEventListener('keyup', function (e) {
-		
-		// Check for sibling or children to expand on control keys Left/Right/etc
-	
-		if (e.key === 'Escape') {
-			
-			forEach (closest(e.target, 'nav').querySelectorAll('ul'), function (el) {
+			forEach ('nav ul', function (el) {
 				
 				el.removeAttribute(aria_expanded);
 				
 			});
 			
-			document.activeElement.blur();
+			if (q('nav :focus')) {
+	
+				q('nav :focus').blur();
+			
+			}
 			
 		}
 		
-	});
+	}
 	
-	forEach(el.querySelectorAll('li'), function (el) {
+	function dropNavBlur(e) {
+	
+		var this_nav = closest(e.target, 'nav');
 		
-		if (el.querySelector('ul')) {
+		if (!closest(e.relatedTarget, this_nav)) { // if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
+			
+			forEach(this_nav.querySelectorAll('ul'), function (el) {
 	
-			el.setAttribute('aria-haspopup', true);
+				el.removeAttribute(aria_expanded);
+				
+			});
+			return;
+			
+		}
+		// Close neighboring parent nav's sub navs.
+		var el = e.target;
+		var target_parent = closest(el, '[aria-haspopup]');
+		if (target_parent) { // Skip if it's a top-level-only item
+			
+			forEach(target_parent.querySelectorAll('ul[aria-expanded]'), function (el) { // Disable active grandchildren
+		
+				el.removeAttribute(aria_expanded);
+		
+			});
 		
 		}
 	
-		el.addEventListener('touchend', function (e) {
-
-			var el = e.target;
-
-			if (draggingNow || typeof el.href === 'string') {
+		el = e.target.parentNode;
+		if (!el.nextElementSibling && // last item
+			el.parentNode.parentNode.nodeName === 'LI' && // of third-level nav
+			!el.parentNode.parentNode.nextElementSibling) {
 				
-				return;
-				
+				el.parentNode.parentNode.parentNode.removeAttribute(aria_expanded);
+		
+		}
+		
+	}
+			
+	function dropNavFocus(e) {
+	
+		// Close focused third level child when focus moves to another top-level item
+		
+		var el = closest(e.target, 'nav > ul > li');
+		
+		forEach(el.parentNode.childNodes, function (a) {
+	
+			if (a.nodeName === 'LI' && a !== el) {
+			
+				forEach(a.querySelectorAll('[aria-expanded]'), function (el) {
+					
+					el.removeAttribute(aria_expanded);
+					
+				});
+			
 			}
 			
-			e.preventDefault();
-			e.stopPropagation();
-			
-			if (el.nodeName === 'LI') {
-				
-				el = el.querySelector('a');
-				
-			}
-			
-			if (el === document.activeElement) {
-
-				el.blur();
-
-			} else {
-			
-				el.focus();
-			
-			}
-				
 		});
-
-		var anchor = el.querySelector('a');
-
-		anchor.addEventListener('focus', dropNavFocus);
-	
-		anchor.addEventListener('blur', dropNavBlur);
 		
-	});
-
-	draggingNow = false;
-
-}
+		el = e.target;
+	
+		el.parentNode.parentNode.setAttribute(aria_expanded, true);
+		if (el.parentNode.querySelector('ul')) {
+	
+			el.parentNode.querySelector('ul').setAttribute(aria_expanded, 'true');
+	
+		}
+		
+		var current_item = e.target.parentNode;
+	
+		forEach(current_item.parentNode.parentNode.childNodes, function (el) {
+	
+			if (el !== current_item && el.nodeName === 'LI' && el.querySelector('ul')) {
+	
+				el.querySelector('ul').removeAttribute(aria_expanded);
+			
+			}
+			
+		});
+		
+	}
+	
+	var closeDropNavClickedOutsideEnabled = false;
+	
+	function initNav(el) {
+		
+		// Delete all trigger inputs, add tabindex=0 to each li
+		
+		forEach(el.querySelectorAll('input'), function (el) {
+			
+			el.outerHTML = '';
+			
+		});
+		
+		el.setAttribute('role', 'menubar');
+	
+		forEach(el.querySelectorAll('li > a'), function (el) {
+			
+			el.setAttribute('tabindex', 0);
+	
+		});
+	
+		if (!closest(el, 'nav.drop')) { // The rest is for drop nav only
+			
+			return;
+	
+		}
+	
+		if (!closeDropNavClickedOutsideEnabled) {
+			
+			window.addEventListener('touchend', closeDropNavClickedOutside);
+			closeDropNavClickedOutsideEnabled = true;
+		
+		}
+		
+		el.addEventListener('keyup', function (e) {
+			
+			// Check for sibling or children to expand on control keys Left/Right/etc
+		
+			if (e.key === 'Escape') {
+				
+				forEach (closest(e.target, 'nav').querySelectorAll('ul'), function (el) {
+					
+					el.removeAttribute(aria_expanded);
+					
+				});
+				
+				document.activeElement.blur();
+				
+			}
+			
+		});
+		
+		forEach(el.querySelectorAll('li'), function (el) {
+			
+			if (el.querySelector('ul')) {
+		
+				el.setAttribute('aria-haspopup', true);
+			
+			}
+		
+			el.addEventListener('touchend', function (e) {
+	
+				var el = e.target;
+	
+				if (draggingNow || typeof el.href === 'string') {
+					
+					return;
+					
+				}
+				
+				e.preventDefault();
+				e.stopPropagation();
+				
+				if (el.nodeName === 'LI') {
+					
+					el = el.querySelector('a');
+					
+				}
+				
+				if (el === document.activeElement) {
+	
+					el.blur();
+	
+				} else {
+				
+					el.focus();
+				
+				}
+					
+			});
+	
+			var anchor = el.querySelector('a');
+	
+			anchor.addEventListener('focus', dropNavFocus);
+		
+			anchor.addEventListener('blur', dropNavBlur);
+			
+		});
+	
+		draggingNow = false;
+	
+	}
 	
 /* Nav – end */
 
@@ -1419,7 +1416,7 @@ function initNav(el) {
 		
 		/* Tooltip */
 		
-		forEach(host.querySelectorAll('.tool'), function(el, i) {
+		forEach(host.querySelectorAll('.tool:not([data-ready])'), function(el, i) {
 			
 			el.onclick = function (e) {
 	

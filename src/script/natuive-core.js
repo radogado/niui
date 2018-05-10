@@ -699,7 +699,7 @@ function focusWithin(selector) {
 function addComponent(host, el) {
 	
 	host.insertAdjacentHTML('beforeend', el);
-	initComponents(host);
+// 	initComponents(host); // No need, observer does it automatically
 
 }
 
@@ -782,7 +782,7 @@ function registerComponent(name, init) {
 
 function initComponents(host) {
 
-// 	observerOff();
+	observerOff();
 
 	if (typeof host === 'undefined') {
 		
@@ -796,11 +796,10 @@ function initComponents(host) {
 	
 	}
 
-// 	observerOn();
+	observerOn();
 
 }
   
-/*
 var observer = false;
 
 function observerOn() {
@@ -822,38 +821,35 @@ function observerOff() {
 	}
 	
 }
-*/
 
-/*
-	if (typeof MutationObserver === 'function') {
+if (typeof MutationObserver === 'function') {
+
+	observer = new MutationObserver(function(mutations, observer) {
+
+        observerOff();
+
+		var mutation = mutations[0];
+        if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+
+			var i = 0;
+			while (i < mutation.addedNodes.length) {
+				
+				var el = mutation.addedNodes[i++];
+	            if (typeof el === 'object' && el.nodeName !== '#text' && !el.getAttribute('data-ready')) {
+		            
+		            initComponents(el.parentNode);
+		            
+	            }
+				
+			}
+
+        }
+
+        observerOn();
+	    
+	});
 	
-		observer = new MutationObserver(function(mutations, observer) {
-
-            observerOff();
-
-			var mutation = mutations[0];
-	        if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-
-				var i = 0;
-				while (i < mutation.addedNodes.length) {
-					
-					var el = mutation.addedNodes[i++];
-		            if (typeof el === 'object' && el.nodeName !== '#text' && !el.getAttribute('data-ready')) {
-			            
-			            initComponents(el.parentNode);
-			            
-		            }
-					
-				}
-
-	        }
-
-            observerOn();
-		    
-		});
-		
-	}
-*/
+}
 
 	initThreshold(q('body'));
 /*

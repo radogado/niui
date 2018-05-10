@@ -6,7 +6,7 @@
 		
 		/* Tooltip */
 		
-		forEach(host.querySelectorAll('.tool'), function(el, i) {
+		forEach(host.querySelectorAll('.tool:not([data-ready])'), function(el, i) {
 			
 			el.onclick = function (e) {
 	

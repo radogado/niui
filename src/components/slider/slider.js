@@ -560,7 +560,7 @@ var componentSlider = (function (){
 			
 		}
 	
-	// 	observerOff();
+		observerOff();
 		
 	    addClass(el, 'slider');
 	    makeReady(el);
@@ -769,7 +769,7 @@ var componentSlider = (function (){
 		    
 	    window.addEventListener('keyup', sliderKeyboard);
 		
-	// 	observerOn();
+		observerOn();
 	
 	    return container;
 	

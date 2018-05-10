@@ -74,14 +74,14 @@ var componentLightbox = (function (){
 	}
 	
 	function openLightbox(e) { // To do: create all content in an unattached element and call openFullWindow(el), which will take over
-	
-	// 	observerOff();
-	
+		
 	    if (typeof componentSlider.makeSlider !== 'function') { // slider JS not present
 		    
 		    return;
 	
 		}
+		
+		observerOff();
 	
 		var el = e.target;
 		if (el.length === 0) {
@@ -283,7 +283,7 @@ var componentLightbox = (function (){
 			
 			} else {
 	
-				next_sibling.insertBefore(slider);
+				parent.insertBefore(slider, next_sibling);
 			
 			}
 	
@@ -328,8 +328,8 @@ var componentLightbox = (function (){
 	    
 	    }
 	    
-	// 	observerOn();
-	
+		observerOn();
+
 	    return false;
 	
 	}
