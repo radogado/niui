@@ -160,6 +160,9 @@ $bg: #1E8DaC;
   margin-top: 3em;
   height: calc(100% - 3em); }
 
+.n-sldr.vertical.overlay {
+  height: calc(100% - 3em); }
+
 @media screen and (max-width: 599.9px) {
   .n-sldr.overlay, .n-sldr.vertical.overlay {
     margin-top: 1.5em;
@@ -236,9 +239,6 @@ _:-ms-lang(x), .aspect > .n-sldr {
 	
 }
 */
-.n-sldr.vertical.overlay, .slider.overlay, .overlay.slider > * {
-  height: 100%; }
-
 .overlay.slider:not(.vertical) > * {
   overflow: auto;
   -webkit-overflow-scrolling: touch; }

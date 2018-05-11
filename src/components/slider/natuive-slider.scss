@@ -231,6 +231,12 @@
 
 }		
 
+.n-sldr.vertical.overlay/* , .slider.overlay, .overlay.slider > * */ {
+	
+	height: calc(100% - #{$line-height-em*2});
+
+}
+
 @media screen and (max-width: $screen-narrow-max) {
 
 	.n-sldr.overlay, .n-sldr.vertical.overlay {
@@ -371,12 +377,6 @@ _:-ms-lang(x), .aspect > .n-sldr { // Aspect ratio not working in IE/Edge
 	
 }
 */
-
-.n-sldr.vertical.overlay, .slider.overlay, .overlay.slider > * {
-	
-	height: 100%;
-
-}
 
 .overlay.slider:not(.vertical) > * {
 	

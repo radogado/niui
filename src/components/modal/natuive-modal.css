@@ -98,7 +98,7 @@ $bg: #1E8DaC;
   html.can-touch.nooverflow, html.can-touch.nooverflow body {
     height: calc(100% + 1px); }
 
-  .n-sldr.overlay, .n-sldr.vertical.overlay {
+  .n-ovrl .n-sldr.overlay, .n-ovrl .n-sldr.vertical.overlay {
     margin: 0;
     height: 100%; }
 
