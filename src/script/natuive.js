@@ -1802,75 +1802,101 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 
 /* Modal – start */
 
-	function closeFullWindow() {
-	
-	var full_window = q('.n-ovrl:last-of-type') || q('.n-ovrl');
-
-	if (full_window) {
+	function getWindowInnerHeight() { // Fix iOS Safari's fake viewport height
 		
-	   	q('html').style.pointerEvents = 'none';
+		console.log('updating inner height');
+		q('.n-ovrl').style.setProperty('--window-inner-height', window.innerHeight + 'px');
+		var offset_top = document.body.scrollHeight - window.innerHeight;
+		if (offset_top > 60) {
+			
+			offset_top = 0;
 
-		if (qa('.n-ovrl').length === 1) { // A single overlay
-			
-		    removeClass(q('html'), 'nooverflow');
-	    	q('body').scrollTop = q('html').scrollTop = -1 * previousScrollOffset;
-			
 		}
-		var animation = full_window.querySelector('.content > div').getAttribute('data-anim'); // Custom animation?
+		q('.n-ovrl').style.setProperty('--top', offset_top + 'px');
 
-		if (animation === 'null' || animation === 'undefined') {
+		if (q('.n-ovrl').offsetTop > 25) {
 			
-			animation = '0% { transform: translate3d(0,0,0) } 100% { transform: translate3d(0,-100vh,0) }';
-			
+			q('.n-ovrl').setAttribute('data-offset-top', true);
+
 		} else {
 			
-// 			full_window.style.animationDirection = 'reverse'; // Not working with Closure Compiler, hence:
-			full_window.style.cssText = 'animation-direction: reverse;';
+			q('.n-ovrl').removeAttribute('data-offset-top');
 
 		}
 
-		animate(full_window, animation, .2, function (e) {
-
-//			if (true/* full_window_content */) { // Remove disposable generated content. To do: In which case it's not dynamic?
-	
-				 // If lightbox/slider, crashes iOS Safari. not crashing with an empty div
-				full_window.parentNode.removeChild(full_window);
-				full_window_content = null;
-	
-					
-//			} else { // or keep previously existing content
-	
-//				full_window.parentNode.replaceChild(full_window.querySelector('.content > *'), full_window);
-			
-//			}
-	
-			if (qa('.n-ovrl').length === 0) { // A single overlay
-
-				window.removeEventListener('keydown', arrow_keys_handler);
-				window.removeEventListener('keyup', keyUpClose);
-				if (!q('.slider')) { // No sliders on the page to control with arrow keys
-				
-	// 				document.onkeyup = function () {};
-					window.removeEventListener('keydown', arrow_keys_handler, false);
-					
-				}
-			
-			}
-			
-		   	q('html').style.pointerEvents = 'initial';
-		   	removeClass(q('html'), 'nooverflow');
-		   	
-		   	if (previouslyFocused) {
-
-			   	previouslyFocused.focus();
-			   
-			}
-				
-		});
-
 	}
-    
-}
+
+	function closeFullWindow() {
+	
+		var full_window = q('.n-ovrl:last-of-type') || q('.n-ovrl');
+	
+		if (full_window) {
+			
+		   	q('html').style.pointerEvents = 'none';
+	
+			if (qa('.n-ovrl').length === 1) { // A single overlay
+				
+			    removeClass(q('html'), 'nooverflow');
+		    	q('body').scrollTop = q('html').scrollTop = -1 * previousScrollOffset;
+				
+			}
+			var animation = full_window.querySelector('.content > div').getAttribute('data-anim'); // Custom animation?
+	
+			if (animation === 'null' || animation === 'undefined') {
+				
+				animation = '0% { transform: translate3d(0,0,0) } 100% { transform: translate3d(0,-100vh,0) }';
+				
+			} else {
+				
+	// 			full_window.style.animationDirection = 'reverse'; // Not working with Closure Compiler, hence:
+				full_window.style.cssText = 'animation-direction: reverse;';
+	
+			}
+	
+			animate(full_window, animation, .2, function (e) {
+	
+	//			if (true/* full_window_content */) { // Remove disposable generated content. To do: In which case it's not dynamic?
+		
+					 // If lightbox/slider, crashes iOS Safari. not crashing with an empty div
+					full_window.parentNode.removeChild(full_window);
+					full_window_content = null;
+		
+						
+	//			} else { // or keep previously existing content
+		
+	//				full_window.parentNode.replaceChild(full_window.querySelector('.content > *'), full_window);
+				
+	//			}
+		
+				if (qa('.n-ovrl').length === 0) { // A single overlay
+	
+					window.removeEventListener('keydown', arrow_keys_handler);
+					window.removeEventListener('keyup', keyUpClose);
+					if (!q('.slider')) { // No sliders on the page to control with arrow keys
+					
+		// 				document.onkeyup = function () {};
+						window.removeEventListener('keydown', arrow_keys_handler, false);
+						
+					}
+				
+				}
+				
+			   	q('html').style.pointerEvents = 'initial';
+			   	removeClass(q('html'), 'nooverflow');
+			   	
+			   	if (previouslyFocused) {
+	
+				   	previouslyFocused.focus();
+				   
+				}
+					
+				window.removeEventListener('resize', getWindowInnerHeight);
+	
+			});
+			
+		}
+	    
+	}
 
 	function openFullWindow(el, animation) { // el is an HTML string
 
@@ -1946,6 +1972,8 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 				addClass(q('html'), 'nooverflow');
 		    	q('body').scrollTop = q('html').scrollTop = -1 * previousScrollOffset;
 		    	q('html').style.pointerEvents = 'initial';
+				getWindowInnerHeight();
+				window.addEventListener('resize', getWindowInnerHeight);
 			
 			});
 	

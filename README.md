@@ -55,6 +55,7 @@ natUIve demo pages: [Features demo](http://radogado.github.io/natuive/kitchen.ht
 - WordPress theme*
 - Notificaton bar
 - Click to copy to clipboard
+- Multiple modals, nested carousels, nested accordions etc
 - Functional without JS and accessible without CSS*
 - 9 KB First View CSS + optional 8 KB JS (combined, minified, macOS gzip)
 - ~~No IE conditional operators~~ HTML5 elements also for IE8 with html5shiv

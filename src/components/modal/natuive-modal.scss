@@ -10,14 +10,23 @@
 	overflow: hidden;
 	overflow-y: scroll;
 	position: fixed;
-	top: 0;
+	top: var(--top);
 	right: 0;
-	bottom: 0;
 	left: 0;
+	bottom: 0;
 	border-top: none;
     -webkit-overflow-scrolling: touch;
-    padding-top: 0;
+//     height: 100vh;
+//     height: var(--window-inner-height);
+	box-shadow: 0 0 0em 100px rgba(255,255,255,.97);
+	transition: top .2s ease-in-out;
 
+}
+
+.n-ovrl[data-offset-top] {
+	
+	top: 0;
+	
 }
 	
 	.n-ovrl > .content {
@@ -60,7 +69,7 @@
 		height: 3em;
 	    overflow-x: auto;
 	    white-space: nowrap;
-		position: fixed;
+		position: absolute;
 
 	}
 
