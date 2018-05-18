@@ -108,5 +108,6 @@ module.exports = function(grunt) {
 	});
 
 	grunt.registerTask('default', ['sass', 'concat', 'cssmin', 'closure-compiler', 'copy']);
+	grunt.registerTask('dev', ['sass', 'concat', 'cssmin']);
 
 };

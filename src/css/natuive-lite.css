@@ -60,13 +60,6 @@ img, picture, .lightbox a {
   border: none;
   text-align: center; }
 
-html.nooverflow, html.nooverflow body {
-  overflow: hidden;
-  width: 100%; }
-
-html.can-touch.nooverflow, html.can-touch.nooverflow body {
-  height: 100%; }
-
 .header-and-banner {
   flex: none; }
 
@@ -1389,7 +1382,7 @@ ol.masonry > * {
     border: none;
     box-sizing: border-box; }
 
-  .row:not(.no-margin) > *, .row:not(.no-margin) > [class^=col] {
+  .row:not(.no-margin):not(.border-all) > *, .row:not(.no-margin):not(.border-all) > [class^=col] {
     margin: 0.75em 0; }
 
   @supports (--a: 1) {
@@ -1420,10 +1413,14 @@ ol.masonry > * {
   .row.border-all .row {
     width: calc(100% + 1.5em); }
 
-  .row.border-all > *:not(:first-child), .row.border-all .row > *:not(:first-child) {
-    border-left: none;
-    border-top: 1px solid; }
-
+  /*
+  	.row.border-all > *:not(:first-child), .row.border-all .row>*:not(:first-child) {
+  		
+  		border-left: none;
+  		border-top: 1px solid;
+  
+  	}
+  */
   .row.border-all > *, .row.border-all .row {
     margin: 0;
     padding: 0;

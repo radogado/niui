@@ -17,6 +17,9 @@ $bg: #1E8DaC;
   --color: #333;
   --bg: #fff; }
 
+.no-scroll, .no-scroll body {
+  overflow: hidden; }
+
 .n-ovrl {
   z-index: 999999;
   background: #fff;
@@ -24,29 +27,35 @@ $bg: #1E8DaC;
   overflow: hidden;
   overflow-y: scroll;
   position: fixed;
-  top: var(--top);
+  top: 0;
+  bottom: 0;
+  top: var(--overlay-top, 0);
+  bottom: var(--overlay-bottom, 0);
   right: 0;
   left: 0;
-  bottom: 0;
   border-top: none;
-  -webkit-overflow-scrolling: touch;
-  box-shadow: 0 0 0em 100px rgba(255, 255, 255, 0.97);
-  transition: top .2s ease-in-out; }
-
-.n-ovrl[data-offset-top] {
-  top: 0; }
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden; }
 
 .n-ovrl > .content {
-  overflow-y: scroll;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  overflow-x: none;
+  -webkit-overflow-scrolling: touch;
   background: transparent;
   height: 100%;
-  padding-top: 3em;
-  overflow: auto; }
+  padding-top: 3em; }
 
 .n-ovrl.limited > .content, .n-ovrl.limited > .content {
-  background: #666;
-  color: #eee;
+  /*
+  		background: #666;
+      	color: #eee;
+  */
   padding: 0;
   height: 50vh;
   margin-top: 25vh;
@@ -89,19 +98,15 @@ $bg: #1E8DaC;
 
 @media (max-width: 599.9px) {
   .n-ovrl.limited > .content {
-    height: 69vh;
-    margin-top: 15vh;
-    width: 80vw;
-    margin-left: 10vw; }
+    height: calc(80% - var(--overlay-bottom) - var(--overlay-top));
+    margin: 10%;
+    width: 80%; }
   .n-ovrl > .content {
     padding-top: 1.5em; }
   .n-ovrl .close {
     height: 1.5em;
     padding: 0 .75em; } }
 @media (max-height: 512px) and (orientation: landscape) {
-  html.can-touch.nooverflow, html.can-touch.nooverflow body {
-    height: calc(100% + 1px); }
-
   .n-ovrl .n-sldr.overlay, .n-ovrl .n-sldr.vertical.overlay {
     margin: 0;
     height: 100%; }
@@ -130,7 +135,6 @@ $bg: #1E8DaC;
     text-align: center; }
 
   .overlay.n-sldr {
-    margin: 0;
-    height: calc(100% + 1px); } }
+    margin: 0; } }
 
 /*# sourceMappingURL=natuive-modal.css.map */

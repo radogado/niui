@@ -31,8 +31,8 @@ var componentLightbox = (function (){
 				el.style.setProperty('--y', '-50%');
 				el.onmousemove = function (e) {
 					
-					var width = q('.n-ovrl .n-sldr').offsetWidth;
-					var height = q('.n-ovrl .n-sldr').offsetHeight;
+					var width = q('.n-ovrl:last-of-type .n-sldr').offsetWidth;
+					var height = q('.n-ovrl:last-of-type .n-sldr').offsetHeight;
 					
 					var el = e.target;
 					var overflowX = el.width - width;

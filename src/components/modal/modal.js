@@ -2,44 +2,187 @@ var componentModal = (function (){
 
 /* Modal – start */
 
-	function getWindowInnerHeight() { // Fix iOS Safari's fake viewport height
+	var disableBodyScroll = (function () {
+
+	    /**
+	     * Private variables
+	     */
+	    var _selector = false,
+	        _element = false,
+	        _clientY;
+	
+	    /**
+	     * Polyfills for Element.matches and Element.closest
+	     */
+	/*
+	    if (!Element.prototype.matches)
+	        Element.prototype.matches = Element.prototype.msMatchesSelector ||
+	        Element.prototype.webkitMatchesSelector;
+	
+	    if (!Element.prototype.closest)
+	        Element.prototype.closest = function (s) {
+	            var ancestor = this;
+	            if (!document.documentElement.contains(el)) return null;
+	            do {
+	                if (ancestor.matches(s)) return ancestor;
+	                ancestor = ancestor.parentElement;
+	            } while (ancestor !== null);
+	            return el;
+	        };
+	*/
+	
+	    /**
+	     * Prevent default unless within _selector
+	     * 
+	     * @param  event object event
+	     * @return void
+	     */
+	    var preventBodyScroll = function (event) {
+	        if (false === _element || !event.target.closest(_selector)) {
+	            event.preventDefault();
+	        }
+	    };
+	
+	    /**
+	     * Cache the clientY co-ordinates for
+	     * comparison
+	     * 
+	     * @param  event object event
+	     * @return void
+	     */
+	    var captureClientY = function (event) {
+	        // only respond to a single touch
+	        if (event.targetTouches.length === 1) { 
+	            _clientY = event.targetTouches[0].clientY;
+	        }
+	    };
+	
+	    /**
+	     * Detect whether the element is at the top
+	     * or the bottom of their scroll and prevent
+	     * the user from scrolling beyond
+	     * 
+	     * @param  event object event
+	     * @return void
+	     */
+	    var preventOverscroll = function (event) {
+	        // only respond to a single touch
+		    if (event.targetTouches.length !== 1) {
+		    	return;
+		    }
+	
+		    var clientY = event.targetTouches[0].clientY - _clientY;
+	
+		    // The element at the top of its scroll,
+		    // and the user scrolls down
+		    if (_element.scrollTop === 0 && clientY > 0) {
+		        event.preventDefault();
+		    }
+	
+		    // The element at the bottom of its scroll,
+		    // and the user scrolls up
+			// https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollHeight#Problems_and_solutions
+			if ((_element.scrollHeight - _element.scrollTop <= _element.clientHeight) && clientY < 0) {
+		        event.preventDefault();
+		    }
+	
+	    };
+	
+	    /**
+	     * Disable body scroll. Scrolling with the selector is
+	     * allowed if a selector is porvided.
+	     * 
+	     * @param  boolean allow
+	     * @param  string selector Selector to element to change scroll permission
+	     * @return void
+	     */
+	    return function (allow, selector) {
+	    	if (typeof selector !== "undefined") {
+		        _selector = selector;
+		        _element = document.querySelector(selector);
+	    	}
+	
+	        if (true === allow) {
+	        	if (false !== _element) {
+		            _element.addEventListener('touchstart', captureClientY, { passive: false });
+		            _element.addEventListener('touchmove', preventOverscroll, { passive: false });
+	        	}
+	            document.body.addEventListener("touchmove", preventBodyScroll, { passive: false });
+	        } else {
+	        	if (false !== _element) {
+		            _element.removeEventListener('touchstart', captureClientY, { passive: false });
+		            _element.removeEventListener('touchmove', preventOverscroll, { passive: false });
+		        }
+	          document.body.removeEventListener("touchmove", preventBodyScroll, { passive: false });
+	        }
+	    };
+	}());
+	
+	function adjustModal(e) {
 		
-		console.log('updating inner height');
-		q('.n-ovrl').style.setProperty('--window-inner-height', window.innerHeight + 'px');
-		var offset_top = document.body.scrollHeight - window.innerHeight;
-		if (offset_top > 60) {
+		if (!iOSSafari) { // Only for mobile Safari
 			
-			offset_top = 0;
+			return;
 
 		}
-		q('.n-ovrl').style.setProperty('--top', offset_top + 'px');
+		
+		var modal = q('.n-ovrl');
+		if (typeof e !== 'undefined') { // On resize event (toolbars have appeares by tapping at the top or bottom area
 
-		if (q('.n-ovrl').offsetTop > 25) {
+			var offset_y = modal.getBoundingClientRect().y;
+			var total_screen_height = modal.scrollHeight;
+			document.body.style.setProperty('--overlay-top', (parseInt(document.body.style.getPropertyValue('--overlay-top')) - offset_y) + 'px');
+			document.body.style.setProperty('--overlay-bottom', (total_screen_height - window.innerHeight + offset_y) + 'px');
 			
-			q('.n-ovrl').setAttribute('data-offset-top', true);
-
 		} else {
+		
+			if (qa('.n-ovrl').length > 1) { // Multiple modals: offset has been set, no need to do anything
+				
+				return;
+	
+			}
+
+			var screen_height = modal.scrollHeight;
+			var actual_viewport = window.innerHeight;
+
+			if (actual_viewport <= screen_height) { // modal is cropped, adjust its top/bottom
+				
+				if ((document.body.scrollHeight + document.body.getBoundingClientRect().y) === actual_viewport) {// page scrolled at the bottom
+
+					document.body.style.setProperty('--overlay-bottom', 0);
+					document.body.style.setProperty('--overlay-top', (screen_height - actual_viewport) + 'px');
+	
+				} else {
+	
+					document.body.style.setProperty('--overlay-top', 0);
+					document.body.style.setProperty('--overlay-bottom', (screen_height - actual_viewport) + 'px');
+				}
 			
-			q('.n-ovrl').removeAttribute('data-offset-top');
-
+			}
+		
+			if (modal.getBoundingClientRect().y !== 0) { // A little off
+	
+				document.body.style.setProperty('--overlay-top', (parseInt(document.body.style.getPropertyValue('--overlay-top')) - modal.getBoundingClientRect().y) + 'px');
+				document.body.style.setProperty('--overlay-bottom', (parseInt(document.body.style.getPropertyValue('--overlay-bottom')) + modal.getBoundingClientRect().y) + 'px');
+				
+			}
+			
+			if ((actual_viewport + parseInt(document.body.style.getPropertyValue('--overlay-top')) + parseInt(document.body.style.getPropertyValue('--overlay-bottom'))) > screen_height) { // Extra bug when scrolled near the bottom
+				
+				document.body.style.setProperty('--overlay-bottom', (screen_height - actual_viewport - parseInt(document.body.style.getPropertyValue('--overlay-top'))) + 'px');
+				
+			}
+		
 		}
-
+		
 	}
 
 	function closeFullWindow() {
 	
-		var full_window = q('.n-ovrl:last-of-type') || q('.n-ovrl');
+		var full_window = q('.n-ovrl:last-of-type');
 	
 		if (full_window) {
 			
-		   	q('html').style.pointerEvents = 'none';
-	
-			if (qa('.n-ovrl').length === 1) { // A single overlay
-				
-			    removeClass(q('html'), 'nooverflow');
-		    	q('body').scrollTop = q('html').scrollTop = -1 * previousScrollOffset;
-				
-			}
 			var animation = full_window.querySelector('.content > div').getAttribute('data-anim'); // Custom animation?
 	
 			if (animation === 'null' || animation === 'undefined') {
@@ -48,50 +191,43 @@ var componentModal = (function (){
 				
 			} else {
 				
-	// 			full_window.style.animationDirection = 'reverse'; // Not working with Closure Compiler, hence:
 				full_window.style.cssText = 'animation-direction: reverse;';
 	
 			}
 	
 			animate(full_window, animation, .2, function (e) {
 	
-	//			if (true/* full_window_content */) { // Remove disposable generated content. To do: In which case it's not dynamic?
+				disableBodyScroll(false, '.n-ovrl:last-of-type .content'); // Turn off and restore page scroll
+				full_window.parentNode.removeChild(full_window);
+				full_window_content = null;
 		
-					 // If lightbox/slider, crashes iOS Safari. not crashing with an empty div
-					full_window.parentNode.removeChild(full_window);
-					full_window_content = null;
-		
-						
-	//			} else { // or keep previously existing content
-		
-	//				full_window.parentNode.replaceChild(full_window.querySelector('.content > *'), full_window);
-				
-	//			}
-		
-				if (qa('.n-ovrl').length === 0) { // A single overlay
+				if (!q('.n-ovrl')) { // A single overlay is gone, leaving no overlays on the page
 	
-					window.removeEventListener('keydown', arrow_keys_handler);
+					document.body.style.setProperty('--overlay-top', 0);
+					document.body.style.setProperty('--overlay-bottom', 0);
+					window.removeEventListener('resize', adjustModal);
+					window.removeEventListener('keydown', arrow_keys_handler); // To do: unglobal this and apply only to modal
 					window.removeEventListener('keyup', keyUpClose);
+					removeClass(q('html'), 'no-scroll');
+	
 					if (!q('.slider')) { // No sliders on the page to control with arrow keys
 					
-		// 				document.onkeyup = function () {};
 						window.removeEventListener('keydown', arrow_keys_handler, false);
 						
 					}
 				
+				} else {
+				
+					disableBodyScroll(true, '.n-ovrl:last-of-type .content');
+					
 				}
 				
-			   	q('html').style.pointerEvents = 'initial';
-			   	removeClass(q('html'), 'nooverflow');
-			   	
 			   	if (previouslyFocused) {
 	
 				   	previouslyFocused.focus();
 				   
 				}
 					
-				window.removeEventListener('resize', getWindowInnerHeight);
-	
 			});
 			
 		}
@@ -102,10 +238,6 @@ var componentModal = (function (){
 
 		previouslyFocused = document.activeElement;
 		
-	   	q('html').style.pointerEvents = 'none';
-		var offset_top = q('html').getBoundingClientRect().top;
-		previousScrollOffset = offset_top; // Remember the page position.
-	
 		full_window_content = document.createElement('div');
 		
 		if (typeof el === 'string') {
@@ -126,22 +258,11 @@ var componentModal = (function (){
 		wrapper.firstChild.appendChild(full_window_content);
 		full_window_content = wrapper;
 	
-	/*     if (!hasClass(el, 'headless')) { */
-		    
-		    full_window_content.insertAdjacentHTML('afterbegin', '<div class=close> ← ' + document.title + '</div>');
-			full_window_content.querySelector('.overlay-bg').onclick = full_window_content.querySelector('.close').onclick = closeFullWindow;
-			window.addEventListener('keyup', keyUpClose);
+	    full_window_content.insertAdjacentHTML('afterbegin', '<div class=close> ← ' + document.title + '</div>');
+		full_window_content.querySelector('.overlay-bg').onclick = full_window_content.querySelector('.close').onclick = closeFullWindow;
+		window.addEventListener('keyup', keyUpClose);
 		   
-	/*
-		} else {
-			
-			addClass(full_window_content, 'headless');
-			
-		}
-	*/
-	
 		q('body').appendChild(full_window_content);
-	//	initComponents(full_window_content.querySelector('.content')); // replaced by the Mutation Observer
 	
 	    full_window_content.querySelector('.content').focus();
 	
@@ -162,18 +283,20 @@ var componentModal = (function (){
 				full_window_content.requestFullScreen(); 
 			
 			}
-		
-	    	q('html').style.pointerEvents = 'initial';
 	
 		} else {
 	
 			animate(full_window_content, typeof animation === 'string' ? animation : '0% { transform: translate3d(0,-100vh,0) } 100% { transform: translate3d(0,0,0) }', .2, function () { 
 				
-				addClass(q('html'), 'nooverflow');
-		    	q('body').scrollTop = q('html').scrollTop = -1 * previousScrollOffset;
-		    	q('html').style.pointerEvents = 'initial';
-				getWindowInnerHeight();
-				window.addEventListener('resize', getWindowInnerHeight);
+				disableBodyScroll(true, '.n-ovrl:last-of-type .content'); // Turn on and block page scroll
+				
+				if (qa('.n-ovrl').length === 1) { // Sole (first) modal
+
+					addClass(q('html'), 'no-scroll');
+					window.addEventListener('resize', adjustModal);
+					adjustModal();
+
+				}
 			
 			});
 	
@@ -185,7 +308,7 @@ var componentModal = (function (){
 
 	function modalWindow(e) {
 
-    // Modal window of an external file
+    // Modal window of an external file content
 
 	    var el = e.target;
 	
@@ -280,3 +403,9 @@ var componentModal = (function (){
 /* Modal – end */
 
 })();
+
+// To do: √ adjust multiple modals – if a prior modal exists, don't re-adjust, use the current offsets
+// To do: √ When second modal triggers a resize (toolbars appear), it should call adjustModal()
+// To do: √ allow scrolling in modal content, don't let a slider inside the modal block modal's vertical swipe scroll 
+// To do: disable page scroll by arrow keys
+// To do: √ after closing the second modal, page is scrollable

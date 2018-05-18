@@ -58,23 +58,12 @@ var componentSlider = (function (){
 	
 	    function touchStart(e) {
 	
-	/*
-			if (hasClass(q('html'), 'sliding_now')) {
-	
-				endSlide(sliderElement(e));
-				return;
-	
-			}
-	*/
-	
 	        var touches = e.touches;
 	        if (touches && touches.length) {
 	
 	            startX = touches[0].pageX;
 	            startY = touches[0].pageY;
 	            el.addEventListener('touchmove', touchMove);
-	
-	//             q('html').addClass('sliding_now');
 	
 	        }
 	
@@ -83,7 +72,6 @@ var componentSlider = (function (){
 	    function touchMove(e) {
 		    
 	        var touches = e.touches;
-	// 	    var slider = sliderElement(e);
 	
 	        if (touches && touches.length && !(hasClass(el, 'vertical') && !closest(el, '.n-ovrl'))) { // Don't slide vertically if not full window
 	
@@ -91,10 +79,11 @@ var componentSlider = (function (){
 	            var deltaY = startY - touches[0].pageY;
 	            var delta = (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY;
 				
-				// Allow vertical page scrol by swiping over the slider 
-	            if ((hasClass(el, 'vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !q('.n-ovrl .n-sldr')) {
+				// Allow vertical page scroll by swiping over the slider. Also when parent modal is scrollable vertically
+	            if (((hasClass(el, 'vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !q('.n-ovrl .n-sldr'))
+	            	|| (closest(el, '.n-ovrl') && (Math.abs(deltaX) < Math.abs(deltaY)))
+					) {
 	
-	//                 removeClass(q('html'), 'sliding_now');
 	                return;
 	
 	            }

@@ -2,6 +2,12 @@
 
 @import '../../css/natuive-setup';
 
+.no-scroll {
+    &, & body {
+        overflow: hidden;
+    }
+}
+
 .n-ovrl {
 
 	z-index: 999999;
@@ -10,42 +16,50 @@
 	overflow: hidden;
 	overflow-y: scroll;
 	position: fixed;
-	top: var(--top);
+	top: 0;
+	bottom: 0;
+	top: var(--overlay-top, 0);
+	bottom: var(--overlay-bottom, 0);
 	right: 0;
 	left: 0;
-	bottom: 0;
 	border-top: none;
-    -webkit-overflow-scrolling: touch;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
 //     height: 100vh;
 //     height: var(--window-inner-height);
-	box-shadow: 0 0 0em 100px rgba(255,255,255,.97);
-	transition: top .2s ease-in-out;
+//	box-shadow: 0 0 0em 100px rgba(255,255,255,.97);
+//	transition: all .2s linear, bottom .2s linear; // Not working
+
+//    box-shadow: 0 0 0 2px green inset; // Debug
 
 }
 
-.n-ovrl[data-offset-top] {
-	
-	top: 0;
-	
-}
-	
 	.n-ovrl > .content {
 		
-		overflow-y: scroll;
-		position: relative;
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    right: 0;
+	    bottom: 0;
+// 	    color: #fff;
+	    overflow-y: auto;
+	    overflow-x: none;
+	    -webkit-overflow-scrolling: touch;
 		background: transparent;
 		height: 100%; // For Android Browser, which doesn't understand the bottom line
 // 		height: calc(100% - #{$line-height-em*2});
 // 		height: calc(100% - var(--line-height-em)*2);
 		padding-top: $line-height-em*2;
-		overflow: auto;
 
 	}
 	
 	.n-ovrl.limited > .content, /* .no-touch */ .n-ovrl.limited > .content {
 
+/*
 		background: #666;
     	color: #eee;
+*/
     	padding: 0;
     	height: 50vh;
    	    margin-top: 25vh;
@@ -105,10 +119,9 @@
 		
 		&.limited > .content {
 		
-	    	height: 69vh;
-	   	    margin-top: 15vh;
-		    width: 80vw;
-		    margin-left: 10vw;
+			height: calc(80% - var(--overlay-bottom) - var(--overlay-top));
+			margin: 10%;
+			width: 80%;
 		
 		}
 	
@@ -131,12 +144,6 @@
 }
 
 @media (max-height: 512px) and (orientation: landscape) { // Move the close bar to the side, because it's inaccessible with certain toolbar configurations
-	
-	html.can-touch.nooverflow, html.can-touch.nooverflow body {
-	
-		height: calc(100% + 1px); // iOS Safari workaround for toolbars
-	
-	}
 	
 	.n-ovrl .n-sldr.overlay, .n-ovrl .n-sldr.vertical.overlay {
 		
@@ -180,7 +187,6 @@
 	.overlay.n-sldr {
 		
 		margin: 0;
-		height: calc(100% + 1px);
 
 	}
 
