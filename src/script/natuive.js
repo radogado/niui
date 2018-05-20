@@ -1989,10 +1989,10 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		if (full_window) {
 			
 			var animation = full_window.querySelector('.content > div').getAttribute('data-anim'); // Custom animation?
-	
-			if (animation === 'null' || animation === 'undefined') {
+			console.log(animation);
+			if (animation.length < 11) { // '', 'null' or 'undefined'?
 				
-				animation = '0% { transform: translate3d(0,0,0) } 100% { transform: translate3d(0,-100vh,0) }';
+				animation = '0% { transform: translate3d(0,0,0) } 100% { transform: translate3d(0,-100%,0) }'; // 100% instead of 100vh, bc IE fails
 				
 			} else {
 				
@@ -2091,7 +2091,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 		} else {
 	
-			animate(full_window_content, typeof animation === 'string' ? animation : '0% { transform: translate3d(0,-100vh,0) } 100% { transform: translate3d(0,0,0) }', .2, function () { 
+			animate(full_window_content, typeof animation === 'string' ? animation : '0% { transform: translate3d(0,-100%,0) } 100% { transform: translate3d(0,0,0) }', .2, function () { 
 				
 				disableBodyScroll(true, '.n-ovrl:last-of-type .content'); // Turn on and block page scroll
 				
