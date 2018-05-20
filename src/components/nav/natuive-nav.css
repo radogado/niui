@@ -26,15 +26,19 @@ nav ul {
   padding: 0;
   display: inline-block;
   width: auto;
-  list-style: none; }
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap; }
 
 nav.scroll {
   overflow: auto;
   max-width: 100%; }
 
 nav.scroll > ul {
-  white-space: nowrap;
-  padding: .25em 0; }
+  display: flex;
+  padding: .25em 0;
+  flex-wrap: nowrap;
+  white-space: nowrap; }
 
 @supports (--a: 1) {
   nav.scroll a {
@@ -85,7 +89,8 @@ nav.drop ul ul {
   position: absolute;
   left: 0;
   background-color: #fff;
-  background-color: var(--nav-bg); }
+  background-color: var(--nav-bg);
+  top: 100%; }
 
 nav.drop ul ul ul {
   margin-left: 100%;
@@ -101,7 +106,8 @@ nav.drop li {
   background-color: var(--nav-bg);
   position: relative; }
 
-nav.drop li[aria-haspopup]:not([tabindex]) {
+/* nav.drop li[aria-haspopup]:not([tabindex]) */
+nav.drop li:not([tabindex]) > ul ~ a {
   padding-right: 42px; }
 
 nav.drop li > a {
@@ -115,8 +121,7 @@ nav.drop a[href] {
   position: relative; }
 
 nav.drop li:not([aria-haspopup]) > a {
-  margin-right: 42px;
-  z-index: 1; }
+  z-index: 0; }
 
 nav.drop ul[role=menubar] li > a {
   margin-right: 0;
@@ -149,26 +154,37 @@ nav.drop li > input {
   -moz-appearance: none;
   display: block;
   position: absolute;
-  margin: -4.75em 0 0 0;
   width: 100%;
   height: 100%;
   border: none;
-  border-radius: 0; }
+  border-radius: 0;
+  right: 0;
+  z-index: 1;
+  width: 2em; }
 
-nav.drop li > input, nav.drop li[aria-haspopup] {
+/* nav.drop li > input,  */
+nav.drop li > ul ~ a, nav.drop li[aria-haspopup] {
   background-image: url("data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M50%20100L0%200h100z%22%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: calc(100% - 16px) 50%;
   background-size: .5em; }
 
-nav.drop li > input {
-  background-position-y: 2.75em; }
+nav.drop[data-ready] li > ul ~ a {
+  background: none; }
 
-nav.drop li li > input, nav.drop li li[aria-haspopup] {
+/*
+nav.drop li > input {
+	
+	background-position-y: 2.75em;
+	
+}
+*/
+/* nav.drop li li > input,  */
+nav.drop li li > ul ~ a, nav.drop li li[aria-haspopup] {
   background-image: url("data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M100%2050L0%20100V0z%22%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E"); }
 
 nav.drop li[aria-haspopup] {
-  padding-right: 2em; }
+  padding-right: calc(42px - 1em); }
 
 @media (min-width: 600px) {
   html:not(.can-touch) nav.drop ul ul ul:not([aria-expanded]) {
@@ -178,17 +194,24 @@ nav.drop li[aria-haspopup] {
   html:not(.can-touch) nav.drop > ul > li > ul li {
     background-color: #fff;
     background-color: var(--nav-bg); }
-  html:not(.can-touch) nav.drop > ul > li:hover > input:not(:checked) ~ ul, html:not(.can-touch) nav.drop > ul li ul li:hover input:not(:checked) ~ ul {
+  html:not(.can-touch) nav.drop > ul > li:not([aria-haspopup]):hover > ul,
+  html:not(.can-touch) nav.drop > ul > li:hover > ul,
+  html:not(.can-touch) nav.drop > ul li ul > li:hover > ul,
+  html:not(.can-touch) nav.drop ul ul :checked ~ ul:not([aria-expanded]),
+  html:not(.can-touch) nav.drop > ul li:not([aria-haspopup]) ul li:hover ~ ul {
+    max-height: none;
+    overflow: visible;
+    opacity: 1;
+    z-index: 2; }
+  html:not(.can-touch) nav.drop > ul > li:hover > input:not(:checked) ~ ul,
+  html:not(.can-touch) nav.drop > ul li ul > li:hover > input:not(:checked) ~ ul,
+  html:not(.can-touch) html:not(.can-touch) nav.drop > ul > li:not([aria-haspopup]):hover > input:not(:checked) ~ ul,
+  html:not(.can-touch) html:not(.can-touch) nav.drop > ul li:not([aria-haspopup]) ul li:hover > input:not(:checked) ~ ul {
     min-height: 0;
     max-height: 0;
     overflow: hidden;
     z-index: 1;
     position: absolute; }
-  html:not(.can-touch) nav.drop > ul > li:not([aria-haspopup]):hover > input:not(:checked) ~ ul, html:not(.can-touch) nav.drop > ul > li:hover > ul, html:not(.can-touch) nav.drop > ul li ul li:hover ul, html:not(.can-touch) nav.drop ul ul :checked ~ ul:not([aria-expanded]), html:not(.can-touch) nav.drop > ul li:not([aria-haspopup]) ul li:hover input:not(:checked) ~ ul {
-    max-height: none;
-    overflow: visible;
-    opacity: 1;
-    z-index: 2; }
   html:not(.can-touch) nav.drop > ul li ul li:hover ul {
     transition-delay: 0.2s; }
 

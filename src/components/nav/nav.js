@@ -87,7 +87,7 @@
 		el.parentNode.parentNode.setAttribute(aria_expanded, true);
 		if (el.parentNode.querySelector('ul')) {
 	
-			el.parentNode.querySelector('ul').setAttribute(aria_expanded, 'true');
+			el.parentNode.querySelector('ul').setAttribute(aria_expanded, true);
 	
 		}
 		
@@ -161,6 +161,11 @@
 			if (el.querySelector('ul')) {
 		
 				el.setAttribute('aria-haspopup', true);
+				if (el.children[0].nodeName === 'UL') {
+
+					el.insertBefore(el.children[1], el.children[0]); // Swap 'a' with 'ul'
+
+				}
 			
 			}
 		
