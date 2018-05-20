@@ -2,7 +2,7 @@ var componentModal = (function (){
 
 /* Modal – start */
 
-	var disableBodyScroll = (function () {
+	var disableBodyScroll = (function () { // Thanks Thijs Huijssoon
 
 	    /**
 	     * Private variables

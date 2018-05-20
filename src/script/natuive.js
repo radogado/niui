@@ -1807,7 +1807,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 
 /* Modal – start */
 
-	var disableBodyScroll = (function () {
+	var disableBodyScroll = (function () { // Thanks Thijs Huijssoon
 
 	    /**
 	     * Private variables
@@ -2519,11 +2519,12 @@ var componentSlider = (function (){
 	
 	            var deltaX = startX - touches[0].pageX;
 	            var deltaY = startY - touches[0].pageY;
-	            var delta = (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY;
-				
+	            var delta = (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY;				
+				var overlay_content = closest(el, '.n-ovrl') ? closest(el, '.n-ovrl').querySelector('.content') : null;
+
 				// Allow vertical page scroll by swiping over the slider. Also when parent modal is scrollable vertically
 	            if (((hasClass(el, 'vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !q('.n-ovrl .n-sldr'))
-	            	|| (closest(el, '.n-ovrl') && (Math.abs(deltaX) < Math.abs(deltaY)))
+	            	|| (overlay_content && (overlay_content.scrollHeight > overlay_content.offsetHeight) && (Math.abs(deltaX) < Math.abs(deltaY)))
 					) {
 	
 	                return;
