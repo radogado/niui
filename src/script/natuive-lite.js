@@ -1102,7 +1102,7 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 	
 		if (!closest(e.target, 'nav li')) {
 	
-			forEach ('nav ul', function (el) {
+			forEach('nav ul', function (el) {
 				
 				el.removeAttribute(aria_expanded);
 				
@@ -1238,7 +1238,7 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 		
 			if (e.key === 'Escape') {
 				
-				forEach (closest(e.target, 'nav').querySelectorAll('ul'), function (el) {
+				forEach(closest(e.target, 'nav').querySelectorAll('ul'), function (el) {
 					
 					el.removeAttribute(aria_expanded);
 					

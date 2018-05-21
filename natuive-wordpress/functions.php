@@ -535,34 +535,14 @@ function new_nav_menu($items) {
 	$DOM = new DOMDocument();
 	$DOM->loadHTML('<?xml encoding="utf-8" ?>' . $items);
 	$DOM->preserveWhiteSpace = false;
-	
+	// To do: swap 'a' and 'ul' inside $DOM. Insert ul before
 	foreach ($DOM->getElementsByTagName('ul') as $ul) {
 	    $a = $DOM->createElement('input');
 	    $a->setAttribute('type', 'checkbox');
 	    $ul->parentNode->insertBefore($a, $ul);
 
-/*
-	    $input = $DOM->createElement('input');
-	    $input->setAttribute('class', 'trigger'); $input->setAttribute('type', 'radio'); $input->setAttribute('name', 'level1'); $input->setAttribute('form', 'level1');
-	    $ul->parentNode->insertBefore($input, $ul);
-	    $input = $DOM->createElement('input');
-	    $input->setAttribute('type', 'reset'); $input->setAttribute('form', 'level1');
-	    $ul->parentNode->insertBefore($input, $ul);
-*/
-
 	}
 	
-/*
-	foreach ($DOM->getElementsByTagName('a') as $a) {
-	    $input = $DOM->createElement('input');
-	    $input->setAttribute('class', 'trigger'); $input->setAttribute('type', 'radio'); $input->setAttribute('name', 'level1'); $input->setAttribute('form', 'level1');
-	    $a->parentNode->insertBefore($input, $a);
-	    $input = $DOM->createElement('input');
-	    $input->setAttribute('type', 'reset'); $input->setAttribute('form', 'level1');
-	    $a->parentNode->insertBefore($input, $a);
-	}
-*/
-
 	$DOM->formatOutput = true;
 	$items = $DOM->saveHTML();
 

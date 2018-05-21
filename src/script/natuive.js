@@ -2224,7 +2224,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 		if (!closest(e.target, 'nav li')) {
 	
-			forEach ('nav ul', function (el) {
+			forEach('nav ul', function (el) {
 				
 				el.removeAttribute(aria_expanded);
 				
@@ -2360,7 +2360,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		
 			if (e.key === 'Escape') {
 				
-				forEach (closest(e.target, 'nav').querySelectorAll('ul'), function (el) {
+				forEach(closest(e.target, 'nav').querySelectorAll('ul'), function (el) {
 					
 					el.removeAttribute(aria_expanded);
 					
