@@ -535,11 +535,18 @@ function new_nav_menu($items) {
 	$DOM = new DOMDocument();
 	$DOM->loadHTML('<?xml encoding="utf-8" ?>' . $items);
 	$DOM->preserveWhiteSpace = false;
-	// To do: swap 'a' and 'ul' inside $DOM. Insert ul before
+
 	foreach ($DOM->getElementsByTagName('ul') as $ul) {
-	    $a = $DOM->createElement('input');
-	    $a->setAttribute('type', 'checkbox');
-	    $ul->parentNode->insertBefore($a, $ul);
+
+		if ($ul->parentNode->firstChild->tagName == 'a' && $ul->parentNode->lastChild->tagName == 'ul') { // Move <a> after <ul> for CSS-only nav
+
+			$ul->parentNode->appendChild($ul->parentNode->firstChild);
+			
+		}
+		
+	    $input = $DOM->createElement('input');
+	    $input->setAttribute('type', 'checkbox');
+	    $ul->parentNode->insertBefore($input, $ul);
 
 	}
 	
