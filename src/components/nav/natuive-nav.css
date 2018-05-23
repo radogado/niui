@@ -232,6 +232,9 @@ nav.drop li[aria-haspopup] {
     margin: 0; }
 
   nav.drop li > input, nav.drop li[aria-haspopup] {
-    background-position-y: 1.5em; } }
+    background-position-y: 1.5em; }
+
+  nav.drop li[aria-haspopup] {
+    padding-right: 42px; } }
 
 /*# sourceMappingURL=natuive-nav.css.map */

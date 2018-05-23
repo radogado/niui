@@ -36,8 +36,7 @@ body {
 
 	color: $color; /* Fallback when CSS variables aren't supported */
 	color: var(--color);
-	background: $bg;
-	background: var(--bg);
+	background: var(--bg, $bg);
 
 }
 

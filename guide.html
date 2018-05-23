@@ -684,7 +684,16 @@ require('./node_modules/natuive/index.js');
 								</div>
 							
 							</div>
-							
+<br>							
+<div class="code">							
+
+<pre>
+&lt;div class='row border'&gt;
+	&lt;div&gt;...&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+</div>					
 							<br>
 
 							<div class='row border-all'>
@@ -3803,13 +3812,8 @@ nui.animate(document.querySelector('body'),
 							
 							<div>
 								
-								<h2>Dynamically add a natUIve component</h2>
+								<h2>Dynamically add a component</h2>
 								<br>
-								<button onclick="nui.addComponent(this.parentNode, '<div class=slider><div>New</div><div>Slider</div></div>');">Add a slider</button>
-								
-								<button onclick="nui.addComponent(this.parentNode, '<div class=fold><h3 class=label> Label </h3><input type=checkbox class=trigger><div class=content><p> Content. </p><p> Content. </p><p> Content. </p></div></div>');">Add an accordion</button>
-								
-<br>
 <div class="code">							
 
 <pre>
@@ -3818,6 +3822,34 @@ nui.addComponent(host, '&lt;div class=slider&gt;&lt;div&gt;New&lt;/div&gt;&lt;di
 
 </div>
 <br>
+
+<div class="row">
+<div>
+<textarea id=component-playground rows="10" style="width: 100%">
+<div class=slider> 
+	<div>New</div>
+	<div>Slider</div>
+</div>
+</textarea>
+<br>
+<button onclick="nui.addComponent(this.parentNode.parentNode.parentNode, this.parentNode.querySelector('textarea').value);">Add the above component</button>
+
+</div>
+<div>
+<textarea id=component-playground rows="10" style="width: 100%">
+<div class=fold>
+	<h3 class=label> Label </h3>
+	<input type=checkbox class=trigger>
+	<div class=content><p> Content. </p><p> Content. </p><p> Content. </p></div>
+</div>
+</textarea>
+<br>
+<button onclick="nui.addComponent(this.parentNode.parentNode.parentNode, this.parentNode.querySelector('textarea').value);">Add the above component</button>
+
+</div>
+</div>
+
+
 							</div>
 							
 						</div>

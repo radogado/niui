@@ -46,8 +46,7 @@ body {
   color: #333;
   /* Fallback when CSS variables aren't supported */
   color: var(--color);
-  background: #fff;
-  background: var(--bg); }
+  background: var(--bg, #fff); }
 
 body * {
   box-sizing: border-box;

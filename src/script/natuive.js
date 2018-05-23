@@ -1817,26 +1817,6 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	        _clientY;
 	
 	    /**
-	     * Polyfills for Element.matches and Element.closest
-	     */
-	/*
-	    if (!Element.prototype.matches)
-	        Element.prototype.matches = Element.prototype.msMatchesSelector ||
-	        Element.prototype.webkitMatchesSelector;
-	
-	    if (!Element.prototype.closest)
-	        Element.prototype.closest = function (s) {
-	            var ancestor = this;
-	            if (!document.documentElement.contains(el)) return null;
-	            do {
-	                if (ancestor.matches(s)) return ancestor;
-	                ancestor = ancestor.parentElement;
-	            } while (ancestor !== null);
-	            return el;
-	        };
-	*/
-	
-	    /**
 	     * Prevent default unless within _selector
 	     * 
 	     * @param  event object event
@@ -1895,7 +1875,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 	    /**
 	     * Disable body scroll. Scrolling with the selector is
-	     * allowed if a selector is porvided.
+	     * allowed if a selector is provided.
 	     * 
 	     * @param  boolean allow
 	     * @param  string selector Selector to element to change scroll permission

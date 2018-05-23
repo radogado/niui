@@ -46,8 +46,7 @@ body {
   color: #333;
   /* Fallback when CSS variables aren't supported */
   color: var(--color);
-  background: #fff;
-  background: var(--bg); }
+  background: var(--bg, #fff); }
 
 body * {
   box-sizing: border-box;
@@ -2433,7 +2432,10 @@ nav.drop li[aria-haspopup] {
     margin: 0; }
 
   nav.drop li > input, nav.drop li[aria-haspopup] {
-    background-position-y: 1.5em; } }
+    background-position-y: 1.5em; }
+
+  nav.drop li[aria-haspopup] {
+    padding-right: 42px; } }
 
 /*# sourceMappingURL=natuive-nav.css.map */
 
