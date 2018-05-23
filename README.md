@@ -72,6 +72,16 @@ natUIve demo pages: [Features demo](http://radogado.github.io/natuive/kitchen.ht
 
 –––
 
+natUIve 1.13
+
+- Slider: animated height change
+- Components in their own directories
+- Lite version with essential components only, ~10K (7K CSS + 4K JS). Excludes slider, parallax, modal, ligthbox, grid with inline popups, fold, card
+- Dynamic components via MutationObserver
+- Proper modals for iOS Safari
+
+–––
+
 natUIve 1.12
 
 - Switch inline lightbox to full screen
