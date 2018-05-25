@@ -164,7 +164,6 @@ var componentModal = (function (){
 		if (full_window) {
 			
 			var animation = full_window.querySelector('.content > div').getAttribute('data-anim'); // Custom animation?
-			console.log(animation);
 			if (animation.length < 11) { // '', 'null' or 'undefined'?
 				
 				animation = '0% { transform: translate3d(0,0,0) } 100% { transform: translate3d(0,-100%,0) }'; // 100% instead of 100vh, bc IE fails

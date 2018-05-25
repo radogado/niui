@@ -488,7 +488,7 @@ var componentSlider = (function (){
 			
 		} else {
 			
-			current_slider = closest(el, '.n-sldr').querySelector('.slider');
+			current_slider = closest(el, '.n-sldr') ? closest(el, '.n-sldr').querySelector('.slider') : null;
 	
 		}
 	

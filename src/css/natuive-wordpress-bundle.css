@@ -3388,10 +3388,9 @@ header h1, header p {
   nav.sub li:not(:first-child):before {
     content: none; } }
 .n-sldr {
-  background: #eee;
-  margin-bottom: 44px; }
+  background: #eee; }
 
-#full-window .n-sldr {
+.n-sldr.overlay {
   margin-bottom: 0; }
 
 .slider.featured {

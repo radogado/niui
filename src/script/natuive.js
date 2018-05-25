@@ -840,7 +840,7 @@ if (typeof MutationObserver === 'function') {
 			while (i < mutation.addedNodes.length) {
 				
 				var el = mutation.addedNodes[i++];
-	            if (typeof el === 'object' && el.nodeName !== '#text' && !el.getAttribute('data-ready')) {
+	            if (typeof el === 'object' && el.nodeName !== '#text' && !el.getAttribute('data-ready') && el.parentNode) {
 		            
 		            initComponents(el.parentNode);
 		            
@@ -1969,7 +1969,6 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		if (full_window) {
 			
 			var animation = full_window.querySelector('.content > div').getAttribute('data-anim'); // Custom animation?
-			console.log(animation);
 			if (animation.length < 11) { // '', 'null' or 'undefined'?
 				
 				animation = '0% { transform: translate3d(0,0,0) } 100% { transform: translate3d(0,-100%,0) }'; // 100% instead of 100vh, bc IE fails
@@ -2913,7 +2912,7 @@ var componentSlider = (function (){
 			
 		} else {
 			
-			current_slider = closest(el, '.n-sldr').querySelector('.slider');
+			current_slider = closest(el, '.n-sldr') ? closest(el, '.n-sldr').querySelector('.slider') : null;
 	
 		}
 	

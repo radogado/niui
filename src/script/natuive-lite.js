@@ -840,7 +840,7 @@ if (typeof MutationObserver === 'function') {
 			while (i < mutation.addedNodes.length) {
 				
 				var el = mutation.addedNodes[i++];
-	            if (typeof el === 'object' && el.nodeName !== '#text' && !el.getAttribute('data-ready')) {
+	            if (typeof el === 'object' && el.nodeName !== '#text' && !el.getAttribute('data-ready') && el.parentNode) {
 		            
 		            initComponents(el.parentNode);
 		            
