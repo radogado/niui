@@ -2051,6 +2051,16 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 	    full_window_content.querySelector('.content').focus();
 	
+		disableBodyScroll(true, '.n-ovrl:last-of-type .content'); // Turn on and block page scroll
+		
+		if (qa('.n-ovrl').length === 1) { // Sole (first) modal
+
+			addClass(q('html'), 'no-scroll');
+			window.addEventListener('resize', adjustModal);
+			adjustModal();
+
+		}
+			
 		if (full_window_content.querySelector('.full-screen')) {
 	
 			if (full_window_content.webkitRequestFullScreen) { 
@@ -2071,19 +2081,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 		} else {
 	
-			animate(full_window_content, typeof animation === 'string' ? animation : '0% { transform: translate3d(0,-100%,0) } 100% { transform: translate3d(0,0,0) }', .2, function () { 
-				
-				disableBodyScroll(true, '.n-ovrl:last-of-type .content'); // Turn on and block page scroll
-				
-				if (qa('.n-ovrl').length === 1) { // Sole (first) modal
-
-					addClass(q('html'), 'no-scroll');
-					window.addEventListener('resize', adjustModal);
-					adjustModal();
-
-				}
-			
-			});
+			animate(full_window_content, typeof animation === 'string' ? animation : '0% { transform: translate3d(0,-100%,0) } 100% { transform: translate3d(0,0,0) }', .2);
 	
 		}
 		

@@ -23,12 +23,13 @@ natUIve demo pages: [Features demo](http://radogado.github.io/natuive/kitchen.ht
 - CSS reset
 - Really blank default style, unlike frameworks with baked-in rounded edges, shadows etc*
 - Semantic structure
+- Components conveniently segregated and dynamically initialised by MutationObserver
 - Balanced functional layout
 - (Mobile) navigation
 - Drop-down nav: Touch-first, CSS-only, JS enhanced, 1-3 levels, responsive, label/link items support
-- Buttons
-- Modal windows with local or external content
-- Lightbox gallery supporting huge galleries* and click to zoom. Can be opened automatically by URI page#lightbox_id. Video in lightbox.
+- Buttons with a grouping container for proper line wrap
+- Modal windows with local or external content, multiple instances, fully supporting iPhone Safari toolbars*
+- Lightbox gallery supporting huge galleries* and click to zoom. Can be opened automatically by URI page#lightbox_id. Video in lightbox. Inline lightboxes switchable to full screen.
 - Tooltips with full HTML content*
 - Nested ordered lists*
 - Forms with validation, dynamic submission without page reload, full customisation and accessibility, including native file drop. Range input with blank style. Auto-expanding textarea*. Optional fieldsets.
@@ -38,6 +39,7 @@ natUIve demo pages: [Features demo](http://radogado.github.io/natuive/kitchen.ht
 - Cards
 - Quote block
 - Drop Caps
+- Grid with inline popups
 - Tables accessible on narrow screens by scrolling; sortable*
 - Footer sticking to the very bottom on short pages*
 - 'Back to top' button
@@ -57,6 +59,8 @@ natUIve demo pages: [Features demo](http://radogado.github.io/natuive/kitchen.ht
 - Click to copy to clipboard
 - Multiple modals, nested carousels, nested accordions etc
 - Functional without JS and accessible without CSS*
+- NPM install
+- Guide
 - 9 KB First View CSS + optional 8 KB JS (combined, minified, macOS gzip)
 - ~~No IE conditional operators~~ HTML5 elements also for IE8 with html5shiv
 - No jQuery or other dependencies*
@@ -112,7 +116,7 @@ natUIve 1.10
 - Buttons groups
 - Multiple modals/lightboxes
 - Custom open/close animation for modal/lightbox
-- Separate CSS for dynamic content
+- Separate CSS for dynamic content (disabled in later versions)
 - Vertically-centered slides
 - Horizontal fold
 
