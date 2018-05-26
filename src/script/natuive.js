@@ -1905,8 +1905,10 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 	function adjustModal(e) {
 		
-		if (!iOSSafari) { // Only for mobile Safari
+		if (!iOSSafari || Math.abs(window.orientation) !== 90) { // Only for mobile Safari
 			
+			document.body.style.setProperty('--overlay-top', 0);
+			document.body.style.setProperty('--overlay-bottom', 0);
 			return;
 
 		}
@@ -1990,6 +1992,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 					document.body.style.setProperty('--overlay-top', 0);
 					document.body.style.setProperty('--overlay-bottom', 0);
 					window.removeEventListener('resize', adjustModal);
+					window.removeEventListener('orientationchange', adjustModal);
 					window.removeEventListener('keydown', arrow_keys_handler); // To do: unglobal this and apply only to modal
 					window.removeEventListener('keyup', keyUpClose);
 					removeClass(q('html'), 'no-scroll');
@@ -2055,6 +2058,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		if (qa('.n-ovrl').length === 1) { // Sole (first) modal
 
 			addClass(q('html'), 'no-scroll');
+			window.addEventListener('orientationchange', adjustModal);
 			window.addEventListener('resize', adjustModal);
 			adjustModal();
 
