@@ -100,14 +100,14 @@ var componentModal = (function (){
 	
 	function adjustModal(e) {
 		
+		document.body.style.setProperty('--overlay-top', 0);
+		document.body.style.setProperty('--overlay-bottom', 0);
 		if (!iOSSafari || Math.abs(window.orientation) !== 90) { // Only for mobile Safari in landscape mode
 			
 			return;
 
 		}
 		
-		document.body.style.setProperty('--overlay-top', 0);
-		document.body.style.setProperty('--overlay-bottom', 0);
 		var modal = q('.n-ovrl');
 		if (typeof e !== 'undefined') { // On resize event (toolbars have appeares by tapping at the top or bottom area
 
@@ -185,7 +185,6 @@ var componentModal = (function (){
 				if (!q('.n-ovrl')) { // A single overlay is gone, leaving no overlays on the page
 	
 					window.removeEventListener('resize', adjustModal);
-					window.removeEventListener('orientationchange', adjustModal);
 					window.removeEventListener('keydown', arrow_keys_handler); // To do: unglobal this and apply only to modal
 					window.removeEventListener('keyup', keyUpClose);
 					removeClass(q('html'), 'no-scroll');
@@ -252,7 +251,6 @@ var componentModal = (function (){
 		if (qa('.n-ovrl').length === 1) { // Sole (first) modal
 
 			addClass(q('html'), 'no-scroll');
-			window.addEventListener('orientationchange', adjustModal);
 			window.addEventListener('resize', adjustModal);
 			adjustModal();
 
