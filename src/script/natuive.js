@@ -1823,7 +1823,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	     * @return void
 	     */
 	    var preventBodyScroll = function (event) {
-	        if (false === _element || !event.target.closest(_selector)) {
+	        if (!_element || typeof event.target.closest === 'undefined' || !event.target.closest(_selector)) {
 	            event.preventDefault();
 	        }
 	    };
@@ -2047,6 +2047,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 	    full_window_content.insertAdjacentHTML('afterbegin', '<div class=close> ← ' + document.title + '</div>');
 		full_window_content.querySelector('.overlay-bg').onclick = full_window_content.querySelector('.close').onclick = closeFullWindow;
+		full_window_content.querySelector('.close').addEventListener("touchmove", function (e) { e.preventDefault();}, { passive: false });
 		window.addEventListener('keyup', keyUpClose);
 		   
 		q('body').appendChild(full_window_content);

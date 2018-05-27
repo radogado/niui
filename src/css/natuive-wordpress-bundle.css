@@ -3591,9 +3591,4 @@ nav.drop ul li a[href] {
 .single h1 {
   margin-top: .25em; }
 
-@media screen and (max-width: 599.9px) {
-  .lightbox.gallery {
-    text-align: center;
-    justify-content: center; } }
-
 /*# sourceMappingURL=natuive-wordpress.css.map */
