@@ -2887,6 +2887,7 @@ _:-ms-lang(x), .aspect > .n-sldr {
   padding: 0;
   width: 2em;
   height: 2em;
+  min-height: 2em;
   text-align: center; }
 
 /*

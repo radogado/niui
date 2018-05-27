@@ -1905,14 +1905,14 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 	function adjustModal(e) {
 		
-		if (!iOSSafari || Math.abs(window.orientation) !== 90) { // Only for mobile Safari
+		if (!iOSSafari || Math.abs(window.orientation) !== 90) { // Only for mobile Safari in landscape mode
 			
-			document.body.style.setProperty('--overlay-top', 0);
-			document.body.style.setProperty('--overlay-bottom', 0);
 			return;
 
 		}
 		
+		document.body.style.setProperty('--overlay-top', 0);
+		document.body.style.setProperty('--overlay-bottom', 0);
 		var modal = q('.n-ovrl');
 		if (typeof e !== 'undefined') { // On resize event (toolbars have appeares by tapping at the top or bottom area
 
@@ -1989,8 +1989,6 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		
 				if (!q('.n-ovrl')) { // A single overlay is gone, leaving no overlays on the page
 	
-					document.body.style.setProperty('--overlay-top', 0);
-					document.body.style.setProperty('--overlay-bottom', 0);
 					window.removeEventListener('resize', adjustModal);
 					window.removeEventListener('orientationchange', adjustModal);
 					window.removeEventListener('keydown', arrow_keys_handler); // To do: unglobal this and apply only to modal
