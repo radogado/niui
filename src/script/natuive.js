@@ -1905,24 +1905,33 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 	function adjustModal(e) {
 		
-		document.body.style.setProperty('--overlay-top', 0);
-		document.body.style.setProperty('--overlay-bottom', 0);
 		if (!iOSSafari || Math.abs(window.orientation) !== 90) { // Only for mobile Safari in landscape mode
 			
+			document.body.style.setProperty('--overlay-top', 0);
+			document.body.style.setProperty('--overlay-bottom', 0);
 			return;
 
 		}
 		
 		var modal = q('.n-ovrl');
-		if (typeof e !== 'undefined') { // On resize event (toolbars have appeares by tapping at the top or bottom area
+		if (typeof e !== 'undefined') { // On resize event (toolbars have appeared by tapping at the top or bottom area
 
 			var offset_y = modal.getBoundingClientRect().y;
 			var total_screen_height = modal.scrollHeight;
-			document.body.style.setProperty('--overlay-top', (parseInt(document.body.style.getPropertyValue('--overlay-top')) - offset_y) + 'px');
+			var previous_overlay_top = parseInt(document.body.style.getPropertyValue('--overlay-top'));
+			if ((previous_overlay_top + '') === 'NaN') {
+				
+				previous_overlay_top = 0;
+
+			}
+			document.body.style.setProperty('--overlay-top', (previous_overlay_top - offset_y) + 'px');
 			document.body.style.setProperty('--overlay-bottom', (total_screen_height - window.innerHeight + offset_y) + 'px');
 			
 		} else {
 		
+			document.body.style.setProperty('--overlay-top', 0);
+			document.body.style.setProperty('--overlay-bottom', 0);
+
 			if (qa('.n-ovrl').length > 1) { // Multiple modals: offset has been set, no need to do anything
 				
 				return;
@@ -2045,6 +2054,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	    full_window_content.insertAdjacentHTML('afterbegin', '<div class=close> ← ' + document.title + '</div>');
 		full_window_content.querySelector('.overlay-bg').onclick = full_window_content.querySelector('.close').onclick = closeFullWindow;
 		full_window_content.querySelector('.close').addEventListener("touchmove", function (e) { e.preventDefault();}, { passive: false });
+		full_window_content.querySelector('.overlay-bg').addEventListener("touchmove", function (e) { e.preventDefault();}, { passive: false });
 		window.addEventListener('keyup', keyUpClose);
 		   
 		q('body').appendChild(full_window_content);
