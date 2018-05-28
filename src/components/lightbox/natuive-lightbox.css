@@ -173,7 +173,7 @@ $bg: #1E8DaC;
 .lightbox.slider a.button.copy:before {
   content: "🔗"; }
 
-.thumbnails .slider-nav a {
+.thumbnails.slider-nav a {
   line-height: 4em;
   width: 4em;
   height: 4em;
@@ -188,8 +188,9 @@ $bg: #1E8DaC;
   margin: .5em 0 0 -.5em; }
 .thumbnails.n-sldr.outside:not(.inline) {
   padding-bottom: 4em; }
-.thumbnails.n-sldr .slider-nav a[data-active] {
-  text-shadow: 1px 1px 0px #fff, -1px -1px 0px #fff, 0px 1px 0px #fff, 1px 0px 0px #fff, -1px 1px 0px #fff, 1px -1px 0px #fff; }
+.thumbnails.slider-nav a[data-active] {
+  opacity: .25;
+  transition: opacity .2s ease-in-out; }
 
 @media (max-height: 599.9px) {
   .thumbnails.n-sldr .slider-nav a, .thumbnails.n-sldr .slider-nav a[data-active] {

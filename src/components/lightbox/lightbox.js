@@ -298,15 +298,16 @@ var componentLightbox = (function (){
 	
 	    transferClass(anchor.parentNode, lightbox_target.parentNode, 'outside');
 	    
-	    if (hasClass(anchor.parentNode, 'thumbnails')) {
+	    if (hasClass(lightbox, 'thumbnails')) {
 	    
-		    transferClass(anchor.parentNode, lightbox_target.parentNode, 'thumbnails');
+		    transferClass(lightbox, lightbox_target.parentNode, 'thumbnails');
 	        var i = 0;
 	// 	        var nav = closest(lightbox_target, '.n-sldr').querySelector('.slider-nav');
 	        var nav = componentSlider.getSliderNav(closest(lightbox_target, '.n-sldr'));
 	
 	        if (nav) { // Multiple slides?
 	
+				transferClass(lightbox, nav, 'thumbnails');
 		        forEach(thumbnails, function (el) {
 					
 					if (nav.children[i]) {
@@ -319,7 +320,7 @@ var componentLightbox = (function (){
 		        });
 	
 	        }
-	    
+			
 	    }
 	
 		if (!hasClass(lightbox, 'inline')) { // Don't block global keyboard if the lightbox is inline

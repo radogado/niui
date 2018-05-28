@@ -249,7 +249,7 @@
 
 .thumbnails {
 	
-	.slider-nav a {
+	&.slider-nav a {
 	
 		line-height: 4em;
 		width: 4em;
@@ -276,9 +276,11 @@
 		
 	}
 	
-	&.n-sldr .slider-nav a[data-active] {
+	&.slider-nav a[data-active] {
 	
-		text-shadow: 1px 1px 0px #fff, -1px -1px 0px #fff, 0px 1px 0px #fff, 1px 0px 0px #fff, -1px 1px 0px #fff, 1px -1px 0px #fff;
+// 		text-shadow: 1px 1px 0px #fff, -1px -1px 0px #fff, 0px 1px 0px #fff, 1px 0px 0px #fff, -1px 1px 0px #fff, 1px -1px 0px #fff;
+		opacity: .25;
+		transition: opacity .2s ease-in-out;
 	
 	}
 	
