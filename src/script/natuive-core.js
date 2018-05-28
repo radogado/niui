@@ -5,21 +5,20 @@ var aria_expanded = 'aria-expanded';
 
 // Stop JS if old browser (IE9-). They will get the CSS-only experience. Remove below fallbacks that supported them.
 
-(function () { // To do: move to main encapsulator function and don't make an error, just return to stop JS functionality.
+ // To do: move to main encapsulator function and don't make an error, just return to stop JS functionality.
 
-	"use strict";
+/*
 	if (Function.prototype.bind && !this) { // Supports ES5
 
-		return;
+		
 
 	} else { // ES5 unsupported, going CSS-only
 	
-	  noSuchFunction();
 	  return;
 
 	}
+*/
 
-}());
 
 var scripts_location = document.getElementsByTagName('script'); // To do: maybe move this global variable to window.scripts_location
 scripts_location = scripts_location[scripts_location.length-1].src;
@@ -708,16 +707,6 @@ function addComponent(host, el) {
 
 }
 
-function keyUpClose(e) {
-	
-    if ((e || window.event).keyCode === 27) { // Esc
-
-        componentModal.closeFullWindow();
-
-    }
-
-}
-
 function initThreshold(host) {
 
 // Scroll effects
@@ -788,16 +777,12 @@ function registerComponent(name, init) {
 function initComponents(host) {
 
 	observerOff();
-
-	if (typeof host === 'undefined') {
-		
-		var host = q('body');
-
-	}
+	
+	var _host = typeof host === 'undefined' ? q('body') : host;
 
 	for (var key in components) {
 	
-	    components[key][0].init(host);
+	    components[key][0].init(_host);
 	
 	}
 

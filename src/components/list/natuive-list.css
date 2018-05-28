@@ -29,7 +29,8 @@ ul.indent {
 ul li {
   display: block;
   margin-left: 1em;
-  position: relative; }
+  position: relative;
+  width: 100%; }
 
 ul li:before {
   content: '·';
@@ -38,7 +39,8 @@ ul li:before {
 
 ul.inline, ul.inline li, nav.scroll ul li {
   vertical-align: top;
-  display: inline-block; }
+  display: inline-block;
+  width: auto; }
 
 ul.inline li:before, nav ul li:before {
   display: none; }

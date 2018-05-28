@@ -739,14 +739,16 @@ var componentSlider = (function (){
 		
 		    }
 			
+			var _current_slide = current_slide;
+			
 			// If URI #id matches a slide #id, go to that slide and scroll the page to the slider.
 			if (!current_slide && window.location.hash && el.querySelector(window.location.hash)) {
 				
-				var current_slide = thisIndex(el.querySelector(window.location.hash));
+				_current_slide = thisIndex(el.querySelector(window.location.hash));
 				current_slider = container;
 				
 			} 
-			endSlide(el, current_slide || 0); // Start from (other than) the first slide
+			endSlide(el, _current_slide || 0); // Start from (other than) the first slide
 		    
 		} else {
 			

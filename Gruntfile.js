@@ -94,6 +94,7 @@ module.exports = function(grunt) {
 			  options: {
 			    compilation_level: 'ADVANCED_OPTIMIZATIONS',
 			    language_in: 'ECMASCRIPT5_STRICT',
+			    jscomp_off: 'checkVars'
 			  }
 			}
 		},

@@ -2,6 +2,10 @@ var componentModal = (function (){
 
 /* Modal – start */
 
+/**
+ * This is a function where type checking is disabled.
+ * @suppress {misplacedTypeAnnotation}
+ */
 	var disableBodyScroll = (function () { // Thanks Thijs Huijssoon
 
 	    /**
@@ -76,7 +80,7 @@ var componentModal = (function (){
 	     * @param  string selector Selector to element to change scroll permission
 	     * @return void
 	     */
-	    return function (allow, selector) {
+ 	    return function (allow, selector) {
 	    	if (typeof selector !== "undefined") {
 		        _selector = selector;
 		        _element = document.querySelector(selector);
@@ -166,6 +170,16 @@ var componentModal = (function (){
 		
 		}
 		
+	}
+
+	function keyUpClose(e) {
+		
+	    if ((e || window.event).keyCode === 27) { // Esc
+	
+	        closeFullWindow();
+	
+	    }
+	
 	}
 
 	function closeFullWindow() {

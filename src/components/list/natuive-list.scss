@@ -27,6 +27,7 @@ ul li {
 	display: block;
 	margin-left: 1em;
 	position: relative;
+	width: 100%;
 
 }
 
@@ -44,6 +45,7 @@ ul.inline, ul.inline li, nav.scroll ul li {
 	display: inline-block;
 // 	margin: $line-height-em/2 0;
 // 	margin: var(--line-height-em) 0 0 0;
+	width: auto;
 
 }
 

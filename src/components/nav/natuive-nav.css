@@ -104,7 +104,8 @@ nav.drop li {
   box-sizing: border-box;
   background-color: #fff;
   background-color: var(--nav-bg);
-  position: relative; }
+  position: relative;
+  width: auto; }
 
 /* nav.drop li[aria-haspopup]:not([tabindex]) */
 nav.drop li:not([tabindex]) > ul ~ a {
