@@ -104,41 +104,38 @@ var componentModal = (function (){
 	
 	function adjustModal(e) {
 		
-		if (!iOSSafari || Math.abs(window.orientation) !== 90) { // Only for mobile Safari in landscape mode
+		var modal = q('.n-ovrl');
+		var previous_overlay_top = parseInt(document.body.style.getPropertyValue('--overlay-top'));
+		var actual_viewport = window.innerHeight;
+		var offset_y = modal.getBoundingClientRect().y;
+		if ((previous_overlay_top + '') === 'NaN') {
 			
-			document.body.style.setProperty('--overlay-top', 0);
-			document.body.style.setProperty('--overlay-bottom', 0);
+			previous_overlay_top = 0;
+
+		}
+
+		document.body.style.setProperty('--overlay-top', 0);
+		document.body.style.setProperty('--overlay-bottom', 0);
+		var screen_height = modal.scrollHeight;
+
+		if (!iOSSafari || Math.abs(window.orientation) !== 90 || actual_viewport === screen_height) { // Only for mobile Safari in landscape mode
+			
 			return;
 
 		}
 		
-		var modal = q('.n-ovrl');
 		if (typeof e !== 'undefined') { // On resize event (toolbars have appeared by tapping at the top or bottom area
 
-			var offset_y = modal.getBoundingClientRect().y;
-			var total_screen_height = modal.scrollHeight;
-			var previous_overlay_top = parseInt(document.body.style.getPropertyValue('--overlay-top'));
-			if ((previous_overlay_top + '') === 'NaN') {
-				
-				previous_overlay_top = 0;
-
-			}
 			document.body.style.setProperty('--overlay-top', (previous_overlay_top - offset_y) + 'px');
-			document.body.style.setProperty('--overlay-bottom', (total_screen_height - window.innerHeight + offset_y) + 'px');
+			document.body.style.setProperty('--overlay-bottom', (screen_height - actual_viewport + offset_y) + 'px');
 			
 		} else {
 		
-			document.body.style.setProperty('--overlay-top', 0);
-			document.body.style.setProperty('--overlay-bottom', 0);
-
 			if (qa('.n-ovrl').length > 1) { // Multiple modals: offset has been set, no need to do anything
 				
 				return;
 	
 			}
-
-			var screen_height = modal.scrollHeight;
-			var actual_viewport = window.innerHeight;
 
 			if (actual_viewport <= screen_height) { // modal is cropped, adjust its top/bottom
 				
