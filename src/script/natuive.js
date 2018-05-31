@@ -5,7 +5,9 @@ if (typeof document.body.style.animationName === 'undefined') { // ES5 unsupport
 	
 	return;
 
-} 
+}
+
+var bodyElement = document.body;
 
 var aria_expanded = 'aria-expanded';
 var scripts_location = document.getElementsByTagName('script'); // To do: maybe move this global variable to window.scripts_location
@@ -487,7 +489,7 @@ function notifyCloseEvent() {
 
 function notify(content, option) {
 	
-	q('body').insertAdjacentHTML('afterbegin', '<div class="notify' + (option && (option.indexOf('fixed') !== -1) ? ' fixed' : '') + '">' + content + '</div>');
+	bodyElement.insertAdjacentHTML('afterbegin', '<div class="notify' + (option && (option.indexOf('fixed') !== -1) ? ' fixed' : '') + '">' + content + '</div>');
 	notifyCloseEvent();
 	if (option && option.indexOf('timeout') !== -1) {
 		
@@ -557,7 +559,7 @@ function animate(el, animation_code, duration, callback) { // Default duration =
 
 function scrollToAnimated(to, duration, callback) {
 	
-	var difference = document.body.clientHeight - window.innerHeight;
+	var difference = bodyElement.clientHeight - window.innerHeight;
 	if (to > difference) {
 
 		to = difference;
@@ -566,7 +568,7 @@ function scrollToAnimated(to, duration, callback) {
 	
 	function scrollToCallback (callback) {
 
-		q('html').scrollTop = q('body').scrollTop = to;
+		q('html').scrollTop = bodyElement.scrollTop = to;
 		if (typeof callback === 'function') {
 			
 			callback();
@@ -575,7 +577,7 @@ function scrollToAnimated(to, duration, callback) {
 		
 	}
 	
-	animate(q('html'), '100% { transform: translate3d(0, ' + -1*(to - (document.documentElement.scrollTop || document.body.scrollTop)) + 'px, 0); }', duration, scrollToCallback.bind(null, callback));
+	animate(q('html'), '100% { transform: translate3d(0, ' + -1*(to - (document.documentElement.scrollTop || bodyElement.scrollTop)) + 'px, 0); }', duration, scrollToCallback.bind(null, callback));
 
 }
 
@@ -704,7 +706,7 @@ function initThreshold(host) {
 	
 			setTimeout(function () {
 				
-				var relativeScroll = q('html').scrollTop || q('body').scrollTop;
+				var relativeScroll = q('html').scrollTop || bodyElement.scrollTop;
 	/*
 				q('html').style.setProperty('--scroll-top', relativeScroll);
 				q('html').style.setProperty('--scroll-bottom', q('html').scrollHeight - relativeScroll - q('html').offsetHeight);
@@ -731,13 +733,13 @@ function initThreshold(host) {
 				if (relativeScroll >= threshold) {
 					
 					addClass(el, 'threshold');
-					q('body').setAttribute('data-threshold', true);
+					bodyElement.setAttribute('data-threshold', true);
 					
 				} else {
 					
 					removeClass(el, 'threshold');
-					removeClass(q('body'), 'threshold');
-					q('body').removeAttribute('data-threshold');
+					removeClass(bodyElement, 'threshold');
+					bodyElement.removeAttribute('data-threshold');
 					
 				}
 				
@@ -766,7 +768,7 @@ function initComponents(host) {
 
 	observerOff();
 	
-	var _host = typeof host === 'undefined' ? q('body') : host;
+	var _host = typeof host === 'undefined' ? bodyElement : host;
 
 	for (var key in components) {
 	
@@ -784,7 +786,7 @@ function observerOn() {
 	
 	if (observer) {
 		
-		observer.observe(q('body'), {childList: true, subtree: true});
+		observer.observe(bodyElement, {childList: true, subtree: true});
 
 	}
 	
@@ -829,7 +831,7 @@ if (typeof MutationObserver === 'function') {
 	
 }
 
-initThreshold(q('body'));
+initThreshold(bodyElement);
 
 // Animate anchor link jumps
 forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
@@ -1905,8 +1907,8 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		
 		if (typeof e !== 'undefined') { // On resize event (toolbars have appeared by tapping at the top or bottom area
 
-			document.body.style.setProperty('--overlay-top', (previous_overlay_top - offset_y) + 'px');
-			document.body.style.setProperty('--overlay-bottom', (screen_height - actual_viewport + offset_y) + 'px');
+			bodyElement.style.setProperty('--overlay-top', (previous_overlay_top - offset_y) + 'px');
+			bodyElement.style.setProperty('--overlay-bottom', (screen_height - actual_viewport + offset_y) + 'px');
 			
 		} else {
 		
@@ -1918,29 +1920,29 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 
 			if (actual_viewport <= screen_height) { // modal is cropped, adjust its top/bottom
 				
-				if ((document.body.scrollHeight + document.body.getBoundingClientRect().y) === actual_viewport) {// page scrolled at the bottom
+				if ((bodyElement.scrollHeight + bodyElement.getBoundingClientRect().y) === actual_viewport) {// page scrolled at the bottom
 
-					document.body.style.setProperty('--overlay-bottom', 0);
-					document.body.style.setProperty('--overlay-top', (screen_height - actual_viewport) + 'px');
+					bodyElement.style.setProperty('--overlay-bottom', 0);
+					bodyElement.style.setProperty('--overlay-top', (screen_height - actual_viewport) + 'px');
 	
 				} else {
 	
-					document.body.style.setProperty('--overlay-top', 0);
-					document.body.style.setProperty('--overlay-bottom', (screen_height - actual_viewport) + 'px');
+					bodyElement.style.setProperty('--overlay-top', 0);
+					bodyElement.style.setProperty('--overlay-bottom', (screen_height - actual_viewport) + 'px');
 				}
 			
 			}
 		
 			if (modal.getBoundingClientRect().y !== 0) { // A little off
 	
-				document.body.style.setProperty('--overlay-top', (parseInt(document.body.style.getPropertyValue('--overlay-top')) - modal.getBoundingClientRect().y) + 'px');
-				document.body.style.setProperty('--overlay-bottom', (parseInt(document.body.style.getPropertyValue('--overlay-bottom')) + modal.getBoundingClientRect().y) + 'px');
+				bodyElement.style.setProperty('--overlay-top', (parseInt(bodyElement.style.getPropertyValue('--overlay-top')) - modal.getBoundingClientRect().y) + 'px');
+				bodyElement.style.setProperty('--overlay-bottom', (parseInt(bodyElement.style.getPropertyValue('--overlay-bottom')) + modal.getBoundingClientRect().y) + 'px');
 				
 			}
 			
-			if ((actual_viewport + parseInt(document.body.style.getPropertyValue('--overlay-top')) + parseInt(document.body.style.getPropertyValue('--overlay-bottom'))) > screen_height) { // Extra bug when scrolled near the bottom
+			if ((actual_viewport + parseInt(bodyElement.style.getPropertyValue('--overlay-top')) + parseInt(bodyElement.style.getPropertyValue('--overlay-bottom'))) > screen_height) { // Extra bug when scrolled near the bottom
 				
-				document.body.style.setProperty('--overlay-bottom', (screen_height - actual_viewport - parseInt(document.body.style.getPropertyValue('--overlay-top'))) + 'px');
+				bodyElement.style.setProperty('--overlay-bottom', (screen_height - actual_viewport - parseInt(bodyElement.style.getPropertyValue('--overlay-top'))) + 'px');
 				
 			}
 		
@@ -2042,7 +2044,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		full_window_content.querySelector('.overlay-bg').addEventListener("touchmove", function (e) { e.preventDefault();}, { passive: false });
 		window.addEventListener('keyup', keyUpClose);
 		   
-		q('body').appendChild(full_window_content);
+		bodyElement.appendChild(full_window_content);
 	
 	    full_window_content.querySelector('.content').focus();
 	
@@ -2872,7 +2874,7 @@ var componentSlider = (function (){
 			return false; 
 		
 		}
-		return !hasClass(el, 'vertical') || window.innerHeight < q('body').scrollHeight;
+		return !hasClass(el, 'vertical') || window.innerHeight < bodyElement.scrollHeight;
 		
 	}
 	
@@ -3255,7 +3257,7 @@ var componentSlider = (function (){
 		
 		});
 	
-		if (typeof q('body').dataset !== 'undefined') { // el.dataset.sort not supported by IE10
+		if (typeof bodyElement.dataset !== 'undefined') { // el.dataset.sort not supported by IE10
 		
 			forEach(host.querySelectorAll('td[data-sort]'), function (el) { // To do: work only on tables that aren't ready
 				// asc or desc

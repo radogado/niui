@@ -5,7 +5,9 @@ if (typeof document.body.style.animationName === 'undefined') { // ES5 unsupport
 	
 	return;
 
-} 
+}
+
+var bodyElement = document.body;
 
 var aria_expanded = 'aria-expanded';
 var scripts_location = document.getElementsByTagName('script'); // To do: maybe move this global variable to window.scripts_location
@@ -487,7 +489,7 @@ function notifyCloseEvent() {
 
 function notify(content, option) {
 	
-	q('body').insertAdjacentHTML('afterbegin', '<div class="notify' + (option && (option.indexOf('fixed') !== -1) ? ' fixed' : '') + '">' + content + '</div>');
+	bodyElement.insertAdjacentHTML('afterbegin', '<div class="notify' + (option && (option.indexOf('fixed') !== -1) ? ' fixed' : '') + '">' + content + '</div>');
 	notifyCloseEvent();
 	if (option && option.indexOf('timeout') !== -1) {
 		
@@ -557,7 +559,7 @@ function animate(el, animation_code, duration, callback) { // Default duration =
 
 function scrollToAnimated(to, duration, callback) {
 	
-	var difference = document.body.clientHeight - window.innerHeight;
+	var difference = bodyElement.clientHeight - window.innerHeight;
 	if (to > difference) {
 
 		to = difference;
@@ -566,7 +568,7 @@ function scrollToAnimated(to, duration, callback) {
 	
 	function scrollToCallback (callback) {
 
-		q('html').scrollTop = q('body').scrollTop = to;
+		q('html').scrollTop = bodyElement.scrollTop = to;
 		if (typeof callback === 'function') {
 			
 			callback();
@@ -575,7 +577,7 @@ function scrollToAnimated(to, duration, callback) {
 		
 	}
 	
-	animate(q('html'), '100% { transform: translate3d(0, ' + -1*(to - (document.documentElement.scrollTop || document.body.scrollTop)) + 'px, 0); }', duration, scrollToCallback.bind(null, callback));
+	animate(q('html'), '100% { transform: translate3d(0, ' + -1*(to - (document.documentElement.scrollTop || bodyElement.scrollTop)) + 'px, 0); }', duration, scrollToCallback.bind(null, callback));
 
 }
 
@@ -704,7 +706,7 @@ function initThreshold(host) {
 	
 			setTimeout(function () {
 				
-				var relativeScroll = q('html').scrollTop || q('body').scrollTop;
+				var relativeScroll = q('html').scrollTop || bodyElement.scrollTop;
 	/*
 				q('html').style.setProperty('--scroll-top', relativeScroll);
 				q('html').style.setProperty('--scroll-bottom', q('html').scrollHeight - relativeScroll - q('html').offsetHeight);
@@ -731,13 +733,13 @@ function initThreshold(host) {
 				if (relativeScroll >= threshold) {
 					
 					addClass(el, 'threshold');
-					q('body').setAttribute('data-threshold', true);
+					bodyElement.setAttribute('data-threshold', true);
 					
 				} else {
 					
 					removeClass(el, 'threshold');
-					removeClass(q('body'), 'threshold');
-					q('body').removeAttribute('data-threshold');
+					removeClass(bodyElement, 'threshold');
+					bodyElement.removeAttribute('data-threshold');
 					
 				}
 				
@@ -766,7 +768,7 @@ function initComponents(host) {
 
 	observerOff();
 	
-	var _host = typeof host === 'undefined' ? q('body') : host;
+	var _host = typeof host === 'undefined' ? bodyElement : host;
 
 	for (var key in components) {
 	
@@ -784,7 +786,7 @@ function observerOn() {
 	
 	if (observer) {
 		
-		observer.observe(q('body'), {childList: true, subtree: true});
+		observer.observe(bodyElement, {childList: true, subtree: true});
 
 	}
 	
@@ -829,7 +831,7 @@ if (typeof MutationObserver === 'function') {
 	
 }
 
-initThreshold(q('body'));
+initThreshold(bodyElement);
 
 // Animate anchor link jumps
 forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
@@ -1348,7 +1350,7 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 		
 		});
 	
-		if (typeof q('body').dataset !== 'undefined') { // el.dataset.sort not supported by IE10
+		if (typeof bodyElement.dataset !== 'undefined') { // el.dataset.sort not supported by IE10
 		
 			forEach(host.querySelectorAll('td[data-sort]'), function (el) { // To do: work only on tables that aren't ready
 				// asc or desc

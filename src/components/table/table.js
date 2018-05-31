@@ -50,7 +50,7 @@
 		
 		});
 	
-		if (typeof q('body').dataset !== 'undefined') { // el.dataset.sort not supported by IE10
+		if (typeof bodyElement.dataset !== 'undefined') { // el.dataset.sort not supported by IE10
 		
 			forEach(host.querySelectorAll('td[data-sort]'), function (el) { // To do: work only on tables that aren't ready
 				// asc or desc

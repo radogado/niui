@@ -452,7 +452,7 @@ var componentSlider = (function (){
 			return false; 
 		
 		}
-		return !hasClass(el, 'vertical') || window.innerHeight < q('body').scrollHeight;
+		return !hasClass(el, 'vertical') || window.innerHeight < bodyElement.scrollHeight;
 		
 	}
 	
