@@ -1,25 +1,13 @@
 /* natUIve by rado.bg */
 /* DOM functions via http://youmightnotneedjquery.com */
 
-var aria_expanded = 'aria-expanded';
-
-// Stop JS if old browser (IE9-). They will get the CSS-only experience. Remove below fallbacks that supported them.
-
- // To do: move to main encapsulator function and don't make an error, just return to stop JS functionality.
-
-/*
-	if (Function.prototype.bind && !this) { // Supports ES5
-
-		
-
-	} else { // ES5 unsupported, going CSS-only
+if (typeof document.body.style.animationName === 'undefined') { // ES5 unsupported (IE9-), skip JS and go CSS-only
 	
-	  return;
+	return;
 
-	}
-*/
+} 
 
-
+var aria_expanded = 'aria-expanded';
 var scripts_location = document.getElementsByTagName('script'); // To do: maybe move this global variable to window.scripts_location
 scripts_location = scripts_location[scripts_location.length-1].src;
 scripts_location = scripts_location.slice(0, scripts_location.length - scripts_location.split('/').pop().length);
