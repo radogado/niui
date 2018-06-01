@@ -180,17 +180,20 @@ $bg: #1E8DaC;
   background-size: cover;
   border-radius: 0;
   cursor: zoom-in; }
-.thumbnails.outside .slider-nav {
+.thumbnails.slider-nav a[data-active] {
+  opacity: .25;
+  transition: opacity .2s ease-in-out; }
+
+.outside .slider-nav {
   position: static;
   transform: none;
   width: calc(100% + 1em);
   max-width: none;
   margin: .5em 0 0 -.5em; }
-.thumbnails.n-sldr.outside:not(.inline) {
+.outside.n-sldr:not(.inline) {
   padding-bottom: 4em; }
-.thumbnails.slider-nav a[data-active] {
-  opacity: .25;
-  transition: opacity .2s ease-in-out; }
+  .outside.n-sldr:not(.inline).thumbnails {
+    padding-bottom: 5.5em; }
 
 @media (max-height: 599.9px) {
   .thumbnails.n-sldr .slider-nav a, .thumbnails.n-sldr .slider-nav a[data-active] {
