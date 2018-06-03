@@ -584,6 +584,7 @@ _:-ms-lang(x), .aspect > .n-sldr { // Aspect ratio not working in IE/Edge
 	text-align: left;
 	text-align: start;
 	justify-content: flex-start;
+	-webkit-overflow-scrolling: touch;
 	
 }
 

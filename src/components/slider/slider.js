@@ -84,6 +84,7 @@ var componentSlider = (function (){
 	            if (((hasClass(el, 'vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !q('.n-ovrl .n-sldr'))
 	            	|| (overlay_content && (overlay_content.scrollHeight > overlay_content.offsetHeight) && (Math.abs(deltaX) < Math.abs(deltaY)))
 	            	|| (e.target.nodeName === 'INPUT' && e.target.type === 'range')
+	            	|| hasClass(e.target.parentNode, 'slider-nav') || hasClass(e.target, 'slider-nav')
 					) {
 	
 	                return;

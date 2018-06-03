@@ -2866,7 +2866,8 @@ _:-ms-lang(x), .aspect > .n-sldr {
   box-sizing: content-box;
   text-align: left;
   text-align: start;
-  justify-content: flex-start; }
+  justify-content: flex-start;
+  -webkit-overflow-scrolling: touch; }
 
 .top .slider-nav {
   bottom: auto;
