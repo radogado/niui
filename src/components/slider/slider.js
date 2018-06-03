@@ -83,6 +83,7 @@ var componentSlider = (function (){
 				// Allow vertical page scroll by swiping over the slider. Also when parent modal is scrollable vertically
 	            if (((hasClass(el, 'vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !q('.n-ovrl .n-sldr'))
 	            	|| (overlay_content && (overlay_content.scrollHeight > overlay_content.offsetHeight) && (Math.abs(deltaX) < Math.abs(deltaY)))
+	            	|| (e.target.nodeName === 'INPUT' && e.target.type === 'range')
 					) {
 	
 	                return;
@@ -469,7 +470,7 @@ var componentSlider = (function (){
 	    }
 	
 		var el = e.target;
-	
+
 		if (!closest(el, '.n-sldr') && q('.n-sldr')) { // Focused element is outside of any slider
 			
 	// 		current_slider = q('.n-sldr').querySelector('.slider');
