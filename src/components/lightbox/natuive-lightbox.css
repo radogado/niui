@@ -28,7 +28,8 @@ $bg: #1E8DaC;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  overflow: hidden; }
 
 .overlay.slider.lightbox > * {
   height: 100%;
@@ -184,15 +185,15 @@ $bg: #1E8DaC;
   opacity: .25;
   transition: opacity .2s ease-in-out; }
 
-.outside .slider-nav {
+.outside:not(.vertical) .slider-nav {
   position: static;
   transform: none;
   width: calc(100% + 1em);
   max-width: none;
   margin: .5em 0 0 -.5em; }
-.outside.n-sldr:not(.inline) {
+.outside:not(.vertical).n-sldr:not(.inline) {
   padding-bottom: 4em; }
-  .outside.n-sldr:not(.inline).thumbnails {
+  .outside:not(.vertical).n-sldr:not(.inline).thumbnails {
     padding-bottom: 5.5em; }
 
 @media (max-height: 599.9px) {
@@ -206,7 +207,7 @@ $bg: #1E8DaC;
     bottom: auto;
     top: -1.5em; }
   .thumbnails.n-sldr .slider.lightbox.vertical > * p {
-    bottom: -1.5em;
+    bottom: 3em;
     top: auto; } }
 
 /*# sourceMappingURL=natuive-lightbox.css.map */
