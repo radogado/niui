@@ -1833,7 +1833,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	     */
 	    var preventOverscroll = function (event) {
 	        // only respond to a single touch
-		    if (event.targetTouches.length !== 1) {
+		    if (event.targetTouches.length !== 1 || closest(event.target, '.n-ovrl')) {
 		    	return;
 		    }
 	

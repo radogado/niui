@@ -51,7 +51,7 @@ var componentModal = (function (){
 	     */
 	    var preventOverscroll = function (event) {
 	        // only respond to a single touch
-		    if (event.targetTouches.length !== 1) {
+		    if (event.targetTouches.length !== 1 || closest(event.target, '.n-ovrl')) {
 		    	return;
 		    }
 	
