@@ -1661,7 +1661,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 	    populateLightbox(lightbox_target, this_index);
 	
-		var slider = componentSlider.makeSlider(lightbox_target, this_index); // To do: Replace by init() and Observer, but this_index needs to be specified, by an .active nav item
+		var slider = componentSlider.makeSlider(lightbox_target, this_index); 
 	// attach lightbox_target to the DOM
 		if (inline_static) {
 	
@@ -1674,7 +1674,6 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 				parent.insertBefore(slider, next_sibling);
 			
 			}
-	
 	
 		} else { // OpenFullWindow() and attach the slider to it
 			
@@ -1833,7 +1832,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	     */
 	    var preventOverscroll = function (event) {
 	        // only respond to a single touch
-		    if (event.targetTouches.length !== 1 || closest(event.target, '.n-ovrl')) {
+		    if (event.targetTouches.length !== 1 || closest(event.target, '.slider-nav')) { // also if trying to swipe slider/lightbox nav
 		    	return;
 		    }
 	

@@ -274,7 +274,7 @@ var componentLightbox = (function (){
 	
 	    populateLightbox(lightbox_target, this_index);
 	
-		var slider = componentSlider.makeSlider(lightbox_target, this_index); // To do: Replace by init() and Observer, but this_index needs to be specified, by an .active nav item
+		var slider = componentSlider.makeSlider(lightbox_target, this_index); 
 	// attach lightbox_target to the DOM
 		if (inline_static) {
 	
@@ -287,7 +287,6 @@ var componentLightbox = (function (){
 				parent.insertBefore(slider, next_sibling);
 			
 			}
-	
 	
 		} else { // OpenFullWindow() and attach the slider to it
 			
