@@ -460,4 +460,7 @@ _:-ms-lang(x), .aspect > .n-sldr {
   margin: 0;
   white-space: normal; }
 
+.n-sldr.vertical.thumbnails {
+  width: 100%; }
+
 /*# sourceMappingURL=natuive-slider.css.map */

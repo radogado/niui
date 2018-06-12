@@ -254,7 +254,7 @@
 	
 		line-height: 4em;
 		width: 4em;
-		height: 4em;
+		min-height: 4em;
 		background-size: cover;
 		border-radius: 0;
 		cursor: zoom-in;
@@ -275,11 +275,11 @@
 	
 	.slider-nav {
 	
-	position: static;
-	transform: none;
-	width: calc(100% + 1em);
-	max-width: none;
-	margin: .5em 0 0 -.5em;
+		position: static;
+		transform: none;
+		width: calc(100% + 1em);
+		max-width: none;
+		margin: .5em 0 0 -.5em;
 	
 	}
 	
@@ -307,7 +307,7 @@
 		
 				line-height: 1.5;
 				width: 1.5em;
-				height: 1.5em;
+				min-height: 1.5em;
 				color: transparent;
 				text-shadow: none;
 				

@@ -5,40 +5,40 @@
 /* Sort parent table's rows by matching column number alternatively desc/asc on click */
 	function sortTable(table, column, f) {
 
-	var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'), 0);;
-	
-	rows.sort(function(a, b) {
-	
-		var A = a.querySelectorAll('td')[column].textContent.toUpperCase();
-		var B = b.querySelectorAll('td')[column].textContent.toUpperCase();
+		var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'), 0);;
 		
-		if(A < B) {
+		rows.sort(function(a, b) {
+		
+			var A = a.querySelectorAll('td')[column].textContent.toUpperCase();
+			var B = b.querySelectorAll('td')[column].textContent.toUpperCase();
 			
-			return 1*f;
-			
-		}
-
-		if(A > B) {
-			
-			return -1*f;
-
-		}
-
-		return 0;
+			if(A < B) {
+				
+				return 1*f;
+				
+			}
 	
-	});
-
-// 	observerOff();
-
-    for (var i = 0; i < rows.length; i++) {
-
-        table.querySelector('tbody').appendChild(rows[i]);
-
-    }
-    
-// 	observerOn();
-
-}
+			if(A > B) {
+				
+				return -1*f;
+	
+			}
+	
+			return 0;
+		
+		});
+	
+	// 	observerOff();
+	
+	    for (var i = 0; i < rows.length; i++) {
+	
+	        table.querySelector('tbody').appendChild(rows[i]);
+	
+	    }
+	    
+	// 	observerOn();
+	
+	}
 
 	var init = function (host) {
 		
@@ -56,11 +56,11 @@
 				// asc or desc
 				if (el.dataset.sort !== 'asc' && el.dataset.sort !== 'desc') {
 					
-					el.dataset.sort = 'asc';
+					el.dataset.sort = 'desc';
 					
 				}
 				
-				function sortTableEvent (e) {
+				function sortTableEvent(e) {
 					
 					stopEvent(e);
 					var el = e.target;

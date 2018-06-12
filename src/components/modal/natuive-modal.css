@@ -20,6 +20,11 @@ $bg: #1E8DaC;
 .no-scroll, .no-scroll body {
   overflow: hidden; }
 
+html.full-screen {
+  background: #000; }
+  html.full-screen body {
+    opacity: 0; }
+
 .n-ovrl {
   z-index: 999999;
   background: #fff;

@@ -242,7 +242,7 @@ var componentSlider = (function (){
 		
 				});
 				
-			} else { // To do: If previous slide id is in URI, remove URI hash
+			} else { // If previous slide id is in URI, remove URI hash
 				
 				if (typeof old_index !== 'undefined' && location.hash === '#' + slider.children[old_index].id) {
 					

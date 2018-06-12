@@ -1900,7 +1900,7 @@ $bg: #1E8DaC;
 .thumbnails.slider-nav a {
   line-height: 4em;
   width: 4em;
-  height: 4em;
+  min-height: 4em;
   background-size: cover;
   border-radius: 0;
   cursor: zoom-in; }
@@ -1923,7 +1923,7 @@ $bg: #1E8DaC;
   .thumbnails.n-sldr .slider-nav a, .thumbnails.n-sldr .slider-nav a[data-active] {
     line-height: 1.5;
     width: 1.5em;
-    height: 1.5em;
+    min-height: 1.5em;
     color: transparent;
     text-shadow: none; }
   .thumbnails.n-sldr .slider.lightbox > * p {
@@ -2085,6 +2085,11 @@ $bg: #1E8DaC;
 
 .no-scroll, .no-scroll body {
   overflow: hidden; }
+
+html.full-screen {
+  background: #000; }
+  html.full-screen body {
+    opacity: 0; }
 
 .n-ovrl {
   z-index: 999999;
@@ -2955,6 +2960,9 @@ _:-ms-lang(x), .aspect > .n-sldr {
   flex: 1;
   margin: 0;
   white-space: normal; }
+
+.n-sldr.vertical.thumbnails {
+  width: 100%; }
 
 /*# sourceMappingURL=natuive-slider.css.map */
 
