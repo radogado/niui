@@ -186,7 +186,9 @@ var componentLightbox = (function (){
 	
 		    var url = hasClass(lightbox, 'slider') ? (el.querySelector('img') ? el.querySelector('img').getAttribute('data-src') : '') : el.href;
 		    
-		    images += '<div><img data-src="' + url + '" alt="' + el.title + '" data-link="' + slide_link + '">' + (el.title ? ('<p>' + el.title + '</p>') : '') + link_element + '</div>';
+			var caption = el.title ? el.title : (el.querySelector('img') ? el.querySelector('img').title : '');
+					    
+		    images += '<div><img data-src="' + url + '" title="' + caption + '" data-link="' + slide_link + '">' + (caption ? ('<p>' + caption + '</p>') : '') + link_element + '</div>';
 	
 	        // Attach onload event to each image to display it only when fully loaded and avoid top-to-bottom reveal?
 	
