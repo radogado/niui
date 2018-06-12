@@ -6,7 +6,7 @@ var componentModal = (function (){
  * This is a function where type checking is disabled.
  * @suppress {misplacedTypeAnnotation}
  */
-	var disableBodyScroll = (function () { // Thanks Thijs Huijssoon
+	var disableBodyScroll = (function () { // Thanks Thijs Huijssoon https://gist.github.com/thuijssoon
 
 	    /**
 	     * Private variables
@@ -118,7 +118,7 @@ var componentModal = (function (){
 		document.body.style.setProperty('--overlay-bottom', 0);
 		var screen_height = modal.scrollHeight;
 
-		if (!iOSSafari || Math.abs(window.orientation) !== 90 || actual_viewport === screen_height) { // Only for mobile Safari in landscape mode
+		if (!navigator.userAgent.match(/(iPod|iPhone|iPad)/i) || Math.abs(window.orientation) !== 90 || actual_viewport === screen_height) { // Only for mobile Safari in landscape mode
 			
 			return;
 
@@ -179,12 +179,16 @@ var componentModal = (function (){
 	
 	}
 
+	var previousScrollX = 0;
+	var previousScrollY = 0;
+
 	function closeFullWindow() {
 	
 		var full_window = q('.n-ovrl:last-of-type');
 	
 		if (full_window) {
 			
+			window.scrollTo(previousScrollX, previousScrollY);
 			var animation = full_window.querySelector('.content > div').getAttribute('data-anim'); // Custom animation?
 			if (animation.length < 11) { // '', 'null' or 'undefined'?
 				
@@ -272,6 +276,8 @@ var componentModal = (function (){
 		if (qa('.n-ovrl').length === 1) { // Sole (first) modal
 
 			addClass(q('html'), 'no-scroll');
+			previousScrollX = window.scrollX;
+			previousScrollY = window.scrollY;
 			window.addEventListener('resize', adjustModal);
 			adjustModal();
 

@@ -14,11 +14,6 @@ var scripts_location = document.getElementsByTagName('script'); // To do: maybe 
 scripts_location = scripts_location[scripts_location.length-1].src;
 scripts_location = scripts_location.slice(0, scripts_location.length - scripts_location.split('/').pop().length);
 
-var ua = window.navigator.userAgent;
-var iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
-var webkit = !!ua.match(/WebKit/i);
-var iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
-
 // DOM functions – start
 
 function q(selector) {
