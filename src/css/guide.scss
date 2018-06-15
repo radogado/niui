@@ -102,6 +102,12 @@ main > .col34 > .n-sldr.vertical.tabs > .slider {
 
 }
 
+main > .col34 > .n-sldr.vertical.tabs > .slider[data-sliding] {
+
+	overflow: visible;
+
+}
+
 main > .n-sldr > .slider-nav a {
 
 	background: none;

@@ -463,4 +463,9 @@ _:-ms-lang(x), .aspect > .n-sldr {
 .n-sldr.vertical.thumbnails {
   width: 100%; }
 
+.n-sldr.vertical.outside.thumbnails {
+  padding-left: 6em; }
+  .n-sldr.vertical.outside.thumbnails > .slider-arrow {
+    left: calc(50% + 2em); }
+
 /*# sourceMappingURL=natuive-slider.css.map */

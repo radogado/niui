@@ -1743,6 +1743,9 @@ $bg: #1E8DaC;
 .n-sldr > .slider.vertical.lightbox > * {
   height: 100%; }
 
+.n-sldr > .slider.vertical.lightbox.inline[data-sliding]:not(.overlay) > * {
+  height: auto; }
+
 .slider.lightbox > * {
   text-align: center;
   position: relative; }
@@ -2964,6 +2967,11 @@ _:-ms-lang(x), .aspect > .n-sldr {
 .n-sldr.vertical.thumbnails {
   width: 100%; }
 
+.n-sldr.vertical.outside.thumbnails {
+  padding-left: 6em; }
+  .n-sldr.vertical.outside.thumbnails > .slider-arrow {
+    left: calc(50% + 2em); }
+
 /*# sourceMappingURL=natuive-slider.css.map */
 
 @charset "UTF-8";
@@ -3122,7 +3130,7 @@ $bg: #1E8DaC;
   opacity: 0;
   transition: opacity .2s ease-in-out;
   width: 20em;
-  line-height: 1.15385; }
+  line-height: 1.2; }
 
 .tool[aria-expanded] .tip, html:not(.can-touch) .tool:hover .tip {
   opacity: 1;

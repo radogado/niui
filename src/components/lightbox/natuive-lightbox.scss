@@ -8,6 +8,12 @@
 
 }
 
+.n-sldr > .slider.vertical.lightbox.inline[data-sliding]:not(.overlay) > * {
+
+	height: auto;
+
+}
+
 .slider.lightbox > * {
 
 	text-align: center;

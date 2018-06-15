@@ -20,6 +20,9 @@ $bg: #1E8DaC;
 .n-sldr > .slider.vertical.lightbox > * {
   height: 100%; }
 
+.n-sldr > .slider.vertical.lightbox.inline[data-sliding]:not(.overlay) > * {
+  height: auto; }
+
 .slider.lightbox > * {
   text-align: center;
   position: relative; }

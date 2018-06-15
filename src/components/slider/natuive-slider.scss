@@ -714,3 +714,15 @@ _:-ms-lang(x), .aspect > .n-sldr { // Aspect ratio not working in IE/Edge
 	width: 100%;
 	
 }
+
+.n-sldr.vertical.outside.thumbnails {
+	
+	padding-left: 6em;
+	
+	> .slider-arrow {
+		
+		left: calc(50% + 2em);
+
+	}
+
+}

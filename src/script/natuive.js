@@ -2552,19 +2552,10 @@ var componentSlider = (function (){
 	
 	function mouseWheelHandler(e) {
 	
-	/*
-		if (hasClass(q('html'), 'sliding_now')) {
-			
-			stopEvent(e); 
-			return;
-		
-		}
-	*/
-	
 		var el = e.target;
 		
-		if (closest(el, '.slider-nav')) {
-			
+		if (closest(el, '.slider-nav')) { // Allow scrolling the nav bar
+						
 			return;
 	
 		}
@@ -2583,7 +2574,7 @@ var componentSlider = (function (){
 	
 	function mouseEvents(el, toggle) {
 	
-	    if (!('onwheel' in window) || (hasClass(el, 'vertical') && !closest(el, '.n-ovrl'))) { // Check for mouse wheel and Don't slide vertically if not full window
+	    if (!('onwheel' in window) || (hasClass(el, 'vertical') && !closest(el, '.n-ovrl'))) { // Check for mouse wheel and don't slide vertically if not full window
 		    
 		    return;
 		   
@@ -2598,6 +2589,7 @@ var componentSlider = (function (){
 	    } else {
 	
 	        slider_wrap.addEventListener('wheel', mouseWheelHandler);
+/*
 	        if (getSliderNav(slider_wrap)) {
 	
 		        getSliderNav(slider_wrap).addEventListener('wheel', function (e) {
@@ -2607,6 +2599,7 @@ var componentSlider = (function (){
 		        });
 	        
 	        }
+*/
 	
 	    }
 	
@@ -2762,13 +2755,29 @@ var componentSlider = (function (){
 	
 	    var offset_sign = -1; // Slider offset depending on direction. -1 for LTR or 1 for RTL. Vertical is always '-'
 	
-		// To do: auto-height slider to take the height of the taller element
 		var computed_height;
 		var computed_height_old;
 	
 		var target_slide = slider.children[index];
 	
-		var height_change = (hasClass(slider, 'auto-height') ? 'height: ' + target_slide.scrollHeight + 'px;': '');
+		var height_change = '';
+		var height_current = '';
+		
+		if (hasClass(slider, 'auto-height')) {
+			
+			height_change =	'height: ' + target_slide.scrollHeight + 'px';
+			height_current = 'height: ' + slider.scrollHeight + 'px';
+			
+		}
+		
+		var next_slide_image = target_slide.querySelector('img');
+		if (hasClass(slider, 'vertical') && hasClass(slider, 'inline') && !hasClass(slider, 'overlay') && next_slide_image) {
+			
+			var height_change_number =	slider.clientWidth * next_slide_image.naturalHeight / next_slide_image.naturalWidth;
+			height_change =	'height: ' + height_change_number + 'px'; 
+			height_current = 'height: ' + slider.scrollHeight + 'px';
+
+		}
 	
 		if (hasClass(slider, 'vertical')) {
 			target_slide.style.cssText = 'display: block'; // Temporarily display the target slide to get its height
@@ -2802,8 +2811,9 @@ var componentSlider = (function (){
 		var translate_from, translate_to;
 		
 	    if (hasClass(slider, 'vertical')) {
-	
-		    translate_from = 'translate3d(0,' + ((index<old_index) ? '-100%' : '0') + ',0)';
+			
+			var next_height =  (hasClass(slider, 'vertical') && hasClass(slider, 'inline') && !hasClass(slider, 'overlay') && next_slide_image) ? ('-' + height_change_number + 'px') : '-100%';
+		    translate_from = 'translate3d(0,' + ((index<old_index) ? next_height : '0') + ',0)';
 			
 			computed_height = parseInt(computed_height, 10);
 			computed_height_old = parseInt(computed_height_old, 10);
@@ -2841,11 +2851,11 @@ var componentSlider = (function (){
 	
 		if (hasClass(slider, 'fade')) {
 	
-			animation_code = '0% { opacity: 1; transform: ' + translate_from + ' } 49% { transform: ' + translate_from + ' } 51% { opacity: 0; transform:' + translate_to + ' } 100% { opacity: 1; transform:' + translate_to + ' }';
+			animation_code = '0% { opacity: 1; transform: ' + translate_from + '; ' + height_current + '} 49% { transform: ' + translate_from + ' } 51% { opacity: 0; transform:' + translate_to + ' } 100% {' + height_change + '; opacity: 1; transform:' + translate_to + ' }';
 		
 		} else {
 			
-			animation_code = '0% { transform: ' + translate_from + '; } 100% { ' + height_change + ' transform: ' + translate_to + '; }';
+			animation_code = '0% { transform: ' + translate_from + '; ' + height_current + '} 100% { ' + height_change + '; transform: ' + translate_to + '; }';
 	
 		}
 	
