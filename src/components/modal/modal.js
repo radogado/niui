@@ -166,6 +166,12 @@ var componentModal = (function (){
 			}
 		
 		}
+
+		if (modal.scrollHeight === window.innerHeight) { // iOS 12 iPad landscape – exiting full screen mode 
+			
+			bodyElement.style.setProperty('--overlay-top', 0);
+
+		}
 		
 	}
 
