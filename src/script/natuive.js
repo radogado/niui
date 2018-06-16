@@ -1896,7 +1896,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		document.body.style.setProperty('--overlay-bottom', 0);
 		var screen_height = modal.scrollHeight;
 
-		if (!navigator.userAgent.match(/(iPod|iPhone|iPad)/i) || Math.abs(window.orientation) !== 90 || actual_viewport === screen_height) { // Only for mobile Safari in landscape mode
+		if (!navigator.userAgent.match(/(iPod|iPhone)/i) || Math.abs(window.orientation) !== 90 || actual_viewport === screen_height) { // Only for mobile Safari in landscape mode
 			
 			return;
 
@@ -1945,12 +1945,6 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		
 		}
 
-		if (modal.scrollHeight === window.innerHeight) { // iOS 12 iPad landscape – exiting full screen mode 
-			
-			bodyElement.style.setProperty('--overlay-top', 0);
-
-		}
-		
 	}
 
 	function keyUpClose(e) {
@@ -2006,6 +2000,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 				} else {
 				
 					disableBodyScroll(true, '.n-ovrl:last-of-type .content');
+					adjustModal();
 					
 				}
 				
