@@ -348,7 +348,12 @@ var componentSlider = (function (){
 		var next_slide_image = target_slide.querySelector('img');
 		if (hasClass(slider, 'vertical') && hasClass(slider, 'inline') && !hasClass(slider, 'overlay') && next_slide_image) {
 			
-			var height_change_number =	slider.clientWidth * next_slide_image.naturalHeight / next_slide_image.naturalWidth;
+			var height_change_number = slider.clientWidth * next_slide_image.naturalHeight / next_slide_image.naturalWidth;
+			if (slider.clientWidth >= next_slide_image.naturalWidth) {
+				
+				height_change_number = next_slide_image.naturalHeight;
+				
+			}
 			height_change =	'height: ' + height_change_number + 'px'; 
 			height_current = 'height: ' + slider.scrollHeight + 'px';
 
