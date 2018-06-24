@@ -140,13 +140,13 @@ footer a[href]:first-child {
 	
     margin: 2em 0;
     justify-content: center;
-    display: inline-block;
+//     display: inline-block;
 
 }
 
 .n-sldr.tabs > .slider-nav.row a {
 	
-	flex-grow: 0;
+	flex-grow: 1;
     white-space: nowrap;
     padding: 1em 1.5em;
     border: 1px solid #ccc; 
