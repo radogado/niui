@@ -1483,6 +1483,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		addClass(lightbox_target, 'inline');
 		transferClass(lightbox, lightbox_target, 'thumbnails');
 		transferClass(lightbox, lightbox_target, 'top');
+		transferClass(lightbox, lightbox_target, 'fade');
 	
 		if (inline_static) { // If it's inline, it must become a slider/lightbox to replace the original lightbox element
 			// Replace the lightbox by a slider lightbox. Generate the new slider/lightbox in place of the original one
