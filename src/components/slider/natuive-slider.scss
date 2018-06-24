@@ -318,7 +318,7 @@
 	
 	}
 	
-	.aspect > .n-sldr.outside {
+	.aspect > .n-sldr.outside:not(.vertical) {
 		
 		padding-bottom: 4em;	
 	
@@ -719,13 +719,25 @@ _:-ms-lang(x), .aspect > .n-sldr { // Aspect ratio not working in IE/Edge
 	
 }
 
-.n-sldr.vertical.outside.thumbnails {
+.n-sldr.vertical.outside.thumbnails:not(.right) {
 	
 	padding-left: 6em;
 	
 	> .slider-arrow {
 		
 		left: calc(50% + 2em);
+
+	}
+
+}
+
+.n-sldr.vertical.outside.thumbnails.right {
+	
+	padding-right: 6em;
+	
+	> .slider-arrow {
+		
+		left: calc(50% - 4em);
 
 	}
 

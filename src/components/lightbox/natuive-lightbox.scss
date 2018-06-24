@@ -91,6 +91,12 @@
 
 }
 
+.top.slider.lightbox > * p { /* Image captions */
+
+	bottom: 0;
+
+}
+
 .slider.lightbox.detached-nav > * p, .n-sldr.outside .slider.lightbox > * p {
 	
 	bottom: 0;
@@ -321,7 +327,7 @@
 		
 		}
 		
-		.slider.lightbox > * p {
+		&:not(.top) .slider.lightbox > * p {
 			
 			bottom: auto;
 		    top: -1.5em;

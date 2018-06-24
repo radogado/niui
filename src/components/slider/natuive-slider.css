@@ -208,7 +208,7 @@ $bg: #1E8DaC;
     height: 100%;
     position: absolute; }
 
-  .aspect > .n-sldr.outside {
+  .aspect > .n-sldr.outside:not(.vertical) {
     padding-bottom: 4em; }
 
   .aspect > .n-sldr .slider {
@@ -469,9 +469,14 @@ _:-ms-lang(x), .aspect > .n-sldr {
 .n-sldr.vertical.thumbnails {
   width: 100%; }
 
-.n-sldr.vertical.outside.thumbnails {
+.n-sldr.vertical.outside.thumbnails:not(.right) {
   padding-left: 6em; }
-  .n-sldr.vertical.outside.thumbnails > .slider-arrow {
+  .n-sldr.vertical.outside.thumbnails:not(.right) > .slider-arrow {
     left: calc(50% + 2em); }
+
+.n-sldr.vertical.outside.thumbnails.right {
+  padding-right: 6em; }
+  .n-sldr.vertical.outside.thumbnails.right > .slider-arrow {
+    left: calc(50% - 4em); }
 
 /*# sourceMappingURL=natuive-slider.css.map */

@@ -76,6 +76,10 @@ $bg: #1E8DaC;
   padding: .2em .5em;
   background: rgba(0, 0, 0, 0.4); }
 
+.top.slider.lightbox > * p {
+  /* Image captions */
+  bottom: 0; }
+
 .slider.lightbox.detached-nav > * p, .n-sldr.outside .slider.lightbox > * p {
   bottom: 0;
   margin-bottom: .5em; }
@@ -206,7 +210,7 @@ $bg: #1E8DaC;
     min-height: 1.5em;
     color: transparent;
     text-shadow: none; }
-  .thumbnails.n-sldr .slider.lightbox > * p {
+  .thumbnails.n-sldr:not(.top) .slider.lightbox > * p {
     bottom: auto;
     top: -1.5em; }
   .thumbnails.n-sldr .slider.lightbox.vertical > * p {
