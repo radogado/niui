@@ -2772,7 +2772,7 @@ var componentSlider = (function (){
 		}
 		
 		var next_slide_image = target_slide.querySelector('img');
-		if (hasClass(slider, 'vertical') && hasClass(slider, 'inline') && !hasClass(slider, 'overlay') && next_slide_image) {
+		if (hasClass(slider, 'vertical') && hasClass(slider, 'inline') && !hasClass(slider, 'overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'aspect')) { // To do: integrate aspect with n-sldr
 			
 			var height_change_number = slider.clientWidth * next_slide_image.naturalHeight / next_slide_image.naturalWidth;
 			if (slider.clientWidth >= next_slide_image.naturalWidth) {
@@ -2818,7 +2818,7 @@ var componentSlider = (function (){
 		
 	    if (hasClass(slider, 'vertical')) {
 			
-			var next_height =  (hasClass(slider, 'vertical') && hasClass(slider, 'inline') && !hasClass(slider, 'overlay') && next_slide_image) ? ('-' + height_change_number + 'px') : '-100%';
+			var next_height =  (hasClass(slider, 'vertical') && hasClass(slider, 'inline') && !hasClass(slider, 'overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'aspect')) ? ('-' + height_change_number + 'px') : '-100%';
 		    translate_from = 'translate3d(0,' + ((index<old_index) ? next_height : '0') + ',0)';
 			
 			computed_height = parseInt(computed_height, 10);
@@ -3011,6 +3011,11 @@ var componentSlider = (function (){
 	
 		    container = wrap(el);
 			addClass(container, 'n-sldr');
+			if (container.parentNode && hasClass(container.parentNode, 'aspect')) {
+				
+				addClass(container, 'inside-aspect');
+				
+			}
 		    el = container.querySelector('.slider');
 			
 			if (hasClass(el, 'pad')) {
@@ -3070,6 +3075,7 @@ var componentSlider = (function (){
 		
 		            addClass(container, 'tabs');
 		            addClass(slider_nav, 'row');
+		            addClass(slider_nav, 'tabs');
 		            transferClass(container, slider_nav, 'wrap');
 		            transferClass(el, container, 'vertical');
 		            var tab_title = el.children[i].getAttribute('data-tab_title') || (el.children[i].querySelector('.tab-title') ? el.children[i].querySelector('.tab-title').innerHTML : i+1);

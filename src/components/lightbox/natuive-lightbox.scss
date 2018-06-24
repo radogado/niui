@@ -8,7 +8,7 @@
 
 }
 
-.n-sldr > .slider.vertical.lightbox.inline[data-sliding]:not(.overlay) > * {
+*:not(.aspect) > .n-sldr > .slider.vertical.lightbox.inline[data-sliding]:not(.overlay) > * {
 
 	height: auto;
 

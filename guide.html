@@ -1728,6 +1728,37 @@ require('./node_modules/natuive/index.js');
 					
 						</div>
 						
+						<div class='col2'>
+
+							<h3>Tabs at the bottom with detached nav</h3>
+	
+							<div class='slider tabs' id=detached-tabs>
+								
+								<div> <h3 class='tab-title'>Tab 1</h3> <p>Content of Tab 1</p> </div>
+							
+								<div> <h3 class='tab-title'>Tab 2</h3> <p>The content of Tab 2</p> <p>New line</p> <p>New line</p> </div>
+							
+							</div>
+						
+<div class="code">							
+
+<pre>
+&lt;div class='slider tabs' id='detached-tabs'&gt;
+	&lt;div&gt; ... &lt;/div&gt;
+	&lt;div data-tab_title='Tab 1'&gt; ... &lt;/div&gt;
+	&lt;div&gt; &lt;h2 class='tab-title'&gt;Tab title and content&lt;/h2&gt; ... &lt;/div&gt;
+	...
+&lt;/div&gt;
+
+&lt;div class='slider-nav' data-for='detached-tabs'&gt;&lt;/div&gt;
+
+</pre>
+
+</div>
+
+<div class="slider-nav" data-for=detached-tabs></div>
+
+						</div>
 						<div class="col1">
 							
 							<h3>Options</h3>

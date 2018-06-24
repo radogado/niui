@@ -190,7 +190,7 @@
 
 @media screen and (max-width: $screen-narrow-max) {
 
-	.n-sldr.tabs > .slider-nav.row {
+	.n-sldr.tabs > .slider-nav.row, .slider-nav.row.tabs {
 		
 		display: flex;
 		
@@ -270,20 +270,24 @@
 
 }
 
-.vertical.tabs > .slider-nav.row {
+.vertical.tabs > .slider-nav.row, .slider-nav.row.tabs {
 	
 	width: 25%;
+/*
 	float: left;
 	display: flex;
 	flex-direction: column;
+*/
 
 }
 
-.n-sldr.tabs.vertical > .slider-nav.row a {
+/*
+.n-sldr.tabs.vertical > .slider-nav.row a, .slider-nav.row.tabs a {
 	
 	flex: 0 1 auto;
 
 }
+*/
 
 .vertical.tabs.right > .slider {
 
@@ -291,13 +295,13 @@
 
 }
 
-.vertical.tabs.right > .slider-nav.row {
+.vertical.tabs.right > .slider-nav.row, .slider-nav.row.tabs {
 	
 	float: right;
 
 }
 
-.vertical.tabs > .slider-nav a {
+.vertical.tabs > .slider-nav a, .slider-nav.tabs a {
 	
 	display: block;
 	box-sizing: border-box;
@@ -657,7 +661,7 @@ _:-ms-lang(x), .aspect > .n-sldr { // Aspect ratio not working in IE/Edge
 	
 	}
 
-	.n-sldr.tabs > .slider-nav {
+	.n-sldr.tabs > .slider-nav, .slider-nav.tabs {
 		
 		right: auto;
 		position: static;
@@ -665,11 +669,11 @@ _:-ms-lang(x), .aspect > .n-sldr { // Aspect ratio not working in IE/Edge
 		
 	}
 
-	.tabs > .slider-nav.row {
+	.tabs > .slider-nav.row, .slider-nav.row.tabs {
 		
 		padding: 0;
 		margin: 0;
-		width: auto;
+		width: 100%;
 
 	}
 
@@ -690,7 +694,7 @@ _:-ms-lang(x), .aspect > .n-sldr { // Aspect ratio not working in IE/Edge
 	
 	}
 	
-	.n-sldr.tabs > .slider-nav a {
+	.n-sldr.tabs > .slider-nav a, .tabs.slider-nav a {
 		
 		text-indent: 0;
 		width: auto;

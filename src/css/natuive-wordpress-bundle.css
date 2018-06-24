@@ -1743,7 +1743,7 @@ $bg: #1E8DaC;
 .n-sldr > .slider.vertical.lightbox > * {
   height: 100%; }
 
-.n-sldr > .slider.vertical.lightbox.inline[data-sliding]:not(.overlay) > * {
+*:not(.aspect) > .n-sldr > .slider.vertical.lightbox.inline[data-sliding]:not(.overlay) > * {
   height: auto; }
 
 .slider.lightbox > * {
@@ -2648,7 +2648,7 @@ $bg: #1E8DaC;
   position: absolute; }
 
 @media screen and (max-width: 599.9px) {
-  .n-sldr.tabs > .slider-nav.row {
+  .n-sldr.tabs > .slider-nav.row, .slider-nav.row.tabs {
     display: flex; }
 
   .slider > * {
@@ -2681,22 +2681,28 @@ $bg: #1E8DaC;
   width: 75%;
   float: right; }
 
-.vertical.tabs > .slider-nav.row {
+.vertical.tabs > .slider-nav.row, .slider-nav.row.tabs {
   width: 25%;
-  float: left;
-  display: flex;
-  flex-direction: column; }
+  /*
+  	float: left;
+  	display: flex;
+  	flex-direction: column;
+  */ }
 
-.n-sldr.tabs.vertical > .slider-nav.row a {
-  flex: 0 1 auto; }
+/*
+.n-sldr.tabs.vertical > .slider-nav.row a, .slider-nav.row.tabs a {
+	
+	flex: 0 1 auto;
 
+}
+*/
 .vertical.tabs.right > .slider {
   float: left; }
 
-.vertical.tabs.right > .slider-nav.row {
+.vertical.tabs.right > .slider-nav.row, .slider-nav.row.tabs {
   float: right; }
 
-.vertical.tabs > .slider-nav a {
+.vertical.tabs > .slider-nav a, .slider-nav.tabs a {
   display: block;
   box-sizing: border-box;
   padding: 1.5em 0.5em; }
@@ -2928,15 +2934,15 @@ _:-ms-lang(x), .aspect > .n-sldr {
   background-color: rgba(0, 0, 0, 0.2);
   color: inherit; }
 
-.n-sldr.tabs > .slider-nav {
+.n-sldr.tabs > .slider-nav, .slider-nav.tabs {
   right: auto;
   position: static;
   transform: none; }
 
-.tabs > .slider-nav.row {
+.tabs > .slider-nav.row, .slider-nav.row.tabs {
   padding: 0;
   margin: 0;
-  width: auto; }
+  width: 100%; }
 
 /*
 	.n-sldr.tabs > .slider-nav a:focus {
@@ -2951,7 +2957,7 @@ _:-ms-lang(x), .aspect > .n-sldr {
   bottom: 0;
   padding: 0; }
 
-.n-sldr.tabs > .slider-nav a {
+.n-sldr.tabs > .slider-nav a, .tabs.slider-nav a {
   text-indent: 0;
   width: auto;
   height: auto;
