@@ -20,23 +20,26 @@ html.parallax, html.parallax body {
 
 }
 
+// fixed background element needs fixing (disabled/background-attachmend (which isn't on mobile)), because there is no position: fixed under a transformed element like .parallax-front	
+
 html.parallax .fixed-bg {
-
+		
 	transform: none;
-
-}
-
-.parallax .fixed-bg {
-	
 	background-attachment: fixed;
 	background-size: cover;
 	position: static;
 	
+	.fixed-bg-image {
+		
+		display: none;
+	
+	}
+
 }
 
-.parallax .fixed-bg .fixed-bg-image {
-	
-	display: none;
+html.parallax body[data-chrome] .fixed-bg { // Chrome 67 breaks bg attachment fixed
+		
+	background-attachment: scroll;
 
 }
 

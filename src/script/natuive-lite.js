@@ -9,6 +9,12 @@ if (typeof document.body.style.animationName === 'undefined') { // ES5 unsupport
 
 var bodyElement = document.body;
 
+if (typeof window['chrome'] !== 'undefined') {
+	
+	document.body.setAttribute('data-chrome', 'true');
+
+}
+
 var aria_expanded = 'aria-expanded';
 var scripts_location = document.getElementsByTagName('script'); // To do: maybe move this global variable to window.scripts_location
 scripts_location = scripts_location[scripts_location.length-1].src;

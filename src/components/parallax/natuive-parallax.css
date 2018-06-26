@@ -13,15 +13,15 @@ html.parallax, html.parallax body {
   z-index: -1; }
 
 html.parallax .fixed-bg {
-  transform: none; }
-
-.parallax .fixed-bg {
+  transform: none;
   background-attachment: fixed;
   background-size: cover;
   position: static; }
+  html.parallax .fixed-bg .fixed-bg-image {
+    display: none; }
 
-.parallax .fixed-bg .fixed-bg-image {
-  display: none; }
+html.parallax body[data-chrome] .fixed-bg {
+  background-attachment: scroll; }
 
 @supports (perspective: 1px) {
   /* CSS Parallax is SUPPORTED */
