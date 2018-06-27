@@ -592,14 +592,14 @@ _:-ms-lang(x), .aspect > .n-sldr { // Aspect ratio not working in IE/Edge
 	
 }
 
-.top .slider-nav {
+.n-sldr.top .slider-nav {
 	
 	bottom: auto;
 	top: 0;
 	
 }
 
-	.vertical > .slider-nav {
+	.n-sldr.vertical > .slider-nav {
 		
 		width: auto;
 		display: flex;
@@ -613,7 +613,33 @@ _:-ms-lang(x), .aspect > .n-sldr { // Aspect ratio not working in IE/Edge
 		
 	}
 
-	.right.vertical > .slider-nav {
+	.n-sldr.vertical.outside.thumbnails > .slider-nav {
+		
+		padding: 0;
+		left: -.5em;
+
+	}
+
+	.n-sldr.vertical.outside.thumbnails > .slider-nav :last-child {
+		
+		margin-bottom: 0;
+
+	}
+		
+	.n-sldr.vertical.outside.thumbnails > .slider-nav :first-child {
+		
+		margin-top: 0;
+
+	}
+		
+	.n-sldr.vertical.outside.thumbnails.right > .slider-nav {
+		
+		left: auto;
+		right: -.5em;
+
+	}
+	
+	.n-sldr.right.vertical > .slider-nav {
 		
 	    right: .5em;
 	    left: auto;
@@ -632,20 +658,6 @@ _:-ms-lang(x), .aspect > .n-sldr { // Aspect ratio not working in IE/Edge
 		text-align: center;
 		
 	}
-	
-/*
-	.n-sldr:not(.vertical) .slider-nav a:first-child {
-		
-		margin-left: 0;
-		
-	}
-	
-	.slider-nav a:last-child {
-		
-		margin-right: 0;
-		
-	}
-*/
 	
 	.slider.vertical > [data-active], .vertical > .slider-nav a {
 		
@@ -676,15 +688,6 @@ _:-ms-lang(x), .aspect > .n-sldr { // Aspect ratio not working in IE/Edge
 		width: 100%;
 
 	}
-
-/*
-	.n-sldr.tabs > .slider-nav a:focus {
-		
-		outline: solid 2px rgba(0,0,0,.2);
-		outline-offset: -.1em;
-	
-	}
-*/
 	
 	.full-window .n-sldr.tabs > .slider-nav {
 		
@@ -721,11 +724,11 @@ _:-ms-lang(x), .aspect > .n-sldr { // Aspect ratio not working in IE/Edge
 
 .n-sldr.vertical.outside.thumbnails:not(.right) {
 	
-	padding-left: 6em;
+	padding-left: 5em;
 	
 	> .slider-arrow {
 		
-		left: calc(50% + 2em);
+		left: calc(50% + 1.5em);
 
 	}
 
@@ -733,11 +736,11 @@ _:-ms-lang(x), .aspect > .n-sldr { // Aspect ratio not working in IE/Edge
 
 .n-sldr.vertical.outside.thumbnails.right {
 	
-	padding-right: 6em;
+	padding-right: 5em;
 	
 	> .slider-arrow {
 		
-		left: calc(50% - 4em);
+		left: calc(50% - 3.5em);
 
 	}
 

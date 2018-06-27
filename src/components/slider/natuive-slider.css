@@ -380,11 +380,11 @@ _:-ms-lang(x), .aspect > .n-sldr {
   justify-content: flex-start;
   -webkit-overflow-scrolling: touch; }
 
-.top .slider-nav {
+.n-sldr.top .slider-nav {
   bottom: auto;
   top: 0; }
 
-.vertical > .slider-nav {
+.n-sldr.vertical > .slider-nav {
   width: auto;
   display: flex;
   flex-direction: column;
@@ -395,7 +395,21 @@ _:-ms-lang(x), .aspect > .n-sldr {
   transform: translateY(-50%);
   z-index: 1; }
 
-.right.vertical > .slider-nav {
+.n-sldr.vertical.outside.thumbnails > .slider-nav {
+  padding: 0;
+  left: -.5em; }
+
+.n-sldr.vertical.outside.thumbnails > .slider-nav :last-child {
+  margin-bottom: 0; }
+
+.n-sldr.vertical.outside.thumbnails > .slider-nav :first-child {
+  margin-top: 0; }
+
+.n-sldr.vertical.outside.thumbnails.right > .slider-nav {
+  left: auto;
+  right: -.5em; }
+
+.n-sldr.right.vertical > .slider-nav {
   right: .5em;
   left: auto; }
 
@@ -409,19 +423,6 @@ _:-ms-lang(x), .aspect > .n-sldr {
   min-height: 2em;
   text-align: center; }
 
-/*
-	.n-sldr:not(.vertical) .slider-nav a:first-child {
-		
-		margin-left: 0;
-		
-	}
-	
-	.slider-nav a:last-child {
-		
-		margin-right: 0;
-		
-	}
-*/
 .slider.vertical > [data-active], .vertical > .slider-nav a {
   display: block;
   overflow: auto; }
@@ -440,14 +441,6 @@ _:-ms-lang(x), .aspect > .n-sldr {
   margin: 0;
   width: 100%; }
 
-/*
-	.n-sldr.tabs > .slider-nav a:focus {
-		
-		outline: solid 2px rgba(0,0,0,.2);
-		outline-offset: -.1em;
-	
-	}
-*/
 .full-window .n-sldr.tabs > .slider-nav {
   position: absolute;
   bottom: 0;
@@ -470,13 +463,13 @@ _:-ms-lang(x), .aspect > .n-sldr {
   width: 100%; }
 
 .n-sldr.vertical.outside.thumbnails:not(.right) {
-  padding-left: 6em; }
+  padding-left: 5em; }
   .n-sldr.vertical.outside.thumbnails:not(.right) > .slider-arrow {
-    left: calc(50% + 2em); }
+    left: calc(50% + 1.5em); }
 
 .n-sldr.vertical.outside.thumbnails.right {
-  padding-right: 6em; }
+  padding-right: 5em; }
   .n-sldr.vertical.outside.thumbnails.right > .slider-arrow {
-    left: calc(50% - 4em); }
+    left: calc(50% - 3.5em); }
 
 /*# sourceMappingURL=natuive-slider.css.map */
