@@ -38,7 +38,7 @@ body {
   overflow: hidden;
   width: 100%;
   height: auto;
-  min-height: 100%;
+  min-height: 100vh;
   display: flex;
   /* Sticky footer */
   flex-direction: column;
@@ -1899,7 +1899,9 @@ $bg: #1E8DaC;
   position: absolute;
   top: 0.75em;
   right: 0.75em;
-  margin: 0; }
+  margin: 0;
+  color: transparent;
+  text-shadow: 0 0 #fff; }
 
 .lightbox.slider a.button.copy:before {
   content: "🔗"; }

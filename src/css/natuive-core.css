@@ -38,7 +38,7 @@ body {
   overflow: hidden;
   width: 100%;
   height: auto;
-  min-height: 100%;
+  min-height: 100vh;
   display: flex;
   /* Sticky footer */
   flex-direction: column;
