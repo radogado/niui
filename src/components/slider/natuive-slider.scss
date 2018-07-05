@@ -416,7 +416,7 @@ _:-ms-lang(x), .aspect > .n-sldr { // Aspect ratio not working in IE/Edge
 	
     padding: 0;
     margin: $line-height-em*2;
-	overflow-x: hidden; // Incompatible with peeking slider
+//	overflow-x: hidden; // Incompatible with peeking slider
 	
 }
 
