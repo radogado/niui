@@ -3043,6 +3043,8 @@ var componentSlider = (function (){
 			var peek = el.getAttribute('data-peek');
 			if (peek) {
 				
+				addClass(container, 'peek');
+				
 				if (hasClass(el, 'vertical')) {
 	
 		        	container.style.padding = peek + ' 0';

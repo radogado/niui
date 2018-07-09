@@ -267,6 +267,9 @@ _:-ms-lang(x), .aspect > .n-sldr {
   padding: 0;
   margin: 3em; }
 
+.n-sldr:not(.peek) > .pad {
+  overflow-x: hidden; }
+
 .slider[data-ready] > *:not([data-active]) {
   display: inline-block;
   pointer-events: none; }
