@@ -2,44 +2,39 @@
 
 @import '../../css/natuive-setup';
 
-.tip, label span .tip {
-	
-	font-size: $font-size;
-	line-height: $line-height;
-// 	line-height: var(--line-height);
-	min-height: $line-height-em;
-// 	min-height: var(--line-height-em);
-
-}
-
-.tool {
+.n-tool {
 
 	cursor: help;
 	font-weight: bold;
 	position: relative;
 
-}
+	&:after {
+		
+		content: '?';
+		display: inline-block;
+		background: #444;
+		border-radius: 100%;
+		color: #ddd;
+		width: 1.5em;
+		text-align: center;
 	
-.tool:after {
+	}
+
+	&[aria-expanded]:after {
+		
+		content: '╳';
 	
-	content: '?';
-	display: inline-block;
-	background: #444;
-	border-radius: 100%;
-	color: #ddd;
-	width: 1.5em;
-	text-align: center;
+	}
 
 }
 
-.tool[aria-expanded]:after {
-	
-	content: '✕';
+.n-tool .tip, label span .n-tool .tip {
 
-}
-
-.tip, label span .tip {
-
+	font-size: $font-size;
+	line-height: $line-height;
+// 	line-height: var(--line-height);
+	min-height: $line-height-em;
+// 	min-height: var(--line-height-em);
 	background: #333;
 	color: #ddd;
 	padding: $line-height-em/2;
@@ -63,7 +58,7 @@
 
 }
 
-.tool[aria-expanded] .tip, html:not(.can-touch) .tool:hover .tip {
+.n-tool[aria-expanded] .tip, html:not(.can-touch) .n-tool:hover .tip {
 	
 	opacity: 1;
 	visibility: visible;

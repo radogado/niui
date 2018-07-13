@@ -6,11 +6,11 @@
 		
 		/* Tooltip */
 		
-		forEach(host.querySelectorAll('.tool:not([data-ready])'), function(el, i) {
+		forEach(host.querySelectorAll('.n-tool:not([data-ready])'), function(el, i) {
 			
 			el.onclick = function (e) {
 	
-				toggleAttribute(closest(e.target, '.tool'), aria_expanded);
+				toggleAttribute(closest(e.target, '.n-tool'), aria_expanded);
 	
 			};		
 		
@@ -32,7 +32,7 @@
 					
 					if (e.key === 'Enter') {
 						
-						toggleAttribute(closest(e.target, '.tool'), aria_expanded);
+						toggleAttribute(closest(e.target, '.n-tool'), aria_expanded);
 	
 					}
 					
@@ -40,7 +40,7 @@
 	
 				label.onblur = function (e) {
 					
-					closest(e.target, '.tool').removeAttribute(aria_expanded);
+					closest(e.target, '.n-tool').removeAttribute(aria_expanded);
 	
 				}
 	

@@ -468,38 +468,6 @@ request.onload = function () {
 };
 request.send(null);
 
-function notifyClose(el) {
-	
-	el.parentNode.removeChild(el);
-	
-}
-
-function notifyCloseEvent() {
-
-	if (q('.notify')) {
-
-		q('.notify').onclick = function (e) {
-			
-			notifyClose(e.target);	
-				
-		};
-	
-	}
-	
-}
-
-function notify(content, option) {
-	
-	bodyElement.insertAdjacentHTML('afterbegin', '<div class="notify' + (option && (option.indexOf('fixed') !== -1) ? ' fixed' : '') + '">' + content + '</div>');
-	notifyCloseEvent();
-	if (option && option.indexOf('timeout') !== -1) {
-		
-		setTimeout(function() { notifyClose(q('.notify')) }, 2000);
-
-	}
-	
-}
-
 /* Chainable animation specified as CSS Animation */
 
 var temp = document.createElement('temp');
@@ -597,9 +565,9 @@ function copyButton (el, target, echo) {
 
 		  document.execCommand('copy');
 		  
-		  if (typeof echo !== 'undefined') {
+		  if (typeof echo !== 'undefined' && componentNotify) {
 	
-			  notify('📋 ' + target.textContent, 'fixed timeout');
+			  componentNotify.notify('📋 ' + target.textContent, 'fixed timeout');
 		  
 		  }
 

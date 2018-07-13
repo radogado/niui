@@ -38,15 +38,19 @@ body {
   overflow: hidden;
   width: 100%;
   height: auto;
-  min-height: 100vh;
-  display: flex;
-  /* Sticky footer */
-  flex-direction: column;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0.5);
   color: #333;
   /* Fallback when CSS variables aren't supported */
   color: var(--color);
   background: var(--bg, #fff); }
+
+.n-sticky-footer {
+  min-height: 100vh;
+  display: flex;
+  /* Sticky footer */
+  flex-direction: column; }
+  .n-sticky-footer main {
+    flex-grow: 1; }
 
 body * {
   box-sizing: border-box;
@@ -59,31 +63,23 @@ img, picture, .lightbox a {
   border: none;
   text-align: center; }
 
-.header-and-banner {
-  flex: none; }
-
-.viewport.header-and-banner {
+.n-viewport.header-and-banner {
   min-height: 100vh;
   display: flex;
   flex-direction: column; }
 
-.viewport.header-and-banner .banner {
+.n-viewport.header-and-banner .banner {
   flex-grow: 1;
   justify-content: center;
   flex-direction: column;
   display: flex; }
 
-.viewport.header-and-banner.push-up:after {
+.n-viewport.header-and-banner.push-up:after {
   content: '';
   flex-grow: 1; }
 
-header .row {
-  padding: 0; }
-
 header a.logo {
-  display: inline-block;
-  min-height: 46px;
-  /* Don't shift page after image is loaded */ }
+  display: inline-block; }
 
 .wide-screen {
   display: block; }
@@ -91,17 +87,11 @@ header a.logo {
 .narrow-screen {
   display: none; }
 
-/* Main */
-main {
-  flex: 1 0 auto; }
-
 /* Footer */
 footer {
-  flex: none;
-  position: relative;
-  padding: 1em 0; }
+  position: relative; }
 
-footer .row > * {
+footer > * {
   position: static; }
 
 video {
@@ -158,25 +148,6 @@ video {
 
   .fixed-bg .fixed-bg-image {
     display: none; } }
-/* Notification bar */
-.notify {
-  background: rgba(0, 0, 0, 0.8);
-  text-align: center;
-  padding: 1em;
-  color: #fff;
-  cursor: pointer;
-  z-index: 1; }
-
-.notify:after {
-  content: ' ✕'; }
-
-.notify.fixed {
-  font-weight: 500;
-  position: fixed;
-  left: 0;
-  right: 0;
-  z-index: 2; }
-
 .fixed {
   position: fixed; }
 
@@ -203,21 +174,15 @@ a[href].span-relative-parent {
 
 /* Narrow Screens */
 @media screen and (max-width: 599.9px) {
-  header {
-    margin: 0; }
-
   .wide-screen {
     display: none; }
 
   .narrow-screen {
     display: block; }
 
-  .viewport.header-and-banner {
+  .n-viewport.header-and-banner {
     height: auto;
     overflow: hidden; }
-
-  header > .row:first-child div {
-    text-align: end; }
 
   header .head-right {
     text-align: start; }
@@ -228,29 +193,7 @@ a[href].span-relative-parent {
     left: 0;
     right: 0;
     background: #fff;
-    z-index: 7; }
-
-  header.fixed > .row {
-    min-height: 3em; }
-
-  header.fixed .row > * {
-    padding: 0;
-    margin: 0; }
-
-  header.fixed a.logo {
-    padding: .5em; }
-
-  header.fixed .logo img {
-    height: 1.5em; }
-
-  footer .row > * {
-    display: inline-block; }
-
-  footer .row p {
-    margin: 0; }
-
-  header a.logo {
-    float: right; } }
+    z-index: 7; } }
 
 /*# sourceMappingURL=natuive-core.css.map */
 
@@ -2461,6 +2404,45 @@ nav.drop li[aria-haspopup] {
 
 /*# sourceMappingURL=natuive-nav.css.map */
 
+@charset "UTF-8";
+/* natUIve – Notification bar */
+/*
+$color: #fff;
+$bg: #1E8DaC;
+*/
+:root {
+  /*
+  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
+  	--line-height: 2;
+  	--line-height-em: calc(var(--line-height)*1em);
+  */
+  /*
+  	--color: #fff;
+  	--bg: #1E8DaC;
+  */
+  --color: #333;
+  --bg: #fff; }
+
+.n-notify {
+  background: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  padding: 1em;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1; }
+
+.n-notify:after {
+  content: ' ✕'; }
+
+.n-notify.fixed {
+  font-weight: 500;
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 2; }
+
+/*# sourceMappingURL=notify.css.map */
+
 /* CSS-only parallax scrolling. html.parallax with body children .parallax-back and .parallax-front. Thanks http://keithclark.co.uk/articles/pure-css-parallax-websites/ */
 html.parallax, html.parallax body {
   margin: 0;
@@ -3102,29 +3084,25 @@ $bg: #1E8DaC;
   --color: #333;
   --bg: #fff; }
 
-.tip, label span .tip {
-  font-size: 16px;
-  line-height: 1.5;
-  min-height: 1.5em; }
-
-.tool {
+.n-tool {
   cursor: help;
   font-weight: bold;
   position: relative; }
+  .n-tool:after {
+    content: '?';
+    display: inline-block;
+    background: #444;
+    border-radius: 100%;
+    color: #ddd;
+    width: 1.5em;
+    text-align: center; }
+  .n-tool[aria-expanded]:after {
+    content: '╳'; }
 
-.tool:after {
-  content: '?';
-  display: inline-block;
-  background: #444;
-  border-radius: 100%;
-  color: #ddd;
-  width: 1.5em;
-  text-align: center; }
-
-.tool[aria-expanded]:after {
-  content: '✕'; }
-
-.tip, label span .tip {
+.n-tool .tip, label span .n-tool .tip {
+  font-size: 16px;
+  line-height: 1.5;
+  min-height: 1.5em;
   background: #333;
   color: #ddd;
   padding: 0.75em;
@@ -3144,7 +3122,7 @@ $bg: #1E8DaC;
   width: 20em;
   line-height: 1.2; }
 
-.tool[aria-expanded] .tip, html:not(.can-touch) .tool:hover .tip {
+.n-tool[aria-expanded] .tip, html:not(.can-touch) .n-tool:hover .tip {
   opacity: 1;
   visibility: visible;
   top: 100%; }

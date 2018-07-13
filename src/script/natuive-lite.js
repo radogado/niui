@@ -468,38 +468,6 @@ request.onload = function () {
 };
 request.send(null);
 
-function notifyClose(el) {
-	
-	el.parentNode.removeChild(el);
-	
-}
-
-function notifyCloseEvent() {
-
-	if (q('.notify')) {
-
-		q('.notify').onclick = function (e) {
-			
-			notifyClose(e.target);	
-				
-		};
-	
-	}
-	
-}
-
-function notify(content, option) {
-	
-	bodyElement.insertAdjacentHTML('afterbegin', '<div class="notify' + (option && (option.indexOf('fixed') !== -1) ? ' fixed' : '') + '">' + content + '</div>');
-	notifyCloseEvent();
-	if (option && option.indexOf('timeout') !== -1) {
-		
-		setTimeout(function() { notifyClose(q('.notify')) }, 2000);
-
-	}
-	
-}
-
 /* Chainable animation specified as CSS Animation */
 
 var temp = document.createElement('temp');
@@ -597,9 +565,9 @@ function copyButton (el, target, echo) {
 
 		  document.execCommand('copy');
 		  
-		  if (typeof echo !== 'undefined') {
+		  if (typeof echo !== 'undefined' && componentNotify) {
 	
-			  notify('📋 ' + target.textContent, 'fixed timeout');
+			  componentNotify.notify('📋 ' + target.textContent, 'fixed timeout');
 		  
 		  }
 
@@ -1403,11 +1371,11 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 		
 		/* Tooltip */
 		
-		forEach(host.querySelectorAll('.tool:not([data-ready])'), function(el, i) {
+		forEach(host.querySelectorAll('.n-tool:not([data-ready])'), function(el, i) {
 			
 			el.onclick = function (e) {
 	
-				toggleAttribute(closest(e.target, '.tool'), aria_expanded);
+				toggleAttribute(closest(e.target, '.n-tool'), aria_expanded);
 	
 			};		
 		
@@ -1429,7 +1397,7 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 					
 					if (e.key === 'Enter') {
 						
-						toggleAttribute(closest(e.target, '.tool'), aria_expanded);
+						toggleAttribute(closest(e.target, '.n-tool'), aria_expanded);
 	
 					}
 					
@@ -1437,7 +1405,7 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 	
 				label.onblur = function (e) {
 					
-					closest(e.target, '.tool').removeAttribute(aria_expanded);
+					closest(e.target, '.n-tool').removeAttribute(aria_expanded);
 	
 				}
 	
@@ -1452,4 +1420,4 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 })();
 
 // Component Fold – end
-initComponents(); return { initComponents: initComponents, animate: animate, copyButton: copyButton, notify: notify, addComponent: addComponent }; })();
+initComponents(); return { initComponents: initComponents, animate: animate, copyButton: copyButton, componentNotify: componentNotify, addComponent: addComponent }; })();

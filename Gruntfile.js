@@ -33,7 +33,7 @@ module.exports = function(grunt) {
 			options: {
 				separator: ';',
 				banner: 'var nui = (function(){',
-				footer: 'initComponents(); return { initComponents: initComponents, animate: animate, copyButton: copyButton, notify: notify, addComponent: addComponent }; })();'
+				footer: 'initComponents(); return { initComponents: initComponents, animate: animate, copyButton: copyButton, componentNotify: componentNotify, addComponent: addComponent }; })();'
 		    },
 		    src: ['src/script/natuive-core.js', 'src/components/**/*.js'],
 		    dest: 'src/script/natuive.js'
@@ -46,7 +46,7 @@ module.exports = function(grunt) {
 			options: {
 				separator: ';',
 				banner: 'var nui = (function(){',
-				footer: 'initComponents(); return { initComponents: initComponents, animate: animate, copyButton: copyButton, notify: notify, addComponent: addComponent }; })();'
+				footer: 'initComponents(); return { initComponents: initComponents, animate: animate, copyButton: copyButton, componentNotify: componentNotify, addComponent: addComponent }; })();'
 		    },
 		    src: ['src/script/natuive-core.js', 'src/components/form/*.js', 'src/components/nav/*.js', 'src/components/table/*.js', 'src/components/tooltip/*.js'],
 		    dest: 'src/script/natuive-lite.js'
@@ -102,13 +102,13 @@ module.exports = function(grunt) {
 		  main: {
 		    expand: true,
 		    cwd: 'dist',
-		    src: 'natuive.min.js',
+		    src: ['natuive.min.js', 'ie.css', 'ie-fallback.js'],
 		    dest: 'natuive-wordpress/',
 		  }
 		}  
 	});
 
 	grunt.registerTask('default', ['sass', 'concat', 'cssmin', 'closure-compiler', 'copy']);
-	grunt.registerTask('dev', ['sass', 'concat', 'cssmin']);
+	grunt.registerTask('dev', ['sass', 'concat', 'cssmin', 'copy']);
 
 };

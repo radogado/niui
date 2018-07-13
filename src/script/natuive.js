@@ -468,38 +468,6 @@ request.onload = function () {
 };
 request.send(null);
 
-function notifyClose(el) {
-	
-	el.parentNode.removeChild(el);
-	
-}
-
-function notifyCloseEvent() {
-
-	if (q('.notify')) {
-
-		q('.notify').onclick = function (e) {
-			
-			notifyClose(e.target);	
-				
-		};
-	
-	}
-	
-}
-
-function notify(content, option) {
-	
-	bodyElement.insertAdjacentHTML('afterbegin', '<div class="notify' + (option && (option.indexOf('fixed') !== -1) ? ' fixed' : '') + '">' + content + '</div>');
-	notifyCloseEvent();
-	if (option && option.indexOf('timeout') !== -1) {
-		
-		setTimeout(function() { notifyClose(q('.notify')) }, 2000);
-
-	}
-	
-}
-
 /* Chainable animation specified as CSS Animation */
 
 var temp = document.createElement('temp');
@@ -597,9 +565,9 @@ function copyButton (el, target, echo) {
 
 		  document.execCommand('copy');
 		  
-		  if (typeof echo !== 'undefined') {
+		  if (typeof echo !== 'undefined' && componentNotify) {
 	
-			  notify('📋 ' + target.textContent, 'fixed timeout');
+			  componentNotify.notify('📋 ' + target.textContent, 'fixed timeout');
 		  
 		  }
 
@@ -2432,6 +2400,61 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 })();
 
 // Component Nav – end
+;// Component Notification bar – start
+
+var componentNotify = (function (){
+    
+	function notifyClose(el) {
+		
+		el.parentNode.removeChild(el);
+		
+	}
+	
+	function notifyCloseEvent() {
+	
+		if (q('.n-notify')) {
+	
+			q('.n-notify').onclick = function (e) {
+				
+				notifyClose(e.target);	
+					
+			};
+		
+		}
+		
+	}
+	
+	function notify(content, option) {
+		
+		bodyElement.insertAdjacentHTML('afterbegin', '<div class="n-notify' + (option && (option.indexOf('fixed') !== -1) ? ' fixed' : '') + '">' + content + '</div>');
+		notifyCloseEvent();
+		if (option && option.indexOf('timeout') !== -1) {
+			
+			setTimeout(function() { notifyClose(q('.n-notify')) }, 2000);
+	
+		}
+		
+	}
+
+	var init = function (host) {
+		
+		/* Tooltip */
+		
+		forEach(host.querySelectorAll('.n-notify:not([data-ready])'), function(el, i) {
+			
+			notifyCloseEvent();
+			makeReady(el);
+		
+		});
+		
+	};
+	registerComponent('notify', init);
+
+	return { notify: notify };
+
+})();
+
+// Component Notification bar – end
 ;// Component Slider – start
 
 var componentSlider = (function (){
@@ -3346,11 +3369,11 @@ var componentSlider = (function (){
 		
 		/* Tooltip */
 		
-		forEach(host.querySelectorAll('.tool:not([data-ready])'), function(el, i) {
+		forEach(host.querySelectorAll('.n-tool:not([data-ready])'), function(el, i) {
 			
 			el.onclick = function (e) {
 	
-				toggleAttribute(closest(e.target, '.tool'), aria_expanded);
+				toggleAttribute(closest(e.target, '.n-tool'), aria_expanded);
 	
 			};		
 		
@@ -3372,7 +3395,7 @@ var componentSlider = (function (){
 					
 					if (e.key === 'Enter') {
 						
-						toggleAttribute(closest(e.target, '.tool'), aria_expanded);
+						toggleAttribute(closest(e.target, '.n-tool'), aria_expanded);
 	
 					}
 					
@@ -3380,7 +3403,7 @@ var componentSlider = (function (){
 	
 				label.onblur = function (e) {
 					
-					closest(e.target, '.tool').removeAttribute(aria_expanded);
+					closest(e.target, '.n-tool').removeAttribute(aria_expanded);
 	
 				}
 	
@@ -3395,4 +3418,4 @@ var componentSlider = (function (){
 })();
 
 // Component Fold – end
-initComponents(); return { initComponents: initComponents, animate: animate, copyButton: copyButton, notify: notify, addComponent: addComponent }; })();
+initComponents(); return { initComponents: initComponents, animate: animate, copyButton: copyButton, componentNotify: componentNotify, addComponent: addComponent }; })();

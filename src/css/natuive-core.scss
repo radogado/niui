@@ -29,14 +29,26 @@ body {
 	overflow: hidden;
 	width: 100%;
 	height: auto; // Problem with Chrome 66
-	min-height: 100vh; // % has problems with Chrome 67
-	display: flex;  /* Sticky footer */
-	flex-direction: column;
+
 	-webkit-tap-highlight-color: rgba(0,0,0,.5);
 
 	color: $color; /* Fallback when CSS variables aren't supported */
 	color: var(--color);
 	background: var(--bg, $bg);
+
+}
+
+.n-sticky-footer {
+
+	min-height: 100vh; // % has problems with Chrome 67
+	display: flex;  /* Sticky footer */
+	flex-direction: column;
+
+	main {
+	
+		flex-grow: 1;
+	
+	}
 
 }
 
@@ -56,13 +68,7 @@ img, picture, .lightbox a {
 
 }
 
-.header-and-banner {
-
-	flex: none;
-
-}
-
-.viewport.header-and-banner {
+.n-viewport.header-and-banner {
 
 	min-height: 100vh;
 // 	overflow: auto;
@@ -71,7 +77,7 @@ img, picture, .lightbox a {
 
 }
 
-.viewport.header-and-banner .banner {
+.n-viewport.header-and-banner .banner {
 
 	flex-grow: 1;
 	justify-content: center;
@@ -80,24 +86,16 @@ img, picture, .lightbox a {
 
 }
 
-.viewport.header-and-banner.push-up:after { // Move centered content up, because the middle seems low
+.n-viewport.header-and-banner.push-up:after { // Move centered content up, because the middle seems low
 
 	content: '';
 	flex-grow: 1;
 
 }
 
-header .row {
-
-	padding: 0;
-
-}
-
-
 header a.logo {
 
 	display: inline-block;
-	min-height: 46px; /* Don't shift page after image is loaded */
 
 }
 
@@ -113,26 +111,15 @@ header a.logo {
 
 }
 
-/* Main */
-
-main {
-
-	flex: 1 0 auto; // Sticky footer
-
-}
-
 /* Footer */
 
 footer {
 
-	flex: none;
 	position: relative; // Because of the backtotop button
-// 	padding-bottom: 3em;
-    padding: 1em 0;
 
 }
 
-footer .row > * {
+footer > * {
 
 	position: static;
 
@@ -235,34 +222,6 @@ video {
 
 }
 
-/* Notification bar */
-
-.notify {
-
-	background: rgba(0, 0, 0, .8);
-	text-align: center;
-	padding: 1em;
-	color: #fff;
-	cursor: pointer;
-    z-index: 1;
-
-}
-
-.notify:after {
-content: ' ✕';
-
-}
-
-.notify.fixed {
-
-	font-weight: 500;
-	position: fixed;
-	left: 0;
-	right: 0;
-	z-index: 2;
-
-}
-
 .fixed {
 
 	position: fixed;
@@ -311,12 +270,6 @@ a[href].span-relative-parent {
 
 @media screen and (max-width: $screen-narrow-max) {
 
-	header {
-
-		margin: 0;
-
-	}
-
 	.wide-screen {
 
 		display: none;
@@ -329,24 +282,18 @@ a[href].span-relative-parent {
 
 	}
 
-	.viewport.header-and-banner {
+	.n-viewport.header-and-banner {
 
 		height: auto;
 		overflow: hidden;
 
 	}
 
-	header > .row:first-child div {
+	header .head-right {
 
-		text-align: end;
+		text-align: start;
 
 	}
-
-		header .head-right {
-
-			text-align: start;
-
-		}
 
 	header.fixed {
 
@@ -356,49 +303,6 @@ a[href].span-relative-parent {
 		right: 0;
 		background: #fff;
 		z-index: 7;
-
-	}
-
-	header.fixed > .row {
-
-		min-height: $line-height-em*2;
-
-	}
-
-	header.fixed .row > * {
-
-		padding: 0;
-		margin: 0;
-
-	}
-
-	header.fixed a.logo {
-
-		padding: .5em;
-
-	}
-
-	header.fixed .logo img {
-
-		height: 1.5em;
-
-	}
-
-	footer .row > * {
-
-		display: inline-block;
-
-	}
-
-	footer .row p {
-
-		margin: 0;
-
-	}
-
-	header a.logo {
-
-		float: right;
 
 	}
 

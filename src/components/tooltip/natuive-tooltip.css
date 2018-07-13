@@ -17,29 +17,25 @@ $bg: #1E8DaC;
   --color: #333;
   --bg: #fff; }
 
-.tip, label span .tip {
-  font-size: 16px;
-  line-height: 1.5;
-  min-height: 1.5em; }
-
-.tool {
+.n-tool {
   cursor: help;
   font-weight: bold;
   position: relative; }
+  .n-tool:after {
+    content: '?';
+    display: inline-block;
+    background: #444;
+    border-radius: 100%;
+    color: #ddd;
+    width: 1.5em;
+    text-align: center; }
+  .n-tool[aria-expanded]:after {
+    content: '╳'; }
 
-.tool:after {
-  content: '?';
-  display: inline-block;
-  background: #444;
-  border-radius: 100%;
-  color: #ddd;
-  width: 1.5em;
-  text-align: center; }
-
-.tool[aria-expanded]:after {
-  content: '✕'; }
-
-.tip, label span .tip {
+.n-tool .tip, label span .n-tool .tip {
+  font-size: 16px;
+  line-height: 1.5;
+  min-height: 1.5em;
   background: #333;
   color: #ddd;
   padding: 0.75em;
@@ -59,7 +55,7 @@ $bg: #1E8DaC;
   width: 20em;
   line-height: 1.2; }
 
-.tool[aria-expanded] .tip, html:not(.can-touch) .tool:hover .tip {
+.n-tool[aria-expanded] .tip, html:not(.can-touch) .n-tool:hover .tip {
   opacity: 1;
   visibility: visible;
   top: 100%; }
