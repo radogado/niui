@@ -83,10 +83,9 @@ a.backtotop[href] {
 
 .group {
   margin: 0 -.25em; }
-
-.group > *, .group > .button.big, .group > a[href].button.big {
-  margin-right: .25em;
-  margin-left: .25em; }
+  .group > *, .group .button.big, .group > a[href].button.big {
+    margin-right: .25em;
+    margin-left: .25em; }
 
 @media screen and (max-width: 599.9px) {
   .button.big {

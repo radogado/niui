@@ -17,176 +17,143 @@ $bg: #1E8DaC;
   --color: #333;
   --bg: #fff; }
 
-.fold {
+.n-fold {
   position: relative;
   margin: 0;
   max-width: 100%;
   z-index: 1; }
-
-.fold > .label {
-  margin: 0;
-  float: none;
-  text-align: left;
-  text-align: start;
-  width: 100%;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-  cursor: zoom-in;
-  position: relative;
-  padding: .75em 0;
-  padding-right: 1.5em; }
-
-.fold > .label:after {
-  content: "▼";
-  position: absolute;
-  right: 1em;
-  font-size: .5em;
-  top: 50%;
-  transform: translateY(-50%); }
-
-.fold[aria-expanded] > .label:after {
-  content: "▲"; }
-
-.fold[aria-expanded] > .label {
-  cursor: zoom-out; }
-
-.fold.mobile {
-  padding: 0;
-  width: auto; }
-
-.fold.mobile > .label:after {
-  display: none; }
-
-.fold.mobile > .label, .fold.mobile > input.trigger {
-  display: none;
-  width: auto;
-  line-height: 1.5;
-  min-height: 1.5em;
-  height: 3em; }
-
-.fold:not([data-init]) .content {
-  /* hidden fold item */
-  overflow: hidden;
-  cursor: auto;
-  will-change: max-width; }
-
-.fold.mobile .content {
-  /* hidden fold item */
-  overflow: visible; }
-
-.fold[aria-expanded] .content {
-  max-height: none; }
-
-.fold:not([aria-expanded]):not(.mobile):not(.horizontal) > .content, .fold[aria-expanded]:not(.horizontal) input.trigger:checked ~ .content {
-  max-height: 0;
-  max-height: var(--start-height, 0); }
-
-.fold.horizontal > * {
-  display: none; }
-
-@supports (--a: 1) {
-  .fold.horizontal > * {
-    display: block; } }
-.fold.horizontal > .label:after {
-  content: "▶"; }
-
-.fold.horizontal[aria-expanded] > .label:after {
-  content: "◀"; }
-
-.fold.horizontal:not([data-init]) > .content {
-  width: 0; }
-
-.fold.horizontal[data-init] > .content, .fold[aria-expanded].horizontal > .content, .fold.horizontal > input.trigger:checked ~ .content {
-  width: 100%; }
-
-.fold.horizontal > .content {
-  height: 0; }
-
-.fold.horizontal > .content > * {
-  width: var(--width); }
-
-.fold:first-of-type .content {
-  padding-top: 0; }
-
-.fold:first-of-type {
-  margin-bottom: 0; }
-
-.fold .content > * {
-  margin-top: 0; }
-
-.fold:not(.horizontal) > input.trigger:checked ~ .content, .fold.mobile:not(.horizontal) .content {
-  max-height: none; }
-
-.fold[aria-expanded] > input.trigger + .content {
-  display: inline-block; }
-
-span.burger {
-  width: 1.5em;
-  height: 1.5em;
-  line-height: 1.5em;
-  font-size: 2em;
-  display: inline-block;
-  text-align: center;
-  position: relative;
-  background: #fff; }
-
-span.burger:after {
-  content: "="; }
+  .n-fold > .label {
+    margin: 0;
+    float: none;
+    text-align: left;
+    text-align: start;
+    width: 100%;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    cursor: zoom-in;
+    position: relative;
+    padding: .75em 0;
+    padding-right: 1.5em; }
+    .n-fold > .label:after {
+      content: "▼";
+      position: absolute;
+      right: 1em;
+      font-size: .5em;
+      top: 50%;
+      transform: translateY(-50%); }
+  .n-fold[aria-expanded] > .label {
+    cursor: zoom-out; }
+    .n-fold[aria-expanded] > .label:after {
+      content: "▲"; }
+  .n-fold.mobile {
+    padding: 0;
+    width: auto; }
+    .n-fold.mobile > .label:after {
+      display: none; }
+    .n-fold.mobile > .label, .n-fold.mobile > input.trigger {
+      display: none;
+      width: auto;
+      line-height: 1.5;
+      min-height: 1.5em;
+      height: 3em; }
+    .n-fold.mobile .content {
+      /* hidden fold item */
+      overflow: visible; }
+  .n-fold:not([data-init]):not(.mobile) .content {
+    /* hidden fold item */
+    overflow: hidden;
+    cursor: auto;
+    will-change: max-width; }
+  .n-fold[aria-expanded] .content {
+    max-height: none; }
+  .n-fold:not([aria-expanded]):not(.mobile):not(.horizontal) > .content, .n-fold[aria-expanded]:not(.horizontal) input.trigger:checked ~ .content {
+    max-height: 0;
+    max-height: var(--start-height, 0); }
+  .n-fold.horizontal > * {
+    display: none; }
+  .n-fold.horizontal > .label:after {
+    content: "▶"; }
+  .n-fold.horizontal[aria-expanded] > .label:after {
+    content: "◀"; }
+  .n-fold.horizontal:not([data-init]) > .content {
+    width: 0; }
+  .n-fold.horizontal[data-init] > .content, .n-fold.horizontal[aria-expanded] > .content, .n-fold.horizontal > input.trigger:checked ~ .content {
+    width: 100%; }
+  .n-fold.horizontal > .content {
+    height: 0; }
+    .n-fold.horizontal > .content > * {
+      width: var(--width); }
+  .n-fold:first-of-type {
+    margin-bottom: 0; }
+    .n-fold:first-of-type .content {
+      padding-top: 0; }
+  .n-fold .content > * {
+    margin-top: 0; }
+  .n-fold:not(.horizontal) > input.trigger:checked ~ .content, .n-fold.mobile:not(.horizontal) .content {
+    max-height: none; }
+  .n-fold[aria-expanded] > input.trigger + .content {
+    display: inline-block; }
+  .n-fold span.burger {
+    width: 1.5em;
+    height: 1.5em;
+    line-height: 1.5em;
+    font-size: 2em;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    background: #fff; }
+    .n-fold span.burger:after {
+      content: "="; }
 
 @supports (--a: 1) {
-  span.burger:before {
+  .n-fold span.burger:before {
     content: "";
     position: absolute;
     left: 0.25em;
     width: 1em;
     top: 0.15em;
     box-shadow: 0 0.25em 0 1px #333, 0 0.625em 0 1px #333, 0 1em 0 1px #333; }
-
-  span.burger:after {
-    display: none; } }
+  .n-fold span.burger:after {
+    display: none; }
+  .n-fold.horizontal > * {
+    display: block; } }
 @media screen and (max-width: 599.9px) {
-  .fold.mobile > .label, .fold.mobile > input.trigger {
+  .n-fold.mobile > .label, .n-fold.mobile > input.trigger {
     display: inline-block;
     display: flex;
     width: 3em;
     padding: 0; }
-
-  .fold.mobile:not([aria-expanded]) .content {
+  .n-fold.mobile:not([aria-expanded]) .content {
     max-height: 0;
     max-width: 0; }
-
-  .fold.mobile > input.trigger:checked ~ .content, .fold.mobile > input.trigger:checked + .content {
+  .n-fold.mobile > input.trigger:checked ~ .content, .n-fold.mobile > input.trigger:checked + .content {
     max-height: none; }
-
-  .fold.mobile .content {
+  .n-fold.mobile .content {
     /* hidden fold item */
     overflow: hidden; }
 
   @supports (--a: 1) {
-    header.fixed-mobile .fold.mobile {
+    header.fixed-mobile .n-fold.mobile {
       position: fixed;
       top: 0;
       z-index: 2; }
-
-    header.fixed-mobile .fold.mobile[aria-expanded] {
-      bottom: 0;
-      overflow: visible; }
-
-    header.fixed-mobile .fold.mobile .content {
-      padding: 0 0.375em;
-      background: #fff; }
-
-    header.fixed-mobile .fold.mobile[aria-expanded] .content {
-      overflow: auto;
-      -webkit-overflow-scrolling: touch;
-      position: fixed;
-      top: 3em;
-      bottom: 0; } } }
+      header.fixed-mobile .n-fold.mobile[aria-expanded] {
+        bottom: 0;
+        overflow: visible; }
+        header.fixed-mobile .n-fold.mobile[aria-expanded] .content {
+          overflow: auto;
+          -webkit-overflow-scrolling: touch;
+          position: fixed;
+          top: 3em;
+          bottom: 0; }
+      header.fixed-mobile .n-fold.mobile .content {
+        padding: 0 0.375em;
+        background: #fff; } } }
 @media screen and (min-width: 600px) {
-  .fold.mobile {
+  .n-fold.mobile {
     overflow: visible; } }
 
 /*# sourceMappingURL=natuive-fold.css.map */

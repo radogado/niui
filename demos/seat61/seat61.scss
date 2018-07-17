@@ -250,19 +250,19 @@ h4 {
 		
 	}
 	
-	header.fixed-mobile .fold.mobile.open .content {
+	header.fixed-mobile .n-fold.mobile.open .content {
 		
 		width: 100%;
 	
 	}
 
-	.fold.mobile > .label, header.fixed-mobile .fold.mobile.open .content {
+	.n-fold.mobile > .label, header.fixed-mobile .n-fold.mobile.open .content {
 	
 		margin-left: -.3em;
 		
 	}
 	
-	header.fixed-mobile .fold.mobile[aria-expanded] .content {
+	header.fixed-mobile .n-fold.mobile[aria-expanded] .content {
 		
 	    width: 100%;
 	    left: 0;		

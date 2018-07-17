@@ -2,57 +2,56 @@
 
 @import '../../css/natuive-setup';
 
-.card {
+.n-card {
 	
 	margin: 1em 0;
 	--card-bg: #{rgba(0,0,0,.1)};
 	background: var(--card-bg);
 
-}
-
-.card > * {
+	> * {
+		
+		padding: 1em;
 	
-	padding: 1em;
-
-}
-
-.card .content {
+	}
 	
-	background: var(--card-bg);
-
-}
-
-.card > img {
+	.content {
+		
+		background: var(--card-bg);
 	
-	display: block;
-	margin: 0 auto;
-	max-width: 100%;
-	padding: 0;
-
-}
-
-.card .head.image {
+	}
 	
-	background-position: center center;
-	background-size: cover;
-	background-repeat: no-repeat;
-	color: #fff;
-
-}
-
-.card .head.image:after {
+	> img {
+		
+		display: block;
+		margin: 0 auto;
+		max-width: 100%;
+		padding: 0;
 	
-	content: ''; 
-	padding-bottom: 56.25%; // 16:9
-	width: 0;
-	display: inline-block;
-	vertical-align: bottom;
-
-}
-
-.card .head.image > * {
+	}
 	
-	display: inline-block;
+	.head.image {
+		
+		background-position: center center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		color: #fff;
+	
+	}
+	
+	.head.image:after {
+		
+		content: ''; 
+		padding-bottom: 56.25%; // 16:9
+		width: 0;
+		display: inline-block;
+		vertical-align: bottom;
+	
+	}
+	
+	.head.image > * {
+		
+		display: inline-block;
+	
+	}
 
 }
-
