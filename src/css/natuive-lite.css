@@ -312,20 +312,10 @@ $bg: #1E8DaC;
   --color: #333;
   --bg: #fff; }
 
-@supports (--a: 1) {
-  form {
-    padding: 1.5em 0; } }
 form *:not(option) {
   display: inline-block;
   vertical-align: middle; }
 
-/*
-form :focus {
-	
-	outline: auto;
-
-}
-*/
 input[type=submit], label, form .checkbox span, form label > span {
   line-height: 1.5;
   min-height: 1.5em; }
@@ -377,13 +367,6 @@ input, select, textarea, input[type=search], form button {
   border: 1px dotted transparent;
   color: inherit; }
 
-/*
-input:focus, select:focus, textarea:focus {
-	
-	border-color: #bbb;
-	
-}
-*/
 form .checkbox span {
   display: inline-block;
   font-weight: bold;
@@ -482,21 +465,6 @@ select {
 select:hover {
   cursor: pointer; }
 
-/*
-label.select:after {
-	
-    position: absolute;
-    right: .5em;
-    width: 1em;
-    bottom: .9em;
-    content: '▾';
-	    
-}
-*/
-[dir=rtl] select {
-  padding-left: 0;
-  padding-right: .8em; }
-
 select, form .file {
   vertical-align: top;
   border: none;
@@ -505,35 +473,6 @@ select, form .file {
 select option {
   padding: 0 1.5em 0 0; }
 
-/*
-form .checkbox label:first-of-type { // To do: not needed when checkboxes are inline
-	
-// 		margin-top: $line-height-em/2;
-// 		margin-top: var(--line-height-em);
-	
-}
-*/
-:root form .checkbox label {
-  /* Not IE9 */
-  padding-left: 0;
-  padding-bottom: 0;
-  display: inline; }
-
-/*
-form .checkbox label + label {
-	
-	margin-top: 0; 
-
-}
-*/
-/*
-form .checkbox label:last-child {
-	
-	margin-bottom: $line-height-em;
-// 		margin-bottom: var(--line-height-em);
-
-}
-*/
 .checkbox-icon {
   width: 1em;
   height: 1em;
@@ -597,42 +536,13 @@ input[type=radio]:checked + .checkbox-icon:before {
 form .checkbox label:last-child {
   margin-bottom: 0; }
 
-/*
-input[type=checkbox]:focus + .checkbox-icon, input[type=radio]:focus + .checkbox-icon {
-	
-	border: 1px dotted #666;
-
-}
-*/
 .file input[type=file] {
-  /*
-  	position: absolute;
-  	left: 0;
-  */
   width: 100%;
-  /*
-  	margin: 0;
-  	padding: 0;
-  */
   cursor: pointer;
   border: none;
   opacity: 0;
-  margin: 0;
-  /*
-  	z-index: 1;
-  	text-indent: -100%;
-  	top: 0;
-  	bottom: 0;
-  	padding-left: 200%;
-  	font-size: 0;
-  	margin-top: 0;
-  	background: transparent;
-  */ }
+  margin: 0; }
 
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-  /* IE10 */
-  input[type=file] {
-    margin-left: -100%; } }
 form .file {
   font-weight: normal;
   margin: 0 0 1.5em 0;
@@ -647,11 +557,6 @@ form .file span {
   white-space: nowrap;
   overflow: hidden;
   background: #ddd;
-  /*
-  	z-index: 0;
-  	margin: 0;
-  	width: 100%;
-  */
   padding: 0 0.75em 0 0.75em;
   display: block;
   line-height: 1.5em;
@@ -691,28 +596,6 @@ form input[type=submit] {
   min-height: 2.50005em;
   text-align: start; }
 
-@-moz-document url-prefix() {
-  select {
-    padding-left: 0;
-    text-indent: .3em; }
-
-  select option {
-    padding: 0; }
-
-  input::-moz-focus-inner, button::-moz-focus-inner {
-    padding: 0;
-    border: 0; }
-
-  input[type=text], input[type=email], input[type=url] {
-    padding-top: 0; }
-
-  form .file span {
-    margin-top: -1px; }
-
-  input[type=file] {
-    padding-left: 100%;
-    text-indent: -1em;
-    margin-top: -1.5em; } }
 form input[type=range] {
   -webkit-appearance: none;
   width: 100%;
@@ -720,13 +603,6 @@ form input[type=range] {
   margin: 0;
   padding: 0; }
 
-/*
-input[type=range]:focus {
-
-	outline: none;
-
-}
-*/
 input[type=range]::-webkit-slider-runnable-track {
   width: 100%;
   height: .7125em;
@@ -882,35 +758,6 @@ form.mast .mandatory:before {
   left: calc(50% - 1em);
   z-index: -1; }
 
-[dir=rtl] form.mast .mandatory:before {
-  right: calc(50% - 1em);
-  left: auto; }
-
-/*
-header form {
-	
-	display: inline-block;
-	vertical-align: middle;
-
-}
-
-	header form noscript input[type=submit] {
-		
-		margin: 0;
-		padding: 0;
-		min-width: 0;
-		min-height: 1em;
-
-	}
-	
-	header form select {
-		
-		width: 100%;
-		display: inline-block;
-		margin: 0;
-
-	}
-*/
 form.language select {
   height: auto;
   width: 100%;
@@ -919,6 +766,50 @@ form.language select {
   background-color: unset;
   height: 1.5em;
   line-height: 1.5em; }
+
+[dir=rtl] form.mast .mandatory:before {
+  right: calc(50% - 1em);
+  left: auto; }
+
+@-moz-document url-prefix() {
+  select {
+    padding-left: 0;
+    text-indent: .3em; }
+
+  select option {
+    padding: 0; }
+
+  input::-moz-focus-inner, button::-moz-focus-inner {
+    padding: 0;
+    border: 0; }
+
+  input[type=text], input[type=email], input[type=url] {
+    padding-top: 0; }
+
+  form .file span {
+    margin-top: -1px; }
+
+  input[type=file] {
+    padding-left: 100%;
+    text-indent: -1em;
+    margin-top: -1.5em; } }
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  /* IE10 */
+  input[type=file] {
+    margin-left: -100%; } }
+:root form .checkbox label {
+  /* Not IE9 */
+  padding-left: 0;
+  padding-bottom: 0;
+  display: inline; }
+
+[dir=rtl] select {
+  padding-left: 0;
+  padding-right: .8em; }
+
+@supports (--a: 1) {
+  form {
+    padding: 1.5em 0; } }
 
 /*# sourceMappingURL=natuive-form.css.map */
 

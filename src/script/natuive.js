@@ -1148,52 +1148,53 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 		forEach(host.querySelectorAll('form'), function(el, i) {
 		
 		    el.onsubmit = el.onsubmit || submitForm;
-		    makeReady(el);
 		
-		});
-		
-		forEach(host.querySelectorAll('input[type=file]'), function(el, i) {
-		
-		    el.onchange = updateFileInput;
-		
-		});
-		
-	// 	Conditional form fieldsets
-	
-		forEach(host.querySelectorAll('.checkbox.condition input'), function(el, i) {
+			forEach(el.querySelectorAll('input[type=file]'), function(el, i) {
 			
-			el.onchange = toggleConditionalFieldset;
+			    el.onchange = updateFileInput;
+			
+			});
+			
+		// 	Conditional form fieldsets
 		
-		});
-		
-		// Auto textarea height.
-		
-		forEach(host.querySelectorAll('textarea[data-auto]'), function(el) {
-		
-		    el.onkeyup = function(e) {
-		
-		        el = e.target;
-		
-		        while (el.rows > 1 && el.scrollHeight < el.offsetHeight) {
-		
-		            el.rows--;
-		
-		        }
-		
-		        while (el.scrollHeight > el.offsetHeight) {
-		
-		            if (el.rows > 20) {
-		
-		                break;
-		
-		            }
-		            el.rows++;
-		
-		        }
-		
-		        el.rows++;
-		
-		    };
+			forEach(el.querySelectorAll('.checkbox.condition input'), function(el, i) {
+				
+				el.onchange = toggleConditionalFieldset;
+			
+			});
+			
+			// Auto textarea height.
+			
+			forEach(el.querySelectorAll('textarea[data-auto]'), function(el) {
+			
+			    el.onkeyup = function(e) {
+			
+			        el = e.target;
+			
+			        while (el.rows > 1 && el.scrollHeight < el.offsetHeight) {
+			
+			            el.rows--;
+			
+			        }
+			
+			        while (el.scrollHeight > el.offsetHeight) {
+			
+			            if (el.rows > 20) {
+			
+			                break;
+			
+			            }
+			            el.rows++;
+			
+			        }
+			
+			        el.rows++;
+			
+			    };
+			
+			});
+
+		    makeReady(el);
 		
 		});
 	
@@ -2072,8 +2073,8 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 
 	    var el = e.target;
 	
-	    var link = closest(el, '.modal').href;
-	    var animation = closest(el, '.modal').getAttribute('data-anim');
+	    var link = closest(el, '.n-modal').href;
+	    var animation = closest(el, '.n-modal').getAttribute('data-anim');
 	
 	    if (!php_support && external.test(link) || !(new XMLHttpRequest().upload)) { // No PHP or XHR?
 	
@@ -2111,7 +2112,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	            }
 	
 	            openFullWindow(parsed, animation); // To do: If .modal[data-animation], pass it to openFullWindow() as second parameter. Also in openLightbox().
-				transferClass(closest(el, '.modal'), q('.n-ovrl'), 'limited');
+				transferClass(closest(el, '.n-modal'), q('.n-ovrl'), 'limited');
 	
 	        } else {
 	            // Error
@@ -2137,7 +2138,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		
 	// Modal window: open a link's target inside it
 	
-		forEach(host.querySelectorAll('a.modal[href]:not([data-ready])'), function(el) {
+		forEach(host.querySelectorAll('a.n-modal[href]:not([data-ready])'), function(el) {
 		
 			if (el.href !== (location.href.split('#')[0] + '#')) { // Is it an empty anchor?
 				
