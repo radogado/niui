@@ -3,9 +3,11 @@
 @import '../../css/natuive-setup';
 
 .no-scroll {
+
     &, & body {
         overflow: hidden;
     }
+
 }
 
 html.full-screen {

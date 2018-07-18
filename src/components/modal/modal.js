@@ -318,8 +318,8 @@ var componentModal = (function (){
 
 	    var el = e.target;
 	
-	    var link = closest(el, '.modal').href;
-	    var animation = closest(el, '.modal').getAttribute('data-anim');
+	    var link = closest(el, '.n-modal').href;
+	    var animation = closest(el, '.n-modal').getAttribute('data-anim');
 	
 	    if (!php_support && external.test(link) || !(new XMLHttpRequest().upload)) { // No PHP or XHR?
 	
@@ -357,7 +357,7 @@ var componentModal = (function (){
 	            }
 	
 	            openFullWindow(parsed, animation); // To do: If .modal[data-animation], pass it to openFullWindow() as second parameter. Also in openLightbox().
-				transferClass(closest(el, '.modal'), q('.n-ovrl'), 'limited');
+				transferClass(closest(el, '.n-modal'), q('.n-ovrl'), 'limited');
 	
 	        } else {
 	            // Error
@@ -383,7 +383,7 @@ var componentModal = (function (){
 		
 	// Modal window: open a link's target inside it
 	
-		forEach(host.querySelectorAll('a.modal[href]:not([data-ready])'), function(el) {
+		forEach(host.querySelectorAll('a.n-modal[href]:not([data-ready])'), function(el) {
 		
 			if (el.href !== (location.href.split('#')[0] + '#')) { // Is it an empty anchor?
 				
