@@ -143,8 +143,7 @@ main .slider .col3 .image {
 
 .slider-nav a {
 	
-	width: 1rem;
-	height: 1rem;
+	--nav-size: 1rem;
 	font-size: 0;
 	margin: 1rem .5rem;
 	

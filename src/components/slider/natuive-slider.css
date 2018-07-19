@@ -420,9 +420,9 @@ _:-ms-lang(x), .aspect > .n-sldr {
   margin: .5em;
   line-height: 2em;
   padding: 0;
-  width: 2em;
-  height: 2em;
-  min-height: 2em;
+  width: var(--nav-size, 2em);
+  height: var(--nav-size, 2em);
+  min-height: var(--nav-size, 2em);
   text-align: center; }
 
 .slider.vertical > [data-active], .vertical > .slider-nav a {

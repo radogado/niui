@@ -434,9 +434,7 @@ a.arrow:after {
 	background: $lighter-blue;
 	text-indent: -100%;
 	overflow: hidden;
-	width: 1.1em;
-	height: 1.1em;
-	min-height: 0;
+	--nav-size: 1.1em;
 
 }
 

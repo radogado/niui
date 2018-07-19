@@ -395,8 +395,7 @@ a.span-relative-parent ~ a:after {
 .slider-nav a {
 	
 	margin: .7rem .5rem;
-	width: .5rem;
-	height: .5rem;
+	--nav-size: .5rem;
 	box-shadow: 0 0 .12rem #666;
 	font-size: 0;
 

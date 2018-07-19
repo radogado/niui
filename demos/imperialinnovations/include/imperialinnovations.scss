@@ -315,9 +315,7 @@ main .slider-nav {
 .slider-nav a {
 	
 	color: transparent;
-	width: 1em;
-	height: 1em;
-    min-height: 1em;
+	--nav-size: 1em;
 	background: #fff;
 	border: 1px solid #e6e6e6;
 	
