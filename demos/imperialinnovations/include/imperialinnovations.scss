@@ -231,6 +231,7 @@ nav.drop ul li, nav.drop ul li a[href], nav.drop ul li b.sub, nav.drop ul li .tr
 .banner .n-sldr {
 	
 	background: #ccc;
+	    z-index: 0;
 }
 
 .banner .slider-nav {
@@ -316,6 +317,7 @@ main .slider-nav {
 	color: transparent;
 	width: 1em;
 	height: 1em;
+    min-height: 1em;
 	background: #fff;
 	border: 1px solid #e6e6e6;
 	
