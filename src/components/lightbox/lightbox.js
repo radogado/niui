@@ -90,14 +90,14 @@ var componentLightbox = (function (){
 	
 		}
 		
-	    var lightbox = closest(el, '.lightbox');
+	    var lightbox = closest(el, '.n-lightbox');
 	    var animation = lightbox.getAttribute('data-anim');
 		var lightbox_target = document.createElement('div');
 		var inline_static = lightbox.matches('.inline:not(.slider)');
 	
 	
 		addClass(lightbox_target, 'slider');
-		addClass(lightbox_target, 'lightbox');
+		addClass(lightbox_target, 'n-lightbox');
 		addClass(lightbox_target, 'inline');
 		transferClass(lightbox, lightbox_target, 'thumbnails');
 		transferClass(lightbox, lightbox_target, 'top');
@@ -343,10 +343,10 @@ var componentLightbox = (function (){
 	
 	setTimeout( function () {
 		
-		if (q('.lightbox:target:not(.inline)')) {
+		if (q('.n-lightbox:target:not(.inline)')) {
 			
-			addClass(q('.lightbox:target'), 'uri-target');
-			openLightbox(q('.lightbox:target > a[href]'));
+			addClass(q('.n-lightbox:target'), 'uri-target');
+			openLightbox(q('.n-lightbox:target > a[href]'));
 			
 		}
 		
@@ -360,7 +360,7 @@ var componentLightbox = (function (){
 	
 	var init = function (host){
 		
-		forEach(host.querySelectorAll('.lightbox:not([data-ready])'), function(el) {
+		forEach(host.querySelectorAll('.n-lightbox:not([data-ready])'), function(el) {
 		
 			// Abort on IE, because of IE bug on dynamic img.src change
 			if (navigator.userAgent.indexOf('MSIE') != -1 || navigator.userAgent.indexOf('Trident') != -1 || hasClass(el.parentNode, 'n-sldr')) {

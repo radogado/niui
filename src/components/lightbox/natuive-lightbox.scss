@@ -2,191 +2,174 @@
 
 @import '../../css/natuive-setup';
 
-.n-sldr > .slider.vertical.lightbox > * {
+.n-sldr > .slider.vertical.n-lightbox > * {
 
 	height: 100%;
 
 }
 
-*:not(.aspect) > .n-sldr > .slider.vertical.lightbox.inline[data-sliding]:not(.overlay) > * {
+*:not(.aspect) > .n-sldr > .slider.vertical.n-lightbox.inline[data-sliding]:not(.overlay) > * {
 
 	height: auto;
 
 }
 
-.slider.lightbox > * {
+.slider.n-lightbox {
 
-	text-align: center;
-	position: relative;
+	> * {
 	
-}
-
-.slider.lightbox.inline[data-ready] > * {
-
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	overflow: hidden;
+		text-align: center;
+		position: relative;
+		
+		&:before {
+		
+			display: none;
+		
+		}
 	
-}
+		p { /* Image captions */
+		
+			position: absolute;
+			bottom: 57px;
+			text-align: center;
+			color: #fff;
+			left: 50%;
+			transform: translateX(-50%);
+			padding: .2em .5em;
+			background: rgba(0, 0, 0, .4);
+		
+		}
 
-.overlay.slider.lightbox > * {
+		> iframe {
+		
+			width: 100%;
+			height: 100%;
+			background: #fff;
+		
+		}
 
-	height: 100%;
-	overflow: hidden;
+	}
+
+	&.inline[data-ready] > * {
 	
-}
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		overflow: hidden;
+		
+	}
 
-.overlay.slider.lightbox.vertical > * { // Firefox fix
-
-	display: none;
-
-}
-
-.overlay.slider.lightbox.vertical > [data-active] { // Firefox fix
-
-	display: flex;
-
-}
-
-.slider.lightbox video {
-
-	display: inline-block;
-	width: 100%;
-	max-height: 100%;
-	vertical-align: middle;
+	&.overlay {
+		
+		> * {
 	
+			height: 100%;
+			overflow: hidden;
+		
+		}
+		
+		&.vertical > * { // Firefox fix
+		
+			display: none;
+		
+			&[data-active] { // Firefox fix
+			
+				display: flex;
+			
+			}
+			
+		}
+
+		> [data-active] > img.zoom {
+		
+			width: auto;
+			height: auto;
+			max-height: none;
+			max-width: none;
+			position: absolute;
+			top: 50%;
+			bottom: 50%;
+			left: 50%;
+			right: 50%;
+	//		transform: translate3d(-50%, -50%, 0) scale(2);
+	//		zoom: 0.5; // scale(2) + zoom: 0.5 restores fixes the blur imposed by transform. Great in Safari, not so much in Chrome.
+			transition: transfrom .2s linear;
+			cursor: zoom-out;
+			zoom: 0;
+			transform: translate3d(var(--x), var(--y), 0);
+		
+		}
+	
+	}
+
+	video {
+	
+		display: inline-block;
+		width: 100%;
+		max-height: 100%;
+		vertical-align: middle;
+		
+	}
+
+
+	&.top > * p { /* Image captions */
+	
+		bottom: 0;
+	
+	}
+
+
+	a.button.copy {
+		
+		position: absolute;
+		top: $line-height-em/2;
+		right: $line-height-em/2;
+		margin: 0;
+		color: transparent;
+	    text-shadow: 0 0 #fff;
+	
+		&:before {
+			
+			content: "🔗";
+		
+		}
+	
+	}
+	
+	> [data-active]:not(.loaded):after { // Loading spinner
+	
+		content: "";
+		position: absolute;
+		display: block;
+		top: calc(50% - 20px);
+		left: calc(50% - 20px);
+		width: 40px;
+		height: 40px;
+		background-color: #999;
+		border-radius: 100%;  
+		animation: sk-scaleout 1.0s infinite ease-in-out;
+	
+	}
+
 }
 
-.slider.lightbox > *:before {
+.overlay.n-lightbox.slider img, .n-lightbox.inline img {
 
-	display: none;
-
-}
-
-/*
-.overlay.slider.lightbox > *:before {
-
-	content: ' ';
-    display: inline-block;
-    vertical-align: middle;  // vertical alignment of the inline element
-	height: 100%;
-	position: static;
-	width: 0;
-
-}
-*/
-
-.slider.lightbox > * p { /* Image captions */
-
-	position: absolute;
-	bottom: 57px;
-	text-align: center;
-	color: #fff;
-	left: 50%;
-	transform: translateX(-50%);
-	padding: .2em .5em;
-	background: rgba(0, 0, 0, .4);
+	cursor: zoom-in;
 
 }
 
-.top.slider.lightbox > * p { /* Image captions */
-
-	bottom: 0;
-
-}
-
-.slider.lightbox.detached-nav > * p, .n-sldr.outside .slider.lightbox > * p {
+.slider.n-lightbox.detached-nav > * p, .n-sldr.outside .slider.n-lightbox > * p {
 	
 	bottom: 0;
 	margin-bottom: .5em;
 
 }
 
-.overlay.lightbox.slider img, .lightbox.inline img {
-
-	cursor: zoom-in;
-
-}
-
-.overlay.lightbox.slider > * > img {
-	
-// 	display: none;
-
-}
-
-.lightbox.slider > * > iframe {
-
-	width: 100%;
-	height: 100%;
-	background: #fff;
-
-}
-
-.can-touch .lightbox.slider > * > iframe {
+.can-touch .n-lightbox.slider > * > iframe {
 
 	pointer-events: none; // Restore lightbox swiping on touch. To do: also allow iframe scrolling.
-
-}
-
-.overlay.lightbox.slider > [data-active] > img.zoom {
-
-	width: auto;
-	height: auto;
-	max-height: none;
-	max-width: none;
-	position: absolute;
-	top: 50%;
-	bottom: 50%;
-	left: 50%;
-	right: 50%;
-	transform: translate3d(-50%, -50%, 0) scale(2);
-	zoom: 0.5; // scale(2) + zoom: 0.5 restores fixes the blur imposed by transform. Great in Safari, not so much in Chrome.
-	transition: transfrom .2s linear;
-	cursor: zoom-out;
-
-}
-
-.overlay.lightbox.slider > [data-active] > img.zoom {
-
-/*
-	top: 0;
-	bottom: auto;
-	left: 0;
-	right: auto;
-*/
-	zoom: 0;
-	transform: translate3d(var(--x), var(--y), 0);
-// 	transition: none;
-
-}
-
-/*
-	@-moz-document url-prefix() {
-	
-		.n-ovrl .lightbox.slider > .active > img.zoom {
-	
-			transform: translate3d(-50%, -50%, 0);
-			
-		}
-	
-	}
-*/
-
-
-.lightbox.slider > [data-active]:not(.loaded):after { // Loading spinner
-
-	content: "";
-	position: absolute;
-	display: block;
-	top: calc(50% - 20px);
-	left: calc(50% - 20px);
-	width: 40px;
-	height: 40px;
-	background-color: #999;
-	border-radius: 100%;  
-	animation: sk-scaleout 1.0s infinite ease-in-out;
 
 }
 
@@ -207,7 +190,7 @@
 
 }
 
-.lightbox:not(.slider) a {
+.n-lightbox:not(.slider) a {
 	
 	display: inline-block;
 	vertical-align: middle;
@@ -217,7 +200,7 @@
 	
 }
 
-	.lightbox a img {
+	.n-lightbox a img {
 		
 		display: block;
 // 		padding-bottom: 0; // used to be necessary for the baseline compensation
@@ -227,7 +210,7 @@
 	
 	@supports (--a: 1) {
 	
-		.lightbox a.video:before {
+		.n-lightbox a.video:before {
 			
 			content: "▸";
 			border: 1px solid #999;
@@ -242,23 +225,6 @@
 		    left: 50%;
 	    
 		}
-	
-	}
-
-.lightbox.slider a.button.copy {
-	
-	position: absolute;
-	top: $line-height-em/2;
-	right: $line-height-em/2;
-	margin: 0;
-	color: transparent;
-    text-shadow: 0 0 #fff;
-
-}
-
-	.lightbox.slider a.button.copy:before {
-		
-		content: "🔗";
 	
 	}
 
@@ -277,7 +243,6 @@
 	
 	&.slider-nav a[data-active] {
 	
-// 		text-shadow: 1px 1px 0px #fff, -1px -1px 0px #fff, 0px 1px 0px #fff, 1px 0px 0px #fff, -1px 1px 0px #fff, 1px -1px 0px #fff;
 		opacity: .25;
 		transition: opacity .2s ease-in-out;
 	
@@ -329,16 +294,15 @@
 		
 		}
 		
-		&:not(.top) .slider.lightbox > * p {
+		&:not(.top) .slider.n-lightbox > * p {
 			
 			bottom: auto;
 		    top: -1.5em;
 			
 		}
 
-		.slider.lightbox.vertical > * p {
+		.slider.n-lightbox.vertical > * p {
 			
-// 			bottom: -1.5em;
 			bottom: 3em;
 			top: auto;
 			

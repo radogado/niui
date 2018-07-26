@@ -303,7 +303,7 @@ _:-ms-lang(x), .aspect > .n-sldr {
 .overlay.slider.vertical > * {
   height: 100%; }
 
-.slider[data-ready] > [data-active], .overlay.lightbox.slider > * > img {
+.slider[data-ready] > [data-active], .overlay.n-lightbox.slider > * > img {
   display: inline-block; }
 
 .overlay.slider > img {

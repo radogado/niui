@@ -480,7 +480,7 @@ _:-ms-lang(x), .aspect > .n-sldr { // Aspect ratio not working in IE/Edge
 
 }
 
-.slider[data-ready] > [data-active], .overlay.lightbox.slider > * > img {
+.slider[data-ready] > [data-active], .overlay.n-lightbox.slider > * > img {
 
 	display: inline-block;
 

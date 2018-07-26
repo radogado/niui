@@ -182,7 +182,7 @@ var componentSlider = (function (){
 	
 	function endSlide(slider, index, old_index) {
 	
-	    if (hasClass(slider, 'lightbox')) {
+	    if (hasClass(slider, 'n-lightbox')) {
 			
 			componentLightbox.populateLightbox(slider, index);
 	        

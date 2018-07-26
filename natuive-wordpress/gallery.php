@@ -199,7 +199,7 @@ final class Cleaner_Gallery {
 
 		/* Gallery attributes. */
 		$gallery_attr  = sprintf( "id='%s'", 'gallery' . esc_attr( $this->args['id'] ) . '-' . esc_attr( $this->gallery_instance ) );
-		$gallery_attr .= sprintf( " class='lightbox thumbnails full-screen gallery gallery-%s gallery-columns-%s gallery-size-%s'", esc_attr( $this->args['id'] ), esc_attr( $this->args['columns'] ), sanitize_html_class( $this->args['size'] ) );
+		$gallery_attr .= sprintf( " class='n-lightbox thumbnails full-screen gallery gallery-%s gallery-columns-%s gallery-size-%s'", esc_attr( $this->args['id'] ), esc_attr( $this->args['columns'] ), sanitize_html_class( $this->args['size'] ) );
 		$gallery_attr .= sprintf( " itemscope itemtype='%s'", esc_attr( $this->get_gallery_itemtype() ) );
 
 $script = "
@@ -207,7 +207,7 @@ $script = "
 <!--
 <style>
 
-.lightbox#gallery" . esc_attr( $this->args['id'] ) . '-' . esc_attr( $this->gallery_instance ) . " a {
+.n-lightbox#gallery" . esc_attr( $this->args['id'] ) . '-' . esc_attr( $this->gallery_instance ) . " a {
 	
 	width: " . $width . "px;	
 	height: " . $height . "px;	
@@ -223,7 +223,7 @@ $script = "
 
 	if (thumbnail) {
 
-		var target_lightbox_image = document.querySelector('.lightbox [href*=\"' + thumbnail.src.split('/').pop() + '\"]');
+		var target_lightbox_image = document.querySelector('.n-lightbox [href*=\"' + thumbnail.src.split('/').pop() + '\"]');
 		if (target_lightbox_image) {
 	
 			thumbnail.onclick = function () { 
