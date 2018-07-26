@@ -157,6 +157,9 @@ function html5blank_styles()
 //     wp_enqueue_style('html5blank2'); // Enqueue it!
 //     wp_enqueue_style('html5blank3'); // Enqueue it!
     wp_enqueue_style('html5blank4'); // Enqueue it!
+
+	wp_dequeue_style('wp-core-blocks'); // Gutenberg CSS file removal
+
 }
 
 // Register HTML5 Blank Navigation
