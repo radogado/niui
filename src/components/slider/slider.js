@@ -9,21 +9,21 @@ var componentSlider = (function (){
 	
 	function sliderElement(e) { // Get the active slider instance
 	
-		if (closest(document.activeElement, 'n-sldr') === focusWithin('.n-sldr')) {
+		if (closest(document.activeElement, 'n-slider-wrap') === focusWithin('.n-slider-wrap')) {
 	
-			return focusWithin('.n-sldr').querySelector('.n-slider');
+			return focusWithin('.n-slider-wrap').querySelector('.n-slider');
 	
 		}
 	
 	    var el = e.target;
 	
-	    if (hasClass(el, 'n-sldr')) {
+	    if (hasClass(el, 'n-slider-wrap')) {
 	
 	        return el.querySelector('.n-slider');
 	
 	    } else {
 	
-	        var container = closest(el, '.n-sldr');
+	        var container = closest(el, '.n-slider-wrap');
 	        return container && container.querySelector('.n-slider');
 	
 	    }
@@ -81,7 +81,7 @@ var componentSlider = (function (){
 				var overlay_content = closest(el, '.n-ovrl') ? closest(el, '.n-ovrl').querySelector('.content') : null;
 
 				// Allow vertical page scroll by swiping over the slider. Also when parent modal is scrollable vertically
-	            if (((hasClass(el, 'vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !q('.n-ovrl .n-sldr'))
+	            if (((hasClass(el, 'vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !q('.n-ovrl .n-slider-wrap'))
 	            	|| (overlay_content && (overlay_content.scrollHeight > overlay_content.offsetHeight) && (Math.abs(deltaX) < Math.abs(deltaY)))
 	            	|| (e.target.nodeName === 'INPUT' && e.target.type === 'range')
 	            	|| hasClass(e.target.parentNode, 'slider-nav') || hasClass(e.target, 'slider-nav')
@@ -155,7 +155,7 @@ var componentSlider = (function (){
 		   
 		}
 	
-		var slider_wrap = closest(el, '.n-sldr');
+		var slider_wrap = closest(el, '.n-slider-wrap');
 	
 	    if (toggle === 'off') {
 	
@@ -188,7 +188,7 @@ var componentSlider = (function (){
 	        
 	    }
 	
-		var slider_wrap = closest(slider, '.n-sldr');
+		var slider_wrap = closest(slider, '.n-slider-wrap');
 	
 		if (getSliderNav(slider_wrap)) { // Multiple slides? // To do: get the proper slider nav, if it's detached
 	
@@ -216,13 +216,13 @@ var componentSlider = (function (){
 		    // Make this slider active
 		
 	/*
-			if (q('.n-sldr.active')) {
+			if (q('.n-slider-wrap.active')) {
 				
-				removeClass(q('.n-sldr.active'), 'active')
+				removeClass(q('.n-slider-wrap.active'), 'active')
 				
 			}
 		
-			addClass(closest(slider, '.n-sldr'), 'active');
+			addClass(closest(slider, '.n-slider-wrap'), 'active');
 	*/
 	
 			if (slider.children[index].id) { // Scroll page to slide hash. To do: restore focus
@@ -259,7 +259,7 @@ var componentSlider = (function (){
 		}
 	*/
 	
-		var slider_wrap = closest(el, '.n-sldr');
+		var slider_wrap = closest(el, '.n-slider-wrap');
 	    var slider = slider_wrap.querySelector('.n-slider');
 	
 	    if (slider.children.length < 2) {
@@ -346,7 +346,7 @@ var componentSlider = (function (){
 		}
 		
 		var next_slide_image = target_slide.querySelector('img');
-		if (hasClass(slider, 'vertical') && hasClass(slider, 'inline') && !hasClass(slider, 'overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'aspect')) { // To do: integrate aspect with n-sldr
+		if (hasClass(slider, 'vertical') && hasClass(slider, 'inline') && !hasClass(slider, 'overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'aspect')) { // To do: integrate aspect with n-slider-wrap
 			
 			var height_change_number = slider.clientWidth * next_slide_image.naturalHeight / next_slide_image.naturalWidth;
 			if (slider.clientWidth >= next_slide_image.naturalWidth) {
@@ -478,7 +478,7 @@ var componentSlider = (function (){
 	    if (typeof e === 'undefined' || 
 	//     	hasClass(q('html'), 'sliding_now') || 
 	    	q('.n-slider[data-sliding]') || 
-	    	(q('.n-ovrl') && !q('.n-ovrl .n-sldr')) // There is an overlay open and it doesn't have a slider in it
+	    	(q('.n-ovrl') && !q('.n-ovrl .n-slider-wrap')) // There is an overlay open and it doesn't have a slider in it
 			) {
 	
 	        return;
@@ -487,9 +487,9 @@ var componentSlider = (function (){
 	
 		var el = e.target;
 
-		if (!closest(el, '.n-sldr') && q('.n-sldr')) { // Focused element is outside of any slider
+		if (!closest(el, '.n-slider-wrap') && q('.n-slider-wrap')) { // Focused element is outside of any slider
 			
-	// 		current_slider = q('.n-sldr').querySelector('.slider');
+	// 		current_slider = q('.n-slider-wrap').querySelector('.slider');
 			var scrollable = el; // Don't slide when current element is scrollable. Check all parent nodes for scrollability – cheak each parent until body.
 			while (scrollable.nodeName !== 'BODY') {
 				
@@ -505,7 +505,7 @@ var componentSlider = (function (){
 			
 		} else {
 			
-			current_slider = closest(el, '.n-sldr') ? closest(el, '.n-sldr').querySelector('.n-slider') : null;
+			current_slider = closest(el, '.n-slider-wrap') ? closest(el, '.n-slider-wrap').querySelector('.n-slider') : null;
 	
 		}
 	
@@ -517,7 +517,7 @@ var componentSlider = (function (){
 	
 		if 	(el.tagName !== 'INPUT' && el.tagName !== 'TEXTAREA' && 
 	// 		(document.activeElement === el ? (el.scrollWidth <= el.clientWidth) : true) &&
-	// 		(!closest(document.activeElement, '.n-sldr.active') && (el.scrollWidth <= el.clientWidth) ) &&
+	// 		(!closest(document.activeElement, '.n-slider-wrap.active') && (el.scrollWidth <= el.clientWidth) ) &&
 			(el = q('.n-ovrl .n-slider') || current_slider || q('.n-slider'))
 			) { // Priority: full window slider, active slider, first slider
 	
@@ -581,10 +581,10 @@ var componentSlider = (function (){
 	
 		var container = el.parentNode;
 	
-		if (!container || !hasClass(container, 'n-sldr')) {
+		if (!container || !hasClass(container, 'n-slider-wrap')) {
 	
 		    container = wrap(el);
-			addClass(container, 'n-sldr');
+			addClass(container, 'n-slider-wrap');
 			if (container.parentNode && hasClass(container.parentNode, 'aspect')) {
 				
 				addClass(container, 'inside-aspect');

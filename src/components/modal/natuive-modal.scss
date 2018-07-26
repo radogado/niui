@@ -159,7 +159,7 @@ html.full-screen {
 
 @media (max-height: 512px) and (orientation: landscape) { // Move the close bar to the side, because it's inaccessible with certain toolbar configurations
 	
-	.n-ovrl .n-sldr.overlay, .n-ovrl .n-sldr.vertical.overlay {
+	.n-ovrl .n-slider-wrap.overlay, .n-ovrl .n-slider-wrap.vertical.overlay {
 		
 		margin: 0;
 		height: 100%;
@@ -198,7 +198,7 @@ html.full-screen {
 
 	}
 	
-	.overlay.n-sldr {
+	.overlay.n-slider-wrap {
 		
 		margin: 0;
 

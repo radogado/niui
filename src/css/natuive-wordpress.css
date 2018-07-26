@@ -151,10 +151,10 @@ header h1, header p {
 @media screen and (max-width: 640px) {
   nav.sub li:not(:first-child):before {
     content: none; } }
-.n-sldr {
+.n-slider-wrap {
   background: #eee; }
 
-.n-sldr.overlay {
+.n-slider-wrap.overlay {
   margin-bottom: 0; }
 
 .slider.featured {
@@ -169,7 +169,7 @@ header h1, header p {
   bottom: 0;
   left: 0; }
 
-.n-sldr .slider.featured {
+.n-slider-wrap .slider.featured {
   margin-bottom: 0; }
 
 .slider.featured > * {

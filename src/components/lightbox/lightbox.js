@@ -18,7 +18,7 @@ var componentLightbox = (function (){
 	
 	// transformY = -50% + (poxY/sizeY)*overflowY
 	
-				if (!q('.n-ovrl .n-sldr')) {
+				if (!q('.n-ovrl .n-slider-wrap')) {
 					
 					return;
 					
@@ -31,8 +31,8 @@ var componentLightbox = (function (){
 				el.style.setProperty('--y', '-50%');
 				el.onmousemove = function (e) {
 					
-					var width = q('.n-ovrl:last-of-type .n-sldr').offsetWidth;
-					var height = q('.n-ovrl:last-of-type .n-sldr').offsetHeight;
+					var width = q('.n-ovrl:last-of-type .n-slider-wrap').offsetWidth;
+					var height = q('.n-ovrl:last-of-type .n-slider-wrap').offsetHeight;
 					
 					var el = e.target;
 					var overflowX = el.width - width;
@@ -306,8 +306,8 @@ var componentLightbox = (function (){
 	    
 		    transferClass(lightbox, lightbox_target.parentNode, 'thumbnails');
 	        var i = 0;
-	// 	        var nav = closest(lightbox_target, '.n-sldr').querySelector('.slider-nav');
-	        var nav = componentSlider.getSliderNav(closest(lightbox_target, '.n-sldr'));
+	// 	        var nav = closest(lightbox_target, '.n-slider-wrap').querySelector('.slider-nav');
+	        var nav = componentSlider.getSliderNav(closest(lightbox_target, '.n-slider-wrap'));
 	
 	        if (nav) { // Multiple slides?
 	
@@ -363,7 +363,7 @@ var componentLightbox = (function (){
 		forEach(host.querySelectorAll('.n-lightbox:not([data-ready])'), function(el) {
 		
 			// Abort on IE, because of IE bug on dynamic img.src change
-			if (navigator.userAgent.indexOf('MSIE') != -1 || navigator.userAgent.indexOf('Trident') != -1 || hasClass(el.parentNode, 'n-sldr')) {
+			if (navigator.userAgent.indexOf('MSIE') != -1 || navigator.userAgent.indexOf('Trident') != -1 || hasClass(el.parentNode, 'n-slider-wrap')) {
 				
 				return;
 		

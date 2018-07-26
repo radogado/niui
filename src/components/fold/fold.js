@@ -63,15 +63,15 @@
 		// Focus on clicked slider
 		
 	/*
-		if (q('.n-sldr.active')) {
+		if (q('.n-slider-wrap.active')) {
 			
-			removeClass(q('.n-sldr.active'), 'active')
+			removeClass(q('.n-slider-wrap.active'), 'active')
 			
 		}
 		
 		if (closest(el, '.slider')) {
 			
-			addClass(closest(el, '.n-sldr'), 'active');
+			addClass(closest(el, '.n-slider-wrap'), 'active');
 			
 		}
 	*/

@@ -112,7 +112,7 @@ html.full-screen {
     height: 1.5em;
     padding: 0 .75em; } }
 @media (max-height: 512px) and (orientation: landscape) {
-  .n-ovrl .n-sldr.overlay, .n-ovrl .n-sldr.vertical.overlay {
+  .n-ovrl .n-slider-wrap.overlay, .n-ovrl .n-slider-wrap.vertical.overlay {
     margin: 0;
     height: 100%; }
 
@@ -139,7 +139,7 @@ html.full-screen {
     width: 40px;
     text-align: center; }
 
-  .overlay.n-sldr {
+  .overlay.n-slider-wrap {
     margin: 0; } }
 
 /*# sourceMappingURL=natuive-modal.css.map */

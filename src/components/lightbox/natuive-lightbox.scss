@@ -2,13 +2,13 @@
 
 @import '../../css/natuive-setup';
 
-.n-sldr > .n-slider.vertical.n-lightbox > * {
+.n-slider-wrap > .n-slider.vertical.n-lightbox > * {
 
 	height: 100%;
 
 }
 
-*:not(.aspect) > .n-sldr > .n-slider.vertical.n-lightbox.inline[data-sliding]:not(.overlay) > * {
+*:not(.aspect) > .n-slider-wrap > .n-slider.vertical.n-lightbox.inline[data-sliding]:not(.overlay) > * {
 
 	height: auto;
 
@@ -160,7 +160,7 @@
 
 }
 
-.n-slider.n-lightbox.detached-nav > * p, .n-sldr.outside .n-slider.n-lightbox > * p {
+.n-slider.n-lightbox.detached-nav > * p, .n-slider-wrap.outside .n-slider.n-lightbox > * p {
 	
 	bottom: 0;
 	margin-bottom: .5em;
@@ -262,7 +262,7 @@
 	
 	}
 	
-	&.n-sldr:not(.inline) {
+	&.n-slider-wrap:not(.inline) {
 		
 		padding-bottom: 4em;
 		
@@ -278,7 +278,7 @@
 	
 @media (max-height: $screen-narrow-max) {
 
-	.thumbnails.n-sldr {
+	.thumbnails.n-slider-wrap {
 		
 		.slider-nav {
 			

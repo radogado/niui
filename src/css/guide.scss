@@ -35,14 +35,14 @@ _:-ms-lang(x), main .nav-column .slider-nav.row:after { // FF & Edge fix
 }
 
 
-main, main .nav-column .slider-nav.row, main.row > *, main > .n-sldr {
+main, main .nav-column .slider-nav.row, main.row > *, main > .n-slider-wrap {
 	
 	height: 100vh;
     box-sizing: border-box;
 
 }
 
-main > 	.col34 > .n-sldr > .n-slider.vertical > * {
+main > 	.col34 > .n-slider-wrap > .n-slider.vertical > * {
 	
 	height: 100vh;
 	
@@ -79,7 +79,7 @@ main > 	.col34 > .n-sldr > .n-slider.vertical > * {
 
 }
 
-main > .n-sldr.vertical.tabs > .slider-nav a {
+main > .n-slider-wrap.vertical.tabs > .slider-nav a {
 
 	padding: .25em 0.5em;
 	padding-left: 0;
@@ -93,7 +93,7 @@ main > .n-sldr.vertical.tabs > .slider-nav a {
 	
 }
 
-main > .col34 > .n-sldr.vertical.tabs > .n-slider {
+main > .col34 > .n-slider-wrap.vertical.tabs > .n-slider {
 
 	width: 100%;
 	height: 100vh !important;
@@ -102,33 +102,33 @@ main > .col34 > .n-sldr.vertical.tabs > .n-slider {
 
 }
 
-main > .col34 > .n-sldr.vertical.tabs > .n-slider[data-sliding] {
+main > .col34 > .n-slider-wrap.vertical.tabs > .n-slider[data-sliding] {
 
 	overflow: visible;
 
 }
 
-main > .n-sldr > .slider-nav a {
+main > .n-slider-wrap > .slider-nav a {
 
 	background: none;
 	color: #333;
 
 }
 
-main > .n-sldr > .slider-nav a[data-active] {
+main > .n-slider-wrap > .slider-nav a[data-active] {
 
 	color: lightseagreen;
 
 }
 
-.n-sldr.tabs > .slider-nav a {
+.n-slider-wrap.tabs > .slider-nav a {
 
 	flex: 1 !important;
 
 
 }
 
-main > .n-sldr > .n-slider.vertical > .visible {
+main > .n-slider-wrap > .n-slider.vertical > .visible {
 
 	height: 100vh;
 	overflow-y: auto;
