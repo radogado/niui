@@ -2,7 +2,7 @@
 
 @import '../../css/natuive-setup';
 
-.slider {
+.n-slider {
 
 	overflow: auto;
 	overflow-y: hidden;
@@ -36,7 +36,7 @@
 
 }
 
-.slider > * {
+.n-slider > * {
 
 	width: 100%;
 	display: inline-block;
@@ -55,13 +55,13 @@
 
 }
 
-.slider.vertical > * {
+.n-slider.vertical > * {
 	
 	display: block;
 
 }
 
-.slider.vertical > img {
+.n-slider.vertical > img {
 
 	max-width: none;
 	width: auto;
@@ -71,7 +71,7 @@
 
 @supports (--a: 1) { // New browsers only
 
-	.slider > *:after, .slider > *:before { /* Slide background with full slider height */
+	.n-slider > *:after, .n-slider > *:before { /* Slide background with full slider height */
 		
 		content: '<';
 		display: block;
@@ -85,7 +85,7 @@
 	
 	}
 	
-	.slider > *:after {
+	.n-slider > *:after {
 		
 		content: '>';
 		text-align: end;
@@ -93,7 +93,7 @@
 	}
 	
 	
-	.n-sldr .slider > *:after, .n-sldr .slider > *:before, .slider > *:first-child:before, .slider > *:last-child:after, .n-sldr .slider > * > div.bg {
+	.n-sldr .n-slider > *:after, .n-sldr .n-slider > *:before, .n-slider > *:first-child:before, .n-slider > *:last-child:after, .n-sldr .n-slider > * > div.bg {
 	
 		display: none;	
 	
@@ -101,13 +101,13 @@
 
 }
 
-.slider > div:before { // Specify full-height per-slide background here
+.n-slider > div:before { // Specify full-height per-slide background here
 	
 	background: transparent;
 	
 }
 
-.row .slider {
+.row .n-slider {
 	
 	padding: 0;
 /*
@@ -117,7 +117,7 @@
 
 }
 
-.slider > * > img {
+.n-slider > * > img {
 
 	max-height: 100%;
     vertical-align: middle;
@@ -126,13 +126,13 @@
 
 }
 
-.slider[data-peek] > * > img {
+.n-slider[data-peek] > * > img {
 
 	padding: 0 .25em;
 
 }
 
-.slider.center > * {
+.n-slider.center > * {
 	
 	display: flex;
 	flex-direction: column;
@@ -141,13 +141,13 @@
 	
 }
 
-.slider.auto-height > *:not([data-active]) {
+.n-slider.auto-height > *:not([data-active]) {
 	
 	height: 0;
 
 }
 
-.n-sldr .slider.align-middle > *, .slider.align-middle > * {
+.n-sldr .n-slider.align-middle > *, .n-slider.align-middle > * {
 	
 	display: flex;
 	flex-direction: column;
@@ -155,7 +155,7 @@
 
 }
 
-.slider.align-middle > * > * {
+.n-slider.align-middle > * > * {
 	
 	text-align: center;
 
@@ -196,7 +196,7 @@
 		
 	}
 
-	.slider > * { // Stack slides vertically on old mobile browsers
+	.n-slider > * { // Stack slides vertically on old mobile browsers
 
 		display: block;
 
@@ -204,7 +204,7 @@
 
 	@supports (--a: 1) { // ...and restore the slider on modern browsers
 		
-		.slider > * {
+		.n-slider > * {
 	
 			display: inline-block;
 	
@@ -216,7 +216,7 @@
 
 // JS enhanced. To do: add [data-ready]
 
-.slider.overlay, .n-sldr.overlay {
+.n-slider.overlay, .n-sldr.overlay {
 	
 	height: 100%;
 	
@@ -231,7 +231,7 @@
 
 }		
 
-.n-sldr.vertical.overlay/* , .slider.overlay, .overlay.slider > * */ {
+.n-sldr.vertical.overlay/* , .n-slider.overlay, .overlay.n-slider > * */ {
 	
 	height: calc(100% - #{$line-height-em*2});
 
@@ -263,7 +263,7 @@
 
 }
 
-.vertical.tabs > .slider { // Floats, because flex version is glitching when tab stack is taller than the slider. To do: fix flex version.
+.vertical.tabs > .n-slider { // Floats, because flex version is glitching when tab stack is taller than the slider. To do: fix flex version.
 
 	width: 75%;
     float: right;
@@ -289,7 +289,7 @@
 }
 */
 
-.vertical.tabs.right > .slider {
+.vertical.tabs.right > .n-slider {
 
     float: left;
 
@@ -324,7 +324,7 @@
 	
 	}
 	
-	.aspect > .n-sldr .slider {
+	.aspect > .n-sldr .n-slider {
 		
 		height: 100%;
 	
@@ -356,40 +356,40 @@ _:-ms-lang(x), .aspect > .n-sldr { // Aspect ratio not working in IE/Edge
 
 }
 	
-.slider[data-ready] {
+.n-slider[data-ready] {
 	
 	overflow: visible;
 	// Fix Safari bug where 1px of previous slide is visible during slide
 // 	margin-left: -.5px;
 //     width: calc(100% + 1px); // Eliminate unwanted pixels on the sides
     width: 100%;
-    padding: 0; // Because .slider.pad breaks the slider layout
+    padding: 0; // Because .n-slider.pad breaks the slider layout
 	-ms-overflow-style: none; /* No scrollbars on IE10+ */
 
 }
 
 /*
-.n-sldr .slider > * {
+.n-sldr .n-slider > * {
 	
 	contain: strict;
 	
 }
 
-.n-sldr .slider > .active {
+.n-sldr .n-slider > .active {
 	
 	contain: none;
 	
 }
 */
 
-.overlay.slider:not(.vertical) > * {
+.overlay.n-slider:not(.vertical) > * {
 	
 	overflow: auto;
 	-webkit-overflow-scrolling: touch;
 	
 }
 
-.slider.vertical[data-ready] {
+.n-slider.vertical[data-ready] {
 	
 	overflow: hidden;
 	overflow-y: scroll;
@@ -398,14 +398,14 @@ _:-ms-lang(x), .aspect > .n-sldr { // Aspect ratio not working in IE/Edge
 
 }
 
-.slider.vertical[data-ready] > *, /* .slider[data-sliding] > *:not(.active), */ .n-sldr.tabs > .slider-arrow {
+.n-slider.vertical[data-ready] > *, /* .n-slider[data-sliding] > *:not(.active), */ .n-sldr.tabs > .slider-arrow {
 
 	height: auto;
 	display: none;
 
 }
 
-.slider::-webkit-scrollbar {
+.n-slider::-webkit-scrollbar {
 
 	height: auto;
 	display: none;
@@ -425,7 +425,7 @@ _:-ms-lang(x), .aspect > .n-sldr { // Aspect ratio not working in IE/Edge
 
 }
 
-.slider[data-ready] > *:not([data-active]) {
+.n-slider[data-ready] > *:not([data-active]) {
 
 // 	display: none; // Only display .active slides. Because if slider has transforms (showing only current slide while others are still in the flow), there are problems with its children of position fixed etc. Breaks non-auto height sliders, can't set to height to the tallest slide. Make it with margin-left after the animation is done.
 	display: inline-block;
@@ -434,59 +434,59 @@ _:-ms-lang(x), .aspect > .n-sldr { // Aspect ratio not working in IE/Edge
 }
 
 /*
-.slider > .active + div ~ div:not(:last-child) { // Hide all slides after the next one, for speed
+.n-slider > .active + div ~ div:not(:last-child) { // Hide all slides after the next one, for speed
 	
 	display: none;
 	
 }
 */
 
-.slider[data-ready]:not([data-peek]) > *:not([data-active]) {
+.n-slider[data-ready]:not([data-peek]) > *:not([data-active]) {
 
 	// Disable focusing elements by tab key in inactive slides
 	visibility: hidden;
 
 }
 
-.slider[data-sliding]:not([data-peek]) > *:not([data-active]) {
+.n-slider[data-sliding]:not([data-peek]) > *:not([data-active]) {
 
 	display: none;
 
 }
 
-.slider.vertical[data-ready] > *:not([data-active]) {
+.n-slider.vertical[data-ready] > *:not([data-active]) {
 	
 	display: none;
 
 }
 
-.overlay.slider > * {
+.overlay.n-slider > * {
 	
 	padding: 0;
 
 }
 
 /*
-.no-flex .slider > * + * { // Fallback
+.no-flex .n-slider > * + * { // Fallback
 	
 	margin-left: -.3em;
 	
 }
 */
 
-.overlay.slider.vertical > * {
+.overlay.n-slider.vertical > * {
 	
 	height: 100%;
 
 }
 
-.slider[data-ready] > [data-active], .overlay.n-lightbox.slider > * > img {
+.n-slider[data-ready] > [data-active], .overlay.n-lightbox.n-slider > * > img {
 
 	display: inline-block;
 
 }
 
-.overlay.slider > img {
+.overlay.n-slider > img {
 	
 	padding: 0;
 	height: auto;
@@ -664,7 +664,7 @@ _:-ms-lang(x), .aspect > .n-sldr { // Aspect ratio not working in IE/Edge
 		
 	}
 	
-	.slider.vertical > [data-active], .vertical > .slider-nav a {
+	.n-slider.vertical > [data-active], .vertical > .slider-nav a {
 		
 		display: block;
 		overflow: auto;
@@ -725,28 +725,32 @@ _:-ms-lang(x), .aspect > .n-sldr { // Aspect ratio not working in IE/Edge
 	
 	width: 100%;
 	
-}
-
-.n-sldr.vertical.outside.thumbnails:not(.right) {
+	&.outside {
 	
-	padding-left: 5em;
-	
-	> .slider-arrow {
+		&:not(.right) {
+			
+			padding-left: 5em;
+			
+			> .slider-arrow {
+				
+				left: calc(50% + 1.5em);
 		
-		left: calc(50% + 1.5em);
-
-	}
-
-}
-
-.n-sldr.vertical.outside.thumbnails.right {
-	
-	padding-right: 5em;
-	
-	> .slider-arrow {
+			}
 		
-		left: calc(50% - 3.5em);
-
+		}
+	
+		&.right {
+			
+			padding-right: 5em;
+			
+			> .slider-arrow {
+				
+				left: calc(50% - 3.5em);
+		
+			}
+		
+		}
+	
 	}
 
 }

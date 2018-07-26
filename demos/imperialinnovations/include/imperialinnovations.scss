@@ -151,7 +151,7 @@ a.logo {
 
 }
 
-.slider>*>img, .row>*>img {
+.n-slider > * > img, .row > * > img {
 	
 	margin: 0;
 
@@ -240,7 +240,7 @@ nav.drop ul li, nav.drop ul li a[href], nav.drop ul li b.sub, nav.drop ul li .tr
 
 }
 
-.banner .slider > * {
+.banner .n-slider > * {
 	
 	background: center center no-repeat;
 	background-size: cover;
@@ -400,7 +400,7 @@ main .slider-nav {
 
 	}
 	
-	.banner .slider > * {
+	.banner .n-slider > * {
 		
 		padding-left: 11px;
 		padding-right: 11px;

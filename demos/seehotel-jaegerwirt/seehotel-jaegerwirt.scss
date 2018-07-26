@@ -21,7 +21,7 @@ h2 {
 
 }
 
-.banner .slider > div, .banner .n-sldr {
+.banner .n-slider > div, .banner .n-sldr {
 	
 	background-repeat: no-repeat;
 	background-position: center;
@@ -30,7 +30,7 @@ h2 {
 
 }
 
-.banner .slider .row > div {
+.banner .n-slider .row > div {
 	
 	min-height: 100vh;
 	padding: 0;
@@ -124,7 +124,7 @@ main .promo h3 {
 
 }
 
-main .slider .col3 {
+main .n-slider .col3 {
 	
 	box-shadow: 0 0 0 1px #aca59e;
 	min-height: 20em;
@@ -132,7 +132,7 @@ main .slider .col3 {
 	
 }
 
-main .slider .col3 .image {
+main .n-slider .col3 .image {
 
 	min-height: 10em;
 	background-size: cover;

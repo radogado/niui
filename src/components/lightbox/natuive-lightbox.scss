@@ -2,19 +2,19 @@
 
 @import '../../css/natuive-setup';
 
-.n-sldr > .slider.vertical.n-lightbox > * {
+.n-sldr > .n-slider.vertical.n-lightbox > * {
 
 	height: 100%;
 
 }
 
-*:not(.aspect) > .n-sldr > .slider.vertical.n-lightbox.inline[data-sliding]:not(.overlay) > * {
+*:not(.aspect) > .n-sldr > .n-slider.vertical.n-lightbox.inline[data-sliding]:not(.overlay) > * {
 
 	height: auto;
 
 }
 
-.slider.n-lightbox {
+.n-slider.n-lightbox {
 
 	> * {
 	
@@ -154,20 +154,20 @@
 
 }
 
-.overlay.n-lightbox.slider img, .n-lightbox.inline img {
+.overlay.n-lightbox.n-slider img, .n-lightbox.inline img {
 
 	cursor: zoom-in;
 
 }
 
-.slider.n-lightbox.detached-nav > * p, .n-sldr.outside .slider.n-lightbox > * p {
+.n-slider.n-lightbox.detached-nav > * p, .n-sldr.outside .n-slider.n-lightbox > * p {
 	
 	bottom: 0;
 	margin-bottom: .5em;
 
 }
 
-.can-touch .n-lightbox.slider > * > iframe {
+.can-touch .n-lightbox.n-slider > * > iframe {
 
 	pointer-events: none; // Restore lightbox swiping on touch. To do: also allow iframe scrolling.
 
@@ -190,7 +190,7 @@
 
 }
 
-.n-lightbox:not(.slider) a {
+.n-lightbox:not(.n-slider) a {
 	
 	display: inline-block;
 	vertical-align: middle;
@@ -294,14 +294,14 @@
 		
 		}
 		
-		&:not(.top) .slider.n-lightbox > * p {
+		&:not(.top) .n-slider.n-lightbox > * p {
 			
 			bottom: auto;
 		    top: -1.5em;
 			
 		}
 
-		.slider.n-lightbox.vertical > * p {
+		.n-slider.n-lightbox.vertical > * p {
 			
 			bottom: 3em;
 			top: auto;

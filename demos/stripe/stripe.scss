@@ -61,7 +61,7 @@ main {
 	
 }
 
-.slider > * {
+.n-slider > * {
 	
 	padding: 0 1em 0 4px;
 
@@ -469,13 +469,13 @@ nav.drop li {
 	
 }
 
-.n-sldr.vertical.tabs>.slider {
+.n-sldr.vertical.tabs>.n-slider {
 	
 	width: 80%;
 	
 }
 
-.slider > * > div {
+.n-slider > * > div {
 	
     box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
     padding: .5em 1em;

@@ -31,7 +31,7 @@ footer ul li + li {
 	
 }
 
-.banner h1, .slider h2 {
+.banner h1, .n-slider h2 {
 	
 	text-transform: uppercase;
 	font-size: 3.3em;
@@ -127,7 +127,7 @@ main .row, main .row.no-spacing {
 	
 }
 
-main .slider {
+main .n-slider {
 	
 	color: #fff;
 
@@ -146,7 +146,7 @@ main .n-sldr .slider-arrow {
 
 }
 
-main .slider > * {
+main .n-slider > * {
 	
 	min-height: 37em;
 	background-size: cover;

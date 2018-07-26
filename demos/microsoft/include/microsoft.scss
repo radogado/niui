@@ -101,7 +101,7 @@ header > .row, header > nav {
 
 }
 
-.banner .slider {
+.banner .n-slider {
 	
 	margin-bottom: 1.4rem;
 
@@ -113,7 +113,7 @@ header > .row, header > nav {
 
 }
 
-.banner .n-sldr .slider {
+.banner .n-sldr .n-slider {
 	
 	margin-bottom: 0;
 
@@ -238,7 +238,7 @@ a[href]:hover {
 	
 }
 
-.n-sldr .slider {
+.n-sldr .n-slider {
 	
     position: absolute;
     top: 0;
@@ -248,7 +248,7 @@ a[href]:hover {
     
 }
 
-.slider div div {
+.n-slider div div {
 	
 	height: 100%;
 	display: flex;
@@ -257,27 +257,27 @@ a[href]:hover {
 	
 }
 
-.slider a {
+.n-slider a {
 	
 	text-shadow: 0 1px 1px #fff;
 	display: inline-block;
 
 }
 
-.slider h2 {
+.n-slider h2 {
 	
 	line-height: 1em;
 
 }
 
-.slider.dark h2, .slider.dark a[href] {
+.n-slider.dark h2, .n-slider.dark a[href] {
 	
 	color: #fff;
 	text-shadow: 0 -1px 1px #000;
 
 }
 
-.slider > div {
+.n-slider > div {
 	
 	position: relative;
 	height: 100%;
@@ -288,7 +288,7 @@ a[href]:hover {
 
 }
 
-.n-sldr .slider > div {
+.n-sldr .n-slider > div {
 	
 	padding: 2rem;
 
@@ -327,7 +327,7 @@ a.span-relative-parent ~ a:after {
 
 }
 
-.slider span.copy {
+.n-slider span.copy {
 	
 	position: absolute;
 	bottom: 1.7em;
@@ -338,7 +338,7 @@ a.span-relative-parent ~ a:after {
 
 }
 
-.slider > div:before {
+.n-slider > div:before {
 	
 	display: inline-block; 
 	width: 0; 
@@ -347,7 +347,7 @@ a.span-relative-parent ~ a:after {
 	
 }
 
-.n-sldr .slider > div:before {
+.n-sldr .n-slider > div:before {
 
 	padding: 0;
 	height: 100%;
@@ -401,7 +401,7 @@ a.span-relative-parent ~ a:after {
 
 }
 
-main .slider span.copy, main .slider span.copy h2, main .slider span.copy button {
+main .n-slider span.copy, main .n-slider span.copy h2, main .n-slider span.copy button {
 	
 	color: #fff;
 

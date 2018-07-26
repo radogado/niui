@@ -93,7 +93,7 @@ var componentLightbox = (function (){
 	    var lightbox = closest(el, '.n-lightbox');
 	    var animation = lightbox.getAttribute('data-anim');
 		var lightbox_target = document.createElement('div');
-		var inline_static = lightbox.matches('.inline:not(.slider)');
+		var inline_static = lightbox.matches('.inline:not(.n-slider)');
 	
 	
 		addClass(lightbox_target, 'slider');
@@ -133,7 +133,7 @@ var componentLightbox = (function (){
 	
 		}	
 		
-	    /* Add any <a><img> siblings with description to a .slider and initialise its controls */
+	    /* Add any <a><img> siblings with description to a .n-slider and initialise its controls */
 	    var images = '';
 		var thumbnails = [];
 	    forEach(lightbox.children, function(el) { // To do: facilitate a[href] extraction also from within div slides, if lightbox is existing and needs to be recreated for full screen. Get them in an array item[i].link, item[i].img
@@ -295,7 +295,7 @@ var componentLightbox = (function (){
 		} else { // OpenFullWindow() and attach the slider to it
 			
 			addClass(slider, 'overlay');
-			addClass(slider.querySelector('.slider'), 'overlay');
+			addClass(slider.querySelector('.n-slider'), 'overlay');
 			componentModal.openFullWindow(slider); // To do: fix layout, add .overlay
 	
 		}

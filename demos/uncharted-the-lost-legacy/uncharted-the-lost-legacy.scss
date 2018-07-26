@@ -44,7 +44,7 @@ main div {
 
 }
 
-main .slider > div {
+main .n-slider > div {
 	
     background-repeat: no-repeat;
     background-position: center right;
@@ -52,7 +52,7 @@ main .slider > div {
 	
 }
 
-.slider .row {
+.n-slider .row {
 	
 	height: 100%;
 	min-height: 60em;
@@ -179,7 +179,7 @@ span.burger:before {
 
 	}
 
-	main .row > .col1, .slider .row {
+	main .row > .col1, .n-slider .row {
 		
 		min-height: 0;
 		

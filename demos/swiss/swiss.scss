@@ -438,27 +438,27 @@ footer .about nav a {
 	
 }
 
-.slider > * {
+.n-slider > * {
 	
 	background: $darker-grey;
 	padding: 1em;
 	
 }
 
-.slider > * .tab-title {
+.n-slider > * .tab-title {
 	
 	display: none;
 	
 }
 
-.slider a[href], form span.checkbox {
+.n-slider a[href], form span.checkbox {
 	
 	margin-right: 1em;
 	display: inline-block;
 	
 }
 
-.slider a[href]:before {
+.n-slider a[href]:before {
 	
 	content: '>';
 	color: transparent;
@@ -469,7 +469,7 @@ footer .about nav a {
 
 }
 
-.slider form .row {
+.n-slider form .row {
 	
 	width: 81%;
 	margin-left: -11px;
@@ -477,13 +477,13 @@ footer .about nav a {
 
 }
 
-.slider form select {
+.n-slider form select {
 	
 	background: #fff url(arrow-select.png) no-repeat calc(100% - 1rem) 50%;
 
 }
 
-.slider form .row > *, .slider form .row a[href] {
+.n-slider form .row > *, .n-slider form .row a[href] {
 
 	padding-top: 0;
 	padding-bottom: 0;
@@ -643,7 +643,7 @@ ul.inline li {
 	
 	}
 	
-	.slider form .row {
+	.n-slider form .row {
 		
 		width: 100%;
 		margin: 0;
@@ -683,7 +683,7 @@ ul.inline li {
 	
 	}
 	
-	.slider form select {
+	.n-slider form select {
 		
 		margin: .3em 0;
 		
