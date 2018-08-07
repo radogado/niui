@@ -4,6 +4,12 @@
 
 }
 
+header {
+	
+	text-transform: uppercase;
+	
+}
+
 .Header__logoCNN {
     background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zd…0zLjYyOGMtNC4xMzcgMC03LjUwNCAzLjM2OC03LjUwNCA3LjUwNSIvPjwvZz48L2c+PC9zdmc+");
     margin-right: 8px;
@@ -27,3 +33,9 @@
     background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiIGhlaWdodD0iMTgiIHZpZXdCb3g9I…AwIDAgMi4xNTgtMi4yNCIgZmlsbD0iIzAwMCIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+");
 }
 
+.Footer__navigation {
+	
+	margin-left: 0;
+	text-transform: uppercase;
+
+}
