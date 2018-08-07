@@ -1,0 +1,21 @@
+@charset "UTF-8";
+.contain {
+  max-width: 1111px; }
+
+.Header__logoCNN {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zd…0zLjYyOGMtNC4xMzcgMC03LjUwNCAzLjM2OC03LjUwNCA3LjUwNSIvPjwvZz48L2c+PC9zdmc+");
+  margin-right: 8px;
+  width: 50px; }
+
+.Header__logoTravel {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zd…ZoMS43NzJWMjFoLTUuNjUydi0xLjc0M3oiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==");
+  width: 70px; }
+
+.SocialBar__icon.SocialBar__instagram {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9I…EtMi40IDAgMS4yIDEuMiAwIDAgMSAyLjQgMCIgZmlsbD0iIzBBMEEwOCIvPjwvZz48L3N2Zz4="); }
+
+.SocialBar__icon.SocialBar__facebook {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMjMiIHZpZXdCb3g9I…YxMi4xMzNoMy40MTZ6IiBmaWxsPSIjMDAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4="); }
+
+.SocialBar__icon.SocialBar__twitter {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiIGhlaWdodD0iMTgiIHZpZXdCb3g9I…AwIDAgMi4xNTgtMi4yNCIgZmlsbD0iIzAwMCIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+"); }
