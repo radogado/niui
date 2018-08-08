@@ -1,4 +1,59 @@
 @charset "UTF-8";
+@font-face {
+  font-family: "CNNSans";
+  font-style: normal;
+  font-weight: 300;
+  src: url(557bb10607ba3d656d2bd2b59e020119.woff2) format("woff2"); }
+
+@font-face {
+  font-family: "CNNSans";
+  font-style: normal;
+  font-weight: 400;
+  src: url(211b2f2141e3c4e2ddef82016bf521e8.woff2) format("woff2"); }
+
+@font-face {
+  font-family: "CNNTravel";
+  font-style: normal;
+  font-weight: 200;
+  src: url(01117b3bc5b6b91ed8e0586de8569d73.woff2) format("woff2"); }
+
+@font-face {
+  font-family: "CNNTravel";
+  font-style: normal;
+  font-weight: 300;
+  src: url(a9dd70f8b1b04de30f0d5ad1bb1134d2.woff2) format("woff2"); }
+
+@font-face {
+  font-family: "CNNTravel";
+  font-style: normal;
+  font-weight: 400;
+  src: url(531dff7d4e1abb89f59f087aa22a0e8d.woff2) format("woff2"); }
+
+@font-face {
+  font-family: "CNNTravel";
+  font-style: normal;
+  font-weight: 500;
+  src: url(cd02fb2f31c0dd5036f647c8ee20c586.woff2) format("woff2"); }
+
+@font-face {
+  font-family: "CNNTravel";
+  font-style: normal;
+  font-weight: 600;
+  src: url(9c13f4c0a5b24fa0bd5f249da45b85c2.woff2) format("woff2"); }
+
+@font-face {
+  font-family: "CNNTravel";
+  font-style: normal;
+  font-weight: 700;
+  src: url(01d67c62c3203106e75c7e67ab11bb53.woff2) format("woff2"); }
+
+body {
+  font-family: CNNTravel,Helvetica Neue,Helvetica,Arial,sans-serif; }
+
+p {
+  font-family: CNNSans;
+  font-size: .8em; }
+
 .contain {
   max-width: 1111px; }
 
@@ -43,7 +98,34 @@ header {
   text-transform: uppercase; }
 
 main img {
-  display: block; }
+  display: block;
+  width: 100%; }
 
 footer a[href] {
   text-decoration: none; }
+
+span.vertical {
+  writing-mode: vertical-lr;
+  text-align: center;
+  border-right: 1px solid #ccc;
+  margin-right: 1em;
+  padding-right: .5em;
+  font-size: 32px; }
+
+.n-slider-wrap {
+  overflow: visible;
+  margin-bottom: 3em; }
+
+.n-slider-wrap > .slider-nav {
+  bottom: -3em; }
+
+a[href].button {
+  border: 1px solid #eee;
+  background: transparent;
+  color: #000;
+  padding: 0.5em 3em; }
+
+@media (max-width: 599.9px) {
+  .row > * > .unpad, .unpad {
+    margin: 0;
+    width: auto; } }
