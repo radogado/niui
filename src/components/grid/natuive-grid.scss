@@ -361,7 +361,7 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 
 /* Masonry in CSS only */
 
-.masonry {
+.n-masonry {
 
     -moz-column-count: 3;
     -moz-column-gap: 0;
@@ -373,7 +373,7 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 
 }
 
-    .masonry > * {
+    .n-masonry > * {
 
 //         display: inline-block; // Unwanted wrapping in Chrome – 2 instead of 3 columns
         display: table; // Unwanted wrapping in Chrome – 2 instead of 3 columns
@@ -392,7 +392,7 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 
     }
     
-    .masonry.col2 {
+    .n-masonry.col2 {
 
 	    -moz-column-count: 2;
 	    -webkit-column-count: 2;
@@ -400,7 +400,7 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 	    
     }
 
-    .masonry.col4 {
+    .n-masonry.col4 {
 
 	    -moz-column-count: 4;
 	    -webkit-column-count: 4;
@@ -408,7 +408,7 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 	    
     }
 
-    .masonry.col4 {
+    .n-masonry.col4 {
 
 	    -moz-column-count: 5;
 	    -webkit-column-count: 5;
@@ -416,13 +416,13 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 	    
     }
 
-	ul.masonry {
+	ul.n-masonry {
 		
 		min-height: 0;
 
 	}
 
-	ol.masonry > * {
+	ol.n-masonry > * {
 		
 	    padding-left: 2.5em;
 
@@ -693,12 +693,16 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 	
 	}
 
-	.masonry, .masonry[class^=col] {
+	.n-masonry {
 		
-	    -moz-column-count: 2;
-	    -webkit-column-count: 2;
-	    column-count: 2;
+		&, &[class^=col] {
 		
+		    -moz-column-count: 2;
+		    -webkit-column-count: 2;
+		    column-count: 2;
+			
+		}
+	
 	}
 
 }

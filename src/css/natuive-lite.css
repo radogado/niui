@@ -1042,7 +1042,7 @@ section:before, section:after {
   width: 100%; }
 
 /* Masonry in CSS only */
-.masonry {
+.n-masonry {
   -moz-column-count: 3;
   -moz-column-gap: 0;
   -webkit-column-count: 3;
@@ -1051,7 +1051,7 @@ section:before, section:after {
   column-gap: 0;
   margin: 1.5em 0; }
 
-.masonry > * {
+.n-masonry > * {
   display: table;
   width: 100%;
   -webkit-column-break-inside: avoid;
@@ -1065,25 +1065,25 @@ section:before, section:after {
   margin: 0;
   padding: 0.75em; }
 
-.masonry.col2 {
+.n-masonry.col2 {
   -moz-column-count: 2;
   -webkit-column-count: 2;
   column-count: 2; }
 
-.masonry.col4 {
+.n-masonry.col4 {
   -moz-column-count: 4;
   -webkit-column-count: 4;
   column-count: 4; }
 
-.masonry.col4 {
+.n-masonry.col4 {
   -moz-column-count: 5;
   -webkit-column-count: 5;
   column-count: 5; }
 
-ul.masonry {
+ul.n-masonry {
   min-height: 0; }
 
-ol.masonry > * {
+ol.n-masonry > * {
   padding-left: 2.5em; }
 
 .pad {
@@ -1259,7 +1259,7 @@ ol.masonry > * {
     width: 100%;
     overflow: hidden; }
 
-  .masonry, .masonry[class^=col] {
+  .n-masonry, .n-masonry[class^=col] {
     -moz-column-count: 2;
     -webkit-column-count: 2;
     column-count: 2; } }
