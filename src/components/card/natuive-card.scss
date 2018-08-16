@@ -14,7 +14,7 @@
 	
 	}
 	
-	.content {
+	.n-card--content {
 		
 		background: var(--card-bg);
 	
@@ -29,28 +29,28 @@
 	
 	}
 	
-	.head.image {
+	.n-card--head.n-card--image {
 		
 		background-position: center center;
 		background-size: cover;
 		background-repeat: no-repeat;
 		color: #fff;
-	
-	}
-	
-	.head.image:after {
 		
-		content: ''; 
-		padding-bottom: 56.25%; // 16:9
-		width: 0;
-		display: inline-block;
-		vertical-align: bottom;
-	
-	}
-	
-	.head.image > * {
+		&:after {
 		
-		display: inline-block;
+			content: ''; 
+			padding-bottom: 56.25%; // 16:9
+			width: 0;
+			display: inline-block;
+			vertical-align: bottom;
+		
+		}
+	
+		> * {
+			
+			display: inline-block;
+		
+		}
 	
 	}
 

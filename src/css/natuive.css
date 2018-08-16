@@ -318,26 +318,26 @@ $bg: #1E8DaC;
   background: var(--card-bg); }
   .n-card > * {
     padding: 1em; }
-  .n-card .content {
+  .n-card .n-card--content {
     background: var(--card-bg); }
   .n-card > img {
     display: block;
     margin: 0 auto;
     max-width: 100%;
     padding: 0; }
-  .n-card .head.image {
+  .n-card .n-card--head.n-card--image {
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
     color: #fff; }
-  .n-card .head.image:after {
-    content: '';
-    padding-bottom: 56.25%;
-    width: 0;
-    display: inline-block;
-    vertical-align: bottom; }
-  .n-card .head.image > * {
-    display: inline-block; }
+    .n-card .n-card--head.n-card--image:after {
+      content: '';
+      padding-bottom: 56.25%;
+      width: 0;
+      display: inline-block;
+      vertical-align: bottom; }
+    .n-card .n-card--head.n-card--image > * {
+      display: inline-block; }
 
 /*# sourceMappingURL=natuive-card.css.map */
 

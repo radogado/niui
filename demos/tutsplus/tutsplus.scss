@@ -81,13 +81,13 @@ input[type=search] {
 
 }
 
-.card > img {
+.n-card > img {
 	
 	width: 100%;
 
 }
 
-.card .content {
+.n-card .n-card--content {
 	
 	padding: .5em;
 
@@ -98,7 +98,7 @@ input[type=search] {
 	background-color: #303030;
 	color: #fff;
 	
-	.card {
+	.n-card {
 		
 		background: #fff;
 		color: #000;
@@ -127,7 +127,7 @@ input[type=search] {
 		
 	}
 	
-	.card, .card .content {
+	.n-card, .n-card .n-card--content {
 		
 		background: none;
 		margin: 0;
