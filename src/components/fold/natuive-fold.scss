@@ -11,7 +11,13 @@
 	max-width: 100%;
 	z-index: 1;
 	
-	> .label {
+	&:not([data-ready]) {
+
+		display: grid;
+		
+	}
+
+	> .n-fold--label {
 		
 		margin: 0;
 		float: none;
@@ -27,10 +33,12 @@
 		-khtml-user-select: none;
 		-moz-user-select: none;
 		user-select: none;
-		cursor: zoom-in;
 		position: relative;
 		padding: .75em 0;
 		padding-right: 1.5em;
+		word-wrap: break-word;
+		word-break: break-all;
+		
 		
 		&:after {
 			
@@ -45,7 +53,7 @@
 		
 	}
 	
-	&[aria-expanded] > .label {
+	&[aria-expanded] > .n-fold--label {
 		
 		cursor: zoom-out;
 		
@@ -57,18 +65,18 @@
 		
 	}
 
-	&.mobile {
+	&.n-fold--mobile {
 		
 		padding: 0;
 		width: auto;
 
-		> .label:after {
+		> .n-fold--label:after {
 			
 			display: none;
 	
 		}
 		
-		> .label, > input.trigger {
+		> .n-fold--label, > input.trigger {
 			
 			display: none;
 			width: auto;
@@ -86,7 +94,7 @@
 	
 	}
 	
-	&:not([data-init]):not(.mobile) .content { /* hidden fold item */
+	&:not([data-init]):not(.n-fold--mobile) .n-fold--content { /* hidden fold item */
 
 	    overflow: hidden;
 	    cursor: auto;
@@ -95,20 +103,20 @@
 
 	}
 
-	&[aria-expanded] .content {
+	&[aria-expanded] .n-fold--content {
 		
 		max-height: none;
 
 	}
 	
-	&:not([aria-expanded]):not(.mobile):not(.horizontal) > .content, &[aria-expanded]:not(.horizontal) input.trigger:checked ~ .content /* also for CSS-only open by default */ {
+	&:not([aria-expanded]):not(.n-fold--mobile):not(.n-fold--horizontal) > .n-fold--content, &[aria-expanded]:not(.n-fold--horizontal) input.trigger:checked ~ .n-fold--content /* also for CSS-only open by default */ {
 
 	    max-height: 0;
 	    max-height: var(--start-height, 0); // Fallback to 0
 
 	}
 	
-	&.horizontal {
+	&.n-fold--horizontal {
 		
 		> * { // Not working in IE11-
 			
@@ -116,31 +124,31 @@
 	
 		}
 		
-		> .label:after {
+		> .n-fold--label:after {
 			
 			content: "▶";
 	
 		}
 			
-		&[aria-expanded] > .label:after {
+		&[aria-expanded] > .n-fold--label:after {
 			
 			content: "◀";
 	
 		}
 			
-		&:not([data-init]) > .content {
+		&:not([data-init]) > .n-fold--content {
 			
 			width: 0;
 			
 		}
 	
-		&[data-init] > .content, &[aria-expanded] > .content, > input.trigger:checked ~ .content {
+		&[data-init] > .n-fold--content, &[aria-expanded] > .n-fold--content, > input.trigger:checked ~ .n-fold--content {
 			
 			width: 100%;
 	
 		}
 	
-		> .content {
+		> .n-fold--content {
 			
 			height: 0;
 	
@@ -159,7 +167,7 @@
 
 	    margin-bottom: 0;
 
-		.content {
+		.n-fold--content {
 	
 		    padding-top: 0;
 	
@@ -167,19 +175,19 @@
 
 	}
 
-	.content > * {
+	.n-fold--content > * {
 		
 		margin-top: 0;
 
 	}
 
-	&:not(.horizontal) > input.trigger:checked ~ .content, &.mobile:not(.horizontal) .content/* , .fold > [aria-expanded] input.trigger:not(:checked) ~ div */ {
+	&:not(.n-fold--horizontal) > input.trigger:checked ~ .n-fold--content, &.n-fold--mobile:not(.n-fold--horizontal) .n-fold--content/* , .fold > [aria-expanded] input.trigger:not(:checked) ~ div */ {
 		
 		max-height: none;
 
 	}
 
-	&[aria-expanded] > input.trigger + .content {
+	&[aria-expanded] > input.trigger + .n-fold--content {
 		
 		display: inline-block;
 		
@@ -203,6 +211,22 @@
 		}
 	
 	}
+
+}
+
+.n-fold--label, .n-fold > input[type=checkbox] { // Overlay the checkbox over the label
+	
+	grid-column-start: 1;
+	grid-row-start: 1;
+	width: auto;
+	height: auto;	
+	cursor: zoom-in;
+
+}
+
+.n-fold > input[type=checkbox]:checked {
+		
+	cursor: zoom-out;
 
 }
 	
@@ -231,7 +255,7 @@
 		
 		}
 
-		&.horizontal > * {
+		&.n-fold--horizontal > * {
 			
 			display: block;
 	
@@ -243,9 +267,9 @@
 
 @media screen and (max-width: $screen-narrow-max) {
 
-	.n-fold.mobile {
+	.n-fold.n-fold--mobile {
 
-		> .label, > input.trigger {
+		> .n-fold--label, > input.trigger {
 			
 			display: inline-block; // Android Browser doesn't support the below version (flex)
 			display: flex;
@@ -254,20 +278,20 @@
 	
 		}
 	
-		&:not([aria-expanded]) .content {
+		&:not([aria-expanded]) .n-fold--content {
 		
 			max-height: 0;
 			max-width: 0;
 		
 		}
 		
-		> input.trigger:checked ~ .content, > input.trigger:checked + .content { // Android Browser doesn't support "~", only "+"
+		> input.trigger:checked ~ .n-fold--content, > input.trigger:checked + .n-fold--content { // Android Browser doesn't support "~", only "+"
 			
 			max-height: none;
 			
 		}
 		
-		.content { /* hidden fold item */
+		.n-fold--content { /* hidden fold item */
 			
 			overflow: hidden;
 	
@@ -277,7 +301,7 @@
 
 	@supports (--a: 1) {
 
-		header.fixed-mobile .n-fold.mobile {
+		header.fixed-mobile .n-fold.n-fold--mobile {
 			
 			position: fixed;
 		    top: 0;
@@ -288,7 +312,7 @@
 			    bottom: 0;
 			    overflow: visible; // iPhone fix
 		
-				.content {
+				.n-fold--content {
 					
 					overflow: auto;
 					-webkit-overflow-scrolling: touch;
@@ -300,7 +324,7 @@
 		
 			}
 		
-			.content {
+			.n-fold--content {
 				
 		// 		overflow: hidden;
 				padding: 0 $line-height-em/4;
@@ -316,7 +340,7 @@
 
 @media screen and (min-width: $screen-narrow) {
 
-	.n-fold.mobile {
+	.n-fold.n-fold--mobile {
 		
 		overflow: visible;
 		

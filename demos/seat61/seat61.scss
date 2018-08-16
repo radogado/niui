@@ -250,19 +250,19 @@ h4 {
 		
 	}
 	
-	header.fixed-mobile .n-fold.mobile.open .content {
+	header.fixed-mobile .n-fold.n-fold--mobile.open .n-fold--content {
 		
 		width: 100%;
 	
 	}
 
-	.n-fold.mobile > .label, header.fixed-mobile .n-fold.mobile.open .content {
+	.n-fold.n-fold--mobile > .n-fold--label, header.fixed-mobile .n-fold.n-fold--mobile.open .n-fold--content {
 	
 		margin-left: -.3em;
 		
 	}
 	
-	header.fixed-mobile .n-fold.mobile[aria-expanded] .content {
+	header.fixed-mobile .n-fold.n-fold--mobile[aria-expanded] .n-fold--content {
 		
 	    width: 100%;
 	    left: 0;		

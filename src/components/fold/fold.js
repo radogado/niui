@@ -8,7 +8,7 @@
 	
 	    stopEvent(e);
 	    var el = closest(e.target, '.n-fold');
-	    var content = el.querySelector('.content');
+	    var content = el.querySelector('.n-fold--content');
 	
 		content.style.setProperty('--width', content.scrollWidth + 'px');
 		content.style.setProperty('--max-height', content.scrollHeight + 'px');
@@ -17,7 +17,7 @@
 		
 		// Animation, not CSS, because of nested accordions
 		
-		if (hasClass(el, 'horizontal')) {
+		if (hasClass(el, 'n-fold--horizontal')) {
 			
 			toggleAttribute(el, aria_expanded);
 			
@@ -52,7 +52,7 @@
 	
 		if (!closest(el, '.n-fold') && !closest(el, '.n-tool')) { // Clicking/tapping outside of a fold/tooltip element...
 			
-			forEach('.n-fold.mobile, .n-tool', function (el) { // ... closes all burger nav menus and tooltips
+			forEach('.n-fold.n-fold--mobile, .n-tool', function (el) { // ... closes all burger nav menus and tooltips
 				
 				el.removeAttribute(aria_expanded);
 				
@@ -76,9 +76,9 @@
 		}
 	*/
 	
-		if (closest(el, '.slider')) {
+		if (closest(el, '.n-slider')) {
 	
-			current_slider = closest(el, '.slider');
+			current_slider = closest(el, '.n-slider');
 		
 		}
 		
@@ -86,7 +86,7 @@
 	
 	function initFold(host) {
 		
-		forEach(host.querySelectorAll('.n-fold:not([data-ready]) > .label'), function(el) {
+		forEach(host.querySelectorAll('.n-fold:not([data-ready]) > .n-fold--label'), function(el) {
 	
 		    el.onclick = toggleAccordion;
 			el.setAttribute('tabindex', 0);
@@ -101,9 +101,9 @@
 			};
 		
 		    el = el.parentNode;
-			var content = el.querySelector('.content');
+			var content = el.querySelector('.n-fold--content');
 			
-			if (hasClass(el, 'horizontal')) {
+			if (hasClass(el, 'n-fold--horizontal')) {
 				
 				el.setAttribute('data-init', true);
 				content.style.setProperty('--width', content.scrollWidth + 'px');
@@ -121,7 +121,7 @@
 		
 		    }
 		
-		    if (!hasClass(el, 'mobile')) { // Keep the accordion content clickable
+		    if (!hasClass(el, 'n-fold--mobile')) { // Keep the accordion content clickable
 			    
 			    content.onclick = function(e) {
 		
@@ -151,9 +151,9 @@
 		
 	window.addEventListener('scroll', function() {  // Close fixed n-ovrl if its scrolling becomes a window scroll. Idea by a Google mobile nav.
 		
-		if (q('.fixed-mobile .n-fold.mobile[aria-expanded]')) {
+		if (q('.fixed-mobile .n-fold.n-fold--mobile[aria-expanded]')) {
 			
-			q('.fixed-mobile .n-fold.mobile[aria-expanded]').removeAttribute(aria_expanded);
+			q('.fixed-mobile .n-fold.n-fold--mobile[aria-expanded]').removeAttribute(aria_expanded);
 		
 		}
 		

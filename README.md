@@ -74,6 +74,8 @@ natUIve demo pages: [Features demo](http://radogado.github.io/natuive/kitchen.ht
 
 © 2014-2018 [rado.bg](http://rado.bg)
 
+Standalone components: [Accordion](https://github.com/radogado/n-accordion), [Slider](https://github.com/radogado/native-slider)
+
 –––
 
 natUIve 1.13
