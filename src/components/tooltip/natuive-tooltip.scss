@@ -28,7 +28,7 @@
 
 }
 
-.n-tool .tip, label span .n-tool .tip {
+.n-tool--tip, label span .n-tool--tip {
 
 	font-size: $font-size;
 	line-height: $line-height;
@@ -58,7 +58,7 @@
 
 }
 
-.n-tool[aria-expanded] .tip, html:not(.can-touch) .n-tool:hover .tip {
+.n-tool[aria-expanded] .n-tool--tip, html:not(.can-touch) .n-tool:hover .n-tool--tip {
 	
 	opacity: 1;
 	visibility: visible;

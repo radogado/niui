@@ -12,24 +12,6 @@
 	-webkit-overflow-scrolling: touch;
 	left: 0;
 
-/*
-	-webkit-animation-timing-function: ease;
-	-webkit-animation-iteration-count: 1;
-	-webkit-animation-duration: .4s;
-	animation-timing-function: ease;
-	animation-iteration-count: 1;
-	animation-duration: .4s;
-*/
-
-/*
-	-webkit-transform-style: preserve-3d;
-	-moz-transform-style: preserve-3d;
-	-ms-transform-style: preserve-3d;
-	transform-style: preserve-3d;
-*/
-
-// 	transition: none;
-
 	display: flex;
 	// will-change: transform; // Breaks WebKit full screen video
     min-height: 4em; // Make controls visible on very short slides
@@ -43,12 +25,6 @@
 	white-space: normal;
 	vertical-align: top;
 	overflow: hidden;
-// 	padding: 0 1px;
-/*
-	font-size: $font-size;
-	line-height: $line-height;
-	min-height: $line-height;
-*/
 	margin: 0;
 
 	flex: 1 0 auto;
@@ -110,10 +86,6 @@
 .row .n-slider {
 	
 	padding: 0;
-/*
-	border-left: 7px solid transparent;
-	border-right: 7px solid transparent;
-*/
 
 }
 
@@ -161,19 +133,6 @@
 
 }
 
-/*
-.overlay .n-slider-wrap.vertical.tabs > .slider-nav.row {
-		
-	position: fixed;
-	top: 1em;
-	bottom: 1em;
-	overflow: auto;
-	-webkit-overflow-scrolling: touch;
-	flex-wrap: nowrap;
-
-}
-*/
-
 .n-slider-wrap.overlay {
 	
 	top: 0px;
@@ -183,7 +142,6 @@
 	left: 0px;
 	width: 100%;
 	z-index: 1;
-// 	background: #fff;
 	position: absolute;
 
 }
@@ -258,8 +216,6 @@
 	overflow: hidden;
 	max-height: 100%;
 	z-index: 1;
-	// Fix Safari, Chrome bug where 1px of previous slide is visible during slide
-//     padding: 0 .5px;
 
 }
 
@@ -273,21 +229,8 @@
 .vertical.tabs > .slider-nav.row, .slider-nav.row.tabs {
 	
 	width: 25%;
-/*
-	float: left;
-	display: flex;
-	flex-direction: column;
-*/
 
 }
-
-/*
-.n-slider-wrap.tabs.vertical > .slider-nav.row a, .slider-nav.row.tabs a {
-	
-	flex: 0 1 auto;
-
-}
-*/
 
 .vertical.tabs.right > .n-slider {
 
@@ -359,28 +302,11 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 .n-slider[data-ready] {
 	
 	overflow: visible;
-	// Fix Safari bug where 1px of previous slide is visible during slide
-// 	margin-left: -.5px;
-//     width: calc(100% + 1px); // Eliminate unwanted pixels on the sides
     width: 100%;
     padding: 0; // Because .n-slider.pad breaks the slider layout
 	-ms-overflow-style: none; /* No scrollbars on IE10+ */
 
 }
-
-/*
-.n-slider-wrap .n-slider > * {
-	
-	contain: strict;
-	
-}
-
-.n-slider-wrap .n-slider > .active {
-	
-	contain: none;
-	
-}
-*/
 
 .overlay.n-slider:not(.vertical) > * {
 	
@@ -398,7 +324,7 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 
 }
 
-.n-slider.vertical[data-ready] > *, /* .n-slider[data-sliding] > *:not(.active), */ .n-slider-wrap.tabs > .slider-arrow {
+.n-slider.vertical[data-ready] > *, .n-slider-wrap.tabs > .slider-arrow {
 
 	height: auto;
 	display: none;
@@ -427,19 +353,10 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 
 .n-slider[data-ready] > *:not([data-active]) {
 
-// 	display: none; // Only display .active slides. Because if slider has transforms (showing only current slide while others are still in the flow), there are problems with its children of position fixed etc. Breaks non-auto height sliders, can't set to height to the tallest slide. Make it with margin-left after the animation is done.
 	display: inline-block;
 	pointer-events: none;
 
 }
-
-/*
-.n-slider > .active + div ~ div:not(:last-child) { // Hide all slides after the next one, for speed
-	
-	display: none;
-	
-}
-*/
 
 .n-slider[data-ready]:not([data-peek]) > *:not([data-active]) {
 
@@ -465,14 +382,6 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 	padding: 0;
 
 }
-
-/*
-.no-flex .n-slider > * + * { // Fallback
-	
-	margin-left: -.3em;
-	
-}
-*/
 
 .overlay.n-slider.vertical > * {
 	
@@ -707,17 +616,14 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 		text-indent: 0;
 		width: auto;
 		height: auto;
-// 		display: table-cell;
 		text-align: left;
 		text-align: start;
 		border-radius: 0;
 		line-height: $line-height;
-// 		line-height: var(--line-height);
 		padding: .5em;
 		flex: 1;
 		margin: 0;
 		white-space: normal;
-// 		outline-offset: -5px;
 	
 	}
 

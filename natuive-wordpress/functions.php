@@ -563,7 +563,7 @@ function new_nav_menu($items) {
     			<input type=checkbox class=trigger>
 
 				<div class=content> 
-    				<nav class=drop> 
+    				<nav class=n-drop> 
     					<ul>' . $items . '</ul>
     				</nav>
     			</div>

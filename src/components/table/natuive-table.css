@@ -70,7 +70,7 @@ tr, td, th, iframe {
 
 	}
 */
-td[data-sort] {
+.n-tbl td[data-sort] {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -78,10 +78,10 @@ td[data-sort] {
   user-select: none; }
 
 @media screen and (min-width: 1px) {
-  td[data-sort] {
+  .n-tbl td[data-sort] {
     cursor: pointer; }
 
-  td[data-sort]:after {
+  .n-tbl td[data-sort]:after {
     content: '⇳';
     margin-left: .5em; } }
 @media screen and (max-width: 599.9px) {

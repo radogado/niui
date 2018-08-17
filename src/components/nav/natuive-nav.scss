@@ -7,9 +7,7 @@ nav {
 	vertical-align: baseline;
 	display: inline-block;
 
-}
-
-	nav ul {
+	ul {
 	
 		margin: 0 0 0 -.5em;
 		padding: 0;
@@ -19,33 +17,76 @@ nav {
 		display: flex;
 	    flex-wrap: wrap;
 
+		li {
+		
+			margin: 0;
+		
+			&:last-child {
+		
+				margin-right: 0;
+		
+			}
+	
+		}
+	
 	}
 	
-	nav.scroll {
+	&.scroll {
 		
 		overflow: auto;
 			max-width: 100%;
 		
-	}
-	
-	nav.scroll > ul {
-		
-		display: flex;
-	    padding: .25em 0;
-		flex-wrap: nowrap;
-		white-space: nowrap;
-    		
-	}
-	
-	@supports (--a: 1) {
-		
-		nav.scroll a {
+		> ul {
 			
+			display: flex;
+		    padding: .25em 0;
+			flex-wrap: nowrap;
+			white-space: nowrap;
+	    		
+		}
+	
+	}
+
+	a {
+		
+		position: relative;
+		padding: 0 .5em;
+
+	}
+	
+	.active a[href] {
+		
+		text-decoration: none;
+		opacity: .7;
+
+	}
+	
+	&:not(.n-drop) a[href^='#'] {
+		
+		text-decoration: none;
+
+	}
+	
+	li:last-child a, .vertical li a {
+		
+		padding-right: 0;
+
+	}
+
+
+}
+	
+@supports (--a: 1) {
+	
+	nav.scroll {
+		
+		a {
+		
 			padding: 0;
 
 		}
 		
-		nav.scroll > ul {
+		> ul {
 	
 		    overflow: auto;
 		    max-width: 100%;
@@ -54,7 +95,7 @@ nav {
 	
 		}
 	
-		nav.scroll ul li {
+		ul li {
 	
 		    padding: $line-height-em/2;
 	
@@ -62,285 +103,245 @@ nav {
 	
 	}
 
-	nav a {
-		
-		position: relative;
-		padding: 0 .5em;
+}
 
-	}
-	
-	nav .active a[href] {
-		
-		text-decoration: none;
-		opacity: .7;
+main nav ul {
 
-	}
-	
-	nav:not(.drop) a[href^='#'] {
-		
-		text-decoration: none;
+	padding-left: 0;
 
-	}
-	
-	nav li:last-child a, nav .vertical li a {
-		
-		padding-right: 0;
-
-	}
-
-	nav ul li {
-	
-		margin: 0;
-	
-	}
-
-	nav li:last-child {
-
-		margin-right: 0;
-
-	}
-
-	main nav ul {
-	
-		padding-left: 0;
-	
-	}
+}
 	
 // Drop nav
 
 $nav-bg: #fff; // fallback for browsers unsupporting CSS variables
 
-nav.drop {
+nav.n-drop {
 
 	--nav-bg: #fff;
 
-}
-
-nav.drop ul {
+	ul {
+		
+		padding: 0;
+		margin: 0;
+		min-height: 0;
+		z-index: 1;
 	
-	padding: 0;
-	margin: 0;
-	min-height: 0;
-	z-index: 1;
-
-}
-
-nav.drop ul ul {
+	}
 	
-	padding: 0;
-	position: absolute;
-	left: 0;
-	background-color: $nav-bg;
-	background-color: var(--nav-bg);
-	top: 100%;
-
-}
-
-nav.drop ul ul ul {
+	ul ul {
+		
+		padding: 0;
+		position: absolute;
+		left: 0;
+		background-color: $nav-bg;
+		background-color: var(--nav-bg);
+		top: 100%;
 	
-	margin-left: 100%;
-	top: 0;
-
-}
-
-nav.drop li {
+	}
 	
-	display: inline-block;
-	vertical-align: top;
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	background-color: $nav-bg;
-	background-color: var(--nav-bg);
-	position: relative;
-	width: auto;
+	ul ul ul {
+		
+		margin-left: 100%;
+		top: 0;
 	
-}
-
-/* nav.drop li[aria-haspopup]:not([tabindex]) */ nav.drop li:not([tabindex]) > ul ~ a {
-
-	padding-right: 42px;
-
-}
-
-nav.drop li > a {
+	}
 	
-	padding: 1em;
-	display: block;
-
-}
-
-nav.drop a:focus, nav.drop li > :focus {
-
-	outline-offset: -7px;
-
-}
-
-nav.drop a[href] {
+	ul li {
+		
+		display: inline-block;
+		vertical-align: top;
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		background-color: $nav-bg;
+		background-color: var(--nav-bg);
+		position: relative;
+		width: auto;
+		
+	}
 	
-	position: relative;
-
-}
-
-nav.drop li:not([aria-haspopup]) > a {
+	li:not([tabindex]) > ul ~ a {
 	
-//     margin-right: 42px;
-	z-index: 0;
-// 	padding-right: 0;
+		padding-right: 42px;
 	
-}
-
-nav.drop ul[role=menubar] li > a {
+	}
 	
-    margin-right: 0;
-    padding-right: 1em;
+	li > a {
+		
+		padding: 1em;
+		display: block;
 	
-}
-
-nav.drop ul[role=menubar] li[aria-haspopup] > a {
+	}
 	
-    margin-right: 0;
-	padding-right: 1em;
+	a:focus, li > :focus {
 	
-}
-
-nav.drop li li {
+		outline-offset: -7px;
 	
-	display: block;
-
-}
-
-nav.drop ul ul:not([aria-expanded]) {
+	}
 	
-	min-height: 0;
-	max-height: 0;
-// 	z-index: 2;
-	overflow: hidden;
-	position: absolute;
-
-}
-
-nav.drop ul li > :checked ~ ul, nav.drop :focus ~ ul, 
-nav.drop a:focus ~ ul, nav.drop ul ul[aria-expanded], nav.drop li li ul[aria-expanded], nav.drop li li:not(:focus) :checked ~ ul {
+	a[href] {
+		
+		position: relative;
 	
-	max-height: none;
-	overflow: visible;
-	opacity: 1;
-
-}
-
-nav.drop ul ul[aria-expanded], nav.drop li li ul[aria-expanded], nav.drop li li:not(:focus) :checked ~ ul {
-
-	z-index: 2; // Problem with CSS-only input method
-
-}
-
-nav.drop li > input {
+	}
 	
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	display: block;
-	position: absolute;
-// 	margin: -4.75em 0 0 0;
-	width: 100%; // iOS doesn't work with left/right
-	height: 100%; 
-	border: none;
-	border-radius: 0;
-	right: 0;
-	z-index: 1;
-	width: 2em;
-				
-}
-
-/* nav.drop li > input,  */nav.drop li > ul ~ a, nav.drop li[aria-haspopup] {
+	li:not([aria-haspopup]) > a {
+		
+	//     margin-right: 42px;
+		z-index: 0;
+	// 	padding-right: 0;
+		
+	}
 	
-	background-image: url('data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M50%20100L0%200h100z%22%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E');
-	background-repeat: no-repeat;
-	background-position: calc(100% - 16px) 50%;
-	background-size: .5em;
-
-}
-
-nav.drop[data-ready] li > ul ~ a {
+	ul[role=menubar] li > a {
+		
+	    margin-right: 0;
+	    padding-right: 1em;
+		
+	}
 	
-	background: none;
+	ul[role=menubar] li[aria-haspopup] > a {
+		
+	    margin-right: 0;
+		padding-right: 1em;
+		
+	}
 	
-}
-
-/*
-nav.drop li > input {
+	li li {
+		
+		display: block;
 	
-	background-position-y: 2.75em;
+	}
 	
-}
-*/
-
-/* nav.drop li li > input,  */nav.drop li li > ul ~ a, nav.drop li li[aria-haspopup] {
-
-	background-image: url('data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M100%2050L0%20100V0z%22%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E');
+	ul ul:not([aria-expanded]) {
+		
+		min-height: 0;
+		max-height: 0;
+	// 	z-index: 2;
+		overflow: hidden;
+		position: absolute;
+	
+	}
+	
+	ul li > :checked ~ ul, :focus ~ ul, 
+	a:focus ~ ul, ul ul[aria-expanded], li li ul[aria-expanded], li li:not(:focus) :checked ~ ul {
+		
+		max-height: none;
+		overflow: visible;
+		opacity: 1;
+	
+	}
+	
+	ul ul[aria-expanded], li li ul[aria-expanded], li li:not(:focus) :checked ~ ul {
+	
+		z-index: 2; // Problem with CSS-only input method
+	
+	}
+	
+	li > input {
+		
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		display: block;
+		position: absolute;
+	// 	margin: -4.75em 0 0 0;
+		width: 100%; // iOS doesn't work with left/right
+		height: 100%; 
+		border: none;
+		border-radius: 0;
+		right: 0;
+		z-index: 1;
+		width: 2em;
+					
+	}
+	
+	li > ul ~ a, li[aria-haspopup] {
+		
+		background-image: url('data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M50%20100L0%200h100z%22%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E');
+		background-repeat: no-repeat;
+		background-position: calc(100% - 16px) 50%;
+		background-size: .5em;
+	
+	}
+	
+	&[data-ready] li > ul ~ a {
+		
+		background: none;
+		
+	}
+	
+	li li > ul ~ a, li li[aria-haspopup] {
+	
+		background-image: url('data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M100%2050L0%20100V0z%22%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E');
+	
+	}
+	
+	li[aria-haspopup] {
+		
+		padding-right: calc(42px - 1em);
+					
+	}
 
 }
-
-nav.drop li[aria-haspopup] {
 	
-	padding-right: calc(42px - 1em);
-				
-}
-
 @media (min-width: 600px) {
 
 	html:not(.can-touch) { // Hover rules here
 		
-		nav.drop ul ul ul:not([aria-expanded]) {
+		nav.n-drop {
 		
-			transition: .1s .2s;
-			opacity: 0;
-			position: absolute;
+			ul ul ul:not([aria-expanded]) {
+			
+				transition: .1s .2s;
+				opacity: 0;
+				position: absolute;
+			
+			}
+			
+			> ul > li > ul li {
+				
+				background-color: $nav-bg;
+				background-color: var(--nav-bg);
+				
+			}
+	
+			> ul > li:not([aria-haspopup]):hover > ul,
+			> ul 		> li:hover > ul,
+			> ul li ul > li:hover > ul,
+			ul ul :checked ~ ul:not([aria-expanded]),
+			> ul li:not([aria-haspopup]) ul li:hover ~ ul {
+				
+				max-height: none;
+				overflow: visible;
+				opacity: 1;
+				z-index: 2;
+				
+			}
+			
+			> ul 		> li:hover > input:not(:checked) ~ ul,
+			> ul li ul > li:hover > input:not(:checked) ~ ul,
+			> ul > li:not([aria-haspopup]):hover > input:not(:checked) ~ ul,
+			> ul li:not([aria-haspopup]) ul li:hover > input:not(:checked) ~ ul {
+				
+				min-height: 0;
+				max-height: 0;
+				overflow: hidden;
+				z-index: 1;
+				position: absolute;
+	
+			}
+	
+			> ul li ul li:hover ul {
+	
+				transition-delay: 0.2s;
+	
+			}
 		
-		}
-		
-		nav.drop > ul > li > ul li {
-			
-			background-color: $nav-bg;
-			background-color: var(--nav-bg);
-			
-		}
-
-		nav.drop > ul > li:not([aria-haspopup]):hover > ul,
-		nav.drop > ul 		> li:hover > ul,
-		nav.drop > ul li ul > li:hover > ul,
-		nav.drop ul ul :checked ~ ul:not([aria-expanded]),
-		nav.drop > ul li:not([aria-haspopup]) ul li:hover ~ ul {
-			
-			max-height: none;
-			overflow: visible;
-			opacity: 1;
-			z-index: 2;
-			
-		}
-		
-		nav.drop > ul 		> li:hover > input:not(:checked) ~ ul,
-		nav.drop > ul li ul > li:hover > input:not(:checked) ~ ul,
-		html:not(.can-touch) nav.drop > ul > li:not([aria-haspopup]):hover > input:not(:checked) ~ ul,
-		html:not(.can-touch) nav.drop > ul li:not([aria-haspopup]) ul li:hover > input:not(:checked) ~ ul {
-			
-			min-height: 0;
-			max-height: 0;
-			overflow: hidden;
-			z-index: 1;
-			position: absolute;
-
-		}
-
-		nav.drop > ul li ul li:hover ul {
-
-			transition-delay: 0.2s;
-
 		}
 
 	}
 
-	nav.drop li {
+	nav.n-drop li {
 		
 		white-space: nowrap;
 		
@@ -350,38 +351,42 @@ nav.drop li[aria-haspopup] {
 
 @media (max-width: 599.9px) {
 
-	nav.drop ul ul {
-		
-		position: static;
-		width: calc(100% + 42px);
-		padding-left: .5em;
-		overflow: hidden;
-		box-sizing: border-box;
+	nav.n-drop ul {
 	
-	}
-
-	nav.drop li {
+		ul {
+			
+			position: static;
+			width: calc(100% + 42px);
+			padding-left: .5em;
+			overflow: hidden;
+			box-sizing: border-box;
 		
-		width: 100%;
+			ul {
+				
+				margin: 0;	
+		
+			}
+
+		}
 	
-	}
-
-	nav.drop ul ul ul {
+		li {
+			
+			width: 100%;
 		
-		margin: 0;	
-
-	}
-
-	nav.drop li > input, nav.drop li[aria-haspopup] {
+			> input, &[aria-haspopup] {
+				
+				background-position-y: 1.5em;
+			
+			}
 		
-		background-position-y: 1.5em;
+			&[aria-haspopup] {
+				
+				padding-right: 42px;
+							
+			}
 	
-	}
-
-	nav.drop li[aria-haspopup] {
-		
-		padding-right: 42px;
-					
+		}
+	
 	}
 
 }

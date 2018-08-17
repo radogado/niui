@@ -22,7 +22,7 @@ body {
 
 }
 
-nav.drop ul {
+nav.n-drop ul {
 
 	justify-content: flex-end;	
 
@@ -34,13 +34,13 @@ header > .row > :first-child {
 
 }
 
-nav.drop ul[role=menubar] li > a {
+nav.n-drop ul[role=menubar] li > a {
 	
 	padding: .5em;
 
 }
 
-header nav.drop {
+header nav.n-drop {
 	
 	--nav-bg: #333;
 	color: #fff;
@@ -49,7 +49,7 @@ header nav.drop {
 
 }
 
-header nav.drop li.search {
+header nav.n-drop li.search {
 	
 	background: #fff;
 

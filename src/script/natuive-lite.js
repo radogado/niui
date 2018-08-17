@@ -1164,7 +1164,7 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 	
 		});
 	
-		if (!closest(el, 'nav.drop')) { // The rest is for drop nav only
+		if (!closest(el, 'nav.n-drop')) { // The rest is for drop nav only
 			
 			return;
 	
@@ -1380,7 +1380,7 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 	
 			};		
 		
-		    var t = el.querySelector('.tip');
+		    var t = el.querySelector('.n-tool--tip');
 		    if (!t) return;
 		
 		    el.style.position = 'static'; // dangerous with absolutely-positioned containers, which should be avoided anyway
@@ -1390,7 +1390,7 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 		    t.style.width = '100%';
 	*/
 	
-			var label = el.querySelector('.label');
+			var label = el.querySelector('.n-tool--label');
 			if (label) {
 				
 				label.setAttribute('tabindex', 0);

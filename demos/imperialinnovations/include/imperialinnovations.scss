@@ -197,20 +197,20 @@ footer .about p:first-child {
 
 }
 
-nav.drop {
+nav.n-drop {
 	
 	margin-left: 7em;
 	width: calc(100% - 8em);
 	
 }
 
-nav.drop ul li a {
+nav.n-drop ul li a {
 	
 	padding: 1em .7em;
 	
 }
 
-nav.drop ul li, nav.drop ul li a[href], nav.drop ul li b.sub, nav.drop ul li .trigger:checked ~ a, nav.drop ul li .trigger:checked ~ b.sub, nav.drop ul ul li, nav.drop ul li li a, .no-touch nav.drop ul li li:hover a {
+nav.n-drop ul li, nav.n-drop ul li a[href], nav.n-drop ul li b.sub, nav.n-drop ul li .trigger:checked ~ a, nav.n-drop ul li .trigger:checked ~ b.sub, nav.n-drop ul ul li, nav.n-drop ul li li a, .no-touch nav.n-drop ul li li:hover a {
 	
 	background: #fff;
 

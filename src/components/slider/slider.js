@@ -78,7 +78,7 @@ var componentSlider = (function (){
 	            var deltaX = startX - touches[0].pageX;
 	            var deltaY = startY - touches[0].pageY;
 	            var delta = (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY;				
-				var overlay_content = closest(el, '.n-ovrl') ? closest(el, '.n-ovrl').querySelector('.content') : null;
+				var overlay_content = closest(el, '.n-ovrl') ? closest(el, '.n-ovrl').querySelector('.n-ovrl--content') : null;
 
 				// Allow vertical page scroll by swiping over the slider. Also when parent modal is scrollable vertically
 	            if (((hasClass(el, 'vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !q('.n-ovrl .n-slider-wrap'))
@@ -195,7 +195,6 @@ var componentSlider = (function (){
 			getSliderNav(slider_wrap).children[index].setAttribute('data-active', true);
 		
 		}
-	    //slider.style.cssText = '';
 	
 		slider.children[index].setAttribute('data-active', true);
 	
@@ -215,16 +214,6 @@ var componentSlider = (function (){
 	
 		    // Make this slider active
 		
-	/*
-			if (q('.n-slider-wrap.active')) {
-				
-				removeClass(q('.n-slider-wrap.active'), 'active')
-				
-			}
-		
-			addClass(closest(slider, '.n-slider-wrap'), 'active');
-	*/
-	
 			if (slider.children[index].id) { // Scroll page to slide hash. To do: restore focus
 		
 				scrollToAnimated(getCumulativeOffset(slider.children[index]).y, .2, function () {

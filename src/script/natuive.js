@@ -1944,7 +1944,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		if (full_window) {
 			
 			window.scrollTo(previousScrollX, previousScrollY);
-			var animation = full_window.querySelector('.content > div').getAttribute('data-anim'); // Custom animation?
+			var animation = full_window.querySelector('.n-ovrl--content > div').getAttribute('data-anim'); // Custom animation?
 			if (animation.length < 11) { // '', 'null' or 'undefined'?
 				
 				animation = '0% { transform: translate3d(0,0,0) } 100% { transform: translate3d(0,-100%,0) }'; // 100% instead of 100vh, bc IE fails
@@ -1957,7 +1957,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 			animate(full_window, animation, .2, function (e) {
 	
-				disableBodyScroll(false, '.n-ovrl:last-of-type .content'); // Turn off and restore page scroll
+				disableBodyScroll(false, '.n-ovrl:last-of-type .n-ovrl--content'); // Turn off and restore page scroll
 				full_window.parentNode.removeChild(full_window);
 				full_window_content = null;
 		
@@ -1968,7 +1968,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 					window.removeEventListener('keyup', keyUpClose);
 					removeClass(q('html'), 'no-scroll');
 	
-					if (!q('.slider')) { // No sliders on the page to control with arrow keys
+					if (!q('.n-slider')) { // No sliders on the page to control with arrow keys
 					
 						window.removeEventListener('keydown', arrow_keys_handler, false);
 						
@@ -1976,7 +1976,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 				
 				} else {
 				
-					disableBodyScroll(true, '.n-ovrl:last-of-type .content');
+					disableBodyScroll(true, '.n-ovrl:last-of-type .n-ovrl--content');
 					adjustModal();
 					
 				}
@@ -2013,21 +2013,21 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 		var wrapper = document.createElement('div');
 		addClass(wrapper, 'n-ovrl');
-		wrapper.insertAdjacentHTML('beforeend', '<div class=content tabindex=0></div><div class=overlay-bg></div>');
+		wrapper.insertAdjacentHTML('beforeend', '<div class=n-ovrl--content tabindex=0></div><div class=overlay-bg></div>');
 		wrapper.firstChild.appendChild(full_window_content);
 		full_window_content = wrapper;
 	
-	    full_window_content.insertAdjacentHTML('afterbegin', '<div class=close> ← ' + document.title + '</div>');
-		full_window_content.querySelector('.overlay-bg').onclick = full_window_content.querySelector('.close').onclick = closeFullWindow;
-		full_window_content.querySelector('.close').addEventListener("touchmove", function (e) { e.preventDefault();}, { passive: false });
+	    full_window_content.insertAdjacentHTML('afterbegin', '<div class=n-ovrl--close> ← ' + document.title + '</div>');
+		full_window_content.querySelector('.overlay-bg').onclick = full_window_content.querySelector('.n-ovrl--close').onclick = closeFullWindow;
+		full_window_content.querySelector('.n-ovrl--close').addEventListener("touchmove", function (e) { e.preventDefault();}, { passive: false });
 		full_window_content.querySelector('.overlay-bg').addEventListener("touchmove", function (e) { e.preventDefault();}, { passive: false });
 		window.addEventListener('keyup', keyUpClose);
 		   
 		bodyElement.appendChild(full_window_content);
 	
-	    full_window_content.querySelector('.content').focus();
+	    full_window_content.querySelector('.n-ovrl--content').focus();
 	
-		disableBodyScroll(true, '.n-ovrl:last-of-type .content'); // Turn on and block page scroll
+		disableBodyScroll(true, '.n-ovrl:last-of-type .n-ovrl--content'); // Turn on and block page scroll
 		
 		if (qa('.n-ovrl').length === 1) { // Sole (first) modal
 
@@ -2297,7 +2297,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 		});
 	
-		if (!closest(el, 'nav.drop')) { // The rest is for drop nav only
+		if (!closest(el, 'nav.n-drop')) { // The rest is for drop nav only
 			
 			return;
 	
@@ -2536,7 +2536,7 @@ var componentSlider = (function (){
 	            var deltaX = startX - touches[0].pageX;
 	            var deltaY = startY - touches[0].pageY;
 	            var delta = (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY;				
-				var overlay_content = closest(el, '.n-ovrl') ? closest(el, '.n-ovrl').querySelector('.content') : null;
+				var overlay_content = closest(el, '.n-ovrl') ? closest(el, '.n-ovrl').querySelector('.n-ovrl--content') : null;
 
 				// Allow vertical page scroll by swiping over the slider. Also when parent modal is scrollable vertically
 	            if (((hasClass(el, 'vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !q('.n-ovrl .n-slider-wrap'))
@@ -2653,7 +2653,6 @@ var componentSlider = (function (){
 			getSliderNav(slider_wrap).children[index].setAttribute('data-active', true);
 		
 		}
-	    //slider.style.cssText = '';
 	
 		slider.children[index].setAttribute('data-active', true);
 	
@@ -2673,16 +2672,6 @@ var componentSlider = (function (){
 	
 		    // Make this slider active
 		
-	/*
-			if (q('.n-slider-wrap.active')) {
-				
-				removeClass(q('.n-slider-wrap.active'), 'active')
-				
-			}
-		
-			addClass(closest(slider, '.n-slider-wrap'), 'active');
-	*/
-	
 			if (slider.children[index].id) { // Scroll page to slide hash. To do: restore focus
 		
 				scrollToAnimated(getCumulativeOffset(slider.children[index]).y, .2, function () {
@@ -3378,7 +3367,7 @@ var componentSlider = (function (){
 	
 			};		
 		
-		    var t = el.querySelector('.tip');
+		    var t = el.querySelector('.n-tool--tip');
 		    if (!t) return;
 		
 		    el.style.position = 'static'; // dangerous with absolutely-positioned containers, which should be avoided anyway
@@ -3388,7 +3377,7 @@ var componentSlider = (function (){
 		    t.style.width = '100%';
 	*/
 	
-			var label = el.querySelector('.label');
+			var label = el.querySelector('.n-tool--label');
 			if (label) {
 				
 				label.setAttribute('tabindex', 0);

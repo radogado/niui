@@ -28,7 +28,7 @@ $bg: #1E8DaC;
 .n-notify:after {
   content: ' ✕'; }
 
-.n-notify.fixed {
+.n-notify.n-notify--fixed {
   font-weight: 500;
   position: fixed;
   left: 0;

@@ -27,20 +27,6 @@ $bg: #1E8DaC;
   position: relative;
   -webkit-overflow-scrolling: touch;
   left: 0;
-  /*
-  	-webkit-animation-timing-function: ease;
-  	-webkit-animation-iteration-count: 1;
-  	-webkit-animation-duration: .4s;
-  	animation-timing-function: ease;
-  	animation-iteration-count: 1;
-  	animation-duration: .4s;
-  */
-  /*
-  	-webkit-transform-style: preserve-3d;
-  	-moz-transform-style: preserve-3d;
-  	-ms-transform-style: preserve-3d;
-  	transform-style: preserve-3d;
-  */
   display: flex;
   min-height: 4em; }
 
@@ -50,11 +36,6 @@ $bg: #1E8DaC;
   white-space: normal;
   vertical-align: top;
   overflow: hidden;
-  /*
-  	font-size: $font-size;
-  	line-height: $line-height;
-  	min-height: $line-height;
-  */
   margin: 0;
   flex: 1 0 auto; }
 
@@ -89,11 +70,7 @@ $bg: #1E8DaC;
   background: transparent; }
 
 .row .n-slider {
-  padding: 0;
-  /*
-  	border-left: 7px solid transparent;
-  	border-right: 7px solid transparent;
-  */ }
+  padding: 0; }
 
 .n-slider > * > img {
   max-height: 100%;
@@ -121,18 +98,6 @@ $bg: #1E8DaC;
 .n-slider.align-middle > * > * {
   text-align: center; }
 
-/*
-.overlay .n-slider-wrap.vertical.tabs > .slider-nav.row {
-		
-	position: fixed;
-	top: 1em;
-	bottom: 1em;
-	overflow: auto;
-	-webkit-overflow-scrolling: touch;
-	flex-wrap: nowrap;
-
-}
-*/
 .n-slider-wrap.overlay {
   top: 0px;
   bottom: 0px;
@@ -178,20 +143,8 @@ $bg: #1E8DaC;
   float: right; }
 
 .vertical.tabs > .slider-nav.row, .slider-nav.row.tabs {
-  width: 25%;
-  /*
-  	float: left;
-  	display: flex;
-  	flex-direction: column;
-  */ }
+  width: 25%; }
 
-/*
-.n-slider-wrap.tabs.vertical > .slider-nav.row a, .slider-nav.row.tabs a {
-	
-	flex: 0 1 auto;
-
-}
-*/
 .vertical.tabs.right > .n-slider {
   float: left; }
 
@@ -232,19 +185,6 @@ _:-ms-lang(x), .aspect > .n-slider-wrap {
   -ms-overflow-style: none;
   /* No scrollbars on IE10+ */ }
 
-/*
-.n-slider-wrap .n-slider > * {
-	
-	contain: strict;
-	
-}
-
-.n-slider-wrap .n-slider > .active {
-	
-	contain: none;
-	
-}
-*/
 .overlay.n-slider:not(.vertical) > * {
   overflow: auto;
   -webkit-overflow-scrolling: touch; }
@@ -274,13 +214,6 @@ _:-ms-lang(x), .aspect > .n-slider-wrap {
   display: inline-block;
   pointer-events: none; }
 
-/*
-.n-slider > .active + div ~ div:not(:last-child) { // Hide all slides after the next one, for speed
-	
-	display: none;
-	
-}
-*/
 .n-slider[data-ready]:not([data-peek]) > *:not([data-active]) {
   visibility: hidden; }
 
@@ -293,13 +226,6 @@ _:-ms-lang(x), .aspect > .n-slider-wrap {
 .overlay.n-slider > * {
   padding: 0; }
 
-/*
-.no-flex .n-slider > * + * { // Fallback
-	
-	margin-left: -.3em;
-	
-}
-*/
 .overlay.n-slider.vertical > * {
   height: 100%; }
 

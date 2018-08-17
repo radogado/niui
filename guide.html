@@ -2481,8 +2481,8 @@ require('./node_modules/natuive/index.js');
 								<h2>Tooltip</h2>
 								<p>
 					<span class='n-tool'>
-						<span class=label>This text has a tooltip.</span>
-						<span class='tip'>
+						<span class=n-tool--label>This text has a tooltip.</span>
+						<span class='n-tool--tip'>
 							<b>Here is the tooltip</b> <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 						</span>
 					</span>
@@ -2492,8 +2492,8 @@ require('./node_modules/natuive/index.js');
 
 <pre>
 &lt;span class='n-tool'&gt;
-	&lt;span class='label'&gt;Tool content.&lt;/span&gt;
-	&lt;span class='tip'&gt;Tip content.&lt;/span&gt;
+	&lt;span class='n-tool--label'&gt;Tool content.&lt;/span&gt;
+	&lt;span class='n-tool--tip'&gt;Tip content.&lt;/span&gt;
 &lt;/span&gt;				
 </pre>
 
@@ -3585,10 +3585,10 @@ require('./node_modules/natuive/index.js');
 <div class="code">							
 
 <pre>
-&lt;html class='parallax'&gt;
+&lt;html class='n-parallax'&gt;
     &lt;body&gt;
-        &lt;div class='parallax-back'&gt; ... &lt;/div&gt;
-        &lt;div class='parallax-front'&gt; ... &lt;/div&gt;
+        &lt;div class='n-parallax--back'&gt; ... &lt;/div&gt;
+        &lt;div class='n-parallax--front'&gt; ... &lt;/div&gt;
     &lt;/body&gt;
 &lt;/html&gt;
 </pre>
@@ -3705,7 +3705,7 @@ nui.componentNotify.notify('Message');
 							
 					<ul>
 								
-								<li>Fixed on top: <pre>&lt;div class='n-notify fixed'&gt;</pre> or <pre>nui.componentNotify.notify('Message', 'fixed');</pre></li>
+								<li>Fixed on top: <pre>&lt;div class='n-notify n-notify--fixed'&gt;</pre> or <pre>nui.componentNotify.notify('Message', 'fixed');</pre></li>
 								<li><pre>nui.componentNotify.notify('Text', 'timeout')</pre> to hide it automatically after 2 seconds</li>
 							
 							</ul>

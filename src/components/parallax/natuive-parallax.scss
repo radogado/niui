@@ -1,6 +1,6 @@
 /* CSS-only parallax scrolling. html.parallax with body children .parallax-back and .parallax-front. Thanks http://keithclark.co.uk/articles/pure-css-parallax-websites/ */
 
-html.parallax, html.parallax body {
+html.n-parallax, html.n-parallax body {
 
 	margin: 0;
 	padding: 0;
@@ -8,7 +8,7 @@ html.parallax, html.parallax body {
 
 }
 
-.parallax-back {
+.n-parallax---back {
 
 	position: absolute;
 	top: 0;
@@ -22,7 +22,7 @@ html.parallax, html.parallax body {
 
 // fixed background element needs fixing (disabled/background-attachmend (which isn't on mobile)), because there is no position: fixed under a transformed element like .parallax-front	
 
-html.parallax .fixed-bg {
+html.n-parallax .fixed-bg {
 		
 	transform: none;
 	background-attachment: fixed;
@@ -37,7 +37,7 @@ html.parallax .fixed-bg {
 
 }
 
-html.parallax body[data-chrome] .fixed-bg { // Chrome 67 breaks bg attachment fixed
+html.n-parallax body[data-chrome] .fixed-bg { // Chrome 67 breaks bg attachment fixed
 		
 	background-attachment: scroll;
 
@@ -45,7 +45,7 @@ html.parallax body[data-chrome] .fixed-bg { // Chrome 67 breaks bg attachment fi
 
 @supports (perspective: 1px) {	/* CSS Parallax is SUPPORTED */
 
-	html.parallax body {
+	html.n-parallax body {
 
 		position: absolute;
 		width: 100%;
@@ -57,14 +57,14 @@ html.parallax body[data-chrome] .fixed-bg { // Chrome 67 breaks bg attachment fi
 
 	}
 
-	.parallax-front {
+	.n-parallax--front {
 
 		transform-style: preserve-3d;
 		transform: translateZ(0); /* Safari H/W acceleration */
 
 	}
 
-	.parallax-back {
+	.n-parallax--back {
 
 		transform: translateZ(-150px) scale(1.5);
 		transform-origin: 100% 100%;

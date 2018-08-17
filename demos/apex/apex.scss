@@ -145,7 +145,7 @@ footer {
 	text-align: right;
 	font-size: 0;
 	
-	.content {
+	.n-ovrl--content {
 		
 	// 	margin-left: 50%;
 		background: #fff;
@@ -158,7 +158,7 @@ footer {
 	
 	}
 	
-	.close {
+	.n-ovrl--close {
 		
 		width: 2rem;
 		right: 1rem;
@@ -170,14 +170,14 @@ footer {
 		top: 1rem;
 		left: auto;
 		
-	}
+		&:after {
+			
+			font-size: 1rem;
+			content: '╳';
+			line-height: 2;
+			
+		}
 	
-	.close:after {
-		
-		font-size: 1rem;
-		content: '╳';
-		line-height: 2;
-		
 	}
 	
 	.n-slider-wrap {

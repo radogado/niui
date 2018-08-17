@@ -351,13 +351,13 @@ input[type=submit] {
 	
 }
 
-.slider > *:after, .slider > *:before {
+.n-slider > *:after, .n-slider > *:before {
 
 	display: none;	
 
 }
 
-.slider {
+.n-slider {
 	
 	overflow-x: scroll;
 
@@ -375,7 +375,7 @@ nav input[type=reset], nav input.trigger, nav input.trigger.burger {
 
 }
 
-nav.drop {
+nav.n-drop {
 
 	li > input, ul ul {
 		
@@ -405,7 +405,7 @@ nav.drop {
 
 }
 
-.tool:hover .tip {
+.n-tool:hover .tip {
 	
 	opacity: 1;
 	visibility: visible;
@@ -413,7 +413,7 @@ nav.drop {
 	
 }
 
-.fold {
+.n-fold {
 
 	> .content {
 	

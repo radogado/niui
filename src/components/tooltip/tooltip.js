@@ -14,7 +14,7 @@
 	
 			};		
 		
-		    var t = el.querySelector('.tip');
+		    var t = el.querySelector('.n-tool--tip');
 		    if (!t) return;
 		
 		    el.style.position = 'static'; // dangerous with absolutely-positioned containers, which should be avoided anyway
@@ -24,7 +24,7 @@
 		    t.style.width = '100%';
 	*/
 	
-			var label = el.querySelector('.label');
+			var label = el.querySelector('.n-tool--label');
 			if (label) {
 				
 				label.setAttribute('tabindex', 0);

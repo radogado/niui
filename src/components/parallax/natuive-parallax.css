@@ -1,10 +1,10 @@
 /* CSS-only parallax scrolling. html.parallax with body children .parallax-back and .parallax-front. Thanks http://keithclark.co.uk/articles/pure-css-parallax-websites/ */
-html.parallax, html.parallax body {
+html.n-parallax, html.n-parallax body {
   margin: 0;
   padding: 0;
   height: 100%; }
 
-.parallax-back {
+.n-parallax---back {
   position: absolute;
   top: 0;
   left: 0;
@@ -12,20 +12,20 @@ html.parallax, html.parallax body {
   bottom: 0;
   z-index: -1; }
 
-html.parallax .fixed-bg {
+html.n-parallax .fixed-bg {
   transform: none;
   background-attachment: fixed;
   background-size: cover;
   position: static; }
-  html.parallax .fixed-bg .fixed-bg-image {
+  html.n-parallax .fixed-bg .fixed-bg-image {
     display: none; }
 
-html.parallax body[data-chrome] .fixed-bg {
+html.n-parallax body[data-chrome] .fixed-bg {
   background-attachment: scroll; }
 
 @supports (perspective: 1px) {
   /* CSS Parallax is SUPPORTED */
-  html.parallax body {
+  html.n-parallax body {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -34,12 +34,12 @@ html.parallax body[data-chrome] .fixed-bg {
     perspective: 300px;
     perspective-origin: 100% 100%; }
 
-  .parallax-front {
+  .n-parallax--front {
     transform-style: preserve-3d;
     transform: translateZ(0);
     /* Safari H/W acceleration */ }
 
-  .parallax-back {
+  .n-parallax--back {
     transform: translateZ(-150px) scale(1.5);
     transform-origin: 100% 100%; } }
 

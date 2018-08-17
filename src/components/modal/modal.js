@@ -189,7 +189,7 @@ var componentModal = (function (){
 		if (full_window) {
 			
 			window.scrollTo(previousScrollX, previousScrollY);
-			var animation = full_window.querySelector('.content > div').getAttribute('data-anim'); // Custom animation?
+			var animation = full_window.querySelector('.n-ovrl--content > div').getAttribute('data-anim'); // Custom animation?
 			if (animation.length < 11) { // '', 'null' or 'undefined'?
 				
 				animation = '0% { transform: translate3d(0,0,0) } 100% { transform: translate3d(0,-100%,0) }'; // 100% instead of 100vh, bc IE fails
@@ -202,7 +202,7 @@ var componentModal = (function (){
 	
 			animate(full_window, animation, .2, function (e) {
 	
-				disableBodyScroll(false, '.n-ovrl:last-of-type .content'); // Turn off and restore page scroll
+				disableBodyScroll(false, '.n-ovrl:last-of-type .n-ovrl--content'); // Turn off and restore page scroll
 				full_window.parentNode.removeChild(full_window);
 				full_window_content = null;
 		
@@ -213,7 +213,7 @@ var componentModal = (function (){
 					window.removeEventListener('keyup', keyUpClose);
 					removeClass(q('html'), 'no-scroll');
 	
-					if (!q('.slider')) { // No sliders on the page to control with arrow keys
+					if (!q('.n-slider')) { // No sliders on the page to control with arrow keys
 					
 						window.removeEventListener('keydown', arrow_keys_handler, false);
 						
@@ -221,7 +221,7 @@ var componentModal = (function (){
 				
 				} else {
 				
-					disableBodyScroll(true, '.n-ovrl:last-of-type .content');
+					disableBodyScroll(true, '.n-ovrl:last-of-type .n-ovrl--content');
 					adjustModal();
 					
 				}
@@ -258,21 +258,21 @@ var componentModal = (function (){
 	
 		var wrapper = document.createElement('div');
 		addClass(wrapper, 'n-ovrl');
-		wrapper.insertAdjacentHTML('beforeend', '<div class=content tabindex=0></div><div class=overlay-bg></div>');
+		wrapper.insertAdjacentHTML('beforeend', '<div class=n-ovrl--content tabindex=0></div><div class=overlay-bg></div>');
 		wrapper.firstChild.appendChild(full_window_content);
 		full_window_content = wrapper;
 	
-	    full_window_content.insertAdjacentHTML('afterbegin', '<div class=close> ← ' + document.title + '</div>');
-		full_window_content.querySelector('.overlay-bg').onclick = full_window_content.querySelector('.close').onclick = closeFullWindow;
-		full_window_content.querySelector('.close').addEventListener("touchmove", function (e) { e.preventDefault();}, { passive: false });
+	    full_window_content.insertAdjacentHTML('afterbegin', '<div class=n-ovrl--close> ← ' + document.title + '</div>');
+		full_window_content.querySelector('.overlay-bg').onclick = full_window_content.querySelector('.n-ovrl--close').onclick = closeFullWindow;
+		full_window_content.querySelector('.n-ovrl--close').addEventListener("touchmove", function (e) { e.preventDefault();}, { passive: false });
 		full_window_content.querySelector('.overlay-bg').addEventListener("touchmove", function (e) { e.preventDefault();}, { passive: false });
 		window.addEventListener('keyup', keyUpClose);
 		   
 		bodyElement.appendChild(full_window_content);
 	
-	    full_window_content.querySelector('.content').focus();
+	    full_window_content.querySelector('.n-ovrl--content').focus();
 	
-		disableBodyScroll(true, '.n-ovrl:last-of-type .content'); // Turn on and block page scroll
+		disableBodyScroll(true, '.n-ovrl:last-of-type .n-ovrl--content'); // Turn on and block page scroll
 		
 		if (qa('.n-ovrl').length === 1) { // Sole (first) modal
 

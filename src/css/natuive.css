@@ -1879,7 +1879,7 @@ html.full-screen {
   -moz-backface-visibility: hidden;
   backface-visibility: hidden; }
 
-.n-ovrl > .content {
+.n-ovrl--content {
   position: absolute;
   top: 0;
   left: 0;
@@ -1892,7 +1892,7 @@ html.full-screen {
   height: 100%;
   padding-top: 3em; }
 
-.n-ovrl.limited > .content, .n-ovrl.limited > .content {
+.n-ovrl.limited > .n-ovrl--content {
   /*
   		background: #666;
       	color: #eee;
@@ -1903,7 +1903,7 @@ html.full-screen {
   width: 50vw;
   margin-left: 25vw; }
 
-.n-ovrl .close {
+.n-ovrl > .n-ovrl--close {
   color: #fff;
   cursor: pointer;
   padding: .75em;
@@ -1938,24 +1938,26 @@ html.full-screen {
   background: transparent; }
 
 @media (max-width: 599.9px) {
-  .n-ovrl.limited > .content {
+  .n-ovrl.limited > .n-ovrl--content {
     height: calc(80% - var(--overlay-bottom) - var(--overlay-top));
     margin: 10%;
     width: 80%; }
-  .n-ovrl > .content {
-    padding-top: 1.5em; }
-  .n-ovrl .close {
+
+  .n-ovrl--close {
     height: 1.5em;
-    padding: 0 .75em; } }
+    padding: 0 .75em; }
+
+  .n-ovrl--content {
+    padding-top: 1.5em; } }
 @media (max-height: 512px) and (orientation: landscape) {
   .n-ovrl .n-slider-wrap.overlay, .n-ovrl .n-slider-wrap.vertical.overlay {
     margin: 0;
     height: 100%; }
 
-  .n-ovrl > .content {
+  .n-ovrl--content {
     padding: 0; }
 
-  .n-ovrl .close {
+  .n-ovrl--close {
     top: calc(50% - 20px);
     left: .5rem;
     right: auto;
@@ -1967,13 +1969,12 @@ html.full-screen {
     display: flex;
     justify-content: center;
     flex-direction: column; }
-
-  .n-ovrl .close:after {
-    content: "╳";
-    font-size: 1rem;
-    display: inline-block;
-    width: 40px;
-    text-align: center; }
+    .n-ovrl--close:after {
+      content: "╳";
+      font-size: 1rem;
+      display: inline-block;
+      width: 40px;
+      text-align: center; }
 
   .overlay.n-slider-wrap {
     margin: 0; } }
@@ -2002,223 +2003,178 @@ $bg: #1E8DaC;
 nav {
   vertical-align: baseline;
   display: inline-block; }
-
-nav ul {
-  margin: 0 0 0 -.5em;
-  padding: 0;
-  display: inline-block;
-  width: auto;
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap; }
-
-nav.scroll {
-  overflow: auto;
-  max-width: 100%; }
-
-nav.scroll > ul {
-  display: flex;
-  padding: .25em 0;
-  flex-wrap: nowrap;
-  white-space: nowrap; }
+  nav ul {
+    margin: 0 0 0 -.5em;
+    padding: 0;
+    display: inline-block;
+    width: auto;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap; }
+    nav ul li {
+      margin: 0; }
+      nav ul li:last-child {
+        margin-right: 0; }
+  nav.scroll {
+    overflow: auto;
+    max-width: 100%; }
+    nav.scroll > ul {
+      display: flex;
+      padding: .25em 0;
+      flex-wrap: nowrap;
+      white-space: nowrap; }
+  nav a {
+    position: relative;
+    padding: 0 .5em; }
+  nav .active a[href] {
+    text-decoration: none;
+    opacity: .7; }
+  nav:not(.n-drop) a[href^='#'] {
+    text-decoration: none; }
+  nav li:last-child a, nav .vertical li a {
+    padding-right: 0; }
 
 @supports (--a: 1) {
   nav.scroll a {
     padding: 0; }
-
   nav.scroll > ul {
     overflow: auto;
     max-width: 100%;
     transform: translate3d(0, 0, 0);
     -webkit-overflow-scrolling: touch; }
-
   nav.scroll ul li {
     padding: 0.75em; } }
-nav a {
-  position: relative;
-  padding: 0 .5em; }
-
-nav .active a[href] {
-  text-decoration: none;
-  opacity: .7; }
-
-nav:not(.drop) a[href^='#'] {
-  text-decoration: none; }
-
-nav li:last-child a, nav .vertical li a {
-  padding-right: 0; }
-
-nav ul li {
-  margin: 0; }
-
-nav li:last-child {
-  margin-right: 0; }
-
 main nav ul {
   padding-left: 0; }
 
-nav.drop {
+nav.n-drop {
   --nav-bg: #fff; }
-
-nav.drop ul {
-  padding: 0;
-  margin: 0;
-  min-height: 0;
-  z-index: 1; }
-
-nav.drop ul ul {
-  padding: 0;
-  position: absolute;
-  left: 0;
-  background-color: #fff;
-  background-color: var(--nav-bg);
-  top: 100%; }
-
-nav.drop ul ul ul {
-  margin-left: 100%;
-  top: 0; }
-
-nav.drop li {
-  display: inline-block;
-  vertical-align: top;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background-color: #fff;
-  background-color: var(--nav-bg);
-  position: relative;
-  width: auto; }
-
-/* nav.drop li[aria-haspopup]:not([tabindex]) */
-nav.drop li:not([tabindex]) > ul ~ a {
-  padding-right: 42px; }
-
-nav.drop li > a {
-  padding: 1em;
-  display: block; }
-
-nav.drop a:focus, nav.drop li > :focus {
-  outline-offset: -7px; }
-
-nav.drop a[href] {
-  position: relative; }
-
-nav.drop li:not([aria-haspopup]) > a {
-  z-index: 0; }
-
-nav.drop ul[role=menubar] li > a {
-  margin-right: 0;
-  padding-right: 1em; }
-
-nav.drop ul[role=menubar] li[aria-haspopup] > a {
-  margin-right: 0;
-  padding-right: 1em; }
-
-nav.drop li li {
-  display: block; }
-
-nav.drop ul ul:not([aria-expanded]) {
-  min-height: 0;
-  max-height: 0;
-  overflow: hidden;
-  position: absolute; }
-
-nav.drop ul li > :checked ~ ul, nav.drop :focus ~ ul,
-nav.drop a:focus ~ ul, nav.drop ul ul[aria-expanded], nav.drop li li ul[aria-expanded], nav.drop li li:not(:focus) :checked ~ ul {
-  max-height: none;
-  overflow: visible;
-  opacity: 1; }
-
-nav.drop ul ul[aria-expanded], nav.drop li li ul[aria-expanded], nav.drop li li:not(:focus) :checked ~ ul {
-  z-index: 2; }
-
-nav.drop li > input {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border: none;
-  border-radius: 0;
-  right: 0;
-  z-index: 1;
-  width: 2em; }
-
-/* nav.drop li > input,  */
-nav.drop li > ul ~ a, nav.drop li[aria-haspopup] {
-  background-image: url("data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M50%20100L0%200h100z%22%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: calc(100% - 16px) 50%;
-  background-size: .5em; }
-
-nav.drop[data-ready] li > ul ~ a {
-  background: none; }
-
-/*
-nav.drop li > input {
-	
-	background-position-y: 2.75em;
-	
-}
-*/
-/* nav.drop li li > input,  */
-nav.drop li li > ul ~ a, nav.drop li li[aria-haspopup] {
-  background-image: url("data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M100%2050L0%20100V0z%22%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E"); }
-
-nav.drop li[aria-haspopup] {
-  padding-right: calc(42px - 1em); }
+  nav.n-drop ul {
+    padding: 0;
+    margin: 0;
+    min-height: 0;
+    z-index: 1; }
+  nav.n-drop ul ul {
+    padding: 0;
+    position: absolute;
+    left: 0;
+    background-color: #fff;
+    background-color: var(--nav-bg);
+    top: 100%; }
+  nav.n-drop ul ul ul {
+    margin-left: 100%;
+    top: 0; }
+  nav.n-drop ul li {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #fff;
+    background-color: var(--nav-bg);
+    position: relative;
+    width: auto; }
+  nav.n-drop li:not([tabindex]) > ul ~ a {
+    padding-right: 42px; }
+  nav.n-drop li > a {
+    padding: 1em;
+    display: block; }
+  nav.n-drop a:focus, nav.n-drop li > :focus {
+    outline-offset: -7px; }
+  nav.n-drop a[href] {
+    position: relative; }
+  nav.n-drop li:not([aria-haspopup]) > a {
+    z-index: 0; }
+  nav.n-drop ul[role=menubar] li > a {
+    margin-right: 0;
+    padding-right: 1em; }
+  nav.n-drop ul[role=menubar] li[aria-haspopup] > a {
+    margin-right: 0;
+    padding-right: 1em; }
+  nav.n-drop li li {
+    display: block; }
+  nav.n-drop ul ul:not([aria-expanded]) {
+    min-height: 0;
+    max-height: 0;
+    overflow: hidden;
+    position: absolute; }
+  nav.n-drop ul li > :checked ~ ul, nav.n-drop :focus ~ ul,
+  nav.n-drop a:focus ~ ul, nav.n-drop ul ul[aria-expanded], nav.n-drop li li ul[aria-expanded], nav.n-drop li li:not(:focus) :checked ~ ul {
+    max-height: none;
+    overflow: visible;
+    opacity: 1; }
+  nav.n-drop ul ul[aria-expanded], nav.n-drop li li ul[aria-expanded], nav.n-drop li li:not(:focus) :checked ~ ul {
+    z-index: 2; }
+  nav.n-drop li > input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0;
+    right: 0;
+    z-index: 1;
+    width: 2em; }
+  nav.n-drop li > ul ~ a, nav.n-drop li[aria-haspopup] {
+    background-image: url("data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M50%20100L0%200h100z%22%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: calc(100% - 16px) 50%;
+    background-size: .5em; }
+  nav.n-drop[data-ready] li > ul ~ a {
+    background: none; }
+  nav.n-drop li li > ul ~ a, nav.n-drop li li[aria-haspopup] {
+    background-image: url("data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M100%2050L0%20100V0z%22%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E"); }
+  nav.n-drop li[aria-haspopup] {
+    padding-right: calc(42px - 1em); }
 
 @media (min-width: 600px) {
-  html:not(.can-touch) nav.drop ul ul ul:not([aria-expanded]) {
+  html:not(.can-touch) nav.n-drop ul ul ul:not([aria-expanded]) {
     transition: .1s .2s;
     opacity: 0;
     position: absolute; }
-  html:not(.can-touch) nav.drop > ul > li > ul li {
+  html:not(.can-touch) nav.n-drop > ul > li > ul li {
     background-color: #fff;
     background-color: var(--nav-bg); }
-  html:not(.can-touch) nav.drop > ul > li:not([aria-haspopup]):hover > ul,
-  html:not(.can-touch) nav.drop > ul > li:hover > ul,
-  html:not(.can-touch) nav.drop > ul li ul > li:hover > ul,
-  html:not(.can-touch) nav.drop ul ul :checked ~ ul:not([aria-expanded]),
-  html:not(.can-touch) nav.drop > ul li:not([aria-haspopup]) ul li:hover ~ ul {
+  html:not(.can-touch) nav.n-drop > ul > li:not([aria-haspopup]):hover > ul,
+  html:not(.can-touch) nav.n-drop > ul > li:hover > ul,
+  html:not(.can-touch) nav.n-drop > ul li ul > li:hover > ul,
+  html:not(.can-touch) nav.n-drop ul ul :checked ~ ul:not([aria-expanded]),
+  html:not(.can-touch) nav.n-drop > ul li:not([aria-haspopup]) ul li:hover ~ ul {
     max-height: none;
     overflow: visible;
     opacity: 1;
     z-index: 2; }
-  html:not(.can-touch) nav.drop > ul > li:hover > input:not(:checked) ~ ul,
-  html:not(.can-touch) nav.drop > ul li ul > li:hover > input:not(:checked) ~ ul,
-  html:not(.can-touch) html:not(.can-touch) nav.drop > ul > li:not([aria-haspopup]):hover > input:not(:checked) ~ ul,
-  html:not(.can-touch) html:not(.can-touch) nav.drop > ul li:not([aria-haspopup]) ul li:hover > input:not(:checked) ~ ul {
+  html:not(.can-touch) nav.n-drop > ul > li:hover > input:not(:checked) ~ ul,
+  html:not(.can-touch) nav.n-drop > ul li ul > li:hover > input:not(:checked) ~ ul,
+  html:not(.can-touch) nav.n-drop > ul > li:not([aria-haspopup]):hover > input:not(:checked) ~ ul,
+  html:not(.can-touch) nav.n-drop > ul li:not([aria-haspopup]) ul li:hover > input:not(:checked) ~ ul {
     min-height: 0;
     max-height: 0;
     overflow: hidden;
     z-index: 1;
     position: absolute; }
-  html:not(.can-touch) nav.drop > ul li ul li:hover ul {
+  html:not(.can-touch) nav.n-drop > ul li ul li:hover ul {
     transition-delay: 0.2s; }
 
-  nav.drop li {
+  nav.n-drop li {
     white-space: nowrap; } }
 @media (max-width: 599.9px) {
-  nav.drop ul ul {
+  nav.n-drop ul ul {
     position: static;
     width: calc(100% + 42px);
     padding-left: .5em;
     overflow: hidden;
     box-sizing: border-box; }
-
-  nav.drop li {
+    nav.n-drop ul ul ul {
+      margin: 0; }
+  nav.n-drop ul li {
     width: 100%; }
-
-  nav.drop ul ul ul {
-    margin: 0; }
-
-  nav.drop li > input, nav.drop li[aria-haspopup] {
-    background-position-y: 1.5em; }
-
-  nav.drop li[aria-haspopup] {
-    padding-right: 42px; } }
+    nav.n-drop ul li > input, nav.n-drop ul li[aria-haspopup] {
+      background-position-y: 1.5em; }
+    nav.n-drop ul li[aria-haspopup] {
+      padding-right: 42px; } }
 
 /*# sourceMappingURL=natuive-nav.css.map */
 
@@ -2252,7 +2208,7 @@ $bg: #1E8DaC;
 .n-notify:after {
   content: ' ✕'; }
 
-.n-notify.fixed {
+.n-notify.n-notify--fixed {
   font-weight: 500;
   position: fixed;
   left: 0;
@@ -2262,12 +2218,12 @@ $bg: #1E8DaC;
 /*# sourceMappingURL=notify.css.map */
 
 /* CSS-only parallax scrolling. html.parallax with body children .parallax-back and .parallax-front. Thanks http://keithclark.co.uk/articles/pure-css-parallax-websites/ */
-html.parallax, html.parallax body {
+html.n-parallax, html.n-parallax body {
   margin: 0;
   padding: 0;
   height: 100%; }
 
-.parallax-back {
+.n-parallax---back {
   position: absolute;
   top: 0;
   left: 0;
@@ -2275,20 +2231,20 @@ html.parallax, html.parallax body {
   bottom: 0;
   z-index: -1; }
 
-html.parallax .fixed-bg {
+html.n-parallax .fixed-bg {
   transform: none;
   background-attachment: fixed;
   background-size: cover;
   position: static; }
-  html.parallax .fixed-bg .fixed-bg-image {
+  html.n-parallax .fixed-bg .fixed-bg-image {
     display: none; }
 
-html.parallax body[data-chrome] .fixed-bg {
+html.n-parallax body[data-chrome] .fixed-bg {
   background-attachment: scroll; }
 
 @supports (perspective: 1px) {
   /* CSS Parallax is SUPPORTED */
-  html.parallax body {
+  html.n-parallax body {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -2297,12 +2253,12 @@ html.parallax body[data-chrome] .fixed-bg {
     perspective: 300px;
     perspective-origin: 100% 100%; }
 
-  .parallax-front {
+  .n-parallax--front {
     transform-style: preserve-3d;
     transform: translateZ(0);
     /* Safari H/W acceleration */ }
 
-  .parallax-back {
+  .n-parallax--back {
     transform: translateZ(-150px) scale(1.5);
     transform-origin: 100% 100%; } }
 
@@ -2337,20 +2293,6 @@ $bg: #1E8DaC;
   position: relative;
   -webkit-overflow-scrolling: touch;
   left: 0;
-  /*
-  	-webkit-animation-timing-function: ease;
-  	-webkit-animation-iteration-count: 1;
-  	-webkit-animation-duration: .4s;
-  	animation-timing-function: ease;
-  	animation-iteration-count: 1;
-  	animation-duration: .4s;
-  */
-  /*
-  	-webkit-transform-style: preserve-3d;
-  	-moz-transform-style: preserve-3d;
-  	-ms-transform-style: preserve-3d;
-  	transform-style: preserve-3d;
-  */
   display: flex;
   min-height: 4em; }
 
@@ -2360,11 +2302,6 @@ $bg: #1E8DaC;
   white-space: normal;
   vertical-align: top;
   overflow: hidden;
-  /*
-  	font-size: $font-size;
-  	line-height: $line-height;
-  	min-height: $line-height;
-  */
   margin: 0;
   flex: 1 0 auto; }
 
@@ -2399,11 +2336,7 @@ $bg: #1E8DaC;
   background: transparent; }
 
 .row .n-slider {
-  padding: 0;
-  /*
-  	border-left: 7px solid transparent;
-  	border-right: 7px solid transparent;
-  */ }
+  padding: 0; }
 
 .n-slider > * > img {
   max-height: 100%;
@@ -2431,18 +2364,6 @@ $bg: #1E8DaC;
 .n-slider.align-middle > * > * {
   text-align: center; }
 
-/*
-.overlay .n-slider-wrap.vertical.tabs > .slider-nav.row {
-		
-	position: fixed;
-	top: 1em;
-	bottom: 1em;
-	overflow: auto;
-	-webkit-overflow-scrolling: touch;
-	flex-wrap: nowrap;
-
-}
-*/
 .n-slider-wrap.overlay {
   top: 0px;
   bottom: 0px;
@@ -2488,20 +2409,8 @@ $bg: #1E8DaC;
   float: right; }
 
 .vertical.tabs > .slider-nav.row, .slider-nav.row.tabs {
-  width: 25%;
-  /*
-  	float: left;
-  	display: flex;
-  	flex-direction: column;
-  */ }
+  width: 25%; }
 
-/*
-.n-slider-wrap.tabs.vertical > .slider-nav.row a, .slider-nav.row.tabs a {
-	
-	flex: 0 1 auto;
-
-}
-*/
 .vertical.tabs.right > .n-slider {
   float: left; }
 
@@ -2542,19 +2451,6 @@ _:-ms-lang(x), .aspect > .n-slider-wrap {
   -ms-overflow-style: none;
   /* No scrollbars on IE10+ */ }
 
-/*
-.n-slider-wrap .n-slider > * {
-	
-	contain: strict;
-	
-}
-
-.n-slider-wrap .n-slider > .active {
-	
-	contain: none;
-	
-}
-*/
 .overlay.n-slider:not(.vertical) > * {
   overflow: auto;
   -webkit-overflow-scrolling: touch; }
@@ -2584,13 +2480,6 @@ _:-ms-lang(x), .aspect > .n-slider-wrap {
   display: inline-block;
   pointer-events: none; }
 
-/*
-.n-slider > .active + div ~ div:not(:last-child) { // Hide all slides after the next one, for speed
-	
-	display: none;
-	
-}
-*/
 .n-slider[data-ready]:not([data-peek]) > *:not([data-active]) {
   visibility: hidden; }
 
@@ -2603,13 +2492,6 @@ _:-ms-lang(x), .aspect > .n-slider-wrap {
 .overlay.n-slider > * {
   padding: 0; }
 
-/*
-.no-flex .n-slider > * + * { // Fallback
-	
-	margin-left: -.3em;
-	
-}
-*/
 .overlay.n-slider.vertical > * {
   height: 100%; }
 
@@ -2856,7 +2738,7 @@ tr, td, th, iframe {
 
 	}
 */
-td[data-sort] {
+.n-tbl td[data-sort] {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -2864,10 +2746,10 @@ td[data-sort] {
   user-select: none; }
 
 @media screen and (min-width: 1px) {
-  td[data-sort] {
+  .n-tbl td[data-sort] {
     cursor: pointer; }
 
-  td[data-sort]:after {
+  .n-tbl td[data-sort]:after {
     content: '⇳';
     margin-left: .5em; } }
 @media screen and (max-width: 599.9px) {
@@ -2915,7 +2797,7 @@ $bg: #1E8DaC;
   .n-tool[aria-expanded]:after {
     content: '╳'; }
 
-.n-tool .tip, label span .n-tool .tip {
+.n-tool--tip, label span .n-tool--tip {
   font-size: 16px;
   line-height: 1.5;
   min-height: 1.5em;
@@ -2938,7 +2820,7 @@ $bg: #1E8DaC;
   width: 20em;
   line-height: 1.2; }
 
-.n-tool[aria-expanded] .tip, html:not(.can-touch) .n-tool:hover .tip {
+.n-tool[aria-expanded] .n-tool--tip, html:not(.can-touch) .n-tool:hover .n-tool--tip {
   opacity: 1;
   visibility: visible;
   top: 100%; }

@@ -183,13 +183,13 @@ nav a {
 
 }
 
-nav.drop li[aria-haspopup] {
+nav.n-drop li[aria-haspopup] {
 	
 	background-position: calc(100% - .75em) 1.75em;
 	
 }
 
-header nav.drop ul li b.sub {
+header nav.n-drop ul li b.sub {
 	
 	margin: 0;
 	mix-blend-mode: normal;
@@ -197,14 +197,14 @@ header nav.drop ul li b.sub {
 	
 }
 
-nav.drop ul ul {
+nav.n-drop ul ul {
 
 	flex-direction: column;	
 	padding: 0;
 	
 }
 
-.no-touch nav.drop ul li:hover {
+.no-touch nav.n-drop ul li:hover {
 	
 	background: $orange;
 
@@ -492,19 +492,19 @@ form select {
 	
 }
 
-nav.drop {
+nav.n-drop {
 	
 	width: 100%;
 
 }
 
-nav.drop ul {
+nav.n-drop ul {
 	
 	display: flex;
 
 }
 
-nav.drop ul li {
+nav.n-drop ul li {
 	
 	border-radius: 3px;
 	flex-grow: 1;
@@ -512,32 +512,32 @@ nav.drop ul li {
 
 }
 
-nav.drop ul li:first-child {
+nav.n-drop ul li:first-child {
 	
 	margin-left: 0;
 	
 }
 
-nav.drop ul li:last-child {
+nav.n-drop ul li:last-child {
 	
 	margin-right: 0;
 	background: $dark-blue;
 	
 }
 
-nav.drop ul ul li {
+nav.n-drop ul ul li {
 
 	margin-left: 0;
 
 }
 
-nav.drop ul li, nav.drop ul li b.sub, nav.drop ul li .trigger:checked ~ b.sub, nav.drop ul ul li, nav.drop ul li li a, .no-touch nav.drop ul li li:hover a {
+nav.n-drop ul li, nav.n-drop ul li b.sub, nav.n-drop ul li .trigger:checked ~ b.sub, nav.n-drop ul ul li, nav.n-drop ul li li a, .no-touch nav.n-drop ul li li:hover a {
 	
 	background: $orange;
 
 }
 
-nav.drop ul li a[href] {
+nav.n-drop ul li a[href] {
 	
 	color: #fff;
 	display: block;
@@ -547,20 +547,20 @@ nav.drop ul li a[href] {
 
 }
 
-nav.drop input.trigger, nav.drop input:checked ~ input[type=reset] {
+nav.n-drop input.trigger, nav.n-drop input:checked ~ input[type=reset] {
 	
 	top: 50%;
 	height: 50%;
 
 }
 
-nav.drop ul ul li {
+nav.n-drop ul ul li {
 	
 	margin: 0;
 
 }
 
-nav.drop ul li b.sub:after {
+nav.n-drop ul li b.sub:after {
 	
 	background: url(arrow-down-white.png) no-repeat center center;
 	width: 10px;
@@ -675,7 +675,7 @@ input[type=text].search {
 
 	}
 	
-	nav.drop ul li {
+	nav.n-drop ul li {
 		
 		margin: 0;
 		
@@ -688,27 +688,27 @@ input[type=text].search {
 	}
 
 /*
-	nav.drop ul ul li, nav.drop ul ul li:first-child {
+	nav.n-drop ul ul li, nav.n-drop ul ul li:first-child {
 		
 		margin-left: 1rem;
 		
 	}
 */
 	
-	nav.drop input:checked ~ input[type=reset] {
+	nav.n-drop input:checked ~ input[type=reset] {
 		
 		top: 0;
 		height: 100%;
 
 	}
 	
-	.no-touch nav.drop ul li li:hover {
+	.no-touch nav.n-drop ul li li:hover {
 		
 		background: transparent;
 		
 	}
 	
-	nav.drop input.trigger.burger {
+	nav.n-drop input.trigger.burger {
 		
 		top: 0;
 		height: 3em;
@@ -736,7 +736,7 @@ input[type=text].search {
 	
 	}
 
-	nav.drop ul {
+	nav.n-drop ul {
 		
 		display: block;
 	

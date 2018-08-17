@@ -9,7 +9,6 @@ table {
 	border-collapse: collapse;
 	-webkit-overflow-scrolling: touch;
 	display: block;
-// 	margin: $line-height-em 0;
 
 	}
 
@@ -83,7 +82,7 @@ table {
 	}
 */
 
-	td[data-sort] {
+	.n-tbl td[data-sort] {
 		
 		-webkit-touch-callout: none;
 		-webkit-user-select: none;
@@ -95,13 +94,13 @@ table {
 	
 	@media screen and (min-width: 1px) { // IE9+
 	
-		td[data-sort] {
+		.n-tbl td[data-sort] {
 			
 			cursor: pointer;
 	
 		}
 		
-		td[data-sort]:after {
+		.n-tbl td[data-sort]:after {
 			
 			content: '⇳';
 			margin-left: .5em;

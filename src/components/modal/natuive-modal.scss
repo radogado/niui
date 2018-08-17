@@ -49,7 +49,7 @@ html.full-screen {
 
 }
 
-	.n-ovrl > .content {
+	.n-ovrl--content {
 		
 	    position: absolute;
 	    top: 0;
@@ -68,7 +68,7 @@ html.full-screen {
 
 	}
 	
-	.n-ovrl.limited > .content, /* .no-touch */ .n-ovrl.limited > .content {
+	.n-ovrl.limited > .n-ovrl--content {
 
 /*
 		background: #666;
@@ -82,7 +82,7 @@ html.full-screen {
 
 	}
 	
-	.n-ovrl .close {
+	.n-ovrl > .n-ovrl--close {
 
 		color: #fff;
 		cursor: pointer;
@@ -131,7 +131,7 @@ html.full-screen {
 
 	.n-ovrl {
 		
-		&.limited > .content {
+		&.limited > .n-ovrl--content {
 		
 			height: calc(80% - var(--overlay-bottom) - var(--overlay-top));
 			margin: 10%;
@@ -139,19 +139,19 @@ html.full-screen {
 		
 		}
 	
-		> .content {
-			
-			padding-top: $line-height-em;
+	}
+	
+	.n-ovrl--close {
+		
+		height: 1.5em;
+		padding: 0 .75em;			
+		
+	}
+
+	.n-ovrl--content {
+		
+		padding-top: $line-height-em;
 // 			height: 100%;
-	
-		}
-	
-		.close {
-			
-			height: 1.5em;
-			padding: 0 .75em;			
-			
-		}
 
 	}
 	
@@ -166,13 +166,13 @@ html.full-screen {
 		
 	}
 
-	.n-ovrl > .content {
+	.n-ovrl--content {
 		
 		padding: 0;
 
 	}
 
-	.n-ovrl .close {
+	.n-ovrl--close {
 	
 		top: calc(50% - 20px);
 		left: .5rem;
@@ -186,16 +186,16 @@ html.full-screen {
 		justify-content: center;
 		flex-direction: column;
 		
-	}
-
-	.n-ovrl .close:after {
-		
-		content: "╳";
-		font-size: 1rem;
-		display: inline-block;
-		width: 40px;
-		text-align: center;
-
+		&:after {
+			
+			content: "╳";
+			font-size: 1rem;
+			display: inline-block;
+			width: 40px;
+			text-align: center;
+	
+		}
+	
 	}
 	
 	.overlay.n-slider-wrap {

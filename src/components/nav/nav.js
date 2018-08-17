@@ -125,7 +125,7 @@
 	
 		});
 	
-		if (!closest(el, 'nav.drop')) { // The rest is for drop nav only
+		if (!closest(el, 'nav.n-drop')) { // The rest is for drop nav only
 			
 			return;
 	
