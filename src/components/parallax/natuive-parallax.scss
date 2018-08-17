@@ -1,14 +1,18 @@
 /* CSS-only parallax scrolling. html.parallax with body children .parallax-back and .parallax-front. Thanks http://keithclark.co.uk/articles/pure-css-parallax-websites/ */
 
-html.n-parallax, html.n-parallax body {
+html.n-parallax {
 
-	margin: 0;
-	padding: 0;
-	height: 100%;
+	&, body {
+	
+		margin: 0;
+		padding: 0;
+		height: 100%;
+	
+	}
 
 }
 
-.n-parallax---back {
+.n-parallax--back {
 
 	position: absolute;
 	top: 0;
@@ -20,26 +24,13 @@ html.n-parallax, html.n-parallax body {
 
 }
 
-// fixed background element needs fixing (disabled/background-attachmend (which isn't on mobile)), because there is no position: fixed under a transformed element like .parallax-front	
+// fixed background element needs fixing (disabled/background-attachmend (which isn't on mobile)), because there is no position: fixed under a transformed element like .parallax-front. This disables iPad. To do: fix it in Safari
 
 html.n-parallax .fixed-bg {
 		
-	transform: none;
 	background-attachment: fixed;
 	background-size: cover;
-	position: static;
-	
-	.fixed-bg-image {
-		
-		display: none;
-	
-	}
-
-}
-
-html.n-parallax body[data-chrome] .fixed-bg { // Chrome 67 breaks bg attachment fixed
-		
-	background-attachment: scroll;
+// 	position: relative;
 
 }
 
@@ -57,12 +48,14 @@ html.n-parallax body[data-chrome] .fixed-bg { // Chrome 67 breaks bg attachment 
 
 	}
 
+/* // No longer needed. The main content is now safe from transform drawbacks (like breaking fixed positioning)
 	.n-parallax--front {
 
 		transform-style: preserve-3d;
-		transform: translateZ(0); /* Safari H/W acceleration */
+		transform: translateZ(0); // Safari H/W acceleration
 
 	}
+*/
 
 	.n-parallax--back {
 

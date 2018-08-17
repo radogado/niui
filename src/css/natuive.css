@@ -894,28 +894,6 @@ form {
   -webkit-text-fill-color: #aaa;
   -webkit-text-fill-color: var(--placeholder_color); }
 
-/*
-:-moz-placeholder { // Firefox 18-
-
-   color: $placeholder_color;  
-   color: var(--placeholder_color);
-
-}
-
-::-moz-placeholder {  // Firefox 19+
-
-   color: $placeholder_color;  
-   color: var(--placeholder_color);
-
-}
-
-:-ms-input-placeholder {  
-
-   color: $placeholder_color;  
-   color: var(--placeholder_color);
-
-}
-*/
 legend {
   padding: 0 .5em; }
 
@@ -2223,7 +2201,7 @@ html.n-parallax, html.n-parallax body {
   padding: 0;
   height: 100%; }
 
-.n-parallax---back {
+.n-parallax--back {
   position: absolute;
   top: 0;
   left: 0;
@@ -2232,15 +2210,8 @@ html.n-parallax, html.n-parallax body {
   z-index: -1; }
 
 html.n-parallax .fixed-bg {
-  transform: none;
   background-attachment: fixed;
-  background-size: cover;
-  position: static; }
-  html.n-parallax .fixed-bg .fixed-bg-image {
-    display: none; }
-
-html.n-parallax body[data-chrome] .fixed-bg {
-  background-attachment: scroll; }
+  background-size: cover; }
 
 @supports (perspective: 1px) {
   /* CSS Parallax is SUPPORTED */
@@ -2253,11 +2224,14 @@ html.n-parallax body[data-chrome] .fixed-bg {
     perspective: 300px;
     perspective-origin: 100% 100%; }
 
-  .n-parallax--front {
-    transform-style: preserve-3d;
-    transform: translateZ(0);
-    /* Safari H/W acceleration */ }
-
+  /* // No longer needed. The main content is now safe from transform drawbacks (like breaking fixed positioning)
+  	.n-parallax--front {
+  
+  		transform-style: preserve-3d;
+  		transform: translateZ(0); // Safari H/W acceleration
+  
+  	}
+  */
   .n-parallax--back {
     transform: translateZ(-150px) scale(1.5);
     transform-origin: 100% 100%; } }
