@@ -23,7 +23,7 @@ header li a {
 	
 }
 
-header form {
+header .n-form {
 	
 	display: inline-block;
 	padding: 0;
@@ -118,7 +118,7 @@ footer a[href].button {
 
 }
 
-form#language-selector select {
+.n-form#language-selector select {
 	
     background: none;
     font-weight: bold;
@@ -129,7 +129,7 @@ form#language-selector select {
 
 @-moz-document url-prefix() {
 
-	form#language-selector select {
+	.n-form#language-selector select {
 	
     	text-indent: -1em;
 	    

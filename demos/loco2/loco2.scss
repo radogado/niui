@@ -41,7 +41,7 @@ body, .coverage .col4 b, a[href].button.big, form input[type=submit] {
 	
 	}
 	
-	form {
+	.n-form {
 		
 		padding: 0 0 7.5em 0;
 	
@@ -79,14 +79,14 @@ input[type=submit] {
 
 }
 
-main form {
+main .n-form {
 	
 	padding: 1em 0;
 	display: inline-block;
 
 }
 
-main .align-right form {
+main .align-right .n-form {
 	
 	text-align: left;
     margin-right: -1em;

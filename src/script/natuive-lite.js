@@ -836,7 +836,7 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 	
 	    var ready_to_submit = true;
 	
-	    forEach(el.querySelectorAll('.mandatory'), function(el) {
+	    forEach(el.querySelectorAll('.n-form--mandatory'), function(el) {
 		    
 		    if (closest(el, '[disabled]')) { // Ignore disabled conditional fields
 			    
@@ -866,12 +866,12 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 	
 	            ready_to_submit = false;
 	            el.querySelector('input').focus();
-	            addClass(el, 'alert');
+	            addClass(el, 'n-form--alert');
 	            return;
 	
 	        } else {
 	
-	            removeClass(el, 'alert');
+	            removeClass(el, 'n-form--alert');
 	
 	        }
 	
@@ -883,7 +883,7 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 	
 	    }
 	
-	    if (!hasClass(el, 'dynamic') || !(new XMLHttpRequest().upload) || !php_support) { // Browser unable to submit dynamically.
+	    if (!hasClass(el, 'n-form--dynamic') || !(new XMLHttpRequest().upload) || !php_support) { // Browser unable to submit dynamically.
 	
 	        return true;
 	
@@ -945,11 +945,11 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 	
 	}
 	
-	if (q('form.language')) { // To do: make it universal .submitonchange and for more than 1 form
+	if (q('.n-form--language')) { // To do: make it universal .submitonchange and for more than 1 form
 	
-	    q('form.language select').onchange = function(e) {
+	    q('.n-form--language select').onchange = function(e) {
 	
-	        q('form.language').submit();
+	        q('.n-form--language').submit();
 	
 	    };
 	
@@ -958,7 +958,7 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 	function toggleConditionalFieldset(e) {
 		
 		var el = e.target;
-		var fieldset = closest(el, '.condition').nextElementSibling;
+		var fieldset = closest(el, '.n-form--condition').nextElementSibling;
 		var attribute = 'disabled';
 		
 		if (el.checked) {
@@ -977,7 +977,7 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 
 	var init = function(host) {
 		
-		forEach(host.querySelectorAll('form'), function(el, i) {
+		forEach(host.querySelectorAll('form.n-form'), function(el, i) {
 		
 		    el.onsubmit = el.onsubmit || submitForm;
 		
@@ -989,7 +989,7 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 			
 		// 	Conditional form fieldsets
 		
-			forEach(el.querySelectorAll('.checkbox.condition input'), function(el, i) {
+			forEach(el.querySelectorAll('.n-form--check.n-form--condition input'), function(el, i) {
 				
 				el.onchange = toggleConditionalFieldset;
 			

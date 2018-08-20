@@ -38,19 +38,19 @@ footer ul li + li {
 
 }
 
-form, form select, form input {
+.n-form, .n-form select, .n-form input {
 	
 	color: #333;
 
 }
 
-form button, input, input[type=search], select, textarea {
+.n-form button, input, input[type=search], select, textarea {
 	
 	background: #eee;
 
 }
 
-.header-and-banner form {
+.header-and-banner .n-form {
 	
 	background: rgba(0,0,0,.5);
 	margin-top: 3em;
@@ -59,14 +59,14 @@ form button, input, input[type=search], select, textarea {
 	
 }
 
-.header-and-banner form > *, .header-and-banner form input[type=submit] {
+.header-and-banner .n-form > *, .header-and-banner .n-form input[type=submit] {
 	
 	margin-top: .1em;
 	margin-bottom: .1em;
 
 }
 
-.header-and-banner form * + * {
+.header-and-banner .n-form * + * {
 
 	margin-left: -.28em;
 
@@ -212,7 +212,7 @@ header nav a[href] {
 	
 }
 
-.header-and-banner form input[type=submit] {
+.header-and-banner .n-form input[type=submit] {
 	
 	background: #ff5a5f;
 	border-radius: 0 3px 3px 0;

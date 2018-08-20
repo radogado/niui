@@ -103,13 +103,13 @@ strong, h2, nav li a[href] {
 
 }
 
-footer form {
+footer .n-form {
 	
 	display: flex;
 	
 }
 
-footer form input[type=text] {
+footer .n-form input[type=text] {
 	
 	flex-grow: 1;
 	margin: 0;
@@ -117,7 +117,7 @@ footer form input[type=text] {
 
 }
 
-footer form input[type=submit] {
+footer .n-form input[type=submit] {
 	
 	font-weight: normal;
 	font-size: unset;

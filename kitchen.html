@@ -112,11 +112,11 @@
 
 						</nav>
 						
-						<form class='col5 align-right language' action=. method=get>
+						<form class='n-form n-form--language col5 align-right' action=. method=get>
 
 							<label class="select">
 							
-								<select name="l" class="mandatory">
+								<select name="l" class="n-form--mandatory">
 									
 									<option value="en">🇬🇧 English</option>
 									<option value="fr">🇫🇷 Français</option>
@@ -652,12 +652,14 @@
 										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 								
 										<form>
-										<select>
+
+											<select>
+												
+												<option>asd</option>
+												<option> asdas</option>
 											
-											<option>asd</option>
-											<option> asdas</option>
-										
-										</select>
+											</select>
+	
 										</form>
 		
 									</div>
@@ -726,12 +728,14 @@
 											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 									
 											<form>
-											<select>
+
+												<select>
+													
+													<option>asd</option>
+													<option> asdas</option>
 												
-												<option>asd</option>
-												<option> asdas</option>
-											
-											</select>
+												</select>
+
 											</form>
 										
 										</div>
@@ -1172,41 +1176,41 @@
 							</div>
 -->
 							
-							<form action=# method=post target=_blank id=f novalidate class="wide">
+							<form action=# method=post target=_blank id=f novalidate class="n-form n-form--wide">
 								
-								<label class=mandatory>
+								<label class=n-form--mandatory>
 			
 									<span>Excepteur sint occaecat cupidatat non proident</span>
 									<input name=last_name id=last_name type=text placeholder='What is your name?'>
 			
 								</label>
 			
-								<label class=mandatory>
+								<label class=n-form--mandatory>
 			
 									<span>Number input (5 digits)</span>
 									<input type=number placeholder=0 data-digits=5>
 			
 								</label>
 								
-								<div class=checkbox>
+								<div class=n-form--check>
 			
 									<span>A very long piece of label text which wraps to another line</span>
 									<label> 
-										<input type=radio name=radiodemo> <b class=checkbox-icon></b>
+										<input type=radio name=radiodemo> <b class=n-form--check-icon></b>
 										First option
 									</label>
 									<label> 
-										<input type=radio name=radiodemo> <b class=checkbox-icon></b>
+										<input type=radio name=radiodemo> <b class=n-form--check-icon></b>
 										Second option has very long text which wraps to the next line
 									</label><br>
 									<label> 
-										<input type=radio name=radiodemo> <b class=checkbox-icon></b>
+										<input type=radio name=radiodemo> <b class=n-form--check-icon></b>
 										Third option
 									</label>
 			
 								</div>
 			
-								<label class=mandatory>
+								<label class=n-form--mandatory>
 			
 									<span>Email</span>
 									<input name=email id=email type=email placeholder='Your Email address.'>
@@ -1220,7 +1224,7 @@
 			
 								</label>
 						
-								<label class="mandatory" disabled>
+								<label class="n-form--mandatory" disabled>
 			
 									<span>Website</span>
 									<input name=URL id=URL type=url placeholder='URL of your website.'>
@@ -1237,21 +1241,21 @@
 								<label>
 			
 									<span>Select a file</span>
-									<div class=file>
+									<div class=n-form--file>
 										<input name=file id=file type=file>
 										<span>Drop or browse</span>
 									</div>
 			
 								</label> 
 						
-								<label class=mandatory>
+								<label class=n-form--mandatory>
 			
 									<span>Email</span>
 									<input name=email id=email type=email placeholder='Your Email address.'>
 			
 								</label> 
 
-								<label class="select">
+								<label>
 			
 									<span>Country of residence</span>
 
@@ -1268,11 +1272,11 @@
 			
 								</label>
 						
-								<div class='checkbox mandatory'>
+								<div class='n-form--check n-form--mandatory'>
 			
 									<span>Check this</span>
 									<label>
-										<input name=checkbox id=checkbox type=checkbox> <b class=checkbox-icon></b>
+										<input name=n-form--check id=checkbox type=checkbox> <b class=n-form--check-icon></b>
 										I accept the <a href=#>Terms and Conditions</a>.
 									</label>
 			
@@ -1285,11 +1289,11 @@
 			
 								</label>
 								
-								<div class='checkbox condition'>
+								<div class='n-form--check n-form--condition'>
 			
 									<span>Open disabled fieldset below</span>
 									<label>
-										<input name=checkbox id=checkbox type=checkbox> <b class=checkbox-icon></b>
+										<input name=checkbox id=checkbox type=checkbox> <b class=n-form--check-icon></b>
 									</label>
 			
 								</div>
@@ -1327,34 +1331,34 @@
 						
 						<div> 
 							
-							<form action=# method=post target=_blank class=mast>
+							<form action=# method=post target=_blank class='n-form n-form--mast'>
 								
-								<label class=mandatory>
+								<label class=n-form--mandatory>
 			
 									<span>Excepteur sint occaecat cupidatat non proident</span>
 									<input name=last_name type=text placeholder='What is your name?'>
 			
 								</label>
 								
-								<div class=checkbox>
+								<div class=n-form--check>
 			
 									<span>Please choose:</span>
 									<label> 
-										<input type=radio name=radiodemo> <b class=checkbox-icon></b>
+										<input type=radio name=radiodemo> <b class=n-form--check-icon></b>
 										First option
 									</label>
 									<label> 
-										<input type=radio name=radiodemo> <b class=checkbox-icon></b>
+										<input type=radio name=radiodemo> <b class=n-form--check-icon></b>
 										Second option
 									</label>
 									<label> 
-										<input type=radio name=radiodemo> <b class=checkbox-icon></b>
+										<input type=radio name=radiodemo> <b class=n-form--check-icon></b>
 										Third option
 									</label>
 			
 								</div>
 			
-								<label class=mandatory>
+								<label class=n-form--mandatory>
 			
 									<span>Email</span>
 									<input name=email type=email placeholder='Your Email address.'>
@@ -1385,14 +1389,14 @@
 								<label>
 			
 									<span>Select a file</span>
-									<div class=file>
+									<div class=n-form--file>
 										<input name=file type=file>
 										<span>Drop or browse</span>
 									</div>
 			
 								</label> 
 						
-								<label class="select">
+								<label>
 			
 									<span>Country of residence</span>
 	
@@ -1409,11 +1413,11 @@
 			
 								</label>
 						
-								<div class='checkbox mandatory'>
+								<div class='n-form--check n-form--mandatory'>
 			
 									<span>Check this</span>
 									<label>
-										<input name=checkbox type=checkbox> <b class=checkbox-icon></b>
+										<input name=checkbox type=checkbox> <b class=n-form--check-icon></b>
 										I accept the <a href=#>Terms and Conditions</a>.
 									</label>
 			
@@ -1438,7 +1442,7 @@
 		
 						<div> 
 							
-							<form class=dynamic action=https://docs.google.com/forms/d/1K55MbIgqFWkYzBOOe2-UfSpKPchOUNxhSxgCXz4YG8k/formResponse target=_blank method=post>
+							<form action=https://docs.google.com/forms/d/1K55MbIgqFWkYzBOOe2-UfSpKPchOUNxhSxgCXz4YG8k/formResponse target=_blank method=post class="n-form n-form--dynamic">
 						
 								<label>
 			

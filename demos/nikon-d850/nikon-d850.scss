@@ -55,7 +55,7 @@ header img[src*="d850-logo"] {
 
 }
 
-header form {
+header .n-form {
 	
 	padding: 0;
 	font-size: .75em;
@@ -63,7 +63,7 @@ header form {
 
 }
 
-header form input, header p {
+header .n-form input, header p {
 	
 	margin: 0;
 	
@@ -81,7 +81,7 @@ header a small {
 
 }
 
-header input[type=search] {
+header .n-form input[type=search] {
 	
 	padding-right: 5em;
 	background: none;
@@ -89,7 +89,7 @@ header input[type=search] {
 
 }
 
-header input[type=submit] {
+header .n-form input[type=submit] {
 	
 	background: #eee url(search_12x12.png) center center no-repeat;
 	padding: 0 1.5em;

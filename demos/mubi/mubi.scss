@@ -29,14 +29,14 @@ header {
 
 }
 
-header form.flat {
+header .n-form {
 	
 	white-space: nowrap;
 	padding: 0;
 
 }
 
-header form.flat > * {
+header .n-form > * {
 	
 	display: inline-block;
 	float: none;
@@ -182,14 +182,14 @@ a.related[href] {
 	
 }
 
-form.flat input[type=submit] {
+.n-form input[type=submit] {
 	
 	margin-top: 0;
 	background: transparent;
 	
 }
 
-form.flat input[type=text] {
+.n-form input[type=text] {
 	
 	background: transparent;
 	color: #fff;

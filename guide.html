@@ -2403,12 +2403,14 @@ require('./node_modules/natuive/index.js');
 										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 								
 										<form>
-										<select>
+
+											<select>
+												
+												<option>asd</option>
+												<option> asdas</option>
 											
-											<option>asd</option>
-											<option> asdas</option>
-										
-										</select>
+											</select>
+
 										</form>
 									
 									</div>
@@ -2801,7 +2803,7 @@ require('./node_modules/natuive/index.js');
 							
 							<h3>Default</h3>
 							
-							<form class=dynamic action=https://docs.google.com/forms/d/1K55MbIgqFWkYzBOOe2-UfSpKPchOUNxhSxgCXz4YG8k/formResponse target=_blank method=post>
+							<form class='n-form n-form--dynamic' action=https://docs.google.com/forms/d/1K55MbIgqFWkYzBOOe2-UfSpKPchOUNxhSxgCXz4YG8k/formResponse target=_blank method=post>
 						
 								<label>
 			
@@ -2818,34 +2820,34 @@ require('./node_modules/natuive/index.js');
 							
 							<h3>Mast</h3>
 							
-							<form action=# method=post target=_blank class=mast>
+							<form action=# method=post target=_blank class='n-form--mast n-form'>
 								
-								<label class=mandatory>
+								<label class=n-form--mandatory>
 			
 									<span>Excepteur sint occaecat cupidatat non proident</span>
 									<input name=last_name type=text placeholder='What is your name?'>
 			
 								</label>
 								
-								<div class=checkbox>
+								<div class=n-form--check>
 			
 									<span>Please choose:</span>
 									<label> 
-										<input type=radio name=radiodemo> <b class=checkbox-icon></b>
+										<input type=radio name=radiodemo> <b class=n-form--check-icon></b>
 										First option
 									</label>
 									<label> 
-										<input type=radio name=radiodemo> <b class=checkbox-icon></b>
+										<input type=radio name=radiodemo> <b class=n-form--check-icon></b>
 										Second option
 									</label>
 									<label> 
-										<input type=radio name=radiodemo> <b class=checkbox-icon></b>
+										<input type=radio name=radiodemo> <b class=n-form--check-icon></b>
 										Third option
 									</label>
 			
 								</div>
 			
-								<label class=mandatory>
+								<label class=n-form--mandatory>
 			
 									<span>Email</span>
 									<input name=email type=email placeholder='Your Email address.'>
@@ -2876,14 +2878,14 @@ require('./node_modules/natuive/index.js');
 								<label>
 			
 									<span>Select a file</span>
-									<div class=file>
+									<div class=n-form--file>
 										<input name=file type=file>
 										<span>Drop or browse</span>
 									</div>
 			
 								</label> 
 						
-								<label class='select'>
+								<label>
 			
 									<span>Country of residence</span>
 	
@@ -2900,11 +2902,11 @@ require('./node_modules/natuive/index.js');
 			
 								</label>
 						
-								<div class='checkbox mandatory'>
+								<div class='n-form--check n-form--mandatory'>
 			
 									<span>Check this</span>
 									<label>
-										<input name=checkbox type=checkbox> <b class=checkbox-icon></b>
+										<input name=checkbox type=checkbox> <b class=n-form--check-icon></b>
 										I accept the <a href=#>Terms and Conditions</a>.
 									</label>
 			
@@ -2924,7 +2926,7 @@ require('./node_modules/natuive/index.js');
 <div class="code">
 
 <pre>
-&lt;form class='mast'&gt;
+&lt;form class='n-form n-form--mast'&gt;
 	...
 &lt;/form&gt;
 </pre>	
@@ -2937,41 +2939,41 @@ require('./node_modules/natuive/index.js');
 							
 							<h3>Wide</h3>
 	
-							<form action=# method=post target=_blank novalidate class='wide'>
+							<form action=# method=post target=_blank novalidate class='n-form n-form--wide'>
 								
-								<label class=mandatory>
+								<label class=n-form--mandatory>
 			
 									<span>Excepteur sint occaecat cupidatat non proident</span>
 									<input name=last_name id=last_name type=text placeholder='What is your name?'>
 			
 								</label>
 			
-								<label class=mandatory>
+								<label class=n-form--mandatory>
 			
 									<span>Number input (5 digits)</span>
 									<input type=number placeholder=0 data-digits=5>
 			
 								</label>
 			
-								<div class=checkbox>
+								<div class=n-form--check>
 			
 									<span>A very long piece of label text which wraps to another line</span>
 									<label> 
-										<input type=radio name=radiodemo> <b class=checkbox-icon></b>
+										<input type=radio name=radiodemo> <b class=n-form--check-icon></b>
 										First option
 									</label>
 									<label> 
-										<input type=radio name=radiodemo> <b class=checkbox-icon></b>
+										<input type=radio name=radiodemo> <b class=n-form--check-icon></b>
 										Second option has very long text which wraps to the next line
 									</label>
 									<label> 
-										<input type=radio name=radiodemo> <b class=checkbox-icon></b>
+										<input type=radio name=radiodemo> <b class=n-form--check-icon></b>
 										Third option
 									</label>
 			
 								</div>
 			
-								<label class=mandatory>
+								<label class=n-form--mandatory>
 			
 									<span>Email</span>
 									<input name=email id=email type=email placeholder='Your Email address.'>
@@ -2985,7 +2987,7 @@ require('./node_modules/natuive/index.js');
 			
 								</label>
 						
-								<label class='mandatory'>
+								<label class=n-form--mandatory>
 			
 									<span>Website</span>
 									<input name=URL id=URL type=url placeholder='URL of your website.'>
@@ -3002,14 +3004,14 @@ require('./node_modules/natuive/index.js');
 								<label>
 			
 									<span>Select a file</span>
-									<div class=file>
+									<div class=n-form--file>
 										<input name=file id=file type=file>
 										<span>Drop or browse</span>
 									</div>
 			
 								</label> 
 						
-								<label class='select'>
+								<label>
 			
 									<span>Country of residence</span>
 
@@ -3026,7 +3028,7 @@ require('./node_modules/natuive/index.js');
 			
 								</label>
 						
-								<div class='checkbox mandatory'>
+								<div class='n-form--check n-form--mandatory'>
 			
 									<span>Check this</span>
 									<label>
@@ -3043,11 +3045,11 @@ require('./node_modules/natuive/index.js');
 			
 								</label>
 
-								<div class='checkbox condition'>
+								<div class='n-form--check n-form--condition'>
 			
 									<span>Open disabled fieldset below</span>
 									<label>
-										<input name='checkbox' id='checkbox' type='checkbox'> <b class='checkbox-icon'></b>
+										<input name='checkbox' id='checkbox' type='checkbox'> <b class='n-form--check-icon'></b>
 									</label>
 			
 								</div>
@@ -3081,7 +3083,7 @@ require('./node_modules/natuive/index.js');
 <div class="code">							
 
 <pre>
-&lt;form class='wide'&gt;
+&lt;form class='n-form n-form--wide'&gt;
 	...
 &lt;/form&gt;
 </pre>	
@@ -3135,10 +3137,10 @@ require('./node_modules/natuive/index.js');
 							<div class="code">							
 							
 <pre>
-&lt;div class='checkbox'&gt;
+&lt;div class='n-form--check'&gt;
 	&lt;span&gt;Global label&lt;/span&gt;
 	&lt;label&gt; 
-		&lt;input type='checkbox'&gt; &lt;b class=checkbox-icon&gt;&lt;/b&gt;
+		&lt;input type='checkbox'&gt; &lt;b class=n-form--check-icon&gt;&lt;/b&gt;
 		Checkbox-specific label
 	&lt;/label&gt;
 &lt;/div&gt;
@@ -3154,14 +3156,14 @@ require('./node_modules/natuive/index.js');
 							<div class="code">							
 							
 <pre>
-&lt;div class='checkbox'&gt;
+&lt;div class='n-form--check'&gt;
 	&lt;span&gt;Label for all buttons&lt;/span&gt;
 	&lt;label&gt; 
-		&lt;input type='radio' name='radiodemo'&gt; &lt;b class=checkbox-icon&gt;&lt;/b&gt;
+		&lt;input type='radio' name='radiodemo'&gt; &lt;b class=n-form--check-icon&gt;&lt;/b&gt;
 		Label for this button
 	&lt;/label&gt;
 	&lt;label&gt; 
-		&lt;input type='radio' name='radiodemo'&gt; &lt;b class=checkbox-icon&gt;&lt;/b&gt;
+		&lt;input type='radio' name='radiodemo'&gt; &lt;b class=n-form--check-icon&gt;&lt;/b&gt;
 		Label for this button
 	&lt;/label&gt;
 	...
@@ -3212,7 +3214,7 @@ require('./node_modules/natuive/index.js');
 <pre>
 &lt;label&gt;
 	&lt;span&gt;Label&lt;/span&gt;
-	&lt;div class='file'&gt;
+	&lt;div class='n-form--file'&gt;
 		&lt;input type='file'&gt;
 		&lt;span&gt;Placeholder&lt;/span&gt;
 	&lt;/div&gt;
@@ -3229,7 +3231,7 @@ require('./node_modules/natuive/index.js');
 							<div class="code">							
 							
 <pre>
-&lt;label class='select'&gt;
+&lt;label&gt;
 	&lt;span&gt;Label&lt;/span&gt;
 	&lt;select&gt;
 		&lt;option value='First option'&gt;First option&lt;/option&gt;
@@ -3248,10 +3250,10 @@ require('./node_modules/natuive/index.js');
 							<div class="code">							
 							
 <pre>
-&lt;div class='checkbox condition'&gt;
+&lt;div class='n-form--check n-form--condition'&gt;
 	&lt;span&gt;Enable fieldset below&lt;/span&gt;
 	&lt;label&gt;
-		&lt;input type='checkbox'&gt; &lt;b class=checkbox-icon&gt;&lt;/b&gt;
+		&lt;input type='checkbox'&gt; &lt;b class=n-form--check-icon&gt;&lt;/b&gt;
 	&lt;/label&gt;
 &lt;/div&gt;
 &lt;fieldset disabled&gt;
@@ -3269,8 +3271,8 @@ require('./node_modules/natuive/index.js');
 								
 							<ul>
 								
-								<li>Validation enabled by <pre>&lt;label class='mandatory'&gt;</pre></li>
-								<li>Dynamic submit without page reload: <pre>&lt;form class='dynamic'&gt;</pre>. Requires PHP host.</li>
+								<li>Validation enabled by <pre>&lt;label class='n-form--mandatory'&gt;</pre></li>
+								<li>Dynamic submit without page reload: <pre>&lt;form class='n-form--dynamic'&gt;</pre>. Requires PHP host.</li>
 								<li>Optional fieldsets are ignored by validation when disabled.</li>
 								<li>Set the placeholder colour with CSS variable <b>--placeholder_color</b>.</li>
 								<li><pre>&lt;form class='sticky-submit'&gt;</pre> to position the submit button absolutely on the right/center.</li>
@@ -3519,7 +3521,7 @@ require('./node_modules/natuive/index.js');
 							
 							<h2>Language selector</h2>
 					
-							<form action=. method=get class=language>
+							<form action=. method=get class='n-form n-form--language'>
 				
 								<label class='select'>
 								
@@ -3548,7 +3550,7 @@ require('./node_modules/natuive/index.js');
 <div class="code">							
 
 <pre>
-&lt;form action=. method=get class=language&gt;
+&lt;form action=. method=get class='n-form n-form--language'&gt;
 	&lt;label class='select'&gt;
 		&lt;select name='l'&gt;
 			&lt;option value='en'&gt;🇬🇧 English&lt;/option&gt;

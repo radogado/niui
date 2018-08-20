@@ -119,66 +119,45 @@ header > .row, header > nav {
 
 }
 
-header form {
+header .n-form {
 	
 	position: relative;
 
-}
-
-header input {
+	input {
+		
+		margin-bottom: 0;
+		background: #fff;
+		border-color: #969696;
+		border-style: solid;
+		padding-right: 2em;
+		min-height: 2em;
+		margin: .1em;
 	
-	margin-bottom: 0;
-	background: #fff;
-	border-color: #969696;
-	border-style: solid;
-	padding-right: 2em;
-	min-height: 2em;
-	margin: .1em;
-
-}
-
-header input[type=submit], header input[type=submit]:hover {
+	}
 	
-	height: 100%;
-	width: 2em;
-	position: absolute;
-	top: -.1em;
-	right: 0;
-	background: none;
-	min-width: 0;
-	border: none;
-	min-height: 2em;
-	font-family: 'shell-icons';
-	text-align: center;
-    bottom: 0;
-    margin-bottom: 0;
-    line-height: 1em;
-	margin-right: .5em;
-
-}
-
-/*
-nav input[type=reset] {
+	input[type=submit], input[type=submit]:hover {
+		
+		height: 100%;
+		width: 2em;
+		position: absolute;
+		top: -.1em;
+		right: 0;
+		background: none;
+		min-width: 0;
+		border: none;
+		min-height: 2em;
+		font-family: 'shell-icons';
+		text-align: center;
+	    bottom: 0;
+	    margin-bottom: 0;
+	    line-height: 1em;
+		margin-right: .5em;
 	
-	position: absolute; 
-	background: transparent;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	border: 0;
-	display: none;
-    width: 100%;
-    outline: none;
-    height: 3rem;
-    z-index: 2;
-    padding: 0;
-    cursor: pointer;
-    		
-}
-*/
+	}
 
-header .row > div, header a.logo, header form {
+}
+
+header .row > div, header a.logo, header .n-form {
 	
 	vertical-align: middle;
 	padding: 0;

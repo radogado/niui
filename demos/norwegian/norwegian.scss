@@ -83,20 +83,26 @@ main .row > a[href] {
 	
 }
 
-form.news {
+form.n-form.news {
 	
 	margin: 1em 0;
 	padding: 1.5em;
 
 }
 
-footer, form.news, .banner .n-slider-wrap {
+footer, form.n-form.news, .banner .n-slider-wrap {
 	
 	background: #e3e3e3;
 	    
 }
 
-footer input[type=submit] {
+footer form.n-form select {
+
+	background-color: #fff;
+
+}
+
+footer .n-form input[type=submit] {
 	
 	background-color: #d8d8d8;
 	color: #003d50;
@@ -193,27 +199,27 @@ form > p, main form .checkbox {
 
 }
 
-main form input {
+main form.n-form input {
 	
 	margin: 0;
 	background: #fff;
 
 }
 
-main input[type=submit] {
+main .n-form input[type=submit] {
 	
 	color: #fff;
 	background-color: #003d50;
 
 }
 
-form select:hover {
+form.n-form select:hover {
 	
     border-color: #003d50;
 	    
 }
 
-form select {
+form.n-form select {
 	
 	background: url(icon-dropdown-arrow.svg) right center no-repeat;
 	background-position: calc(100% - 1em) 1em;
@@ -258,26 +264,26 @@ form select {
 
 }
 
-.banner input[type=submit] {
+.banner .n-form input[type=submit] {
 	
 	color: #fff;
 	background-color: #d81939;
 	
 }
 
-form.wide input[type=submit] {
+form.n-form.n-form--wide input[type=submit] {
 	
 	margin: 0;
 
 }
 
-form.wide > .col1 {
+form.n-form.n-form--wide > .col1 {
 	
 	margin-top: -1.5em;
 	
 }
 
-.banner select {
+.banner .n-form select {
 	
 	background-color: #fff;
 	

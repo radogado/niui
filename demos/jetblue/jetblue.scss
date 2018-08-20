@@ -6,7 +6,7 @@ $light-blue: #33507d;
 $lighter-blue: #f1f5f8;
 $line-height: 19px;
 
-body, .button, .n-lightbox a, .row.wrap>*, .tip, body, button, form .checkbox span, form label>span, h4, h5, html, input[type=submit], label, label span .tip, li, nav.sub a, p {
+body, .button, .n-lightbox a, .row.wrap>*, .tip, body, button, .n-form .n-form--check span, .n-form label>span, h4, h5, html, input[type=submit], label, label span .tip, li, nav.sub a, p {
 	 
 	font-size: 12px;
 	font-family: 'Helvetica Neue', sans-serif;
@@ -14,7 +14,7 @@ body, .button, .n-lightbox a, .row.wrap>*, .tip, body, button, form .checkbox sp
 
 }
 
-form label {
+.n-form label {
 	
 	display: inline;
 
@@ -217,10 +217,11 @@ nav.n-drop ul ul {
 	margin-right: 0;
 	width: 100%;
 	margin-top: 0;
+	display: flex;
 
 }
 
-form.flat input[type=submit] {
+.n-form input[type=submit] {
 	
 	display: inline-block;
 	float: none;
@@ -229,7 +230,7 @@ form.flat input[type=submit] {
 
 }
 
-form.flat label, form .checkbox {
+.n-form label, .n-form .n-form--check {
 	
 	display: inline-block;
 	width: auto;
@@ -238,38 +239,33 @@ form.flat label, form .checkbox {
 	
 }
 
-form.flat .row > div > label {
+.n-form .row > div > label {
 	
 	width: 100%;
 
 }
 
-form.flat .row > div > label input {
+.n-form .row > div > label input {
 	
 	margin: 0;
 
 }
 
-form .checkbox {
+.n-form .n-form--check {
 	
 	line-height: $line-height*2;
 	padding: 0 $line-height/2;
 
 }
 
-form .checkbox label {
-	
-
-}
-
-form.flat .checkbox label:first-of-type {
+.n-form .checkbox label:first-of-type {
 	
 	margin-top: 0;
 	padding-right: $line-height/2;
 
 }
 
-.buy form.flat input[type=submit] {
+.buy .n-form input[type=submit] {
 	
 	background: $orange;
 
@@ -316,28 +312,12 @@ form.flat .checkbox label:first-of-type {
 	
 }
 
-/*
-a.arrow {
-	
-	position: relative;
-	padding-right: 1em;
-	margin-right: .5em;
-	
-}
-*/
-
 a.arrow:after {
 
 	content: '▶︎';
 	display: inline-block;
 	font-size: .8em;
 	margin-left: .5em;
-// 	margin-right: .5em;
-/*
-	position: absolute;
-	right: -.5em;
-	bottom: -.3em;
-*/
 	
 }
 
@@ -368,7 +348,7 @@ a.arrow:after {
 
 }
 
-.hi form .checkbox {
+.hi .n-form .n-form--check {
 	
 	padding: 0;
 
@@ -444,7 +424,7 @@ a.arrow:after {
 
 }
 
-input[type=radio] + .checkbox-icon {
+input[type=radio] + .n-form--check-icon {
 	
 	background: #fff;
 	border: 2px solid #999;
@@ -453,7 +433,7 @@ input[type=radio] + .checkbox-icon {
 
 }
 
-input[type=radio]:checked + .checkbox-icon {
+input[type=radio]:checked + .n-form--check-icon {
 	
 	background: $dark-blue;
 	box-shadow: 0 0 1px 2px $orange;
@@ -461,13 +441,13 @@ input[type=radio]:checked + .checkbox-icon {
 
 }
 
-input[type=radio]:checked+.checkbox-icon:before {
+input[type=radio]:checked + .n-form--check-icon:before {
 	
 	background: $dark-blue;
 	
 }
 
-form select, a.button.icon {
+.n-form select, a.button.icon {
 	
 	box-shadow: 1px 1px 0 #ccc;
 	height: auto;
@@ -478,7 +458,7 @@ form select, a.button.icon {
 
 }
 
-form select {
+.n-form select {
 	
 	line-height: 2em;
 	background: url(up-dwn-arrows.png) no-repeat center center;
@@ -686,14 +666,6 @@ input[type=text].search {
 		background: #fff;
 
 	}
-
-/*
-	nav.n-drop ul ul li, nav.n-drop ul ul li:first-child {
-		
-		margin-left: 1rem;
-		
-	}
-*/
 	
 	nav.n-drop input:checked ~ input[type=reset] {
 		

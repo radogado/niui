@@ -2,7 +2,7 @@
 
 @import '../../css/natuive-setup';
 
-.button, input[type=submit], button[type=submit], button[type=reset], button, a.button[href] {
+.button, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button, a.button[href] {
 
 // 	font-size: $font-size;
 	font-size: inherit;
@@ -29,6 +29,13 @@
 	-moz-user-select: none;
 	user-select: none;
 	border-radius: 0;
+	
+	&:hover {
+		
+		background: #eee;
+		color: #333;
+		
+	}
 
 }
 
@@ -41,14 +48,7 @@
 
 	}
 
-	.button:hover, input[type=submit]:hover, button[type=submit]:hover, button[type=reset]:hover, form button:hover, a.button[href]:hover, button:not([disabled]):hover {
-		
-		background: #eee;
-		color: #333;
-		
-	}
-
-	.button.big, a[href].button.big, input[type=submit], form button, button.big {
+	.button.big, a[href].button.big, .n-form input[type=submit], .n-form button, button.big {
 
 		margin: $line-height-em/3 0; // Re-calculate margin, because font-size has changed. To do: fix baseline.
 // 		margin: var(--line-height-em) 0;

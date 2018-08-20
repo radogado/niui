@@ -51,7 +51,7 @@ header nav.n-drop ul li a {
 
 }
 
-header nav, header form, footer nav, footer form, main form, main nav {
+header nav, header .n-form, footer nav, footer .n-form, main .n-form, main nav {
 	
 	display: inline-block;
 	vertical-align: middle;
@@ -66,34 +66,26 @@ header nav ul li a[href] {
 
 }
 
-header form {
+header .n-form {
 	
 	padding: 0;
 	
 }
 
-header form input {
+header .n-form input {
 	
 	margin: 0;
 	min-height: 0;
 
 }
 
-form.wide input {
+.n-form.n-form--wide input {
 	
 	margin: 0;
 
 }
 
-/*
-header form {
-
-	margin-top: -3px;
-
-}
-*/
-
-form input[type=submit] {
+.n-form input[type=submit] {
 	
 	margin: 0;
 	background-color: #BE1902;
@@ -469,7 +461,7 @@ footer .about nav a {
 
 }
 
-.n-slider form .row {
+.n-slider .n-form .row {
 	
 	width: 81%;
 	margin-left: -11px;
@@ -477,13 +469,14 @@ footer .about nav a {
 
 }
 
-.n-slider form select {
+.n-slider .n-form select {
 	
 	background: #fff url(arrow-select.png) no-repeat calc(100% - 1rem) 50%;
+	color: #000;
 
 }
 
-.n-slider form .row > *, .n-slider form .row a[href] {
+.n-slider .n-form .row > *, .n-slider .n-form .row a[href] {
 
 	padding-top: 0;
 	padding-bottom: 0;
@@ -589,13 +582,13 @@ footer .about nav a {
 
 }
 
-form .checkbox, form .checkbox label:first-of-type {
+.n-form .n-form--check, .n-form .n-form--check label:first-of-type {
 	
 	margin: 0;
 
 }
 
-.tip b {
+.n-tool--tip b {
 	
 	font-size: 1.3em;
 	display: block;
@@ -657,7 +650,7 @@ ul.inline li {
 		
 	}
 	
-	header form {
+	header .n-form {
 	
 		display: block;
 
@@ -683,13 +676,13 @@ ul.inline li {
 	
 	}
 	
-	.n-slider form select {
+	.n-slider .n-form select {
 		
 		margin: .3em 0;
 		
 	}
 	
-	form input[type=submit] {
+	.n-form input[type=submit] {
 		
 		margin-top: .5em;
 	
