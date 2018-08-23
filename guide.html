@@ -11,6 +11,7 @@
 	<link rel=icon href=images/favicon.ico>
 	<link rel=styleSheet href=dist/natuive.min.css type=text/css media=screen>
 	<link rel=styleSheet href=src/css/guide.css type=text/css media=screen>
+	<link rel=styleSheet href=src/css/prism.css type=text/css media=screen>
 
 	<!--[if lte IE 9]> 
 		<link rel=styleSheet href=dist/ie.css type=text/css media=screen>
@@ -80,16 +81,14 @@
 						
 						<div class=code>
 						
-<pre>
-npm install --save-dev natuive
+<pre><code class="language-js">npm install --save-dev natuive</code>
 </pre>
 						
 						</div>
 <br>						
 						<div class=code>
 
-<pre>
-require('./node_modules/natuive/index.js');
+<pre><code class="language-js">require('./node_modules/natuive/index.js');</code>
 </pre>
 						
 						</div>
@@ -111,8 +110,7 @@ require('./node_modules/natuive/index.js');
 						
 						<div class="code">
 						
-<pre>
-&lt;!DOCTYPE html&gt;
+<pre><code class="language-markup">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
 	&lt;meta charset=utf-8&gt;
@@ -141,7 +139,7 @@ require('./node_modules/natuive/index.js');
 	&lt;script src=natuive.min.js type=text/javascript async&gt;&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-</pre>
+</code></pre>
 						
 						</div>
 						
@@ -255,16 +253,14 @@ require('./node_modules/natuive/index.js');
 							
 <div class="code">
 
-<pre>
-&lt;div class=row&gt;
+<pre><code class="language-markup">&lt;div class=row&gt;
 	&lt;div&gt;
 		&lt;div&gt;...&lt;/div&gt;
 	&lt;/div&gt;
 	&lt;div class=col3&gt;
 		&lt;div&gt;...&lt;/div&gt;
 	&lt;/div&gt;
-&lt;/div&gt;
-</pre>
+&lt;/div&gt;</code></pre>
 
 </div>
 					
@@ -339,8 +335,7 @@ require('./node_modules/natuive/index.js');
 
 <div class="code">							
 
-<pre>
-&lt;div class='row'&gt;
+<pre><code class="language-markup">&lt;div class='row'&gt;
 	&lt;div&gt;
 		&lt;div&gt;Left Top&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;/div&gt;
 	&lt;/div&gt;
@@ -369,7 +364,7 @@ require('./node_modules/natuive/index.js');
 		&lt;div&gt;Right Bottom&lt;/div&gt;
 	&lt;/div&gt;
 	&lt;div&gt;ThisLineIsTooLongAndMustBeClippedByTheContainerEvenThoughOverflowXandYDontWorkAsExpected&lt;/div&gt;
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 </div>					
 						</div>
@@ -416,12 +411,11 @@ require('./node_modules/natuive/index.js');
 
 <div class="code">							
 
-<pre>
-&lt;div class='row no-padding'&gt;
+<pre><code class="language-markup">&lt;div class='row no-padding'&gt;
 	&lt;div&gt;
 		&lt;div&gt;...&lt;/div&gt;
 	&lt;/div&gt;
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 
 </div>					
@@ -469,12 +463,11 @@ require('./node_modules/natuive/index.js');
 
 <div class="code">							
 
-<pre>
-&lt;div class='row no-margin'&gt;
+<pre><code class="language-markup">&lt;div class='row no-margin'&gt;
 	&lt;div&gt;
 		&lt;div&gt;...&lt;/div&gt;
 	&lt;/div&gt;
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 
 </div>					
@@ -523,12 +516,11 @@ require('./node_modules/natuive/index.js');
 
 <div class="code">							
 
-<pre>
-&lt;div class='row no-spacing'&gt;
+<pre><code class="language-markup">&lt;div class='row no-spacing'&gt;
 	&lt;div&gt;
 		&lt;div&gt;...&lt;/div&gt;
 	&lt;/div&gt;
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 
 </div>					
@@ -573,8 +565,7 @@ require('./node_modules/natuive/index.js');
 
 <div class="code">							
 
-<pre>
-&lt;div class='row'&gt;
+<pre><code class="language-markup">&lt;div class='row'&gt;
 	&lt;div&gt;
 		&lt;div class='row'&gt;
 			&lt;div&gt;Child grid column&lt;/div&gt;
@@ -584,7 +575,7 @@ require('./node_modules/natuive/index.js');
 	&lt;div class='col3'&gt;
 		&lt;div&gt;Parent grid column&lt;/div&gt;
 	&lt;/div&gt;
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 
 </div>					
@@ -629,8 +620,7 @@ require('./node_modules/natuive/index.js');
 
 <div class="code">							
 
-<pre>
-&lt;div class='row'&gt;
+<pre><code class="language-markup">&lt;div class='row'&gt;
 	&lt;div&gt;
 		&lt;div class='row unpad'&gt;
 			&lt;div&gt;Child grid column&lt;/div&gt;
@@ -640,7 +630,7 @@ require('./node_modules/natuive/index.js');
 	&lt;div class='col3'&gt;
 		&lt;div&gt;Parent grid column&lt;/div&gt;
 	&lt;/div&gt;
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 
 </div>					
@@ -688,10 +678,9 @@ require('./node_modules/natuive/index.js');
 <br>							
 <div class="code">							
 
-<pre>
-&lt;div class='row border'&gt;
+<pre><code class="language-markup">&lt;div class='row border'&gt;
 	&lt;div&gt;...&lt;/div&gt;
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 
 </div>					
@@ -754,10 +743,9 @@ require('./node_modules/natuive/index.js');
 
 <div class="code">							
 
-<pre>
-&lt;div class='row border-all'&gt;
+<pre><code class="language-markup">&lt;div class='row border-all'&gt;
 	&lt;div&gt;...&lt;/div&gt;
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 
 </div>					
@@ -825,10 +813,9 @@ require('./node_modules/natuive/index.js');
 
 <div class="code">							
 
-<pre>
-&lt;div dir='rtl'&gt;
+<pre><code class="language-markup">&lt;div dir='rtl'&gt;
 	...
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 
 </div>					
@@ -892,12 +879,11 @@ require('./node_modules/natuive/index.js');
 
 <div class="code">							
 
-<pre>
-&lt;nav&gt;
+<pre><code class="language-markup">&lt;nav&gt;
 	&lt;ul class='inline'&gt;
 		&lt;li&gt; &lt;a href=#buttons&gt;Buttons&lt;/a&gt; &lt;/li&gt;
 	&lt;/ul&gt;							
-&lt;/nav&gt;
+&lt;/nav&gt;</code>
 </pre>
 
 </div>						
@@ -926,14 +912,13 @@ require('./node_modules/natuive/index.js');
 
 <div class="code">							
 
-<pre>
-&lt;nav&gt;
+<pre><code class="language-markup">&lt;nav&gt;
 	&lt;ul class='inline big-text'&gt;
 		&lt;li class='active'&gt; &lt;a href=#grid&gt;Grid&lt;/a&gt; &lt;/li&gt;
 		&lt;li&gt; &lt;a href=#slider&gt;Slider&lt;/a&gt; &lt;/li&gt;
 		&lt;li&gt; &lt;a href=#form&gt;Form&lt;/a&gt; &lt;/li&gt;
 	&lt;/ul&gt;
-&lt;/nav&gt;
+&lt;/nav&gt;</code>
 </pre>
 
 </div>						
@@ -981,12 +966,11 @@ require('./node_modules/natuive/index.js');
 
 <div class="code">							
 
-<pre>
-&lt;nav class=scroll&gt;
+<pre><code class="language-markup">&lt;nav class=scroll&gt;
 	&lt;ul&gt;
 		&lt;li&gt; &lt;a href=#buttons&gt;Buttons&lt;/a&gt; &lt;/li&gt;
 	&lt;/ul&gt;
-&lt;/nav&gt;
+&lt;/nav&gt;</code>
 </pre>
 
 </div>						
@@ -996,7 +980,7 @@ require('./node_modules/natuive/index.js');
 							
 							<h2>Drop navigation</h2>
 							
-							<nav class=drop>
+							<nav class=n-drop>
 		
 								<ul>
 								
@@ -1157,8 +1141,7 @@ require('./node_modules/natuive/index.js');
 
 							<div class="code">							
 
-<pre>
-&lt;nav class=drop&gt;
+<pre><code class="language-markup">&lt;nav class=n-drop&gt;
 
 &lt;ul&gt;
 	&lt;li&gt; 
@@ -1179,7 +1162,7 @@ require('./node_modules/natuive/index.js');
 		&lt;a&gt;First item&lt;/a&gt;
 	&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/nav&gt;
+&lt;/nav&gt;</code>
 </pre>
 			
 </div>
@@ -1187,8 +1170,7 @@ require('./node_modules/natuive/index.js');
 							<h2>Mobile navigation behind a burger</h2>
 
 <div class="code">
-<pre>
-&lt;header class=&quot;fixed-mobile&quot;&gt;
+<pre><code class="language-markup">&lt;header class=&quot;fixed-mobile&quot;&gt;
 	
 	&lt;div class=&quot;n-fold mobile&quot;&gt;
 				
@@ -1210,7 +1192,7 @@ require('./node_modules/natuive/index.js');
 						
 	&lt;/div&gt;
 
-&lt;/header&gt;				
+&lt;/header&gt;				</code>
 </pre>
 </div>
 
@@ -1257,10 +1239,9 @@ require('./node_modules/natuive/index.js');
 
 <div class="code">							
 
-<pre>
-&lt;p class='drop-cap'&gt;
+<pre><code class="language-markup">&lt;p class='drop-cap'&gt;
 	...
-&lt;/p&gt;
+&lt;/p&gt;</code>
 </pre>
 
 </div>						
@@ -1273,10 +1254,9 @@ require('./node_modules/natuive/index.js');
 
 <div class="code">							
 
-<pre>
-&lt;q&gt;
+<pre><code class="language-markup">&lt;q&gt;
 	...
-&lt;/q&gt;
+&lt;/q&gt;</code>
 </pre>
 
 </div>
@@ -1320,10 +1300,9 @@ require('./node_modules/natuive/index.js');
 							
 <div class="code">							
 
-<pre>
-&lt;picture class=aspect style='--ratio: 2.35;'&gt;
+<pre><code class="language-markup">&lt;picture class=aspect style='--ratio: 2.35;'&gt;
 	&lt;img src=images/lido.jpg alt='Lido'&gt;
-&lt;/picture&gt;
+&lt;/picture&gt;</code>
 </pre>
 
 </div>						
@@ -1355,11 +1334,10 @@ require('./node_modules/natuive/index.js');
 							</div>
 <div class="code">							
 
-<pre>
-&lt;div class='n-slider'&gt;
+<pre><code class="language-markup">&lt;div class='n-slider'&gt;
 	&lt;div&gt;Slide 1&lt;/div&gt;
 	&lt;div&gt;Slide 2&lt;/div&gt;
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 
 </div>
@@ -1381,11 +1359,10 @@ require('./node_modules/natuive/index.js');
 						
 <div class="code">							
 
-<pre>
-&lt;div class='n-slider top'&gt;
+<pre><code class="language-markup">&lt;div class='n-slider top'&gt;
 	&lt;div&gt;Slide 1&lt;/div&gt;
 	&lt;div&gt;Slide 2&lt;/div&gt;
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 
 </div>
@@ -1405,11 +1382,10 @@ require('./node_modules/natuive/index.js');
 						
 <div class="code">							
 
-<pre>
-&lt;div class='n-slider vertical'&gt;
+<pre><code class="language-markup">&lt;div class='n-slider vertical'&gt;
 	&lt;div&gt;Slide 1&lt;/div&gt;
 	&lt;div&gt;Slide 2&lt;/div&gt;
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 
 </div>
@@ -1428,11 +1404,10 @@ require('./node_modules/natuive/index.js');
 						
 <div class="code">							
 
-<pre>
-&lt;div class='n-slider vertical right'&gt;
+<pre><code class="language-markup">&lt;div class='n-slider vertical right'&gt;
 	&lt;div&gt;Slide 1&lt;/div&gt;
 	&lt;div&gt;Slide 2&lt;/div&gt;
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 
 </div>
@@ -1451,11 +1426,10 @@ require('./node_modules/natuive/index.js');
 						
 <div class="code">							
 
-<pre>
-&lt;div class='n-slider pad'&gt;
+<pre><code class="language-markup">&lt;div class='n-slider pad'&gt;
 	&lt;div&gt;Slide 1&lt;/div&gt;
 	&lt;div&gt;Slide 2&lt;/div&gt;
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 
 </div>
@@ -1475,11 +1449,10 @@ require('./node_modules/natuive/index.js');
 						
 <div class="code">							
 
-<pre>
-&lt;div class='n-slider' data-peek='20%'&gt;
+<pre><code class="language-markup">&lt;div class='n-slider' data-peek='20%'&gt;
 	&lt;div&gt;Slide 1&lt;/div&gt;
 	&lt;div&gt;Slide 2&lt;/div&gt;
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 
 </div>
@@ -1498,11 +1471,10 @@ require('./node_modules/natuive/index.js');
 						
 <div class="code">							
 
-<pre>
-&lt;div class='n-slider fade'&gt;
+<pre><code class="language-markup">&lt;div class='n-slider fade'&gt;
 	&lt;div&gt;Slide 1&lt;/div&gt;
 	&lt;div&gt;Slide 2&lt;/div&gt;
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 
 </div>
@@ -1521,11 +1493,10 @@ require('./node_modules/natuive/index.js');
 						
 <div class="code">							
 
-<pre>
-&lt;div class='n-slider auto-height pad'&gt;
+<pre><code class="language-markup">&lt;div class='n-slider auto-height pad'&gt;
 	&lt;div&gt;Slide 1&lt;/div&gt;
 	&lt;div&gt;Slide 2&lt;/div&gt;
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 
 </div>
@@ -1605,13 +1576,12 @@ require('./node_modules/natuive/index.js');
 						
 <div class="code">							
 
-<pre>
-&lt;div class='n-slider tabs'&gt;
+<pre><code class="language-markup">&lt;div class='n-slider tabs'&gt;
 	&lt;div&gt; ... &lt;/div&gt;
 	&lt;div data-tab_title='Tab 1'&gt; ... &lt;/div&gt;
 	&lt;div&gt; &lt;h2 class='tab-title'&gt;Tab title and content&lt;/h2&gt; ... &lt;/div&gt;
 	...
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 
 </div>
@@ -1632,11 +1602,10 @@ require('./node_modules/natuive/index.js');
 						
 <div class="code">							
 
-<pre>
-&lt;div class='n-slider top tabs auto-height'&gt;
+<pre><code class="language-markup">&lt;div class='n-slider top tabs auto-height'&gt;
 	&lt;div data-tab_title='Tab 1'&gt; ... &lt;/div&gt;
 	...
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 
 </div>
@@ -1674,11 +1643,10 @@ require('./node_modules/natuive/index.js');
 					
 <div class="code">							
 
-<pre>
-&lt;div class='n-slider vertical tabs'&gt;
+<pre><code class="language-markup">&lt;div class='n-slider vertical tabs'&gt;
 	&lt;div data-tab_title='Tab 1'&gt; ... &lt;/div&gt;
 	...
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 
 </div>
@@ -1718,11 +1686,10 @@ require('./node_modules/natuive/index.js');
 							
 <div class="code">							
 
-<pre>
-&lt;div class='n-slider vertical tabs right'&gt;
+<pre><code class="language-markup">&lt;div class='n-slider vertical tabs right'&gt;
 	&lt;div data-tab_title='Tab 1'&gt; ... &lt;/div&gt;
 	...
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 
 </div>
@@ -1743,8 +1710,7 @@ require('./node_modules/natuive/index.js');
 						
 <div class="code">							
 
-<pre>
-&lt;div class='n-slider tabs' id='detached-tabs'&gt;
+<pre><code class="language-markup">&lt;div class='n-slider tabs' id='detached-tabs'&gt;
 	&lt;div&gt; ... &lt;/div&gt;
 	&lt;div data-tab_title='Tab 1'&gt; ... &lt;/div&gt;
 	&lt;div&gt; &lt;h2 class='tab-title'&gt;Tab title and content&lt;/h2&gt; ... &lt;/div&gt;
@@ -1752,7 +1718,7 @@ require('./node_modules/natuive/index.js');
 &lt;/div&gt;
 
 &lt;div class='slider-nav' data-for='detached-tabs'&gt;&lt;/div&gt;
-
+</code>
 </pre>
 
 </div>
@@ -1808,13 +1774,12 @@ require('./node_modules/natuive/index.js');
 
 <div class="code">							
 
-<pre>
-&lt;div class='n-lightbox'&gt;
+<pre><code class="language-markup">&lt;div class='n-lightbox'&gt;
 	&lt;a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756.jpg title='First Taipei photo'&gt;
 		&lt;img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756-88x88.jpg alt=1&gt;
 	&lt;/a&gt;
 	...
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 
 </div>							
@@ -1837,13 +1802,12 @@ require('./node_modules/natuive/index.js');
 
 <div class="code">							
 
-<pre>
-&lt;div class='n-lightbox full-screen'&gt;
+<pre><code class="language-markup">&lt;div class='n-lightbox full-screen'&gt;
 	&lt;a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756.jpg title='First Taipei photo'&gt;
 		&lt;img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756-88x88.jpg alt=1&gt;
 	&lt;/a&gt;
 	...
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 
 </div>							
@@ -1866,13 +1830,12 @@ require('./node_modules/natuive/index.js');
 
 <div class="code">							
 
-<pre>
-&lt;div class='n-lightbox vertical thumbnails'&gt;
+<pre><code class="language-markup">&lt;div class='n-lightbox vertical thumbnails'&gt;
 	&lt;a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756.jpg title='First Taipei photo'&gt;
 		&lt;img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756-88x88.jpg alt=1&gt;
 	&lt;/a&gt;
 	...
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 
 </div>							
@@ -1899,13 +1862,12 @@ require('./node_modules/natuive/index.js');
 
 <div class="code">							
 
-<pre>
-&lt;div class='n-lightbox inline thumbnails'&gt;
+<pre><code class="language-markup">&lt;div class='n-lightbox inline thumbnails'&gt;
 	&lt;a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756.jpg title='First Taipei photo'&gt;
 		&lt;img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756-88x88.jpg alt=1&gt;
 	&lt;/a&gt;
 	...
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 
 </div>							
@@ -1956,13 +1918,12 @@ require('./node_modules/natuive/index.js');
 
 <div class="code">							
 
-<pre>
-&lt;div class='n-lightbox inline thumbnails vertical'&gt;
+<pre><code class="language-markup">&lt;div class='n-lightbox inline thumbnails vertical'&gt;
 	&lt;a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756.jpg title='First Taipei photo'&gt;
 		&lt;img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756-88x88.jpg alt=1&gt;
 	&lt;/a&gt;
 	...
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 
 </div>							
@@ -1989,13 +1950,12 @@ require('./node_modules/natuive/index.js');
 
 <div class="code">							
 
-<pre>
-&lt;div class='n-lightbox inline thumbnails' data-peek=20%&gt;
+<pre><code class="language-markup">&lt;div class='n-lightbox inline thumbnails' data-peek=20%&gt;
 	&lt;a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756.jpg title='First Taipei photo'&gt;
 		&lt;img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756-88x88.jpg alt=1&gt;
 	&lt;/a&gt;
 	...
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 
 </div>							
@@ -2039,8 +1999,7 @@ require('./node_modules/natuive/index.js');
 
 <div class="code">							
 
-<pre>
-&lt;div class='n-lightbox inline thumbnails' id='lightbox4'&gt;
+<pre><code class="language-markup">&lt;div class='n-lightbox inline thumbnails' id='lightbox4'&gt;
 	&lt;a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756.jpg title='First Taipei photo'&gt;
 		&lt;img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756-88x88.jpg alt=1&gt;
 	&lt;/a&gt;
@@ -2048,7 +2007,7 @@ require('./node_modules/natuive/index.js');
 &lt;/div&gt;
 
 &lt;div class="slider-nav" data-for=lightbox4&gt;&lt;/div&gt;
-
+</code>
 </pre>
 
 </div>
@@ -2102,11 +2061,10 @@ require('./node_modules/natuive/index.js');
 							</video>
 <div class="code">							
 
-<pre>
-&lt;video poster=images/video.jpg controls=controls preload=none&gt;
+<pre><code class="language-markup">&lt;video poster=images/video.jpg controls=controls preload=none&gt;
 	&lt;source type=video/mp4 src=//s3.amazonaws.com/gado/Outlying-Teaser.mp4&gt;
 	&lt;a href=//s3.amazonaws.com/gado/Outlying-Teaser.mp4&gt;Video link as fallback&lt;/a&gt;
-&lt;/video&gt;
+&lt;/video&gt;</code>
 </pre>				
 
 </div>						</div>
@@ -2154,8 +2112,7 @@ require('./node_modules/natuive/index.js');
 							
 <div class="code">							
 
-<pre>
-&lt;table&gt;
+<pre><code class="language-markup">&lt;table&gt;
 	&lt;thead&gt;
 		&lt;tr&gt;
 			&lt;td&gt;Head&lt;/td&gt;
@@ -2167,7 +2124,7 @@ require('./node_modules/natuive/index.js');
 		...
 	&lt;/tr&gt;
 	...
-&lt;/table&gt;
+&lt;/table&gt;</code>
 </pre>
 
 </div>
@@ -2195,14 +2152,13 @@ require('./node_modules/natuive/index.js');
 						
 <div class="code">							
 
-<pre>
-&lt;table&gt;
+<pre><code class="language-markup">&lt;table&gt;
 	&lt;tr&gt;
 		&lt;td&gt;First&lt;/td&gt;
 		...
 	&lt;/tr&gt;
 	...
-&lt;/table&gt;
+&lt;/table&gt;</code>
 </pre>
 
 </div>
@@ -2241,8 +2197,7 @@ require('./node_modules/natuive/index.js');
 						
 <div class="code">							
 
-<pre>
-&lt;table&gt;
+<pre><code class="language-markup">&lt;table&gt;
 	&lt;thead&gt;
 		&lt;tr&gt;
 			&lt;td data-sort&gt;Head&lt;/td&gt;
@@ -2254,7 +2209,7 @@ require('./node_modules/natuive/index.js');
 		...
 	&lt;/tr&gt;
 	...
-&lt;/table&gt;
+&lt;/table&gt;</code>
 </pre>
 
 </div>
@@ -2312,14 +2267,13 @@ require('./node_modules/natuive/index.js');
 							</div>
 <div class="code">							
 
-<pre>
-&lt;div class='n-fold'&gt;
+<pre><code class="language-markup">&lt;div class='n-fold'&gt;
 	&lt;h3 class='n-fold--label'&gt; Label &lt;/h3&gt;
 	&lt;input type=checkbox class=trigger&gt;
 	&lt;div class='n-fold--content'&gt;
 		&lt;p&gt; Content. &lt;/p&gt;
 	&lt;/div&gt;
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>						
 
 </div>
@@ -2342,14 +2296,13 @@ require('./node_modules/natuive/index.js');
 							</div>
 <div class="code">							
 
-<pre>
-&lt;div class='n-fold' aria-expanded='true'&gt;
+<pre><code class="language-markup">&lt;div class='n-fold' aria-expanded='true'&gt;
 	&lt;h3 class='n-fold--label'&gt; Label &lt;/h3&gt;
 	&lt;input type=checkbox class=trigger&gt;
 	&lt;div class='n-fold--content'&gt;
 		&lt;p&gt; Content. &lt;/p&gt;
 	&lt;/div&gt;
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>						
 
 </div>
@@ -2375,14 +2328,13 @@ require('./node_modules/natuive/index.js');
 						
 <div class="code">							
 
-<pre>
-&lt;div class='n-fold'&gt;
+<pre><code class="language-markup">&lt;div class='n-fold'&gt;
 	&lt;h3 class='n-fold--label'&gt; Label &lt;/h3&gt;
 	&lt;input type=checkbox class=trigger&gt;
 	&lt;div class='n-fold--content' style='--start-height: 6em;'&gt;
 		&lt;p&gt; Content. &lt;/p&gt;
 	&lt;/div&gt;
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>						
 
 </div>
@@ -2492,11 +2444,10 @@ require('./node_modules/natuive/index.js');
 
 <div class="code">							
 
-<pre>
-&lt;span class='n-tool'&gt;
+<pre><code class="language-markup">&lt;span class='n-tool'&gt;
 	&lt;span class='n-tool--label'&gt;Tool content.&lt;/span&gt;
 	&lt;span class='n-tool--tip'&gt;Tip content.&lt;/span&gt;
-&lt;/span&gt;				
+&lt;/span&gt;				</code>
 </pre>
 
 </div>
@@ -2520,8 +2471,7 @@ require('./node_modules/natuive/index.js');
 							<p><a href='external.html#content' class='n-modal'>Open a modal window inside this <span>tab</span>.</a></p>
 <div class="code">							
 
-<pre>
-&lt;a href='external.html#content' class='n-modal'&gt;Open a modal window here.&lt;/a&gt;
+<pre><code class="language-markup">&lt;a href='external.html#content' class='n-modal'&gt;Open a modal window here.&lt;/a&gt;</code>
 </pre>
 
 </div>						
@@ -2533,8 +2483,7 @@ require('./node_modules/natuive/index.js');
 
 <div class="code">							
 
-<pre>
-&lt;a href='//natuive.net/external.html#content' class='n-modal'&gt;Open a modal window with external content.&lt;/a&gt;
+<pre><code class="language-markup">&lt;a href='//natuive.net/external.html#content' class='n-modal'&gt;Open a modal window with external content.&lt;/a&gt;</code>
 </pre>
 
 </div>						
@@ -2545,8 +2494,7 @@ require('./node_modules/natuive/index.js');
 							<p><a href='external.html#content' class='n-modal' data-anim='0% { opacity: 0; } 100% { opacity: 1; }'>Open a modal window with custom animation.</a></p>
 <div class="code">							
 
-<pre>
-&lt;a href='external.html#content' class='n-modal' data-anim='0% { opacity: 0; } 100% { opacity: 1; }'&gt;Open a modal window with custom animation.&lt;/a&gt;
+<pre><code class="language-markup">&lt;a href='external.html#content' class='n-modal' data-anim='0% { opacity: 0; } 100% { opacity: 1; }'&gt;Open a modal window with custom animation.&lt;/a&gt;</code>
 </pre>
 
 </div>						
@@ -2557,8 +2505,7 @@ require('./node_modules/natuive/index.js');
 							<p><a href='external.html#content' class='n-modal limited'>Limited modal window</a>.</p>
 <div class="code">							
 
-<pre>
-&lt;a href='external.html#content' class='n-modal limited'&gt;Open a modal window here.&lt;/a&gt;
+<pre><code class="language-markup">&lt;a href='external.html#content' class='n-modal limited'&gt;Open a modal window here.&lt;/a&gt;</code>
 </pre>
 
 </div>						
@@ -2606,9 +2553,8 @@ require('./node_modules/natuive/index.js');
 								<br>
 <div class="code">							
 
-<pre>
-&lt;a href=# class='button'&gt;Small button&lt;/a&gt;
-&lt;button disabled&gt;Disabled button&lt;/button&gt;
+<pre><code class="language-markup">&lt;a href=# class='button'&gt;Small button&lt;/a&gt;
+&lt;button disabled&gt;Disabled button&lt;/button&gt;</code>
 </pre>
 
 </div>									
@@ -2628,8 +2574,7 @@ require('./node_modules/natuive/index.js');
 							
 <div class="code">							
 
-<pre>
-&lt;a href=# class='button big'&gt;Big button&lt;/a&gt;
+<pre><code class="language-markup">&lt;a href=# class='button big'&gt;Big button&lt;/a&gt;</code>
 </pre>
 
 </div>
@@ -2682,8 +2627,7 @@ require('./node_modules/natuive/index.js');
 							
 								<div class="code">							
 
-<pre>
-&lt;div class='group'&gt; ... &lt;/div&gt;
+<pre><code class="language-markup">&lt;div class='group'&gt; ... &lt;/div&gt;</code>
 </pre>
 
 </div>
@@ -2925,10 +2869,9 @@ require('./node_modules/natuive/index.js');
 
 <div class="code">
 
-<pre>
-&lt;form class='n-form n-form--mast'&gt;
+<pre><code class="language-markup">&lt;form class='n-form n-form--mast'&gt;
 	...
-&lt;/form&gt;
+&lt;/form&gt;</code>
 </pre>	
 
 </div>
@@ -3082,10 +3025,9 @@ require('./node_modules/natuive/index.js');
 							
 <div class="code">							
 
-<pre>
-&lt;form class='n-form n-form--wide'&gt;
+<pre><code class="language-markup">&lt;form class='n-form n-form--wide'&gt;
 	...
-&lt;/form&gt;
+&lt;/form&gt;</code>
 </pre>	
 
 </div>
@@ -3104,11 +3046,10 @@ require('./node_modules/natuive/index.js');
 							
 									<div class="code">							
 							
-<pre>
-&lt;label&gt;
+<pre><code class="language-markup">&lt;label&gt;
 	&lt;span&gt;Label&lt;/span&gt;
 	&lt;input type='text'&gt;
-&lt;/label&gt;
+&lt;/label&gt;</code>
 </pre>
 							
 							</div>
@@ -3120,11 +3061,10 @@ require('./node_modules/natuive/index.js');
 							<h4>Number input</h4>
 							<div class="code">							
 							
-<pre>
-&lt;label&gt;
+<pre><code class="language-markup">&lt;label&gt;
 	&lt;span&gt;Label&lt;/span&gt;
 	&lt;input type='number' data-digits=5&gt;
-&lt;/label&gt;
+&lt;/label&gt;</code>
 </pre>
 							
 							</div>
@@ -3136,14 +3076,13 @@ require('./node_modules/natuive/index.js');
 							<h4>Checkbox</h4>
 							<div class="code">							
 							
-<pre>
-&lt;div class='n-form--check'&gt;
+<pre><code class="language-markup">&lt;div class='n-form--check'&gt;
 	&lt;span&gt;Global label&lt;/span&gt;
 	&lt;label&gt; 
 		&lt;input type='checkbox'&gt; &lt;b class=n-form--check-icon&gt;&lt;/b&gt;
 		Checkbox-specific label
 	&lt;/label&gt;
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 							
 							</div>
@@ -3155,8 +3094,7 @@ require('./node_modules/natuive/index.js');
 							<h4>Radio buttons</h4>
 							<div class="code">							
 							
-<pre>
-&lt;div class='n-form--check'&gt;
+<pre><code class="language-markup">&lt;div class='n-form--check'&gt;
 	&lt;span&gt;Label for all buttons&lt;/span&gt;
 	&lt;label&gt; 
 		&lt;input type='radio' name='radiodemo'&gt; &lt;b class=n-form--check-icon&gt;&lt;/b&gt;
@@ -3167,7 +3105,7 @@ require('./node_modules/natuive/index.js');
 		Label for this button
 	&lt;/label&gt;
 	...
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 							
 							</div>
@@ -3179,11 +3117,10 @@ require('./node_modules/natuive/index.js');
 							<h4>Textarea</h4>
 							<div class="code">							
 							
-<pre>
-&lt;label&gt;
+<pre><code class="language-markup">&lt;label&gt;
 	&lt;span&gt;Label&lt;/span&gt;
 	&lt;textarea&gt;&lt;/textarea&gt;
-&lt;/label&gt;
+&lt;/label&gt;</code>
 </pre>
 							
 							</div>
@@ -3195,11 +3132,10 @@ require('./node_modules/natuive/index.js');
 							<h4>Range input</h4>
 							<div class="code">							
 							
-<pre>
-&lt;label&gt;
+<pre><code class="language-markup">&lt;label&gt;
 	&lt;span&gt;Label&lt;/span&gt;
 	&lt;input type='range'&gt;
-&lt;/label&gt;
+&lt;/label&gt;</code>
 </pre>
 							
 							</div>
@@ -3211,14 +3147,13 @@ require('./node_modules/natuive/index.js');
 							<h4>File input</h4>
 							<div class="code">							
 							
-<pre>
-&lt;label&gt;
+<pre><code class="language-markup">&lt;label&gt;
 	&lt;span&gt;Label&lt;/span&gt;
 	&lt;div class='n-form--file'&gt;
 		&lt;input type='file'&gt;
 		&lt;span&gt;Placeholder&lt;/span&gt;
 	&lt;/div&gt;
-&lt;/label&gt; 
+&lt;/label&gt; </code>
 </pre>
 							
 							</div>
@@ -3230,15 +3165,14 @@ require('./node_modules/natuive/index.js');
 							<h4>Select</h4>
 							<div class="code">							
 							
-<pre>
-&lt;label&gt;
+<pre><code class="language-markup">&lt;label&gt;
 	&lt;span&gt;Label&lt;/span&gt;
 	&lt;select&gt;
 		&lt;option value='First option'&gt;First option&lt;/option&gt;
 		&lt;option value='Second option'&gt;Second option&lt;/option&gt;
 		...
 	&lt;/select&gt;
-&lt;/label&gt;
+&lt;/label&gt;</code>
 </pre>
 							
 							</div>
@@ -3249,8 +3183,7 @@ require('./node_modules/natuive/index.js');
 							<h4>Optional sections</h4>
 							<div class="code">							
 							
-<pre>
-&lt;div class='n-form--check n-form--condition'&gt;
+<pre><code class="language-markup">&lt;div class='n-form--check n-form--condition'&gt;
 	&lt;span&gt;Enable fieldset below&lt;/span&gt;
 	&lt;label&gt;
 		&lt;input type='checkbox'&gt; &lt;b class=n-form--check-icon&gt;&lt;/b&gt;
@@ -3258,7 +3191,7 @@ require('./node_modules/natuive/index.js');
 &lt;/div&gt;
 &lt;fieldset disabled&gt;
 	...
-&lt;/fieldset&gt;
+&lt;/fieldset&gt;</code>
 </pre>
 							
 							</div>
@@ -3306,11 +3239,10 @@ require('./node_modules/natuive/index.js');
 
 <div class="code">							
 
-<pre>
-&lt;div class='n-masonry'&gt;
+<pre><code class="language-markup">&lt;div class='n-masonry'&gt;
 	&lt;div&gt;Item&lt;/div&gt;
 	...
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 
 </div>
@@ -3348,10 +3280,9 @@ require('./node_modules/natuive/index.js');
 							
 <div class="code">							
 
-<pre>
-&lt;div class='n-card'&gt;
+<pre><code class="language-markup">&lt;div class='n-card'&gt;
 	&lt;div class='n-card--content'&gt; Content &lt;/div&gt;
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 
 </div>
@@ -3381,11 +3312,10 @@ require('./node_modules/natuive/index.js');
 
 <div class="code">							
 
-<pre>
-&lt;div class='n-card'&gt;
+<pre><code class="language-markup">&lt;div class='n-card'&gt;
 	&lt;div class='n-card--head'&gt; Headline &lt;/div&gt;
 	&lt;div class='n-card--content'&gt; Content &lt;/div&gt;
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 
 </div>
@@ -3410,11 +3340,10 @@ require('./node_modules/natuive/index.js');
 							</div>
 <div class="code">							
 
-<pre>
-&lt;div class='n-card'&gt;
+<pre><code class="language-markup">&lt;div class='n-card'&gt;
 	&lt;img src=image.jpg alt=Image&gt;
 	&lt;div class='n-card--content'&gt; Content &lt;/div&gt;
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 
 </div>
@@ -3444,11 +3373,10 @@ require('./node_modules/natuive/index.js');
 							</div>
 <div class="code">							
 
-<pre>
-&lt;div class='n-card'&gt;
+<pre><code class="language-markup">&lt;div class='n-card'&gt;
 	&lt;div class='n-card--head n-card--image' style='background-image: url(image.jpg)'&gt; Headline &lt;/div&gt;
 	&lt;div class='n-card--content'&gt; Content &lt;/div&gt;
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 
 </div>
@@ -3488,11 +3416,10 @@ require('./node_modules/natuive/index.js');
 									<h2>Fixed background</h2>
 <div class="code">							
 
-<pre>
-&lt;div class='fixed-bg' style='background-image: url(image.jpg);'&gt;
+<pre><code class="language-markup">&lt;div class='fixed-bg' style='background-image: url(image.jpg);'&gt;
 	&lt;div class='fixed-bg-image'&gt;&lt;/div&gt;
 	...
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 
 </div>
@@ -3549,8 +3476,7 @@ require('./node_modules/natuive/index.js');
 
 <div class="code">							
 
-<pre>
-&lt;form action=. method=get class='n-form n-form--language'&gt;
+<pre><code class="language-markup">&lt;form action=. method=get class='n-form n-form--language'&gt;
 	&lt;label class='select'&gt;
 		&lt;select name='l'&gt;
 			&lt;option value='en'&gt;🇬🇧 English&lt;/option&gt;
@@ -3563,7 +3489,7 @@ require('./node_modules/natuive/index.js');
 	&lt;noscript&gt;
 		&lt;input type=submit value=&#9654;&gt;
 	&lt;/noscript&gt;
-&lt;/form&gt;
+&lt;/form&gt;</code>
 </pre>
 
 </div>
@@ -3586,13 +3512,12 @@ require('./node_modules/natuive/index.js');
 
 <div class="code">							
 
-<pre>
-&lt;html class='n-parallax'&gt;
+<pre><code class="language-markup">&lt;html class='n-parallax'&gt;
     &lt;body&gt;
         &lt;div class='n-parallax--back'&gt; ... &lt;/div&gt;
         &lt;div class='n-parallax--front'&gt; ... &lt;/div&gt;
     &lt;/body&gt;
-&lt;/html&gt;
+&lt;/html&gt;</code>
 </pre>
 
 </div>						
@@ -3619,12 +3544,11 @@ require('./node_modules/natuive/index.js');
 
 <div class="code">							
 
-<pre>
-&lt;style&gt;
+<pre><code class="language-markup">&lt;style&gt;
 	div[data-threshold] { 
 		opacity: calc(1 - var(--threshold)); transition: all 0.1s linear; 
 	}
-&lt;/style&gt;
+&lt;/style&gt;</code>
 </pre>
 
 </div>
@@ -3655,8 +3579,7 @@ require('./node_modules/natuive/index.js');
 							<h2>URI parameters</h2>
 							
 							<p>URI parameters matching the <b>parameters_list</b> array are added to all links on the page.</p>
-<pre>
-var parameters_list = new Array('parameter1', 'parameter2');
+<pre><code class="language-markup">var parameters_list = new Array('parameter1', 'parameter2');</code>
 </pre>
 						
 						</div>
@@ -3677,11 +3600,10 @@ var parameters_list = new Array('parameter1', 'parameter2');
 
 <div class="code">							
 
-<pre>
-&lt;body&gt;
+<pre><code class="language-markup">&lt;body&gt;
     &lt;div class='n-notify'&gt; Message &lt;/div&gt;
     ...
-&lt;/body&gt;
+&lt;/body&gt;</code>
 </pre>
 
 </div>
@@ -3690,8 +3612,7 @@ var parameters_list = new Array('parameter1', 'parameter2');
 
 <div class="code">							
 
-<pre>
-nui.componentNotify.notify('Message');
+<pre><code class="language-js">nui.componentNotify.notify('Message');</code>
 </pre>
 
 </div>
@@ -3728,8 +3649,7 @@ nui.componentNotify.notify('Message');
 <br>
 <div class="code">							
 
-<pre>
-nui.copyButton(document.getElementById('copybutton'), document.getElementById('copycontent'));
+<pre><code class="language-js">nui.copyButton(document.getElementById('copybutton'), document.getElementById('copycontent'));</code>
 </pre>
 
 </div>
@@ -3758,8 +3678,7 @@ nui.copyButton(document.getElementById('copybutton'), document.getElementById('c
 							
 <div class="code">							
 
-<pre>
-&lt;a class='backtotop' href=&quot;#&quot;&gt;&uarr;&lt;/a&gt;
+<pre><code class="language-markup">&lt;a class='backtotop' href=&quot;#&quot;&gt;&uarr;&lt;/a&gt;</code>
 </pre>
 
 </div>
@@ -3780,12 +3699,11 @@ nui.copyButton(document.getElementById('copybutton'), document.getElementById('c
 
 <div class="code">							
 
-<pre>
-nui.animate(document.querySelector('body'), 
+<pre><code class="language-js">nui.animate(document.querySelector('body'), 
 	'0% { opacity: 1; transform: translateX(0); } 
 	50% { opacity: 0; transform: translateX(-50vw); } 
 	100% { opacity: 1;  transform: translateX(0); }', 
-	2);
+	2);</code>
 </pre>
 
 </div>
@@ -3869,8 +3787,7 @@ nui.animate(document.querySelector('body'),
 
 <div class="code">
 
-<pre>
-&lt;div class='row grid-inline-popup'&gt;
+<pre><code class="language-markup">&lt;div class='row grid-inline-popup'&gt;
 	
 	&lt;div class=&quot;col3&quot;&gt;1&lt;/div&gt;
 	&lt;div class=&quot;popup&quot;&gt;Popup for #1&lt;/div&gt;
@@ -3885,7 +3802,7 @@ nui.animate(document.querySelector('body'),
 	&lt;div class=&quot;col3&quot;&gt;6&lt;/div&gt;
 	&lt;div class=&quot;popup&quot;&gt;Popup for #6&lt;/div&gt;
 
-&lt;/div&gt;
+&lt;/div&gt;</code>
 </pre>
 
 </div>
@@ -3908,8 +3825,7 @@ nui.animate(document.querySelector('body'),
 								<br>
 <div class="code">							
 
-<pre>
-nui.addComponent(host, '&lt;div class=n-slider&gt;&lt;div&gt;New&lt;/div&gt;&lt;div&gt;Slider&lt;/div&gt;&lt;/div&gt;');
+<pre><code class="language-markup">nui.addComponent(host, '&lt;div class=n-slider&gt;&lt;div&gt;New&lt;/div&gt;&lt;div&gt;Slider&lt;/div&gt;&lt;/div&gt;');</code>
 </pre>
 
 </div>
@@ -3930,9 +3846,9 @@ nui.addComponent(host, '&lt;div class=n-slider&gt;&lt;div&gt;New&lt;/div&gt;&lt;
 <div>
 <textarea id=component-playground rows="10" style="width: 100%">
 <div class=n-fold>
-	<h3 class=label> Label </h3>
+	<h3 class=n-fold--label> Label </h3>
 	<input type=checkbox class=trigger>
-	<div class=content><p> Content. </p><p> Content. </p><p> Content. </p></div>
+	<div class=n-fold--content><p> Content. </p><p> Content. </p><p> Content. </p></div>
 </div>
 </textarea>
 <br>
@@ -3972,6 +3888,8 @@ nui.addComponent(host, '&lt;div class=n-slider&gt;&lt;div&gt;New&lt;/div&gt;&lt;
 		});
 		
 	</script>
+
+	<script src=src/script/prism.js type=text/javascript></script>
 
 </body>
 

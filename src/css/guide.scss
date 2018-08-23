@@ -230,7 +230,7 @@ li pre {
 	
 	position: relative;
 	margin-bottom: 1.5em;
-	padding: 0 1em;
+// 	padding: 0 1em;
 	display: inline-block;
 	max-width: 100%;
 	
@@ -245,8 +245,8 @@ li pre {
 .code button {
 	
 	position: absolute;
-	bottom: -.5em;
-    right: 1.25em;
+	bottom: .5em;
+    right: -2px;
 	font-size: .75em;
 
 }
@@ -263,4 +263,10 @@ li pre {
 	
     background: lightcyan;
    
+}
+
+.code :not(pre) > code[class*="language-"], .code pre[class*="language-"] {
+
+	background: #f1f3f8;
+
 }
