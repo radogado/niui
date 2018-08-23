@@ -68,7 +68,7 @@ html.full-screen {
 
 	}
 	
-	.n-ovrl.limited > .n-ovrl--content {
+	.n-ovrl.n-modal--limited > .n-ovrl--content {
 
 /*
 		background: #666;
@@ -131,7 +131,7 @@ html.full-screen {
 
 	.n-ovrl {
 		
-		&.limited > .n-ovrl--content {
+		&.n-modal--limited > .n-ovrl--content {
 		
 			height: calc(80% - var(--overlay-bottom) - var(--overlay-top));
 			margin: 10%;

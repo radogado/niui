@@ -18,7 +18,7 @@ body {
 
 /* Elements with double line-height */
 
-h1, h2, h3, .overlay .close {
+h1, h2, h3, .overlay .n-ovrl--close {
 	
 	line-height: $line-height * 2;
 // 	line-height: calc(var(--line-height) * 2);
@@ -35,7 +35,7 @@ h1, h2, h3, h4, h5, h6 {
 
 }
 
-h1 + p:not(.drop-cap), h2 + p:not(.drop-cap), h3 + p:not(.drop-cap), h4 + p:not(.drop-cap), h5 + p:not(.drop-cap), h6 + p:not(.drop-cap) {
+h1 + p:not(.n-drop-cap), h2 + p:not(.n-drop-cap), h3 + p:not(.n-drop-cap), h4 + p:not(.n-drop-cap), h5 + p:not(.n-drop-cap), h6 + p:not(.n-drop-cap) {
 	
 	margin-top: 0;
 
@@ -107,7 +107,7 @@ p {
 
 }
 
-.drop-cap:first-letter {
+.n-drop-cap:first-letter {
 
 	float: left;
 	font-size: 5em;
@@ -117,7 +117,7 @@ p {
 
 }
 
-[dir=rtl] .drop-cap:first-letter {
+[dir=rtl] .n-drop-cap:first-letter {
 
 	float: right;
 
@@ -167,7 +167,7 @@ hr {
 	
 }
 
-.big-text {
+.n-big-text {
 
 	font-size: 1.125em;
 	line-height: 1.3334em;

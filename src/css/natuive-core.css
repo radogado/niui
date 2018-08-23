@@ -164,7 +164,7 @@ a[href].span-relative-parent {
 [data-animation] {
   pointer-events: none; }
 
-.parallax-back {
+.n-parallax--back {
   position: absolute; }
 
 :focus {

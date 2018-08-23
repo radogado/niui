@@ -56,7 +56,7 @@ html.full-screen {
   height: 100%;
   padding-top: 3em; }
 
-.n-ovrl.limited > .n-ovrl--content {
+.n-ovrl.n-modal--limited > .n-ovrl--content {
   /*
   		background: #666;
       	color: #eee;
@@ -102,7 +102,7 @@ html.full-screen {
   background: transparent; }
 
 @media (max-width: 599.9px) {
-  .n-ovrl.limited > .n-ovrl--content {
+  .n-ovrl.n-modal--limited > .n-ovrl--content {
     height: calc(80% - var(--overlay-bottom) - var(--overlay-top));
     margin: 10%;
     width: 80%; }

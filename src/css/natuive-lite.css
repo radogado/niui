@@ -164,7 +164,7 @@ a[href].span-relative-parent {
 [data-animation] {
   pointer-events: none; }
 
-.parallax-back {
+.n-parallax--back {
   position: absolute; }
 
 :focus {
@@ -1679,7 +1679,7 @@ body {
   letter-spacing: .02em; }
 
 /* Elements with double line-height */
-h1, h2, h3, .overlay .close {
+h1, h2, h3, .overlay .n-ovrl--close {
   line-height: 3; }
 
 h1, h2, h3, h4, h5, h6 {
@@ -1689,7 +1689,7 @@ h1, h2, h3, h4, h5, h6 {
   word-wrap: break-word;
   font-weight: 500; }
 
-h1 + p:not(.drop-cap), h2 + p:not(.drop-cap), h3 + p:not(.drop-cap), h4 + p:not(.drop-cap), h5 + p:not(.drop-cap), h6 + p:not(.drop-cap) {
+h1 + p:not(.n-drop-cap), h2 + p:not(.n-drop-cap), h3 + p:not(.n-drop-cap), h4 + p:not(.n-drop-cap), h5 + p:not(.n-drop-cap), h6 + p:not(.n-drop-cap) {
   margin-top: 0; }
 
 h1 {
@@ -1727,14 +1727,14 @@ p {
   margin: 1.5em 0;
   line-height: 1.5; }
 
-.drop-cap:first-letter {
+.n-drop-cap:first-letter {
   float: left;
   font-size: 5em;
   padding: .1em .1em .1em 0;
   margin-top: -.2em;
   line-height: 1em; }
 
-[dir=rtl] .drop-cap:first-letter {
+[dir=rtl] .n-drop-cap:first-letter {
   float: right; }
 
 a[href] {
@@ -1765,7 +1765,7 @@ hr {
   border-right: 1px solid #bbb;
   padding-right: 1em; }
 
-.big-text {
+.n-big-text {
   font-size: 1.125em;
   line-height: 1.3334em;
   min-height: 1.3334em; }

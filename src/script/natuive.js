@@ -2112,7 +2112,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	            }
 	
 	            openFullWindow(parsed, animation); // To do: If .modal[data-animation], pass it to openFullWindow() as second parameter. Also in openLightbox().
-				transferClass(closest(el, '.n-modal'), q('.n-ovrl'), 'limited');
+				transferClass(closest(el, '.n-modal'), q('.n-ovrl'), 'n-modal--limited');
 	
 	        } else {
 	            // Error
