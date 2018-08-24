@@ -1,8 +1,33 @@
 $blue: #083e88;
+$red: #d41f00;
+$darkblue: #112137;
 
 footer {
 	
     background-color: $blue;
     color: #fff;
 	
+}
+
+.banner {
+
+	h2 {
+		
+		text-transform: uppercase;
+	}	
+	.n-slider div {
+	
+		background-size: cover;
+		background-position: center center;
+	
+	}
+	
+	.n-slider-wrap>.slider-nav {
+		
+		bottom: 1em;
+		left: 1em;
+		transform: none;
+		
+	}
+
 }
