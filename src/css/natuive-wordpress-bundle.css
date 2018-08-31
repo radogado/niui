@@ -3200,4 +3200,7 @@ nav.n-drop ul li a[href] {
 .single h1 {
   margin-top: .25em; }
 
+.wp-block-image {
+  margin: 0; }
+
 /*# sourceMappingURL=natuive-wordpress.css.map */

@@ -58,11 +58,57 @@ body {
 
 }
 
+.footer-nav-main, h1, h2, h3, h4 {
+	
+    font-family: 'Akrobat';
+	
+}
+
+.footer-nav-main {
+	
+	font-size: 30px;
+
+}
+
 footer {
 	
     background-color: $blue;
     color: #fff;
+    padding-top: 1em;
+    
+    a[href] {
+	    
+	    text-decoration: none;
+
+    }
+    
+    li a[href]:hover {
+	    
+	    text-decoration: underline;
+    }
 	
+	a b {
+	
+	    font-size: 30px;
+	    font-family: 'Akrobat';
+	    font-weight: 600;
+	    display: block;
+	
+	}
+
+	a.icon:before {
+	    content: "";
+	    background-image: url(sprite.svg);
+	    background-repeat: no-repeat;
+	    width: 57px;
+	    height: 75px;
+	    display: inline-block;
+	    background-position: -9999px -9999px;
+	    margin-right: 20px;
+	    float: left;
+		background-position: 0 -42px;
+    	}
+
 }
 
 .banner {
@@ -100,3 +146,4 @@ footer {
 	justify-content: space-between;
 
 }
+

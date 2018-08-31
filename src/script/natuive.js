@@ -512,6 +512,11 @@ function animate(el, animation_code, duration, callback) { // Default duration =
 		}, false);
 
 		var animation_name = 'a' + new Date().getTime(); // Unique animation name
+		if (q('head .' + animation_name)) {
+			
+			animation_name += '-';
+			
+		}
 		var styles = document.createElement('style');
 		styles.innerHTML = '@keyframes ' + animation_name + ' {' + animation_code + '} [data-animation=' + animation_name + '] { animation-name: ' + animation_name + '; animation-duration: ' + ((typeof duration === 'undefined') ? .2 : duration) + 's; }'; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
 		q('head').appendChild(styles);
@@ -2874,18 +2879,6 @@ var componentSlider = (function (){
 			
 		}
 	
-		var animation_code;
-	
-		if (hasClass(slider, 'fade')) {
-	
-			animation_code = '0% { opacity: 1; transform: ' + translate_from + '; ' + height_current + '} 49% { transform: ' + translate_from + ' } 51% { opacity: 0; transform:' + translate_to + ' } 100% {' + height_change + '; opacity: 1; transform:' + translate_to + ' }';
-		
-		} else {
-			
-			animation_code = '0% { transform: ' + translate_from + '; ' + height_current + '} 100% { ' + height_change + '; transform: ' + translate_to + '; }';
-	
-		}
-	
 		slider.setAttribute('data-sliding', true);
 	
 		if (!slider.getAttribute('data-peek')) {
@@ -2894,8 +2887,11 @@ var componentSlider = (function (){
 			
 		}
 	
-		animate(slider, animation_code, duration, function slideEndHandler(e) { // On slide end
-	
+		function slideEndHandler(e) { // On slide end
+		
+			slider.children[index].style.cssText = '';
+			slider.children[old_index].style.cssText = '';
+			
 			slider.removeAttribute('data-sliding');
 			slider.children[old_index].removeAttribute('data-active');
 		    slider.children[old_index].style.transition = '';
@@ -2905,7 +2901,36 @@ var componentSlider = (function (){
 			current_slider = slider;
 			endSlide(slider, index, old_index);
 	
-	    });
+	    }
+		    
+		if (hasClass(slider, 'fade-overlap')) { // fade slides in/out directly. Overlap new and old slides.
+			
+		    slider.children[index].style.opacity = '0';
+			slider.children[index > old_index ? index : old_index].style.marginLeft = '-100%';
+		    slider.children[old_index].style.opacity = '1';
+
+			// Animate both simultaneously
+
+			animate(slider.children[index], '0% { opacity: 0; } 100% { opacity: 1; }', duration, slideEndHandler);
+
+			animate(slider.children[old_index], '0% { opacity: 1; } 100% { opacity: 0; }', duration);
+			
+		} else {
+			
+			var animation_code;
+	
+			if (hasClass(slider, 'fade')) { // fade out to a color and fade in to the new slide
+		
+				animation_code = '0% { opacity: 1; transform: ' + translate_from + '; ' + height_current + '} 49% { transform: ' + translate_from + ' } 51% { opacity: 0; transform:' + translate_to + ' } 100% {' + height_change + '; opacity: 1; transform:' + translate_to + ' }';
+			
+			} else {
+
+				animation_code = '0% { transform: ' + translate_from + '; ' + height_current + '} 100% { ' + height_change + '; transform: ' + translate_to + '; }';
+			}
+			
+			animate(slider, animation_code, duration, slideEndHandler);
+			
+		}
 	
 	}
 	
