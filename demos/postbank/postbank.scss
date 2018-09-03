@@ -58,6 +58,12 @@ body {
 
 }
 
+.contain {
+	
+	max-width: 1194px;
+
+}
+
 .footer-nav-main, h1, h2, h3, h4 {
 	
     font-family: 'Akrobat';
@@ -147,3 +153,104 @@ footer {
 
 }
 
+.boxes-hover-content {
+
+	color: #fff;
+    font-family: 'Akrobat';
+    font-weight: 600;
+    font-size: 17px;
+    
+    a[href] {
+	    
+	    text-decoration: none;
+
+    }
+    
+	div {
+		
+		overflow: hidden;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: cover;
+
+	}
+
+	ul, a.from-below {
+		
+		transition: transform .3s ease-out;
+		z-index: 2;
+		
+	}
+
+	ul {
+		
+		transform: translateY(calc(-100% - 120px));
+		list-style: none;
+		padding-left: 0;
+		
+		li {
+			
+			padding: .25em 0;
+			
+		}
+		
+
+		
+	}
+	
+	div:hover {
+		
+		ul, a.from-below {
+		
+			transform: none;		
+			
+		}
+	
+	}
+	
+	a.from-below {
+		
+		transform: translateY(calc(100% + 1px));
+		display: block;
+		text-align: center;
+		
+	}
+	
+	> div {
+		
+		padding: 0;
+
+	}
+	
+	> div > div {
+		
+		background-color: transparent;
+		transition: background-color .15s ease-out;
+			
+	}
+		
+	> div:hover > div, h3 {
+		
+		background-color: #0da7be;
+			
+	}
+	
+	h3 {
+		
+		z-index: 1;
+		position: relative;
+		border-radius: 0 0 1em 1em;
+		padding: 1em;
+		margin: 0 13%;
+		text-transform: uppercase;
+		line-height: 1.25;
+	    font-size: 23px;
+	    text-align: center;
+	    min-height: 100px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+	}
+	
+}
