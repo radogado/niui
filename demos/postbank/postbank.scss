@@ -76,17 +76,18 @@ body {
 
 }
 
+a[href] {
+    
+    text-decoration: none;
+
+}
+    
+
 footer {
 	
     background-color: $blue;
     color: #fff;
     padding-top: 1em;
-    
-    a[href] {
-	    
-	    text-decoration: none;
-
-    }
     
     li a[href]:hover {
 	    
@@ -252,5 +253,11 @@ footer {
 		justify-content: center;
 
 	}
+	
+}
+
+.n-fold > .n-fold--label {
+	
+	text-align: right;
 	
 }
