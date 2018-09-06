@@ -118,11 +118,18 @@ footer {
 
 }
 
+ul li:before {
+	
+	display: none;
+	
+}
+
 .banner {
 
 	h2 {
 		
 		text-transform: uppercase;
+		    font-size: 50px;
 	}	
 	.n-slider div {
 	
@@ -305,4 +312,45 @@ footer {
 	
 	display: none;
 
+}
+
+.special-offers {
+	
+	background: url(special-bg-1.jpg) center center no-repeat;
+	background-size: cover;
+	border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    
+    div {
+	    
+	    background: #a7106c;
+	    display: inline-block;
+	    border-bottom-right-radius: 20px;
+	    border-top-right-radius: 20px;
+	    min-height: 180px;
+    	padding: 30px;
+    	margin: 75px 0;
+    	color: #fff;
+    	width: 50%;
+    	display: flex;
+    	flex-direction: column;
+    	justify-content: center;
+    		    
+    }
+    
+    h2, p {
+	    
+	    margin: 0;
+	    padding: .25em 0;
+	    
+    }
+    
+    p {
+	    font-size: 18px;
+    }
+	
+	h2 {
+		
+		font-size: 33px;
+	}
 }
