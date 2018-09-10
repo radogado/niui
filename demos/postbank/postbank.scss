@@ -354,3 +354,42 @@ ul li:before {
 		font-size: 33px;
 	}
 }
+
+.credit {
+	
+	background-color: #eff1f3;
+	
+	.n-slider--wrap {
+		
+		background-color: #f8f8f8;
+
+	}
+	
+}
+
+.n-slider > *, .n-slider-wrap {
+	
+// 	overflow: visible;
+	
+}
+
+.credit b {
+	
+	font-size: 40px;
+    font-weight: 400;
+        font-family: 'Akrobat';
+
+
+}
+
+.n-form.n-form--wide select, .n-form.n-form--wide textarea, .n-form.n-form--wide:not(.sticky-submit) input:not([type=checkbox]):not([type=radio]) {
+	
+	margin: 0;
+	
+}
+
+.n-form .row > div.align-middle {
+	
+	display: flex;
+	
+}
