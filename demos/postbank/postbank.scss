@@ -424,14 +424,17 @@ ul li:before {
 
 }
 
-.slider-nav.tabs {
+.n-slider-wrap.top .slider-nav.tabs {
 	
 	justify-content: center;
 
 }
 
-.n-slider-wrap.tabs>.slider-nav a, .tabs.slider-nav a {
+.n-slider-wrap.tabs.top>.slider-nav a {
 	
 	flex: initial;
+	min-width: 16em;
+	text-align: center;
+	max-width: 50%;
 	
 }
