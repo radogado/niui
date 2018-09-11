@@ -423,3 +423,15 @@ ul li:before {
 	--thumb-color: #d41f00;
 
 }
+
+.slider-nav.tabs {
+	
+	justify-content: center;
+
+}
+
+.n-slider-wrap.tabs>.slider-nav a, .tabs.slider-nav a {
+	
+	flex: initial;
+	
+}
