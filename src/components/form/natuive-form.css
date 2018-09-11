@@ -254,7 +254,8 @@ $bg: #1E8DaC;
     width: 100%;
     background: none;
     margin: 0;
-    padding: 0; }
+    padding: 0;
+    --thumb-color: #000; }
     .n-form input[type=range]::-webkit-slider-runnable-track {
       width: 100%;
       height: .7125em;
@@ -264,7 +265,7 @@ $bg: #1E8DaC;
       height: 1.625em;
       width: 1.625em;
       border-radius: 50%;
-      background: #000;
+      background: var(--thumb-color);
       cursor: pointer;
       -webkit-appearance: none;
       margin-top: -.45625em; }
@@ -280,7 +281,7 @@ $bg: #1E8DaC;
       height: 1.625em;
       width: 1.625em;
       border-radius: 50%;
-      background: #000;
+      background: var(--thumb-color);
       cursor: pointer; }
     .n-form input[type=range]::-ms-track {
       width: 100%;
@@ -298,7 +299,7 @@ $bg: #1E8DaC;
       height: 1.625em;
       width: 1.625em;
       border-radius: .9375em;
-      background: #000000;
+      background: var(--thumb-color);
       cursor: pointer;
       height: .7125em; }
     .n-form input[type=range]:focus::-ms-fill-lower {

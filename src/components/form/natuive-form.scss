@@ -433,6 +433,7 @@ $placeholder_color: #aaa;
 		background: none;
 		margin: 0;
 		padding: 0;
+		--thumb-color: #000;
 	
 		&::-webkit-slider-runnable-track {
 		
@@ -448,7 +449,7 @@ $placeholder_color: #aaa;
 			height: 1.625em;
 			width: 1.625em;
 			border-radius: 50%;
-			background: #000;
+			background: var(--thumb-color);
 			cursor: pointer;
 			-webkit-appearance: none;
 			margin-top: -.45625em;
@@ -476,7 +477,7 @@ $placeholder_color: #aaa;
 			height: 1.625em;
 			width: 1.625em;
 			border-radius: 50%;
-			background: #000;
+			background: var(--thumb-color);
 			cursor: pointer;
 		
 		}
@@ -510,7 +511,7 @@ $placeholder_color: #aaa;
 			height: 1.625em;
 			width: 1.625em;
 			border-radius: .9375em;
-			background: #000000;
+			background: var(--thumb-color);
 			cursor: pointer;
 			height: .7125em;
 		

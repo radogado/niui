@@ -393,3 +393,33 @@ ul li:before {
 	display: flex;
 	
 }
+
+.n-form input[type=submit] {
+	
+    background-color: #d41f00;
+    color: #fff;
+    line-height: 1;
+    border-radius: 2em;	
+    text-transform: uppercase;
+        font-family: 'Akrobat';
+        text-align: center;
+        width: auto !important;
+        display: inline-block;
+        margin: 0 auto !important;
+        padding: .5em 1.5em;
+	
+}
+
+.n-form label span {
+	
+    background-color: #d41f00;
+	display: inline-block;
+	color: #fff;	
+	
+}
+
+.n-form input[type=range] {
+
+	--thumb-color: #d41f00;
+
+}
