@@ -19,7 +19,7 @@ $bg: #1E8DaC;
 
 .n-form {
   --placeholder_color: #aaa; }
-  .n-form *:not(option):not(.row) {
+  .n-form label, .n-form input, .n-form textarea {
     display: inline-block;
     vertical-align: middle; }
   .n-form ::-webkit-input-placeholder {

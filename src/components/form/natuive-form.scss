@@ -6,7 +6,7 @@ $placeholder_color: #aaa;
 
 .n-form {
 	
-	*:not(option):not(.row) { // option because of Firefox
+	label, input, textarea {
 		
 		display: inline-block;
 		vertical-align: middle;

@@ -313,7 +313,7 @@ $bg: #1E8DaC;
 
 .n-form {
   --placeholder_color: #aaa; }
-  .n-form *:not(option):not(.row) {
+  .n-form label, .n-form input, .n-form textarea {
     display: inline-block;
     vertical-align: middle; }
   .n-form ::-webkit-input-placeholder {
@@ -1640,6 +1640,7 @@ $bg: #1E8DaC;
   z-index: 999;
   text-align: left;
   visibility: hidden;
+  display: none;
   opacity: 0;
   transition: opacity .2s ease-in-out;
   width: 20em;
@@ -1648,7 +1649,8 @@ $bg: #1E8DaC;
 .n-tool[aria-expanded] .n-tool--tip, html:not(.can-touch) .n-tool:hover .n-tool--tip {
   opacity: 1;
   visibility: visible;
-  top: 100%; }
+  top: 100%;
+  display: block; }
 
 /*# sourceMappingURL=natuive-tooltip.css.map */
 
