@@ -55,6 +55,7 @@ body {
 
     font-family: 'HK_Grotesk';
     font-weight: 400;
+	color: rgb(16, 33, 56);
 
 }
 
@@ -436,5 +437,52 @@ ul li:before {
 	min-width: 16em;
 	text-align: center;
 	max-width: 50%;
+	
+}
+
+
+.current-currency-tab strong {
+	
+    font-size: 70px;
+    font-weight: 500;
+    position: relative;
+    line-height: .75;
+    	
+}
+
+.current-currency-tab span {
+    font-size: 22px;
+    margin-left: -35px;
+}
+
+.current-currency-tab sup {
+    font-size: 34px;
+    min-width: 40px;
+    display: inline-block;
+}
+
+.current-currency-tab + .tabs.slider-nav {
+	
+	margin-top: 1em;
+	
+}
+
+.current-currency-tab + .tabs.slider-nav a {
+	
+	text-align: center;
+	background: none;
+	color: rgb(16, 33, 56);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+	font-size: 22px;
+	padding-top: .2em;
+	padding-bottom: 0em;
+    	
+	&[data-active] {
+		
+	    color: #fff;
+	    background-color: #d41f00;
+    
+	}
 	
 }

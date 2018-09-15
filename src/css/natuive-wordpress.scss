@@ -367,3 +367,35 @@ nav.n-drop ul li a[href] {
 	margin: 0;
 
 }
+
+
+@media (min-width: 600px) {
+
+	.home section {
+		
+		display: flex;
+		flex-wrap: wrap;
+		margin-left: -1em;
+	
+	}
+	
+	.home section article {
+	
+		width: calc(50% - 2em);
+		margin: 2em 1em;	
+		
+	}
+	
+	.home section article:nth-child(1), .home section article:nth-child(2), .home section .pagination {
+	
+		width: 100%;
+	
+	}
+	
+	.home section .pagination {
+	
+		margin-left: 1em;
+	
+	}
+
+}
