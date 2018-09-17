@@ -78,19 +78,14 @@ nav a {
 form#language-selector select {
 
 	padding-left: 2em;
-	background: url(../images/globe.svg) no-repeat center left;
-	background-position: .5em center;
-	background-size: auto 66%;
+	background: url(../images/globe.svg) no-repeat .5em center / auto 66%;
 	height: $line-height;
 
 }
 
 form .select {
 
-	background: #eee url(../images/select-arrow.svg) no-repeat;
-	background-position: 97% 50%;
-	background-position: calc(100% - .7em) 50%;
-	background-size: auto 50%;
+	background: #eee url(../images/select-arrow.svg) calc(100% - .7em) 50% no-repeat / auto 50%;
 
 }
 

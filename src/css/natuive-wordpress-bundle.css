@@ -2017,10 +2017,7 @@ nav.n-drop {
     z-index: 1;
     width: 2em; }
   nav.n-drop li > ul ~ a, nav.n-drop li[aria-haspopup] {
-    background-image: url("data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M50%20100L0%200h100z%22%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: calc(100% - 16px) 50%;
-    background-size: .5em; }
+    background: url("data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M50%20100L0%200h100z%22%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E") calc(100% - 16px) 50% no-repeat/0.5em auto; }
   nav.n-drop[data-ready] li > ul ~ a {
     background: none; }
   nav.n-drop li li > ul ~ a, nav.n-drop li li[aria-haspopup] {
@@ -2911,16 +2908,11 @@ nav a[href]:hover {
 
 form#language-selector select {
   padding-left: 2em;
-  background: url(../images/globe.svg) no-repeat center left;
-  background-position: .5em center;
-  background-size: auto 66%;
+  background: url(../images/globe.svg) no-repeat 0.5em center/auto 66%;
   height: 1.5; }
 
 form .select {
-  background: #eee url(../images/select-arrow.svg) no-repeat;
-  background-position: 97% 50%;
-  background-position: calc(100% - .7em) 50%;
-  background-size: auto 50%; }
+  background: #eee url(../images/select-arrow.svg) calc(100% - .7em) 50% no-repeat/auto 50%; }
 
 header form .select {
   height: 1.5; }
@@ -3205,5 +3197,21 @@ nav.n-drop ul li a[href] {
 
 .wp-block-image {
   margin: 0; }
+
+@media (min-width: 600px) {
+  .home section {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -1em; }
+
+  .home section article {
+    width: calc(50% - 2em);
+    margin: 2em 1em; }
+
+  .home section article:nth-child(1), .home section article:nth-child(2), .home section .pagination {
+    width: 100%; }
+
+  .home section .pagination {
+    margin-left: 1em; } }
 
 /*# sourceMappingURL=natuive-wordpress.css.map */

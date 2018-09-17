@@ -365,7 +365,52 @@ ul li:before {
 		background-color: #f8f8f8;
 
 	}
+
+	.n-slider > * > * {
+		
+		max-width: 960px;
+		margin: 0 auto;
+		
+	}
+
+	.n-slider-wrap.tabs.top>.slider-nav.row {
+		
+		position: relative;
+		left: 0;
+				
+		&:before {
+			
+			content: '';
+			bottom: 0;
+			left: calc(50% - 1em);
+			background-color: #af1a00;
+			position: absolute;
+			width: 2em;			
+			height: 1em;
+
+		}
 	
+	}
+
+	.n-slider-wrap.tabs.top>.slider-nav a {
+		
+	    color: #fff;
+        font-family: 'Akrobat';
+		background-color: #af1a00;
+	    border-bottom-right-radius: 10px;
+	    border-bottom-left-radius: 10px;
+	        font-size: 18px;
+	        padding-bottom: .667em;
+
+            
+        &[data-active] {
+	        
+		    background-color: #d41f00;
+	        
+        }
+ 		
+	}	
+
 }
 
 .n-slider > *, .n-slider-wrap {
@@ -439,7 +484,6 @@ ul li:before {
 	max-width: 50%;
 	
 }
-
 
 .current-currency-tab strong {
 	
