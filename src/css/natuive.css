@@ -1116,12 +1116,14 @@ $bg: #1E8DaC;
 
   /* Image aspect ratio – don't shift the page after loading the image */
   .aspect {
-    display: flex;
     flex-direction: row;
     align-items: flex-start;
     overflow: hidden;
     position: relative;
-    text-align: center; }
+    text-align: center;
+    display: inline-flex;
+    width: var(--image-width, 100%);
+    max-width: 100%; }
 
   .aspect > img {
     max-width: 100%;
@@ -1130,8 +1132,7 @@ $bg: #1E8DaC;
 
   .aspect:before {
     content: '';
-    padding-bottom: calc(100%*1/var(--ratio));
-    /* ratio:1 */ }
+    padding-bottom: calc(100%*1/var(--ratio, 1.7778)); }
 
   @-moz-document url-prefix() {
     .aspect {

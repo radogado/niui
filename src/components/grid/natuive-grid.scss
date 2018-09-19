@@ -223,13 +223,17 @@
 		
 		.aspect { // aspect ratio is specified as this element's --ratio CSS variable
 			
-		    display: flex;
+// 		    display: flex;
 		    flex-direction: row;
 		    align-items: flex-start;
 		    overflow: hidden;
 		    position: relative;
 		    text-align: center;
 		    
+			display: inline-flex;
+			width: var(--image-width, 100%);
+			max-width: 100%;
+
 		}
 		
 			.aspect > img {
@@ -243,15 +247,14 @@
 			.aspect:before {
 				
 				content: '';
-				padding-bottom: calc(100%*1/var(--ratio)); /* ratio:1 */
+				padding-bottom: calc(100%*1/var(--ratio, 1.7778)); // Default 16:9
 			
 			}
 		
 			@-moz-document url-prefix() { // No-flex version for FF. FF devs insist flexbox item's vertical paddign to be 0 without explicit parent height, instead of % of width like Chrome, Safari etc. Disabled because of many problems.
 		
-				.aspect { display: block; font-size: 0; letter-spacing: 0; text-align: left; }
+				.aspect { display: inline-block; font-size: 0; letter-spacing: 0; text-align: left; }
 				.aspect:before, .aspect > * { display: inline-block; font-size: initial; vertical-align: middle; }
-		// 		.aspect:before { display: none; }
 		
 			}
 			
