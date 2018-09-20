@@ -556,13 +556,13 @@ function new_nav_menu($items) {
 	$DOM->formatOutput = true;
 	$items = $DOM->saveHTML();
 
-    $items = '<div class="fold mobile"> 
-    			<div class="label"> 
+    $items = '<div class="n-fold n-fold--mobile"> 
+    			<div class="n-fold--label"> 
     				<span class="burger"></span> 
     			</div> 
     			<input type=checkbox class=trigger>
 
-				<div class=content> 
+				<div class=n-fold--content> 
     				<nav class=n-drop> 
     					<ul>' . $items . '</ul>
     				</nav>
