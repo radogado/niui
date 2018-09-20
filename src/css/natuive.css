@@ -1136,7 +1136,7 @@ $bg: #1E8DaC;
 
   @-moz-document url-prefix() {
     .aspect {
-      display: block;
+      display: inline-block;
       font-size: 0;
       letter-spacing: 0;
       text-align: left; }
