@@ -5,6 +5,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-closure-compiler');
 	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-babel');
 
 	grunt.initConfig({
 		'sass': {
@@ -82,7 +83,7 @@ module.exports = function(grunt) {
 			  noreport: true,
 			  options: {
 			    compilation_level: 'ADVANCED_OPTIMIZATIONS',
-			    language_in: 'ECMASCRIPT5_STRICT',
+			    language_in: 'ECMASCRIPT5_STRICT', // Change to ES6 and use Babel version in IE
 			  }
 			},
 			lite: {
@@ -93,11 +94,22 @@ module.exports = function(grunt) {
 			  noreport: true,
 			  options: {
 			    compilation_level: 'ADVANCED_OPTIMIZATIONS',
-			    language_in: 'ECMASCRIPT5_STRICT',
+			    language_in: 'ECMASCRIPT5_STRICT', // Change to ES6 and use Babel version in IE
 			    jscomp_off: 'checkVars'
 			  }
 			}
 		},
+		  'babel': {
+		    options: {
+		      sourceMap: true,
+		      presets: ['@babel/preset-env']
+		    },
+		    dist: {
+		      files: {
+		        'dist/natuive.min.babel.js': 'dist/natuive.min.js'
+		      }
+		    }
+		  },
 		'copy': {
 		  main: {
 		    expand: true,
@@ -108,7 +120,7 @@ module.exports = function(grunt) {
 		}  
 	});
 
-	grunt.registerTask('default', ['sass', 'concat', 'cssmin', 'closure-compiler', 'copy']);
+	grunt.registerTask('default', ['sass', 'concat', 'cssmin', 'closure-compiler', 'copy', 'babel']);
 	grunt.registerTask('dev', ['sass', 'concat', 'cssmin', 'copy']);
 
 };

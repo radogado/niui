@@ -16,7 +16,10 @@
   },
   "homepage": "https://github.com/radogado/natuive#readme",
   "devDependencies": {
+    "@babel/core": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
     "grunt": "^1.0.3",
+    "grunt-babel": "^8.0.0",
     "grunt-closure-compiler": "0.0.21",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
