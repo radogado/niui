@@ -420,8 +420,8 @@ padding: 1em 1em .25em 1em;"> <img src=logo-bg.svg alt=Logo width="255"> </a>
 										<div class="col2">
 											
 											<label>
-												<span>15000 лв</span>
-												<input type='range' min="500" max="100000">
+												<span class="range-tag">15000 лв</span>
+												<input type='range' min="500" max="100000" value="15000">
 											</label>
 											
 											<label> 
@@ -436,8 +436,8 @@ padding: 1em 1em .25em 1em;"> <img src=logo-bg.svg alt=Logo width="255"> </a>
 											
 											<label>
 	
-												<span>35 м</span>
-												<input type='range' min="6" max="300">
+												<span class="range-tag">35 м</span>
+												<input type='range' min="6" max="300" value="35">
 	
 											</label>			
 									
@@ -718,6 +718,29 @@ padding: 1em 1em .25em 1em;"> <img src=logo-bg.svg alt=Logo width="255"> </a>
 	<!-- Footer - End -->
 
 	<script src=../../dist/natuive.min.js type=text/javascript></script>
+
+<script> 
+	
+	document.querySelectorAll('input[type=range]').forEach((el) => { 
+		
+		const updateValue = (el) => {
+			
+			el.previousElementSibling.style.marginLeft = `${100 * el.value / el.max }%`;
+			el.previousElementSibling.innerHTML = el.value;			
+
+		} 
+		
+		el.onmousemove = el.onchange = el.ontouchmove = (e) => { 
+			
+			updateValue(e.target);
+		
+		};
+
+		updateValue(el);	
+	
+	}); 
+	
+</script>
 
 </body>
 

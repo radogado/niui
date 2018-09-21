@@ -456,12 +456,27 @@ ul li:before {
 	
 }
 
-.n-form label span {
+.n-form.n-form--wide label span {
 	
     background-color: #d41f00;
 	display: inline-block;
 	color: #fff;	
+       	
+}
+
+.n-form.n-form--wide label span.range-tag {
 	
+	width: auto;
+    font-size: 32px;
+    padding: 15px 22px 18px;
+    line-height: .9;
+    font-family: 'Akrobat';
+    bottom: calc(100% + 17px);
+    border-radius: 10px;
+    transform: translate(-50%, 0);
+    
+	white-space: nowrap;
+       	
 }
 
 .n-form input[type=range] {

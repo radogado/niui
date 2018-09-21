@@ -106,7 +106,7 @@ module.exports = function(grunt) {
 		    },
 		    dist: {
 		      files: {
-		        'dist/natuive.min.babel.js': 'dist/natuive.min.js'
+		        'dist/natuive.babel.js': 'src/script/natuive.js'
 		      }
 		    }
 		  },
@@ -121,6 +121,6 @@ module.exports = function(grunt) {
 	});
 
 	grunt.registerTask('default', ['sass', 'concat', 'cssmin', 'closure-compiler', 'copy', 'babel']);
-	grunt.registerTask('dev', ['sass', 'concat', 'cssmin', 'copy']);
+	grunt.registerTask('dev', ['sass', 'concat', 'cssmin', 'copy', 'babel']);
 
 };

@@ -1,6 +1,11 @@
 var nui = (function(){/* natUIve by rado.bg */
 /* DOM functions via http://youmightnotneedjquery.com */
 
+// Babel test
+
+// const test = () => { console.log('a'); }
+
+
 if (typeof document.body.style.animationName === 'undefined') { // ES5 unsupported (IE9-), skip JS and go CSS-only
 	
 	return;
@@ -480,11 +485,13 @@ var animations = {
 
 };
 
+var animationEndEvent = false;
+
 for(var t in animations) {
 
     if (temp.style[t] !== 'undefined') {
 
-        var animationEndEvent = animations[t];
+        animationEndEvent = animations[t];
 
     }
 
@@ -494,7 +501,7 @@ function animate(el, animation_code, duration, callback) { // Default duration =
 
 // To do: add animation-fill-mode: forwards to keep the end state
 
-	if (!el.getAttribute('data-animation')) {
+	if (!el.getAttribute('data-animation') && animationEndEvent) {
 
 		el.addEventListener(animationEndEvent, function animationEndHandler(e) {
 			
