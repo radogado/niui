@@ -456,16 +456,11 @@ ul li:before {
 	
 }
 
-.n-form.n-form--wide label span {
+.n-form.n-form--wide label span.range-tag {
 	
     background-color: #d41f00;
 	display: inline-block;
 	color: #fff;	
-       	
-}
-
-.n-form.n-form--wide label span.range-tag {
-	
 	width: auto;
     font-size: 32px;
     padding: 15px 22px 18px;
@@ -474,8 +469,8 @@ ul li:before {
     bottom: calc(100% + 17px);
     border-radius: 10px;
     transform: translate(-50%, 0);
-    
 	white-space: nowrap;
+	font-weight: 400;
        	
 }
 
@@ -497,6 +492,66 @@ ul li:before {
 	min-width: 16em;
 	text-align: center;
 	max-width: 50%;
+	
+}
+
+.n-form label.two-columns {
+	
+	display: flex;
+    font-family: 'Akrobat';
+	margin-top: 1em;
+	
+	span {
+		
+		line-height: 3;
+		font-weight: normal;
+		padding-left: 1em;
+		
+		&:first-child {
+	
+			text-align: right;
+			padding-right: 1em;
+			padding-left: 0;
+			
+			
+		}
+		
+	}
+	
+	input {
+		
+	    font-family: 'Akrobat';
+	    text-align: center;
+	    font-size: 22px;
+	    border: 1px solid #707070 !important;
+	    padding: 4px 0 6px;
+	    outline: none;
+	    background: #fff;
+	    min-height: 1em;
+
+
+	}
+	
+}
+
+.credit .n-form .col2 {
+	
+	> label {
+		
+		margin-left: 6em;
+		
+	}
+	
+	&:first-child {
+		
+		> label {
+			
+			margin-left: 0;
+			margin-right: 6em;
+			
+		}
+		
+	}
 	
 }
 

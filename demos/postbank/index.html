@@ -420,13 +420,14 @@ padding: 1em 1em .25em 1em;"> <img src=logo-bg.svg alt=Logo width="255"> </a>
 										<div class="col2">
 											
 											<label>
-												<span class="range-tag">15000 лв</span>
+												<span class="range-tag"><b>15000</b> лв</span>
 												<input type='range' min="500" max="100000" value="15000">
 											</label>
 											
-											<label> 
+											<label class="two-columns"> 
 												<span>Размер на кредита</span>
-												<input type="number" max="100000" min="500">
+												<input type="number" max="100000" min="500" value="15000">
+												<span>лв</span>
 											
 											</label>
 									
@@ -436,15 +437,16 @@ padding: 1em 1em .25em 1em;"> <img src=logo-bg.svg alt=Logo width="255"> </a>
 											
 											<label>
 	
-												<span class="range-tag">35 м</span>
+												<span class="range-tag"><b>35</b> м</span>
 												<input type='range' min="6" max="300" value="35">
 	
 											</label>			
 									
-											<label> 
+											<label class="two-columns"> 
 	
 												<span>Период на кредита</span>
-												<input type="number" max="300" min="6">
+												<input type="number" max="300" min="6" value="35">
+												<span>м</span>
 											
 											</label>
 									
@@ -509,7 +511,114 @@ padding: 1em 1em .25em 1em;"> <img src=logo-bg.svg alt=Logo width="255"> </a>
 							</div>
 							
 							<div data-tab_title="Жилищен кредит">
-								<div></div>
+
+								<form class="n-form n-form--wide">
+															
+									<div class="row">
+													
+										<div class="col2">
+											
+											<p>Цел на кредита</p>
+										
+										</div>
+													
+										<div class="col2">
+											
+											<p>Валута</p>
+										
+										</div>
+													
+										<div class="col2">
+											
+											<label>
+												<span class="range-tag"><b>15000</b> лв</span>
+												<input type='range' min="500" max="100000" value="15000">
+											</label>
+											
+											<label class="two-columns"> 
+												<span>Размер на кредита</span>
+												<input type="number" max="100000" min="500" value="15000">
+												<span>лв</span>
+											
+											</label>
+									
+										</div>
+								
+										<div class="col2">
+											
+											<label>
+	
+												<span class="range-tag"><b>35</b> м</span>
+												<input type='range' min="6" max="300" value="35">
+	
+											</label>			
+									
+											<label class="two-columns"> 
+	
+												<span>Период на кредита</span>
+												<input type="number" max="300" min="6" value="35">
+												<span>м</span>
+											
+											</label>
+									
+										</div>
+										
+										<div class="col1">
+										
+											<h2>Потребителски кредит с равни вноски 
+	
+									<span class="n-tool">
+										<span class='n-tool--label'></span>
+										<span class="n-tool--tip">Потребителски кредит * Представените изчисления са само примерни и не представляват търговска оферта. Предназначението на калкулатора е да ти помогне да определиш твоите нужди от финансиране, както и да изчислиш бъдещите плащания по кредита, като резултатите и условията от изчисленията не обвързват банката. Изчислените от калкулатора стойности са илюстративни и могат да се различават от стойностите на конкретния кредит, който банката ще предложи. Примерните изчисления са валидни при константни стойности на параметрите по кредита за целия срок на договора, при анюитетни вноски. Месечната вноска представлява сбор от дължими главница и лихва за едномесечен период и не включва другите разходи по кредита. За да получиш подробна информация за кредитните продукти, предлагани от „Юробанк България“ АД, посети удобен за теб офис на банката или остави данните си за контакт във формата и наш представител ще се свърже с теб. Представителен пример: При кредит с размер 15 000 лв., срок 84 месеца и променлив годишен лихвен процент 7.7%, при превод на работна заплата по сметка, разкрита в банката, по пакетна програма "Моето семейство", с такса за разкриване на разплащателната сметка по програмата 3 лв. и месечна такса 6.95 лв.; такса за разглеждане на искане за кредит 300 лв., ГПР е 9.68%, месечната вноска е 231.56 лв., обща дължима сума 20 337.58 лв.
+										</span>
+									</span>
+	
+											</h2>
+	
+										</div>
+										
+										<div class="align-middle">
+											
+											<div>
+											<span class="yellow">
+											
+											Месечна вноска<br>
+											<b>479.86 лв</b>
+											
+											</span>
+											</div>
+	
+										</div>
+								
+										<div class="align-middle">
+											
+											Обща сума на вноските<br>
+											<b>16,795.10 лв</b>
+	
+	
+										</div>
+								
+										<div class="align-middle">
+											
+											Лихва по кредита<br>
+											<b>7.7%</b>
+	
+										</div>
+								
+										<div class="align-middle">
+											
+											<div style="text-align: center;">
+											
+												<input type="submit" value="Кандидатствай">
+											
+											</div>
+	
+										</div>
+									
+									</div>
+	
+								</form>
+
 							</div>
 						
 						</div>
@@ -721,22 +830,27 @@ padding: 1em 1em .25em 1em;"> <img src=logo-bg.svg alt=Logo width="255"> </a>
 
 <script> 
 	
-	document.querySelectorAll('input[type=range]').forEach((el) => { 
+	const updateValue = (e) => {
 		
-		const updateValue = (el) => {
-			
-			el.previousElementSibling.style.marginLeft = `${100 * el.value / el.max }%`;
-			el.previousElementSibling.innerHTML = el.value;			
+		let el = e.target || e;
 
-		} 
-		
-		el.onmousemove = el.onchange = el.ontouchmove = (e) => { 
-			
-			updateValue(e.target);
-		
-		};
+		el.closest('div').querySelector('b').innerHTML = el.value;
+		el.closest('div').querySelectorAll('input').forEach( (input) => { input.value = el.value; });
 
-		updateValue(el);	
+		let range = el.closest('div').querySelector('input[type=range]');
+ 		range ? range.previousElementSibling.style.marginLeft = `${100 * el.value / el.max}%` : '';
+
+	} 
+		
+	document.querySelectorAll('.credit [type=number], .credit [type=range]').forEach((el) => {
+		
+		el.onchange = updateValue;
+		if (el.type === 'range') {
+			
+			el.onmousedown = el.onmousemove = el.ontouchmove = updateValue;
+			
+		}
+		updateValue(el);
 	
 	}); 
 	
