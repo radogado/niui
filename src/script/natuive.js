@@ -5,7 +5,6 @@ var nui = (function(){/* natUIve by rado.bg */
 
 // const test = () => { console.log('a'); }
 
-
 if (typeof document.body.style.animationName === 'undefined') { // ES5 unsupported (IE9-), skip JS and go CSS-only
 	
 	return;
@@ -2886,7 +2885,7 @@ var componentSlider = (function (){
 			
 		}
 	
-		slider.setAttribute('data-sliding', true);
+		slider_wrap.setAttribute('data-sliding', true);
 	
 		if (!slider.getAttribute('data-peek')) {
 			
@@ -2896,15 +2895,11 @@ var componentSlider = (function (){
 	
 		function slideEndHandler(e) { // On slide end
 		
-			slider.children[index].style.cssText = '';
-			slider.children[old_index].style.cssText = '';
+			slider.children[index].style.cssText = slider.children[old_index].style.cssText = '';
 			
-			slider.removeAttribute('data-sliding');
+			slider_wrap.removeAttribute('data-sliding');
 			slider.children[old_index].removeAttribute('data-active');
-		    slider.children[old_index].style.transition = '';
-		    slider.children[old_index].style.opacity = '';
-	
-			slider.style.height = '';
+		    slider.children[old_index].style.transition = slider.children[old_index].style.opacity = slider.style.height = '';
 			current_slider = slider;
 			endSlide(slider, index, old_index);
 	
@@ -2956,7 +2951,7 @@ var componentSlider = (function (){
 	
 	    if (typeof e === 'undefined' || 
 	//     	hasClass(q('html'), 'sliding_now') || 
-	    	q('.n-slider[data-sliding]') || 
+	    	q('.n-slider-wrap[data-sliding]') || 
 	    	(q('.n-ovrl') && !q('.n-ovrl .n-slider-wrap')) // There is an overlay open and it doesn't have a slider in it
 			) {
 	

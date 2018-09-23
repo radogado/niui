@@ -5,7 +5,6 @@ var nui = (function(){/* natUIve by rado.bg */
 
 // const test = () => { console.log('a'); }
 
-
 if (typeof document.body.style.animationName === 'undefined') { // ES5 unsupported (IE9-), skip JS and go CSS-only
 	
 	return;
