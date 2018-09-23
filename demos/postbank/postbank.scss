@@ -618,3 +618,31 @@ ul li:before {
 	color: #fff;
 	
 }
+
+.slider-nav a, .banner .slider-nav a {
+	
+	font-size: 0;
+	--nav-size: 1rem;
+	background: #000;	
+	margin: .33rem;
+	
+	&[data-active] {
+		
+			background-color: #d41f00;
+
+	}
+	
+}
+
+.banner .slider-nav a {
+	
+	background: #fff;
+
+}
+
+.n-slider-wrap>.pad {
+	
+	margin: 0 0 2em 0;
+	
+}
+
