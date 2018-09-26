@@ -367,5 +367,8 @@ nav.n-drop ul li a[href] {
 
   .home section .pagination {
     margin-left: 1em; } }
+@media (max-width: 599.9px) {
+  .single h1 {
+    font-size: 1.5em; } }
 
 /*# sourceMappingURL=natuive-wordpress.css.map */

@@ -24,7 +24,7 @@ $placeholder_color: #aaa;
 	
 	}
 
-	input[type=submit], label, .n-form--check span, label > span {
+	input[type=submit], button[type=submit], label, .n-form--check span, label > span {
 		
 		line-height: $line-height;
 	// 	line-height: var(--line-height);
@@ -33,7 +33,7 @@ $placeholder_color: #aaa;
 	
 	}
 	
-	input[type=submit], button, input[type=submit], .n-form--file, .n-form--file span {
+	input[type=submit], button[type=submit], button, input[type=submit], .n-form--file, .n-form--file span {
 		
 		line-height: $line-height * 2;
 	// 	line-height: calc(var(--line-height) * 2);
@@ -55,7 +55,7 @@ $placeholder_color: #aaa;
 	
 	}
 	
-	input[type=submit], button {
+	input[type=submit], button, button[type=submit] {
 		
 		height: auto;
 		line-height: $line-height;
@@ -186,7 +186,7 @@ $placeholder_color: #aaa;
 		
 		position: relative;
 		
-		input[type=submit] {
+		input[type=submit], button[type=submit] {
 			
 			position: absolute;
 			top: 50%;
@@ -557,7 +557,7 @@ $placeholder_color: #aaa;
 	
 	}
 	
-	input[type=submit] {
+	input[type=submit], button[type=submit] {
 		
 		width: auto;
 		min-width: 0;
@@ -578,7 +578,7 @@ $placeholder_color: #aaa;
 	
 	&.n-form--wide {
 		
-		input[type=submit] {
+		input[type=submit], button[type=submit] {
 	
 			margin-bottom: calc(#{$line-height-em} - 5px); /* fix for the failed box-sizing: border-box */
 		// 		margin-bottom: calc(var(--line-height-em) - 2px); /* fix for the failed box-sizing: border-box */

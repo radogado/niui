@@ -11,6 +11,15 @@ if (typeof document.body.style.animationName === 'undefined') { // ES5 unsupport
 
 }
 
+/*
+if (!('fetch' in window)) { // ES6 unsupported (IE), skip JS and go CSS-only
+
+	// Load Babel JS and
+	return;
+
+}
+*/
+
 var bodyElement = document.body;
 
 if (typeof window['chrome'] !== 'undefined') {
@@ -20,7 +29,7 @@ if (typeof window['chrome'] !== 'undefined') {
 }
 
 var aria_expanded = 'aria-expanded';
-var scripts_location = document.getElementsByTagName('script'); // To do: maybe move this global variable to window.scripts_location
+var scripts_location = document.getElementsByTagName('script'); // To do: 1. maybe move this global variable to window.scripts_location. 2. This is wrong with async scripts. Use document.currentScript
 scripts_location = scripts_location[scripts_location.length-1].src;
 scripts_location = scripts_location.slice(0, scripts_location.length - scripts_location.split('/').pop().length);
 
