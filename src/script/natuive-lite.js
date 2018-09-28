@@ -5,15 +5,19 @@ var nui = (function(){/* natUIve by rado.bg */
 
 // const test = () => { console.log('a'); }
 
+/*
 if (typeof document.body.style.animationName === 'undefined') { // ES5 unsupported (IE9-), skip JS and go CSS-only
 	
+	console.log('No ES5');
 	return;
 
 }
+*/
 
 /*
 if (!('fetch' in window)) { // ES6 unsupported (IE), skip JS and go CSS-only
 
+	console.log('No ES6');
 	// Load Babel JS and
 	return;
 

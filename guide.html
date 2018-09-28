@@ -137,6 +137,17 @@
 		Footer
 	&lt;/footer&gt;
 	&lt;script src=natuive.min.js type=text/javascript async&gt;&lt;/script&gt;
+	&lt;script&gt; // Internet Explorer support via Babel-transpiled JS
+
+		if (!('fetch' in window)) {
+
+			var fallback_js = document.createElement('script');
+			fallback_js.setAttribute('src','dist/natuive.babel.js');
+			document.body.appendChild(fallback_js);
+		
+		}
+
+	&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>

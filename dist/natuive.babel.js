@@ -8,20 +8,25 @@ var nui = function () {
   /* DOM functions via http://youmightnotneedjquery.com */
   // Babel test
   // const test = () => { console.log('a'); }
-  if (typeof document.body.style.animationName === 'undefined') {
-    // ES5 unsupported (IE9-), skip JS and go CSS-only
-    return;
-  }
+
   /*
-  if (!('fetch' in window)) { // ES6 unsupported (IE), skip JS and go CSS-only
-  
-  	// Load Babel JS and
+  if (typeof document.body.style.animationName === 'undefined') { // ES5 unsupported (IE9-), skip JS and go CSS-only
+  	
+  	console.log('No ES5');
   	return;
   
   }
   */
 
-
+  /*
+  if (!('fetch' in window)) { // ES6 unsupported (IE), skip JS and go CSS-only
+  
+  	console.log('No ES6');
+  	// Load Babel JS and
+  	return;
+  
+  }
+  */
   var bodyElement = document.body;
 
   if (typeof window['chrome'] !== 'undefined') {

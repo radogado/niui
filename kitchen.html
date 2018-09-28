@@ -1776,6 +1776,18 @@
 	<script src=src/script/natuive.js type=text/javascript async></script>
 <!-- 	<script> nui.copyButton(document.getElementById('copybutton'), document.getElementById('copycontent')); </script> -->
 
+	<script> // Internet Explorer support via Babel-transpiled JS
+
+		if (!('fetch' in window)) {
+
+			var fallback_js = document.createElement('script');
+			fallback_js.setAttribute('src','src/script/natuive.fallback.js');
+			document.body.appendChild(fallback_js);
+		
+		}
+
+	</script>
+
 </body>
 
 </html>

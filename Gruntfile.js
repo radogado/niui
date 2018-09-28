@@ -33,11 +33,20 @@ module.exports = function(grunt) {
 		  JS: {
 			options: {
 				separator: ';',
-				banner: 'var nui = (function(){',
+				banner: 'var nui = (function(){ if (!("fetch" in window)) return;',
 				footer: 'initComponents(); return { initComponents: initComponents, animate: animate, copyButton: copyButton, componentNotify: componentNotify, addComponent: addComponent }; })();'
 		    },
 		    src: ['src/script/natuive-core.js', 'src/components/**/*.js'],
 		    dest: 'src/script/natuive.js'
+		  },
+		  JS_transpile: {
+			options: {
+				separator: ';',
+				banner: 'var nui = (function(){',
+				footer: 'initComponents(); return { initComponents: initComponents, animate: animate, copyButton: copyButton, componentNotify: componentNotify, addComponent: addComponent }; })();'
+		    },
+		    src: ['src/script/natuive-core.js', 'src/components/**/*.js'],
+		    dest: 'src/script/natuive.fallback.js'
 		  },
 		  CSS: {
 		    src: ['src/css/natuive-core.css', 'src/components/**/*.css'],
@@ -106,7 +115,7 @@ module.exports = function(grunt) {
 		    },
 		    dist: {
 		      files: {
-		        'dist/natuive.babel.js': 'src/script/natuive.js'
+		        'dist/natuive.babel.js': 'src/script/natuive.fallback.js'
 		      }
 		    }
 		  },

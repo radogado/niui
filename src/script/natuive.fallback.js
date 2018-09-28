@@ -1,4 +1,4 @@
-var nui = (function(){ if (!("fetch" in window)) return;/* natUIve by rado.bg */
+var nui = (function(){/* natUIve by rado.bg */
 /* DOM functions via http://youmightnotneedjquery.com */
 
 // Babel test

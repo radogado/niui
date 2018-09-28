@@ -199,6 +199,18 @@
 
 	<script src=dist/natuive.min.js type=text/javascript async></script>
 
+	<script> // Internet Explorer support via Babel-transpiled JS
+
+		if (!('fetch' in window)) {
+
+			var fallback_js = document.createElement('script');
+			fallback_js.setAttribute('src','dist/natuive.babel.js');
+			document.body.appendChild(fallback_js);
+		
+		}
+
+	</script>
+
 </body>
 
 </html>
