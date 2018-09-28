@@ -415,28 +415,6 @@ function animateAnchors(e) {
 
 }
 
-// Element.matches(selector) polyfill for Android Browser, IE8, Edge (!)
-
-if (!Element.prototype.matches) {
-    Element.prototype.matches = 
-/*
-        Element.prototype.matchesSelector || 
-        Element.prototype.mozMatchesSelector ||
-*/
-        Element.prototype.msMatchesSelector /*
-|| 
-        Element.prototype.oMatchesSelector || 
-        Element.prototype.webkitMatchesSelector ||
-        function(s) {
-            var matches = (this.document || this.ownerDocument).querySelectorAll(s),
-                i = matches.length;
-            while (--i >= 0 && matches.item(i) !== this) {}
-            return i > -1;            
-        }
-*/
-        ;
-}
-
 function closest(el, target) { // Thanks http://gomakethings.com/ditching-jquery/ – Accepts either a selector string or an actual element
 
     for ( ; el && el !== document; el = el.parentNode ) {

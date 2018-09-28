@@ -6,27 +6,7 @@ var nui = function () {
   /* natUIve by rado.bg */
 
   /* DOM functions via http://youmightnotneedjquery.com */
-  // Babel test
-  // const test = () => { console.log('a'); }
-
-  /*
-  if (typeof document.body.style.animationName === 'undefined') { // ES5 unsupported (IE9-), skip JS and go CSS-only
-  	
-  	console.log('No ES5');
-  	return;
-  
-  }
-  */
-
-  /*
-  if (!('fetch' in window)) { // ES6 unsupported (IE), skip JS and go CSS-only
-  
-  	console.log('No ES6');
-  	// Load Babel JS and
-  	return;
-  
-  }
-  */
+  // To do: translate to ES6, as the packager adds a check to skip the below when ES6 unavailable and optionally server Babel-transpiled version using the extra footer script
   var bodyElement = document.body;
 
   if (typeof window['chrome'] !== 'undefined') {
@@ -34,7 +14,7 @@ var nui = function () {
   }
 
   var aria_expanded = 'aria-expanded';
-  var scripts_location = document.getElementsByTagName('script'); // To do: 1. maybe move this global variable to window.scripts_location. 2. This is wrong with async scripts. Use document.currentScript
+  var scripts_location = document.getElementsByTagName('script'); // To do: 1. maybe move this global variable to window.scripts_location. 2. This is wrong with async scripts. To do: Use document.currentScript
 
   scripts_location = scripts_location[scripts_location.length - 1].src;
   scripts_location = scripts_location.slice(0, scripts_location.length - scripts_location.split('/').pop().length); // DOM functions – start
@@ -350,28 +330,6 @@ var nui = function () {
       window.location = el.href.split('#')[0] + '#' + el.href.split('#').pop();
     });
     return false;
-  } // Element.matches(selector) polyfill for Android Browser, IE8, Edge (!)
-
-
-  if (!Element.prototype.matches) {
-    Element.prototype.matches =
-    /*
-            Element.prototype.matchesSelector || 
-            Element.prototype.mozMatchesSelector ||
-    */
-    Element.prototype.msMatchesSelector
-    /*
-    || 
-    Element.prototype.oMatchesSelector || 
-    Element.prototype.webkitMatchesSelector ||
-    function(s) {
-    var matches = (this.document || this.ownerDocument).querySelectorAll(s),
-    i = matches.length;
-    while (--i >= 0 && matches.item(i) !== this) {}
-    return i > -1;            
-    }
-    */
-    ;
   }
 
   function closest(el, target) {
