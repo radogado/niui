@@ -1862,8 +1862,8 @@ html.full-screen {
     left: .5rem;
     right: auto;
     top: .5rem;
-    width: 40px;
-    height: 40px;
+    width: 40px !important;
+    height: 40px !important;
     border-radius: 50%;
     font-size: 0;
     display: flex;
@@ -2376,7 +2376,7 @@ _:-ms-lang(x), .aspect > .n-slider-wrap {
 .n-slider[data-ready]:not([data-peek]) > *:not([data-active]) {
   visibility: hidden; }
 
-.n-slider-wrap[data-sliding] .n-slider:not([data-peek]) > *:not([data-active]), .n-slider.vertical[data-ready] > *:not([data-active]) {
+.n-slider-wrap[data-sliding] > .n-slider:not([data-peek]):not(.auto-height) > *:not([data-active]), .n-slider.vertical[data-ready] > *:not([data-active]) {
   display: none; }
 
 .overlay.n-slider > * {

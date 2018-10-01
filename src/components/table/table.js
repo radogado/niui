@@ -7,7 +7,7 @@
 
 		var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'), 0);;
 		
-		rows.sort(function(a, b) {
+		rows.sort((a, b) => {
 		
 			var A = a.querySelectorAll('td')[column].textContent.toUpperCase();
 			var B = b.querySelectorAll('td')[column].textContent.toUpperCase();
@@ -40,9 +40,9 @@
 	
 	}
 
-	var init = function (host) {
+	var init = (host) => {
 		
-		forEach(host.querySelectorAll('table:not([data-ready])'), function(el) {
+		host.querySelectorAll('table:not([data-ready])').forEach((el) => {
 		
 			addClass(wrap(el), 'n-tbl');
 			makeReady(el);
@@ -52,7 +52,7 @@
 	
 		if (typeof bodyElement.dataset !== 'undefined') { // el.dataset.sort not supported by IE10
 		
-			forEach(host.querySelectorAll('td[data-sort]'), function (el) { // To do: work only on tables that aren't ready
+			host.querySelectorAll('td[data-sort]').forEach((el) => { // To do: work only on tables that aren't ready
 				// asc or desc
 				if (el.dataset.sort !== 'asc' && el.dataset.sort !== 'desc') {
 					
@@ -64,7 +64,7 @@
 					
 					stopEvent(e);
 					var el = e.target;
-					var cell = el.type === 'td' ? el : closest(el, 'td');
+					var cell = el.type === 'td' ? el : el.closest('td');
 					var f; // Ascending
 					if (cell.dataset.sort === 'desc') {
 						
@@ -78,7 +78,7 @@
 						
 					}
 			
-					sortTable(closest(el, 'table'), thisIndex(cell), f);
+					sortTable(el.closest('table'), thisIndex(cell), f);
 					
 				}
 				

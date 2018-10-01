@@ -10,9 +10,9 @@
 	
 	    var ready_to_submit = true;
 	
-	    forEach(el.querySelectorAll('.n-form--mandatory'), function(el) {
+	    el.querySelectorAll('.n-form--mandatory').forEach((el) => {
 		    
-		    if (closest(el, '[disabled]')) { // Ignore disabled conditional fields
+		    if (el.closest('[disabled]')) { // Ignore disabled conditional fields
 			    
 			    return;
 	
@@ -63,12 +63,12 @@
 	
 	    }
 	
-	    el.insertAdjacentHTML('beforeend', '<input name=targetformurl type=hidden value=' + encodeURIComponent( el.method === 'get' ? el.action.replace(/\/?(\?|#|$)/, '/$1') : el.action ) + '>');
+	    el.insertAdjacentHTML('beforeend', `<input name=targetformurl type=hidden value=${encodeURIComponent( el.method === 'get' ? el.action.replace(/\/?(\?|#|$)/, '/$1') : el.action )}>`);
 	
 	    request = new XMLHttpRequest();
 	    request.open('POST', scripts_location + 'request.php', true);
 	
-	    request.onreadystatechange = function() {
+	    request.onreadystatechange = () => {
 	
 	        if (request.readyState != 4 || request.status != 200) {
 	
@@ -80,7 +80,7 @@
 	        if (!request.responseText || !php_support) {
 	
 	            // php script unreachable, submit form normally
-	            el.onsubmit = function() {};
+	            el.onsubmit = () => {};
 				el.constructor.prototype.submit.call(el); // el.submit();
 	            return true;
 	
@@ -121,7 +121,7 @@
 	
 	if (q('.n-form--language')) { // To do: make it universal .submitonchange and for more than 1 form
 	
-	    q('.n-form--language select').onchange = function(e) {
+	    q('.n-form--language select').onchange = (e) => {
 	
 	        q('.n-form--language').submit();
 	
@@ -132,7 +132,7 @@
 	function toggleConditionalFieldset(e) {
 		
 		var el = e.target;
-		var fieldset = closest(el, '.n-form--condition').nextElementSibling;
+		var fieldset = el.closest('.n-form--condition').nextElementSibling;
 		var attribute = 'disabled';
 		
 		if (el.checked) {
@@ -149,13 +149,13 @@
 
 /* Form – end */
 
-	var init = function(host) {
+	var init = (host) => {
 		
-		forEach(host.querySelectorAll('form.n-form'), function(el, i) {
+		host.querySelectorAll('form.n-form').forEach((el, i) => {
 		
 		    el.onsubmit = el.onsubmit || submitForm;
 		
-			forEach(el.querySelectorAll('input[type=file]'), function(el, i) {
+			el.querySelectorAll('input[type=file]').forEach((el, i) => {
 			
 			    el.onchange = updateFileInput;
 			
@@ -163,7 +163,7 @@
 			
 		// 	Conditional form fieldsets
 		
-			forEach(el.querySelectorAll('.n-form--check.n-form--condition input'), function(el, i) {
+			el.querySelectorAll('.n-form--check.n-form--condition input').forEach((el, i) => {
 				
 				el.onchange = toggleConditionalFieldset;
 			
@@ -171,9 +171,9 @@
 			
 			// Auto textarea height.
 			
-			forEach(el.querySelectorAll('textarea[data-auto]'), function(el) {
+			el.querySelectorAll('textarea[data-auto]').forEach((el) => {
 			
-			    el.onkeyup = function(e) {
+			    el.onkeyup = (e) => {
 			
 			        el = e.target;
 			

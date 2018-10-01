@@ -21,7 +21,7 @@ var componentModal = (function (){
 	     * @param  event object event
 	     * @return void
 	     */
-	    var preventBodyScroll = function (event) {
+	    var preventBodyScroll = (event) => {
 	        if (!_element || typeof event.target.closest === 'undefined' || !event.target.closest(_selector)) {
 	            event.preventDefault();
 	        }
@@ -34,7 +34,7 @@ var componentModal = (function (){
 	     * @param  event object event
 	     * @return void
 	     */
-	    var captureClientY = function (event) {
+	    var captureClientY = (event) => {
 	        // only respond to a single touch
 	        if (event.targetTouches.length === 1) { 
 	            _clientY = event.targetTouches[0].clientY;
@@ -49,9 +49,9 @@ var componentModal = (function (){
 	     * @param  event object event
 	     * @return void
 	     */
-	    var preventOverscroll = function (event) {
+	    var preventOverscroll = (event) => {
 	        // only respond to a single touch
-		    if (event.targetTouches.length !== 1 || closest(event.target, '.slider-nav')) { // also if trying to swipe slider/lightbox nav
+		    if (event.targetTouches.length !== 1 || event.target.closest('.slider-nav')) { // also if trying to swipe slider/lightbox nav
 		    	return;
 		    }
 	
@@ -200,7 +200,7 @@ var componentModal = (function (){
 	
 			}
 	
-			animate(full_window, animation, .2, function (e) {
+			animate(full_window, animation, .2, (e) => {
 	
 				disableBodyScroll(false, '.n-ovrl:last-of-type .n-ovrl--content'); // Turn off and restore page scroll
 				full_window.parentNode.removeChild(full_window);
@@ -262,10 +262,10 @@ var componentModal = (function (){
 		wrapper.firstChild.appendChild(full_window_content);
 		full_window_content = wrapper;
 	
-	    full_window_content.insertAdjacentHTML('afterbegin', '<div class=n-ovrl--close> ← ' + document.title + '</div>');
+	    full_window_content.insertAdjacentHTML('afterbegin', `<div class=n-ovrl--close> ← ${document.title}</div>`);
 		full_window_content.querySelector('.overlay-bg').onclick = full_window_content.querySelector('.n-ovrl--close').onclick = closeFullWindow;
-		full_window_content.querySelector('.n-ovrl--close').addEventListener("touchmove", function (e) { e.preventDefault();}, { passive: false });
-		full_window_content.querySelector('.overlay-bg').addEventListener("touchmove", function (e) { e.preventDefault();}, { passive: false });
+		full_window_content.querySelector('.n-ovrl--close').addEventListener("touchmove", (e) => { e.preventDefault(); }, { passive: false });
+		full_window_content.querySelector('.overlay-bg').addEventListener("touchmove", (e) => { e.preventDefault(); }, { passive: false });
 		window.addEventListener('keyup', keyUpClose);
 		   
 		bodyElement.appendChild(full_window_content);
@@ -318,8 +318,8 @@ var componentModal = (function (){
 
 	    var el = e.target;
 	
-	    var link = closest(el, '.n-modal').href;
-	    var animation = closest(el, '.n-modal').getAttribute('data-anim');
+	    var link = el.closest('.n-modal').href;
+	    var animation = el.closest('.n-modal').getAttribute('data-anim');
 	
 	    if (!php_support && external.test(link) || !(new XMLHttpRequest().upload)) { // No PHP or XHR?
 	
@@ -331,7 +331,7 @@ var componentModal = (function (){
 	    var request = new XMLHttpRequest();
 	    request.open('GET', external.test(link) ? (scripts_location + 'request.php?targetformurl=' + link.split('#')[0]) : link.split('#')[0], true);
 	
-	    request.onload = function() {
+	    request.onload = () => {
 	
 	        if (request.status >= 200 && request.status < 400) {
 	            // Success
@@ -357,7 +357,7 @@ var componentModal = (function (){
 	            }
 	
 	            openFullWindow(parsed, animation); // To do: If .modal[data-animation], pass it to openFullWindow() as second parameter. Also in openLightbox().
-				transferClass(closest(el, '.n-modal'), q('.n-ovrl'), 'n-modal--limited');
+				transferClass(el.closest('.n-modal'), q('.n-ovrl'), 'n-modal--limited');
 	
 	        } else {
 	            // Error
@@ -367,7 +367,7 @@ var componentModal = (function (){
 	
 	    };
 	
-	    request.onerror = function() {
+	    request.onerror = () => {
 	        // Error
 	        closeFullWindow();
 	
@@ -379,11 +379,11 @@ var componentModal = (function (){
 	
 	}
 
-	var init = function(host) {
+	var init = (host) => {
 		
 	// Modal window: open a link's target inside it
 	
-		forEach(host.querySelectorAll('a.n-modal[href]:not([data-ready])'), function(el) {
+		host.querySelectorAll('a.n-modal[href]:not([data-ready])').forEach((el) => {
 		
 			if (el.href !== (location.href.split('#')[0] + '#')) { // Is it an empty anchor?
 				

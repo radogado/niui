@@ -7,7 +7,7 @@
 	function toggleAccordion(e) {
 	
 	    stopEvent(e);
-	    var el = closest(e.target, '.n-fold');
+	    var el = e.target.closest('.n-fold');
 	    var content = el.querySelector('.n-fold--content');
 	
 		content.style.setProperty('--width', content.scrollWidth + 'px');
@@ -25,7 +25,7 @@
 		
 			if (el.hasAttribute(aria_expanded)) {
 		
-				animate(content, '0% { max-height: ' + content.scrollHeight + 'px; } 100% { max-height: ' + content_height + '; }', .2, function () {
+				animate(content, `0% { max-height: ${content.scrollHeight}px; } 100% { max-height: ${content_height}; }`, .2, () => {
 					
 					toggleAttribute(el, aria_expanded);
 					
@@ -34,7 +34,7 @@
 			} else {
 				
 				toggleAttribute(el, aria_expanded);
-				animate(content, '0% { max-height: ' + content_height + '; } 100% { max-height: ' + content.scrollHeight + 'px; }');
+				animate(content, `0% { max-height: ${content_height}; } 100% { max-height: ${content.scrollHeight}px; }`);
 				
 			}
 		
@@ -50,9 +50,9 @@
 		
 		var el = e.target;
 	
-		if (!closest(el, '.n-fold') && !closest(el, '.n-tool')) { // Clicking/tapping outside of a fold/tooltip element...
+		if (!el.closest('.n-fold') && !el.closest('.n-tool')) { // Clicking/tapping outside of a fold/tooltip element...
 			
-			forEach('.n-fold.n-fold--mobile, .n-tool', function (el) { // ... closes all burger nav menus and tooltips
+			qa('.n-fold.n-fold--mobile, .n-tool').forEach((el) => { // ... closes all burger nav menus and tooltips
 				
 				el.removeAttribute(aria_expanded);
 				
@@ -76,9 +76,9 @@
 		}
 	*/
 	
-		if (closest(el, '.n-slider')) {
+		if (el.closest('.n-slider')) {
 	
-			current_slider = closest(el, '.n-slider');
+			current_slider = el.closest('.n-slider');
 		
 		}
 		
@@ -86,11 +86,11 @@
 	
 	function initFold(host) {
 		
-		forEach(host.querySelectorAll('.n-fold:not([data-ready]) > .n-fold--label'), function(el) {
+		host.querySelectorAll('.n-fold:not([data-ready]) > .n-fold--label').forEach((el) => {
 	
 		    el.onclick = toggleAccordion;
 			el.setAttribute('tabindex', 0);
-			el.onkeyup = function (e) {
+			el.onkeyup = (e) => {
 		
 				if (e.key === 'Enter') {
 					
@@ -109,7 +109,7 @@
 				content.style.setProperty('--width', content.scrollWidth + 'px');
 				content.style.height = 'auto';
 				el.removeAttribute('data-init');
-				setTimeout(function () { content.style.transition = 'width .2s ease-in-out'; }, 100);
+				setTimeout(() => { content.style.transition = 'width .2s ease-in-out'; }, 100);
 				
 			}
 		
@@ -123,7 +123,7 @@
 		
 		    if (!hasClass(el, 'n-fold--mobile')) { // Keep the accordion content clickable
 			    
-			    content.onclick = function(e) {
+			    content.onclick = (e) => {
 		
 			        stopEvent(e);
 			
@@ -137,19 +137,19 @@
 		
 	}
 	
-	window.addEventListener('click', function (e) { // Close all Fold elements when clicking outside of them
+	window.addEventListener('click', (e) => { // Close all Fold elements when clicking outside of them
 		
 		closeFoldClickOutside(e);
 		
 	});
 	
-	window.addEventListener('touchend', function (e) { // Close all Fold elements when clicking outside of them
+	window.addEventListener('touchend', (e) => { // Close all Fold elements when clicking outside of them
 		
 		closeFoldClickOutside(e);
 		
 	});
 		
-	window.addEventListener('scroll', function() {  // Close fixed n-ovrl if its scrolling becomes a window scroll. Idea by a Google mobile nav.
+	window.addEventListener('scroll', () => {  // Close fixed n-ovrl if its scrolling becomes a window scroll. Idea by a Google mobile nav.
 		
 		if (q('.fixed-mobile .n-fold.n-fold--mobile[aria-expanded]')) {
 			

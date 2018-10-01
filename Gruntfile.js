@@ -33,7 +33,7 @@ module.exports = function(grunt) {
 		  JS: {
 			options: {
 				separator: ';',
-				banner: 'var nui = (function(){ if (!("fetch" in window)) return;',
+				banner: 'var nui = (function(){ if (!("fetch" in window)) return;', // ES6 only
 				footer: 'initComponents(); return { initComponents: initComponents, animate: animate, copyButton: copyButton, componentNotify: componentNotify, addComponent: addComponent }; })();'
 		    },
 		    src: ['src/script/natuive-core.js', 'src/components/**/*.js'],
@@ -42,7 +42,7 @@ module.exports = function(grunt) {
 		  JS_transpile: {
 			options: {
 				separator: ';',
-				banner: 'var nui = (function(){',
+				banner: 'var nui = (function(){ if (typeof document.body.style.animationName === "undefined") return;', // ES5 only
 				footer: 'initComponents(); return { initComponents: initComponents, animate: animate, copyButton: copyButton, componentNotify: componentNotify, addComponent: addComponent }; })();'
 		    },
 		    src: ['src/script/natuive-core.js', 'src/components/**/*.js'],
@@ -92,7 +92,7 @@ module.exports = function(grunt) {
 			  noreport: true,
 			  options: {
 			    compilation_level: 'ADVANCED_OPTIMIZATIONS',
-			    language_in: 'ECMASCRIPT5_STRICT', // Change to ES6 and use Babel version in IE
+			    language_in: 'ECMASCRIPT6_STRICT',
 			  }
 			},
 			lite: {
@@ -103,7 +103,7 @@ module.exports = function(grunt) {
 			  noreport: true,
 			  options: {
 			    compilation_level: 'ADVANCED_OPTIMIZATIONS',
-			    language_in: 'ECMASCRIPT5_STRICT', // Change to ES6 and use Babel version in IE
+			    language_in: 'ECMASCRIPT6_STRICT',
 			    jscomp_off: 'checkVars'
 			  }
 			}

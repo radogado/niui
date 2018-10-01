@@ -78,6 +78,7 @@ function toggleAttribute(el, attribute) {
 
 }
 
+/*
 function forEach(selector, fn) { // Because IE11 doesn't support el.forEach(). Accepts both an array and a selector
 	
     var elements = (typeof selector === 'string') ? qa(selector) : selector;
@@ -93,6 +94,7 @@ function forEach(selector, fn) { // Because IE11 doesn't support el.forEach(). A
     }
 
 }
+*/
 
 // DOM functions – end
 
@@ -250,7 +252,7 @@ function getURLParameters() { // return all URL parameters in an array
     var res = {};
     var re = /[?&]([^?&]+)=([^?&]+)/g;
 
-    location.href.replace(re, function(_, k, v) {
+    location.href.replace(re, (_, k, v) => {
 
         res[k] = v;
 
@@ -405,7 +407,7 @@ function animateAnchors(e) {
 
 	}
 
-    scrollToAnimated((hash === null) ? 0 : getCumulativeOffset(hash).y, .5, function(e) { // To do: fix jumping to new hash – is the fallback executed properly in animate()?
+    scrollToAnimated((hash === null) ? 0 : getCumulativeOffset(hash).y, .5, (e) => { // To do: fix jumping to new hash – is the fallback executed properly in animate()?
 
         window.location = el.href.split('#')[0] + '#' + el.href.split('#').pop();
 
@@ -415,6 +417,7 @@ function animateAnchors(e) {
 
 }
 
+/*
 function closest(el, target) { // Thanks http://gomakethings.com/ditching-jquery/ – Accepts either a selector string or an actual element
 
     for ( ; el && el !== document; el = el.parentNode ) {
@@ -430,12 +433,13 @@ function closest(el, target) { // Thanks http://gomakethings.com/ditching-jquery
     return false;
 
 }
+*/
 
 /* Check for host PHP support */
 var php_support = 0;
 var request = new XMLHttpRequest();
 request.open('GET', document.location, true);
-request.onload = function () {
+request.onload = () => {
 	
 	php_support = request.getAllResponseHeaders().toLowerCase().indexOf('php') === -1 ? 0 : 1;
 
@@ -494,7 +498,7 @@ function animate(el, animation_code, duration, callback) { // Default duration =
 			
 		}
 		var styles = document.createElement('style');
-		styles.innerHTML = '@keyframes ' + animation_name + ' {' + animation_code + '} [data-animation=' + animation_name + '] { animation-name: ' + animation_name + '; animation-duration: ' + ((typeof duration === 'undefined') ? .2 : duration) + 's; }'; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
+		styles.innerHTML = `@keyframes ${animation_name} {${animation_code}} [data-animation=${animation_name}] { animation-name: ${animation_name}; animation-duration: ${((typeof duration === "undefined") ? .2 : duration)}s; }`; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
 		q('head').appendChild(styles);
 		addClass(styles, animation_name);
 
@@ -527,7 +531,7 @@ function scrollToAnimated(to, duration, callback) {
 		
 	}
 	
-	animate(q('html'), '100% { transform: translate3d(0, ' + -1*(to - (document.documentElement.scrollTop || bodyElement.scrollTop)) + 'px, 0); }', duration, scrollToCallback.bind(null, callback));
+	animate(q('html'), `100% { transform: translate3d(0, ${-1*(to - (document.documentElement.scrollTop || bodyElement.scrollTop))}px, 0); }`, duration, scrollToCallback.bind(null, callback));
 
 }
 
@@ -535,7 +539,7 @@ function scrollToAnimated(to, duration, callback) {
 
 function copyButton (el, target, echo) {
 	
-	el.addEventListener('click', function(event) {  
+	el.addEventListener('click', (event) => {
 
 	  window.getSelection().removeAllRanges(); // Clear previous clipboard
 	  var range = document.createRange();  
@@ -594,7 +598,7 @@ function loadScriptFile(file_name) {
 
         }
 
-        isTouchTimer = setTimeout(function(){isTouch = false}, 500); //maintain "istouch" state for 500ms so removetouchclass doesn't get fired immediately following a touch event
+        isTouchTimer = setTimeout(() => {isTouch = false}, 500); //maintain "istouch" state for 500ms so removetouchclass doesn't get fired immediately following a touch event
 
     }
      
@@ -626,7 +630,7 @@ function focusWithin(selector) {
 	// To do: If not IE/Edge, return q(selector + ':focus-within');
 
 	var result = null;
-	forEach(qa(selector), function (el) {
+	qa(selector).forEach((el) => {
 		
 		if (el.querySelector(':focus')) {
 			
@@ -650,11 +654,11 @@ function addComponent(host, el) {
 function initThreshold(host) {
 
 // Scroll effects
-	forEach(host.querySelectorAll('[data-threshold]:not([data-ready])'), function(el) { // Set a variable reflecting how much of the element's height has been scrolled; .threshold on scroll over element height
+	host.querySelectorAll('[data-threshold]:not([data-ready])').forEach((el) => { // Set a variable reflecting how much of the element's height has been scrolled; .threshold on scroll over element height
 	
-		window.addEventListener('scroll', function() {
+		window.addEventListener('scroll', () => {
 	
-			setTimeout(function () {
+			setTimeout(() => {
 				
 				var relativeScroll = q('html').scrollTop || bodyElement.scrollTop;
 	/*
@@ -754,7 +758,7 @@ function observerOff() {
 
 if (typeof MutationObserver === 'function') {
 
-	observer = new MutationObserver(function(mutations, observer) {
+	observer = new MutationObserver((mutations, observer) => {
 
         observerOff();
 
@@ -784,7 +788,7 @@ if (typeof MutationObserver === 'function') {
 initThreshold(bodyElement);
 
 // Animate anchor link jumps
-forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
+qa('a[href^="#"]').forEach((el) => {
 
 	el.onclick = el.onclick || animateAnchors; // Don't add to previous onclick event handler
 
@@ -817,9 +821,9 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 	
 	    var ready_to_submit = true;
 	
-	    forEach(el.querySelectorAll('.n-form--mandatory'), function(el) {
+	    el.querySelectorAll('.n-form--mandatory').forEach((el) => {
 		    
-		    if (closest(el, '[disabled]')) { // Ignore disabled conditional fields
+		    if (el.closest('[disabled]')) { // Ignore disabled conditional fields
 			    
 			    return;
 	
@@ -870,12 +874,12 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 	
 	    }
 	
-	    el.insertAdjacentHTML('beforeend', '<input name=targetformurl type=hidden value=' + encodeURIComponent( el.method === 'get' ? el.action.replace(/\/?(\?|#|$)/, '/$1') : el.action ) + '>');
+	    el.insertAdjacentHTML('beforeend', `<input name=targetformurl type=hidden value=${encodeURIComponent( el.method === 'get' ? el.action.replace(/\/?(\?|#|$)/, '/$1') : el.action )}>`);
 	
 	    request = new XMLHttpRequest();
 	    request.open('POST', scripts_location + 'request.php', true);
 	
-	    request.onreadystatechange = function() {
+	    request.onreadystatechange = () => {
 	
 	        if (request.readyState != 4 || request.status != 200) {
 	
@@ -887,7 +891,7 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 	        if (!request.responseText || !php_support) {
 	
 	            // php script unreachable, submit form normally
-	            el.onsubmit = function() {};
+	            el.onsubmit = () => {};
 				el.constructor.prototype.submit.call(el); // el.submit();
 	            return true;
 	
@@ -928,7 +932,7 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 	
 	if (q('.n-form--language')) { // To do: make it universal .submitonchange and for more than 1 form
 	
-	    q('.n-form--language select').onchange = function(e) {
+	    q('.n-form--language select').onchange = (e) => {
 	
 	        q('.n-form--language').submit();
 	
@@ -939,7 +943,7 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 	function toggleConditionalFieldset(e) {
 		
 		var el = e.target;
-		var fieldset = closest(el, '.n-form--condition').nextElementSibling;
+		var fieldset = el.closest('.n-form--condition').nextElementSibling;
 		var attribute = 'disabled';
 		
 		if (el.checked) {
@@ -956,13 +960,13 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 
 /* Form – end */
 
-	var init = function(host) {
+	var init = (host) => {
 		
-		forEach(host.querySelectorAll('form.n-form'), function(el, i) {
+		host.querySelectorAll('form.n-form').forEach((el, i) => {
 		
 		    el.onsubmit = el.onsubmit || submitForm;
 		
-			forEach(el.querySelectorAll('input[type=file]'), function(el, i) {
+			el.querySelectorAll('input[type=file]').forEach((el, i) => {
 			
 			    el.onchange = updateFileInput;
 			
@@ -970,7 +974,7 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 			
 		// 	Conditional form fieldsets
 		
-			forEach(el.querySelectorAll('.n-form--check.n-form--condition input'), function(el, i) {
+			el.querySelectorAll('.n-form--check.n-form--condition input').forEach((el, i) => {
 				
 				el.onchange = toggleConditionalFieldset;
 			
@@ -978,9 +982,9 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 			
 			// Auto textarea height.
 			
-			forEach(el.querySelectorAll('textarea[data-auto]'), function(el) {
+			el.querySelectorAll('textarea[data-auto]').forEach((el) => {
 			
-			    el.onkeyup = function(e) {
+			    el.onkeyup = (e) => {
 			
 			        el = e.target;
 			
@@ -1026,9 +1030,9 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 
 	function closeDropNavClickedOutside(e) { // Close the nav when clicking outside
 	
-		if (!closest(e.target, 'nav li')) {
+		if (!e.target.closest('nav li')) {
 	
-			forEach('nav ul', function (el) {
+			qa('nav ul').forEach((el) => {
 				
 				el.removeAttribute(aria_expanded);
 				
@@ -1046,11 +1050,11 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 	
 	function dropNavBlur(e) {
 	
-		var this_nav = closest(e.target, 'nav');
+		var this_nav = e.target.closest('nav');
 		
-		if (!closest(e.relatedTarget, this_nav)) { // if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
+		if (!e.relatedTarget.closest(this_nav)) { // if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
 			
-			forEach(this_nav.querySelectorAll('ul'), function (el) {
+			this_nav.querySelectorAll('ul').forEach((el) => {
 	
 				el.removeAttribute(aria_expanded);
 				
@@ -1060,10 +1064,10 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 		}
 		// Close neighboring parent nav's sub navs.
 		var el = e.target;
-		var target_parent = closest(el, '[aria-haspopup]');
+		var target_parent = el.closest('[aria-haspopup]');
 		if (target_parent) { // Skip if it's a top-level-only item
 			
-			forEach(target_parent.querySelectorAll('ul[aria-expanded]'), function (el) { // Disable active grandchildren
+			target_parent.querySelectorAll('ul[aria-expanded]').forEach((el) => { // Disable active grandchildren
 		
 				el.removeAttribute(aria_expanded);
 		
@@ -1086,13 +1090,13 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 	
 		// Close focused third level child when focus moves to another top-level item
 		
-		var el = closest(e.target, 'nav > ul > li');
+		var el = e.target.closest('nav > ul > li');
 		
-		forEach(el.parentNode.childNodes, function (a) {
+		el.parentNode.childNodes.forEach((a) => {
 	
 			if (a.nodeName === 'LI' && a !== el) {
 			
-				forEach(a.querySelectorAll('[aria-expanded]'), function (el) {
+				a.querySelectorAll('[aria-expanded]').forEach((el) => {
 					
 					el.removeAttribute(aria_expanded);
 					
@@ -1113,7 +1117,7 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 		
 		var current_item = e.target.parentNode;
 	
-		forEach(current_item.parentNode.parentNode.childNodes, function (el) {
+		current_item.parentNode.parentNode.childNodes.forEach((el) => {
 	
 			if (el !== current_item && el.nodeName === 'LI' && el.querySelector('ul')) {
 	
@@ -1131,7 +1135,7 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 		
 		// Delete all trigger inputs, add tabindex=0 to each li
 		
-		forEach(el.querySelectorAll('input'), function (el) {
+		el.querySelectorAll('input').forEach((el) => {
 			
 			el.outerHTML = '';
 			
@@ -1139,13 +1143,13 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 		
 		el.setAttribute('role', 'menubar');
 	
-		forEach(el.querySelectorAll('li > a'), function (el) {
+		el.querySelectorAll('li > a').forEach((el) => {
 			
 			el.setAttribute('tabindex', 0);
 	
 		});
 	
-		if (!closest(el, 'nav.n-drop')) { // The rest is for drop nav only
+		if (!el.closest('nav.n-drop')) { // The rest is for drop nav only
 			
 			return;
 	
@@ -1158,13 +1162,13 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 		
 		}
 		
-		el.addEventListener('keyup', function (e) {
+		el.addEventListener('keyup', (e) => {
 			
 			// Check for sibling or children to expand on control keys Left/Right/etc
 		
 			if (e.key === 'Escape') {
 				
-				forEach(closest(e.target, 'nav').querySelectorAll('ul'), function (el) {
+				e.target.closest('nav').querySelectorAll('ul').forEach((el) => {
 					
 					el.removeAttribute(aria_expanded);
 					
@@ -1176,7 +1180,7 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 			
 		});
 		
-		forEach(el.querySelectorAll('li'), function (el) {
+		el.querySelectorAll('li').forEach((el) => {
 			
 			if (el.querySelector('ul')) {
 		
@@ -1189,7 +1193,7 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 			
 			}
 		
-			el.addEventListener('touchend', function (e) {
+			el.addEventListener('touchend', (e) => {
 	
 				var el = e.target;
 	
@@ -1234,12 +1238,12 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 	
 /* Nav – end */
 
-	var init = function (host) {
+	var init = (host) => {
 		
-		forEach(host.querySelectorAll('nav:not([data-ready]) > ul:not([role])'), function (el) {
+		host.querySelectorAll('nav:not([data-ready]) > ul:not([role])').forEach((el) => {
 			
 			initNav(el);
-			makeReady(closest(el, 'nav'));
+			makeReady(el.closest('nav'));
 			
 		});
 
@@ -1258,7 +1262,7 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 
 		var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'), 0);;
 		
-		rows.sort(function(a, b) {
+		rows.sort((a, b) => {
 		
 			var A = a.querySelectorAll('td')[column].textContent.toUpperCase();
 			var B = b.querySelectorAll('td')[column].textContent.toUpperCase();
@@ -1291,9 +1295,9 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 	
 	}
 
-	var init = function (host) {
+	var init = (host) => {
 		
-		forEach(host.querySelectorAll('table:not([data-ready])'), function(el) {
+		host.querySelectorAll('table:not([data-ready])').forEach((el) => {
 		
 			addClass(wrap(el), 'n-tbl');
 			makeReady(el);
@@ -1303,7 +1307,7 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 	
 		if (typeof bodyElement.dataset !== 'undefined') { // el.dataset.sort not supported by IE10
 		
-			forEach(host.querySelectorAll('td[data-sort]'), function (el) { // To do: work only on tables that aren't ready
+			host.querySelectorAll('td[data-sort]').forEach((el) => { // To do: work only on tables that aren't ready
 				// asc or desc
 				if (el.dataset.sort !== 'asc' && el.dataset.sort !== 'desc') {
 					
@@ -1315,7 +1319,7 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 					
 					stopEvent(e);
 					var el = e.target;
-					var cell = el.type === 'td' ? el : closest(el, 'td');
+					var cell = el.type === 'td' ? el : el.closest('td');
 					var f; // Ascending
 					if (cell.dataset.sort === 'desc') {
 						
@@ -1329,7 +1333,7 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 						
 					}
 			
-					sortTable(closest(el, 'table'), thisIndex(cell), f);
+					sortTable(el.closest('table'), thisIndex(cell), f);
 					
 				}
 				
@@ -1349,15 +1353,15 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 
 (function (){
     
-	var init = function (host) {
+	var init = (host) => {
 		
 		/* Tooltip */
 		
-		forEach(host.querySelectorAll('.n-tool:not([data-ready])'), function(el, i) {
+		host.querySelectorAll('.n-tool:not([data-ready])').forEach((el, i) => {
 			
-			el.onclick = function (e) {
+			el.onclick = (e) => {
 	
-				toggleAttribute(closest(e.target, '.n-tool'), aria_expanded);
+				toggleAttribute(e.target.closest('.n-tool'), aria_expanded);
 	
 			};		
 		
@@ -1375,19 +1379,19 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 			if (label) {
 				
 				label.setAttribute('tabindex', 0);
-				label.onkeyup = function (e) {
+				label.onkeyup = (e) => {
 					
 					if (e.key === 'Enter') {
 						
-						toggleAttribute(closest(e.target, '.n-tool'), aria_expanded);
+						toggleAttribute(e.target.closest('.n-tool'), aria_expanded);
 	
 					}
 					
 				}
 	
-				label.onblur = function (e) {
+				label.onblur = (e) => {
 					
-					closest(e.target, '.n-tool').removeAttribute(aria_expanded);
+					e.target.closest('.n-tool').removeAttribute(aria_expanded);
 	
 				}
 	

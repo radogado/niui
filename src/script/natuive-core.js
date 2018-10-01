@@ -78,6 +78,7 @@ function toggleAttribute(el, attribute) {
 
 }
 
+/*
 function forEach(selector, fn) { // Because IE11 doesn't support el.forEach(). Accepts both an array and a selector
 	
     var elements = (typeof selector === 'string') ? qa(selector) : selector;
@@ -93,6 +94,7 @@ function forEach(selector, fn) { // Because IE11 doesn't support el.forEach(). A
     }
 
 }
+*/
 
 // DOM functions – end
 
@@ -250,7 +252,7 @@ function getURLParameters() { // return all URL parameters in an array
     var res = {};
     var re = /[?&]([^?&]+)=([^?&]+)/g;
 
-    location.href.replace(re, function(_, k, v) {
+    location.href.replace(re, (_, k, v) => {
 
         res[k] = v;
 
@@ -405,7 +407,7 @@ function animateAnchors(e) {
 
 	}
 
-    scrollToAnimated((hash === null) ? 0 : getCumulativeOffset(hash).y, .5, function(e) { // To do: fix jumping to new hash – is the fallback executed properly in animate()?
+    scrollToAnimated((hash === null) ? 0 : getCumulativeOffset(hash).y, .5, (e) => { // To do: fix jumping to new hash – is the fallback executed properly in animate()?
 
         window.location = el.href.split('#')[0] + '#' + el.href.split('#').pop();
 
@@ -415,6 +417,7 @@ function animateAnchors(e) {
 
 }
 
+/*
 function closest(el, target) { // Thanks http://gomakethings.com/ditching-jquery/ – Accepts either a selector string or an actual element
 
     for ( ; el && el !== document; el = el.parentNode ) {
@@ -430,12 +433,13 @@ function closest(el, target) { // Thanks http://gomakethings.com/ditching-jquery
     return false;
 
 }
+*/
 
 /* Check for host PHP support */
 var php_support = 0;
 var request = new XMLHttpRequest();
 request.open('GET', document.location, true);
-request.onload = function () {
+request.onload = () => {
 	
 	php_support = request.getAllResponseHeaders().toLowerCase().indexOf('php') === -1 ? 0 : 1;
 
@@ -494,7 +498,7 @@ function animate(el, animation_code, duration, callback) { // Default duration =
 			
 		}
 		var styles = document.createElement('style');
-		styles.innerHTML = '@keyframes ' + animation_name + ' {' + animation_code + '} [data-animation=' + animation_name + '] { animation-name: ' + animation_name + '; animation-duration: ' + ((typeof duration === 'undefined') ? .2 : duration) + 's; }'; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
+		styles.innerHTML = `@keyframes ${animation_name} {${animation_code}} [data-animation=${animation_name}] { animation-name: ${animation_name}; animation-duration: ${((typeof duration === "undefined") ? .2 : duration)}s; }`; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
 		q('head').appendChild(styles);
 		addClass(styles, animation_name);
 
@@ -527,7 +531,7 @@ function scrollToAnimated(to, duration, callback) {
 		
 	}
 	
-	animate(q('html'), '100% { transform: translate3d(0, ' + -1*(to - (document.documentElement.scrollTop || bodyElement.scrollTop)) + 'px, 0); }', duration, scrollToCallback.bind(null, callback));
+	animate(q('html'), `100% { transform: translate3d(0, ${-1*(to - (document.documentElement.scrollTop || bodyElement.scrollTop))}px, 0); }`, duration, scrollToCallback.bind(null, callback));
 
 }
 
@@ -535,7 +539,7 @@ function scrollToAnimated(to, duration, callback) {
 
 function copyButton (el, target, echo) {
 	
-	el.addEventListener('click', function(event) {  
+	el.addEventListener('click', (event) => {
 
 	  window.getSelection().removeAllRanges(); // Clear previous clipboard
 	  var range = document.createRange();  
@@ -594,7 +598,7 @@ function loadScriptFile(file_name) {
 
         }
 
-        isTouchTimer = setTimeout(function(){isTouch = false}, 500); //maintain "istouch" state for 500ms so removetouchclass doesn't get fired immediately following a touch event
+        isTouchTimer = setTimeout(() => {isTouch = false}, 500); //maintain "istouch" state for 500ms so removetouchclass doesn't get fired immediately following a touch event
 
     }
      
@@ -626,7 +630,7 @@ function focusWithin(selector) {
 	// To do: If not IE/Edge, return q(selector + ':focus-within');
 
 	var result = null;
-	forEach(qa(selector), function (el) {
+	qa(selector).forEach((el) => {
 		
 		if (el.querySelector(':focus')) {
 			
@@ -650,11 +654,11 @@ function addComponent(host, el) {
 function initThreshold(host) {
 
 // Scroll effects
-	forEach(host.querySelectorAll('[data-threshold]:not([data-ready])'), function(el) { // Set a variable reflecting how much of the element's height has been scrolled; .threshold on scroll over element height
+	host.querySelectorAll('[data-threshold]:not([data-ready])').forEach((el) => { // Set a variable reflecting how much of the element's height has been scrolled; .threshold on scroll over element height
 	
-		window.addEventListener('scroll', function() {
+		window.addEventListener('scroll', () => {
 	
-			setTimeout(function () {
+			setTimeout(() => {
 				
 				var relativeScroll = q('html').scrollTop || bodyElement.scrollTop;
 	/*
@@ -754,7 +758,7 @@ function observerOff() {
 
 if (typeof MutationObserver === 'function') {
 
-	observer = new MutationObserver(function(mutations, observer) {
+	observer = new MutationObserver((mutations, observer) => {
 
         observerOff();
 
@@ -784,7 +788,7 @@ if (typeof MutationObserver === 'function') {
 initThreshold(bodyElement);
 
 // Animate anchor link jumps
-forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
+qa('a[href^="#"]').forEach((el) => {
 
 	el.onclick = el.onclick || animateAnchors; // Don't add to previous onclick event handler
 

@@ -2,15 +2,15 @@
 
 (function (){
     
-	var init = function (host) {
+	var init = (host) => {
 		
 		/* Tooltip */
 		
-		forEach(host.querySelectorAll('.n-tool:not([data-ready])'), function(el, i) {
+		host.querySelectorAll('.n-tool:not([data-ready])').forEach((el, i) => {
 			
-			el.onclick = function (e) {
+			el.onclick = (e) => {
 	
-				toggleAttribute(closest(e.target, '.n-tool'), aria_expanded);
+				toggleAttribute(e.target.closest('.n-tool'), aria_expanded);
 	
 			};		
 		
@@ -28,19 +28,19 @@
 			if (label) {
 				
 				label.setAttribute('tabindex', 0);
-				label.onkeyup = function (e) {
+				label.onkeyup = (e) => {
 					
 					if (e.key === 'Enter') {
 						
-						toggleAttribute(closest(e.target, '.n-tool'), aria_expanded);
+						toggleAttribute(e.target.closest('.n-tool'), aria_expanded);
 	
 					}
 					
 				}
 	
-				label.onblur = function (e) {
+				label.onblur = (e) => {
 					
-					closest(e.target, '.n-tool').removeAttribute(aria_expanded);
+					e.target.closest('.n-tool').removeAttribute(aria_expanded);
 	
 				}
 	

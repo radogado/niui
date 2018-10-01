@@ -12,7 +12,7 @@ var componentNotify = (function (){
 	
 		if (q('.n-notify')) {
 	
-			q('.n-notify').onclick = function (e) {
+			q('.n-notify').onclick = (e) => {
 				
 				notifyClose(e.target);	
 					
@@ -24,21 +24,21 @@ var componentNotify = (function (){
 	
 	function notify(content, option) {
 		
-		bodyElement.insertAdjacentHTML('afterbegin', '<div class="n-notify' + (option && (option.indexOf('fixed') !== -1) ? ' fixed' : '') + '">' + content + '</div>');
+		bodyElement.insertAdjacentHTML('afterbegin', `<div class="n-notify${(option && (option.indexOf('fixed') !== -1) ? ' fixed' : '')}">${content}</div>`);
 		notifyCloseEvent();
 		if (option && option.indexOf('timeout') !== -1) {
 			
-			setTimeout(function() { notifyClose(q('.n-notify')) }, 2000);
+			setTimeout(() => { notifyClose(q('.n-notify')) }, 2000);
 	
 		}
 		
 	}
 
-	var init = function (host) {
+	var init = (host) => {
 		
 		/* Tooltip */
 		
-		forEach(host.querySelectorAll('.n-notify:not([data-ready])'), function(el, i) {
+		host.querySelectorAll('.n-notify:not([data-ready])').forEach((el, i) => {
 			
 			notifyCloseEvent();
 			makeReady(el);

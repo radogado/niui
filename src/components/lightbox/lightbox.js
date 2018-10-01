@@ -9,12 +9,12 @@ var componentLightbox = (function (){
 		if (img && !img.src) {
 			
 			img.src = img.getAttribute('data-src');
-			img.onload = function (e) {
+			img.onload = (e) => {
 				
 				addClass(e.target.parentNode, 'loaded');
 	
-			}
-			img.onclick = function (e) { // Zoom and scan
+			};
+			img.onclick = (e) => { // Zoom and scan
 	
 	// transformY = -50% + (poxY/sizeY)*overflowY
 	
@@ -29,7 +29,7 @@ var componentLightbox = (function (){
 				el.style.cssText = '';
 				el.style.setProperty('--x', '-50%');
 				el.style.setProperty('--y', '-50%');
-				el.onmousemove = function (e) {
+				el.onmousemove = (e) => {
 					
 					var width = q('.n-ovrl:last-of-type .n-slider-wrap').offsetWidth;
 					var height = q('.n-ovrl:last-of-type .n-slider-wrap').offsetHeight;
@@ -90,7 +90,7 @@ var componentLightbox = (function (){
 	
 		}
 		
-	    var lightbox = closest(el, '.n-lightbox');
+	    var lightbox = el.closest('.n-lightbox');
 	    var animation = lightbox.getAttribute('data-anim');
 		var lightbox_target = document.createElement('div');
 		var inline_static = lightbox.matches('.inline:not(.n-slider)');
@@ -136,7 +136,7 @@ var componentLightbox = (function (){
 	    /* Add any <a><img> siblings with description to a .n-slider and initialise its controls */
 	    var images = '';
 		var thumbnails = [];
-	    forEach(lightbox.children, function(el) { // To do: facilitate a[href] extraction also from within div slides, if lightbox is existing and needs to be recreated for full screen. Get them in an array item[i].link, item[i].img
+	    lightbox.childNodes.forEach((el) => { // To do: facilitate a[href] extraction also from within div slides, if lightbox is existing and needs to be recreated for full screen. Get them in an array item[i].link, item[i].img
 		    
 		    if (!el.href && !hasClass(lightbox, 'slider')) { // Ignore non-links in regular lightboxes
 			    
@@ -153,11 +153,11 @@ var componentLightbox = (function (){
 	
 				if (hasClass(lightbox, 'slider')) { // Secondary lightbox
 					
-					images += '<div>' + el.querySelector('video').outerHTML + '</div>';
+					images += `<div>${el.querySelector('video').outerHTML}</div>`;
 					
 				} else {
 					
-					images += '<div><video poster=' + (el.querySelector('img') ? el.querySelector('img').src : '#') + ' controls=controls preload=none> <source type=video/mp4 src=' + el.href + '> </video></div>';
+					images += `<div><video poster=${(el.querySelector('img') ? el.querySelector('img').src : '#')} controls=controls preload=none> <source type=video/mp4 src=${el.href}> </video></div>`;
 					
 				}
 				
@@ -167,7 +167,7 @@ var componentLightbox = (function (){
 				
 			if (hasClass(el, 'iframe')) {
 	
-				images += '<div><iframe src=' + el.href + '></iframe></div>';
+				images += `<div><iframe src=${el.href}></iframe></div>`;
 				return;
 				
 			}
@@ -184,13 +184,13 @@ var componentLightbox = (function (){
 				
 			}
 	
-		    var link_element = (hasClass(lightbox, 'inline') || !lightbox.getAttribute('id')) ? '' : '<a class="button copy" href=' + slide_link + '></a>';
+		    var link_element = (hasClass(lightbox, 'inline') || !lightbox.getAttribute('id')) ? '' : `<a class="button copy" href=${slide_link}></a>`;
 	
 		    var url = hasClass(lightbox, 'slider') ? (el.querySelector('img') ? el.querySelector('img').getAttribute('data-src') : '') : el.href;
 		    
 			var caption = el.title ? el.title : (el.querySelector('img') ? el.querySelector('img').title : '');
 					    
-		    images += '<div><img data-src="' + url + '" title="' + caption + '" data-link="' + slide_link + '">' + (caption ? ('<p>' + caption + '</p>') : '') + link_element + '</div>';
+		    images += `<div><img data-src="${url}" title="${caption}" data-link="${slide_link}">${(caption ? ('<p>' + caption + '</p>') : '') + link_element}</div>`;
 	
 	        // Attach onload event to each image to display it only when fully loaded and avoid top-to-bottom reveal?
 	
@@ -200,7 +200,7 @@ var componentLightbox = (function (){
 	    
 	    if (inline_static) { // It's an inline lightbox and needs to become full window/screen when clicked
 		    
-		    lightbox_target.onclick = function(e) {
+		    lightbox_target.onclick = (e) => {
 			    
 			    if (e.target.tagName === 'IMG') {
 				    
@@ -244,7 +244,7 @@ var componentLightbox = (function (){
 			
 		} else {
 	
-	        this_index = Array.prototype.indexOf.call(lightbox.querySelectorAll('[href]'), closest(anchor, '[href]')); // Ignore non-anchor children of the lightbox container
+	        this_index = Array.prototype.indexOf.call(lightbox.querySelectorAll('[href]'), anchor.closest('[href]')); // Ignore non-anchor children of the lightbox container
 	
 		}
 	
@@ -307,12 +307,12 @@ var componentLightbox = (function (){
 		    transferClass(lightbox, lightbox_target.parentNode, 'thumbnails');
 	        var i = 0;
 	// 	        var nav = closest(lightbox_target, '.n-slider-wrap').querySelector('.slider-nav');
-	        var nav = componentSlider.getSliderNav(closest(lightbox_target, '.n-slider-wrap'));
+	        var nav = componentSlider.getSliderNav(lightbox_target.closest('.n-slider-wrap'));
 	
 	        if (nav) { // Multiple slides?
 	
 				transferClass(lightbox, nav, 'thumbnails');
-		        forEach(thumbnails, function (el) {
+		        thumbnails.forEach((el) => {
 					
 					if (nav.children[i]) {
 	
@@ -341,7 +341,7 @@ var componentLightbox = (function (){
 	
 	// Automatically open a lightbox specified in the URI
 	
-	setTimeout( function () {
+	setTimeout(() => {
 		
 		if (q('.n-lightbox:target:not(.inline)')) {
 			
@@ -358,9 +358,9 @@ var componentLightbox = (function (){
 		
 	}, 1);
 	
-	var init = function (host){
+	var init = (host) => {
 		
-		forEach(host.querySelectorAll('.n-lightbox:not([data-ready])'), function(el) {
+		host.querySelectorAll('.n-lightbox:not([data-ready])').forEach((el) => {
 		
 			// Abort on IE, because of IE bug on dynamic img.src change
 			if (navigator.userAgent.indexOf('MSIE') != -1 || navigator.userAgent.indexOf('Trident') != -1 || hasClass(el.parentNode, 'n-slider-wrap')) {
@@ -375,7 +375,7 @@ var componentLightbox = (function (){
 				
 			} else {
 				
-				forEach(el.querySelectorAll('a'), function(el) {
+				el.querySelectorAll('a').forEach((el) => {
 	
 					el.setAttribute('tabindex', 0);
 				    el.onclick = openLightbox;

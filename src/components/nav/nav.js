@@ -6,9 +6,9 @@
 
 	function closeDropNavClickedOutside(e) { // Close the nav when clicking outside
 	
-		if (!closest(e.target, 'nav li')) {
+		if (!e.target.closest('nav li')) {
 	
-			forEach('nav ul', function (el) {
+			qa('nav ul').forEach((el) => {
 				
 				el.removeAttribute(aria_expanded);
 				
@@ -26,11 +26,11 @@
 	
 	function dropNavBlur(e) {
 	
-		var this_nav = closest(e.target, 'nav');
+		var this_nav = e.target.closest('nav');
 		
-		if (!closest(e.relatedTarget, this_nav)) { // if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
+		if (!e.relatedTarget.closest(this_nav)) { // if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
 			
-			forEach(this_nav.querySelectorAll('ul'), function (el) {
+			this_nav.querySelectorAll('ul').forEach((el) => {
 	
 				el.removeAttribute(aria_expanded);
 				
@@ -40,10 +40,10 @@
 		}
 		// Close neighboring parent nav's sub navs.
 		var el = e.target;
-		var target_parent = closest(el, '[aria-haspopup]');
+		var target_parent = el.closest('[aria-haspopup]');
 		if (target_parent) { // Skip if it's a top-level-only item
 			
-			forEach(target_parent.querySelectorAll('ul[aria-expanded]'), function (el) { // Disable active grandchildren
+			target_parent.querySelectorAll('ul[aria-expanded]').forEach((el) => { // Disable active grandchildren
 		
 				el.removeAttribute(aria_expanded);
 		
@@ -66,13 +66,13 @@
 	
 		// Close focused third level child when focus moves to another top-level item
 		
-		var el = closest(e.target, 'nav > ul > li');
+		var el = e.target.closest('nav > ul > li');
 		
-		forEach(el.parentNode.childNodes, function (a) {
+		el.parentNode.childNodes.forEach((a) => {
 	
 			if (a.nodeName === 'LI' && a !== el) {
 			
-				forEach(a.querySelectorAll('[aria-expanded]'), function (el) {
+				a.querySelectorAll('[aria-expanded]').forEach((el) => {
 					
 					el.removeAttribute(aria_expanded);
 					
@@ -93,7 +93,7 @@
 		
 		var current_item = e.target.parentNode;
 	
-		forEach(current_item.parentNode.parentNode.childNodes, function (el) {
+		current_item.parentNode.parentNode.childNodes.forEach((el) => {
 	
 			if (el !== current_item && el.nodeName === 'LI' && el.querySelector('ul')) {
 	
@@ -111,7 +111,7 @@
 		
 		// Delete all trigger inputs, add tabindex=0 to each li
 		
-		forEach(el.querySelectorAll('input'), function (el) {
+		el.querySelectorAll('input').forEach((el) => {
 			
 			el.outerHTML = '';
 			
@@ -119,13 +119,13 @@
 		
 		el.setAttribute('role', 'menubar');
 	
-		forEach(el.querySelectorAll('li > a'), function (el) {
+		el.querySelectorAll('li > a').forEach((el) => {
 			
 			el.setAttribute('tabindex', 0);
 	
 		});
 	
-		if (!closest(el, 'nav.n-drop')) { // The rest is for drop nav only
+		if (!el.closest('nav.n-drop')) { // The rest is for drop nav only
 			
 			return;
 	
@@ -138,13 +138,13 @@
 		
 		}
 		
-		el.addEventListener('keyup', function (e) {
+		el.addEventListener('keyup', (e) => {
 			
 			// Check for sibling or children to expand on control keys Left/Right/etc
 		
 			if (e.key === 'Escape') {
 				
-				forEach(closest(e.target, 'nav').querySelectorAll('ul'), function (el) {
+				e.target.closest('nav').querySelectorAll('ul').forEach((el) => {
 					
 					el.removeAttribute(aria_expanded);
 					
@@ -156,7 +156,7 @@
 			
 		});
 		
-		forEach(el.querySelectorAll('li'), function (el) {
+		el.querySelectorAll('li').forEach((el) => {
 			
 			if (el.querySelector('ul')) {
 		
@@ -169,7 +169,7 @@
 			
 			}
 		
-			el.addEventListener('touchend', function (e) {
+			el.addEventListener('touchend', (e) => {
 	
 				var el = e.target;
 	
@@ -214,12 +214,12 @@
 	
 /* Nav – end */
 
-	var init = function (host) {
+	var init = (host) => {
 		
-		forEach(host.querySelectorAll('nav:not([data-ready]) > ul:not([role])'), function (el) {
+		host.querySelectorAll('nav:not([data-ready]) > ul:not([role])').forEach((el) => {
 			
 			initNav(el);
-			makeReady(closest(el, 'nav'));
+			makeReady(el.closest('nav'));
 			
 		});
 

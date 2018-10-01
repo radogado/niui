@@ -8,8 +8,10 @@ var componentSlider = (function (){
 	var slide_duration = .5;
 	
 	function sliderElement(e) { // Get the active slider instance
-	
-		if (closest(document.activeElement, 'n-slider-wrap') === focusWithin('.n-slider-wrap')) {
+		
+		var closest_slider_wrap = document.activeElement.closest('n-slider-wrap');
+		
+		if (closest_slider_wrap && closest_slider_wrap === focusWithin('.n-slider-wrap')) {
 	
 			return focusWithin('.n-slider-wrap').querySelector('.n-slider');
 	
@@ -23,7 +25,7 @@ var componentSlider = (function (){
 	
 	    } else {
 	
-	        var container = closest(el, '.n-slider-wrap');
+	        var container = el.closest('.n-slider-wrap');
 	        return container && container.querySelector('.n-slider');
 	
 	    }
@@ -36,7 +38,7 @@ var componentSlider = (function (){
 		var slider = slider_wrap.querySelector('.n-slider');
 		var slider_nav;
 	
-		if (slider.id && (slider_nav = q('.slider-nav[data-for=' + slider.id + ']'))) { // Detached nav
+		if (slider.id && (slider_nav = q(`.slider-nav[data-for=${slider.id}]`))) { // Detached nav
 	
 			return slider_nav;
 	
@@ -73,12 +75,12 @@ var componentSlider = (function (){
 		    
 	        var touches = e.touches;
 	
-	        if (touches && touches.length && !(hasClass(el, 'vertical') && !closest(el, '.n-ovrl'))) { // Don't slide vertically if not full window
+	        if (touches && touches.length && !(hasClass(el, 'vertical') && !el.closest('.n-ovrl'))) { // Don't slide vertically if not full window
 	
 	            var deltaX = startX - touches[0].pageX;
 	            var deltaY = startY - touches[0].pageY;
 	            var delta = (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY;				
-				var overlay_content = closest(el, '.n-ovrl') ? closest(el, '.n-ovrl').querySelector('.n-ovrl--content') : null;
+				var overlay_content = el.closest('.n-ovrl') ? el.closest('.n-ovrl').querySelector('.n-ovrl--content') : null;
 
 				// Allow vertical page scroll by swiping over the slider. Also when parent modal is scrollable vertically
 	            if (((hasClass(el, 'vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !q('.n-ovrl .n-slider-wrap'))
@@ -129,7 +131,7 @@ var componentSlider = (function (){
 	
 		var el = e.target;
 		
-		if (closest(el, '.slider-nav')) { // Allow scrolling the nav bar
+		if (el.closest('.slider-nav')) { // Allow scrolling the nav bar
 						
 			return;
 	
@@ -149,13 +151,13 @@ var componentSlider = (function (){
 	
 	function mouseEvents(el, toggle) {
 	
-	    if (!('onwheel' in window) || (hasClass(el, 'vertical') && !closest(el, '.n-ovrl'))) { // Check for mouse wheel and don't slide vertically if not full window
+	    if (!('onwheel' in window) || (hasClass(el, 'vertical') && !el.closest('.n-ovrl'))) { // Check for mouse wheel and don't slide vertically if not full window
 		    
 		    return;
 		   
 		}
 	
-		var slider_wrap = closest(el, '.n-slider-wrap');
+		var slider_wrap = el.closest('.n-slider-wrap');
 	
 	    if (toggle === 'off') {
 	
@@ -188,7 +190,7 @@ var componentSlider = (function (){
 	        
 	    }
 	
-		var slider_wrap = closest(slider, '.n-slider-wrap');
+		var slider_wrap = slider.closest('.n-slider-wrap');
 	
 		if (getSliderNav(slider_wrap)) { // Multiple slides? // To do: get the proper slider nav, if it's detached
 	
@@ -207,7 +209,7 @@ var componentSlider = (function (){
 		slider.style.pointerEvents = '';
 	
 	    window.addEventListener('keyup', sliderKeyboard);
-	    setTimeout(function () {
+	    setTimeout(() => {
 	
 	// 	    removeClass(q('html'), 'sliding_now');
 		    mouseEvents(slider);
@@ -216,7 +218,7 @@ var componentSlider = (function (){
 		
 			if (slider.children[index].id) { // Scroll page to slide hash. To do: restore focus
 		
-				scrollToAnimated(getCumulativeOffset(slider.children[index]).y, .2, function () {
+				scrollToAnimated(getCumulativeOffset(slider.children[index]).y, .2, () => {
 					
 					var focused = document.activeElement;
 					window.location.hash = slider.children[index].id;
@@ -248,7 +250,8 @@ var componentSlider = (function (){
 		}
 	*/
 	
-		var slider_wrap = closest(el, '.n-slider-wrap');
+		var slider_wrap = el.closest('.n-slider-wrap');
+	
 	    var slider = slider_wrap.querySelector('.n-slider');
 	
 	    if (slider.children.length < 2) {
@@ -316,6 +319,8 @@ var componentSlider = (function (){
 	        }
 	
 	    }
+
+		slider_wrap.dataset.sliding = true;
 	
 	    var offset_sign = -1; // Slider offset depending on direction. -1 for LTR or 1 for RTL. Vertical is always '-'
 	
@@ -329,11 +334,13 @@ var componentSlider = (function (){
 		
 		if (hasClass(slider, 'auto-height')) {
 			
-			height_change =	'height: ' + target_slide.scrollHeight + 'px';
-			height_current = 'height: ' + slider.scrollHeight + 'px';
+			height_change =	`height: ${target_slide.scrollHeight}px`;
+			height_current = `height: ${slider.scrollHeight}px`;
 			
 		}
 		
+		target_slide.dataset.active = true;
+
 		var next_slide_image = target_slide.querySelector('img');
 		if (hasClass(slider, 'vertical') && hasClass(slider, 'inline') && !hasClass(slider, 'overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'aspect')) { // To do: integrate aspect with n-slider-wrap
 			
@@ -343,15 +350,15 @@ var componentSlider = (function (){
 				height_change_number = next_slide_image.naturalHeight;
 				
 			}
-			height_change =	'height: ' + height_change_number + 'px'; 
-			height_current = 'height: ' + slider.scrollHeight + 'px';
+			height_change =	`height: ${height_change_number}px`;
+			height_current = `height: ${slider.scrollHeight}px`;
 
 		}
 	
 		if (hasClass(slider, 'vertical')) {
-			target_slide.style.cssText = 'display: block'; // Temporarily display the target slide to get its height
+			target_slide.style.display = 'block'; // Temporarily display the target slide to get its height
 			computed_height = getComputedStyle(target_slide).height;
-			target_slide.style.cssText = '';
+			target_slide.setAttribute('style', target_slide.getAttribute('style').replace('display: block;', '')); // Keep any other inline styles
 			computed_height_old = getComputedStyle(slider.children[old_index]).height;
 	
 		} else {
@@ -375,14 +382,12 @@ var componentSlider = (function (){
 	
 		var duration = slider.getAttribute('data-duration') || slide_duration;
 	
-		target_slide.setAttribute('data-active', true);
-	
 		var translate_from, translate_to;
 		
 	    if (hasClass(slider, 'vertical')) {
 			
-			var next_height =  (hasClass(slider, 'vertical') && hasClass(slider, 'inline') && !hasClass(slider, 'overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'aspect')) ? ('-' + height_change_number + 'px') : '-100%';
-		    translate_from = 'translate3d(0,' + ((index<old_index) ? next_height : '0') + ',0)';
+			var next_height =  (hasClass(slider, 'vertical') && hasClass(slider, 'inline') && !hasClass(slider, 'overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'aspect')) ? (`-${height_change_number}px`) : '-100%';
+		    translate_from = `translate3d(0,${(index<old_index) ? next_height : '0'},0)`;
 			
 			computed_height = parseInt(computed_height, 10);
 			computed_height_old = parseInt(computed_height_old, 10);
@@ -397,7 +402,7 @@ var componentSlider = (function (){
 			    
 		    }
 		    translate_to = 'translate3d(0,' + ((index<old_index) ? '0' : ('-' + difference + 'px')) + ',0)';
-		    slider.children[old_index].style.transition = 'opacity ' + duration/2 + 's linear';
+		    slider.children[old_index].style.transition = `opacity ${duration/2}s linear`;
 		    slider.children[old_index].style.opacity = 0;
 		
 		} else {
@@ -405,18 +410,16 @@ var componentSlider = (function (){
 			if (slider.getAttribute('data-peek')) {
 			
 			    translate_from = 'translate3d(0,0,0)';
-			    translate_to = 'translate3d(' + (offset_sign * (index - old_index)) + '00%,0,0)';
+			    translate_to = `translate3d(${offset_sign * (index - old_index)}00%,0,0)`;
 		    
 		    } else {
 	
-			    translate_from = 'translate3d(' + offset_sign * ((index<old_index) ? 1 : 0) + '00%,0,0)';
-			    translate_to = 'translate3d(' + offset_sign * ((index<old_index) ? 0 : 1) + '00%,0,0)';
+			    translate_from = `translate3d(${offset_sign * ((index<old_index) ? 1 : 0)}00%,0,0)`;
+			    translate_to = `translate3d(${offset_sign * ((index<old_index) ? 0 : 1)}00%,0,0)`;
 			    
 		    }
 			
 		}
-	
-		slider_wrap.setAttribute('data-sliding', true);
 	
 		if (!slider.getAttribute('data-peek')) {
 			
@@ -426,9 +429,9 @@ var componentSlider = (function (){
 	
 		function slideEndHandler(e) { // On slide end
 		
-			slider.children[index].style.cssText = slider.children[old_index].style.cssText = '';
+// 			slider.children[index].style.cssText = slider.children[old_index].style.cssText = '';
 			
-			slider_wrap.removeAttribute('data-sliding');
+			delete slider_wrap.dataset.sliding;
 			slider.children[old_index].removeAttribute('data-active');
 		    slider.children[old_index].style.transition = slider.children[old_index].style.opacity = slider.style.height = '';
 			current_slider = slider;
@@ -454,11 +457,11 @@ var componentSlider = (function (){
 	
 			if (hasClass(slider, 'fade')) { // fade out to a color and fade in to the new slide
 		
-				animation_code = '0% { opacity: 1; transform: ' + translate_from + '; ' + height_current + '} 49% { transform: ' + translate_from + ' } 51% { opacity: 0; transform:' + translate_to + ' } 100% {' + height_change + '; opacity: 1; transform:' + translate_to + ' }';
+				animation_code = `0% { opacity: 1; transform: ${translate_from}; ${height_current}} 49% { transform: ${translate_from} } 51% { opacity: 0; transform: ${translate_to} } 100% { ${height_change}; opacity: 1; transform: ${translate_to} }`;
 			
 			} else {
 
-				animation_code = '0% { transform: ' + translate_from + '; ' + height_current + '} 100% { ' + height_change + '; transform: ' + translate_to + '; }';
+				animation_code = `0% { transform: ${translate_from}; ${height_current}} 100% { ${height_change}; transform: ${translate_to}; }`;
 			}
 			
 			animate(slider, animation_code, duration, slideEndHandler);
@@ -492,7 +495,7 @@ var componentSlider = (function (){
 	
 		var el = e.target;
 
-		if (!closest(el, '.n-slider-wrap') && q('.n-slider-wrap')) { // Focused element is outside of any slider
+		if (!el.closest('.n-slider-wrap') && q('.n-slider-wrap')) { // Focused element is outside of any slider
 			
 	// 		current_slider = q('.n-slider-wrap').querySelector('.slider');
 			var scrollable = el; // Don't slide when current element is scrollable. Check all parent nodes for scrollability – cheak each parent until body.
@@ -510,7 +513,7 @@ var componentSlider = (function (){
 			
 		} else {
 			
-			current_slider = closest(el, '.n-slider-wrap') ? closest(el, '.n-slider-wrap').querySelector('.n-slider') : null;
+			current_slider = el.closest('.n-slider-wrap') ? el.closest('.n-slider-wrap').querySelector('.n-slider') : null;
 	
 		}
 	
@@ -556,7 +559,7 @@ var componentSlider = (function (){
 	
 	function cancelTouchEvent(el) {
 		
-		el.addEventListener('touchstart', function (e) {
+		el.addEventListener('touchstart', (e) => {
 			
 			e.stopPropagation(); return false; 
 		
@@ -660,15 +663,15 @@ var componentSlider = (function (){
 		            transferClass(container, slider_nav, 'wrap');
 		            transferClass(el, container, 'vertical');
 		            var tab_title = el.children[i].getAttribute('data-tab_title') || (el.children[i].querySelector('.tab-title') ? el.children[i].querySelector('.tab-title').innerHTML : i+1);
-		            slider_nav.insertAdjacentHTML('beforeend', '<a tabindex="0">' + tab_title + '</a>');
+		            slider_nav.insertAdjacentHTML('beforeend', `<a tabindex="0">${tab_title}</a>`);
 	
 		        } else {
 		
-		            slider_nav.insertAdjacentHTML('beforeend', '<a tabindex=0>' + (i + 1) + '</a>');
+		            slider_nav.insertAdjacentHTML('beforeend', `<a tabindex=0>${i+1}</a>`);
 		
 		        }
 		
-				slider_nav.lastChild.onclick = slider_nav.lastChild.onkeyup = function(e) {
+				slider_nav.lastChild.onclick = slider_nav.lastChild.onkeyup = (e) => {
 					
 					if (e.type === 'keyup' && e.keyCode !== 13) { // Slide on Enter key
 						
@@ -687,7 +690,7 @@ var componentSlider = (function (){
 		        
 		    }
 		
-		    container.querySelector('.slider-arrow').onclick = container.querySelector('.slider-arrow').onkeyup = function(e) {
+		    container.querySelector('.slider-arrow').onclick = container.querySelector('.slider-arrow').onkeyup = (e) => {
 		
 				if (e.type === 'keyup' && e.keyCode !== 13) { // Slide on Enter key
 					
@@ -701,7 +704,7 @@ var componentSlider = (function (){
 		    
 		    cancelTouchEvent(container.querySelector('.slider-arrow'));
 		
-		    container.querySelector('.slider-arrow.right').onclick = container.querySelector('.slider-arrow.right').onkeyup = function(e) {
+		    container.querySelector('.slider-arrow.right').onclick = container.querySelector('.slider-arrow.right').onkeyup = (e) => {
 		
 				if (e.type === 'keyup' && e.keyCode !== 13) { // Slide on Enter key
 					
@@ -718,47 +721,43 @@ var componentSlider = (function (){
 		
 		    swipeEvents(container);
 		
-		    container.addEventListener('swipeLeft', function(e) {
+		    container.addEventListener('swipeLeft', (e) => {
 		
 		        var el = sliderElement(e);
 		        slide(el, 'right');
 		
 		    });
 		
-		    container.addEventListener('swipeRight', function(e) {
+		    container.addEventListener('swipeRight', (e) => {
 		
 		        var el = sliderElement(e);
 		        slide(el, 'left');
 		
 		    });
 		    
-		    container.addEventListener('mouseover', function(e) {
+		    container.addEventListener('mouseover', (e) => {
 	
 			    clearTimeout(el.getAttribute('data-timeout'));
 			   
 			});
 		    
 		    // Don't slide when using a range input in a form in a slider
-		    if (el.querySelector('input[type=range]')) {
-			   	
-			   	forEach(el.querySelector('input[type=range]'), function (el) {
-		        
-			        el.ontouchmove = function(e) {
-			
-						e.stopPropagation();
-	// 					removeClass(q('html'), 'sliding_now');
-				        
-			        };
+		   	el.querySelectorAll('input[type=range]').forEach((el) => {
+	        
+		        el.ontouchmove = (e) => {
+		
+					e.stopPropagation();
+// 					removeClass(q('html'), 'sliding_now');
 			        
-			    });
-		    
-		    }
+		        };
+		        
+		    });
 		
 		    if (el.getAttribute('data-autoslide')) { // auto slide
 		
 				var delay = el.getAttribute('data-autoslide');
 				delay = delay.length > 0 ? (1000 * delay) : 4000;
-		        var autoSlide = function() {
+		        var autoSlide = () => {
 		
 		            slide(el, 'right');
 		            el.setAttribute('data-timeout', setTimeout(autoSlide, delay));
@@ -797,9 +796,9 @@ var componentSlider = (function (){
 	
 	}
 
-	var init = function(host) {
+	var init = (host) => {
 		
-		forEach(host.querySelectorAll('.n-slider:not([data-ready])'), function(el) {
+		host.querySelectorAll('.n-slider:not([data-ready])').forEach((el) => {
 		
 		    makeSlider(el);
 		

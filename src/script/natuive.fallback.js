@@ -1,4 +1,4 @@
-var nui = (function(){/* natUIve by rado.bg */
+var nui = (function(){ if (typeof document.body.style.animationName === "undefined") return;/* natUIve by rado.bg */
 /* DOM functions via http://youmightnotneedjquery.com */
 
 // To do: translate to ES6, as the packager adds a check to skip the below when ES6 unavailable and optionally server Babel-transpiled version using the extra footer script
@@ -78,6 +78,7 @@ function toggleAttribute(el, attribute) {
 
 }
 
+/*
 function forEach(selector, fn) { // Because IE11 doesn't support el.forEach(). Accepts both an array and a selector
 	
     var elements = (typeof selector === 'string') ? qa(selector) : selector;
@@ -93,6 +94,7 @@ function forEach(selector, fn) { // Because IE11 doesn't support el.forEach(). A
     }
 
 }
+*/
 
 // DOM functions – end
 
@@ -250,7 +252,7 @@ function getURLParameters() { // return all URL parameters in an array
     var res = {};
     var re = /[?&]([^?&]+)=([^?&]+)/g;
 
-    location.href.replace(re, function(_, k, v) {
+    location.href.replace(re, (_, k, v) => {
 
         res[k] = v;
 
@@ -405,7 +407,7 @@ function animateAnchors(e) {
 
 	}
 
-    scrollToAnimated((hash === null) ? 0 : getCumulativeOffset(hash).y, .5, function(e) { // To do: fix jumping to new hash – is the fallback executed properly in animate()?
+    scrollToAnimated((hash === null) ? 0 : getCumulativeOffset(hash).y, .5, (e) => { // To do: fix jumping to new hash – is the fallback executed properly in animate()?
 
         window.location = el.href.split('#')[0] + '#' + el.href.split('#').pop();
 
@@ -415,6 +417,7 @@ function animateAnchors(e) {
 
 }
 
+/*
 function closest(el, target) { // Thanks http://gomakethings.com/ditching-jquery/ – Accepts either a selector string or an actual element
 
     for ( ; el && el !== document; el = el.parentNode ) {
@@ -430,12 +433,13 @@ function closest(el, target) { // Thanks http://gomakethings.com/ditching-jquery
     return false;
 
 }
+*/
 
 /* Check for host PHP support */
 var php_support = 0;
 var request = new XMLHttpRequest();
 request.open('GET', document.location, true);
-request.onload = function () {
+request.onload = () => {
 	
 	php_support = request.getAllResponseHeaders().toLowerCase().indexOf('php') === -1 ? 0 : 1;
 
@@ -494,7 +498,7 @@ function animate(el, animation_code, duration, callback) { // Default duration =
 			
 		}
 		var styles = document.createElement('style');
-		styles.innerHTML = '@keyframes ' + animation_name + ' {' + animation_code + '} [data-animation=' + animation_name + '] { animation-name: ' + animation_name + '; animation-duration: ' + ((typeof duration === 'undefined') ? .2 : duration) + 's; }'; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
+		styles.innerHTML = `@keyframes ${animation_name} {${animation_code}} [data-animation=${animation_name}] { animation-name: ${animation_name}; animation-duration: ${((typeof duration === "undefined") ? .2 : duration)}s; }`; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
 		q('head').appendChild(styles);
 		addClass(styles, animation_name);
 
@@ -527,7 +531,7 @@ function scrollToAnimated(to, duration, callback) {
 		
 	}
 	
-	animate(q('html'), '100% { transform: translate3d(0, ' + -1*(to - (document.documentElement.scrollTop || bodyElement.scrollTop)) + 'px, 0); }', duration, scrollToCallback.bind(null, callback));
+	animate(q('html'), `100% { transform: translate3d(0, ${-1*(to - (document.documentElement.scrollTop || bodyElement.scrollTop))}px, 0); }`, duration, scrollToCallback.bind(null, callback));
 
 }
 
@@ -535,7 +539,7 @@ function scrollToAnimated(to, duration, callback) {
 
 function copyButton (el, target, echo) {
 	
-	el.addEventListener('click', function(event) {  
+	el.addEventListener('click', (event) => {
 
 	  window.getSelection().removeAllRanges(); // Clear previous clipboard
 	  var range = document.createRange();  
@@ -594,7 +598,7 @@ function loadScriptFile(file_name) {
 
         }
 
-        isTouchTimer = setTimeout(function(){isTouch = false}, 500); //maintain "istouch" state for 500ms so removetouchclass doesn't get fired immediately following a touch event
+        isTouchTimer = setTimeout(() => {isTouch = false}, 500); //maintain "istouch" state for 500ms so removetouchclass doesn't get fired immediately following a touch event
 
     }
      
@@ -626,7 +630,7 @@ function focusWithin(selector) {
 	// To do: If not IE/Edge, return q(selector + ':focus-within');
 
 	var result = null;
-	forEach(qa(selector), function (el) {
+	qa(selector).forEach((el) => {
 		
 		if (el.querySelector(':focus')) {
 			
@@ -650,11 +654,11 @@ function addComponent(host, el) {
 function initThreshold(host) {
 
 // Scroll effects
-	forEach(host.querySelectorAll('[data-threshold]:not([data-ready])'), function(el) { // Set a variable reflecting how much of the element's height has been scrolled; .threshold on scroll over element height
+	host.querySelectorAll('[data-threshold]:not([data-ready])').forEach((el) => { // Set a variable reflecting how much of the element's height has been scrolled; .threshold on scroll over element height
 	
-		window.addEventListener('scroll', function() {
+		window.addEventListener('scroll', () => {
 	
-			setTimeout(function () {
+			setTimeout(() => {
 				
 				var relativeScroll = q('html').scrollTop || bodyElement.scrollTop;
 	/*
@@ -754,7 +758,7 @@ function observerOff() {
 
 if (typeof MutationObserver === 'function') {
 
-	observer = new MutationObserver(function(mutations, observer) {
+	observer = new MutationObserver((mutations, observer) => {
 
         observerOff();
 
@@ -784,7 +788,7 @@ if (typeof MutationObserver === 'function') {
 initThreshold(bodyElement);
 
 // Animate anchor link jumps
-forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
+qa('a[href^="#"]').forEach((el) => {
 
 	el.onclick = el.onclick || animateAnchors; // Don't add to previous onclick event handler
 
@@ -814,7 +818,7 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 	function toggleAccordion(e) {
 	
 	    stopEvent(e);
-	    var el = closest(e.target, '.n-fold');
+	    var el = e.target.closest('.n-fold');
 	    var content = el.querySelector('.n-fold--content');
 	
 		content.style.setProperty('--width', content.scrollWidth + 'px');
@@ -832,7 +836,7 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 		
 			if (el.hasAttribute(aria_expanded)) {
 		
-				animate(content, '0% { max-height: ' + content.scrollHeight + 'px; } 100% { max-height: ' + content_height + '; }', .2, function () {
+				animate(content, `0% { max-height: ${content.scrollHeight}px; } 100% { max-height: ${content_height}; }`, .2, () => {
 					
 					toggleAttribute(el, aria_expanded);
 					
@@ -841,7 +845,7 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 			} else {
 				
 				toggleAttribute(el, aria_expanded);
-				animate(content, '0% { max-height: ' + content_height + '; } 100% { max-height: ' + content.scrollHeight + 'px; }');
+				animate(content, `0% { max-height: ${content_height}; } 100% { max-height: ${content.scrollHeight}px; }`);
 				
 			}
 		
@@ -857,9 +861,9 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 		
 		var el = e.target;
 	
-		if (!closest(el, '.n-fold') && !closest(el, '.n-tool')) { // Clicking/tapping outside of a fold/tooltip element...
+		if (!el.closest('.n-fold') && !el.closest('.n-tool')) { // Clicking/tapping outside of a fold/tooltip element...
 			
-			forEach('.n-fold.n-fold--mobile, .n-tool', function (el) { // ... closes all burger nav menus and tooltips
+			qa('.n-fold.n-fold--mobile, .n-tool').forEach((el) => { // ... closes all burger nav menus and tooltips
 				
 				el.removeAttribute(aria_expanded);
 				
@@ -883,9 +887,9 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 		}
 	*/
 	
-		if (closest(el, '.n-slider')) {
+		if (el.closest('.n-slider')) {
 	
-			current_slider = closest(el, '.n-slider');
+			current_slider = el.closest('.n-slider');
 		
 		}
 		
@@ -893,11 +897,11 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 	
 	function initFold(host) {
 		
-		forEach(host.querySelectorAll('.n-fold:not([data-ready]) > .n-fold--label'), function(el) {
+		host.querySelectorAll('.n-fold:not([data-ready]) > .n-fold--label').forEach((el) => {
 	
 		    el.onclick = toggleAccordion;
 			el.setAttribute('tabindex', 0);
-			el.onkeyup = function (e) {
+			el.onkeyup = (e) => {
 		
 				if (e.key === 'Enter') {
 					
@@ -916,7 +920,7 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 				content.style.setProperty('--width', content.scrollWidth + 'px');
 				content.style.height = 'auto';
 				el.removeAttribute('data-init');
-				setTimeout(function () { content.style.transition = 'width .2s ease-in-out'; }, 100);
+				setTimeout(() => { content.style.transition = 'width .2s ease-in-out'; }, 100);
 				
 			}
 		
@@ -930,7 +934,7 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 		
 		    if (!hasClass(el, 'n-fold--mobile')) { // Keep the accordion content clickable
 			    
-			    content.onclick = function(e) {
+			    content.onclick = (e) => {
 		
 			        stopEvent(e);
 			
@@ -944,19 +948,19 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 		
 	}
 	
-	window.addEventListener('click', function (e) { // Close all Fold elements when clicking outside of them
+	window.addEventListener('click', (e) => { // Close all Fold elements when clicking outside of them
 		
 		closeFoldClickOutside(e);
 		
 	});
 	
-	window.addEventListener('touchend', function (e) { // Close all Fold elements when clicking outside of them
+	window.addEventListener('touchend', (e) => { // Close all Fold elements when clicking outside of them
 		
 		closeFoldClickOutside(e);
 		
 	});
 		
-	window.addEventListener('scroll', function() {  // Close fixed n-ovrl if its scrolling becomes a window scroll. Idea by a Google mobile nav.
+	window.addEventListener('scroll', () => {  // Close fixed n-ovrl if its scrolling becomes a window scroll. Idea by a Google mobile nav.
 		
 		if (q('.fixed-mobile .n-fold.n-fold--mobile[aria-expanded]')) {
 			
@@ -985,9 +989,9 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 	
 	    var ready_to_submit = true;
 	
-	    forEach(el.querySelectorAll('.n-form--mandatory'), function(el) {
+	    el.querySelectorAll('.n-form--mandatory').forEach((el) => {
 		    
-		    if (closest(el, '[disabled]')) { // Ignore disabled conditional fields
+		    if (el.closest('[disabled]')) { // Ignore disabled conditional fields
 			    
 			    return;
 	
@@ -1038,12 +1042,12 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 	
 	    }
 	
-	    el.insertAdjacentHTML('beforeend', '<input name=targetformurl type=hidden value=' + encodeURIComponent( el.method === 'get' ? el.action.replace(/\/?(\?|#|$)/, '/$1') : el.action ) + '>');
+	    el.insertAdjacentHTML('beforeend', `<input name=targetformurl type=hidden value=${encodeURIComponent( el.method === 'get' ? el.action.replace(/\/?(\?|#|$)/, '/$1') : el.action )}>`);
 	
 	    request = new XMLHttpRequest();
 	    request.open('POST', scripts_location + 'request.php', true);
 	
-	    request.onreadystatechange = function() {
+	    request.onreadystatechange = () => {
 	
 	        if (request.readyState != 4 || request.status != 200) {
 	
@@ -1055,7 +1059,7 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 	        if (!request.responseText || !php_support) {
 	
 	            // php script unreachable, submit form normally
-	            el.onsubmit = function() {};
+	            el.onsubmit = () => {};
 				el.constructor.prototype.submit.call(el); // el.submit();
 	            return true;
 	
@@ -1096,7 +1100,7 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 	
 	if (q('.n-form--language')) { // To do: make it universal .submitonchange and for more than 1 form
 	
-	    q('.n-form--language select').onchange = function(e) {
+	    q('.n-form--language select').onchange = (e) => {
 	
 	        q('.n-form--language').submit();
 	
@@ -1107,7 +1111,7 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 	function toggleConditionalFieldset(e) {
 		
 		var el = e.target;
-		var fieldset = closest(el, '.n-form--condition').nextElementSibling;
+		var fieldset = el.closest('.n-form--condition').nextElementSibling;
 		var attribute = 'disabled';
 		
 		if (el.checked) {
@@ -1124,13 +1128,13 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 
 /* Form – end */
 
-	var init = function(host) {
+	var init = (host) => {
 		
-		forEach(host.querySelectorAll('form.n-form'), function(el, i) {
+		host.querySelectorAll('form.n-form').forEach((el, i) => {
 		
 		    el.onsubmit = el.onsubmit || submitForm;
 		
-			forEach(el.querySelectorAll('input[type=file]'), function(el, i) {
+			el.querySelectorAll('input[type=file]').forEach((el, i) => {
 			
 			    el.onchange = updateFileInput;
 			
@@ -1138,7 +1142,7 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 			
 		// 	Conditional form fieldsets
 		
-			forEach(el.querySelectorAll('.n-form--check.n-form--condition input'), function(el, i) {
+			el.querySelectorAll('.n-form--check.n-form--condition input').forEach((el, i) => {
 				
 				el.onchange = toggleConditionalFieldset;
 			
@@ -1146,9 +1150,9 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 			
 			// Auto textarea height.
 			
-			forEach(el.querySelectorAll('textarea[data-auto]'), function(el) {
+			el.querySelectorAll('textarea[data-auto]').forEach((el) => {
 			
-			    el.onkeyup = function(e) {
+			    el.onkeyup = (e) => {
 			
 			        el = e.target;
 			
@@ -1194,12 +1198,12 @@ forEach(document.querySelectorAll('a[href^="#"]'), function(el) {
 
 function initGridInlinePopups(host) { // Limitation: each row must have equal width columns.
 		
-	forEach(host.querySelectorAll('.grid-inline-popup:not([data-ready])'), function (el) {
+	host.querySelectorAll('.grid-inline-popup:not([data-ready])').forEach((el) => {
 		
-		var id = 'id' + new Date().getTime(); // Unique id
+		var id = `id${new Date().getTime()}`; // Unique id
 		el.id = el.id || id;
-		var cells = el.querySelectorAll('#' + el.id + ' > div:not(.popup)');
-		var popups = el.querySelectorAll('#' + el.id + ' > .popup');
+		var cells = el.querySelectorAll(`#${el.id} > div:not(.popup)`);
+		var popups = el.querySelectorAll(`#${el.id} > .popup`);
 		
 		if (el.id === id) {
 			
@@ -1207,11 +1211,11 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 
 		}
 		
-		forEach(cells, function (el) {
+		cells.forEach((el) => {
 			
 			function openNewItem(e, current_popup) {
 		
-				var cell = closest(e.target, '.grid-inline-popup > div');
+				var cell = e.target.closest('.grid-inline-popup > div');
 				var columns = Math.round(cell.parentElement.scrollWidth/cell.scrollWidth);
 				var el = cell.nextElementSibling;
 				if (el === current_popup) {
@@ -1272,7 +1276,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 				var height = el.scrollHeight;
 				el.style.maxHeight = 0;
 				el.style.overflow = 'hidden';
-				animate(el, '100% { max-height: ' + height + 'px; }', .2, function () {
+				animate(el, `100% { max-height: ${height}px; }`, .2, () => {
 		
 					el.style.cssText = '';
 					
@@ -1282,12 +1286,12 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 					
 			function openCell(e) {
 				
-				var current_popup = closest(e.target, '.grid-inline-popup').querySelector('.popup[aria-expanded]');
+				var current_popup = e.target.closest('.grid-inline-popup').querySelector('.popup[aria-expanded]');
 				if (current_popup) {
 					
 					current_popup.style.maxHeight = current_popup.scrollHeight + 'px';
 					current_popup.style.overflow = 'hidden';
-					animate(current_popup, '100% { max-height: 0; }', .2, function () {
+					animate(current_popup, '100% { max-height: 0; }', .2, () => {
 						
 						current_popup.removeAttribute(aria_expanded);
 						current_popup.previousElementSibling.removeAttribute(aria_expanded);
@@ -1307,7 +1311,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 			el.setAttribute('tabindex', 0);
 			el.addEventListener('click', openCell);
 			el.addEventListener('touchend', openCell);
-			el.addEventListener('keyup', function (e) { 
+			el.addEventListener('keyup', (e) => { 
 				
 				if (e.key === 'Enter') {
 	
@@ -1326,7 +1330,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 
 /* Grid with inline popups – end */
 
-	var init = function (host){
+	var init = (host) => {
 
 		initGridInlinePopups(host);
 		
@@ -1347,12 +1351,12 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		if (img && !img.src) {
 			
 			img.src = img.getAttribute('data-src');
-			img.onload = function (e) {
+			img.onload = (e) => {
 				
 				addClass(e.target.parentNode, 'loaded');
 	
-			}
-			img.onclick = function (e) { // Zoom and scan
+			};
+			img.onclick = (e) => { // Zoom and scan
 	
 	// transformY = -50% + (poxY/sizeY)*overflowY
 	
@@ -1367,7 +1371,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 				el.style.cssText = '';
 				el.style.setProperty('--x', '-50%');
 				el.style.setProperty('--y', '-50%');
-				el.onmousemove = function (e) {
+				el.onmousemove = (e) => {
 					
 					var width = q('.n-ovrl:last-of-type .n-slider-wrap').offsetWidth;
 					var height = q('.n-ovrl:last-of-type .n-slider-wrap').offsetHeight;
@@ -1428,7 +1432,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 		}
 		
-	    var lightbox = closest(el, '.n-lightbox');
+	    var lightbox = el.closest('.n-lightbox');
 	    var animation = lightbox.getAttribute('data-anim');
 		var lightbox_target = document.createElement('div');
 		var inline_static = lightbox.matches('.inline:not(.n-slider)');
@@ -1474,7 +1478,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	    /* Add any <a><img> siblings with description to a .n-slider and initialise its controls */
 	    var images = '';
 		var thumbnails = [];
-	    forEach(lightbox.children, function(el) { // To do: facilitate a[href] extraction also from within div slides, if lightbox is existing and needs to be recreated for full screen. Get them in an array item[i].link, item[i].img
+	    lightbox.childNodes.forEach((el) => { // To do: facilitate a[href] extraction also from within div slides, if lightbox is existing and needs to be recreated for full screen. Get them in an array item[i].link, item[i].img
 		    
 		    if (!el.href && !hasClass(lightbox, 'slider')) { // Ignore non-links in regular lightboxes
 			    
@@ -1491,11 +1495,11 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 				if (hasClass(lightbox, 'slider')) { // Secondary lightbox
 					
-					images += '<div>' + el.querySelector('video').outerHTML + '</div>';
+					images += `<div>${el.querySelector('video').outerHTML}</div>`;
 					
 				} else {
 					
-					images += '<div><video poster=' + (el.querySelector('img') ? el.querySelector('img').src : '#') + ' controls=controls preload=none> <source type=video/mp4 src=' + el.href + '> </video></div>';
+					images += `<div><video poster=${(el.querySelector('img') ? el.querySelector('img').src : '#')} controls=controls preload=none> <source type=video/mp4 src=${el.href}> </video></div>`;
 					
 				}
 				
@@ -1505,7 +1509,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 				
 			if (hasClass(el, 'iframe')) {
 	
-				images += '<div><iframe src=' + el.href + '></iframe></div>';
+				images += `<div><iframe src=${el.href}></iframe></div>`;
 				return;
 				
 			}
@@ -1522,13 +1526,13 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 				
 			}
 	
-		    var link_element = (hasClass(lightbox, 'inline') || !lightbox.getAttribute('id')) ? '' : '<a class="button copy" href=' + slide_link + '></a>';
+		    var link_element = (hasClass(lightbox, 'inline') || !lightbox.getAttribute('id')) ? '' : `<a class="button copy" href=${slide_link}></a>`;
 	
 		    var url = hasClass(lightbox, 'slider') ? (el.querySelector('img') ? el.querySelector('img').getAttribute('data-src') : '') : el.href;
 		    
 			var caption = el.title ? el.title : (el.querySelector('img') ? el.querySelector('img').title : '');
 					    
-		    images += '<div><img data-src="' + url + '" title="' + caption + '" data-link="' + slide_link + '">' + (caption ? ('<p>' + caption + '</p>') : '') + link_element + '</div>';
+		    images += `<div><img data-src="${url}" title="${caption}" data-link="${slide_link}">${(caption ? ('<p>' + caption + '</p>') : '') + link_element}</div>`;
 	
 	        // Attach onload event to each image to display it only when fully loaded and avoid top-to-bottom reveal?
 	
@@ -1538,7 +1542,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	    
 	    if (inline_static) { // It's an inline lightbox and needs to become full window/screen when clicked
 		    
-		    lightbox_target.onclick = function(e) {
+		    lightbox_target.onclick = (e) => {
 			    
 			    if (e.target.tagName === 'IMG') {
 				    
@@ -1582,7 +1586,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 			
 		} else {
 	
-	        this_index = Array.prototype.indexOf.call(lightbox.querySelectorAll('[href]'), closest(anchor, '[href]')); // Ignore non-anchor children of the lightbox container
+	        this_index = Array.prototype.indexOf.call(lightbox.querySelectorAll('[href]'), anchor.closest('[href]')); // Ignore non-anchor children of the lightbox container
 	
 		}
 	
@@ -1645,12 +1649,12 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		    transferClass(lightbox, lightbox_target.parentNode, 'thumbnails');
 	        var i = 0;
 	// 	        var nav = closest(lightbox_target, '.n-slider-wrap').querySelector('.slider-nav');
-	        var nav = componentSlider.getSliderNav(closest(lightbox_target, '.n-slider-wrap'));
+	        var nav = componentSlider.getSliderNav(lightbox_target.closest('.n-slider-wrap'));
 	
 	        if (nav) { // Multiple slides?
 	
 				transferClass(lightbox, nav, 'thumbnails');
-		        forEach(thumbnails, function (el) {
+		        thumbnails.forEach((el) => {
 					
 					if (nav.children[i]) {
 	
@@ -1679,7 +1683,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 	// Automatically open a lightbox specified in the URI
 	
-	setTimeout( function () {
+	setTimeout(() => {
 		
 		if (q('.n-lightbox:target:not(.inline)')) {
 			
@@ -1696,9 +1700,9 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		
 	}, 1);
 	
-	var init = function (host){
+	var init = (host) => {
 		
-		forEach(host.querySelectorAll('.n-lightbox:not([data-ready])'), function(el) {
+		host.querySelectorAll('.n-lightbox:not([data-ready])').forEach((el) => {
 		
 			// Abort on IE, because of IE bug on dynamic img.src change
 			if (navigator.userAgent.indexOf('MSIE') != -1 || navigator.userAgent.indexOf('Trident') != -1 || hasClass(el.parentNode, 'n-slider-wrap')) {
@@ -1713,7 +1717,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 				
 			} else {
 				
-				forEach(el.querySelectorAll('a'), function(el) {
+				el.querySelectorAll('a').forEach((el) => {
 	
 					el.setAttribute('tabindex', 0);
 				    el.onclick = openLightbox;
@@ -1757,7 +1761,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	     * @param  event object event
 	     * @return void
 	     */
-	    var preventBodyScroll = function (event) {
+	    var preventBodyScroll = (event) => {
 	        if (!_element || typeof event.target.closest === 'undefined' || !event.target.closest(_selector)) {
 	            event.preventDefault();
 	        }
@@ -1770,7 +1774,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	     * @param  event object event
 	     * @return void
 	     */
-	    var captureClientY = function (event) {
+	    var captureClientY = (event) => {
 	        // only respond to a single touch
 	        if (event.targetTouches.length === 1) { 
 	            _clientY = event.targetTouches[0].clientY;
@@ -1785,9 +1789,9 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	     * @param  event object event
 	     * @return void
 	     */
-	    var preventOverscroll = function (event) {
+	    var preventOverscroll = (event) => {
 	        // only respond to a single touch
-		    if (event.targetTouches.length !== 1 || closest(event.target, '.slider-nav')) { // also if trying to swipe slider/lightbox nav
+		    if (event.targetTouches.length !== 1 || event.target.closest('.slider-nav')) { // also if trying to swipe slider/lightbox nav
 		    	return;
 		    }
 	
@@ -1936,7 +1940,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 			}
 	
-			animate(full_window, animation, .2, function (e) {
+			animate(full_window, animation, .2, (e) => {
 	
 				disableBodyScroll(false, '.n-ovrl:last-of-type .n-ovrl--content'); // Turn off and restore page scroll
 				full_window.parentNode.removeChild(full_window);
@@ -1998,10 +2002,10 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		wrapper.firstChild.appendChild(full_window_content);
 		full_window_content = wrapper;
 	
-	    full_window_content.insertAdjacentHTML('afterbegin', '<div class=n-ovrl--close> ← ' + document.title + '</div>');
+	    full_window_content.insertAdjacentHTML('afterbegin', `<div class=n-ovrl--close> ← ${document.title}</div>`);
 		full_window_content.querySelector('.overlay-bg').onclick = full_window_content.querySelector('.n-ovrl--close').onclick = closeFullWindow;
-		full_window_content.querySelector('.n-ovrl--close').addEventListener("touchmove", function (e) { e.preventDefault();}, { passive: false });
-		full_window_content.querySelector('.overlay-bg').addEventListener("touchmove", function (e) { e.preventDefault();}, { passive: false });
+		full_window_content.querySelector('.n-ovrl--close').addEventListener("touchmove", (e) => { e.preventDefault(); }, { passive: false });
+		full_window_content.querySelector('.overlay-bg').addEventListener("touchmove", (e) => { e.preventDefault(); }, { passive: false });
 		window.addEventListener('keyup', keyUpClose);
 		   
 		bodyElement.appendChild(full_window_content);
@@ -2054,8 +2058,8 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 
 	    var el = e.target;
 	
-	    var link = closest(el, '.n-modal').href;
-	    var animation = closest(el, '.n-modal').getAttribute('data-anim');
+	    var link = el.closest('.n-modal').href;
+	    var animation = el.closest('.n-modal').getAttribute('data-anim');
 	
 	    if (!php_support && external.test(link) || !(new XMLHttpRequest().upload)) { // No PHP or XHR?
 	
@@ -2067,7 +2071,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	    var request = new XMLHttpRequest();
 	    request.open('GET', external.test(link) ? (scripts_location + 'request.php?targetformurl=' + link.split('#')[0]) : link.split('#')[0], true);
 	
-	    request.onload = function() {
+	    request.onload = () => {
 	
 	        if (request.status >= 200 && request.status < 400) {
 	            // Success
@@ -2093,7 +2097,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	            }
 	
 	            openFullWindow(parsed, animation); // To do: If .modal[data-animation], pass it to openFullWindow() as second parameter. Also in openLightbox().
-				transferClass(closest(el, '.n-modal'), q('.n-ovrl'), 'n-modal--limited');
+				transferClass(el.closest('.n-modal'), q('.n-ovrl'), 'n-modal--limited');
 	
 	        } else {
 	            // Error
@@ -2103,7 +2107,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 	    };
 	
-	    request.onerror = function() {
+	    request.onerror = () => {
 	        // Error
 	        closeFullWindow();
 	
@@ -2115,11 +2119,11 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 	}
 
-	var init = function(host) {
+	var init = (host) => {
 		
 	// Modal window: open a link's target inside it
 	
-		forEach(host.querySelectorAll('a.n-modal[href]:not([data-ready])'), function(el) {
+		host.querySelectorAll('a.n-modal[href]:not([data-ready])').forEach((el) => {
 		
 			if (el.href !== (location.href.split('#')[0] + '#')) { // Is it an empty anchor?
 				
@@ -2159,9 +2163,9 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 
 	function closeDropNavClickedOutside(e) { // Close the nav when clicking outside
 	
-		if (!closest(e.target, 'nav li')) {
+		if (!e.target.closest('nav li')) {
 	
-			forEach('nav ul', function (el) {
+			qa('nav ul').forEach((el) => {
 				
 				el.removeAttribute(aria_expanded);
 				
@@ -2179,11 +2183,11 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 	function dropNavBlur(e) {
 	
-		var this_nav = closest(e.target, 'nav');
+		var this_nav = e.target.closest('nav');
 		
-		if (!closest(e.relatedTarget, this_nav)) { // if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
+		if (!e.relatedTarget.closest(this_nav)) { // if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
 			
-			forEach(this_nav.querySelectorAll('ul'), function (el) {
+			this_nav.querySelectorAll('ul').forEach((el) => {
 	
 				el.removeAttribute(aria_expanded);
 				
@@ -2193,10 +2197,10 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		}
 		// Close neighboring parent nav's sub navs.
 		var el = e.target;
-		var target_parent = closest(el, '[aria-haspopup]');
+		var target_parent = el.closest('[aria-haspopup]');
 		if (target_parent) { // Skip if it's a top-level-only item
 			
-			forEach(target_parent.querySelectorAll('ul[aria-expanded]'), function (el) { // Disable active grandchildren
+			target_parent.querySelectorAll('ul[aria-expanded]').forEach((el) => { // Disable active grandchildren
 		
 				el.removeAttribute(aria_expanded);
 		
@@ -2219,13 +2223,13 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 		// Close focused third level child when focus moves to another top-level item
 		
-		var el = closest(e.target, 'nav > ul > li');
+		var el = e.target.closest('nav > ul > li');
 		
-		forEach(el.parentNode.childNodes, function (a) {
+		el.parentNode.childNodes.forEach((a) => {
 	
 			if (a.nodeName === 'LI' && a !== el) {
 			
-				forEach(a.querySelectorAll('[aria-expanded]'), function (el) {
+				a.querySelectorAll('[aria-expanded]').forEach((el) => {
 					
 					el.removeAttribute(aria_expanded);
 					
@@ -2246,7 +2250,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		
 		var current_item = e.target.parentNode;
 	
-		forEach(current_item.parentNode.parentNode.childNodes, function (el) {
+		current_item.parentNode.parentNode.childNodes.forEach((el) => {
 	
 			if (el !== current_item && el.nodeName === 'LI' && el.querySelector('ul')) {
 	
@@ -2264,7 +2268,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		
 		// Delete all trigger inputs, add tabindex=0 to each li
 		
-		forEach(el.querySelectorAll('input'), function (el) {
+		el.querySelectorAll('input').forEach((el) => {
 			
 			el.outerHTML = '';
 			
@@ -2272,13 +2276,13 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		
 		el.setAttribute('role', 'menubar');
 	
-		forEach(el.querySelectorAll('li > a'), function (el) {
+		el.querySelectorAll('li > a').forEach((el) => {
 			
 			el.setAttribute('tabindex', 0);
 	
 		});
 	
-		if (!closest(el, 'nav.n-drop')) { // The rest is for drop nav only
+		if (!el.closest('nav.n-drop')) { // The rest is for drop nav only
 			
 			return;
 	
@@ -2291,13 +2295,13 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		
 		}
 		
-		el.addEventListener('keyup', function (e) {
+		el.addEventListener('keyup', (e) => {
 			
 			// Check for sibling or children to expand on control keys Left/Right/etc
 		
 			if (e.key === 'Escape') {
 				
-				forEach(closest(e.target, 'nav').querySelectorAll('ul'), function (el) {
+				e.target.closest('nav').querySelectorAll('ul').forEach((el) => {
 					
 					el.removeAttribute(aria_expanded);
 					
@@ -2309,7 +2313,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 			
 		});
 		
-		forEach(el.querySelectorAll('li'), function (el) {
+		el.querySelectorAll('li').forEach((el) => {
 			
 			if (el.querySelector('ul')) {
 		
@@ -2322,7 +2326,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 			
 			}
 		
-			el.addEventListener('touchend', function (e) {
+			el.addEventListener('touchend', (e) => {
 	
 				var el = e.target;
 	
@@ -2367,12 +2371,12 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 /* Nav – end */
 
-	var init = function (host) {
+	var init = (host) => {
 		
-		forEach(host.querySelectorAll('nav:not([data-ready]) > ul:not([role])'), function (el) {
+		host.querySelectorAll('nav:not([data-ready]) > ul:not([role])').forEach((el) => {
 			
 			initNav(el);
-			makeReady(closest(el, 'nav'));
+			makeReady(el.closest('nav'));
 			
 		});
 
@@ -2396,7 +2400,7 @@ var componentNotify = (function (){
 	
 		if (q('.n-notify')) {
 	
-			q('.n-notify').onclick = function (e) {
+			q('.n-notify').onclick = (e) => {
 				
 				notifyClose(e.target);	
 					
@@ -2408,21 +2412,21 @@ var componentNotify = (function (){
 	
 	function notify(content, option) {
 		
-		bodyElement.insertAdjacentHTML('afterbegin', '<div class="n-notify' + (option && (option.indexOf('fixed') !== -1) ? ' fixed' : '') + '">' + content + '</div>');
+		bodyElement.insertAdjacentHTML('afterbegin', `<div class="n-notify${(option && (option.indexOf('fixed') !== -1) ? ' fixed' : '')}">${content}</div>`);
 		notifyCloseEvent();
 		if (option && option.indexOf('timeout') !== -1) {
 			
-			setTimeout(function() { notifyClose(q('.n-notify')) }, 2000);
+			setTimeout(() => { notifyClose(q('.n-notify')) }, 2000);
 	
 		}
 		
 	}
 
-	var init = function (host) {
+	var init = (host) => {
 		
 		/* Tooltip */
 		
-		forEach(host.querySelectorAll('.n-notify:not([data-ready])'), function(el, i) {
+		host.querySelectorAll('.n-notify:not([data-ready])').forEach((el, i) => {
 			
 			notifyCloseEvent();
 			makeReady(el);
@@ -2447,8 +2451,10 @@ var componentSlider = (function (){
 	var slide_duration = .5;
 	
 	function sliderElement(e) { // Get the active slider instance
-	
-		if (closest(document.activeElement, 'n-slider-wrap') === focusWithin('.n-slider-wrap')) {
+		
+		var closest_slider_wrap = document.activeElement.closest('n-slider-wrap');
+		
+		if (closest_slider_wrap && closest_slider_wrap === focusWithin('.n-slider-wrap')) {
 	
 			return focusWithin('.n-slider-wrap').querySelector('.n-slider');
 	
@@ -2462,7 +2468,7 @@ var componentSlider = (function (){
 	
 	    } else {
 	
-	        var container = closest(el, '.n-slider-wrap');
+	        var container = el.closest('.n-slider-wrap');
 	        return container && container.querySelector('.n-slider');
 	
 	    }
@@ -2475,7 +2481,7 @@ var componentSlider = (function (){
 		var slider = slider_wrap.querySelector('.n-slider');
 		var slider_nav;
 	
-		if (slider.id && (slider_nav = q('.slider-nav[data-for=' + slider.id + ']'))) { // Detached nav
+		if (slider.id && (slider_nav = q(`.slider-nav[data-for=${slider.id}]`))) { // Detached nav
 	
 			return slider_nav;
 	
@@ -2512,12 +2518,12 @@ var componentSlider = (function (){
 		    
 	        var touches = e.touches;
 	
-	        if (touches && touches.length && !(hasClass(el, 'vertical') && !closest(el, '.n-ovrl'))) { // Don't slide vertically if not full window
+	        if (touches && touches.length && !(hasClass(el, 'vertical') && !el.closest('.n-ovrl'))) { // Don't slide vertically if not full window
 	
 	            var deltaX = startX - touches[0].pageX;
 	            var deltaY = startY - touches[0].pageY;
 	            var delta = (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY;				
-				var overlay_content = closest(el, '.n-ovrl') ? closest(el, '.n-ovrl').querySelector('.n-ovrl--content') : null;
+				var overlay_content = el.closest('.n-ovrl') ? el.closest('.n-ovrl').querySelector('.n-ovrl--content') : null;
 
 				// Allow vertical page scroll by swiping over the slider. Also when parent modal is scrollable vertically
 	            if (((hasClass(el, 'vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !q('.n-ovrl .n-slider-wrap'))
@@ -2568,7 +2574,7 @@ var componentSlider = (function (){
 	
 		var el = e.target;
 		
-		if (closest(el, '.slider-nav')) { // Allow scrolling the nav bar
+		if (el.closest('.slider-nav')) { // Allow scrolling the nav bar
 						
 			return;
 	
@@ -2588,13 +2594,13 @@ var componentSlider = (function (){
 	
 	function mouseEvents(el, toggle) {
 	
-	    if (!('onwheel' in window) || (hasClass(el, 'vertical') && !closest(el, '.n-ovrl'))) { // Check for mouse wheel and don't slide vertically if not full window
+	    if (!('onwheel' in window) || (hasClass(el, 'vertical') && !el.closest('.n-ovrl'))) { // Check for mouse wheel and don't slide vertically if not full window
 		    
 		    return;
 		   
 		}
 	
-		var slider_wrap = closest(el, '.n-slider-wrap');
+		var slider_wrap = el.closest('.n-slider-wrap');
 	
 	    if (toggle === 'off') {
 	
@@ -2627,7 +2633,7 @@ var componentSlider = (function (){
 	        
 	    }
 	
-		var slider_wrap = closest(slider, '.n-slider-wrap');
+		var slider_wrap = slider.closest('.n-slider-wrap');
 	
 		if (getSliderNav(slider_wrap)) { // Multiple slides? // To do: get the proper slider nav, if it's detached
 	
@@ -2646,7 +2652,7 @@ var componentSlider = (function (){
 		slider.style.pointerEvents = '';
 	
 	    window.addEventListener('keyup', sliderKeyboard);
-	    setTimeout(function () {
+	    setTimeout(() => {
 	
 	// 	    removeClass(q('html'), 'sliding_now');
 		    mouseEvents(slider);
@@ -2655,7 +2661,7 @@ var componentSlider = (function (){
 		
 			if (slider.children[index].id) { // Scroll page to slide hash. To do: restore focus
 		
-				scrollToAnimated(getCumulativeOffset(slider.children[index]).y, .2, function () {
+				scrollToAnimated(getCumulativeOffset(slider.children[index]).y, .2, () => {
 					
 					var focused = document.activeElement;
 					window.location.hash = slider.children[index].id;
@@ -2687,7 +2693,8 @@ var componentSlider = (function (){
 		}
 	*/
 	
-		var slider_wrap = closest(el, '.n-slider-wrap');
+		var slider_wrap = el.closest('.n-slider-wrap');
+	
 	    var slider = slider_wrap.querySelector('.n-slider');
 	
 	    if (slider.children.length < 2) {
@@ -2755,6 +2762,8 @@ var componentSlider = (function (){
 	        }
 	
 	    }
+
+		slider_wrap.dataset.sliding = true;
 	
 	    var offset_sign = -1; // Slider offset depending on direction. -1 for LTR or 1 for RTL. Vertical is always '-'
 	
@@ -2768,11 +2777,13 @@ var componentSlider = (function (){
 		
 		if (hasClass(slider, 'auto-height')) {
 			
-			height_change =	'height: ' + target_slide.scrollHeight + 'px';
-			height_current = 'height: ' + slider.scrollHeight + 'px';
+			height_change =	`height: ${target_slide.scrollHeight}px`;
+			height_current = `height: ${slider.scrollHeight}px`;
 			
 		}
 		
+		target_slide.dataset.active = true;
+
 		var next_slide_image = target_slide.querySelector('img');
 		if (hasClass(slider, 'vertical') && hasClass(slider, 'inline') && !hasClass(slider, 'overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'aspect')) { // To do: integrate aspect with n-slider-wrap
 			
@@ -2782,15 +2793,15 @@ var componentSlider = (function (){
 				height_change_number = next_slide_image.naturalHeight;
 				
 			}
-			height_change =	'height: ' + height_change_number + 'px'; 
-			height_current = 'height: ' + slider.scrollHeight + 'px';
+			height_change =	`height: ${height_change_number}px`;
+			height_current = `height: ${slider.scrollHeight}px`;
 
 		}
 	
 		if (hasClass(slider, 'vertical')) {
-			target_slide.style.cssText = 'display: block'; // Temporarily display the target slide to get its height
+			target_slide.style.display = 'block'; // Temporarily display the target slide to get its height
 			computed_height = getComputedStyle(target_slide).height;
-			target_slide.style.cssText = '';
+			target_slide.setAttribute('style', target_slide.getAttribute('style').replace('display: block;', '')); // Keep any other inline styles
 			computed_height_old = getComputedStyle(slider.children[old_index]).height;
 	
 		} else {
@@ -2814,14 +2825,12 @@ var componentSlider = (function (){
 	
 		var duration = slider.getAttribute('data-duration') || slide_duration;
 	
-		target_slide.setAttribute('data-active', true);
-	
 		var translate_from, translate_to;
 		
 	    if (hasClass(slider, 'vertical')) {
 			
-			var next_height =  (hasClass(slider, 'vertical') && hasClass(slider, 'inline') && !hasClass(slider, 'overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'aspect')) ? ('-' + height_change_number + 'px') : '-100%';
-		    translate_from = 'translate3d(0,' + ((index<old_index) ? next_height : '0') + ',0)';
+			var next_height =  (hasClass(slider, 'vertical') && hasClass(slider, 'inline') && !hasClass(slider, 'overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'aspect')) ? (`-${height_change_number}px`) : '-100%';
+		    translate_from = `translate3d(0,${(index<old_index) ? next_height : '0'},0)`;
 			
 			computed_height = parseInt(computed_height, 10);
 			computed_height_old = parseInt(computed_height_old, 10);
@@ -2836,7 +2845,7 @@ var componentSlider = (function (){
 			    
 		    }
 		    translate_to = 'translate3d(0,' + ((index<old_index) ? '0' : ('-' + difference + 'px')) + ',0)';
-		    slider.children[old_index].style.transition = 'opacity ' + duration/2 + 's linear';
+		    slider.children[old_index].style.transition = `opacity ${duration/2}s linear`;
 		    slider.children[old_index].style.opacity = 0;
 		
 		} else {
@@ -2844,18 +2853,16 @@ var componentSlider = (function (){
 			if (slider.getAttribute('data-peek')) {
 			
 			    translate_from = 'translate3d(0,0,0)';
-			    translate_to = 'translate3d(' + (offset_sign * (index - old_index)) + '00%,0,0)';
+			    translate_to = `translate3d(${offset_sign * (index - old_index)}00%,0,0)`;
 		    
 		    } else {
 	
-			    translate_from = 'translate3d(' + offset_sign * ((index<old_index) ? 1 : 0) + '00%,0,0)';
-			    translate_to = 'translate3d(' + offset_sign * ((index<old_index) ? 0 : 1) + '00%,0,0)';
+			    translate_from = `translate3d(${offset_sign * ((index<old_index) ? 1 : 0)}00%,0,0)`;
+			    translate_to = `translate3d(${offset_sign * ((index<old_index) ? 0 : 1)}00%,0,0)`;
 			    
 		    }
 			
 		}
-	
-		slider_wrap.setAttribute('data-sliding', true);
 	
 		if (!slider.getAttribute('data-peek')) {
 			
@@ -2865,9 +2872,9 @@ var componentSlider = (function (){
 	
 		function slideEndHandler(e) { // On slide end
 		
-			slider.children[index].style.cssText = slider.children[old_index].style.cssText = '';
+// 			slider.children[index].style.cssText = slider.children[old_index].style.cssText = '';
 			
-			slider_wrap.removeAttribute('data-sliding');
+			delete slider_wrap.dataset.sliding;
 			slider.children[old_index].removeAttribute('data-active');
 		    slider.children[old_index].style.transition = slider.children[old_index].style.opacity = slider.style.height = '';
 			current_slider = slider;
@@ -2893,11 +2900,11 @@ var componentSlider = (function (){
 	
 			if (hasClass(slider, 'fade')) { // fade out to a color and fade in to the new slide
 		
-				animation_code = '0% { opacity: 1; transform: ' + translate_from + '; ' + height_current + '} 49% { transform: ' + translate_from + ' } 51% { opacity: 0; transform:' + translate_to + ' } 100% {' + height_change + '; opacity: 1; transform:' + translate_to + ' }';
+				animation_code = `0% { opacity: 1; transform: ${translate_from}; ${height_current}} 49% { transform: ${translate_from} } 51% { opacity: 0; transform: ${translate_to} } 100% { ${height_change}; opacity: 1; transform: ${translate_to} }`;
 			
 			} else {
 
-				animation_code = '0% { transform: ' + translate_from + '; ' + height_current + '} 100% { ' + height_change + '; transform: ' + translate_to + '; }';
+				animation_code = `0% { transform: ${translate_from}; ${height_current}} 100% { ${height_change}; transform: ${translate_to}; }`;
 			}
 			
 			animate(slider, animation_code, duration, slideEndHandler);
@@ -2931,7 +2938,7 @@ var componentSlider = (function (){
 	
 		var el = e.target;
 
-		if (!closest(el, '.n-slider-wrap') && q('.n-slider-wrap')) { // Focused element is outside of any slider
+		if (!el.closest('.n-slider-wrap') && q('.n-slider-wrap')) { // Focused element is outside of any slider
 			
 	// 		current_slider = q('.n-slider-wrap').querySelector('.slider');
 			var scrollable = el; // Don't slide when current element is scrollable. Check all parent nodes for scrollability – cheak each parent until body.
@@ -2949,7 +2956,7 @@ var componentSlider = (function (){
 			
 		} else {
 			
-			current_slider = closest(el, '.n-slider-wrap') ? closest(el, '.n-slider-wrap').querySelector('.n-slider') : null;
+			current_slider = el.closest('.n-slider-wrap') ? el.closest('.n-slider-wrap').querySelector('.n-slider') : null;
 	
 		}
 	
@@ -2995,7 +3002,7 @@ var componentSlider = (function (){
 	
 	function cancelTouchEvent(el) {
 		
-		el.addEventListener('touchstart', function (e) {
+		el.addEventListener('touchstart', (e) => {
 			
 			e.stopPropagation(); return false; 
 		
@@ -3099,15 +3106,15 @@ var componentSlider = (function (){
 		            transferClass(container, slider_nav, 'wrap');
 		            transferClass(el, container, 'vertical');
 		            var tab_title = el.children[i].getAttribute('data-tab_title') || (el.children[i].querySelector('.tab-title') ? el.children[i].querySelector('.tab-title').innerHTML : i+1);
-		            slider_nav.insertAdjacentHTML('beforeend', '<a tabindex="0">' + tab_title + '</a>');
+		            slider_nav.insertAdjacentHTML('beforeend', `<a tabindex="0">${tab_title}</a>`);
 	
 		        } else {
 		
-		            slider_nav.insertAdjacentHTML('beforeend', '<a tabindex=0>' + (i + 1) + '</a>');
+		            slider_nav.insertAdjacentHTML('beforeend', `<a tabindex=0>${i+1}</a>`);
 		
 		        }
 		
-				slider_nav.lastChild.onclick = slider_nav.lastChild.onkeyup = function(e) {
+				slider_nav.lastChild.onclick = slider_nav.lastChild.onkeyup = (e) => {
 					
 					if (e.type === 'keyup' && e.keyCode !== 13) { // Slide on Enter key
 						
@@ -3126,7 +3133,7 @@ var componentSlider = (function (){
 		        
 		    }
 		
-		    container.querySelector('.slider-arrow').onclick = container.querySelector('.slider-arrow').onkeyup = function(e) {
+		    container.querySelector('.slider-arrow').onclick = container.querySelector('.slider-arrow').onkeyup = (e) => {
 		
 				if (e.type === 'keyup' && e.keyCode !== 13) { // Slide on Enter key
 					
@@ -3140,7 +3147,7 @@ var componentSlider = (function (){
 		    
 		    cancelTouchEvent(container.querySelector('.slider-arrow'));
 		
-		    container.querySelector('.slider-arrow.right').onclick = container.querySelector('.slider-arrow.right').onkeyup = function(e) {
+		    container.querySelector('.slider-arrow.right').onclick = container.querySelector('.slider-arrow.right').onkeyup = (e) => {
 		
 				if (e.type === 'keyup' && e.keyCode !== 13) { // Slide on Enter key
 					
@@ -3157,47 +3164,43 @@ var componentSlider = (function (){
 		
 		    swipeEvents(container);
 		
-		    container.addEventListener('swipeLeft', function(e) {
+		    container.addEventListener('swipeLeft', (e) => {
 		
 		        var el = sliderElement(e);
 		        slide(el, 'right');
 		
 		    });
 		
-		    container.addEventListener('swipeRight', function(e) {
+		    container.addEventListener('swipeRight', (e) => {
 		
 		        var el = sliderElement(e);
 		        slide(el, 'left');
 		
 		    });
 		    
-		    container.addEventListener('mouseover', function(e) {
+		    container.addEventListener('mouseover', (e) => {
 	
 			    clearTimeout(el.getAttribute('data-timeout'));
 			   
 			});
 		    
 		    // Don't slide when using a range input in a form in a slider
-		    if (el.querySelector('input[type=range]')) {
-			   	
-			   	forEach(el.querySelector('input[type=range]'), function (el) {
-		        
-			        el.ontouchmove = function(e) {
-			
-						e.stopPropagation();
-	// 					removeClass(q('html'), 'sliding_now');
-				        
-			        };
+		   	el.querySelectorAll('input[type=range]').forEach((el) => {
+	        
+		        el.ontouchmove = (e) => {
+		
+					e.stopPropagation();
+// 					removeClass(q('html'), 'sliding_now');
 			        
-			    });
-		    
-		    }
+		        };
+		        
+		    });
 		
 		    if (el.getAttribute('data-autoslide')) { // auto slide
 		
 				var delay = el.getAttribute('data-autoslide');
 				delay = delay.length > 0 ? (1000 * delay) : 4000;
-		        var autoSlide = function() {
+		        var autoSlide = () => {
 		
 		            slide(el, 'right');
 		            el.setAttribute('data-timeout', setTimeout(autoSlide, delay));
@@ -3236,9 +3239,9 @@ var componentSlider = (function (){
 	
 	}
 
-	var init = function(host) {
+	var init = (host) => {
 		
-		forEach(host.querySelectorAll('.n-slider:not([data-ready])'), function(el) {
+		host.querySelectorAll('.n-slider:not([data-ready])').forEach((el) => {
 		
 		    makeSlider(el);
 		
@@ -3261,7 +3264,7 @@ var componentSlider = (function (){
 
 		var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'), 0);;
 		
-		rows.sort(function(a, b) {
+		rows.sort((a, b) => {
 		
 			var A = a.querySelectorAll('td')[column].textContent.toUpperCase();
 			var B = b.querySelectorAll('td')[column].textContent.toUpperCase();
@@ -3294,9 +3297,9 @@ var componentSlider = (function (){
 	
 	}
 
-	var init = function (host) {
+	var init = (host) => {
 		
-		forEach(host.querySelectorAll('table:not([data-ready])'), function(el) {
+		host.querySelectorAll('table:not([data-ready])').forEach((el) => {
 		
 			addClass(wrap(el), 'n-tbl');
 			makeReady(el);
@@ -3306,7 +3309,7 @@ var componentSlider = (function (){
 	
 		if (typeof bodyElement.dataset !== 'undefined') { // el.dataset.sort not supported by IE10
 		
-			forEach(host.querySelectorAll('td[data-sort]'), function (el) { // To do: work only on tables that aren't ready
+			host.querySelectorAll('td[data-sort]').forEach((el) => { // To do: work only on tables that aren't ready
 				// asc or desc
 				if (el.dataset.sort !== 'asc' && el.dataset.sort !== 'desc') {
 					
@@ -3318,7 +3321,7 @@ var componentSlider = (function (){
 					
 					stopEvent(e);
 					var el = e.target;
-					var cell = el.type === 'td' ? el : closest(el, 'td');
+					var cell = el.type === 'td' ? el : el.closest('td');
 					var f; // Ascending
 					if (cell.dataset.sort === 'desc') {
 						
@@ -3332,7 +3335,7 @@ var componentSlider = (function (){
 						
 					}
 			
-					sortTable(closest(el, 'table'), thisIndex(cell), f);
+					sortTable(el.closest('table'), thisIndex(cell), f);
 					
 				}
 				
@@ -3352,15 +3355,15 @@ var componentSlider = (function (){
 
 (function (){
     
-	var init = function (host) {
+	var init = (host) => {
 		
 		/* Tooltip */
 		
-		forEach(host.querySelectorAll('.n-tool:not([data-ready])'), function(el, i) {
+		host.querySelectorAll('.n-tool:not([data-ready])').forEach((el, i) => {
 			
-			el.onclick = function (e) {
+			el.onclick = (e) => {
 	
-				toggleAttribute(closest(e.target, '.n-tool'), aria_expanded);
+				toggleAttribute(e.target.closest('.n-tool'), aria_expanded);
 	
 			};		
 		
@@ -3378,19 +3381,19 @@ var componentSlider = (function (){
 			if (label) {
 				
 				label.setAttribute('tabindex', 0);
-				label.onkeyup = function (e) {
+				label.onkeyup = (e) => {
 					
 					if (e.key === 'Enter') {
 						
-						toggleAttribute(closest(e.target, '.n-tool'), aria_expanded);
+						toggleAttribute(e.target.closest('.n-tool'), aria_expanded);
 	
 					}
 					
 				}
 	
-				label.onblur = function (e) {
+				label.onblur = (e) => {
 					
-					closest(e.target, '.n-tool').removeAttribute(aria_expanded);
+					e.target.closest('.n-tool').removeAttribute(aria_expanded);
 	
 				}
 	

@@ -6,12 +6,12 @@
 
 function initGridInlinePopups(host) { // Limitation: each row must have equal width columns.
 		
-	forEach(host.querySelectorAll('.grid-inline-popup:not([data-ready])'), function (el) {
+	host.querySelectorAll('.grid-inline-popup:not([data-ready])').forEach((el) => {
 		
-		var id = 'id' + new Date().getTime(); // Unique id
+		var id = `id${new Date().getTime()}`; // Unique id
 		el.id = el.id || id;
-		var cells = el.querySelectorAll('#' + el.id + ' > div:not(.popup)');
-		var popups = el.querySelectorAll('#' + el.id + ' > .popup');
+		var cells = el.querySelectorAll(`#${el.id} > div:not(.popup)`);
+		var popups = el.querySelectorAll(`#${el.id} > .popup`);
 		
 		if (el.id === id) {
 			
@@ -19,11 +19,11 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 
 		}
 		
-		forEach(cells, function (el) {
+		cells.forEach((el) => {
 			
 			function openNewItem(e, current_popup) {
 		
-				var cell = closest(e.target, '.grid-inline-popup > div');
+				var cell = e.target.closest('.grid-inline-popup > div');
 				var columns = Math.round(cell.parentElement.scrollWidth/cell.scrollWidth);
 				var el = cell.nextElementSibling;
 				if (el === current_popup) {
@@ -84,7 +84,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 				var height = el.scrollHeight;
 				el.style.maxHeight = 0;
 				el.style.overflow = 'hidden';
-				animate(el, '100% { max-height: ' + height + 'px; }', .2, function () {
+				animate(el, `100% { max-height: ${height}px; }`, .2, () => {
 		
 					el.style.cssText = '';
 					
@@ -94,12 +94,12 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 					
 			function openCell(e) {
 				
-				var current_popup = closest(e.target, '.grid-inline-popup').querySelector('.popup[aria-expanded]');
+				var current_popup = e.target.closest('.grid-inline-popup').querySelector('.popup[aria-expanded]');
 				if (current_popup) {
 					
 					current_popup.style.maxHeight = current_popup.scrollHeight + 'px';
 					current_popup.style.overflow = 'hidden';
-					animate(current_popup, '100% { max-height: 0; }', .2, function () {
+					animate(current_popup, '100% { max-height: 0; }', .2, () => {
 						
 						current_popup.removeAttribute(aria_expanded);
 						current_popup.previousElementSibling.removeAttribute(aria_expanded);
@@ -119,7 +119,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 			el.setAttribute('tabindex', 0);
 			el.addEventListener('click', openCell);
 			el.addEventListener('touchend', openCell);
-			el.addEventListener('keyup', function (e) { 
+			el.addEventListener('keyup', (e) => { 
 				
 				if (e.key === 'Enter') {
 	
@@ -138,7 +138,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 
 /* Grid with inline popups – end */
 
-	var init = function (host){
+	var init = (host) => {
 
 		initGridInlinePopups(host);
 		
