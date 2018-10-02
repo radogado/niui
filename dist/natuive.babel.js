@@ -1094,7 +1094,7 @@ var nui = function () {
       var animation = lightbox.getAttribute('data-anim');
       var lightbox_target = document.createElement('div');
       var inline_static = lightbox.matches('.inline:not(.n-slider)');
-      addClass(lightbox_target, 'slider');
+      addClass(lightbox_target, 'n-slider');
       addClass(lightbox_target, 'n-lightbox');
       addClass(lightbox_target, 'inline');
       transferClass(lightbox, lightbox_target, 'thumbnails');
@@ -1131,7 +1131,7 @@ var nui = function () {
       var thumbnails = [];
       lightbox.childNodes.forEach(function (el) {
         // To do: facilitate a[href] extraction also from within div slides, if lightbox is existing and needs to be recreated for full screen. Get them in an array item[i].link, item[i].img
-        if (!el.href && !hasClass(lightbox, 'slider')) {
+        if (!el.href && !hasClass(lightbox, 'n-slider')) {
           // Ignore non-links in regular lightboxes
           return;
         }
@@ -1141,7 +1141,7 @@ var nui = function () {
 
         if (hasClass(el, 'video') || el.querySelector('video')) {
           // video poster = the anchor's img child, if it exists
-          if (hasClass(lightbox, 'slider')) {
+          if (hasClass(lightbox, 'n-slider')) {
             // Secondary lightbox
             images += "<div>".concat(el.querySelector('video').outerHTML, "</div>");
           } else {
@@ -1158,14 +1158,14 @@ var nui = function () {
 
         var slide_link;
 
-        if (hasClass(lightbox, 'slider') || !el.href) {
+        if (hasClass(lightbox, 'n-slider') || !el.href) {
           slide_link = '';
         } else {
           slide_link = document.location.href.split('#')[0].split('?')[0] + '?image=' + el.href.split('/').pop() + '#' + lightbox.getAttribute('id');
         }
 
         var link_element = hasClass(lightbox, 'inline') || !lightbox.getAttribute('id') ? '' : "<a class=\"button copy\" href=".concat(slide_link, "></a>");
-        var url = hasClass(lightbox, 'slider') ? el.querySelector('img') ? el.querySelector('img').getAttribute('data-src') : '' : el.href;
+        var url = hasClass(lightbox, 'n-slider') ? el.querySelector('img') ? el.querySelector('img').getAttribute('data-src') : '' : el.href;
         var caption = el.title ? el.title : el.querySelector('img') ? el.querySelector('img').title : '';
         images += "<div><img data-src=\"".concat(url, "\" title=\"").concat(caption, "\" data-link=\"").concat(slide_link, "\">").concat((caption ? '<p>' + caption + '</p>' : '') + link_element, "</div>"); // Attach onload event to each image to display it only when fully loaded and avoid top-to-bottom reveal?
       });

@@ -1438,7 +1438,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		var inline_static = lightbox.matches('.inline:not(.n-slider)');
 	
 	
-		addClass(lightbox_target, 'slider');
+		addClass(lightbox_target, 'n-slider');
 		addClass(lightbox_target, 'n-lightbox');
 		addClass(lightbox_target, 'inline');
 		transferClass(lightbox, lightbox_target, 'thumbnails');
@@ -1480,7 +1480,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		var thumbnails = [];
 	    lightbox.childNodes.forEach((el) => { // To do: facilitate a[href] extraction also from within div slides, if lightbox is existing and needs to be recreated for full screen. Get them in an array item[i].link, item[i].img
 		    
-		    if (!el.href && !hasClass(lightbox, 'slider')) { // Ignore non-links in regular lightboxes
+		    if (!el.href && !hasClass(lightbox, 'n-slider')) { // Ignore non-links in regular lightboxes
 			    
 			    return;
 	
@@ -1493,7 +1493,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 			if (hasClass(el, 'video') || el.querySelector('video')) {
 				// video poster = the anchor's img child, if it exists
 	
-				if (hasClass(lightbox, 'slider')) { // Secondary lightbox
+				if (hasClass(lightbox, 'n-slider')) { // Secondary lightbox
 					
 					images += `<div>${el.querySelector('video').outerHTML}</div>`;
 					
@@ -1516,7 +1516,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 			var slide_link;
 			
-			if (hasClass(lightbox, 'slider') || !el.href ) {
+			if (hasClass(lightbox, 'n-slider') || !el.href ) {
 				
 				slide_link = '';
 	
@@ -1528,7 +1528,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 		    var link_element = (hasClass(lightbox, 'inline') || !lightbox.getAttribute('id')) ? '' : `<a class="button copy" href=${slide_link}></a>`;
 	
-		    var url = hasClass(lightbox, 'slider') ? (el.querySelector('img') ? el.querySelector('img').getAttribute('data-src') : '') : el.href;
+		    var url = hasClass(lightbox, 'n-slider') ? (el.querySelector('img') ? el.querySelector('img').getAttribute('data-src') : '') : el.href;
 		    
 			var caption = el.title ? el.title : (el.querySelector('img') ? el.querySelector('img').title : '');
 					    
