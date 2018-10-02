@@ -28,7 +28,7 @@
 	
 		var this_nav = e.target.closest('nav');
 		
-		if (!e.relatedTarget.closest(this_nav)) { // if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
+		if (!closestElement(e.relatedTarget, this_nav)) { // if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
 			
 			this_nav.querySelectorAll('ul').forEach((el) => {
 	

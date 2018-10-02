@@ -340,24 +340,17 @@ var nui = function () {
     });
     return false;
   }
-  /*
-  function closest(el, target) { // Thanks http://gomakethings.com/ditching-jquery/ – Accepts either a selector string or an actual element
-  
-      for ( ; el && el !== document; el = el.parentNode ) {
-  
-  		if (typeof target === 'string' ? el.matches(target) : el === target) {
-  			
-  			return el;
-  
-  		}
-  
-      }
-  
-      return false;
-  
-  }
-  */
 
+  function closestElement(el, target) {
+    // Thanks http://gomakethings.com/ditching-jquery/ – Accepts either a selector string or an actual element
+    for (; el && el !== document; el = el.parentNode) {
+      if (el === target) {
+        return el;
+      }
+    }
+
+    return false;
+  }
   /* Check for host PHP support */
 
 
@@ -1714,7 +1707,7 @@ var nui = function () {
     function dropNavBlur(e) {
       var this_nav = e.target.closest('nav');
 
-      if (!e.relatedTarget.closest(this_nav)) {
+      if (!closestElement(e.relatedTarget, this_nav)) {
         // if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
         this_nav.querySelectorAll('ul').forEach(function (el) {
           el.removeAttribute(aria_expanded);

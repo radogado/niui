@@ -417,12 +417,11 @@ function animateAnchors(e) {
 
 }
 
-/*
-function closest(el, target) { // Thanks http://gomakethings.com/ditching-jquery/ – Accepts either a selector string or an actual element
+function closestElement(el, target) { // Thanks http://gomakethings.com/ditching-jquery/ – Accepts either a selector string or an actual element
 
     for ( ; el && el !== document; el = el.parentNode ) {
 
-		if (typeof target === 'string' ? el.matches(target) : el === target) {
+		if (el === target) {
 			
 			return el;
 
@@ -433,7 +432,6 @@ function closest(el, target) { // Thanks http://gomakethings.com/ditching-jquery
     return false;
 
 }
-*/
 
 /* Check for host PHP support */
 var php_support = 0;
@@ -2185,7 +2183,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 		var this_nav = e.target.closest('nav');
 		
-		if (!e.relatedTarget.closest(this_nav)) { // if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
+		if (!closestElement(e.relatedTarget, this_nav)) { // if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
 			
 			this_nav.querySelectorAll('ul').forEach((el) => {
 	
