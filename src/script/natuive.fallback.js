@@ -2630,7 +2630,7 @@ var componentSlider = (function (){
 	    if (hasClass(slider, 'n-lightbox')) {
 			
 			componentLightbox.populateLightbox(slider, index);
-	        
+
 	    }
 	
 		var slider_wrap = slider.closest('.n-slider-wrap');
@@ -2641,7 +2641,7 @@ var componentSlider = (function (){
 		
 		}
 	
-		slider.children[index].setAttribute('data-active', true);
+		slider.children[index].dataset.active = true; // Can't use 'sliding', because Closure Compiler obfuscates it
 	
 	    if (!hasClass(slider, 'vertical')) {
 		    
@@ -2649,7 +2649,7 @@ var componentSlider = (function (){
 		   
 		}
 	
-		slider.style.pointerEvents = '';
+		slider.style.pointerEvents = slider.style.height = '';
 	
 	    window.addEventListener('keyup', sliderKeyboard);
 	    setTimeout(() => {
@@ -2763,7 +2763,7 @@ var componentSlider = (function (){
 	
 	    }
 
-		slider_wrap.dataset.sliding = true;
+		slider_wrap.dataset.active = true;
 	
 	    var offset_sign = -1; // Slider offset depending on direction. -1 for LTR or 1 for RTL. Vertical is always '-'
 	
@@ -2844,7 +2844,7 @@ var componentSlider = (function (){
 			    difference = Math.min(computed_height, computed_height_old) + difference;
 			    
 		    }
-		    translate_to = 'translate3d(0,' + ((index<old_index) ? '0' : ('-' + difference + 'px')) + ',0)';
+		    translate_to = `translate3d(0,${index<old_index ? '0' : ('-' + difference + 'px')},0)`;
 		    slider.children[old_index].style.transition = `opacity ${duration/2}s linear`;
 		    slider.children[old_index].style.opacity = 0;
 		
@@ -2874,9 +2874,15 @@ var componentSlider = (function (){
 		
 // 			slider.children[index].style.cssText = slider.children[old_index].style.cssText = '';
 			
-			delete slider_wrap.dataset.sliding;
-			slider.children[old_index].removeAttribute('data-active');
-		    slider.children[old_index].style.transition = slider.children[old_index].style.opacity = slider.style.height = '';
+			delete slider_wrap.dataset.active;
+			delete slider.children[old_index].dataset.active;
+
+			[slider.children[index], slider.children[old_index]].forEach((el) => {
+				
+				el.style.transition = el.style.opacity = el.style.height = el.style.margin = '';
+				
+			});
+
 			current_slider = slider;
 			endSlide(slider, index, old_index);
 	
@@ -2928,7 +2934,7 @@ var componentSlider = (function (){
 	
 	    if (typeof e === 'undefined' || 
 	//     	hasClass(q('html'), 'sliding_now') || 
-	    	q('.n-slider-wrap[data-sliding]') || 
+	    	q('.n-slider-wrap[data-active]') || 
 	    	(q('.n-ovrl') && !q('.n-ovrl .n-slider-wrap')) // There is an overlay open and it doesn't have a slider in it
 			) {
 	

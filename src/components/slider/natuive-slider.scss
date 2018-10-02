@@ -365,7 +365,7 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 
 }
 
-.n-slider-wrap[data-sliding] > .n-slider:not([data-peek]):not(.auto-height) > *:not([data-active]), .n-slider.vertical[data-ready] > *:not([data-active]) {
+.n-slider-wrap[data-active] > .n-slider:not([data-peek]):not(.auto-height) > *:not([data-active]), .n-slider-wrap[data-active] > .pad > .n-slider:not([data-peek]):not(.auto-height) > *:not([data-active]), .n-slider.vertical[data-ready] > *:not([data-active]) {
 	
 	display: none;
 
