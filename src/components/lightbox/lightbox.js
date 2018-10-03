@@ -306,7 +306,7 @@ var componentLightbox = (function (){
 	    
 		    transferClass(lightbox, lightbox_target.parentNode, 'thumbnails');
 	        var i = 0;
-	// 	        var nav = closest(lightbox_target, '.n-slider-wrap').querySelector('.slider-nav');
+	// 	        var nav = closestElement(lightbox_target, '.n-slider-wrap').querySelector('.slider-nav');
 	        var nav = componentSlider.getSliderNav(lightbox_target.closest('.n-slider-wrap'));
 	
 	        if (nav) { // Multiple slides?

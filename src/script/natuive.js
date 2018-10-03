@@ -1646,7 +1646,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	    
 		    transferClass(lightbox, lightbox_target.parentNode, 'thumbnails');
 	        var i = 0;
-	// 	        var nav = closest(lightbox_target, '.n-slider-wrap').querySelector('.slider-nav');
+	// 	        var nav = closestElement(lightbox_target, '.n-slider-wrap').querySelector('.slider-nav');
 	        var nav = componentSlider.getSliderNav(lightbox_target.closest('.n-slider-wrap'));
 	
 	        if (nav) { // Multiple slides?
@@ -2450,7 +2450,7 @@ var componentSlider = (function (){
 	
 	function sliderElement(e) { // Get the active slider instance
 		
-		var closest_slider_wrap = document.activeElement.closest('n-slider-wrap');
+		var closest_slider_wrap = document.activeElement.closest('.n-slider-wrap');
 		
 		if (closest_slider_wrap && closest_slider_wrap === focusWithin('.n-slider-wrap')) {
 	
@@ -2643,7 +2643,7 @@ var componentSlider = (function (){
 	
 	    if (!hasClass(slider, 'vertical')) {
 		    
-		    slider.style.marginLeft = -100*index + '%';
+		    slider.style.marginLeft = `${-100*index}%`;
 		   
 		}
 	
@@ -2690,6 +2690,9 @@ var componentSlider = (function (){
 		
 		}
 	*/
+
+// 2 directions: horizontal/vertical
+// 3 animations: slide/fade/fade overlap
 	
 		var slider_wrap = el.closest('.n-slider-wrap');
 	
@@ -2761,8 +2764,6 @@ var componentSlider = (function (){
 	
 	    }
 
-		slider_wrap.dataset.active = true;
-	
 	    var offset_sign = -1; // Slider offset depending on direction. -1 for LTR or 1 for RTL. Vertical is always '-'
 	
 		var computed_height;
@@ -2780,19 +2781,29 @@ var componentSlider = (function (){
 			
 		}
 		
+		var original_slider_height = slider.scrollHeight;
 		target_slide.dataset.active = true;
 
 		var next_slide_image = target_slide.querySelector('img');
-		if (hasClass(slider, 'vertical') && hasClass(slider, 'inline') && !hasClass(slider, 'overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'aspect')) { // To do: integrate aspect with n-slider-wrap
+		if (hasClass(slider, 'vertical')) {
 			
-			var height_change_number = slider.clientWidth * next_slide_image.naturalHeight / next_slide_image.naturalWidth;
-			if (slider.clientWidth >= next_slide_image.naturalWidth) {
+			if (hasClass(slider, 'inline') && !hasClass(slider, 'overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'aspect')) { // Inline lightbox only. To do: integrate aspect with n-slider-wrap
+			
+				var height_change_number = slider.clientWidth * next_slide_image.naturalHeight / next_slide_image.naturalWidth;
+				if (slider.clientWidth >= next_slide_image.naturalWidth) {
+					
+					height_change_number = next_slide_image.naturalHeight;
+					
+				}
+				height_change =	`height: ${height_change_number}px`;
+	
+			} else { // Vertical, not a lightbox
 				
-				height_change_number = next_slide_image.naturalHeight;
-				
+				height_change =	`height: ${target_slide.scrollHeight}px`;
+
 			}
-			height_change =	`height: ${height_change_number}px`;
-			height_current = `height: ${slider.scrollHeight}px`;
+		
+			height_current = `height: ${original_slider_height}px`;
 
 		}
 	
@@ -2815,6 +2826,8 @@ var componentSlider = (function (){
 	
 		slider.style.height = computed_height;
 	
+		slider_wrap.dataset.active = true; // The correct position, after the above calculations
+	
 		if (slider_nav.querySelector('[data-active]')) {
 	
 		    slider_nav.querySelector('[data-active]').removeAttribute('data-active');
@@ -2827,13 +2840,15 @@ var componentSlider = (function (){
 		
 	    if (hasClass(slider, 'vertical')) {
 			
-			var next_height =  (hasClass(slider, 'vertical') && hasClass(slider, 'inline') && !hasClass(slider, 'overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'aspect')) ? (`-${height_change_number}px`) : '-100%';
-		    translate_from = `translate3d(0,${(index<old_index) ? next_height : '0'},0)`;
-			
 			computed_height = parseInt(computed_height, 10);
 			computed_height_old = parseInt(computed_height_old, 10);
+
+			var next_height =  (!hasClass(slider, 'overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'aspect')) ? (`-${height_change_number}px`) : '-100%';
+		    translate_from = `translate3d(0,${index<old_index ? ('-' + computed_height + 'px') : 0},0)`;
+			
 		    var difference = Math.abs(computed_height - computed_height_old);
-		    if (computed_height > computed_height_old) { // Shortened statement results in larger Closure Compiler file, let it optimise
+
+		    if (computed_height > computed_height_old) {
 			    
 			    difference = Math.max(computed_height, computed_height_old) - difference;
 			    
@@ -2842,7 +2857,7 @@ var componentSlider = (function (){
 			    difference = Math.min(computed_height, computed_height_old) + difference;
 			    
 		    }
-		    translate_to = `translate3d(0,${index<old_index ? '0' : ('-' + difference + 'px')},0)`;
+		    translate_to = `translate3d(0,${index<old_index ? '0' : ('-' + original_slider_height + 'px')},0)`;
 		    slider.children[old_index].style.transition = `opacity ${duration/2}s linear`;
 		    slider.children[old_index].style.opacity = 0;
 		
@@ -2855,16 +2870,11 @@ var componentSlider = (function (){
 		    
 		    } else {
 	
+				slider.style.margin = 0;
 			    translate_from = `translate3d(${offset_sign * ((index<old_index) ? 1 : 0)}00%,0,0)`;
 			    translate_to = `translate3d(${offset_sign * ((index<old_index) ? 0 : 1)}00%,0,0)`;
 			    
 		    }
-			
-		}
-	
-		if (!slider.getAttribute('data-peek')) {
-			
-			slider.style.margin = 0;
 			
 		}
 	
@@ -2908,7 +2918,8 @@ var componentSlider = (function (){
 			
 			} else {
 
-				animation_code = `0% { transform: ${translate_from}; ${height_current}} 100% { ${height_change}; transform: ${translate_to}; }`;
+				animation_code = `0% { transform: ${translate_from}; ${height_current}; } 100% { ${height_change}; transform: ${translate_to}; }`;
+
 			}
 			
 			animate(slider, animation_code, duration, slideEndHandler);
@@ -2972,7 +2983,7 @@ var componentSlider = (function (){
 	
 		if 	(el.tagName !== 'INPUT' && el.tagName !== 'TEXTAREA' && 
 	// 		(document.activeElement === el ? (el.scrollWidth <= el.clientWidth) : true) &&
-	// 		(!closest(document.activeElement, '.n-slider-wrap.active') && (el.scrollWidth <= el.clientWidth) ) &&
+	// 		(!closestElement(document.activeElement, '.n-slider-wrap.active') && (el.scrollWidth <= el.clientWidth) ) &&
 			(el = q('.n-ovrl .n-slider') || current_slider || q('.n-slider'))
 			) { // Priority: full window slider, active slider, first slider
 	
