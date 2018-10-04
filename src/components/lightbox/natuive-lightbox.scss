@@ -2,7 +2,7 @@
 
 @import '../../css/natuive-setup';
 
-.n-slider-wrap > .n-slider.vertical.n-lightbox > * {
+.n-slider-wrap:not([data-active]) > .n-slider.vertical.n-lightbox > * {
 
 	height: 100%;
 

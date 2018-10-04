@@ -46,7 +46,8 @@ main, main .nav-column .slider-nav.row, main.row > *, main > .n-slider-wrap {
 
 main > 	.col34 > .n-slider-wrap > .n-slider.vertical > * {
 	
-	height: 100vh;
+	max-height: 100vh; // Because sliding animates to full slide height
+	min-height: 100vh; // Because of slides shorter than viewport
 	
 }
 

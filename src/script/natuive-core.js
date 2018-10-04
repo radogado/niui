@@ -489,12 +489,15 @@ function animate(el, animation_code, duration, callback) { // Default duration =
 		
 		}, false);
 
-		var animation_name = 'a' + new Date().getTime(); // Unique animation name
+// 		var animation_name = 'a' + new Date().getTime(); // Unique animation name
+		var animation_name = `a${Math.round((Math.random()*1000000),10)}`; // Unique animation name
+/*
 		if (q('head .' + animation_name)) {
 			
 			animation_name += '-';
 			
 		}
+*/
 		var styles = document.createElement('style');
 		styles.innerHTML = `@keyframes ${animation_name} {${animation_code}} [data-animation=${animation_name}] { animation-name: ${animation_name}; animation-duration: ${((typeof duration === "undefined") ? .2 : duration)}s; }`; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
 		q('head').appendChild(styles);

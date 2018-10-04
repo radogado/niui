@@ -17,7 +17,7 @@ $bg: #1E8DaC;
   --color: #333;
   --bg: #fff; }
 
-.n-slider-wrap > .n-slider.vertical.n-lightbox > * {
+.n-slider-wrap:not([data-active]) > .n-slider.vertical.n-lightbox > * {
   height: 100%; }
 
 *:not(.aspect) > .n-slider-wrap > .n-slider.vertical.n-lightbox.inline[data-sliding]:not(.overlay) > * {

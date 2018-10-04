@@ -1447,7 +1447,7 @@ $bg: #1E8DaC;
   --color: #333;
   --bg: #fff; }
 
-.n-slider-wrap > .n-slider.vertical.n-lightbox > * {
+.n-slider-wrap:not([data-active]) > .n-slider.vertical.n-lightbox > * {
   height: 100%; }
 
 *:not(.aspect) > .n-slider-wrap > .n-slider.vertical.n-lightbox.inline[data-sliding]:not(.overlay) > * {
@@ -1992,7 +1992,8 @@ nav.n-drop {
     margin-right: 0;
     padding-right: 1em; }
   nav.n-drop li li {
-    display: block; }
+    display: block;
+    width: 100%; }
   nav.n-drop ul ul:not([aria-expanded]) {
     min-height: 0;
     max-height: 0;

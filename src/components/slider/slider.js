@@ -463,8 +463,8 @@ var componentSlider = (function (){
 
 			// Animate both simultaneously
 
+			animate(slider, `0% { ${height_current}; } 100% { ${height_change}; }`, duration);
 			animate(slider.children[index], '0% { opacity: 0; } 100% { opacity: 1; }', duration, slideEndHandler);
-
 			animate(slider.children[old_index], '0% { opacity: 1; } 100% { opacity: 0; }', duration);
 			
 		} else {

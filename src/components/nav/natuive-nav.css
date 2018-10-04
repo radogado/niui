@@ -109,7 +109,8 @@ nav.n-drop {
     margin-right: 0;
     padding-right: 1em; }
   nav.n-drop li li {
-    display: block; }
+    display: block;
+    width: 100%; }
   nav.n-drop ul ul:not([aria-expanded]) {
     min-height: 0;
     max-height: 0;

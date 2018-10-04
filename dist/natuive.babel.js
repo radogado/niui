@@ -393,12 +393,17 @@ var nui = function () {
         if (typeof callback === 'function') {
           callback();
         }
-      }, false);
-      var animation_name = 'a' + new Date().getTime(); // Unique animation name
+      }, false); // 		var animation_name = 'a' + new Date().getTime(); // Unique animation name
 
-      if (q('head .' + animation_name)) {
-        animation_name += '-';
-      }
+      var animation_name = "a".concat(Math.round(Math.random() * 1000000, 10)); // Unique animation name
+
+      /*
+      		if (q('head .' + animation_name)) {
+      			
+      			animation_name += '-';
+      			
+      		}
+      */
 
       var styles = document.createElement('style');
       styles.innerHTML = "@keyframes ".concat(animation_name, " {").concat(animation_code, "} [data-animation=").concat(animation_name, "] { animation-name: ").concat(animation_name, "; animation-duration: ").concat(typeof duration === "undefined" ? .2 : duration, "s; }"); // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
@@ -2229,6 +2234,7 @@ var nui = function () {
         slider.children[index > old_index ? index : old_index].style.marginLeft = '-100%';
         slider.children[old_index].style.opacity = '1'; // Animate both simultaneously
 
+        animate(slider, "0% { ".concat(height_current, "; } 100% { ").concat(height_change, "; }"), duration);
         animate(slider.children[index], '0% { opacity: 0; } 100% { opacity: 1; }', duration, slideEndHandler);
         animate(slider.children[old_index], '0% { opacity: 1; } 100% { opacity: 0; }', duration);
       } else {
