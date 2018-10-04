@@ -761,8 +761,8 @@ var nui = function () {
     });
     window.addEventListener('scroll', function () {
       // Close fixed n-ovrl if its scrolling becomes a window scroll. Idea by a Google mobile nav.
-      if (q('.fixed-mobile .n-fold.n-fold--mobile[aria-expanded]')) {
-        q('.fixed-mobile .n-fold.n-fold--mobile[aria-expanded]').removeAttribute(aria_expanded);
+      if (q('.n-fixed-mobile .n-fold.n-fold--mobile[aria-expanded]')) {
+        q('.n-fixed-mobile .n-fold.n-fold--mobile[aria-expanded]').removeAttribute(aria_expanded);
       }
     });
     /* Fold – end */

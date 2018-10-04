@@ -571,7 +571,7 @@ nav.n-drop ul li li a {
 
 @media screen and (max-width: 599.9px) {
 	
-	header.fixed, header.fixed .n-fold.n-fold--mobile .content {
+	header.n-fixed, header.n-fixed .n-fold.n-fold--mobile .content {
 		
 		background: #000;
 		
@@ -589,7 +589,7 @@ nav.n-drop ul li li a {
 		
 	}
 	
-	header.fixed a.logo {
+	header.n-fixed a.logo {
 		
 		display: block;
 		text-align: right;
@@ -603,14 +603,6 @@ nav.n-drop ul li li a {
 		margin: 0;
 		
 	}
-
-/*
-	header nav a[href] {
-		
-		color: #000;
-	
-	}
-*/
 
 }
 

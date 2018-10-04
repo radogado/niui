@@ -222,13 +222,13 @@ video {
 
 }
 
-.fixed {
+.n-fixed {
 
 	position: fixed;
 
 }
 
-header.fixed {
+header.n-fixed {
 
 	position: static;
 
@@ -295,7 +295,7 @@ a[href].span-relative-parent {
 
 	}
 
-	header.fixed {
+	header.n-fixed {
 
 		position: fixed;
 		top: 0;

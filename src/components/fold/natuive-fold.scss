@@ -301,7 +301,7 @@
 
 	@supports (--a: 1) {
 
-		header.fixed-mobile .n-fold.n-fold--mobile {
+		header.n-fixed-mobile .n-fold.n-fold--mobile {
 			
 			position: fixed;
 		    top: 0;

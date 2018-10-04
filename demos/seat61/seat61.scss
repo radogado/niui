@@ -250,19 +250,19 @@ h4 {
 		
 	}
 	
-	header.fixed-mobile .n-fold.n-fold--mobile.open .n-fold--content {
+	header.n-fixed-mobile .n-fold.n-fold--mobile.open .n-fold--content {
 		
 		width: 100%;
 	
 	}
 
-	.n-fold.n-fold--mobile > .n-fold--label, header.fixed-mobile .n-fold.n-fold--mobile.open .n-fold--content {
+	.n-fold.n-fold--mobile > .n-fold--label, header.n-fixed-mobile .n-fold.n-fold--mobile.open .n-fold--content {
 	
 		margin-left: -.3em;
 		
 	}
 	
-	header.fixed-mobile .n-fold.n-fold--mobile[aria-expanded] .n-fold--content {
+	header.n-fixed-mobile .n-fold.n-fold--mobile[aria-expanded] .n-fold--content {
 		
 	    width: 100%;
 	    left: 0;		

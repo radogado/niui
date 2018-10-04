@@ -310,7 +310,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         b(a);
       });
       window.addEventListener("scroll", function () {
-        e(".fixed-mobile .n-fold.n-fold--mobile[aria-expanded]") && e(".fixed-mobile .n-fold.n-fold--mobile[aria-expanded]").removeAttribute("aria-expanded");
+        e(".n-fixed-mobile .n-fold.n-fold--mobile[aria-expanded]") && e(".n-fixed-mobile .n-fold.n-fold--mobile[aria-expanded]").removeAttribute("aria-expanded");
       });
       C("fold", function (b) {
         p(b.querySelectorAll(".n-fold:not([data-ready]) > .n-fold--label"), function (c) {

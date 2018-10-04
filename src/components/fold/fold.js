@@ -151,9 +151,10 @@
 		
 	window.addEventListener('scroll', () => {  // Close fixed n-ovrl if its scrolling becomes a window scroll. Idea by a Google mobile nav.
 		
-		if (q('.fixed-mobile .n-fold.n-fold--mobile[aria-expanded]')) {
+		let expanded_nav = q('.n-fixed-mobile .n-fold.n-fold--mobile[aria-expanded]');
+		if (expanded_nav) {
 			
-			q('.fixed-mobile .n-fold.n-fold--mobile[aria-expanded]').removeAttribute(aria_expanded);
+			expanded_nav.removeAttribute(aria_expanded);
 		
 		}
 		

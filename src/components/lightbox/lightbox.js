@@ -65,11 +65,20 @@ var componentLightbox = (function (){
 	
 	function populateLightbox(slider, i) {
 		
+/*
 		populateLightboxItem(slider, i);
 			
 		populateLightboxItem(slider, (i > 0) ? i-1 : slider.children.length-1);
 	
 		populateLightboxItem(slider, (i < slider.children.length-1) ? i+1 : 0);
+*/
+		
+		let slides = slider.children.length-1;
+		[i, (i > 0) ? i-1 : slides, (i < slides) ? i+1 : 0].forEach((el) => {
+			
+			populateLightboxItem(slider, el);	
+			
+		});
 	
 	}
 	

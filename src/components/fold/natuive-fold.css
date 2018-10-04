@@ -149,20 +149,20 @@ $bg: #1E8DaC;
     overflow: hidden; }
 
   @supports (--a: 1) {
-    header.fixed-mobile .n-fold.n-fold--mobile {
+    header.n-fixed-mobile .n-fold.n-fold--mobile {
       position: fixed;
       top: 0;
       z-index: 2; }
-      header.fixed-mobile .n-fold.n-fold--mobile[aria-expanded] {
+      header.n-fixed-mobile .n-fold.n-fold--mobile[aria-expanded] {
         bottom: 0;
         overflow: visible; }
-        header.fixed-mobile .n-fold.n-fold--mobile[aria-expanded] .n-fold--content {
+        header.n-fixed-mobile .n-fold.n-fold--mobile[aria-expanded] .n-fold--content {
           overflow: auto;
           -webkit-overflow-scrolling: touch;
           position: fixed;
           top: 3em;
           bottom: 0; }
-      header.fixed-mobile .n-fold.n-fold--mobile .n-fold--content {
+      header.n-fixed-mobile .n-fold.n-fold--mobile .n-fold--content {
         padding: 0 0.375em;
         background: #fff; } } }
 @media screen and (min-width: 600px) {
