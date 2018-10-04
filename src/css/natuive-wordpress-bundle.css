@@ -148,10 +148,10 @@ video {
 
   .fixed-bg .fixed-bg-image {
     display: none; } }
-.fixed {
+.n-fixed {
   position: fixed; }
 
-header.fixed {
+header.n-fixed {
   position: static; }
 
 a[href].span-relative-parent {
@@ -187,7 +187,7 @@ a[href].span-relative-parent {
   header .head-right {
     text-align: start; }
 
-  header.fixed {
+  header.n-fixed {
     position: fixed;
     top: 0;
     left: 0;

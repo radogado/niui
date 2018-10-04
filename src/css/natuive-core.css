@@ -6,14 +6,14 @@ $bg: #1E8DaC;
 */
 :root {
   /*
-// Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-	--line-height: 2;
-	--line-height-em: calc(var(--line-height)*1em);
-*/
+  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
+  	--line-height: 2;
+  	--line-height-em: calc(var(--line-height)*1em);
+  */
   /*
-	--color: #fff;
-	--bg: #1E8DaC;
-*/
+  	--color: #fff;
+  	--bg: #1E8DaC;
+  */
   --color: #333;
   --bg: #fff; }
 
@@ -119,32 +119,35 @@ video {
     will-change: scroll;
     background-size: 0;
     position: relative; }
+
   .fixed-bg .fixed-bg-image, .fixed-bg .fixed-bg-image:before {
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-image: inherit; }
+
   .fixed-bg .fixed-bg-image {
     position: absolute;
     background-size: 0;
     z-index: -1;
     clip: rect(auto, auto, auto, auto); }
+
   .fixed-bg .fixed-bg-image:before {
     content: '';
     position: fixed;
     background-size: cover;
     background-position: center center;
     height: 100vh; }
+
   .fixed-bg .fixed-bg-image:before {
     transform: translate3d(0, 0, 0); } }
-
 @supports (-ms-ime-align: auto) {
   .fixed-bg {
     background-size: cover; }
+
   .fixed-bg .fixed-bg-image {
     display: none; } }
-
 .n-fixed {
   position: fixed; }
 
@@ -173,13 +176,17 @@ a[href].span-relative-parent {
 @media screen and (max-width: 599.9px) {
   .wide-screen {
     display: none; }
+
   .narrow-screen {
     display: block; }
+
   .n-viewport.header-and-banner {
     height: auto;
     overflow: hidden; }
+
   header .head-right {
     text-align: start; }
+
   header.n-fixed {
     position: fixed;
     top: 0;
@@ -187,3 +194,5 @@ a[href].span-relative-parent {
     right: 0;
     background: #fff;
     z-index: 7; } }
+
+/*# sourceMappingURL=natuive-core.css.map */

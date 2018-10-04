@@ -761,8 +761,10 @@ var nui = function () {
     });
     window.addEventListener('scroll', function () {
       // Close fixed n-ovrl if its scrolling becomes a window scroll. Idea by a Google mobile nav.
-      if (q('.n-fixed-mobile .n-fold.n-fold--mobile[aria-expanded]')) {
-        q('.n-fixed-mobile .n-fold.n-fold--mobile[aria-expanded]').removeAttribute(aria_expanded);
+      var expanded_nav = q('.n-fixed-mobile .n-fold.n-fold--mobile[aria-expanded]');
+
+      if (expanded_nav) {
+        expanded_nav.removeAttribute(aria_expanded);
       }
     });
     /* Fold – end */
@@ -1069,9 +1071,17 @@ var nui = function () {
     }
 
     function populateLightbox(slider, i) {
-      populateLightboxItem(slider, i);
-      populateLightboxItem(slider, i > 0 ? i - 1 : slider.children.length - 1);
-      populateLightboxItem(slider, i < slider.children.length - 1 ? i + 1 : 0);
+      /*
+      		populateLightboxItem(slider, i);
+      			
+      		populateLightboxItem(slider, (i > 0) ? i-1 : slider.children.length-1);
+      	
+      		populateLightboxItem(slider, (i < slider.children.length-1) ? i+1 : 0);
+      */
+      var slides = slider.children.length - 1;
+      [i, i > 0 ? i - 1 : slides, i < slides ? i + 1 : 0].forEach(function (el) {
+        populateLightboxItem(slider, el);
+      });
     }
 
     function openLightbox(e) {

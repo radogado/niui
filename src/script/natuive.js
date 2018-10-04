@@ -963,9 +963,10 @@ qa('a[href^="#"]').forEach((el) => {
 		
 	window.addEventListener('scroll', () => {  // Close fixed n-ovrl if its scrolling becomes a window scroll. Idea by a Google mobile nav.
 		
-		if (q('.n-fixed-mobile .n-fold.n-fold--mobile[aria-expanded]')) {
+		let expanded_nav = q('.n-fixed-mobile .n-fold.n-fold--mobile[aria-expanded]');
+		if (expanded_nav) {
 			
-			q('.n-fixed-mobile .n-fold.n-fold--mobile[aria-expanded]').removeAttribute(aria_expanded);
+			expanded_nav.removeAttribute(aria_expanded);
 		
 		}
 		
@@ -1408,11 +1409,20 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 	function populateLightbox(slider, i) {
 		
+/*
 		populateLightboxItem(slider, i);
 			
 		populateLightboxItem(slider, (i > 0) ? i-1 : slider.children.length-1);
 	
 		populateLightboxItem(slider, (i < slider.children.length-1) ? i+1 : 0);
+*/
+		
+		let slides = slider.children.length-1;
+		[i, (i > 0) ? i-1 : slides, (i < slides) ? i+1 : 0].forEach((el) => {
+			
+			populateLightboxItem(slider, el);	
+			
+		});
 	
 	}
 	
