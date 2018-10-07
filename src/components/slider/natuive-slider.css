@@ -138,7 +138,7 @@ $bg: #1E8DaC;
   max-height: 100%;
   z-index: 1; }
 
-.vertical.tabs > .n-slider {
+.vertical.tabs:not(.detached-nav) > .n-slider {
   width: 75%;
   float: right; }
 

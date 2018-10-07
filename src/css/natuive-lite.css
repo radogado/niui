@@ -1196,21 +1196,23 @@ ul.indent {
 
 ul li {
   display: block;
-  margin-left: 1em;
   position: relative;
-  width: 100%; }
+  width: 100%;
+  list-style: none; }
 
-ul li:before {
-  content: '·';
-  position: absolute;
-  margin-left: -.75em; }
+ul:not(.no-bullet):not(.inline) li {
+  margin-left: 1em; }
+  ul:not(.no-bullet):not(.inline) li:before {
+    content: '·';
+    position: absolute;
+    margin-left: -.75em; }
 
 ul.inline, ul.inline li, nav.scroll ul li {
   vertical-align: top;
   display: inline-block;
   width: auto; }
 
-ul.inline li:before, nav ul li:before {
+nav ul li:before {
   display: none; }
 
 ul.inline > li:first-child {

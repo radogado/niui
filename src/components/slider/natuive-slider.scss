@@ -219,7 +219,7 @@
 
 }
 
-.vertical.tabs > .n-slider { // Floats, because flex version is glitching when tab stack is taller than the slider. To do: fix flex version.
+.vertical.tabs:not(.detached-nav) > .n-slider { // Floats, because flex version is glitching when tab stack is taller than the slider. To do: fix flex version.
 
 	width: 75%;
     float: right;
