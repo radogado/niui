@@ -233,45 +233,38 @@
 			display: inline-flex;
 			width: var(--image-width, 100%);
 			max-width: 100%;
-
-		}
-		
-			.aspect > img {
+			
+			> img {
 				
 				max-width: 100%;
 				height: auto;
 				margin: 0 auto;
-			
+				
 			}
-			
-			.aspect:before {
+
+			&:before {
 				
 				content: '';
 				padding-bottom: calc(100%*1/var(--ratio, 1.7778)); // Default 16:9
 			
 			}
 		
-			@-moz-document url-prefix() { // No-flex version for FF. FF devs insist flexbox item's vertical paddign to be 0 without explicit parent height, instead of % of width like Chrome, Safari etc. Disabled because of many problems.
-		
-				.aspect { display: inline-block; font-size: 0; letter-spacing: 0; text-align: left; }
-				.aspect:before, .aspect > * { display: inline-block; font-size: initial; vertical-align: middle; }
-		
-			}
-			
-			.align-bottom.aspect > * {
+			&.align-bottom > * {
 				
 				align-self: flex-end;
 				vertical-align: bottom;
 		
 			}
 		
-			.align-middle.aspect > * {
+			&.align-middle > * {
 				
 				align-self: center;
 				vertical-align: middle;
 		
 			}
 
+		}
+		
 	}
 	
 .align-left, .align-left > *, .row > .align-left {

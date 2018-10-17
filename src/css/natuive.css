@@ -1124,34 +1124,29 @@ $bg: #1E8DaC;
     display: inline-flex;
     width: var(--image-width, 100%);
     max-width: 100%; }
+    .aspect > img {
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto; }
+    .aspect:before {
+      content: '';
+      padding-bottom: calc(100%*1/var(--ratio, 1.7778)); }
+    .aspect.align-bottom > * {
+      align-self: flex-end;
+      vertical-align: bottom; }
+    .aspect.align-middle > * {
+      align-self: center;
+      vertical-align: middle; }
 
-  .aspect > img {
-    max-width: 100%;
-    height: auto;
-    margin: 0 auto; }
-
-  .aspect:before {
-    content: '';
-    padding-bottom: calc(100%*1/var(--ratio, 1.7778)); }
-
-  @-moz-document url-prefix() {
-    .aspect {
-      display: inline-block;
-      font-size: 0;
-      letter-spacing: 0;
-      text-align: left; }
-
-    .aspect:before, .aspect > * {
-      display: inline-block;
-      font-size: initial;
-      vertical-align: middle; } }
-  .align-bottom.aspect > * {
-    align-self: flex-end;
-    vertical-align: bottom; }
-
-  .align-middle.aspect > * {
-    align-self: center;
-    vertical-align: middle; } }
+  /*
+  		@-moz-document url-prefix() { // No-flex version for FF. FF devs insist flexbox item's vertical paddign to be 0 without explicit parent height, instead of % of width like Chrome, Safari etc. Disabled because of many problems.
+  	
+  			.aspect { display: inline-block; font-size: 0; letter-spacing: 0; text-align: left; }
+  			.aspect:before, .aspect > * { display: inline-block; font-size: initial; vertical-align: middle; }
+  			.row > *.aspect > img { display: inline-block; }
+  	
+  		}
+  */ }
 .align-left, .align-left > *, .row > .align-left {
   text-align: left;
   text-align: start; }
@@ -1540,9 +1535,13 @@ $bg: #1E8DaC;
 
 @keyframes sk-scaleout {
   0% {
-    transform: scale(0); }
-  100% {
+    transform: scale(0);
+    opacity: 0; }
+  50% {
     transform: scale(1);
+    opacity: 1; }
+  100% {
+    transform: scale(0);
     opacity: 0; } }
 .n-lightbox:not(.n-slider) a {
   display: inline-block;
