@@ -199,7 +199,7 @@ header h1, header p {
 
 #content .sidebar form {
   padding-top: 0;
-  margin-top: -11px;
+  margin-top: 11px;
   margin-bottom: 11px; }
 
 #content img {
@@ -282,8 +282,7 @@ article ul {
   width: 100%;
   margin-bottom: 0; }
 
-.comments form textarea, .comments form input {
-  margin: 0;
+.comments form input {
   border: 0; }
 
 .img-crop {

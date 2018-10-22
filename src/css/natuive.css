@@ -1136,17 +1136,7 @@ $bg: #1E8DaC;
       vertical-align: bottom; }
     .aspect.align-middle > * {
       align-self: center;
-      vertical-align: middle; }
-
-  /*
-  		@-moz-document url-prefix() { // No-flex version for FF. FF devs insist flexbox item's vertical paddign to be 0 without explicit parent height, instead of % of width like Chrome, Safari etc. Disabled because of many problems.
-  	
-  			.aspect { display: inline-block; font-size: 0; letter-spacing: 0; text-align: left; }
-  			.aspect:before, .aspect > * { display: inline-block; font-size: initial; vertical-align: middle; }
-  			.row > *.aspect > img { display: inline-block; }
-  	
-  		}
-  */ }
+      vertical-align: middle; } }
 .align-left, .align-left > *, .row > .align-left {
   text-align: left;
   text-align: start; }

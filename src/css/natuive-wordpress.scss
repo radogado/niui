@@ -90,7 +90,7 @@
 #content .sidebar form {
 	
 	padding-top: 0;
-	margin-top: -11px;
+	margin-top: 11px;
 	margin-bottom: 11px;
 
 
@@ -249,9 +249,8 @@ article ul {
 }
 
 
-.comments form textarea, .comments form input {
+.comments form input {
 	
-	margin: 0;
     border: 0;
 
 }
