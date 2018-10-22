@@ -55,7 +55,7 @@ natUIve demo pages: [Features demo](http://radogado.github.io/natuive/kitchen.ht
 - CSS-only parallax scrolling* 
 - Fixed background option
 - WordPress theme*
-- Notificaton bar
+- Notification bar
 - Click to copy to clipboard
 - Multiple modals, nested carousels, nested accordions etc
 - Functional without JS and accessible without CSS*
@@ -142,7 +142,7 @@ natUIve 1.8
 - Scroll effects
 - Lightbox with thumbnails
 - iframe in lightbox
-- Slider with outside contols
+- Slider with outside controls
 - Accordion with truncated content
 
 –––
