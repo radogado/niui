@@ -48,7 +48,7 @@
 
 	}
 
-	.button.big, a[href].button.big, .n-form input[type=submit], .n-form button, button.big {
+	.button.button-big, a[href].button.button-big, .n-form input[type=submit], .n-form button, button.button-big {
 
 		margin: $line-height-em/3 0; // Re-calculate margin, because font-size has changed. To do: fix baseline.
 // 		margin: var(--line-height-em) 0;
@@ -87,11 +87,11 @@ a.backtotop[href] {
 
 // A group of buttons etc with proper horizontal margins also when wrapped
 
-.group {
+.button-group {
 	
 	margin: 0 -.25em;
 
-	> *, .button.big, > a[href].button.big {
+	> *, .button.button-big, > a[href].button.button-big {
 		
 		margin-right: .25em;
 		margin-left: .25em;
@@ -102,7 +102,7 @@ a.backtotop[href] {
 
 @media screen and (max-width: $screen-narrow-max) {
 
-	.button.big {
+	.button.button-big {
 		
 		display: block;
 		text-align: center;

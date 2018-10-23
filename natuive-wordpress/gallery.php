@@ -199,7 +199,7 @@ final class Cleaner_Gallery {
 
 		/* Gallery attributes. */
 		$gallery_attr  = sprintf( "id='%s'", 'gallery' . esc_attr( $this->args['id'] ) . '-' . esc_attr( $this->gallery_instance ) );
-		$gallery_attr .= sprintf( " class='n-lightbox thumbnails full-screen gallery gallery-%s gallery-columns-%s gallery-size-%s'", esc_attr( $this->args['id'] ), esc_attr( $this->args['columns'] ), sanitize_html_class( $this->args['size'] ) );
+		$gallery_attr .= sprintf( " class='n-lightbox n-lightbox--thumbnails full-screen gallery gallery-%s gallery-columns-%s gallery-size-%s'", esc_attr( $this->args['id'] ), esc_attr( $this->args['columns'] ), sanitize_html_class( $this->args['size'] ) );
 		$gallery_attr .= sprintf( " itemscope itemtype='%s'", esc_attr( $this->get_gallery_itemtype() ) );
 
 $script = "

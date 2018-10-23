@@ -91,8 +91,8 @@
 	
 	padding-top: 0;
 	margin-top: 11px;
-	margin-bottom: 11px;
-
+	margin-bottom: 0;
+	padding-bottom: 0;
 
 }
 
@@ -381,7 +381,7 @@ nav.n-drop ul li a[href] {
 	.home section article {
 	
 		width: calc(50% - 2em);
-		margin: 2em 1em;	
+		margin: .75em 1em 2em 1em;
 		
 	}
 	

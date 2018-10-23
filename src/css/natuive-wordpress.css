@@ -200,7 +200,8 @@ header h1, header p {
 #content .sidebar form {
   padding-top: 0;
   margin-top: 11px;
-  margin-bottom: 11px; }
+  margin-bottom: 0;
+  padding-bottom: 0; }
 
 #content img {
   display: block;
@@ -359,7 +360,7 @@ nav.n-drop ul li a[href] {
 
   .home section article {
     width: calc(50% - 2em);
-    margin: 2em 1em; }
+    margin: .75em 1em 2em 1em; }
 
   .home section article:nth-child(1), .home section article:nth-child(2), .home section .pagination {
     width: 100%; }

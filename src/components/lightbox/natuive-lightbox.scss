@@ -2,13 +2,13 @@
 
 @import '../../css/natuive-setup';
 
-.n-slider-wrap:not([data-active]) > .n-slider.vertical.n-lightbox > * {
+.n-slider-wrap:not([data-active]) > .n-slider.n-slider--vertical.n-lightbox > * {
 
 	height: 100%;
 
 }
 
-*:not(.aspect) > .n-slider-wrap > .n-slider.vertical.n-lightbox.inline[data-sliding]:not(.overlay) > * {
+*:not(.aspect) > .n-slider-wrap > .n-slider.n-slider--vertical.n-lightbox.n-lightbox--inline[data-sliding]:not(.overlay) > * {
 
 	height: auto;
 
@@ -50,7 +50,7 @@
 
 	}
 
-	&.inline[data-ready] > * {
+	&.n-lightbox--inline[data-ready] > * {
 	
 		display: flex;
 		flex-direction: column;
@@ -69,7 +69,7 @@
 		
 		}
 		
-		&.vertical > * { // Firefox fix
+		&.n-slider--vertical > * { // Firefox fix
 		
 			display: none;
 		
@@ -154,7 +154,7 @@
 
 }
 
-.overlay.n-lightbox.n-slider img, .n-lightbox.inline img {
+.overlay.n-lightbox.n-slider img, .n-lightbox.n-lightbox--inline img {
 
 	cursor: zoom-in;
 
@@ -236,7 +236,7 @@
 	
 	}
 
-.thumbnails {
+.n-lightbox--thumbnails {
 	
 	&.slider-nav a {
 	
@@ -258,7 +258,7 @@
 	
 }
 
-.outside:not(.vertical) {
+.outside:not(.n-slider--vertical) {
 	
 	.slider-nav {
 	
@@ -270,11 +270,11 @@
 	
 	}
 	
-	&.n-slider-wrap:not(.inline) {
+	&.n-slider-wrap:not(.n-lightbox--inline) {
 		
 		padding-bottom: 4em;
 		
-		&.thumbnails {
+		&.n-lightbox--thumbnails {
 			
 			padding-bottom: 5.5em;
 			
@@ -286,7 +286,7 @@
 	
 @media (max-height: $screen-narrow-max) {
 
-	.thumbnails.n-slider-wrap {
+	.n-lightbox--thumbnails.n-slider-wrap {
 		
 		.slider-nav {
 			
@@ -309,7 +309,7 @@
 			
 		}
 
-		.n-slider.n-lightbox.vertical > * p {
+		.n-slider.n-lightbox.n-slider--vertical > * p {
 			
 			bottom: 3em;
 			top: auto;

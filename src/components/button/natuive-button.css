@@ -50,7 +50,7 @@ button[disabled] {
   margin: 0;
   font-size: inherit; }
 
-.button.big, a[href].button.big, .n-form input[type=submit], .n-form button, button.big {
+.button.button-big, a[href].button.button-big, .n-form input[type=submit], .n-form button, button.button-big {
   margin: 0.5em 0;
   font-size: 1.2em;
   padding: .75em 1em;
@@ -80,14 +80,14 @@ a.backtotop[href] {
   width: 2em;
   text-align: center; }
 
-.group {
+.button-group {
   margin: 0 -.25em; }
-  .group > *, .group .button.big, .group > a[href].button.big {
+  .button-group > *, .button-group .button.button-big, .button-group > a[href].button.button-big {
     margin-right: .25em;
     margin-left: .25em; }
 
 @media screen and (max-width: 599.9px) {
-  .button.big {
+  .button.button-big {
     display: block;
     text-align: center; } }
 

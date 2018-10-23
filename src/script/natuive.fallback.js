@@ -1446,13 +1446,13 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	    var lightbox = el.closest('.n-lightbox');
 	    var animation = lightbox.getAttribute('data-anim');
 		var lightbox_target = document.createElement('div');
-		var inline_static = lightbox.matches('.inline:not(.n-slider)');
+		var inline_static = lightbox.matches('.n-lightbox--inline:not(.n-slider)');
 	
 	
 		addClass(lightbox_target, 'n-slider');
 		addClass(lightbox_target, 'n-lightbox');
-		addClass(lightbox_target, 'inline');
-		transferClass(lightbox, lightbox_target, 'thumbnails');
+		addClass(lightbox_target, 'n-lightbox--inline');
+		transferClass(lightbox, lightbox_target, 'n-lightbox--thumbnails');
 		transferClass(lightbox, lightbox_target, 'top');
 		transferClass(lightbox, lightbox_target, 'fade');
 	
@@ -1477,7 +1477,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 		}
 	
-		transferClass(lightbox, lightbox_target, 'vertical');
+		transferClass(lightbox, lightbox_target, 'n-slider--vertical');
 		transferClass(lightbox, lightbox_target, 'right');
 	
 		if (lightbox.getAttribute('data-peek')) {
@@ -1537,7 +1537,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 				
 			}
 	
-		    var link_element = (hasClass(lightbox, 'inline') || !lightbox.getAttribute('id')) ? '' : `<a class="button copy" href=${slide_link}></a>`;
+		    var link_element = (hasClass(lightbox, 'n-lightbox--inline') || !lightbox.getAttribute('id')) ? '' : `<a class="button copy" href=${slide_link}></a>`;
 	
 		    var url = hasClass(lightbox, 'n-slider') ? (el.querySelector('img') ? el.querySelector('img').getAttribute('data-src') : '') : el.href;
 		    
@@ -1591,7 +1591,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		// To do: after closing an URI-invoked lightbox and opening a lightbox again, the index is incorrect
 		var this_index = 0;
 	
-		if (hasClass(lightbox, 'inline')) { // Secondary lightbox
+		if (hasClass(lightbox, 'n-lightbox--inline')) { // Secondary lightbox
 	
 	    	this_index = Array.prototype.indexOf.call(lightbox.children, anchor.parentNode); // Ignore non-anchor children of the lightbox container
 			
@@ -1655,16 +1655,16 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 	    transferClass(anchor.parentNode, lightbox_target.parentNode, 'outside');
 	    
-	    if (hasClass(lightbox, 'thumbnails')) {
+	    if (hasClass(lightbox, 'n-lightbox--thumbnails')) {
 	    
-		    transferClass(lightbox, lightbox_target.parentNode, 'thumbnails');
+		    transferClass(lightbox, lightbox_target.parentNode, 'n-lightbox--thumbnails');
 	        var i = 0;
 	// 	        var nav = closestElement(lightbox_target, '.n-slider-wrap').querySelector('.slider-nav');
 	        var nav = componentSlider.getSliderNav(lightbox_target.closest('.n-slider-wrap'));
 	
 	        if (nav) { // Multiple slides?
 	
-				transferClass(lightbox, nav, 'thumbnails');
+				transferClass(lightbox, nav, 'n-lightbox--thumbnails');
 		        thumbnails.forEach((el) => {
 					
 					if (nav.children[i]) {
@@ -1680,7 +1680,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 			
 	    }
 	
-		if (!hasClass(lightbox, 'inline')) { // Don't block global keyboard if the lightbox is inline
+		if (!hasClass(lightbox, 'n-lightbox--inline')) { // Don't block global keyboard if the lightbox is inline
 		
 		    window.addEventListener('keydown', arrow_keys_handler, false);
 	    
@@ -1696,7 +1696,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 	setTimeout(() => {
 		
-		if (q('.n-lightbox:target:not(.inline)')) {
+		if (q('.n-lightbox:target:not(.n-lightbox--inline)')) {
 			
 			addClass(q('.n-lightbox:target'), 'uri-target');
 			openLightbox(q('.n-lightbox:target > a[href]'));
@@ -1722,7 +1722,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		
 			}
 	
-			if (hasClass(el, 'inline')) {
+			if (hasClass(el, 'n-lightbox--inline')) {
 				
 				openLightbox(el.querySelector('a'));
 				
@@ -2529,7 +2529,7 @@ var componentSlider = (function (){
 		    
 	        var touches = e.touches;
 	
-	        if (touches && touches.length && !(hasClass(el, 'vertical') && !el.closest('.n-ovrl'))) { // Don't slide vertically if not full window
+	        if (touches && touches.length && !(hasClass(el, 'n-slider--vertical') && !el.closest('.n-ovrl'))) { // Don't slide vertically if not full window
 	
 	            var deltaX = startX - touches[0].pageX;
 	            var deltaY = startY - touches[0].pageY;
@@ -2537,7 +2537,7 @@ var componentSlider = (function (){
 				var overlay_content = el.closest('.n-ovrl') ? el.closest('.n-ovrl').querySelector('.n-ovrl--content') : null;
 
 				// Allow vertical page scroll by swiping over the slider. Also when parent modal is scrollable vertically
-	            if (((hasClass(el, 'vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !q('.n-ovrl .n-slider-wrap'))
+	            if (((hasClass(el, 'n-slider--vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !q('.n-ovrl .n-slider-wrap'))
 	            	|| (overlay_content && (overlay_content.scrollHeight > overlay_content.offsetHeight) && (Math.abs(deltaX) < Math.abs(deltaY)))
 	            	|| (e.target.nodeName === 'INPUT' && e.target.type === 'range')
 	            	|| hasClass(e.target.parentNode, 'slider-nav') || hasClass(e.target, 'slider-nav')
@@ -2594,7 +2594,7 @@ var componentSlider = (function (){
 	    var deltaX = (e.deltaX * -10) || e.wheelDeltaX || -e.detail; // Firefox provides 'detail' with opposite value
 	    var deltaY = (e.deltaY * -10) || e.wheelDeltaY || -e.detail;
 	/* To do: stop generating events while sliding */	
-	    if (/* !hasClass(q('html'), 'sliding_now') && */ Math.abs(hasClass(sliderElement(e), 'vertical') ? deltaY : deltaX) > 50) {
+	    if (/* !hasClass(q('html'), 'sliding_now') && */ Math.abs(hasClass(sliderElement(e), 'n-slider--vertical') ? deltaY : deltaX) > 50) {
 	
 	        e.preventDefault();
 	        initScroll(e, (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY);
@@ -2605,7 +2605,7 @@ var componentSlider = (function (){
 	
 	function mouseEvents(el, toggle) {
 	
-	    if (!('onwheel' in window) || (hasClass(el, 'vertical') && !el.closest('.n-ovrl'))) { // Check for mouse wheel and don't slide vertically if not full window
+	    if (!('onwheel' in window) || (hasClass(el, 'n-slider--vertical') && !el.closest('.n-ovrl'))) { // Check for mouse wheel and don't slide vertically if not full window
 		    
 		    return;
 		   
@@ -2654,7 +2654,7 @@ var componentSlider = (function (){
 	
 		slider.children[index].dataset.active = true; // Can't use 'sliding', because Closure Compiler obfuscates it
 	
-	    if (!hasClass(slider, 'vertical')) {
+	    if (!hasClass(slider, 'n-slider--vertical')) {
 		    
 		    slider.style.marginLeft = `${-100*index}%`;
 		   
@@ -2798,9 +2798,9 @@ var componentSlider = (function (){
 		target_slide.dataset.active = true;
 
 		var next_slide_image = target_slide.querySelector('img');
-		if (hasClass(slider, 'vertical')) {
+		if (hasClass(slider, 'n-slider--vertical')) {
 			
-			if (hasClass(slider, 'inline') && !hasClass(slider, 'overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'aspect')) { // Inline lightbox only. To do: integrate aspect with n-slider-wrap
+			if (hasClass(slider, 'n-lightbox--inline') && !hasClass(slider, 'overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'aspect')) { // Inline lightbox only. To do: integrate aspect with n-slider-wrap
 			
 				var height_change_number = slider.clientWidth * next_slide_image.naturalHeight / next_slide_image.naturalWidth;
 				if (slider.clientWidth >= next_slide_image.naturalWidth) {
@@ -2820,7 +2820,7 @@ var componentSlider = (function (){
 
 		}
 	
-		if (hasClass(slider, 'vertical')) {
+		if (hasClass(slider, 'n-slider--vertical')) {
 			target_slide.style.display = 'block'; // Temporarily display the target slide to get its height
 			computed_height = getComputedStyle(target_slide).height;
 			target_slide.setAttribute('style', target_slide.getAttribute('style').replace('display: block;', '')); // Keep any other inline styles
@@ -2851,7 +2851,7 @@ var componentSlider = (function (){
 	
 		var translate_from, translate_to;
 		
-	    if (hasClass(slider, 'vertical')) {
+	    if (hasClass(slider, 'n-slider--vertical')) {
 			
 			computed_height = parseInt(computed_height, 10);
 			computed_height_old = parseInt(computed_height_old, 10);
@@ -2948,7 +2948,7 @@ var componentSlider = (function (){
 			return false; 
 		
 		}
-		return !hasClass(el, 'vertical') || window.innerHeight < bodyElement.scrollHeight;
+		return !hasClass(el, 'n-slider--vertical') || window.innerHeight < bodyElement.scrollHeight;
 		
 	}
 	
@@ -3080,7 +3080,7 @@ var componentSlider = (function (){
 	
 			}
 			
-		    transferClass(el, container, 'vertical');
+		    transferClass(el, container, 'n-slider--vertical');
 	        transferClass(el, container, 'wrap');
 	        transferClass(el, container, 'top');
 	        transferClass(el, container, 'right');
@@ -3090,7 +3090,7 @@ var componentSlider = (function (){
 				
 				addClass(container, 'peek');
 				
-				if (hasClass(el, 'vertical')) {
+				if (hasClass(el, 'n-slider--vertical')) {
 	
 		        	container.style.padding = peek + ' 0';
 				
@@ -3112,7 +3112,7 @@ var componentSlider = (function (){
 			
 			addClass(container, 'detached-nav');
 			addClass(el, 'detached-nav');
-			transferClass(container, slider_nav, 'vertical');
+			transferClass(container, slider_nav, 'n-slider--vertical');
 	
 		} else {
 
@@ -3133,7 +3133,7 @@ var componentSlider = (function (){
 	            addClass(slider_nav, 'row');
 	            addClass(slider_nav, 'tabs');
 	            transferClass(container, slider_nav, 'wrap');
-	            transferClass(el, container, 'vertical');
+	            transferClass(el, container, 'n-slider--vertical');
 	            var tab_title = el.children[i].getAttribute('data-tab_title') || (el.children[i].querySelector('.tab-title') ? el.children[i].querySelector('.tab-title').innerHTML : i+1);
 	            slider_nav.insertAdjacentHTML('beforeend', `<a tabindex="0">${tab_title}</a>`);
 

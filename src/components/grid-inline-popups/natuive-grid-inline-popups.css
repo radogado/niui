@@ -27,13 +27,10 @@ $bg: #1E8DaC;
   margin-bottom: 0;
   padding-top: 0;
   padding-bottom: 0; }
-
 .grid-inline-popup > div:not(.popup) {
   cursor: zoom-in; }
-
-.grid-inline-popup > div:not(.popup)[aria-expanded] {
-  cursor: zoom-out; }
-
+  .grid-inline-popup > div:not(.popup)[aria-expanded] {
+    cursor: zoom-out; }
 .grid-inline-popup > .popup:not([aria-expanded]) {
   display: none; }
 

@@ -4,34 +4,38 @@
 
 // Grid with inline popup
 
-.grid-inline-popup > .popup {
+.grid-inline-popup {
 	
-	width: 100%;
-    flex-basis: 100%;
-	order: 0;
-	will-change: max-height;
-	/* avoid glitchy animation: */
-	margin-top: 0;
-	margin-bottom: 0;
-	padding-top: 0;
-	padding-bottom: 0;
+	> .popup {
 	
-}
+		width: 100%;
+	    flex-basis: 100%;
+		order: 0;
+		will-change: max-height;
+		/* avoid glitchy animation: */
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+		
+	}
 
-.grid-inline-popup > div:not(.popup) {
+	> div:not(.popup) {
+		
+		cursor: zoom-in;
 	
-	cursor: zoom-in;
-
-}
-
-.grid-inline-popup > div:not(.popup)[aria-expanded] {
+		&[aria-expanded] {
+			
+			cursor: zoom-out;
+		
+		}
 	
-	cursor: zoom-out;
-
-}
-
-.grid-inline-popup > .popup:not([aria-expanded]) {
+	}
 	
-	display: none;
-	
+	> .popup:not([aria-expanded]) {
+		
+		display: none;
+		
+	}
+
 }

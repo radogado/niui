@@ -102,13 +102,13 @@ var componentLightbox = (function (){
 	    var lightbox = el.closest('.n-lightbox');
 	    var animation = lightbox.getAttribute('data-anim');
 		var lightbox_target = document.createElement('div');
-		var inline_static = lightbox.matches('.inline:not(.n-slider)');
+		var inline_static = lightbox.matches('.n-lightbox--inline:not(.n-slider)');
 	
 	
 		addClass(lightbox_target, 'n-slider');
 		addClass(lightbox_target, 'n-lightbox');
-		addClass(lightbox_target, 'inline');
-		transferClass(lightbox, lightbox_target, 'thumbnails');
+		addClass(lightbox_target, 'n-lightbox--inline');
+		transferClass(lightbox, lightbox_target, 'n-lightbox--thumbnails');
 		transferClass(lightbox, lightbox_target, 'top');
 		transferClass(lightbox, lightbox_target, 'fade');
 	
@@ -133,7 +133,7 @@ var componentLightbox = (function (){
 	
 		}
 	
-		transferClass(lightbox, lightbox_target, 'vertical');
+		transferClass(lightbox, lightbox_target, 'n-slider--vertical');
 		transferClass(lightbox, lightbox_target, 'right');
 	
 		if (lightbox.getAttribute('data-peek')) {
@@ -193,7 +193,7 @@ var componentLightbox = (function (){
 				
 			}
 	
-		    var link_element = (hasClass(lightbox, 'inline') || !lightbox.getAttribute('id')) ? '' : `<a class="button copy" href=${slide_link}></a>`;
+		    var link_element = (hasClass(lightbox, 'n-lightbox--inline') || !lightbox.getAttribute('id')) ? '' : `<a class="button copy" href=${slide_link}></a>`;
 	
 		    var url = hasClass(lightbox, 'n-slider') ? (el.querySelector('img') ? el.querySelector('img').getAttribute('data-src') : '') : el.href;
 		    
@@ -247,7 +247,7 @@ var componentLightbox = (function (){
 		// To do: after closing an URI-invoked lightbox and opening a lightbox again, the index is incorrect
 		var this_index = 0;
 	
-		if (hasClass(lightbox, 'inline')) { // Secondary lightbox
+		if (hasClass(lightbox, 'n-lightbox--inline')) { // Secondary lightbox
 	
 	    	this_index = Array.prototype.indexOf.call(lightbox.children, anchor.parentNode); // Ignore non-anchor children of the lightbox container
 			
@@ -311,16 +311,16 @@ var componentLightbox = (function (){
 	
 	    transferClass(anchor.parentNode, lightbox_target.parentNode, 'outside');
 	    
-	    if (hasClass(lightbox, 'thumbnails')) {
+	    if (hasClass(lightbox, 'n-lightbox--thumbnails')) {
 	    
-		    transferClass(lightbox, lightbox_target.parentNode, 'thumbnails');
+		    transferClass(lightbox, lightbox_target.parentNode, 'n-lightbox--thumbnails');
 	        var i = 0;
 	// 	        var nav = closestElement(lightbox_target, '.n-slider-wrap').querySelector('.slider-nav');
 	        var nav = componentSlider.getSliderNav(lightbox_target.closest('.n-slider-wrap'));
 	
 	        if (nav) { // Multiple slides?
 	
-				transferClass(lightbox, nav, 'thumbnails');
+				transferClass(lightbox, nav, 'n-lightbox--thumbnails');
 		        thumbnails.forEach((el) => {
 					
 					if (nav.children[i]) {
@@ -336,7 +336,7 @@ var componentLightbox = (function (){
 			
 	    }
 	
-		if (!hasClass(lightbox, 'inline')) { // Don't block global keyboard if the lightbox is inline
+		if (!hasClass(lightbox, 'n-lightbox--inline')) { // Don't block global keyboard if the lightbox is inline
 		
 		    window.addEventListener('keydown', arrow_keys_handler, false);
 	    
@@ -352,7 +352,7 @@ var componentLightbox = (function (){
 	
 	setTimeout(() => {
 		
-		if (q('.n-lightbox:target:not(.inline)')) {
+		if (q('.n-lightbox:target:not(.n-lightbox--inline)')) {
 			
 			addClass(q('.n-lightbox:target'), 'uri-target');
 			openLightbox(q('.n-lightbox:target > a[href]'));
@@ -378,7 +378,7 @@ var componentLightbox = (function (){
 		
 			}
 	
-			if (hasClass(el, 'inline')) {
+			if (hasClass(el, 'n-lightbox--inline')) {
 				
 				openLightbox(el.querySelector('a'));
 				
