@@ -1029,7 +1029,7 @@ var nui = function () {
         img.src = img.getAttribute('data-src');
 
         img.onload = function (e) {
-          addClass(e.target.parentNode, 'loaded');
+          addClass(e.target.parentNode, 'n-lightbox--loaded');
         };
 
         img.onclick = function (e) {
@@ -1246,8 +1246,8 @@ var nui = function () {
         }
       } else {
         // OpenFullWindow() and attach the slider to it
-        addClass(slider, 'overlay');
-        addClass(slider.querySelector('.n-slider'), 'overlay');
+        addClass(slider, 'n-slider--overlay');
+        addClass(slider.querySelector('.n-slider'), 'n-slider--overlay');
         componentModal.openFullWindow(slider); // To do: fix layout, add .overlay
       }
 
@@ -2157,7 +2157,7 @@ var nui = function () {
       var next_slide_image = target_slide.querySelector('img');
 
       if (hasClass(slider, 'n-slider--vertical')) {
-        if (hasClass(slider, 'n-lightbox--inline') && !hasClass(slider, 'overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'aspect')) {
+        if (hasClass(slider, 'n-lightbox--inline') && !hasClass(slider, 'n-slider--overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'aspect')) {
           // Inline lightbox only. To do: integrate aspect with n-slider-wrap
           var height_change_number = slider.clientWidth * next_slide_image.naturalHeight / next_slide_image.naturalWidth;
 
@@ -2202,7 +2202,7 @@ var nui = function () {
       if (hasClass(slider, 'n-slider--vertical')) {
         computed_height = parseInt(computed_height, 10);
         computed_height_old = parseInt(computed_height_old, 10);
-        var next_height = !hasClass(slider, 'overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'aspect') ? "-".concat(height_change_number, "px") : '-100%';
+        var next_height = !hasClass(slider, 'n-slider--overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'aspect') ? "-".concat(height_change_number, "px") : '-100%';
         translate_from = "translate3d(0,".concat(index < old_index ? '-' + computed_height + 'px' : 0, ",0)");
         var difference = Math.abs(computed_height - computed_height_old);
 
@@ -2345,7 +2345,7 @@ var nui = function () {
       makeReady(el);
 
       if (hasClass(el, 'full-window')) {
-        addClass(el, 'overlay');
+        addClass(el, 'n-slider--overlay');
         componentModal.openFullWindow(el.outerHTML);
       }
 
@@ -2372,7 +2372,7 @@ var nui = function () {
         transferClass(el, container, 'wrap');
         transferClass(el, container, 'top');
         transferClass(el, container, 'right');
-        transferClass(el, container, 'overlay');
+        transferClass(el, container, 'n-slider--overlay');
         var peek = el.getAttribute('data-peek');
 
         if (peek) {

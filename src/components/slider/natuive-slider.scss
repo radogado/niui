@@ -137,7 +137,7 @@
 
 }
 
-.n-slider-wrap.overlay {
+.n-slider-wrap.n-slider--overlay {
 	
 	top: 0px;
 	bottom: 0px;
@@ -178,13 +178,13 @@
 
 // JS enhanced. To do: add [data-ready]
 
-.n-slider.overlay, .n-slider-wrap.overlay {
+.n-slider.n-slider--overlay, .n-slider-wrap.n-slider--overlay {
 	
 	height: 100%;
 	
 }
 
-.n-slider-wrap.overlay, .n-slider-wrap.n-slider--vertical.overlay {
+.n-slider-wrap.n-slider--overlay, .n-slider-wrap.n-slider--vertical.n-slider--overlay {
 			
 	margin-top: $line-height-em*2;
 // 		margin-top: calc(var(--line-height-em)*2);
@@ -193,7 +193,7 @@
 
 }		
 
-.n-slider-wrap.n-slider--vertical.overlay/* , .n-slider.overlay, .overlay.n-slider > * */ {
+.n-slider-wrap.n-slider--vertical.n-slider--overlay/* , .n-slider.overlay, .overlay.n-slider > * */ {
 	
 	height: calc(100% - #{$line-height-em*2});
 
@@ -201,7 +201,7 @@
 
 @media screen and (max-width: $screen-narrow-max) {
 
-	.n-slider-wrap.overlay, .n-slider-wrap.n-slider--vertical.overlay {
+	.n-slider-wrap.n-slider--overlay, .n-slider-wrap.n-slider--vertical.n-slider--overlay {
 				
 		margin-top: $line-height-em;
 	// 		margin-top: calc(var(--line-height-em)*2);
@@ -317,7 +317,7 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 
 }
 
-.overlay.n-slider:not(.n-slider--vertical) > * {
+.n-slider--overlay.n-slider:not(.n-slider--vertical) > * {
 	
 	overflow: auto;
 	-webkit-overflow-scrolling: touch;
@@ -382,25 +382,25 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 
 }
 
-.overlay.n-slider > * {
+.n-slider--overlay.n-slider > * {
 	
 	padding: 0;
 
 }
 
-.overlay.n-slider.n-slider--vertical > * {
+.n-slider--overlay.n-slider.n-slider--vertical > * {
 	
 	height: 100%;
 
 }
 
-.n-slider[data-ready] > [data-active], .overlay.n-lightbox.n-slider > * > img {
+.n-slider[data-ready] > [data-active], .n-slider--overlay.n-lightbox.n-slider > * > img {
 
 	display: inline-block;
 
 }
 
-.overlay.n-slider > img {
+.n-slider--overlay.n-slider > img {
 	
 	padding: 0;
 	height: auto;

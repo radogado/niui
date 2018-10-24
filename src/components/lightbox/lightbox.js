@@ -11,7 +11,7 @@ var componentLightbox = (function (){
 			img.src = img.getAttribute('data-src');
 			img.onload = (e) => {
 				
-				addClass(e.target.parentNode, 'loaded');
+				addClass(e.target.parentNode, 'n-lightbox--loaded');
 	
 			};
 			img.onclick = (e) => { // Zoom and scan
@@ -303,8 +303,8 @@ var componentLightbox = (function (){
 	
 		} else { // OpenFullWindow() and attach the slider to it
 			
-			addClass(slider, 'overlay');
-			addClass(slider.querySelector('.n-slider'), 'overlay');
+			addClass(slider, 'n-slider--overlay');
+			addClass(slider.querySelector('.n-slider'), 'n-slider--overlay');
 			componentModal.openFullWindow(slider); // To do: fix layout, add .overlay
 	
 		}

@@ -8,7 +8,7 @@
 
 }
 
-*:not(.aspect) > .n-slider-wrap > .n-slider.n-slider--vertical.n-lightbox.n-lightbox--inline[data-sliding]:not(.overlay) > * {
+*:not(.aspect) > .n-slider-wrap > .n-slider.n-slider--vertical.n-lightbox.n-lightbox--inline[data-sliding]:not(.n-slider--overlay) > * {
 
 	height: auto;
 
@@ -60,7 +60,7 @@
 		
 	}
 
-	&.overlay {
+	&.n-slider--overlay {
 		
 		> * {
 	
@@ -137,7 +137,7 @@
 	
 	}
 	
-	> [data-active]:not(.loaded):after { // Loading spinner
+	> [data-active]:not(.n-lightbox--loaded):after { // Loading spinner
 	
 		content: "";
 		position: absolute;
@@ -154,7 +154,7 @@
 
 }
 
-.overlay.n-lightbox.n-slider img, .n-lightbox.n-lightbox--inline img {
+.n-slider--overlay.n-lightbox.n-slider img, .n-lightbox.n-lightbox--inline img {
 
 	cursor: zoom-in;
 
