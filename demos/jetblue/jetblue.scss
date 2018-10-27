@@ -6,7 +6,7 @@ $light-blue: #33507d;
 $lighter-blue: #f1f5f8;
 $line-height: 19px;
 
-body, .button, .n-lightbox a, .row.wrap>*, .tip, body, button, .n-form .n-form--check span, .n-form label>span, h4, h5, html, input[type=submit], label, label span .tip, li, nav.sub a, p {
+body, .button, .n-lightbox a, .row.wrap>*, .tip, body, button, .n-form .n-form--check span, .n-form label>span, h4, h5, html, input[type=submit], label, label span .tip, li, nav.n-nav.sub a, p {
 	 
 	font-size: 12px;
 	font-family: 'Helvetica Neue', sans-serif;
@@ -169,13 +169,13 @@ header .row > * {
 
 }
 
-header nav {
+header nav.n-nav {
 	
 	display: inline-block;
 
 }
 
-nav a {
+nav.n-nav a {
 	
 	font-size: 1em;
 	line-height: $line-height;
@@ -183,13 +183,13 @@ nav a {
 
 }
 
-nav.n-drop li[aria-haspopup] {
+nav.n-nav.n-drop li[aria-haspopup] {
 	
 	background-position: calc(100% - .75em) 1.75em;
 	
 }
 
-header nav.n-drop ul li b.sub {
+header nav.n-nav.n-drop ul li b.sub {
 	
 	margin: 0;
 	mix-blend-mode: normal;
@@ -197,14 +197,14 @@ header nav.n-drop ul li b.sub {
 	
 }
 
-nav.n-drop ul ul {
+nav.n-nav.n-drop ul ul {
 
 	flex-direction: column;	
 	padding: 0;
 	
 }
 
-.no-touch nav.n-drop ul li:hover {
+.no-touch nav.n-nav.n-drop ul li:hover {
 	
 	background: $orange;
 
@@ -472,19 +472,19 @@ input[type=radio]:checked + .n-form--check-icon:before {
 	
 }
 
-nav.n-drop {
+nav.n-nav.n-drop {
 	
 	width: 100%;
 
 }
 
-nav.n-drop ul {
+nav.n-nav.n-drop ul {
 	
 	display: flex;
 
 }
 
-nav.n-drop ul li {
+nav.n-nav.n-drop ul li {
 	
 	border-radius: 3px;
 	flex-grow: 1;
@@ -492,32 +492,32 @@ nav.n-drop ul li {
 
 }
 
-nav.n-drop ul li:first-child {
+nav.n-nav.n-drop ul li:first-child {
 	
 	margin-left: 0;
 	
 }
 
-nav.n-drop ul li:last-child {
+nav.n-nav.n-drop ul li:last-child {
 	
 	margin-right: 0;
 	background: $dark-blue;
 	
 }
 
-nav.n-drop ul ul li {
+nav.n-nav.n-drop ul ul li {
 
 	margin-left: 0;
 
 }
 
-nav.n-drop ul li, nav.n-drop ul li b.sub, nav.n-drop ul li .trigger:checked ~ b.sub, nav.n-drop ul ul li, nav.n-drop ul li li a, .no-touch nav.n-drop ul li li:hover a {
+nav.n-nav.n-drop ul li, nav.n-nav.n-drop ul li b.sub, nav.n-nav.n-drop ul li .trigger:checked ~ b.sub, nav.n-nav.n-drop ul ul li, nav.n-nav.n-drop ul li li a, .no-touch nav.n-nav.n-drop ul li li:hover a {
 	
 	background: $orange;
 
 }
 
-nav.n-drop ul li a[href] {
+nav.n-nav.n-drop ul li a[href] {
 	
 	color: #fff;
 	display: block;
@@ -527,20 +527,20 @@ nav.n-drop ul li a[href] {
 
 }
 
-nav.n-drop input.trigger, nav.n-drop input:checked ~ input[type=reset] {
+nav.n-nav.n-drop input.trigger, nav.n-nav.n-drop input:checked ~ input[type=reset] {
 	
 	top: 50%;
 	height: 50%;
 
 }
 
-nav.n-drop ul ul li {
+nav.n-nav.n-drop ul ul li {
 	
 	margin: 0;
 
 }
 
-nav.n-drop ul li b.sub:after {
+nav.n-nav.n-drop ul li b.sub:after {
 	
 	background: url(arrow-down-white.png) no-repeat center center;
 	width: 10px;
@@ -580,7 +580,7 @@ a p {
 
 }
 
-footer nav a, footer nav a[href]+a[href] {
+footer nav.n-nav a, footer nav.n-nav a[href]+a[href] {
 	
 	padding: 0 .5em;
 	margin: 0;
@@ -655,32 +655,32 @@ input[type=text].search {
 
 	}
 	
-	nav.n-drop ul li {
+	nav.n-nav.n-drop ul li {
 		
 		margin: 0;
 		
 	}
 	
-	header nav ul.inline li {
+	header nav.n-nav ul.n-list--inline li {
 		
 		background: #fff;
 
 	}
 	
-	nav.n-drop input:checked ~ input[type=reset] {
+	nav.n-nav.n-drop input:checked ~ input[type=reset] {
 		
 		top: 0;
 		height: 100%;
 
 	}
 	
-	.no-touch nav.n-drop ul li li:hover {
+	.no-touch nav.n-nav.n-drop ul li li:hover {
 		
 		background: transparent;
 		
 	}
 	
-	nav.n-drop input.trigger.burger {
+	nav.n-nav.n-drop input.trigger.burger {
 		
 		top: 0;
 		height: 3em;
@@ -708,7 +708,7 @@ input[type=text].search {
 	
 	}
 
-	nav.n-drop ul {
+	nav.n-nav.n-drop ul {
 		
 		display: block;
 	

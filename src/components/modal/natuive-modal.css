@@ -20,9 +20,9 @@ $bg: #1E8DaC;
 .no-scroll, .no-scroll body {
   overflow: hidden; }
 
-html.full-screen {
+html.n-full-screen {
   background: #000; }
-  html.full-screen body {
+  html.n-full-screen body {
     opacity: 0; }
 
 .n-ovrl {
@@ -91,7 +91,7 @@ html.full-screen {
   background: #fff;
   position: relative; }
 
-.overlay-bg {
+.n-overlay-bg {
   position: absolute;
   top: 0;
   right: 0;
@@ -114,7 +114,7 @@ html.full-screen {
   .n-ovrl--content {
     padding-top: 1.5em; } }
 @media (max-height: 512px) and (orientation: landscape) {
-  .n-ovrl .n-slider-wrap.overlay, .n-ovrl .n-slider-wrap.vertical.overlay {
+  .n-ovrl .n-slider-wrap.n-slider--overlay, .n-ovrl .n-slider-wrap.vertical.n-slider--overlay {
     margin: 0;
     height: 100%; }
 
@@ -140,7 +140,7 @@ html.full-screen {
       width: 40px;
       text-align: center; }
 
-  .overlay.n-slider-wrap {
+  .n-slider--overlay.n-slider-wrap {
     margin: 0; } }
 
 /*# sourceMappingURL=natuive-modal.css.map */

@@ -22,7 +22,7 @@ body {
 
 }
 
-nav.n-drop ul {
+nav.n-nav.n-drop ul {
 
 	justify-content: flex-end;	
 
@@ -34,13 +34,13 @@ header > .row > :first-child {
 
 }
 
-nav.n-drop ul[role=menubar] li > a {
+nav.n-nav.n-drop ul[role=menubar] li > a {
 	
 	padding: .5em;
 
 }
 
-header nav.n-drop {
+header nav.n-nav.n-drop {
 	
 	--nav-bg: #333;
 	color: #fff;
@@ -49,13 +49,13 @@ header nav.n-drop {
 
 }
 
-header nav.n-drop li.search {
+header nav.n-nav.n-drop li.search {
 	
 	background: #fff;
 
 }
 
-nav {
+nav.n-nav {
 	
     a[href] {
 	    
@@ -66,7 +66,7 @@ nav {
 
 }
 
-header .contain nav {
+header .contain nav.n-nav {
 
 	background-color: #fff;
     border: 2px solid #f4eacc;

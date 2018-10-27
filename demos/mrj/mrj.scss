@@ -17,7 +17,7 @@ body {
 
 }
 
-nav a {
+nav.n-nav a {
 	
 	font-size: 1em;
 
@@ -72,7 +72,7 @@ header {
 	
 }
 
-header a.logo, header nav {
+header a.logo, header nav.n-nav {
 	
 	display: inline-block;
 	vertical-align: middle;
@@ -92,7 +92,7 @@ header.row {
 
 }
 
-header nav.secondary {
+header nav.n-nav.secondary {
 	
 	font-size: .8em;
 	margin: 0 1em;
@@ -154,7 +154,7 @@ footer {
 
 }
 
-footer nav a {
+footer nav.n-nav a {
 	
 	line-height: 2;
 	min-height: 0;

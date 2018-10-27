@@ -74,17 +74,17 @@ $bg: #1E8DaC;
   width: 100%;
   max-height: 100%;
   vertical-align: middle; }
-.n-slider.n-lightbox.top > * p {
+.n-slider.n-lightbox.n-slider--top > * p {
   /* Image captions */
   bottom: 0; }
-.n-slider.n-lightbox a.button.copy {
+.n-slider.n-lightbox a.button.n-lightbox--copy {
   position: absolute;
   top: 0.75em;
   right: 0.75em;
   margin: 0;
   color: transparent;
   text-shadow: 0 0 #fff; }
-  .n-slider.n-lightbox a.button.copy:before {
+  .n-slider.n-lightbox a.button.n-lightbox--copy:before {
     content: "🔗"; }
 .n-slider.n-lightbox > [data-active]:not(.n-lightbox--loaded):after {
   content: "";
@@ -101,7 +101,7 @@ $bg: #1E8DaC;
 .n-slider--overlay.n-lightbox.n-slider img, .n-lightbox.n-lightbox--inline img {
   cursor: zoom-in; }
 
-.n-slider.n-lightbox.detached-nav > * p, .n-slider-wrap.outside .n-slider.n-lightbox > * p {
+.n-slider.n-lightbox.detached-nav > * p, .n-slider-wrap.n-slider--outside .n-slider.n-lightbox > * p {
   bottom: 0;
   margin-bottom: .5em; }
 
@@ -152,15 +152,15 @@ $bg: #1E8DaC;
   opacity: .25;
   transition: opacity .2s ease-in-out; }
 
-.outside:not(.n-slider--vertical) .slider-nav {
+.n-slider--outside:not(.n-slider--vertical) .slider-nav {
   position: static;
   transform: none;
   width: calc(100% + 1em);
   max-width: none;
   margin: .5em 0 0 -.5em; }
-.outside:not(.n-slider--vertical).n-slider-wrap:not(.n-lightbox--inline) {
+.n-slider--outside:not(.n-slider--vertical).n-slider-wrap:not(.n-lightbox--inline) {
   padding-bottom: 4em; }
-  .outside:not(.n-slider--vertical).n-slider-wrap:not(.n-lightbox--inline).n-lightbox--thumbnails {
+  .n-slider--outside:not(.n-slider--vertical).n-slider-wrap:not(.n-lightbox--inline).n-lightbox--thumbnails {
     padding-bottom: 5.5em; }
 
 @media (max-height: 599.9px) {
@@ -170,7 +170,7 @@ $bg: #1E8DaC;
     min-height: 1.5em;
     color: transparent;
     text-shadow: none; }
-  .n-lightbox--thumbnails.n-slider-wrap:not(.top) .n-slider.n-lightbox > * p {
+  .n-lightbox--thumbnails.n-slider-wrap:not(.n-slider--top) .n-slider.n-lightbox > * p {
     bottom: auto;
     top: -1.5em; }
   .n-lightbox--thumbnails.n-slider-wrap .n-slider.n-lightbox.n-slider--vertical > * p {

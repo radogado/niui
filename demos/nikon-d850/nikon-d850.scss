@@ -96,7 +96,7 @@ header .n-form input[type=submit] {
 
 }
 
-header nav.n-drop {
+header nav.n-nav.n-drop {
 
 	background: #e6e6e6;
 	width: 100%;
@@ -109,7 +109,7 @@ header nav.n-drop {
 
 }
 
-header nav.n-drop > ul {
+header nav.n-nav.n-drop > ul {
 	
 	display: flex;
 	flex-wrap: wrap;
@@ -119,7 +119,7 @@ header nav.n-drop > ul {
 
 }
 
-nav.n-drop ul li {
+nav.n-nav.n-drop ul li {
 	
 	flex-grow: 1;
 	text-align: center;
@@ -128,53 +128,53 @@ nav.n-drop ul li {
 
 }
 
-nav.n-drop > ul > li {
+nav.n-nav.n-drop > ul > li {
 	
 	border-left: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 
 }
 
-nav.n-drop > ul > li:first-child {
+nav.n-nav.n-drop > ul > li:first-child {
 	
 	border-radius: 4px 0 0 4px;
 	border-left: none;
 
 }
 
-nav.n-drop ul li:last-child {
+nav.n-nav.n-drop ul li:last-child {
 	
 	border-radius: 0 4px 4px 0;
 
 }
 
-html:not(.can-touch) nav.n-drop ul li:hover {
+html:not(.can-touch) nav.n-nav.n-drop ul li:hover {
 	
 	background: $yellow;
 	color: #000;
 	
 }
 
-html:not(.can-touch) nav.n-drop ul li li:hover a {
+html:not(.can-touch) nav.n-nav.n-drop ul li li:hover a {
 	
 	background: inherit;
 	
 }
 
-nav .active a[href] {
+nav.n-nav .active a[href] {
 	
 	opacity: initial;
 
 }
 
-nav.n-drop ul li.active {
+nav.n-nav.n-drop ul li.active {
 	
 	background: #666;
 	color: #fff;
 
 }
 
-nav.n-drop ul li b.sub {
+nav.n-nav.n-drop ul li b.sub {
 	
 	display: none;
 
@@ -199,7 +199,7 @@ nav.n-drop ul li b.sub {
    
 }
 
-.banner .band ul.inline {
+.banner .band ul.n-list--inline {
 	
 	padding: 0 5px;
 
@@ -540,7 +540,7 @@ footer ul.row > li > span {
 		
 	}
 
-	nav.n-drop ul li input ~ a[href] {
+	nav.n-nav.n-drop ul li input ~ a[href] {
 		
 		width: auto;
 		
@@ -556,7 +556,7 @@ footer ul.row > li > span {
 		
 	}
 	
-	header nav.n-drop ul li a, nav.n-drop ul li input ~ a[href] {
+	header nav.n-nav.n-drop ul li a, nav.n-nav.n-drop ul li input ~ a[href] {
 		
 		width: 100%;
 		

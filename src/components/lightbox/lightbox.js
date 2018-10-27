@@ -109,7 +109,7 @@ var componentLightbox = (function (){
 		addClass(lightbox_target, 'n-lightbox');
 		addClass(lightbox_target, 'n-lightbox--inline');
 		transferClass(lightbox, lightbox_target, 'n-lightbox--thumbnails');
-		transferClass(lightbox, lightbox_target, 'top');
+		transferClass(lightbox, lightbox_target, 'n-slider--top');
 		transferClass(lightbox, lightbox_target, 'fade');
 	
 		if (inline_static) { // If it's inline, it must become a slider/lightbox to replace the original lightbox element
@@ -124,9 +124,9 @@ var componentLightbox = (function (){
 			
 	//		openFullWindow('<div class="slider lightbox full-window' + (hasClass(lightbox, 'full-screen') ? ' full-screen' : '') + '"></div>', animation); // openFullWindow to be moved at the end
 	// 		lightbox_target.classList = 'slider lightbox inline' + (hasClass(lightbox, 'full-screen') ? ' full-screen' : ''); // Not working in Edge
-			if (hasClass(lightbox, 'full-screen')) {
+			if (hasClass(lightbox, 'n-full-screen')) {
 		
-				addClass(lightbox_target, 'full-screen');
+				addClass(lightbox_target, 'n-full-screen');
 				
 				
 			}
@@ -193,7 +193,7 @@ var componentLightbox = (function (){
 				
 			}
 	
-		    var link_element = (hasClass(lightbox, 'n-lightbox--inline') || !lightbox.getAttribute('id')) ? '' : `<a class="button copy" href=${slide_link}></a>`;
+		    var link_element = (hasClass(lightbox, 'n-lightbox--inline') || !lightbox.getAttribute('id')) ? '' : `<a class="button n-lightbox--copy" href=${slide_link}></a>`;
 	
 		    var url = hasClass(lightbox, 'n-slider') ? (el.querySelector('img') ? el.querySelector('img').getAttribute('data-src') : '') : el.href;
 		    
@@ -309,7 +309,7 @@ var componentLightbox = (function (){
 	
 		}
 	
-	    transferClass(anchor.parentNode, lightbox_target.parentNode, 'outside');
+	    transferClass(anchor.parentNode, lightbox_target.parentNode, 'n-slider--outside');
 	    
 	    if (hasClass(lightbox, 'n-lightbox--thumbnails')) {
 	    

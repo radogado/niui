@@ -60,7 +60,7 @@ ul {
 
 }
 
-nav li {
+nav.n-nav li {
 	
 	display: block;
 
@@ -92,7 +92,7 @@ ol p {
 
 }
 
-strong, h2, nav li a[href] {
+strong, h2, nav.n-nav li a[href] {
 	
 	text-transform: uppercase;
 	letter-spacing: .15em;
@@ -143,7 +143,7 @@ hr.ookiaks:after {
 
 }
 
-nav li a {
+nav.n-nav li a {
 	
 	padding-right: 0;
 
@@ -151,13 +151,13 @@ nav li a {
 
 @media screen and (max-width: 640px) {
 	
-	main nav {
+	main nav.n-nav {
 		
 		position: relative;
 		
 	}
 
-	main nav:before {
+	main nav.n-nav:before {
 		
 		content: '🍔';
 		

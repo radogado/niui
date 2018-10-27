@@ -5,7 +5,7 @@ body {
 
 }
 
-html, body, .row.wrap>*, nav.sub a, p, li, .n-lightbox a, .button, input[type=submit], button, label, form .checkbox span, .tip, label span .tip, h4, h5, form label>span {
+html, body, .row.wrap>*, nav.n-nav.sub a, p, li, .n-lightbox a, .button, input[type=submit], button, label, form .checkbox span, .tip, label span .tip, h4, h5, form label>span {
 	
 	font-size: 14px;
 
@@ -197,20 +197,20 @@ footer .about p:first-child {
 
 }
 
-nav.n-drop {
+nav.n-nav.n-drop {
 	
 	margin-left: 7em;
 	width: calc(100% - 8em);
 	
 }
 
-nav.n-drop ul li a {
+nav.n-nav.n-drop ul li a {
 	
 	padding: 1em .7em;
 	
 }
 
-nav.n-drop ul li, nav.n-drop ul li a[href], nav.n-drop ul li b.sub, nav.n-drop ul li .trigger:checked ~ a, nav.n-drop ul li .trigger:checked ~ b.sub, nav.n-drop ul ul li, nav.n-drop ul li li a, .no-touch nav.n-drop ul li li:hover a {
+nav.n-nav.n-drop ul li, nav.n-nav.n-drop ul li a[href], nav.n-nav.n-drop ul li b.sub, nav.n-nav.n-drop ul li .trigger:checked ~ a, nav.n-nav.n-drop ul li .trigger:checked ~ b.sub, nav.n-nav.n-drop ul ul li, nav.n-nav.n-drop ul li li a, .no-touch nav.n-nav.n-drop ul li li:hover a {
 	
 	background: #fff;
 

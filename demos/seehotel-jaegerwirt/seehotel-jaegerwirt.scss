@@ -85,7 +85,7 @@ header img[src*=logo] {
 
 }
 
-header nav {
+header nav.n-nav {
 	
 	font-size: .9em;
 }
@@ -216,7 +216,7 @@ footer {
 	    
 }
 
-footer nav {
+footer nav.n-nav {
 	
 	color: #fff;
 	font-size: .75em;
@@ -231,7 +231,7 @@ footer .about {
 
 @media screen and (max-width: 600px) {
 	
-	header nav.n-drop {
+	header nav.n-nav.n-drop {
 		
 		display: none;
 		
@@ -251,7 +251,7 @@ footer .about {
 		
 	}
 	
-	header nav ul {
+	header nav.n-nav ul {
 		
 		color: #000;
 

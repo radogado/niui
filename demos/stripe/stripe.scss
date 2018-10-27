@@ -134,7 +134,7 @@ pre {
 
 }
 
-header nav a[href] {
+header nav.n-nav a[href] {
 	
 	color: #fff;
 
@@ -181,7 +181,7 @@ header nav a[href] {
     background: #a1ffc8
 }
 
-nav.n-drop li {
+nav.n-nav.n-drop li {
 	
 	background-color: transparent;
 
@@ -557,13 +557,13 @@ main ul {
 	
 }
 
-.no-touch nav.n-drop ul ul li, .no-touch nav.n-drop ul ul li:first-child, nav.n-drop ul li a {
+.no-touch nav.n-nav.n-drop ul ul li, .no-touch nav.n-nav.n-drop ul ul li:first-child, nav.n-nav.n-drop ul li a {
 	
 	text-align: left;
 		
 }
 
-nav.n-drop ul li li a {
+nav.n-nav.n-drop ul li li a {
 
 	color: #000;	
 
@@ -577,7 +577,7 @@ nav.n-drop ul li li a {
 		
 	}
 	
-	header nav ul li {
+	header nav.n-nav ul li {
 		
 		display: inline-block;
 		

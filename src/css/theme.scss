@@ -40,40 +40,48 @@ a[href] {
 
 	}
 
-nav a {
+nav.n-nav {
 	
-	color: #666;
-	text-transform: uppercase;
-	text-decoration: none;
+	 a {
+		
+		color: #666;
+		text-transform: uppercase;
+		text-decoration: none;
+	
+		&.active[href] {
+		
+			color: #ee8822;
+		
+		}
+	
+		&[href]:hover {
+			
+			color: #ee8822;
+			
+		}
+	
+	}
+	
+	&.sub {
+		
+		a {
+	
+			color: #727272;
+			text-transform: none;
+		
+		}
 
+		li:not(:first-child):before {
+	
+			content: '';
+			border-left: 1px solid #ddd;
+			padding-right: .6em;
+	
+		}
+	
+	}
+	
 }
-
-	nav a.active[href] {
-	
-		color: #ee8822;
-	
-	}
-	
-	nav.sub a {
-	
-		color: #727272;
-		text-transform: none;
-	
-	}
-
-	nav.sub li:not(:first-child):before {
-
-		content: '';
-		border-left: 1px solid #ddd;
-		padding-right: .6em;
-
-	}
-	
-	nav a[href]:hover {
-		
-		color: #ee8822;
-		
-	}
 
 form#language-selector select {
 
@@ -215,7 +223,7 @@ header h1, header p {
 
 @media screen and (max-width: 640px) {
 	
-	nav.sub li:not(:first-child):before {
+	nav.n-nav.sub li:not(:first-child):before {
 		
 		content: none;
 

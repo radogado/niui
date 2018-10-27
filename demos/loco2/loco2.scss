@@ -138,7 +138,7 @@ footer ul {
 
 }
 
-ul.staff.inline li {
+ul.staff.n-list--inline li {
 	
 	width: 24%;
 	text-align: center;
@@ -315,14 +315,14 @@ ul.staff.inline li {
 
 @media (max-width: 599.9px) {
 	
-	ul.inline li {
+	ul.n-list--inline li {
 		
 		display: block;
 		width: auto;
 		
 	}
 	
-	ul.inline {
+	ul.n-list--inline {
 		
 		width: 100%;
 	

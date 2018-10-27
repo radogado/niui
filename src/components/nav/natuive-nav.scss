@@ -2,7 +2,7 @@
 
 @import '../../css/natuive-setup';
 
-nav {
+.n-nav {
 	
 	vertical-align: baseline;
 	display: inline-block;
@@ -34,7 +34,7 @@ nav {
 	&.scroll {
 		
 		overflow: auto;
-			max-width: 100%;
+		max-width: 100%;
 		
 		> ul {
 			
@@ -73,12 +73,11 @@ nav {
 
 	}
 
-
 }
 	
 @supports (--a: 1) {
 	
-	nav.scroll {
+	.n-nav--scroll {
 		
 		a {
 		
@@ -105,7 +104,7 @@ nav {
 
 }
 
-main nav ul {
+main .n-nav ul {
 
 	padding-left: 0;
 
@@ -115,7 +114,7 @@ main nav ul {
 
 $nav-bg: #fff; // fallback for browsers unsupporting CSS variables
 
-nav.n-drop {
+.n-drop {
 
 	--nav-bg: #fff;
 
@@ -349,7 +348,7 @@ nav.n-drop {
 
 @media (max-width: 599.9px) {
 
-	nav.n-drop ul {
+	.n-drop ul {
 	
 		ul {
 			

@@ -87,7 +87,7 @@ header {
 	
 }
 
-header nav, header nav a[href] {
+header nav.n-nav, header nav.n-nav a[href] {
 	
 	display: inline-block;
 	color: #fff;
@@ -96,13 +96,13 @@ header nav, header nav a[href] {
 	
 }
 
-header nav {
+header nav.n-nav {
 	
 	text-align: right;
 	
 }
 
-header nav:first-of-type {
+header nav.n-nav:first-of-type {
 	
 	text-transform: uppercase;
 	text-align: left;
@@ -306,14 +306,14 @@ footer {
 
 }
 
-footer nav ul {
+footer nav.n-nav ul {
 	
 	vertical-align: top;
 	margin-top: 22px;
 
 }
 
-footer nav ul:not(:last-child) {
+footer nav.n-nav ul:not(:last-child) {
 
 	margin-right: 4em;	
 
@@ -335,7 +335,7 @@ footer li.header {
 	
 }
 
-footer nav a[href] {
+footer nav.n-nav a[href] {
 	
 	font-size: 1em;
 	text-decoration: none;
@@ -347,7 +347,7 @@ footer nav a[href] {
 
 }
 
-footer nav ul.social li:not(.header) {
+footer nav.n-nav ul.social li:not(.header) {
 	
 	display: inline-block;
 
@@ -363,7 +363,7 @@ footer p {
 	
 }
 
-footer nav form.flat label input {
+footer nav.n-nav form.flat label input {
 	
 	background: #000;
 	border: 1px solid #666665;
@@ -376,7 +376,7 @@ footer nav form.flat label input {
 
 }
 
-footer nav form.flat label input[type=submit] {
+footer nav.n-nav form.flat label input[type=submit] {
 	
 	position: absolute;
 	text-transform: uppercase;
@@ -391,7 +391,7 @@ footer nav form.flat label input[type=submit] {
 
 }
 
-footer a[href]:hover, footer nav form.flat label input[type=submit]:hover, footer nav label input:hover {
+footer a[href]:hover, footer nav.n-nav form.flat label input[type=submit]:hover, footer nav.n-nav label input:hover {
 	
 	color: #00b5f3;
 	border-color: #00b5f3;

@@ -34,7 +34,7 @@
 		
 		<div class="col34">
 
-			<div class='n-slider tabs vertical' id='guide-slider' data-duration-="5">
+			<div class='n-slider tabs n-slider--vertical' id='guide-slider' data-duration-="5">
 			
 				<div data-tab_title='natUIve guide' id=home>
 					
@@ -867,9 +867,9 @@
 							
 							<h3>Standard navigation</h3>
 							
-							<nav>
+							<nav class="n-nav">
 					
-								<ul class='inline'>
+								<ul class='n-list--inline'>
 								
 									<li> <a href=#buttons>Buttons</a> </li>
 
@@ -890,8 +890,8 @@
 
 <div class="code">							
 
-<pre><code class="language-markup">&lt;nav&gt;
-	&lt;ul class='inline'&gt;
+<pre><code class="language-markup">&lt;nav class=n-nav&gt;
+	&lt;ul class='n-list--inline'&gt;
 		&lt;li&gt; &lt;a href=#buttons&gt;Buttons&lt;/a&gt; &lt;/li&gt;
 	&lt;/ul&gt;							
 &lt;/nav&gt;</code>
@@ -904,9 +904,9 @@
 							
 							<h3>Big navigation</h3>
 							
-							<nav>
+							<nav class="n-nav">
 				
-								<ul class='inline n-big-text'>
+								<ul class='n-list--inline n-big-text'>
 								
 									<li class='active'> <a href=#grid>Grid</a> </li>
 				
@@ -923,8 +923,8 @@
 
 <div class="code">							
 
-<pre><code class="language-markup">&lt;nav&gt;
-	&lt;ul class='inline n-big-text'&gt;
+<pre><code class="language-markup">&lt;nav class=n-nav&gt;
+	&lt;ul class='n-list--inline n-big-text'&gt;
 		&lt;li class='active'&gt; &lt;a href=#grid&gt;Grid&lt;/a&gt; &lt;/li&gt;
 		&lt;li&gt; &lt;a href=#slider&gt;Slider&lt;/a&gt; &lt;/li&gt;
 		&lt;li&gt; &lt;a href=#form&gt;Form&lt;/a&gt; &lt;/li&gt;
@@ -938,7 +938,7 @@
 						<div class='col3'>
 							
 							<h2>Scroll navigation</h2>
-							<nav class=scroll>
+							<nav class='n-nav n-nav--scroll'>
 					
 								<ul>
 								
@@ -977,7 +977,7 @@
 
 <div class="code">							
 
-<pre><code class="language-markup">&lt;nav class=scroll&gt;
+<pre><code class="language-markup">&lt;nav class='n-nav n-nav--scroll'&gt;
 	&lt;ul&gt;
 		&lt;li&gt; &lt;a href=#buttons&gt;Buttons&lt;/a&gt; &lt;/li&gt;
 	&lt;/ul&gt;
@@ -991,7 +991,7 @@
 							
 							<h2>Drop navigation</h2>
 							
-							<nav class=n-drop>
+							<nav class='n-nav n-drop'>
 		
 								<ul>
 								
@@ -1152,7 +1152,7 @@
 
 							<div class="code">							
 
-<pre><code class="language-markup">&lt;nav class=n-drop&gt;
+<pre><code class="language-markup">&lt;nav class='n-nav n-drop'&gt;
 	&lt;ul&gt;
 		&lt;li&gt; 
 			&lt;input type='checkbox'&gt;
@@ -1184,9 +1184,9 @@
 				
 		&lt;div class=&quot;label&quot;&gt; &lt;span class=&quot;burger&quot;&gt;&lt;/span&gt; &lt;/div&gt;
 
-		&lt;nav&gt;
+		&lt;nav class=n-nav&gt;
 			
-			&lt;ul class=&quot;inline&quot;&gt;
+			&lt;ul class=&quot;n-list--inline&quot;&gt;
 			
 				&lt;li class=&quot;active&quot;&gt; &lt;a href=&quot;#grid&quot; tabindex=&quot;0&quot;&gt;Grid&lt;/a&gt; &lt;/li&gt;
 
@@ -1367,7 +1367,7 @@
 							
 							<h3>Controls on top</h3>
 							
-							<div class='n-slider top'>
+							<div class='n-slider n-slider--top'>
 								
 								<div class='align-center'><p><br><br>One<br><br></p></div>
 								<div class='align-center' style="background: lightcoral;"><p><br><br>Two<br><br></p></div>
@@ -1377,7 +1377,7 @@
 						
 <div class="code">							
 
-<pre><code class="language-markup">&lt;div class='n-slider top'&gt;
+<pre><code class="language-markup">&lt;div class='n-slider n-slider--top'&gt;
 	&lt;div&gt;Slide 1&lt;/div&gt;
 	&lt;div&gt;Slide 2&lt;/div&gt;
 &lt;/div&gt;</code>
@@ -1555,8 +1555,8 @@
 							
 							<ul>
 								
-								<li>Full window: <pre>&lt;div class='n-slider full-window'&gt;</pre></li>
-								<li>Full screen: <pre>&lt;div class='n-slider full-screen'&gt;</pre></li>
+								<li>Full window: <pre>&lt;div class='n-slider n-full-window'&gt;</pre></li>
+								<li>Full screen: <pre>&lt;div class='n-slider n-full-screen'&gt;</pre></li>
 								<li>Slide duration <pre>&lt;div class='n-slider' data-duration=1&gt;</pre> in seconds. Default is <b>.2</b>.</li>
 								<li>Vertically center slides' content with <pre>&lt;div class='n-slider align-middle'&gt;</pre></li>
 								<li>Detach slider nav by adding an <b>id</b> to the slider and creating <pre>&lt;div class='slider-nav' data-for='slider-id'&gt;</pre> elsewhere</li>
@@ -1612,7 +1612,7 @@
 
 							<h3>Tabs on top with auto height</h3>
 	
-							<div class='n-slider top tabs auto-height' data-duration=1>
+							<div class='n-slider n-slider--top tabs auto-height' data-duration=1>
 		
 								<div style='background: mintcream;'> <div class='pad'><h3 class='tab-title'>Tab 1</h3> <p>Content of Tab 1</p></div> </div>
 	
@@ -1622,7 +1622,7 @@
 						
 <div class="code">							
 
-<pre><code class="language-markup">&lt;div class='n-slider top tabs auto-height'&gt;
+<pre><code class="language-markup">&lt;div class='n-slider n-slider--top tabs auto-height'&gt;
 	&lt;div data-tab_title='Tab 1'&gt; ... &lt;/div&gt;
 	...
 &lt;/div&gt;</code>
@@ -1822,7 +1822,7 @@
 
 <div class="code">							
 
-<pre><code class="language-markup">&lt;div class='n-lightbox full-screen'&gt;
+<pre><code class="language-markup">&lt;div class='n-lightbox n-full-screen'&gt;
 	&lt;a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756.jpg title='First Taipei photo'&gt;
 		&lt;img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756-88x88.jpg alt=1&gt;
 	&lt;/a&gt;
@@ -1899,7 +1899,7 @@
 							
 							<div class="aspect" style="--ratio: 1.67">
 								
-								<div id=lightbox44 class='n-lightbox n-lightbox--inline n-lightbox--thumbnails vertical outside-'>
+								<div id=lightbox44 class='n-lightbox n-lightbox--inline n-lightbox--thumbnails vertical n-slider--outside-'>
 							
 									<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916.jpg title='First photo from Paris'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916-88x88.jpg alt=2> </a>
 	
@@ -2754,8 +2754,8 @@
 							
 							<ul>
 								
-								<li><b>ul.inline</b> orders items on one line</li>
-								<li><b>ul.indent</b></li>
+								<li><b>ul.n-list--inline</b> orders items on one line</li>
+								<li><b>ul.n-list--indent</b></li>
 								<li><b>ul.no-bullets</b> for a clean list</li>
 							
 							</ul>

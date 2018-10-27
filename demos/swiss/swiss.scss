@@ -43,7 +43,7 @@ header {
 	
 }
 
-header nav.n-drop ul li a {
+header nav.n-nav.n-drop ul li a {
 	
 	font-size: 1.5em;
 	padding-top: .5em;
@@ -51,14 +51,14 @@ header nav.n-drop ul li a {
 
 }
 
-header nav, header .n-form, footer nav, footer .n-form, main .n-form, main nav {
+header nav.n-nav, header .n-form, footer nav.n-nav, footer .n-form, main .n-form, main nav.n-nav {
 	
 	display: inline-block;
 	vertical-align: middle;
 
 }
 
-header nav ul li a[href] {
+header nav.n-nav ul li a[href] {
 	
 	color: #333;
 	line-height: 1;
@@ -103,13 +103,13 @@ header .logo img {
 
 }
 
-header nav.n-drop ul li {
+header nav.n-nav.n-drop ul li {
 	
 	background: transparent;
 
 }
 
-header nav ul {
+header nav.n-nav ul {
 
 	margin: 0;
 	padding: 0;
@@ -117,7 +117,7 @@ header nav ul {
 
 }
 
-header nav.n-drop ul li a, nav.n-drop ul li b.sub, header .top nav ul li a[href], header .top input[type=search] {
+header nav.n-nav.n-drop ul li a, nav.n-nav.n-drop ul li b.sub, header .top nav.n-nav ul li a[href], header .top input[type=search] {
 	
 	font-size: .7rem;
 	padding: .5em;
@@ -130,13 +130,13 @@ header nav.n-drop ul li a, nav.n-drop ul li b.sub, header .top nav ul li a[href]
 
 }
 
-nav.n-drop li[aria-haspopup] {
+nav.n-nav.n-drop li[aria-haspopup] {
 	
 	background-position: calc(100% - .75em) .5em;
 
 }
 
-header nav.n-drop ul ul {
+header nav.n-nav.n-drop ul ul {
 	
     top: 1.5em;
 
@@ -148,13 +148,13 @@ header .top input[type=search] {
 
 }
 
-.no-touch nav.n-drop ul li li:hover, .no-touch nav.n-drop ul li li:hover a {
+.no-touch nav.n-nav.n-drop ul li li:hover, .no-touch nav.n-nav.n-drop ul li li:hover a {
 	
 	background: none;
 
 }
 
-nav.n-drop ul li .trigger:checked ~ a, nav.n-drop ul li .trigger:checked ~ b.sub {
+nav.n-nav.n-drop ul li .trigger:checked ~ a, nav.n-nav.n-drop ul li .trigger:checked ~ b.sub {
 	
 	background: none;
 
@@ -211,39 +211,39 @@ header .row.top {
 	
 }
 
-header .row.logo nav, header .row.logo nav ul {
+header .row.logo nav.n-nav, header .row.logo nav.n-nav ul {
 	
 	width: 100%;
 
 }
 
-header .row.logo nav ul {
+header .row.logo nav.n-nav ul {
 	
 	padding: 0 .75em;
 	
 }
 
-header .row.logo nav ul li + li a {
+header .row.logo nav.n-nav ul li + li a {
 	
 	padding-left: 1em;	
 
 }
 
-header .row.logo nav ul li:first-child {
+header .row.logo nav.n-nav ul li:first-child {
 	
 	padding-left: 0;	
 	padding-right: 1.5em;	
 
 }
 
-header .row.logo nav ul li:last-child {
+header .row.logo nav.n-nav ul li:last-child {
 	
 	margin-top: .5em;
 	float: right;
 
 }
 
-nav.n-drop ul li b.sub:after {
+nav.n-nav.n-drop ul li b.sub:after {
 	
 	content: '[]';
 	background: transparent url(arrow-down.svg) no-repeat scroll center center;
@@ -288,7 +288,7 @@ nav.n-drop ul li b.sub:after {
 
 }
 
-footer nav:not(.about nav) a, footer nav:not(.about nav) ul {
+footer nav.n-nav:not(.about nav.n-nav) a, footer nav.n-nav:not(.about nav.n-nav) ul {
 	
 	display: block;
 
@@ -301,7 +301,7 @@ footer a.logo {
 
 }
 
-footer nav b {
+footer nav.n-nav b {
 	
 	text-transform: uppercase;
 	font-size: .8em;
@@ -310,14 +310,14 @@ footer nav b {
 	
 }
 
-footer nav a {
+footer nav.n-nav a {
 	
 	line-height: 2;
 	min-height: 0;
 
 }
 
-footer nav {
+footer nav.n-nav {
 	
 	margin-top: -4px;
 
@@ -342,7 +342,7 @@ footer .about {
 
 }
 
-footer .about nav a {
+footer .about nav.n-nav a {
 	
 	font-weight: bold;
 	color: $darker-grey;
@@ -597,7 +597,7 @@ footer .about nav a {
 
 }
 
-#content nav.n-drop ul li a {
+#content nav.n-nav.n-drop ul li a {
 	
 	padding: 0;
 	min-height: 0;
@@ -606,7 +606,7 @@ footer .about nav a {
 	
 }
 
-#content nav.n-drop ul li {
+#content nav.n-nav.n-drop ul li {
 	
 	background: none;
 	border-right: 1px solid;
@@ -616,7 +616,7 @@ footer .about nav a {
 	
 }
 
-ul.inline li {
+ul.n-list--inline li {
 	
 	vertical-align: middle;
 
@@ -630,7 +630,7 @@ ul.inline li {
 	
 	}
 	
-	header .row.logo nav ul li:last-child {
+	header .row.logo nav.n-nav ul li:last-child {
 		
 		float: none;
 	
@@ -656,13 +656,13 @@ ul.inline li {
 
 	}
 
-	nav.n-drop {
+	nav.n-nav.n-drop {
 		
 		width: auto;
 
 	}
 	
-	header .row.logo nav ul li+li a {
+	header .row.logo nav.n-nav ul li+li a {
 		
 		padding: 0 .5em 0 0;
 		font-size: 1.3em;
@@ -688,19 +688,19 @@ ul.inline li {
 	
 	}
 	
-	#content nav.n-drop ul li a {
+	#content nav.n-nav.n-drop ul li a {
 		
 		line-height: 2;
 
 	}
 	
-	#content nav.n-drop ul li {
+	#content nav.n-nav.n-drop ul li {
 		
 		background: #fff;
 		
 	}
 
-	header .row.logo nav ul li:last-child {
+	header .row.logo nav.n-nav ul li:last-child {
 		
 		margin-top: 0;
 	

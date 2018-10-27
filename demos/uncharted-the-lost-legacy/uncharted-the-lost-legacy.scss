@@ -31,7 +31,7 @@ header a.logo {
 
 }
 
-header nav a img {
+header nav.n-nav a img {
 	
 	display: block;
 
@@ -72,7 +72,7 @@ main .row > .col1 {
 
 }
 
-footer nav {
+footer nav.n-nav {
 	
 	display: block;
 
@@ -99,7 +99,7 @@ footer .disclaimer {
 
 }
 
-a[href], ul.inline li {
+a[href], ul.n-list--inline li {
 	
 	text-decoration: none;
 	vertical-align: middle;

@@ -89,7 +89,7 @@ header {
 
 }
 
-header > .row, header > nav {
+header > .row, header > nav.n-nav {
 	
 	padding: 0 1.4em;
 	
@@ -644,7 +644,7 @@ footer .footer-bottom span {
 	
 }
 
-footer .footer-bottom nav {
+footer .footer-bottom nav.n-nav {
 	
 	text-align: right;
 	
@@ -726,25 +726,25 @@ footer .footer-bottom span.icon-globe {
 
 }
 
-header nav a[href]:hover {
+header nav.n-nav a[href]:hover {
 	
 	color: inherit;
 	
 }
 
-header nav {
+header nav.n-nav {
 	
 	display: inline-block;
 	
 }
 
-nav.n-drop {
+nav.n-nav.n-drop {
 	
 	vertical-align: middle;
 
 }
 
-nav.n-drop ul li, nav.n-drop ul li b.sub {
+nav.n-nav.n-drop ul li, nav.n-nav.n-drop ul li b.sub {
 	
 	background: none;
 

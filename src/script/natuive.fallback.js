@@ -1453,7 +1453,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		addClass(lightbox_target, 'n-lightbox');
 		addClass(lightbox_target, 'n-lightbox--inline');
 		transferClass(lightbox, lightbox_target, 'n-lightbox--thumbnails');
-		transferClass(lightbox, lightbox_target, 'top');
+		transferClass(lightbox, lightbox_target, 'n-slider--top');
 		transferClass(lightbox, lightbox_target, 'fade');
 	
 		if (inline_static) { // If it's inline, it must become a slider/lightbox to replace the original lightbox element
@@ -1468,9 +1468,9 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 			
 	//		openFullWindow('<div class="slider lightbox full-window' + (hasClass(lightbox, 'full-screen') ? ' full-screen' : '') + '"></div>', animation); // openFullWindow to be moved at the end
 	// 		lightbox_target.classList = 'slider lightbox inline' + (hasClass(lightbox, 'full-screen') ? ' full-screen' : ''); // Not working in Edge
-			if (hasClass(lightbox, 'full-screen')) {
+			if (hasClass(lightbox, 'n-full-screen')) {
 		
-				addClass(lightbox_target, 'full-screen');
+				addClass(lightbox_target, 'n-full-screen');
 				
 				
 			}
@@ -1537,7 +1537,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 				
 			}
 	
-		    var link_element = (hasClass(lightbox, 'n-lightbox--inline') || !lightbox.getAttribute('id')) ? '' : `<a class="button copy" href=${slide_link}></a>`;
+		    var link_element = (hasClass(lightbox, 'n-lightbox--inline') || !lightbox.getAttribute('id')) ? '' : `<a class="button n-lightbox--copy" href=${slide_link}></a>`;
 	
 		    var url = hasClass(lightbox, 'n-slider') ? (el.querySelector('img') ? el.querySelector('img').getAttribute('data-src') : '') : el.href;
 		    
@@ -1653,7 +1653,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 		}
 	
-	    transferClass(anchor.parentNode, lightbox_target.parentNode, 'outside');
+	    transferClass(anchor.parentNode, lightbox_target.parentNode, 'n-slider--outside');
 	    
 	    if (hasClass(lightbox, 'n-lightbox--thumbnails')) {
 	    
@@ -2009,14 +2009,14 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 		var wrapper = document.createElement('div');
 		addClass(wrapper, 'n-ovrl');
-		wrapper.insertAdjacentHTML('beforeend', '<div class=n-ovrl--content tabindex=0></div><div class=overlay-bg></div>');
+		wrapper.insertAdjacentHTML('beforeend', '<div class=n-ovrl--content tabindex=0></div><div class=n-overlay-bg></div>');
 		wrapper.firstChild.appendChild(full_window_content);
 		full_window_content = wrapper;
 	
 	    full_window_content.insertAdjacentHTML('afterbegin', `<div class=n-ovrl--close> ← ${document.title}</div>`);
-		full_window_content.querySelector('.overlay-bg').onclick = full_window_content.querySelector('.n-ovrl--close').onclick = closeFullWindow;
+		full_window_content.querySelector('.n-overlay-bg').onclick = full_window_content.querySelector('.n-ovrl--close').onclick = closeFullWindow;
 		full_window_content.querySelector('.n-ovrl--close').addEventListener("touchmove", (e) => { e.preventDefault(); }, { passive: false });
-		full_window_content.querySelector('.overlay-bg').addEventListener("touchmove", (e) => { e.preventDefault(); }, { passive: false });
+		full_window_content.querySelector('.n-overlay-bg').addEventListener("touchmove", (e) => { e.preventDefault(); }, { passive: false });
 		window.addEventListener('keyup', keyUpClose);
 		   
 		bodyElement.appendChild(full_window_content);
@@ -2035,7 +2035,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 
 		}
 			
-		if (full_window_content.querySelector('.full-screen')) {
+		if (full_window_content.querySelector('.n-full-screen')) {
 	
 			if (full_window_content.webkitRequestFullScreen) { 
 				
@@ -2174,17 +2174,17 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 
 	function closeDropNavClickedOutside(e) { // Close the nav when clicking outside
 	
-		if (!e.target.closest('nav li')) {
+		if (!e.target.closest('.n-nav li')) {
 	
-			qa('nav ul').forEach((el) => {
+			qa('.n-nav ul').forEach((el) => {
 				
 				el.removeAttribute(aria_expanded);
 				
 			});
 			
-			if (q('nav :focus')) {
+			if (q('.n-nav :focus')) {
 	
-				q('nav :focus').blur();
+				q('.n-nav :focus').blur();
 			
 			}
 			
@@ -2194,7 +2194,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 	function dropNavBlur(e) {
 	
-		var this_nav = e.target.closest('nav');
+		var this_nav = e.target.closest('.n-nav');
 		
 		if (!closestElement(e.relatedTarget, this_nav)) { // if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
 			
@@ -2234,7 +2234,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 		// Close focused third level child when focus moves to another top-level item
 		
-		var el = e.target.closest('nav > ul > li');
+		var el = e.target.closest('.n-nav > ul > li');
 		
 		el.parentNode.childNodes.forEach((a) => {
 	
@@ -2293,7 +2293,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 		});
 	
-		if (!el.closest('nav.n-drop')) { // The rest is for drop nav only
+		if (!el.closest('.n-nav.n-drop')) { // The rest is for drop nav only
 			
 			return;
 	
@@ -2312,7 +2312,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		
 			if (e.key === 'Escape') {
 				
-				e.target.closest('nav').querySelectorAll('ul').forEach((el) => {
+				e.target.closest('.n-nav').querySelectorAll('ul').forEach((el) => {
 					
 					el.removeAttribute(aria_expanded);
 					
@@ -2384,10 +2384,10 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 
 	var init = (host) => {
 		
-		host.querySelectorAll('nav:not([data-ready]) > ul:not([role])').forEach((el) => {
+		host.querySelectorAll('.n-nav:not([data-ready]) > ul:not([role])').forEach((el) => {
 			
 			initNav(el);
-			makeReady(el.closest('nav'));
+			makeReady(el.closest('.n-nav'));
 			
 		});
 
@@ -3051,7 +3051,7 @@ var componentSlider = (function (){
 	    addClass(el, 'n-slider');
 	    makeReady(el);
 	
-		if (hasClass(el, 'full-window')) {
+		if (hasClass(el, 'n-full-window')) {
 			
 		    addClass(el, 'n-slider--overlay');
 			componentModal.openFullWindow(el.outerHTML);
@@ -3082,7 +3082,7 @@ var componentSlider = (function (){
 			
 		    transferClass(el, container, 'n-slider--vertical');
 	        transferClass(el, container, 'wrap');
-	        transferClass(el, container, 'top');
+	        transferClass(el, container, 'n-slider--top');
 	        transferClass(el, container, 'right');
 	        transferClass(el, container, 'n-slider--overlay');
 			var peek = el.getAttribute('data-peek');
@@ -3116,7 +3116,7 @@ var componentSlider = (function (){
 	
 		} else {
 
-		    container.insertAdjacentHTML(hasClass(container, 'top') ? 'afterbegin' : 'beforeend', '<div class=slider-nav></div>');
+		    container.insertAdjacentHTML(hasClass(container, 'n-slider--top') ? 'afterbegin' : 'beforeend', '<div class=slider-nav></div>');
             slider_nav = container.querySelector('.slider-nav:not([data-for])'); // Not data-for to avoid nested detached nav for nested sliders
 		
 		}

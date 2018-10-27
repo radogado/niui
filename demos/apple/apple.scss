@@ -22,7 +22,7 @@ header {
 	
 }
 
-	header a[href], header nav li:first-child a[href], header nav li:last-child a[href] {
+	header a[href], header .n-nav li:first-child a[href], header .n-nav li:last-child a[href] {
 		
 		padding: .8em 2em;
 		display: inline-block;
@@ -43,7 +43,7 @@ header {
 		
 	}
 	
-	header.align-center nav {
+	header.align-center .n-nav {
 		
 		text-align: left;
 

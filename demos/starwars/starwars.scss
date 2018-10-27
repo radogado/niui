@@ -53,25 +53,25 @@ header a[href] {
 
 }
 
-header nav.main.col1 {
+header nav.n-nav.main.col1 {
 
 	background-color: #222;
 
 }
 
-header nav.main ul {
+header nav.n-nav.main ul {
 
 	display: flex;
 	
 }
 
-header nav.main li {
+header nav.n-nav.main li {
 
 	flex-grow: 1;
 	
 }
 
-header nav.main a[href] {
+header nav.n-nav.main a[href] {
 
 	border-left: 1px solid #333;
 	border-right: 1px solid #333;
@@ -81,19 +81,19 @@ header nav.main a[href] {
 
 }
 
-header nav.main li:first-child a[href] {
+header nav.n-nav.main li:first-child a[href] {
 	
 	border-left-width: 2px;
 
 }
 
-header nav.main li:last-child a[href] {
+header nav.n-nav.main li:last-child a[href] {
 	
 	border-right-width: 2px;
 
 }
 
-header nav.main a[href]:before {
+header nav.n-nav.main a[href]:before {
 	
 	content: '';
 	display: block;
@@ -106,43 +106,43 @@ header nav.main a[href]:before {
 
 }
 
-header nav.main li:nth-child(2) a[href]:before {
+header nav.n-nav.main li:nth-child(2) a[href]:before {
 
 	background-position: 11.11111% 0%;
 
 }
 
-header nav.main li:nth-child(3) a[href]:before {
+header nav.n-nav.main li:nth-child(3) a[href]:before {
 
 	background-position: 22.22222% 0%;
 
 }
 
-header nav.main li:nth-child(4) a[href]:before {
+header nav.n-nav.main li:nth-child(4) a[href]:before {
 
 	background-position: 33.33333% 0%;
 
 }
 
-header nav.main li:nth-child(5) a[href]:before {
+header nav.n-nav.main li:nth-child(5) a[href]:before {
 
 	background-position: 44.44444% 0%;
 
 }
 
-header nav.main li:nth-child(6) a[href]:before {
+header nav.n-nav.main li:nth-child(6) a[href]:before {
 
 	background-position: 55.55555% 0%;
 
 }
 
-header nav.main li:nth-child(7) a[href]:before {
+header nav.n-nav.main li:nth-child(7) a[href]:before {
 
 	background-position: 66.66666% 0%;
 
 }
 
-header nav.main li:nth-child(8) a[href]:before {
+header nav.n-nav.main li:nth-child(8) a[href]:before {
 
 	background-position: 77.77777% 0%;
 
@@ -312,7 +312,7 @@ header {
 
 }
 
-header nav.col1 {
+header nav.n-nav.col1 {
 
 	background: #151515;
 	
@@ -331,7 +331,7 @@ header.row > .col1 {
 
 }
 
-header .head-top, nav.main ul {
+header .head-top, nav.n-nav.main ul {
 	
 // 	position: fixed;
 	z-index: 1;
@@ -340,31 +340,31 @@ header .head-top, nav.main ul {
 	
 }
 
-header .head-top nav a[href] {
+header .head-top nav.n-nav a[href] {
 
 	color: #fff;
 
 }
 
-header .head-top nav:first-child a[href] {
+header .head-top nav.n-nav:first-child a[href] {
 
 	text-transform: none;
 
 }
 
-header .head-top nav:first-child ul {
+header .head-top nav.n-nav:first-child ul {
 
 	vertical-align: middle;
 
 }
 
-header .head-top nav:first-child ul:first-child {
+header .head-top nav.n-nav:first-child ul:first-child {
 
 	padding-top: .45em;
 
 }
 
-header nav .social a[href] {
+header nav.n-nav .social a[href] {
 	
 	background-repeat: no-repeat;
 	background-image: url(social_sprite-7398ed481e16.png);
@@ -376,31 +376,31 @@ header nav .social a[href] {
 	
 }
 
-header nav .social li:nth-child(2) a[href] {
+header nav.n-nav .social li:nth-child(2) a[href] {
 
 	background-position: 16.66667% 0%;
 
 }
 
-header nav .social li:nth-child(3) a[href] {
+header nav.n-nav .social li:nth-child(3) a[href] {
 
 	background-position: 33.33333% 0%;
 
 }
 
-header nav .social li:nth-child(4) a[href] {
+header nav.n-nav .social li:nth-child(4) a[href] {
 
 	background-position: 50% 0%;
 
 }
 
-header nav .social li:nth-child(5) a[href] {
+header nav.n-nav .social li:nth-child(5) a[href] {
 
 	background-position: 66.66667% 0%;
 
 }
 
-header nav .social li:nth-child(6) a[href] {
+header nav.n-nav .social li:nth-child(6) a[href] {
 
 	background-position: 83.33333% 0%;
 
@@ -412,7 +412,7 @@ hr {
 	
 }
 
-nav.scroll ul {
+nav.n-nav.n-nav--scroll ul {
 	
 	padding-bottom: 0;
 
@@ -420,7 +420,7 @@ nav.scroll ul {
 
 @media screen and (max-width: 640px) {
 	
-	nav ul li {
+	nav.n-nav ul li {
 		
 		display: inline-block;
 	
@@ -432,7 +432,7 @@ nav.scroll ul {
 		
 	}
 	
-	header nav.main.col1 {
+	header nav.n-nav.main.col1 {
 		
 		margin: 0;
 		

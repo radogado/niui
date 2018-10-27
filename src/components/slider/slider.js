@@ -597,7 +597,7 @@ var componentSlider = (function (){
 	    addClass(el, 'n-slider');
 	    makeReady(el);
 	
-		if (hasClass(el, 'full-window')) {
+		if (hasClass(el, 'n-full-window')) {
 			
 		    addClass(el, 'n-slider--overlay');
 			componentModal.openFullWindow(el.outerHTML);
@@ -628,7 +628,7 @@ var componentSlider = (function (){
 			
 		    transferClass(el, container, 'n-slider--vertical');
 	        transferClass(el, container, 'wrap');
-	        transferClass(el, container, 'top');
+	        transferClass(el, container, 'n-slider--top');
 	        transferClass(el, container, 'right');
 	        transferClass(el, container, 'n-slider--overlay');
 			var peek = el.getAttribute('data-peek');
@@ -662,7 +662,7 @@ var componentSlider = (function (){
 	
 		} else {
 
-		    container.insertAdjacentHTML(hasClass(container, 'top') ? 'afterbegin' : 'beforeend', '<div class=slider-nav></div>');
+		    container.insertAdjacentHTML(hasClass(container, 'n-slider--top') ? 'afterbegin' : 'beforeend', '<div class=slider-nav></div>');
             slider_nav = container.querySelector('.slider-nav:not([data-for])'); // Not data-for to avoid nested detached nav for nested sliders
 		
 		}

@@ -258,14 +258,14 @@ var componentModal = (function (){
 	
 		var wrapper = document.createElement('div');
 		addClass(wrapper, 'n-ovrl');
-		wrapper.insertAdjacentHTML('beforeend', '<div class=n-ovrl--content tabindex=0></div><div class=overlay-bg></div>');
+		wrapper.insertAdjacentHTML('beforeend', '<div class=n-ovrl--content tabindex=0></div><div class=n-overlay-bg></div>');
 		wrapper.firstChild.appendChild(full_window_content);
 		full_window_content = wrapper;
 	
 	    full_window_content.insertAdjacentHTML('afterbegin', `<div class=n-ovrl--close> ← ${document.title}</div>`);
-		full_window_content.querySelector('.overlay-bg').onclick = full_window_content.querySelector('.n-ovrl--close').onclick = closeFullWindow;
+		full_window_content.querySelector('.n-overlay-bg').onclick = full_window_content.querySelector('.n-ovrl--close').onclick = closeFullWindow;
 		full_window_content.querySelector('.n-ovrl--close').addEventListener("touchmove", (e) => { e.preventDefault(); }, { passive: false });
-		full_window_content.querySelector('.overlay-bg').addEventListener("touchmove", (e) => { e.preventDefault(); }, { passive: false });
+		full_window_content.querySelector('.n-overlay-bg').addEventListener("touchmove", (e) => { e.preventDefault(); }, { passive: false });
 		window.addEventListener('keyup', keyUpClose);
 		   
 		bodyElement.appendChild(full_window_content);
@@ -284,7 +284,7 @@ var componentModal = (function (){
 
 		}
 			
-		if (full_window_content.querySelector('.full-screen')) {
+		if (full_window_content.querySelector('.n-full-screen')) {
 	
 			if (full_window_content.webkitRequestFullScreen) { 
 				

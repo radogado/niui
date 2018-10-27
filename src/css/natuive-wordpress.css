@@ -42,25 +42,21 @@ a[href] {
 a[href]:hover, input[type=submit]:hover, a.button[href]:hover, button:hover {
   color: #ee8822; }
 
-nav a {
+nav.n-nav a {
   color: #666;
   text-transform: uppercase;
   text-decoration: none; }
-
-nav a.active[href] {
-  color: #ee8822; }
-
-nav.sub a {
+  nav.n-nav a.active[href] {
+    color: #ee8822; }
+  nav.n-nav a[href]:hover {
+    color: #ee8822; }
+nav.n-nav.sub a {
   color: #727272;
   text-transform: none; }
-
-nav.sub li:not(:first-child):before {
+nav.n-nav.sub li:not(:first-child):before {
   content: '';
   border-left: 1px solid #ddd;
   padding-right: .6em; }
-
-nav a[href]:hover {
-  color: #ee8822; }
 
 form#language-selector select {
   padding-left: 2em;
@@ -144,7 +140,7 @@ header h1, header p {
   background: #00ddf0; }
 
 @media screen and (max-width: 640px) {
-  nav.sub li:not(:first-child):before {
+  nav.n-nav.sub li:not(:first-child):before {
     content: none; } }
 .n-slider-wrap {
   background: #eee; }
@@ -152,11 +148,11 @@ header h1, header p {
 .n-slider-wrap.overlay {
   margin-bottom: 0; }
 
-.slider.featured {
+.n-slider.featured {
   margin-bottom: 22px;
   /* 	height: auto !important; */ }
 
-.slider.featured h2 a[href] {
+.n-slider.featured h2 a[href] {
   position: absolute;
   display: block;
   top: 0;
@@ -164,28 +160,28 @@ header h1, header p {
   bottom: 0;
   left: 0; }
 
-.n-slider-wrap .slider.featured {
+.n-slider-wrap .n-slider.featured {
   margin-bottom: 0; }
 
-.slider.featured > * {
+.n-slider.featured > * {
   position: relative;
   text-align: center;
   padding: 9% 0;
   overflow: visible; }
 
-.slider.featured a[href], .slider.featured p {
+.n-slider.featured a[href], .n-slider.featured p {
   color: #fff; }
 
-.slider.featured > div > * {
+.n-slider.featured > div > * {
   padding: 0 .5em;
   display: inline-block;
   background: rgba(0, 0, 0, 0.5);
   color: #fff; }
 
-#content .slider.featured img {
+#content .n-slider.featured img {
   display: none; }
 
-#content .slider.featured > * > img[class*='thumbnail'] {
+#content .n-slider.featured > * > img[class*='thumbnail'] {
   position: absolute;
   z-index: -1;
   margin: auto;
@@ -343,7 +339,7 @@ footer {
 .comment-form p label {
   display: block; }
 
-nav.n-drop ul li a[href] {
+nav.n-nav.n-drop ul li a[href] {
   text-decoration: underline; }
 
 .single h1 {

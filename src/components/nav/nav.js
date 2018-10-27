@@ -6,17 +6,17 @@
 
 	function closeDropNavClickedOutside(e) { // Close the nav when clicking outside
 	
-		if (!e.target.closest('nav li')) {
+		if (!e.target.closest('.n-nav li')) {
 	
-			qa('nav ul').forEach((el) => {
+			qa('.n-nav ul').forEach((el) => {
 				
 				el.removeAttribute(aria_expanded);
 				
 			});
 			
-			if (q('nav :focus')) {
+			if (q('.n-nav :focus')) {
 	
-				q('nav :focus').blur();
+				q('.n-nav :focus').blur();
 			
 			}
 			
@@ -26,7 +26,7 @@
 	
 	function dropNavBlur(e) {
 	
-		var this_nav = e.target.closest('nav');
+		var this_nav = e.target.closest('.n-nav');
 		
 		if (!closestElement(e.relatedTarget, this_nav)) { // if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
 			
@@ -66,7 +66,7 @@
 	
 		// Close focused third level child when focus moves to another top-level item
 		
-		var el = e.target.closest('nav > ul > li');
+		var el = e.target.closest('.n-nav > ul > li');
 		
 		el.parentNode.childNodes.forEach((a) => {
 	
@@ -125,7 +125,7 @@
 	
 		});
 	
-		if (!el.closest('nav.n-drop')) { // The rest is for drop nav only
+		if (!el.closest('.n-nav.n-drop')) { // The rest is for drop nav only
 			
 			return;
 	
@@ -144,7 +144,7 @@
 		
 			if (e.key === 'Escape') {
 				
-				e.target.closest('nav').querySelectorAll('ul').forEach((el) => {
+				e.target.closest('.n-nav').querySelectorAll('ul').forEach((el) => {
 					
 					el.removeAttribute(aria_expanded);
 					
@@ -216,10 +216,10 @@
 
 	var init = (host) => {
 		
-		host.querySelectorAll('nav:not([data-ready]) > ul:not([role])').forEach((el) => {
+		host.querySelectorAll('.n-nav:not([data-ready]) > ul:not([role])').forEach((el) => {
 			
 			initNav(el);
-			makeReady(el.closest('nav'));
+			makeReady(el.closest('.n-nav'));
 			
 		});
 

@@ -113,14 +113,14 @@
 	}
 
 
-	&.top > * p { /* Image captions */
+	&.n-slider--top > * p { /* Image captions */
 	
 		bottom: 0;
 	
 	}
 
 
-	a.button.copy {
+	a.button.n-lightbox--copy {
 		
 		position: absolute;
 		top: $line-height-em/2;
@@ -160,7 +160,7 @@
 
 }
 
-.n-slider.n-lightbox.detached-nav > * p, .n-slider-wrap.outside .n-slider.n-lightbox > * p {
+.n-slider.n-lightbox.detached-nav > * p, .n-slider-wrap.n-slider--outside .n-slider.n-lightbox > * p {
 	
 	bottom: 0;
 	margin-bottom: .5em;
@@ -258,7 +258,7 @@
 	
 }
 
-.outside:not(.n-slider--vertical) {
+.n-slider--outside:not(.n-slider--vertical) {
 	
 	.slider-nav {
 	
@@ -302,7 +302,7 @@
 		
 		}
 		
-		&:not(.top) .n-slider.n-lightbox > * p {
+		&:not(.n-slider--top) .n-slider.n-lightbox > * p {
 			
 			bottom: auto;
 		    top: -1.5em;

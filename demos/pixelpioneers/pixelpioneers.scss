@@ -72,14 +72,14 @@ header img {
 
 }
 
-header nav {
+header nav.n-nav {
 	
 	text-transform: uppercase;
 	font-weight: bold;
 
 }
 
-header nav li + li {
+header nav.n-nav li + li {
 	
 	margin-left: 2em;
 

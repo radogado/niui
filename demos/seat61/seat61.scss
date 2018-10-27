@@ -2,7 +2,7 @@ $dark: #82372B;
 $darker: #622a21;
 $light: #FAF6EF;
 
-html, body, .row.wrap > *, nav.sub a, p, li, .n-lightbox a, .button, input[type=submit], button, label, form .checkbox span, .tip, label span .tip, h4, h5, form label > span {
+html, body, .row.wrap > *, nav.n-nav.sub a, p, li, .n-lightbox a, .button, input[type=submit], button, label, form .checkbox span, .tip, label span .tip, h4, h5, form label > span {
 	
 	font-size: 16px;
 
@@ -50,7 +50,7 @@ header {
 		
 }
 
-header .n-form, header nav {
+header .n-form, header nav.n-nav {
 	
 	display: inline-block;
 	vertical-align: middle;
@@ -59,19 +59,19 @@ header .n-form, header nav {
 
 }
 
-header nav {
+header nav.n-nav {
 	
 	line-height: 3em;
 
 }
 
-nav li {
+nav.n-nav li {
 	
 	display: inline-block;
 	
 }
 
-header nav ul {
+header nav.n-nav ul {
 	
 	display: block;
 
@@ -83,7 +83,7 @@ ul li {
 	
 }
 
-nav a[href] {
+nav.n-nav a[href] {
 	
 	font-size: 1em;
 	padding-right: 1em;
@@ -242,7 +242,7 @@ h4 {
 		
 	}
 	
-	header .row > nav {
+	header .row > nav.n-nav {
 		
 		position: fixed;
 		left: 0;
@@ -270,14 +270,14 @@ h4 {
 		
 	}
 
-	header nav li {
+	header nav.n-nav li {
 		
 		text-align: left;
 		display: block;
 	
 	}
 
-	header nav a[href] {
+	header nav.n-nav a[href] {
 		
 		color: #333;
 	

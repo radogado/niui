@@ -17,10 +17,10 @@ $bg: #1E8DaC;
   --color: #333;
   --bg: #fff; }
 
-nav {
+.n-nav {
   vertical-align: baseline;
   display: inline-block; }
-  nav ul {
+  .n-nav ul {
     margin: 0 0 0 -.5em;
     padding: 0;
     display: inline-block;
@@ -28,60 +28,60 @@ nav {
     list-style: none;
     display: flex;
     flex-wrap: wrap; }
-    nav ul li {
+    .n-nav ul li {
       margin: 0; }
-      nav ul li:last-child {
+      .n-nav ul li:last-child {
         margin-right: 0; }
-  nav.scroll {
+  .n-nav.scroll {
     overflow: auto;
     max-width: 100%; }
-    nav.scroll > ul {
+    .n-nav.scroll > ul {
       display: flex;
       padding: .25em 0;
       flex-wrap: nowrap;
       white-space: nowrap; }
-  nav a {
+  .n-nav a {
     position: relative;
     padding: 0 .5em; }
-  nav .active a[href] {
+  .n-nav .active a[href] {
     text-decoration: none;
     opacity: .7; }
-  nav:not(.n-drop) a[href^='#'] {
+  .n-nav:not(.n-drop) a[href^='#'] {
     text-decoration: none; }
-  nav li:last-child a, nav .vertical li a {
+  .n-nav li:last-child a, .n-nav .vertical li a {
     padding-right: 0; }
 
 @supports (--a: 1) {
-  nav.scroll a {
+  .n-nav--scroll a {
     padding: 0; }
-  nav.scroll > ul {
+  .n-nav--scroll > ul {
     overflow: auto;
     max-width: 100%;
     transform: translate3d(0, 0, 0);
     -webkit-overflow-scrolling: touch; }
-  nav.scroll ul li {
+  .n-nav--scroll ul li {
     padding: 0.75em; } }
-main nav ul {
+main .n-nav ul {
   padding-left: 0; }
 
-nav.n-drop {
+.n-drop {
   --nav-bg: #fff; }
-  nav.n-drop ul {
+  .n-drop ul {
     padding: 0;
     margin: 0;
     min-height: 0;
     z-index: 1; }
-  nav.n-drop ul ul {
+  .n-drop ul ul {
     padding: 0;
     position: absolute;
     left: 0;
     background-color: #fff;
     background-color: var(--nav-bg);
     top: 100%; }
-  nav.n-drop ul ul ul {
+  .n-drop ul ul ul {
     margin-left: 100%;
     top: 0; }
-  nav.n-drop ul li {
+  .n-drop ul li {
     display: inline-block;
     vertical-align: top;
     margin: 0;
@@ -91,39 +91,39 @@ nav.n-drop {
     background-color: var(--nav-bg);
     position: relative;
     width: auto; }
-  nav.n-drop li:not([tabindex]) > ul ~ a {
+  .n-drop li:not([tabindex]) > ul ~ a {
     padding-right: 42px; }
-  nav.n-drop li > a {
+  .n-drop li > a {
     padding: 1em;
     display: block; }
-  nav.n-drop a:focus, nav.n-drop li > :focus {
+  .n-drop a:focus, .n-drop li > :focus {
     outline-offset: -7px; }
-  nav.n-drop a[href] {
+  .n-drop a[href] {
     position: relative; }
-  nav.n-drop li:not([aria-haspopup]) > a {
+  .n-drop li:not([aria-haspopup]) > a {
     z-index: 0; }
-  nav.n-drop ul[role=menubar] li > a {
+  .n-drop ul[role=menubar] li > a {
     margin-right: 0;
     padding-right: 1em; }
-  nav.n-drop ul[role=menubar] li[aria-haspopup] > a {
+  .n-drop ul[role=menubar] li[aria-haspopup] > a {
     margin-right: 0;
     padding-right: 1em; }
-  nav.n-drop li li {
+  .n-drop li li {
     display: block;
     width: 100%; }
-  nav.n-drop ul ul:not([aria-expanded]) {
+  .n-drop ul ul:not([aria-expanded]) {
     min-height: 0;
     max-height: 0;
     overflow: hidden;
     position: absolute; }
-  nav.n-drop ul li > :checked ~ ul, nav.n-drop :focus ~ ul,
-  nav.n-drop a:focus ~ ul, nav.n-drop ul ul[aria-expanded], nav.n-drop li li ul[aria-expanded], nav.n-drop li li:not(:focus) :checked ~ ul {
+  .n-drop ul li > :checked ~ ul, .n-drop :focus ~ ul,
+  .n-drop a:focus ~ ul, .n-drop ul ul[aria-expanded], .n-drop li li ul[aria-expanded], .n-drop li li:not(:focus) :checked ~ ul {
     max-height: none;
     overflow: visible;
     opacity: 1; }
-  nav.n-drop ul ul[aria-expanded], nav.n-drop li li ul[aria-expanded], nav.n-drop li li:not(:focus) :checked ~ ul {
+  .n-drop ul ul[aria-expanded], .n-drop li li ul[aria-expanded], .n-drop li li:not(:focus) :checked ~ ul {
     z-index: 2; }
-  nav.n-drop li > input {
+  .n-drop li > input {
     -webkit-appearance: none;
     -moz-appearance: none;
     display: block;
@@ -135,13 +135,13 @@ nav.n-drop {
     right: 0;
     z-index: 1;
     width: 2em; }
-  nav.n-drop li > ul ~ a, nav.n-drop li[aria-haspopup] {
+  .n-drop li > ul ~ a, .n-drop li[aria-haspopup] {
     background: url("data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M50%20100L0%200h100z%22%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E") calc(100% - 16px) 50% no-repeat/0.5em auto; }
-  nav.n-drop[data-ready] li > ul ~ a {
+  .n-drop[data-ready] li > ul ~ a {
     background: none; }
-  nav.n-drop li li > ul ~ a, nav.n-drop li li[aria-haspopup] {
+  .n-drop li li > ul ~ a, .n-drop li li[aria-haspopup] {
     background-image: url("data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M100%2050L0%20100V0z%22%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E"); }
-  nav.n-drop li[aria-haspopup] {
+  .n-drop li[aria-haspopup] {
     padding-right: calc(42px - 1em); }
 
 @media (min-width: 600px) {
@@ -176,19 +176,19 @@ nav.n-drop {
   nav.n-drop li {
     white-space: nowrap; } }
 @media (max-width: 599.9px) {
-  nav.n-drop ul ul {
+  .n-drop ul ul {
     position: static;
     width: calc(100% + 42px);
     padding-left: .5em;
     overflow: hidden;
     box-sizing: border-box; }
-    nav.n-drop ul ul ul {
+    .n-drop ul ul ul {
       margin: 0; }
-  nav.n-drop ul li {
+  .n-drop ul li {
     width: 100%; }
-    nav.n-drop ul li > input, nav.n-drop ul li[aria-haspopup] {
+    .n-drop ul li > input, .n-drop ul li[aria-haspopup] {
       background-position-y: 1.5em; }
-    nav.n-drop ul li[aria-haspopup] {
+    .n-drop ul li[aria-haspopup] {
       padding-right: 42px; } }
 
 /*# sourceMappingURL=natuive-nav.css.map */

@@ -10,7 +10,7 @@
 
 }
 
-html.full-screen {
+html.n-full-screen {
 	
 	background: #000;
 	
@@ -114,7 +114,7 @@ html.full-screen {
 		
 	}
 	
-	.overlay-bg {
+	.n-overlay-bg {
 		
 		position: absolute;
 		top: 0;
@@ -159,7 +159,7 @@ html.full-screen {
 
 @media (max-height: 512px) and (orientation: landscape) { // Move the close bar to the side, because it's inaccessible with certain toolbar configurations
 	
-	.n-ovrl .n-slider-wrap.overlay, .n-ovrl .n-slider-wrap.vertical.overlay {
+	.n-ovrl .n-slider-wrap.n-slider--overlay, .n-ovrl .n-slider-wrap.vertical.n-slider--overlay {
 		
 		margin: 0;
 		height: 100%;
@@ -198,7 +198,7 @@ html.full-screen {
 	
 	}
 	
-	.overlay.n-slider-wrap {
+	.n-slider--overlay.n-slider-wrap {
 		
 		margin: 0;
 

@@ -36,26 +36,26 @@ header .pad {
 	
 }
 
-header nav a[href] {
+header nav.n-nav a[href] {
 	
 	margin-left: .5em;
 	font-size: .9em;
 	
 }
 
-header nav li:first-child a[href] {
+header nav.n-nav li:first-child a[href] {
 	
 	margin-left: 0;
 	
 }
 
-header nav .active a, header nav:last-child .active a {
+header nav.n-nav .active a, header nav.n-nav:last-child .active a {
 	
 	color: #999;
 	    
 }
 
-header .col25 nav a {
+header .col25 nav.n-nav a {
 	
 	font-size: .75em;
 	color: #999;
