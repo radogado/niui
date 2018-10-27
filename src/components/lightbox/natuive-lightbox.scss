@@ -218,7 +218,7 @@
 	
 	@supports (--a: 1) {
 	
-		.n-lightbox a.video:before {
+		.n-lightbox a.n-lightbox--video:before {
 			
 			content: "▸";
 			border: 1px solid #999;

@@ -17,9 +17,11 @@
 				</a>
 -->
 			<?php $image_data = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "original" ); ?>
-			<span class="aspect align-middle" style="--ratio: <?php echo ($image_data[1] / $image_data[2]); ?>;">
-				<?php the_post_thumbnail(); // Fullsize image for the single post ?>
-			</span>
+			<div style="text-align: center;">
+				<span class="aspect align-middle" style="--ratio: <?php echo ($image_data[1] / $image_data[2]); ?>; --image-width: <?php echo ($image_data[1]) ?>px;">
+					<?php the_post_thumbnail(); // Fullsize image for the single post ?>
+				</span>
+			</div>
 			<?php endif; ?>
 			
 			<!-- /post thumbnail -->

@@ -1107,7 +1107,7 @@ var nui = function () {
       addClass(lightbox_target, 'n-lightbox--inline');
       transferClass(lightbox, lightbox_target, 'n-lightbox--thumbnails');
       transferClass(lightbox, lightbox_target, 'n-slider--top');
-      transferClass(lightbox, lightbox_target, 'fade');
+      transferClass(lightbox, lightbox_target, 'n-slider--fade');
 
       if (inline_static) {
         // If it's inline, it must become a slider/lightbox to replace the original lightbox element
@@ -1127,7 +1127,7 @@ var nui = function () {
       }
 
       transferClass(lightbox, lightbox_target, 'n-slider--vertical');
-      transferClass(lightbox, lightbox_target, 'right');
+      transferClass(lightbox, lightbox_target, 'n-slider--right');
 
       if (lightbox.getAttribute('data-peek')) {
         lightbox_target.setAttribute('data-peek', lightbox.getAttribute('data-peek'));
@@ -1147,11 +1147,11 @@ var nui = function () {
         el.setAttribute('tabindex', 0);
         thumbnails.push(el.querySelector('img') ? el.querySelector('img').getAttribute('data-src') || el.querySelector('img').src : '#');
 
-        if (hasClass(el, 'video') || el.querySelector('video')) {
+        if (hasClass(el, 'n-lightbox--video') || el.querySelector('n-lightbox--video')) {
           // video poster = the anchor's img child, if it exists
           if (hasClass(lightbox, 'n-slider')) {
             // Secondary lightbox
-            images += "<div>".concat(el.querySelector('video').outerHTML, "</div>");
+            images += "<div>".concat(el.querySelector('n-lightbox--video').outerHTML, "</div>");
           } else {
             images += "<div><video poster=".concat(el.querySelector('img') ? el.querySelector('img').src : '#', " controls=controls preload=none> <source type=video/mp4 src=").concat(el.href, "> </video></div>");
           }
@@ -1288,8 +1288,8 @@ var nui = function () {
         openLightbox(q('.n-lightbox:target > a[href]'));
       }
 
-      if (q('.modal:target')) {
-        q('.modal:target').click();
+      if (q('.n-modal:target')) {
+        q('.n-modal:target').click();
       }
     }, 1);
 
@@ -1872,7 +1872,7 @@ var nui = function () {
     }
 
     function notify(content, option) {
-      bodyElement.insertAdjacentHTML('afterbegin', "<div class=\"n-notify".concat(option && option.indexOf('fixed') !== -1 ? ' fixed' : '', "\">").concat(content, "</div>"));
+      bodyElement.insertAdjacentHTML('afterbegin', "<div class=\"n-notify".concat(option && option.indexOf('fixed') !== -1 ? ' n-notify--fixed' : '', "\">").concat(content, "</div>"));
       notifyCloseEvent();
 
       if (option && option.indexOf('timeout') !== -1) {
@@ -2147,7 +2147,7 @@ var nui = function () {
       var height_change = '';
       var height_current = '';
 
-      if (hasClass(slider, 'auto-height')) {
+      if (hasClass(slider, 'n-slider--auto-height')) {
         height_change = "height: ".concat(target_slide.scrollHeight, "px");
         height_current = "height: ".concat(slider.scrollHeight, "px");
       }
@@ -2238,7 +2238,7 @@ var nui = function () {
         endSlide(slider, index, old_index);
       }
 
-      if (hasClass(slider, 'fade-overlap')) {
+      if (hasClass(slider, 'n-slider--fade-overlap')) {
         // fade slides in/out directly. Overlap new and old slides.
         slider.children[index].style.opacity = '0';
         slider.children[index > old_index ? index : old_index].style.marginLeft = '-100%';
@@ -2250,7 +2250,7 @@ var nui = function () {
       } else {
         var animation_code;
 
-        if (hasClass(slider, 'fade')) {
+        if (hasClass(slider, 'n-slider--fade')) {
           // fade out to a color and fade in to the new slide
           animation_code = "0% { opacity: 1; transform: ".concat(translate_from, "; ").concat(height_current, "} 49% { transform: ").concat(translate_from, " } 51% { opacity: 0; transform: ").concat(translate_to, " } 100% { ").concat(height_change, "; opacity: 1; transform: ").concat(translate_to, " }");
         } else {
@@ -2369,14 +2369,14 @@ var nui = function () {
         }
 
         transferClass(el, container, 'n-slider--vertical');
-        transferClass(el, container, 'wrap');
+        transferClass(el, container, 'n-wrap');
         transferClass(el, container, 'n-slider--top');
-        transferClass(el, container, 'right');
+        transferClass(el, container, 'n-slider--right');
         transferClass(el, container, 'n-slider--overlay');
         var peek = el.getAttribute('data-peek');
 
         if (peek) {
-          addClass(container, 'peek');
+          addClass(container, 'n-slider--peek');
 
           if (hasClass(el, 'n-slider--vertical')) {
             container.style.padding = peek + ' 0';
@@ -2399,14 +2399,14 @@ var nui = function () {
         slider_nav = container.querySelector('.slider-nav:not([data-for])'); // Not data-for to avoid nested detached nav for nested sliders
       }
 
-      container.insertAdjacentHTML('beforeend', '<a class="slider-arrow left" tabindex=0></a><a class="slider-arrow right" tabindex=0></a>'); // Generate controls
+      container.insertAdjacentHTML('beforeend', '<a class="slider-arrow n-slider--left" tabindex=0></a><a class="slider-arrow n-slider--right" tabindex=0></a>'); // Generate controls
 
       for (var i = 0; i < el.children.length; i++) {
-        if (hasClass(el, 'tabs')) {
-          addClass(container, 'tabs');
+        if (hasClass(el, 'n-tabs')) {
+          addClass(container, 'n-tabs');
           addClass(slider_nav, 'row');
-          addClass(slider_nav, 'tabs');
-          transferClass(container, slider_nav, 'wrap');
+          addClass(slider_nav, 'n-tabs');
+          transferClass(container, slider_nav, 'n-wrap');
           transferClass(el, container, 'n-slider--vertical');
           var tab_title = el.children[i].getAttribute('data-tab_title') || (el.children[i].querySelector('.tab-title') ? el.children[i].querySelector('.tab-title').innerHTML : i + 1);
           slider_nav.insertAdjacentHTML('beforeend', "<a tabindex=\"0\">".concat(tab_title, "</a>"));
@@ -2438,7 +2438,7 @@ var nui = function () {
 
       cancelTouchEvent(container.querySelector('.slider-arrow'));
 
-      container.querySelector('.slider-arrow.right').onclick = container.querySelector('.slider-arrow.right').onkeyup = function (e) {
+      container.querySelector('.slider-arrow.n-slider--right').onclick = container.querySelector('.slider-arrow.n-slider--right').onkeyup = function (e) {
         if (e.type === 'keyup' && e.keyCode !== 13) {
           // Slide on Enter key
           return;
@@ -2447,7 +2447,7 @@ var nui = function () {
         slide(e.target, 'right');
       };
 
-      cancelTouchEvent(container.querySelector('.slider-arrow.right'));
+      cancelTouchEvent(container.querySelector('.slider-arrow.n-slider--right'));
       mouseEvents(el);
       swipeEvents(container);
       container.addEventListener('swipeLeft', function (e) {

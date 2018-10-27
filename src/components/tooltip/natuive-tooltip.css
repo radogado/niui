@@ -32,7 +32,7 @@ $bg: #1E8DaC;
   .n-tool[aria-expanded]:after {
     content: '╳'; }
 
-.n-tool--tip, label span .n-tool--tip {
+.n-tool--tip, .n-tool--label .n-tool--tip {
   font-size: 16px;
   line-height: 1.5;
   min-height: 1.5em;

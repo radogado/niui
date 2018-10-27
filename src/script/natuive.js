@@ -1454,7 +1454,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		addClass(lightbox_target, 'n-lightbox--inline');
 		transferClass(lightbox, lightbox_target, 'n-lightbox--thumbnails');
 		transferClass(lightbox, lightbox_target, 'n-slider--top');
-		transferClass(lightbox, lightbox_target, 'fade');
+		transferClass(lightbox, lightbox_target, 'n-slider--fade');
 	
 		if (inline_static) { // If it's inline, it must become a slider/lightbox to replace the original lightbox element
 			// Replace the lightbox by a slider lightbox. Generate the new slider/lightbox in place of the original one
@@ -1478,7 +1478,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		}
 	
 		transferClass(lightbox, lightbox_target, 'n-slider--vertical');
-		transferClass(lightbox, lightbox_target, 'right');
+		transferClass(lightbox, lightbox_target, 'n-slider--right');
 	
 		if (lightbox.getAttribute('data-peek')) {
 					
@@ -1501,12 +1501,12 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 		    thumbnails.push((el.querySelector('img') ? (el.querySelector('img').getAttribute('data-src') || el.querySelector('img').src) : '#'));
 	
-			if (hasClass(el, 'video') || el.querySelector('video')) {
+			if (hasClass(el, 'n-lightbox--video') || el.querySelector('n-lightbox--video')) {
 				// video poster = the anchor's img child, if it exists
 	
 				if (hasClass(lightbox, 'n-slider')) { // Secondary lightbox
 					
-					images += `<div>${el.querySelector('video').outerHTML}</div>`;
+					images += `<div>${el.querySelector('n-lightbox--video').outerHTML}</div>`;
 					
 				} else {
 					
@@ -1703,9 +1703,9 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 			
 		}
 		
-		if (q('.modal:target')) {
+		if (q('.n-modal:target')) {
 			
-			q('.modal:target').click();
+			q('.n-modal:target').click();
 			
 		}
 		
@@ -2423,7 +2423,7 @@ var componentNotify = (function (){
 	
 	function notify(content, option) {
 		
-		bodyElement.insertAdjacentHTML('afterbegin', `<div class="n-notify${(option && (option.indexOf('fixed') !== -1) ? ' fixed' : '')}">${content}</div>`);
+		bodyElement.insertAdjacentHTML('afterbegin', `<div class="n-notify${(option && (option.indexOf('fixed') !== -1) ? ' n-notify--fixed' : '')}">${content}</div>`);
 		notifyCloseEvent();
 		if (option && option.indexOf('timeout') !== -1) {
 			
@@ -2787,7 +2787,7 @@ var componentSlider = (function (){
 		var height_change = '';
 		var height_current = '';
 		
-		if (hasClass(slider, 'auto-height')) {
+		if (hasClass(slider, 'n-slider--auto-height')) {
 			
 			height_change =	`height: ${target_slide.scrollHeight}px`;
 			height_current = `height: ${slider.scrollHeight}px`;
@@ -2909,7 +2909,7 @@ var componentSlider = (function (){
 	
 	    }
 		    
-		if (hasClass(slider, 'fade-overlap')) { // fade slides in/out directly. Overlap new and old slides.
+		if (hasClass(slider, 'n-slider--fade-overlap')) { // fade slides in/out directly. Overlap new and old slides.
 			
 		    slider.children[index].style.opacity = '0';
 			slider.children[index > old_index ? index : old_index].style.marginLeft = '-100%';
@@ -2925,7 +2925,7 @@ var componentSlider = (function (){
 			
 			var animation_code;
 	
-			if (hasClass(slider, 'fade')) { // fade out to a color and fade in to the new slide
+			if (hasClass(slider, 'n-slider--fade')) { // fade out to a color and fade in to the new slide
 		
 				animation_code = `0% { opacity: 1; transform: ${translate_from}; ${height_current}} 49% { transform: ${translate_from} } 51% { opacity: 0; transform: ${translate_to} } 100% { ${height_change}; opacity: 1; transform: ${translate_to} }`;
 			
@@ -3081,14 +3081,14 @@ var componentSlider = (function (){
 			}
 			
 		    transferClass(el, container, 'n-slider--vertical');
-	        transferClass(el, container, 'wrap');
+	        transferClass(el, container, 'n-wrap');
 	        transferClass(el, container, 'n-slider--top');
-	        transferClass(el, container, 'right');
+	        transferClass(el, container, 'n-slider--right');
 	        transferClass(el, container, 'n-slider--overlay');
 			var peek = el.getAttribute('data-peek');
 			if (peek) {
 				
-				addClass(container, 'peek');
+				addClass(container, 'n-slider--peek');
 				
 				if (hasClass(el, 'n-slider--vertical')) {
 	
@@ -3121,18 +3121,18 @@ var componentSlider = (function (){
 		
 		}
 		
-	    container.insertAdjacentHTML('beforeend', '<a class="slider-arrow left" tabindex=0></a><a class="slider-arrow right" tabindex=0></a>');
+	    container.insertAdjacentHTML('beforeend', '<a class="slider-arrow n-slider--left" tabindex=0></a><a class="slider-arrow n-slider--right" tabindex=0></a>');
 	
 	    // Generate controls
 
 	    for (var i = 0; i < el.children.length; i++) {
 	
-	        if (hasClass(el, 'tabs')) {
+	        if (hasClass(el, 'n-tabs')) {
 	
-	            addClass(container, 'tabs');
+	            addClass(container, 'n-tabs');
 	            addClass(slider_nav, 'row');
-	            addClass(slider_nav, 'tabs');
-	            transferClass(container, slider_nav, 'wrap');
+	            addClass(slider_nav, 'n-tabs');
+	            transferClass(container, slider_nav, 'n-wrap');
 	            transferClass(el, container, 'n-slider--vertical');
 	            var tab_title = el.children[i].getAttribute('data-tab_title') || (el.children[i].querySelector('.tab-title') ? el.children[i].querySelector('.tab-title').innerHTML : i+1);
 	            slider_nav.insertAdjacentHTML('beforeend', `<a tabindex="0">${tab_title}</a>`);
@@ -3176,7 +3176,7 @@ var componentSlider = (function (){
 	    
 	    cancelTouchEvent(container.querySelector('.slider-arrow'));
 	
-	    container.querySelector('.slider-arrow.right').onclick = container.querySelector('.slider-arrow.right').onkeyup = (e) => {
+	    container.querySelector('.slider-arrow.n-slider--right').onclick = container.querySelector('.slider-arrow.n-slider--right').onkeyup = (e) => {
 	
 			if (e.type === 'keyup' && e.keyCode !== 13) { // Slide on Enter key
 				
@@ -3187,7 +3187,7 @@ var componentSlider = (function (){
 	
 	    };
 	
-	    cancelTouchEvent(container.querySelector('.slider-arrow.right'));
+	    cancelTouchEvent(container.querySelector('.slider-arrow.n-slider--right'));
 	
 	    mouseEvents(el);
 	

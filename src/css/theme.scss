@@ -91,13 +91,13 @@ form#language-selector select {
 
 }
 
-form .select {
+.n-form .select {
 
 	background: #eee url(../images/select-arrow.svg) calc(100% - .7em) 50% no-repeat / auto 50%;
 
 }
 
-header form .select {
+header .n-form .select {
 	
 	height: $line-height;
 	
@@ -117,14 +117,14 @@ header form .select {
 		
 	}
 	
-	.button.big:after {
+	.button.button-big:after {
 	
 		content: '►';
 		padding-left: .3em;
 	
 	}
 
-	.button.big, input[type=submit], button {
+	.button.button-big, input[type=submit], button {
 
 		font-size: 1.2em;
 		color: #fff;
@@ -132,7 +132,7 @@ header form .select {
 
 	}
 	
-	.button.big:active, input[type=submit]:active {
+	.button.button-big:active, input[type=submit]:active {
 
 		background: rgb(0,121,140);
 

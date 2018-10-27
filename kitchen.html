@@ -198,7 +198,7 @@
 						
 						</p>
 
-						<a href=//github.com/radogado/natuive class='big button'>Get it from GitHub</a>
+						<a href=//github.com/radogado/natuive class='button-big button'>Get it from GitHub</a>
 
 					</div>
 
@@ -459,7 +459,7 @@
 
 						<h2>Single slide lightbox</h2>
 						
-						<div id="gallery1-2" class="n-lightbox n-lightbox--thumbnails n-full-screen gallery gallery-1 gallery-columns-3 gallery-size-thumbnail" itemscope="" itemtype="//schema.org/ImageGallery">
+						<div id="gallery1-2" class="n-lightbox n-lightbox--thumbnails n-full-screen">
 							<a href="//ds4jxjfidrdz4.cloudfront.net/wordpress/wp-content/uploads/2015/09/11100220/DSC_0225.jpg" itemprop="contentURL" title="">
 								<img width="150" height="150" src="//ds4jxjfidrdz4.cloudfront.net/wordpress/wp-content/uploads/2015/09/11100220/DSC_0225-150x150.jpg" class="attachment-thumbnail size-thumbnail" alt="" itemprop="thumbnail">
 							</a>
@@ -475,7 +475,7 @@
 								
 									<h3> Full screen </h3>
 			
-									<div id=lightbox class='n-lightbox full-screen'>
+									<div id=lightbox class='n-lightbox n-full-screen'>
 									
 										<a href=images/DSC_5823.jpg title="First Image"> <span> Text Lightbox </span> </a>
 										
@@ -495,7 +495,7 @@
 						
 								<h3> Vertical </h3>
 									
-								<div id=lightbox2 class='n-lightbox vertical row n-lightbox--thumbnails-' data-anim-="0% { opacity: 0; } 100% { opacity: 1; }" style="flex-direction: row;">
+								<div id=lightbox2 class='n-lightbox n-slider--vertical row n-lightbox--thumbnails-' data-anim-="0% { opacity: 0; } 100% { opacity: 1; }" style="flex-direction: row;">
 								
 									<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/07/DSC02548.jpg title='First Image'> <span> Wide image </span> </a>
 									<a href=images/DSC_5823.jpg title='First Image'> <span> Text Lightbox </span> </a>
@@ -508,7 +508,7 @@
 								
 									<a href=images/DSC_4225.jpg title='Third Image'> <img src=images/DSC_4225-t.jpg alt=2> </a>
 		
-									<a href=//s3.amazonaws.com/gado/Outlying-Teaser.mp4 title='Video' class="video"> <img src=images/video.jpg alt=Thumbnail> </a>
+									<a href=//s3.amazonaws.com/gado/Outlying-Teaser.mp4 title='Video' class="n-lightbox--video"> <img src=images/video.jpg alt=Thumbnail> </a>
 								
 									<a href=external.html title='iframe' class="iframe"> 📑 iframe </a>
 		
@@ -524,7 +524,7 @@
 						
 						<div class="aspect-" style="--ratio: 1.67">
 			
-							<div id=lightbox3 class='n-lightbox n-lightbox--inline n-lightbox--thumbnails outside vertical' data-duration='2' draggable="true">
+							<div id=lightbox3 class='n-lightbox n-lightbox--inline n-lightbox--thumbnails n-slider--outside n-slider--vertical' data-duration='2' draggable="true">
 							
 								<a href=images/DSC_5823.jpg title='First Image'> <span> Text Lightbox </span> </a>
 								
@@ -556,7 +556,7 @@
 								
 								<a href=images/DSC_4225.jpg title='Third Image'> <img src=images/DSC_4225-t.jpg alt=2> </a>
 	
-								<a href=//s3.amazonaws.com/gado/Outlying-Teaser.mp4 title='Video' class="video"> <img src=images/video.jpg alt=Thumbnail> </a>
+								<a href=//s3.amazonaws.com/gado/Outlying-Teaser.mp4 title='Video' class="n-lightbox--video"> <img src=images/video.jpg alt=Thumbnail> </a>
 							
 							</div>
 						
@@ -1045,7 +1045,7 @@
 			
 						<h2 id=tabs>Tabs</h2>
 						
-						<div class='n-slider vertical tabs' data-duration-=5>
+						<div class='n-slider n-slider--vertical n-tabs' data-duration-=5>
 							
 							<div data-tab_title='Nested slider'>
 								
@@ -1093,7 +1093,7 @@
 						
 						<br>
 						
-						<div class='n-slider n-slider--top tabs auto-height' data-duration=1>
+						<div class='n-slider n-slider--top n-tabs n-slider--auto-height' data-duration=1>
 							
 							<div style="background: mintcream;"> <div class="pad"><h3 class="tab-title">Tab 1</h3> <p>Content of Tab 1</p></div> </div>
 	
@@ -1162,7 +1162,7 @@
 					
 					<h2>Forms in Slider</h2>
 
-					<div class='n-slider pad fade-overlap' data-autoslide-=2 id=slider data-duration-=9 data-peek-=15%>
+					<div class='n-slider pad n-slider--fade-overlap' data-autoslide-=2 id=slider data-duration-=9 data-peek-=15%>
 						
 						<div>
 							
@@ -1509,7 +1509,7 @@
 					
 					<h2>Cards</h2>
 					
-					<div class='n-slider fade' id=cards data-autoslide-=3>
+					<div class='n-slider n-slider--fade' id=cards data-autoslide-=3>
 											
 						<div><div class="n-card">
 							

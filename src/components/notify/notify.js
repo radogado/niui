@@ -24,7 +24,7 @@ var componentNotify = (function (){
 	
 	function notify(content, option) {
 		
-		bodyElement.insertAdjacentHTML('afterbegin', `<div class="n-notify${(option && (option.indexOf('fixed') !== -1) ? ' fixed' : '')}">${content}</div>`);
+		bodyElement.insertAdjacentHTML('afterbegin', `<div class="n-notify${(option && (option.indexOf('fixed') !== -1) ? ' n-notify--fixed' : '')}">${content}</div>`);
 		notifyCloseEvent();
 		if (option && option.indexOf('timeout') !== -1) {
 			

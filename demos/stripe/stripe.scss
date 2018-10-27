@@ -447,7 +447,7 @@ nav.n-nav.n-drop li {
 	
 }
 
-.n-slider-wrap.vertical.tabs>.slider-nav a {
+.n-slider-wrap.n-slider--vertical.tabs>.slider-nav a {
 	
 	background: none;
     color: #6772e5;
@@ -455,7 +455,7 @@ nav.n-nav.n-drop li {
     	
 }
 
-.n-slider-wrap.vertical.tabs>.slider-nav a[data-active] {
+.n-slider-wrap.n-slider--vertical.tabs>.slider-nav a[data-active] {
 	
 	background: #fff;
     color: #24b47e;
@@ -463,13 +463,13 @@ nav.n-nav.n-drop li {
 	
 }
 
-.n-slider-wrap.vertical.tabs>.slider-nav.row {
+.n-slider-wrap.n-slider--vertical.tabs>.slider-nav.row {
 	
 	width: 20%;
 	
 }
 
-.n-slider-wrap.vertical.tabs>.n-slider {
+.n-slider-wrap.n-slider--vertical.tabs>.n-slider {
 	
 	width: 80%;
 	
@@ -484,7 +484,7 @@ nav.n-nav.n-drop li {
 	    
 }
 
-.n-slider-wrap.vertical.tabs.right>.slider-nav.row {
+.n-slider-wrap.n-slider--vertical.tabs.right>.slider-nav.row {
 	
 	padding: 1em 0;
 	

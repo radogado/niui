@@ -31,7 +31,7 @@
 	
 	}
 	
-	&.scroll {
+	&.n-nav--scroll {
 		
 		overflow: auto;
 		max-width: 100%;
@@ -67,7 +67,7 @@
 
 	}
 	
-	li:last-child a, .vertical li a {
+	li:last-child a, li a {
 		
 		padding-right: 0;
 

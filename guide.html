@@ -34,7 +34,7 @@
 		
 		<div class="col34">
 
-			<div class='n-slider tabs n-slider--vertical' id='guide-slider' data-duration-="5">
+			<div class='n-slider n-tabs n-slider--vertical' id='guide-slider' data-duration-="5">
 			
 				<div data-tab_title='natUIve guide' id=home>
 					
@@ -164,7 +164,7 @@
 								</ul>
 							</li>
 							<li>Use <pre>section</pre> elements in <pre>main</pre> to clear inner margins at top/bottom</li>
-							<li><pre>header.fixed</pre> for fixed header on top on narrow screens (below 600px threshold)</li>
+							<li><pre>header.n-fixed</pre> for fixed header on top on narrow screens (below 600px threshold)</li>
 							<li>Include <b>natuive.js</b> from src/script instead of <b>natuive.min.js</b> to use <pre>nui.animate()</pre> etc.</li>
 							<li><b>body.n-sticky-footer</b> for a sticky footer and vertical space taken by <b>main</b>.</li>
 						
@@ -890,7 +890,7 @@
 
 <div class="code">							
 
-<pre><code class="language-markup">&lt;nav class=n-nav&gt;
+<pre><code class="language-markup">&lt;nav class='n-nav'&gt;
 	&lt;ul class='n-list--inline'&gt;
 		&lt;li&gt; &lt;a href=#buttons&gt;Buttons&lt;/a&gt; &lt;/li&gt;
 	&lt;/ul&gt;							
@@ -923,7 +923,7 @@
 
 <div class="code">							
 
-<pre><code class="language-markup">&lt;nav class=n-nav&gt;
+<pre><code class="language-markup">&lt;nav class='n-nav'&gt;
 	&lt;ul class='n-list--inline n-big-text'&gt;
 		&lt;li class='active'&gt; &lt;a href=#grid&gt;Grid&lt;/a&gt; &lt;/li&gt;
 		&lt;li&gt; &lt;a href=#slider&gt;Slider&lt;/a&gt; &lt;/li&gt;
@@ -1180,7 +1180,7 @@
 <div class="code">
 <pre><code class="language-markup">&lt;header class=&quot;n-fixed-mobile&quot;&gt;
 	
-	&lt;div class=&quot;n-fold mobile&quot;&gt;
+	&lt;div class=&quot;n-fold n-fold--mobile&quot;&gt;
 				
 		&lt;div class=&quot;label&quot;&gt; &lt;span class=&quot;burger&quot;&gt;&lt;/span&gt; &lt;/div&gt;
 
@@ -1390,7 +1390,7 @@
 							
 							<h3>Vertical</h3>
 							
-							<div class='n-slider vertical'>
+							<div class='n-slider n-slider--vertical'>
 								
 								<div class='align-center'><p><br><br>One<br><br></p></div>
 								<div class='align-center'><p><br><br>Two</p></div>
@@ -1400,7 +1400,7 @@
 						
 <div class="code">							
 
-<pre><code class="language-markup">&lt;div class='n-slider vertical'&gt;
+<pre><code class="language-markup">&lt;div class='n-slider n-slider--vertical'&gt;
 	&lt;div&gt;Slide 1&lt;/div&gt;
 	&lt;div&gt;Slide 2&lt;/div&gt;
 &lt;/div&gt;</code>
@@ -1413,7 +1413,7 @@
 
 							<h3>Vertical with controls on the right</h3>
 							
-							<div class='n-slider vertical right'>
+							<div class='n-slider n-slider--vertical n-slider--right'>
 								
 								<div class='align-center'><p><br><br>One<br><br></p></div>
 								<div class='align-center'><p><br><br>Two<br><br></p></div>
@@ -1422,7 +1422,7 @@
 						
 <div class="code">							
 
-<pre><code class="language-markup">&lt;div class='n-slider vertical right'&gt;
+<pre><code class="language-markup">&lt;div class='n-slider n-slider--vertical n-slider--right'&gt;
 	&lt;div&gt;Slide 1&lt;/div&gt;
 	&lt;div&gt;Slide 2&lt;/div&gt;
 &lt;/div&gt;</code>
@@ -1480,7 +1480,7 @@
 							
 							<h3>Fade in/out</h3>
 							
-							<div class='n-slider fade pad'>
+							<div class='n-slider n-slider--fade pad'>
 								
 								<div><p>One</p></div>
 								<div><p>Two</p></div>
@@ -1490,7 +1490,7 @@
 						
 <div class="code">							
 
-<pre><code class="language-markup">&lt;div class='n-slider fade'&gt;
+<pre><code class="language-markup">&lt;div class='n-slider n-slider--fade'&gt;
 	&lt;div&gt;Slide 1&lt;/div&gt;
 	&lt;div&gt;Slide 2&lt;/div&gt;
 &lt;/div&gt;</code>
@@ -1503,7 +1503,7 @@
 
 							<h3>Auto height</h3>
 							
-							<div class='n-slider auto-height pad'>
+							<div class='n-slider n-slider--auto-height pad'>
 								
 								<div class='align-center'><p>One</p></div>
 								<div class='align-center'><p><br><br>Two<br><br>taller than One</p></div>
@@ -1512,7 +1512,7 @@
 						
 <div class="code">							
 
-<pre><code class="language-markup">&lt;div class='n-slider auto-height pad'&gt;
+<pre><code class="language-markup">&lt;div class='n-slider n-slider--auto-height pad'&gt;
 	&lt;div&gt;Slide 1&lt;/div&gt;
 	&lt;div&gt;Slide 2&lt;/div&gt;
 &lt;/div&gt;</code>
@@ -1562,7 +1562,7 @@
 								<li>Detach slider nav by adding an <b>id</b> to the slider and creating <pre>&lt;div class='slider-nav' data-for='slider-id'&gt;</pre> elsewhere</li>
 								<li>URI with hash matching a slide id in a slider, auto slides to it.</li>
 								<li><pre>data-peek=20%</pre> to peek at neighboring slides, where 20% becomes 20% padding on left and right</li>
-								<li><pre>&lt;div class='n-slider fade-overlap'&gt;</pre> to overlap the two slides while fading out/in</li>
+								<li><pre>&lt;div class='n-slider n-slider--fade-overlap'&gt;</pre> to overlap the two slides while fading out/in</li>
 							
 							</ul>
 						
@@ -1586,7 +1586,7 @@
 
 							<h3>Tabs at the bottom</h3>
 	
-							<div class='n-slider tabs'>
+							<div class='n-slider n-tabs'>
 								
 								<div> <h3 class='tab-title'>Tab 1</h3> <p>Content of Tab 1</p> </div>
 							
@@ -1596,7 +1596,7 @@
 						
 <div class="code">							
 
-<pre><code class="language-markup">&lt;div class='n-slider tabs'&gt;
+<pre><code class="language-markup">&lt;div class='n-slider n-tabs'&gt;
 	&lt;div&gt; ... &lt;/div&gt;
 	&lt;div data-tab_title='Tab 1'&gt; ... &lt;/div&gt;
 	&lt;div&gt; &lt;h2 class='tab-title'&gt;Tab title and content&lt;/h2&gt; ... &lt;/div&gt;
@@ -1612,7 +1612,7 @@
 
 							<h3>Tabs on top with auto height</h3>
 	
-							<div class='n-slider n-slider--top tabs auto-height' data-duration=1>
+							<div class='n-slider n-slider--top n-tabs n-slider--auto-height' data-duration=1>
 		
 								<div style='background: mintcream;'> <div class='pad'><h3 class='tab-title'>Tab 1</h3> <p>Content of Tab 1</p></div> </div>
 	
@@ -1622,7 +1622,7 @@
 						
 <div class="code">							
 
-<pre><code class="language-markup">&lt;div class='n-slider n-slider--top tabs auto-height'&gt;
+<pre><code class="language-markup">&lt;div class='n-slider n-slider--top n-tabs n-slider--auto-height'&gt;
 	&lt;div data-tab_title='Tab 1'&gt; ... &lt;/div&gt;
 	...
 &lt;/div&gt;</code>
@@ -1635,7 +1635,7 @@
 	
 							<h3>Vertical tabs</h3>	
 		
-							<div class='n-slider vertical tabs'>
+							<div class='n-slider n-slider--vertical n-tabs'>
 				
 				<div data-tab_title='Tab 1'>
 					
@@ -1663,7 +1663,7 @@
 					
 <div class="code">							
 
-<pre><code class="language-markup">&lt;div class='n-slider vertical tabs'&gt;
+<pre><code class="language-markup">&lt;div class='n-slider n-slider--vertical n-tabs'&gt;
 	&lt;div data-tab_title='Tab 1'&gt; ... &lt;/div&gt;
 	...
 &lt;/div&gt;</code>
@@ -1676,7 +1676,7 @@
 
 							<h3>Vertical tabs on the right</h3>	
 		
-							<div class='n-slider vertical tabs right'>
+							<div class='n-slider n-slider--vertical n-tabs n-slider--right'>
 				
 				<div data-tab_title='Tab 1'>
 					
@@ -1706,7 +1706,7 @@
 							
 <div class="code">							
 
-<pre><code class="language-markup">&lt;div class='n-slider vertical tabs right'&gt;
+<pre><code class="language-markup">&lt;div class='n-slider n-slider--vertical n-tabs n-slider--right'&gt;
 	&lt;div data-tab_title='Tab 1'&gt; ... &lt;/div&gt;
 	...
 &lt;/div&gt;</code>
@@ -1720,7 +1720,7 @@
 
 							<h3>Tabs at the bottom with detached nav</h3>
 	
-							<div class='n-slider tabs' id=detached-tabs>
+							<div class='n-slider n-tabs' id=detached-tabs>
 								
 								<div> <h3 class='tab-title'>Tab 1</h3> <p>Content of Tab 1</p> </div>
 							
@@ -1730,7 +1730,7 @@
 						
 <div class="code">							
 
-<pre><code class="language-markup">&lt;div class='n-slider tabs' id='detached-tabs'&gt;
+<pre><code class="language-markup">&lt;div class='n-slider n-tabs' id='detached-tabs'&gt;
 	&lt;div&gt; ... &lt;/div&gt;
 	&lt;div data-tab_title='Tab 1'&gt; ... &lt;/div&gt;
 	&lt;div&gt; &lt;h2 class='tab-title'&gt;Tab title and content&lt;/h2&gt; ... &lt;/div&gt;
@@ -1809,7 +1809,7 @@
 							
 							<h3> Full screen </h3>
 							
-							<div id=lightbox1 class='n-lightbox full-screen'>
+							<div id=lightbox1 class='n-lightbox n-full-screen'>
 							
 								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/07/DSC02506.jpg title='First Hong Kong photo'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/07/DSC02506-88x88.jpg alt=1> </a>
 								
@@ -1837,7 +1837,7 @@
 							
 							<h3> Vertical with thumbnails </h3>
 								
-							<div id=lightbox2 class='n-lightbox vertical n-lightbox--thumbnails'>
+							<div id=lightbox2 class='n-lightbox n-slider--vertical n-lightbox--thumbnails'>
 							
 								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/06/DSC00134.jpg title='First photo from Japan'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/06/DSC00134-88x88.jpg alt=1> </a>
 								
@@ -1850,7 +1850,7 @@
 
 <div class="code">							
 
-<pre><code class="language-markup">&lt;div class='n-lightbox vertical n-lightbox--thumbnails'&gt;
+<pre><code class="language-markup">&lt;div class='n-lightbox n-slider--vertical n-lightbox--thumbnails'&gt;
 	&lt;a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756.jpg title='First Taipei photo'&gt;
 		&lt;img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756-88x88.jpg alt=1&gt;
 	&lt;/a&gt;
@@ -1899,7 +1899,7 @@
 							
 							<div class="aspect" style="--ratio: 1.67">
 								
-								<div id=lightbox44 class='n-lightbox n-lightbox--inline n-lightbox--thumbnails vertical n-slider--outside-'>
+								<div id=lightbox44 class='n-lightbox n-lightbox--inline n-lightbox--thumbnails n-slider--vertical n-slider--outside-'>
 							
 									<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916.jpg title='First photo from Paris'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916-88x88.jpg alt=2> </a>
 	
@@ -1938,7 +1938,7 @@
 
 <div class="code">							
 
-<pre><code class="language-markup">&lt;div class='n-lightbox n-lightbox--inline n-lightbox--thumbnails vertical'&gt;
+<pre><code class="language-markup">&lt;div class='n-lightbox n-lightbox--inline n-lightbox--thumbnails n-slider--vertical'&gt;
 	&lt;a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756.jpg title='First Taipei photo'&gt;
 		&lt;img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756-88x88.jpg alt=1&gt;
 	&lt;/a&gt;

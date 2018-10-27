@@ -83,7 +83,7 @@ header {
 	    
 }
 
-.slider-arrow.right:before {
+.slider-arrow.n-slider--right:before {
 	
 	content: '⟩';
 	margin-left: -.25em;
@@ -134,7 +134,7 @@ footer h4 {
 
 }
 
-form#language-selector select {
+.n-form#language-selector select {
 	
 	margin: 0;
     background-color: transparent;
@@ -149,7 +149,7 @@ form#language-selector select {
 	
 }
 
-ul.vertical li {
+ul li {
 	
 	margin: 0;
 

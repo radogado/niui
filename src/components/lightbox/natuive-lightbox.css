@@ -129,7 +129,7 @@ $bg: #1E8DaC;
   margin: 0 auto; }
 
 @supports (--a: 1) {
-  .n-lightbox a.video:before {
+  .n-lightbox a.n-lightbox--video:before {
     content: "▸";
     border: 1px solid #999;
     position: absolute;

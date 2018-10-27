@@ -110,7 +110,7 @@ var componentLightbox = (function (){
 		addClass(lightbox_target, 'n-lightbox--inline');
 		transferClass(lightbox, lightbox_target, 'n-lightbox--thumbnails');
 		transferClass(lightbox, lightbox_target, 'n-slider--top');
-		transferClass(lightbox, lightbox_target, 'fade');
+		transferClass(lightbox, lightbox_target, 'n-slider--fade');
 	
 		if (inline_static) { // If it's inline, it must become a slider/lightbox to replace the original lightbox element
 			// Replace the lightbox by a slider lightbox. Generate the new slider/lightbox in place of the original one
@@ -134,7 +134,7 @@ var componentLightbox = (function (){
 		}
 	
 		transferClass(lightbox, lightbox_target, 'n-slider--vertical');
-		transferClass(lightbox, lightbox_target, 'right');
+		transferClass(lightbox, lightbox_target, 'n-slider--right');
 	
 		if (lightbox.getAttribute('data-peek')) {
 					
@@ -157,12 +157,12 @@ var componentLightbox = (function (){
 	
 		    thumbnails.push((el.querySelector('img') ? (el.querySelector('img').getAttribute('data-src') || el.querySelector('img').src) : '#'));
 	
-			if (hasClass(el, 'video') || el.querySelector('video')) {
+			if (hasClass(el, 'n-lightbox--video') || el.querySelector('n-lightbox--video')) {
 				// video poster = the anchor's img child, if it exists
 	
 				if (hasClass(lightbox, 'n-slider')) { // Secondary lightbox
 					
-					images += `<div>${el.querySelector('video').outerHTML}</div>`;
+					images += `<div>${el.querySelector('n-lightbox--video').outerHTML}</div>`;
 					
 				} else {
 					
@@ -359,9 +359,9 @@ var componentLightbox = (function (){
 			
 		}
 		
-		if (q('.modal:target')) {
+		if (q('.n-modal:target')) {
 			
-			q('.modal:target').click();
+			q('.n-modal:target').click();
 			
 		}
 		

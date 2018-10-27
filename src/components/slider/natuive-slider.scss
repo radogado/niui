@@ -73,7 +73,7 @@
 	}
 	
 	
-	.n-slider-wrap .n-slider > *:after, .n-slider-wrap .n-slider > *:before, .n-slider > *:first-child:before, .n-slider > *:last-child:after, .n-slider-wrap .n-slider > * > div.bg {
+	.n-slider-wrap .n-slider > *:after, .n-slider-wrap .n-slider > *:before, .n-slider > *:first-child:before, .n-slider > *:last-child:after, .n-slider-wrap .n-slider > * > div.n-slider--bg { // Where is 'bg' used?
 	
 		display: none;	
 	
@@ -108,7 +108,7 @@
 
 }
 
-.n-slider.center > * {
+.n-slider.n-slider--center > * {
 	
 	display: flex;
 	flex-direction: column;
@@ -117,7 +117,7 @@
 	
 }
 
-.n-slider.auto-height > *:not([data-active]) {
+.n-slider.n-slider--auto-height > *:not([data-active]) {
 	
 	height: 0;
 
@@ -152,7 +152,7 @@
 
 @media screen and (max-width: $screen-narrow-max) {
 
-	.n-slider-wrap.tabs > .slider-nav.row, .slider-nav.row.tabs {
+	.n-slider-wrap.n-tabs > .slider-nav.row, .slider-nav.row.n-tabs {
 		
 		display: flex;
 		
@@ -223,7 +223,7 @@
 
 }
 
-.n-slider--vertical.tabs {
+.n-slider--vertical.n-tabs {
 
 
 	&:not(.detached-nav) > .n-slider { // Floats, because flex version is glitching when tab stack is taller than the slider. To do: fix flex version.
@@ -233,25 +233,25 @@
 	
 	}
 	
-	> .slider-nav.row, .slider-nav.row.tabs {
+	> .slider-nav.row, .slider-nav.row.n-tabs {
 		
 		width: 25%;
 	
 	}
 	
-	&.right > .n-slider {
+	&.n-slider--right > .n-slider {
 	
 	    float: left;
 	
 	}
 	
-	&.right > .slider-nav.row, .slider-nav.row.tabs {
+	&.n-slider--right > .slider-nav.row, .slider-nav.row.n-tabs {
 		
 		float: right;
 	
 	}
 	
-	> .slider-nav a, .slider-nav.tabs a {
+	> .slider-nav a, .slider-nav.n-tabs a {
 		
 		display: block;
 		box-sizing: border-box;
@@ -333,7 +333,7 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 
 }
 
-.n-slider.n-slider--vertical[data-ready] > *, .n-slider-wrap.tabs > .slider-arrow {
+.n-slider.n-slider--vertical[data-ready] > *, .n-slider-wrap.n-tabs > .slider-arrow {
 
 	height: auto;
 	display: none;
@@ -354,7 +354,7 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 	
 }
 
-.n-slider-wrap:not(.peek) > .pad {
+.n-slider-wrap:not(.n-slider--peek) > .pad {
 
 	overflow-x: hidden;
 
@@ -439,20 +439,20 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 	
 	}
 
-	.slider-arrow.right {
+	.slider-arrow.n-slider--right {
 	
 		left: auto;
 		right: $line-height-em/2;
 	
 	}
 
-	.slider-arrow.right:before {
+	.slider-arrow.n-slider--right:before {
 	
 		content: "→";
 	
 	}
 
-	.n-slider--vertical > .slider-arrow.right {
+	.n-slider--vertical > .slider-arrow.n-slider--right {
 		
 		&:before {
 	
@@ -553,7 +553,7 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 				
 		}
 	
-		&.right > .slider-nav {
+		&.n-slider--right > .slider-nav {
 			
 			left: auto;
 			right: -.5em;
@@ -562,7 +562,7 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 	
 	}
 	
-	.n-slider-wrap.right.n-slider--vertical > .slider-nav {
+	.n-slider-wrap.n-slider--right.n-slider--vertical > .slider-nav {
 		
 	    right: .5em;
 	    left: auto;
@@ -596,7 +596,7 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 	
 	}
 
-	.n-slider-wrap.tabs > .slider-nav, .slider-nav.tabs {
+	.n-slider-wrap.n-tabs > .slider-nav, .slider-nav.n-tabs {
 		
 		right: auto;
 		position: static;
@@ -604,7 +604,7 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 		
 	}
 
-	.tabs > .slider-nav.row, .slider-nav.row.tabs {
+	.n-tabs > .slider-nav.row, .slider-nav.row.n-tabs {
 		
 		padding: 0;
 		margin: 0;
@@ -612,7 +612,7 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 
 	}
 	
-	.n-full-window .n-slider-wrap.tabs > .slider-nav {
+	.n-full-window .n-slider-wrap.n-tabs > .slider-nav {
 		
 		position: absolute;
 		bottom: 0;
@@ -620,7 +620,7 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 	
 	}
 	
-	.n-slider-wrap.tabs > .slider-nav a, .tabs.slider-nav a {
+	.n-slider-wrap.n-tabs > .slider-nav a, .n-tabs.slider-nav a {
 		
 		text-indent: 0;
 		width: auto;
@@ -642,7 +642,7 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 	
 	&.n-slider--outside {
 	
-		&:not(.right) {
+		&:not(.n-slider--right) {
 			
 			padding-left: 5em;
 			
@@ -654,7 +654,7 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 		
 		}
 	
-		&.right {
+		&.n-slider--right {
 			
 			padding-right: 5em;
 			

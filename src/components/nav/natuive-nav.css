@@ -32,10 +32,10 @@ $bg: #1E8DaC;
       margin: 0; }
       .n-nav ul li:last-child {
         margin-right: 0; }
-  .n-nav.scroll {
+  .n-nav.n-nav--scroll {
     overflow: auto;
     max-width: 100%; }
-    .n-nav.scroll > ul {
+    .n-nav.n-nav--scroll > ul {
       display: flex;
       padding: .25em 0;
       flex-wrap: nowrap;
@@ -48,7 +48,7 @@ $bg: #1E8DaC;
     opacity: .7; }
   .n-nav:not(.n-drop) a[href^='#'] {
     text-decoration: none; }
-  .n-nav li:last-child a, .n-nav .vertical li a {
+  .n-nav li:last-child a, .n-nav li a {
     padding-right: 0; }
 
 @supports (--a: 1) {
