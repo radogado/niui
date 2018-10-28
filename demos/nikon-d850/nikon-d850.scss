@@ -427,7 +427,7 @@ footer ul.row > li > span {
 	
 }
 
-.n-slider-wrap.tabs > .slider-nav.row {
+.n-slider-wrap.n-tabs > .slider-nav.row {
 	
 	text-transform: uppercase;
 	font-weight: bold;
@@ -436,19 +436,19 @@ footer ul.row > li > span {
 
 }
 
-.n-slider-wrap.tabs > .n-slider {
+.n-slider-wrap.n-tabs > .n-slider {
 	
 	z-index: -1;
 
 }
 
-.n-slider-wrap.tabs .row .align-middle {
+.n-slider-wrap.n-tabs .row .align-middle {
 	
 	padding-top: 3em;
 
 }
 
-.n-slider-wrap.tabs > .slider-nav a, .n-slider-wrap.tabs > .slider-nav a[data-active] {
+.n-slider-wrap.n-tabs > .slider-nav a, .n-slider-wrap.n-tabs > .slider-nav a[data-active] {
 	
 	background: none;
 	color: #000;
@@ -459,13 +459,13 @@ footer ul.row > li > span {
 
 }
 
-.n-slider-wrap.tabs > .slider-nav a[data-active] {
+.n-slider-wrap.n-tabs > .slider-nav a[data-active] {
 	
 	border-bottom-color: $yellow;
 	
 }
 
-.n-slider-wrap:not(.vertical) .slider-nav a:first-child {
+.n-slider-wrap:not(.n-slider--vertical) .slider-nav a:first-child {
 	
 	margin-left: 1em;
 
@@ -520,13 +520,13 @@ footer ul.row > li > span {
 
 @media (min-width: 600px) {
 
-	.photographer .n-slider-wrap.tabs > .slider-nav.row {
+	.photographer .n-slider-wrap.n-tabs > .slider-nav.row {
 	
 		margin-left: 50%;
 	
 	}
 
-	.n-slider-wrap.tabs > .slider-nav.row {
+	.n-slider-wrap.n-tabs > .slider-nav.row {
 		
 		width: calc(50% - 2em);
 		margin: 0 1em -5em 0;
@@ -562,7 +562,7 @@ footer ul.row > li > span {
 		
 	}
 
-	.n-slider-wrap.tabs > .slider-nav a, .n-slider-wrap.tabs > .slider-nav a[data-active], .n-slider-wrap:not(.vertical) .slider-nav a:first-child {
+	.n-slider-wrap.n-tabs > .slider-nav a, .n-slider-wrap.n-tabs > .slider-nav a[data-active], .n-slider-wrap:not(.n-slider--vertical) .slider-nav a:first-child {
 		
 		margin: 0;
 

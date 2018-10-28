@@ -249,7 +249,7 @@ main a[href] {
 	
 }
 
-.n-slider-wrap.tabs>.slider-nav a {
+.n-slider-wrap.n-tabs>.slider-nav a {
 	
 	margin: .3em;
 	border-radius: .3em;
@@ -260,7 +260,7 @@ main a[href] {
 	
 }
 
-.n-slider-wrap.tabs>.slider-nav a[data-active] {
+.n-slider-wrap.n-tabs>.slider-nav a[data-active] {
 	
 	background-color: #39adcc;
 	color: white;
@@ -299,7 +299,7 @@ input[type=email] {
 
 	}
 	
-	.n-slider-wrap.tabs > .slider-nav a {
+	.n-slider-wrap.n-tabs > .slider-nav a {
 		
 		margin: .3em 0;
 		box-sizing: border-box;
