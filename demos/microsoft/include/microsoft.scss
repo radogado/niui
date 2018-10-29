@@ -359,13 +359,13 @@ a.span-relative-parent ~ a:after {
 
 }
 
-.slider-arrow.right {
+.slider-arrow.n-slider--right {
 	
 	right: 0;
 	
 }
 
-.slider-arrow.right:before {
+.slider-arrow.n-slider--right:before {
 	
 	content: '>';
 	
@@ -393,6 +393,7 @@ main .n-slider span.copy, main .n-slider span.copy h2, main .n-slider span.copy 
 	padding: 0 8%;
 	width: 100%;
 	text-align: center;
+	display: flex;
 	
 }
 
@@ -744,11 +745,13 @@ nav.n-nav.n-drop {
 
 }
 
+/*
 nav.n-nav.n-drop ul li, nav.n-nav.n-drop ul li b.sub {
 	
 	background: none;
 
 }
+*/
 
 @media screen and (max-width: 1024px) {
 
