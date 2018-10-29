@@ -520,7 +520,7 @@ main .n-slider span.copy, main .n-slider span.copy h2, main .n-slider span.copy 
 
 .mini-features a p {
 
-	margin: 0 0 .7em 0;
+	margin: 0 0 1.25em 0;
 	line-height: 1.2;
 	padding: 0 1em;
 	font-family: 'wf_segoe-ui_light', sans-serif;
@@ -563,6 +563,7 @@ main .n-slider span.copy, main .n-slider span.copy h2, main .n-slider span.copy 
 	
 	font-size: 1em;	
 	font-family: 'wf_segoe-ui_Semibold', sans-serif;
+	display: inline-block;
 
 }
 
@@ -745,13 +746,11 @@ nav.n-nav.n-drop {
 
 }
 
-/*
-nav.n-nav.n-drop ul li, nav.n-nav.n-drop ul li b.sub {
+ul:not(.no-bullet):not(.n-list--inline) li {
 	
-	background: none;
-
+	margin: 0;
+	
 }
-*/
 
 @media screen and (max-width: 1024px) {
 
@@ -763,7 +762,7 @@ nav.n-nav.n-drop ul li, nav.n-nav.n-drop ul li b.sub {
 
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 599.9px) {
 	
 	.row > * {
 		
@@ -775,6 +774,7 @@ nav.n-nav.n-drop ul li, nav.n-nav.n-drop ul li b.sub {
 	.mini-features a, .mini-features a:after {
 		
 		background: none;
+		display: block;
 		
 	}
 
