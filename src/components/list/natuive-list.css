@@ -39,6 +39,9 @@ ul:not(.no-bullet):not(.n-list--inline) li {
     position: absolute;
     margin-left: -.75em; }
 
+nav ul:not(.no-bullet):not(.n-list--inline) li {
+  margin-left: 0; }
+
 ul.n-list--inline, ul.n-list--inline li, .n-nav.n-nav--scroll ul li {
   vertical-align: top;
   display: inline-block;

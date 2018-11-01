@@ -379,6 +379,8 @@ q:before {
 // 	display: block;
 	height: 1.5em;
 // 	margin: 0 auto;
+display: inline-block;
+vertical-align: middle;
 
 }
 
@@ -386,6 +388,7 @@ q:before {
 	
 	text-align: center;
 	padding: 1em 0;
+	text-decoration: none;
 
 }
 

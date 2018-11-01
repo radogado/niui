@@ -36,6 +36,12 @@ header a.button[href] {
 
 }
 
+header .col1 {
+	
+	z-index: 1;
+
+}
+
 .header-and-banner header.contain {
 	
 	max-width: 990px;
@@ -116,6 +122,7 @@ header nav.n-nav.n-drop > ul {
 	overflow: visible;
 	border-bottom: 1px solid #ccc;
 	border-radius: 4px;
+	padding: 0;
 
 }
 

@@ -233,7 +233,7 @@
 	
 	}
 	
-	> .slider-nav.row, .slider-nav.row.n-tabs {
+	> .slider-nav.row, > .slider-nav.row.n-tabs, , > .pad > .slider-nav.row.n-tabs {
 		
 		width: 25%;
 	
@@ -245,13 +245,13 @@
 	
 	}
 	
-	&.n-slider--right > .slider-nav.row, .slider-nav.row.n-tabs {
+	&.n-slider--right > .slider-nav.row, > .slider-nav.row.n-tabs, > .pad > .slider-nav.row.n-tabs {
 		
 		float: right;
 	
 	}
 	
-	> .slider-nav a, .slider-nav.n-tabs a {
+	> .slider-nav a, > .slider-nav.n-tabs a, > .pad > .slider-nav.n-tabs a {
 		
 		display: block;
 		box-sizing: border-box;
@@ -633,6 +633,7 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 		flex: 1;
 		margin: 0;
 		white-space: normal;
+		min-height: 0;
 	
 	}
 

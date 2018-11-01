@@ -51,6 +51,9 @@ $bg: #1E8DaC;
   .n-nav li:last-child a, .n-nav li a {
     padding-right: 0; }
 
+.n-nav.row {
+  display: inline-flex; }
+
 @supports (--a: 1) {
   .n-nav--scroll a {
     padding: 0; }

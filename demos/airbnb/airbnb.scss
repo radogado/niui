@@ -63,6 +63,7 @@ footer ul li + li {
 	
 	margin-top: .1em;
 	margin-bottom: .1em;
+	background: #fff;
 
 }
 
@@ -153,11 +154,23 @@ main .n-slider > * {
 
 }
 
+main .n-slider[data-ready] > [data-active] {
+	
+	display: inline-flex;
+	
+}
+
 footer {
 	
 	background: #2b2d2e url(background-7c73b7858fe7c4bc03505fc1f7f672fd.png);
 	color: #fff;
 	padding: 2em 0;
+	
+	.n-form select {
+		
+		background-color: #fff;
+
+	}
 
 }
 

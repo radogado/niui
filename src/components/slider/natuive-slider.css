@@ -140,13 +140,13 @@ $bg: #1E8DaC;
 .n-slider--vertical.n-tabs:not(.detached-nav) > .n-slider {
   width: 75%;
   float: right; }
-.n-slider--vertical.n-tabs > .slider-nav.row, .n-slider--vertical.n-tabs .slider-nav.row.n-tabs {
+.n-slider--vertical.n-tabs > .slider-nav.row, .n-slider--vertical.n-tabs > .slider-nav.row.n-tabs, .n-slider--vertical.n-tabs > .pad > .slider-nav.row.n-tabs {
   width: 25%; }
 .n-slider--vertical.n-tabs.n-slider--right > .n-slider {
   float: left; }
-.n-slider--vertical.n-tabs.n-slider--right > .slider-nav.row, .n-slider--vertical.n-tabs .slider-nav.row.n-tabs {
+.n-slider--vertical.n-tabs.n-slider--right > .slider-nav.row, .n-slider--vertical.n-tabs > .slider-nav.row.n-tabs, .n-slider--vertical.n-tabs > .pad > .slider-nav.row.n-tabs {
   float: right; }
-.n-slider--vertical.n-tabs > .slider-nav a, .n-slider--vertical.n-tabs .slider-nav.n-tabs a {
+.n-slider--vertical.n-tabs > .slider-nav a, .n-slider--vertical.n-tabs > .slider-nav.n-tabs a, .n-slider--vertical.n-tabs > .pad > .slider-nav.n-tabs a {
   display: block;
   box-sizing: border-box;
   padding: 1.5em 0.5em; }
@@ -372,7 +372,8 @@ _:-ms-lang(x), .aspect > .n-slider-wrap {
   padding: .5em;
   flex: 1;
   margin: 0;
-  white-space: normal; }
+  white-space: normal;
+  min-height: 0; }
 
 .n-slider-wrap.n-slider--vertical.n-lightbox--thumbnails {
   width: 100%; }

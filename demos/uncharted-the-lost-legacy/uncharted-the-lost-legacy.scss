@@ -31,9 +31,9 @@ header a.logo {
 
 }
 
-header nav.n-nav a img {
+header nav.n-nav a img, header nav.n-nav a[href] {
 	
-	display: block;
+	display: inline-block;
 
 }
 
