@@ -1760,20 +1760,29 @@ var nui = function () {
             el.removeAttribute(aria_expanded);
           });
         }
-      });
+      }); // Make current focused item's ancestors visible
+
       el = e.target;
       el.parentNode.parentNode.setAttribute(aria_expanded, true);
+      var grand_parent = el.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('ul');
 
-      if (el.parentNode.querySelector('ul')) {
-        el.parentNode.querySelector('ul').setAttribute(aria_expanded, true);
+      if (grand_parent) {
+        grand_parent.setAttribute(aria_expanded, true);
       }
+      /*
+      		var current_item = e.target.parentNode;
+      	
+      		current_item.parentNode.parentNode.childNodes.forEach((el) => {
+      	
+      			if (el !== current_item && el.nodeName === 'LI' && el.querySelector('ul')) {
+      	
+      				el.querySelector('ul').removeAttribute(aria_expanded);
+      			
+      			}
+      			
+      		});
+      */
 
-      var current_item = e.target.parentNode;
-      current_item.parentNode.parentNode.childNodes.forEach(function (el) {
-        if (el !== current_item && el.nodeName === 'LI' && el.querySelector('ul')) {
-          el.querySelector('ul').removeAttribute(aria_expanded);
-        }
-      });
     }
 
     var closeDropNavClickedOutsideEnabled = false;

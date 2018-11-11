@@ -2251,15 +2251,19 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 			
 		});
 		
+		// Make current focused item's ancestors visible
+		
 		el = e.target;
 	
 		el.parentNode.parentNode.setAttribute(aria_expanded, true);
-		if (el.parentNode.querySelector('ul')) {
+		var grand_parent = el.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('ul');
+		if (grand_parent) {
 	
-			el.parentNode.querySelector('ul').setAttribute(aria_expanded, true);
+			grand_parent.setAttribute(aria_expanded, true);
 	
 		}
 		
+/*
 		var current_item = e.target.parentNode;
 	
 		current_item.parentNode.parentNode.childNodes.forEach((el) => {
@@ -2271,6 +2275,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 			}
 			
 		});
+*/
 		
 	}
 	
