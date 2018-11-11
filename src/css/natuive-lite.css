@@ -167,7 +167,7 @@ a[href].span-relative-parent {
 .n-parallax--back {
   position: absolute; }
 
-:focus {
+:focus, :focus + .n-form--check-icon {
   outline-offset: -1px;
   outline-style: dashed;
   outline-width: 1px; }

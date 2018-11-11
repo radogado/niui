@@ -367,6 +367,11 @@ nav.n-nav.n-drop ul li a[href] {
 
 }
 
+header .n-fold.n-fold--mobile {
+	
+	display: inline-block; // Enable closing the burger by tapping on its right
+	
+}
 
 @media (min-width: 600px) {
 

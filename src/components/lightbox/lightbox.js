@@ -2,6 +2,34 @@ var componentLightbox = (function (){
 
 /* Lightbox – start */
 
+	function adjustZoom(e) { // Event is click on image
+		
+		var width = q('.n-ovrl:last-of-type .n-slider-wrap').offsetWidth;
+		var height = q('.n-ovrl:last-of-type .n-slider-wrap').offsetHeight;
+		
+		var el = e.target;
+
+		var overflowX = el.width - width;
+		var overflowY = el.height - height;
+
+		if (overflowX > 0) {
+
+			el.style.setProperty('--x', (-1 * overflowX * e.x / width) + 'px');
+			el.style.left = 0;
+			el.style.right = 'auto';
+
+		}
+		
+		if (overflowY > 0) {
+
+			el.style.setProperty('--y', (-1 * overflowY * e.y / height) + 'px');
+			el.style.top = 0;
+			el.style.bottom = 'auto';
+		
+		}
+		
+	}
+
 	function populateLightboxItem(slider, i) {
 		
 		var img = slider.children[(typeof i === 'undefined') ? 0 : i].querySelector('img');
@@ -25,37 +53,18 @@ var componentLightbox = (function (){
 				}
 				
 				var el = e.target;
-				toggleClass(el, 'zoom');
+				toggleClass(el, 'n-lightbox--zoom');
 				el.style.cssText = '';
 				el.style.setProperty('--x', '-50%');
 				el.style.setProperty('--y', '-50%');
 				el.onmousemove = (e) => {
 					
-					var width = q('.n-ovrl:last-of-type .n-slider-wrap').offsetWidth;
-					var height = q('.n-ovrl:last-of-type .n-slider-wrap').offsetHeight;
-					
-					var el = e.target;
-					var overflowX = el.width - width;
-					var overflowY = el.height - height;
-	
-					if (overflowX > 0) {
-		
-						el.style.setProperty('--x', (-1 * overflowX * e.x / width) + 'px');
-						el.style.left = 0;
-						el.style.right = 'auto';
-		
-					}
-					
-					if (overflowY > 0) {
-	
-						el.style.setProperty('--y', (-1 * overflowY * e.y / height) + 'px');
-						el.style.top = 0;
-						el.style.bottom = 'auto';
-					
-					}
+					adjustZoom(e);
 	
 				};
-	
+
+				adjustZoom(e);
+
 			};
 			return false;
 	
@@ -64,14 +73,6 @@ var componentLightbox = (function (){
 	}
 	
 	function populateLightbox(slider, i) {
-		
-/*
-		populateLightboxItem(slider, i);
-			
-		populateLightboxItem(slider, (i > 0) ? i-1 : slider.children.length-1);
-	
-		populateLightboxItem(slider, (i < slider.children.length-1) ? i+1 : 0);
-*/
 		
 		let slides = slider.children.length-1;
 		[i, (i > 0) ? i-1 : slides, (i < slides) ? i+1 : 0].forEach((el) => {

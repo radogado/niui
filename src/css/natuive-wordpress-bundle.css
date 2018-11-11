@@ -167,7 +167,7 @@ a[href].span-relative-parent {
 .n-parallax--back {
   position: absolute; }
 
-:focus {
+:focus, :focus + .n-form--check-icon {
   outline-offset: -1px;
   outline-style: dashed;
   outline-width: 1px; }
@@ -1467,7 +1467,7 @@ $bg: #1E8DaC;
   display: none; }
   .n-slider.n-lightbox.n-slider--overlay.n-slider--vertical > *[data-active] {
     display: flex; }
-.n-slider.n-lightbox.n-slider--overlay > [data-active] > img.zoom {
+.n-slider.n-lightbox.n-slider--overlay > [data-active] > img.n-lightbox--zoom {
   width: auto;
   height: auto;
   max-height: none;
@@ -3175,6 +3175,9 @@ nav.n-nav.n-drop ul li a[href] {
 
 .wp-block-image {
   margin: 0; }
+
+header .n-fold.n-fold--mobile {
+  display: inline-block; }
 
 @media (min-width: 600px) {
   .home section {

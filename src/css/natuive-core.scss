@@ -258,7 +258,7 @@ a[href].span-relative-parent {
 
 }
 
-:focus { // Because default focus indication is overlapped in Chrome for Windows
+:focus, :focus + .n-form--check-icon { // Because default focus indication is overlapped in Chrome for Windows
 
 	outline-offset: -1px;
 	outline-style: dashed;
