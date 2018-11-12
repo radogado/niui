@@ -304,7 +304,7 @@ var nui = function () {
   }
 
   function animateAnchors(e) {
-    if (typeof e === 'undefined') {
+    if (typeof e === 'undefined' || q('html').clientHeight > document.body.clientHeight) {
       return;
     }
 

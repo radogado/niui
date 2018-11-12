@@ -373,6 +373,33 @@ header .n-fold.n-fold--mobile {
 	
 }
 
+// Image captions
+
+.wp-caption {
+	
+	margin-top: 1em;
+	
+	a[href] {
+		
+		display: inline-block;
+		
+	}
+	
+	&.aligncenter {
+	
+		margin: 0 auto;	
+	
+	}
+	
+	p.wp-caption-text {
+		
+		margin-top: 0;
+		font-size: smaller;
+		
+	}
+
+}
+
 @media (min-width: 600px) {
 
 	.home section {
