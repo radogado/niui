@@ -572,5 +572,126 @@ function new_nav_menu($items) {
 
 }
 
-?>
+// Wrap all captioned content images in a span with aspect ratio
+
+add_filter( 'img_caption_shortcode', 'my_img_caption_shortcode', 10, 3 );
+
+function my_img_caption_shortcode( $empty, $attr, $content ){
+
+$img = do_shortcode( $content );
+
+    $attr = shortcode_atts( array(
+        'id'      => '',
+        'align'   => 'alignnone',
+        'width'   => '',
+        'height'  => '',
+        'caption' => ''
+    ), $attr );
+
+    if ( 1 > (int) $attr['width'] || empty( $attr['caption'] ) ) {
+        return '';
+    }
+
+    if ( $attr['id'] ) {
+        $attr['id'] = 'id="' . esc_attr( $attr['id'] ) . '" ';
+    }
+    
+	$id = (int) str_replace('-', '', filter_var($attr['id'], FILTER_SANITIZE_NUMBER_INT));
+
+	$dom = new DOMdocument();
+	@$dom->loadHTML($img);
+	$dom_img = $dom->getElementsByTagName('img');
+	preg_match('/(?<=size-).+?(?= )/', $dom_img[0]->getAttribute('class') . ' ', $size);
+
+	if (strlen($size[0]) > 0 ) {
+	
+		$attachment = wp_get_attachment_metadata($id);
+		
+		if ($size[0] == 'full') {
+			
+			$width = $attachment[width];
+			$height = $attachment[height];
+			
+		} else {
+			
+			$width = $attachment[sizes][$size[0]][width];
+			$height = $attachment[sizes][$size[0]][height];
+			
+		}
+
+		$ratio = $width / $height;
+		
+	}
+
+
+    return '<div ' . $attr['id']
+    . 'data-id="' . $id . '"'
+    . 'class="wp-caption ' . esc_attr( $attr['align'] ) . '" '
+    . 'style="max-width: ' . $attr['width'] . 'px;">'
+    . '<span class="aspect" style="--image-width: ' . ($attr['width'] . 'px') . '; --ratio: ' . ($width / $height) . ';">' . $img . '</span>' // Add .aspect and --ratio: height/width
+    . '<p class="wp-caption-text">' . $attr['caption'] . '</p>'
+    . '</div>';
+
+}
+
+// Remove the extra 10px around captioned images
+
+add_filter('shortcode_atts_caption', 'fixExtraCaptionPadding');
+
+function fixExtraCaptionPadding($attrs)
+{
+    if (!empty($attrs['width'])) {
+        $attrs['width'] -= 10;
+    }
+    return $attrs;
+}
+
+// Wrap all captionless content images in a span with aspect ratio
+
+add_action('the_content', function ($content){
+
+	$dom = new DOMdocument();
+	@$dom->loadHTML($content);
+	$content = $dom->saveHTML();
+	$imgs = $dom->getElementsByTagName('img');
+	
+	foreach ($imgs as $img) {
+		
+		// Get image id from wp-image-XX, get the width and height from that id, wrap the image in a <span class=aspect style="--ratio: width/height; --image-width: width">
+
+		$current_img = $dom->saveHTML($img);
+		
+		$id = (int) str_replace('-', '', filter_var($img->getAttribute('class'), FILTER_SANITIZE_NUMBER_INT));
+		
+		preg_match('/(?<=size-).+?(?= )/', $img->getAttribute('class') . ' ', $size);
+		
+		if (strlen($size[0]) > 0 ) {
+		
+			$attachment = wp_get_attachment_metadata($id);
+			
+			if ($size[0] == 'full') {
+				
+				$width = $attachment[width];
+				$height = $attachment[height];
+				
+			} else {
+				
+				$width = $attachment[sizes][$size[0]][width]; // 'medium' comes from class size-medium
+				$height = $attachment[sizes][$size[0]][height]; // 'medium' comes from class size-medium
+				
+			}
+	
+			$ratio = $width / $height;
+			
+			$content = str_replace($current_img, '<span class="aspect" style="--ratio: ' . $ratio . '; --image-width: ' . $width . 'px;">' . $current_img . '</span>', $content);
+		
+		}
+		
+	}
+	
+	return $content;
+	
+	// To do: if it's a child of a figure.wp-block-image, it's in WP5/Gutenberg and the logic should be different
+
+});
 
