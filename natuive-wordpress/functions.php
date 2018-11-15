@@ -578,7 +578,7 @@ add_filter( 'img_caption_shortcode', 'my_img_caption_shortcode', 10, 3 );
 
 function my_img_caption_shortcode( $empty, $attr, $content ){
 
-$img = do_shortcode( $content );
+	$img = do_shortcode( $content );
 
     $attr = shortcode_atts( array(
         'id'      => '',
@@ -651,47 +651,54 @@ function fixExtraCaptionPadding($attrs)
 add_action('the_content', function ($content){
 
 	$dom = new DOMdocument();
-	@$dom->loadHTML($content);
-	$content = $dom->saveHTML();
+	@$dom->loadHTML('<?xml version="1.0" encoding="UTF-8"?>' . "\n" . $content);
+
 	$imgs = $dom->getElementsByTagName('img');
-	
+
 	foreach ($imgs as $img) {
 		
-		// Get image id from wp-image-XX, get the width and height from that id, wrap the image in a <span class=aspect style="--ratio: width/height; --image-width: width">
-
-		$current_img = $dom->saveHTML($img);
-		
 		$id = (int) str_replace('-', '', filter_var($img->getAttribute('class'), FILTER_SANITIZE_NUMBER_INT));
-		
-		preg_match('/(?<=size-).+?(?= )/', $img->getAttribute('class') . ' ', $size);
-		
-		if (strlen($size[0]) > 0 ) {
-		
-			$attachment = wp_get_attachment_metadata($id);
+		$attachment = wp_get_attachment_metadata($id);
+
+		if ($img->parentNode->getAttribute('class') == 'wp-block-image') { // WP5/Gutenberg
 			
-			if ($size[0] == 'full') {
-				
-				$width = $attachment[width];
-				$height = $attachment[height];
-				
-			} else {
-				
-				$width = $attachment[sizes][$size[0]][width]; // 'medium' comes from class size-medium
-				$height = $attachment[sizes][$size[0]][height]; // 'medium' comes from class size-medium
-				
+			$width = $attachment[width];
+			$height = $attachment[height];
+			
+		} else { // WP4
+
+			preg_match('/(?<=size-).+?(?= )/', $img->getAttribute('class') . ' ', $size);
+			
+			if (strlen($size[0]) > 0 ) {
+			
+				if ($size[0] == 'full') {
+					
+					$width = $attachment[width];
+					$height = $attachment[height];
+					
+				} else {
+					
+					$width = $attachment[sizes][$size[0]][width]; // 'medium' comes from class size-medium
+					$height = $attachment[sizes][$size[0]][height]; // 'medium' comes from class size-medium
+					
+				}
+		
 			}
-	
-			$ratio = $width / $height;
-			
-			$content = str_replace($current_img, '<span class="aspect" style="--ratio: ' . $ratio . '; --image-width: ' . $width . 'px;">' . $current_img . '</span>', $content);
 		
 		}
 		
+		$ratio = $width / $height;
+
+		$wrapper = $dom->createElement('span');
+		$wrapper->setAttribute('class','aspect');
+		$wrapper->setAttribute('style', '--ratio: ' . $ratio . '; --image-width: ' . $width . 'px;');
+		
+		
+		$img->parentNode->replaceChild($wrapper, $img);
+		$wrapper->appendChild($img);
+	
 	}
-	
-	return $content;
-	
-	// To do: if it's a child of a figure.wp-block-image, it's in WP5/Gutenberg and the logic should be different
+
+	return $dom->saveHTML();
 
 });
-
