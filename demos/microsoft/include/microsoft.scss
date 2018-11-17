@@ -63,21 +63,38 @@ body {
 
 }
 
-h2 {
+.n-type {
+
+	a[href] {
+		
+		text-decoration: none;
+		
+	}
 	
-	font-family: wf_segoe-ui_light, sans-serif;
-	font-weight: normal;
+	a[href]:hover {
+		
+		text-decoration: underline;
+		color: #1570a6;
+		
+	}
+
+	h2 {
+		
+		font-family: wf_segoe-ui_light, sans-serif;
+		font-weight: normal;
+		
+	}
 	
+	h3, h4 {
+		
+		font-family: wf_segoe-ui_Semibold, sans-serif;
+		font-weight: normal;
+		
+	}
+
 }
 
-h3, h4 {
-	
-	font-family: wf_segoe-ui_Semibold, sans-serif;
-	font-weight: normal;
-	
-}
-
-header {
+.n-header {
 	
 	z-index: 99999;
 	background-color: #fff;
@@ -89,37 +106,41 @@ header {
 
 }
 
-header > .row, header > nav.n-nav {
+.n-header > .row, .n-header > nav.n-nav {
 	
 	padding: 0 1.4em;
 	
 }
 
-.banner > .row {
+.n-banner {
+
+	> .row {
+		
+		padding-top: 0;
 	
-	padding-top: 0;
+	}
+	
+	.n-slider {
+		
+		margin-bottom: 1.4rem;
+	
+	}
+	
+	.n-slider--wrap {
+		
+		margin-bottom: 1.4rem;
+	
+	}
+	
+	.n-slider--wrap .n-slider {
+		
+		margin-bottom: 0;
+	
+	}
 
 }
 
-.banner .n-slider {
-	
-	margin-bottom: 1.4rem;
-
-}
-
-.banner .n-slider-wrap {
-	
-	margin-bottom: 1.4rem;
-
-}
-
-.banner .n-slider-wrap .n-slider {
-	
-	margin-bottom: 0;
-
-}
-
-header .n-form {
+.n-header .n-form {
 	
 	position: relative;
 
@@ -157,27 +178,27 @@ header .n-form {
 
 }
 
-header .row > div, header a.logo, header .n-form {
+.n-header .row > div, .n-header a.n-logo, .n-header .n-form {
 	
 	vertical-align: middle;
 	padding: 0;
 
 }
 
-header a.logo {
+.n-header a.n-logo {
 	
 	margin-right: 3em;
 	min-height: 0;
 
 }
 
-header a.logo img {
+.n-header a.n-logo img {
 	
 	display: block;
 
 }
 
-header a.shopping[href] {
+.n-header a.shopping[href] {
 	
 	height: 1.5em; 
 	line-height: 1.5em; 
@@ -189,26 +210,13 @@ header a.shopping[href] {
 	
 }
 
-header a.shopping[href]:hover {
+.n-header a.shopping[href]:hover {
 
 	text-decoration: none;
 	
 }
 
-a[href] {
-	
-	text-decoration: none;
-	
-}
-
-a[href]:hover {
-	
-	text-decoration: underline;
-	color: #1570a6;
-	
-}
-
-.n-slider-wrap:before {
+.n-slider--wrap:before {
 	
 	content: '';	
     display: inline-block;
@@ -217,7 +225,7 @@ a[href]:hover {
 	
 }
 
-.n-slider-wrap .n-slider {
+.n-slider--wrap .n-slider {
 	
     position: absolute;
     top: 0;
@@ -267,7 +275,7 @@ a[href]:hover {
 
 }
 
-.n-slider-wrap .n-slider > div {
+.n-slider--wrap .n-slider > div {
 	
 	padding: 2rem;
 
@@ -326,7 +334,7 @@ a.span-relative-parent ~ a:after {
 	
 }
 
-.n-slider-wrap .n-slider > div:before {
+.n-slider--wrap .n-slider > div:before {
 
 	padding: 0;
 	height: 100%;
@@ -334,7 +342,7 @@ a.span-relative-parent ~ a:after {
 
 }
 
-.slider-arrow {
+.n-slider--arrow {
 	
 	width: 1.3em;
 	height: 2.8em;
@@ -347,31 +355,31 @@ a.span-relative-parent ~ a:after {
 
 }
 
-.slider-arrow:hover {
+.n-slider--arrow:hover {
 
 	background: rgba(0,0,0,.5);
 }
 
-.slider-arrow:before {
+.n-slider--arrow:before {
 	
 	content: '<';
 	font-size: 1.8em;
 
 }
 
-.slider-arrow.n-slider--right {
+.n-slider--arrow.n-slider--right {
 	
 	right: 0;
 	
 }
 
-.slider-arrow.n-slider--right:before {
+.n-slider--arrow.n-slider--right:before {
 	
 	content: '>';
 	
 }
 
-.slider-nav a {
+.n-slider--nav a {
 	
 	margin: .7rem .5rem;
 	--nav-size: .5rem;
@@ -728,13 +736,13 @@ footer .footer-bottom span.icon-globe {
 
 }
 
-header nav.n-nav a[href]:hover {
+.n-header nav.n-nav a[href]:hover {
 	
 	color: inherit;
 	
 }
 
-header nav.n-nav {
+.n-header nav.n-nav {
 	
 	display: inline-block;
 	
@@ -754,7 +762,7 @@ ul:not(.no-bullet):not(.n-list--inline) li {
 
 @media screen and (max-width: 1024px) {
 
-	header form {
+	.n-header form {
 		
 		width: auto;
 
@@ -828,13 +836,13 @@ ul:not(.no-bullet):not(.n-list--inline) li {
 
 	}
 	
-	header {
+	.n-header {
 		
 		padding: 0;
 
 	}
 	
-	header form {
+	.n-header form {
 		
 		margin: 11px;
 
@@ -852,14 +860,14 @@ ul:not(.no-bullet):not(.n-list--inline) li {
 
 	}
 
-	header>.row:first-child div {
+	.n-header > .row:first-child div {
 		
 		text-align: left;
 	
 	}
 	
 /*
-	header nav.contain {
+	.n-header nav.contain {
 		
 		pointer-events: none;
 		position: fixed;
@@ -872,7 +880,7 @@ ul:not(.no-bullet):not(.n-list--inline) li {
 	}
 */
 	
-	header > .row {
+	.n-header > .row {
 		
 		padding: 0;
 		
@@ -884,7 +892,7 @@ ul:not(.no-bullet):not(.n-list--inline) li {
 		
 	}
 	
-	header a.logo[href] {
+	.n-header a.n-logo[href] {
 		
 		text-align: right;
 		display: block;

@@ -12,7 +12,7 @@ html.n-parallax, html.n-parallax body {
   bottom: 0;
   z-index: -1; }
 
-html.n-parallax .fixed-bg {
+html.n-parallax .n-fixed-bg {
   background-attachment: fixed;
   background-size: cover; }
 

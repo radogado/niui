@@ -27,7 +27,7 @@ blockquote {
 
 }
 
-h2 a[href] {
+.n-type h2 a[href] {
 	
 	color: #ccc;
 
@@ -163,7 +163,7 @@ nav.n-nav li a {
 		
 	}
 	
-	input.trigger.burger {
+	input.n-trigger.n-burger {
 		
 		left: auto;
 		right: 0;

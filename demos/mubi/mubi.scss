@@ -5,7 +5,7 @@ body {
 
 }
 
-.header-and-banner, header a[href], .banner a[href], .related {
+.n-header-banner, .n-header a[href], .n-banner a[href], .related {
 	
 	background-size: cover;
 	background-position: center center;
@@ -13,7 +13,7 @@ body {
 
 }
 
-header {
+.n-header {
 	
 	position: fixed;
 	width: 100%;
@@ -23,20 +23,20 @@ header {
 
 }
 
-.banner {
+.n-banner {
 	
 	padding-top: 5em;
 
 }
 
-header .n-form {
+.n-header .n-form {
 	
 	white-space: nowrap;
 	padding: 0;
 
 }
 
-header .n-form > * {
+.n-header .n-form > * {
 	
 	display: inline-block;
 	float: none;
@@ -46,9 +46,34 @@ header .n-form > * {
 
 }
 
-h1, h2, h3, h4, button, a.button {
+.n-type {
 	
-	text-transform: uppercase;
+	h1, h2, h3, h4, button, a.button {
+		
+		text-transform: uppercase;
+	
+	}
+	
+	a.button[href], button {
+		
+		background: #009c7c;
+		font-weight: bold;
+		
+	}
+
+	a[href] {
+		
+		text-decoration: none;
+		font-weight: bold;
+		
+	}
+	
+	a.related[href] {
+		
+		font-weight: normal;
+		width: 100%;
+		
+	}
 
 }
 
@@ -95,13 +120,6 @@ hr {
 .list b {
 	
 	color: #009c7c;
-	
-}
-
-a.button[href], button {
-	
-	background: #009c7c;
-	font-weight: bold;
 	
 }
 
@@ -165,20 +183,6 @@ time {
 time:before {
 	
 	content: '🕒 ';
-	
-}
-
-a[href] {
-	
-	text-decoration: none;
-	font-weight: bold;
-	
-}
-
-a.related[href] {
-	
-	font-weight: normal;
-	width: 100%;
 	
 }
 

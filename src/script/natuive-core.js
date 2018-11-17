@@ -396,17 +396,6 @@ function animateAnchors(e) {
 
 	}
 
-	if (q('#nav-trigger')) {
-		
-	    q('#nav-trigger').checked = false;
-	    if (q('header > nav > div')) {
-		    
-			removeClass(q('header > nav > div'), 'open');
-			
-		}
-
-	}
-
     scrollToAnimated((hash === null) ? 0 : getCumulativeOffset(hash).y, .5, (e) => { // To do: fix jumping to new hash – is the fallback executed properly in animate()?
 
         window.location = el.href.split('#')[0] + '#' + el.href.split('#').pop();

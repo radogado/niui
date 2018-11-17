@@ -10,38 +10,38 @@ body {
 	    
 }
 
-header {
+.n-header {
 	
 	background: #282828;
 	color: #fff;
 	
 }
 
-.banner {
+.n-banner {
 	
 	padding: 0 .25em;
 
-}
-
-.banner div {
+	div {
+		
+		background-position: center center;
+		background-size: cover;
+		color: #fff;
 	
-	background-position: center center;
-	background-size: cover;
-	color: #fff;
-
-}
-
-.banner h2 {
-
-	font-size: 30px;
-
-}
-
-.banner a[href].button {
+	}
 	
-	color: #49b293;
-	background: #fff;
+	h2 {
 	
+		font-size: 30px;
+	
+	}
+	
+	a[href].button {
+		
+		color: #49b293;
+		background: #fff;
+		
+	}
+
 }
 
 main a[href].button {
@@ -75,7 +75,7 @@ input[type=search] {
 
 }
 
-.banner .vertical.row > div > div {
+.n-banner .vertical.row > div > div {
 	
 	padding: 1em;
 
@@ -161,25 +161,27 @@ input[type=search] {
 
 }
 
-header a[href] {
+.n-header {
 	
-	text-decoration: none;
+	a[href] {
+	
+		text-decoration: none;
 
-}
+	}
+	
+	nav.n-nav.n-drop {
+		
+		
+		--nav-bg: #282828;
+		
+	}
+	
+	nav.n-nav.n-drop a[href] {
+		
+		color: #fff;
+		
+	}
 
-header nav.n-nav.n-drop {
-	
-	
-	--nav-bg: #282828;
-	
-}
-
-
-
-header nav.n-nav.n-drop a[href] {
-	
-	color: #fff;
-	
 }
 
 .diagram {
@@ -228,16 +230,20 @@ footer {
 
 }
 
-a[href].button {
+.n-type {
 	
-	border-radius: 4px;
-	padding: .5em 2em;
+	a[href].button {
+		
+		border-radius: 4px;
+		padding: .5em 2em;
+		
+	}
 	
-}
-
-a[href].button.big {
-
-	padding-left: 2.5em;
-	padding-right: 2.5em;
+	a[href].button.big {
+	
+		padding-left: 2.5em;
+		padding-right: 2.5em;
+	
+	}
 
 }

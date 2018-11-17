@@ -5,7 +5,7 @@
 
 }
 
-a[href]:not(:hover) {
+.n-type a[href]:not(:hover) {
 	
 	text-decoration: none;
 
@@ -18,7 +18,7 @@ time {
 
 }
 
-.banner .slider-nav a {
+.n-banner .n-slider--nav a {
 	
 	display: none;
 
@@ -30,13 +30,13 @@ time {
 
 }
 
-.vertical > .slider-nav {
+.vertical > .n-slider--nav {
 	
 	display: none;
 	
 }
 
-.n-slider--vertical > .slider-arrow, .n-slider--vertical > .slider-arrow.right {
+.n-slider--vertical > .n-slider--arrow, .n-slider--vertical > .n-slider--arrow.right {
 	
 	top: auto;
 	right: 1em;
@@ -48,31 +48,35 @@ time {
 
 }
 
-.n-slider--vertical>.slider-arrow.n-slider--right {
+.n-slider--vertical>.n-slider--arrow.n-slider--right {
 	
 	left: auto;
 	right: 1em;
 	
 }
 
-.n-slider--vertical > .slider-arrow {
+.n-slider--vertical > .n-slider--arrow {
 	
 	bottom: 6em;
 
 }
 
-.banner h2 {
+.n-banner h2 {
 	
 	font-size: 3em;
 	margin: 1em 0 1.5em 0;
 	
 }
 
-h1, h2, h3, h4 {
+.n-type {
 	
-	font-weight: 300;
-	line-height: 1.2em;
-	
+	h1, h2, h3, h4 {
+		
+		font-weight: 300;
+		line-height: 1.2em;
+		
+	}
+
 }
 
 main h1 {
@@ -106,7 +110,7 @@ main .pad {
 
 }
 
-main .slider-arrow {
+main .n-slider--arrow {
 	
 	display: none;
 	
@@ -120,13 +124,13 @@ main .n-slider h4 {
 
 }
 
-main .slider-nav {
+main .n-slider--nav {
 	
 	bottom: 5em;
 
 }
 
-.banner .pad {
+.n-banner .pad {
 	
 	padding: 5em;
 
@@ -155,7 +159,7 @@ footer h3 {
 @media screen and (max-width: 768px) {
 
 
-	main .pad, .banner .pad, footer {
+	main .pad, .n-banner .pad, footer {
 	
 		padding: 1em;
 	

@@ -97,7 +97,7 @@ form#language-selector select {
 
 }
 
-header .n-form .select {
+.n-header .n-form .select {
 	
 	height: $line-height;
 	
@@ -152,14 +152,14 @@ header .n-form .select {
 	}
 	/* Top */
 	
-	header .align-right {
+	.n-header .align-right {
 		
 		text-align: right;
 		vertical-align: top;
 		
 	}
 		
-		header img {
+		.n-header img {
 			
 			margin: 0;
 			
@@ -181,13 +181,13 @@ header .n-form .select {
 		}
 */
 		
-		header img.logo {
+		.n-header img.logo {
 			
 			height: 40px;
 	
 		}
 		
-		header .row {
+		.n-header .row {
 			
 			padding: 0;
 			
@@ -195,7 +195,7 @@ header .n-form .select {
 	
 /* Head */
 
-header h1, header p {
+.n-header h1, .n-header p {
 
 	color: #333;
 

@@ -17,7 +17,7 @@ footer ul li + li {
 
 }
 
-.header-and-banner {
+.n-header-banner {
 	
 	background: url(seoul-ae85e0e675294f40e8b35b00dac98f55.jpg) center center no-repeat;
 	background-size: cover;
@@ -25,13 +25,13 @@ footer ul li + li {
 
 }
 
-.banner {
+.n-banner {
 	
 	padding: 7em 0;
 	
 }
 
-.banner h1, .n-slider h2 {
+.n-banner h1, .n-slider h2 {
 	
 	text-transform: uppercase;
 	font-size: 3.3em;
@@ -50,7 +50,7 @@ footer ul li + li {
 
 }
 
-.header-and-banner .n-form {
+.n-header-banner .n-form {
 	
 	background: rgba(0,0,0,.5);
 	margin-top: 3em;
@@ -59,7 +59,7 @@ footer ul li + li {
 	
 }
 
-.header-and-banner .n-form > *, .header-and-banner .n-form input[type=submit] {
+.n-header-banner .n-form > *, .n-header-banner .n-form input[type=submit] {
 	
 	margin-top: .1em;
 	margin-bottom: .1em;
@@ -67,7 +67,7 @@ footer ul li + li {
 
 }
 
-.header-and-banner .n-form * + * {
+.n-header-banner .n-form * + * {
 
 	margin-left: -.28em;
 
@@ -134,13 +134,13 @@ main .n-slider {
 
 }
 
-main .n-slider-wrap .slider-nav {
+main .n-slider--wrap .n-slider--nav {
 	
 	display: none;
 
 }
 
-main .n-slider-wrap .slider-arrow {
+main .n-slider--wrap .n-slider--arrow {
 	
 	background: none;
 	font-size: 2em;
@@ -202,14 +202,14 @@ a[href].button, input[type=submit] {
 	
 }
 
-.banner a[href].button {
+.n-banner a[href].button {
 	
 	background: rgba(255,255,255,.5);
 	color: #666;
 
 }
 
-header a[href].button {
+.n-header a[href].button {
 	
 	background: none;
 	border: 2px solid #fff;
@@ -217,7 +217,7 @@ header a[href].button {
 	
 }
 
-header nav a[href] {
+.n-header nav a[href] {
 	
 	color: #fff;
 	text-decoration: none;
@@ -225,14 +225,14 @@ header nav a[href] {
 	
 }
 
-.header-and-banner .n-form input[type=submit] {
+.n-header-banner .n-form input[type=submit] {
 	
 	background: #ff5a5f;
 	border-radius: 0 3px 3px 0;
 	
 }
 
-p, h2+p:not(.n-drop-cap) {
+p, h2 + p:not(.n-drop-cap) {
 	
 	margin: 1em 0;
 

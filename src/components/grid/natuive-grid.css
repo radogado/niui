@@ -395,7 +395,7 @@ ol.n-masonry > * {
   .row > *:empty {
     display: none; }
 
-  .row > .full-mobile-width, .row > [class^=col].full-mobile-width {
+  .row > .n-full-mobile-width, .row > [class^=col].n-full-mobile-width {
     box-sizing: content-box;
     padding: 0; }
 

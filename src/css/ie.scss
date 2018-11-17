@@ -345,7 +345,7 @@ input[type=submit] {
 
 }
 
-.slider-nav {
+.n-slider--nav {
 	
 	left: 1em;
 	
@@ -363,13 +363,13 @@ input[type=submit] {
 
 }
 	
-.vertical .slider-nav {
+.vertical .n-slider--nav {
 	
 	top: 1em;
 
 }
 
-nav input[type=reset], nav input.trigger, nav input.trigger.burger {
+nav input[type=reset], nav input.n-trigger, nav input.n-trigger.n-burger {
 	
 	display: none;
 
@@ -399,7 +399,7 @@ nav.n-drop {
 	
 }
 
-.header-and-banner.n-viewport {
+.n-header-banner.n-viewport {
 	
 	overflow: hidden;
 

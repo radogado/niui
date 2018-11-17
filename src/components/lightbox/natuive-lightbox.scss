@@ -2,13 +2,13 @@
 
 @import '../../css/natuive-setup';
 
-.n-slider-wrap:not([data-active]) > .n-slider.n-slider--vertical.n-lightbox > * {
+.n-slider--wrap:not([data-active]) > .n-slider.n-slider--vertical.n-lightbox > * {
 
 	height: 100%;
 
 }
 
-*:not(.aspect) > .n-slider-wrap > .n-slider.n-slider--vertical.n-lightbox.n-lightbox--inline[data-sliding]:not(.n-slider--overlay) > * {
+*:not(.aspect) > .n-slider--wrap > .n-slider.n-slider--vertical.n-lightbox.n-lightbox--inline[data-sliding]:not(.n-slider--overlay) > * {
 
 	height: auto;
 
@@ -160,7 +160,7 @@
 
 }
 
-.n-slider.n-lightbox.detached-nav > * p, .n-slider-wrap.n-slider--outside .n-slider.n-lightbox > * p {
+.n-slider.n-lightbox.detached-nav > * p, .n-slider--wrap.n-slider--outside .n-slider.n-lightbox > * p {
 	
 	bottom: 0;
 	margin-bottom: .5em;
@@ -238,7 +238,7 @@
 
 .n-lightbox--thumbnails {
 	
-	&.slider-nav a {
+	&.n-slider--nav a {
 	
 		line-height: 4em;
 		width: 4em;
@@ -249,7 +249,7 @@
 		
 	}
 	
-	&.slider-nav a[data-active] {
+	&.n-slider--nav a[data-active] {
 	
 		opacity: .25;
 		transition: opacity .2s ease-in-out;
@@ -260,7 +260,7 @@
 
 .n-slider--outside:not(.n-slider--vertical) {
 	
-	.slider-nav {
+	.n-slider--nav {
 	
 		position: static;
 		transform: none;
@@ -270,7 +270,7 @@
 	
 	}
 	
-	&.n-slider-wrap:not(.n-lightbox--inline) {
+	&.n-slider--wrap:not(.n-lightbox--inline) {
 		
 		padding-bottom: 4em;
 		
@@ -286,9 +286,9 @@
 	
 @media (max-height: $screen-narrow-max) {
 
-	.n-lightbox--thumbnails.n-slider-wrap {
+	.n-lightbox--thumbnails.n-slider--wrap {
 		
-		.slider-nav {
+		.n-slider--nav {
 			
 			a, a[data-active] {
 		

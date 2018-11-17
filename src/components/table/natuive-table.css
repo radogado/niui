@@ -17,36 +17,32 @@ $bg: #1E8DaC;
   --color: #333;
   --bg: #fff; }
 
-table {
+.n-table {
   width: 100%;
   overflow: auto;
   border-collapse: collapse;
   -webkit-overflow-scrolling: touch;
   display: block; }
+  .n-table td, .n-table th {
+    padding: 1.5em 0.75em;
+    vertical-align: middle; }
+  .n-table th, .n-table thead td {
+    color: #fff;
+    font-weight: bold;
+    padding-bottom: 1.5em;
+    font-size: 1.1em;
+    background: rgba(0, 0, 0, 0.1);
+    text-align: left;
+    text-align: start; }
+  .n-table tr:nth-child(2n+1) {
+    background: rgba(0, 0, 0, 0.1); }
+  .n-table tr, .n-table td, .n-table th, .n-table iframe {
+    border: none; }
 
-table::-webkit-scrollbar {
+.n-table::-webkit-scrollbar {
   display: none; }
 
-td, th {
-  padding: 1.5em 0.75em;
-  vertical-align: middle; }
-
-th, thead td {
-  color: #fff;
-  font-weight: bold;
-  padding-bottom: 1.5em;
-  font-size: 1.1em;
-  background: rgba(0, 0, 0, 0.1);
-  text-align: left;
-  text-align: start; }
-
-tr:nth-child(2n+1) {
-  background: rgba(0, 0, 0, 0.1); }
-
-tr, td, th, iframe {
-  border: none; }
-
-.n-tbl {
+.n-table--wrap {
   overflow-x: auto;
   /*
   	    scrollbar-3dlight-color: grey;
@@ -59,9 +55,8 @@ tr, td, th, iframe {
   */
   -webkit-overflow-scrolling: touch;
   margin: 1.5em 0; }
-
-.n-tbl table {
-  display: table; }
+  .n-table--wrap .n-table {
+    display: table; }
 
 /*
 	table :not(thead) tr:hover td { // IE9 bug: hover on overflowing table makes its .table container taller
@@ -70,7 +65,7 @@ tr, td, th, iframe {
 
 	}
 */
-.n-tbl td[data-sort] {
+.n-table--wrap td[data-sort] {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -78,19 +73,17 @@ tr, td, th, iframe {
   user-select: none; }
 
 @media screen and (min-width: 1px) {
-  .n-tbl td[data-sort] {
+  .n-table--wrap td[data-sort] {
     cursor: pointer; }
-
-  .n-tbl td[data-sort]:after {
-    content: '⇳';
-    margin-left: .5em; } }
+    .n-table--wrap td[data-sort]:after {
+      content: '⇳';
+      margin-left: .5em; } }
 @media screen and (max-width: 599.9px) {
-  table {
+  .n-table {
     display: block;
     overflow: scroll;
     table-layout: auto; }
-
-  table td {
-    word-break: normal; } }
+    .n-table td {
+      word-break: normal; } }
 
 /*# sourceMappingURL=natuive-table.css.map */

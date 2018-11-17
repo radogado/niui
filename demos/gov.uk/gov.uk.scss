@@ -28,52 +28,52 @@ body {
 
 }
 
-header {
+.n-header {
 	
 	background: #000;
 
-}
-
-header .pad {
+	.pad {
+		
+	    padding: 0.8em .5em 0.5em .5em;
+		 
+	}
 	
-    padding: 0.8em .5em 0.5em .5em;
-	 
+	img {
+		
+		width: 10em;
+		 
+	}
+
 }
 
-header img {
-	
-	width: 10em;
-	 
-}
-
-.banner {
+.n-banner {
 	
 	background: #005ea5;
 
-}
-
-.banner h1 {
+	h1 {
+		
+		font-size: 3em;
 	
-	font-size: 3em;
-
-}
-
-.banner .row > .popular, .banner .row > .popular > * {
+	}
 	
-	margin-bottom: 0;
-	padding-bottom: 0;
+	.row > .popular, .row > .popular > * {
+		
+		margin-bottom: 0;
+		padding-bottom: 0;
+		
+	}
 	
-}
-
-.banner .popular .pad {
+	.popular .pad {
+		
+		background: #000;
 	
-	background: #000;
-
-}
-
-.banner, .banner a[href] {
+	}
 	
-	color: #fff;
+	&, a[href] {
+		
+		color: #fff;
+	
+	}
 
 }
 
@@ -90,19 +90,19 @@ main h2 {
 
 }
 
-.banner ul {
+.n-banner ul {
 	
 	margin-bottom: 0;
 
 }
 
-.banner ul li, main ul li {
+.n-banner ul li, main ul li {
 	
 	margin: 0;
 
 }
 
-main ul li a[href], .banner ul li a[href] {
+main ul li a[href], .n-banner ul li a[href] {
 	
 	font-weight: bold;
 
@@ -144,7 +144,7 @@ input[type=text] {
 
 }
 
-.banner input[type=submit] {
+.n-banner input[type=submit] {
 	
 	background: #000 url(loupe.svg) center center no-repeat;
 	background-size: 50%;
@@ -210,7 +210,7 @@ a.huge-b b {
 
 }
 
-main p, .banner p {
+main p, .n-banner p {
 	
 	margin-top: 0;
 
@@ -229,13 +229,13 @@ ul li:before {
 
 }
 
-.banner .n-form.n-form--wide input {
+.n-banner .n-form.n-form--wide input {
 	
 	margin: 0;
 	
 }
 
-.banner .n-form.n-form--wide input[type=text] {
+.n-banner .n-form.n-form--wide input[type=text] {
 	
 	width: 100%;
 	

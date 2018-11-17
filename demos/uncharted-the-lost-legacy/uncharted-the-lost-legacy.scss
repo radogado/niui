@@ -5,35 +5,35 @@ body {
 	
 }
 
-body, footer, header {
+body, footer, .n-header {
 	
     background: #181818;
 
 }
 
-header {
+.n-header {
 	
 	font-size: 14px;
 	text-transform: uppercase;
     color: #c8c8c8;
 
-}
-
-header .active {
+	.active {
+		
+		color: #fff;
 	
-	color: #fff;
-
-}
-
-header a.logo {
+	}
 	
-	line-height: 3;
-
-}
-
-header nav.n-nav a img, header nav.n-nav a[href] {
+	a.n-logo {
+		
+		line-height: 3;
 	
-	display: inline-block;
+	}
+	
+	nav.n-nav a img, nav.n-nav a[href] {
+		
+		display: inline-block;
+	
+	}
 
 }
 
@@ -93,29 +93,43 @@ footer .disclaimer {
 
 }
 
-.banner {
+.n-banner {
 	
 	padding: 1em;
 
 }
 
-a[href], ul.n-list--inline li {
+.n-type {
 	
-	text-decoration: none;
-	vertical-align: middle;
+	a[href], ul.n-list--inline li {
+		
+		text-decoration: none;
+		vertical-align: middle;
+	
+	}
+	
+	a[href].button {
+		
+		background: url(button-lg.jpg);
+		text-transform: uppercase;
+		font-weight: bold;
+		padding: .5em 1em;
+	
+	}
+	
+	h1, h2 {
+		
+		font-weight: 300;
+	    font-size: 60px;
+	    line-height: 65px;
+	    text-shadow: rgba(0, 0, 0, 0.75) 2px -1px 8px;
+	    text-transform: uppercase;
+		
+	}
 
 }
 
-a[href].button {
-	
-	background: url(button-lg.jpg);
-	text-transform: uppercase;
-	font-weight: bold;
-	padding: .5em 1em;
-
-}
-
-main a[href].button, .banner a[href].button {
+main a[href].button, .n-banner a[href].button {
 	
 	width: 14em;
 	max-width: 100%;
@@ -123,23 +137,14 @@ main a[href].button, .banner a[href].button {
 
 }
 
-h1, h2 {
-	
-	font-weight: 300;
-    font-size: 60px;
-    line-height: 65px;
-    text-shadow: rgba(0, 0, 0, 0.75) 2px -1px 8px;
-    text-transform: uppercase;
-	
-}
 
-span.burger {
+span.n-burger {
 	
 	background: #000;
 	
 }
 
-span.burger:before {
+span.n-burger:before {
 	
 	box-shadow: 0 0.25em 0 1px #fff, 0 0.625em 0 1px #fff, 0 1em 0 1px #fff;
 	    
@@ -148,19 +153,19 @@ span.burger:before {
 @media screen and (max-width: 600px) {
 	
 	
-	header.n-fixed-mobile .n-fold.n-fold--mobile.open .n-fold--content {
+	.n-header.n-fixed-mobile .n-fold.n-fold--mobile.open .n-fold--content {
 		
 		background: #000;
 		
 	}
 	
-	.n-slider-wrap > .pad {
+	.n-slider--wrap > .pad {
 		
 		margin: 0;
 
 	}
 	
-	header a.logo {
+	.n-header a.n-logo {
 		
 		line-height: inherit;
 		
@@ -172,11 +177,15 @@ span.burger:before {
 		
 	}
 	
-	h1, h2 {
+	.n-type {
 		
-		font-size: 30px;
-		line-height: 1.25;
-
+		h1, h2 {
+			
+			font-size: 30px;
+			line-height: 1.25;
+	
+		}
+	
 	}
 
 	main .row > .col1, .n-slider .row {

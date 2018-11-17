@@ -35,18 +35,37 @@ body {
 
 }
 
-h1, h2 {
-	
-	font-family: MuseoSans, sans-serif;
-	font-weight: 100;
-	font-size: 3.5em;
+.n-type {
 
-}
+	h1, h2 {
+		
+		font-family: MuseoSans, sans-serif;
+		font-weight: 100;
+		font-size: 3.5em;
+	
+	}
+	
+	h2 {
+		
+		font-size: 3em;
+		
+	}
 
-h2 {
+	a.button[href] {
+		
+		border-radius: 2em;
+		padding: 0 3em;
+		font-size: .8em;
+	    font-weight: 900;
+		
+	}
 	
-	font-size: 3em;
-	
+	a.button[href]:hover, .button:hover {
+		
+		color: #fff;	
+		
+	}
+
 }
 
 body {
@@ -68,14 +87,14 @@ footer li {
 
 }
 
-.header-and-banner {
+.n-header-banner {
 	
 	text-align: center;
 	padding-bottom: 1em;
 	
 }
 
-header {
+.n-header {
 	
 	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.1) 70%, transparent 100%);
 	padding: 1em 0;
@@ -84,39 +103,39 @@ header {
 	left: 0;
 	right: 0;
 	z-index: 9;
+
+	nav.n-nav, nav.n-nav a[href] {
+		
+		display: inline-block;
+		color: #fff;
+		text-decoration: none;
+		font-size: .8em;
+		
+	}
 	
+	nav.n-nav {
+		
+		text-align: right;
+		
+	}
+	
+	nav.n-nav:first-of-type {
+		
+		text-transform: uppercase;
+		text-align: left;
+		font-weight: 900;
+	
+	}
+
 }
 
-header nav.n-nav, header nav.n-nav a[href] {
-	
-	display: inline-block;
-	color: #fff;
-	text-decoration: none;
-	font-size: .8em;
-	
-}
-
-header nav.n-nav {
-	
-	text-align: right;
-	
-}
-
-header nav.n-nav:first-of-type {
-	
-	text-transform: uppercase;
-	text-align: left;
-	font-weight: 900;
-
-}
-
-.banner .row {
+.n-banner .row {
 	
 	min-height: 45em;
 	
 }
 
-.banner a {
+.n-banner a {
 	
 	color: #00b5f3;
 	text-decoration: none;
@@ -127,29 +146,14 @@ header nav.n-nav:first-of-type {
 	
 }
 
-.banner a.button {
+.n-banner a.button {
 	
 	background-color: #00b5f3;
 	text-transform: uppercase;
 	
 }
 
-a.button[href] {
-	
-	border-radius: 2em;
-	padding: 0 3em;
-	font-size: .8em;
-    font-weight: 900;
-	
-}
-
-a.button[href]:hover, .button:hover {
-	
-	color: #fff;	
-	
-}
-
-.banner a[href]:not(.button):hover {
+.n-banner a[href]:not(.button):hover {
 	
 	opacity: .7;
 
@@ -412,7 +416,7 @@ footer form .mandatory:before {
 		
 	}
 	
-	.banner {
+	.n-banner {
 		
 		padding-top: 10em;
 

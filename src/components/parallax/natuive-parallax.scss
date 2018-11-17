@@ -26,7 +26,7 @@ html.n-parallax {
 
 // fixed background element needs fixing (disabled/background-attachmend (which isn't on mobile)), because there is no position: fixed under a transformed element like .parallax-front. This disables iPad. To do: fix it in Safari
 
-html.n-parallax .fixed-bg {
+html.n-parallax .n-fixed-bg {
 		
 	background-attachment: fixed;
 	background-size: cover;

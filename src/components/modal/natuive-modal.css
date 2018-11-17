@@ -81,7 +81,11 @@ html.n-full-screen {
   height: 3em;
   overflow-x: auto;
   white-space: nowrap;
-  position: absolute; }
+  position: absolute;
+  line-height: 1.5; }
+
+.n-ovrl--close {
+  line-height: 3; }
 
 /* 	.no-touch */
 .n-ovrl.headless {
@@ -114,7 +118,7 @@ html.n-full-screen {
   .n-ovrl--content {
     padding-top: 1.5em; } }
 @media (max-height: 512px) and (orientation: landscape) {
-  .n-ovrl .n-slider-wrap.n-slider--overlay, .n-ovrl .n-slider-wrap.n-slider--vertical.n-slider--overlay {
+  .n-ovrl .n-slider--wrap.n-slider--overlay, .n-ovrl .n-slider--wrap.n-slider--vertical.n-slider--overlay {
     margin: 0;
     height: 100%; }
 
@@ -140,7 +144,7 @@ html.n-full-screen {
       width: 40px;
       text-align: center; }
 
-  .n-slider--overlay.n-slider-wrap {
+  .n-slider--overlay.n-slider--wrap {
     margin: 0; } }
 
 /*# sourceMappingURL=natuive-modal.css.map */

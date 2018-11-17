@@ -68,7 +68,7 @@ img, picture, .lightbox a {
 
 }
 
-.n-viewport.header-and-banner {
+.n-viewport.n-header-banner {
 
 	min-height: 100vh;
 // 	overflow: auto;
@@ -77,7 +77,7 @@ img, picture, .lightbox a {
 
 }
 
-.n-viewport.header-and-banner .banner {
+.n-viewport.n-header-banner .n-banner {
 
 	flex-grow: 1;
 	justify-content: center;
@@ -86,26 +86,26 @@ img, picture, .lightbox a {
 
 }
 
-.n-viewport.header-and-banner.push-up:after { // Move centered content up, because the middle seems low
+.n-viewport.n-header-banner.n-push-up:after { // Move centered content up, because the middle seems low
 
 	content: '';
 	flex-grow: 1;
 
 }
 
-header a.logo {
+.n-header a.n-logo {
 
 	display: inline-block;
 
 }
 
-.wide-screen {
+.n-wide-screen {
 
 	display: block;
 
 }
 
-.narrow-screen {
+.n-narrow-screen {
 
 	display: none;
 
@@ -113,13 +113,13 @@ header a.logo {
 
 /* Footer */
 
-footer {
+.n-footer {
 
 	position: relative; // Because of the backtotop button
 
 }
 
-footer > * {
+.n-footer > * {
 
 	position: static;
 
@@ -152,7 +152,7 @@ video {
 
 /* Element as a window to an image spanning viewpoert dimensions. iOS doesn't support it natively and requires div.fixed-bg-image */
 
-.fixed-bg {
+.n-fixed-bg {
 
 	background-size: cover;
 	background-position: center center;
@@ -161,60 +161,56 @@ video {
 
 @supports (clip: rect(auto, auto, auto, auto)) {
 
-	.fixed-bg {
+	.n-fixed-bg {
 
 	    will-change: scroll;
 	    background-size: 0;
 	    position: relative;
 
-	}
-
-		.fixed-bg .fixed-bg-image, .fixed-bg .fixed-bg-image:before {
-
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background-image: inherit;
-
-		}
-
-		.fixed-bg .fixed-bg-image {
+		.n-fixed-bg--image {
 
 			position: absolute;
 			background-size: 0;
 			z-index: -1;
 			clip: rect(auto, auto, auto, auto);
+			
+			&, &:before {
+				
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-image: inherit;
+				
+			}
 
+			&:before {
+	
+				content: '';
+				position: fixed;
+				background-size: cover;
+				background-position: center center;
+				height: 100vh; // Mobile browser resize when hiding/showing toolbars
+	
+				transform: translate3d(0,0,0); // Force refresh while scrolling (iPad), fix missing image parts on (macOS Safari)
+	
+			}
+		
 		}
-
-		.fixed-bg .fixed-bg-image:before {
-
-			content: '';
-			position: fixed;
-			background-size: cover;
-			background-position: center center;
-			height: 100vh; // Mobile browser resize when hiding/showing toolbars
-
-		}
-
-		.fixed-bg .fixed-bg-image:before {
-
-			transform: translate3d(0,0,0); // Force refresh while scrolling (iPad), fix missing image parts on (macOS Safari)
-
-		}
+		
+	}
 
 }
 
 @supports (-ms-ime-align:auto) { // Disable jumpy Edge
 
-	.fixed-bg {
+	.n-fixed-bg {
 
 		background-size: cover;
 
 	}
 
-	.fixed-bg .fixed-bg-image {
+	.n-fixed-bg .n-fixed-bg--image {
 
 		display: none;
 
@@ -228,7 +224,7 @@ video {
 
 }
 
-header.n-fixed {
+.n-header.n-fixed {
 
 	position: static;
 
@@ -270,32 +266,32 @@ a[href].span-relative-parent {
 
 @media screen and (max-width: $screen-narrow-max) {
 
-	.wide-screen {
+	.n-wide-screen {
 
 		display: none;
 
 	}
 
-	.narrow-screen {
+	.n-narrow-screen {
 
 		display: block;
 
 	}
 
-	.n-viewport.header-and-banner {
+	.n-viewport.n-header-banner {
 
 		height: auto;
 		overflow: hidden;
 
 	}
 
-	header .head-right {
+	.n-header .head-right {
 
 		text-align: start;
 
 	}
 
-	header.n-fixed {
+	.n-header.n-fixed {
 
 		position: fixed;
 		top: 0;

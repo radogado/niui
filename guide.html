@@ -20,7 +20,7 @@
 	
 </head>
 	
-<body dir=ltr>
+<body dir=ltr class="n-type">
 <!-- <div class='notify'>Whoops</div> -->
 	<!-- Head - Start -->
 
@@ -28,7 +28,7 @@
 		
 		<div class="col4 nav-column">
 			
-			<div class='slider-nav' data-for='guide-slider'></div>		
+			<div class='n-slider--nav' data-for='guide-slider'></div>		
 		
 		</div>
 		
@@ -38,9 +38,9 @@
 			
 				<div data-tab_title='natUIve guide' id=home>
 					
-					<div class='header-and-banner n-viewport push-up-'>
+					<div class='n-header-banner n-viewport n-push-up-'>
 	
-						<div class=banner>
+						<div class=n-banner>
 		
 			<div class='contain row'>
 				
@@ -121,19 +121,19 @@
 		&lt;script src=ie-fallback.js type=text/javascript&gt;&lt;/script&gt;
 	&lt;![endif]--&gt;
 &lt;/head&gt;
-&lt;body&gt;
-	&lt;div class=header-and-banner&gt;
-		&lt;header&gt;
+&lt;body class=n-type&gt;
+	&lt;div class=n-header-banner&gt;
+		&lt;header class=n-header&gt;
 			Header
 		&lt;/header&gt;
-		&lt;div class='banner'&gt;
+		&lt;div class=n-banner&gt;
 			Banner
 		&lt;/div&gt;
 	&lt;/div&gt;
 	&lt;main&gt;
 		Main content
 	&lt;/main&gt;
-	&lt;footer&gt;
+	&lt;footer class=n-footer&gt;
 		Footer
 	&lt;/footer&gt;
 	&lt;script src=natuive.min.js type=text/javascript async&gt;&lt;/script&gt;
@@ -142,7 +142,7 @@
 		if (!('fetch' in window)) {
 
 			var fallback_js = document.createElement('script');
-			fallback_js.setAttribute('src','dist/natuive.babel.js');
+			fallback_js.setAttribute('src','natuive.babel.js');
 			document.body.appendChild(fallback_js);
 		
 		}
@@ -158,13 +158,13 @@
 						
 						<ul>
 							
-							<li><pre>.header-and-banner.n-viewport</pre> – full-height centered header and banner area
+							<li><pre>.n-header-banner.n-viewport</pre> – full-height centered header and banner area
 								<ul>
-									<li>add <pre>.push-up</pre> to balance at 1/3 height, instead of 1/2</li>
+									<li>add <pre>.n-push-up</pre> to balance at 1/3 height, instead of 1/2</li>
 								</ul>
 							</li>
 							<li>Use <pre>section</pre> elements in <pre>main</pre> to clear inner margins at top/bottom</li>
-							<li><pre>header.n-fixed</pre> for fixed header on top on narrow screens (below 600px threshold)</li>
+							<li><pre>.n-header.n-fixed</pre> for fixed header on top on narrow screens (below 600px threshold)</li>
 							<li>Include <b>natuive.js</b> from src/script instead of <b>natuive.min.js</b> to use <pre>nui.animate()</pre> etc.</li>
 							<li><b>body.n-sticky-footer</b> for a sticky footer and vertical space taken by <b>main</b>.</li>
 						
@@ -1175,14 +1175,14 @@
 			
 </div>
 							
-							<h2>Mobile navigation behind a burger</h2>
+							<h2>Mobile navigation behind a n-burger</h2>
 
 <div class="code">
-<pre><code class="language-markup">&lt;header class=&quot;n-fixed-mobile&quot;&gt;
+<pre><code class="language-markup">&lt;header class=&quot;n-fixed-mobile n-header&quot;&gt;
 	
 	&lt;div class=&quot;n-fold n-fold--mobile&quot;&gt;
 				
-		&lt;div class=&quot;label&quot;&gt; &lt;span class=&quot;burger&quot;&gt;&lt;/span&gt; &lt;/div&gt;
+		&lt;div class=&quot;label&quot;&gt; &lt;span class=&quot;n-burger&quot;&gt;&lt;/span&gt; &lt;/div&gt;
 
 		&lt;nav class=n-nav&gt;
 			
@@ -1221,6 +1221,12 @@
 				<div data-tab_title=Typography id=typography>
 					
 					<div class='row'>
+						
+						<div class="col1">
+							
+							<h2>For natUIve typography features like baseline alignment, wrap the below elements inside an <b>.n-type</b> container</h2>
+							
+						</div>
 						
 						<div class='col3'>
 							
@@ -1543,7 +1549,7 @@
 								
 								<h3>...detached nav here</h3>
 								
-								<div class="slider-nav" data-for=detached-nav-slider></div>
+								<div class="n-slider--nav" data-for=detached-nav-slider></div>
 								
 							</div>
 							
@@ -1559,7 +1565,7 @@
 								<li>Full screen: <pre>&lt;div class='n-slider n-full-screen'&gt;</pre></li>
 								<li>Slide duration <pre>&lt;div class='n-slider' data-duration=1&gt;</pre> in seconds. Default is <b>.2</b>.</li>
 								<li>Vertically center slides' content with <pre>&lt;div class='n-slider align-middle'&gt;</pre></li>
-								<li>Detach slider nav by adding an <b>id</b> to the slider and creating <pre>&lt;div class='slider-nav' data-for='slider-id'&gt;</pre> elsewhere</li>
+								<li>Detach slider nav by adding an <b>id</b> to the slider and creating <pre>&lt;div class='n-slider--nav' data-for='slider-id'&gt;</pre> elsewhere</li>
 								<li>URI with hash matching a slide id in a slider, auto slides to it.</li>
 								<li><pre>data-peek=20%</pre> to peek at neighboring slides, where 20% becomes 20% padding on left and right</li>
 								<li><pre>&lt;div class='n-slider n-slider--fade-overlap'&gt;</pre> to overlap the two slides while fading out/in</li>
@@ -1588,9 +1594,9 @@
 	
 							<div class='n-slider n-tabs'>
 								
-								<div> <h3 class='tab-title'>Tab 1</h3> <p>Content of Tab 1</p> </div>
+								<div> <h3 class='n-tab-title'>Tab 1</h3> <p>Content of Tab 1</p> </div>
 							
-								<div> <h3 class='tab-title'>Tab 2</h3> <p>The content of Tab 2</p> <p>New line</p> <p>New line</p> </div>
+								<div> <h3 class='n-tab-title'>Tab 2</h3> <p>The content of Tab 2</p> <p>New line</p> <p>New line</p> </div>
 							
 							</div>
 						
@@ -1599,7 +1605,7 @@
 <pre><code class="language-markup">&lt;div class='n-slider n-tabs'&gt;
 	&lt;div&gt; ... &lt;/div&gt;
 	&lt;div data-tab_title='Tab 1'&gt; ... &lt;/div&gt;
-	&lt;div&gt; &lt;h2 class='tab-title'&gt;Tab title and content&lt;/h2&gt; ... &lt;/div&gt;
+	&lt;div&gt; &lt;h2 class='n-tab-title'&gt;Tab title and content&lt;/h2&gt; ... &lt;/div&gt;
 	...
 &lt;/div&gt;</code>
 </pre>
@@ -1614,9 +1620,9 @@
 	
 							<div class='n-slider n-slider--top n-tabs n-slider--auto-height' data-duration=1>
 		
-								<div style='background: mintcream;'> <div class='pad'><h3 class='tab-title'>Tab 1</h3> <p>Content of Tab 1</p></div> </div>
+								<div style='background: mintcream;'> <div class='pad'><h3 class='n-tab-title'>Tab 1</h3> <p>Content of Tab 1</p></div> </div>
 	
-								<div style='background: cyan;'> <div class='pad'><h3 class='tab-title'>Tab 2</h3> <p>The content of Tab 2</p> <p>New line</p> <p>New line</p> </div></div>
+								<div style='background: cyan;'> <div class='pad'><h3 class='n-tab-title'>Tab 2</h3> <p>The content of Tab 2</p> <p>New line</p> <p>New line</p> </div></div>
 	
 							</div>
 						
@@ -1645,7 +1651,7 @@
 				
 				<div>
 							
-					<p class=tab-title> Tab 2 </p>
+					<p class=n-tab-title> Tab 2 </p>
 							
 					<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 				
@@ -1653,7 +1659,7 @@
 			
 				<div>
 				
-					<p class=tab-title> Tab 3 Very Long Title which Shows the Flexible Dimensions  </p>
+					<p class=n-tab-title> Tab 3 Very Long Title which Shows the Flexible Dimensions  </p>
 							
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
 							
@@ -1680,7 +1686,7 @@
 				
 				<div data-tab_title='Tab 1'>
 					
-		<!-- 								<p class=tab-title> Slider 2 Slide 1 </p> -->
+		<!-- 								<p class=n-tab-title> Slider 2 Slide 1 </p> -->
 					
 					<p class='pad'>Tab 1 content</p>
 							
@@ -1688,7 +1694,7 @@
 				
 				<div>
 							
-					<p class=tab-title> Tab 2 </p>
+					<p class=n-tab-title> Tab 2 </p>
 							
 					<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 				
@@ -1696,7 +1702,7 @@
 			
 				<div>
 				
-					<p class=tab-title> Tab 3 Very Long Title which Shows the Flexible tabs Dimensions  </p>
+					<p class=n-tab-title> Tab 3 Very Long Title which Shows the Flexible tabs Dimensions  </p>
 							
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
 							
@@ -1722,9 +1728,9 @@
 	
 							<div class='n-slider n-tabs' id=detached-tabs>
 								
-								<div> <h3 class='tab-title'>Tab 1</h3> <p>Content of Tab 1</p> </div>
+								<div> <h3 class='n-tab-title'>Tab 1</h3> <p>Content of Tab 1</p> </div>
 							
-								<div> <h3 class='tab-title'>Tab 2</h3> <p>The content of Tab 2</p> <p>New line</p> <p>New line</p> </div>
+								<div> <h3 class='n-tab-title'>Tab 2</h3> <p>The content of Tab 2</p> <p>New line</p> <p>New line</p> </div>
 							
 							</div>
 						
@@ -1733,17 +1739,17 @@
 <pre><code class="language-markup">&lt;div class='n-slider n-tabs' id='detached-tabs'&gt;
 	&lt;div&gt; ... &lt;/div&gt;
 	&lt;div data-tab_title='Tab 1'&gt; ... &lt;/div&gt;
-	&lt;div&gt; &lt;h2 class='tab-title'&gt;Tab title and content&lt;/h2&gt; ... &lt;/div&gt;
+	&lt;div&gt; &lt;h2 class='n-tab-title'&gt;Tab title and content&lt;/h2&gt; ... &lt;/div&gt;
 	...
 &lt;/div&gt;
 
-&lt;div class='slider-nav' data-for='detached-tabs'&gt;&lt;/div&gt;
+&lt;div class='n-slider--nav' data-for='detached-tabs'&gt;&lt;/div&gt;
 </code>
 </pre>
 
 </div>
 
-<div class="slider-nav" data-for=detached-tabs></div>
+<div class="n-slider--nav" data-for=detached-tabs></div>
 
 						</div>
 						<div class="col1">
@@ -1752,7 +1758,7 @@
 							
 							<ul>
 								
-								<li>Tab titles are taken from <pre>data-tab_title</pre>, <pre>.tab-title</pre> on a child or index by default</li>
+								<li>Tab titles are taken from <pre>data-tab_title</pre>, <pre>.n-tab-title</pre> on a child or index by default</li>
 								<li><pre>data-duration=2</pre> for 2 seconds slide duration</li>
 
 							</ul>
@@ -2009,7 +2015,7 @@
 									
 									<div>
 									
-										<div class="slider-nav" data-for=lightbox4></div>
+										<div class="n-slider--nav" data-for=lightbox4></div>
 									
 									</div>
 								
@@ -2026,7 +2032,7 @@
 	...
 &lt;/div&gt;
 
-&lt;div class="slider-nav" data-for=lightbox4&gt;&lt;/div&gt;</code>
+&lt;div class="n-slider--nav" data-for=lightbox4&gt;&lt;/div&gt;</code>
 </pre>
 
 </div>
@@ -2092,7 +2098,7 @@
 				
 				</div>
 				
-				<div id=tables data-tab_title=Tables id=tables>
+				<div id=tables data-tab_title=Tables>
 				
 					<div class='row'>
 						
@@ -2106,7 +2112,7 @@
 							
 							<h3>Standard</h3>
 							
-							<table>
+							<table class="n-table">
 						
 						<thead>
 							<tr>
@@ -2131,7 +2137,7 @@
 							
 <div class="code">							
 
-<pre><code class="language-markup">&lt;table&gt;
+<pre><code class="language-markup">&lt;table class=n-table&gt;
 	&lt;thead&gt;
 		&lt;tr&gt;
 			&lt;td&gt;Head&lt;/td&gt;
@@ -2153,7 +2159,7 @@
 						<div>
 							<h3>Headless</h3>
 										
-							<table>
+							<table class="n-table">
 					
 						<tr>
 							<td> <a>First</a> </td> 
@@ -2171,7 +2177,7 @@
 						
 <div class="code">							
 
-<pre><code class="language-markup">&lt;table&gt;
+<pre><code class="language-markup">&lt;table class=n-table&gt;
 	&lt;tr&gt;
 		&lt;td&gt;First&lt;/td&gt;
 		...
@@ -2187,7 +2193,7 @@
 							
 							<h3>Sortable</h3>
 							
-							<table>
+							<table class="n-table">
 						
 						<thead>
 							<tr>
@@ -2216,7 +2222,7 @@
 						
 <div class="code">							
 
-<pre><code class="language-markup">&lt;table&gt;
+<pre><code class="language-markup">&lt;table class=n-table&gt;
 	&lt;thead&gt;
 		&lt;tr&gt;
 			&lt;td data-sort&gt;Head&lt;/td&gt;
@@ -2275,7 +2281,7 @@
 							<div class='n-fold'>
 							
 								<h3 class=n-fold--label> Accordion </h3>
-								<input type=checkbox class=trigger>
+								<input type=checkbox class=n-trigger>
 							
 								<div id=i class='n-fold--content'>
 									
@@ -2288,7 +2294,7 @@
 
 <pre><code class="language-markup">&lt;div class='n-fold'&gt;
 	&lt;h3 class='n-fold--label'&gt; Label &lt;/h3&gt;
-	&lt;input type=checkbox class=trigger&gt;
+	&lt;input type=checkbox class=n-trigger&gt;
 	&lt;div class='n-fold--content'&gt;
 		&lt;p&gt; Content. &lt;/p&gt;
 	&lt;/div&gt;
@@ -2304,7 +2310,7 @@
 							<div class='n-fold' aria-expanded=true>
 							
 								<h3 class=n-fold--label> Open by default </h3>
-								<input type=checkbox class=trigger>
+								<input type=checkbox class=n-trigger>
 							
 								<div id=i class='n-fold--content'>
 									
@@ -2317,7 +2323,7 @@
 
 <pre><code class="language-markup">&lt;div class='n-fold' aria-expanded='true'&gt;
 	&lt;h3 class='n-fold--label'&gt; Label &lt;/h3&gt;
-	&lt;input type=checkbox class=trigger&gt;
+	&lt;input type=checkbox class=n-trigger&gt;
 	&lt;div class='n-fold--content'&gt;
 		&lt;p&gt; Content. &lt;/p&gt;
 	&lt;/div&gt;
@@ -2333,7 +2339,7 @@
 							<div class=n-fold>
 							
 								<h3 class=n-fold--label> Truncated content </h3>
-								<input type=checkbox class=trigger>
+								<input type=checkbox class=n-trigger>
 								
 								<div class='n-fold--content' style='--start-height: 6em;'>
 									
@@ -2349,7 +2355,7 @@
 
 <pre><code class="language-markup">&lt;div class='n-fold'&gt;
 	&lt;h3 class='n-fold--label'&gt; Label &lt;/h3&gt;
-	&lt;input type=checkbox class=trigger&gt;
+	&lt;input type=checkbox class=n-trigger&gt;
 	&lt;div class='n-fold--content' style='--start-height: 6em;'&gt;
 		&lt;p&gt; Content. &lt;/p&gt;
 	&lt;/div&gt;
@@ -2365,7 +2371,7 @@
 							<div class='n-fold n-fold--horizontal'>
 							
 								<h3 class=n-fold--label> Horizontal accordion </h3>
-								<input type=checkbox class=trigger>
+								<input type=checkbox class=n-trigger>
 								
 								<div class="n-fold--content">
 									
@@ -2397,14 +2403,14 @@
 							<div class=n-fold>
 							
 								<h3 class=n-fold--label> Nested Accordions </h3>
-								<input type=checkbox class=trigger>
+								<input type=checkbox class=n-trigger>
 								
 								<div class='n-fold--content'>
 							
 									<div class=n-fold>
 								
 										<h3 class=n-fold--label> About Inner Accordion </h3>
-										<input type=checkbox class=trigger>
+										<input type=checkbox class=n-trigger>
 									
 										<div class='n-fold--content'>
 														<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -2415,7 +2421,7 @@
 									<div class=n-fold>
 								
 										<h3 class=n-fold--label> About Inner Accordion 2 </h3>
-										<input type=checkbox class=trigger>
+										<input type=checkbox class=n-trigger>
 									
 										<div class='n-fold--content'>
 											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -3439,9 +3445,9 @@
 						
 						<div class='align-middle' style='min-height: 100vh;'>
 					
-							<div class='fixed-bg' style='background-image: url(images/DSC00470.jpg); color: #fff;'>
+							<div class='n-fixed-bg' style='background-image: url(images/DSC00470.jpg); color: #fff;'>
 								
-								<div class='fixed-bg-image'></div>
+								<div class='n-fixed-bg--image'></div>
 								
 								<div class='pad'>
 
@@ -3450,8 +3456,8 @@
 									<h2>Fixed background</h2>
 <div class="code">							
 
-<pre><code class="language-markup">&lt;div class='fixed-bg' style='background-image: url(image.jpg);'&gt;
-	&lt;div class='fixed-bg-image'&gt;&lt;/div&gt;
+<pre><code class="language-markup">&lt;div class='n-fixed-bg' style='background-image: url(image.jpg);'&gt;
+	&lt;div class='n-fixed-bg--image'&gt;&lt;/div&gt;
 	...
 &lt;/div&gt;</code>
 </pre>
@@ -3881,7 +3887,7 @@
 <textarea id=component-playground rows="10" style="width: 100%">
 <div class=n-fold>
 	<h3 class=n-fold--label> Label </h3>
-	<input type=checkbox class=trigger>
+	<input type=checkbox class=n-trigger>
 	<div class=n-fold--content><p> Content. </p><p> Content. </p><p> Content. </p></div>
 </div>
 </textarea>

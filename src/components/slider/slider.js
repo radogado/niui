@@ -9,23 +9,23 @@ var componentSlider = (function (){
 	
 	function sliderElement(e) { // Get the active slider instance
 		
-		var closest_slider_wrap = document.activeElement.closest('.n-slider-wrap');
+		var closest_slider_wrap = document.activeElement.closest('.n-slider--wrap');
 		
-		if (closest_slider_wrap && closest_slider_wrap === focusWithin('.n-slider-wrap')) {
+		if (closest_slider_wrap && closest_slider_wrap === focusWithin('.n-slider--wrap')) {
 	
-			return focusWithin('.n-slider-wrap').querySelector('.n-slider');
+			return focusWithin('.n-slider--wrap').querySelector('.n-slider');
 	
 		}
 	
 	    var el = e.target;
 	
-	    if (hasClass(el, 'n-slider-wrap')) {
+	    if (hasClass(el, 'n-slider--wrap')) {
 	
 	        return el.querySelector('.n-slider');
 	
 	    } else {
 	
-	        var container = el.closest('.n-slider-wrap');
+	        var container = el.closest('.n-slider--wrap');
 	        return container && container.querySelector('.n-slider');
 	
 	    }
@@ -34,17 +34,17 @@ var componentSlider = (function (){
 	
 	function getSliderNav(slider_wrap) {
 	
-		// Select either a child slider-nav or the one specified by the slider id, if it exists
+		// Select either a child n-slider--nav or the one specified by the slider id, if it exists
 		var slider = slider_wrap.querySelector('.n-slider');
 		var slider_nav;
 	
-		if (slider.id && (slider_nav = q(`.slider-nav[data-for=${slider.id}]`))) { // Detached nav
+		if (slider.id && (slider_nav = q(`.n-slider--nav[data-for=${slider.id}]`))) { // Detached nav
 	
 			return slider_nav;
 	
 		} else {
 	
-			return slider_wrap.querySelectorAll('.slider-nav')[slider_wrap.querySelectorAll('.slider-nav').length-1]; // With a simple query, it would get the nav of an eventual nested slider, instead of the current one. Current nav is either a direct child or a .pad direct child, taken as the last one of all.
+			return slider_wrap.querySelectorAll('.n-slider--nav')[slider_wrap.querySelectorAll('.n-slider--nav').length-1]; // With a simple query, it would get the nav of an eventual nested slider, instead of the current one. Current nav is either a direct child or a .pad direct child, taken as the last one of all.
 	
 		}
 	
@@ -83,10 +83,10 @@ var componentSlider = (function (){
 				var overlay_content = el.closest('.n-ovrl') ? el.closest('.n-ovrl').querySelector('.n-ovrl--content') : null;
 
 				// Allow vertical page scroll by swiping over the slider. Also when parent modal is scrollable vertically
-	            if (((hasClass(el, 'n-slider--vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !q('.n-ovrl .n-slider-wrap'))
+	            if (((hasClass(el, 'n-slider--vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !q('.n-ovrl .n-slider--wrap'))
 	            	|| (overlay_content && (overlay_content.scrollHeight > overlay_content.offsetHeight) && (Math.abs(deltaX) < Math.abs(deltaY)))
 	            	|| (e.target.nodeName === 'INPUT' && e.target.type === 'range')
-	            	|| hasClass(e.target.parentNode, 'slider-nav') || hasClass(e.target, 'slider-nav')
+	            	|| hasClass(e.target.parentNode, 'n-slider--nav') || hasClass(e.target, 'n-slider--nav')
 					) {
 	
 	                return;
@@ -131,7 +131,7 @@ var componentSlider = (function (){
 	
 		var el = e.target;
 		
-		if (el.closest('.slider-nav')) { // Allow scrolling the nav bar
+		if (el.closest('.n-slider--nav')) { // Allow scrolling the nav bar
 						
 			return;
 	
@@ -157,7 +157,7 @@ var componentSlider = (function (){
 		   
 		}
 	
-		var slider_wrap = el.closest('.n-slider-wrap');
+		var slider_wrap = el.closest('.n-slider--wrap');
 	
 	    if (toggle === 'off') {
 	
@@ -190,7 +190,7 @@ var componentSlider = (function (){
 
 	    }
 	
-		var slider_wrap = slider.closest('.n-slider-wrap');
+		var slider_wrap = slider.closest('.n-slider--wrap');
 	
 		if (getSliderNav(slider_wrap)) { // Multiple slides? // To do: get the proper slider nav, if it's detached
 	
@@ -253,7 +253,7 @@ var componentSlider = (function (){
 // 2 directions: horizontal/vertical
 // 3 animations: slide/fade/fade overlap
 	
-		var slider_wrap = el.closest('.n-slider-wrap');
+		var slider_wrap = el.closest('.n-slider--wrap');
 	
 	    var slider = slider_wrap.querySelector('.n-slider');
 	
@@ -346,7 +346,7 @@ var componentSlider = (function (){
 		var next_slide_image = target_slide.querySelector('img');
 		if (hasClass(slider, 'n-slider--vertical')) {
 			
-			if (hasClass(slider, 'n-lightbox--inline') && !hasClass(slider, 'n-slider--overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'aspect')) { // Inline lightbox only. To do: integrate aspect with n-slider-wrap
+			if (hasClass(slider, 'n-lightbox--inline') && !hasClass(slider, 'n-slider--overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'aspect')) { // Inline lightbox only. To do: integrate aspect with n-slider--wrap
 			
 				var height_change_number = slider.clientWidth * next_slide_image.naturalHeight / next_slide_image.naturalWidth;
 				if (slider.clientWidth >= next_slide_image.naturalWidth) {
@@ -502,8 +502,8 @@ var componentSlider = (function (){
 	
 	    if (typeof e === 'undefined' || 
 	//     	hasClass(q('html'), 'sliding_now') || 
-	    	q('.n-slider-wrap[data-active]') || 
-	    	(q('.n-ovrl') && !q('.n-ovrl .n-slider-wrap')) // There is an overlay open and it doesn't have a slider in it
+	    	q('.n-slider--wrap[data-active]') || 
+	    	(q('.n-ovrl') && !q('.n-ovrl .n-slider--wrap')) // There is an overlay open and it doesn't have a slider in it
 			) {
 	
 	        return;
@@ -512,9 +512,9 @@ var componentSlider = (function (){
 	
 		var el = e.target;
 
-		if (!el.closest('.n-slider-wrap') && q('.n-slider-wrap')) { // Focused element is outside of any slider
+		if (!el.closest('.n-slider--wrap') && q('.n-slider--wrap')) { // Focused element is outside of any slider
 			
-	// 		current_slider = q('.n-slider-wrap').querySelector('.slider');
+	// 		current_slider = q('.n-slider--wrap').querySelector('.slider');
 			var scrollable = el; // Don't slide when current element is scrollable. Check all parent nodes for scrollability – cheak each parent until body.
 			while (scrollable.nodeName !== 'BODY') {
 				
@@ -530,7 +530,7 @@ var componentSlider = (function (){
 			
 		} else {
 			
-			current_slider = el.closest('.n-slider-wrap') ? el.closest('.n-slider-wrap').querySelector('.n-slider') : null;
+			current_slider = el.closest('.n-slider--wrap') ? el.closest('.n-slider--wrap').querySelector('.n-slider') : null;
 	
 		}
 	
@@ -542,7 +542,7 @@ var componentSlider = (function (){
 	
 		if 	(el.tagName !== 'INPUT' && el.tagName !== 'TEXTAREA' && 
 	// 		(document.activeElement === el ? (el.scrollWidth <= el.clientWidth) : true) &&
-	// 		(!closestElement(document.activeElement, '.n-slider-wrap.active') && (el.scrollWidth <= el.clientWidth) ) &&
+	// 		(!closestElement(document.activeElement, '.n-slider--wrap.active') && (el.scrollWidth <= el.clientWidth) ) &&
 			(el = q('.n-ovrl .n-slider') || current_slider || q('.n-slider'))
 			) { // Priority: full window slider, active slider, first slider
 	
@@ -606,10 +606,10 @@ var componentSlider = (function (){
 	
 		var container = el.parentNode;
 	
-		if (!container || !hasClass(container, 'n-slider-wrap')) {
+		if (!container || !hasClass(container, 'n-slider--wrap')) {
 	
 		    container = wrap(el);
-			addClass(container, 'n-slider-wrap');
+			addClass(container, 'n-slider--wrap');
 			if (container.parentNode && hasClass(container.parentNode, 'aspect')) {
 				
 				addClass(container, 'inside-aspect');
@@ -654,7 +654,7 @@ var componentSlider = (function (){
 		
 		var slider_nav;
 
-		if (el.id && (slider_nav = q('.slider-nav[data-for=' + el.id + ']'))) { // Detached nav
+		if (el.id && (slider_nav = q('.n-slider--nav[data-for=' + el.id + ']'))) { // Detached nav
 			
 			addClass(container, 'detached-nav');
 			addClass(el, 'detached-nav');
@@ -662,12 +662,12 @@ var componentSlider = (function (){
 	
 		} else {
 
-		    container.insertAdjacentHTML(hasClass(container, 'n-slider--top') ? 'afterbegin' : 'beforeend', '<div class=slider-nav></div>');
-            slider_nav = container.querySelector('.slider-nav:not([data-for])'); // Not data-for to avoid nested detached nav for nested sliders
+		    container.insertAdjacentHTML(hasClass(container, 'n-slider--top') ? 'afterbegin' : 'beforeend', '<div class=n-slider--nav></div>');
+            slider_nav = container.querySelector('.n-slider--nav:not([data-for])'); // Not data-for to avoid nested detached nav for nested sliders
 		
 		}
 		
-	    container.insertAdjacentHTML('beforeend', '<a class="slider-arrow n-slider--left" tabindex=0></a><a class="slider-arrow n-slider--right" tabindex=0></a>');
+	    container.insertAdjacentHTML('beforeend', '<a class="n-slider--arrow n-slider--left" tabindex=0></a><a class="n-slider--arrow n-slider--right" tabindex=0></a>');
 	
 	    // Generate controls
 
@@ -680,7 +680,7 @@ var componentSlider = (function (){
 	            addClass(slider_nav, 'n-tabs');
 	            transferClass(container, slider_nav, 'n-wrap');
 	            transferClass(el, container, 'n-slider--vertical');
-	            var tab_title = el.children[i].getAttribute('data-tab_title') || (el.children[i].querySelector('.tab-title') ? el.children[i].querySelector('.tab-title').innerHTML : i+1);
+	            var tab_title = el.children[i].getAttribute('data-tab_title') || (el.children[i].querySelector('.n-tab-title') ? el.children[i].querySelector('.n-tab-title').innerHTML : i+1);
 	            slider_nav.insertAdjacentHTML('beforeend', `<a tabindex="0">${tab_title}</a>`);
 
 	        } else {
@@ -708,7 +708,7 @@ var componentSlider = (function (){
 	        
 	    }
 	
-	    container.querySelector('.slider-arrow').onclick = container.querySelector('.slider-arrow').onkeyup = (e) => {
+	    container.querySelector('.n-slider--arrow').onclick = container.querySelector('.n-slider--arrow').onkeyup = (e) => {
 	
 			if (e.type === 'keyup' && e.keyCode !== 13) { // Slide on Enter key
 				
@@ -720,9 +720,9 @@ var componentSlider = (function (){
 	
 	    };
 	    
-	    cancelTouchEvent(container.querySelector('.slider-arrow'));
+	    cancelTouchEvent(container.querySelector('.n-slider--arrow'));
 	
-	    container.querySelector('.slider-arrow.n-slider--right').onclick = container.querySelector('.slider-arrow.n-slider--right').onkeyup = (e) => {
+	    container.querySelector('.n-slider--arrow.n-slider--right').onclick = container.querySelector('.n-slider--arrow.n-slider--right').onkeyup = (e) => {
 	
 			if (e.type === 'keyup' && e.keyCode !== 13) { // Slide on Enter key
 				
@@ -733,7 +733,7 @@ var componentSlider = (function (){
 	
 	    };
 	
-	    cancelTouchEvent(container.querySelector('.slider-arrow.n-slider--right'));
+	    cancelTouchEvent(container.querySelector('.n-slider--arrow.n-slider--right'));
 	
 	    mouseEvents(el);
 	

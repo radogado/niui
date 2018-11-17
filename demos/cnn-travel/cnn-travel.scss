@@ -60,7 +60,7 @@ body {
     
 }
 
-p {
+.n-type p {
 	
 	font-family: CNNSans;
 	font-size: .8em;
@@ -73,7 +73,7 @@ p {
 
 }
 
-header {
+.n-header {
 	
 	text-transform: uppercase;
 	
@@ -160,20 +160,20 @@ span.vertical {
 
 }
 
-.n-slider-wrap {
+.n-slider--wrap {
 	
 	overflow: visible;
 	margin-bottom: 3em;
 	
 }
 
-.n-slider-wrap>.slider-nav {
+.n-slider--wrap>.n-slider--nav {
 	
 	bottom: -3em;
 	
 }
 
-a[href].button {
+.n-type a[href].button {
 	
 	border: 1px solid #eee;
 	background: transparent;
@@ -184,11 +184,11 @@ a[href].button {
 
 @media (max-width: 599.9px) {
 
-.row>*>.unpad, .unpad {
-	
-	margin: 0;
-	width: auto;
-	
-}
+	.row > * > .unpad, .unpad {
+		
+		margin: 0;
+		width: auto;
+		
+	}
 
 }

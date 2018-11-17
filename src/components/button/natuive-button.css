@@ -17,7 +17,7 @@ $bg: #1E8DaC;
   --color: #333;
   --bg: #fff; }
 
-.button, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button, a.button[href] {
+.button, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button, a.button[href], .n-type a.button[href] {
   font-size: inherit;
   line-height: 1.5;
   min-height: 1.5em;
@@ -40,7 +40,7 @@ $bg: #1E8DaC;
   -moz-user-select: none;
   user-select: none;
   border-radius: 0; }
-  .button:hover, .n-form input[type=submit]:hover, .n-form button[type=submit]:hover, .n-form button[type=reset]:hover, button:hover, a.button[href]:hover {
+  .button:hover, .n-form input[type=submit]:hover, .n-form button[type=submit]:hover, .n-form button[type=reset]:hover, button:hover, a.button[href]:hover, .n-type a.button[href]:hover {
     background: #eee;
     color: #333; }
 

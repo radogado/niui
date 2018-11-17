@@ -9,7 +9,7 @@ body {
 	    
 }
 
-.banner {
+.n-banner {
 	
 	background: url(home-banner_bg.jpg) no-repeat center center;
 	background-size: cover;
@@ -17,20 +17,31 @@ body {
 
 }
 
-h1 {
+.n-type {
 	
-	font-weight: 100;
-	font-size: 5em
+	h1 {
+		
+		font-weight: 100;
+		font-size: 5em
+	
+	}
+	
+	h2, h3, h4 {
+		
+		font-weight: 300;
+	
+	}
 
+	a[href], a {
+		
+		text-decoration: none;
+	    color: #1f9ec4;
+	
+	}
+	
 }
 
-h2, h3, h4 {
-	
-	font-weight: 300;
-
-}
-
-.banner .row .row > * {
+.n-banner .row .row > * {
 	
 	    color: #0d313f;
 	        background-color: rgba(255,255,255,.9);
@@ -43,13 +54,13 @@ h2, h3, h4 {
 
 }
 
-.banner .row .row > *:nth-child(2), .banner .row .row > *:nth-child(3) {
+.n-banner .row .row > *:nth-child(2), .banner .row .row > *:nth-child(3) {
 
 	background-color: rgba(236,236,236,.9);
 
 }
 
-.banner .row .row > * {
+.n-banner .row .row > * {
 	
 	padding: 1em;
 	box-sizing: border-box;
@@ -59,13 +70,6 @@ h2, h3, h4 {
 .contain {
 	
 	max-width: 1176px;
-
-}
-
-a[href], a {
-	
-	text-decoration: none;
-    color: #1f9ec4;
 
 }
 

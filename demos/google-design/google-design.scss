@@ -12,27 +12,30 @@ body {
 	-webkit-font-smoothing: antialiased;
 	
 }
+.n-type {
 
-p, footer a[href] {
-	
-	font-family: Roboto;
-	
+	p, footer a[href] {
+		
+		font-family: Roboto;
+		
+	}
+
 }
 
-.header-and-banner {
+.n-header-banner {
 	
     background-color: rgb(66, 133, 244);
 	color: #fff;
 
 }
 
-header a[href] {
+.n-header a[href] {
 	
 	text-transform: uppercase;
 
 }
 
-.banner h1 {
+.n-banner h1 {
 	
 	font-size: 3.5em;
 	margin: .5em 0;
@@ -40,7 +43,7 @@ header a[href] {
 
 }
 
-header a[href], footer a[href], main a[href] {
+.n-header a[href], footer a[href], main a[href] {
 	
 	text-decoration: none;
 	font-weight: 500;
@@ -85,7 +88,7 @@ svg {
 
 }
 
-header svg {
+.n-header svg {
 	
 	height: 1em;
 	line-height: 1.5;

@@ -56,7 +56,7 @@ $bg: #1E8DaC;
     width: auto; }
     .n-fold.n-fold--mobile > .n-fold--label:after {
       display: none; }
-    .n-fold.n-fold--mobile > .n-fold--label, .n-fold.n-fold--mobile > input.trigger {
+    .n-fold.n-fold--mobile > .n-fold--label, .n-fold.n-fold--mobile > input.n-trigger {
       display: none;
       width: auto;
       line-height: 1.5;
@@ -72,7 +72,7 @@ $bg: #1E8DaC;
     will-change: max-width; }
   .n-fold[aria-expanded] .n-fold--content {
     max-height: none; }
-  .n-fold:not([aria-expanded]):not(.n-fold--mobile):not(.n-fold--horizontal) > .n-fold--content, .n-fold[aria-expanded]:not(.n-fold--horizontal) input.trigger:checked ~ .n-fold--content {
+  .n-fold:not([aria-expanded]):not(.n-fold--mobile):not(.n-fold--horizontal) > .n-fold--content, .n-fold[aria-expanded]:not(.n-fold--horizontal) input.n-trigger:checked ~ .n-fold--content {
     max-height: 0;
     max-height: var(--start-height, 0); }
   .n-fold.n-fold--horizontal > * {
@@ -83,7 +83,7 @@ $bg: #1E8DaC;
     content: "◀"; }
   .n-fold.n-fold--horizontal:not([data-init]) > .n-fold--content {
     width: 0; }
-  .n-fold.n-fold--horizontal[data-init] > .n-fold--content, .n-fold.n-fold--horizontal[aria-expanded] > .n-fold--content, .n-fold.n-fold--horizontal > input.trigger:checked ~ .n-fold--content {
+  .n-fold.n-fold--horizontal[data-init] > .n-fold--content, .n-fold.n-fold--horizontal[aria-expanded] > .n-fold--content, .n-fold.n-fold--horizontal > input.n-trigger:checked ~ .n-fold--content {
     width: 100%; }
   .n-fold.n-fold--horizontal > .n-fold--content {
     height: 0; }
@@ -95,11 +95,11 @@ $bg: #1E8DaC;
       padding-top: 0; }
   .n-fold .n-fold--content > * {
     margin-top: 0; }
-  .n-fold:not(.n-fold--horizontal) > input.trigger:checked ~ .n-fold--content, .n-fold.n-fold--mobile:not(.n-fold--horizontal) .n-fold--content {
+  .n-fold:not(.n-fold--horizontal) > input.n-trigger:checked ~ .n-fold--content, .n-fold.n-fold--mobile:not(.n-fold--horizontal) .n-fold--content {
     max-height: none; }
-  .n-fold[aria-expanded] > input.trigger + .n-fold--content {
+  .n-fold[aria-expanded] > input.n-trigger + .n-fold--content {
     display: inline-block; }
-  .n-fold span.burger {
+  .n-fold span.n-burger {
     width: 1.5em;
     height: 1.5em;
     line-height: 1.5em;
@@ -108,7 +108,7 @@ $bg: #1E8DaC;
     text-align: center;
     position: relative;
     background: #fff; }
-    .n-fold span.burger:after {
+    .n-fold span.n-burger:after {
       content: "="; }
 
 .n-fold--label, .n-fold > input[type=checkbox] {
@@ -122,19 +122,19 @@ $bg: #1E8DaC;
   cursor: zoom-out; }
 
 @supports (--a: 1) {
-  .n-fold span.burger:before {
+  .n-fold span.n-burger:before {
     content: "";
     position: absolute;
     left: 0.25em;
     width: 1em;
     top: 0.15em;
     box-shadow: 0 0.25em 0 1px #333, 0 0.625em 0 1px #333, 0 1em 0 1px #333; }
-  .n-fold span.burger:after {
+  .n-fold span.n-burger:after {
     display: none; }
   .n-fold.n-fold--horizontal > * {
     display: block; } }
 @media screen and (max-width: 599.9px) {
-  .n-fold.n-fold--mobile > .n-fold--label, .n-fold.n-fold--mobile > input.trigger {
+  .n-fold.n-fold--mobile > .n-fold--label, .n-fold.n-fold--mobile > input.n-trigger {
     display: inline-block;
     display: flex;
     width: 3em;
@@ -142,27 +142,27 @@ $bg: #1E8DaC;
   .n-fold.n-fold--mobile:not([aria-expanded]) .n-fold--content {
     max-height: 0;
     max-width: 0; }
-  .n-fold.n-fold--mobile > input.trigger:checked ~ .n-fold--content, .n-fold.n-fold--mobile > input.trigger:checked + .n-fold--content {
+  .n-fold.n-fold--mobile > input.n-trigger:checked ~ .n-fold--content, .n-fold.n-fold--mobile > input.n-trigger:checked + .n-fold--content {
     max-height: none; }
   .n-fold.n-fold--mobile .n-fold--content {
     /* hidden fold item */
     overflow: hidden; }
 
   @supports (--a: 1) {
-    header.n-fixed-mobile .n-fold.n-fold--mobile {
+    .n-header.n-fixed-mobile .n-fold.n-fold--mobile {
       position: fixed;
       top: 0;
       z-index: 2; }
-      header.n-fixed-mobile .n-fold.n-fold--mobile[aria-expanded] {
+      .n-header.n-fixed-mobile .n-fold.n-fold--mobile[aria-expanded] {
         bottom: 0;
         overflow: visible; }
-        header.n-fixed-mobile .n-fold.n-fold--mobile[aria-expanded] .n-fold--content {
+        .n-header.n-fixed-mobile .n-fold.n-fold--mobile[aria-expanded] .n-fold--content {
           overflow: auto;
           -webkit-overflow-scrolling: touch;
           position: fixed;
           top: 3em;
           bottom: 0; }
-      header.n-fixed-mobile .n-fold.n-fold--mobile .n-fold--content {
+      .n-header.n-fixed-mobile .n-fold.n-fold--mobile .n-fold--content {
         padding: 0 0.375em;
         background: #fff; } } }
 @media screen and (min-width: 600px) {

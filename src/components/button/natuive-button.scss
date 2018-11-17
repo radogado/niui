@@ -2,7 +2,7 @@
 
 @import '../../css/natuive-setup';
 
-.button, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button, a.button[href] {
+.button, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button, a.button[href], .n-type a.button[href]  {
 
 // 	font-size: $font-size;
 	font-size: inherit;

@@ -12,69 +12,73 @@ main img {
 
 }
 
-h1, h2 {
+.n-type {
 	
-	font-weight: normal;
+	h1, h2 {
+		
+		font-weight: normal;
+	
+	}
+	
+	.contain {
+		
+		max-width: 1440px;
+		
+	}
 
+	a.button[href] {
+		
+		padding: .75em 1.4em;
+		text-transform: uppercase;
+		font-size: .9em;
+		font-weight: normal;
+	    margin: .5em 0;
+		
+	}
+	
 }
 
-.contain {
-	
-	max-width: 1440px;
-	
-}
-
-header {
+.n-header {
 	
 	text-transform: uppercase;
 
+	.pad {
+		
+		margin-left: 2em;
+		
+	}
+	
+	nav.n-nav a[href] {
+		
+		margin-left: .5em;
+		font-size: .9em;
+		
+	}
+	
+	nav.n-nav li:first-child a[href] {
+		
+		margin-left: 0;
+		
+	}
+	
+	nav.n-nav .active a, nav.n-nav:last-child .active a {
+		
+		color: #999;
+		    
+	}
+	
+	.col25 nav.n-nav a {
+		
+		font-size: .75em;
+		color: #999;
+	
+	}
+	
 }
 
-header .pad {
-	
-	margin-left: 2em;
-	
-}
-
-header nav.n-nav a[href] {
-	
-	margin-left: .5em;
-	font-size: .9em;
-	
-}
-
-header nav.n-nav li:first-child a[href] {
-	
-	margin-left: 0;
-	
-}
-
-header nav.n-nav .active a, header nav.n-nav:last-child .active a {
-	
-	color: #999;
-	    
-}
-
-header .col25 nav.n-nav a {
-	
-	font-size: .75em;
-	color: #999;
-
-}
-
-header ul, .banner ul {
+.n-header ul, .n-banner ul {
 	
 	display: block;
-	
-}
-
-a.button[href] {
-	
-	padding: .75em 1.4em;
-	text-transform: uppercase;
-	font-size: .9em;
-	font-weight: normal;
-    margin: .5em 0;
 	
 }
 
@@ -130,13 +134,13 @@ footer a[href]:first-child {
 	
 }
 
-.n-slider-wrap {
+.n-slider--wrap {
 	
 	text-align: center;
 	
 }
 
-.n-slider-wrap.n-tabs > .slider-nav.row {
+.n-slider--wrap.n-tabs > .n-slider--nav.row {
 	
     margin: 2em 0;
     justify-content: center;
@@ -144,7 +148,7 @@ footer a[href]:first-child {
 
 }
 
-.n-slider-wrap.n-tabs > .slider-nav.row a {
+.n-slider--wrap.n-tabs > .n-slider--nav.row a {
 	
 	flex-grow: 1;
     white-space: nowrap;
@@ -157,20 +161,20 @@ footer a[href]:first-child {
 
 }
 
-.n-slider-wrap.n-tabs > .slider-nav.row a[data-active] {
+.n-slider--wrap.n-tabs > .n-slider--nav.row a[data-active] {
 	
 	background: #eee;
 
 }
 
-.n-slider-wrap.n-tabs > .slider-nav.row a:first-child {
+.n-slider--wrap.n-tabs > .n-slider--nav.row a:first-child {
 	
 	border-radius: 2em 0 0 2em;
 	border-right: none;
 
 }
 
-.n-slider-wrap.n-tabs > .slider-nav.row a:last-child {
+.n-slider--wrap.n-tabs > .n-slider--nav.row a:last-child {
 	
 	border-radius: 0 2em 2em 0;
 	border-left: none;

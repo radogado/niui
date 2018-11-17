@@ -65,7 +65,7 @@ body {
 
 }
 
-header {
+.n-header {
 	
 	position: absolute;
 	z-index: 2;
@@ -84,12 +84,15 @@ header {
 
 }
 
-a[href] {
-    
-    text-decoration: none;
+.n-type {
+	
+	a[href] {
+	    
+	    text-decoration: none;
+	
+	}
 
-}
-    
+}    
 
 footer {
 	
@@ -132,7 +135,7 @@ ul li:before {
 	
 }
 
-.banner {
+.n-banner {
 
 	h2 {
 		
@@ -146,7 +149,7 @@ ul li:before {
 	
 	}
 	
-	.n-slider-wrap>.slider-nav {
+	.n-slider--wrap>.n-slider--nav {
 		
 		bottom: 1em;
 		left: 1em;
@@ -433,7 +436,7 @@ ul li:before {
 	
 }
 
-.slider-arrow {
+.n-slider--arrow {
 	
 	display: none;
 
@@ -497,7 +500,7 @@ ul li:before {
 		
 	}
 
-	.n-slider-wrap.n-tabs.n-slider--top>.slider-nav.row {
+	.n-slider--wrap.n-tabs.n-slider--top>.n-slider--nav.row {
 		
 		position: relative;
 		left: 0;
@@ -517,7 +520,7 @@ ul li:before {
 	
 	}
 
-	.n-slider-wrap.n-tabs.n-slider--top>.slider-nav a {
+	.n-slider--wrap.n-tabs.n-slider--top>.n-slider--nav a {
 		
 	    color: #fff;
         font-family: 'Akrobat';
@@ -579,7 +582,7 @@ content: "";
 
 }
 
-.n-slider > *, .n-slider-wrap {
+.n-slider > *, .n-slider--wrap {
 	
 // 	overflow: visible;
 	
@@ -666,13 +669,13 @@ content: "";
 
 }
 
-.n-slider-wrap.n-slider--top .slider-nav.n-tabs {
+.n-slider--wrap.n-slider--top .n-slider--nav.n-tabs {
 	
 	justify-content: center;
 
 }
 
-.n-slider-wrap.n-tabs.n-slider--top>.slider-nav a {
+.n-slider--wrap.n-tabs.n-slider--top>.n-slider--nav a {
 	
 	flex: initial;
 	min-width: 16em;
@@ -769,14 +772,14 @@ content: "";
     display: inline-block;
 }
 
-.current-currency-tab + .tabs.slider-nav {
+.current-currency-tab + .tabs.n-slider--nav {
 	
 	margin-top: 1em;
 	overflow: visible;
 	
 }
 
-.current-currency-tab + .tabs.slider-nav a {
+.current-currency-tab + .tabs.n-slider--nav a {
 	
 	text-align: center;
 	background: none;
@@ -824,7 +827,7 @@ content: "";
 	
 }
 
-.banner .slider-nav a {
+.n-banner .n-slider--nav a {
 	
 	font-size: 0;
 	--nav-size: 1rem;
@@ -839,13 +842,13 @@ content: "";
 	
 }
 
-.banner .slider-nav a {
+.n-banner .n-slider--nav a {
 	
 	background: #fff;
 
 }
 
-.n-slider-wrap>.pad {
+.n-slider--wrap>.pad {
 	
 	margin: 0 0 2em 0;
 	
@@ -1182,7 +1185,7 @@ nav.n-nav.n-drop ul ul:not([aria-expanded]), nav.n-nav.n-drop ul ul[aria-expande
 
 @media (max-width: 599.9px) {
 	
-	.banner {
+	.n-banner {
 		
 		padding-top: 10em;
 		
@@ -1194,7 +1197,7 @@ nav.n-nav.n-drop ul ul:not([aria-expanded]), nav.n-nav.n-drop ul ul[aria-expande
 		
 	}
 	
-	.banner .row > :first-child {
+	.n-banner .row > :first-child {
 		
 		min-height: 240px;
 		

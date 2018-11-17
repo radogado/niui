@@ -17,10 +17,10 @@ $bg: #1E8DaC;
   --color: #333;
   --bg: #fff; }
 
-.n-slider-wrap:not([data-active]) > .n-slider.n-slider--vertical.n-lightbox > * {
+.n-slider--wrap:not([data-active]) > .n-slider.n-slider--vertical.n-lightbox > * {
   height: 100%; }
 
-*:not(.aspect) > .n-slider-wrap > .n-slider.n-slider--vertical.n-lightbox.n-lightbox--inline[data-sliding]:not(.n-slider--overlay) > * {
+*:not(.aspect) > .n-slider--wrap > .n-slider.n-slider--vertical.n-lightbox.n-lightbox--inline[data-sliding]:not(.n-slider--overlay) > * {
   height: auto; }
 
 .n-slider.n-lightbox > * {
@@ -101,7 +101,7 @@ $bg: #1E8DaC;
 .n-slider--overlay.n-lightbox.n-slider img, .n-lightbox.n-lightbox--inline img {
   cursor: zoom-in; }
 
-.n-slider.n-lightbox.detached-nav > * p, .n-slider-wrap.n-slider--outside .n-slider.n-lightbox > * p {
+.n-slider.n-lightbox.detached-nav > * p, .n-slider--wrap.n-slider--outside .n-slider.n-lightbox > * p {
   bottom: 0;
   margin-bottom: .5em; }
 
@@ -141,39 +141,39 @@ $bg: #1E8DaC;
     top: 50%;
     transform: translate3d(-50%, -50%, 0);
     left: 50%; } }
-.n-lightbox--thumbnails.slider-nav a {
+.n-lightbox--thumbnails.n-slider--nav a {
   line-height: 4em;
   width: 4em;
   min-height: 4em;
   background-size: cover;
   border-radius: 0;
   cursor: zoom-in; }
-.n-lightbox--thumbnails.slider-nav a[data-active] {
+.n-lightbox--thumbnails.n-slider--nav a[data-active] {
   opacity: .25;
   transition: opacity .2s ease-in-out; }
 
-.n-slider--outside:not(.n-slider--vertical) .slider-nav {
+.n-slider--outside:not(.n-slider--vertical) .n-slider--nav {
   position: static;
   transform: none;
   width: calc(100% + 1em);
   max-width: none;
   margin: .5em 0 0 -.5em; }
-.n-slider--outside:not(.n-slider--vertical).n-slider-wrap:not(.n-lightbox--inline) {
+.n-slider--outside:not(.n-slider--vertical).n-slider--wrap:not(.n-lightbox--inline) {
   padding-bottom: 4em; }
-  .n-slider--outside:not(.n-slider--vertical).n-slider-wrap:not(.n-lightbox--inline).n-lightbox--thumbnails {
+  .n-slider--outside:not(.n-slider--vertical).n-slider--wrap:not(.n-lightbox--inline).n-lightbox--thumbnails {
     padding-bottom: 5.5em; }
 
 @media (max-height: 599.9px) {
-  .n-lightbox--thumbnails.n-slider-wrap .slider-nav a, .n-lightbox--thumbnails.n-slider-wrap .slider-nav a[data-active] {
+  .n-lightbox--thumbnails.n-slider--wrap .n-slider--nav a, .n-lightbox--thumbnails.n-slider--wrap .n-slider--nav a[data-active] {
     line-height: 1.5;
     width: 1.5em;
     min-height: 1.5em;
     color: transparent;
     text-shadow: none; }
-  .n-lightbox--thumbnails.n-slider-wrap:not(.n-slider--top) .n-slider.n-lightbox > * p {
+  .n-lightbox--thumbnails.n-slider--wrap:not(.n-slider--top) .n-slider.n-lightbox > * p {
     bottom: auto;
     top: -1.5em; }
-  .n-lightbox--thumbnails.n-slider-wrap .n-slider.n-lightbox.n-slider--vertical > * p {
+  .n-lightbox--thumbnails.n-slider--wrap .n-slider.n-lightbox.n-slider--vertical > * p {
     bottom: 3em;
     top: auto; } }
 

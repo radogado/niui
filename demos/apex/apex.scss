@@ -1,11 +1,11 @@
-body, h1 {
+body, .n-type h1 {
 	
 	font-size: 15px;
 	font-family: 'Karla';
 
 }
 
-header {
+.n-header {
 	
 	padding: 2em;
 	
@@ -15,18 +15,18 @@ header {
 		
 	}
 
-}
-
-header img {
+	img {
+		
+		padding: 0 1em 1em 1em;
+		
+	}
 	
-	padding: 0 1em 1em 1em;
+	h1 * {
+		
+		display: inline-block;
+		vertical-align: middle;
 	
-}
-
-header h1 * {
-	
-	display: inline-block;
-	vertical-align: middle;
+	}
 
 }
 
@@ -36,7 +36,7 @@ header h1 * {
 
 }
 
-a[href] {
+.n-type a[href] {
 	
 	text-decoration: none;
 
@@ -186,7 +186,7 @@ footer {
 	
 	}
 	
-	.n-slider-wrap {
+	.n-slider--wrap {
 		
 		margin: 0;
 		position: fixed;

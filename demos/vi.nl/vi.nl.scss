@@ -11,43 +11,55 @@ body {
 
 }
 
-header {
+.n-header {
 	
 	border-bottom: 1px solid #999;
 	font-size: 16px;
 	
+	svg {
+		
+		height: 1.5em;
+	
+	}
+	
+	ul {
+		
+		margin: 0;
+	
+	}
+	
+	&.top {
+		
+		color: #ddd;
+		background: #000;
+		font-size: 14px;
+	
+	}
+	
+	img, svg {
+		
+		height: 2em;
+		vertical-align: middle;
+	
+	}
+
 }
 
-header svg {
+.n-type {
 	
-	height: 1.5em;
-
-}
-
-header ul {
+	a[href]:not(:hover) {
+		
+		text-decoration: none;
 	
-	margin: 0;
+	}
 
-}
-
-header .top {
+	h2, h2 a[href] {
 	
-	color: #ddd;
-	background: #000;
-	font-size: 14px;
-
-}
-
-header img, header svg {
-	
-	height: 2em;
-	vertical-align: middle;
-
-}
-
-a[href]:not(:hover) {
-	
-	text-decoration: none;
+		color: $blue;
+		text-transform: uppercase;
+		text-decoration: none;	
+		
+	}
 
 }
 
@@ -58,14 +70,6 @@ header .button[href] {
 	border-radius: 2px;
 	background-color: transparent;
 	margin: 0 1em;
-	
-}
-
-h2, h2 a[href] {
-
-	color: $blue;
-	text-transform: uppercase;
-	text-decoration: none;	
 	
 }
 

@@ -76,7 +76,7 @@
 	
 		}
 		
-		> .n-fold--label, > input.trigger {
+		> .n-fold--label, > input.n-trigger {
 			
 			display: none;
 			width: auto;
@@ -109,7 +109,7 @@
 
 	}
 	
-	&:not([aria-expanded]):not(.n-fold--mobile):not(.n-fold--horizontal) > .n-fold--content, &[aria-expanded]:not(.n-fold--horizontal) input.trigger:checked ~ .n-fold--content /* also for CSS-only open by default */ {
+	&:not([aria-expanded]):not(.n-fold--mobile):not(.n-fold--horizontal) > .n-fold--content, &[aria-expanded]:not(.n-fold--horizontal) input.n-trigger:checked ~ .n-fold--content /* also for CSS-only open by default */ {
 
 	    max-height: 0;
 	    max-height: var(--start-height, 0); // Fallback to 0
@@ -142,7 +142,7 @@
 			
 		}
 	
-		&[data-init] > .n-fold--content, &[aria-expanded] > .n-fold--content, > input.trigger:checked ~ .n-fold--content {
+		&[data-init] > .n-fold--content, &[aria-expanded] > .n-fold--content, > input.n-trigger:checked ~ .n-fold--content {
 			
 			width: 100%;
 	
@@ -181,19 +181,19 @@
 
 	}
 
-	&:not(.n-fold--horizontal) > input.trigger:checked ~ .n-fold--content, &.n-fold--mobile:not(.n-fold--horizontal) .n-fold--content/* , .fold > [aria-expanded] input.trigger:not(:checked) ~ div */ {
+	&:not(.n-fold--horizontal) > input.n-trigger:checked ~ .n-fold--content, &.n-fold--mobile:not(.n-fold--horizontal) .n-fold--content/* , .fold > [aria-expanded] input.n-trigger:not(:checked) ~ div */ {
 		
 		max-height: none;
 
 	}
 
-	&[aria-expanded] > input.trigger + .n-fold--content {
+	&[aria-expanded] > input.n-trigger + .n-fold--content {
 		
 		display: inline-block;
 		
 	}
 	
-	span.burger {
+	span.n-burger {
 		
 		width: $line-height-em;
 		height: $line-height-em;
@@ -230,11 +230,11 @@
 
 }
 	
-@supports (--a: 1) { // Newer browsers than Android Browser get 3-lines burger via box-shadow. Lame check if they support CSS variables.
+@supports (--a: 1) { // Newer browsers than Android Browser get 3-lines n-burger via box-shadow. Lame check if they support CSS variables.
 
 	.n-fold {
 		
-		span.burger {
+		span.n-burger {
 	
 			&:before {
 				
@@ -269,7 +269,7 @@
 
 	.n-fold.n-fold--mobile {
 
-		> .n-fold--label, > input.trigger {
+		> .n-fold--label, > input.n-trigger {
 			
 			display: inline-block; // Android Browser doesn't support the below version (flex)
 			display: flex;
@@ -285,7 +285,7 @@
 		
 		}
 		
-		> input.trigger:checked ~ .n-fold--content, > input.trigger:checked + .n-fold--content { // Android Browser doesn't support "~", only "+"
+		> input.n-trigger:checked ~ .n-fold--content, > input.n-trigger:checked + .n-fold--content { // Android Browser doesn't support "~", only "+"
 			
 			max-height: none;
 			
@@ -301,7 +301,7 @@
 
 	@supports (--a: 1) {
 
-		header.n-fixed-mobile .n-fold.n-fold--mobile {
+		.n-header.n-fixed-mobile .n-fold.n-fold--mobile {
 			
 			position: fixed;
 		    top: 0;

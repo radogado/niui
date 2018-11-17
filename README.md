@@ -172,7 +172,7 @@ natUIve 1.6
 - Range input
 - CSS-only parallax scrolling
 - Fixed background behind an element
-- Close burger content by clicking outside
+- Close n-burger content by clicking outside
 - Aspect ratio container now a single element
 - Properly inherited font size
 

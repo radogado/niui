@@ -123,7 +123,8 @@ main .n-nav ul {
   .n-drop a:focus ~ ul, .n-drop ul ul[aria-expanded], .n-drop li li ul[aria-expanded], .n-drop li li:not(:focus) :checked ~ ul {
     max-height: none;
     overflow: visible;
-    opacity: 1; }
+    opacity: 1;
+    z-index: 2; }
   .n-drop ul ul[aria-expanded], .n-drop li li ul[aria-expanded], .n-drop li li:not(:focus) :checked ~ ul {
     z-index: 2; }
   .n-drop li > input {

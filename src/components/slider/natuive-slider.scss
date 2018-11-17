@@ -73,7 +73,7 @@
 	}
 	
 	
-	.n-slider-wrap .n-slider > *:after, .n-slider-wrap .n-slider > *:before, .n-slider > *:first-child:before, .n-slider > *:last-child:after, .n-slider-wrap .n-slider > * > div.n-slider--bg { // Where is 'bg' used?
+	.n-slider--wrap .n-slider > *:after, .n-slider--wrap .n-slider > *:before, .n-slider > *:first-child:before, .n-slider > *:last-child:after, .n-slider--wrap .n-slider > * > div.n-slider--bg { // Where is 'bg' used?
 	
 		display: none;	
 	
@@ -123,7 +123,7 @@
 
 }
 
-.n-slider-wrap .n-slider.align-middle > *, .n-slider.align-middle > * {
+.n-slider--wrap .n-slider.align-middle > *, .n-slider.align-middle > * {
 	
 	display: flex;
 	flex-direction: column;
@@ -137,7 +137,7 @@
 
 }
 
-.n-slider-wrap.n-slider--overlay {
+.n-slider--wrap.n-slider--overlay {
 	
 	top: 0px;
 	bottom: 0px;
@@ -152,7 +152,7 @@
 
 @media screen and (max-width: $screen-narrow-max) {
 
-	.n-slider-wrap.n-tabs > .slider-nav.row, .slider-nav.row.n-tabs {
+	.n-slider--wrap.n-tabs > .n-slider--nav.row, .n-slider--nav.row.n-tabs {
 		
 		display: flex;
 		
@@ -178,13 +178,13 @@
 
 // JS enhanced. To do: add [data-ready]
 
-.n-slider.n-slider--overlay, .n-slider-wrap.n-slider--overlay {
+.n-slider.n-slider--overlay, .n-slider--wrap.n-slider--overlay {
 	
 	height: 100%;
 	
 }
 
-.n-slider-wrap.n-slider--overlay, .n-slider-wrap.n-slider--vertical.n-slider--overlay {
+.n-slider--wrap.n-slider--overlay, .n-slider--wrap.n-slider--vertical.n-slider--overlay {
 			
 	margin-top: $line-height-em*2;
 // 		margin-top: calc(var(--line-height-em)*2);
@@ -193,7 +193,7 @@
 
 }		
 
-.n-slider-wrap.n-slider--vertical.n-slider--overlay/* , .n-slider.overlay, .overlay.n-slider > * */ {
+.n-slider--wrap.n-slider--vertical.n-slider--overlay/* , .n-slider.overlay, .overlay.n-slider > * */ {
 	
 	height: calc(100% - #{$line-height-em*2});
 
@@ -201,7 +201,7 @@
 
 @media screen and (max-width: $screen-narrow-max) {
 
-	.n-slider-wrap.n-slider--overlay, .n-slider-wrap.n-slider--vertical.n-slider--overlay {
+	.n-slider--wrap.n-slider--overlay, .n-slider--wrap.n-slider--vertical.n-slider--overlay {
 				
 		margin-top: $line-height-em;
 	// 		margin-top: calc(var(--line-height-em)*2);
@@ -212,9 +212,9 @@
 
 }		
 
-// To do: move all .n-slider-wrap (enhanced slider) behind a @supports for modern browsers. Leave the basic CSS-only version for old browsers.
+// To do: move all .n-slider--wrap (enhanced slider) behind a @supports for modern browsers. Leave the basic CSS-only version for old browsers.
 
-.n-slider-wrap {
+.n-slider--wrap {
 	
 	position: relative;
 	overflow: hidden;
@@ -233,7 +233,7 @@
 	
 	}
 	
-	> .slider-nav.row, > .slider-nav.row.n-tabs, , > .pad > .slider-nav.row.n-tabs {
+	> .n-slider--nav.row, > .n-slider--nav.row.n-tabs, , > .pad > .n-slider--nav.row.n-tabs {
 		
 		width: 25%;
 	
@@ -245,13 +245,13 @@
 	
 	}
 	
-	&.n-slider--right > .slider-nav.row, > .slider-nav.row.n-tabs, > .pad > .slider-nav.row.n-tabs {
+	&.n-slider--right > .n-slider--nav.row, > .n-slider--nav.row.n-tabs, > .pad > .n-slider--nav.row.n-tabs {
 		
 		float: right;
 	
 	}
 	
-	> .slider-nav a, > .slider-nav.n-tabs a, > .pad > .slider-nav.n-tabs a {
+	> .n-slider--nav a, > .n-slider--nav.n-tabs a, > .pad > .n-slider--nav.n-tabs a {
 		
 		display: block;
 		box-sizing: border-box;
@@ -263,7 +263,7 @@
 
 @supports (--a: 1) {
 	
-	.aspect > .n-slider-wrap {
+	.aspect > .n-slider--wrap {
 		
 		height: 100%;
 		position: absolute;
@@ -284,25 +284,25 @@
 
 }
 
-_:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
+_:-ms-lang(x), .aspect > .n-slider--wrap { // Aspect ratio not working in IE/Edge
 		
 	position: static;
 
 }
 
-*:-webkit-full-screen .n-slider-wrap {
+*:-webkit-full-screen .n-slider--wrap {
 
 	background: #000;
 
 }
 	
-*:-moz-full-screen .n-slider-wrap {
+*:-moz-full-screen .n-slider--wrap {
 
 	background: #000;
 
 }
 	
-*:fullscreen .n-slider-wrap {
+*:fullscreen .n-slider--wrap {
 
 	background: #000;
 
@@ -333,7 +333,7 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 
 }
 
-.n-slider.n-slider--vertical[data-ready] > *, .n-slider-wrap.n-tabs > .slider-arrow {
+.n-slider.n-slider--vertical[data-ready] > *, .n-slider--wrap.n-tabs > .n-slider--arrow {
 
 	height: auto;
 	display: none;
@@ -347,14 +347,14 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 
 }
 
-.n-slider-wrap > .pad {
+.n-slider--wrap > .pad {
 	
     padding: 0;
     margin: $line-height-em*2;
 	
 }
 
-.n-slider-wrap:not(.n-slider--peek) > .pad {
+.n-slider--wrap:not(.n-slider--peek) > .pad {
 
 	overflow-x: hidden;
 
@@ -374,8 +374,8 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 
 }
 
-.n-slider-wrap[data-active] > .n-slider:not([data-peek]) > *:not([data-active]), 
-.n-slider-wrap[data-active] > .pad > .n-slider:not([data-peek]) > *:not([data-active]), 
+.n-slider--wrap[data-active] > .n-slider:not([data-peek]) > *:not([data-active]), 
+.n-slider--wrap[data-active] > .pad > .n-slider:not([data-peek]) > *:not([data-active]), 
 .n-slider.n-slider--vertical[data-ready] > *:not([data-active]) {
 	
 	display: none;
@@ -407,23 +407,23 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 	
 }
 
-.slider-arrow {
+.n-slider--arrow {
 	
 	position: absolute;
 	top: 50%;
 	left: $line-height-em/2;
-	z-index: 3; /* Stay on top of slider-nav if they are aligned vertically */
+	z-index: 3; /* Stay on top of n-slider--nav if they are aligned vertically */
 	transform: translateY(-50%);
 	
 }
 
-	.slider-arrow:before {
+	.n-slider--arrow:before {
 	
 		content: "←";
 	
 	}
 
-	.n-slider--vertical > .slider-arrow {
+	.n-slider--vertical > .n-slider--arrow {
 	
 		&:before {
 		
@@ -439,20 +439,20 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 	
 	}
 
-	.slider-arrow.n-slider--right {
+	.n-slider--arrow.n-slider--right {
 	
 		left: auto;
 		right: $line-height-em/2;
 	
 	}
 
-	.slider-arrow.n-slider--right:before {
+	.n-slider--arrow.n-slider--right:before {
 	
 		content: "→";
 	
 	}
 
-	.n-slider--vertical > .slider-arrow.n-slider--right {
+	.n-slider--vertical > .n-slider--arrow.n-slider--right {
 		
 		&:before {
 	
@@ -468,7 +468,7 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 	
 	}
 	
-	.slider-arrow, .slider-nav a {
+	.n-slider--arrow, .n-slider--nav a {
 		
 		cursor: pointer;
 		padding: .6em;
@@ -484,7 +484,7 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 	
 	}
 
-.slider-arrow, .slider-nav {
+.n-slider--arrow, .n-slider--nav {
 
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
@@ -492,7 +492,7 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 
 }
 
-.n-slider-wrap > .slider-nav, .n-slider-wrap > .pad > .slider-nav {
+.n-slider--wrap > .n-slider--nav, .n-slider--wrap > .pad > .n-slider--nav {
 	
 	position: absolute;
 	bottom: 0;
@@ -511,14 +511,14 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 	
 }
 
-.n-slider-wrap.n-slider--top .slider-nav {
+.n-slider--wrap.n-slider--top .n-slider--nav {
 	
 	bottom: auto;
 	top: 0;
 	
 }
 
-	.n-slider-wrap.n-slider--vertical > .slider-nav {
+	.n-slider--wrap.n-slider--vertical > .n-slider--nav {
 		
 		width: auto;
 		display: flex;
@@ -532,9 +532,9 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 		
 	}
 
-	.n-slider-wrap.n-slider--vertical.n-slider--outside.n-lightbox--thumbnails {
+	.n-slider--wrap.n-slider--vertical.n-slider--outside.n-lightbox--thumbnails {
 	
-		> .slider-nav {
+		> .n-slider--nav {
 			
 			padding: 0;
 			left: -.5em;
@@ -553,7 +553,7 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 				
 		}
 	
-		&.n-slider--right > .slider-nav {
+		&.n-slider--right > .n-slider--nav {
 			
 			left: auto;
 			right: -.5em;
@@ -562,14 +562,14 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 	
 	}
 	
-	.n-slider-wrap.n-slider--right.n-slider--vertical > .slider-nav {
+	.n-slider--wrap.n-slider--right.n-slider--vertical > .n-slider--nav {
 		
 	    right: .5em;
 	    left: auto;
 
 	}
 	
-	.slider-nav a {
+	.n-slider--nav a {
 		
 		display: inline-block;
 		margin: .5em;
@@ -582,21 +582,21 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 		
 	}
 	
-	.n-slider.n-slider--vertical > [data-active], .n-slider--vertical > .slider-nav a {
+	.n-slider.n-slider--vertical > [data-active], .n-slider--vertical > .n-slider--nav a {
 		
 		display: block;
 		overflow: auto;
 		
 	}
 		
-	.slider-nav a[data-active] {
+	.n-slider--nav a[data-active] {
 	
 		background-color: rgba(0, 0, 0, .2);
 		color: inherit;
 	
 	}
 
-	.n-slider-wrap.n-tabs > .slider-nav, .slider-nav.n-tabs {
+	.n-slider--wrap.n-tabs > .n-slider--nav, .n-slider--nav.n-tabs {
 		
 		right: auto;
 		position: static;
@@ -604,7 +604,7 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 		
 	}
 
-	.n-tabs > .slider-nav.row, .slider-nav.row.n-tabs {
+	.n-tabs > .n-slider--nav.row, .n-slider--nav.row.n-tabs {
 		
 		padding: 0;
 		margin: 0;
@@ -612,7 +612,7 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 
 	}
 	
-	.n-full-window .n-slider-wrap.n-tabs > .slider-nav {
+	.n-full-window .n-slider--wrap.n-tabs > .n-slider--nav {
 		
 		position: absolute;
 		bottom: 0;
@@ -620,7 +620,7 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 	
 	}
 	
-	.n-slider-wrap.n-tabs > .slider-nav a, .n-tabs.slider-nav a {
+	.n-slider--wrap.n-tabs > .n-slider--nav a, .n-tabs.n-slider--nav a {
 		
 		text-indent: 0;
 		width: auto;
@@ -637,7 +637,7 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 	
 	}
 
-.n-slider-wrap.n-slider--vertical.n-lightbox--thumbnails {
+.n-slider--wrap.n-slider--vertical.n-lightbox--thumbnails {
 	
 	width: 100%;
 	
@@ -647,7 +647,7 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 			
 			padding-left: 5em;
 			
-			> .slider-arrow {
+			> .n-slider--arrow {
 				
 				left: calc(50% + 1.5em);
 		
@@ -659,7 +659,7 @@ _:-ms-lang(x), .aspect > .n-slider-wrap { // Aspect ratio not working in IE/Edge
 			
 			padding-right: 5em;
 			
-			> .slider-arrow {
+			> .n-slider--arrow {
 				
 				left: calc(50% - 3.5em);
 		

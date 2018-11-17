@@ -17,33 +17,37 @@ body {
 
 }
 
-a[href] {
+.n-type {
 	
-	text-decoration: none;
-	color: #9e9890;
+	a[href] {
+		
+		text-decoration: none;
+		color: #9e9890;
+	
+	}
+	
+	h1, h2, h3, h4 {
+		
+		color: #333;
+	
+	}
 
 }
 
-h1, h2, h3, h4 {
-	
-	color: #333;
-
-}
-
-header, #content, footer {
+.n-header, #content, footer {
 	
 	background: #fff;
 
 }
 
-header {
+.n-header {
 	
 	margin: 0;
 	padding-bottom: 4em;
 	
 }
 
-header nav.n-nav.n-drop ul li a {
+.n-header nav.n-nav.n-drop ul li a {
 	
 	font-size: 1.5em;
 	padding-top: .5em;
@@ -51,14 +55,14 @@ header nav.n-nav.n-drop ul li a {
 
 }
 
-header nav.n-nav, header .n-form, footer nav.n-nav, footer .n-form, main .n-form, main nav.n-nav {
+.n-header nav.n-nav, .n-header .n-form, footer nav.n-nav, footer .n-form, main .n-form, main nav.n-nav {
 	
 	display: inline-block;
 	vertical-align: middle;
 
 }
 
-header nav.n-nav ul li a[href] {
+.n-header nav.n-nav ul li a[href] {
 	
 	color: #333;
 	line-height: 1;
@@ -66,13 +70,13 @@ header nav.n-nav ul li a[href] {
 
 }
 
-header .n-form {
+.n-header .n-form {
 	
 	padding: 0;
 	
 }
 
-header .n-form input {
+.n-header .n-form input {
 	
 	margin: 0;
 	min-height: 0;
@@ -96,20 +100,20 @@ header .n-form input {
 
 }
 
-header .logo img {
+.n-header .logo img {
 	
 	height: 2.2em;
 	vertical-align: middle;
 
 }
 
-header nav.n-nav.n-drop ul li {
+.n-header nav.n-nav.n-drop ul li {
 	
 	background: transparent;
 
 }
 
-header nav.n-nav ul {
+.n-header nav.n-nav ul {
 
 	margin: 0;
 	padding: 0;
@@ -117,7 +121,7 @@ header nav.n-nav ul {
 
 }
 
-header nav.n-nav.n-drop ul li a, nav.n-nav.n-drop ul li b.sub, header .top nav.n-nav ul li a[href], header .top input[type=search] {
+.n-header nav.n-nav.n-drop ul li a, nav.n-nav.n-drop ul li b.sub, .n-header .top nav.n-nav ul li a[href], .n-header .top input[type=search] {
 	
 	font-size: .7rem;
 	padding: .5em;
@@ -136,13 +140,13 @@ nav.n-nav.n-drop li[aria-haspopup] {
 
 }
 
-header nav.n-nav.n-drop ul ul {
+.n-header nav.n-nav.n-drop ul ul {
 	
     top: 1.5em;
 
 }
 
-header .top input[type=search] {
+.n-header .top input[type=search] {
 	
 	margin: 0;
 
@@ -154,26 +158,26 @@ header .top input[type=search] {
 
 }
 
-nav.n-nav.n-drop ul li .trigger:checked ~ a, nav.n-nav.n-drop ul li .trigger:checked ~ b.sub {
+nav.n-nav.n-drop ul li .n-trigger:checked ~ a, nav.n-nav.n-drop ul li .n-trigger:checked ~ b.sub {
 	
 	background: none;
 
 }
 
-header .top ::-webkit-input-placeholder {
+.n-header .top ::-webkit-input-placeholder {
 	
 	color: $brown;
 	
 }
 
-header .top input[type=submit] {
+.n-header .top input[type=submit] {
 	
 	background: transparent url(search.svg) no-repeat center center;
 	margin-top: 0;
 
 }
 
-header .top input[type=submit], header .top input[type=search] {
+.n-header .top input[type=submit], .n-header .top input[type=search] {
 	
 	display: inline-block;
 	width: auto;
@@ -182,7 +186,7 @@ header .top input[type=submit], header .top input[type=search] {
 	
 }
 
-header .top input[type=search] {
+.n-header .top input[type=search] {
 	
 	padding: .7em .5em;
 	width: 7em;
@@ -191,7 +195,7 @@ header .top input[type=search] {
 
 }
 
-header .top input[type=search]:focus {
+.n-header .top input[type=search]:focus {
 	
 	width: 21em;
 
@@ -204,39 +208,39 @@ input, select {
 
 }
 
-header .row.top {
+.n-header .row.top {
 	
 	padding: .5em 0;
 	margin-bottom: 2em;
 	
 }
 
-header .row.logo nav.n-nav, header .row.logo nav.n-nav ul {
+.n-header .row.logo nav.n-nav, .n-header .row.logo nav.n-nav ul {
 	
 	width: 100%;
 
 }
 
-header .row.logo nav.n-nav ul {
+.n-header .row.logo nav.n-nav ul {
 	
 	padding: 0 .75em;
 	
 }
 
-header .row.logo nav.n-nav ul li + li a {
+.n-header .row.logo nav.n-nav ul li + li a {
 	
 	padding-left: 1em;	
 
 }
 
-header .row.logo nav.n-nav ul li:first-child {
+.n-header .row.logo nav.n-nav ul li:first-child {
 	
 	padding-left: 0;	
 	padding-right: 1.5em;	
 
 }
 
-header .row.logo nav.n-nav ul li:last-child {
+.n-header .row.logo nav.n-nav ul li:last-child {
 	
 	margin-top: .5em;
 	float: right;
@@ -268,17 +272,17 @@ nav.n-nav.n-drop ul li b.sub:after {
 
 	}
 
-}
-
-.banner .n-slider-wrap {
+	.n-slider--wrap {
+		
+		margin-top: -3em;
 	
-	margin-top: -3em;
-
-}
-
-.banner .contain {
+	}
 	
-	padding: 0 $line-height/2;
+	.contain {
+		
+		padding: 0 $line-height/2;
+	
+	}
 
 }
 
@@ -400,7 +404,7 @@ footer .about nav.n-nav a {
 
 }
 
-.n-slider-wrap.n-tabs > .slider-nav a {
+.n-slider--wrap.n-tabs > .n-slider--nav a {
 	
 	background: $grey;
 	padding: .75em 4em .75em .75em;
@@ -411,13 +415,13 @@ footer .about nav.n-nav a {
 	
 }
 
-.n-slider-wrap.n-tabs > .slider-nav a:first-child {
+.n-slider--wrap.n-tabs > .n-slider--nav a:first-child {
 	
 	border-left: 1px solid #e1dfda;
 	
 }
 
-.n-slider-wrap.n-tabs > .slider-nav a[data-active] {
+.n-slider--wrap.n-tabs > .n-slider--nav a[data-active] {
 	
 	background: $darker-grey;
 	border-top: 1px solid $darker-grey;
@@ -425,7 +429,7 @@ footer .about nav.n-nav a {
 	
 }
 
-.n-slider-wrap.n-tabs > .slider-nav a[data-active]:first-child {
+.n-slider--wrap.n-tabs > .n-slider--nav a[data-active]:first-child {
 	
 	border-left: 1px solid $darker-grey;
 	
@@ -438,7 +442,7 @@ footer .about nav.n-nav a {
 	
 }
 
-.n-slider > * .tab-title {
+.n-slider > * .n-tab-title {
 	
 	display: none;
 	
@@ -493,67 +497,67 @@ footer .about nav.n-nav a {
 
 }
 
-.n-slider-wrap.n-tabs>.slider-nav.row {
+.n-slider--wrap.n-tabs>.n-slider--nav.row {
 	
 	margin-top: 0;
 
 }
 
-.n-slider-wrap.n-tabs>.slider-nav a:first-child {
+.n-slider--wrap.n-tabs>.n-slider--nav a:first-child {
 	
 	background: #f5f4f1 url(takeoff-dark.png) no-repeat calc(100% - 1rem) 50%;
 
 }
 
-.n-slider-wrap.n-tabs>.slider-nav a[data-active]:first-child {
+.n-slider--wrap.n-tabs>.n-slider--nav a[data-active]:first-child {
 	
 	background: $darker-grey url(takeoff-white.png) no-repeat calc(100% - 1rem) 50%;
 
 }
 
-.n-slider-wrap.n-tabs>.slider-nav a:nth-child(2) {
+.n-slider--wrap.n-tabs>.n-slider--nav a:nth-child(2) {
 	
 	background: #f5f4f1 url(car-dark.png) no-repeat calc(100% - 1rem) 50%;
 
 }
 
-.n-slider-wrap.n-tabs>.slider-nav a[data-active]:nth-child(2) {
+.n-slider--wrap.n-tabs>.n-slider--nav a[data-active]:nth-child(2) {
 	
 	background: $darker-grey url(car-white.png) no-repeat calc(100% - 1rem) 50%;
 
 }
 
-.n-slider-wrap.n-tabs>.slider-nav a:nth-child(3) {
+.n-slider--wrap.n-tabs>.n-slider--nav a:nth-child(3) {
 	
 	background: #f5f4f1 url(hotel-dark.png) no-repeat calc(100% - 1rem) 50%;
 
 }
 
-.n-slider-wrap.n-tabs>.slider-nav a[data-active]:nth-child(3) {
+.n-slider--wrap.n-tabs>.n-slider--nav a[data-active]:nth-child(3) {
 	
 	background: $darker-grey url(hotel-white.png) no-repeat calc(100% - 1rem) 50%;
 
 }
 
-.n-slider-wrap.n-tabs>.slider-nav a:nth-child(4) {
+.n-slider--wrap.n-tabs>.n-slider--nav a:nth-child(4) {
 	
 	background: #f5f4f1 url(bookings-dark.png) no-repeat calc(100% - 1rem) 50%;
 
 }
 
-.n-slider-wrap.n-tabs>.slider-nav a[data-active]:nth-child(4) {
+.n-slider--wrap.n-tabs>.n-slider--nav a[data-active]:nth-child(4) {
 	
 	background: $darker-grey url(bookings-white.png) no-repeat calc(100% - 1rem) 50%;
 
 }
 
-.n-slider-wrap.n-tabs>.slider-nav a:nth-child(5) {
+.n-slider--wrap.n-tabs>.n-slider--nav a:nth-child(5) {
 	
 	background: #f5f4f1 url(checkin-dark.png) no-repeat calc(100% - 1rem) 50%;
 
 }
 
-.n-slider-wrap.n-tabs>.slider-nav a[data-active]:nth-child(5) {
+.n-slider--wrap.n-tabs>.n-slider--nav a[data-active]:nth-child(5) {
 	
 	background: $darker-grey url(checkin-white.png) no-repeat calc(100% - 1rem) 50%;
 
@@ -625,13 +629,13 @@ ul.n-list--inline li {
 
 @media screen and (max-width: 599.9px) {
 
-	.n-slider-wrap.n-tabs>.slider-nav a {
+	.n-slider--wrap.n-tabs>.n-slider--nav a {
 		
 		background-image: none !important;
 	
 	}
 	
-	header .row.logo nav.n-nav ul li:last-child {
+	.n-header .row.logo nav.n-nav ul li:last-child {
 		
 		float: none;
 	
@@ -644,14 +648,14 @@ ul.n-list--inline li {
 		
 	}
 	
-	header .row.top {
+	.n-header .row.top {
 		
 		margin: 0;
 		padding: 0;
 		
 	}
 	
-	header .n-form {
+	.n-header .n-form {
 	
 		display: block;
 
@@ -663,14 +667,14 @@ ul.n-list--inline li {
 
 	}
 	
-	header .row.logo nav.n-nav ul li+li a {
+	.n-header .row.logo nav.n-nav ul li+li a {
 		
 		padding: 0 .5em 0 0;
 		font-size: 1.3em;
 		
 	}
 	
-	.banner {
+	.n-banner {
 		
 		min-height: 47em;
 	
@@ -700,7 +704,7 @@ ul.n-list--inline li {
 		
 	}
 
-	header .row.logo nav.n-nav ul li:last-child {
+	.n-header .row.logo nav.n-nav ul li:last-child {
 		
 		margin-top: 0;
 	

@@ -4,8 +4,8 @@ var componentLightbox = (function (){
 
 	function adjustZoom(e) { // Event is click on image
 		
-		var width = q('.n-ovrl:last-of-type .n-slider-wrap').offsetWidth;
-		var height = q('.n-ovrl:last-of-type .n-slider-wrap').offsetHeight;
+		var width = q('.n-ovrl:last-of-type .n-slider--wrap').offsetWidth;
+		var height = q('.n-ovrl:last-of-type .n-slider--wrap').offsetHeight;
 		
 		var el = e.target;
 
@@ -46,7 +46,7 @@ var componentLightbox = (function (){
 	
 	// transformY = -50% + (poxY/sizeY)*overflowY
 	
-				if (!q('.n-ovrl .n-slider-wrap')) {
+				if (!q('.n-ovrl .n-slider--wrap')) {
 					
 					return;
 					
@@ -316,8 +316,8 @@ var componentLightbox = (function (){
 	    
 		    transferClass(lightbox, lightbox_target.parentNode, 'n-lightbox--thumbnails');
 	        var i = 0;
-	// 	        var nav = closestElement(lightbox_target, '.n-slider-wrap').querySelector('.slider-nav');
-	        var nav = componentSlider.getSliderNav(lightbox_target.closest('.n-slider-wrap'));
+	// 	        var nav = closestElement(lightbox_target, '.n-slider--wrap').querySelector('.n-slider--nav');
+	        var nav = componentSlider.getSliderNav(lightbox_target.closest('.n-slider--wrap'));
 	
 	        if (nav) { // Multiple slides?
 	
@@ -373,7 +373,7 @@ var componentLightbox = (function (){
 		host.querySelectorAll('.n-lightbox:not([data-ready])').forEach((el) => {
 		
 			// Abort on IE, because of IE bug on dynamic img.src change
-			if (navigator.userAgent.indexOf('MSIE') != -1 || navigator.userAgent.indexOf('Trident') != -1 || hasClass(el.parentNode, 'n-slider-wrap')) {
+			if (navigator.userAgent.indexOf('MSIE') != -1 || navigator.userAgent.indexOf('Trident') != -1 || hasClass(el.parentNode, 'n-slider--wrap')) {
 				
 				return;
 		

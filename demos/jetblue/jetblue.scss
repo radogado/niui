@@ -20,7 +20,7 @@ body, .button, .n-lightbox a, .row.wrap>*, .tip, body, button, .n-form .n-form--
 
 }
 
-.row>*>.row {
+.row > * > .row {
 	
 // 	margin: 0;
 	width: 100%;
@@ -34,24 +34,35 @@ body, .button, .n-lightbox a, .row.wrap>*, .tip, body, button, .n-form .n-form--
 	
 }
 
-p {
-	
-	margin: $line-height/2 0;
+.n-type {
 
-}
- 
-a[href] {
+	a.button.icon img { 
+		
+		display: inline-block;
+		vertical-align: middle;
 	
-	color: $blue;
-	text-decoration: none;
-	font-weight: bold;
-
-} 
-
-a[href]:hover {
+	}
 	
-	color: $dark-blue;
-	text-decoration: underline;
+	p {
+		
+		margin: $line-height/2 0;
+	
+	}
+	 
+	a[href] {
+		
+		color: $blue;
+		text-decoration: none;
+		font-weight: bold;
+	
+	} 
+	
+	a[href]:hover {
+		
+		color: $dark-blue;
+		text-decoration: underline;
+	
+	}
 
 }
 
@@ -75,14 +86,14 @@ body:before {
 	
 }
 
-.logo {
+.n-logo {
 	
 	color: #fff;
 	font-size: 2em;
 
 }
 
-.logo img {
+.n-logo img {
 	
 	width: 90px;
 	margin-bottom: -7px;
@@ -143,35 +154,28 @@ button.rounded.active:after {
 
 }
 
-a.button.icon img { 
-	
-	display: inline-block;
-	vertical-align: middle;
-
-}
-
 ul li {
 	
 	margin: 0;
 
 }
 
-header {
+.n-header {
 	
 	margin: 0;
 
-}
-
-header .row > * {
+	.row > * {
+		
+		margin: 0;
+		padding: 0;
 	
-	margin: 0;
-	padding: 0;
-
-}
-
-header nav.n-nav {
+	}
 	
-	display: inline-block;
+	nav.n-nav {
+		
+		display: inline-block;
+	
+	}
 
 }
 
@@ -189,7 +193,7 @@ nav.n-nav.n-drop li[aria-haspopup] {
 	
 }
 
-header nav.n-nav.n-drop ul li b.sub {
+.n-header nav.n-nav.n-drop ul li b.sub {
 	
 	margin: 0;
 	mix-blend-mode: normal;
@@ -210,7 +214,7 @@ nav.n-nav.n-drop ul ul {
 
 }
 
-.banner.row form .row {
+.n-banner.row form .row {
 	
 	padding: 0;
 	margin-left: 0;
@@ -394,13 +398,13 @@ a.arrow:after {
 
 }
 
-.slider-arrow {
+.n-slider--arrow {
 	
 	display: none;
 
 }
 
-.slider-nav {
+.n-slider--nav {
 	
 	background: #fff;
 	border-radius: 3px 3px 0 0;
@@ -409,7 +413,7 @@ a.arrow:after {
 
 }
 
-.slider-nav a {
+.n-slider--nav a {
 	
 	background: $lighter-blue;
 	text-indent: -100%;
@@ -418,7 +422,7 @@ a.arrow:after {
 
 }
 
-.slider-nav a[data-active] {
+.n-slider--nav a[data-active] {
 	
 	background: $orange;
 
@@ -511,7 +515,7 @@ nav.n-nav.n-drop ul ul li {
 
 }
 
-nav.n-nav.n-drop ul li, nav.n-nav.n-drop ul li b.sub, nav.n-nav.n-drop ul li .trigger:checked ~ b.sub, nav.n-nav.n-drop ul ul li, nav.n-nav.n-drop ul li li a, .no-touch nav.n-nav.n-drop ul li li:hover a {
+nav.n-nav.n-drop ul li, nav.n-nav.n-drop ul li b.sub, nav.n-nav.n-drop ul li .n-trigger:checked ~ b.sub, nav.n-nav.n-drop ul ul li, nav.n-nav.n-drop ul li li a, .no-touch nav.n-nav.n-drop ul li li:hover a {
 	
 	background: $orange;
 
@@ -527,7 +531,7 @@ nav.n-nav.n-drop ul li a[href] {
 
 }
 
-nav.n-nav.n-drop input.trigger, nav.n-nav.n-drop input:checked ~ input[type=reset] {
+nav.n-nav.n-drop input.n-trigger, nav.n-nav.n-drop input:checked ~ input[type=reset] {
 	
 	top: 50%;
 	height: 50%;
@@ -549,7 +553,7 @@ nav.n-nav.n-drop ul li b.sub:after {
 
 }
 
-.n-slider-wrap {
+.n-slider--wrap {
 	
 	margin-right: 1em;
 
@@ -661,7 +665,7 @@ input[type=text].search {
 		
 	}
 	
-	header nav.n-nav ul.n-list--inline li {
+	.n-header nav.n-nav ul.n-list--inline li {
 		
 		background: #fff;
 
@@ -680,7 +684,7 @@ input[type=text].search {
 		
 	}
 	
-	nav.n-nav.n-drop input.trigger.burger {
+	nav.n-nav.n-drop input.n-trigger.n-burger {
 		
 		top: 0;
 		height: 3em;

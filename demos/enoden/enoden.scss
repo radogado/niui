@@ -16,7 +16,7 @@ body {
 
 }
 
-.slider-arrow {
+.n-slider--arrow {
 	
 	display: none;
 
@@ -28,30 +28,34 @@ nav.n-nav.n-drop ul {
 
 }
 
-header > .row > :first-child {
+.n-header {
 	
-	background: #333;
+	> .row > :first-child {
+	
+		background: #333;
+	
+	}
+	
+	nav.n-nav.n-drop {
+		
+		--nav-bg: #333;
+		color: #fff;
+		font-size: .85em;
+	    display: block;
+	
+		li.search {
+			
+			background: #fff;
+		
+		}
+	
+	}
 
 }
 
 nav.n-nav.n-drop ul[role=menubar] li > a {
 	
 	padding: .5em;
-
-}
-
-header nav.n-nav.n-drop {
-	
-	--nav-bg: #333;
-	color: #fff;
-	font-size: .85em;
-	    display: block;
-
-}
-
-header nav.n-nav.n-drop li.search {
-	
-	background: #fff;
 
 }
 
@@ -66,7 +70,7 @@ nav.n-nav {
 
 }
 
-header .contain nav.n-nav {
+.n-header .contain nav.n-nav {
 
 	background-color: #fff;
     border: 2px solid #f4eacc;
@@ -131,14 +135,14 @@ header .contain nav.n-nav {
     
 }
 
-.banner {
+.n-banner {
 	
 	background: url(mainvisual-bg.png) center center no-repeat;
 // 	background-size: contain;
 	
 }
 
-.banner .slider-nav a {
+.n-banner .n-slider--nav a {
 	
 	font-size: 0;
 	--nav-size: 12px;
@@ -146,7 +150,7 @@ header .contain nav.n-nav {
 	
 }
 
-.banner .slider-nav a[data-active] {
+.n-banner .n-slider--nav a[data-active] {
 	
 	background: $green;
 
@@ -159,7 +163,7 @@ main {
 
 }
 
-a[href].box-shadow {
+.n-type a[href].box-shadow {
 
 	background: #f57f31;
     display: block;
@@ -214,7 +218,7 @@ a[href].box-shadow {
 
 }
 
-a {
+.n-type a {
 	
 	color: #666;
 
@@ -359,7 +363,7 @@ footer .contain {
 	border: 1px solid #e2e2e2;
 	border-top: none;
 	
-	.tabs > .slider-nav.row {
+	.tabs > .n-slider--nav.row {
 		
 		display: block;
 		
@@ -429,13 +433,13 @@ footer .contain {
 
 	}
 	
-	.slider-nav {
+	.n-slider--nav {
 		
 		padding-bottom: 1em;
 
 	}
 	
-	.slider-nav a {
+	.n-slider--nav a {
 		
 		color: #33322f;
 		background: none;
@@ -449,13 +453,13 @@ footer .contain {
 
 	}
 
-	.slider-nav a[data-active] {
+	.n-slider--nav a[data-active] {
 
 		border-bottom: 2px solid green;
 
 	}
 		
-	.n-slider-wrap {
+	.n-slider--wrap {
 		
 		padding: 1em;
 		
@@ -463,14 +467,14 @@ footer .contain {
 	
 }
 
-.news .n-slider-wrap.tabs > .slider-nav a {
+.news .n-slider--wrap.tabs > .n-slider--nav a {
 	
 		padding: .5em 1em;
 		display: inline-block;
 	
 }
 
-.news .n-tabs > .slider-nav.row {
+.news .n-tabs > .n-slider--nav.row {
 	
 	margin-bottom: 1em;
 	border-bottom: 1px solid #e2e2e2;

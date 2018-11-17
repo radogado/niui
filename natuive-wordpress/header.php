@@ -1,5 +1,5 @@
 <!doctype html>
-<html <?php language_attributes(); ?> class="no-js">
+<html <?php language_attributes(); ?> class="no-js n-type">
 	<head>
 		<meta charset="<?php bloginfo('charset'); ?>">
 		<title><?php wp_title(''); ?><?php if(wp_title('', false)) { echo ':'; } ?> <?php bloginfo('name'); ?></title>
@@ -23,7 +23,7 @@
 	<body <?php body_class(); ?>>
 
 			<!-- header -->
-			<header id="head" class="header clear" role="banner">
+			<header id="head" class="n-header" role="banner">
 				
 				<div class="row contain">
 					<div>
@@ -66,4 +66,3 @@
 			</header>
 			<!-- /header -->
 			<div id="content" class="row contain">
-			

@@ -558,9 +558,9 @@ function new_nav_menu($items) {
 
     $items = '<div class="n-fold n-fold--mobile"> 
     			<div class="n-fold--label"> 
-    				<span class="burger"></span> 
+    				<span class="n-burger"></span> 
     			</div> 
-    			<input type=checkbox class=trigger>
+    			<input type=checkbox class=n-trigger>
 
 				<div class=n-fold--content> 
     				<nav class="n-nav n-drop"> 
@@ -628,7 +628,7 @@ function my_img_caption_shortcode( $empty, $attr, $content ){
     . 'data-id="' . $id . '"'
     . 'class="wp-caption ' . esc_attr( $attr['align'] ) . '" '
     . 'style="max-width: ' . $attr['width'] . 'px;">'
-    . '<span class="aspect" style="--image-width: ' . ($attr['width'] . 'px') . '; --ratio: ' . ($width / $height) . ';">' . $img . '</span>' // Add .aspect and --ratio: height/width
+    . '<span class="n-aspect aspect" style="--image-width: ' . ($attr['width'] . 'px') . '; --ratio: ' . ($width / $height) . ';">' . $img . '</span>' // Add .aspect and --ratio: height/width
     . '<p class="wp-caption-text">' . $attr['caption'] . '</p>'
     . '</div>';
 
@@ -690,7 +690,7 @@ add_action('the_content', function ($content){
 		$ratio = $width / $height;
 
 		$wrapper = $dom->createElement('span');
-		$wrapper->setAttribute('class','aspect');
+		$wrapper->setAttribute('class','aspect n-aspect');
 		$wrapper->setAttribute('style', '--ratio: ' . $ratio . '; --image-width: ' . $width . 'px;');
 		
 		

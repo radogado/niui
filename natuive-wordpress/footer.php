@@ -1,7 +1,7 @@
 			</div> 
 			<!-- /content -->
 			<!-- footer -->
-			<footer id="footer" class="footer" role="contentinfo">
+			<footer id="footer" class="n-footer" role="contentinfo">
 				<div class="row contain">
 					
 				<!-- copyright -->

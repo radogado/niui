@@ -11,26 +11,26 @@ body {
 	
 }
 
-header {
+.n-header {
 	
 	border-bottom: 1px solid #ddd;
 	
+	li a {
+		
+		padding: 0 1em;
+		
+	}
+	
+	.n-form {
+		
+		display: inline-block;
+		padding: 0;
+		
+	}
+
 }
 
-header li a {
-	
-	padding: 0 1em;
-	
-}
-
-header .n-form {
-	
-	display: inline-block;
-	padding: 0;
-	
-}
-
-footer, .banner h2 {
+footer, .n-banner h2 {
 	
 	color: #fff;
 	background: #000;
@@ -71,7 +71,7 @@ footer .row img {
 
 }
 
-h1 {
+.n-type h1 {
 	
 	padding: .5em;
 	font-size: 3em;
@@ -82,21 +82,21 @@ h1 {
 	
 }
 
-.banner a[href].button {
+.n-banner a[href].button {
 	
 	background: yellow;
 	color: #000;
 	
 }
 
-.banner h2 {
+.n-banner h2 {
 	
 	font-size: 1em;
 	padding: 1.5em 1.2em;
 	
 }
 
-.banner .pad {
+.n-banner .pad {
 	
 	padding: 0 9em;
 	    
@@ -162,7 +162,7 @@ footer .row {
 
 @media screen and (max-width: 640px) {
 	
-	.banner .pad {
+	.n-banner .pad {
 		
 		padding: 0;
 		    

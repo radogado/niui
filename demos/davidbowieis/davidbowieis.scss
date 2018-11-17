@@ -4,7 +4,7 @@
 
 }
 
-.header-and-banner .contain {
+.n-header-banner .contain {
 	
 	max-width: 1700px;
 
@@ -35,13 +35,13 @@ main iframe {
 
 }
 
-.news .table {
+.news .n-table--wrap {
 	
 	margin-top: 0;
 
 }
 
-.align-center table td {
+.align-center .n-table td {
 	
 	text-align: left;
 	vertical-align: top;
@@ -104,7 +104,7 @@ h1, h2, h3 {
 
 }
 
-hr {
+.n-type hr {
 	
 	display: inline-block;
 	width: 3em;
@@ -163,7 +163,7 @@ a[href].button:hover {
 	
 }
 
-.banner p {
+.n-banner p {
 	
 	font-size: 1.5vw;
 
@@ -206,7 +206,7 @@ footer p {
 
 	}
 	
-	.banner p {
+	.n-banner p {
 		
 		font-size: inherit;
 

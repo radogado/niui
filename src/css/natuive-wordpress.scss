@@ -5,14 +5,14 @@
 @import 'theme';
 
 
-.n-slider-wrap {
+.n-slider--wrap {
 	
 	background: #eee;
 // 	margin-bottom: 44px;
 
 }
 
-.n-slider-wrap.n-slider--overlay {
+.n-slider--wrap.n-slider--overlay {
 	
 	margin-bottom: 0;
 
@@ -36,7 +36,7 @@
 	
 }
 
-.n-slider-wrap .n-slider.featured {
+.n-slider--wrap .n-slider.featured {
 	
 	margin-bottom: 0;
 
@@ -196,7 +196,7 @@ body {
 }
 */
 
-#full-window .slider-arrow {
+#full-window .n-slider--arrow {
 	
 	top: 49%;
 
@@ -367,9 +367,9 @@ nav.n-nav.n-drop ul li a[href] {
 
 }
 
-header .n-fold.n-fold--mobile {
+.n-header .n-fold.n-fold--mobile {
 	
-	display: inline-block; // Enable closing the burger by tapping on its right
+	display: inline-block; // Enable closing the n-burger by tapping on its right
 	
 }
 

@@ -2,7 +2,7 @@
 
 @import '../../css/natuive-setup';
 
-table {
+.n-table {
 
 	width: 100%;
 	overflow: auto;
@@ -10,14 +10,6 @@ table {
 	-webkit-overflow-scrolling: touch;
 	display: block;
 
-	}
-
-	table::-webkit-scrollbar {
-	
-	    display: none;
-	
-	}
-	
 	td, th {
 		
 		padding: $line-height-em $line-height-em/2;
@@ -51,7 +43,15 @@ table {
 		
 	}
 	
-	.n-tbl {
+}
+
+	.n-table::-webkit-scrollbar {
+	
+	    display: none;
+	
+	}
+	
+	.n-table--wrap {
 		
 		overflow-x: auto;
 /*
@@ -66,12 +66,12 @@ table {
 	    -webkit-overflow-scrolling: touch;
 		margin: $line-height-em 0;
 	
-	}
+		.n-table {
+			
+			display: table;
 	
-	.n-tbl table {
+		}
 		
-		display: table;
-
 	}
 	
 /*
@@ -82,7 +82,7 @@ table {
 	}
 */
 
-	.n-tbl td[data-sort] {
+	.n-table--wrap td[data-sort] {
 		
 		-webkit-touch-callout: none;
 		-webkit-user-select: none;
@@ -94,16 +94,16 @@ table {
 	
 	@media screen and (min-width: 1px) { // IE9+
 	
-		.n-tbl td[data-sort] {
+		.n-table--wrap td[data-sort] {
 			
 			cursor: pointer;
 	
-		}
-		
-		.n-tbl td[data-sort]:after {
-			
-			content: '⇳';
-			margin-left: .5em;
+			&:after {
+				
+				content: '⇳';
+				margin-left: .5em;
+				
+			}
 			
 		}
 	
@@ -111,18 +111,18 @@ table {
 
 @media screen and (max-width: $screen-narrow-max) {
 
-	table {
+	.n-table {
 		
 		display: block;
 		overflow: scroll;
 		table-layout: auto;
 		
-	}
-
-		table td {
+		td {
 			
 			word-break: normal;
 		
 		}
+
+	}
 
 }

@@ -51,7 +51,7 @@ var componentModal = (function (){
 	     */
 	    var preventOverscroll = (event) => {
 	        // only respond to a single touch
-		    if (event.targetTouches.length !== 1 || event.target.closest('.slider-nav')) { // also if trying to swipe slider/lightbox nav
+		    if (event.targetTouches.length !== 1 || event.target.closest('.n-slider--nav')) { // also if trying to swipe slider/lightbox nav
 		    	return;
 		    }
 	

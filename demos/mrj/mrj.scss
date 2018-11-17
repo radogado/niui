@@ -23,40 +23,51 @@ nav.n-nav a {
 
 }
 
-a[href] {
+.n-type {
 	
-	text-decoration: none;
+	a[href] {
+		
+		text-decoration: none;
+	
+	}
+	
+	h1, h2, h3, h4 {
+		
+		font-weight: 400;
+	
+	}
+
+	a[href].button {
+		
+		background: transparent;
+		border: 1px solid;
+		border-color: inherit;
+		text-transform: uppercase;
+		font-family: 'Helvetica Neue', sans-serif;
+		padding: .5em .7em;
+		margin-bottom: 2em;
+	
+	}
+	
+	h1, h2 {
+		
+		line-height: 1;
+		margin: 11px 0;
+	
+	}
 
 }
 
-h1, h2, h3, h4 {
-	
-	font-weight: 400;
-
-}
-
-.banner a[href], #content a[href] {
+.n-banner a[href], #content a[href] {
 	
 	color: inherit;
 	text-decoration: none;
 
 }
 
-.banner a[href]:after, #content a[href]:after, a.arrow:after {
+.n-banner a[href]:after, #content a[href]:after, a.arrow:after {
 
 	content: ' ›';
-
-}
-
-a[href].button {
-	
-	background: transparent;
-	border: 1px solid;
-	border-color: inherit;
-	text-transform: uppercase;
-	font-family: 'Helvetica Neue', sans-serif;
-	padding: .5em .7em;
-	margin-bottom: 2em;
 
 }
 
@@ -66,47 +77,40 @@ a[href].button {
 
 }
 
-header {
+.n-header {
 	
 	padding: 1em;
 	
-}
-
-header a.logo, header nav.n-nav {
+	a.n-logo, nav.n-nav {
+		
+		display: inline-block;
+		vertical-align: middle;
 	
-	display: inline-block;
-	vertical-align: middle;
-
-}
-
-header a.logo img {
+	}
 	
-	display: block;
-	height: 2.5em;
-
-}
-
-header.row {
+	a.n-logo img {
+		
+		display: block;
+		height: 2.5em;
 	
-	margin: 0;
-
-}
-
-header nav.n-nav.secondary {
+	}
 	
-	font-size: .8em;
-	margin: 0 1em;
-
-}
-
-h1, h2 {
+	&.row {
+		
+		margin: 0;
 	
-	line-height: 1;
-	margin: 11px 0;
+	}
+	
+	nav.n-nav.secondary {
+		
+		font-size: .8em;
+		margin: 0 1em;
+	
+	}
 
 }
 
-.banner h2 {
+.n-banner h2 {
 	
 	font-size: 1.2em;
 	line-height: 1.5;
@@ -127,7 +131,7 @@ h1, h2 {
 
 }
 
-.aspect.banner {
+.aspect.n-banner {
 	
 	text-align: left;
 	background: url(all-new-mrj-first-flight.jpg) no-repeat center center;
@@ -135,7 +139,7 @@ h1, h2 {
 	
 }
 
-.aspect.banner > div {
+.aspect.n-banner > div {
 	
 	display: inline-block;
 	vertical-align: top;

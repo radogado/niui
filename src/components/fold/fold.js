@@ -52,7 +52,7 @@
 	
 		if (!el.closest('.n-fold') && !el.closest('.n-tool')) { // Clicking/tapping outside of a fold/tooltip element...
 			
-			qa('.n-fold.n-fold--mobile, .n-tool').forEach((el) => { // ... closes all burger nav menus and tooltips
+			qa('.n-fold.n-fold--mobile, .n-tool').forEach((el) => { // ... closes all n-burger nav menus and tooltips
 				
 				el.removeAttribute(aria_expanded);
 				
@@ -63,15 +63,15 @@
 		// Focus on clicked slider
 		
 	/*
-		if (q('.n-slider-wrap.active')) {
+		if (q('.n-slider--wrap.active')) {
 			
-			removeClass(q('.n-slider-wrap.active'), 'active')
+			removeClass(q('.n-slider--wrap.active'), 'active')
 			
 		}
 		
 		if (closest(el, '.slider')) {
 			
-			addClass(closest(el, '.n-slider-wrap'), 'active');
+			addClass(closest(el, '.n-slider--wrap'), 'active');
 			
 		}
 	*/
@@ -115,9 +115,9 @@
 		
 			content.style.setProperty('--max-height', content.scrollHeight + 'px');
 		
-		    if (el.querySelector('input.trigger')) { // Remove CSS-only triggers
+		    if (el.querySelector('input.n-trigger')) { // Remove CSS-only triggers
 		
-		        el.querySelector('input.trigger').outerHTML = '';
+		        el.querySelector('input.n-trigger').outerHTML = '';
 		
 		    }
 		
