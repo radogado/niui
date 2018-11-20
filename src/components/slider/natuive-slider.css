@@ -68,7 +68,7 @@ $bg: #1E8DaC;
 .n-slider > div:before {
   background: transparent; }
 
-.row .n-slider {
+.n-row .n-slider {
   padding: 0; }
 
 .n-slider > * > img {
@@ -89,12 +89,12 @@ $bg: #1E8DaC;
 .n-slider.n-slider--auto-height > *:not([data-active]) {
   height: 0; }
 
-.n-slider--wrap .n-slider.align-middle > *, .n-slider.align-middle > * {
+.n-slider--wrap .n-slider.n-middle > *, .n-slider.n-middle > * {
   display: flex;
   flex-direction: column;
   justify-content: center; }
 
-.n-slider.align-middle > * > * {
+.n-slider.n-middle > * > * {
   text-align: center; }
 
 .n-slider--wrap.n-slider--overlay {
@@ -108,7 +108,7 @@ $bg: #1E8DaC;
   position: absolute; }
 
 @media screen and (max-width: 599.9px) {
-  .n-slider--wrap.n-tabs > .n-slider--nav.row, .n-slider--nav.row.n-tabs {
+  .n-slider--wrap.n-tabs > .n-slider--nav.n-row, .n-slider--nav.n-row.n-tabs {
     display: flex; }
 
   .n-slider > * {
@@ -140,26 +140,26 @@ $bg: #1E8DaC;
 .n-slider--vertical.n-tabs:not(.detached-nav) > .n-slider {
   width: 75%;
   float: right; }
-.n-slider--vertical.n-tabs > .n-slider--nav.row, .n-slider--vertical.n-tabs > .n-slider--nav.row.n-tabs, .n-slider--vertical.n-tabs > .pad > .n-slider--nav.row.n-tabs {
+.n-slider--vertical.n-tabs > .n-slider--nav.n-row, .n-slider--vertical.n-tabs > .n-slider--nav.n-row.n-tabs, .n-slider--vertical.n-tabs > .n-pad > .n-slider--nav.n-row.n-tabs {
   width: 25%; }
 .n-slider--vertical.n-tabs.n-slider--right > .n-slider {
   float: left; }
-.n-slider--vertical.n-tabs.n-slider--right > .n-slider--nav.row, .n-slider--vertical.n-tabs > .n-slider--nav.row.n-tabs, .n-slider--vertical.n-tabs > .pad > .n-slider--nav.row.n-tabs {
+.n-slider--vertical.n-tabs.n-slider--right > .n-slider--nav.n-row, .n-slider--vertical.n-tabs > .n-slider--nav.n-row.n-tabs, .n-slider--vertical.n-tabs > .n-pad > .n-slider--nav.n-row.n-tabs {
   float: right; }
-.n-slider--vertical.n-tabs > .n-slider--nav a, .n-slider--vertical.n-tabs > .n-slider--nav.n-tabs a, .n-slider--vertical.n-tabs > .pad > .n-slider--nav.n-tabs a {
+.n-slider--vertical.n-tabs > .n-slider--nav a, .n-slider--vertical.n-tabs > .n-slider--nav.n-tabs a, .n-slider--vertical.n-tabs > .n-pad > .n-slider--nav.n-tabs a {
   display: block;
   box-sizing: border-box;
   padding: 1.5em 0.5em; }
 
 @supports (--a: 1) {
-  .aspect > .n-slider--wrap {
+  .n-aspect > .n-slider--wrap {
     height: 100%;
     position: absolute; }
-    .aspect > .n-slider--wrap.n-slider--outside:not(.n-slider--vertical) {
+    .n-aspect > .n-slider--wrap.n-slider--outside:not(.n-slider--vertical) {
       padding-bottom: 4em; }
-    .aspect > .n-slider--wrap .n-slider {
+    .n-aspect > .n-slider--wrap .n-slider {
       height: 100%; } }
-_:-ms-lang(x), .aspect > .n-slider--wrap {
+_:-ms-lang(x), .n-aspect > .n-slider--wrap {
   position: static; }
 
 *:-webkit-full-screen .n-slider--wrap {
@@ -196,11 +196,11 @@ _:-ms-lang(x), .aspect > .n-slider--wrap {
   height: auto;
   display: none; }
 
-.n-slider--wrap > .pad {
+.n-slider--wrap > .n-pad {
   padding: 0;
   margin: 3em; }
 
-.n-slider--wrap:not(.n-slider--peek) > .pad {
+.n-slider--wrap:not(.n-slider--peek) > .n-pad {
   overflow-x: hidden; }
 
 .n-slider[data-ready] > *:not([data-active]) {
@@ -211,7 +211,7 @@ _:-ms-lang(x), .aspect > .n-slider--wrap {
   visibility: hidden; }
 
 .n-slider--wrap[data-active] > .n-slider:not([data-peek]) > *:not([data-active]),
-.n-slider--wrap[data-active] > .pad > .n-slider:not([data-peek]) > *:not([data-active]),
+.n-slider--wrap[data-active] > .n-pad > .n-slider:not([data-peek]) > *:not([data-active]),
 .n-slider.n-slider--vertical[data-ready] > *:not([data-active]) {
   display: none; }
 
@@ -282,7 +282,7 @@ _:-ms-lang(x), .aspect > .n-slider--wrap {
   -webkit-user-select: none;
   user-select: none; }
 
-.n-slider--wrap > .n-slider--nav, .n-slider--wrap > .pad > .n-slider--nav {
+.n-slider--wrap > .n-slider--nav, .n-slider--wrap > .n-pad > .n-slider--nav {
   position: absolute;
   bottom: 0;
   white-space: nowrap;
@@ -351,7 +351,7 @@ _:-ms-lang(x), .aspect > .n-slider--wrap {
   position: static;
   transform: none; }
 
-.n-tabs > .n-slider--nav.row, .n-slider--nav.row.n-tabs {
+.n-tabs > .n-slider--nav.n-row, .n-slider--nav.n-row.n-tabs {
   padding: 0;
   margin: 0;
   width: 100%; }

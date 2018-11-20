@@ -51,16 +51,16 @@ body {
 		
 	}
 
-	a.button[href] {
+	a.n-btn[href] {
 		
 		border-radius: 2em;
-		padding: 0 3em;
+		padding: 1em 3em;
 		font-size: .8em;
 	    font-weight: 900;
 		
 	}
 	
-	a.button[href]:hover, .button:hover {
+	a.n-btn[href]:hover, .n-btn:hover {
 		
 		color: #fff;	
 		
@@ -74,7 +74,7 @@ body {
 
 }
 
-footer li, footer form input, footer form input[type=submit], footer p, a.button[href], a[href]:not(.box * ):not(header *):not(footer *) {
+footer li, footer form input, footer form input[type=submit], footer p, a.n-btn[href], a[href]:not(.box * ):not(header *):not(footer *) {
 	
 	font-size: .8em;
 	font-weight: 900;
@@ -129,7 +129,7 @@ footer li {
 
 }
 
-.n-banner .row {
+.n-banner .n-row {
 	
 	min-height: 45em;
 	
@@ -146,14 +146,14 @@ footer li {
 	
 }
 
-.n-banner a.button {
+.n-banner a.n-btn {
 	
 	background-color: #00b5f3;
 	text-transform: uppercase;
 	
 }
 
-.n-banner a[href]:not(.button):hover {
+.n-banner a[href]:not(.n-btn):hover {
 	
 	opacity: .7;
 
@@ -183,7 +183,7 @@ main a[href] {
 	
 }
 
-.box, .contain {
+.box, .n-contain {
 	
 	max-width: 72rem;
 
@@ -257,7 +257,7 @@ main a[href] {
 
 }
 
-.bottom-section .button {
+.bottom-section .n-btn {
 	
 	position: relative;
 	display: inline-block;
@@ -269,7 +269,7 @@ main a[href] {
 
 }
 
-.bottom-section .button:before {
+.bottom-section .n-btn:before {
 	
 	content: '';
 	position: absolute;
@@ -282,7 +282,7 @@ main a[href] {
 	
 }
 
-.bottom-section .button:after {
+.bottom-section .n-btn:after {
 	
 	content: '';
 	position: absolute;
@@ -310,7 +310,7 @@ footer {
 
 }
 
-footer nav.n-nav ul {
+footer nav.n-nav ul.n-list {
 	
 	vertical-align: top;
 	margin-top: 22px;
@@ -357,13 +357,14 @@ footer nav.n-nav ul.social li:not(.header) {
 
 }
 
-footer p {
+.n-type footer p {
 	
 	color: #666665;
 	border-top: 1px solid #666665;
 	padding: 1em 0;
 	font-weight: normal;
 	font-size: .8em;
+	margin: 0;
 	
 }
 

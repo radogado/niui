@@ -77,14 +77,14 @@ $bg: #1E8DaC;
 .n-slider.n-lightbox.n-slider--top > * p {
   /* Image captions */
   bottom: 0; }
-.n-slider.n-lightbox a.button.n-lightbox--copy {
+.n-slider.n-lightbox a.n-btn.n-lightbox--copy {
   position: absolute;
   top: 0.75em;
   right: 0.75em;
   margin: 0;
   color: transparent;
   text-shadow: 0 0 #fff; }
-  .n-slider.n-lightbox a.button.n-lightbox--copy:before {
+  .n-slider.n-lightbox a.n-btn.n-lightbox--copy:before {
     content: "🔗"; }
 .n-slider.n-lightbox > [data-active]:not(.n-lightbox--loaded):after {
   content: "";

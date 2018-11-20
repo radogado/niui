@@ -1,4 +1,4 @@
-body {
+body.n-type {
 	
 	font-family: 'Helvetica Neue', sans-serif;
 	background-color: #eaeaea;
@@ -48,13 +48,13 @@ body {
 
 .n-type {
 	
-	h1, h2, h3, h4, button, a.button {
+	h1, h2, h3, h4, button.n-btn, a.n-btn {
 		
 		text-transform: uppercase;
 	
 	}
 	
-	a.button[href], button {
+	a.n-btn[href], button.n-btn {
 		
 		background: #009c7c;
 		font-weight: bold;
@@ -123,7 +123,7 @@ hr {
 	
 }
 
-.related.aspect > div {
+.related.n-aspect > div {
 	
 	padding: 1em;
 	color: #fff;

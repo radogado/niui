@@ -24,13 +24,13 @@ time {
 
 }
 
-.contain {
+.n-contain {
 	
 	max-width: 1536px;
 
 }
 
-.vertical > .n-slider--nav {
+.n-slider--vertical > .n-slider--nav {
 	
 	display: none;
 	
@@ -91,7 +91,7 @@ main h3 {
 
 }
 
-main .pad {
+main .n-pad {
 	
 	padding: 1em 2em;
 
@@ -130,7 +130,7 @@ main .n-slider--nav {
 
 }
 
-.n-banner .pad {
+.n-banner .n-pad {
 	
 	padding: 5em;
 
@@ -159,13 +159,13 @@ footer h3 {
 @media screen and (max-width: 768px) {
 
 
-	main .pad, .n-banner .pad, footer {
+	main .n-pad, .n-banner .n-pad, footer {
 	
 		padding: 1em;
 	
 	}
 	
-	.n-masonry.col4 {
+	.n-masonry._1-4 {
 		
 		column-count: 1;
 

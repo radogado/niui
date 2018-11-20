@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-	<main role="main" class="col34">
+	<main role="main" class="_3-4">
 	<!-- section -->
 	<section>
 
@@ -18,7 +18,7 @@
 -->
 			<?php $image_data = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "original" ); ?>
 			<div style="text-align: center;">
-				<span class="aspect align-middle" style="--ratio: <?php echo ($image_data[1] / $image_data[2]); ?>; --image-width: <?php echo ($image_data[1]) ?>px;">
+				<span class="n-aspect n-middle" style="--ratio: <?php echo ($image_data[1] / $image_data[2]); ?>; --image-width: <?php echo ($image_data[1]) ?>px;">
 					<?php the_post_thumbnail(); // Fullsize image for the single post ?>
 				</span>
 			</div>
@@ -71,6 +71,6 @@
 	<!-- /section -->
 	</main>
 
-<div class="col4"> <?php get_sidebar(); ?> </div>
+<div class="_1-4"> <?php get_sidebar(); ?> </div>
 
 <?php get_footer(); ?>

@@ -1,13 +1,13 @@
-body {
+body.n-type {
 	
 	color: #fff;
 	font-size: 18px;
 	
-}
-
-body, footer, .n-header {
+	footer, .n-header {
+		
+	    background: #181818;
 	
-    background: #181818;
+	}
 
 }
 
@@ -52,21 +52,21 @@ main .n-slider > div {
 	
 }
 
-.n-slider .row {
+.n-slider .n-row {
 	
 	height: 100%;
 	min-height: 60em;
 
 }
 
-main .row > .col1 {
+main .n-row > ._1-1 {
 	
 	min-height: 36em;
 	background-position: center center;
 	
 }
 
-.contain {
+.n-contain {
 	
 	max-width: 1260px;
 
@@ -108,7 +108,7 @@ footer .disclaimer {
 	
 	}
 	
-	a[href].button {
+	a[href].n-btn {
 		
 		background: url(button-lg.jpg);
 		text-transform: uppercase;
@@ -129,7 +129,7 @@ footer .disclaimer {
 
 }
 
-main a[href].button, .n-banner a[href].button {
+main a[href].n-btn, .n-banner a[href].n-btn {
 	
 	width: 14em;
 	max-width: 100%;
@@ -159,7 +159,7 @@ span.n-burger:before {
 		
 	}
 	
-	.n-slider--wrap > .pad {
+	.n-slider--wrap > .n-pad {
 		
 		margin: 0;
 
@@ -171,7 +171,7 @@ span.n-burger:before {
 		
 	}
 	
-	.row > * {
+	.n-row > * {
 		
 		height: 100%;
 		
@@ -188,7 +188,7 @@ span.n-burger:before {
 	
 	}
 
-	main .row > .col1, .n-slider .row {
+	main .n-row > ._1-1, .n-slider .n-row {
 		
 		min-height: 0;
 		

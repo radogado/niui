@@ -6,11 +6,21 @@
     /* Copyright (c) 1992 Adobe Systems Incorporated. All Rights Reserved. Myriad is a trademark of Adobe Systems Incorporated. */
 }
 
-body {
+body.n-type {
 	
 	font-size: 12px;
 	font-family: 'Myriad Set Pro';
 
+}
+
+@media (min-width: 600px) {
+	
+	.n-header {
+		
+	    padding-top: .1em;
+
+	}	
+	
 }
 
 .n-header {
@@ -18,7 +28,6 @@ body {
 	background: rgba(0, 0, 0, 0.8);
 	color: #fff;
 	font-size: 1.3em;
-    padding-top: .1em;
 	
 	a[href], .n-nav li:first-child a[href], .n-nav li:last-child a[href] {
 		
@@ -41,10 +50,12 @@ body {
 		
 	}
 	
-	&.align-center .n-nav {
+	&.n-center .n-nav {
 		
-		text-align: left;
-
+	    text-align: center;
+	    padding: 0;
+	    margin: 0;
+    
 	}
 	
 }
@@ -109,7 +120,7 @@ footer .bottom a[href] {
 	
 }
 
-footer ul, footer ul li, footer ul li a[href] {
+footer ul, footer ul.n-list li, footer ul.n-list li a[href] {
 	
 	margin: .3em 0;
 	
@@ -121,7 +132,7 @@ footer h4 {
 
 }
 
-.contain {
+.n-contain {
 	
 	max-width: 1000px;
 
@@ -149,7 +160,7 @@ footer h4 {
 	
 }
 
-ul li {
+ul.n-list li {
 	
 	margin: 0;
 

@@ -1,4 +1,4 @@
-.contain {
+.n-contain {
 	
 	max-width: 1132px;
 
@@ -45,7 +45,7 @@ main a[href], footer a[href], a[href] u {
 
 }
 
-.row.promo > *, .row.promo .row > * {
+.n-row.promo > *, .n-row.promo .n-row > * {
 	
 	box-shadow: 0 0 0px 2px #fff inset;
 	box-sizing: border-box;
@@ -53,14 +53,14 @@ main a[href], footer a[href], a[href] u {
 
 }
 
-.row > * > .unpad, .unpad {
+.n-row > * > .n-unpad, .n-unpad {
 	
 	margin: -1em;
 	width: calc(100% + 2em);
 	
 }
 
-main .row > a[href] {
+main .n-row > a[href] {
 	
 	border: none;
 
@@ -131,7 +131,7 @@ footer nav.n-nav a {
 
 }
 
-nav.n-nav ul {
+nav.n-nav ul.n-list {
 	
 	margin: 0;
 
@@ -175,7 +175,7 @@ nav.n-nav ul {
 		
 	}
 	
-	&.row > div {
+	&.n-row > div {
 		
 		padding: 0;
 		margin: 0;
@@ -282,7 +282,7 @@ form.n-form.n-form--wide input[type=submit] {
 
 }
 
-form.n-form.n-form--wide > .col1 {
+form.n-form.n-form--wide > ._1-1 {
 	
 	margin-top: -1.5em;
 	
@@ -349,7 +349,7 @@ form.n-form.n-form--wide > .col1 {
 
 @media (max-width: 600px) {
 	
-	header.row {
+	header.n-row {
 		
 		display: none;
 		
@@ -361,7 +361,7 @@ form.n-form.n-form--wide > .col1 {
 
 	}
 
-	.row > * > .unpad, .unpad {
+	.n-row > * > .n-unpad, .n-unpad {
 		
 		margin: 0;
 		width: auto;

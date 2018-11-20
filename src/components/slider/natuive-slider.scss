@@ -87,7 +87,7 @@
 	
 }
 
-.row .n-slider {
+.n-row .n-slider {
 	
 	padding: 0;
 
@@ -123,7 +123,7 @@
 
 }
 
-.n-slider--wrap .n-slider.align-middle > *, .n-slider.align-middle > * {
+.n-slider--wrap .n-slider.n-middle > *, .n-slider.n-middle > * {
 	
 	display: flex;
 	flex-direction: column;
@@ -131,7 +131,7 @@
 
 }
 
-.n-slider.align-middle > * > * {
+.n-slider.n-middle > * > * {
 	
 	text-align: center;
 
@@ -152,7 +152,7 @@
 
 @media screen and (max-width: $screen-narrow-max) {
 
-	.n-slider--wrap.n-tabs > .n-slider--nav.row, .n-slider--nav.row.n-tabs {
+	.n-slider--wrap.n-tabs > .n-slider--nav.n-row, .n-slider--nav.n-row.n-tabs {
 		
 		display: flex;
 		
@@ -233,7 +233,7 @@
 	
 	}
 	
-	> .n-slider--nav.row, > .n-slider--nav.row.n-tabs, , > .pad > .n-slider--nav.row.n-tabs {
+	> .n-slider--nav.n-row, > .n-slider--nav.n-row.n-tabs, , > .n-pad > .n-slider--nav.n-row.n-tabs {
 		
 		width: 25%;
 	
@@ -245,13 +245,13 @@
 	
 	}
 	
-	&.n-slider--right > .n-slider--nav.row, > .n-slider--nav.row.n-tabs, > .pad > .n-slider--nav.row.n-tabs {
+	&.n-slider--right > .n-slider--nav.n-row, > .n-slider--nav.n-row.n-tabs, > .n-pad > .n-slider--nav.n-row.n-tabs {
 		
 		float: right;
 	
 	}
 	
-	> .n-slider--nav a, > .n-slider--nav.n-tabs a, > .pad > .n-slider--nav.n-tabs a {
+	> .n-slider--nav a, > .n-slider--nav.n-tabs a, > .n-pad > .n-slider--nav.n-tabs a {
 		
 		display: block;
 		box-sizing: border-box;
@@ -263,7 +263,7 @@
 
 @supports (--a: 1) {
 	
-	.aspect > .n-slider--wrap {
+	.n-aspect > .n-slider--wrap {
 		
 		height: 100%;
 		position: absolute;
@@ -284,7 +284,7 @@
 
 }
 
-_:-ms-lang(x), .aspect > .n-slider--wrap { // Aspect ratio not working in IE/Edge
+_:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE/Edge
 		
 	position: static;
 
@@ -312,7 +312,7 @@ _:-ms-lang(x), .aspect > .n-slider--wrap { // Aspect ratio not working in IE/Edg
 	
 	overflow: visible;
     width: 100%;
-    padding: 0; // Because .n-slider.pad breaks the slider layout
+    padding: 0; // Because .n-slider.n-pad breaks the slider layout
 	-ms-overflow-style: none; /* No scrollbars on IE10+ */
 
 }
@@ -347,14 +347,14 @@ _:-ms-lang(x), .aspect > .n-slider--wrap { // Aspect ratio not working in IE/Edg
 
 }
 
-.n-slider--wrap > .pad {
+.n-slider--wrap > .n-pad {
 	
     padding: 0;
     margin: $line-height-em*2;
 	
 }
 
-.n-slider--wrap:not(.n-slider--peek) > .pad {
+.n-slider--wrap:not(.n-slider--peek) > .n-pad {
 
 	overflow-x: hidden;
 
@@ -375,7 +375,7 @@ _:-ms-lang(x), .aspect > .n-slider--wrap { // Aspect ratio not working in IE/Edg
 }
 
 .n-slider--wrap[data-active] > .n-slider:not([data-peek]) > *:not([data-active]), 
-.n-slider--wrap[data-active] > .pad > .n-slider:not([data-peek]) > *:not([data-active]), 
+.n-slider--wrap[data-active] > .n-pad > .n-slider:not([data-peek]) > *:not([data-active]), 
 .n-slider.n-slider--vertical[data-ready] > *:not([data-active]) {
 	
 	display: none;
@@ -492,7 +492,7 @@ _:-ms-lang(x), .aspect > .n-slider--wrap { // Aspect ratio not working in IE/Edg
 
 }
 
-.n-slider--wrap > .n-slider--nav, .n-slider--wrap > .pad > .n-slider--nav {
+.n-slider--wrap > .n-slider--nav, .n-slider--wrap > .n-pad > .n-slider--nav {
 	
 	position: absolute;
 	bottom: 0;
@@ -604,7 +604,7 @@ _:-ms-lang(x), .aspect > .n-slider--wrap { // Aspect ratio not working in IE/Edg
 		
 	}
 
-	.n-tabs > .n-slider--nav.row, .n-slider--nav.row.n-tabs {
+	.n-tabs > .n-slider--nav.n-row, .n-slider--nav.n-row.n-tabs {
 		
 		padding: 0;
 		margin: 0;

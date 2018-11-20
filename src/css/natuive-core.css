@@ -22,7 +22,7 @@ $font-size: 26px;
 $line-height: 34px;
 */
 /* Rewrite base variables here; add theme CSS below this one in <head> */
-.contain {
+.n-contain {
   max-width: 1312px;
   margin: 0 auto;
   width: 100%; }

@@ -16,7 +16,7 @@ natUIve demo pages: [Features demo](http://radogado.github.io/natuive/kitchen.ht
 
 ---
 
-- Unbreakable, flexible (no hardcoded dimensions), responsive grid. Supports Bootstrap-style wrapping columns, but with .col3 (1/3) etc., instead of .col...4 (4/12). Auto equal width columns with equal height and vertical alignment.
+- Unbreakable, flexible (no hardcoded dimensions), responsive grid. Supports Bootstrap-style wrapping columns, but with ._1-3 (1/3) etc., instead of .col...4 (4/12). Auto equal width columns with equal height and vertical alignment.
 - Baseline-aligned text elements*
 - Embeddable grid and elements*
 - Built around edge cases (overflowing content etc)*
@@ -47,7 +47,7 @@ natUIve demo pages: [Features demo](http://radogado.github.io/natuive/kitchen.ht
 - Language selector
 - Native video player
 - Good usability without any classes*
-- Aspect ratio image container*
+- aspect ratio image container*
 - CSS-only viewport height header*
 - URI parameters relay to links*
 - Arabic layout ready*
@@ -173,7 +173,7 @@ natUIve 1.6
 - CSS-only parallax scrolling
 - Fixed background behind an element
 - Close n-burger content by clicking outside
-- Aspect ratio container now a single element
+- aspect ratio container now a single element
 - Properly inherited font size
 
 –––
@@ -217,7 +217,7 @@ natUIve 1.3
 	- openFullWindow(‘content’)
 	- Overflowing mobile nav scrollable
 	- Node manipulation preserves events
-	- Aspect ratio image container
+	- aspect ratio image container
 	- Scroll polyfill for Android Browser with overthrow.js
 	- Option for Header+Banner (“Hero”) to take up .viewport-height (CSS only)
 	- Optimisations and fixes

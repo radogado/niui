@@ -2,7 +2,7 @@
 
 @import '../../css/natuive-setup';
 
-ul {
+ul.n-list {
 	
 	padding: 0;
 // 	font-size: $font-size;
@@ -14,44 +14,152 @@ ul {
 	margin: $line-height-em/2 0 $line-height-em/2 0;
 // 	margin: var(--line-height-em)/2 0 var(--line-height-em)/2 0;
 
-}
-
-ul.n-list--indent {
-	
-	margin-left: 1.5em;
-
-}
-
-ul li {
-
-	display: block;
-	position: relative;
-	width: 100%;
-	list-style: none;
-
-}
-
-ul:not(.no-bullet):not(.n-list--inline) li {
-
-	margin-left: 1em;
-	
-	&:before {
+	&.n-list--indent {
 		
-		content: '·';
-		position: absolute;
-		margin-left: -.75em;
+		margin-left: 1.5em;
+	
+	}
+	
+	li {
+	
+		display: block;
+		position: relative;
+		width: 100%;
+		list-style: none;
+	
+	}
+	
+	&:not(.n-list--no-bullet):not(.n-list--inline) li {
+	
+		margin-left: 1em;
+		
+		&:before {
+			
+			content: '·';
+			position: absolute;
+			margin-left: -.75em;
+			
+		}
 		
 	}
 	
-}
-
-nav ul:not(.no-bullet):not(.n-list--inline) li {
+	&.n-list--inline > li:first-child {
+		
+		margin-left: 0;
 	
-	margin-left: 0;
+	}
 
 }
 
-ul.n-list--inline, ul.n-list--inline li, .n-nav.n-nav--scroll ul li {
+ol.n-list {
+
+    list-style-type: none;
+    counter-reset: level1;
+	padding: 0;
+	margin: 0 0 $line-height-em 0;
+
+	> li {
+	
+		text-indent: -2.3em;
+		margin: $line-height-em 0 $line-height-em/2 2.3em;
+	// 	margin: calc(var(--line-height-em)/2) 0 calc(var(--line-height-em)/2) 2.3em;
+	
+		&:before {
+		
+		    content: counter(level1);
+		    counter-increment: level1;
+		    font-weight: bold;
+		    background: #999;
+		    padding: 0 .5em;
+		//     padding: calc(var(--line-height-em)/4) .6em calc(var(--line-height-em)/4) .6em;
+		    border-radius: 50%;
+		    margin-right: .5em;
+		    color: #fff;
+		//     min-width: 1.5em;
+		    min-height: 1em;
+		    display: inline-block;
+		    text-indent: 0;
+		    text-align: center;
+		
+		}
+		
+	}
+	
+	li > * {
+		
+		text-indent: 0;
+		display: inline-block;
+	
+	}
+	
+	li > ul {
+		
+		display: block;
+	
+	}
+	
+	> li ol {
+	
+	    list-style-type: none;
+	    counter-reset: level2;
+		display: block;
+	
+	}
+	
+	> li ol > li:before {
+	
+	    content: counter(level1) '.' counter(level2) ' ';
+	    counter-increment: level2;
+	//     padding: $line-height-em/4 .4em $line-height-em/4 .5em;
+	//     padding: calc(var(--line-height-em)/4) .4em calc(var(--line-height-em)/4) .5em;
+	    border-radius: 1em;
+	    background: #999;
+	    color: #fff;
+	
+	}
+	
+	ol > li ol {
+	
+	    list-style-type: none;
+	    counter-reset: level3;
+	    margin-left: 1em;
+	
+		li:before {
+	
+		    content: counter(level1) '.' counter(level2) '.' counter(level3) ' ';
+		    counter-increment: level3;
+		
+		}
+		
+	}
+	
+	ol > li {
+	
+		text-indent: -3em;
+	
+	}
+	
+	ol ol > li {
+	
+		text-indent: -3.9em;
+	
+	}
+	
+	ul {
+	
+		text-indent: .1em;
+	
+	}
+	
+	p {
+	
+		text-indent: 0;
+	
+	}
+
+}
+
+ul.n-list.n-list--inline, ul.n-list.n-list--inline li, .n-nav.n-nav--scroll ul li {
 	
 	vertical-align: top;
 	display: inline-block;
@@ -61,143 +169,28 @@ ul.n-list--inline, ul.n-list--inline li, .n-nav.n-nav--scroll ul li {
 
 }
 
-.n-nav ul li:before {
-	
-	display: none;
-
-}
-
-ul.n-list--inline > li:first-child {
+.n-nav ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li {
 	
 	margin-left: 0;
 
 }
 
-/*
-ul.vertical li > a[href] { // Ugly when underlined
+.n-nav ul.n-list li:before {
 	
-	display: block;
-
-}
-*/
-
-ol {
-
-    list-style-type: none;
-    counter-reset: level1;
-	padding: 0;
-	margin: 0 0 $line-height-em 0;
+	display: none;
 
 }
 
-ol > li {
+[dir=rtl] ol.n-list > li:before {
 
-	text-indent: -2.3em;
-	margin: $line-height-em 0 $line-height-em/2 2.3em;
-// 	margin: calc(var(--line-height-em)/2) 0 calc(var(--line-height-em)/2) 2.3em;
+    margin: 0 0 0 .5em;
 
 }
 
-[dir=rtl] ol > li {
+[dir=rtl] ol.n-list > li {
 
 	margin: $line-height-em 2.3em $line-height-em/2 0;
 // 	margin: calc(var(--line-height-em)/2) 2.3em calc(var(--line-height-em)/2) 0;
 
 }
 
-ol li > * {
-	
-	text-indent: 0;
-	display: inline-block;
-
-}
-
-ol li > ul {
-	
-	display: block;
-
-}
-
-ol > li:before {
-
-    content: counter(level1);
-    counter-increment: level1;
-    font-weight: bold;
-    background: #999;
-    padding: 0 .5em;
-//     padding: calc(var(--line-height-em)/4) .6em calc(var(--line-height-em)/4) .6em;
-    border-radius: 50%;
-    margin-right: .5em;
-    color: #fff;
-//     min-width: 1.5em;
-    min-height: 1em;
-    display: inline-block;
-    text-indent: 0;
-    text-align: center;
-
-}
-
-[dir=rtl] ol > li:before {
-
-    margin: 0 0 0 .5em;
-
-}
-
-ol > li ol {
-
-    list-style-type: none;
-    counter-reset: level2;
-	display: block;
-
-}
-
-ol > li ol > li:before {
-
-    content: counter(level1) '.' counter(level2) ' ';
-    counter-increment: level2;
-//     padding: $line-height-em/4 .4em $line-height-em/4 .5em;
-//     padding: calc(var(--line-height-em)/4) .4em calc(var(--line-height-em)/4) .5em;
-    border-radius: 1em;
-    background: #999;
-    color: #fff;
-
-}
-
-ol ol > li ol {
-
-    list-style-type: none;
-    counter-reset: level3;
-    margin-left: 1em;
-
-}
-
-ol ol > li ol > li:before {
-
-    content: counter(level1) '.' counter(level2) '.' counter(level3) ' ';
-    counter-increment: level3;
-
-}
-
-ol ol > li {
-
-	text-indent: -3em;
-
-}
-
-ol ol ol > li {
-
-	text-indent: -3.9em;
-
-}
-
-ol ul {
-
-	text-indent: .1em;
-
-}
-
-ol p {
-
-	text-indent: 0;
-
-}

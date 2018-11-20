@@ -1164,7 +1164,7 @@ var nui = function () {
           slide_link = document.location.href.split('#')[0].split('?')[0] + '?image=' + el.href.split('/').pop() + '#' + lightbox.getAttribute('id');
         }
 
-        var link_element = hasClass(lightbox, 'n-lightbox--inline') || !lightbox.getAttribute('id') ? '' : "<a class=\"button n-lightbox--copy\" href=".concat(slide_link, "></a>");
+        var link_element = hasClass(lightbox, 'n-lightbox--inline') || !lightbox.getAttribute('id') ? '' : "<a class=\"n-btn n-lightbox--copy\" href=".concat(slide_link, "></a>");
         var url = hasClass(lightbox, 'n-slider') ? el.querySelector('img') ? el.querySelector('img').getAttribute('data-src') : '' : el.href;
         var caption = el.title ? el.title : el.querySelector('img') ? el.querySelector('img').title : '';
         images += "<div><img data-src=\"".concat(url, "\" title=\"").concat(caption, "\" data-link=\"").concat(slide_link, "\">").concat((caption ? '<p>' + caption + '</p>' : '') + link_element, "</div>"); // Attach onload event to each image to display it only when fully loaded and avoid top-to-bottom reveal?
@@ -1932,7 +1932,7 @@ var nui = function () {
         // Detached nav
         return slider_nav;
       } else {
-        return slider_wrap.querySelectorAll('.n-slider--nav')[slider_wrap.querySelectorAll('.n-slider--nav').length - 1]; // With a simple query, it would get the nav of an eventual nested slider, instead of the current one. Current nav is either a direct child or a .pad direct child, taken as the last one of all.
+        return slider_wrap.querySelectorAll('.n-slider--nav')[slider_wrap.querySelectorAll('.n-slider--nav').length - 1]; // With a simple query, it would get the nav of an eventual nested slider, instead of the current one. Current nav is either a direct child or a .n-pad direct child, taken as the last one of all.
       }
     }
     /* Thanks to Pete & Eike Send for the swipe events – http://www.thepetedesign.com/demos/purejs_onepage_scroll_demo.html */
@@ -2158,8 +2158,8 @@ var nui = function () {
       var next_slide_image = target_slide.querySelector('img');
 
       if (hasClass(slider, 'n-slider--vertical')) {
-        if (hasClass(slider, 'n-lightbox--inline') && !hasClass(slider, 'n-slider--overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'aspect')) {
-          // Inline lightbox only. To do: integrate aspect with n-slider--wrap
+        if (hasClass(slider, 'n-lightbox--inline') && !hasClass(slider, 'n-slider--overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'n-aspect')) {
+          // Inline lightbox only. To do: integrate n-aspect with n-slider--wrap
           var height_change_number = slider.clientWidth * next_slide_image.naturalHeight / next_slide_image.naturalWidth;
 
           if (slider.clientWidth >= next_slide_image.naturalWidth) {
@@ -2203,7 +2203,7 @@ var nui = function () {
       if (hasClass(slider, 'n-slider--vertical')) {
         computed_height = parseInt(computed_height, 10);
         computed_height_old = parseInt(computed_height_old, 10);
-        var next_height = !hasClass(slider, 'n-slider--overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'aspect') ? "-".concat(height_change_number, "px") : '-100%';
+        var next_height = !hasClass(slider, 'n-slider--overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'n-aspect') ? "-".concat(height_change_number, "px") : '-100%';
         translate_from = "translate3d(0,".concat(index < old_index ? '-' + computed_height + 'px' : 0, ",0)");
         var difference = Math.abs(computed_height - computed_height_old);
 
@@ -2356,15 +2356,15 @@ var nui = function () {
         container = wrap(el);
         addClass(container, 'n-slider--wrap');
 
-        if (container.parentNode && hasClass(container.parentNode, 'aspect')) {
+        if (container.parentNode && hasClass(container.parentNode, 'n-aspect')) {
           addClass(container, 'inside-aspect');
         }
 
         el = container.querySelector('.n-slider');
 
-        if (hasClass(el, 'pad')) {
+        if (hasClass(el, 'n-pad')) {
           container = wrap(el);
-          addClass(container, 'pad');
+          addClass(container, 'n-pad');
           container = container.parentNode;
           el = container.querySelector('.n-slider');
         }
@@ -2405,7 +2405,7 @@ var nui = function () {
       for (var i = 0; i < el.children.length; i++) {
         if (hasClass(el, 'n-tabs')) {
           addClass(container, 'n-tabs');
-          addClass(slider_nav, 'row');
+          addClass(slider_nav, 'n-row');
           addClass(slider_nav, 'n-tabs');
           transferClass(container, slider_nav, 'n-wrap');
           transferClass(el, container, 'n-slider--vertical');
@@ -2542,7 +2542,7 @@ var nui = function () {
 
     var init = function init(host) {
       host.querySelectorAll('.n-table:not([data-ready])').forEach(function (el) {
-        addClass(wrap(el), '.n-table--wrap');
+        addClass(wrap(el), 'n-table--wrap');
         makeReady(el);
         el.parentNode.setAttribute('tabindex', 0);
       });

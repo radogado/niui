@@ -23,7 +23,7 @@ body {
 	
 	}
 
-	a[href].button:hover, .n-banner a[href].button:hover, .promo a[href].button:hover {
+	a[href].n-btn:hover, .n-banner a[href].n-btn:hover, .promo a[href].n-btn:hover {
 		
 		color: #fff;
 		background-color: #aca59e;
@@ -31,7 +31,7 @@ body {
 		   
 	}
 
-	a[href].button {
+	a[href].n-btn {
 		
 		color: #fff;
 		font-weight: bold;
@@ -54,7 +54,7 @@ body {
 
 }
 
-.n-banner .n-slider .row > div {
+.n-banner .n-slider .n-row > div {
 	
 	min-height: 100vh;
 	padding: 0;
@@ -80,7 +80,7 @@ body {
 	position: absolute;
 	width: 100%;
 
-	.contain > .row {
+	.n-contain > .n-row {
 		
 		margin: 1em 0 2em 0;
 	
@@ -92,7 +92,7 @@ body {
 	
 	}
 	
-	.row > * {
+	.n-row > * {
 		
 		position: relative;
 		
@@ -112,7 +112,7 @@ body {
 		font-size: .9em;
 	}
 	
-	.col25 {
+	._2-5 {
 		
 		border-bottom: 1px solid;
 	
@@ -126,7 +126,7 @@ main a[href] {
 	
 }
 
-main a[href]:not(.button):after {
+main a[href]:not(.n-btn):after {
 	
 	content: '⟩';
 	padding: 0 .5em;
@@ -148,7 +148,7 @@ main .promo h3 {
 
 }
 
-main .n-slider .col3 {
+main .n-slider ._1-3 {
 	
 	box-shadow: 0 0 0 1px #aca59e;
 	min-height: 20em;
@@ -156,7 +156,7 @@ main .n-slider .col3 {
 	
 }
 
-main .n-slider .col3 .image {
+main .n-slider ._1-3 .image {
 
 	min-height: 10em;
 	background-size: cover;
@@ -185,7 +185,7 @@ main .n-slider .col3 .image {
 
 }
 
-header a[href].button {
+header a[href].n-btn {
 	
 	padding: .25em .5em;
 	border-color: transparent;
@@ -193,7 +193,7 @@ header a[href].button {
 
 }
 
-.n-banner a[href].button, .promo a[href].button {
+.n-banner a[href].n-btn, .promo a[href].n-btn {
 
 	background-color: rgba(255, 255, 255, 0.2);
 
@@ -249,19 +249,19 @@ footer .about {
 		
 	}
 	
-	header .row > .col5 {
+	header .n-row > ._1-5 {
 		
 		display: none;
 		
 	}
 	
-	header nav.n-nav ul {
+	header nav.n-nav ul.n-list {
 		
 		color: #000;
 
 	}
 
-	header .row > * {
+	header .n-row > * {
 		
 		text-align: right;
 		padding: 0 .5em !important;

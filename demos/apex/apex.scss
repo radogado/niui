@@ -9,7 +9,7 @@ body, .n-type h1 {
 	
 	padding: 2em;
 	
-	.n-nav ul {
+	.n-nav ul.n-list {
 		
 		justify-content: flex-end;
 		
@@ -42,14 +42,14 @@ body, .n-type h1 {
 
 }
 
-.aspect {
+.n-aspect {
 	
 	align-items: center;
 	background-size: cover;
 	
 }
 
-.aspect > div {
+.n-aspect > div {
 
 	width: 100%;
 	
@@ -61,7 +61,7 @@ main {
 
 }
 
-main.row > * {
+main.n-row > * {
 	
 	--width: 1/5;
 
@@ -69,7 +69,7 @@ main.row > * {
 
 @media (max-width: 2400px) {
 	
-	main.row > * {
+	main.n-row > * {
 		
 		--width: 1/4;
 	
@@ -79,7 +79,7 @@ main.row > * {
 
 @media (max-width: 1800px) {
 	
-	main.row > * {
+	main.n-row > * {
 		
 		--width: 1/3;
 	
@@ -89,7 +89,7 @@ main.row > * {
 
 @media (max-width: 1200px) {
 	
-	main.row > * {
+	main.n-row > * {
 		
 		--width: 1/2;
 	
@@ -121,7 +121,7 @@ main.row > * {
 
 }
 
-.n-modal .aspect > div {
+.n-modal .n-aspect > div {
 	
 	transform: scale(2);
 	opacity: 0;
@@ -129,7 +129,7 @@ main.row > * {
 
 }
 
-.n-modal:hover .aspect > div {
+.n-modal:hover .n-aspect > div {
 	
 	transform: scale(1);
 	opacity: 1;

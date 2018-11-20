@@ -3,7 +3,7 @@ $greendark: #00771b;
 $orange: #f57f31;
 $blue: #1e5e86;
 
-.contain {
+.n-contain {
 	
 	max-width: 1000px;
 
@@ -22,7 +22,7 @@ body {
 
 }
 
-nav.n-nav.n-drop ul {
+nav.n-nav.n-drop ul.n-list {
 
 	justify-content: flex-end;	
 
@@ -30,7 +30,7 @@ nav.n-nav.n-drop ul {
 
 .n-header {
 	
-	> .row > :first-child {
+	> .n-row > :first-child {
 	
 		background: #333;
 	
@@ -70,7 +70,7 @@ nav.n-nav {
 
 }
 
-.n-header .contain nav.n-nav {
+.n-header .n-contain nav.n-nav {
 
 	background-color: #fff;
     border: 2px solid #f4eacc;
@@ -85,7 +85,7 @@ nav.n-nav {
 
     }
     
-    ul {
+    ul.n-list {
 	    
 	    width: auto;
 	    
@@ -276,7 +276,7 @@ b.circle {
 
 }
 
-.row.border {
+.n-row.border {
 	
 	--color: #e2e2e2;
 	background: #fff;
@@ -323,7 +323,7 @@ b.circle {
 
 }
 
-.row.banners {
+.n-row.banners {
 	
 	border: 1px solid #e2e2e2;
 	background: #fff;
@@ -351,7 +351,7 @@ footer .banners {
 	    
 }
 
-footer .contain {
+footer .n-contain {
 	
 	padding: 1em;
 
@@ -363,7 +363,7 @@ footer .contain {
 	border: 1px solid #e2e2e2;
 	border-top: none;
 	
-	.tabs > .n-slider--nav.row {
+	.tabs > .n-slider--nav.n-row {
 		
 		display: block;
 		
@@ -474,7 +474,7 @@ footer .contain {
 	
 }
 
-.news .n-tabs > .n-slider--nav.row {
+.news .n-tabs > .n-slider--nav.n-row {
 	
 	margin-bottom: 1em;
 	border-bottom: 1px solid #e2e2e2;

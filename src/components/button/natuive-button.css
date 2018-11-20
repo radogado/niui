@@ -17,7 +17,7 @@ $bg: #1E8DaC;
   --color: #333;
   --bg: #fff; }
 
-.button, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button, a.button[href], .n-type a.button[href] {
+.n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href] {
   font-size: inherit;
   line-height: 1.5;
   min-height: 1.5em;
@@ -40,17 +40,17 @@ $bg: #1E8DaC;
   -moz-user-select: none;
   user-select: none;
   border-radius: 0; }
-  .button:hover, .n-form input[type=submit]:hover, .n-form button[type=submit]:hover, .n-form button[type=reset]:hover, button:hover, a.button[href]:hover, .n-type a.button[href]:hover {
+  .n-btn:hover, .n-form input[type=submit]:hover, .n-form button[type=submit]:hover, .n-form button[type=reset]:hover, button.n-btn:hover, a.n-btn[href]:hover, .n-type a.n-btn[href]:hover {
     background: #eee;
     color: #333; }
 
-button[disabled] {
+button.n-btn[disabled] {
   cursor: default;
   opacity: .2;
   margin: 0;
   font-size: inherit; }
 
-.button.button-big, a[href].button.button-big, .n-form input[type=submit], .n-form button, button.button-big {
+.n-btn.n-btn--big, a[href].n-btn.n-btn--big, .n-form input[type=submit], .n-form button {
   margin: 0.5em 0;
   font-size: 1.2em;
   padding: .75em 1em;
@@ -80,14 +80,14 @@ a.backtotop[href] {
   width: 2em;
   text-align: center; }
 
-.button-group {
+.n-btn--group {
   margin: 0 -.25em; }
-  .button-group > *, .button-group .button.button-big, .button-group > a[href].button.button-big {
+  .n-btn--group > *, .n-btn--group .n-btn.n-btn--big, .n-btn--group > a[href].n-btn.n-btn--big {
     margin-right: .25em;
     margin-left: .25em; }
 
 @media screen and (max-width: 599.9px) {
-  .button.button-big {
+  .n-btn.n-btn--big {
     display: block;
     text-align: center; } }
 

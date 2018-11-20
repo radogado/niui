@@ -75,7 +75,7 @@
 
 }
 
-.n-nav.row {
+.n-nav.n-row {
 	
 	display: inline-flex;
 
@@ -294,7 +294,7 @@ $nav-bg: #fff; // fallback for browsers unsupporting CSS variables
 		
 		nav.n-drop {
 		
-			ul ul ul:not([aria-expanded]) {
+			ul ul:not([aria-expanded]) ul {
 			
 				transition: .1s .2s;
 				opacity: 0;
@@ -307,6 +307,19 @@ $nav-bg: #fff; // fallback for browsers unsupporting CSS variables
 				background-color: $nav-bg;
 				background-color: var(--nav-bg);
 				
+			}
+	
+			> ul 		> li:hover > input:not(:checked) ~ ul,
+			> ul li ul > li:hover > input:not(:checked) ~ ul,
+			> ul > li:not([aria-haspopup]):hover > input:not(:checked) ~ ul,
+			> ul li:not([aria-haspopup]) ul li:hover > input:not(:checked) ~ ul {
+				
+				min-height: 0;
+				max-height: 0;
+				overflow: hidden;
+				z-index: 1;
+				position: absolute;
+	
 			}
 	
 			> ul > li:not([aria-haspopup]):hover > ul,
@@ -322,19 +335,6 @@ $nav-bg: #fff; // fallback for browsers unsupporting CSS variables
 				
 			}
 			
-			> ul 		> li:hover > input:not(:checked) ~ ul,
-			> ul li ul > li:hover > input:not(:checked) ~ ul,
-			> ul > li:not([aria-haspopup]):hover > input:not(:checked) ~ ul,
-			> ul li:not([aria-haspopup]) ul li:hover > input:not(:checked) ~ ul {
-				
-				min-height: 0;
-				max-height: 0;
-				overflow: hidden;
-				z-index: 1;
-				position: absolute;
-	
-			}
-	
 			> ul li ul li:hover ul {
 	
 				transition-delay: 0.2s;

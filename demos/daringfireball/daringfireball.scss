@@ -1,19 +1,31 @@
-body {
+body.n-type {
 	
 	font-family: Verdana, sans-serif;
 	color: #eee;
 	background-color: #4a525a;
 	font-size: 12px;
 	
+	h2 {
+		
+		line-height: 1.5;
+			
+		a[href] {
+		
+			color: #ccc;
+		
+		}
+	
+	}
+
 }
 
-.contain {
+.n-contain {
 	
 	max-width: 960px;
 
 }
 
-.row>*, .row>[class^=col] {
+.n-row>*, .n-row>[class^=col] {
 	
 	padding: 1.5em;
 	--spacing: 2em;
@@ -24,12 +36,6 @@ blockquote {
 	
 	color: #ddd;
 	margin-left: .2em;
-
-}
-
-.n-type h2 a[href] {
-	
-	color: #ccc;
 
 }
 
@@ -47,15 +53,10 @@ article a[href].permalink, article a[href].footnoteBackLink {
 
 }
 
-ul {
+ul.n-list {
 	
 	margin-left: 2em;
 	list-style-type: square;
-
-}
-
-ul {
-	
 	font-size: unset;
 
 }
@@ -66,7 +67,7 @@ nav.n-nav li {
 
 }
 
-ol > li:before {
+ol.n-list > li:before {
 	
 	background: none;
 	vertical-align: top;
@@ -80,7 +81,7 @@ ol > li:before {
 	
 }
 
-ol p {
+.n-type ol.n-list p {
 	
 	margin: 0;
 

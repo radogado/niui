@@ -105,9 +105,9 @@ if("document"in self){if(!("classList"in document.createElement("_"))||document.
 
 // Flex grid fallback – start
 
-function flexGridFallback() { // Second approach: split all wrapped rows into separate .row.table
+function flexGridFallback() { // Second approach: split all wrapped rows into separate .n-row.table
 
-	var rows = document.querySelectorAll('.row'); // Node list to array
+	var rows = document.querySelectorAll('.n-row'); // Node list to array
 	var row_index = 0;
 	
 	for(;row_index < rows.length; row_index++) { // All rows

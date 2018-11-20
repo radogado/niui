@@ -54,7 +54,7 @@
     src: url(01d67c62c3203106e75c7e67ab11bb53.woff2) format("woff2");
 }
 
-body {
+body.n-type {
 
     font-family: CNNTravel,Helvetica Neue,Helvetica,Arial,sans-serif;
     
@@ -67,7 +67,7 @@ body {
 
 }
 
-.contain {
+.n-contain {
 	
 	max-width: 1111px;
 
@@ -77,7 +77,7 @@ body {
 	
 	text-transform: uppercase;
 	
-	.col4 {
+	._1-4 {
 		
 		padding-top: 0;
 		padding-bottom: 0;
@@ -173,7 +173,7 @@ span.vertical {
 	
 }
 
-.n-type a[href].button {
+.n-type a[href].n-btn {
 	
 	border: 1px solid #eee;
 	background: transparent;
@@ -184,7 +184,7 @@ span.vertical {
 
 @media (max-width: 599.9px) {
 
-	.row > * > .unpad, .unpad {
+	.n-row > * > .n-unpad, .n-unpad {
 		
 		margin: 0;
 		width: auto;

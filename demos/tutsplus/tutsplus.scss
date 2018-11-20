@@ -4,7 +4,7 @@ body {
 	
 }
 
-.contain {
+.n-contain {
 	
     max-width: 1302px;
 	    
@@ -35,7 +35,7 @@ body {
 	
 	}
 	
-	a[href].button {
+	a[href].n-btn {
 		
 		color: #49b293;
 		background: #fff;
@@ -44,14 +44,14 @@ body {
 
 }
 
-main a[href].button {
+main a[href].n-btn {
 	
 	color: #fff;
 	background-color: #f93d66;	
 
 }
 
-main a[href].button.big {
+main a[href].n-btn.n-btn--big {
 	
 	background: none;
 	color: #82b541;
@@ -75,7 +75,7 @@ input[type=search] {
 
 }
 
-.n-banner .vertical.row > div > div {
+.n-banner .n-row.n-row--vertical > div > div {
 	
 	padding: 1em;
 
@@ -105,7 +105,7 @@ input[type=search] {
 
 	}
 	
-	.row.card-grid > * {
+	.n-row.card-grid > * {
 		
 		border: none;
 	
@@ -113,7 +113,7 @@ input[type=search] {
 
 }
 
-.row.card-grid {
+.n-row.card-grid {
 	
 	padding: 1em 0;
 	
@@ -140,7 +140,7 @@ input[type=search] {
 	
 	font-size: .75em;	
 	
-	&.row > * > img {
+	&.n-row > * > img {
 		
 		display: inline-block;
 	    width: 34px;
@@ -193,14 +193,14 @@ input[type=search] {
 	background-position: calc(50% - 950px) 70%, calc(50% + 950px) 70%;
 	background-origin: right, left;
 	
-	.row {
+	.n-row {
 		
 		max-width: 1180px;
 		margin: 0 auto;
 
 	}
 	
-	.row .row img {
+	.n-row .n-row img {
 		
 		width: 82px;
 		display: block;
@@ -232,14 +232,14 @@ footer {
 
 .n-type {
 	
-	a[href].button {
+	a[href].n-btn {
 		
 		border-radius: 4px;
 		padding: .5em 2em;
 		
 	}
 	
-	a[href].button.big {
+	a[href].n-btn.n-btn--big {
 	
 		padding-left: 2.5em;
 		padding-right: 2.5em;

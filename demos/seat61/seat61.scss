@@ -2,7 +2,7 @@ $dark: #82372B;
 $darker: #622a21;
 $light: #FAF6EF;
 
-html, body, .row.wrap > *, p, li, .n-lightbox a, .button, input[type=submit], button, label, form .checkbox span, .tip, label span .tip, h4, h5, form label > span {
+html, body, .n-row.wrap > *, p, li, .n-lightbox a, .n-btn, input[type=submit], button.n-btn, label, form .checkbox span, .tip, label span .tip, h4, h5, form label > span {
 	
 	font-size: 16px;
 
@@ -15,13 +15,13 @@ html, body, .row.wrap > *, p, li, .n-lightbox a, .button, input[type=submit], bu
 
 }
 
-.contain {
+.n-contain {
 	
 	max-width: 69rem;
 
 }
 
-body {
+body.n-type {
 	
 	background: $light;
 	color: $darker;
@@ -54,6 +54,7 @@ body {
 		vertical-align: middle;
 		text-transform: uppercase;
 		margin-right: 1em;
+		padding: 0;
 	
 	}
 	
@@ -61,7 +62,7 @@ body {
 		
 		line-height: 3em;
 	
-		ul {
+		ul.n-list {
 			
 			display: block;
 		
@@ -89,7 +90,7 @@ nav.n-nav li {
 	
 }
 
-ul li {
+ul.n-list li {
 	
 	margin: 0;
 	
@@ -246,7 +247,7 @@ footer {
 		
 	}
 	
-	.n-header .row > nav.n-nav {
+	.n-header .n-row > nav.n-nav {
 		
 		position: fixed;
 		left: 0;

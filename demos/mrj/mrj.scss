@@ -1,17 +1,10 @@
-body {
-	
-	font-family: 'Helvetica Neue', sans-serif;
-	color: #3B4043;
-
-}
-
-.row {
+.n-row {
 	
 	margin: 0;
 
 }
 
-.contain {
+.n-contain {
 	
 	max-width: 91rem;
 
@@ -23,7 +16,10 @@ nav.n-nav a {
 
 }
 
-.n-type {
+body.n-type {
+	
+	font-family: 'Helvetica Neue', sans-serif;
+	color: #3B4043;
 	
 	a[href] {
 		
@@ -37,7 +33,7 @@ nav.n-nav a {
 	
 	}
 
-	a[href].button {
+	a[href].n-btn {
 		
 		background: transparent;
 		border: 1px solid;
@@ -71,7 +67,7 @@ nav.n-nav a {
 
 }
 
-#content a[href].button:hover {
+#content a[href].n-btn:hover {
 	
 	color: #000;
 
@@ -95,7 +91,7 @@ nav.n-nav a {
 	
 	}
 	
-	&.row {
+	&.n-row {
 		
 		margin: 0;
 	
@@ -131,7 +127,7 @@ nav.n-nav a {
 
 }
 
-.aspect.n-banner {
+.n-aspect.n-banner {
 	
 	text-align: left;
 	background: url(all-new-mrj-first-flight.jpg) no-repeat center center;
@@ -139,7 +135,7 @@ nav.n-nav a {
 	
 }
 
-.aspect.n-banner > div {
+.n-aspect.n-banner > div {
 	
 	display: inline-block;
 	vertical-align: top;

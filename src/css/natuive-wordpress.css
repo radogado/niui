@@ -39,7 +39,7 @@ b {
 a[href] {
   color: #333; }
 
-a[href]:hover, input[type=submit]:hover, a.button[href]:hover, button:hover {
+a[href]:hover, input[type=submit]:hover, a.n-btn[href]:hover, button.n-btn:hover {
   color: #ee8822; }
 
 nav.n-nav a {
@@ -69,7 +69,7 @@ form#language-selector select {
 .n-header .n-form .select {
   height: 1.5; }
 
-.button, input[type=submit], button[type=submit], button[type=reset], button, a.button[href] {
+.n-btn, input[type=submit], button[type=submit], button[type=reset], button, a.button[href] {
   font-weight: bold;
   background: #00ddf0;
   color: #fff; }
@@ -97,7 +97,7 @@ form#language-selector select {
   background: #977a00; }
 
 /* Top */
-.n-header .align-right {
+.n-header .n-right {
   text-align: right;
   vertical-align: top; }
 
@@ -122,7 +122,7 @@ form#language-selector select {
 .n-header img.logo {
   height: 40px; }
 
-.n-header .row {
+.n-header .n-row {
   padding: 0; }
 
 /* Head */
@@ -203,7 +203,7 @@ form#language-selector select {
   display: block;
   margin: 0 auto; }
 
-#content .aspect img {
+#content .n-aspect img {
   display: inline-block; }
 
 #content .sidebar ul, #content .sidebar li, #content .comments ul, #content .sidebar li a[href] {

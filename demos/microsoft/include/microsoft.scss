@@ -1,7 +1,7 @@
 $font-size: 16px;
 $line-height: 22px;
 
-// Hover nav needs hover delay, show only one drop-down and hide it on click outside of the drop-down, make drop-downs of all positions accessible (current site hides one on the right), slider images aspect ratio, change input+label to just label absolutely-spanning all the li (parent), drop-down menu for touch, space bar doesn't scroll the page, solution for hiding a menu with radio checkbox: every checkbox has an invisible display: none reset button over it, but only the checked checkbox shows it – click on it and the form is reset, unchecking all checkboxes. forms for reset should be one for each level, no need for one per each sub nav, on touch, grey nav item bg remains forever, nav taps don't work under the slider, mobile nav: top-level items under opened items are not visible/accessible, mobile slider: too short
+// Hover nav needs hover delay, show only one drop-down and hide it on click outside of the drop-down, make drop-downs of all positions accessible (current site hides one on the right), slider images n-aspect ratio, change input+label to just label absolutely-spanning all the li (parent), drop-down menu for touch, space bar doesn't scroll the page, solution for hiding a menu with radio checkbox: every checkbox has an invisible display: none reset button over it, but only the checked checkbox shows it – click on it and the form is reset, unchecking all checkboxes. forms for reset should be one for each level, no need for one per each sub nav, on touch, grey nav item bg remains forever, nav taps don't work under the slider, mobile nav: top-level items under opened items are not visible/accessible, mobile slider: too short
 
 @font-face {
     font-family: 'wf_segoe-ui_light';
@@ -49,13 +49,13 @@ body {
 
 }
 
-.contain.wide {
+.n-contain.wide {
 	
 	max-width: 100rem;
 
 }
 
-.button, button, a.button[href] {
+.n-btn, button.n-btn, a.n-btn[href] {
 	
 	color: #000;
 	background: transparent;
@@ -68,6 +68,7 @@ body {
 	a[href] {
 		
 		text-decoration: none;
+		color: #fff;
 		
 	}
 	
@@ -76,6 +77,16 @@ body {
 		text-decoration: underline;
 		color: #1570a6;
 		
+	}
+	
+	.n-header, .n-footer {
+		
+		 a[href] {
+		
+		 	color: inherit;
+		
+		 }
+	
 	}
 
 	h2 {
@@ -91,6 +102,12 @@ body {
 		font-weight: normal;
 		
 	}
+	
+	.social h3 {
+		
+		padding: .5em;
+
+	}
 
 }
 
@@ -103,10 +120,16 @@ body {
 // 	padding-top: $line-height/2;
 	border-bottom: 1px solid #e1e1e1;
 
+	.n-right > div {
+		
+		display: flex;
+		
+	}
+
 
 }
 
-.n-header > .row, .n-header > nav.n-nav {
+.n-header > .n-row, .n-header > nav.n-nav {
 	
 	padding: 0 1.4em;
 	
@@ -114,7 +137,7 @@ body {
 
 .n-banner {
 
-	> .row {
+	> .n-row {
 		
 		padding-top: 0;
 	
@@ -178,7 +201,7 @@ body {
 
 }
 
-.n-header .row > div, .n-header a.n-logo, .n-header .n-form {
+.n-header .n-row > div, .n-header a.n-logo, .n-header .n-form {
 	
 	vertical-align: middle;
 	padding: 0;
@@ -388,13 +411,13 @@ a.span-relative-parent ~ a:after {
 
 }
 
-main .n-slider span.copy, main .n-slider span.copy h2, main .n-slider span.copy button {
+main .n-slider span.copy, main .n-slider span.copy h2, main .n-slider span.copy button.n-btn {
 	
 	color: #fff;
 
 }
 
-.row.top-link-bar {
+.n-row.top-link-bar {
 	
 	background-color: #525252;
 	margin: 0;
@@ -405,7 +428,7 @@ main .n-slider span.copy, main .n-slider span.copy h2, main .n-slider span.copy 
 	
 }
 
-.row.top-link-bar a[href] {
+.n-row.top-link-bar a[href] {
 
 	color: #fff;
 	padding-top: 1em;
@@ -416,14 +439,14 @@ main .n-slider span.copy, main .n-slider span.copy h2, main .n-slider span.copy 
 
 }
 
-.row.top-link-bar a[href]:hover {
+.n-row.top-link-bar a[href]:hover {
 
 	background-color: #6b6b6b;
 	text-decoration: none;
 
 }
 
-.row.top-link-bar img {
+.n-row.top-link-bar img {
 	
 
 }
@@ -434,7 +457,7 @@ main .n-slider span.copy, main .n-slider span.copy h2, main .n-slider span.copy 
 
 }
 
-.mini-features.row .row {
+.mini-features.n-row .n-row {
 	
 	margin-left: 0;
 	width: 100%;
@@ -443,7 +466,7 @@ main .n-slider span.copy, main .n-slider span.copy h2, main .n-slider span.copy 
 	
 }
 
-.aspect {
+.n-aspect {
 	
 	padding-bottom: 0 !important;
 	overflow: hidden;
@@ -611,13 +634,13 @@ main .n-slider span.copy, main .n-slider span.copy h2, main .n-slider span.copy 
 
 }
 
-footer .columns.row, footer .columns.row + .row {
+footer .columns.n-row, footer .columns.n-row + .n-row {
 	
 	padding: 0 1.4em;
 
 } 
 
-footer .columns.row {
+footer .columns.n-row {
 	
 	padding-top: 1.8em;
 	
@@ -642,7 +665,7 @@ footer .footer-bottom a[href] {
 	
 }
 
-div.row.contain.footer-bottom {
+div.n-row.n-contain.footer-bottom {
 	
 	padding-top: 1em;
 	
@@ -722,7 +745,7 @@ footer .footer-bottom span.icon-globe {
 	
 }
 
-[for=nav-signin] + ul li {
+[for=nav-signin] + ul.n-list li {
 	
 	text-align: left;
 	padding-top: 0;
@@ -730,7 +753,7 @@ footer .footer-bottom span.icon-globe {
 
 }
 
-[for=nav-signin] + ul {
+[for=nav-signin] + ul.n-list {
 	
 	padding-right: 0 !important;
 
@@ -754,7 +777,7 @@ nav.n-nav.n-drop {
 
 }
 
-ul:not(.no-bullet):not(.n-list--inline) li {
+ul:not(.n-list--no-bullet):not(.n-list--inline) li {
 	
 	margin: 0;
 	
@@ -772,7 +795,7 @@ ul:not(.no-bullet):not(.n-list--inline) li {
 
 @media screen and (max-width: 599.9px) {
 	
-	.row > * {
+	.n-row > * {
 		
 		padding-left: 0;
 		padding-right: 0;
@@ -816,7 +839,7 @@ ul:not(.no-bullet):not(.n-list--inline) li {
 		
 	}
 	
-	.mini-features.row .row {
+	.mini-features.n-row .n-row {
 		
 		padding: 0;
 		overflow: hidden;
@@ -848,7 +871,7 @@ ul:not(.no-bullet):not(.n-list--inline) li {
 
 	}
 	
-	.contain {
+	.n-contain {
 		
 		padding: 0;
 
@@ -860,7 +883,7 @@ ul:not(.no-bullet):not(.n-list--inline) li {
 
 	}
 
-	.n-header > .row:first-child div {
+	.n-header > .n-row:first-child div {
 		
 		text-align: left;
 	
@@ -880,7 +903,7 @@ ul:not(.no-bullet):not(.n-list--inline) li {
 	}
 */
 	
-	.n-header > .row {
+	.n-header > .n-row {
 		
 		padding: 0;
 		

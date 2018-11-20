@@ -1,16 +1,16 @@
-.contain {
+.n-contain {
 	
 	max-width: 1132px;
 
 }
 
-.n-header-banner .contain {
+.n-header-banner .n-contain {
 	
 	max-width: 1700px;
 
 }
 
-main .contain {
+main .n-contain {
 	
 	max-width: 1100px;
 
@@ -41,7 +41,7 @@ main iframe {
 
 }
 
-.align-center .n-table td {
+.n-center .n-table td {
 	
 	text-align: left;
 	vertical-align: top;
@@ -120,7 +120,7 @@ nav.n-nav a[href] {
 	
 }
 
-a[href].button {
+a[href].n-btn {
 	
 	background: none;
 	border: 1px solid #000;
@@ -129,7 +129,7 @@ a[href].button {
 	
 }
 
-a[href].button:hover {
+a[href].n-btn:hover {
 	
 	background: #000;
 	color: #fff;
@@ -143,14 +143,14 @@ a[href].button:hover {
 	 
 }
 
-.black a[href].button {
+.black a[href].n-btn {
 	
 	border: 1px solid #fff;
 	color: #fff;
 	
 }
 
-.black a[href].button:hover {
+.black a[href].n-btn:hover {
 	
 	background: #fff;
 	color: #000;
@@ -175,7 +175,7 @@ a[href].button:hover {
 
 }
 
-.n-parallax--back .aspect {
+.n-parallax--back .n-aspect {
 	
 	--ratio: 1.89; 
 	overflow: visible; 
@@ -191,10 +191,10 @@ a[href].button:hover {
 
 }
 
-footer p {
+.n-type footer p {
 	
 	margin: 0;
-	padding-top: 1em;
+	padding: 1em 0;
 
 }
 

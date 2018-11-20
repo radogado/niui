@@ -16,8 +16,8 @@
   },
   "homepage": "https://github.com/radogado/natuive#readme",
   "devDependencies": {
-    "@babel/core": "^7.1.2",
-    "@babel/preset-env": "^7.1.0",
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
     "grunt": "^1.0.3",
     "grunt-babel": "^8.0.0",
     "grunt-closure-compiler": "0.0.21",
@@ -26,7 +26,7 @@
     "grunt-contrib-cssmin": "^2.2.1",
     "grunt-contrib-sass": "^1.0.0",
     "ruby": "^0.6.1",
-    "sass": "^1.14.1"
+    "sass": "^1.15.1"
   },
   "dependencies": {
     "closure-compiler": "^0.2.12",

@@ -1,4 +1,4 @@
-main .nav-column .n-slider--nav.row {
+main .nav-column .n-slider--nav.n-row {
 
 /*
 	position: fixed;
@@ -32,7 +32,7 @@ main .nav-column {
 
 @-moz-document url-prefix() {
 
-	main .nav-column .n-slider--nav.row:after { // FF & Edge fix
+	main .nav-column .n-slider--nav.n-row:after { // FF & Edge fix
 		    
 	    padding-top: 1em;
 	
@@ -40,21 +40,21 @@ main .nav-column {
 
 }
 
-_:-ms-lang(x), main .nav-column .n-slider--nav.row:after { // FF & Edge fix
+_:-ms-lang(x), main .nav-column .n-slider--nav.n-row:after { // FF & Edge fix
 	    
     padding-top: 1em;
 
 }
 
 
-main, main.row > *, main > .n-slider--wrap {
+main, main.n-row > *, main > .n-slider--wrap {
 	
 	height: 100vh;
     box-sizing: border-box;
 
 }
 
-main > 	.col34 > .n-slider--wrap > .n-slider.n-slider--vertical > * {
+main > 	._3-4 > .n-slider--wrap > .n-slider.n-slider--vertical > * {
 	
 	max-height: 100vh; // Because sliding animates to full slide height
 	min-height: 100vh; // Because of slides shorter than viewport
@@ -106,7 +106,7 @@ main > .n-slider--wrap.n-slider--vertical.tabs > .n-slider--nav a {
 	
 }
 
-main > .col34 > .n-slider--wrap.n-slider--vertical.n-tabs > .n-slider {
+main > ._3-4 > .n-slider--wrap.n-slider--vertical.n-tabs > .n-slider {
 
 	width: 100%;
 	height: 100vh !important;
@@ -114,13 +114,13 @@ main > .col34 > .n-slider--wrap.n-slider--vertical.n-tabs > .n-slider {
 
 }
 
-main > .col34 > .n-slider--wrap.n-slider--vertical.n-tabs > .n-slider {
+main > ._3-4 > .n-slider--wrap.n-slider--vertical.n-tabs > .n-slider {
 
 // 	overflow: hidden;
 
 }
 
-main > .col34 > .n-slider--wrap.n-slider--vertical.n-tabs > .n-slider[data-sliding] {
+main > ._3-4 > .n-slider--wrap.n-slider--vertical.n-tabs > .n-slider[data-sliding] {
 
 	overflow: visible;
 
@@ -159,7 +159,7 @@ main#content {
 
 }
 
-pre, .row > pre {
+pre, .n-row > pre {
 
 	padding: 0 1em;
 	color: slateblue;
@@ -169,7 +169,7 @@ pre, .row > pre {
 
 }
 
-.row.grid-demo pre {
+.n-row.grid-demo pre {
 
 	display: inline-block;
 
@@ -186,20 +186,20 @@ li pre {
 
 }
 
-.row.grid-demo b {
+.n-row.grid-demo b {
 
 	padding: 0 1em;
 
 }
 
-.row.grid-demo > *, #slider > .row .n-slider > * {
+.n-row.grid-demo > *, #slider > .n-row .n-slider > * {
 
 	background: lightseagreen;
 	color: #fff;
 
 }
 
-.row.grid-demo .row > * {
+.n-row.grid-demo .n-row > * {
 
 	background: lightcyan;
 	color: #111;
@@ -208,14 +208,14 @@ li pre {
 
 @media (max-width: 599.9px) {
 	
-	main.row.no-spacing > [class^=col].col34 {
+	main.n-row.n-row--no-spacing > [class^=col]._3-4 {
 	
 	    width: 75%;
 	    margin: 0 0 0 25%;	
 		
 	}
 	
-	main.row.no-spacing > [class^=col].col4 {
+	main.n-row.n-row--no-spacing > [class^=col]._1-4 {
 	
 	    width: 25%;
 	    margin: 0;	
@@ -229,7 +229,7 @@ li pre {
 		
 	}
 	
-	main .nav-column .n-slider--nav.row {
+	main .nav-column .n-slider--nav.n-row {
 		
 		display: block;
 		
@@ -260,7 +260,7 @@ li pre {
 
 }
 
-.code button {
+.code button.n-btn {
 	
 	position: absolute;
 	bottom: .5em;

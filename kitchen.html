@@ -28,7 +28,7 @@
 
 			<div data-threshold>
 				
-				<div class='row contain no-padding'>
+				<div class='n-row contain n-row--no-padding'>
 			
 					<div>
 					
@@ -44,7 +44,7 @@
 					
 				</div>
 				
-					<div class='col4 align-right'>
+					<div class='_1-4 n-right'>
 	
 					<div>
 	
@@ -62,11 +62,11 @@
 					<div class=n-fold--label> <span class="n-burger"></span> </div>
 					<input type=checkbox class=n-trigger>
 
-					<div class='row n-fold--content'>
+					<div class='n-row n-fold--content'>
 						
 						<nav class="n-nav">
 			
-							<ul class="n-big-text n-list--inline">
+							<ul class="n-list n-big-text n-list--inline">
 							
 								<li class="active"> <a href=#grid>Grid</a> </li>
 			
@@ -78,7 +78,7 @@
 							
 							<br>
 										
-							<ul class="n-list--inline">
+							<ul class="n-list n-list--inline">
 							
 								<li> <a href=#buttons>Buttons</a> </li>
 							
@@ -92,7 +92,7 @@
 									
 								<li> <a href=#video>Video</a> </li>
 							
-								<li> <a href=#aspect-ratio>Aspect ratio</a> </li>
+								<li> <a href=#aspect-ratio>n-aspect ratio</a> </li>
 							
 								<li> <a href=#masonry>Masonry</a> </li>
 							
@@ -112,7 +112,7 @@
 
 						</nav>
 						
-						<form class='n-form n-form--language col5 align-right' action=. method=get>
+						<form class='n-form n-form--language _1-5 n-right' action=. method=get>
 
 							<label class="select">
 							
@@ -164,9 +164,9 @@
 
 		<div class=n-banner>
 		
-			<div class='contain row'>
+			<div class='contain n-row'>
 				
-				<div class="align-middle n-full-mobile-width">
+				<div class="n-middle n-full-mobile-width">
 
 					<picture>
 					
@@ -176,7 +176,7 @@
 					
 				</div>
 		
-				<div class='col23 align-middle'>
+				<div class='_2-3 n-middle'>
 				
 					<div>
 
@@ -198,7 +198,7 @@
 						
 						</p>
 
-						<a href=//github.com/radogado/natuive class='button-big button'>Get it from GitHub</a>
+						<a href=//github.com/radogado/natuive class='n-btn--big n-btn'>Get it from GitHub</a>
 
 					</div>
 
@@ -216,7 +216,7 @@
 
 		<div class=contain>
 			
-			<div class="row"> <div> <h2>Drop-down navigation</h2> </div> </div>
+			<div class="n-row"> <div> <h2>Drop-down navigation</h2> </div> </div>
 			
 			<div class='n-fold n-fold--mobile'>
 			
@@ -227,19 +227,19 @@
 			
 					<nav class='n-nav n-drop' id=drop-nav>
 			
-						<ul>
+						<ul class="n-list">
 					
 							<li>
 								
 								<input type="checkbox">
 
-								<ul>
+								<ul class="n-list">
 									
 									<li> 
 									
 										<input type="checkbox">
 							
-										<ul>
+										<ul class="n-list">
 											
 											<li> 
 												
@@ -263,7 +263,7 @@
 									
 										<input type="checkbox">
 							
-										<ul>
+										<ul class="n-list">
 											
 											<li> 
 												
@@ -293,13 +293,13 @@
 							
 								<input type="checkbox">
 								
-								<ul>
+								<ul class="n-list">
 									
 									<li> 
 									
 										<input type="checkbox">
 							
-										<ul>
+										<ul class="n-list">
 											
 											<li> 
 												
@@ -329,7 +329,7 @@
 							
 								<input type="checkbox">
 								
-								<ul>
+								<ul class="n-list">
 									
 									<li> 
 									
@@ -353,7 +353,7 @@
 							
 								<input type="checkbox">
 								
-								<ul>
+								<ul class="n-list">
 									
 									<li> 
 									
@@ -387,7 +387,7 @@
 			
 			</div>
 			
-			<div class="row">
+			<div class="n-row">
 				
 				<div>
 					
@@ -395,7 +395,7 @@
 					
 					<nav class="n-nav n-nav--scroll">
 						
-						<ul>
+						<ul class="n-list">
 							
 							<li> <a href="#">News + blog</a></li>
 							<li> <a href="#">Video</a></li>
@@ -430,7 +430,7 @@
 			
 			</div>
 	
-			<div class=row id=aspect-ratio>
+			<div class="n-row" id=aspect-ratio>
 				
 				<div>
 					
@@ -438,7 +438,7 @@
 					
 						<h2>A New Perspective: Image container with aspect ratio of 2.35:1</h2>
 						
-						<picture class=aspect style="--ratio: 2.35; --image-width: 640px;">
+						<picture class=n-aspect style="--ratio: 2.35; --image-width: 640px;">
 						
 							<source media="(max-width: 640px)" srcset="images/lido-small.jpg">
 							<img src=images/lido.jpg alt='Lido'>
@@ -451,7 +451,7 @@
 			
 			</div>
 			
-			<div class=row>
+			<div class="n-row">
 				
 				<div>
 
@@ -467,7 +467,7 @@
 
 						<h2> Lightbox Image Gallery </h2>
 						
-						<div class="n-slider align-middle">
+						<div class="n-slider n-middle">
 									
 							<div>
 								
@@ -495,7 +495,7 @@
 						
 								<h3> Vertical </h3>
 									
-								<div id=lightbox2 class='n-lightbox n-slider--vertical row n-lightbox--thumbnails-' data-anim-="0% { opacity: 0; } 100% { opacity: 1; }" style="flex-direction: row;">
+								<div id=lightbox2 class='n-lightbox n-slider--vertical n-row n-lightbox--thumbnails-' data-anim-="0% { opacity: 0; } 100% { opacity: 1; }" style="flex-direction: row;">
 								
 									<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/07/DSC02548.jpg title='First Image'> <span> Wide image </span> </a>
 									<a href=images/DSC_5823.jpg title='First Image'> <span> Text Lightbox </span> </a>
@@ -522,7 +522,7 @@
 						
 						<h3>Inline</h3>
 						
-						<div class="aspect-" style="--ratio: 1.67">
+						<div class="n-aspect-" style="--ratio: 1.67">
 			
 							<div id=lightbox3 class='n-lightbox n-lightbox--inline n-lightbox--thumbnails n-slider--outside n-slider--vertical' data-duration='2' draggable="true">
 							
@@ -760,36 +760,36 @@
 		
 			</div>
 
-			<div class='row no-spacing unpad'>
+			<div class='n-row n-row--no-spacing n-unpad'>
 				
 				<div>No Spacing Grid</div>
 				<div>No Spacing Grid</div>
 
 			</div>
 				
-			<div class='row no-spacing-' id=grid>
+			<div class='n-row n-row--no-spacing-' id=grid>
 				
-				<div class="col1"> 
+				<div class="_1-1"> 
 					
 					<h2>Row on: Wrapping Grid</h2> 
 				
 				</div>
 				
-				<div class="col2 align-bottom" style="background: #fee; color: #333;">
+				<div class="_1-2 n-bottom" style="background: #fee; color: #333;">
 					
-					<div>Use a grid with arbitrary cell elements inside .row. <button>Inline element</button></div>
+					<div>Use a grid with arbitrary cell elements inside .n-row. <button class="n-btn">Inline element</button></div>
 				
 				</div>
-				<div class="col4" style="background: #efe; color: #333;">
+				<div class="_1-4" style="background: #efe; color: #333;">
 					
 					<div>Use vertical alignment in cells, it's finally easy and dependable.<p><br></p><p><br></p></div>
 					
 				</div>
-				<div class="col4 align-right vertical-row" style="background: #eef; color: #333;">
+				<div class="_1-4 n-right vertical-row" style="background: #eef; color: #333;">
 					<div>Embed any kind of element into any container-type element: Cell, List, Slider, Fold (Accordion).</div>
-					<div class="align-bottom" style="text-align: start;">Vertical row as tall as the parent row with equal-height full-width children</div>
+					<div class="n-bottom" style="text-align: start;">Vertical row as tall as the parent row with equal-height full-width children</div>
 				</div>
-				<div style="background: #eff; color: #333;"><div>The grid is simpler and doesn't insist on the infamous 12 cols. Just add a div to a .row. Width classes, like .col23, are optional. <br><br>This cell is a link, because it has a <b>.span-relative-parent</b> anchor.<a href="#" class="span-relative-parent"></a></div></div>
+				<div style="background: #eff; color: #333;"><div>The grid is simpler and doesn't insist on the infamous 12 cols. Just add a div to a .n-row. Width classes, like ._2-3, are optional. <br><br>This cell is a link, because it has a <b>.span-relative-parent</b> anchor.<a href="#" class="span-relative-parent"></a></div></div>
 				<div>
 					
 					<div>
@@ -811,7 +811,7 @@
 					<a href="//natuive.net/external.html#content" class="n-modal">Show external domain content in a modal window.</a> (On PHP enabled host)
 			
 				</div>
-				<div class="col5">
+				<div class="_1-5">
 					
 					<h1> Headline 1 </h1>
 					<h2> Headline 2 </h2>
@@ -822,32 +822,32 @@
 			
 				</div>
 
-				<div class="col5" id=buttons>
+				<div class="_1-5" id=buttons>
 					
 					<div>
 						
 						<h2>Buttons</h2>
 						
-						<a href=# class=button>Small button</a>
+						<a href=# class=n-btn>Small button</a>
 						
 						<br>
 						
-						<button disabled>Disabled button</button>
+						<button disabled class="n-btn">Disabled button</button>
 	
 						<br>
 						
-						<a href=# class='button button-big'>Big button</a>
+						<a href=# class='n-btn n-btn--big'>Big button</a>
 					
-						<p id=copycontent>Here is an <a href=# class=button>Inline button</a> inside a paragraph.</p>
+						<p id=copycontent>Here is an <a href=# class=n-btn>Inline button</a> inside a paragraph.</p>
 
-						<p>Click this <a class="button" id=copybutton>copy button</a> to copy the contents of the above paragraph to the clipboard.</p>
+						<p>Click this <a class="n-btn" id=copybutton>copy button</a> to copy the contents of the above paragraph to the clipboard.</p>
 						
-						<div class="button-group">
+						<div class="n-btn--group">
 						
-							<a href="#features" class="button-big button">Features</a>
-							<a href="#showcase" class="button-big button">Showcase</a>
-							<a href="guide.html" class="button-big button">Guide</a>
-							<a href="//github.com/radogado/natuive" class="button-big button">Get it from GitHub</a>
+							<a href="#features" class="n-btn--big n-btn">Features</a>
+							<a href="#showcase" class="n-btn--big n-btn">Showcase</a>
+							<a href="guide.html" class="n-btn--big n-btn">Guide</a>
+							<a href="//github.com/radogado/natuive" class="n-btn--big n-btn">Get it from GitHub</a>
 						
 						</div>
 
@@ -857,13 +857,13 @@
 				
 				<div>
 					
-					<div class='row border'>
+					<div class='n-row n-border'>
 							
-								<div class="col2"> 
+								<div class="_1-2"> 
 									<h2>Grid with borders</h2> 
 								</div>
 							
-								<div class='col2 align-center align-middle'>
+								<div class='_1-2 n-center n-middle'>
 									
 									<div>
 					
@@ -873,27 +873,27 @@
 							
 								</div>
 
-								<div class="col1">
+								<div class="_1-1">
 									
 									<div>Full width</div>
 								
 								</div>
 							
-								<div class="col3"> 
+								<div class="_1-3"> 
 									<div>Top</div> 
 								</div>
-								<div class="col3 align-bottom align-center"> 
+								<div class="_1-3 n-bottom n-center"> 
 									<div>Center Bottom</div> 
 								</div>
 							
-								<div class='col3 align-right'>
+								<div class='_1-3 n-right'>
 									
 									<div>
 										
-										<div class="row">
+										<div class="n-row">
 											
-											<div class="col1">Right</div>
-											<div class="col1">Right</div>
+											<div class="_1-1">Right</div>
+											<div class="_1-1">Right</div>
 										
 										</div>
 										
@@ -905,13 +905,13 @@
 					
 					<br>
 					
-					<div class='row border-all'>
+					<div class='n-row n-border-all'>
 							
-								<div class="col2"> 
+								<div class="_1-2"> 
 									<h2>Grid with borders</h2> 
 								</div>
 							
-								<div class='col2 align-center align-middle'>
+								<div class='_1-2 n-center n-middle'>
 									
 									<div>
 					
@@ -921,27 +921,27 @@
 							
 								</div>
 
-								<div class="col1">
+								<div class="_1-1">
 									
 									<div>Full width</div>
 								
 								</div>
 							
-								<div class="col3"> 
+								<div class="_1-3"> 
 									<div>Top</div> 
 								</div>
-								<div class="col3 align-bottom align-center"> 
+								<div class="_1-3 n-bottom n-center"> 
 									<div>Center Bottom</div> 
 								</div>
 							
-								<div class='col3 align-right'>
+								<div class='_1-3 n-right'>
 									
 									<div>
 										
-										<div class="row">
+										<div class="n-row">
 											
-											<div class="col1">Right</div>
-											<div class="col1">Right</div>
+											<div class="_1-1">Right</div>
+											<div class="_1-1">Right</div>
 										
 										</div>
 										
@@ -955,7 +955,7 @@
 			
 			</div>
 			
-			<div class=row>
+			<div class="n-row">
 			
 				<div>
 					
@@ -963,11 +963,11 @@
 		
 						<h2>Nested Ordered List</h2>
 						
-						<ol>
+						<ol class="n-list">
 							
 							<li> How to make a <b>natUIve</b> page
 								
-								<ol>
+								<ol class="n-list">
 									
 									<li>Copy the contents of the <b>dist</b> folder in your site's root folder</li>
 			
@@ -983,17 +983,17 @@
 			
 								<p class=quote>An in-house study at <b>Walmart.com</b> came out with the results that saw an up to 2% increase in conversions on the site for every single second of improvement on the load time. The accumulative growth of revenues went up to 1% for every 100 milliseconds of load time improvement.</p>
 								
-								<ol>
+								<ol class="n-list">
 									<li>
 										Supporting IE8+, Chrome, Safari, Firefox, Opera.
 									</li>
 							
 									<li>
 										Supporting iOS and Android tablets and phones.
-										<ol>
+										<ol class="n-list">
 											<li>No hardcoded dimensions except line height.
 												<br><br>
-												<ul>
+												<ul class="n-list">
 													
 													<li>Unordered one</li>
 													<li>Unordered two</li>
@@ -1014,7 +1014,7 @@
 						
 						<h2> Slider with detached nav </h2>
 						
-						<div class="row">
+						<div class="n-row">
 							
 							<div>
 						
@@ -1029,7 +1029,7 @@
 							
 							</div>
 							
-							<div class="align-center">
+							<div class="n-center">
 								
 								<div>
 									
@@ -1051,7 +1051,7 @@
 								
 <!-- 								<p class=n-tab-title> Slider 2 Slide 1 </p> -->
 								
-								<div class="pad">
+								<div class="n-pad">
 	
 									<div class="n-slider">
 		
@@ -1095,9 +1095,9 @@
 						
 						<div class='n-slider n-slider--top n-tabs n-slider--auto-height' data-duration=1>
 							
-							<div style="background: mintcream;"> <div class="pad"><h3 class="n-tab-title">Tab 1</h3> <p>Content of Tab 1</p></div> </div>
+							<div style="background: mintcream;"> <div class="n-pad"><h3 class="n-tab-title">Tab 1</h3> <p>Content of Tab 1</p></div> </div>
 	
-							<div style="background: cyan;"> <div class="pad"><h3 class="n-tab-title">Tab 2</h3> <p>And the content of Tab 2 <br> new line <br> new line</p> </div></div>
+							<div style="background: cyan;"> <div class="n-pad"><h3 class="n-tab-title">Tab 2</h3> <p>And the content of Tab 2 <br> new line <br> new line</p> </div></div>
 						
 						</div>
 						
@@ -1162,7 +1162,7 @@
 					
 					<h2>Forms in Slider</h2>
 
-					<div class='n-slider pad n-slider--fade-overlap' data-autoslide-=2 id=slider data-duration-=9 data-peek-=15%>
+					<div class='n-slider n-pad n-slider--fade-overlap' data-autoslide-=2 id=slider data-duration-=9 data-peek-=15%>
 						
 						<div>
 							
@@ -1474,7 +1474,7 @@
 			
 			<div class="n-fixed-bg--image"></div>
 			
-			<div class='row contain'>
+			<div class='n-row contain'>
 				
 				<div>
 					
@@ -1488,16 +1488,16 @@
 						
 						<div class='n-masonry'>
 							
-							<a class=align-center>A very long cell which demonstrates how Masonry arranges cells in optimised space.</a>
-							<a class=align-center>Cell</a>
-							<a class=align-center>Cell</a>
-							<a class=align-center>Cell</a>
-							<a class=align-center>Cell</a>
-							<a class=align-center>Cell</a>
-							<a class=align-center>Cell</a>
-							<a class=align-center>Cell</a>
-							<a class=align-center>Cell</a>
-							<a class=align-center>Cell</a>
+							<a class=n-center>A very long cell which demonstrates how Masonry arranges cells in optimised space.</a>
+							<a class=n-center>Cell</a>
+							<a class=n-center>Cell</a>
+							<a class=n-center>Cell</a>
+							<a class=n-center>Cell</a>
+							<a class=n-center>Cell</a>
+							<a class=n-center>Cell</a>
+							<a class=n-center>Cell</a>
+							<a class=n-center>Cell</a>
+							<a class=n-center>Cell</a>
 							
 						</div>
 						
@@ -1571,13 +1571,13 @@
 
 		<div class=contain>
 			
-			<div class="row">
+			<div class="n-row">
 				
 				<div>
 					
 					<h2>Grid with Inline Popups</h2>
 					
-					<div class='row grid-inline-popup'>
+					<div class='n-row grid-inline-popup'>
 	
 	<div>1<span>inside a span</span></div>
 	<div class="popup">Popup for #1</div>
@@ -1612,24 +1612,24 @@
 
 					<br><br>
 
-					<div class='row grid-inline-popup'>
+					<div class='n-row grid-inline-popup'>
 	
-	<div class="col3">1</div>
+	<div class="_1-3">1</div>
 	<div class="popup">Popup for #1</div>
-	<div class="col3">2</div>
+	<div class="_1-3">2</div>
 	<div class="popup">Popup for #2<br>break</div>
-	<div class="col3">3</div>
+	<div class="_1-3">3</div>
 	<div class="popup">Popup for #3</div>
-	<div class="col3">4</div>
+	<div class="_1-3">4</div>
 	<div class="popup">Popup for #4</div>
-	<div class="col3">5</div>
+	<div class="_1-3">5</div>
 	<div class="popup">Popup for #5</div>
-	<div class="col3">6</div>
+	<div class="_1-3">6</div>
 	<div class="popup">Popup for #6</div>
 
 </div>
 					
-					<div class="row">
+					<div class="n-row">
 						
 						<div>
 							
@@ -1637,7 +1637,7 @@
 								
 								<h2>Dynamically add a slider component</h2>
 								
-								<button onclick="nui.addComponent(this.parentNode, '<div class=n-slider><div>New</div><div>Slider</div>');">Add a slider</button>
+								<button class="n-btn" onclick="nui.addComponent(this.parentNode, '<div class=n-slider><div>New</div><div>Slider</div>');">Add a slider</button>
 							
 							</div>
 							
@@ -1650,7 +1650,7 @@
 					
 			</div>
 			
-			<div class='row' id=showcase>
+			<div class='n-row' id=showcase>
 					
 				<div>
 
@@ -1661,45 +1661,45 @@
 
 			</div>
 						
-			<div class='row' style="--ratio:1">
+			<div class='n-row' style="--ratio:1">
 				
-				<a class='col5 aspect' href=demos/microsoft title="Microsoft"> <img src='images/natUIve%20Microsoft%20(20151030)%20-.png' alt="Microsoft"> </a>
-				<a class='col5 aspect' href=demos/imperialinnovations title="Imperial Innovations"> <img src='images/natUIve%20(20151030)%20imperial%20-.png' alt="Imperial Innovations"> </a>
-				<a class='col5 aspect' href=demos/pebble title="Pebble"> <img src='images/natUIve%20(20151030)%20pebble%20-.png' alt="Pebble"> </a>
-				<a class='col5 aspect' href=demos/seat61 title="Seat 61"> <img src='images/seat61.png' alt="Seat 61"> </a>
-				<a class='col5 aspect' href=demos/jetblue title="JetBlue"> <img src='images/jetblue.png' alt="JetBlue"> </a>
-				<a class='col5 aspect' href=demos/mrj title="Mitsubishi Regional Jet"> <img src='images/mrj.png' alt="Mitsubishi Regional Jet"> </a>
-				<a class='col5 aspect' href=demos/mubi title="MUBI"> <img src='images/mubi.png' alt="MUBI"> </a>
-				<a class='col5 aspect' href=demos/swiss title="SWISS"> <img src='images/swiss.png' alt="SWISS"> </a>
-				<a class='col5 aspect' href=demos/mapbox title="Mapbox"> <img src='images/mapbox.png' alt="Mapbox"> </a>
-				<a class='col5 aspect' href=demos/airbnb title="Airbnb"> <img src='images/airbnb.png' alt="Airbnb"> </a>
-				<a class='col5 aspect' href=demos/gov.uk title="GOV.UK"> <img src='images/gov.uk.png' alt="GOV.UK"> </a>
-				<a class='col5 aspect' href=demos/google-design title="Google Design"> <img src='images/google-design.png' alt="Google Design"> </a>
-				<a class='col5 aspect' href=demos/daringfireball title="Daring Fireball"> <img src='images/daringfireball.png' alt="Daring Fireball"> </a>
-				<a class='col5 aspect' href=demos/vitsoe title="Vitsœ"> <img src='images/vitsoe.png' alt="Vitsœ"> </a>
-				<a class='col5 aspect' href=demos/apple title="Apple"> <img src='images/apple.png' alt="Apple"> </a>
-				<a class='col5 aspect' href=demos/brandunion title="Brand Union"> <img src='images/brandunion.png' alt="Brand Union"> </a>
-				<a class='col5 aspect' href=demos/tesla title="Tesla"> <img src='images/tesla.png' alt="Tesla"> </a>
-				<a class='col5 aspect' href=demos/amnesty title="Amnesty"> <img src='images/amnesty.png' alt="Amnesty"> </a>
-				<a class='col5 aspect' href=demos/stripe title="Stripe"> <img src='images/stripe.png' alt="Stripe"> </a>
-				<a class='col5 aspect' href=demos/starwars title="Star Wars"> <img src='images/starwars.png' alt="Star Wars"> </a>
-				<a class='col5 aspect' href=demos/norwegian title="Norwegian"> <img src='images/norwegian.png' alt="Norwegian"> </a>
-				<a class='col5 aspect' href=demos/davidbowieis title="David Bowie Is (Japan)"> <img src='images/davidbowieis.png' alt="David Bowie Is (Japan)"> </a>
-				<a class='col5 aspect' href=demos/uncharted-the-lost-legacy title="Uncharted: The Lost Legacy"> <img src='images/uncharted.jpg' alt="Uncharted: The Lost Legacy"> </a>
-				<a class='col5 aspect' href=demos/seehotel-jaegerwirt title="Seehotel Jägerwirt"> <img src='images/seehotel-jaegerwirt.jpg' alt="Seehotel Jägerwirt"> </a>
-				<a class='col5 aspect' href=demos/truphone title="Truphone"> <img src='images/truphone.jpg' alt="Truphone"> </a>
-				<a class='col5 aspect' href=demos/pixelpioneers title="Pixel Pioneers"> <img src='images/pixelpioneers.png' alt="Pixel Pioneers"> </a>
-				<a class='col5 aspect' href=demos/apex title="Apex"> <img src='images/apex.jpg' alt="Apex"> </a>
-				<a class='col5 aspect' href=demos/loco2 title="Loco2"> <img src='images/loco2.jpg' alt="Loco2"> </a>
-				<a class='col5 aspect' href=demos/vi.nl title="VI.nl"> <img src='images/vi.nl.png' alt="VI.nl"> </a>
-				<a class='col5 aspect' href=demos/nikon-d850 title="Nikon D850"> <img src='images/nikon-d850.jpg' alt="Nikon D850"> </a>
-				<a class='col5 aspect' href=demos/enoden title="Enoden"> <img src='images/enoden.jpg' alt="Enoden"> </a>
-				<a class='col5 aspect' href=demos/tutsplus title="Tutsplus"> <img src='images/tutsplus.png' alt="Tutsplus"> </a>
-				<a class='col5 aspect' href=demos/hasselblad title="Hasselblad Chinese"> <img src='images/hasselblad.png' alt="Hasselblad Chinese"> </a>
-				<a class='col5 aspect' href=demos/cnn-travel title="CNN Travel"> <img src='images/cnn-travel.png' alt="CNN Travel"> </a>
-				<a class='col5 aspect' href=demos/postbank title="Postbank"> <img src='images/postbank.jpg' alt="Postbank"> </a>
+				<a class='_1-5 n-aspect' href=demos/microsoft title="Microsoft"> <img src='images/natUIve%20Microsoft%20(20151030)%20-.png' alt="Microsoft"> </a>
+				<a class='_1-5 n-aspect' href=demos/imperialinnovations title="Imperial Innovations"> <img src='images/natUIve%20(20151030)%20imperial%20-.png' alt="Imperial Innovations"> </a>
+				<a class='_1-5 n-aspect' href=demos/pebble title="Pebble"> <img src='images/natUIve%20(20151030)%20pebble%20-.png' alt="Pebble"> </a>
+				<a class='_1-5 n-aspect' href=demos/seat61 title="Seat 61"> <img src='images/seat61.png' alt="Seat 61"> </a>
+				<a class='_1-5 n-aspect' href=demos/jetblue title="JetBlue"> <img src='images/jetblue.png' alt="JetBlue"> </a>
+				<a class='_1-5 n-aspect' href=demos/mrj title="Mitsubishi Regional Jet"> <img src='images/mrj.png' alt="Mitsubishi Regional Jet"> </a>
+				<a class='_1-5 n-aspect' href=demos/mubi title="MUBI"> <img src='images/mubi.png' alt="MUBI"> </a>
+				<a class='_1-5 n-aspect' href=demos/swiss title="SWISS"> <img src='images/swiss.png' alt="SWISS"> </a>
+				<a class='_1-5 n-aspect' href=demos/mapbox title="Mapbox"> <img src='images/mapbox.png' alt="Mapbox"> </a>
+				<a class='_1-5 n-aspect' href=demos/airbnb title="Airbnb"> <img src='images/airbnb.png' alt="Airbnb"> </a>
+				<a class='_1-5 n-aspect' href=demos/gov.uk title="GOV.UK"> <img src='images/gov.uk.png' alt="GOV.UK"> </a>
+				<a class='_1-5 n-aspect' href=demos/google-design title="Google Design"> <img src='images/google-design.png' alt="Google Design"> </a>
+				<a class='_1-5 n-aspect' href=demos/daringfireball title="Daring Fireball"> <img src='images/daringfireball.png' alt="Daring Fireball"> </a>
+				<a class='_1-5 n-aspect' href=demos/vitsoe title="Vitsœ"> <img src='images/vitsoe.png' alt="Vitsœ"> </a>
+				<a class='_1-5 n-aspect' href=demos/apple title="Apple"> <img src='images/apple.png' alt="Apple"> </a>
+				<a class='_1-5 n-aspect' href=demos/brandunion title="Brand Union"> <img src='images/brandunion.png' alt="Brand Union"> </a>
+				<a class='_1-5 n-aspect' href=demos/tesla title="Tesla"> <img src='images/tesla.png' alt="Tesla"> </a>
+				<a class='_1-5 n-aspect' href=demos/amnesty title="Amnesty"> <img src='images/amnesty.png' alt="Amnesty"> </a>
+				<a class='_1-5 n-aspect' href=demos/stripe title="Stripe"> <img src='images/stripe.png' alt="Stripe"> </a>
+				<a class='_1-5 n-aspect' href=demos/starwars title="Star Wars"> <img src='images/starwars.png' alt="Star Wars"> </a>
+				<a class='_1-5 n-aspect' href=demos/norwegian title="Norwegian"> <img src='images/norwegian.png' alt="Norwegian"> </a>
+				<a class='_1-5 n-aspect' href=demos/davidbowieis title="David Bowie Is (Japan)"> <img src='images/davidbowieis.png' alt="David Bowie Is (Japan)"> </a>
+				<a class='_1-5 n-aspect' href=demos/uncharted-the-lost-legacy title="Uncharted: The Lost Legacy"> <img src='images/uncharted.jpg' alt="Uncharted: The Lost Legacy"> </a>
+				<a class='_1-5 n-aspect' href=demos/seehotel-jaegerwirt title="Seehotel Jägerwirt"> <img src='images/seehotel-jaegerwirt.jpg' alt="Seehotel Jägerwirt"> </a>
+				<a class='_1-5 n-aspect' href=demos/truphone title="Truphone"> <img src='images/truphone.jpg' alt="Truphone"> </a>
+				<a class='_1-5 n-aspect' href=demos/pixelpioneers title="Pixel Pioneers"> <img src='images/pixelpioneers.png' alt="Pixel Pioneers"> </a>
+				<a class='_1-5 n-aspect' href=demos/apex title="Apex"> <img src='images/apex.jpg' alt="Apex"> </a>
+				<a class='_1-5 n-aspect' href=demos/loco2 title="Loco2"> <img src='images/loco2.jpg' alt="Loco2"> </a>
+				<a class='_1-5 n-aspect' href=demos/vi.nl title="VI.nl"> <img src='images/vi.nl.png' alt="VI.nl"> </a>
+				<a class='_1-5 n-aspect' href=demos/nikon-d850 title="Nikon D850"> <img src='images/nikon-d850.jpg' alt="Nikon D850"> </a>
+				<a class='_1-5 n-aspect' href=demos/enoden title="Enoden"> <img src='images/enoden.jpg' alt="Enoden"> </a>
+				<a class='_1-5 n-aspect' href=demos/tutsplus title="Tutsplus"> <img src='images/tutsplus.png' alt="Tutsplus"> </a>
+				<a class='_1-5 n-aspect' href=demos/hasselblad title="Hasselblad Chinese"> <img src='images/hasselblad.png' alt="Hasselblad Chinese"> </a>
+				<a class='_1-5 n-aspect' href=demos/cnn-travel title="CNN Travel"> <img src='images/cnn-travel.png' alt="CNN Travel"> </a>
+				<a class='_1-5 n-aspect' href=demos/postbank title="Postbank"> <img src='images/postbank.jpg' alt="Postbank"> </a>
 				
-				<div class="col1"></div>
+				<div class="_1-1"></div>
 			
 			</div>
 
@@ -1713,9 +1713,9 @@
 	
 	<footer id=footer class="n-footer">
 	
-		<div class='row contain'>
+		<div class='n-row contain'>
 
-			<div class=col3>
+			<div class=_1-3>
 				
 				<h3>Copyright copy</h3>
 			
@@ -1727,11 +1727,11 @@
 				
 			</div>
 
-			<nav class="n-nav col3">
+			<nav class="n-nav _1-3">
 				
 				<h3>Vertical list of links</h3>
 				
-				<ul>
+				<ul class="n-list">
 				
 					<li> <a href=#>Contact</a> </li>
 				
@@ -1761,7 +1761,7 @@
 	
 			</div>
 			
-			<div class="col1">
+			<div class="_1-1">
 				
 				<a class="backtotop" href="#" tabindex="0">↑</a>
 			

@@ -1,12 +1,12 @@
 $pink: #ff3b79;
 
-body, .coverage .col4 b, a[href].button.big, form input[type=submit] {
+body, .coverage ._1-4 b, a[href].n-btn.n-btn--big, form input[type=submit] {
 	
 	font-weight: 400;
 
 }
 
-.contain {
+.n-contain {
 	
 	max-width: 1412px;
 
@@ -17,7 +17,7 @@ body, .coverage .col4 b, a[href].button.big, form input[type=submit] {
 	color: #fff;
 	background: #e6e6e6;
 
-	.row:first-child {
+	.n-row:first-child {
 		
 		padding-top: 7em;
 		padding-bottom: 1em;
@@ -86,7 +86,7 @@ main .n-form {
 
 }
 
-main .align-right .n-form {
+main .n-right .n-form {
 	
 	text-align: left;
     margin-right: -1em;
@@ -126,7 +126,7 @@ footer p {
 	margin: 0 2em;
 }
 
-footer ul {
+footer ul.n-list {
 	
 	margin-left: -1em;
 	    
@@ -158,7 +158,7 @@ ul.staff.n-list--inline li {
 
 }
 
-.staff a.button {
+.staff a.n-btn {
 	
 	background: #fff;
 	color: $pink;
@@ -201,13 +201,13 @@ ul.staff.n-list--inline li {
 
 }
 
-.coverage a.button.big {
+.coverage a.n-btn.n-btn--big {
 	
 	white-space: nowrap;
 
 }
 
-.discover.row > div {
+.discover.n-row > div {
 
 	background-position: top center;
 	background-size: 100% auto;
@@ -217,7 +217,7 @@ ul.staff.n-list--inline li {
 
 @media (max-width: 900px) {
 	
-	.discover.row > div {
+	.discover.n-row > div {
 	
 	    background-size: cover;
 	
@@ -225,25 +225,25 @@ ul.staff.n-list--inline li {
 	
 }
 
-.discover.row > div.align-bottom > div {
+.discover.n-row > div.n-bottom > div {
 	
 	background: #fff;
 
 }
 
-.discover.row > div:not(.align-bottom):not(:last-child) > div {
+.discover.n-row > div:not(.n-bottom):not(:last-child) > div {
 	
 	color: #fff;
 
 }
 
-.discover.row > div > div {
+.discover.n-row > div > div {
 	
 	padding: 1em;
 
 }
 
-.discover.row > div:nth-child(2) ~ div:not(:last-child) {
+.discover.n-row > div:nth-child(2) ~ div:not(:last-child) {
 
 	min-height: 25em;
 	box-shadow: 0 0 0 1px #ddd;
@@ -271,14 +271,14 @@ ul.staff.n-list--inline li {
 	
 }
 
-.coverage a.button {
+.coverage a.n-btn {
 	
 	color: $pink;
 	background: #f7f7f7;
 
 }
 
-.coverage .col4 > div {
+.coverage ._1-4 > div {
 
 	padding-left: 8em;
 	padding-top: 5em;
@@ -286,7 +286,7 @@ ul.staff.n-list--inline li {
 
 }
 
-.coverage .col4 b {
+.coverage ._1-4 b {
 	
 	display: block;
 	font-size: 3em;
@@ -295,19 +295,19 @@ ul.staff.n-list--inline li {
 
 }
 
-.coverage .col4 b:first-of-type {
+.coverage ._1-4 b:first-of-type {
 	
 	color: #00a4ba;
 	
 }
 
-.coverage .col4 b:nth-of-type(2) {
+.coverage ._1-4 b:nth-of-type(2) {
 	
 	color: #036685;
 	
 }
 
-.coverage .col4 b:nth-of-type(3) {
+.coverage ._1-4 b:nth-of-type(3) {
 	
 	color: $pink;
 	

@@ -1,18 +1,15 @@
-.contain {
+.n-contain {
 	
 	max-width: 77rem;
 
 }
 
-body {
+body.n-type {
 	
 	font-family: Roboto Mono;
 	color: #565a5c;
 	background: #fafafa;
 	-webkit-font-smoothing: antialiased;
-	
-}
-.n-type {
 
 	p, footer a[href] {
 		
@@ -50,7 +47,7 @@ body {
 
 }
 
-main .row > * {
+main .n-row > * {
 	
 	background-size: cover;
 	background-position: center;
@@ -58,7 +55,7 @@ main .row > * {
 
 }
 
-.row > .vertical-row > * {
+.n-row.n-row--vertical > * > * {
 	
 	padding-bottom: 3em;
 	
@@ -76,7 +73,7 @@ footer a[href] + a[href] {
 
 }
 
-footer ul li {
+footer ul.n-list li {
 	
 	display: inline-block;
 
@@ -150,7 +147,7 @@ a.link-overlay svg {
 	
 }
 
-.vertical-row > * {
+.n-row.n-row--vertical > * > * {
 	
 	position: relative;
 	

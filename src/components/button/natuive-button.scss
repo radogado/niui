@@ -2,7 +2,7 @@
 
 @import '../../css/natuive-setup';
 
-.button, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button, a.button[href], .n-type a.button[href]  {
+.n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href]  {
 
 // 	font-size: $font-size;
 	font-size: inherit;
@@ -39,7 +39,7 @@
 
 }
 
-	button[disabled] {
+	button.n-btn[disabled] {
 		
 		cursor: default;
 		opacity: .2;
@@ -48,7 +48,7 @@
 
 	}
 
-	.button.button-big, a[href].button.button-big, .n-form input[type=submit], .n-form button, button.button-big {
+	.n-btn.n-btn--big, a[href].n-btn.n-btn--big, .n-form input[type=submit], .n-form button {
 
 		margin: $line-height-em/3 0; // Re-calculate margin, because font-size has changed. To do: fix baseline.
 // 		margin: var(--line-height-em) 0;
@@ -87,11 +87,11 @@ a.backtotop[href] {
 
 // A group of buttons etc with proper horizontal margins also when wrapped
 
-.button-group {
+.n-btn--group {
 	
 	margin: 0 -.25em;
 
-	> *, .button.button-big, > a[href].button.button-big {
+	> *, .n-btn.n-btn--big, > a[href].n-btn.n-btn--big {
 		
 		margin-right: .25em;
 		margin-left: .25em;
@@ -102,7 +102,7 @@ a.backtotop[href] {
 
 @media screen and (max-width: $screen-narrow-max) {
 
-	.button.button-big {
+	.n-btn.n-btn--big {
 		
 		display: block;
 		text-align: center;

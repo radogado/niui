@@ -25,7 +25,7 @@
 			<!-- header -->
 			<header id="head" class="n-header" role="banner">
 				
-				<div class="row contain">
+				<div class="n-row contain">
 					<div>
 					<!-- logo -->
 					
@@ -65,4 +65,4 @@
 				</div>
 			</header>
 			<!-- /header -->
-			<div id="content" class="row contain">
+			<div id="content" class="n-row contain">

@@ -1,11 +1,6 @@
 $blue: #009ee0;
 
-body {
-	
-	font-size: 14px;
-
-}
-.contain {
+.n-contain {
 	
 	max-width: 1170px;
 
@@ -22,7 +17,7 @@ body {
 	
 	}
 	
-	ul {
+	ul.n-list {
 		
 		margin: 0;
 	
@@ -45,7 +40,9 @@ body {
 
 }
 
-.n-type {
+body.n-type {
+	
+	font-size: 14px;
 	
 	a[href]:not(:hover) {
 		
@@ -63,7 +60,7 @@ body {
 
 }
 
-header .button[href] {
+header .n-btn[href] {
 	
 	color: #009ee0;
 	border: 1px solid $blue;
@@ -73,14 +70,14 @@ header .button[href] {
 	
 }
 
-ul, ul li {
+ul.n-list, ul.n-list li {
 	
 	list-style: none;
 	margin: 0;
 
 }
 
-ul li:before {
+ul.n-list li:before {
 	
 	display: none;
 
@@ -148,7 +145,7 @@ a.c-articles-list-link[href], .c-match-overview-matches-link a[href] {
 	
 }
 
-.row.no-spacing h2 {
+.n-row.n-row--no-spacing h2 {
 	
 	padding: .5em;
 	color: #fff;
@@ -158,7 +155,7 @@ a.c-articles-list-link[href], .c-match-overview-matches-link a[href] {
 
 }
 
-.row.no-spacing .vertical-row h2 {
+.n-row.n-row--no-spacing.n-row--vertical h2 {
 	
 	font-size: 1.5em;
 	
@@ -188,32 +185,32 @@ header li .c-site-nav__link {
 
 }
 
-main .aspect {
+main .n-aspect {
 	
 	text-align: left;
 	--ratio: 2;
 	
 }
 
-a[href].blue-link, .no-spacing > .col1 h2 {
+a[href].blue-link, .n-row--no-spacing > ._1-1 h2 {
 	
 	color: $blue;
 
 }
 
-.no-spacing > .col1 h2 {
+.n-row--no-spacing > ._1-1 h2 {
 	
 	margin-left: -.5em;
 
 }
 
-.row div {
+.n-row div {
 	
 	background-size: cover;
 	
 }
 
-main a[href].button {
+main a[href].n-btn {
 	
 	width: 100%;
 	text-align: center;
@@ -222,7 +219,7 @@ main a[href].button {
 
 }
 
-.col4 a[href] {
+._1-4 a[href] {
 	
 	display: block;
 
@@ -243,7 +240,7 @@ time {
 	padding: .25em .5em;
 }
 
-.c-articles-list--media .col4 + div {
+.c-articles-list--media ._1-4 + div {
 	
 	padding-left: 1em;
 	
@@ -252,7 +249,7 @@ time {
 
 @media (max-width: 599.9px) {
 	
-	.row > * > .unpad, .unpad {
+	.n-row > * > .n-unpad, .n-unpad {
 		
 		margin: 0;
 		width: 100%;

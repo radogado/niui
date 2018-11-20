@@ -51,7 +51,7 @@ $darkblue: #112137;
     font-style: normal
 }
 
-body {
+body.n-type {
 
     font-family: 'HK_Grotesk';
     font-weight: 400;
@@ -59,7 +59,7 @@ body {
 
 }
 
-.contain {
+.n-contain {
 	
 	max-width: 1194px;
 
@@ -129,7 +129,7 @@ footer {
 
 }
 
-ul li:before {
+ul.n-list li:before {
 	
 	display: none;
 	
@@ -157,31 +157,31 @@ ul li:before {
 		
 	}
 	
-	.n-slider .col3 {
+	.n-slider ._1-3 {
 		
 		color: #fff;
 		
 	}
 	
-	.n-slider > div:first-child .col3 {
+	.n-slider > div:first-child ._1-3 {
 		
 		background: #083e88;
 		
 	}
 
-	.n-slider > div:nth-child(2) .col3 {
+	.n-slider > div:nth-child(2) ._1-3 {
 		
 		background: #d41f00;
 		
 	}
 
-	.n-slider > div:nth-child(3) .col3 {
+	.n-slider > div:nth-child(3) ._1-3 {
 		
 		background: #112137;
 		
 	}
 	
-	.n-slider .row > div:last-child {
+	.n-slider .n-row > div:last-child {
 		
 		min-height: 640px;		
 		
@@ -283,7 +283,7 @@ ul li:before {
 	
 	}
 
-	ul {
+	ul.n-list {
 		
 		transform: translateY(calc(-100% - 120px));
 		list-style: none;
@@ -396,7 +396,7 @@ ul li:before {
 	
 }
 
-.vertical-date .row > div {
+.vertical-date .n-row > div {
 	
 	display: grid;
 	grid-template: auto 1fr / auto auto;
@@ -500,7 +500,7 @@ ul li:before {
 		
 	}
 
-	.n-slider--wrap.n-tabs.n-slider--top>.n-slider--nav.row {
+	.n-slider--wrap.n-tabs.n-slider--top>.n-slider--nav.n-row {
 		
 		position: relative;
 		left: 0;
@@ -604,7 +604,7 @@ content: "";
 	
 }
 
-.n-form .row > div.align-middle {
+.n-form .n-row > div.n-middle {
 	
 	display: flex;
 	
@@ -729,29 +729,6 @@ content: "";
 	
 }
 
-/*
-.credit .n-form .col2 {
-	
-	> label {
-		
-		margin-left: 6em;
-		
-	}
-	
-	&:first-child {
-		
-		> label {
-			
-			margin-left: 0;
-			margin-right: 6em;
-			
-		}
-		
-	}
-	
-}
-*/
-
 .current-currency-tab strong {
 	
     font-size: 70px;
@@ -848,9 +825,9 @@ content: "";
 
 }
 
-.n-slider--wrap>.pad {
+.n-slider--wrap>.n-pad {
 	
-	margin: 0 0 2em 0;
+	margin: 0 0 2.5em 0;
 	
 }
 
@@ -942,7 +919,7 @@ content: "";
 	
 }
 
-footer ul li {
+footer ul.n-list li {
 	
 	display: list-item;
 	
@@ -1047,13 +1024,13 @@ footer ul li {
     padding-left: .25em;
 }
 
-footer .row > .footer-col, .footer-nav-list-wrapper {
+footer .n-row > .footer-col, .footer-nav-list-wrapper {
 	
     padding-left: .5em;
 	
 }
 
-.pb-button {
+.pb-button.n-btn {
     font-family: 'Akrobat';
     font-weight: 600;
     font-size: 16px;
@@ -1074,26 +1051,27 @@ footer .row > .footer-col, .footer-nav-list-wrapper {
     -webkit-transition: .3s ease;
     -o-transition: .3s ease;
     transition: .3s ease;
-}
 
-.pb-button.e-post:before {
-    content: "";
-    background-image: url(sprite.svg);
-    background-repeat: no-repeat;
-    display: inline-block;
-    width: 22px;
-    height: 20px;
-    background-position: -22px 0;
-    margin-right: 10px;
+	&.e-post:before {
+	    content: "";
+	    background-image: url(sprite.svg);
+	    background-repeat: no-repeat;
+	    display: inline-block;
+	    width: 22px;
+	    height: 20px;
+	    background-position: -22px 0;
+	    margin-right: 10px;
+	}
+	
+	&.nav-toggle {
+	    background-color: #083e88;
+	    text-align: center;
+	}
+
 }
 
 nav.n-nav.n-drop {
 --nav-bg: transparent;
-}
-
-.pb-button.nav-toggle {
-    background-color: #083e88;
-    text-align: center;
 }
 
 .nav-toggle-container {
@@ -1157,25 +1135,25 @@ nav.n-nav.n-drop ul ul:not([aria-expanded]), nav.n-nav.n-drop ul ul[aria-expande
 
 @media (min-width: 600px) {
 	
-	.row > div:first-child > label:first-child {
+	.n-row > div:first-child > label:first-child {
 		
 		padding-right: 3em; padding-left: 10px;
 
 	}
 		
-	.row > div:last-child > label:first-child {
+	.n-row > div:last-child > label:first-child {
 		
 		padding-left: 3em; padding-right: 10px;
 
 	}
 		
-	.row > div:first-child > label:last-child {
+	.n-row > div:first-child > label:last-child {
 		
 		padding-right: 3em;
 
 	}
 		
-	.row > div:last-child > label:last-child {
+	.n-row > div:last-child > label:last-child {
 		
 		padding-left: 3em;
 
@@ -1197,7 +1175,7 @@ nav.n-nav.n-drop ul ul:not([aria-expanded]), nav.n-nav.n-drop ul ul[aria-expande
 		
 	}
 	
-	.n-banner .row > :first-child {
+	.n-banner .n-row > :first-child {
 		
 		min-height: 240px;
 		

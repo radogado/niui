@@ -1,17 +1,17 @@
-body {
+body.n-type {
 	
 	font-family: Helvetica Neue;
 	color: #565a5c;
 	
 }
 
-footer ul li, footer ul li a {
+footer ul.n-list li, footer ul.n-list li a {
 	
 	display: block;
 
 }
 
-footer ul li + li {
+footer ul.n-list li + li {
 	
 	margin-top: 0;
 
@@ -79,7 +79,7 @@ main {
 
 }
 
-main .row > * {
+main .n-row > * {
 	
 	background: #fff no-repeat center center;
 	background-size: cover;
@@ -89,32 +89,32 @@ main .row > * {
 	
 }
 
-main .narrow .row > * {
+main .narrow .n-row > * {
 	
 	min-height: 21em;
 
 }
 
-main .narrow .row img {
+main .narrow .n-row img {
 	
 	border-radius: 50%;
 	border: 2px solid #fff;
 
 }
 
-main .row h3 {
+main .n-row h3 {
 	
 	font-size: 2em;
 
 }
 
-main .row.no-spacing > * {
+main .n-row.n-row--no-spacing > * {
 	
 	color: #565a5c;
 	
 }
 
-main .row a[href] {
+main .n-row a[href] {
 	
 	text-decoration: none;
 	background-size: cover;
@@ -122,7 +122,7 @@ main .row a[href] {
 
 }
 
-main .row, main .row.no-spacing {
+main .n-row, main .n-row.n-row--no-spacing {
 	
 	margin: 0;
 	
@@ -182,7 +182,7 @@ footer a[href] {
 
 }
 
-.row>*>img {
+.n-row>*>img {
 	
 	margin: 0;
 	
@@ -194,7 +194,7 @@ footer a[href] {
 	
 }
 
-a[href].button, input[type=submit] {
+a[href].n-btn, input[type=submit] {
 	
 	padding: .75em 2em;
 	border-radius: 3px;
@@ -202,14 +202,20 @@ a[href].button, input[type=submit] {
 	
 }
 
-.n-banner a[href].button {
+#content a[href] {
+	
+	color: #fff;
+
+}
+
+.n-banner a[href].n-btn {
 	
 	background: rgba(255,255,255,.5);
 	color: #666;
 
 }
 
-.n-header a[href].button {
+.n-header a[href].n-btn {
 	
 	background: none;
 	border: 2px solid #fff;

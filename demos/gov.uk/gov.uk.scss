@@ -16,13 +16,13 @@
 
 }
 
-body {
+body.n-type {
 	
 	font-family: 'font';
 
 }
 
-.contain {
+.n-contain {
 	
 	max-width: 63rem;
 
@@ -32,7 +32,7 @@ body {
 	
 	background: #000;
 
-	.pad {
+	.n-pad {
 		
 	    padding: 0.8em .5em 0.5em .5em;
 		 
@@ -56,14 +56,14 @@ body {
 	
 	}
 	
-	.row > .popular, .row > .popular > * {
+	.n-row > .popular, .n-row > .popular > * {
 		
 		margin-bottom: 0;
 		padding-bottom: 0;
 		
 	}
 	
-	.popular .pad {
+	.popular .n-pad {
 		
 		background: #000;
 	
@@ -90,43 +90,43 @@ main h2 {
 
 }
 
-.n-banner ul {
+.n-banner ul.n-list {
 	
 	margin-bottom: 0;
 
 }
 
-.n-banner ul li, main ul li {
+.n-banner ul.n-list li, main ul.n-list li {
 	
 	margin: 0;
 
 }
 
-main ul li a[href], .n-banner ul li a[href] {
+main ul.n-list li a[href], .n-banner ul.n-list li a[href] {
 	
 	font-weight: bold;
 
 }
 
-footer ul {
+footer ul.n-list {
 	
 	margin: 0;
 
 }
 
-footer ul:not(.block-items) li {
+footer ul.n-list:not(.block-items) li {
 	
 	display: inline-block;
 	
 }
 
-footer ul:not(.block-items) li + li {
+footer ul.n-list:not(.block-items) li + li {
 	
 	margin-left: 1em;
 
 }
 
-ul {
+ul.n-list {
 	
 	list-style: none;
 
@@ -172,7 +172,7 @@ footer img[alt=crown] {
 
 }
 
-a[href].button.huge {
+a[href].n-btn.huge {
 	
 	display: block;
 	font-size: 2.5em;
@@ -223,7 +223,7 @@ main hr {
 
 }
 
-ul li:before {
+ul.n-list li:before {
 	
 	content: '';
 

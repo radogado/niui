@@ -34,22 +34,17 @@
 
 }
 
-.contain {
+.n-contain {
 	
 	max-width: 1240px;
 
 }
 
-html {
-	
-	font-size: 18px;
-
-}
-
-body {
+body.n-type {
 
   font-family: 'Font';
   font-size: calc(1rem + .5vw);
+	font-size: 18px;
 
 }
 
@@ -58,7 +53,7 @@ body {
 	border-bottom: #6FB89B .4em solid;
 	font-size: 70%;
 
-	.contain {
+	.n-contain {
 		
 		padding: 0 .4em;
 	
@@ -153,7 +148,7 @@ body {
 		
 	}
 
-	.row .row {
+	.n-row .n-row {
 		
 		background: #AD2C1E;
 		color: #fff;
@@ -207,7 +202,7 @@ footer {
 
 .n-type {
 
-	a.button[href] {
+	a.n-btn[href] {
 	
 		border: solid 3px #D3582E;
 		background: #fff;
@@ -223,7 +218,7 @@ footer {
 	
 	}
 	
-	a.button[href].primary, input[type=submit] {
+	a.n-btn[href].primary, input[type=submit] {
 		
 	    background-color: #D3582E;
 	    color: #fff;
@@ -249,7 +244,7 @@ footer {
 	
 	}
 
-	a[href].button.wide {
+	a[href].n-btn.wide {
 		
 		display: block;
 		text-align: center;
@@ -259,13 +254,13 @@ footer {
 
 }
 
-.content a.button[href] {
+.content a.n-btn[href] {
 	
 	border-color: transparent;
 	
 }
 
-.content.content--brand-orange a.button[href] {
+.content.content--brand-orange a.n-btn[href] {
 	
 	background-color: #6FB89B;
 	color: #fff;
@@ -279,7 +274,7 @@ footer {
 
 }
 
-.content .row .row {
+.content .n-row .n-row {
 	
 	background: #fff;
 	border-radius: 20px;
@@ -303,14 +298,14 @@ footer {
 	 
 	}
 	
-	.speakers .pad {
+	.speakers .n-pad {
 		
 		padding-left: 176px;
 		min-height: 240px;
 
 	}
 
-	.speakers .row .row {
+	.speakers .n-row .n-row {
 		
 		width: 75%;
 		margin: 1em 0 1em 25%;
@@ -482,7 +477,7 @@ footer p b {
 
 	}
 	
-	.speakers .row .pad, .speakers .row p {
+	.speakers .n-row .n-pad, .speakers .n-row p {
 		
 		text-align: center;
 		

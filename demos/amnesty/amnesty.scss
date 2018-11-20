@@ -5,7 +5,7 @@ body {
 
 }
 
-.contain {
+.n-contain {
 	
 	max-width: 1488px;
 	
@@ -44,28 +44,28 @@ footer {
 
 }
 
-.row img {
+.n-row img {
 	
 	display: block;
 	margin: 0 auto;
 
 }
 
-.row > * {
+.n-row > * {
 	
 	background: center center;	
 	background-size: cover;
 
 }
 
-footer .row img, footer .row a[href] {
+footer .n-row img, footer .n-row a[href] {
 	
 	margin: 0;
 	display: inline-block;
 
 }
 
-footer .row img {
+footer .n-row img {
 	
 	padding: 0 1em;
 
@@ -82,7 +82,7 @@ footer .row img {
 	
 }
 
-.n-banner a[href].button {
+.n-banner a[href].n-btn {
 	
 	background: yellow;
 	color: #000;
@@ -96,13 +96,13 @@ footer .row img {
 	
 }
 
-.n-banner .pad {
+.n-banner .n-pad {
 	
 	padding: 0 9em;
 	    
 }
 
-main a[href].button {
+main a[href].n-btn {
 	
 	background: none;
 	border: 1px solid;
@@ -110,7 +110,7 @@ main a[href].button {
 
 }
 
-footer a[href].button {
+footer a[href].n-btn {
 	
 	background: none;
 	border: 1px solid;
@@ -154,7 +154,7 @@ main b {
 	
 }
 
-footer .row {
+footer .n-row {
 	
 	position: relative;
 	
@@ -162,13 +162,13 @@ footer .row {
 
 @media screen and (max-width: 640px) {
 	
-	.n-banner .pad {
+	.n-banner .n-pad {
 		
 		padding: 0;
 		    
 	}
 	
-	main .row {
+	main .n-row {
 		
 		padding: 0 !important;
 		

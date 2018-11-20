@@ -798,7 +798,7 @@
     </noscript>
     <div class="menuController" id="menu" v-bind:class="{ show: false }">
       <div class="header">
-        <div class="row"><a class="logo" href="https://www.hasselblad.com/" alt="Hasselblad logotype"></a><a class="menuClose closeMenuIcon" alt="Close menu" v-on:click="hideMenu"></a></div>
+        <div class="n-row"><a class="logo" href="https://www.hasselblad.com/" alt="Hasselblad logotype"></a><a class="menuClose closeMenuIcon" alt="Close menu" v-on:click="hideMenu"></a></div>
       </div>
       <div class="panel" id="menuPanel" v-bind:class="{ show: this.showMenuPanel }">
         <div class="box">
@@ -847,7 +847,7 @@
       </div>
     </div>
     <header id="document-header">
-      <div class="row"><a class="logo" href="https://www.hasselblad.com/zh-cn"></a><a class="showMenu menuIcon" v-on:click="showMenu(&#39;menu&#39;)" data-panel-class="#menuPanel" alt="Show menu" title="Show menu"></a><a class="showMenu language" v-on:click="showMenu(&#39;language&#39;)" data-panel-class="#languagePanel" alt="Select language" title="Select language"></a><a class="showMenu search" data-panel-class="#searchPanel" alt="Search Hasselblad.com" title="Search"></a></div>
+      <div class="n-row"><a class="logo" href="https://www.hasselblad.com/zh-cn"></a><a class="showMenu menuIcon" v-on:click="showMenu(&#39;menu&#39;)" data-panel-class="#menuPanel" alt="Show menu" title="Show menu"></a><a class="showMenu language" v-on:click="showMenu(&#39;language&#39;)" data-panel-class="#languagePanel" alt="Select language" title="Select language"></a><a class="showMenu search" data-panel-class="#searchPanel" alt="Search Hasselblad.com" title="Search"></a></div>
     </header>
     <div class="hero white-darkgray middle-left">
       <picture>
@@ -921,7 +921,7 @@
       <div class="footerMenu">
         <div class="area">
           <h1>产品</h1>
-          <ul>
+          <ul class="n-list">
             <li><a class="parent" href="https://www.hasselblad.com/zh-cn/x1d">X1D</a></li>
             <!--lia(href='/x1d-4116-edition')='X1D 4116'
             -->
@@ -929,7 +929,7 @@
             <li><a href="https://www.hasselblad.com/zh-cn/x-system-lenses">镜头</a></li>
             <li><a href="https://www.hasselblad.com/zh-cn/x-system-accessories">配件</a></li>
           </ul>
-          <ul>
+          <ul class="n-list">
             <!--lia.parent='H System'
             -->
             <li><a class="parent" href="https://www.hasselblad.com/zh-cn/h6d">H6D</a></li>
@@ -938,45 +938,45 @@
             <li><a href="https://www.hasselblad.com/zh-cn/h-system-lenses">镜头</a></li>
             <li><a href="https://www.hasselblad.com/zh-cn/h-system-accessories">配件</a></li>
           </ul>
-          <ul>
+          <ul class="n-list">
             <li><a class="parent" href="https://www.hasselblad.com/zh-cn/industrial">行业应用</a></li>
             <li><a href="https://www.hasselblad.com/zh-cn/a6d">A6D</a></li>
             <li><a href="https://www.hasselblad.com/zh-cn/a6d-100c-dji-m600-pro">A6D-100c &amp; DJI M600 Pro</a></li>
             <li><a href="https://www.hasselblad.com/zh-cn/h6d-multishot">H6D-400c MS</a></li>
           </ul>
-          <ul>
+          <ul class="n-list">
             <li><a class="parent">扫描仪</a></li>
             <li><a href="https://www.hasselblad.com/zh-cn/flextight-x1">Flextight X1</a></li>
             <li><a href="https://www.hasselblad.com/zh-cn/flextight-x5">Flextight X5</a></li>
           </ul>
-          <ul>
+          <ul class="n-list">
             <li><a class="parent" href="https://www.hasselblad.com/zh-cn/phocus">Phocus</a></li>
           </ul>
-          <ul>
+          <ul class="n-list">
             <li><a class="parent" href="https://www.hasselblad.com/promotions">优惠与价格</a></li>
             <li><a href="https://www.hasselblad.com/certified-pre-owned">官方翻新</a></li>
           </ul>
         </div>
         <div class="area">
           <h1>灵感</h1>
-          <ul>
+          <ul class="n-list">
             <li><a class="parent" href="https://www.hasselblad.com/news">新闻</a>
             </li>
           </ul>
-          <ul>
+          <ul class="n-list">
             <li><a class="parent" href="https://www.hasselblad.com/events">活动</a></li>
           </ul>
-          <ul>
+          <ul class="n-list">
             <li><a class="parent" href="https://www.hasselblad.com/ambassadors">哈苏大使</a>
             </li>
           </ul>
-          <ul>
+          <ul class="n-list">
             <li><a class="parent" href="https://www.hasselblad.com/experience">哈苏环游世界</a></li>
           </ul>
-          <ul>
+          <ul class="n-list">
             <li><a class="parent" href="https://www.hasselblad.com/masters">哈苏大师</a></li>
           </ul>
-          <ul>
+          <ul class="n-list">
             <li><a class="parent" href="https://www.hasselblad.com/learn">学院</a></li>
             <li><a href="https://www.hasselblad.com/medium-format">中画幅</a></li>
             <li><a href="https://www.hasselblad.com/learn/sample-images">样片展示</a></li>
@@ -984,60 +984,60 @@
         </div>
         <div class="area">
           <h1>关于</h1>
-          <ul>
+          <ul class="n-list">
             <li><a class="parent" href="https://www.hasselblad.com/about">公司</a>
             </li>
             <li><a href="https://www.hasselblad.com/careers">招聘职位</a>
             </li>
           </ul>
-          <ul>
+          <ul class="n-list">
             <li><a class="parent" href="https://www.hasselblad.com/press">新闻中心</a></li>
             <li><a href="https://www.hasselblad.com/press/press-releases">新闻稿</a></li>
           </ul>
-          <ul>
+          <ul class="n-list">
             <li><a class="parent" href="https://www.hasselblad.com/history">哈苏 历史</a>
             </li>
           </ul>
-          <ul>
+          <ul class="n-list">
             <li><a class="parent" href="https://www.hasselblad.com/contact">联系我们</a>
             </li>
           </ul>
         </div>
         <div class="area">
           <h1>购买</h1>
-          <ul>
+          <ul class="n-list">
             <li><a class="parent" href="https://store.hasselblad.com/">商城</a></li>
           </ul>
-          <ul>
+          <ul class="n-list">
             <li><a class="parent" href="https://www.hasselblad.com/zh-cn/brand-stores">品牌直营店</a>
             </li>
           </ul>
-          <ul>
+          <ul class="n-list">
             <li><a class="parent" href="https://www.hasselblad.com/demo">申请产品演示</a></li>
           </ul>
-          <ul>
+          <ul class="n-list">
             <li><a class="parent" href="https://www.hasselblad.com/rental">Rent a Hasselblad</a></li>
           </ul>
-          <ul>
+          <ul class="n-list">
             <li><a class="parent" href="https://www.hasselblad.com/dealers">寻找经销商</a></li>
           </ul>
-          <ul>
+          <ul class="n-list">
             <li><a class="parent" href="https://hasselblad.tmall.com/">天猫</a></li>
           </ul>
         </div>
         <div class="area">
           <h1>支持</h1>
-          <ul>
+          <ul class="n-list">
             <li><a class="parent" href="https://www.hasselblad.com/zh-cn/support">支持</a></li>
             <li><a href="https://www.hasselblad.com/zh-cn/limited-warranty-statement">保修声明</a></li>
           </ul>
         </div>
         <div class="area">
           <h1>我的 哈苏</h1>
-          <ul>
+          <ul class="n-list">
             <li><a class="parent" href="https://www.hasselblad.com/my-hasselblad">我的账户</a></li>
           </ul>
-          <ul>
+          <ul class="n-list">
             <li><a class="parent" href="https://www.hasselblad.com/welcome">创建账户</a></li>
           </ul>
         </div>

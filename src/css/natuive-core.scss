@@ -5,7 +5,7 @@
 @import 'natuive-setup';
 @import 'theme-variables'; /* Rewrite base variables here; add theme CSS below this one in <head> */
 
-.contain {
+.n-contain {
 
 	max-width: 82*$font-size;
 	margin: 0 auto;

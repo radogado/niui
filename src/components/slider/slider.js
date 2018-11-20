@@ -44,7 +44,7 @@ var componentSlider = (function (){
 	
 		} else {
 	
-			return slider_wrap.querySelectorAll('.n-slider--nav')[slider_wrap.querySelectorAll('.n-slider--nav').length-1]; // With a simple query, it would get the nav of an eventual nested slider, instead of the current one. Current nav is either a direct child or a .pad direct child, taken as the last one of all.
+			return slider_wrap.querySelectorAll('.n-slider--nav')[slider_wrap.querySelectorAll('.n-slider--nav').length-1]; // With a simple query, it would get the nav of an eventual nested slider, instead of the current one. Current nav is either a direct child or a .n-pad direct child, taken as the last one of all.
 	
 		}
 	
@@ -346,7 +346,7 @@ var componentSlider = (function (){
 		var next_slide_image = target_slide.querySelector('img');
 		if (hasClass(slider, 'n-slider--vertical')) {
 			
-			if (hasClass(slider, 'n-lightbox--inline') && !hasClass(slider, 'n-slider--overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'aspect')) { // Inline lightbox only. To do: integrate aspect with n-slider--wrap
+			if (hasClass(slider, 'n-lightbox--inline') && !hasClass(slider, 'n-slider--overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'n-aspect')) { // Inline lightbox only. To do: integrate n-aspect with n-slider--wrap
 			
 				var height_change_number = slider.clientWidth * next_slide_image.naturalHeight / next_slide_image.naturalWidth;
 				if (slider.clientWidth >= next_slide_image.naturalWidth) {
@@ -402,7 +402,7 @@ var componentSlider = (function (){
 			computed_height = parseInt(computed_height, 10);
 			computed_height_old = parseInt(computed_height_old, 10);
 
-			var next_height =  (!hasClass(slider, 'n-slider--overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'aspect')) ? (`-${height_change_number}px`) : '-100%';
+			var next_height =  (!hasClass(slider, 'n-slider--overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'n-aspect')) ? (`-${height_change_number}px`) : '-100%';
 		    translate_from = `translate3d(0,${index<old_index ? ('-' + computed_height + 'px') : 0},0)`;
 			
 		    var difference = Math.abs(computed_height - computed_height_old);
@@ -610,17 +610,17 @@ var componentSlider = (function (){
 	
 		    container = wrap(el);
 			addClass(container, 'n-slider--wrap');
-			if (container.parentNode && hasClass(container.parentNode, 'aspect')) {
+			if (container.parentNode && hasClass(container.parentNode, 'n-aspect')) {
 				
 				addClass(container, 'inside-aspect');
 				
 			}
 		    el = container.querySelector('.n-slider');
 			
-			if (hasClass(el, 'pad')) {
+			if (hasClass(el, 'n-pad')) {
 				
 			    container = wrap(el);
-				addClass(container, 'pad');
+				addClass(container, 'n-pad');
 			    container = container.parentNode;
 			    el = container.querySelector('.n-slider');
 	
@@ -676,7 +676,7 @@ var componentSlider = (function (){
 	        if (hasClass(el, 'n-tabs')) {
 	
 	            addClass(container, 'n-tabs');
-	            addClass(slider_nav, 'row');
+	            addClass(slider_nav, 'n-row');
 	            addClass(slider_nav, 'n-tabs');
 	            transferClass(container, slider_nav, 'n-wrap');
 	            transferClass(el, container, 'n-slider--vertical');

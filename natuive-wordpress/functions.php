@@ -541,7 +541,7 @@ function new_nav_menu($items) {
 
 	foreach ($DOM->getElementsByTagName('ul') as $ul) {
 
-		if ($ul->parentNode->firstChild->tagName == 'a' && $ul->parentNode->lastChild->tagName == 'ul') { // Move <a> after <ul> for CSS-only nav
+		if ($ul->parentNode->firstChild->tagName == 'a' && $ul->parentNode->lastChild->tagName == 'ul') { // Move <a> after <ul class="n-list"> for CSS-only nav
 
 			$ul->parentNode->appendChild($ul->parentNode->firstChild);
 			
@@ -564,7 +564,7 @@ function new_nav_menu($items) {
 
 				<div class=n-fold--content> 
     				<nav class="n-nav n-drop"> 
-    					<ul>' . $items . '</ul>
+    					<ul class="n-list">' . $items . '</ul>
     				</nav>
     			</div>
     		</div>';
@@ -628,7 +628,7 @@ function my_img_caption_shortcode( $empty, $attr, $content ){
     . 'data-id="' . $id . '"'
     . 'class="wp-caption ' . esc_attr( $attr['align'] ) . '" '
     . 'style="max-width: ' . $attr['width'] . 'px;">'
-    . '<span class="n-aspect aspect" style="--image-width: ' . ($attr['width'] . 'px') . '; --ratio: ' . ($width / $height) . ';">' . $img . '</span>' // Add .aspect and --ratio: height/width
+    . '<span class="n-aspect" style="--image-width: ' . ($attr['width'] . 'px') . '; --ratio: ' . ($width / $height) . ';">' . $img . '</span>' // Add .n-aspect and --ratio: height/width
     . '<p class="wp-caption-text">' . $attr['caption'] . '</p>'
     . '</div>';
 
@@ -690,7 +690,7 @@ add_action('the_content', function ($content){
 		$ratio = $width / $height;
 
 		$wrapper = $dom->createElement('span');
-		$wrapper->setAttribute('class','aspect n-aspect');
+		$wrapper->setAttribute('class','n-aspect');
 		$wrapper->setAttribute('style', '--ratio: ' . $ratio . '; --image-width: ' . $width . 'px;');
 		
 		

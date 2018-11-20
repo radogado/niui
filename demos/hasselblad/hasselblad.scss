@@ -35,7 +35,7 @@ body {
 
 }
 
-.contain {
+.n-contain {
 	
 	max-width: 1024px;
 
@@ -55,7 +55,7 @@ body {
 	z-index: 1;
 	padding: 1em 0;
 	
-	.contain {
+	.n-contain {
 	
 	    padding: 0 1em;
 	
@@ -78,7 +78,7 @@ body {
 
 }
 
-main .aspect.align-left > * {
+main .aspect.n-left > * {
 	
 	vertical-align: top;
 
@@ -125,7 +125,7 @@ main .aspect.align-left > * {
     color: #fff;
 	font-size: 3rem;
     
-	.row {
+	.n-row {
 		
 	    height: 1150px;
 	    max-height: 100vh;
@@ -150,7 +150,7 @@ main .aspect.align-left > * {
 
 @media (max-height: 1000px) {
 	
-	.banner .row {
+	.banner .n-row {
 		
 		height: 768px;
 	
@@ -164,7 +164,7 @@ main {
 
 }
 
-main .contain .row > div {
+main .n-contain .n-row > div {
 	
 	background: url(5bedc7e822682d4c8fedeb6e14f420936972071e_hbl_h6d_sideright_darkgrey_2048x2048.jpg) center center no-repeat;
 	background-size: cover;
@@ -172,7 +172,7 @@ main .contain .row > div {
 	
 }
 
-main .row > * > * {
+main .n-row > * > * {
 	
 	padding: 2rem;	
 
@@ -198,14 +198,14 @@ footer nav.n-nav {
 
 }
 
-footer ul li {
+footer ul.n-list li {
 	
 	margin: 0;
 	list-style: none;
 	
 }
 
-footer ul li:before {
+footer ul.n-list li:before {
 	
 	display: none;
 
@@ -223,7 +223,7 @@ footer a[href] {
 	
 }
 
-.n-type a[href].button {
+.n-type a[href].n-btn {
 	
 	background: none;
 	border: 1px solid #000;
@@ -232,7 +232,7 @@ footer a[href] {
 
 }
 
-.white-text a[href].button {
+.white-text a[href].n-btn {
 
 	color: #fff;
 	border-color: #fff;
@@ -254,7 +254,7 @@ footer a[href] {
 	
 	}
 	
-	a[href].button {
+	a[href].n-btn {
 		
 		font-size: 1.5em;
 		
@@ -270,7 +270,7 @@ footer a[href] {
 		background-size: 200vw;
 	    background-position: -100vw 100%;
 	    
-	    .row {
+	    .n-row {
 		    
 		    height: 768px;
 		    max-height: none;

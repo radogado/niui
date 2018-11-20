@@ -34,7 +34,7 @@ a[href] {
 
 }
 
-	a[href]:hover, input[type=submit]:hover, a.button[href]:hover, button:hover {
+	a[href]:hover, input[type=submit]:hover, a.n-btn[href]:hover, button.n-btn:hover {
 
 		color: #ee8822;
 
@@ -103,7 +103,7 @@ form#language-selector select {
 	
 }
 
-.button, input[type=submit], button[type=submit], button[type=reset], button, a.button[href] {
+.n-btn, input[type=submit], button[type=submit], button[type=reset], button, a.button[href] {
 
 	font-weight: bold;
 	background: rgb(0,221,240);
@@ -152,7 +152,7 @@ form#language-selector select {
 	}
 	/* Top */
 	
-	.n-header .align-right {
+	.n-header .n-right {
 		
 		text-align: right;
 		vertical-align: top;
@@ -187,7 +187,7 @@ form#language-selector select {
 	
 		}
 		
-		.n-header .row {
+		.n-header .n-row {
 			
 			padding: 0;
 			

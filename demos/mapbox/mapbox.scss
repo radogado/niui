@@ -1,17 +1,17 @@
-body {
+body.n-type {
 	
 	font-size: 15px;
 	font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
 
 }
 
-.contain {
+.n-contain {
 	
 	max-width: 72rem;
 
 }
 
-main > .row > * {
+main > .n-row > * {
 	
 	margin: 0;
 	
@@ -24,14 +24,14 @@ main > .row > * {
 	
 }
 
-.n-header-banner .button {
+.n-header-banner .n-btn {
 	
 	border-radius: 1em;
 	background: #fff;
 	
 }
 
-.n-header a.button[href] {
+.n-header a.n-btn[href] {
 	
 	color: #fff;
 	background: rgba(255, 255, 255, 0.25);
@@ -54,7 +54,7 @@ main > .row > * {
 
 .n-banner {
 	
-	a.button[href] {
+	a.n-btn[href] {
 	
 	color: #3690C0;
 	background: #fff;
@@ -93,19 +93,19 @@ footer {
 
 }
 
-footer .row > * {
+footer .n-row > * {
 	
 	width: 16.666%;
 	
 }
 
-footer ul li {
+footer ul.n-list li {
 	
 	margin-top: 0;
 	
 }
 
-footer ul li a[href] {
+footer ul.n-list li a[href] {
 	
 	text-decoration: none;
 	font-size: .8em;
@@ -115,7 +115,7 @@ footer ul li a[href] {
 	
 }
 
-footer ul li a[href].button {
+footer ul.n-list li a[href].n-btn {
 	
 	background: none;
 	color: rgba(0,0,0,.3);
@@ -124,7 +124,7 @@ footer ul li a[href].button {
 
 }
 
-footer ul li a[href].button:after, .arrow-links a[href]:not(p *):after {
+footer ul.n-list li a[href].n-btn:after, .arrow-links a[href]:not(p *):after {
 
 	content: ' →';
 	font-weight: bold;
@@ -148,7 +148,7 @@ footer a[href] {
 
 }
 
-ul {
+ul.n-list {
 	
 	list-style: none;
 	
@@ -178,7 +178,7 @@ ul {
 		
 	}
 	
-main a.button[href], main button, input[type=submit] {
+main a.n-btn[href], main n-btn, input[type=submit] {
 	
 	border-radius: .3em;
 	background-color: #3887be;
@@ -188,7 +188,7 @@ main a.button[href], main button, input[type=submit] {
 	
 }
 
-main a.button[href]:after, main button:after {
+main a.n-btn[href]:after, main button.n-btn:after {
 	
 	content: ' →';
 	
@@ -235,7 +235,7 @@ main a[href] {
 
 }
 
-.row.no-spacing>*> h3 {
+.n-row.n-row--no-spacing>*> h3 {
 	
 	font-size: 1.5rem;
 
@@ -283,7 +283,7 @@ input[type=email] {
 	
 }
 
-.row * .row {
+.n-row * .n-row {
 	
 	margin-top: -11px;
 	
@@ -291,13 +291,13 @@ input[type=email] {
 
 @media screen and (max-width: 640px) {
 	
-	.n-banner .row > div:first-child {
+	.n-banner .n-row > div:first-child {
 		
 		display: none;
 		
 	}
 	
-	.n-banner .row div.pad {
+	.n-banner .n-row div.n-pad {
 		
 		margin: 0 !important;
 

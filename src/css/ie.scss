@@ -6,14 +6,14 @@ $line-height: 22px;
 @import 'natuive-setup';
 @import 'theme-variables'; /* Rewrite base variables here; add theme CSS below this one in <head> */
 
-.row {
+.n-row {
 	
 	font-size: 0;
 	text-align: left;
 
 	> * {
 		
-		font-size: 16px; /* To do: replace by actual font size of column's row's parent */
+		font-size: 16px; /* To do: replace by actual font size of column's n-row's parent */
 		min-width: 20%; /* To do: support +33% */
 		display: inline-block;
 		padding: 0;
@@ -57,13 +57,13 @@ $line-height: 22px;
 		
 	}
 	
-	&.no-spacing > .table-row {
+	&.n-row--no-spacing > .table-row {
 		
 		border-collapse: collapse;
 		
 	}
 		
-	&.no-padding > .table-row > * {
+	&.n-row--no-padding > .table-row > * {
 		
 		padding: 0;
 		
@@ -71,120 +71,120 @@ $line-height: 22px;
 
 }
 	
-.col1 {
+._1-1 {
 	
 	width: 100%;
 	max-width: 100%;
 
 }
 
-.col2 {
+._1-2 {
 	
 	width: 50%;
 
 }
 
-.col3 {
+._1-3 {
 	
 	width: 33.333%;
 
 }
 
-.col23 {
+._2-3 {
 	
 	width: 66.667%;
 	
 }
 
-.col4 {
+._1-4 {
 	
 	width: 25%;
 
 }
 
-.col34 {
+._3-4 {
 
 	width: 75%;	
 
 }
 
-.col5 {
+._1-5 {
 	
 	width: 20%;	
 	
 }
 
-.col25 {
+._2-5 {
 
 	width: 40%;
 
 }
 
-.col35 {
+._3-5 {
 
 	width: 60%;
 
 }
 
-.col45 {
+._4-5 {
 
 	width: 80%;
 
 }
 
-.align-right {
+.n-right {
 	
 	text-align: right;
 	
 }
 
-.align-left {
+.n-left {
 	
 	text-align: left;
 	
 }
 
-.align-center {
+.n-center {
 	
 	text-align: center;
 
 }
 
-.align-middle, .row > .table-row > .align-middle {
+.n-middle, .n-row > .table-row > .n-middle {
 	
 	vertical-align: middle;
 
 }
 
-.align-bottom, .row > .table-row > .align-bottom {
+.n-bottom, .n-row > .table-row > .n-bottom {
 	
 	vertical-align: bottom;
 
 }
 
-.border-all {
+.n-border-all {
 
-	&.row > * {
+	&.n-row > * {
 		
 		padding-right: 0;
 	
 	}
 	
-	&.row .row {
+	&.n-row .n-row {
 	
 		margin-left: -$line-height-em/2;
 		padding: $line-height-em/2 0;
 	
 	}
 	
-	&.row .row > * {
+	&.n-row .n-row > * {
 		
 		padding-right: 0;
 		box-sizing: border-box;
 	
 	}
 	
-	&.row .row > * > * {
+	&.n-row .n-row > * > * {
 		
 		margin-left: 0;
 		padding-right: 0;
@@ -363,7 +363,7 @@ input[type=submit] {
 
 }
 	
-.vertical .n-slider--nav {
+.n-slider--vertical .n-slider--nav {
 	
 	top: 1em;
 
@@ -377,13 +377,13 @@ nav input[type=reset], nav input.n-trigger, nav input.n-trigger.n-burger {
 
 nav.n-drop {
 
-	li > input, ul ul {
+	li > input, ul.n-list ul.n-list {
 		
 		display: none;
 	
 	}
 	
-	ul li:hover > ul, ul ul li:hover > ul {
+	ul.n-list li:hover > ul.n-list, ul.n-list ul.n-list li:hover > ul.n-list {
 	
 		display: block !important;
 		max-height: none !important;
@@ -391,7 +391,7 @@ nav.n-drop {
 	
 	}
 
-	ul ul {
+	ul.n-list ul.n-list {
 	
 		overflow: visible !important;
 	
@@ -441,7 +441,7 @@ table {
 
 }
 
-.row.grid-inline-popup > .table-row > * {
+.n-row.grid-inline-popup > .table-row > * {
 	
 	display: block;
 	

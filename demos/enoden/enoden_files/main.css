@@ -203,21 +203,21 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 /* text-align */
 /**
-* force align-left
+* force n-left
 */
 .al {
   text-align: left !important;
 }
 
 /**
-* force align-right
+* force n-right
 */
 .ar {
   text-align: right !important;
 }
 
 /**
-* force align-center
+* force n-center
 */
 .ac {
   text-align: center !important;

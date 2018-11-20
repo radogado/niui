@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-	<main role="main" class="col34">
+	<main role="main" class="_3-4">
 		<!-- section -->
 		<section>
 
@@ -72,6 +72,6 @@
 		<!-- /section -->
 	</main>
 
-<div class="col4"> <?php get_sidebar(); ?> </div>
+<div class="_1-4"> <?php get_sidebar(); ?> </div>
 
 <?php get_footer(); ?>

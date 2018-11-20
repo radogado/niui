@@ -6,7 +6,7 @@ $light-blue: #33507d;
 $lighter-blue: #f1f5f8;
 $line-height: 19px;
 
-body, .button, .n-lightbox a, .row.wrap>*, .tip, body, button, .n-form .n-form--check span, .n-form label>span, h4, h5, html, input[type=submit], label, label span .tip, li, nav.n-nav.sub a, p {
+body.n-type, .n-btn, .n-lightbox a, .n-row.wrap > *, .tip, button.n-btn, .n-form .n-form--check span, .n-form label>span, .n-type h4, .n-type h5, html, input[type=submit], label, label span .tip, li, nav.n-nav.sub a, .n-type p {
 	 
 	font-size: 12px;
 	font-family: 'Helvetica Neue', sans-serif;
@@ -20,14 +20,14 @@ body, .button, .n-lightbox a, .row.wrap>*, .tip, body, button, .n-form .n-form--
 
 }
 
-.row > * > .row {
+.n-row > * > .n-row {
 	
 // 	margin: 0;
 	width: 100%;
 
 }
 
-.unpad {
+.n-unpad {
 	
 	margin: 0 -.375em;
 	width: calc(100% + .75em);
@@ -36,7 +36,7 @@ body, .button, .n-lightbox a, .row.wrap>*, .tip, body, button, .n-form .n-form--
 
 .n-type {
 
-	a.button.icon img { 
+	a.n-btn.icon img { 
 		
 		display: inline-block;
 		vertical-align: middle;
@@ -66,7 +66,7 @@ body, .button, .n-lightbox a, .row.wrap>*, .tip, body, button, .n-form .n-form--
 
 }
 
-.contain {
+.n-contain {
 	
 	max-width: 83rem;
 	overflow: visible;
@@ -100,7 +100,7 @@ body:before {
 
 }
 
-button, a[href].button, input[type=submit], a.button {
+button.n-btn, a[href].n-btn, input[type=submit], a.n-btn {
 	
 	background: $blue;
 	text-transform: uppercase;
@@ -111,7 +111,7 @@ button, a[href].button, input[type=submit], a.button {
 
 }
 
-button:href, a[href].button:hover, input[type=submit]:hover, a.button:hover {
+button.n-btn:href, a[href].n-btn:hover, input[type=submit]:hover, a.n-btn:hover {
 	
 	background: $dark-blue;
 	color: #fff;
@@ -119,7 +119,7 @@ button:href, a[href].button:hover, input[type=submit]:hover, a.button:hover {
 
 }
 
-button.rounded {
+button.n-btn.rounded {
 	
 	border-radius: 3em;
 	background: $lighter-blue;
@@ -130,7 +130,7 @@ button.rounded {
 
 }
 
-button.rounded.active {
+button.n-btn.rounded.active {
 	
 	background: $dark-blue;
 	border-color: $dark-blue;
@@ -138,7 +138,7 @@ button.rounded.active {
 
 }
 
-button.rounded.active:after {
+button.n-btn.rounded.active:after {
 	
 	content: '';
 	display: block;
@@ -164,7 +164,7 @@ ul li {
 	
 	margin: 0;
 
-	.row > * {
+	.n-row > * {
 		
 		margin: 0;
 		padding: 0;
@@ -214,7 +214,7 @@ nav.n-nav.n-drop ul ul {
 
 }
 
-.n-banner.row form .row {
+.n-banner.n-row form .n-row {
 	
 	padding: 0;
 	margin-left: 0;
@@ -243,13 +243,13 @@ nav.n-nav.n-drop ul ul {
 	
 }
 
-.n-form .row > div > label {
+.n-form .n-row > div > label {
 	
 	width: 100%;
 
 }
 
-.n-form .row > div > label input {
+.n-form .n-row > div > label input {
 	
 	margin: 0;
 
@@ -275,14 +275,14 @@ nav.n-nav.n-drop ul ul {
 
 }
 
-.buy .pad {
+.buy .n-pad {
 	
 	padding-top: 0;
 	padding-bottom: 0;
 	
 }
 
-.buy .row > * {
+.buy .n-row > * {
 	
 	margin-top: 0;
 	
@@ -373,26 +373,30 @@ a.arrow:after {
 
 }
 
-.box h2, .hi h2 {
+.n-type {
 	
-	padding: $line-height/2 0;
-	font-size: 4em;
+	.box h2, .hi h2 {
+		
+		padding: $line-height/2 0;
+		font-size: 4em;
+	
+	}
+	
+	.box h2 {
+		
+		color: $dark-blue;
+	
+	}
 
 }
 
-.box h2 {
-	
-	color: $dark-blue;
-
-}
-
-.box .row > * {
+.box .n-row > * {
 	
 	padding-right: 0;
 
 }
 
-.box .row > *:first-child {
+.box .n-row > *:first-child {
 	
 	padding-left: 0;
 
@@ -451,7 +455,7 @@ input[type=radio]:checked + .n-form--check-icon:before {
 	
 }
 
-.n-form select, a.button.icon {
+.n-form select, a.n-btn.icon {
 	
 	box-shadow: 1px 1px 0 #ccc;
 	height: auto;
@@ -652,7 +656,7 @@ input[type=text].search {
 
 @media screen and (max-width: 599.9px) {
 	
-	body.contain {
+	body.n-contain {
 		
 	    padding: 1em;
 	    width: calc(100% - 2em);
@@ -692,7 +696,7 @@ input[type=text].search {
 		
 	}
 	
-	.box .row > * {
+	.box .n-row > * {
 		
 		padding: 0;
 		

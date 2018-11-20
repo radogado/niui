@@ -20,13 +20,13 @@ main img {
 	
 	}
 	
-	.contain {
+	.n-contain {
 		
 		max-width: 1440px;
 		
 	}
 
-	a.button[href] {
+	a.n-btn[href] {
 		
 		padding: .75em 1.4em;
 		text-transform: uppercase;
@@ -42,7 +42,7 @@ main img {
 	
 	text-transform: uppercase;
 
-	.pad {
+	.n-pad {
 		
 		margin-left: 2em;
 		
@@ -67,7 +67,7 @@ main img {
 		    
 	}
 	
-	.col25 nav.n-nav a {
+	._2-5 nav.n-nav a {
 		
 		font-size: .75em;
 		color: #999;
@@ -76,7 +76,7 @@ main img {
 	
 }
 
-.n-header ul, .n-banner ul {
+.n-header ul.n-list, .n-banner ul.n-list {
 	
 	display: block;
 	
@@ -96,14 +96,14 @@ main img {
 
 }
 
-.sticky a[href]:not(.button) {
+.sticky a[href]:not(.n-btn) {
 	
 	text-decoration: none;
 	color: #c00;
 
 }
 
-a.button[href].red {
+a.n-btn[href].red {
 
 	background: #c00;
 
@@ -128,7 +128,7 @@ footer a[href]:first-child {
 	
 }
 
-.row div:not(.col1) .narrow {
+.n-row div:not(._1-1) .narrow {
 	
 	padding: 0 7em;
 	
@@ -140,7 +140,7 @@ footer a[href]:first-child {
 	
 }
 
-.n-slider--wrap.n-tabs > .n-slider--nav.row {
+.n-slider--wrap.n-tabs > .n-slider--nav.n-row {
 	
     margin: 2em 0;
     justify-content: center;
@@ -148,7 +148,7 @@ footer a[href]:first-child {
 
 }
 
-.n-slider--wrap.n-tabs > .n-slider--nav.row a {
+.n-slider--wrap.n-tabs > .n-slider--nav.n-row a {
 	
 	flex-grow: 1;
     white-space: nowrap;
@@ -161,20 +161,20 @@ footer a[href]:first-child {
 
 }
 
-.n-slider--wrap.n-tabs > .n-slider--nav.row a[data-active] {
+.n-slider--wrap.n-tabs > .n-slider--nav.n-row a[data-active] {
 	
 	background: #eee;
 
 }
 
-.n-slider--wrap.n-tabs > .n-slider--nav.row a:first-child {
+.n-slider--wrap.n-tabs > .n-slider--nav.n-row a:first-child {
 	
 	border-radius: 2em 0 0 2em;
 	border-right: none;
 
 }
 
-.n-slider--wrap.n-tabs > .n-slider--nav.row a:last-child {
+.n-slider--wrap.n-tabs > .n-slider--nav.n-row a:last-child {
 	
 	border-radius: 0 2em 2em 0;
 	border-left: none;
@@ -205,7 +205,7 @@ footer a[href]:first-child {
 
 @media screen and (max-width: 1280px) {
 	
-	.narrow, .row div:not(.col1) .narrow {
+	.narrow, .n-row div:not(._1-1) .narrow {
 		
 		padding: 0 3em;
 		

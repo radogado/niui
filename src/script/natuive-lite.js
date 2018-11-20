@@ -1294,7 +1294,7 @@ qa('a[href^="#"]').forEach((el) => {
 		
 		host.querySelectorAll('.n-table:not([data-ready])').forEach((el) => {
 		
-			addClass(wrap(el), '.n-table--wrap');
+			addClass(wrap(el), 'n-table--wrap');
 			makeReady(el);
 			el.parentNode.setAttribute('tabindex', 0);
 		
