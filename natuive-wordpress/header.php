@@ -23,9 +23,9 @@
 	<body <?php body_class(); ?>>
 
 			<!-- header -->
-			<header id="head" class="n-header" role="banner">
+			<header id="head" class="n-type n-header" role="banner">
 				
-				<div class="n-row contain">
+				<div class="n-row n-contain">
 					<div>
 					<!-- logo -->
 					
@@ -65,4 +65,4 @@
 				</div>
 			</header>
 			<!-- /header -->
-			<div id="content" class="n-row contain">
+			<div id="content" class="n-row n-contain n-type">

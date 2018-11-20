@@ -2,7 +2,7 @@
 			<!-- /content -->
 			<!-- footer -->
 			<footer id="footer" class="n-footer" role="contentinfo">
-				<div class="n-row contain">
+				<div class="n-row n-contain">
 					
 				<!-- copyright -->
 					<div>

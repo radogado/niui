@@ -245,14 +245,9 @@ body.home .n-lightbox.gallery:before, body.archive .n-lightbox.gallery:before, b
   border-bottom: 1px dotted;
   top: calc(20em - 1px); }
 
-/*
-.n-lightbox.gallery:after { // Push last row left
-	
-	content: '';
-	flex: auto;
+#content.n-type a[href] {
+  color: #fff; }
 
-}
-*/
 #full-window .n-slider--arrow {
   top: 49%; }
 
@@ -346,7 +341,11 @@ nav.n-nav.n-drop ul li a[href] {
   margin-top: .25em; }
 
 .wp-block-image {
-  margin: 0; }
+  margin: 0;
+  max-width: 100%; }
+  .wp-block-image figure, .wp-block-image figure[class*=align] {
+    display: block;
+    margin: 0; }
 
 .n-header .n-fold.n-fold--mobile {
   display: inline-block; }

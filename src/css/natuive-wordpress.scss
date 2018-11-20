@@ -187,14 +187,11 @@ body {
 
 }
 
-/*
-.n-lightbox.gallery:after { // Push last row left
+#content.n-type a[href] {
 	
-	content: '';
-	flex: auto;
-
+	color: #fff;
+	
 }
-*/
 
 #full-window .n-slider--arrow {
 	
@@ -364,6 +361,14 @@ nav.n-nav.n-drop ul li a[href] {
 .wp-block-image {
 	
 	margin: 0;
+	max-width: 100%;
+	
+	figure, figure[class*=align] {
+		
+		display: block;
+		margin: 0;
+
+	}
 
 }
 

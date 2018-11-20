@@ -9,7 +9,7 @@
 
 	<h2><?php comments_number(); ?></h2>
 
-	<ul class="n-list">
+	<ul class="n-list n-list--no-bullet">
 		<?php wp_list_comments('type=comment&callback=html5blankcomments'); // Custom callback in functions.php ?>
 	</ul>
 

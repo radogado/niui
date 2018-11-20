@@ -564,7 +564,7 @@ function new_nav_menu($items) {
 
 				<div class=n-fold--content> 
     				<nav class="n-nav n-drop"> 
-    					<ul class="n-list">' . $items . '</ul>
+    					<ul class="n-list n-list--no-bullet">' . $items . '</ul>
     				</nav>
     			</div>
     		</div>';
