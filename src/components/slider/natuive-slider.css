@@ -157,7 +157,7 @@ $bg: #1E8DaC;
     position: absolute; }
     .n-aspect > .n-slider--wrap.n-slider--outside:not(.n-slider--vertical) {
       padding-bottom: 4em; }
-    .n-aspect > .n-slider--wrap .n-slider {
+    .n-aspect > .n-slider--wrap > .n-slider, .n-aspect > .n-slider--wrap > .n-slider > *, .n-aspect > .n-slider--wrap .n-slider.n-slider--vertical[data-ready] > *, .n-aspect > .n-slider--wrap .n-slider.n-slider--vertical[data-ready] > * > *, .n-aspect > .n-slider--wrap > .n-pad > .n-slider, .n-aspect > .n-slider--wrap > .n-pad > .n-slider > * {
       height: 100%; } }
 _:-ms-lang(x), .n-aspect > .n-slider--wrap {
   position: static; }

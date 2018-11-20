@@ -262,7 +262,7 @@
 }
 
 @supports (--a: 1) {
-	
+
 	.n-aspect > .n-slider--wrap {
 		
 		height: 100%;
@@ -274,9 +274,13 @@
 		
 		}
 		
-		.n-slider {
+		> .n-slider, .n-slider.n-slider--vertical[data-ready] > *, > .n-pad > .n-slider {
 			
-			height: 100%;
+			&, > * {
+			
+				height: 100%;
+			
+			}
 		
 		}
 	
