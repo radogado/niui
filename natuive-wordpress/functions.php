@@ -660,7 +660,7 @@ add_action('the_content', function ($content){
 		$id = (int) str_replace('-', '', filter_var($img->getAttribute('class'), FILTER_SANITIZE_NUMBER_INT));
 		$attachment = wp_get_attachment_metadata($id);
 
-		if ($img->parentNode->getAttribute('class') == 'wp-block-image') { // WP5/Gutenberg
+		if ($img->parentNode->nodeName == 'figure') { // WP5/Gutenberg
 			
 			$width = $attachment[width];
 			$height = $attachment[height];
