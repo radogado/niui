@@ -30,6 +30,35 @@ var componentLightbox = (function (){
 		
 	}
 
+	function imageLoaded (img) {
+
+		addClass(img.parentNode, 'n-lightbox--loaded');
+		
+		img.onclick = (e) => { // Zoom and scan
+
+			if (!q('.n-ovrl .n-slider--wrap')) {
+				
+				return;
+				
+			}
+			
+			var el = e.target;
+			toggleClass(el, 'n-lightbox--zoom');
+			el.style.cssText = '';
+			el.style.setProperty('--x', '-50%');
+			el.style.setProperty('--y', '-50%');
+			el.onmousemove = (e) => {
+				
+				adjustZoom(e);
+
+			};
+
+			adjustZoom(e);
+
+		};
+
+	}	
+
 	function populateLightboxItem(slider, i) {
 		
 		var img = slider.children[(typeof i === 'undefined') ? 0 : i].querySelector('img');
@@ -37,35 +66,17 @@ var componentLightbox = (function (){
 		if (img && !img.src) {
 			
 			img.src = img.getAttribute('data-src');
+			if (img.complete) {
+				
+				imageLoaded(img);
+				
+			}
 			img.onload = (e) => {
 				
-				addClass(e.target.parentNode, 'n-lightbox--loaded');
+				imageLoaded(e.target);
 	
 			};
-			img.onclick = (e) => { // Zoom and scan
-	
-	// transformY = -50% + (poxY/sizeY)*overflowY
-	
-				if (!q('.n-ovrl .n-slider--wrap')) {
-					
-					return;
-					
-				}
-				
-				var el = e.target;
-				toggleClass(el, 'n-lightbox--zoom');
-				el.style.cssText = '';
-				el.style.setProperty('--x', '-50%');
-				el.style.setProperty('--y', '-50%');
-				el.onmousemove = (e) => {
-					
-					adjustZoom(e);
-	
-				};
 
-				adjustZoom(e);
-
-			};
 			return false;
 	
 		}
@@ -116,6 +127,12 @@ var componentLightbox = (function (){
 		if (lightbox.getAttribute('data-duration')) {
 			
 			lightbox_target.setAttribute('data-duration', lightbox.getAttribute('data-duration'));
+
+		}
+
+		if (lightbox.getAttribute('data-autoslide') !== null) {
+			
+			lightbox_target.setAttribute('data-autoslide', lightbox.getAttribute('data-autoslide'));
 
 		}
 	

@@ -1035,34 +1035,41 @@ var nui = function () {
       }
     }
 
+    function imageLoaded(img) {
+      addClass(img.parentNode, 'n-lightbox--loaded');
+
+      img.onclick = function (e) {
+        // Zoom and scan
+        if (!q('.n-ovrl .n-slider--wrap')) {
+          return;
+        }
+
+        var el = e.target;
+        toggleClass(el, 'n-lightbox--zoom');
+        el.style.cssText = '';
+        el.style.setProperty('--x', '-50%');
+        el.style.setProperty('--y', '-50%');
+
+        el.onmousemove = function (e) {
+          adjustZoom(e);
+        };
+
+        adjustZoom(e);
+      };
+    }
+
     function populateLightboxItem(slider, i) {
       var img = slider.children[typeof i === 'undefined' ? 0 : i].querySelector('img');
 
       if (img && !img.src) {
         img.src = img.getAttribute('data-src');
 
+        if (img.complete) {
+          imageLoaded(img);
+        }
+
         img.onload = function (e) {
-          addClass(e.target.parentNode, 'n-lightbox--loaded');
-        };
-
-        img.onclick = function (e) {
-          // Zoom and scan
-          // transformY = -50% + (poxY/sizeY)*overflowY
-          if (!q('.n-ovrl .n-slider--wrap')) {
-            return;
-          }
-
-          var el = e.target;
-          toggleClass(el, 'n-lightbox--zoom');
-          el.style.cssText = '';
-          el.style.setProperty('--x', '-50%');
-          el.style.setProperty('--y', '-50%');
-
-          el.onmousemove = function (e) {
-            adjustZoom(e);
-          };
-
-          adjustZoom(e);
+          imageLoaded(e.target);
         };
 
         return false;
@@ -1103,6 +1110,10 @@ var nui = function () {
 
       if (lightbox.getAttribute('data-duration')) {
         lightbox_target.setAttribute('data-duration', lightbox.getAttribute('data-duration'));
+      }
+
+      if (lightbox.getAttribute('data-autoslide') !== null) {
+        lightbox_target.setAttribute('data-autoslide', lightbox.getAttribute('data-autoslide'));
       }
 
       if (inline_static) {
@@ -2473,7 +2484,7 @@ var nui = function () {
         };
       });
 
-      if (el.getAttribute('data-autoslide')) {
+      if (el.getAttribute('data-autoslide') !== null) {
         // auto slide
         var delay = el.getAttribute('data-autoslide');
         delay = delay.length > 0 ? 1000 * delay : 4000;

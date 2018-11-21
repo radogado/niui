@@ -771,7 +771,7 @@ var componentSlider = (function (){
 	        
 	    });
 	
-	    if (el.getAttribute('data-autoslide')) { // auto slide
+	    if (el.getAttribute('data-autoslide') !== null) { // auto slide
 	
 			var delay = el.getAttribute('data-autoslide');
 			delay = delay.length > 0 ? (1000 * delay) : 4000;

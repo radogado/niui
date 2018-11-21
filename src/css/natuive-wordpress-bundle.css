@@ -3009,7 +3009,7 @@ body.home .n-lightbox.gallery:before, body.archive .n-lightbox.gallery:before, b
   border-bottom: 1px dotted;
   top: calc(20em - 1px); }
 
-#content.n-type a[href] {
+#content.n-type h2 a[href] {
   color: #fff; }
 
 #full-window .n-slider--arrow {
