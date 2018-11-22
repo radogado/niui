@@ -204,13 +204,12 @@ $bg: #1E8DaC;
     width: 100%;
     box-sizing: border-box; }
 
-section {
+.n-section {
   position: relative; }
-
-section:before, section:after {
-  content: '';
-  display: table;
-  width: 100%; }
+  .n-section:before, .n-section:after {
+    content: '';
+    display: table;
+    width: 100%; }
 
 /* Masonry in CSS only */
 .n-masonry {
@@ -335,26 +334,6 @@ ol.n-masonry > * {
 
 .n-row.n-border-off, .n-row.n-border-off * {
   box-shadow: none; }
-
-.grid-inline-popup > .popup {
-  width: 100%;
-  flex-basis: 100%;
-  order: 0;
-  will-change: max-height;
-  /* avoid glitchy animation: */
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-top: 0;
-  padding-bottom: 0; }
-
-.grid-inline-popup > div:not(.popup) {
-  cursor: zoom-in; }
-
-.grid-inline-popup > div:not(.popup)[aria-expanded] {
-  cursor: zoom-out; }
-
-.grid-inline-popup > .popup:not([aria-expanded]) {
-  display: none; }
 
 @media screen and (max-width: 599.9px) {
   .n-row:not(.n-half) {

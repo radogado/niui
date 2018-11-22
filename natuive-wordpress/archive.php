@@ -3,7 +3,7 @@
 	<main role="main" class="_3-4">
 		
 		<!-- section -->
-		<section>
+		<section class="n-section">
 
 			<h1><?php _e( 'Archives', 'html5blank' ); ?></h1>
 

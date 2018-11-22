@@ -62,7 +62,7 @@ $bg: #1E8DaC;
       line-height: 1.5;
       min-height: 1.5em;
       height: 3em; }
-    .n-fold.n-fold--mobile .content {
+    .n-fold.n-fold--mobile .n-fold--content {
       /* hidden fold item */
       overflow: visible; }
   .n-fold:not([data-init]):not(.n-fold--mobile) .n-fold--content {

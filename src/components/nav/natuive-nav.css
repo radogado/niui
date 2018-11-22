@@ -50,9 +50,8 @@ $bg: #1E8DaC;
     text-decoration: none; }
   .n-nav li:last-child a, .n-nav li a {
     padding-right: 0; }
-
-.n-nav.n-row {
-  display: inline-flex; }
+  .n-nav.n-row {
+    display: inline-flex; }
 
 @supports (--a: 1) {
   .n-nav--scroll a {

@@ -6,7 +6,7 @@
 
 .grid-inline-popup {
 	
-	> .popup {
+	> .grid-inline-popup--popup {
 	
 		width: 100%;
 	    flex-basis: 100%;
@@ -18,9 +18,15 @@
 		padding-top: 0;
 		padding-bottom: 0;
 		
+		&:not([aria-expanded]) {
+		
+			display: none;
+		
+		}
+		
 	}
 
-	> div:not(.popup) {
+	> div:not(.grid-inline-popup--popup) {
 		
 		cursor: zoom-in;
 	
@@ -32,10 +38,4 @@
 	
 	}
 	
-	> .popup:not([aria-expanded]) {
-		
-		display: none;
-		
-	}
-
 }

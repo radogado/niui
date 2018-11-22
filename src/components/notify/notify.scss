@@ -11,20 +11,20 @@
 	cursor: pointer;
     z-index: 1;
 
-}
-
-.n-notify:after {
+	&:after {
+		
+		content: ' ✕';
 	
-	content: ' ✕';
-
-}
-
-.n-notify.n-notify--fixed {
-
-	font-weight: 500;
-	position: fixed;
-	left: 0;
-	right: 0;
-	z-index: 2;
+	}
+	
+	&.n-notify--fixed {
+	
+		font-weight: 500;
+		position: fixed;
+		left: 0;
+		right: 0;
+		z-index: 2;
+	
+	}
 
 }

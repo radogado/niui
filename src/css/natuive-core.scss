@@ -35,6 +35,13 @@ body {
 	color: $color; /* Fallback when CSS variables aren't supported */
 	color: var(--color);
 	background: var(--bg, $bg);
+	
+	* {
+
+		box-sizing: border-box;
+		-webkit-tap-highlight-color: rgba(0,0,0,0); /* iOS: Don't flash on tap */
+	
+	}
 
 }
 
@@ -52,14 +59,7 @@ body {
 
 }
 
-body * {
-
-	box-sizing: border-box;
-	-webkit-tap-highlight-color: rgba(0,0,0,0); /* iOS: Don't flash on tap */
-
-}
-
-img, picture, .lightbox a {
+img, picture, .n-lightbox a {
 
 	max-width: 100%; // Prevent images overflowing
 	height: auto;
@@ -222,11 +222,11 @@ video {
 
 	position: fixed;
 
-}
-
-.n-header.n-fixed {
-
-	position: static;
+	&.n-header {
+	
+		position: static;
+	
+	}
 
 }
 
@@ -285,21 +285,25 @@ a[href].span-relative-parent {
 
 	}
 
-	.n-header .head-right {
+	.n-header {
+		
+		 .head-right {
 
-		text-align: start;
+		 text-align: start;
 
-	}
+		 }
 
-	.n-header.n-fixed {
-
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		background: #fff;
-		z-index: 7;
-
+		&.n-fixed {
+	
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			background: #fff;
+			z-index: 7;
+	
+		}
+		
 	}
 
 }

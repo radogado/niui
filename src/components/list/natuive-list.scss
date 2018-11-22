@@ -169,21 +169,19 @@ ul.n-list.n-list--inline, ul.n-list.n-list--inline li, .n-nav.n-nav--scroll ul l
 
 }
 
-.n-nav ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li {
+.n-nav ul.n-list {
 	
-	margin-left: 0;
-
-}
-
-.n-nav ul.n-list li:before {
+	&:not(.n-list--no-bullet):not(.n-list--inline) li {
 	
-	display: none;
-
-}
-
-[dir=rtl] ol.n-list > li:before {
-
-    margin: 0 0 0 .5em;
+		margin-left: 0;
+	
+	}
+	
+	li:before {
+		
+		display: none;
+	
+	}
 
 }
 
@@ -192,5 +190,10 @@ ul.n-list.n-list--inline, ul.n-list.n-list--inline li, .n-nav.n-nav--scroll ul l
 	margin: $line-height-em 2.3em $line-height-em/2 0;
 // 	margin: calc(var(--line-height-em)/2) 2.3em calc(var(--line-height-em)/2) 0;
 
-}
+	&:before {
+	
+	    margin: 0 0 0 .5em;
+	
+	}
 
+}

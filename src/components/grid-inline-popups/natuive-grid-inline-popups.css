@@ -17,7 +17,7 @@ $bg: #1E8DaC;
   --color: #333;
   --bg: #fff; }
 
-.grid-inline-popup > .popup {
+.grid-inline-popup > .grid-inline-popup--popup {
   width: 100%;
   flex-basis: 100%;
   order: 0;
@@ -27,11 +27,11 @@ $bg: #1E8DaC;
   margin-bottom: 0;
   padding-top: 0;
   padding-bottom: 0; }
-.grid-inline-popup > div:not(.popup) {
+  .grid-inline-popup > .grid-inline-popup--popup:not([aria-expanded]) {
+    display: none; }
+.grid-inline-popup > div:not(.grid-inline-popup--popup) {
   cursor: zoom-in; }
-  .grid-inline-popup > div:not(.popup)[aria-expanded] {
+  .grid-inline-popup > div:not(.grid-inline-popup--popup)[aria-expanded] {
     cursor: zoom-out; }
-.grid-inline-popup > .popup:not([aria-expanded]) {
-  display: none; }
 
 /*# sourceMappingURL=natuive-grid-inline-popups.css.map */

@@ -97,14 +97,12 @@ ul.n-list.n-list--inline, ul.n-list.n-list--inline li, .n-nav.n-nav--scroll ul l
 
 .n-nav ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li {
   margin-left: 0; }
-
 .n-nav ul.n-list li:before {
   display: none; }
 
-[dir=rtl] ol.n-list > li:before {
-  margin: 0 0 0 .5em; }
-
 [dir=rtl] ol.n-list > li {
   margin: 1.5em 2.3em 0.75em 0; }
+  [dir=rtl] ol.n-list > li:before {
+    margin: 0 0 0 .5em; }
 
 /*# sourceMappingURL=natuive-list.css.map */

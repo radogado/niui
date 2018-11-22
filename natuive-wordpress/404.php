@@ -2,7 +2,7 @@
 
 	<main role="main" class="_3-4">
 		<!-- section -->
-		<section>
+		<section class="n-section">
 
 			<!-- article -->
 			<article id="post-404">

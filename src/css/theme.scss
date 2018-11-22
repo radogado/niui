@@ -9,36 +9,40 @@ body {
 
 }
 
-li > h4 {
+.n-list li > h4 {
 	
 	margin-top: -1px;
 
 }
 
-h1, h2, h3, h4, h5 {
+.n-type {
 	
-	font-weight: 500;
-	color: #488e89;
-
-}
-
-b {
+	h1, h2, h3, h4, h5 {
+		
+		font-weight: 500;
+		color: #488e89;
 	
-	font-weight: bold;
-
-}
-
-a[href] {
-
-	color: #333;
-
-}
-
-	a[href]:hover, input[type=submit]:hover, a.n-btn[href]:hover, button.n-btn:hover {
-
-		color: #ee8822;
-
 	}
+	
+	b {
+		
+		font-weight: bold;
+	
+	}
+
+	a[href] {
+	
+		color: #333;
+	
+	}
+	
+		a[href]:hover, input[type=submit]:hover, a.n-btn[href]:hover, button.n-btn:hover {
+	
+			color: #ee8822;
+	
+		}
+	
+}
 
 nav.n-nav {
 	
@@ -215,7 +219,7 @@ form#language-selector select {
 
 }
 
-.checkbox-icon {
+.n-form--check-icon {
 
 	background: rgba(0,221,240,1);
 

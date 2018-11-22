@@ -269,7 +269,7 @@ li pre {
 
 }
 
-.grid-inline-popup > div:not(.popup) {
+.grid-inline-popup > div:not(.grid-inline-popup--popup) {
 
 	text-align: center;
 	background: lightseagreen;
@@ -277,7 +277,7 @@ li pre {
 	
 }
 
-.grid-inline-popup > .popup {
+.grid-inline-popup > .grid-inline-popup--popup {
 	
     background: lightcyan;
    

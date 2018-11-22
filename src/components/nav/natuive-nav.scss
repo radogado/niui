@@ -73,14 +73,14 @@
 
 	}
 
+	&.n-row {
+		
+		display: inline-flex;
+	
+	}
+	
 }
 
-.n-nav.n-row {
-	
-	display: inline-flex;
-
-}
-	
 @supports (--a: 1) {
 	
 	.n-nav--scroll {

@@ -27,7 +27,7 @@
 		
 		}
 	
-		p { /* Image captions */
+		p.n-lightbox--caption { /* Image captions */
 		
 			position: absolute;
 			bottom: 57px;
@@ -160,7 +160,7 @@
 
 }
 
-.n-slider.n-lightbox.detached-nav > * p, .n-slider--wrap.n-slider--outside .n-slider.n-lightbox > * p {
+.n-slider.n-lightbox.n-slider--detached-nav > * p, .n-slider--wrap.n-slider--outside .n-slider.n-lightbox > * p {
 	
 	bottom: 0;
 	margin-bottom: .5em;
@@ -285,7 +285,7 @@
 }
 
 
-.n-aspect > .n-lightbox--thumbnails.n-slider--wrap > .n-slider.n-slider--vertical[data-ready] > * > p {
+.n-aspect > .n-lightbox--thumbnails.n-slider--wrap > .n-slider.n-slider--vertical[data-ready] > * > p.n-lightbox--caption {
 		
 	height: auto;
 	
@@ -309,14 +309,14 @@
 		
 		}
 		
-		&:not(.n-slider--top) .n-slider.n-lightbox > * p {
+		&:not(.n-slider--top) .n-slider.n-lightbox > * p.n-lightbox--caption {
 			
 			bottom: auto;
 		    top: -1.5em;
 			
 		}
 
-		.n-slider.n-lightbox.n-slider--vertical > * p {
+		.n-slider.n-lightbox.n-slider--vertical > * p.n-lightbox--caption {
 			
 			bottom: 3em;
 			top: auto;

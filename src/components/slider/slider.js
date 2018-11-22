@@ -656,8 +656,8 @@ var componentSlider = (function (){
 
 		if (el.id && (slider_nav = q('.n-slider--nav[data-for=' + el.id + ']'))) { // Detached nav
 			
-			addClass(container, 'detached-nav');
-			addClass(el, 'detached-nav');
+			addClass(container, 'n-slider--detached-nav');
+			addClass(el, 'n-slider--detached-nav');
 			transferClass(container, slider_nav, 'n-slider--vertical');
 	
 		} else {

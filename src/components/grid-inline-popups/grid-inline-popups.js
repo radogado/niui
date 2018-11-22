@@ -10,8 +10,8 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		
 		var id = `id${new Date().getTime()}`; // Unique id
 		el.id = el.id || id;
-		var cells = el.querySelectorAll(`#${el.id} > div:not(.popup)`);
-		var popups = el.querySelectorAll(`#${el.id} > .popup`);
+		var cells = el.querySelectorAll(`#${el.id} > div:not(.grid-inline-popup--popup)`);
+		var popups = el.querySelectorAll(`#${el.id} > .grid-inline-popup--popup`);
 		
 		if (el.id === id) {
 			
@@ -94,7 +94,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 					
 			function openCell(e) {
 				
-				var current_popup = e.target.closest('.grid-inline-popup').querySelector('.popup[aria-expanded]');
+				var current_popup = e.target.closest('.grid-inline-popup').querySelector('.grid-inline-popup--popup[aria-expanded]');
 				if (current_popup) {
 					
 					current_popup.style.maxHeight = current_popup.scrollHeight + 'px';

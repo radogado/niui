@@ -62,20 +62,6 @@
 		
 		// Focus on clicked slider
 		
-	/*
-		if (q('.n-slider--wrap.active')) {
-			
-			removeClass(q('.n-slider--wrap.active'), 'active')
-			
-		}
-		
-		if (closest(el, '.slider')) {
-			
-			addClass(closest(el, '.n-slider--wrap'), 'active');
-			
-		}
-	*/
-	
 		if (el.closest('.n-slider')) {
 	
 			current_slider = el.closest('.n-slider');
@@ -137,17 +123,9 @@
 		
 	}
 	
-	window.addEventListener('click', (e) => { // Close all Fold elements when clicking outside of them
-		
-		closeFoldClickOutside(e);
-		
-	});
+	window.addEventListener('click', closeFoldClickOutside); // Close all Fold elements when clicking outside of them
 	
-	window.addEventListener('touchend', (e) => { // Close all Fold elements when clicking outside of them
-		
-		closeFoldClickOutside(e);
-		
-	});
+	window.addEventListener('touchend', closeFoldClickOutside); // Close all Fold elements when clicking outside of them
 		
 	window.addEventListener('scroll', () => {  // Close fixed n-ovrl if its scrolling becomes a window scroll. Idea by a Google mobile nav.
 		

@@ -163,7 +163,7 @@
 									<li>add <pre>.n-push-up</pre> to balance at 1/3 height, instead of 1/2</li>
 								</ul>
 							</li>
-							<li>Use <pre>section</pre> elements in <pre>main</pre> to clear inner margins at top/bottom</li>
+							<li>Use <pre>.n-section</pre> containers in <pre>main</pre> to clear inner margins at top/bottom</li>
 							<li><pre>.n-header.n-fixed</pre> for fixed header on top on narrow screens (below 600px threshold)</li>
 							<li>Include <b>natuive.js</b> from src/script instead of <b>natuive.min.js</b> to use <pre>nui.animate()</pre> etc.</li>
 							<li><b>body.n-sticky-footer</b> for a sticky footer and vertical space taken by <b>main</b>.</li>
@@ -3778,33 +3778,33 @@
 							<div class='n-row grid-inline-popup'>
 	
 	<div>1</div>
-	<div class="popup">Popup for #1</div>
+	<div class="grid-inline-popup--popup">Popup for #1</div>
 	<div>2</div>
-	<div class="popup">Popup for #2<br>break</div>
+	<div class="grid-inline-popup--popup">Popup for #2<br>break</div>
 	<div>3</div>
-	<div class="popup">Popup for #3</div>
+	<div class="grid-inline-popup--popup">Popup for #3</div>
 	<div>4</div>
-	<div class="popup">Popup for #4</div>
+	<div class="grid-inline-popup--popup">Popup for #4</div>
 	<div>5</div>
-	<div class="popup">Popup for #5</div>
+	<div class="grid-inline-popup--popup">Popup for #5</div>
 	<div>6</div>
-	<div class="popup">Popup for #6</div>
+	<div class="grid-inline-popup--popup">Popup for #6</div>
 	<div>7</div>
-	<div class="popup">Popup for #7</div>
+	<div class="grid-inline-popup--popup">Popup for #7</div>
 	<div>8</div>
-	<div class="popup">Popup for #8</div>
+	<div class="grid-inline-popup--popup">Popup for #8</div>
 	<div>9</div>
-	<div class="popup">Popup for #9</div>
+	<div class="grid-inline-popup--popup">Popup for #9</div>
 	<div>10</div>
-	<div class="popup">Popup for #10</div>
+	<div class="grid-inline-popup--popup">Popup for #10</div>
 	<div>11</div>
-	<div class="popup">Popup for #11</div>
+	<div class="grid-inline-popup--popup">Popup for #11</div>
 	<div>12</div>
-	<div class="popup">Popup for #12</div>
+	<div class="grid-inline-popup--popup">Popup for #12</div>
 	<div>13</div>
-	<div class="popup">Popup for #13</div>
+	<div class="grid-inline-popup--popup">Popup for #13</div>
 	<div>14</div>
-	<div class="popup">Popup for #14</div>
+	<div class="grid-inline-popup--popup">Popup for #14</div>
 
 </div>
 
@@ -3813,17 +3813,17 @@
 							<div class='n-row grid-inline-popup'>
 	
 	<div class="_1-3">1</div>
-	<div class="popup">Popup for #1</div>
+	<div class="grid-inline-popup--popup">Popup for #1</div>
 	<div class="_1-3">2</div>
-	<div class="popup">Popup for #2<br>break</div>
+	<div class="grid-inline-popup--popup">Popup for #2<br>break</div>
 	<div class="_1-3">3</div>
-	<div class="popup">Popup for #3</div>
+	<div class="grid-inline-popup--popup">Popup for #3</div>
 	<div class="_1-3">4</div>
-	<div class="popup">Popup for #4</div>
+	<div class="grid-inline-popup--popup">Popup for #4</div>
 	<div class="_1-3">5</div>
-	<div class="popup">Popup for #5</div>
+	<div class="grid-inline-popup--popup">Popup for #5</div>
 	<div class="_1-3">6</div>
-	<div class="popup">Popup for #6</div>
+	<div class="grid-inline-popup--popup">Popup for #6</div>
 
 </div>
 
@@ -3832,17 +3832,17 @@
 <pre><code class="language-markup">&lt;div class='n-row grid-inline-popup'&gt;
 	
 	&lt;div class=&quot;_1-3&quot;&gt;1&lt;/div&gt;
-	&lt;div class=&quot;popup&quot;&gt;Popup for #1&lt;/div&gt;
+	&lt;div class=&quot;grid-inline-popup--popup&quot;&gt;Popup for #1&lt;/div&gt;
 	&lt;div class=&quot;_1-3&quot;&gt;2&lt;/div&gt;
-	&lt;div class=&quot;popup&quot;&gt;Popup for #2&lt;/div&gt;
+	&lt;div class=&quot;grid-inline-popup--popup&quot;&gt;Popup for #2&lt;/div&gt;
 	&lt;div class=&quot;_1-3&quot;&gt;3&lt;/div&gt;
-	&lt;div class=&quot;popup&quot;&gt;Popup for #3&lt;/div&gt;
+	&lt;div class=&quot;grid-inline-popup--popup&quot;&gt;Popup for #3&lt;/div&gt;
 	&lt;div class=&quot;_1-3&quot;&gt;4&lt;/div&gt;
-	&lt;div class=&quot;popup&quot;&gt;Popup for #4&lt;/div&gt;
+	&lt;div class=&quot;grid-inline-popup--popup&quot;&gt;Popup for #4&lt;/div&gt;
 	&lt;div class=&quot;_1-3&quot;&gt;5&lt;/div&gt;
-	&lt;div class=&quot;popup&quot;&gt;Popup for #5&lt;/div&gt;
+	&lt;div class=&quot;grid-inline-popup--popup&quot;&gt;Popup for #5&lt;/div&gt;
 	&lt;div class=&quot;_1-3&quot;&gt;6&lt;/div&gt;
-	&lt;div class=&quot;popup&quot;&gt;Popup for #6&lt;/div&gt;
+	&lt;div class=&quot;grid-inline-popup--popup&quot;&gt;Popup for #6&lt;/div&gt;
 
 &lt;/div&gt;</code>
 </pre>

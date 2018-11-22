@@ -1,7 +1,7 @@
-natUIve: mostly native front-end framework
-===
+# natUIve: mostly native front-end framework
 
-~15 KB framework leveraging browsers' built-in capabilities, with subtle customisation. 
+
+9+9 KB framework leveraging browsers' built-in capabilities, with subtle customisation. 
 
 To use natUIve, copy **dist** and edit **dist/index.html**. Check the [Guide](http://radogado.github.io/natuive/guide.html) for details.
 
@@ -12,12 +12,15 @@ NPM usage:
 
 ---
 
-natUIve demo pages: [Features demo](http://radogado.github.io/natuive/kitchen.html), [WordPress theme](http://rado.bg), [Classless demo](http://radogado.github.io/natuive/demos/classless.html), [Microsoft](http://radogado.github.io/natuive/demos/microsoft/), [Imperial Innovations](http://radogado.github.io/natuive/demos/imperialinnovations/), [Pebble homepage](http://radogado.github.io/natuive/demos/pebble/), [Seat 61](http://radogado.github.io/natuive/demos/seat61/), [JetBlue](http://radogado.github.io/natuive/demos/jetblue/), [Mitsubishi Regional Jet](http://radogado.github.io/natuive/demos/mrj/), [MUBI](http://radogado.github.io/natuive/demos/mubi/), [SWISS](http://radogado.github.io/natuive/demos/swiss/), [Mapbox](http://radogado.github.io/natuive/demos/mapbox/), [Airbnb](http://radogado.github.io/natuive/demos/airbnb/), [GOV.UK](http://radogado.github.io/natuive/demos/gov.uk/), [Google Design](http://radogado.github.io/natuive/demos/google-design/), [Daring Fireball](http://radogado.github.io/natuive/demos/daringfireball/), [Vitsœ](http://radogado.github.io/natuive/demos/vitsoe/), [Apple](http://radogado.github.io/natuive/demos/apple/), [Brand Union](http://radogado.github.io/natuive/demos/brandunion/), [Tesla](http://radogado.github.io/natuive/demos/tesla/), [Amnesty](http://radogado.github.io/natuive/demos/amnesty/), [Stripe](http://radogado.github.io/natuive/demos/stripe/), [Star Wars](http://radogado.github.io/natuive/demos/starwars/), [Norwegian](http://radogado.github.io/natuive/demos/norwegian/), [David Bowie Is (Japan)](http://radogado.github.io/natuive/demos/davidbowieis/), [Uncharted: The Lost Legacy](http://radogado.github.io/natuive/demos/uncharted-the-lost-legacy/), [Seehotel Jägerwirt](http://radogado.github.io/natuive/demos/seehotel-jaegerwirt/), [Truphone](http://radogado.github.io/natuive/demos/truphone/), [Pixel Pioneers](http://radogado.github.io/natuive/demos/pixelpioneers/), [Apex](http://radogado.github.io/natuive/demos/apex/), [Loco2](http://radogado.github.io/natuive/demos/loco2/), [VI.nl](http://radogado.github.io/natuive/demos/vi.nl/), [Nikon D850](http://radogado.github.io/natuive/demos/nikon-d850/), [Enoden](http://radogado.github.io/natuive/demos/enoden/), [Tuts+](http://radogado.github.io/natuive/demos/tutsplus/), [Hasselblad Chinese](http://radogado.github.io/natuive/demos/hasselblad/), [CNN Travel](http://radogado.github.io/natuive/demos/cnn-travel/), [Postbank](http://radogado.github.io/natuive/demos/postbank/)
+## Demo pages
+
+[Kitchen sink](http://radogado.github.io/natuive/kitchen.html), [WordPress theme](http://rado.bg), [Microsoft](http://radogado.github.io/natuive/demos/microsoft/), [Imperial Innovations](http://radogado.github.io/natuive/demos/imperialinnovations/), [Pebble homepage](http://radogado.github.io/natuive/demos/pebble/), [Seat 61](http://radogado.github.io/natuive/demos/seat61/), [JetBlue](http://radogado.github.io/natuive/demos/jetblue/), [Mitsubishi Regional Jet](http://radogado.github.io/natuive/demos/mrj/), [MUBI](http://radogado.github.io/natuive/demos/mubi/), [SWISS](http://radogado.github.io/natuive/demos/swiss/), [Mapbox](http://radogado.github.io/natuive/demos/mapbox/), [Airbnb](http://radogado.github.io/natuive/demos/airbnb/), [GOV.UK](http://radogado.github.io/natuive/demos/gov.uk/), [Google Design](http://radogado.github.io/natuive/demos/google-design/), [Daring Fireball](http://radogado.github.io/natuive/demos/daringfireball/), [Vitsœ](http://radogado.github.io/natuive/demos/vitsoe/), [Apple](http://radogado.github.io/natuive/demos/apple/), [Brand Union](http://radogado.github.io/natuive/demos/brandunion/), [Tesla](http://radogado.github.io/natuive/demos/tesla/), [Amnesty](http://radogado.github.io/natuive/demos/amnesty/), [Stripe](http://radogado.github.io/natuive/demos/stripe/), [Star Wars](http://radogado.github.io/natuive/demos/starwars/), [Norwegian](http://radogado.github.io/natuive/demos/norwegian/), [David Bowie Is (Japan)](http://radogado.github.io/natuive/demos/davidbowieis/), [Uncharted: The Lost Legacy](http://radogado.github.io/natuive/demos/uncharted-the-lost-legacy/), [Seehotel Jägerwirt](http://radogado.github.io/natuive/demos/seehotel-jaegerwirt/), [Truphone](http://radogado.github.io/natuive/demos/truphone/), [Pixel Pioneers](http://radogado.github.io/natuive/demos/pixelpioneers/), [Apex](http://radogado.github.io/natuive/demos/apex/), [Loco2](http://radogado.github.io/natuive/demos/loco2/), [VI.nl](http://radogado.github.io/natuive/demos/vi.nl/), [Nikon D850](http://radogado.github.io/natuive/demos/nikon-d850/), [Enoden](http://radogado.github.io/natuive/demos/enoden/), [Tuts+](http://radogado.github.io/natuive/demos/tutsplus/), [Hasselblad Chinese](http://radogado.github.io/natuive/demos/hasselblad/), [CNN Travel](http://radogado.github.io/natuive/demos/cnn-travel/), [Postbank](http://radogado.github.io/natuive/demos/postbank/)
 
 ---
 
 - Unbreakable, flexible (no hardcoded dimensions), responsive grid. Supports Bootstrap-style wrapping columns, but with ._1-3 (1/3) etc., instead of .col...4 (4/12). Auto equal width columns with equal height and vertical alignment.
 - Baseline-aligned text elements*
+- Unique BEM-like class names
 - Embeddable grid and elements*
 - Built around edge cases (overflowing content etc)*
 - CSS reset
@@ -72,11 +75,13 @@ natUIve demo pages: [Features demo](http://radogado.github.io/natuive/kitchen.ht
 
 \* exclusive features, missing in popular frameworks
 
-© 2014-2018 [rado.bg](http://rado.bg)
+© 2014-2019 [rado.bg](http://rado.bg)
 
-Standalone components: [Accordion](https://github.com/radogado/n-accordion), [Slider](https://github.com/radogado/native-slider)
+## Standalone components
 
-–––
+[Accordion](https://github.com/radogado/n-accordion), [Slider](https://github.com/radogado/native-slider)
+
+## Changelog
 
 natUIve 1.13
 

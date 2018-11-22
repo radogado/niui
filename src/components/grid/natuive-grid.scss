@@ -341,17 +341,17 @@
 
 }
 
-section {
+.n-section {
 	
 	position: relative;
 
-}
-
-section:before, section:after { // Prevent inner edge margins from creating blank space between sections
+	&:before, &:after { // Prevent inner edge margins from creating blank space between sections
+		
+		content: '';
+		display: table;
+		width: 100%;
 	
-	content: '';
-	display: table;
-	width: 100%;
+	}
 
 }
 
@@ -533,40 +533,6 @@ section:before, section:after { // Prevent inner edge margins from creating blan
 	
 	box-shadow: none;
 
-}
-
-// Grid with inline popup
-
-.grid-inline-popup > .popup {
-	
-	width: 100%;
-    flex-basis: 100%;
-	order: 0;
-	will-change: max-height;
-	/* avoid glitchy animation: */
-	margin-top: 0;
-	margin-bottom: 0;
-	padding-top: 0;
-	padding-bottom: 0;
-	
-}
-
-.grid-inline-popup > div:not(.popup) {
-	
-	cursor: zoom-in;
-
-}
-
-.grid-inline-popup > div:not(.popup)[aria-expanded] {
-	
-	cursor: zoom-out;
-
-}
-
-.grid-inline-popup > .popup:not([aria-expanded]) {
-	
-	display: none;
-	
 }
 
 @media screen and (max-width: $screen-narrow-max) {

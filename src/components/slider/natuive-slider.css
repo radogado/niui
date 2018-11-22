@@ -137,7 +137,7 @@ $bg: #1E8DaC;
   max-height: 100%;
   z-index: 1; }
 
-.n-slider--vertical.n-tabs:not(.detached-nav) > .n-slider {
+.n-slider--vertical.n-tabs:not(.n-slider--detached-nav) > .n-slider {
   width: 75%;
   float: right; }
 .n-slider--vertical.n-tabs > .n-slider--nav.n-row, .n-slider--vertical.n-tabs > .n-slider--nav.n-row.n-tabs, .n-slider--vertical.n-tabs > .n-pad > .n-slider--nav.n-row.n-tabs {

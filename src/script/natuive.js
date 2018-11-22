@@ -863,20 +863,6 @@ qa('a[href^="#"]').forEach((el) => {
 		
 		// Focus on clicked slider
 		
-	/*
-		if (q('.n-slider--wrap.active')) {
-			
-			removeClass(q('.n-slider--wrap.active'), 'active')
-			
-		}
-		
-		if (closest(el, '.slider')) {
-			
-			addClass(closest(el, '.n-slider--wrap'), 'active');
-			
-		}
-	*/
-	
 		if (el.closest('.n-slider')) {
 	
 			current_slider = el.closest('.n-slider');
@@ -938,17 +924,9 @@ qa('a[href^="#"]').forEach((el) => {
 		
 	}
 	
-	window.addEventListener('click', (e) => { // Close all Fold elements when clicking outside of them
-		
-		closeFoldClickOutside(e);
-		
-	});
+	window.addEventListener('click', closeFoldClickOutside); // Close all Fold elements when clicking outside of them
 	
-	window.addEventListener('touchend', (e) => { // Close all Fold elements when clicking outside of them
-		
-		closeFoldClickOutside(e);
-		
-	});
+	window.addEventListener('touchend', closeFoldClickOutside); // Close all Fold elements when clicking outside of them
 		
 	window.addEventListener('scroll', () => {  // Close fixed n-ovrl if its scrolling becomes a window scroll. Idea by a Google mobile nav.
 		
@@ -1193,8 +1171,8 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		
 		var id = `id${new Date().getTime()}`; // Unique id
 		el.id = el.id || id;
-		var cells = el.querySelectorAll(`#${el.id} > div:not(.popup)`);
-		var popups = el.querySelectorAll(`#${el.id} > .popup`);
+		var cells = el.querySelectorAll(`#${el.id} > div:not(.grid-inline-popup--popup)`);
+		var popups = el.querySelectorAll(`#${el.id} > .grid-inline-popup--popup`);
 		
 		if (el.id === id) {
 			
@@ -1277,7 +1255,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 					
 			function openCell(e) {
 				
-				var current_popup = e.target.closest('.grid-inline-popup').querySelector('.popup[aria-expanded]');
+				var current_popup = e.target.closest('.grid-inline-popup').querySelector('.grid-inline-popup--popup[aria-expanded]');
 				if (current_popup) {
 					
 					current_popup.style.maxHeight = current_popup.scrollHeight + 'px';
@@ -1556,7 +1534,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		    
 			var caption = el.title ? el.title : (el.querySelector('img') ? el.querySelector('img').title : '');
 					    
-		    images += `<div><img data-src="${url}" title="${caption}" data-link="${slide_link}">${(caption ? ('<p>' + caption + '</p>') : '') + link_element}</div>`;
+		    images += `<div><img data-src="${url}" title="${caption}" data-link="${slide_link}">${(caption ? ('<p class=n-lightbox--caption>' + caption + '</p>') : '') + link_element}</div>`;
 	
 	        // Attach onload event to each image to display it only when fully loaded and avoid top-to-bottom reveal?
 	
@@ -3128,8 +3106,8 @@ var componentSlider = (function (){
 
 		if (el.id && (slider_nav = q('.n-slider--nav[data-for=' + el.id + ']'))) { // Detached nav
 			
-			addClass(container, 'detached-nav');
-			addClass(el, 'detached-nav');
+			addClass(container, 'n-slider--detached-nav');
+			addClass(el, 'n-slider--detached-nav');
 			transferClass(container, slider_nav, 'n-slider--vertical');
 	
 		} else {

@@ -2,7 +2,7 @@
 
 	<main role="main" class="_3-4">
 		<!-- section -->
-		<section>
+		<section class="n-section">
 
 			<h1><?php _e( 'Categories for ', 'html5blank' ); single_cat_title(); ?></h1>
 

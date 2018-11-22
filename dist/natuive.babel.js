@@ -681,20 +681,6 @@ var nui = function () {
         });
       } // Focus on clicked slider
 
-      /*
-      	if (q('.n-slider--wrap.active')) {
-      		
-      		removeClass(q('.n-slider--wrap.active'), 'active')
-      		
-      	}
-      	
-      	if (closest(el, '.slider')) {
-      		
-      		addClass(closest(el, '.n-slider--wrap'), 'active');
-      		
-      	}
-      */
-
 
       if (el.closest('.n-slider')) {
         current_slider = el.closest('.n-slider');
@@ -743,14 +729,10 @@ var nui = function () {
       });
     }
 
-    window.addEventListener('click', function (e) {
-      // Close all Fold elements when clicking outside of them
-      closeFoldClickOutside(e);
-    });
-    window.addEventListener('touchend', function (e) {
-      // Close all Fold elements when clicking outside of them
-      closeFoldClickOutside(e);
-    });
+    window.addEventListener('click', closeFoldClickOutside); // Close all Fold elements when clicking outside of them
+
+    window.addEventListener('touchend', closeFoldClickOutside); // Close all Fold elements when clicking outside of them
+
     window.addEventListener('scroll', function () {
       // Close fixed n-ovrl if its scrolling becomes a window scroll. Idea by a Google mobile nav.
       var expanded_nav = q('.n-fixed-mobile .n-fold.n-fold--mobile[aria-expanded]');
@@ -907,8 +889,8 @@ var nui = function () {
         var id = "id".concat(new Date().getTime()); // Unique id
 
         el.id = el.id || id;
-        var cells = el.querySelectorAll("#".concat(el.id, " > div:not(.popup)"));
-        var popups = el.querySelectorAll("#".concat(el.id, " > .popup"));
+        var cells = el.querySelectorAll("#".concat(el.id, " > div:not(.grid-inline-popup--popup)"));
+        var popups = el.querySelectorAll("#".concat(el.id, " > .grid-inline-popup--popup"));
 
         if (el.id === id) {
           el.removeAttribute('id');
@@ -971,7 +953,7 @@ var nui = function () {
           }
 
           function openCell(e) {
-            var current_popup = e.target.closest('.grid-inline-popup').querySelector('.popup[aria-expanded]');
+            var current_popup = e.target.closest('.grid-inline-popup').querySelector('.grid-inline-popup--popup[aria-expanded]');
 
             if (current_popup) {
               current_popup.style.maxHeight = current_popup.scrollHeight + 'px';
@@ -1182,7 +1164,7 @@ var nui = function () {
         var link_element = hasClass(lightbox, 'n-lightbox--inline') || !lightbox.getAttribute('id') ? '' : "<a class=\"n-btn n-lightbox--copy\" href=".concat(slide_link, "></a>");
         var url = hasClass(lightbox, 'n-slider') ? el.querySelector('img') ? el.querySelector('img').getAttribute('data-src') : '' : el.href;
         var caption = el.title ? el.title : el.querySelector('img') ? el.querySelector('img').title : '';
-        images += "<div><img data-src=\"".concat(url, "\" title=\"").concat(caption, "\" data-link=\"").concat(slide_link, "\">").concat((caption ? '<p>' + caption + '</p>' : '') + link_element, "</div>"); // Attach onload event to each image to display it only when fully loaded and avoid top-to-bottom reveal?
+        images += "<div><img data-src=\"".concat(url, "\" title=\"").concat(caption, "\" data-link=\"").concat(slide_link, "\">").concat((caption ? '<p class=n-lightbox--caption>' + caption + '</p>' : '') + link_element, "</div>"); // Attach onload event to each image to display it only when fully loaded and avoid top-to-bottom reveal?
       });
       lightbox_target.innerHTML = images;
 
@@ -2407,8 +2389,8 @@ var nui = function () {
 
       if (el.id && (slider_nav = q('.n-slider--nav[data-for=' + el.id + ']'))) {
         // Detached nav
-        addClass(container, 'detached-nav');
-        addClass(el, 'detached-nav');
+        addClass(container, 'n-slider--detached-nav');
+        addClass(el, 'n-slider--detached-nav');
         transferClass(container, slider_nav, 'n-slider--vertical');
       } else {
         container.insertAdjacentHTML(hasClass(container, 'n-slider--top') ? 'afterbegin' : 'beforeend', '<div class=n-slider--nav></div>');
