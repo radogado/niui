@@ -99,7 +99,13 @@
 #content img {
 	
 	display: block;
-	margin: 0 auto;
+	
+	:not(.avatar) {
+		
+		margin: 0 auto;
+		
+	}
+	
 }
 
 #content .n-aspect img {
@@ -158,6 +164,10 @@ button.search-submit {
 }
 
 body {
+
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
 
 	&.home, &.archive, &.search-results {
 
@@ -336,6 +346,7 @@ footer { // Stick footer to the bottom
 	display: flex;
 	justify-content: flex-end;
 	flex-direction: column;
+	padding-bottom: 1em;
 
 }
 
@@ -402,6 +413,13 @@ nav.n-nav.n-drop ul li a[href] {
 		font-size: smaller;
 		
 	}
+
+}
+
+a.backtotop[href] {
+
+	background: none;
+	bottom: -2em;
 
 }
 

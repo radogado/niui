@@ -29,6 +29,7 @@ $comments_args = array(
         // remove "Text or HTML to be displayed after the set of comment fields"
         //'comment_notes_after' => '',
         // redefine your own textarea (the comment body)
+        'class_form' => 'n-form n-form--wide',
         'comment_field' => '<p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun' ) . '</label><textarea id="comment" name="comment" aria-required="true"></textarea></p>',
 );
 
