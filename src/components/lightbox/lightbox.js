@@ -71,7 +71,7 @@ var componentLightbox = (function (){
 				imageLoaded(img);
 				
 			}
-			img.onload = (e) => {
+			img.onload = img.onerror = (e) => {
 				
 				imageLoaded(e.target);
 	

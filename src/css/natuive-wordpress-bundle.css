@@ -43,6 +43,10 @@ body {
   /* Fallback when CSS variables aren't supported */
   color: var(--color);
   background: var(--bg, #fff); }
+  body * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    /* iOS: Don't flash on tap */ }
 
 .n-sticky-footer {
   min-height: 100vh;
@@ -52,12 +56,7 @@ body {
   .n-sticky-footer main {
     flex-grow: 1; }
 
-body * {
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
-  /* iOS: Don't flash on tap */ }
-
-img, picture, .lightbox a {
+img, picture, .n-lightbox a {
   max-width: 100%;
   height: auto;
   border: none;
@@ -145,9 +144,8 @@ video {
     display: none; } }
 .n-fixed {
   position: fixed; }
-
-.n-header.n-fixed {
-  position: static; }
+  .n-fixed.n-header {
+    position: static; }
 
 a[href].span-relative-parent {
   position: absolute;
@@ -181,7 +179,6 @@ a[href].span-relative-parent {
 
   .n-header .head-right {
     text-align: start; }
-
   .n-header.n-fixed {
     position: fixed;
     top: 0;
@@ -2764,20 +2761,17 @@ body {
   color: #555;
   background: #fff; }
 
-li > h4 {
+.n-list li > h4 {
   margin-top: -1px; }
 
-h1, h2, h3, h4, h5 {
+.n-type h1, .n-type h2, .n-type h3, .n-type h4, .n-type h5 {
   font-weight: 500;
   color: #488e89; }
-
-b {
+.n-type b {
   font-weight: bold; }
-
-a[href] {
+.n-type a[href] {
   color: #333; }
-
-a[href]:hover, input[type=submit]:hover, a.n-btn[href]:hover, button.n-btn:hover {
+.n-type a[href]:hover, .n-type input[type=submit]:hover, .n-type a.n-btn[href]:hover, .n-type button.n-btn:hover {
   color: #ee8822; }
 
 nav.n-nav a {
@@ -2874,7 +2868,7 @@ form#language-selector select {
 .social a + a {
   margin-left: 1em; }
 
-.checkbox-icon {
+.n-form--check-icon {
   background: #00ddf0; }
 
 @media screen and (max-width: 640px) {
@@ -2962,7 +2956,8 @@ button.search-submit {
   .n-lightbox.gallery a {
     width: 20%;
     margin: 0;
-    border: 1px solid #fff; }
+    border: 1px solid #fff;
+    text-align: center; }
     .n-lightbox.gallery a:before {
       content: '';
       display: inline-block;
@@ -3100,6 +3095,8 @@ nav.n-nav.n-drop ul li a[href] {
     display: inline-block; }
   .wp-caption.aligncenter {
     margin: 0 auto; }
+  .wp-caption.alignright {
+    margin: 0 0 0 auto; }
   .wp-caption p.wp-caption-text {
     margin-top: 0;
     font-size: smaller; }

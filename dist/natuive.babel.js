@@ -1050,7 +1050,7 @@ var nui = function () {
           imageLoaded(img);
         }
 
-        img.onload = function (e) {
+        img.onload = img.onerror = function (e) {
           imageLoaded(e.target);
         };
 

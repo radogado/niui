@@ -43,6 +43,10 @@ body {
   /* Fallback when CSS variables aren't supported */
   color: var(--color);
   background: var(--bg, #fff); }
+  body * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    /* iOS: Don't flash on tap */ }
 
 .n-sticky-footer {
   min-height: 100vh;
@@ -52,12 +56,7 @@ body {
   .n-sticky-footer main {
     flex-grow: 1; }
 
-body * {
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
-  /* iOS: Don't flash on tap */ }
-
-img, picture, .lightbox a {
+img, picture, .n-lightbox a {
   max-width: 100%;
   height: auto;
   border: none;
@@ -145,9 +144,8 @@ video {
     display: none; } }
 .n-fixed {
   position: fixed; }
-
-.n-header.n-fixed {
-  position: static; }
+  .n-fixed.n-header {
+    position: static; }
 
 a[href].span-relative-parent {
   position: absolute;
@@ -181,7 +179,6 @@ a[href].span-relative-parent {
 
   .n-header .head-right {
     text-align: start; }
-
   .n-header.n-fixed {
     position: fixed;
     top: 0;

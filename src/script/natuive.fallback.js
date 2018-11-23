@@ -1382,7 +1382,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 				imageLoaded(img);
 				
 			}
-			img.onload = (e) => {
+			img.onload = img.onerror = (e) => {
 				
 				imageLoaded(e.target);
 	
