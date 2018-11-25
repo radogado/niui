@@ -123,7 +123,7 @@ module.exports = function(grunt) {
 		  main: {
 		    expand: true,
 		    cwd: 'dist',
-		    src: ['natuive.min.js', 'ie.css', 'ie-fallback.js'],
+		    src: ['natuive.min.js', 'ie.css', 'ie-fallback.js', 'natuive.babel.js'],
 		    dest: 'natuive-wordpress/',
 		  }
 		}  

@@ -1133,7 +1133,7 @@ $bg: #1E8DaC;
       margin: 0 auto; }
     .n-aspect:before {
       content: '';
-      padding-bottom: calc(100%*1/var(--ratio, 1.7778)); }
+      padding-top: calc(100%*1/var(--ratio, 1.7778)); }
     .n-aspect.n-bottom > * {
       align-self: flex-end;
       vertical-align: bottom; }
@@ -2884,7 +2884,7 @@ iframe, article h2 a {
   position: relative;
   overflow: hidden; }
 
-section > article > p, section > article > ol, section > article > ul {
+.n-type section > article > p, .n-type section > article > ol, .n-type section > article > ul {
   max-width: 40em;
   margin: 1.5em auto; }
 
@@ -3002,6 +3002,18 @@ nav.n-nav a {
   .wp-block-image figure, .wp-block-image figure[class*=align] {
     display: block;
     margin: 0; }
+  .wp-block-image, .wp-block-image figure, .wp-block-image figure[class*=align] {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%; }
+  .wp-block-image .aligncenter {
+    text-align: center; }
+    .wp-block-image .aligncenter .n-aspect {
+      margin: 0 auto; }
+  .wp-block-image .alignright {
+    text-align: right; }
+    .wp-block-image .alignright .n-aspect {
+      margin: 0 0 0 auto; }
 
 .n-header .n-fold.n-fold--mobile {
   display: inline-block; }

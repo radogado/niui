@@ -270,7 +270,7 @@
 			&:before {
 				
 				content: '';
-				padding-bottom: calc(100%*1/var(--ratio, 1.7778)); // Default 16:9
+				padding-top: calc(100%*1/var(--ratio, 1.7778)); // Default 16:9
 			
 			}
 		

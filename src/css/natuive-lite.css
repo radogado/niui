@@ -874,7 +874,7 @@ $bg: #1E8DaC;
       margin: 0 auto; }
     .n-aspect:before {
       content: '';
-      padding-bottom: calc(100%*1/var(--ratio, 1.7778)); }
+      padding-top: calc(100%*1/var(--ratio, 1.7778)); }
     .n-aspect.n-bottom > * {
       align-self: flex-end;
       vertical-align: bottom; }

@@ -2,8 +2,6 @@
 
 @charset 'utf-8';
 
-//@import 'theme';
-
 .n-slider--wrap {
 	
 	background: #eee;
@@ -231,13 +229,19 @@ iframe, article h2 a {
 
 }
 
-section > article > {
+.n-type section > article > {
 	
 	p, ol, ul {
 	
 		max-width: 40em;
 		margin: 1.5em auto;
 	
+	}
+	
+	p {
+		
+//		display: flex; // Because of strange top spacing
+		
 	}
 
 }
@@ -456,6 +460,38 @@ nav.n-nav {
 		
 		display: block;
 		margin: 0;
+
+	}
+	
+	&, figure, figure[class*=align] {
+		
+		display: flex;
+		flex-direction: column;
+		max-width: 100%;
+		
+	}
+	
+	.aligncenter {
+		
+		text-align: center;
+		
+		.n-aspect {
+			
+			margin: 0 auto;
+			
+		}
+
+	}
+
+	.alignright {
+		
+		text-align: right;
+
+		.n-aspect {
+			
+			margin: 0 0 0 auto;
+			
+		}
 
 	}
 
