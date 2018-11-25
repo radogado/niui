@@ -42,6 +42,8 @@ html.n-full-screen {
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   backface-visibility: hidden; }
+  .n-ovrl * {
+    box-sizing: border-box; }
 
 .n-ovrl--content {
   position: absolute;

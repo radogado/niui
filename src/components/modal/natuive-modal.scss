@@ -47,6 +47,12 @@ html.n-full-screen {
 
 //    box-shadow: 0 0 0 2px green inset; // Debug
 
+	* {
+		
+		box-sizing: border-box;
+
+	}
+
 }
 
 	.n-ovrl--content {
