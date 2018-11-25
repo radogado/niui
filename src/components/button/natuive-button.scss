@@ -74,7 +74,7 @@ a.backtotop[href] {
 	font-family: 'Hiragino Mincho ProN'; /* fix for iOS */
 	cursor: pointer;
 	position: absolute;
-	bottom: 0;
+	bottom: -1em;
 	left: 50%;
     transform: translateX(-50%);
 	text-decoration: none;
@@ -82,6 +82,7 @@ a.backtotop[href] {
     padding: .5em;
     width: 2em;
     text-align: center;
+	box-sizing: border-box;
 
 }
 
