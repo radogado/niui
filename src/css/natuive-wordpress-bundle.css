@@ -1970,7 +1970,8 @@ main .n-nav ul {
     z-index: 1;
     width: 2em; }
   .n-drop li > ul ~ a, .n-drop li[aria-haspopup] {
-    background: url("data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M50%20100L0%200h100z%22%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E") calc(100% - 16px) 50% no-repeat/0.5em auto; }
+    background: url("data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M50%20100L0%200h100z%22%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E") calc(100% - 16px) 50% no-repeat;
+    background-size: .5em auto; }
   .n-drop[data-ready] li > ul ~ a {
     background: none; }
   .n-drop li li > ul ~ a, .n-drop li li[aria-haspopup] {
