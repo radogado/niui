@@ -28,25 +28,38 @@ $line-height: 34px;
   width: 100%; }
 
 /* Basic elements */
+html {
+  height: 100%; }
+
 html, body {
-  height: 100%;
-  margin: 0 auto;
-  overflow-x: hidden; }
+  /*
+  	height: 100%;
+  	margin: 0 auto;
+  	overflow-x: hidden;
+  */ }
 
 body {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  height: auto;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.5);
-  color: #333;
-  /* Fallback when CSS variables aren't supported */
+  /*
+  	position: relative;
+  	overflow: hidden;
+  	width: 100%;
+  	height: auto; // Problem with Chrome 66
+  
+  	-webkit-tap-highlight-color: rgba(0,0,0,.5);
+  
+  	color: $color; // Fallback when CSS variables aren't supported
+  */
+  margin: 0;
   color: var(--color);
-  background: var(--bg, #fff); }
-  body * {
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
-    /* iOS: Don't flash on tap */ }
+  background: var(--bg, #fff);
+  /*
+  	* {
+  
+  		box-sizing: border-box;
+  		-webkit-tap-highlight-color: rgba(0,0,0,0); // iOS: Don't flash on tap
+  	
+  	}
+  */ }
 
 .n-sticky-footer {
   min-height: 100vh;
@@ -55,12 +68,6 @@ body {
   flex-direction: column; }
   .n-sticky-footer main {
     flex-grow: 1; }
-
-img, picture, .n-lightbox a {
-  max-width: 100%;
-  height: auto;
-  border: none;
-  text-align: center; }
 
 .n-viewport.n-header-banner {
   min-height: 100vh;
@@ -92,15 +99,6 @@ img, picture, .n-lightbox a {
 
 .n-footer > * {
   position: static; }
-
-video {
-  height: auto;
-  background: #000;
-  margin: 0 auto;
-  display: block;
-  max-width: 100%; }
-  video a[href] {
-    color: #fff; }
 
 /* Overthrow CSS:
    For Mobile devices not supporting overflow: scroll. Enable overflow: auto on elements with overthrow class when html element has overthrow class too */
@@ -262,14 +260,15 @@ a.backtotop[href] {
   /* fix for iOS */
   cursor: pointer;
   position: absolute;
-  bottom: 0;
+  bottom: -1em;
   left: 50%;
   transform: translateX(-50%);
   text-decoration: none;
   z-index: 999;
   padding: .5em;
   width: 2em;
-  text-align: center; }
+  text-align: center;
+  box-sizing: border-box; }
 
 .n-btn--group {
   margin: 0 -.25em; }
@@ -305,6 +304,8 @@ $bg: #1E8DaC;
 
 .n-form {
   --placeholder_color: #aaa; }
+  .n-form * {
+    box-sizing: border-box; }
   .n-form label, .n-form input, .n-form textarea {
     display: inline-block;
     vertical-align: middle; }
@@ -439,8 +440,8 @@ $bg: #1E8DaC;
     height: 1em;
     display: inline-block;
     background: #eee;
-    line-height: 1.66667;
-    font-size: -0.33333em;
+    line-height: 1.6666666667;
+    font-size: -0.3333333333em;
     text-align: center;
     color: #333;
     display: none;
@@ -563,7 +564,7 @@ $bg: #1E8DaC;
       cursor: pointer;
       background: rgba(0, 0, 0, 0.1); }
     .n-form input[type=range]::-moz-range-thumb {
-      border: 0px solid transparent;
+      border: 0px solid rgba(0, 0, 0, 0);
       height: 1.625em;
       width: 1.625em;
       border-radius: 50%;
@@ -581,7 +582,7 @@ $bg: #1E8DaC;
     .n-form input[type=range]::-ms-fill-upper {
       background: rgba(0, 0, 0, 0.1); }
     .n-form input[type=range]::-ms-thumb {
-      border: 0px solid transparent;
+      border: 0px solid rgba(0, 0, 0, 0);
       height: 1.625em;
       width: 1.625em;
       border-radius: .9375em;
@@ -732,6 +733,19 @@ $bg: #1E8DaC;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   text-align: center; }
+  .n-row img, .n-row picture {
+    max-width: 100%;
+    height: auto;
+    border: none;
+    text-align: center; }
+  .n-row video {
+    height: auto;
+    background: #000;
+    margin: 0 auto;
+    display: block;
+    max-width: 100%; }
+    .n-row video a[href] {
+      color: #fff; }
 
 .n-row > * {
   /*
@@ -1053,7 +1067,7 @@ ol.n-masonry > * {
     box-sizing: border-box; }
 
   .n-row:not(.n-row--no-margin):not(.n-border-all) > *, .n-row:not(.n-row--no-margin):not(.n-border-all) > [class^=_] {
-    margin: 0.75em 0; }
+    margin: 0.25em 0; }
 
   @supports (--a: 1) {
     .n-row > *, .n-row > [class^=_] {
@@ -1623,8 +1637,8 @@ $bg: #1E8DaC;
     padding: 0.46875em 0; }
   .n-type h6 {
     font-size: .6667em;
-    line-height: 1.12494;
-    padding: 0.56247em 0; }
+    line-height: 1.1249437528;
+    padding: 0.5624718764em 0; }
   .n-type pre {
     overflow: auto; }
   .n-type p {

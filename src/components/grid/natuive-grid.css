@@ -26,6 +26,19 @@ $bg: #1E8DaC;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   text-align: center; }
+  .n-row img, .n-row picture {
+    max-width: 100%;
+    height: auto;
+    border: none;
+    text-align: center; }
+  .n-row video {
+    height: auto;
+    background: #000;
+    margin: 0 auto;
+    display: block;
+    max-width: 100%; }
+    .n-row video a[href] {
+      color: #fff; }
 
 .n-row > * {
   /*
@@ -347,7 +360,7 @@ ol.n-masonry > * {
     box-sizing: border-box; }
 
   .n-row:not(.n-row--no-margin):not(.n-border-all) > *, .n-row:not(.n-row--no-margin):not(.n-border-all) > [class^=_] {
-    margin: 0.75em 0; }
+    margin: 0.25em 0; }
 
   @supports (--a: 1) {
     .n-row > *, .n-row > [class^=_] {

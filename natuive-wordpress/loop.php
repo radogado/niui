@@ -10,7 +10,10 @@
 			$post_thumbnail_url = wp_get_attachment_url( $post_thumbnail_id );
 			
 		?>
-			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="img-crop" style="background-image: url(<?php echo $post_thumbnail_url ?>)">
+			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="img-crop">
+				
+				<img src="<?php echo $post_thumbnail_url ?>" alt="Background">
+
 				<h2><?php the_title(); ?> &rarr;</h2>
 				
 			</a>

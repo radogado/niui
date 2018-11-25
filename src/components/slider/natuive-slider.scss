@@ -15,7 +15,7 @@
 	display: flex;
 	// will-change: transform; // Breaks WebKit full screen video
     min-height: 4em; // Make controls visible on very short slides
-
+    
 }
 
 .n-slider > * {
@@ -220,6 +220,12 @@
 	overflow: hidden;
 	max-height: 100%;
 	z-index: 1;
+
+    &, * {
+	    
+	    box-sizing: border-box;
+
+    }
 
 }
 

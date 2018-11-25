@@ -23,6 +23,12 @@ $bg: #1E8DaC;
 *:not(.aspect) > .n-slider--wrap > .n-slider.n-slider--vertical.n-lightbox.n-lightbox--inline[data-sliding]:not(.n-slider--overlay) > * {
   height: auto; }
 
+.n-lightbox a {
+  max-width: 100%;
+  height: auto;
+  border: none;
+  text-align: center; }
+
 .n-slider.n-lightbox > * {
   text-align: center;
   position: relative; }

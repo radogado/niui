@@ -15,6 +15,31 @@
 	flex-wrap: wrap;
 	text-align: center;
 
+	img, picture {
+	
+		max-width: 100%; // Prevent images overflowing
+		height: auto;
+		border: none;
+		text-align: center;
+	
+	}
+
+	video {
+	
+		height: auto;
+		background: #000;
+		margin: 0 auto;
+		display: block;
+		max-width: 100%;
+	
+		a[href] {
+	
+			color: #fff;
+	
+		}
+	
+	}
+
 }
 
 	.n-row > * {
@@ -555,7 +580,7 @@
 	
 	.n-row:not(.n-row--no-margin):not(.n-border-all) > *, .n-row:not(.n-row--no-margin):not(.n-border-all) > [class^=_] {
 
-		margin: $line-height-em/2 0;
+		margin: $line-height-em/6 0;
 
 	}
 	

@@ -38,14 +38,12 @@
 					    $themelogo_height = $themelogo_size[1];
 					?>
 
-					    <div class='logo' style='min-height: <?php echo $themelogo_height; ?>px; margin: 1em 0 1.5em 0;'>
-					        <a style="position: absolute;" href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'>
+					    <div class='logo'>
+					        <a class="n-aspect" style='--ratio: <?php echo $themelogo_width / $themelogo_height; ?>; --image-width: <?php echo $themelogo_width/2; ?>px;' href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'>
 						        
-<!-- 						        <img src='<?php echo esc_url( get_theme_mod( 'themeslug_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'> -->
-
-<img src='<?php echo str_replace( 'http://', '//', esc_url( get_theme_mod( 'themeslug_logo' ) ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?> Logo' class="img-responsive full" height="<?php echo($themelogo_height);?>" width="<?php echo($themelogo_width);?>">
+								<img src='<?php echo str_replace( 'http://', '//', esc_url( get_theme_mod( 'themeslug_logo' ) ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?> Logo' class="img-responsive full">
 						        
-						        </a>
+						    </a>
 					    </div>
 					<?php else : ?>
 					<div class="logo">

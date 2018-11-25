@@ -15,16 +15,25 @@
 
 /* Basic elements */
 
+html {
+	
+	height: 100%;
+
+}
+
 html, body {
 
+/*
 	height: 100%;
 	margin: 0 auto;
 	overflow-x: hidden;
+*/
 
 }
 
 body {
 
+/*
 	position: relative;
 	overflow: hidden;
 	width: 100%;
@@ -32,16 +41,21 @@ body {
 
 	-webkit-tap-highlight-color: rgba(0,0,0,.5);
 
-	color: $color; /* Fallback when CSS variables aren't supported */
+	color: $color; // Fallback when CSS variables aren't supported
+*/
+
+	margin: 0;
 	color: var(--color);
 	background: var(--bg, $bg);
 	
+/*
 	* {
 
 		box-sizing: border-box;
-		-webkit-tap-highlight-color: rgba(0,0,0,0); /* iOS: Don't flash on tap */
+		-webkit-tap-highlight-color: rgba(0,0,0,0); // iOS: Don't flash on tap
 	
 	}
+*/
 
 }
 
@@ -56,15 +70,6 @@ body {
 		flex-grow: 1;
 	
 	}
-
-}
-
-img, picture, .n-lightbox a {
-
-	max-width: 100%; // Prevent images overflowing
-	height: auto;
-	border: none;
-	text-align: center;
 
 }
 
@@ -122,22 +127,6 @@ img, picture, .n-lightbox a {
 .n-footer > * {
 
 	position: static;
-
-}
-
-video {
-
-	height: auto;
-	background: #000;
-	margin: 0 auto;
-	display: block;
-	max-width: 100%;
-
-	a[href] {
-
-		color: #fff;
-
-	}
 
 }
 

@@ -6,6 +6,12 @@ $placeholder_color: #aaa;
 
 .n-form {
 	
+	* {
+		
+		box-sizing: border-box;
+
+	}
+	
 	label, input, textarea {
 		
 		display: inline-block;

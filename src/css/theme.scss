@@ -66,45 +66,6 @@ nav.n-nav {
 	
 	}
 	
-	&.sub {
-		
-		a {
-	
-			color: #727272;
-			text-transform: none;
-		
-		}
-
-		li:not(:first-child):before {
-	
-			content: '';
-			border-left: 1px solid #ddd;
-			padding-right: .6em;
-	
-		}
-	
-	}
-	
-}
-
-form#language-selector select {
-
-	padding-left: 2em;
-	background: url(../images/globe.svg) no-repeat .5em center / auto 66%;
-	height: $line-height;
-
-}
-
-.n-form .select {
-
-	background: #eee url(../images/select-arrow.svg) calc(100% - .7em) 50% no-repeat / auto 50%;
-
-}
-
-.n-header .n-form .select {
-	
-	height: $line-height;
-	
 }
 
 .n-btn, input[type=submit], button[type=submit], button[type=reset], button, a.button[href] {

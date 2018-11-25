@@ -71,14 +71,15 @@ a.backtotop[href] {
   /* fix for iOS */
   cursor: pointer;
   position: absolute;
-  bottom: 0;
+  bottom: -1em;
   left: 50%;
   transform: translateX(-50%);
   text-decoration: none;
   z-index: 999;
   padding: .5em;
   width: 2em;
-  text-align: center; }
+  text-align: center;
+  box-sizing: border-box; }
 
 .n-btn--group {
   margin: 0 -.25em; }
