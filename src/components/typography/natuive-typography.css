@@ -36,8 +36,8 @@ $bg: #1E8DaC;
   .n-type h1 + p:not(.n-drop-cap), .n-type h2 + p:not(.n-drop-cap), .n-type h3 + p:not(.n-drop-cap), .n-type h4 + p:not(.n-drop-cap), .n-type h5 + p:not(.n-drop-cap), .n-type h6 + p:not(.n-drop-cap) {
     margin-top: 0; }
   .n-type h1 {
-    font-size: 2.5em;
-    line-height: 1.2em;
+    font-size: 2em;
+    line-height: 1.5;
     padding: 0; }
   .n-type h2 {
     font-size: 1.5em;
@@ -54,8 +54,8 @@ $bg: #1E8DaC;
     padding: 0.46875em 0; }
   .n-type h6 {
     font-size: .6667em;
-    line-height: 1.12494;
-    padding: 0.56247em 0; }
+    line-height: 1.1249437528;
+    padding: 0.5624718764em 0; }
   .n-type pre {
     overflow: auto; }
   .n-type p {
