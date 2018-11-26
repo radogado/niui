@@ -699,8 +699,7 @@ $bg: #1E8DaC;
     width: 1em;
     display: inline-block;
     margin: 0;
-    border: none;
-    opacity: 0; }
+    border: none; }
   .n-form input[type=radio] + .n-form--check-icon {
     border-radius: 50%; }
   .n-form input[type=radio]:checked + .n-form--check-icon:before {

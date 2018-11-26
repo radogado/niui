@@ -700,7 +700,8 @@ $bg: #1E8DaC;
     display: inline-block;
     margin: 0;
     border: none;
-    opacity: 0; }
+    /* opacity: .1; */
+    }
   .n-form input[type=radio] + .n-form--check-icon {
     border-radius: 50%; }
   .n-form input[type=radio]:checked + .n-form--check-icon:before {
