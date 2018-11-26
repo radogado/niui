@@ -155,8 +155,8 @@ $bg: #1E8DaC;
     height: 1em;
     display: inline-block;
     background: #eee;
-    line-height: 1.6666666667;
-    font-size: -0.3333333333em;
+    line-height: 1.66667;
+    font-size: -0.33333em;
     text-align: center;
     color: #333;
     display: none;
@@ -279,7 +279,7 @@ $bg: #1E8DaC;
       cursor: pointer;
       background: rgba(0, 0, 0, 0.1); }
     .n-form input[type=range]::-moz-range-thumb {
-      border: 0px solid rgba(0, 0, 0, 0);
+      border: 0px solid transparent;
       height: 1.625em;
       width: 1.625em;
       border-radius: 50%;
@@ -297,7 +297,7 @@ $bg: #1E8DaC;
     .n-form input[type=range]::-ms-fill-upper {
       background: rgba(0, 0, 0, 0.1); }
     .n-form input[type=range]::-ms-thumb {
-      border: 0px solid rgba(0, 0, 0, 0);
+      border: 0px solid transparent;
       height: 1.625em;
       width: 1.625em;
       border-radius: .9375em;

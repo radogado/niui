@@ -19,7 +19,14 @@ $bg: #1E8DaC;
 
 .n-nav {
   vertical-align: baseline;
-  display: inline-block; }
+  display: inline-block;
+  /*
+  	li:last-child a, li a {
+  		
+  		padding-right: 0;
+  
+  	}
+  */ }
   .n-nav ul {
     margin: 0 0 0 -.5em;
     padding: 0;
@@ -42,14 +49,12 @@ $bg: #1E8DaC;
       white-space: nowrap; }
   .n-nav a {
     position: relative;
-    padding: 0 .5em; }
+    padding: 0 .25em; }
   .n-nav .active a[href] {
     text-decoration: none;
     opacity: .7; }
   .n-nav:not(.n-drop) a[href^='#'] {
     text-decoration: none; }
-  .n-nav li:last-child a, .n-nav li a {
-    padding-right: 0; }
   .n-nav.n-row {
     display: inline-flex; }
 
@@ -149,37 +154,39 @@ main .n-nav ul {
     padding-right: calc(42px - 1em); }
 
 @media (min-width: 600px) {
-  html:not(.can-touch) nav.n-drop ul ul:not([aria-expanded]) ul {
+  html:not(.can-touch) .n-drop ul ul:not([aria-expanded]) ul {
     transition: .1s .2s;
     opacity: 0;
     position: absolute; }
-  html:not(.can-touch) nav.n-drop > ul > li > ul li {
+  html:not(.can-touch) .n-drop > ul > li > ul li {
     background-color: #fff;
     background-color: var(--nav-bg); }
-  html:not(.can-touch) nav.n-drop > ul > li:hover > input:not(:checked) ~ ul,
-  html:not(.can-touch) nav.n-drop > ul li ul > li:hover > input:not(:checked) ~ ul,
-  html:not(.can-touch) nav.n-drop > ul > li:not([aria-haspopup]):hover > input:not(:checked) ~ ul,
-  html:not(.can-touch) nav.n-drop > ul li:not([aria-haspopup]) ul li:hover > input:not(:checked) ~ ul {
+  html:not(.can-touch) .n-drop > ul > li:hover > input:not(:checked) ~ ul,
+  html:not(.can-touch) .n-drop > ul li ul > li:hover > input:not(:checked) ~ ul,
+  html:not(.can-touch) .n-drop > ul > li:not([aria-haspopup]):hover > input:not(:checked) ~ ul,
+  html:not(.can-touch) .n-drop > ul li:not([aria-haspopup]) ul li:hover > input:not(:checked) ~ ul {
     min-height: 0;
     max-height: 0;
     overflow: hidden;
     z-index: 1;
     position: absolute; }
-  html:not(.can-touch) nav.n-drop > ul > li:not([aria-haspopup]):hover > ul,
-  html:not(.can-touch) nav.n-drop > ul > li:hover > ul,
-  html:not(.can-touch) nav.n-drop > ul li ul > li:hover > ul,
-  html:not(.can-touch) nav.n-drop ul ul :checked ~ ul:not([aria-expanded]),
-  html:not(.can-touch) nav.n-drop > ul li:not([aria-haspopup]) ul li:hover ~ ul {
+  html:not(.can-touch) .n-drop > ul > li:not([aria-haspopup]):hover > ul,
+  html:not(.can-touch) .n-drop > ul > li:hover > ul,
+  html:not(.can-touch) .n-drop > ul li ul > li:hover > ul,
+  html:not(.can-touch) .n-drop ul ul :checked ~ ul:not([aria-expanded]),
+  html:not(.can-touch) .n-drop > ul li:not([aria-haspopup]) ul li:hover ~ ul {
     max-height: none;
     overflow: visible;
     opacity: 1;
     z-index: 2; }
-  html:not(.can-touch) nav.n-drop > ul li ul li:hover ul {
+  html:not(.can-touch) .n-drop > ul li ul li:hover ul {
     transition-delay: 0.2s; }
 
   nav.n-drop li {
     white-space: nowrap; } }
 @media (max-width: 599.9px) {
+  .n-drop ul ul:not([aria-expanded]) {
+    position: static; }
   .n-drop ul ul {
     position: static;
     width: calc(100% + 42px);

@@ -158,11 +158,15 @@ a[href].span-relative-parent {
 .n-parallax--back {
   position: absolute; }
 
-:focus, :focus + .n-form--check-icon {
-  outline-offset: -1px;
-  outline-style: dashed;
-  outline-width: 1px; }
+/*
+:focus, :focus + .n-form--check-icon { // Because default focus indication is overlapped in Chrome for Windows
 
+	outline-offset: -1px;
+	outline-style: dashed;
+	outline-width: 1px;
+
+}
+*/
 /* Narrow Screens */
 @media screen and (max-width: 599.9px) {
   .n-wide-screen {
@@ -183,6 +187,8 @@ a[href].span-relative-parent {
     left: 0;
     right: 0;
     background: #fff;
-    z-index: 7; } }
+    z-index: 7; }
+  .n-header a.n-logo {
+    float: right; } }
 
 /*# sourceMappingURL=natuive-core.css.map */

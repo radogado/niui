@@ -158,11 +158,15 @@ a[href].span-relative-parent {
 .n-parallax--back {
   position: absolute; }
 
-:focus, :focus + .n-form--check-icon {
-  outline-offset: -1px;
-  outline-style: dashed;
-  outline-width: 1px; }
+/*
+:focus, :focus + .n-form--check-icon { // Because default focus indication is overlapped in Chrome for Windows
 
+	outline-offset: -1px;
+	outline-style: dashed;
+	outline-width: 1px;
+
+}
+*/
 /* Narrow Screens */
 @media screen and (max-width: 599.9px) {
   .n-wide-screen {
@@ -183,7 +187,9 @@ a[href].span-relative-parent {
     left: 0;
     right: 0;
     background: #fff;
-    z-index: 7; } }
+    z-index: 7; }
+  .n-header a.n-logo {
+    float: right; } }
 
 /*# sourceMappingURL=natuive-core.css.map */
 
@@ -372,7 +378,8 @@ $bg: #1E8DaC;
     padding: .75em 0;
     padding-right: 1.5em;
     word-wrap: break-word;
-    word-break: break-all; }
+    word-break: break-all;
+    box-sizing: border-box; }
     .n-fold > .n-fold--label:after {
       content: "▼";
       position: absolute;
@@ -661,8 +668,8 @@ $bg: #1E8DaC;
     height: 1em;
     display: inline-block;
     background: #eee;
-    line-height: 1.6666666667;
-    font-size: -0.3333333333em;
+    line-height: 1.66667;
+    font-size: -0.33333em;
     text-align: center;
     color: #333;
     display: none;
@@ -785,7 +792,7 @@ $bg: #1E8DaC;
       cursor: pointer;
       background: rgba(0, 0, 0, 0.1); }
     .n-form input[type=range]::-moz-range-thumb {
-      border: 0px solid rgba(0, 0, 0, 0);
+      border: 0px solid transparent;
       height: 1.625em;
       width: 1.625em;
       border-radius: 50%;
@@ -803,7 +810,7 @@ $bg: #1E8DaC;
     .n-form input[type=range]::-ms-fill-upper {
       background: rgba(0, 0, 0, 0.1); }
     .n-form input[type=range]::-ms-thumb {
-      border: 0px solid rgba(0, 0, 0, 0);
+      border: 0px solid transparent;
       height: 1.625em;
       width: 1.625em;
       border-radius: .9375em;
@@ -1240,7 +1247,7 @@ ol.n-masonry > * {
 .n-unpad, .n-row > * > .n-unpad {
   margin: -0.75em;
   width: calc(100% + 1.5em);
-  max-width: none; }
+  max-width: 100%; }
 
 .n-unpad-vertical {
   margin: -1.5em 0; }
@@ -1317,7 +1324,8 @@ ol.n-masonry > * {
 @media screen and (max-width: 599.9px) {
   .n-row:not(.n-half) {
     display: block;
-    overflow-x: hidden; }
+    overflow-x: hidden;
+    max-width: 100%; }
 
   .n-row > *, .n-row > [class^=_] {
     padding: 0;
@@ -1850,7 +1858,14 @@ $bg: #1E8DaC;
 
 .n-nav {
   vertical-align: baseline;
-  display: inline-block; }
+  display: inline-block;
+  /*
+  	li:last-child a, li a {
+  		
+  		padding-right: 0;
+  
+  	}
+  */ }
   .n-nav ul {
     margin: 0 0 0 -.5em;
     padding: 0;
@@ -1873,14 +1888,12 @@ $bg: #1E8DaC;
       white-space: nowrap; }
   .n-nav a {
     position: relative;
-    padding: 0 .5em; }
+    padding: 0 .25em; }
   .n-nav .active a[href] {
     text-decoration: none;
     opacity: .7; }
   .n-nav:not(.n-drop) a[href^='#'] {
     text-decoration: none; }
-  .n-nav li:last-child a, .n-nav li a {
-    padding-right: 0; }
   .n-nav.n-row {
     display: inline-flex; }
 
@@ -1980,37 +1993,39 @@ main .n-nav ul {
     padding-right: calc(42px - 1em); }
 
 @media (min-width: 600px) {
-  html:not(.can-touch) nav.n-drop ul ul:not([aria-expanded]) ul {
+  html:not(.can-touch) .n-drop ul ul:not([aria-expanded]) ul {
     transition: .1s .2s;
     opacity: 0;
     position: absolute; }
-  html:not(.can-touch) nav.n-drop > ul > li > ul li {
+  html:not(.can-touch) .n-drop > ul > li > ul li {
     background-color: #fff;
     background-color: var(--nav-bg); }
-  html:not(.can-touch) nav.n-drop > ul > li:hover > input:not(:checked) ~ ul,
-  html:not(.can-touch) nav.n-drop > ul li ul > li:hover > input:not(:checked) ~ ul,
-  html:not(.can-touch) nav.n-drop > ul > li:not([aria-haspopup]):hover > input:not(:checked) ~ ul,
-  html:not(.can-touch) nav.n-drop > ul li:not([aria-haspopup]) ul li:hover > input:not(:checked) ~ ul {
+  html:not(.can-touch) .n-drop > ul > li:hover > input:not(:checked) ~ ul,
+  html:not(.can-touch) .n-drop > ul li ul > li:hover > input:not(:checked) ~ ul,
+  html:not(.can-touch) .n-drop > ul > li:not([aria-haspopup]):hover > input:not(:checked) ~ ul,
+  html:not(.can-touch) .n-drop > ul li:not([aria-haspopup]) ul li:hover > input:not(:checked) ~ ul {
     min-height: 0;
     max-height: 0;
     overflow: hidden;
     z-index: 1;
     position: absolute; }
-  html:not(.can-touch) nav.n-drop > ul > li:not([aria-haspopup]):hover > ul,
-  html:not(.can-touch) nav.n-drop > ul > li:hover > ul,
-  html:not(.can-touch) nav.n-drop > ul li ul > li:hover > ul,
-  html:not(.can-touch) nav.n-drop ul ul :checked ~ ul:not([aria-expanded]),
-  html:not(.can-touch) nav.n-drop > ul li:not([aria-haspopup]) ul li:hover ~ ul {
+  html:not(.can-touch) .n-drop > ul > li:not([aria-haspopup]):hover > ul,
+  html:not(.can-touch) .n-drop > ul > li:hover > ul,
+  html:not(.can-touch) .n-drop > ul li ul > li:hover > ul,
+  html:not(.can-touch) .n-drop ul ul :checked ~ ul:not([aria-expanded]),
+  html:not(.can-touch) .n-drop > ul li:not([aria-haspopup]) ul li:hover ~ ul {
     max-height: none;
     overflow: visible;
     opacity: 1;
     z-index: 2; }
-  html:not(.can-touch) nav.n-drop > ul li ul li:hover ul {
+  html:not(.can-touch) .n-drop > ul li ul li:hover ul {
     transition-delay: 0.2s; }
 
   nav.n-drop li {
     white-space: nowrap; } }
 @media (max-width: 599.9px) {
+  .n-drop ul ul:not([aria-expanded]) {
+    position: static; }
   .n-drop ul ul {
     position: static;
     width: calc(100% + 42px);
@@ -2712,8 +2727,8 @@ $bg: #1E8DaC;
     padding: 0.46875em 0; }
   .n-type h6 {
     font-size: .6667em;
-    line-height: 1.1249437528;
-    padding: 0.5624718764em 0; }
+    line-height: 1.12494;
+    padding: 0.56247em 0; }
   .n-type pre {
     overflow: auto; }
   .n-type p {

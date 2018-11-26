@@ -50,7 +50,7 @@
 	a {
 		
 		position: relative;
-		padding: 0 .5em;
+		padding: 0 .25em;
 
 	}
 	
@@ -67,11 +67,13 @@
 
 	}
 	
+/*
 	li:last-child a, li a {
 		
 		padding-right: 0;
 
 	}
+*/
 
 	&.n-row {
 		
@@ -293,7 +295,7 @@ $nav-bg: #fff; // fallback for browsers unsupporting CSS variables
 
 	html:not(.can-touch) { // Hover rules here
 		
-		nav.n-drop {
+		.n-drop {
 		
 			ul ul:not([aria-expanded]) ul {
 			
@@ -358,6 +360,12 @@ $nav-bg: #fff; // fallback for browsers unsupporting CSS variables
 
 	.n-drop ul {
 	
+		ul:not([aria-expanded]) {
+			
+			position: static;
+		
+		}
+
 		ul {
 			
 			position: static;

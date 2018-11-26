@@ -39,7 +39,8 @@ $bg: #1E8DaC;
     padding: .75em 0;
     padding-right: 1.5em;
     word-wrap: break-word;
-    word-break: break-all; }
+    word-break: break-all;
+    box-sizing: border-box; }
     .n-fold > .n-fold--label:after {
       content: "▼";
       position: absolute;

@@ -243,6 +243,7 @@ a[href].span-relative-parent {
 
 }
 
+/*
 :focus, :focus + .n-form--check-icon { // Because default focus indication is overlapped in Chrome for Windows
 
 	outline-offset: -1px;
@@ -250,6 +251,7 @@ a[href].span-relative-parent {
 	outline-width: 1px;
 
 }
+*/
 
 /* Narrow Screens */
 
@@ -293,6 +295,12 @@ a[href].span-relative-parent {
 	
 		}
 		
+		a.n-logo {
+		
+			float: right;
+		
+		}
+
 	}
 
 }

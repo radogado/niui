@@ -274,7 +274,7 @@ ol.n-masonry > * {
 .n-unpad, .n-row > * > .n-unpad {
   margin: -0.75em;
   width: calc(100% + 1.5em);
-  max-width: none; }
+  max-width: 100%; }
 
 .n-unpad-vertical {
   margin: -1.5em 0; }
@@ -351,7 +351,8 @@ ol.n-masonry > * {
 @media screen and (max-width: 599.9px) {
   .n-row:not(.n-half) {
     display: block;
-    overflow-x: hidden; }
+    overflow-x: hidden;
+    max-width: 100%; }
 
   .n-row > *, .n-row > [class^=_] {
     padding: 0;
