@@ -5,7 +5,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-closure-compiler');
 	grunt.loadNpmTasks('grunt-contrib-copy');
-	grunt.loadNpmTasks('grunt-babel');
 
 	grunt.initConfig({
 		'sass': {
@@ -33,20 +32,11 @@ module.exports = function(grunt) {
 		  JS: {
 			options: {
 				separator: ';',
-				banner: 'var nui = (function(){ if (!("fetch" in window)) return;', // ES6 only
+				banner: 'var nui = (function(){',
 				footer: 'initComponents(); return { initComponents: initComponents, animate: animate, copyButton: copyButton, componentNotify: componentNotify, addComponent: addComponent }; })();'
 		    },
 		    src: ['src/script/natuive-core.js', 'src/components/**/*.js'],
 		    dest: 'src/script/natuive.js'
-		  },
-		  JS_transpile: {
-			options: {
-				separator: ';',
-				banner: 'var nui = (function(){ if (typeof document.body.style.animationName === "undefined") return;', // ES5 only
-				footer: 'initComponents(); return { initComponents: initComponents, animate: animate, copyButton: copyButton, componentNotify: componentNotify, addComponent: addComponent }; })();'
-		    },
-		    src: ['src/script/natuive-core.js', 'src/components/**/*.js'],
-		    dest: 'src/script/natuive.fallback.js'
 		  },
 		  CSS: {
 		    src: ['src/css/natuive-core.css', 'src/components/**/*.css'],
@@ -108,28 +98,17 @@ module.exports = function(grunt) {
 			  }
 			}
 		},
-		  'babel': {
-		    options: {
-		      sourceMap: true,
-		      presets: ['@babel/preset-env']
-		    },
-		    dist: {
-		      files: {
-		        'dist/natuive.babel.js': 'src/script/natuive.fallback.js'
-		      }
-		    }
-		  },
 		'copy': {
 		  main: {
 		    expand: true,
 		    cwd: 'dist',
-		    src: ['natuive.min.js', 'ie.css', 'ie-fallback.js', 'natuive.babel.js'],
+		    src: ['natuive.min.js', 'ie.css', 'ie-fallback.js'],
 		    dest: 'natuive-wordpress/',
 		  }
 		}  
 	});
 
-	grunt.registerTask('default', ['sass', 'concat', 'cssmin', 'closure-compiler', 'copy', 'babel']);
-	grunt.registerTask('dev', ['sass', 'concat', 'cssmin', 'copy', 'babel']);
+	grunt.registerTask('default', ['sass', 'concat', 'cssmin', 'closure-compiler', 'copy']);
+	grunt.registerTask('dev', ['sass', 'concat', 'cssmin', 'copy']);
 
 };

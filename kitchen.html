@@ -11,7 +11,7 @@
 	<link rel=icon href=images/favicon.ico>
 	<link rel=styleSheet href=src/css/natuive.css type=text/css media=screen>
 <!-- 	<link rel=styleSheet href=dist/natuive.min.css type=text/css media=screen> -->
-	<!--[if lte IE 9]> 
+	<!--[if lte IE 10]> 
 		<link rel=styleSheet href=src/css/ie.css type=text/css media=screen>
 		<script src=src/script/ie-fallback.js></script> 
 	<![endif]-->
@@ -1778,18 +1778,6 @@
 <!-- 		<script src=dist/natuive.min.js type=text/javascript async></script> -->
 	<script src=src/script/natuive.js type=text/javascript async></script>
 <!-- 	<script> nui.copyButton(document.getElementById('copybutton'), document.getElementById('copycontent')); </script> -->
-
-	<script> // Internet Explorer support via Babel-transpiled JS
-
-		if (!('fetch' in window)) {
-
-			var fallback_js = document.createElement('script');
-			fallback_js.setAttribute('src','src/script/natuive.fallback.js');
-			document.body.appendChild(fallback_js);
-		
-		}
-
-	</script>
 
 </body>
 
