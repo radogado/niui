@@ -37,12 +37,12 @@ $bg: #1E8DaC;
   .n-slider.n-lightbox > * p.n-lightbox--caption {
     /* Image captions */
     position: absolute;
-    bottom: 57px;
+    bottom: 2em;
     text-align: center;
     color: #fff;
     left: 50%;
     transform: translateX(-50%);
-    padding: .2em .5em;
+    padding: 0 .25em;
     background: rgba(0, 0, 0, 0.4); }
   .n-slider.n-lightbox > * > iframe {
     width: 100%;
@@ -127,7 +127,7 @@ $bg: #1E8DaC;
 .n-lightbox:not(.n-slider) a {
   display: inline-block;
   vertical-align: middle;
-  margin: 0.75em 0.375em;
+  margin: 0.75em;
   position: relative; }
 
 .n-lightbox a img {

@@ -22,7 +22,7 @@ var componentLightbox = (function (){
 		
 		if (overflowY > 0) {
 
-			el.style.setProperty('--y', (-1 * overflowY * e.y / height) + 'px');
+			el.style.setProperty('--y', (-1 * overflowY * (e.y - document.body.scrollHeight + height) / height) + 'px'); // removes 48px from the top bar height
 			el.style.top = 0;
 			el.style.bottom = 'auto';
 		
@@ -43,17 +43,48 @@ var componentLightbox = (function (){
 			}
 			
 			var el = e.target;
-			toggleClass(el, 'n-lightbox--zoom');
-			el.style.cssText = '';
-			el.style.setProperty('--x', '-50%');
-			el.style.setProperty('--y', '-50%');
-			el.onmousemove = (e) => {
+			var initial_width = el.width;
+			var initial_height = el.height;
+			
+			if (!hasClass(el, 'n-lightbox--zoom')) {
 				
+				el.style.cssText = '';
+				el.style.setProperty('--x', '-50%');
+				el.style.setProperty('--y', '-50%');
+				addClass(el, 'n-lightbox--zoom');
+				let coef_x = initial_width/el.width;
+				let coef_y = initial_height/el.height;
+				let coef = Math.max(coef_x, coef_y);
 				adjustZoom(e);
+				
+				var translate_x = (el.width  > el.parentNode.offsetWidth)  ? `calc(1px * (${(initial_width/2 - el.width/2) / coef_x}))`   : `calc(-50% / ${coef_x})`;
+				var translate_y = (el.height > el.parentNode.offsetHeight) ? `calc(1px * (${(initial_height/2 - el.height/2) / coef_y}))` : `calc(-50% / ${coef_y})`;
+				
+				animate(el, `0% { transform: scale(${coef}) translate3d(${translate_x}, ${translate_y}, 0); }`, .2);
+				
+				el.onmousemove = (e) => {
+					
+					adjustZoom(e);
+	
+				};
+	
+			} else {
+				
+				let coef_x = el.parentNode.offsetWidth/el.width;
+				let coef_y = el.parentNode.offsetHeight/el.height;
+				let coef = Math.max(coef_x, coef_y);
 
-			};
+				var translate_x = (el.width  > el.parentNode.offsetWidth)  ? `calc(1px * (${(initial_width/2 - el.width/2) / coef_x}))`   : `calc(-50% / ${coef_x})`;
+				var translate_y = (el.height > el.parentNode.offsetHeight) ? `calc(1px * (${(initial_height/2 - el.height/2) / coef_y}))` : `calc(-50% / ${coef_y})`;
 
-			adjustZoom(e);
+				animate(el, `100% { transform: scale(${coef}) translate3d(${translate_x}, ${translate_y}, 0); }`, .2, () => {
+
+					el.style.cssText = '';
+					removeClass(el, 'n-lightbox--zoom'); 
+
+				});
+							
+			}
 
 		};
 
@@ -223,7 +254,7 @@ var componentLightbox = (function (){
 		    
 			var caption = el.title ? el.title : (el.querySelector('img') ? el.querySelector('img').title : '');
 					    
-		    images += `<div><img data-src="${url}" title="${caption}" data-link="${slide_link}">${(caption ? ('<p class=n-lightbox--caption>' + caption + '</p>') : '') + link_element}</div>`;
+		    images += `<div><img data-src="${url}" title="" data-link="${slide_link}">${(caption ? ('<p class=n-lightbox--caption>' + caption + '</p>') : '') + link_element}</div>`;
 	
 	        // Attach onload event to each image to display it only when fully loaded and avoid top-to-bottom reveal?
 	
