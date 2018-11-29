@@ -48,8 +48,17 @@ var componentLightbox = (function (){
 			
 			let calculateOffset = () => {
 				
-				let coef = el.width > el.height ? parent_width/el.width : parent_height/el.height;
+				let coef_x = parent_width/el.width;
+				let coef_y = parent_height/el.height;
+				
+				let coef = coef_y;
 
+				if ((el.offsetWidth*coef - el.parentNode.offsetWidth) > 3) { // Wrong coefficient, swap them
+
+					coef = coef_x;
+					
+				}
+				
 				var translate_x = (el.width  > parent_width)  ? `calc(1px * (${(parent_width/2 - el.width/2) / coef}))`   : `calc(-50% / ${coef})`;
 				var translate_y = (el.height > parent_height) ? `calc(1px * (${(parent_height/2 - el.height/2) / coef}))` : `calc(-50% / ${coef})`;
 				return `{ transform: scale(${coef}) translate3d(${translate_x}, ${translate_y}, 0); }`;
