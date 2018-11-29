@@ -3,7 +3,7 @@
 
 9+9 KB framework leveraging browsers' built-in capabilities, with subtle customisation. 
 
-To use natUIve, copy **dist** and edit **dist/index.html**. Check the [Guide](http://radogado.github.io/natuive/) for details.
+To use natUIve, copy **dist** and edit **dist/index.html**. Check the [Guide](http://radogado.github.io/natuive/guide/) for details.
 
 NPM usage:
 
