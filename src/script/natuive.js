@@ -989,6 +989,7 @@ qa('a[href^="#"]').forEach((el) => {
 	            ready_to_submit = false;
 	            el.querySelector('input').focus();
 	            addClass(el, 'n-form--alert');
+				animate(el.closest('form'), '33% { transform: translateX(-9px) } 66% { transform: translateX(9px) } 100% { transform: translateX(0) } ', .25);
 	            return;
 	
 	        } else {
