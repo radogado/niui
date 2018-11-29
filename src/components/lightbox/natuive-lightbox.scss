@@ -163,9 +163,10 @@
 
 }
 
-.n-slider--overlay.n-lightbox.n-slider img, .n-lightbox.n-lightbox--inline img {
+.n-lightbox.n-slider img {
 
 	cursor: zoom-in;
+	max-width: 100%;
 
 }
 

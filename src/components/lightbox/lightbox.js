@@ -57,10 +57,12 @@ var componentLightbox = (function (){
 				let coef = Math.max(coef_x, coef_y);
 				adjustZoom(e);
 				
-				var translate_x = (el.width  > el.parentNode.offsetWidth)  ? `calc(1px * (${(initial_width/2 - el.width/2) / coef_x}))`   : `calc(-50% / ${coef_x})`;
-				var translate_y = (el.height > el.parentNode.offsetHeight) ? `calc(1px * (${(initial_height/2 - el.height/2) / coef_y}))` : `calc(-50% / ${coef_y})`;
+				var translate_x = (initial_width  >= el.parentNode.offsetWidth)  ? `calc(1px * (${(initial_width/2 - el.width/2) / coef_x}))`   : `calc(-50% / ${coef_x})`;
+				var translate_y = (initial_height >= el.parentNode.offsetHeight) ? `calc(1px * (${(initial_height/2 - el.height/2) / coef_y}))` : `calc(-50% / ${coef_y})`;
+
+				if (el.width > el.parentNode.offsetWidth) { translate_x = 0; }
 				
-				animate(el, `0% { transform: scale(${coef}) translate3d(${translate_x}, ${translate_y}, 0); }`, .2);
+				animate(el, `0% { transform: scale(${coef}) translate3d(${translate_x}, ${translate_y}, 0); }`, 1);
 				
 				el.onmousemove = (e) => {
 					
@@ -72,12 +74,12 @@ var componentLightbox = (function (){
 				
 				let coef_x = el.parentNode.offsetWidth/el.width;
 				let coef_y = el.parentNode.offsetHeight/el.height;
-				let coef = Math.max(coef_x, coef_y);
+				let coef = Math.min(coef_x, coef_y);
 
-				var translate_x = (el.width  > el.parentNode.offsetWidth)  ? `calc(1px * (${(initial_width/2 - el.width/2) / coef_x}))`   : `calc(-50% / ${coef_x})`;
-				var translate_y = (el.height > el.parentNode.offsetHeight) ? `calc(1px * (${(initial_height/2 - el.height/2) / coef_y}))` : `calc(-50% / ${coef_y})`;
+				var translate_x = (el.width  > el.parentNode.offsetWidth)  ? `calc(1px * (${(el.parentNode.offsetWidth/2 - el.width/2) / coef}))`   : `calc(-50% / ${coef})`;
+				var translate_y = (el.height > el.parentNode.offsetHeight) ? `calc(1px * (${(el.parentNode.offsetHeight/2 - el.height/2) / coef}))` : `calc(-50% / ${coef})`;
 
-				animate(el, `100% { transform: scale(${coef}) translate3d(${translate_x}, ${translate_y}, 0); }`, .2, () => {
+				animate(el, `100% { transform: scale(${coef}) translate3d(${translate_x}, ${translate_y}, 0); }`, 1, () => {
 
 					el.style.cssText = '';
 					removeClass(el, 'n-lightbox--zoom'); 

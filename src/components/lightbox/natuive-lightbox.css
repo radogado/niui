@@ -104,8 +104,9 @@ $bg: #1E8DaC;
   border-radius: 100%;
   animation: sk-scaleout 1.0s infinite ease-in-out; }
 
-.n-slider--overlay.n-lightbox.n-slider img, .n-lightbox.n-lightbox--inline img {
-  cursor: zoom-in; }
+.n-lightbox.n-slider img {
+  cursor: zoom-in;
+  max-width: 100%; }
 
 .n-slider.n-lightbox.n-slider--detached-nav > * p, .n-slider--wrap.n-slider--outside .n-slider.n-lightbox > * p {
   bottom: 0;
