@@ -1349,24 +1349,21 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		img.onclick = (e) => { // Zoom and scan
 
 			var el = e.target;
+			let parent_width = el.parentNode.offsetWidth;
+			let parent_height = el.parentNode.offsetHeight;
 
-			if (!q('.n-ovrl .n-slider--wrap') || (el.naturalWidth <= el.parentNode.offsetWidth && el.naturalHeight <= el.parentNode.offsetHeight)) {
+			if (!q('.n-ovrl .n-slider--wrap') || (el.naturalWidth <= parent_width && el.naturalHeight <= parent_height)) {
 				
 				return;
 				
 			}
 			
-			var initial_width = el.width;
-			var initial_height = el.height;
-			
 			let calculateOffset = () => {
 				
-				let coef_x = el.parentNode.offsetWidth/el.width;
-				let coef_y = el.parentNode.offsetHeight/el.height;
-				let coef = Math.min(coef_x, coef_y);
+				let coef = el.width > el.height ? parent_width/el.width : parent_height/el.height;
 
-				var translate_x = (el.width  > el.parentNode.offsetWidth)  ? `calc(1px * (${(el.parentNode.offsetWidth/2 - el.width/2) / coef}))`   : `calc(-50% / ${coef})`;
-				var translate_y = (el.height > el.parentNode.offsetHeight) ? `calc(1px * (${(el.parentNode.offsetHeight/2 - el.height/2) / coef}))` : `calc(-50% / ${coef})`;
+				var translate_x = (el.width  > parent_width)  ? `calc(1px * (${(parent_width/2 - el.width/2) / coef}))`   : `calc(-50% / ${coef})`;
+				var translate_y = (el.height > parent_height) ? `calc(1px * (${(parent_height/2 - el.height/2) / coef}))` : `calc(-50% / ${coef})`;
 				return `{ transform: scale(${coef}) translate3d(${translate_x}, ${translate_y}, 0); }`;
 				
 			}
