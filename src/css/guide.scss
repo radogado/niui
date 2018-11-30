@@ -84,11 +84,14 @@ main > 	._3-4 > .n-slider--wrap > .n-slider.n-slider--vertical > * {
 // 	min-height: 1.5em;
 	line-height: 1.5;
 	
+	--bg: lightseagreen;
+	
 }
 
 .nav-column .n-slider--nav a[data-active] {
 
-	color: lightblue	;
+	--bg: lightseagreen;
+	color: lightblue;
 
 }
 

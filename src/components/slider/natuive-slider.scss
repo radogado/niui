@@ -261,7 +261,7 @@
 		
 		display: block;
 		box-sizing: border-box;
-		padding: $line-height-em .5em;
+		padding: $line-height-em/3 .5em;
 	
 	}
 
@@ -486,7 +486,8 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 		height: 1em;
 		-webkit-border-radius: 50px;
 		border-radius: 50%;
-		background: rgba(0, 0, 0, .1);
+		--bg: #ddd;
+		background-color: var(--bg);
 		color: #fff;
 		transition: background-color .2s linear;
 		line-height: 1em;
@@ -601,7 +602,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 		
 	.n-slider--nav a[data-active] {
 	
-		background-color: rgba(0, 0, 0, .2);
+		--bg: #ccc;
 		color: inherit;
 	
 	}
@@ -641,10 +642,11 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 		line-height: $line-height;
 		padding: .5em;
 		flex: 1;
-		margin: 0;
+		margin: .28em; // Prevent clipping of the focus outline
 		white-space: normal;
 		min-height: 0;
-	
+		box-shadow: 0 0 0 .3em var(--bg);
+		
 	}
 
 .n-slider--wrap.n-slider--vertical.n-lightbox--thumbnails {
