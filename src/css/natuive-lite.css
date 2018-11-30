@@ -446,8 +446,8 @@ $bg: #1E8DaC;
     height: 1em;
     display: inline-block;
     background: #eee;
-    line-height: 1.6666666667;
-    font-size: -0.3333333333em;
+    line-height: 1.66667;
+    font-size: -0.33333em;
     text-align: center;
     color: #333;
     display: none;
@@ -569,7 +569,7 @@ $bg: #1E8DaC;
       cursor: pointer;
       background: rgba(0, 0, 0, 0.1); }
     .n-form input[type=range]::-moz-range-thumb {
-      border: 0px solid rgba(0, 0, 0, 0);
+      border: 0px solid transparent;
       height: 1.625em;
       width: 1.625em;
       border-radius: 50%;
@@ -587,7 +587,7 @@ $bg: #1E8DaC;
     .n-form input[type=range]::-ms-fill-upper {
       background: rgba(0, 0, 0, 0.1); }
     .n-form input[type=range]::-ms-thumb {
-      border: 0px solid rgba(0, 0, 0, 0);
+      border: 0px solid transparent;
       height: 1.625em;
       width: 1.625em;
       border-radius: .9375em;
@@ -1072,7 +1072,7 @@ ol.n-masonry > * {
     border: none;
     box-sizing: border-box; }
 
-  .n-row:not(.n-row--no-margin):not(.n-border-all) > *, .n-row:not(.n-row--no-margin):not(.n-border-all) > [class^=_] {
+  .n-row:not(.n-row--no-margin):not(.n-border-all):not(.n-tabs) > *, .n-row:not(.n-row--no-margin):not(.n-border-all) > [class^=_] {
     margin: 0.25em 0; }
 
   @supports (--a: 1) {
@@ -1264,6 +1264,7 @@ $bg: #1E8DaC;
   */ }
   .n-nav ul {
     margin: 0 0 0 -.5em;
+    margin: 0;
     padding: 0;
     display: inline-block;
     width: auto;
@@ -1651,8 +1652,8 @@ $bg: #1E8DaC;
     padding: 0.46875em 0; }
   .n-type h6 {
     font-size: .6667em;
-    line-height: 1.1249437528;
-    padding: 0.5624718764em 0; }
+    line-height: 1.12494;
+    padding: 0.56247em 0; }
   .n-type pre {
     overflow: auto; }
   .n-type p {

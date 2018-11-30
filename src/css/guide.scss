@@ -242,6 +242,25 @@ li pre {
 	
 	}
 	
+	main.n-row:not(.n-half) {
+		
+		display: flex;
+		
+		> ._1-4 {
+			
+		    flex-basis: 25%;
+			
+		}
+		
+		> ._3-4 {
+			
+			flex-basis: 75%;
+
+		}
+	
+	}
+
+
 }
 
 .code {
@@ -293,4 +312,22 @@ body:not(data-threshold) #content > * {
 		
 	overflow: auto;
 	
+}
+
+@media (min-width: 900px) {
+
+
+	main > ._1-4.nav-column {
+		
+		width: auto;
+		flex-basis: auto;		
+
+	}	
+
+	main.n-row > ._3-4 {
+		
+		flex: 1 1 auto;
+		
+	}
+		
 }

@@ -360,7 +360,7 @@ ol.n-masonry > * {
     border: none;
     box-sizing: border-box; }
 
-  .n-row:not(.n-row--no-margin):not(.n-border-all) > *, .n-row:not(.n-row--no-margin):not(.n-border-all) > [class^=_] {
+  .n-row:not(.n-row--no-margin):not(.n-border-all):not(.n-tabs) > *, .n-row:not(.n-row--no-margin):not(.n-border-all) > [class^=_] {
     margin: 0.25em 0; }
 
   @supports (--a: 1) {
