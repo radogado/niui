@@ -22,7 +22,7 @@ var componentLightbox = (function (){
 		
 		if (overflowY > 0) {
 
-			el.style.setProperty('--y', (-1 * overflowY * (e.y - document.body.scrollHeight + height) / height) + 'px'); // removes 48px from the top bar height
+			el.style.setProperty('--y', (-1 * overflowY * (e.y - window.innerHeight + height) / height) + 'px'); // removes 48px from the top bar height
 			el.style.top = 0;
 			el.style.bottom = 'auto';
 		
