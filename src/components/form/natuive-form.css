@@ -150,6 +150,8 @@ $bg: #1E8DaC;
         width: auto; }
       .n-form .n-form--check label:last-child {
         margin-bottom: 0; }
+      .n-form .n-form--check label input[type=checkbox], .n-form .n-form--check label input[type=radio] {
+        margin: -.25em .2em 0 0; }
   .n-form .n-form--check-icon {
     width: 1em;
     height: 1em;
@@ -165,7 +167,11 @@ $bg: #1E8DaC;
     position: absolute;
     left: 0;
     z-index: 1;
+    top: .05em; }
+  .n-form.n-form--mast .n-form--check-icon {
     top: .25em; }
+  .n-form.n-form--wide .n-form--check-icon {
+    top: .08em; }
   .n-form input[type=checkbox] + .n-form--check-icon:before {
     content: '✓';
     opacity: 0;
@@ -342,6 +348,8 @@ $bg: #1E8DaC;
     width: 100%;
     border: none;
     margin: 0 0 1.5em 0; }
+  .n-form.n-form--wide .n-form--check label input[type=checkbox], .n-form.n-form--wide .n-form--check label input[type=radio] {
+    margin-top: -.2em; }
   .n-form.n-form--mast label {
     width: 100%; }
     .n-form.n-form--mast label > input {
