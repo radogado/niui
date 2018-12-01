@@ -278,6 +278,7 @@ article ul {
 	background-repeat: no-repeat;
 	background-size: cover;
 	font-size: 0;
+	white-space: nowrap;
 
 	&:before {
 	
@@ -445,6 +446,9 @@ nav.n-nav {
 			
 			color: #fff;
 			position: relative;
+		    white-space: normal;
+		    line-height: 1.33;
+	        background: rgba(72, 142, 137, .88);
 
 		}
 	

@@ -2937,7 +2937,8 @@ article ul {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  font-size: 0; }
+  font-size: 0;
+  white-space: nowrap; }
   .img-crop:before {
     display: inline-block;
     vertical-align: middle;
@@ -3024,7 +3025,10 @@ nav.n-nav a {
   color: #488e89; }
 .n-type article .img-crop h2 {
   color: #fff;
-  position: relative; }
+  position: relative;
+  white-space: normal;
+  line-height: 1.33;
+  background: rgba(72, 142, 137, 0.88); }
 
 .wp-block-image {
   margin: 0;
