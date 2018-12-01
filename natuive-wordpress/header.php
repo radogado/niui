@@ -44,6 +44,14 @@
 								<img src='<?php echo str_replace( 'http://', '//', esc_url( get_theme_mod( 'themeslug_logo' ) ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?> Logo' class="img-responsive full">
 						        
 						    </a>
+						    
+						    <div>
+							    
+							    <h2><?php echo get_bloginfo( 'name', 'display' );?></h2>
+							    <h3><?php printf( esc_html__( '%s', 'textdomain' ), get_bloginfo ( 'description' ) ); ?></h3>
+						    
+						    </div>
+
 					    </div>
 					<?php else : ?>
 					<div class="logo">

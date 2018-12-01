@@ -349,6 +349,24 @@ article {
 .n-header .logo {
 	
 	display: flex;
+	
+	~ .n-fold {
+		
+		margin-top: 1em;
+		
+	}
+	
+	div {
+
+		padding: 0 1em;
+		
+		h2, h3 {
+			
+			padding-top: 0;
+
+		}
+		
+	}
 
 }
 

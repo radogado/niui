@@ -195,6 +195,12 @@ article {
 
 .n-header .logo {
   display: flex; }
+  .n-header .logo ~ .n-fold {
+    margin-top: 1em; }
+  .n-header .logo div {
+    padding: 0 1em; }
+    .n-header .logo div h2, .n-header .logo div h3 {
+      padding-top: 0; }
 
 .logo-img {
   min-height: 37px; }
