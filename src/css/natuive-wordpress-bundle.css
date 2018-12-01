@@ -3028,7 +3028,10 @@ nav.n-nav a {
   position: relative;
   white-space: normal;
   line-height: 1.33;
-  background: rgba(72, 142, 137, 0.88); }
+  background: rgba(72, 142, 137, 0.88);
+  transition: background-color .2s ease-in-out; }
+.n-type article .img-crop:hover h2 {
+  background: #488e89; }
 
 .wp-block-image {
   margin: 0;
