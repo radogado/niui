@@ -31,7 +31,7 @@
   color: #fff; }
 
 .n-slider.featured > div > * {
-  padding: 0 0.5em;
+  padding: 0 .5em;
   display: inline-block;
   background: rgba(0, 0, 0, 0.5);
   color: #fff; }
@@ -75,7 +75,7 @@ button.search-submit {
   display: none; }
 
 .n-lightbox.gallery {
-  margin: 0.5em -0.7em;
+  margin: .5em -.7em;
   display: flex;
   flex-wrap: wrap;
   margin: 1rem 0; }
@@ -231,14 +231,11 @@ nav.n-nav a {
 
 .n-type a[href] {
   color: #333; }
-
 .n-type a[href]:hover, .n-type input[type=submit]:hover, .n-type a.n-btn[href]:hover, .n-type button.n-btn:hover {
   color: #ee8822; }
-
 .n-type article h1, .n-type article h2, .n-type article h3, .n-type article h4, .n-type article h5 {
   font-weight: 500;
   color: #488e89; }
-
 .n-type article .img-crop h2 {
   color: #fff;
   position: relative; }
@@ -286,14 +283,18 @@ a.backtotop[href] {
     display: flex;
     flex-wrap: wrap;
     margin-left: -1em; }
+
   .home section article {
     width: calc(50% - 2em);
-    margin: 0.75em 1em 2em 1em; }
+    margin: .75em 1em 2em 1em; }
+
   .home section article:nth-child(1), .home section article:nth-child(2), .home section .pagination {
     width: 100%; }
+
   .home section .pagination {
     margin-left: 1em; } }
-
 @media (max-width: 599.9px) {
   .single h1 {
     font-size: 1.5em; } }
+
+/*# sourceMappingURL=natuive-wordpress.css.map */
