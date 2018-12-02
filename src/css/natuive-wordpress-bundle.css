@@ -614,7 +614,7 @@ $bg: #1E8DaC;
     border: none;
     margin-left: 0; }
   .n-form input[type=search] {
-    -webkit-appearance: textfield;
+    -webkit-appearance: none;
     border-radius: 0; }
     .n-form input[type=search]::-webkit-search-decoration, .n-form input[type=search]::-webkit-search-cancel-button {
       -webkit-appearance: none; }
@@ -2859,6 +2859,9 @@ $bg: #1E8DaC;
   padding-left: 0;
   margin: 0;
   display: block; }
+
+#content .sidebar li {
+  margin-bottom: .5em; }
 
 button.search-submit {
   display: none; }

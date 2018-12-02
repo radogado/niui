@@ -71,6 +71,9 @@
   margin: 0;
   display: block; }
 
+#content .sidebar li {
+  margin-bottom: .5em; }
+
 button.search-submit {
   display: none; }
 

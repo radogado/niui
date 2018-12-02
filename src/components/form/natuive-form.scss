@@ -160,7 +160,7 @@ $placeholder_color: #aaa;
 	
 	input[type=search] {
 	
-	    -webkit-appearance: textfield; // Prevent iOS from rounding the input edges
+	    -webkit-appearance: none; // Prevent iOS from rounding the input edges
 	    border-radius: 0;
 	
 		&::-webkit-search-decoration, &::-webkit-search-cancel-button {
