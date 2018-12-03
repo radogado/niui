@@ -374,7 +374,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap {
   line-height: 1.5;
   padding: .5em;
   flex: 1;
-  margin: .28em;
+  margin: .25em;
   white-space: normal;
   min-height: 0;
   box-shadow: 0 0 0 0.3em var(--bg); }

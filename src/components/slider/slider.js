@@ -498,7 +498,7 @@ var componentSlider = (function (){
 		
 	}
 	
-	function sliderKeyboard(e) {
+	function sliderKeyboard(e) { // e.target can be either body or a slider, choose accordingly
 	
 	    if (typeof e === 'undefined' || 
 	//     	hasClass(q('html'), 'sliding_now') || 
@@ -512,22 +512,23 @@ var componentSlider = (function (){
 	
 		var el = e.target;
 
+		var scrollable = el; // Don't slide when current element is scrollable. Check all parent nodes for scrollability – cheak each parent until body.
+		while (scrollable.nodeName !== 'BODY') {
+			
+			if (scrollable.scrollWidth > scrollable.clientWidth || scrollable.scrollHeight > scrollable.clientHeight) { 
+				
+				e.stopPropagation();
+				return;
+		
+			}
+	
+			scrollable = scrollable.parentElement;
+	
+		}
+			
 		if (!el.closest('.n-slider--wrap') && q('.n-slider--wrap')) { // Focused element is outside of any slider
 			
 	// 		current_slider = q('.n-slider--wrap').querySelector('.slider');
-			var scrollable = el; // Don't slide when current element is scrollable. Check all parent nodes for scrollability – cheak each parent until body.
-			while (scrollable.nodeName !== 'BODY') {
-				
-				if (scrollable.scrollWidth > scrollable.clientWidth || scrollable.scrollHeight > scrollable.clientHeight) { 
-					
-					return;
-			
-				}
-		
-				scrollable = scrollable.parentElement;
-		
-			}
-			
 		} else {
 			
 			current_slider = el.closest('.n-slider--wrap') ? el.closest('.n-slider--wrap').querySelector('.n-slider') : null;
@@ -802,7 +803,7 @@ var componentSlider = (function (){
 		// Detect text direction
 		el.setAttribute('dir', getComputedStyle(el, null).getPropertyValue('direction'));
 		    
-	    window.addEventListener('keyup', sliderKeyboard);
+	    el.addEventListener('keyup', sliderKeyboard);
 		
 		observerOn();
 	
@@ -818,6 +819,8 @@ var componentSlider = (function (){
 		
 		});
 		
+	    window.addEventListener('keyup', sliderKeyboard);
+
 	};
 	registerComponent('slider', init);
 	

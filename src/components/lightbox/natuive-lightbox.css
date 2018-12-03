@@ -104,7 +104,7 @@ $bg: #1E8DaC;
   border-radius: 100%;
   animation: sk-scaleout 1.0s infinite ease-in-out; }
 
-.n-slider.n-lightbox.n-lightbox--thumbnails > * p.n-lightbox--caption {
+.n-slider.n-lightbox.n-lightbox--thumbnails:not(.n-slider--detached-nav) > * p.n-lightbox--caption {
   bottom: 4em; }
 
 .n-lightbox.n-slider img {

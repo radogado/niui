@@ -1575,8 +1575,15 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		    var url = hasClass(lightbox, 'n-slider') ? (el.querySelector('img') ? el.querySelector('img').getAttribute('data-src') : '') : el.href;
 		    
 			var caption = el.title ? el.title : (el.querySelector('img') ? el.querySelector('img').title : '');
+			var caption_attribute = el.querySelector('img') ? el.querySelector('img').getAttribute('data-caption') : false;
+			
+			if (typeof caption_attribute === 'string') { // When an inline lightbox opens a full window one
+				
+				caption = caption_attribute;
+				
+			}
 					    
-		    images += `<div><img data-src="${url}" title="" data-link="${slide_link}">${(caption ? ('<p class=n-lightbox--caption>' + caption + '</p>') : '') + link_element}</div>`;
+		    images += `<div><img data-src="${url}" title="" data-link="${slide_link}" data-caption="${caption}">${(caption ? ('<p class=n-lightbox--caption>' + caption + '</p>') : '') + link_element}</div>`;
 	
 	        // Attach onload event to each image to display it only when fully loaded and avoid top-to-bottom reveal?
 	
@@ -2990,7 +2997,7 @@ var componentSlider = (function (){
 		
 	}
 	
-	function sliderKeyboard(e) {
+	function sliderKeyboard(e) { // e.target can be either body or a slider, choose accordingly
 	
 	    if (typeof e === 'undefined' || 
 	//     	hasClass(q('html'), 'sliding_now') || 
@@ -3004,22 +3011,23 @@ var componentSlider = (function (){
 	
 		var el = e.target;
 
+		var scrollable = el; // Don't slide when current element is scrollable. Check all parent nodes for scrollability – cheak each parent until body.
+		while (scrollable.nodeName !== 'BODY') {
+			
+			if (scrollable.scrollWidth > scrollable.clientWidth || scrollable.scrollHeight > scrollable.clientHeight) { 
+				
+				e.stopPropagation();
+				return;
+		
+			}
+	
+			scrollable = scrollable.parentElement;
+	
+		}
+			
 		if (!el.closest('.n-slider--wrap') && q('.n-slider--wrap')) { // Focused element is outside of any slider
 			
 	// 		current_slider = q('.n-slider--wrap').querySelector('.slider');
-			var scrollable = el; // Don't slide when current element is scrollable. Check all parent nodes for scrollability – cheak each parent until body.
-			while (scrollable.nodeName !== 'BODY') {
-				
-				if (scrollable.scrollWidth > scrollable.clientWidth || scrollable.scrollHeight > scrollable.clientHeight) { 
-					
-					return;
-			
-				}
-		
-				scrollable = scrollable.parentElement;
-		
-			}
-			
 		} else {
 			
 			current_slider = el.closest('.n-slider--wrap') ? el.closest('.n-slider--wrap').querySelector('.n-slider') : null;
@@ -3294,7 +3302,7 @@ var componentSlider = (function (){
 		// Detect text direction
 		el.setAttribute('dir', getComputedStyle(el, null).getPropertyValue('direction'));
 		    
-	    window.addEventListener('keyup', sliderKeyboard);
+	    el.addEventListener('keyup', sliderKeyboard);
 		
 		observerOn();
 	
@@ -3310,6 +3318,8 @@ var componentSlider = (function (){
 		
 		});
 		
+	    window.addEventListener('keyup', sliderKeyboard);
+
 	};
 	registerComponent('slider', init);
 	

@@ -163,7 +163,7 @@
 
 }
 
-.n-slider.n-lightbox.n-lightbox--thumbnails > * p.n-lightbox--caption {
+.n-slider.n-lightbox.n-lightbox--thumbnails:not(.n-slider--detached-nav) > * p.n-lightbox--caption {
 	
 	bottom: 4em;
 

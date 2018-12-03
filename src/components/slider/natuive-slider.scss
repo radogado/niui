@@ -642,7 +642,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 		line-height: $line-height;
 		padding: .5em;
 		flex: 1;
-		margin: .28em; // Prevent clipping of the focus outline
+		margin: .25em; // Prevent clipping of the focus outline
 		white-space: normal;
 		min-height: 0;
 		box-shadow: 0 0 0 .3em var(--bg);

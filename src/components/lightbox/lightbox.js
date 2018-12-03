@@ -259,8 +259,15 @@ var componentLightbox = (function (){
 		    var url = hasClass(lightbox, 'n-slider') ? (el.querySelector('img') ? el.querySelector('img').getAttribute('data-src') : '') : el.href;
 		    
 			var caption = el.title ? el.title : (el.querySelector('img') ? el.querySelector('img').title : '');
+			var caption_attribute = el.querySelector('img') ? el.querySelector('img').getAttribute('data-caption') : false;
+			
+			if (typeof caption_attribute === 'string') { // When an inline lightbox opens a full window one
+				
+				caption = caption_attribute;
+				
+			}
 					    
-		    images += `<div><img data-src="${url}" title="" data-link="${slide_link}">${(caption ? ('<p class=n-lightbox--caption>' + caption + '</p>') : '') + link_element}</div>`;
+		    images += `<div><img data-src="${url}" title="" data-link="${slide_link}" data-caption="${caption}">${(caption ? ('<p class=n-lightbox--caption>' + caption + '</p>') : '') + link_element}</div>`;
 	
 	        // Attach onload event to each image to display it only when fully loaded and avoid top-to-bottom reveal?
 	
