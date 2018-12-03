@@ -11,6 +11,8 @@ if (typeof window['chrome'] !== 'undefined') {
 
 }
 
+var is_iPad = !!navigator.platform.match(/iPad/);
+
 var aria_expanded = 'aria-expanded';
 var scripts_location = document.getElementsByTagName('script'); // To do: 1. maybe move this global variable to window.scripts_location. 2. This is wrong with async scripts. To do: Use document.currentScript
 scripts_location = scripts_location[scripts_location.length-1].src;

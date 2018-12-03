@@ -284,7 +284,7 @@ var componentModal = (function (){
 
 		}
 			
-		if (full_window_content.querySelector('.n-full-screen')) {
+		if (full_window_content.querySelector('.n-full-screen') && !is_iPad) { // iPad iOS 12 full screen is still experimental and buggy
 	
 			if (full_window_content.webkitRequestFullScreen) { 
 				

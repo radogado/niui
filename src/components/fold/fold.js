@@ -107,6 +107,7 @@
 		
 		    }
 		
+/*
 		    if (!hasClass(el, 'n-fold--mobile')) { // Keep the accordion content clickable
 			    
 			    content.onclick = (e) => {
@@ -116,6 +117,7 @@
 			    };
 		
 		    }
+*/
 		    
 		    makeReady(el);
 		    

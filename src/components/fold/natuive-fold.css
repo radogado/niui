@@ -71,6 +71,8 @@ $bg: #1E8DaC;
     overflow: hidden;
     cursor: auto;
     will-change: max-width; }
+    .n-fold:not([data-init]):not(.n-fold--mobile) .n-fold--content > .n-fold {
+      margin: .3em; }
   .n-fold[aria-expanded] .n-fold--content {
     max-height: none; }
   .n-fold:not([aria-expanded]):not(.n-fold--mobile):not(.n-fold--horizontal) > .n-fold--content, .n-fold[aria-expanded]:not(.n-fold--horizontal) input.n-trigger:checked ~ .n-fold--content {

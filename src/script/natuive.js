@@ -11,6 +11,8 @@ if (typeof window['chrome'] !== 'undefined') {
 
 }
 
+var is_iPad = !!navigator.platform.match(/iPad/);
+
 var aria_expanded = 'aria-expanded';
 var scripts_location = document.getElementsByTagName('script'); // To do: 1. maybe move this global variable to window.scripts_location. 2. This is wrong with async scripts. To do: Use document.currentScript
 scripts_location = scripts_location[scripts_location.length-1].src;
@@ -908,6 +910,7 @@ qa('a[href^="#"]').forEach((el) => {
 		
 		    }
 		
+/*
 		    if (!hasClass(el, 'n-fold--mobile')) { // Keep the accordion content clickable
 			    
 			    content.onclick = (e) => {
@@ -917,6 +920,7 @@ qa('a[href^="#"]').forEach((el) => {
 			    };
 		
 		    }
+*/
 		    
 		    makeReady(el);
 		    
@@ -2064,7 +2068,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 
 		}
 			
-		if (full_window_content.querySelector('.n-full-screen')) {
+		if (full_window_content.querySelector('.n-full-screen') && !is_iPad) { // iPad iOS 12 full screen is still experimental and buggy
 	
 			if (full_window_content.webkitRequestFullScreen) { 
 				
