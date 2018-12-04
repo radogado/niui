@@ -129,7 +129,7 @@ iframe, article h2 a {
   position: relative;
   overflow: hidden; }
 
-.n-type section > article > p, .n-type section > article > ol, .n-type section > article > ul {
+.n-type section > article > p:not(.has-image), .n-type section > article > ol, .n-type section > article > ul {
   max-width: 40em;
   margin: 1.5em auto; }
 

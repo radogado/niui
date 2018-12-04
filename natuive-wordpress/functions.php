@@ -657,6 +657,12 @@ add_action('the_content', function ($content) {
 
 	foreach ($imgs as $img) {
 
+		if($img->parentNode->tagName == 'p') {
+			
+			$img->parentNode->setAttribute('class', 'has-image');
+			
+		}
+
 		$ratio = 1;
 		$image_width = 0;
 

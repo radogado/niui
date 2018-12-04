@@ -236,12 +236,13 @@ iframe, article h2 a {
 
 .n-type section > article > {
 	
-	p, ol, ul {
+	p:not(.has-image), ol, ul {
 	
 		max-width: 40em;
 		margin: 1.5em auto;
 	
 	}
+	
 	
 	p {
 		
