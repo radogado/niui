@@ -2659,7 +2659,7 @@ var componentSlider = (function (){
 		var slider_wrap = el.closest('.n-slider--wrap');
 	
 	    if (toggle === 'off') {
-	
+
 	        slider_wrap.removeEventListener('wheel', mouseWheelHandler);
 	
 	    } else {

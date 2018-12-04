@@ -338,7 +338,7 @@ article h2 a[href]:after {
 }
 */
 
-.menu .current_page_item a:link, .menu .current_page_item a:visited, .img-crop:hover h2 {
+.menu .current_page_item a:link, .menu .current_page_item a:visited, .img-crop:hover h2, .n-form button.search-submit:hover, .n-type article .img-crop:hover h2, #content.n-type article .headline:hover h2 a[href] {
 	
 	color: #e82;
 
@@ -478,6 +478,13 @@ nav.n-nav {
 		
 		}
 		
+		.headline > h2 {
+			
+			padding: 0;
+			line-height: 1.33;
+
+		}
+		
 		.img-crop {
 		
 			h2 {
@@ -608,7 +615,7 @@ a.backtotop[href] {
 	.home section article {
 	
 		width: calc(50% - 2em);
-		margin: .75em 1em 2em 1em;
+		margin: 0 0 2em 1em;
 		
 	}
 	
