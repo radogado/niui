@@ -663,6 +663,12 @@ add_action('the_content', function ($content) {
 			
 		}
 
+		if($img->parentNode->tagName == 'a') {
+			
+			$img->parentNode->parentNode->setAttribute('class', 'has-image');
+			
+		}
+
 		$ratio = 1;
 		$image_width = 0;
 
