@@ -129,9 +129,10 @@ iframe, article h2 a {
   position: relative;
   overflow: hidden; }
 
-.n-type section > article > p:not(.has-image), .n-type section > article > ol, .n-type section > article > ul {
+.n-type section > article > p:not(.has-image), .n-type section > article > ol, .n-type section > article > ul, .n-type section > article > blockquote {
   max-width: 40em;
-  margin: 1.5em auto; }
+  margin: 1.5em auto;
+  box-sizing: border-box; }
 
 article ul {
   padding-left: 2px; }
