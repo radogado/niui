@@ -639,13 +639,28 @@ add_action('the_content', function ($content) {
 	$imgs = $dom->getElementsByTagName('img');
 
 	foreach ($imgs as $img) {
-		
-		$id = (int) str_replace('-', '', filter_var($img->getAttribute('class'), FILTER_SANITIZE_NUMBER_INT));
-		$attachment = wp_get_attachment_metadata($id);
 
+		$ratio = 1;
+		$image_width = 0;
+
+		if ($img->getAttribute('sizes')) {
+			
+			$id = (int) str_replace('-', '', filter_var($img->getAttribute('class'), FILTER_SANITIZE_NUMBER_INT));
+			$attachment = wp_get_attachment_metadata($id);
+			$ratio = $attachment[width] / $attachment[height];
+			$image_width = explode(', ', $img->getAttribute('sizes'))[1];
+			
+		} else { // Legacy image format
+			
+			$img->setAttribute('src', str_replace( 'http://', '//', $img->getAttribute('src'))); // Fix HTTPS
+			$ratio = $img->getAttribute('width') / $img->getAttribute('height');
+			$image_width = $img->getAttribute('width') . 'px';
+			
+		}
+		
 		$wrapper = $dom->createElement('span');
 		$wrapper->setAttribute('class','n-aspect');
-		$wrapper->setAttribute('style', '--ratio: ' . $attachment[width] / $attachment[height] . '; --image-width: ' . explode(', ', $img->getAttribute('sizes'))[1]);
+		$wrapper->setAttribute('style', '--ratio: ' . $ratio . '; --image-width: ' . $image_width);
 		
 		$img->parentNode->replaceChild($wrapper, $img);
 		$wrapper->appendChild($img);

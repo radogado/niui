@@ -86,10 +86,8 @@
 
 #content .sidebar form {
 	
-	padding-top: 0;
-	margin-top: 11px;
-	margin-bottom: 0;
-	padding-bottom: 0;
+	margin: 0;
+	padding: 0;
 
 }
 
@@ -403,11 +401,13 @@ footer { // Stick footer to the bottom
 		
 }
 
+/*
 nav.n-nav.n-drop ul li a[href] {
 	
 	text-decoration: underline;
 
 }
+*/
 
 nav.n-nav {
 	
@@ -430,6 +430,18 @@ nav.n-nav {
 		&[href]:hover {
 			
 			color: #ee8822;
+			
+		}
+
+	}
+	
+	&.n-drop {
+		
+		--nav-bg: #eee;
+		
+		li.current_page_item {
+			
+			--nav-bg: #ddd;
 			
 		}
 

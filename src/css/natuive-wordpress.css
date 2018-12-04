@@ -52,10 +52,8 @@
   display: block; }
 
 #content .sidebar form {
-  padding-top: 0;
-  margin-top: 11px;
-  margin-bottom: 0;
-  padding-bottom: 0; }
+  margin: 0;
+  padding: 0; }
 
 #content img {
   display: block; }
@@ -221,9 +219,13 @@ footer {
 .comment-form p label {
   display: block; }
 
+/*
 nav.n-nav.n-drop ul li a[href] {
-  text-decoration: underline; }
+	
+	text-decoration: underline;
 
+}
+*/
 nav.n-nav a {
   color: #666;
   text-transform: uppercase;
@@ -235,6 +237,10 @@ nav.n-nav a {
     color: #ee8822; }
   nav.n-nav a[href]:hover {
     color: #ee8822; }
+nav.n-nav.n-drop {
+  --nav-bg: #eee; }
+  nav.n-nav.n-drop li.current_page_item {
+    --nav-bg: #ddd; }
 
 .single h1 {
   margin-top: .25em; }
