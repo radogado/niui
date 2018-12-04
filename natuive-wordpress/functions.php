@@ -604,14 +604,31 @@ function my_img_caption_shortcode( $empty, $attr, $content ){
 
 	$dom = new DOMdocument();
 	@$dom->loadHTML($img);
-	$dom_img = $dom->getElementsByTagName('img');
+	$img_dom = $dom->getElementsByTagName('img')[0];
 	$attachment = wp_get_attachment_metadata($id);
 
-    return '<div ' . $attr['id']
+
+	$ratio = 1;
+	$image_width = 0;
+
+	if ($img_dom->getAttribute('sizes')) {
+	
+		$ratio = $attachment[width] / $attachment[height];
+		$image_width = explode(', ', $img_dom->getAttribute('sizes'))[1];
+	
+	} else { // Legacy image format
+	
+		$img_dom->setAttribute('src', str_replace( 'http://', '//', $img_dom->getAttribute('src'))); // Fix HTTPS
+		$ratio = $img_dom->getAttribute('width') / $img_dom->getAttribute('height');
+		$image_width = $img_dom->getAttribute('width') . 'px';
+	
+	}
+
+   return '<div ' . $attr['id']
     . 'data-id="' . $id . '"'
     . 'class="wp-caption ' . esc_attr( $attr['align'] ) . '" '
     . 'style="max-width: ' . $attr['width'] . 'px;">'
-    . '<span class="n-aspect" style="--image-width: ' . explode(', ', $dom_img[0]->getAttribute('sizes'))[1] . '; --ratio: ' . ($attachment[width] / $attachment[height]) . ';">' . $img . '</span>' // Add .n-aspect and --ratio: height/width
+    . '<span class="n-aspect" style="--image-width: ' . $image_width . '; --ratio: ' . $ratio . ';">' . $img . '</span>' // Add .n-aspect and --ratio: height/width
     . '<p class="wp-caption-text">' . $attr['caption'] . '</p>'
     . '</div>';
 
