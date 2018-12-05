@@ -624,6 +624,16 @@ function my_img_caption_shortcode( $empty, $attr, $content ){
 	
 	}
 
+   return '<div class="wp-block-image">'
+    . '<figure class="' . esc_attr( $attr['align'] ) . '" '
+//     . 'style="max-width: ' . $attr['width'] . 'px;'
+    . '">'
+    . '<span class="n-aspect ' . $img_dom->getAttribute('class') . '" style="--image-width: ' . $image_width . '; --ratio: ' . $ratio . ';">' . $img . '</span>' // Add .n-aspect and --ratio: height/width
+    . '<figcaption>' . $attr['caption'] . '</figcaption>'
+    . '</figure>'
+    . '</div>';
+
+/*
    return '<div ' . $attr['id']
     . 'data-id="' . $id . '"'
     . 'class="wp-caption ' . esc_attr( $attr['align'] ) . '" '
@@ -631,6 +641,7 @@ function my_img_caption_shortcode( $empty, $attr, $content ){
     . '<span class="n-aspect ' . $img_dom->getAttribute('class') . '" style="--image-width: ' . $image_width . '; --ratio: ' . $ratio . ';">' . $img . '</span>' // Add .n-aspect and --ratio: height/width
     . '<p class="wp-caption-text">' . $attr['caption'] . '</p>'
     . '</div>';
+*/
 
 }
 
