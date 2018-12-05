@@ -3,7 +3,7 @@
 
 9+9 KB framework leveraging browsers' built-in capabilities, with subtle customisation. 
 
-To use natUIve, copy **dist** and edit **dist/index.html**. Check the [Guide](http://radogado.github.io/natuive/guide/) for details.
+To use natUIve, copy **dist** and edit **dist/index.html**. Check the [Guide](http:https://radogado.github.io/natuive/guide/) for details.
 
 NPM usage:
 
@@ -14,63 +14,53 @@ NPM usage:
 
 ## Demo pages
 
-[Kitchen sink](http://radogado.github.io/natuive/kitchen.html), [WordPress theme](http://rado.bg), [Microsoft](http://radogado.github.io/natuive/demos/microsoft/), [Imperial Innovations](http://radogado.github.io/natuive/demos/imperialinnovations/), [Pebble homepage](http://radogado.github.io/natuive/demos/pebble/), [Seat 61](http://radogado.github.io/natuive/demos/seat61/), [JetBlue](http://radogado.github.io/natuive/demos/jetblue/), [Mitsubishi Regional Jet](http://radogado.github.io/natuive/demos/mrj/), [MUBI](http://radogado.github.io/natuive/demos/mubi/), [SWISS](http://radogado.github.io/natuive/demos/swiss/), [Mapbox](http://radogado.github.io/natuive/demos/mapbox/), [Airbnb](http://radogado.github.io/natuive/demos/airbnb/), [GOV.UK](http://radogado.github.io/natuive/demos/gov.uk/), [Google Design](http://radogado.github.io/natuive/demos/google-design/), [Daring Fireball](http://radogado.github.io/natuive/demos/daringfireball/), [Vitsœ](http://radogado.github.io/natuive/demos/vitsoe/), [Apple](http://radogado.github.io/natuive/demos/apple/), [Brand Union](http://radogado.github.io/natuive/demos/brandunion/), [Tesla](http://radogado.github.io/natuive/demos/tesla/), [Amnesty](http://radogado.github.io/natuive/demos/amnesty/), [Stripe](http://radogado.github.io/natuive/demos/stripe/), [Star Wars](http://radogado.github.io/natuive/demos/starwars/), [Norwegian](http://radogado.github.io/natuive/demos/norwegian/), [David Bowie Is (Japan)](http://radogado.github.io/natuive/demos/davidbowieis/), [Uncharted: The Lost Legacy](http://radogado.github.io/natuive/demos/uncharted-the-lost-legacy/), [Seehotel Jägerwirt](http://radogado.github.io/natuive/demos/seehotel-jaegerwirt/), [Truphone](http://radogado.github.io/natuive/demos/truphone/), [Pixel Pioneers](http://radogado.github.io/natuive/demos/pixelpioneers/), [Apex](http://radogado.github.io/natuive/demos/apex/), [Loco2](http://radogado.github.io/natuive/demos/loco2/), [VI.nl](http://radogado.github.io/natuive/demos/vi.nl/), [Nikon D850](http://radogado.github.io/natuive/demos/nikon-d850/), [Enoden](http://radogado.github.io/natuive/demos/enoden/), [Tuts+](http://radogado.github.io/natuive/demos/tutsplus/), [Hasselblad Chinese](http://radogado.github.io/natuive/demos/hasselblad/), [CNN Travel](http://radogado.github.io/natuive/demos/cnn-travel/), [Postbank](http://radogado.github.io/natuive/demos/postbank/)
+[Kitchen sink](http:https://radogado.github.io/natuive/kitchen.html), [WordPress theme](http://rado.bg), [Microsoft](http:https://radogado.github.io/natuive/demos/microsoft/), [Imperial Innovations](http:https://radogado.github.io/natuive/demos/imperialinnovations/), [Pebble homepage](http:https://radogado.github.io/natuive/demos/pebble/), [Seat 61](http:https://radogado.github.io/natuive/demos/seat61/), [JetBlue](http:https://radogado.github.io/natuive/demos/jetblue/), [Mitsubishi Regional Jet](http:https://radogado.github.io/natuive/demos/mrj/), [MUBI](http:https://radogado.github.io/natuive/demos/mubi/), [SWISS](http:https://radogado.github.io/natuive/demos/swiss/), [Mapbox](http:https://radogado.github.io/natuive/demos/mapbox/), [Airbnb](http:https://radogado.github.io/natuive/demos/airbnb/), [GOV.UK](http:https://radogado.github.io/natuive/demos/gov.uk/), [Google Design](http:https://radogado.github.io/natuive/demos/google-design/), [Daring Fireball](http:https://radogado.github.io/natuive/demos/daringfireball/), [Vitsœ](http:https://radogado.github.io/natuive/demos/vitsoe/), [Apple](http:https://radogado.github.io/natuive/demos/apple/), [Brand Union](http:https://radogado.github.io/natuive/demos/brandunion/), [Tesla](http:https://radogado.github.io/natuive/demos/tesla/), [Amnesty](http:https://radogado.github.io/natuive/demos/amnesty/), [Stripe](http:https://radogado.github.io/natuive/demos/stripe/), [Star Wars](http:https://radogado.github.io/natuive/demos/starwars/), [Norwegian](http:https://radogado.github.io/natuive/demos/norwegian/), [David Bowie Is (Japan)](http:https://radogado.github.io/natuive/demos/davidbowieis/), [Uncharted: The Lost Legacy](http:https://radogado.github.io/natuive/demos/uncharted-the-lost-legacy/), [Seehotel Jägerwirt](http:https://radogado.github.io/natuive/demos/seehotel-jaegerwirt/), [Truphone](http:https://radogado.github.io/natuive/demos/truphone/), [Pixel Pioneers](http:https://radogado.github.io/natuive/demos/pixelpioneers/), [Apex](http:https://radogado.github.io/natuive/demos/apex/), [Loco2](http:https://radogado.github.io/natuive/demos/loco2/), [VI.nl](http:https://radogado.github.io/natuive/demos/vi.nl/), [Nikon D850](http:https://radogado.github.io/natuive/demos/nikon-d850/), [Enoden](http:https://radogado.github.io/natuive/demos/enoden/), [Tuts+](http:https://radogado.github.io/natuive/demos/tutsplus/), [Hasselblad Chinese](http:https://radogado.github.io/natuive/demos/hasselblad/), [CNN Travel](http:https://radogado.github.io/natuive/demos/cnn-travel/), [Postbank](http:https://radogado.github.io/natuive/demos/postbank/)
 
 ---
 
-- Unbreakable, flexible (no hardcoded dimensions), responsive grid. Supports Bootstrap-style wrapping columns, but with ._1-3 (1/3) etc., instead of .col...4 (4/12). Auto equal width columns with equal height and vertical alignment.
-- Baseline-aligned text elements*
+- Unbreakable, flexible, responsive [grid](https://radogado.github.io/natuive/guide/#grid). Supports Bootstrap-style wrapping columns, but with ._1-3 (1/3) etc., instead of .col...4 (4/12). Auto equal width columns with equal height and vertical alignment.
+- Baseline-aligned [typography](https://radogado.github.io/natuive/guide/#typography)*, quote block, drop caps.
 - Unique BEM-like class names
 - Embeddable grid and elements*
 - Built around edge cases (overflowing content etc)*
-- CSS reset
-- Really blank default style, unlike frameworks with baked-in rounded edges, shadows etc*
+- Blank default style, without rounded edges, shadows etc*
 - Semantic structure
-- Components conveniently segregated and dynamically initialised by MutationObserver
-- Balanced functional layout
-- (Mobile) navigation
-- Drop-down nav: Touch-first, CSS-only, JS enhanced, 1-3 levels, responsive, label/link items support
-- Buttons with a grouping container for proper line wrap
-- Modal windows with local or external content, multiple instances, fully supporting iPhone Safari toolbars*
-- Lightbox gallery supporting huge galleries* and click to zoom. Can be opened automatically by URI page#lightbox_id. Video in lightbox. Inline lightboxes switchable to full screen.
-- Tooltips with full HTML content*
-- Nested ordered lists*
-- Forms with validation, dynamic submission without page reload, full customisation and accessibility, including native file drop. Range input with blank style. Auto-expanding textarea*. Optional fieldsets.
-- Native sliders*, swipeable on mobile and desktop, with numbered or thumbnail (tabs) navigation, vertical and full window options, slider inside slider, fade in/out option, auto height option
-- Accordions
-- Tabs
-- Cards
-- Quote block
-- Drop Caps
-- Grid with inline popups
-- Tables accessible on narrow screens by scrolling; sortable*
+- [Dynamic components](https://radogado.github.io/natuive/guide/#dynamic-components), dynamically initialised by MutationObserver
+- (Mobile) [navigation](https://radogado.github.io/natuive/guide/#nav). Drop-down nav: Touch-first, CSS-only, JS enhanced, 1-3 levels, responsive, label/link items support
+- [Buttons](https://radogado.github.io/natuive/guide/#buttons) with group container for proper line wrap
+- [Modal windows](https://radogado.github.io/natuive/guide/#modal-window) with local or external content, multiple instances, fully supporting iPhone Safari toolbars*
+- [Lightbox gallery](https://radogado.github.io/natuive/guide/#lightbox) supporting huge galleries* and click to zoom. Can be opened automatically by URI page#lightbox_id. Video in lightbox. Inline lightboxes switchable to full screen.
+- [Tooltips](https://radogado.github.io/natuive/guide/#tooltip) with full HTML content*
+- Nested ordered [lists](https://radogado.github.io/natuive/guide/#lists)*
+- [Forms](https://radogado.github.io/natuive/guide/#form) with validation, dynamic submission without page reload, full customisation and accessibility, including native file drop. Range input with blank style. Auto-expanding textarea*. Optional fieldsets.
+- Native [sliders](https://radogado.github.io/natuive/guide/#slider)*, swipeable on mobile and desktop, with numbered or thumbnail (tabs) navigation, vertical and full window options, slider inside slider, fade in/out option, auto height option
+- [Accordions](https://radogado.github.io/natuive/guide/#fold)
+- [Tabs](https://radogado.github.io/natuive/guide/#tabs)
+- [Cards](https://radogado.github.io/natuive/guide/#cards)
+- [Grid with inline popups](https://radogado.github.io/natuive/guide/#grid-inline-popup)
+- [Tables](https://radogado.github.io/natuive/guide/#tables) accessible on narrow screens by scrolling; sortable*
 - Footer sticking to the very bottom on short pages*
-- 'Back to top' button
-- Animated anchor links
+- Animated anchor links and 'Back to top' button 
 - Language selector
-- Native video player
-- Good usability without any classes*
-- aspect ratio image container*
-- CSS-only viewport height header*
-- URI parameters relay to links*
+- [Aspect ratio](https://radogado.github.io/natuive/guide/#aspect-ratio) image container*
 - Arabic layout ready*
-- Masonry CSS-only* (vertical track only)
-- CSS-only parallax scrolling* 
-- Fixed background option
-- WordPress theme*
-- Notification bar
-- Click to copy to clipboard
-- Multiple modals, nested carousels, nested accordions etc
+- [Masonry](https://radogado.github.io/natuive/guide/#masonry) CSS-only* (vertical track only)
+- CSS-only [parallax scrolling](https://radogado.github.io/natuive/guide/#parallax)* 
+- [Fixed background](https://radogado.github.io/natuive/guide/#fixed-background)
+- [WordPress theme](rado.bg)*
+- [Notification bar](https://radogado.github.io/natuive/guide/#notifications)
+- Click to [copy to clipboard](https://radogado.github.io/natuive/guide/#copy)
+- Support for multiple modals, nested carousels, nested accordions etc
 - Functional without JS and accessible without CSS*
-- NPM install
-- Guide
-- 9 KB First View CSS + optional 8 KB JS (combined, minified, macOS gzip)
+- [NPM install](https://radogado.github.io/natuive/guide/#npm)
+- [Guide](https://radogado.github.io/natuive/guide/#)
+- 9 KB First View CSS + optional 9 KB JS (combined, minified, macOS gzip)
 - ~~No IE conditional operators~~ HTML5 elements also for IE8 with html5shiv
 - No jQuery or other dependencies*
 - Supporting IE8+, Safari, Chrome, Firefox, Opera, Android 2.3+, iOS, Windows Phone
 - Graceful degradation
 - All components are accessible by keyboard
-- Full documentation in [natUIve.pdf](http://radogado.github.io/natuive/natUIve.pdf)
+- Full documentation in [natUIve.pdf](http:https://radogado.github.io/natuive/natUIve.pdf)
 - Includes a FREE picture of a cat
 
 \* exclusive features, missing in popular frameworks

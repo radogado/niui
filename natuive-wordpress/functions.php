@@ -628,7 +628,7 @@ function my_img_caption_shortcode( $empty, $attr, $content ){
     . 'data-id="' . $id . '"'
     . 'class="wp-caption ' . esc_attr( $attr['align'] ) . '" '
     . 'style="max-width: ' . $attr['width'] . 'px;">'
-    . '<span class="n-aspect" style="--image-width: ' . $image_width . '; --ratio: ' . $ratio . ';">' . $img . '</span>' // Add .n-aspect and --ratio: height/width
+    . '<span class="n-aspect ' . $img_dom->getAttribute('class') . '" style="--image-width: ' . $image_width . '; --ratio: ' . $ratio . ';">' . $img . '</span>' // Add .n-aspect and --ratio: height/width
     . '<p class="wp-caption-text">' . $attr['caption'] . '</p>'
     . '</div>';
 
@@ -666,6 +666,7 @@ add_action('the_content', function ($content) {
 		if($img->parentNode->tagName == 'a') {
 			
 			$img->parentNode->parentNode->setAttribute('class', 'has-image');
+			$img->parentNode->setAttribute('class', $img->getAttribute('class'));
 			
 		}
 
@@ -688,7 +689,7 @@ add_action('the_content', function ($content) {
 		}
 		
 		$wrapper = $dom->createElement('span');
-		$wrapper->setAttribute('class','n-aspect');
+		$wrapper->setAttribute('class', 'n-aspect ' . $img->getAttribute('class'));
 		$wrapper->setAttribute('style', '--ratio: ' . $ratio . '; --image-width: ' . $image_width);
 		
 		$img->parentNode->replaceChild($wrapper, $img);
