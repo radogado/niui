@@ -9,6 +9,8 @@ html.n-parallax {
 		height: 100%;
 	
 	}
+	
+	overflow-x: hidden;
 
 }
 
@@ -48,14 +50,12 @@ html.n-parallax .n-fixed-bg {
 
 	}
 
-/* // No longer needed. The main content is now safe from transform drawbacks (like breaking fixed positioning)
 	.n-parallax--front {
 
 		transform-style: preserve-3d;
 		transform: translateZ(0); // Safari H/W acceleration
 
 	}
-*/
 
 	.n-parallax--back {
 
