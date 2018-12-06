@@ -610,14 +610,14 @@ a.backtotop[href] {
 		
 		display: flex;
 		flex-wrap: wrap;
-		margin-left: -1em;
+// 		margin-left: -1em;
 	
 	}
 	
 	.home section article {
 	
 		width: calc(50% - 2em);
-		margin: 0 0 2em 1em;
+		margin: 0 0 2em 0;
 		
 	}
 	
@@ -627,11 +627,13 @@ a.backtotop[href] {
 	
 	}
 	
+/*
 	.home section .pagination {
 	
 		margin-left: 1em;
 	
 	}
+*/
 
 }
 

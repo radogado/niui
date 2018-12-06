@@ -137,9 +137,8 @@ body {
 @supports (-ms-ime-align: auto) {
   .n-fixed-bg {
     background-size: cover; }
-
-  .n-fixed-bg .n-fixed-bg--image {
-    display: none; } }
+    .n-fixed-bg .n-fixed-bg--image {
+      display: none; } }
 .n-fixed {
   position: fixed; }
   .n-fixed.n-header {
