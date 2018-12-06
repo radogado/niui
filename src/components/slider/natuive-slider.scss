@@ -486,9 +486,9 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 		height: 1em;
 		-webkit-border-radius: 50px;
 		border-radius: 50%;
-		--bg: #bbb;
+		--bg: #f8f8f8;
 		background-color: var(--bg);
-		color: #fff;
+		color: #333;
 		transition: background-color .2s linear;
 		line-height: 1em;
 		box-sizing: content-box;
@@ -602,8 +602,8 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 		
 	.n-slider--nav a[data-active] {
 	
-		--bg: #ccc;
-		color: inherit;
+		--bg: #ededed;
+		color: #000;
 	
 	}
 
@@ -641,11 +641,11 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 		border-radius: 0;
 		line-height: $line-height;
 		padding: .5em;
+		margin: 0;
 		flex: 1;
-		margin: .25em; // Prevent clipping of the focus outline
+		outline-offset: -6px; // Don't crop
 		white-space: normal;
 		min-height: 0;
-		box-shadow: 0 0 0 .3em var(--bg);
 		
 	}
 

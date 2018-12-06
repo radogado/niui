@@ -147,7 +147,14 @@ nav.n-nav {
 	font-size: 0;
 	--nav-size: 12px;
 	margin: 0 6px;
+	background: #ddd;
 	
+}
+
+.n-slider--wrap>.n-slider--nav {
+	
+	padding-bottom: 1em;
+
 }
 
 .n-banner .n-slider--nav a[data-active] {

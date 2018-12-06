@@ -157,7 +157,8 @@ $bg: #1E8DaC;
   min-height: 4em;
   background-size: cover;
   border-radius: 0;
-  cursor: zoom-in; }
+  cursor: zoom-in;
+  outline-offset: -6px; }
 .n-lightbox--thumbnails.n-slider--nav a[data-active] {
   opacity: .25;
   transition: opacity .2s ease-in-out; }
