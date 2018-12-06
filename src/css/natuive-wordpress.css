@@ -270,7 +270,7 @@ nav.n-nav.n-drop {
   background: #488e89; }
 
 .wp-block-image {
-  margin: 0;
+  margin: 1em 0;
   max-width: 100%; }
   .wp-block-image figure, .wp-block-image figure[class*=align] {
     display: block;
