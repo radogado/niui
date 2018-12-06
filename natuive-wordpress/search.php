@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-	<main role="main" class="_3-4">
+	<main role="main" class="_3/4">
 		<!-- section -->
 		<section class="n-section">
 
@@ -14,6 +14,6 @@
 		<!-- /section -->
 	</main>
 
-<div class="_1-4"> <?php get_sidebar(); ?> </div>
+<div class="_1/4"> <?php get_sidebar(); ?> </div>
 
 <?php get_footer(); ?>

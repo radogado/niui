@@ -18,7 +18,7 @@ NPM usage:
 
 ---
 
-- Unbreakable, flexible, responsive [grid](https://radogado.github.io/natuive/guide/#grid). Supports Bootstrap-style wrapping columns, but with ._1-3 (1/3) etc., instead of .col...4 (4/12). Auto equal width columns with equal height and vertical alignment.
+- Unbreakable, flexible, responsive [grid](https://radogado.github.io/natuive/guide/#grid). Supports Bootstrap-style wrapping columns, but with ._1/3 (1/3) etc., instead of .col...4 (4/12). Auto equal width columns with equal height and vertical alignment.
 - Baseline-aligned [typography](https://radogado.github.io/natuive/guide/#typography)*, quote block, drop caps.
 - Unique BEM-like class names
 - Embeddable grid and elements*

@@ -67,7 +67,7 @@ main img {
 		    
 	}
 	
-	._2-5 nav.n-nav a {
+	._2\/5 nav.n-nav a {
 		
 		font-size: .75em;
 		color: #999;
@@ -128,7 +128,7 @@ footer a[href]:first-child {
 	
 }
 
-.n-row div:not(._1-1) .narrow {
+.n-row div:not(._1\/1) .narrow {
 	
 	padding: 0 7em;
 	
@@ -205,7 +205,7 @@ footer a[href]:first-child {
 
 @media screen and (max-width: 1280px) {
 	
-	.narrow, .n-row div:not(._1-1) .narrow {
+	.narrow, .n-row div:not(._1\/1) .narrow {
 		
 		padding: 0 3em;
 		

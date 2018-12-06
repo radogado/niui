@@ -192,13 +192,13 @@ main .n-aspect {
 	
 }
 
-a[href].blue-link, .n-row--no-spacing > ._1-1 h2 {
+a[href].blue-link, .n-row--no-spacing > ._1\/1 h2 {
 	
 	color: $blue;
 
 }
 
-.n-row--no-spacing > ._1-1 h2 {
+.n-row--no-spacing > ._1\/1 h2 {
 	
 	margin-left: -.5em;
 
@@ -219,7 +219,7 @@ main a[href].n-btn {
 
 }
 
-._1-4 a[href] {
+._1\/4 a[href] {
 	
 	display: block;
 
@@ -240,7 +240,7 @@ time {
 	padding: .25em .5em;
 }
 
-.c-articles-list--media ._1-4 + div {
+.c-articles-list--media ._1\/4 + div {
 	
 	padding-left: 1em;
 	

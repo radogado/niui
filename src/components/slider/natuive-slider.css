@@ -136,7 +136,7 @@ $bg: #1E8DaC;
   overflow: hidden;
   max-height: 100%;
   z-index: 1; }
-  .n-slider--wrap, .n-slider--wrap * {
+  .n-slider--wrap, .n-slider--wrap > * {
     box-sizing: border-box; }
 
 .n-slider--vertical.n-tabs:not(.n-slider--detached-nav) > .n-slider {
