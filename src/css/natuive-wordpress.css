@@ -133,6 +133,9 @@ iframe, article h2 a {
   max-width: 40em;
   margin: 1.5em auto;
   box-sizing: border-box; }
+.n-type section > article > p.has-image {
+  text-align: center;
+  font-size: 0; }
 
 article ul {
   padding-left: 2px; }

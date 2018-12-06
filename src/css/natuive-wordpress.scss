@@ -244,9 +244,10 @@ iframe, article h2 a {
 	
 	}
 	
-	p {
+	p.has-image {
 		
-//		display: flex; // Because of strange top spacing
+		text-align: center;
+		font-size: 0; // Disable legacy images' captions, because they appear in the wrong place
 		
 	}
 

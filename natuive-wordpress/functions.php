@@ -576,7 +576,7 @@ function new_nav_menu($items) {
 
 }
 
-// WordPress 4 with captions: Wrap all captioned content images in a span with aspect ratio
+// WordPress 4 with captions: Wrap all captioned content images in a span with aspect ratio. Known issue: WP4 captioned images can't be links
 
 add_filter( 'img_caption_shortcode', 'my_img_caption_shortcode', 10, 3 );
 
@@ -626,22 +626,11 @@ function my_img_caption_shortcode( $empty, $attr, $content ){
 
    return '<div class="wp-block-image">'
     . '<figure class="' . esc_attr( $attr['align'] ) . '" '
-//     . 'style="max-width: ' . $attr['width'] . 'px;'
-    . '">'
+    . '>'
     . '<span class="n-aspect ' . $img_dom->getAttribute('class') . '" style="--image-width: ' . $image_width . '; --ratio: ' . $ratio . ';">' . $img . '</span>' // Add .n-aspect and --ratio: height/width
     . '<figcaption>' . $attr['caption'] . '</figcaption>'
     . '</figure>'
     . '</div>';
-
-/*
-   return '<div ' . $attr['id']
-    . 'data-id="' . $id . '"'
-    . 'class="wp-caption ' . esc_attr( $attr['align'] ) . '" '
-    . 'style="max-width: ' . $attr['width'] . 'px;">'
-    . '<span class="n-aspect ' . $img_dom->getAttribute('class') . '" style="--image-width: ' . $image_width . '; --ratio: ' . $ratio . ';">' . $img . '</span>' // Add .n-aspect and --ratio: height/width
-    . '<p class="wp-caption-text">' . $attr['caption'] . '</p>'
-    . '</div>';
-*/
 
 }
 
@@ -671,13 +660,15 @@ add_action('the_content', function ($content) {
 		if($img->parentNode->tagName == 'p') {
 			
 			$img->parentNode->setAttribute('class', 'has-image');
+			$caption = $img->parentNode->textContent; // Display caption properly on legacy images, currently hidden by CSS
 			
 		}
 
-		if($img->parentNode->tagName == 'a') {
+		if($img->parentNode->tagName == 'a' && $img->parentNode->parentNode->tagName == 'p') {
 			
 			$img->parentNode->parentNode->setAttribute('class', 'has-image');
 			$img->parentNode->setAttribute('class', $img->getAttribute('class'));
+			$caption = $img->parentNode->parentNode->textContent;  // Display caption properly on legacy images, currently hidden by CSS
 			
 		}
 
