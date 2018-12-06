@@ -1,9 +1,8 @@
 <?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
-	<!-- article -->
+
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-		<!-- post thumbnail -->
 		<?php if ( has_post_thumbnail()) : // Check if thumbnail exists 
 
 			$post_thumbnail_id = get_post_thumbnail_id($post->ID);
@@ -22,11 +21,9 @@
 			</a>
 			
 		</div>
-		<!-- /post thumbnail -->
 
 		<?php else: ?>
 
-		<!-- post title -->
 		<div class="headline">
 			<h2>
 				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
@@ -34,7 +31,6 @@
 		</div>
 
 		<?php endif; ?>
-		<!-- /post title -->
 
 		<?php the_content(); //html5wp_excerpt('html5wp_index'); // Build your custom callback length in functions.php ?>
 
@@ -47,7 +43,6 @@
 		<?php //edit_post_link(); ?>
 
 	</article>
-	<!-- /article -->
 
 <?php endwhile; ?>
 

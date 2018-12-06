@@ -616,24 +616,22 @@ a.backtotop[href] {
 	
 	.home section article {
 	
-		width: calc(50% - 2em);
+		width: calc(50% - .75em);
 		margin: 0 0 2em 0;
 		
 	}
-	
+
+	.home section article:nth-child(2) ~ :nth-child(2n+1) {
+		
+		margin-right: 1.5em;
+
+	}
+		
 	.home section article:nth-child(1), .home section article:nth-child(2), .home section .pagination {
 	
 		width: 100%;
 	
 	}
-	
-/*
-	.home section .pagination {
-	
-		margin-left: 1em;
-	
-	}
-*/
 
 }
 
