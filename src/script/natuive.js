@@ -3106,49 +3106,37 @@ var componentSlider = (function (){
 	
 		var container = el.parentNode;
 	
-		if (!container || !hasClass(container, 'n-slider--wrap')) {
+		if (!hasClass(container, 'n-slider--wrap')) {
 	
 		    container = wrap(el);
 			addClass(container, 'n-slider--wrap');
-			if (container.parentNode && hasClass(container.parentNode, 'n-aspect')) {
-				
-				addClass(container, 'inside-aspect');
-				
-			}
-		    el = container.querySelector('.n-slider');
 			
-			if (hasClass(el, 'n-pad')) {
-				
-			    container = wrap(el);
-				addClass(container, 'n-pad');
-			    container = container.parentNode;
-			    el = container.querySelector('.n-slider');
-	
-			}
+		
+		}
+
+		if (hasClass(el, 'n-pad')) {
 			
-		    transferClass(el, container, 'n-slider--vertical');
-	        transferClass(el, container, 'n-wrap');
-	        transferClass(el, container, 'n-slider--top');
-	        transferClass(el, container, 'n-slider--right');
-	        transferClass(el, container, 'n-slider--overlay');
-			var peek = el.getAttribute('data-peek');
-			if (peek) {
-				
-				addClass(container, 'n-slider--peek');
-				
-				if (hasClass(el, 'n-slider--vertical')) {
-	
-		        	container.style.padding = peek + ' 0';
-				
-				} else {
-	
-		        	container.style.padding = '0 ' + peek;
-					
-				}
-	
-			}
-	    
-	    }
+		    container = wrap(el);
+			addClass(container, 'n-pad');
+		    container = container.parentNode;
+
+		}
+		
+	    el = container.querySelector('.n-slider');
+	    transferClass(el, container, 'n-slider--vertical');
+        transferClass(el, container, 'n-wrap');
+        transferClass(el, container, 'n-slider--top');
+        transferClass(el, container, 'n-slider--right');
+        transferClass(el, container, 'n-slider--overlay');
+
+		var peek = el.getAttribute('data-peek');
+		if (peek) {
+			
+			addClass(container, 'n-slider--peek');
+			
+        	container.style.padding = hasClass(el, 'n-slider--vertical') ? (peek + ' 0') : ('0 ' + peek);
+
+		}
 		
 		// Add controls
 		
@@ -3169,7 +3157,7 @@ var componentSlider = (function (){
 		
 	    container.insertAdjacentHTML('beforeend', '<a class="n-slider--arrow n-slider--left" tabindex=0></a><a class="n-slider--arrow n-slider--right" tabindex=0></a>');
 	
-	    // Generate controls
+	    // Generate controls. To do: skip generating nav if the slider wrappee already has a nav child or a detached nav exists
 
 	    for (var i = 0; i < el.children.length; i++) {
 	
