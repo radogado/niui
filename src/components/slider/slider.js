@@ -607,7 +607,7 @@ var componentSlider = (function (){
 	
 		var container = el.parentNode;
 	
-		if (!hasClass(container, 'n-slider--wrap')) {
+		if (!container || !hasClass(container, 'n-slider--wrap')) {
 	
 		    container = wrap(el);
 			addClass(container, 'n-slider--wrap');
@@ -639,7 +639,7 @@ var componentSlider = (function (){
 
 		}
 		
-		// Add controls
+	    // Generate controls if needed
 		
 		var slider_nav;
 
@@ -650,35 +650,50 @@ var componentSlider = (function (){
 			transferClass(container, slider_nav, 'n-slider--vertical');
 	
 		} else {
-
-		    container.insertAdjacentHTML(hasClass(container, 'n-slider--top') ? 'afterbegin' : 'beforeend', '<div class=n-slider--nav></div>');
-            slider_nav = container.querySelector('.n-slider--nav:not([data-for])'); // Not data-for to avoid nested detached nav for nested sliders
+			
+			if (!(slider_nav = container.querySelector(':scope > .n-slider--nav'))) {
+				
+			    container.insertAdjacentHTML(hasClass(container, 'n-slider--top') ? 'afterbegin' : 'beforeend', '<div class=n-slider--nav></div>');
+	            slider_nav = container.querySelector(':scope > .n-slider--nav');
+				
+			}
 		
 		}
 		
-	    container.insertAdjacentHTML('beforeend', '<a class="n-slider--arrow n-slider--left" tabindex=0></a><a class="n-slider--arrow n-slider--right" tabindex=0></a>');
-	
-	    // Generate controls. To do: skip generating nav if the slider wrapper already has a nav child or a detached nav exists
+		// Populate controls
+		
+        if (hasClass(el, 'n-tabs')) {
 
+            addClass(container, 'n-tabs');
+            addClass(slider_nav, 'n-row');
+            addClass(slider_nav, 'n-tabs');
+            transferClass(container, slider_nav, 'n-wrap');
+            transferClass(el, container, 'n-slider--vertical');
+
+		}
+
+		if (slider_nav.children.length !== el.children.length) { // Nav doesn't already exist
+
+		    for (var i = 0; i < el.children.length; i++) {
+		
+		        if (hasClass(el, 'n-tabs')) {
+		
+		            var tab_title = el.children[i].getAttribute('data-tab_title') || (el.children[i].querySelector('.n-tab-title') ? el.children[i].querySelector('.n-tab-title').innerHTML : i+1);
+		            slider_nav.insertAdjacentHTML('beforeend', `<a tabindex=0>${tab_title}</a>`);
+	
+		        } else {
+		
+		            slider_nav.insertAdjacentHTML('beforeend', `<a tabindex=0>${i+1}</a>`);
+		
+		        }
+		        
+		    }
+		
+		}
+		
 	    for (var i = 0; i < el.children.length; i++) {
-	
-	        if (hasClass(el, 'n-tabs')) {
-	
-	            addClass(container, 'n-tabs');
-	            addClass(slider_nav, 'n-row');
-	            addClass(slider_nav, 'n-tabs');
-	            transferClass(container, slider_nav, 'n-wrap');
-	            transferClass(el, container, 'n-slider--vertical');
-	            var tab_title = el.children[i].getAttribute('data-tab_title') || (el.children[i].querySelector('.n-tab-title') ? el.children[i].querySelector('.n-tab-title').innerHTML : i+1);
-	            slider_nav.insertAdjacentHTML('beforeend', `<a tabindex="0">${tab_title}</a>`);
 
-	        } else {
-	
-	            slider_nav.insertAdjacentHTML('beforeend', `<a tabindex=0>${i+1}</a>`);
-	
-	        }
-	
-			slider_nav.lastChild.onclick = slider_nav.lastChild.onkeyup = (e) => {
+			slider_nav.children[i].onclick = slider_nav.lastChild.onkeyup = (e) => {
 				
 				if (e.type === 'keyup' && e.keyCode !== 13) { // Slide on Enter key
 					
@@ -693,9 +708,13 @@ var componentSlider = (function (){
 	
 	        };
 	        
-	        cancelTouchEvent(slider_nav.lastChild);
+	        cancelTouchEvent(slider_nav.children[i]);
 	        
 	    }
+	    
+	    // Generate arrows
+	
+	    container.insertAdjacentHTML('beforeend', '<a class="n-slider--arrow n-slider--left" tabindex=0></a><a class="n-slider--arrow n-slider--right" tabindex=0></a>');
 	
 	    container.querySelector('.n-slider--arrow').onclick = container.querySelector('.n-slider--arrow').onkeyup = (e) => {
 	
@@ -723,6 +742,8 @@ var componentSlider = (function (){
 	    };
 	
 	    cancelTouchEvent(container.querySelector('.n-slider--arrow.n-slider--right'));
+	    
+	    // Set mouse and touch events
 	
 	    mouseEvents(el);
 	
@@ -786,7 +807,6 @@ var componentSlider = (function (){
 		} 
 
 		endSlide(el, _current_slide || 0); // Start from (other than) the first slide
-		    
 	
 		// Detect text direction
 		el.setAttribute('dir', getComputedStyle(el, null).getPropertyValue('direction'));
