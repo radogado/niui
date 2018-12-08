@@ -693,7 +693,7 @@ var componentSlider = (function (){
 		
 	    for (var i = 0; i < el.children.length; i++) {
 
-			slider_nav.children[i].onclick = slider_nav.lastChild.onkeyup = (e) => {
+			slider_nav.children[i].onclick = slider_nav.children[i].onkeyup = (e) => {
 				
 				if (e.type === 'keyup' && e.keyCode !== 13) { // Slide on Enter key
 					

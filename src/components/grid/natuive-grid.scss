@@ -469,6 +469,12 @@
 	
 	}
 	
+	.n-row > * > .n-unpad {
+		
+		max-width: none;
+		
+	}
+	
 	.n-unpad-vertical {
 		
 		margin: -$line-height-em 0;

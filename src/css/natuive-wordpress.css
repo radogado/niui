@@ -307,6 +307,10 @@ a.backtotop[href] {
   background: none;
   bottom: -2em; }
 
+.textwidget a {
+  margin-bottom: .5em;
+  display: inline-block; }
+
 @media (min-width: 600px) {
   .home section {
     display: flex;

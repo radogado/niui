@@ -276,6 +276,9 @@ ol.n-masonry > * {
   width: calc(100% + 1.5em);
   max-width: 100%; }
 
+.n-row > * > .n-unpad {
+  max-width: none; }
+
 .n-unpad-vertical {
   margin: -1.5em 0; }
 

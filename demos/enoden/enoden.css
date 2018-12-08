@@ -237,7 +237,7 @@ footer .n-contain {
   .news .n-slider--nav a[data-active] {
     border-bottom: 2px solid green; }
   .news .n-slider--wrap {
-    padding: 1em; }
+    margin: 0 1em; }
 
 .news .n-slider--wrap.tabs > .n-slider--nav a {
   padding: 0.5em 1em;
