@@ -10,7 +10,7 @@ main .nav-column .n-slider--nav.n-row {
 	-webkit-overflow-scrolling: touch;
 	flex-wrap: nowrap;
 // 	max-height: 100vh;
-	padding: 1.5em 1em;
+	padding: 1.5em .5em;
 	box-sizing: border-box;
 //     position: fixed;
     bottom: auto;
@@ -27,6 +27,7 @@ main .nav-column {
 	
 	height: 100vh;
 	background: lightseagreen;
+    -webkit-overflow-scrolling: touch;
 
 }
 
