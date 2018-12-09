@@ -266,8 +266,11 @@ var componentLightbox = (function (){
 				caption = caption_attribute;
 				
 			}
+			
+			let target_width = typeof el.dataset.width === 'undefined' ? '' : `data-width=${el.dataset.width}`;
+			let target_height = typeof el.dataset.height === 'undefined' ? '' : `data-height=${el.dataset.height}`;
 					    
-		    images += `<div><img data-src="${url}" title="" data-link="${slide_link}" data-caption="${caption}">${(caption ? ('<p class=n-lightbox--caption>' + caption + '</p>') : '') + link_element}</div>`;
+		    images += `<div><img data-src="${url}" title="" data-link="${slide_link}" data-caption="${caption}" ${target_width} ${target_height}>${(caption ? ('<p class=n-lightbox--caption>' + caption + '</p>') : '') + link_element}</div>`;
 	
 	        // Attach onload event to each image to display it only when fully loaded and avoid top-to-bottom reveal?
 	

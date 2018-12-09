@@ -1582,8 +1582,11 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 				caption = caption_attribute;
 				
 			}
+			
+			let target_width = typeof el.dataset.width === 'undefined' ? '' : `data-width=${el.dataset.width}`;
+			let target_height = typeof el.dataset.height === 'undefined' ? '' : `data-height=${el.dataset.height}`;
 					    
-		    images += `<div><img data-src="${url}" title="" data-link="${slide_link}" data-caption="${caption}">${(caption ? ('<p class=n-lightbox--caption>' + caption + '</p>') : '') + link_element}</div>`;
+		    images += `<div><img data-src="${url}" title="" data-link="${slide_link}" data-caption="${caption}" ${target_width} ${target_height}>${(caption ? ('<p class=n-lightbox--caption>' + caption + '</p>') : '') + link_element}</div>`;
 	
 	        // Attach onload event to each image to display it only when fully loaded and avoid top-to-bottom reveal?
 	
@@ -2847,10 +2850,13 @@ var componentSlider = (function (){
 			
 			if (hasClass(slider, 'n-lightbox--inline') && !hasClass(slider, 'n-slider--overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'n-aspect')) { // Inline lightbox only. To do: integrate n-aspect with n-slider--wrap
 			
-				var height_change_number = slider.clientWidth * next_slide_image.naturalHeight / next_slide_image.naturalWidth;
-				if (slider.clientWidth >= next_slide_image.naturalWidth) {
+				let next_image_width = typeof next_slide_image.dataset.width === 'undefined' ? next_slide_image.naturalWidth : next_slide_image.dataset.width; // To do: set data-width, data-height from the anochor link
+				let next_image_height = typeof next_slide_image.dataset.height === 'undefined' ? next_slide_image.naturalHeight : next_slide_image.dataset.height;
+				
+				var height_change_number = slider.clientWidth * next_image_height / next_image_width;
+				if (slider.clientWidth >= next_image_width) {
 					
-					height_change_number = next_slide_image.naturalHeight;
+					height_change_number = next_image_height;
 					
 				}
 				height_change =	`height: ${height_change_number}px`;
@@ -2862,10 +2868,6 @@ var componentSlider = (function (){
 			}
 		
 			height_current = `height: ${original_slider_height}px`;
-
-		}
-	
-		if (hasClass(slider, 'n-slider--vertical')) {
 			target_slide.style.display = 'block'; // Temporarily display the target slide to get its height
 			computed_height = getComputedStyle(target_slide).height;
 			target_slide.setAttribute('style', target_slide.getAttribute('style').replace('display: block;', '')); // Keep any other inline styles

@@ -532,9 +532,9 @@
 								
 								<a href=images/DSC_5975.jpg title='Second Image'> <img src=images/DSC_5975-t.jpg alt=1> </a>
 								
-								<a href=images/DSC_4225.jpg title='Third Image'> <img src=images/DSC_4225-t.jpg alt=2> </a>
+								<a href=images/DSC_4225.jpg title='Third Image' data-width=999 data-height=669> <img src=images/DSC_4225-t.jpg alt=2> </a>
 	
-								<a href=images/DSC_5823.jpg title='First Image'> <span> Text Lightbox </span> </a>
+								<a href=images/DSC_5823.jpg title='First Image' data-width=685 data-height=1024> <span> Text Lightbox </span> </a>
 								
 								<a href=images/DSC_5975.jpg title='Second Image'> <img src=images/DSC_5975-t.jpg alt=1> </a>
 								
@@ -1779,9 +1779,18 @@
 
 	<!-- Footer - End -->
 
-<!-- 		<script src=dist/natuive.min.js type=text/javascript async></script> -->
-	<script src=src/script/natuive.js type=text/javascript async></script>
+		<script src=dist/natuive.min.js type=text/javascript async></script>
+<!-- 	<script src=src/script/natuive.js type=text/javascript async></script> -->
 <!-- 	<script> nui.copyButton(document.getElementById('copybutton'), document.getElementById('copycontent')); </script> -->
+
+<!--
+<script data-src=script.js data-fallback-src=script.fallback.js type=text/javascript>
+	
+	console.log('inline script');
+	document.currentScript.src = document.currentScript.getAttribute(('fetch' in window) ? 'data-src' : 'data-fallback-src');
+
+</script>
+-->
 
 </body>
 

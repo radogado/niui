@@ -348,10 +348,13 @@ var componentSlider = (function (){
 			
 			if (hasClass(slider, 'n-lightbox--inline') && !hasClass(slider, 'n-slider--overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'n-aspect')) { // Inline lightbox only. To do: integrate n-aspect with n-slider--wrap
 			
-				var height_change_number = slider.clientWidth * next_slide_image.naturalHeight / next_slide_image.naturalWidth;
-				if (slider.clientWidth >= next_slide_image.naturalWidth) {
+				let next_image_width = typeof next_slide_image.dataset.width === 'undefined' ? next_slide_image.naturalWidth : next_slide_image.dataset.width; // To do: set data-width, data-height from the anochor link
+				let next_image_height = typeof next_slide_image.dataset.height === 'undefined' ? next_slide_image.naturalHeight : next_slide_image.dataset.height;
+				
+				var height_change_number = slider.clientWidth * next_image_height / next_image_width;
+				if (slider.clientWidth >= next_image_width) {
 					
-					height_change_number = next_slide_image.naturalHeight;
+					height_change_number = next_image_height;
 					
 				}
 				height_change =	`height: ${height_change_number}px`;
@@ -363,10 +366,6 @@ var componentSlider = (function (){
 			}
 		
 			height_current = `height: ${original_slider_height}px`;
-
-		}
-	
-		if (hasClass(slider, 'n-slider--vertical')) {
 			target_slide.style.display = 'block'; // Temporarily display the target slide to get its height
 			computed_height = getComputedStyle(target_slide).height;
 			target_slide.setAttribute('style', target_slide.getAttribute('style').replace('display: block;', '')); // Keep any other inline styles
