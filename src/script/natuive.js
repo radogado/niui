@@ -3206,6 +3206,8 @@ var componentSlider = (function (){
 		            slider_nav.getAttribute('data-for') ? q('.n-slider#' + slider_nav.getAttribute('data-for')) : e.target,
 					'index', thisIndex(e.target)
 				);
+				
+				return false;
 	
 	        };
 	        

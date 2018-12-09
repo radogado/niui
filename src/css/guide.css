@@ -21,6 +21,8 @@ main .nav-column {
   height: 100vh;
   background: lightseagreen;
   -webkit-overflow-scrolling: touch; }
+  main .nav-column a[href] {
+    text-decoration: none; }
 
 @-moz-document url-prefix() {
   main .nav-column .n-slider--nav.n-row:after {
@@ -84,6 +86,16 @@ main > .n-slider--wrap > .n-slider--nav a[data-active] {
 
 .n-slider--wrap.n-tabs > .n-slider--nav a {
   flex: 1 !important; }
+
+.n-slider.n-slider--vertical:not([data-ready]) > *:not(:first-child) {
+  display: none; }
+
+.n-slider.n-slider--vertical:not([data-ready]) > :target {
+  position: absolute;
+  background: #fff;
+  overflow: auto;
+  z-index: 1;
+  display: block; }
 
 main > .n-slider--wrap > .n-slider.n-slider--vertical > .visible {
   height: 100vh;

@@ -28,6 +28,12 @@ main .nav-column {
 	height: 100vh;
 	background: lightseagreen;
     -webkit-overflow-scrolling: touch;
+    
+    a[href] {
+	    
+	    text-decoration: none;
+	    
+    }
 
 }
 
@@ -148,6 +154,22 @@ main > .n-slider--wrap > .n-slider--nav a[data-active] {
 	flex: 1 !important;
 
 
+}
+
+.n-slider.n-slider--vertical:not([data-ready]) > *:not(:first-child) {
+	
+	display: none;
+
+}
+
+.n-slider.n-slider--vertical:not([data-ready]) > :target {
+	
+	position: absolute;
+    background: #fff;	
+    overflow: auto;
+    z-index: 1;
+    display: block;
+	
 }
 
 main > .n-slider--wrap > .n-slider.n-slider--vertical > .visible {
