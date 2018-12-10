@@ -3633,7 +3633,13 @@
 &lt;/body&gt;</code>
 </pre></div>
 
-<p>or</p>
+								<p>or</p>
+
+<div class="code">
+<pre><code class="language-js">document.body.insertAdjacentHTML('afterbegin', '&lt;div class=n-notify&gt; Message &lt;/div&gt;');</code></pre>
+</div>
+<br>
+								<p>or, if using the uncompressed <b>natuive.js</b>:</p>
 
 <div class="code">
 <pre><code class="language-js">nui.componentNotify.notify('Message');</code></pre>
@@ -3663,7 +3669,7 @@
 						
 						<div>
 							
-							<h2>Copy to clipboard</h2>
+							<h2>Copy to clipboard*</h2>
 							
 							<div> <p id=copycontent>Text to be copied to clipboard.</p> </div>
 							
@@ -3675,6 +3681,8 @@
 </pre>
 
 </div>
+						
+								<p>* When using the uncompressed <b>natuive.js</b></p>
 						
 <h3>Options</h3>
 							
@@ -3717,7 +3725,7 @@
 						
 						<div>
 							
-							<h2>animate() function</h2>
+							<h2>animate() function*</h2>
 
 <div class="code">							
 
@@ -3731,6 +3739,8 @@
 </div>
 <br>
 							<button class="n-btn" onclick="nui.animate(document.querySelector('body'), '0% { opacity: 1; transform: translateX(0); } 50% { opacity: 0; transform: translateX(-50vw); } 100% { opacity: 1;  transform: translateX(0); }', 2);">Animate now</button>
+							
+							<p>* When using the uncompressed <b>natuive.js</b></p>
 
 							<h3>Options</h3>
 							
@@ -3843,9 +3853,9 @@
 							
 							<div>
 								
-								<h2>Dynamically add a component</h2>
+								<h2>Dynamically add a component*</h2>
 								<br>
-<div class="code">							
+<div class="code">				
 
 <pre><code class="language-markup">nui.addComponent(host, '&lt;div class=n-slider&gt;&lt;div&gt;New&lt;/div&gt;&lt;div&gt;Slider&lt;/div&gt;&lt;/div&gt;');</code>
 </pre>
@@ -3879,6 +3889,7 @@
 </div>
 </div>
 
+								<p>* When using the uncompressed <b>natuive.js</b></p>
 
 							</div>
 							

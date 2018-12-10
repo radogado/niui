@@ -347,8 +347,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap {
 
 .n-slider--nav a[data-active] {
   --bg: #ededed;
-  color: #000;
-  font-weight: bold; }
+  color: #000; }
 
 .n-slider--wrap.n-tabs > .n-slider--nav, .n-slider--nav.n-tabs {
   right: auto;

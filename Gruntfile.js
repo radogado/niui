@@ -101,6 +101,12 @@ module.exports = function(grunt) {
 		'copy': {
 		  main: {
 		    expand: true,
+		    cwd: 'src/script',
+		    src: 'natuive.js',
+		    dest: 'dist/',
+		  },
+		  WP: {
+		    expand: true,
 		    cwd: 'dist',
 		    src: ['natuive.min.js', 'ie.css', 'ie-fallback.js'],
 		    dest: 'natuive-wordpress/',
