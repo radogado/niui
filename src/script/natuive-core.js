@@ -11,6 +11,8 @@ if (typeof window['chrome'] !== 'undefined') {
 
 }
 
+document.body.setAttribute('data-js', 'true');
+
 var is_iPad = !!navigator.platform.match(/iPad/);
 
 var aria_expanded = 'aria-expanded';

@@ -377,6 +377,9 @@ $bg: #1E8DaC;
     background-color: unset;
     height: 1.5em;
     line-height: 1.5em; }
+  .n-form.n-form--language input[type=submit] {
+    min-height: 1em;
+    padding: 0 .5em; }
 
 :root .n-form--check-icon {
   /* Not IE8 */

@@ -11,6 +11,8 @@ if (typeof window['chrome'] !== 'undefined') {
 
 }
 
+document.body.setAttribute('data-js', 'true');
+
 var is_iPad = !!navigator.platform.match(/iPad/);
 
 var aria_expanded = 'aria-expanded';
@@ -812,7 +814,7 @@ qa('a[href^="#"]').forEach((el) => {
 	    stopEvent(e);
 	    var el = e.target.closest('.n-fold');
 	    var content = el.querySelector('.n-fold--content');
-	
+
 		content.style.setProperty('--width', content.scrollWidth + 'px');
 		content.style.setProperty('--max-height', content.scrollHeight + 'px');
 	

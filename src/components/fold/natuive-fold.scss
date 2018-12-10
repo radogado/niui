@@ -229,9 +229,16 @@
 
 }
 
-.n-fold > input[type=checkbox]:checked {
+.n-fold > input[type=checkbox] {
+
+	z-index: 1;
+	-webkit-appearance: none;
+	
+	&:checked {
 		
-	cursor: zoom-out;
+		cursor: zoom-out;
+
+	}
 
 }
 	

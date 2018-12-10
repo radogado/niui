@@ -157,20 +157,24 @@ main > .n-slider--wrap > .n-slider--nav a[data-active] {
 
 }
 
-.n-slider.n-slider--vertical:not([data-ready]) > *:not(:first-child) {
+body:not([data-js]) .n-slider.n-slider--vertical {
 	
-	display: none;
+	> *:not(:first-child) {
+	
+		display: none;
 
-}
+	}
 
-.n-slider.n-slider--vertical:not([data-ready]) > :target {
-	
-	position: absolute;
-    background: #fff;	
-    overflow: auto;
-    z-index: 1;
-    display: block;
-	
+	> :target {
+		
+		position: absolute;
+	    background: #fff;	
+	    overflow: auto;
+	    z-index: 1;
+	    display: block;
+		
+	}
+
 }
 
 main > .n-slider--wrap > .n-slider.n-slider--vertical > .visible {

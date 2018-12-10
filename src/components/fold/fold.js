@@ -9,7 +9,7 @@
 	    stopEvent(e);
 	    var el = e.target.closest('.n-fold');
 	    var content = el.querySelector('.n-fold--content');
-	
+
 		content.style.setProperty('--width', content.scrollWidth + 'px');
 		content.style.setProperty('--max-height', content.scrollHeight + 'px');
 	

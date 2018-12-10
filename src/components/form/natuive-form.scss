@@ -701,16 +701,27 @@ $placeholder_color: #aaa;
 	
 	}
 
-	&.n-form--language select {
+	&.n-form--language {
 		
-		height: auto;
-		width: 100%;
-		background-position: calc(100% - .5em);
-		margin-left: 0;
-		background-color: unset;
-	    height: $line-height-em;
-	    line-height: $line-height-em;
+		select {
 		
+			height: auto;
+			width: 100%;
+			background-position: calc(100% - .5em);
+			margin-left: 0;
+			background-color: unset;
+		    height: $line-height-em;
+		    line-height: $line-height-em;
+			
+		}
+		
+		input[type=submit] {
+			
+			min-height: 1em;
+			padding: 0 .5em;
+			
+		}
+	
 	}
 	
 }	
