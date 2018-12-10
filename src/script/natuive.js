@@ -3174,7 +3174,8 @@ var componentSlider = (function (){
 		}
 
 		if (slider_nav.children.length !== el.children.length) { // Nav doesn't already exist
-
+			
+			slider_nav.innerHTML = '';
 		    for (var i = 0; i < el.children.length; i++) {
 		
 		        if (hasClass(el, 'n-tabs')) {
