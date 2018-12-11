@@ -121,11 +121,14 @@ main .n-nav ul {
 	
 // Drop nav
 
-$nav-bg: #fff; // fallback for browsers unsupporting CSS variables
+$bg: coral; // fallback for browsers unsupporting CSS variables
 
 .n-drop {
 
-	--nav-bg: #fff;
+    --bg: inherit;
+    --color: inherit;
+    
+    color: var(--color);
 
 	ul {
 		
@@ -133,6 +136,7 @@ $nav-bg: #fff; // fallback for browsers unsupporting CSS variables
 		margin: 0;
 		min-height: 0;
 		z-index: 1;
+
 	
 	}
 	
@@ -141,8 +145,8 @@ $nav-bg: #fff; // fallback for browsers unsupporting CSS variables
 		padding: 0;
 		position: absolute;
 		left: 0;
-		background-color: $nav-bg;
-		background-color: var(--nav-bg);
+// 		background-color: $bg;
+		background-color: var(--bg);
 		top: 100%;
 	
 	}
@@ -161,8 +165,8 @@ $nav-bg: #fff; // fallback for browsers unsupporting CSS variables
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
-		background-color: $nav-bg;
-		background-color: var(--nav-bg);
+// 		background-color: $nav-bg;
+		background-color: var(--bg);
 		position: relative;
 		width: auto;
 		
@@ -261,16 +265,37 @@ $nav-bg: #fff; // fallback for browsers unsupporting CSS variables
 		border-radius: 0;
 		right: 0;
 		z-index: 1;
-		width: 3em;
+		width: 2em;
 					
 	}
 	
-	li > ul ~ a, li[aria-haspopup] {
+	li[aria-haspopup]:before {
 		
+		content: '' !important;
+		position: absolute;
+		display: block !important;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		width: 2em;
+		
+	}
+	
+/* 	li > ul ~ a, */ li[aria-haspopup]:before, li > input {
+		
+/*
 		background: url('data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M50%20100L0%200h100z%22%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E') calc(100% - 16px) 50% no-repeat;
 		background-size: .5em auto;
+*/
 	
-	}
+	    background: linear-gradient(-120deg, transparent 63%, var(--bg) 63%), linear-gradient(120deg, transparent 63%, var(--bg) 63%), linear-gradient(to bottom, var(--color), var(--color));
+	    background-size: 1em 1em;
+	    background-repeat: no-repeat;
+		background-position: calc(100% - .5em) center;
+		font-size: 1rem;
+		margin: 0;
+        
+   	}
 	
 /*
 	li > ul ~ a:before, li[aria-haspopup]:before {
@@ -296,7 +321,7 @@ $nav-bg: #fff; // fallback for browsers unsupporting CSS variables
 	
 	li li > ul ~ a, li li[aria-haspopup] {
 	
-		background-image: url('data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M100%2050L0%20100V0z%22%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E');
+// 		background-image: url('data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M100%2050L0%20100V0z%22%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E');
 	
 	}
 	
@@ -324,8 +349,8 @@ $nav-bg: #fff; // fallback for browsers unsupporting CSS variables
 			
 			> ul > li > ul li {
 				
-				background-color: $nav-bg;
-				background-color: var(--nav-bg);
+// 				background-color: $nav-bg;
+				background-color: var(--bg);
 				
 			}
 	

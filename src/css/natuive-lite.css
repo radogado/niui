@@ -447,8 +447,8 @@ $bg: #1E8DaC;
     height: 1em;
     display: inline-block;
     background: #eee;
-    line-height: 1.66667;
-    font-size: -0.33333em;
+    line-height: 1.6666666667;
+    font-size: -0.3333333333em;
     text-align: center;
     color: #333;
     display: none;
@@ -574,7 +574,7 @@ $bg: #1E8DaC;
       cursor: pointer;
       background: rgba(0, 0, 0, 0.1); }
     .n-form input[type=range]::-moz-range-thumb {
-      border: 0px solid transparent;
+      border: 0px solid rgba(0, 0, 0, 0);
       height: 1.625em;
       width: 1.625em;
       border-radius: 50%;
@@ -592,7 +592,7 @@ $bg: #1E8DaC;
     .n-form input[type=range]::-ms-fill-upper {
       background: rgba(0, 0, 0, 0.1); }
     .n-form input[type=range]::-ms-thumb {
-      border: 0px solid transparent;
+      border: 0px solid rgba(0, 0, 0, 0);
       height: 1.625em;
       width: 1.625em;
       border-radius: .9375em;
@@ -1321,7 +1321,10 @@ main .n-nav ul {
   padding-left: 0; }
 
 .n-drop {
-  --nav-bg: #fff;
+  --bg: inherit;
+  --color: inherit;
+  color: var(--color);
+  /* 	li > ul ~ a, */
   /*
   	li > ul ~ a:before, li[aria-haspopup]:before {
   		
@@ -1346,8 +1349,7 @@ main .n-nav ul {
     padding: 0;
     position: absolute;
     left: 0;
-    background-color: #fff;
-    background-color: var(--nav-bg);
+    background-color: var(--bg);
     top: 100%; }
   .n-drop ul ul ul {
     margin-left: 100%;
@@ -1358,8 +1360,7 @@ main .n-nav ul {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #fff;
-    background-color: var(--nav-bg);
+    background-color: var(--bg);
     position: relative;
     width: auto; }
   .n-drop li:not([tabindex]) > ul ~ a {
@@ -1406,14 +1407,28 @@ main .n-nav ul {
     border-radius: 0;
     right: 0;
     z-index: 1;
-    width: 3em; }
-  .n-drop li > ul ~ a, .n-drop li[aria-haspopup] {
-    background: url("data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M50%20100L0%200h100z%22%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E") calc(100% - 16px) 50% no-repeat;
-    background-size: .5em auto; }
+    width: 2em; }
+  .n-drop li[aria-haspopup]:before {
+    content: '' !important;
+    position: absolute;
+    display: block !important;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 2em; }
+  .n-drop li[aria-haspopup]:before, .n-drop li > input {
+    /*
+    		background: url('data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M50%20100L0%200h100z%22%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E') calc(100% - 16px) 50% no-repeat;
+    		background-size: .5em auto;
+    */
+    background: linear-gradient(-120deg, transparent 63%, var(--bg) 63%), linear-gradient(120deg, transparent 63%, var(--bg) 63%), linear-gradient(to bottom, var(--color), var(--color));
+    background-size: 1em 1em;
+    background-repeat: no-repeat;
+    background-position: calc(100% - .5em) center;
+    font-size: 1rem;
+    margin: 0; }
   .n-drop[data-ready] li > ul ~ a {
     background: none; }
-  .n-drop li li > ul ~ a, .n-drop li li[aria-haspopup] {
-    background-image: url("data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M100%2050L0%20100V0z%22%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E"); }
   .n-drop li[aria-haspopup] {
     padding-right: calc(42px - 1em); }
 
@@ -1423,8 +1438,7 @@ main .n-nav ul {
     opacity: 0;
     position: absolute; }
   html:not(.can-touch) .n-drop > ul > li > ul li {
-    background-color: #fff;
-    background-color: var(--nav-bg); }
+    background-color: var(--bg); }
   html:not(.can-touch) .n-drop > ul > li:hover > input:not(:checked) ~ ul,
   html:not(.can-touch) .n-drop > ul li ul > li:hover > input:not(:checked) ~ ul,
   html:not(.can-touch) .n-drop > ul > li:not([aria-haspopup]):hover > input:not(:checked) ~ ul,
@@ -1680,8 +1694,8 @@ $bg: #1E8DaC;
     padding: 0.46875em 0; }
   .n-type h6 {
     font-size: .6667em;
-    line-height: 1.12494;
-    padding: 0.56247em 0; }
+    line-height: 1.1249437528;
+    padding: 0.5624718764em 0; }
   .n-type pre {
     overflow: auto; }
   .n-type p {
