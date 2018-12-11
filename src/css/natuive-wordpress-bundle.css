@@ -383,13 +383,15 @@ $bg: #1E8DaC;
       content: "▼";
       position: absolute;
       right: 1em;
-      font-size: .5em;
+      font-size: .67em;
       top: 50%;
-      transform: translateY(-50%); }
+      transform: rotate(0) translateY(-50%);
+      transition: transform .2s ease-in-out;
+      transform-origin: top; }
   .n-fold[aria-expanded] > .n-fold--label {
     cursor: zoom-out; }
     .n-fold[aria-expanded] > .n-fold--label:after {
-      content: "▲"; }
+      transform: rotate(180deg) translateY(-50%); }
   .n-fold.n-fold--mobile {
     padding: 0;
     width: auto; }
@@ -674,8 +676,8 @@ $bg: #1E8DaC;
     height: 1em;
     display: inline-block;
     background: #eee;
-    line-height: 1.6666666667;
-    font-size: -0.3333333333em;
+    line-height: 1.66667;
+    font-size: -0.33333em;
     text-align: center;
     color: #333;
     display: none;
@@ -801,7 +803,7 @@ $bg: #1E8DaC;
       cursor: pointer;
       background: rgba(0, 0, 0, 0.1); }
     .n-form input[type=range]::-moz-range-thumb {
-      border: 0px solid rgba(0, 0, 0, 0);
+      border: 0px solid transparent;
       height: 1.625em;
       width: 1.625em;
       border-radius: 50%;
@@ -819,7 +821,7 @@ $bg: #1E8DaC;
     .n-form input[type=range]::-ms-fill-upper {
       background: rgba(0, 0, 0, 0.1); }
     .n-form input[type=range]::-ms-thumb {
-      border: 0px solid rgba(0, 0, 0, 0);
+      border: 0px solid transparent;
       height: 1.625em;
       width: 1.625em;
       border-radius: .9375em;
@@ -1934,7 +1936,22 @@ main .n-nav ul {
   padding-left: 0; }
 
 .n-drop {
-  --nav-bg: #fff; }
+  --nav-bg: #fff;
+  /*
+  	li > ul ~ a:before, li[aria-haspopup]:before {
+  		
+  		content: '▼' !important;
+  		display: inline-block !important;
+  		position: absolute;
+  		right: 1em;
+  		font-size: .67em;
+  		top: 50%;
+  		transform: rotate(0) translateY(-50%);
+  		transition: transform .2s ease-in-out;
+  	    transform-origin: top;			
+  	
+  	}
+  */ }
   .n-drop ul {
     padding: 0;
     margin: 0;
@@ -2750,8 +2767,8 @@ $bg: #1E8DaC;
     padding: 0.46875em 0; }
   .n-type h6 {
     font-size: .6667em;
-    line-height: 1.1249437528;
-    padding: 0.5624718764em 0; }
+    line-height: 1.12494;
+    padding: 0.56247em 0; }
   .n-type pre {
     overflow: auto; }
   .n-type p {

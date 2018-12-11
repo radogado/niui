@@ -45,13 +45,15 @@ $bg: #1E8DaC;
       content: "▼";
       position: absolute;
       right: 1em;
-      font-size: .5em;
+      font-size: .67em;
       top: 50%;
-      transform: translateY(-50%); }
+      transform: rotate(0) translateY(-50%);
+      transition: transform .2s ease-in-out;
+      transform-origin: top; }
   .n-fold[aria-expanded] > .n-fold--label {
     cursor: zoom-out; }
     .n-fold[aria-expanded] > .n-fold--label:after {
-      content: "▲"; }
+      transform: rotate(180deg) translateY(-50%); }
   .n-fold.n-fold--mobile {
     padding: 0;
     width: auto; }

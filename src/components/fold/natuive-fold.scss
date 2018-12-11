@@ -44,9 +44,11 @@
 			content: "▼";
 			position: absolute;
 			right: 1em;
-			font-size: .5em;
+			font-size: .67em;
 			top: 50%;
-			transform: translateY(-50%);
+			transform: rotate(0) translateY(-50%);
+			transition: transform .2s ease-in-out;
+		    transform-origin: top;			
 			
 		}
 		
@@ -58,8 +60,8 @@
 		
 		&:after {
 			
-			content: "▲";
-			
+			transform: rotate(180deg) translateY(-50%);
+
 		}
 		
 	}

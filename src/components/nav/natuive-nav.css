@@ -73,7 +73,22 @@ main .n-nav ul {
   padding-left: 0; }
 
 .n-drop {
-  --nav-bg: #fff; }
+  --nav-bg: #fff;
+  /*
+  	li > ul ~ a:before, li[aria-haspopup]:before {
+  		
+  		content: '▼' !important;
+  		display: inline-block !important;
+  		position: absolute;
+  		right: 1em;
+  		font-size: .67em;
+  		top: 50%;
+  		transform: rotate(0) translateY(-50%);
+  		transition: transform .2s ease-in-out;
+  	    transform-origin: top;			
+  	
+  	}
+  */ }
   .n-drop ul {
     padding: 0;
     margin: 0;
