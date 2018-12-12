@@ -73,7 +73,7 @@ ol.n-list {
 		    padding: 0 .5em;
 		//     padding: calc(var(--line-height-em)/4) .6em calc(var(--line-height-em)/4) .6em;
 		    border-radius: 50%;
-		    margin-right: .5em;
+		    margin-right: .333em;
 		    color: #fff;
 		//     min-width: 1.5em;
 		    min-height: 1em;
@@ -89,6 +89,8 @@ ol.n-list {
 		
 		text-indent: 0;
 		display: inline-block;
+		vertical-align: top;
+		padding-top: 0;
 	
 	}
 	
@@ -135,13 +137,13 @@ ol.n-list {
 	
 	ol > li {
 	
-		text-indent: -3em;
+		text-indent: -3.3em;
 	
 	}
 	
 	ol ol > li {
 	
-		text-indent: -3.9em;
+		text-indent: -3.95em;
 	
 	}
 	

@@ -447,8 +447,8 @@ $bg: #1E8DaC;
     height: 1em;
     display: inline-block;
     background: #eee;
-    line-height: 1.66667;
-    font-size: -0.33333em;
+    line-height: 1.6666666667;
+    font-size: -0.3333333333em;
     text-align: center;
     color: #333;
     display: none;
@@ -574,7 +574,7 @@ $bg: #1E8DaC;
       cursor: pointer;
       background: rgba(0, 0, 0, 0.1); }
     .n-form input[type=range]::-moz-range-thumb {
-      border: 0px solid transparent;
+      border: 0px solid rgba(0, 0, 0, 0);
       height: 1.625em;
       width: 1.625em;
       border-radius: 50%;
@@ -592,7 +592,7 @@ $bg: #1E8DaC;
     .n-form input[type=range]::-ms-fill-upper {
       background: rgba(0, 0, 0, 0.1); }
     .n-form input[type=range]::-ms-thumb {
-      border: 0px solid transparent;
+      border: 0px solid rgba(0, 0, 0, 0);
       height: 1.625em;
       width: 1.625em;
       border-radius: .9375em;
@@ -1192,7 +1192,7 @@ ol.n-list {
       background: #999;
       padding: 0 .5em;
       border-radius: 50%;
-      margin-right: .5em;
+      margin-right: .333em;
       color: #fff;
       min-height: 1em;
       display: inline-block;
@@ -1200,7 +1200,9 @@ ol.n-list {
       text-align: center; }
   ol.n-list li > * {
     text-indent: 0;
-    display: inline-block; }
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 0; }
   ol.n-list li > ul {
     display: block; }
   ol.n-list > li ol {
@@ -1221,9 +1223,9 @@ ol.n-list {
       content: counter(level1) "." counter(level2) "." counter(level3) " ";
       counter-increment: level3; }
   ol.n-list ol > li {
-    text-indent: -3em; }
+    text-indent: -3.3em; }
   ol.n-list ol ol > li {
-    text-indent: -3.9em; }
+    text-indent: -3.95em; }
   ol.n-list ul {
     text-indent: .1em; }
   ol.n-list p {
@@ -1416,7 +1418,7 @@ main .n-nav ul {
     right: 0;
     top: 0;
     width: 2em;
-    height: 3rem; }
+    height: 4em; }
   .n-drop li[aria-haspopup]:before, .n-drop li > input {
     /*
     		background: url('data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M50%20100L0%200h100z%22%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E') calc(100% - 16px) 50% no-repeat;
@@ -1697,8 +1699,8 @@ $bg: #1E8DaC;
     padding: 0.46875em 0; }
   .n-type h6 {
     font-size: .6667em;
-    line-height: 1.12494;
-    padding: 0.56247em 0; }
+    line-height: 1.1249437528;
+    padding: 0.5624718764em 0; }
   .n-type pre {
     overflow: auto; }
   .n-type p {
