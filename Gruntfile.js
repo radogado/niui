@@ -81,7 +81,7 @@ module.exports = function(grunt) {
 			  maxBuffer: 500,
 			  noreport: true,
 			  options: {
-			    compilation_level: 'ADVANCED_OPTIMIZATIONS',
+			    compilation_level: 'SIMPLE_OPTIMIZATIONS',
 			    language_in: 'ECMASCRIPT6_STRICT',
 			  }
 			},
@@ -99,12 +99,6 @@ module.exports = function(grunt) {
 			}
 		},
 		'copy': {
-		  main: {
-		    expand: true,
-		    cwd: 'src/script',
-		    src: 'natuive.js',
-		    dest: 'dist/',
-		  },
 		  WP: {
 		    expand: true,
 		    cwd: 'dist',
