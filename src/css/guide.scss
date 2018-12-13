@@ -301,20 +301,21 @@ li pre {
 	display: inline-block;
 	max-width: 100%;
 	
-}
-
-.code pre {
+	pre {
+		
+		padding: 1em;
+		margin: .5em 0;
 	
-	padding: 0;
+	}
 
-}
-
-.code button.n-btn {
+	button.n-btn {
+		
+		position: absolute;
+		bottom: .5em;
+	    right: -2px;
+		font-size: .75em;
 	
-	position: absolute;
-	bottom: .5em;
-    right: -2px;
-	font-size: .75em;
+	}
 
 }
 

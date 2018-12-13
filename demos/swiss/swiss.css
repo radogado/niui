@@ -243,7 +243,9 @@ footer .about nav.n-nav a {
 
 .n-slider > * {
   background: #6f6660;
-  padding: 1em; }
+  padding: 1em;
+  box-sizing: border-box;
+  }
 
 .n-slider > * .n-tab-title {
   display: none; }

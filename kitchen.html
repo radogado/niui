@@ -1784,12 +1784,13 @@
 <!-- 	<script> nui.copyButton(document.getElementById('copybutton'), document.getElementById('copycontent')); </script> -->
 
 <!--
-<script data-src=script.js data-fallback-src=script.fallback.js type=text/javascript>
-	
-	console.log('inline script');
-	document.currentScript.src = document.currentScript.getAttribute(('fetch' in window) ? 'data-src' : 'data-fallback-src');
+	<script> 
+		
+		var script = document.createElement('script');
+		script.src = ('fetch' in window) ? 'dist/natuive.min.js' : 'dist/natuive.fallback.js';
+		document.body.appendChild(script);
 
-</script>
+	</script>
 -->
 
 </body>

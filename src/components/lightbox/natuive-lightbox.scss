@@ -310,7 +310,7 @@
 	
 @media (max-height: $screen-narrow-max) {
 
-	.n-lightbox--thumbnails.n-slider--wrap {
+	div.n-lightbox--thumbnails.n-slider--wrap {
 		
 		.n-slider--nav {
 			
@@ -338,6 +338,18 @@
 			bottom: 3em;
 			top: auto;
 			
+		}
+
+		&.n-slider--vertical.n-slider--outside.n-slider--right {
+		
+		    padding-right: 2em;
+
+		}
+
+		&.n-slider--vertical.n-slider--outside:not(.n-slider--right) {
+		
+		    padding-left: 2em;
+
 		}
 
 	}
