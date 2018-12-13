@@ -92,7 +92,7 @@ module.exports = function(grunt) {
 			  maxBuffer: 500,
 			  noreport: true,
 			  options: {
-			    compilation_level: 'ADVANCED_OPTIMIZATIONS',
+			    compilation_level: 'SIMPLE_OPTIMIZATIONS',
 			    language_in: 'ECMASCRIPT6_STRICT',
 			    jscomp_off: 'checkVars'
 			  }
