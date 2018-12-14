@@ -995,7 +995,10 @@ qa('a[href^="#"]').forEach((el) => {
 	            ready_to_submit = false;
 	            el.querySelector('input').focus();
 	            addClass(el, 'n-form--alert');
-				animate(el.closest('form'), '33% { transform: translateX(-9px) } 66% { transform: translateX(9px) } 100% { transform: translateX(0) } ', .25);
+// 				animate(el.closest('form'), '33% { transform: translateX(-9px) } 66% { transform: translateX(9px) } 100% { transform: translateX(0) } ', 999);
+				// Margin animation, because transform animation hides neighbouring content on iPad
+				let form = el.closest('form');
+				animate(form, `0% { width: ${form.scrollWidth}px; } 33% { margin-left: -9px; } 66% { margin-left: 18px; } 100% { width: ${form.scrollWidth}px; margin-left: 0; }`, .25);
 	            return;
 	
 	        } else {
