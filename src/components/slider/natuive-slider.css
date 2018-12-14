@@ -79,7 +79,8 @@ $bg: #1E8DaC;
   display: block; }
 
 .n-slider[data-peek] > * > img {
-  padding: 0 .25em; }
+  padding: 0 .25em;
+  box-sizing: content-box; }
 
 .n-slider.n-slider--center > * {
   display: flex;
