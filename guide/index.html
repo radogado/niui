@@ -1421,18 +1421,24 @@
 							
 							<h3>Padded (controls outside of content)</h3>
 							
-							<div class='n-slider n-pad'>
+							<div class='n-slider--wrap n-pad'>
 								
-								<div><p>One</p></div>
-								<div><p>Two</p></div>
+								<div class='n-slider'>
+									
+									<div><p>One</p></div>
+									<div><p>Two</p></div>
+								
+								</div>
 							
 							</div>
 						
 <div class="code">							
 
-<pre><code class="language-markup">&lt;div class='n-slider n-pad'&gt;
-	&lt;div&gt;Slide 1&lt;/div&gt;
-	&lt;div&gt;Slide 2&lt;/div&gt;
+<pre><code class="language-markup">&lt;div class='n-slider--wrap n-pad'&gt;
+	&lt;div class='n-slider'&gt;
+		&lt;div&gt;Slide 1&lt;/div&gt;
+		&lt;div&gt;Slide 2&lt;/div&gt;
+	&lt;/div&gt;</code>
 &lt;/div&gt;</code>
 </pre>
 
@@ -1466,19 +1472,25 @@
 							
 							<h3>Fade in/out</h3>
 							
-							<div class='n-slider n-slider--fade n-pad'>
+							<div class='n-slider--wrap n-pad'>
+							
+								<div class='n-slider n-slider--fade'>
+									
+									<div><p>One</p></div>
+									<div><p>Two</p></div>
+									<div><p>Three</p></div>
 								
-								<div><p>One</p></div>
-								<div><p>Two</p></div>
-								<div><p>Three</p></div>
+								</div>
 							
 							</div>
 						
 <div class="code">							
 
-<pre><code class="language-markup">&lt;div class='n-slider n-slider--fade'&gt;
-	&lt;div&gt;Slide 1&lt;/div&gt;
-	&lt;div&gt;Slide 2&lt;/div&gt;
+<pre><code class="language-markup">&lt;div class='n-slider--wrap n-pad'&gt;
+	&lt;div class='n-slider n-slider--fade'&gt;
+		&lt;div&gt;Slide 1&lt;/div&gt;
+		&lt;div&gt;Slide 2&lt;/div&gt;
+	&lt;/div&gt;</code>
 &lt;/div&gt;</code>
 </pre>
 
@@ -1489,18 +1501,24 @@
 
 							<h3>Auto height</h3>
 							
-							<div class='n-slider n-slider--auto-height n-pad'>
+							<div class='n-slider--wrap n-pad'>
+
+								<div class='n-slider n-slider--auto-height'>
+									
+									<div class='n-center'><p>One</p></div>
+									<div class='n-center'><p><br><br>Two<br><br>taller than One</p></div>
 								
-								<div class='n-center'><p>One</p></div>
-								<div class='n-center'><p><br><br>Two<br><br>taller than One</p></div>
+								</div>
 							
 							</div>
 						
 <div class="code">							
 
-<pre><code class="language-markup">&lt;div class='n-slider n-slider--auto-height n-pad'&gt;
-	&lt;div&gt;Slide 1&lt;/div&gt;
-	&lt;div&gt;Slide 2&lt;/div&gt;
+<pre><code class="language-markup">&lt;div class='n-slider--wrap n-pad'&gt;
+	&lt;div class='n-slider n-slider--auto-height n-pad'&gt;
+		&lt;div&gt;Slide 1&lt;/div&gt;
+		&lt;div&gt;Slide 2&lt;/div&gt;
+	&lt;/div&gt;</code>
 &lt;/div&gt;</code>
 </pre>
 

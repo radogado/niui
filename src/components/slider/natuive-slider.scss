@@ -359,11 +359,21 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 
 }
 
-.n-slider--wrap > .n-pad {
+.n-slider--wrap {
 	
-    padding: 0;
-    margin: $line-height-em*2;
+	&.n-pad {
+
+	    padding: $line-height-em*2;
+
+	}
 	
+	> .n-pad {
+		
+	    padding: 0;
+	    margin: $line-height-em*2;
+		
+	}
+
 }
 
 .n-slider--wrap:not(.n-slider--peek) > .n-pad {

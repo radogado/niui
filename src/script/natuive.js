@@ -3121,20 +3121,14 @@ var componentSlider = (function (){
 		
 		}
 
-		if (hasClass(el, 'n-pad')) {
+		if (hasClass(container, 'n-pad')) {
 			
-		    container = wrap(el);
-			addClass(container, 'n-pad');
-		    container = container.parentNode;
+			addClass(wrap(el), 'n-pad');
+			removeClass(container, 'n-pad');
 
 		}
 		
-	    el = container.querySelector('.n-slider');
-	    transferClass(el, container, 'n-slider--vertical');
-        transferClass(el, container, 'n-wrap');
-        transferClass(el, container, 'n-slider--top');
-        transferClass(el, container, 'n-slider--right');
-        transferClass(el, container, 'n-slider--overlay');
+        ['n-slider--vertical', 'n-wrap', 'n-slider--top', 'n-slider--right', 'n-slider--overlay'].forEach(item => transferClass(el, container, item));
 
 		var peek = el.getAttribute('data-peek');
 		if (peek) {

@@ -2386,6 +2386,8 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap {
   height: auto;
   display: none; }
 
+.n-slider--wrap.n-pad {
+  padding: 3em; }
 .n-slider--wrap > .n-pad {
   padding: 0;
   margin: 3em; }
