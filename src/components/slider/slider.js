@@ -753,15 +753,21 @@ var componentSlider = (function (){
 	
 	    container.addEventListener('swipeLeft', (e) => {
 	
+/*
 	        var el = sliderElement(e);
 	        slide(el, 'right');
+*/
+	        slide(e.target, 'right');
 	
 	    });
 	
 	    container.addEventListener('swipeRight', (e) => {
 	
+/*
 	        var el = sliderElement(e);
 	        slide(el, 'left');
+*/
+	        slide(e.target, 'left');
 	
 	    });
 	    
