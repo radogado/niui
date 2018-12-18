@@ -26,7 +26,7 @@ $bg: #1E8DaC;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   text-align: center; }
-  .n-row img, .n-row picture {
+  .n-row > div > img, .n-row > div > div > img, .n-row > div > picture, .n-row > div > div > picture, .n-row > div > picture > img, .n-row > div > div > picture > img {
     max-width: 100%;
     height: auto;
     border: none;

@@ -15,7 +15,7 @@
 	flex-wrap: wrap;
 	text-align: center;
 
-	img, picture {
+	> div > img, > div > div > img, > div > picture, > div > div > picture, > div > picture > img, > div > div > picture > img {
 	
 		max-width: 100%; // Prevent images overflowing
 		height: auto;
