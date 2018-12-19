@@ -110,6 +110,8 @@ $bg: #1E8DaC;
 .n-lightbox.n-slider img {
   cursor: zoom-in;
   max-width: 100%; }
+.n-lightbox.n-slider[data-ready] img {
+  height: auto !important; }
 
 .n-slider.n-lightbox.n-slider--detached-nav > * p, .n-slider--wrap.n-slider--outside .n-slider.n-lightbox > * p {
   bottom: 0;

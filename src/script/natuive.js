@@ -1527,7 +1527,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	    /* Add any <a><img> siblings with description to a .n-slider and initialise its controls */
 	    var images = '';
 		var thumbnails = [];
-	    lightbox.childNodes.forEach((el) => { // To do: facilitate a[href] extraction also from within div slides, if lightbox is existing and needs to be recreated for full screen. Get them in an array item[i].link, item[i].img
+	    [].slice.call(lightbox.children).forEach((el) => { // To do: facilitate a[href] extraction also from within div slides, if lightbox is existing and needs to be recreated for full screen. Get them in an array item[i].link, item[i].img
 		    
 		    if (!el.href && !hasClass(lightbox, 'n-slider')) { // Ignore non-links in regular lightboxes
 			    
@@ -1599,9 +1599,10 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 	    lightbox_target.innerHTML = images;
 	    
+/*
 	    if (inline_static) { // It's an inline lightbox and needs to become full window/screen when clicked
 		    
-		    lightbox_target.onclick = (e) => {
+		    lightbox_target.onclick = e => {
 			    
 			    if (e.target.tagName === 'IMG') {
 				    
@@ -1612,6 +1613,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		    };
 		    
 	    }
+*/
 	
 	// If secondary, openFullWindow(lightbox_target)
 	// If normal, attach lightbox_target on the former place of the lightbox and init(their_parent)
@@ -1794,7 +1796,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 
 /* Lightbox – end */
 
-	return { populateLightbox: populateLightbox };	
+	return { populateLightbox: populateLightbox, openLightbox: openLightbox };
 
 })();
 ;var componentModal = (function (){
@@ -3322,6 +3324,20 @@ var componentSlider = (function (){
 		    
 	    el.addEventListener('keyup', sliderKeyboard);
 		
+	    if (hasClass(el, 'n-lightbox--inline') && el.closest('.n-slider--wrap').parentNode) { // It's an inline lightbox and needs to become full window/screen when clicked. If it's not a dynamically generated lightbox for full-window lightbox
+		    
+		    el.onclick = e => {
+			    
+			    if (e.target.tagName === 'IMG') {
+				    
+				    componentLightbox.openLightbox(e);
+	
+			    }
+			    
+		    };
+		    
+	    }
+
 		observerOn();
 	
 	    return container;

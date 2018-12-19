@@ -9,11 +9,17 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		'sass': {
 			core: { 
-				files: {
+					options: {
+						sourcemap: false
+					},
+    				files: {
 					'src/css/natuive-core.css': 'src/css/natuive-core.scss'
 					}
 				},
 			components: {
+				options: {
+					sourcemap: false
+				},
 				files: [{
 					expand: true,
 						cwd: "src/components",
@@ -23,6 +29,9 @@ module.exports = function(grunt) {
 					}]
 				},
 			WordPress: {
+				options: {
+					sourcemap: false
+				},
 				files: {
 					'src/css/natuive-wordpress.css': 'src/css/natuive-wordpress.scss'
 					}

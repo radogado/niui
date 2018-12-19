@@ -169,10 +169,20 @@
 
 }
 
-.n-lightbox.n-slider img {
+.n-lightbox.n-slider {
 
-	cursor: zoom-in;
-	max-width: 100%;
+	img {
+	
+		cursor: zoom-in;
+		max-width: 100%;
+	
+	}
+	
+	&[data-ready] img {
+	
+		height: auto !important; // Override CSS-only height to avoid horizontal squash
+	
+	}
 
 }
 
