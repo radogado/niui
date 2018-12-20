@@ -248,7 +248,6 @@
 		
 		.n-aspect { // aspect ratio is specified as this element's --ratio CSS variable
 			
-// 		    display: flex;
 		    flex-direction: row;
 		    align-items: flex-start;
 		    overflow: hidden;
@@ -256,7 +255,7 @@
 		    text-align: center;
 		    
 			display: inline-flex;
-			display: flex;
+			vertical-align: top; // Lose the unwanted spacing at the bottom
 			width: calc(1px * var(--width, 100%)); // Number without 'px'
 			max-width: 100%;
 			
@@ -271,11 +270,16 @@
 			&:before {
 				
 				content: '';
-// 				padding-top: calc(100%*1/var(--ratio, 1.7778)); // Default 16:9
 				padding-top: calc(100%*1/(var(--width)/var(--height)));  // Number without 'px'
     			
 			}
 		
+			&[style*='--ratio']:before { // When ratio is specified with inline style, use it instead of width/height
+				
+				padding-top: calc(100%*1/var(--ratio, 1.7778)); // Default 16:9
+				
+			}
+			
 			&.n-bottom > * {
 				
 				align-self: flex-end;

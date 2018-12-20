@@ -159,7 +159,7 @@ $bg: #1E8DaC;
     position: relative;
     text-align: center;
     display: inline-flex;
-    display: flex;
+    vertical-align: top;
     width: calc(1px * var(--width, 100%));
     max-width: 100%; }
     .n-aspect > img {
@@ -169,6 +169,8 @@ $bg: #1E8DaC;
     .n-aspect:before {
       content: '';
       padding-top: calc(100%*1/(var(--width)/var(--height))); }
+    .n-aspect[style*='--ratio']:before {
+      padding-top: calc(100%*1/var(--ratio, 1.7778)); }
     .n-aspect.n-bottom > * {
       align-self: flex-end;
       vertical-align: bottom; }
