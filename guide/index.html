@@ -1284,7 +1284,7 @@
 							
 							<p>While the image is loading, the layout is already solid and the page doesn't jump after loading.</p>
 							
-							<picture class=n-aspect style='--ratio: 2.35;'>
+							<picture class=n-aspect style='--width: 1600; --height: 681;'>
 							
 								<img src=../images/lido.jpg alt='Lido'>
 							
@@ -1294,7 +1294,7 @@
 							
 <div class="code">							
 
-<pre><code class="language-markup">&lt;picture class=n-aspect style='--ratio: 2.35;'&gt;
+<pre><code class="language-markup">&lt;picture class=n-aspect style='--width: 1600; --height: 681;'&gt;
 	&lt;img src=images/lido.jpg alt='Lido'&gt;
 &lt;/picture&gt;</code>
 </pre>
@@ -1305,7 +1305,7 @@
 							
 							<ul class="n-list">
 								
-								<li>For inline container, add an <b>--image-width</b> variable (100px).</li>
+								<li>If narrower than its parent, the aspect ratio container is inline limited by <b>--width</b>.</li>
 								<li>The container can be a <b>div</b> and the content doesn't need to be an image.</li>
 
 							</ul>
@@ -1869,7 +1869,7 @@
 							
 							<h3> Inline </h3>
 							
-							<div class="n-aspect" style="--ratio: 1.67">
+							<div class="n-aspect" style="--width: 1670; --height: 1000;">
 								
 								<div id=lightbox3 class='n-lightbox n-lightbox--inline n-lightbox--thumbnails' data-autoslide-=4>
 							
@@ -1901,7 +1901,7 @@
 							
 							<h3> Inline vertical </h3>
 							
-							<div class="n-aspect" style="--ratio: 1.67">
+							<div class="n-aspect" style="--width: 1670; --height: 1000;">
 								
 								<div id=lightbox44 class='n-lightbox n-lightbox--inline n-lightbox--thumbnails n-slider--vertical n-slider--outside-' data-duration=2>
 							
@@ -1959,7 +1959,7 @@
 							
 							<h3> Inline lightbox peeking at neighboring slides </h3>
 							
-							<div class="n-aspect-" style="--ratio: 1.67">
+							<div class="n-aspect-" style="--width: 1670; --height: 1000;">
 								
 								<div id=lightbox5 class='n-lightbox n-lightbox--inline n-lightbox--thumbnails' data-peek=10%>
 							
@@ -1995,7 +1995,7 @@
 							
 								<div>
 									
-									<div class="n-aspect" style="--ratio: 1.67">
+									<div class="n-aspect" style="--width: 1670; --height: 1000;">
 								
 								<div id=lightbox4 class='n-lightbox n-lightbox--inline n-lightbox--thumbnails'>
 							

@@ -18,7 +18,7 @@
 -->
 			<?php $image_data = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "original" ); ?>
 			<div style="text-align: center;">
-				<span class="n-aspect n-middle" style="--ratio: <?php echo ($image_data[1] / $image_data[2]); ?>; --image-width: <?php echo ($image_data[1]) ?>px;">
+				<span class="n-aspect n-middle" style="--height: <?php echo ($image_data[2]); ?>; --width: <?php echo ($image_data[1]) ?>;">
 					<?php the_post_thumbnail(); // Fullsize image for the single post ?>
 				</span>
 			</div>

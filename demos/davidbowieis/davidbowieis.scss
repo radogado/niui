@@ -176,8 +176,9 @@ a[href].n-btn:hover {
 }
 
 .n-parallax--back .n-aspect {
-	
-	--ratio: 1.89; 
+
+	--width: 1890;
+	--height: 1000;
 	overflow: visible; 
 	position: relative;
 	height: 100vh;

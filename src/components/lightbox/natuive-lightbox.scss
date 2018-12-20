@@ -25,6 +25,19 @@
 	
 .n-slider.n-lightbox {
 
+	img {
+	
+		cursor: zoom-in;
+		max-width: 100%;
+	
+	}
+	
+	&[data-ready] img {
+	
+		height: auto !important; // Override CSS-only height to avoid horizontal squash
+	
+	}
+
 	> * {
 	
 		text-align: center;
@@ -55,6 +68,12 @@
 			height: 100%;
 			background: #fff;
 		
+		}
+		
+		> .n-aspect {
+			
+			margin: 0 auto;
+
 		}
 
 	}
@@ -157,7 +176,7 @@
 		height: 40px;
 		background-color: #999;
 		border-radius: 100%;  
-		animation: sk-scaleout 1.0s infinite ease-in-out;
+		animation: sk-scaleout 1.0s 9 ease-in-out;
 	
 	}
 
@@ -166,23 +185,6 @@
 .n-slider.n-lightbox.n-lightbox--thumbnails:not(.n-slider--detached-nav) > * p.n-lightbox--caption {
 	
 	bottom: 4em;
-
-}
-
-.n-lightbox.n-slider {
-
-	img {
-	
-		cursor: zoom-in;
-		max-width: 100%;
-	
-	}
-	
-	&[data-ready] img {
-	
-		height: auto !important; // Override CSS-only height to avoid horizontal squash
-	
-	}
 
 }
 

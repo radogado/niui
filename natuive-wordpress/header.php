@@ -39,7 +39,7 @@
 					?>
 
 					    <div class='logo'>
-					        <a class="n-aspect" style='--ratio: <?php echo $themelogo_width / $themelogo_height; ?>; --image-width: <?php echo $themelogo_width/2; ?>px;' href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'>
+					        <a class="n-aspect" style='--width: <?php echo $themelogo_width; ?>; --height: <?php echo $themelogo_height; ?>;' href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'>
 						        
 								<img src='<?php echo str_replace( 'http://', '//', esc_url( get_theme_mod( 'themeslug_logo' ) ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?> Logo' class="img-responsive full">
 						        
@@ -56,7 +56,7 @@
 					<?php else : ?>
 					<div class="logo">
 
-					        <a class="n-aspect" style='--ratio: 7.875; --image-width: 441px;' href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'>
+					        <a class="n-aspect" style='--width: 441px; --height: 56;' href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'>
 						        
 								<img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="natUIve WordPress" class="logo-img">
 						        

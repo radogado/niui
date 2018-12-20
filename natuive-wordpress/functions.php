@@ -608,26 +608,26 @@ function my_img_caption_shortcode( $empty, $attr, $content ){
 	$attachment = wp_get_attachment_metadata($id);
 
 
-	$ratio = 1;
-	$image_width = 0;
+	$width = 0;
+	$height = 0;
 
 	if ($img_dom->getAttribute('sizes')) {
 	
-		$ratio = $attachment[width] / $attachment[height];
-		$image_width = explode(', ', $img_dom->getAttribute('sizes'))[1];
+		$width = preg_replace('/[^0-9]/', '', $attachment[width]);
+		$height = preg_replace('/[^0-9]/', '', $attachment[height]);
 	
 	} else { // Legacy image format
 	
 		$img_dom->setAttribute('src', str_replace( 'http://', '//', $img_dom->getAttribute('src'))); // Fix HTTPS
-		$ratio = $img_dom->getAttribute('width') / $img_dom->getAttribute('height');
-		$image_width = $img_dom->getAttribute('width') . 'px';
-	
+		$width = preg_replace('/[^0-9]/', '', $img_dom->getAttribute('width'));
+		$height = preg_replace('/[^0-9]/', '', $img_dom->getAttribute('height'));
+
 	}
 
    return '<div class="wp-block-image">'
     . '<figure class="' . esc_attr( $attr['align'] ) . '" '
     . '>'
-    . '<span class="n-aspect ' . $img_dom->getAttribute('class') . '" style="--image-width: ' . $image_width . '; --ratio: ' . $ratio . ';">' . $img . '</span>' // Add .n-aspect and --ratio: height/width
+    . '<span class="n-aspect ' . $img_dom->getAttribute('class') . '" style="--width: ' . $width . '; --height: ' . $height . ';">' . $img . '</span>' // Add .n-aspect and --ratio: height/width
     . '<figcaption>' . $attr['caption'] . '</figcaption>'
     . '</figure>'
     . '</div>';
@@ -672,27 +672,28 @@ add_action('the_content', function ($content) {
 			
 		}
 
-		$ratio = 1;
-		$image_width = 0;
+		$width = 0;
+		$height = 0;
 
 		if ($img->getAttribute('sizes')) {
 			
 			$id = (int) str_replace('-', '', filter_var($img->getAttribute('class'), FILTER_SANITIZE_NUMBER_INT));
 			$attachment = wp_get_attachment_metadata($id);
-			$ratio = $attachment[width] / $attachment[height];
-			$image_width = explode(', ', $img->getAttribute('sizes'))[1];
+
+			$width = preg_replace('/[^0-9]/', '', $attachment[width]);
+			$height = preg_replace('/[^0-9]/', '', $attachment[height]);
 			
 		} else { // Legacy image format
 			
 			$img->setAttribute('src', str_replace( 'http://', '//', $img->getAttribute('src'))); // Fix HTTPS
-			$ratio = $img->getAttribute('width') / $img->getAttribute('height');
-			$image_width = $img->getAttribute('width') . 'px';
+			$width = preg_replace('/[^0-9]/', '', $img->getAttribute('width'));
+			$height = preg_replace('/[^0-9]/', '', $img->getAttribute('height'));
 			
 		}
 		
 		$wrapper = $dom->createElement('span');
 		$wrapper->setAttribute('class', 'n-aspect ' . $img->getAttribute('class'));
-		$wrapper->setAttribute('style', '--ratio: ' . $ratio . '; --image-width: ' . $image_width);
+		$wrapper->setAttribute('style', '--width: ' . $width . '; --height: ' . $height);
 		
 		$img->parentNode->replaceChild($wrapper, $img);
 		$wrapper->appendChild($img);
