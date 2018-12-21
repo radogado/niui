@@ -1588,10 +1588,12 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 				
 			}
 			
+/*
 			let target_width = typeof el.dataset.width === 'undefined' ? '' : `width=${el.dataset.width}`;
 			let target_height = typeof el.dataset.height === 'undefined' ? '' : `height=${el.dataset.height}`;
+*/
 					    
-		    images += `<div><img data-src="${url}" title="" data-link="${slide_link}" data-caption="${caption}" ${target_width} ${target_height}>${(caption ? ('<p class=n-lightbox--caption>' + caption + '</p>') : '') + link_element}</div>`;
+		    images += `<div><img data-src="${url}" title="" data-link="${slide_link}" data-caption="${caption}">${(caption ? ('<p class=n-lightbox--caption>' + caption + '</p>') : '') + link_element}</div>`;
 	
 	        // Attach onload event to each image to display it only when fully loaded and avoid top-to-bottom reveal?
 	
@@ -2857,8 +2859,8 @@ var componentSlider = (function (){
 			
 			if (hasClass(slider, 'n-lightbox--inline') && !hasClass(slider, 'n-slider--overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'n-aspect')) { // Inline lightbox only. To do: integrate n-aspect with n-slider--wrap
 			
-				let next_image_width = typeof next_slide_image.dataset.width === 'undefined' ? next_slide_image.naturalWidth : next_slide_image.dataset.width; // To do: set data-width, data-height from the anochor link
-				let next_image_height = typeof next_slide_image.dataset.height === 'undefined' ? next_slide_image.naturalHeight : next_slide_image.dataset.height;
+				let next_image_width = next_slide_image.getAttribute('width') ? next_slide_image.getAttribute('width') * 1 : next_slide_image.naturalWidth; // To do: set data-width, data-height from the anochor link
+				let next_image_height = next_slide_image.getAttribute('height') ? next_slide_image.getAttribute('height') * 1 : next_slide_image.naturalHeight;
 				
 				var height_change_number = slider.clientWidth * next_image_height / next_image_width;
 				if (slider.clientWidth >= next_image_width) {
