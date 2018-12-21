@@ -159,6 +159,7 @@ $bg: #1E8DaC;
     position: relative;
     text-align: center;
     display: inline-flex;
+    justify-content: center;
     vertical-align: top;
     width: calc(1px * var(--width, 100%));
     max-width: 100%; }

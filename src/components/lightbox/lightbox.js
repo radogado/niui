@@ -267,8 +267,8 @@ var componentLightbox = (function (){
 				
 			}
 			
-			let target_width = typeof el.dataset.width === 'undefined' ? '' : `data-width=${el.dataset.width}`;
-			let target_height = typeof el.dataset.height === 'undefined' ? '' : `data-height=${el.dataset.height}`;
+			let target_width = typeof el.dataset.width === 'undefined' ? '' : `width=${el.dataset.width}`;
+			let target_height = typeof el.dataset.height === 'undefined' ? '' : `height=${el.dataset.height}`;
 					    
 		    images += `<div><img data-src="${url}" title="" data-link="${slide_link}" data-caption="${caption}" ${target_width} ${target_height}>${(caption ? ('<p class=n-lightbox--caption>' + caption + '</p>') : '') + link_element}</div>`;
 	

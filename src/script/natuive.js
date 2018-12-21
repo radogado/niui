@@ -471,7 +471,7 @@ function animate(el, animation_code, duration, callback) { // Default duration =
 			
 			stopEvent(e);
 			var el = e.target; 
-			q('head').removeChild(q('.' + el.getAttribute('data-animation')));
+			document.head.removeChild(q('.' + el.getAttribute('data-animation')));
 			el.removeAttribute('data-animation');
 	 		el.removeEventListener(animationEndEvent, animationEndHandler);
 			if (typeof callback === 'function') {
@@ -493,7 +493,7 @@ function animate(el, animation_code, duration, callback) { // Default duration =
 */
 		var styles = document.createElement('style');
 		styles.innerHTML = `@keyframes ${animation_name} {${animation_code}} [data-animation=${animation_name}] { animation-name: ${animation_name}; animation-duration: ${((typeof duration === "undefined") ? .2 : duration)}s; }`; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
-		q('head').appendChild(styles);
+		document.head.appendChild(styles);
 		addClass(styles, animation_name);
 
 // 		el.dataset.animation = animation_name;
@@ -1588,8 +1588,8 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 				
 			}
 			
-			let target_width = typeof el.dataset.width === 'undefined' ? '' : `data-width=${el.dataset.width}`;
-			let target_height = typeof el.dataset.height === 'undefined' ? '' : `data-height=${el.dataset.height}`;
+			let target_width = typeof el.dataset.width === 'undefined' ? '' : `width=${el.dataset.width}`;
+			let target_height = typeof el.dataset.height === 'undefined' ? '' : `height=${el.dataset.height}`;
 					    
 		    images += `<div><img data-src="${url}" title="" data-link="${slide_link}" data-caption="${caption}" ${target_width} ${target_height}>${(caption ? ('<p class=n-lightbox--caption>' + caption + '</p>') : '') + link_element}</div>`;
 	

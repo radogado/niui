@@ -255,6 +255,7 @@
 		    text-align: center;
 		    
 			display: inline-flex;
+			justify-content: center; // When aspect inside aspect, like an inline lightbox
 			vertical-align: top; // Lose the unwanted spacing at the bottom
 			width: calc(1px * var(--width, 100%)); // Number without 'px'
 			max-width: 100%;
