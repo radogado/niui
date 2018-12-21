@@ -29,6 +29,12 @@ $bg: #1E8DaC;
   border: none;
   text-align: center; }
 
+.n-aspect > .n-slider--wrap > .n-slider.n-lightbox.n-lightbox--inline img {
+  position: absolute;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; }
+
 .n-slider.n-lightbox img {
   cursor: zoom-in;
   max-width: 100%; }

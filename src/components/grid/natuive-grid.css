@@ -169,8 +169,11 @@ $bg: #1E8DaC;
     .n-aspect:before {
       content: '';
       padding-top: calc(100%*1/(var(--width)/var(--height))); }
-    .n-aspect[style*='--ratio']:before {
-      padding-top: calc(100%*1/var(--ratio, 1.7778)); }
+    .n-aspect[style*='--ratio'] {
+      width: calc(1px * var(--width, 10000));
+      max-width: 100%; }
+      .n-aspect[style*='--ratio']:before {
+        padding-top: calc(100%*1/var(--ratio, 1.7778)); }
     .n-aspect.n-bottom > * {
       align-self: flex-end;
       vertical-align: bottom; }
