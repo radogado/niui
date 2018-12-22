@@ -32,7 +32,7 @@ var componentLightbox = (function (){
 
 	function imageLoaded (img) {
 
-		addClass(img.parentNode, 'n-lightbox--loaded');
+		addClass(img.closest('.n-slider > div'), 'n-lightbox--loaded');
 		
 		img.onclick = (e) => { // Zoom and scan
 
@@ -272,7 +272,7 @@ var componentLightbox = (function (){
 			let target_height = typeof el.dataset.height === 'undefined' ? '' : `height=${el.dataset.height}`;
 */
 					    
-		    images += `<div><img data-src="${url}" title="" data-link="${slide_link}" data-caption="${caption}">${(caption ? ('<p class=n-lightbox--caption>' + caption + '</p>') : '') + link_element}</div>`;
+		    images += `<div><img data-src="${url}" title="" data-link="${slide_link}">${(caption ? ('<p class=n-lightbox--caption>' + caption + '</p>') : '') + link_element}</div>`;
 	
 	        // Attach onload event to each image to display it only when fully loaded and avoid top-to-bottom reveal?
 	

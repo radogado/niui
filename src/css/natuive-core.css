@@ -14,8 +14,10 @@ $bg: #1E8DaC;
   	--color: #fff;
   	--bg: #1E8DaC;
   */
-  --color: #333;
-  --bg: #fff; }
+  /*
+  	--color: #333;
+  	--bg: #fff;
+  */ }
 
 /*
 $font-size: 26px;
@@ -50,8 +52,10 @@ body {
   	color: $color; // Fallback when CSS variables aren't supported
   */
   margin: 0;
-  color: var(--color);
-  background: var(--bg, #fff);
+  /*
+  	color: var(--color);
+  	background: var(--bg, $bg);
+  */
   /*
   	* {
   

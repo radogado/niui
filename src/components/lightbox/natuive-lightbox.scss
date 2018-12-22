@@ -38,12 +38,23 @@
 	
 		cursor: zoom-in;
 		max-width: 100%;
+		transition: opacity .2s ease-in-out;
 	
 	}
 	
-	&[data-ready] img {
-	
-		height: auto !important; // Override CSS-only height to avoid horizontal squash
+	&[data-ready] {
+		
+		img {
+		
+			height: auto !important; // Override CSS-only height to avoid horizontal squash
+		
+		}
+		
+		> div:not(.n-lightbox--loaded) img {
+			
+			opacity: 0;
+			
+		}
 	
 	}
 

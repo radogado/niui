@@ -14,8 +14,10 @@ $bg: #1E8DaC;
   	--color: #fff;
   	--bg: #1E8DaC;
   */
-  --color: #333;
-  --bg: #fff; }
+  /*
+  	--color: #333;
+  	--bg: #fff;
+  */ }
 
 .n-slider--wrap:not([data-active]) > .n-slider.n-slider--vertical.n-lightbox > * {
   height: 100%; }
@@ -37,9 +39,12 @@ $bg: #1E8DaC;
 
 .n-slider.n-lightbox img {
   cursor: zoom-in;
-  max-width: 100%; }
+  max-width: 100%;
+  transition: opacity .2s ease-in-out; }
 .n-slider.n-lightbox[data-ready] img {
   height: auto !important; }
+.n-slider.n-lightbox[data-ready] > div:not(.n-lightbox--loaded) img {
+  opacity: 0; }
 .n-slider.n-lightbox > * {
   text-align: center;
   position: relative; }

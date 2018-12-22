@@ -14,8 +14,10 @@ $bg: #1E8DaC;
   	--color: #fff;
   	--bg: #1E8DaC;
   */
-  --color: #333;
-  --bg: #fff; }
+  /*
+  	--color: #333;
+  	--bg: #fff;
+  */ }
 
 .n-fold {
   position: relative;

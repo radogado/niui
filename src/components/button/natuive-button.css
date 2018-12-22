@@ -14,8 +14,10 @@ $bg: #1E8DaC;
   	--color: #fff;
   	--bg: #1E8DaC;
   */
-  --color: #333;
-  --bg: #fff; }
+  /*
+  	--color: #333;
+  	--bg: #fff;
+  */ }
 
 .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href] {
   font-size: inherit;

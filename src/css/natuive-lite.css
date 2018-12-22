@@ -14,8 +14,10 @@ $bg: #1E8DaC;
   	--color: #fff;
   	--bg: #1E8DaC;
   */
-  --color: #333;
-  --bg: #fff; }
+  /*
+  	--color: #333;
+  	--bg: #fff;
+  */ }
 
 /*
 $font-size: 26px;
@@ -50,8 +52,10 @@ body {
   	color: $color; // Fallback when CSS variables aren't supported
   */
   margin: 0;
-  color: var(--color);
-  background: var(--bg, #fff);
+  /*
+  	color: var(--color);
+  	background: var(--bg, $bg);
+  */
   /*
   	* {
   
@@ -208,8 +212,10 @@ $bg: #1E8DaC;
   	--color: #fff;
   	--bg: #1E8DaC;
   */
-  --color: #333;
-  --bg: #fff; }
+  /*
+  	--color: #333;
+  	--bg: #fff;
+  */ }
 
 .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href] {
   font-size: inherit;
@@ -304,8 +310,10 @@ $bg: #1E8DaC;
   	--color: #fff;
   	--bg: #1E8DaC;
   */
-  --color: #333;
-  --bg: #fff; }
+  /*
+  	--color: #333;
+  	--bg: #fff;
+  */ }
 
 .n-form {
   --placeholder_color: #aaa; }
@@ -447,8 +455,8 @@ $bg: #1E8DaC;
     height: 1em;
     display: inline-block;
     background: #eee;
-    line-height: 1.6666666667;
-    font-size: -0.3333333333em;
+    line-height: 1.66667;
+    font-size: -0.33333em;
     text-align: center;
     color: #333;
     display: none;
@@ -574,7 +582,7 @@ $bg: #1E8DaC;
       cursor: pointer;
       background: rgba(0, 0, 0, 0.1); }
     .n-form input[type=range]::-moz-range-thumb {
-      border: 0px solid rgba(0, 0, 0, 0);
+      border: 0px solid transparent;
       height: 1.625em;
       width: 1.625em;
       border-radius: 50%;
@@ -592,7 +600,7 @@ $bg: #1E8DaC;
     .n-form input[type=range]::-ms-fill-upper {
       background: rgba(0, 0, 0, 0.1); }
     .n-form input[type=range]::-ms-thumb {
-      border: 0px solid rgba(0, 0, 0, 0);
+      border: 0px solid transparent;
       height: 1.625em;
       width: 1.625em;
       border-radius: .9375em;
@@ -736,8 +744,10 @@ $bg: #1E8DaC;
   	--color: #fff;
   	--bg: #1E8DaC;
   */
-  --color: #333;
-  --bg: #fff; }
+  /*
+  	--color: #333;
+  	--bg: #fff;
+  */ }
 
 /* For proper fallback, use .col* for all columns. Automatic column width (no .col*) works for Flexbox only. */
 .n-row {
@@ -1160,8 +1170,10 @@ $bg: #1E8DaC;
   	--color: #fff;
   	--bg: #1E8DaC;
   */
-  --color: #333;
-  --bg: #fff; }
+  /*
+  	--color: #333;
+  	--bg: #fff;
+  */ }
 
 ul.n-list {
   padding: 0;
@@ -1271,8 +1283,10 @@ $bg: #1E8DaC;
   	--color: #fff;
   	--bg: #1E8DaC;
   */
-  --color: #333;
-  --bg: #fff; }
+  /*
+  	--color: #333;
+  	--bg: #fff;
+  */ }
 
 .n-nav {
   vertical-align: baseline;
@@ -1510,8 +1524,10 @@ $bg: #1E8DaC;
   	--color: #fff;
   	--bg: #1E8DaC;
   */
-  --color: #333;
-  --bg: #fff; }
+  /*
+  	--color: #333;
+  	--bg: #fff;
+  */ }
 
 .n-table {
   width: 100%;
@@ -1600,8 +1616,10 @@ $bg: #1E8DaC;
   	--color: #fff;
   	--bg: #1E8DaC;
   */
-  --color: #333;
-  --bg: #fff; }
+  /*
+  	--color: #333;
+  	--bg: #fff;
+  */ }
 
 .n-tool {
   cursor: help;
@@ -1666,8 +1684,10 @@ $bg: #1E8DaC;
   	--color: #fff;
   	--bg: #1E8DaC;
   */
-  --color: #333;
-  --bg: #fff; }
+  /*
+  	--color: #333;
+  	--bg: #fff;
+  */ }
 
 .n-type {
   color: #333;
@@ -1675,7 +1695,7 @@ $bg: #1E8DaC;
   font-size: 16px;
   line-height: 1.5;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  letter-spacing: .02em;
+  letter-spacing: .5px;
   /* Elements with double line-height */ }
   .n-type h1, .n-type h2, .n-type h3 {
     line-height: 3; }
@@ -1706,8 +1726,8 @@ $bg: #1E8DaC;
     padding: 0.46875em 0; }
   .n-type h6 {
     font-size: .6667em;
-    line-height: 1.1249437528;
-    padding: 0.5624718764em 0; }
+    line-height: 1.12494;
+    padding: 0.56247em 0; }
   .n-type pre {
     overflow: auto; }
   .n-type p {
