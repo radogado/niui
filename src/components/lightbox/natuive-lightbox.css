@@ -42,7 +42,8 @@ $bg: #1E8DaC;
   max-width: 100%;
   transition: opacity .2s ease-in-out; }
 .n-slider.n-lightbox[data-ready] img {
-  height: auto !important; }
+  height: auto !important;
+  width: auto; }
 .n-slider.n-lightbox[data-ready] > div:not(.n-lightbox--loaded) img {
   opacity: 0; }
 .n-slider.n-lightbox > * {

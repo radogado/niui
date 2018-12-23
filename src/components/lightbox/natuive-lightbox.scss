@@ -47,6 +47,7 @@
 		img {
 		
 			height: auto !important; // Override CSS-only height to avoid horizontal squash
+			width: auto;
 		
 		}
 		
@@ -117,11 +118,11 @@
 		
 		}
 		
-		&.n-slider--vertical > * { // Firefox fix
+		&.n-slider--vertical > * {
 		
 			display: none;
 		
-			&[data-active] { // Firefox fix
+			&[data-active] {
 			
 				display: flex;
 				flex-direction: column;

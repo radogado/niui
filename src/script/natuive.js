@@ -1585,15 +1585,21 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 			if (typeof caption_attribute === 'string') { // When an inline lightbox opens a full window one
 				
 				caption = caption_attribute;
+
+			} else {
+				
+				if (el.querySelector('.n-lightbox--caption')) {
+					
+					caption = el.querySelector('.n-lightbox--caption').textContent;
+					
+				}
 				
 			}
 			
-/*
 			let target_width = typeof el.dataset.width === 'undefined' ? '' : `width=${el.dataset.width}`;
 			let target_height = typeof el.dataset.height === 'undefined' ? '' : `height=${el.dataset.height}`;
-*/
 					    
-		    images += `<div><img data-src="${url}" title="" data-link="${slide_link}">${(caption ? ('<p class=n-lightbox--caption>' + caption + '</p>') : '') + link_element}</div>`;
+		    images += `<div><img data-src="${url}" title="" data-link="${slide_link}" ${target_width} ${target_height}>${(caption ? ('<p class=n-lightbox--caption>' + caption + '</p>') : '') + link_element}</div>`;
 	
 	        // Attach onload event to each image to display it only when fully loaded and avoid top-to-bottom reveal?
 	
