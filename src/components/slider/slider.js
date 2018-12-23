@@ -815,7 +815,7 @@ var componentSlider = (function (){
 		    
 	    el.addEventListener('keyup', sliderKeyboard);
 		
-	    if (hasClass(el, 'n-lightbox--inline') && el.closest('.n-slider--wrap').parentNode) { // It's an inline lightbox and needs to become full window/screen when clicked. If it's not a dynamically generated lightbox for full-window lightbox
+	    if (hasClass(el, 'n-lightbox--inline')) { // It's an inline lightbox and needs to become full window/screen when clicked. If it's not a dynamically generated lightbox for full-window lightbox
 		    
 		    el.onclick = e => {
 			    

@@ -152,14 +152,15 @@ var componentLightbox = (function (){
 	    var animation = lightbox.getAttribute('data-anim');
 		var lightbox_target = document.createElement('div');
 		var inline_static = lightbox.matches('.n-lightbox--inline:not(.n-slider)');
+		
+		if (inline_static) {
+			
+			addClass(lightbox_target, 'n-lightbox--inline');
+			
+		}
 	
-	
-		addClass(lightbox_target, 'n-slider');
-		addClass(lightbox_target, 'n-lightbox');
-		addClass(lightbox_target, 'n-lightbox--inline');
-		transferClass(lightbox, lightbox_target, 'n-lightbox--thumbnails');
-		transferClass(lightbox, lightbox_target, 'n-slider--top');
-		transferClass(lightbox, lightbox_target, 'n-slider--fade');
+		['n-slider', 'n-lightbox'].forEach(item => addClass(lightbox_target, item));
+		['n-lightbox--thumbnails', 'n-slider--top', 'n-slider--fade'].forEach(item => transferClass(lightbox, lightbox_target, item));
 		
 		if (lightbox.getAttribute('data-duration')) {
 			
@@ -194,8 +195,7 @@ var componentLightbox = (function (){
 	
 		}
 	
-		transferClass(lightbox, lightbox_target, 'n-slider--vertical');
-		transferClass(lightbox, lightbox_target, 'n-slider--right');
+		['n-slider--vertical', 'n-slider--right'].forEach(item => transferClass(lightbox, lightbox_target, item));
 	
 		if (lightbox.getAttribute('data-peek')) {
 					

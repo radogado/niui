@@ -1473,14 +1473,15 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	    var animation = lightbox.getAttribute('data-anim');
 		var lightbox_target = document.createElement('div');
 		var inline_static = lightbox.matches('.n-lightbox--inline:not(.n-slider)');
+		
+		if (inline_static) {
+			
+			addClass(lightbox_target, 'n-lightbox--inline');
+			
+		}
 	
-	
-		addClass(lightbox_target, 'n-slider');
-		addClass(lightbox_target, 'n-lightbox');
-		addClass(lightbox_target, 'n-lightbox--inline');
-		transferClass(lightbox, lightbox_target, 'n-lightbox--thumbnails');
-		transferClass(lightbox, lightbox_target, 'n-slider--top');
-		transferClass(lightbox, lightbox_target, 'n-slider--fade');
+		['n-slider', 'n-lightbox'].forEach(item => addClass(lightbox_target, item));
+		['n-lightbox--thumbnails', 'n-slider--top', 'n-slider--fade'].forEach(item => transferClass(lightbox, lightbox_target, item));
 		
 		if (lightbox.getAttribute('data-duration')) {
 			
@@ -1515,8 +1516,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 		}
 	
-		transferClass(lightbox, lightbox_target, 'n-slider--vertical');
-		transferClass(lightbox, lightbox_target, 'n-slider--right');
+		['n-slider--vertical', 'n-slider--right'].forEach(item => transferClass(lightbox, lightbox_target, item));
 	
 		if (lightbox.getAttribute('data-peek')) {
 					
@@ -3326,7 +3326,7 @@ var componentSlider = (function (){
 		    
 	    el.addEventListener('keyup', sliderKeyboard);
 		
-	    if (hasClass(el, 'n-lightbox--inline') && el.closest('.n-slider--wrap').parentNode) { // It's an inline lightbox and needs to become full window/screen when clicked. If it's not a dynamically generated lightbox for full-window lightbox
+	    if (hasClass(el, 'n-lightbox--inline')) { // It's an inline lightbox and needs to become full window/screen when clicked. If it's not a dynamically generated lightbox for full-window lightbox
 		    
 		    el.onclick = e => {
 			    
