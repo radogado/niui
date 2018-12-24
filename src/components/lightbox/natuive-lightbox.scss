@@ -115,7 +115,15 @@
 	
 			height: 100%;
 			overflow: hidden;
-		
+
+			&[data-active] {
+ 
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			
+			}
+    		
 		}
 		
 		&.n-slider--vertical > * {
@@ -125,8 +133,10 @@
 			&[data-active] {
 			
 				display: flex;
+/*
 				flex-direction: column;
 				justify-content: center;
+*/
 			
 			}
 			

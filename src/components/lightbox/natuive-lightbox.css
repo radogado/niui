@@ -76,12 +76,18 @@ $bg: #1E8DaC;
 .n-slider.n-lightbox.n-slider--overlay > * {
   height: 100%;
   overflow: hidden; }
+  .n-slider.n-lightbox.n-slider--overlay > *[data-active] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
 .n-slider.n-lightbox.n-slider--overlay.n-slider--vertical > * {
   display: none; }
   .n-slider.n-lightbox.n-slider--overlay.n-slider--vertical > *[data-active] {
     display: flex;
-    flex-direction: column;
-    justify-content: center; }
+    /*
+    				flex-direction: column;
+    				justify-content: center;
+    */ }
 .n-slider.n-lightbox.n-slider--overlay > [data-active] > img.n-lightbox--zoom {
   width: auto;
   height: auto;
