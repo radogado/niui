@@ -498,12 +498,12 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 		height: 1em;
 		-webkit-border-radius: 50px;
 		border-radius: 50%;
-		--bg: #f8f8f8;
-		background-color: var(--bg);
-		color: #333;
 		transition: background-color .2s linear;
 		line-height: 1em;
 		box-sizing: content-box;
+
+		background-color: var(--control-bg, #f8f8f8);
+		color: var(--control-color, #333);
 	
 	}
 
