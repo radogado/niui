@@ -2,7 +2,7 @@
 
 @import '../../css/natuive-setup';
 
-.n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href]  {
+.n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href] {
 
 // 	font-size: $font-size;
 	font-size: inherit;
@@ -17,8 +17,8 @@
 	word-break: break-word;
 	padding: 0 .7em;
 	-webkit-appearance: none;
-	background: #333;
-	color: #eee;
+	background-color: var(--control-bg, #333);
+	color: var(--control-color, #eee);
 	-webkit-transition: all .1s linear;
 	transition: all .1s linear;
 	border: none;

@@ -26,9 +26,9 @@ $bg: #1E8DaC;
   .n-tool:after {
     content: '?';
     display: inline-block;
-    background: #444;
+    background-color: var(--control-bg, #444);
     border-radius: 100%;
-    color: #ddd;
+    color: var(--control-color, #ddd);
     width: 1.5em;
     text-align: center; }
   .n-tool[aria-expanded]:after {

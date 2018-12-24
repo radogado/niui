@@ -186,6 +186,7 @@ main > .n-slider--wrap > .n-slider.n-slider--vertical > .visible {
 main#content {
 
 	padding: 0;
+	background: #fffff5;
 
 }
 
@@ -311,8 +312,8 @@ li pre {
 	button.n-btn {
 		
 		position: absolute;
-		bottom: .5em;
-	    right: -2px;
+		bottom: .67em;
+	    right: 0;
 		font-size: .75em;
 	
 	}
@@ -363,9 +364,13 @@ body:not(data-threshold) #content > * {
 		
 }
 
-.n-slider--arrow, .n-slider--nav a {
+// Guide theme
+
+.n-slider--arrow, .n-slider--nav a, .n-tool:after, .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href], .n-fold > .n-fold--label {
 	
-	--control-bg: coral;
+	--control-bg: lightcoral;
 	--control-color: #fff;		
+	--control-active-bg: #cc7c7e;
+	--control-active-color: #eee;
 
 }

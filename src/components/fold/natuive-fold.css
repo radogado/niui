@@ -38,11 +38,13 @@ $bg: #1E8DaC;
     -moz-user-select: none;
     user-select: none;
     position: relative;
-    padding: .75em 0;
+    padding: .75em;
     padding-right: 1.5em;
     word-wrap: break-word;
     word-break: break-all;
-    box-sizing: border-box; }
+    box-sizing: border-box;
+    background-color: var(--control-bg, inherit);
+    color: var(--control-color, inherit); }
     .n-fold > .n-fold--label:after {
       content: "▼";
       position: absolute;

@@ -32,12 +32,13 @@
 		-moz-user-select: none;
 		user-select: none;
 		position: relative;
-		padding: .75em 0;
+		padding: .75em;
 		padding-right: 1.5em;
 		word-wrap: break-word;
 		word-break: break-all;
 		box-sizing: border-box;
-		
+		background-color: var(--control-bg, inherit);
+		color: var(--control-color, inherit);
 		
 		&:after {
 			

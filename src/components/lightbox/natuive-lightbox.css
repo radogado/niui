@@ -131,7 +131,7 @@ $bg: #1E8DaC;
   border-radius: 100%;
   animation: sk-scaleout 1.0s 9 ease-in-out; }
 
-.n-slider.n-lightbox.n-lightbox--thumbnails:not(.n-slider--detached-nav):not(.n-slider--outside):not(.n-slider--top) > * p.n-lightbox--caption {
+.n-slider.n-lightbox.n-lightbox--thumbnails.n-lightbox--vertical:not(.n-slider--detached-nav):not(.n-slider--outside):not(.n-slider--top) > * p.n-lightbox--caption {
   bottom: 4em; }
 
 .n-slider.n-lightbox.n-slider--detached-nav > * p, .n-slider--wrap.n-slider--outside .n-slider.n-lightbox > * p {

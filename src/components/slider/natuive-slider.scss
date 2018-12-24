@@ -274,6 +274,7 @@
 	.n-aspect > .n-slider--wrap {
 		
 		height: 100%;
+	    width: 100%;
 		position: absolute;
 	
 		&.n-slider--outside:not(.n-slider--vertical) {
@@ -614,8 +615,8 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 		
 	.n-slider--nav a[data-active] {
 	
-		--bg: #ededed;
-		color: #000;
+		background-color: var(--control-active-bg, #ededed);
+		color: var(--control-active-color, #000);
 	
 	}
 
