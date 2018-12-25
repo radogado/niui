@@ -1291,6 +1291,8 @@ $bg: #1E8DaC;
 .n-nav {
   vertical-align: baseline;
   display: inline-block;
+  background-color: var(--control-bg, #fff);
+  color: var(--control-color, #333);
   /*
   	li:last-child a, li a {
   		
@@ -1344,9 +1346,8 @@ main .n-nav ul {
   padding-left: 0; }
 
 .n-drop {
-  --bg: inherit;
-  --color: inherit;
-  color: var(--color);
+  color: var(--control-color, #333);
+  background-color: transparent;
   /* 	li > ul ~ a, */
   /*
   	li > ul ~ a:before, li[aria-haspopup]:before {
@@ -1373,7 +1374,6 @@ main .n-nav ul {
     padding: 0;
     position: absolute;
     left: 0;
-    background-color: var(--bg);
     top: 100%; }
   .n-drop ul ul ul {
     margin-left: 100%;
@@ -1384,9 +1384,9 @@ main .n-nav ul {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: var(--bg);
     position: relative;
-    width: auto; }
+    width: auto;
+    background-color: var(--control-bg, #fff); }
   .n-drop li:not([tabindex]) > ul ~ a {
     padding-right: 42px; }
   .n-drop li > a {
@@ -1417,7 +1417,8 @@ main .n-nav ul {
     max-height: none;
     overflow: visible;
     opacity: 1;
-    z-index: 2; }
+    z-index: 2;
+    background-color: var(--control-bg, #fff); }
   .n-drop ul ul[aria-expanded], .n-drop li li ul[aria-expanded], .n-drop li li:not(:focus) :checked ~ ul {
     z-index: 2; }
   .n-drop li > input {
@@ -1445,7 +1446,7 @@ main .n-nav ul {
     		background: url('data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M50%20100L0%200h100z%22%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E') calc(100% - 16px) 50% no-repeat;
     		background-size: .5em auto;
     */
-    background: linear-gradient(-113deg, transparent 60%, var(--bg) 63%), linear-gradient(113deg, transparent 60%, var(--bg) 63%), linear-gradient(to bottom, var(--color), var(--color));
+    background: linear-gradient(-113deg, transparent 60%, var(--control-bg, #fff) 63%), linear-gradient(113deg, transparent 60%, var(--control-bg, #fff) 63%), linear-gradient(to bottom, var(--control-color, #333), var(--control-color, #333));
     background-size: 1em 1em;
     background-repeat: no-repeat;
     background-position: calc(100% - .5em) center;
@@ -1454,7 +1455,7 @@ main .n-nav ul {
   .n-drop[data-ready] li > ul ~ a {
     background: none; }
   .n-drop li li[aria-haspopup]:before, .n-drop li li > input {
-    background-image: linear-gradient(27deg, transparent 60%, var(--bg) 63%), linear-gradient(152deg, transparent 60%, var(--bg) 63%), linear-gradient(to bottom, var(--color), var(--color)); }
+    background-image: linear-gradient(27deg, transparent 60%, var(--control-bg, #fff) 63%), linear-gradient(152deg, transparent 60%, var(--control-bg, #fff) 63%), linear-gradient(to bottom, var(--control-color, #333), var(--control-color, #333)); }
   .n-drop li[aria-haspopup] {
     padding-right: calc(42px - 1em); }
 
@@ -1482,7 +1483,8 @@ main .n-nav ul {
     max-height: none;
     overflow: visible;
     opacity: 1;
-    z-index: 2; }
+    z-index: 2;
+    background-color: var(--control-bg, #fff); }
   html:not(.can-touch) .n-drop > ul li ul li:hover ul {
     transition-delay: 0.2s; }
 

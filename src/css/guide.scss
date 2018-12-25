@@ -187,6 +187,7 @@ main#content {
 
 	padding: 0;
 	background: #fffff5;
+	color: darkslateblue;
 
 }
 
@@ -366,7 +367,7 @@ body:not(data-threshold) #content > * {
 
 // Guide theme
 
-.n-slider--arrow, .n-slider--nav a, .n-tool:after, .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href], .n-fold > .n-fold--label {
+.n-slider--arrow, .n-slider--nav a, .n-tool:after, .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href], .n-fold > .n-fold--label, .n-drop {
 	
 	--control-bg: lightcoral;
 	--control-color: #fff;		
