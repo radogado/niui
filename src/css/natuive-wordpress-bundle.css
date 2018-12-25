@@ -1477,6 +1477,8 @@ $bg: #1E8DaC;
   width: auto; }
 .n-slider.n-lightbox[data-ready] > div:not(.n-lightbox--loaded) img {
   opacity: 0; }
+.n-slider.n-lightbox[data-ready] > div:not([data-active]) {
+  display: flex; }
 .n-slider.n-lightbox > * {
   text-align: center;
   position: relative; }
@@ -1506,33 +1508,28 @@ $bg: #1E8DaC;
   overflow: hidden; }
 .n-slider.n-lightbox.n-slider--overlay > * {
   height: 100%;
-  overflow: hidden; }
-  .n-slider.n-lightbox.n-slider--overlay > *[data-active] {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; }
-.n-slider.n-lightbox.n-slider--overlay.n-slider--vertical > * {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+.n-slider.n-lightbox.n-slider--overlay.n-slider--vertical > *:not([data-active]) {
   display: none; }
-  .n-slider.n-lightbox.n-slider--overlay.n-slider--vertical > *[data-active] {
-    display: flex;
-    /*
-    				flex-direction: column;
-    				justify-content: center;
-    */ }
-.n-slider.n-lightbox.n-slider--overlay > [data-active] > img.n-lightbox--zoom {
-  width: auto;
-  height: auto;
-  max-height: none;
-  max-width: none;
-  position: absolute;
-  top: 50%;
-  bottom: 50%;
-  left: 50%;
-  right: 50%;
-  transition: transfrom .2s linear;
-  cursor: zoom-out;
-  zoom: 0;
-  transform: translate3d(var(--x), var(--y), 0); }
+.n-slider.n-lightbox.n-slider--overlay > [data-active] {
+  display: flex; }
+  .n-slider.n-lightbox.n-slider--overlay > [data-active] > img.n-lightbox--zoom {
+    width: auto;
+    height: auto;
+    max-height: none;
+    max-width: none;
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    left: 50%;
+    right: 50%;
+    transition: transfrom .2s linear;
+    cursor: zoom-out;
+    zoom: 0;
+    transform: translate3d(var(--x), var(--y), 0); }
 .n-slider.n-lightbox video {
   display: inline-block;
   width: 100%;
@@ -1562,7 +1559,7 @@ $bg: #1E8DaC;
   border-radius: 100%;
   animation: sk-scaleout 1.0s 9 ease-in-out; }
 
-.n-slider.n-lightbox.n-lightbox--thumbnails.n-lightbox--vertical:not(.n-slider--detached-nav):not(.n-slider--outside):not(.n-slider--top) > * p.n-lightbox--caption {
+.n-slider.n-lightbox.n-lightbox--thumbnails:not(.n-slider--vertical):not(.n-slider--detached-nav):not(.n-slider--outside):not(.n-slider--top) > * p.n-lightbox--caption {
   bottom: 4em; }
 
 .n-slider.n-lightbox.n-slider--detached-nav > * p, .n-slider--wrap.n-slider--outside .n-slider.n-lightbox > * p {

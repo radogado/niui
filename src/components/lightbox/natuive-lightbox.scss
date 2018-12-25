@@ -56,6 +56,12 @@
 			opacity: 0;
 			
 		}
+		
+		> div:not([data-active]) {
+			
+			display: flex;
+			
+		}
 	
 	}
 
@@ -115,50 +121,41 @@
 	
 			height: 100%;
 			overflow: hidden;
-
-			&[data-active] {
- 
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-			
-			}
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
     		
 		}
 		
-		&.n-slider--vertical > * {
+		&.n-slider--vertical > *:not([data-active]) {
 		
 			display: none;
 		
-			&[data-active] {
-			
-				display: flex;
-/*
-				flex-direction: column;
-				justify-content: center;
-*/
-			
-			}
-			
 		}
 
-		> [data-active] > img.n-lightbox--zoom {
-		
-			width: auto;
-			height: auto;
-			max-height: none;
-			max-width: none;
-			position: absolute;
-			top: 50%;
-			bottom: 50%;
-			left: 50%;
-			right: 50%;
-	//		transform: translate3d(-50%, -50%, 0) scale(2);
-	//		zoom: 0.5; // scale(2) + zoom: 0.5 restores fixes the blur imposed by transform. Great in Safari, not so much in Chrome.
-			transition: transfrom .2s linear;
-			cursor: zoom-out;
-			zoom: 0;
-			transform: translate3d(var(--x), var(--y), 0);
+		> [data-active] {
+			
+			display: flex;
+					
+			> img.n-lightbox--zoom {
+			
+				width: auto;
+				height: auto;
+				max-height: none;
+				max-width: none;
+				position: absolute;
+				top: 50%;
+				bottom: 50%;
+				left: 50%;
+				right: 50%;
+		//		transform: translate3d(-50%, -50%, 0) scale(2);
+		//		zoom: 0.5; // scale(2) + zoom: 0.5 restores fixes the blur imposed by transform. Great in Safari, not so much in Chrome.
+				transition: transfrom .2s linear;
+				cursor: zoom-out;
+				zoom: 0;
+				transform: translate3d(var(--x), var(--y), 0);
+			
+			}
 		
 		}
 	
@@ -215,7 +212,7 @@
 
 }
 
-.n-slider.n-lightbox.n-lightbox--thumbnails.n-lightbox--vertical:not(.n-slider--detached-nav):not(.n-slider--outside):not(.n-slider--top) > * p.n-lightbox--caption {
+.n-slider.n-lightbox.n-lightbox--thumbnails:not(.n-slider--vertical):not(.n-slider--detached-nav):not(.n-slider--outside):not(.n-slider--top) > * p.n-lightbox--caption {
 	
 	bottom: 4em;
 
