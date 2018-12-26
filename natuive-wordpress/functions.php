@@ -582,7 +582,7 @@ add_filter( 'img_caption_shortcode', 'my_img_caption_shortcode', 10, 3 );
 
 function my_img_caption_shortcode( $empty, $attr, $content ){
 
-	$img = do_shortcode( $content );
+	$img_source = do_shortcode( $content );
 
     $attr = shortcode_atts( array(
         'id'      => '',
@@ -603,31 +603,41 @@ function my_img_caption_shortcode( $empty, $attr, $content ){
 	$id = (int) str_replace('-', '', filter_var($attr['id'], FILTER_SANITIZE_NUMBER_INT));
 
 	$dom = new DOMdocument();
-	@$dom->loadHTML($img);
-	$img_dom = $dom->getElementsByTagName('img')[0];
+	@$dom->loadHTML($img_source);
+	$img = $dom->getElementsByTagName('img')[0];
 	$attachment = wp_get_attachment_metadata($id);
-
 
 	$width = 0;
 	$height = 0;
 
-	if ($img_dom->getAttribute('sizes')) {
+	$size = explode(' ', explode('size-', $img->getAttribute('class'))[1])[0]; // full, large etc
+
+	if ($img->getAttribute('sizes')) {
 	
-		$width = preg_replace('/[^0-9]/', '', $attachment[width]);
-		$height = preg_replace('/[^0-9]/', '', $attachment[height]);
+		if ($size) {
+			
+			$width = $attachment['sizes'][$size]['width'];
+			$height = $attachment['sizes'][$size]['height'];
+			
+		} else {
+			
+			$width = preg_replace('/[^0-9]/', '', $attachment[width]);
+			$height = preg_replace('/[^0-9]/', '', $attachment[height]);
+			
+		}
 	
 	} else { // Legacy image format
 	
-		$img_dom->setAttribute('src', str_replace( 'http://', '//', $img_dom->getAttribute('src'))); // Fix HTTPS
-		$width = preg_replace('/[^0-9]/', '', $img_dom->getAttribute('width'));
-		$height = preg_replace('/[^0-9]/', '', $img_dom->getAttribute('height'));
+		$img->setAttribute('src', str_replace( 'http://', '//', $img->getAttribute('src'))); // Fix HTTPS
+		$width = preg_replace('/[^0-9]/', '', $img->getAttribute('width'));
+		$height = preg_replace('/[^0-9]/', '', $img->getAttribute('height'));
 
 	}
 
    return '<div class="wp-block-image">'
     . '<figure class="' . esc_attr( $attr['align'] ) . '" '
     . '>'
-    . '<span class="n-aspect ' . $img_dom->getAttribute('class') . '" style="--width: ' . $width . '; --height: ' . $height . ';">' . $img . '</span>' // Add .n-aspect and --ratio: height/width
+    . '<span class="n-aspect ' . $img->getAttribute('class') . '" style="--width: ' . $width . '; --height: ' . $height . ';">' . $img_source . '</span>' // Add .n-aspect and --ratio: height/width
     . '<figcaption>' . $attr['caption'] . '</figcaption>'
     . '</figure>'
     . '</div>';
@@ -675,13 +685,28 @@ add_action('the_content', function ($content) {
 		$width = 0;
 		$height = 0;
 
+		$size = explode(' ', explode('size-', $img->getAttribute('class'))[1])[0]; // full, large etc
+
 		if ($img->getAttribute('sizes')) {
 			
 			$id = (int) str_replace('-', '', filter_var($img->getAttribute('class'), FILTER_SANITIZE_NUMBER_INT));
 			$attachment = wp_get_attachment_metadata($id);
 
-			$width = preg_replace('/[^0-9]/', '', $attachment[width]);
-			$height = preg_replace('/[^0-9]/', '', $attachment[height]);
+			if ($size) {
+				
+				$width = $attachment['sizes'][$size]['width'];
+				$height = $attachment['sizes'][$size]['height'];
+				
+			} else {
+				
+				$width = preg_replace('/[^0-9]/', '', $attachment[width]);
+				$height = preg_replace('/[^0-9]/', '', $attachment[height]);
+
+				$actual_width = explode('px', explode(', ', $img->getAttribute('sizes'))[1])[0]; // Get the real width from the 'sizes' attribute
+				$height = $actual_width / ($width/$height);				
+				$width = $actual_width;
+
+			}
 			
 		} else { // Legacy image format
 			

@@ -288,6 +288,14 @@ nav.n-nav.n-drop {
     .wp-block-image .alignright .n-aspect {
       margin: 0 0 0 auto; }
 
+.n-aspect.aligncenter {
+  display: flex;
+  margin: 0 auto; }
+
+.n-aspect.alignright {
+  display: flex;
+  margin: 0 0 0 auto; }
+
 .n-header .n-fold.n-fold--mobile {
   display: inline-block; }
 
