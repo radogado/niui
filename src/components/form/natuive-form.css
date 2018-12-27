@@ -54,8 +54,10 @@ $bg: #1E8DaC;
     max-width: 100%;
     padding: 0 1em; }
   .n-form input, .n-form select, .n-form textarea, .n-form input[type=search], .n-form button {
-    background-color: #eee;
-    background-color: rgba(0, 0, 0, 0.1);
+    /*
+    		background-color: #eee;
+    		background-color: rgba(0, 0, 0, .1);
+    */
     font-family: inherit;
     display: inline-block;
     overflow: hidden;
@@ -66,10 +68,10 @@ $bg: #1E8DaC;
     min-height: 3em;
     border: 0;
     font-size: 1em;
-    border: 1px dotted transparent;
-    color: inherit; }
+    border: 1px dotted transparent; }
   .n-form textarea {
     border-bottom: 1px dotted transparent;
+    height: 0;
     min-height: 4.5em;
     padding-top: 0.75em;
     margin: 1.5em 0; }
@@ -158,11 +160,11 @@ $bg: #1E8DaC;
     width: 1em;
     height: 1em;
     display: inline-block;
-    background: #eee;
+    background-color: var(--control-bg, #eee);
     line-height: 1.66667;
     font-size: -0.33333em;
     text-align: center;
-    color: #333;
+    color: var(--control-color, #333);
     display: none;
     border: none;
     margin: 0;
@@ -200,7 +202,7 @@ $bg: #1E8DaC;
   .n-form input[type=radio]:checked + .n-form--check-icon:before {
     content: '';
     position: absolute;
-    background: #333;
+    background-color: var(--control-color, #333);
     top: 25%;
     right: 25%;
     bottom: 25%;
@@ -238,7 +240,8 @@ $bg: #1E8DaC;
       border: none;
       white-space: nowrap;
       overflow: hidden;
-      background: #ddd;
+      background-color: var(--control-bg, #ddd);
+      color: var(--control-color, inherit);
       padding: 0 0.75em 0 0.75em;
       display: block;
       line-height: 1.5em;

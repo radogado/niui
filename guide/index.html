@@ -3890,29 +3890,37 @@
 <br>
 
 <div class="n-row">
-<div>
-<textarea id=component-playground rows="10" style="width: 100%">
-<div class=n-slider> 
-	<div>New</div>
-	<div>Slider</div>
-</div>
-</textarea>
-<br>
-<button class="n-btn" onclick="nui.addComponent(this.parentNode.parentNode.parentNode, this.parentNode.querySelector('textarea').value);">Add the above component</button>
 
-</div>
-<div>
-<textarea id=component-playground rows="10" style="width: 100%">
-<div class=n-fold>
-	<h3 class=n-fold--label> Label </h3>
-	<input type=checkbox class=n-trigger>
-	<div class=n-fold--content><p> Content. </p><p> Content. </p><p> Content. </p></div>
-</div>
-</textarea>
-<br>
-<button class="n-btn" onclick="nui.addComponent(this.parentNode.parentNode.parentNode, this.parentNode.querySelector('textarea').value);">Add the above component</button>
+<form class="n-form">
 
-</div>
+	<textarea id=component-playground rows="10" style="width: 100%">
+		<div class=n-slider> 
+			<div>New</div>
+			<div>Slider</div>
+		</div>
+	</textarea>
+	<br>
+	<button class="n-btn" onclick="nui.addComponent(this.parentNode.parentNode.parentNode.parentNode, this.parentNode.querySelector('textarea').value);">Add the above component</button>
+
+</form>
+
+
+	
+<form class="n-form">	
+	
+	<textarea id=component-playground rows="10" style="width: 100%">
+	<div class=n-fold>
+		<h3 class=n-fold--label> Label </h3>
+		<input type=checkbox class=n-trigger>
+		<div class=n-fold--content><p> Content. </p><p> Content. </p><p> Content. </p></div>
+	</div>
+	</textarea>
+	<br>
+	<button class="n-btn" onclick="nui.addComponent(this.parentNode.parentNode.parentNode.parentNode, this.parentNode.querySelector('textarea').value);">Add the above component</button>
+	
+</form>
+
+
 </div>
 
 							</div>

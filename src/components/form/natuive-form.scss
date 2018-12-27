@@ -77,8 +77,10 @@ $placeholder_color: #aaa;
 	
 	input, select, textarea, input[type=search], button {
 		
+/*
 		background-color: #eee;
 		background-color: rgba(0, 0, 0, .1);
+*/
 		font-family: inherit;
 		display: inline-block;
 		overflow: hidden;
@@ -92,13 +94,14 @@ $placeholder_color: #aaa;
 		border: 0;
 		font-size: 1em;
 		border: 1px dotted transparent;
-		color: inherit;
+// 		color: inherit;
 	
 	}
 	
 	textarea {
 		
 		border-bottom: 1px dotted transparent;
+		height: 0;
 		min-height: $line-height-em * 3;
 	// 		min-height: calc(var(--line-height-em) * 3);
 		padding-top: $line-height-em/2;
@@ -270,13 +273,13 @@ $placeholder_color: #aaa;
 			width: 1em;
 			height: 1em;
 			display: inline-block;
-			background: #eee;
+			background-color: var(--control-bg, #eee);
 			line-height: ($line-height + 1)*(2/3);
 		// 		line-height: calc((var(--line-height) + 1)*(2/3));
 			font-size: ($line-height - 2)*(2em/3);
 		// 		font-size: calc((var(--line-height) - 1)*(2/3));
 			text-align: center;
-			color: #333;
+			color: var(--control-color, #333);
 			display: none;
 			border: none;
 		
@@ -344,7 +347,7 @@ $placeholder_color: #aaa;
 			
 			content: '';
 			position: absolute;
-			background: #333;
+			background-color: var(--control-color, #333);
 			top: 25%;
 			right: 25%;
 			bottom: 25%;
@@ -417,7 +420,8 @@ $placeholder_color: #aaa;
 			border: none;
 			white-space: nowrap;
 			overflow: hidden;
-			background: #ddd;
+			background-color: var(--control-bg, #ddd);
+			color: var(--control-color, inherit);
 			padding: 0 $line-height-em/2 0 .75em;
 			display: block;
 			line-height: $line-height-em;
