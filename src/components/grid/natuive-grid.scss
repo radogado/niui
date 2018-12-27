@@ -39,6 +39,12 @@
 		}
 	
 	}
+	
+	table:not(.n-table) td { // Non-natUIve tables overflow fix
+		
+	    word-break: break-word;
+		
+	}
 
 }
 

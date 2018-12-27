@@ -771,6 +771,8 @@ $bg: #1E8DaC;
     max-width: 100%; }
     .n-row video a[href] {
       color: #fff; }
+  .n-row table:not(.n-table) td {
+    word-break: break-word; }
 
 .n-row > * {
   /*

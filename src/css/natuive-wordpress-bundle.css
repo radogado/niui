@@ -1046,6 +1046,8 @@ $bg: #1E8DaC;
     max-width: 100%; }
     .n-row video a[href] {
       color: #fff; }
+  .n-row table:not(.n-table) td {
+    word-break: break-word; }
 
 .n-row > * {
   /*
@@ -1477,7 +1479,7 @@ $bg: #1E8DaC;
   width: auto; }
 .n-slider.n-lightbox[data-ready] > div:not(.n-lightbox--loaded) img {
   opacity: 0; }
-.n-slider.n-lightbox[data-ready] > div:not([data-active]) {
+.n-slider.n-lightbox[data-ready]:not(.n-slider--vertical) > div:not([data-active]) {
   display: flex; }
 .n-slider.n-lightbox > * {
   text-align: center;
