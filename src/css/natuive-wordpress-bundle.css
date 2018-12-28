@@ -2028,7 +2028,10 @@ main .n-nav ul {
     padding: 0;
     position: absolute;
     left: 0;
-    top: 100%; }
+    top: 100%;
+    transition: transform .2s ease-in-out;
+    transform-origin: top;
+    transform: scaleY(0); }
   .n-drop ul ul ul {
     margin-left: 100%;
     top: 0; }
@@ -2072,7 +2075,8 @@ main .n-nav ul {
     overflow: visible;
     opacity: 1;
     z-index: 2;
-    background-color: var(--control-bg, #fff); }
+    background-color: var(--control-bg, #fff);
+    transform: scaleY(1); }
   .n-drop ul ul[aria-expanded], .n-drop li li ul[aria-expanded], .n-drop li li:not(:focus) :checked ~ ul {
     z-index: 2; }
   .n-drop li > input {
@@ -2138,7 +2142,8 @@ main .n-nav ul {
     overflow: visible;
     opacity: 1;
     z-index: 2;
-    background-color: var(--control-bg, #fff); }
+    background-color: var(--control-bg, #fff);
+    transform: scaleY(1); }
   html:not(.can-touch) .n-drop > ul li ul li:hover ul {
     transition-delay: 0.2s; }
 

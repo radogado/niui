@@ -145,6 +145,9 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 		position: absolute;
 		left: 0;
 		top: 100%;
+		transition: transform .2s ease-in-out;
+	    transform-origin: top;
+		transform: scaleY(0);
 	
 	}
 	
@@ -240,6 +243,8 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 		opacity: 1;
 		z-index: 2;
 		background-color: var(--control-bg, #fff);
+
+		transform: scaleY(1);
 	
 	}
 	
@@ -375,6 +380,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 				opacity: 1;
 				z-index: 2;
 				background-color: var(--control-bg, #fff);
+				transform: scaleY(1);
 				
 			}
 			
