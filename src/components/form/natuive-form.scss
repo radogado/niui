@@ -139,11 +139,16 @@ $placeholder_color: #aaa;
 	    text-indent: -1px;
 	    text-overflow: '';	
 	    margin: 0;
-		background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAG0lEQVR42mNgwAfKy8v/48I4FeA0AacVDFQBAP9wJkE/KhUMAAAAAElFTkSuQmCC");
-		background-repeat: no-repeat;
-		background-position: calc(100% - 1em) 50%;
 		text-indent: 1px;
 		cursor: pointer;
+		
+		background-image: linear-gradient(-113deg, transparent 60%, var(--control-bg, #fff) 63%), linear-gradient(113deg, transparent 60%, var(--control-bg, #fff) 63%), linear-gradient(to bottom, var(--control-color, #333), var(--control-color, #333));
+		background-size: 1em 1em;
+		background-repeat: no-repeat;
+		background-position: calc(100% - .5em) center;
+    
+		color: var(--control-color, #333);
+		background-color: var(--control-bg, #eee);
 	
 		option {
 			
@@ -433,6 +438,18 @@ $placeholder_color: #aaa;
 		    right: 0;
 		    bottom: 0;
 		    
+		    .n-form--file-tag {
+			    
+			    display: none;
+			    
+			}
+			
+		    .n-form--file-name:empty ~ .n-form--file-tag {
+			    
+			    display: block;
+
+		    }
+		    
 		}
 		
 		input[type=file] {
@@ -440,7 +457,7 @@ $placeholder_color: #aaa;
 			width: 100%;
 			cursor: pointer;
 			border: none;
-			opacity: 0;
+// 			opacity: 0;
 			margin: 0;
 		
 			&:focus + span {
@@ -462,14 +479,13 @@ $placeholder_color: #aaa;
 		background: none;
 		margin: 0;
 		padding: 0;
-		--thumb-color: #000;
 	
 		&::-webkit-slider-runnable-track {
 		
 			width: 100%;
 			height: .7125em;
 			cursor: pointer;
-			background: rgba(0, 0, 0, 0.1);
+			background: var(--control-bg, rgba(0, 0, 0, 0.1));
 		
 		}
 		
@@ -478,7 +494,7 @@ $placeholder_color: #aaa;
 			height: 1.625em;
 			width: 1.625em;
 			border-radius: 50%;
-			background: var(--thumb-color);
+			background: var(--control-bg, rgba(0, 0, 0, 0.1));
 			cursor: pointer;
 			-webkit-appearance: none;
 			margin-top: -.45625em;
@@ -487,7 +503,7 @@ $placeholder_color: #aaa;
 		
 		&:focus::-webkit-slider-runnable-track {
 		
-			background: rgba(5, 5, 5, 0.1);
+			background: var(--control-bg, rgba(0, 0, 0, 0.1));
 		
 		}
 		
@@ -496,7 +512,7 @@ $placeholder_color: #aaa;
 			width: 100%;
 			height: .7125em;
 			cursor: pointer;
-			background: rgba(0, 0, 0, 0.1);
+			background: var(--control-bg, rgba(0, 0, 0, 0.1));
 		
 		}
 		
@@ -506,11 +522,12 @@ $placeholder_color: #aaa;
 			height: 1.625em;
 			width: 1.625em;
 			border-radius: 50%;
-			background: var(--thumb-color);
+			background: var(--control-bg, rgba(0, 0, 0, 0.1));
 			cursor: pointer;
 		
 		}
 		
+/*
 		&::-ms-track {
 		
 			width: 100%;
@@ -557,6 +574,7 @@ $placeholder_color: #aaa;
 			background: rgba(5, 5, 5, 0.1);
 		
 		}
+*/
 	
 	}
 

@@ -1073,7 +1073,7 @@ qa('a[href^="#"]').forEach((el) => {
 	
 	    var el = e.target;
 	
-	    el.parentNode.querySelector('span').innerHTML = el.value.substring(el.value.lastIndexOf('\\') + 1);
+	    el.parentNode.querySelector('span.n-form--file-name').innerHTML = el.value.substring(el.value.lastIndexOf('\\') + 1);
 	
 	}
 	
@@ -1116,6 +1116,7 @@ qa('a[href^="#"]').forEach((el) => {
 			el.querySelectorAll('input[type=file]').forEach((el, i) => {
 			
 			    el.onchange = updateFileInput;
+			    el.parentNode.querySelector('span').insertAdjacentHTML('afterbegin', '<span class=n-form--file-name></span>')
 			
 			});
 			
