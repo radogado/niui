@@ -494,7 +494,7 @@ $placeholder_color: #aaa;
 			height: 1.625em;
 			width: 1.625em;
 			border-radius: 50%;
-			background: var(--control-bg, rgba(0, 0, 0, 0.1));
+			background: var(--control-highlight, #000);
 			cursor: pointer;
 			-webkit-appearance: none;
 			margin-top: -.45625em;
