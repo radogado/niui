@@ -57,7 +57,7 @@
 			
 		}
 		
-		&:not(.n-slider--vertical):not(.n-slider--overlay) > div:not([data-active]) {
+		&[data-peek]:not(.n-slider--vertical).n-slider--overlay > div:not([data-active]) {
 			
 			display: flex;
 			
@@ -210,7 +210,7 @@
 
 }
 
-.n-slider.n-lightbox.n-lightbox--thumbnails:not(.n-slider--vertical):not(.n-slider--detached-nav):not(.n-slider--outside):not(.n-slider--top) > * p.n-lightbox--caption {
+.n-slider--wrap:not(.n-slider--outside) .n-slider.n-lightbox.n-lightbox--thumbnails:not(.n-slider--vertical):not(.n-slider--detached-nav):not(.n-slider--top) > * p.n-lightbox--caption {
 	
 	bottom: 4em;
 
@@ -364,13 +364,13 @@
 		
 		}
 		
-		&:not(.n-slider--top) .n-slider.n-lightbox > * p.n-lightbox--caption {
+		&:not(.n-slider--top) .n-slider.n-lightbox > * p.n-lightbox--caption, .n-slider.n-lightbox.n-lightbox--thumbnails:not(.n-slider--vertical):not(.n-slider--detached-nav):not(.n-slider--outside):not(.n-slider--top) > * p.n-lightbox--caption {
 			
 			bottom: auto;
 		    top: -1.5em;
 			
 		}
-
+		
 		.n-slider.n-lightbox.n-slider--vertical > * p.n-lightbox--caption {
 			
 			bottom: 3em;
