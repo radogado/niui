@@ -166,18 +166,7 @@ var componentSlider = (function (){
 	    } else {
 	
 	        slider_wrap.addEventListener('wheel', mouseWheelHandler);
-/*
-	        if (getSliderNav(slider_wrap)) {
-	
-		        getSliderNav(slider_wrap).addEventListener('wheel', function (e) {
-		
-			        // Scroll as usual instead of sliding
-		
-		        });
-	        
-	        }
-*/
-	
+
 	    }
 	
 	}
@@ -211,7 +200,6 @@ var componentSlider = (function (){
 	    window.addEventListener('keyup', sliderKeyboard);
 	    setTimeout(() => {
 	
-	// 	    removeClass(q('html'), 'sliding_now');
 		    mouseEvents(slider);
 	
 		    // Make this slider active
@@ -242,14 +230,6 @@ var componentSlider = (function (){
 	
 	function slide(el, method, index_number) {
 	
-	/*
-		if (hasClass(q('html'), 'sliding_now')) {
-			
-			return;
-		
-		}
-	*/
-
 // 2 directions: horizontal/vertical
 // 3 animations: slide/fade/fade overlap
 	
@@ -500,7 +480,7 @@ var componentSlider = (function (){
 	function sliderKeyboard(e) { // e.target can be either body or a slider, choose accordingly
 	
 	    if (typeof e === 'undefined' || 
-	//     	hasClass(q('html'), 'sliding_now') || 
+
 	    	q('.n-slider--wrap[data-active]') || 
 	    	(q('.n-ovrl') && !q('.n-ovrl .n-slider--wrap')) // There is an overlay open and it doesn't have a slider in it
 			) {
@@ -527,7 +507,6 @@ var componentSlider = (function (){
 			
 		if (!el.closest('.n-slider--wrap') && q('.n-slider--wrap')) { // Focused element is outside of any slider
 			
-	// 		current_slider = q('.n-slider--wrap').querySelector('.slider');
 		} else {
 			
 			current_slider = el.closest('.n-slider--wrap') ? el.closest('.n-slider--wrap').querySelector('.n-slider') : null;
@@ -541,8 +520,6 @@ var componentSlider = (function (){
 		}
 	
 		if 	(el.tagName !== 'INPUT' && el.tagName !== 'TEXTAREA' && 
-	// 		(document.activeElement === el ? (el.scrollWidth <= el.clientWidth) : true) &&
-	// 		(!closestElement(document.activeElement, '.n-slider--wrap.active') && (el.scrollWidth <= el.clientWidth) ) &&
 			(el = q('.n-ovrl .n-slider') || current_slider || q('.n-slider'))
 			) { // Priority: full window slider, active slider, first slider
 	
@@ -747,20 +724,12 @@ var componentSlider = (function (){
 	
 	    container.addEventListener('swipeLeft', (e) => {
 	
-/*
-	        var el = sliderElement(e);
-	        slide(el, 'right');
-*/
 	        slide(e.target, 'right');
 	
 	    });
 	
 	    container.addEventListener('swipeRight', (e) => {
 	
-/*
-	        var el = sliderElement(e);
-	        slide(el, 'left');
-*/
 	        slide(e.target, 'left');
 	
 	    });
@@ -777,7 +746,6 @@ var componentSlider = (function (){
 	        el.ontouchmove = (e) => {
 	
 				e.stopPropagation();
-// 					removeClass(q('html'), 'sliding_now');
 		        
 	        };
 	        

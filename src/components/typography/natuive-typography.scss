@@ -8,9 +8,7 @@
 	-webkit-text-size-adjust: none;
 	font-size: $font-size;
 	line-height: $line-height;
-	// 	line-height: var(--line-height);
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-// 	font-weight: 300;
     letter-spacing: .5px; // For proof: because sometimes there are aberrations with non-default spacing. Safari bug: value flashing from 0 https://bugs.webkit.org/show_bug.cgi?id=193008
 
 	/* Elements with double line-height */
@@ -18,7 +16,6 @@
 	h1, h2, h3 {
 		
 		line-height: $line-height * 2;
-	// 	line-height: calc(var(--line-height) * 2);
 		
 	}
 	
@@ -50,7 +47,6 @@
 		
 		font-size: 1.5em;	// 	line-height: 1.333;
 		line-height: $line-height/1.5; // = standard line-height / new font-size in em
-	// 	line-height: calc(var(--line-height)/1.5); // = standard line-height / new font-size in em
 		
 	}
 	
@@ -58,7 +54,6 @@
 		
 		font-size: 1.2em;
 		line-height: ($line-height*1.011)/1.2;
-	// 	line-height: calc(var(--line-height)/1.2);
 	
 	}
 	
@@ -66,7 +61,6 @@
 		
 		font-size: 1em;
 		line-height: $line-height;
-	// 	line-height: calc(var(--line-height));
 	
 	}
 	
@@ -74,7 +68,6 @@
 		
 		font-size: .8em;
 		line-height: $line-height/.8/2;
-	// 	line-height: calc(var(--line-height)/.8);
 		padding: $line-height-em/.8/4 0;
 	
 	}
@@ -83,7 +76,6 @@
 		
 		font-size: .6667em;
 		line-height: $line-height/.6667/2;
-	// 	line-height: calc(var(--line-height)/.6667em);
 		padding: $line-height-em/.6667/4 0;
 	
 	}
@@ -98,9 +90,7 @@
 	
 		font-size: 1em;
 		margin: $line-height-em 0;
-	// 	margin: var(--line-height-em) 0;
 		line-height: $line-height;
-	// 	line-height: var(--line-height);
 	
 	}
 	
@@ -117,7 +107,6 @@
 	a[href] {
 		
 		color: inherit;
-	//	display: inline-block; // Remove vertical breaks on multi-line anchors. This is wrong for line breaks in a paragraph
 	
 	}
 	
@@ -172,9 +161,7 @@
 	
 		font-size: 1.125em;
 		line-height: 1.3334em;
-	// 		line-height: var(--line-height);
 		min-height: 1.3334em;
-	// 		min-height: var(--line-height-em);
 	
 	}
 

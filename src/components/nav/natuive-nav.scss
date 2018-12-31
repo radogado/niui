@@ -70,14 +70,6 @@
 
 	}
 	
-/*
-	li:last-child a, li a {
-		
-		padding-right: 0;
-
-	}
-*/
-
 	&.n-row {
 		
 		display: inline-flex;
@@ -198,9 +190,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 	
 	li:not([aria-haspopup]) > a {
 		
-	//     margin-right: 42px;
 		z-index: 0;
-	// 	padding-right: 0;
 		
 	}
 	
@@ -229,7 +219,6 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 		
 		min-height: 0;
 		max-height: 0;
-	// 	z-index: 2;
 		overflow: hidden;
 		position: absolute;
 	
@@ -267,7 +256,6 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 		-moz-appearance: none;
 		display: block;
 		position: absolute;
-	// 	margin: -4.75em 0 0 0;
 		width: 100%; // iOS doesn't work with left/right
 		height: 100%; 
 		border: none;
@@ -280,9 +268,9 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 	
 	li[aria-haspopup]:before {
 		
-		content: '' !important;
+		content: '';
 		position: absolute;
-		display: block !important;
+		display: block;
 		right: 0;
 		top: 0;
 		width: 2em;
@@ -290,12 +278,19 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 		
 	}
 	
-/* 	li > ul ~ a, */ li[aria-haspopup]:before, li > input {
-		
-/*
-		background: url('data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M50%20100L0%200h100z%22%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E') calc(100% - 16px) 50% no-repeat;
-		background-size: .5em auto;
-*/
+	ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li:before {
+	
+	    content: '';
+	
+	}
+	
+	&.n-nav ul.n-list li:before {
+	
+	    display: block;
+	
+	}
+
+	li[aria-haspopup]:before, li > input {
 	
 	    background: linear-gradient(-113deg, transparent 60%, var(--control-bg, #fff) 63%), linear-gradient(113deg, transparent 60%, var(--control-bg, #fff) 63%), linear-gradient(to bottom, var(--control-color, #333), var(--control-color, #333));
 	    background-size: 1em 1em;
@@ -306,29 +301,13 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
         
    	}
 	
-/*
-	li > ul ~ a:before, li[aria-haspopup]:before {
-		
-		content: '▼' !important;
-		display: inline-block !important;
-		position: absolute;
-		right: 1em;
-		font-size: .67em;
-		top: 50%;
-		transform: rotate(0) translateY(-50%);
-		transition: transform .2s ease-in-out;
-	    transform-origin: top;			
-	
-	}
-*/
-	
 	&[data-ready] li > ul ~ a {
 		
 		background: none;
 		
 	}
 	
-/* 	li li > ul ~ a, */ li li[aria-haspopup]:before, li li > input {
+	li li[aria-haspopup]:before, li li > input {
 	
 		background-image: linear-gradient(27deg,transparent 60%,var(--control-bg, #fff) 63%),linear-gradient(152deg,transparent 60%,var(--control-bg, #fff) 63%),linear-gradient(to bottom,var(--control-color, #333),var(--control-color, #333));
 	
@@ -360,7 +339,6 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 			
 			> ul > li > ul li {
 				
-// 				background-color: $nav-bg;
 				background-color: var(--control-bg, #fff);
 				
 			}
@@ -412,7 +390,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 
 }
 
-@media (max-width: 599.9px) {
+@media (max-width: $screen-narrow-max) {
 
 	.n-drop ul {
 	

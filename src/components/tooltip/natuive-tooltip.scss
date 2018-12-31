@@ -32,13 +32,10 @@
 
 	font-size: $font-size;
 	line-height: $line-height;
-// 	line-height: var(--line-height);
 	min-height: $line-height-em;
-// 	min-height: var(--line-height-em);
 	background: #333;
 	color: #ddd;
 	padding: $line-height-em/2;
-// 	padding: calc(var(--line-height-em)/2);
 	font-size: .8em;
 	font-weight: normal;
 	position: absolute;
@@ -55,7 +52,6 @@
 	transition: opacity .2s ease-in-out;
 	width: 20em;
 	line-height: $line-height/1.25;
-// 	line-height: calc(var(--line-height)/1.3);
 
 }
 

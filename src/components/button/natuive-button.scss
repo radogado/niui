@@ -4,12 +4,9 @@
 
 .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href] {
 
-// 	font-size: $font-size;
 	font-size: inherit;
 	line-height: $line-height;
-	// 	line-height: var(--line-height);
 	min-height: $line-height-em;
-	// 	min-height: var(--line-height-em);
 	text-decoration: none;
 	display: inline-block;
 	cursor: pointer;
@@ -51,7 +48,6 @@
 	.n-btn.n-btn--big, a[href].n-btn.n-btn--big, .n-form input[type=submit], .n-form button {
 
 		margin: $line-height-em/3 0; // Re-calculate margin, because font-size has changed. To do: fix baseline.
-// 		margin: var(--line-height-em) 0;
 		font-size: 1.2em;
 		padding: .75em 1em;
 		line-height: 1.05em;

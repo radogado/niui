@@ -74,7 +74,7 @@
 	}
 	
 	
-	.n-slider--wrap .n-slider > *:after, .n-slider--wrap .n-slider > *:before, .n-slider > *:first-child:before, .n-slider > *:last-child:after, .n-slider--wrap .n-slider > * > div.n-slider--bg { // Where is 'bg' used?
+	.n-slider--wrap .n-slider > *:after, .n-slider--wrap .n-slider > *:before, .n-slider > *:first-child:before, .n-slider > *:last-child:after {
 	
 		display: none;	
 	
@@ -189,9 +189,7 @@
 .n-slider--wrap.n-slider--overlay, .n-slider--wrap.n-slider--vertical.n-slider--overlay {
 			
 	margin-top: $line-height-em*2;
-// 		margin-top: calc(var(--line-height-em)*2);
 	height: calc(100% - #{$line-height-em*2});
-// 		height: calc(100% - var(--line-height-em)*2);
 
 }		
 
@@ -206,9 +204,7 @@
 	.n-slider--wrap.n-slider--overlay, .n-slider--wrap.n-slider--vertical.n-slider--overlay {
 				
 		margin-top: $line-height-em;
-	// 		margin-top: calc(var(--line-height-em)*2);
 		height: calc(100% - #{$line-height-em});
-	// 		height: calc(100% - var(--line-height-em)*2);
 	
 	}
 

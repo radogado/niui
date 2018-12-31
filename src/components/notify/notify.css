@@ -1,24 +1,5 @@
 @charset "UTF-8";
 /* natUIve – Notification bar */
-/*
-$color: #fff;
-$bg: #1E8DaC;
-*/
-:root {
-  /*
-  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-  	--line-height: 2;
-  	--line-height-em: calc(var(--line-height)*1em);
-  */
-  /*
-  	--color: #fff;
-  	--bg: #1E8DaC;
-  */
-  /*
-  	--color: #333;
-  	--bg: #fff;
-  */ }
-
 .n-notify {
   background: rgba(0, 0, 0, 0.8);
   text-align: center;

@@ -912,18 +912,6 @@ qa('a[href^="#"]').forEach((el) => {
 		
 		    }
 		
-/*
-		    if (!hasClass(el, 'n-fold--mobile')) { // Keep the accordion content clickable
-			    
-			    content.onclick = (e) => {
-		
-			        stopEvent(e);
-			
-			    };
-		
-		    }
-*/
-		    
 		    makeReady(el);
 		    
 		});
@@ -1497,8 +1485,6 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		}
 	
 		if (inline_static) { // If it's inline, it must become a slider/lightbox to replace the original lightbox element
-			// Replace the lightbox by a slider lightbox. Generate the new slider/lightbox in place of the original one
-	// 		lightbox_target.classList = 'slider lightbox inline'; // Not working in Edge
 			lightbox_target.id = lightbox.id ? lightbox.id : '';
 			var parent = lightbox.parentNode;
 			var next_sibling = lightbox.nextElementSibling;
@@ -1506,8 +1492,6 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 			
 		} else { // else it's an existing lightbox and the new one should be separate and full screen
 			
-	//		openFullWindow('<div class="slider lightbox full-window' + (hasClass(lightbox, 'full-screen') ? ' full-screen' : '') + '"></div>', animation); // openFullWindow to be moved at the end
-	// 		lightbox_target.classList = 'slider lightbox inline' + (hasClass(lightbox, 'full-screen') ? ' full-screen' : ''); // Not working in Edge
 			if (hasClass(lightbox, 'n-full-screen')) {
 		
 				addClass(lightbox_target, 'n-full-screen');
@@ -1542,7 +1526,6 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 			if (hasClass(el, 'n-lightbox--video') || el.querySelector('n-lightbox--video')) {
 				// video poster = the anchor's img child, if it exists
-	
 				if (hasClass(lightbox, 'n-slider')) { // Secondary lightbox
 					
 					images += `<div>${el.querySelector('n-lightbox--video').outerHTML}</div>`;
@@ -1607,26 +1590,9 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	    });
 	
 	    lightbox_target.innerHTML = images;
-	    
-/*
-	    if (inline_static) { // It's an inline lightbox and needs to become full window/screen when clicked
-		    
-		    lightbox_target.onclick = e => {
-			    
-			    if (e.target.tagName === 'IMG') {
-				    
-				    openLightbox(e);
-	
-			    }
-			    
-		    };
-		    
-	    }
-*/
-	
+	    	
 	// If secondary, openFullWindow(lightbox_target)
 	// If normal, attach lightbox_target on the former place of the lightbox and init(their_parent)
-	
 	
 	    var anchor = el;
 		
@@ -1718,7 +1684,6 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	    
 		    transferClass(lightbox, lightbox_target.parentNode, 'n-lightbox--thumbnails');
 	        var i = 0;
-	// 	        var nav = closestElement(lightbox_target, '.n-slider--wrap').querySelector('.n-slider--nav');
 	        var nav = componentSlider.getSliderNav(lightbox_target.closest('.n-slider--wrap'));
 	
 	        if (nav) { // Multiple slides?
@@ -2321,20 +2286,6 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 		}
 		
-/*
-		var current_item = e.target.parentNode;
-	
-		current_item.parentNode.parentNode.childNodes.forEach((el) => {
-	
-			if (el !== current_item && el.nodeName === 'LI' && el.querySelector('ul')) {
-	
-				el.querySelector('ul').removeAttribute(aria_expanded);
-			
-			}
-			
-		});
-*/
-		
 	}
 	
 	var closeDropNavClickedOutsideEnabled = false;
@@ -2684,18 +2635,7 @@ var componentSlider = (function (){
 	    } else {
 	
 	        slider_wrap.addEventListener('wheel', mouseWheelHandler);
-/*
-	        if (getSliderNav(slider_wrap)) {
-	
-		        getSliderNav(slider_wrap).addEventListener('wheel', function (e) {
-		
-			        // Scroll as usual instead of sliding
-		
-		        });
-	        
-	        }
-*/
-	
+
 	    }
 	
 	}
@@ -2729,7 +2669,6 @@ var componentSlider = (function (){
 	    window.addEventListener('keyup', sliderKeyboard);
 	    setTimeout(() => {
 	
-	// 	    removeClass(q('html'), 'sliding_now');
 		    mouseEvents(slider);
 	
 		    // Make this slider active
@@ -2760,14 +2699,6 @@ var componentSlider = (function (){
 	
 	function slide(el, method, index_number) {
 	
-	/*
-		if (hasClass(q('html'), 'sliding_now')) {
-			
-			return;
-		
-		}
-	*/
-
 // 2 directions: horizontal/vertical
 // 3 animations: slide/fade/fade overlap
 	
@@ -3018,7 +2949,7 @@ var componentSlider = (function (){
 	function sliderKeyboard(e) { // e.target can be either body or a slider, choose accordingly
 	
 	    if (typeof e === 'undefined' || 
-	//     	hasClass(q('html'), 'sliding_now') || 
+
 	    	q('.n-slider--wrap[data-active]') || 
 	    	(q('.n-ovrl') && !q('.n-ovrl .n-slider--wrap')) // There is an overlay open and it doesn't have a slider in it
 			) {
@@ -3045,7 +2976,6 @@ var componentSlider = (function (){
 			
 		if (!el.closest('.n-slider--wrap') && q('.n-slider--wrap')) { // Focused element is outside of any slider
 			
-	// 		current_slider = q('.n-slider--wrap').querySelector('.slider');
 		} else {
 			
 			current_slider = el.closest('.n-slider--wrap') ? el.closest('.n-slider--wrap').querySelector('.n-slider') : null;
@@ -3059,8 +2989,6 @@ var componentSlider = (function (){
 		}
 	
 		if 	(el.tagName !== 'INPUT' && el.tagName !== 'TEXTAREA' && 
-	// 		(document.activeElement === el ? (el.scrollWidth <= el.clientWidth) : true) &&
-	// 		(!closestElement(document.activeElement, '.n-slider--wrap.active') && (el.scrollWidth <= el.clientWidth) ) &&
 			(el = q('.n-ovrl .n-slider') || current_slider || q('.n-slider'))
 			) { // Priority: full window slider, active slider, first slider
 	
@@ -3265,20 +3193,12 @@ var componentSlider = (function (){
 	
 	    container.addEventListener('swipeLeft', (e) => {
 	
-/*
-	        var el = sliderElement(e);
-	        slide(el, 'right');
-*/
 	        slide(e.target, 'right');
 	
 	    });
 	
 	    container.addEventListener('swipeRight', (e) => {
 	
-/*
-	        var el = sliderElement(e);
-	        slide(el, 'left');
-*/
 	        slide(e.target, 'left');
 	
 	    });
@@ -3295,7 +3215,6 @@ var componentSlider = (function (){
 	        el.ontouchmove = (e) => {
 	
 				e.stopPropagation();
-// 					removeClass(q('html'), 'sliding_now');
 		        
 	        };
 	        

@@ -1,24 +1,5 @@
 @charset "UTF-8";
 /* natUIve – Slider – CSS-only */
-/*
-$color: #fff;
-$bg: #1E8DaC;
-*/
-:root {
-  /*
-  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-  	--line-height: 2;
-  	--line-height-em: calc(var(--line-height)*1em);
-  */
-  /*
-  	--color: #fff;
-  	--bg: #1E8DaC;
-  */
-  /*
-  	--color: #333;
-  	--bg: #fff;
-  */ }
-
 .n-slider {
   overflow: auto;
   overflow-y: hidden;
@@ -66,7 +47,7 @@ $bg: #1E8DaC;
     content: '>';
     text-align: end; }
 
-  .n-slider--wrap .n-slider > *:after, .n-slider--wrap .n-slider > *:before, .n-slider > *:first-child:before, .n-slider > *:last-child:after, .n-slider--wrap .n-slider > * > div.n-slider--bg {
+  .n-slider--wrap .n-slider > *:after, .n-slider--wrap .n-slider > *:before, .n-slider > *:first-child:before, .n-slider > *:last-child:after {
     display: none; } }
 .n-slider > div:before {
   background: transparent; }

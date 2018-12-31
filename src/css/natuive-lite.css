@@ -1,25 +1,6 @@
 @charset "UTF-8";
 /* natUIve – rado.bg */
 /*
-$color: #fff;
-$bg: #1E8DaC;
-*/
-:root {
-  /*
-  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-  	--line-height: 2;
-  	--line-height-em: calc(var(--line-height)*1em);
-  */
-  /*
-  	--color: #fff;
-  	--bg: #1E8DaC;
-  */
-  /*
-  	--color: #333;
-  	--bg: #fff;
-  */ }
-
-/*
 $font-size: 26px;
 $line-height: 34px;
 */
@@ -33,37 +14,8 @@ $line-height: 34px;
 html {
   height: 100%; }
 
-html, body {
-  /*
-  	height: 100%;
-  	margin: 0 auto;
-  	overflow-x: hidden;
-  */ }
-
 body {
-  /*
-  	position: relative;
-  	overflow: hidden;
-  	width: 100%;
-  	height: auto; // Problem with Chrome 66
-  
-  	-webkit-tap-highlight-color: rgba(0,0,0,.5);
-  
-  	color: $color; // Fallback when CSS variables aren't supported
-  */
-  margin: 0;
-  /*
-  	color: var(--color);
-  	background: var(--bg, $bg);
-  */
-  /*
-  	* {
-  
-  		box-sizing: border-box;
-  		-webkit-tap-highlight-color: rgba(0,0,0,0); // iOS: Don't flash on tap
-  	
-  	}
-  */ }
+  margin: 0; }
 
 .n-sticky-footer {
   min-height: 100vh;
@@ -161,15 +113,6 @@ a[href].span-relative-parent {
 .n-parallax--back {
   position: absolute; }
 
-/*
-:focus, :focus + .n-form--check-icon { // Because default focus indication is overlapped in Chrome for Windows
-
-	outline-offset: -1px;
-	outline-style: dashed;
-	outline-width: 1px;
-
-}
-*/
 /* Narrow Screens */
 @media screen and (max-width: 599.9px) {
   .n-wide-screen {
@@ -198,25 +141,6 @@ a[href].span-relative-parent {
 
 @charset "UTF-8";
 /* natUIve – Button */
-/*
-$color: #fff;
-$bg: #1E8DaC;
-*/
-:root {
-  /*
-  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-  	--line-height: 2;
-  	--line-height-em: calc(var(--line-height)*1em);
-  */
-  /*
-  	--color: #fff;
-  	--bg: #1E8DaC;
-  */
-  /*
-  	--color: #333;
-  	--bg: #fff;
-  */ }
-
 .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href] {
   font-size: inherit;
   line-height: 1.5;
@@ -296,25 +220,6 @@ a.backtotop[href] {
 
 @charset "UTF-8";
 /* natUIve  – Form */
-/*
-$color: #fff;
-$bg: #1E8DaC;
-*/
-:root {
-  /*
-  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-  	--line-height: 2;
-  	--line-height-em: calc(var(--line-height)*1em);
-  */
-  /*
-  	--color: #fff;
-  	--bg: #1E8DaC;
-  */
-  /*
-  	--color: #333;
-  	--bg: #fff;
-  */ }
-
 .n-form {
   --placeholder_color: #aaa; }
   .n-form * {
@@ -350,10 +255,6 @@ $bg: #1E8DaC;
     max-width: 100%;
     padding: 0 1em; }
   .n-form input, .n-form select, .n-form textarea, .n-form input[type=search], .n-form button {
-    /*
-    		background-color: #eee;
-    		background-color: rgba(0, 0, 0, .1);
-    */
     font-family: inherit;
     display: inline-block;
     overflow: hidden;
@@ -766,25 +667,6 @@ $bg: #1E8DaC;
 
 @charset "UTF-8";
 /* natUIve – Grid */
-/*
-$color: #fff;
-$bg: #1E8DaC;
-*/
-:root {
-  /*
-  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-  	--line-height: 2;
-  	--line-height-em: calc(var(--line-height)*1em);
-  */
-  /*
-  	--color: #fff;
-  	--bg: #1E8DaC;
-  */
-  /*
-  	--color: #333;
-  	--bg: #fff;
-  */ }
-
 /* For proper fallback, use .col* for all columns. Automatic column width (no .col*) works for Flexbox only. */
 .n-row {
   width: 100%;
@@ -811,10 +693,6 @@ $bg: #1E8DaC;
     word-break: break-word; }
 
 .n-row > * {
-  /*
-  		vertical-align: top;
-  		display: inline-block;
-  */
   position: relative;
   word-wrap: break-word;
   width: calc(20% - 1.5em);
@@ -1017,10 +895,6 @@ $bg: #1E8DaC;
     page-break-inside: avoid;
     /* FF 20+ */
     break-inside: avoid-column;
-    /*
-    		-webkit-margin-before: 0;
-    		-webkit-margin-after: 0;
-    */
     margin: 0;
     padding: 0.75em; }
   .n-masonry._1\/2 {
@@ -1059,55 +933,6 @@ ol.n-masonry > * {
 .n-unpad-vertical {
   margin: -1.5em 0; }
 
-/*
-.n-row.n-border-all {
-	
-	box-shadow: inset 0 0 0 1px #000;
-	margin: -$line-height-em/2 0;
-	
-}
-
-.n-row.n-border-all > * {
-
-	margin: -$line-height-em/4 $line-height-em/4;
-
-}
-
-.n-row.n-border-all .n-row {
-	
-	margin: 0 -0.75em;
-	width: calc(100% + 1.5em);
-	max-width: none;
-	
-}
-
-.n-row.n-border-all .n-row > * {
-
-	box-shadow: 0 0 0 1px #000;
-	margin: 0;
-	flex-basis: calc(var(--col-width) * 100% - var(--spacing)*.5);
-
-}
-
-.n-row.n-border-all .n-row .n-row {
-	
-	margin: 0 -0.375em;
-	width: calc(100% + 0.75em);
-	
-}
-
-.n-row.n-border-all .n-row .n-row:first-child {
-	
-	margin-top: -0.375em;
-	
-}
-
-.n-row.n-border-all .n-row .n-row:last-child {
-	
-	margin-bottom: -0.375em;
-	
-}
-*/
 .n-row.n-border-all {
   --color: #000;
   box-shadow: inset 0 0 0 2px var(--color); }
@@ -1171,14 +996,6 @@ ol.n-masonry > * {
   .n-row.n-border-all .n-row {
     width: calc(100% + 1.5em); }
 
-  /*
-  	.n-row.n-border-all > *:not(:first-child), .n-row.n-border-all .n-row>*:not(:first-child) {
-  		
-  		border-left: none;
-  		border-top: 1px solid;
-  
-  	}
-  */
   .n-row.n-border-all > *, .n-row.n-border-all .n-row {
     margin: 0;
     padding: 0;
@@ -1194,25 +1011,6 @@ ol.n-masonry > * {
 
 @charset "UTF-8";
 /* natUIve – List */
-/*
-$color: #fff;
-$bg: #1E8DaC;
-*/
-:root {
-  /*
-  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-  	--line-height: 2;
-  	--line-height-em: calc(var(--line-height)*1em);
-  */
-  /*
-  	--color: #fff;
-  	--bg: #1E8DaC;
-  */
-  /*
-  	--color: #333;
-  	--bg: #fff;
-  */ }
-
 ul.n-list {
   padding: 0;
   line-height: 1.5;
@@ -1307,37 +1105,11 @@ ul.n-list.n-list--inline, ul.n-list.n-list--inline li, .n-nav.n-nav--scroll ul l
 
 @charset "UTF-8";
 /* natUIve – Navigation */
-/*
-$color: #fff;
-$bg: #1E8DaC;
-*/
-:root {
-  /*
-  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-  	--line-height: 2;
-  	--line-height-em: calc(var(--line-height)*1em);
-  */
-  /*
-  	--color: #fff;
-  	--bg: #1E8DaC;
-  */
-  /*
-  	--color: #333;
-  	--bg: #fff;
-  */ }
-
 .n-nav {
   vertical-align: baseline;
   display: inline-block;
   background-color: var(--control-bg, #fff);
-  color: var(--control-color, #333);
-  /*
-  	li:last-child a, li a {
-  		
-  		padding-right: 0;
-  
-  	}
-  */ }
+  color: var(--control-color, #333); }
   .n-nav ul {
     margin: 0 0 0 -.5em;
     margin: 0;
@@ -1385,24 +1157,7 @@ main .n-nav ul {
 
 .n-drop {
   color: var(--control-color, #333);
-  background-color: transparent;
-  /* 	li > ul ~ a, */
-  /*
-  	li > ul ~ a:before, li[aria-haspopup]:before {
-  		
-  		content: '▼' !important;
-  		display: inline-block !important;
-  		position: absolute;
-  		right: 1em;
-  		font-size: .67em;
-  		top: 50%;
-  		transform: rotate(0) translateY(-50%);
-  		transition: transform .2s ease-in-out;
-  	    transform-origin: top;			
-  	
-  	}
-  */
-  /* 	li li > ul ~ a, */ }
+  background-color: transparent; }
   .n-drop ul {
     padding: 0;
     margin: 0;
@@ -1480,18 +1235,18 @@ main .n-nav ul {
     z-index: 1;
     width: 2em; }
   .n-drop li[aria-haspopup]:before {
-    content: '' !important;
+    content: '';
     position: absolute;
-    display: block !important;
+    display: block;
     right: 0;
     top: 0;
     width: 2em;
     height: 4em; }
+  .n-drop ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li:before {
+    content: ''; }
+  .n-drop.n-nav ul.n-list li:before {
+    display: block; }
   .n-drop li[aria-haspopup]:before, .n-drop li > input {
-    /*
-    		background: url('data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M50%20100L0%200h100z%22%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E') calc(100% - 16px) 50% no-repeat;
-    		background-size: .5em auto;
-    */
     background: linear-gradient(-113deg, transparent 60%, var(--control-bg, #fff) 63%), linear-gradient(113deg, transparent 60%, var(--control-bg, #fff) 63%), linear-gradient(to bottom, var(--control-color, #333), var(--control-color, #333));
     background-size: 1em 1em;
     background-repeat: no-repeat;
@@ -1562,25 +1317,6 @@ main .n-nav ul {
 
 @charset "UTF-8";
 /* Tables */
-/*
-$color: #fff;
-$bg: #1E8DaC;
-*/
-:root {
-  /*
-  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-  	--line-height: 2;
-  	--line-height-em: calc(var(--line-height)*1em);
-  */
-  /*
-  	--color: #fff;
-  	--bg: #1E8DaC;
-  */
-  /*
-  	--color: #333;
-  	--bg: #fff;
-  */ }
-
 .n-table {
   width: 100%;
   overflow: auto;
@@ -1622,13 +1358,6 @@ $bg: #1E8DaC;
   .n-table--wrap .n-table {
     display: table; }
 
-/*
-	table :not(thead) tr:hover td { // IE9 bug: hover on overflowing table makes its .table container taller
-		
-		background-color: #ddd;
-
-	}
-*/
 .n-table--wrap td[data-sort] {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -1654,25 +1383,6 @@ $bg: #1E8DaC;
 
 @charset "UTF-8";
 /* natUIve – Tooltip */
-/*
-$color: #fff;
-$bg: #1E8DaC;
-*/
-:root {
-  /*
-  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-  	--line-height: 2;
-  	--line-height-em: calc(var(--line-height)*1em);
-  */
-  /*
-  	--color: #fff;
-  	--bg: #1E8DaC;
-  */
-  /*
-  	--color: #333;
-  	--bg: #fff;
-  */ }
-
 .n-tool {
   cursor: help;
   font-weight: bold;
@@ -1722,25 +1432,6 @@ $bg: #1E8DaC;
 
 @charset "UTF-8";
 /* natUIve – Typography */
-/*
-$color: #fff;
-$bg: #1E8DaC;
-*/
-:root {
-  /*
-  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-  	--line-height: 2;
-  	--line-height-em: calc(var(--line-height)*1em);
-  */
-  /*
-  	--color: #fff;
-  	--bg: #1E8DaC;
-  */
-  /*
-  	--color: #333;
-  	--bg: #fff;
-  */ }
-
 .n-type {
   color: #333;
   -webkit-text-size-adjust: none;

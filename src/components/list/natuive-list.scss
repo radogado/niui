@@ -5,14 +5,9 @@
 ul.n-list {
 	
 	padding: 0;
-// 	font-size: $font-size;
 	line-height: $line-height;
-// 	line-height: var(--line-height);
 	min-height: $line-height-em;
-// 	min-height: var(--line-height-em);
-// 	margin: 0;
 	margin: $line-height-em/2 0 $line-height-em/2 0;
-// 	margin: var(--line-height-em)/2 0 var(--line-height-em)/2 0;
 
 	&.n-list--indent {
 		
@@ -62,7 +57,6 @@ ol.n-list {
 	
 		text-indent: -2.3em;
 		margin: $line-height-em 0 $line-height-em/2 2.3em;
-	// 	margin: calc(var(--line-height-em)/2) 0 calc(var(--line-height-em)/2) 2.3em;
 	
 		&:before {
 		
@@ -71,11 +65,9 @@ ol.n-list {
 		    font-weight: bold;
 		    background: #999;
 		    padding: 0 .5em;
-		//     padding: calc(var(--line-height-em)/4) .6em calc(var(--line-height-em)/4) .6em;
 		    border-radius: 50%;
 		    margin-right: .333em;
 		    color: #fff;
-		//     min-width: 1.5em;
 		    min-height: 1em;
 		    display: inline-block;
 		    text-indent: 0;
@@ -112,8 +104,6 @@ ol.n-list {
 	
 	    content: counter(level1) '.' counter(level2) ' ';
 	    counter-increment: level2;
-	//     padding: $line-height-em/4 .4em $line-height-em/4 .5em;
-	//     padding: calc(var(--line-height-em)/4) .4em calc(var(--line-height-em)/4) .5em;
 	    border-radius: 1em;
 	    background: #999;
 	    color: #fff;
@@ -165,8 +155,6 @@ ul.n-list.n-list--inline, ul.n-list.n-list--inline li, .n-nav.n-nav--scroll ul l
 	
 	vertical-align: top;
 	display: inline-block;
-// 	margin: $line-height-em/2 0;
-// 	margin: var(--line-height-em) 0 0 0;
 	width: auto;
 
 }
@@ -190,7 +178,6 @@ ul.n-list.n-list--inline, ul.n-list.n-list--inline li, .n-nav.n-nav--scroll ul l
 [dir=rtl] ol.n-list > li {
 
 	margin: $line-height-em 2.3em $line-height-em/2 0;
-// 	margin: calc(var(--line-height-em)/2) 2.3em calc(var(--line-height-em)/2) 0;
 
 	&:before {
 	

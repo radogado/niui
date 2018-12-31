@@ -1,25 +1,6 @@
 @charset "UTF-8";
 /* natUIve – rado.bg */
 /*
-$color: #fff;
-$bg: #1E8DaC;
-*/
-:root {
-  /*
-  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-  	--line-height: 2;
-  	--line-height-em: calc(var(--line-height)*1em);
-  */
-  /*
-  	--color: #fff;
-  	--bg: #1E8DaC;
-  */
-  /*
-  	--color: #333;
-  	--bg: #fff;
-  */ }
-
-/*
 $font-size: 26px;
 $line-height: 34px;
 */
@@ -33,37 +14,8 @@ $line-height: 34px;
 html {
   height: 100%; }
 
-html, body {
-  /*
-  	height: 100%;
-  	margin: 0 auto;
-  	overflow-x: hidden;
-  */ }
-
 body {
-  /*
-  	position: relative;
-  	overflow: hidden;
-  	width: 100%;
-  	height: auto; // Problem with Chrome 66
-  
-  	-webkit-tap-highlight-color: rgba(0,0,0,.5);
-  
-  	color: $color; // Fallback when CSS variables aren't supported
-  */
-  margin: 0;
-  /*
-  	color: var(--color);
-  	background: var(--bg, $bg);
-  */
-  /*
-  	* {
-  
-  		box-sizing: border-box;
-  		-webkit-tap-highlight-color: rgba(0,0,0,0); // iOS: Don't flash on tap
-  	
-  	}
-  */ }
+  margin: 0; }
 
 .n-sticky-footer {
   min-height: 100vh;
@@ -161,15 +113,6 @@ a[href].span-relative-parent {
 .n-parallax--back {
   position: absolute; }
 
-/*
-:focus, :focus + .n-form--check-icon { // Because default focus indication is overlapped in Chrome for Windows
-
-	outline-offset: -1px;
-	outline-style: dashed;
-	outline-width: 1px;
-
-}
-*/
 /* Narrow Screens */
 @media screen and (max-width: 599.9px) {
   .n-wide-screen {

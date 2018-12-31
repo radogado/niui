@@ -9,7 +9,6 @@
 	width: 100%;
 	display: -ms-flexbox;
 	display: flex;
-// 	-webkit-justify-content: center;
 	-webkit-flex-wrap: wrap;
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
@@ -50,10 +49,6 @@
 
 	.n-row > * {
 	
-/*
-		vertical-align: top;
-		display: inline-block;
-*/
 		position: relative;
 		word-wrap: break-word;
 		width: calc(20% - #{$line-height-em});
@@ -414,18 +409,11 @@
 
 	    > * {
 	
-	//         display: inline-block; // Unwanted wrapping in Chrome – 2 instead of 3 columns
 	        display: table; // Unwanted wrapping in Chrome – 2 instead of 3 columns
 	        width: 100%;
-	// 		margin: 0 $line-height-em $line-height-em;
-	//         width: calc(100% - #{$line-height-em}*2);
 	        -webkit-column-break-inside: avoid;
 			page-break-inside: avoid;           /* FF 20+ */
 			break-inside: avoid-column;
-	/*
-			-webkit-margin-before: 0;
-			-webkit-margin-after: 0;
-	*/
 			margin: 0;
 			padding: $line-height-em/2;
 	
@@ -500,56 +488,6 @@
 		margin: -$line-height-em 0;
 
 	}
-
-/*
-.n-row.n-border-all {
-	
-	box-shadow: inset 0 0 0 1px #000;
-	margin: -$line-height-em/2 0;
-	
-}
-
-.n-row.n-border-all > * {
-
-	margin: -$line-height-em/4 $line-height-em/4;
-
-}
-
-.n-row.n-border-all .n-row {
-	
-	margin: 0 -#{$line-height-em/2};
-	width: calc(100% + #{$line-height-em});
-	max-width: none;
-	
-}
-
-.n-row.n-border-all .n-row > * {
-
-	box-shadow: 0 0 0 1px #000;
-	margin: 0;
-	flex-basis: calc(var(--col-width) * 100% - var(--spacing)*.5);
-
-}
-
-.n-row.n-border-all .n-row .n-row {
-	
-	margin: 0 -#{$line-height-em/4};
-	width: calc(100% + #{$line-height-em/2});
-	
-}
-
-.n-row.n-border-all .n-row .n-row:first-child {
-	
-	margin-top: -#{$line-height-em/4};
-	
-}
-
-.n-row.n-border-all .n-row .n-row:last-child {
-	
-	margin-bottom: -#{$line-height-em/4};
-	
-}
-*/
 
 .n-row.n-border-all {
 	
@@ -667,15 +605,6 @@
 	
 	}
 	
-/*
-	.n-row.n-border-all > *:not(:first-child), .n-row.n-border-all .n-row>*:not(:first-child) {
-		
-		border-left: none;
-		border-top: 1px solid;
-
-	}
-*/
-
 	.n-row.n-border-all > *, .n-row.n-border-all .n-row {
 	
 		margin: 0;

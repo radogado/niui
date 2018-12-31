@@ -46,7 +46,7 @@
 		
 		img {
 		
-			height: auto !important; // Override CSS-only height to avoid horizontal squash
+			height: auto; // Override CSS-only height to avoid horizontal squash
 			width: auto;
 		
 		}
@@ -148,8 +148,6 @@
 				bottom: 50%;
 				left: 50%;
 				right: 50%;
-		//		transform: translate3d(-50%, -50%, 0) scale(2);
-		//		zoom: 0.5; // scale(2) + zoom: 0.5 restores fixes the blur imposed by transform. Great in Safari, not so much in Chrome.
 				transition: transfrom .2s linear;
 				cursor: zoom-out;
 				zoom: 0;
@@ -261,7 +259,6 @@
 	display: inline-block;
 	vertical-align: middle;
 	margin: $line-height-em/2;
-// 	margin: var(--line-height-em) calc(var(--line-height-em)/4);
 	position: relative;
 	
 }
@@ -269,7 +266,6 @@
 	.n-lightbox a img {
 		
 		display: block;
-// 		padding-bottom: 0; // used to be necessary for the baseline compensation
 		margin: 0 auto;
 	
 	}

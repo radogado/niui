@@ -13,7 +13,6 @@
 	td, th {
 		
 		padding: $line-height-em $line-height-em/2;
-// 		padding: var(--line-height-em) calc(var(--line-height-em)/2);
 		vertical-align: middle;
 
 	}
@@ -23,7 +22,6 @@
 		color: #fff;
 		font-weight: bold;
 		padding-bottom: $line-height-em;
-// 		padding-bottom: var(--line-height-em);
 		font-size: 1.1em;
 		background: rgba(0,0,0,.1);
 		text-align: left;
@@ -74,14 +72,6 @@
 		
 	}
 	
-/*
-	table :not(thead) tr:hover td { // IE9 bug: hover on overflowing table makes its .table container taller
-		
-		background-color: #ddd;
-
-	}
-*/
-
 	.n-table--wrap td[data-sort] {
 		
 		-webkit-touch-callout: none;

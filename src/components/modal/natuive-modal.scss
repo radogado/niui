@@ -40,12 +40,6 @@ html.n-full-screen {
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
     backface-visibility: hidden;
-//     height: 100vh;
-//     height: var(--window-inner-height);
-//	box-shadow: 0 0 0em 100px rgba(255,255,255,.97);
-//	transition: all .2s linear, bottom .2s linear; // Not working
-
-//    box-shadow: 0 0 0 2px green inset; // Debug
 
 	* {
 		
@@ -76,10 +70,6 @@ html.n-full-screen {
 	
 	.n-ovrl.n-modal--limited > .n-ovrl--content {
 
-/*
-		background: #666;
-    	color: #eee;
-*/
     	padding: 0;
     	height: 50vh;
    	    margin-top: 25vh;
@@ -90,12 +80,11 @@ html.n-full-screen {
 	
 	.n-ovrl > .n-ovrl--close {
 
-		color: #fff;
+		color: var(--control-color, #fff);
 		cursor: pointer;
 		padding: .75em;
 		font-weight: bold;
-		background: #000;
-		background: rgba(0,0,0,.7);
+		background-color: var(--control-bg, rgba(0,0,0,.7));
 		width: 100%;
 		z-index: 99999;
 		top: 0;
@@ -111,11 +100,10 @@ html.n-full-screen {
 	.n-ovrl--close {
 		
 		line-height: $line-height * 2;
-	// 	line-height: calc(var(--line-height) * 2);
 		
 	}
 
-/* 	.no-touch */ .n-ovrl.headless {
+	.n-ovrl.n-ovrl--headless {
 		
 		padding-top: 0;
 
@@ -165,7 +153,6 @@ html.n-full-screen {
 	.n-ovrl--content {
 		
 		padding-top: $line-height-em;
-// 			height: 100%;
 
 	}
 	
@@ -186,14 +173,14 @@ html.n-full-screen {
 
 	}
 
-	.n-ovrl--close {
+	.n-ovrl > .n-ovrl--close {
 	
 		top: calc(50% - 20px);
 		left: .5rem;
 		right: auto;
 		top: .5rem;
-		width: 40px !important;
-		height: 40px !important;
+		width: 40px;
+		height: 40px;
 		border-radius: 50%;	
 		font-size: 0;
 		display: flex;

@@ -1,24 +1,5 @@
 @charset "UTF-8";
 /* natUIve – Lightbox */
-/*
-$color: #fff;
-$bg: #1E8DaC;
-*/
-:root {
-  /*
-  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-  	--line-height: 2;
-  	--line-height-em: calc(var(--line-height)*1em);
-  */
-  /*
-  	--color: #fff;
-  	--bg: #1E8DaC;
-  */
-  /*
-  	--color: #333;
-  	--bg: #fff;
-  */ }
-
 .n-slider--wrap:not([data-active]) > .n-slider.n-slider--vertical.n-lightbox > * {
   height: 100%; }
 
@@ -42,7 +23,7 @@ $bg: #1E8DaC;
   max-width: 100%;
   transition: opacity .2s ease-in-out; }
 .n-slider.n-lightbox[data-ready] img {
-  height: auto !important;
+  height: auto;
   width: auto; }
 .n-slider.n-lightbox[data-ready] > div:not(.n-lightbox--loaded) img {
   opacity: 0; }

@@ -19,10 +19,6 @@
 		
 		margin: 0;
 		float: none;
-// 		line-height: $line-height * 2;
-	// 	line-height: calc(var(--line-height) * 2);
-// 		min-height: $line-height-em * 2;
-	// 	min-height: calc(var(--line-height-em) * 2);
 		text-align: left;
 		text-align: start;
 		width: 100%;
@@ -101,7 +97,6 @@
 	    overflow: hidden;
 	    cursor: auto;
 	    will-change: max-width;
-// 	    margin-top: - .375*$line-height-em; // Weird offset
 
 		> .n-fold { // Don't crop the focus outline
 			
@@ -189,7 +184,7 @@
 
 	}
 
-	&:not(.n-fold--horizontal) > input.n-trigger:checked ~ .n-fold--content, &.n-fold--mobile:not(.n-fold--horizontal) .n-fold--content/* , .fold > [aria-expanded] input.n-trigger:not(:checked) ~ div */ {
+	&:not(.n-fold--horizontal) > input.n-trigger:checked ~ .n-fold--content, &.n-fold--mobile:not(.n-fold--horizontal) .n-fold--content {
 		
 		max-height: none;
 
@@ -306,7 +301,7 @@
 			
 		}
 		
-		.n-fold--content { /* hidden fold item */
+		.n-fold--content { // hidden fold item
 			
 			overflow: hidden;
 	
@@ -341,7 +336,6 @@
 		
 			.n-fold--content {
 				
-		// 		overflow: hidden;
 				padding: 0 $line-height-em/4;
 			    background: #fff;
 		

@@ -1,24 +1,5 @@
 @charset "UTF-8";
 /* natUIve  – Form */
-/*
-$color: #fff;
-$bg: #1E8DaC;
-*/
-:root {
-  /*
-  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-  	--line-height: 2;
-  	--line-height-em: calc(var(--line-height)*1em);
-  */
-  /*
-  	--color: #fff;
-  	--bg: #1E8DaC;
-  */
-  /*
-  	--color: #333;
-  	--bg: #fff;
-  */ }
-
 .n-form {
   --placeholder_color: #aaa; }
   .n-form * {
@@ -54,10 +35,6 @@ $bg: #1E8DaC;
     max-width: 100%;
     padding: 0 1em; }
   .n-form input, .n-form select, .n-form textarea, .n-form input[type=search], .n-form button {
-    /*
-    		background-color: #eee;
-    		background-color: rgba(0, 0, 0, .1);
-    */
     font-family: inherit;
     display: inline-block;
     overflow: hidden;

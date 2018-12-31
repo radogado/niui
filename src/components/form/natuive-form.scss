@@ -33,18 +33,14 @@ $placeholder_color: #aaa;
 	input[type=submit], button[type=submit], label, .n-form--check span, label > span {
 		
 		line-height: $line-height;
-	// 	line-height: var(--line-height);
 		min-height: $line-height-em;
-	// 	min-height: var(--line-height-em);
 	
 	}
 	
 	input[type=submit], button[type=submit], button, input[type=submit], .n-form--file, .n-form--file span {
 		
 		line-height: $line-height * 2;
-	// 	line-height: calc(var(--line-height) * 2);
 		min-height: $line-height-em * 2;
-	// 	min-height: calc(var(--line-height-em) * 2);
 		
 	}
 	
@@ -55,9 +51,7 @@ $placeholder_color: #aaa;
 		position: relative;
 		padding: 0;
 		margin: 0 0 $line-height-em 0;
-	// 		margin: 0 0 var(--line-height-em) 0;
 		min-height: $line-height-em*2;
-	// 		min-height: calc(var(--line-height-em)*2);
 	
 	}
 	
@@ -65,7 +59,6 @@ $placeholder_color: #aaa;
 		
 		height: auto;
 		line-height: $line-height;
-	// 		line-height: var(--line-height);
 		white-space: normal;
 		word-break: break-all;
 		margin: 0;
@@ -77,10 +70,6 @@ $placeholder_color: #aaa;
 	
 	input, select, textarea, input[type=search], button {
 		
-/*
-		background-color: #eee;
-		background-color: rgba(0, 0, 0, .1);
-*/
 		font-family: inherit;
 		display: inline-block;
 		overflow: hidden;
@@ -88,9 +77,7 @@ $placeholder_color: #aaa;
 		vertical-align: top;
 		border-radius: 0;
 		padding: 0 $line-height-em/2;
-	// 		padding: 0 calc(var(--line-height-em)/2);
 		min-height: $line-height-em * 2;
-	// 		min-height: calc(var(--line-height) * 2em);
 		border: 0;
 		font-size: 1em;
 		border: 1px dotted transparent;
@@ -140,9 +127,7 @@ $placeholder_color: #aaa;
 		text-indent: 0px;
 		padding: 0 1.6em 0 .8em;
 		height: $line-height-em * 2;
-	// 		height: calc(var(--line-height-em) * 2);
 		white-space: nowrap;
-	// 		font-family: inherit;
 	    text-indent: -1px;
 	    text-overflow: '';	
 	    margin: 0;
@@ -222,9 +207,7 @@ $placeholder_color: #aaa;
 		
 		display: block;
 		min-height: $line-height-em;
-	// 		min-height: var(--line-height-em);
 		margin-bottom: $line-height-em;
-	// 		margin-bottom: var(--line-height-em);
 		
 		span {
 		
@@ -287,9 +270,7 @@ $placeholder_color: #aaa;
 			display: inline-block;
 			background-color: var(--control-bg, #eee);
 			line-height: ($line-height + 1)*(2/3);
-		// 		line-height: calc((var(--line-height) + 1)*(2/3));
 			font-size: ($line-height - 2)*(2em/3);
-		// 		font-size: calc((var(--line-height) - 1)*(2/3));
 			text-align: center;
 			color: var(--control-color, #333);
 			display: none;
@@ -345,7 +326,6 @@ $placeholder_color: #aaa;
 			display: inline-block;
 			margin: 0;
 			border: none;
-// 			opacity: 0;
 		
 		}
 		
@@ -420,7 +400,6 @@ $placeholder_color: #aaa;
 	
 		font-weight: normal;
 		margin: 0 0 $line-height-em 0;
-	// 		margin: calc(-1*var(--line-height)/2) 0 calc(var(--line-height)/2) 0;
 		cursor: pointer;
 		font-style: italic;
 		padding: 0;
@@ -464,7 +443,6 @@ $placeholder_color: #aaa;
 			width: 100%;
 			cursor: pointer;
 			border: none;
-// 			opacity: 0;
 			margin: 0;
 		
 			&:focus + span {
@@ -617,8 +595,6 @@ $placeholder_color: #aaa;
 		min-width: 0;
 		padding: 0 1em;
 		min-height: $line-height-em*1.6667;
-	// 		margin-top: $line-height-em/2;
-	// 		margin-top: calc(var(--line-height-em) / 2);
 		text-align: start;
 	
 	}
@@ -626,7 +602,6 @@ $placeholder_color: #aaa;
 	&.n-form--wide textarea, &.n-form--mast textarea {
 		
 		margin: -$line-height-em/2 0 $line-height-em/2 0;
-		// 		margin: calc(-1*var(--line-height-em)/2) 0 calc(var(--line-height-em)/2) 0;
 		
 	}
 	
@@ -666,7 +641,6 @@ $placeholder_color: #aaa;
 			width: 100%;
 			border: none;
 			margin: 0 0 $line-height-em 0;
-		// 		margin: 0 0 calc(var(--line-height-em) / 2) 0;
 		
 		}
 	
@@ -691,7 +665,6 @@ $placeholder_color: #aaa;
 			> input {
 				
 				margin-top: -$line-height-em/2;
-			// 			margin-top: calc(-var(--line-height-em)/2);
 			
 			}
 		
@@ -820,7 +793,6 @@ $placeholder_color: #aaa;
 			padding-left: 100%; 
 			text-indent: -1em;
 			margin-top: -$line-height-em; 
-	// 			margin-top: -var(--line-height-em); 
 	
 		}
 	
@@ -862,5 +834,3 @@ $placeholder_color: #aaa;
 	}
 
 }
-
-// To do: focus visual indication on checkboxes/radios/selects

@@ -7,8 +7,7 @@
   margin-bottom: 0; }
 
 .n-slider.featured {
-  margin-bottom: 22px;
-  /* 	height: auto !important; */ }
+  margin-bottom: 22px; }
 
 .n-slider.featured h2 a[href] {
   position: absolute;
@@ -223,24 +222,12 @@ footer {
 .comment-form p label {
   display: block; }
 
-/*
-nav.n-nav.n-drop ul li a[href] {
-	
-	text-decoration: underline;
-
-}
-*/
 nav.n-nav a {
-  color: #666;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: #666;
+  color: var(--control-color, #666);
   text-transform: uppercase;
   text-decoration: none; }
-  nav.n-nav a.active[href] {
-    color: #ee8822; }
-  nav.n-nav a[href]:hover {
-    color: #ee8822; }
+  nav.n-nav a.active[href], nav.n-nav a[href]:hover {
+    color: var(--control-highlight, #ee8822); }
 nav.n-nav.n-drop {
   --control-bg: #eee; }
   nav.n-nav.n-drop li.current_page_item {
@@ -250,9 +237,9 @@ nav.n-nav.n-drop {
   margin-top: .25em; }
 
 .n-type a[href] {
-  color: #333; }
+  color: var(--control-color, #333); }
 .n-type a[href]:hover, .n-type input[type=submit]:hover, .n-type a.n-btn[href]:hover, .n-type button.n-btn:hover {
-  color: #ee8822; }
+  color: var(--control-highlight, #ee8822); }
 .n-type article h1, .n-type article h2, .n-type article h3, .n-type article h4, .n-type article h5 {
   font-weight: 500;
   color: #488e89; }
@@ -336,7 +323,7 @@ a.backtotop[href] {
 @media (max-width: 599.9px) {
   .single h1 {
     font-size: 1.5em; } }
-.n-slider--arrow, .n-slider--nav a, .n-tool:after, .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href], .n-fold > .n-fold--label, .n-drop, .n-form {
+.n-slider--arrow, .n-slider--nav a, .n-tool:after, .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href], .n-fold > .n-fold--label, .n-drop, .n-form, .n-ovrl > .n-ovrl--close, .n-drop ul li, .n-type nav.n-nav a[href] {
   --control-bg: lightcoral;
   --control-color: #fff;
   --control-active-bg: #cc7c7e;

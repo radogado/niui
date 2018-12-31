@@ -1,24 +1,5 @@
 @charset "UTF-8";
 /* natUIve – Grid */
-/*
-$color: #fff;
-$bg: #1E8DaC;
-*/
-:root {
-  /*
-  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-  	--line-height: 2;
-  	--line-height-em: calc(var(--line-height)*1em);
-  */
-  /*
-  	--color: #fff;
-  	--bg: #1E8DaC;
-  */
-  /*
-  	--color: #333;
-  	--bg: #fff;
-  */ }
-
 /* For proper fallback, use .col* for all columns. Automatic column width (no .col*) works for Flexbox only. */
 .n-row {
   width: 100%;
@@ -45,10 +26,6 @@ $bg: #1E8DaC;
     word-break: break-word; }
 
 .n-row > * {
-  /*
-  		vertical-align: top;
-  		display: inline-block;
-  */
   position: relative;
   word-wrap: break-word;
   width: calc(20% - 1.5em);
@@ -251,10 +228,6 @@ $bg: #1E8DaC;
     page-break-inside: avoid;
     /* FF 20+ */
     break-inside: avoid-column;
-    /*
-    		-webkit-margin-before: 0;
-    		-webkit-margin-after: 0;
-    */
     margin: 0;
     padding: 0.75em; }
   .n-masonry._1\/2 {
@@ -293,55 +266,6 @@ ol.n-masonry > * {
 .n-unpad-vertical {
   margin: -1.5em 0; }
 
-/*
-.n-row.n-border-all {
-	
-	box-shadow: inset 0 0 0 1px #000;
-	margin: -$line-height-em/2 0;
-	
-}
-
-.n-row.n-border-all > * {
-
-	margin: -$line-height-em/4 $line-height-em/4;
-
-}
-
-.n-row.n-border-all .n-row {
-	
-	margin: 0 -0.75em;
-	width: calc(100% + 1.5em);
-	max-width: none;
-	
-}
-
-.n-row.n-border-all .n-row > * {
-
-	box-shadow: 0 0 0 1px #000;
-	margin: 0;
-	flex-basis: calc(var(--col-width) * 100% - var(--spacing)*.5);
-
-}
-
-.n-row.n-border-all .n-row .n-row {
-	
-	margin: 0 -0.375em;
-	width: calc(100% + 0.75em);
-	
-}
-
-.n-row.n-border-all .n-row .n-row:first-child {
-	
-	margin-top: -0.375em;
-	
-}
-
-.n-row.n-border-all .n-row .n-row:last-child {
-	
-	margin-bottom: -0.375em;
-	
-}
-*/
 .n-row.n-border-all {
   --color: #000;
   box-shadow: inset 0 0 0 2px var(--color); }
@@ -405,14 +329,6 @@ ol.n-masonry > * {
   .n-row.n-border-all .n-row {
     width: calc(100% + 1.5em); }
 
-  /*
-  	.n-row.n-border-all > *:not(:first-child), .n-row.n-border-all .n-row>*:not(:first-child) {
-  		
-  		border-left: none;
-  		border-top: 1px solid;
-  
-  	}
-  */
   .n-row.n-border-all > *, .n-row.n-border-all .n-row {
     margin: 0;
     padding: 0;

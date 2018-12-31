@@ -175,8 +175,6 @@ var componentLightbox = (function (){
 		}
 	
 		if (inline_static) { // If it's inline, it must become a slider/lightbox to replace the original lightbox element
-			// Replace the lightbox by a slider lightbox. Generate the new slider/lightbox in place of the original one
-	// 		lightbox_target.classList = 'slider lightbox inline'; // Not working in Edge
 			lightbox_target.id = lightbox.id ? lightbox.id : '';
 			var parent = lightbox.parentNode;
 			var next_sibling = lightbox.nextElementSibling;
@@ -184,8 +182,6 @@ var componentLightbox = (function (){
 			
 		} else { // else it's an existing lightbox and the new one should be separate and full screen
 			
-	//		openFullWindow('<div class="slider lightbox full-window' + (hasClass(lightbox, 'full-screen') ? ' full-screen' : '') + '"></div>', animation); // openFullWindow to be moved at the end
-	// 		lightbox_target.classList = 'slider lightbox inline' + (hasClass(lightbox, 'full-screen') ? ' full-screen' : ''); // Not working in Edge
 			if (hasClass(lightbox, 'n-full-screen')) {
 		
 				addClass(lightbox_target, 'n-full-screen');
@@ -220,7 +216,6 @@ var componentLightbox = (function (){
 	
 			if (hasClass(el, 'n-lightbox--video') || el.querySelector('n-lightbox--video')) {
 				// video poster = the anchor's img child, if it exists
-	
 				if (hasClass(lightbox, 'n-slider')) { // Secondary lightbox
 					
 					images += `<div>${el.querySelector('n-lightbox--video').outerHTML}</div>`;
@@ -285,26 +280,9 @@ var componentLightbox = (function (){
 	    });
 	
 	    lightbox_target.innerHTML = images;
-	    
-/*
-	    if (inline_static) { // It's an inline lightbox and needs to become full window/screen when clicked
-		    
-		    lightbox_target.onclick = e => {
-			    
-			    if (e.target.tagName === 'IMG') {
-				    
-				    openLightbox(e);
-	
-			    }
-			    
-		    };
-		    
-	    }
-*/
-	
+	    	
 	// If secondary, openFullWindow(lightbox_target)
 	// If normal, attach lightbox_target on the former place of the lightbox and init(their_parent)
-	
 	
 	    var anchor = el;
 		
@@ -396,7 +374,6 @@ var componentLightbox = (function (){
 	    
 		    transferClass(lightbox, lightbox_target.parentNode, 'n-lightbox--thumbnails');
 	        var i = 0;
-	// 	        var nav = closestElement(lightbox_target, '.n-slider--wrap').querySelector('.n-slider--nav');
 	        var nav = componentSlider.getSliderNav(lightbox_target.closest('.n-slider--wrap'));
 	
 	        if (nav) { // Multiple slides?

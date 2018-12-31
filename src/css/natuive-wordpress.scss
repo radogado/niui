@@ -5,7 +5,6 @@
 .n-slider--wrap {
 	
 	background: #eee;
-// 	margin-bottom: 44px;
 
 }
 
@@ -18,7 +17,6 @@
 .n-slider.featured {
 	
 	margin-bottom: 22px;
-/* 	height: auto !important; */
 
 }
 
@@ -230,7 +228,6 @@ iframe, article h2 a {
 	margin-bottom: 44px;
 	position: relative;
 	overflow: hidden;
-// 	padding-left: 2px;
 
 }
 
@@ -310,7 +307,6 @@ article ul {
 	
 	display: inline-block;
 	vertical-align: bottom;
-// 	background: rgba(255, 255, 255, .8);
 	padding: .5em;
 	font-size: 1.5rem;	
 	background: #488e89;
@@ -403,36 +399,18 @@ footer { // Stick footer to the bottom
 		
 }
 
-/*
-nav.n-nav.n-drop ul li a[href] {
-	
-	text-decoration: underline;
-
-}
-*/
-
 nav.n-nav {
 	
 	a {
 		
-		color: #666;
+		color: var(--control-color, #666);
 		text-transform: uppercase;
 		text-decoration: none;
 	
-		color: #666;
-		text-transform: uppercase;
-		text-decoration: none;
-	
-		&.active[href] {
+		&.active[href], &[href]:hover {
 		
-			color: #ee8822;
+			color: var(--control-highlight, #ee8822);
 		
-		}
-	
-		&[href]:hover {
-			
-			color: #ee8822;
-			
 		}
 
 	}
@@ -461,13 +439,13 @@ nav.n-nav {
 	
 	a[href] {
 	
-		color: #333;
+		color: var(--control-color, #333);
 	
 	}
 	
 		a[href]:hover, input[type=submit]:hover, a.n-btn[href]:hover, button.n-btn:hover {
 	
-			color: #ee8822;
+			color: var(--control-highlight, #ee8822);
 	
 		}
 	
@@ -631,7 +609,6 @@ a.backtotop[href] {
 		
 		display: flex;
 		flex-wrap: wrap;
-// 		margin-left: -1em;
 	
 	}
 	
@@ -668,7 +645,7 @@ a.backtotop[href] {
 
 // Color scheme
 
-.n-slider--arrow, .n-slider--nav a, .n-tool:after, .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href], .n-fold > .n-fold--label, .n-drop, .n-form {
+.n-slider--arrow, .n-slider--nav a, .n-tool:after, .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href], .n-fold > .n-fold--label, .n-drop, .n-form, .n-ovrl > .n-ovrl--close, .n-drop ul li, .n-type nav.n-nav a[href] {
 	
 	--control-bg: lightcoral;
 	--control-color: #fff;		

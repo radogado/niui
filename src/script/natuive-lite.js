@@ -1117,20 +1117,6 @@ qa('a[href^="#"]').forEach((el) => {
 	
 		}
 		
-/*
-		var current_item = e.target.parentNode;
-	
-		current_item.parentNode.parentNode.childNodes.forEach((el) => {
-	
-			if (el !== current_item && el.nodeName === 'LI' && el.querySelector('ul')) {
-	
-				el.querySelector('ul').removeAttribute(aria_expanded);
-			
-			}
-			
-		});
-*/
-		
 	}
 	
 	var closeDropNavClickedOutsideEnabled = false;

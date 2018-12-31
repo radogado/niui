@@ -1,24 +1,5 @@
 @charset "UTF-8";
 /* natUIve – Fold */
-/*
-$color: #fff;
-$bg: #1E8DaC;
-*/
-:root {
-  /*
-  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-  	--line-height: 2;
-  	--line-height-em: calc(var(--line-height)*1em);
-  */
-  /*
-  	--color: #fff;
-  	--bg: #1E8DaC;
-  */
-  /*
-  	--color: #333;
-  	--bg: #fff;
-  */ }
-
 .n-fold {
   position: relative;
   margin: 0;
@@ -157,7 +138,6 @@ $bg: #1E8DaC;
   .n-fold.n-fold--mobile > input.n-trigger:checked ~ .n-fold--content, .n-fold.n-fold--mobile > input.n-trigger:checked + .n-fold--content {
     max-height: none; }
   .n-fold.n-fold--mobile .n-fold--content {
-    /* hidden fold item */
     overflow: hidden; }
 
   @supports (--a: 1) {

@@ -1,24 +1,5 @@
 @charset "UTF-8";
 /* Tables */
-/*
-$color: #fff;
-$bg: #1E8DaC;
-*/
-:root {
-  /*
-  // Crashes Chrome 49 Beta, FF 44 bug can't calc properly
-  	--line-height: 2;
-  	--line-height-em: calc(var(--line-height)*1em);
-  */
-  /*
-  	--color: #fff;
-  	--bg: #1E8DaC;
-  */
-  /*
-  	--color: #333;
-  	--bg: #fff;
-  */ }
-
 .n-table {
   width: 100%;
   overflow: auto;
@@ -60,13 +41,6 @@ $bg: #1E8DaC;
   .n-table--wrap .n-table {
     display: table; }
 
-/*
-	table :not(thead) tr:hover td { // IE9 bug: hover on overflowing table makes its .table container taller
-		
-		background-color: #ddd;
-
-	}
-*/
 .n-table--wrap td[data-sort] {
   -webkit-touch-callout: none;
   -webkit-user-select: none;

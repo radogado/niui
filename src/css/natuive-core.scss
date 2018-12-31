@@ -21,43 +21,9 @@ html {
 
 }
 
-html, body {
-
-/*
-	height: 100%;
-	margin: 0 auto;
-	overflow-x: hidden;
-*/
-
-}
-
 body {
 
-/*
-	position: relative;
-	overflow: hidden;
-	width: 100%;
-	height: auto; // Problem with Chrome 66
-
-	-webkit-tap-highlight-color: rgba(0,0,0,.5);
-
-	color: $color; // Fallback when CSS variables aren't supported
-*/
-
 	margin: 0;
-/*
-	color: var(--color);
-	background: var(--bg, $bg);
-*/
-	
-/*
-	* {
-
-		box-sizing: border-box;
-		-webkit-tap-highlight-color: rgba(0,0,0,0); // iOS: Don't flash on tap
-	
-	}
-*/
 
 }
 
@@ -78,7 +44,6 @@ body {
 .n-viewport.n-header-banner {
 
 	min-height: 100vh;
-// 	overflow: auto;
 	display: flex;
 	flex-direction: column;
 
@@ -244,16 +209,6 @@ a[href].span-relative-parent {
 	position: absolute;
 
 }
-
-/*
-:focus, :focus + .n-form--check-icon { // Because default focus indication is overlapped in Chrome for Windows
-
-	outline-offset: -1px;
-	outline-style: dashed;
-	outline-width: 1px;
-
-}
-*/
 
 /* Narrow Screens */
 
