@@ -439,11 +439,11 @@ nav.n-nav {
 	
 	&.n-drop {
 		
-		--nav-bg: #eee;
+		--control-bg: #eee;
 		
 		li.current_page_item {
 			
-			--nav-bg: #ddd;
+			--control-bg: #ddd;
 			
 		}
 
@@ -664,4 +664,23 @@ a.backtotop[href] {
 	
 	}
 
+}
+
+// Color scheme
+
+.n-slider--arrow, .n-slider--nav a, .n-tool:after, .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href], .n-fold > .n-fold--label, .n-drop, .n-form {
+	
+	--control-bg: lightcoral;
+	--control-color: #fff;		
+	--control-active-bg: #cc7c7e;
+	--control-active-color: #eee;
+	--control-highlight: #bf2a2a;
+
+}
+
+.n-form input, .n-form textarea {
+	
+	--input-color: darkslateblue;
+	--input-bg: aliceblue;	
+	
 }

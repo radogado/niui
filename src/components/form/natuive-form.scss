@@ -122,6 +122,13 @@ $placeholder_color: #aaa;
 	
 	}
 	
+	input, textarea {
+		
+		background-color: var(--input-bg, #eee);
+		color: var(--input-color, #333);
+		
+	}
+	
 	select {
 		
 		-moz-appearance: none;

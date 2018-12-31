@@ -3007,7 +3007,7 @@
 									<span>Select a file</span>
 									<div class=n-form--file>
 										<input name=file id=file type=file>
-										<span>Drop or browse</span>
+										<span><span class=n-form--file-tag>Drop or browse</span></span>
 									</div>
 			
 								</label> 
@@ -3208,7 +3208,7 @@
 	&lt;span&gt;Label&lt;/span&gt;
 	&lt;div class='n-form--file'&gt;
 		&lt;input type='file'&gt;
-		&lt;span&gt;Placeholder&lt;/span&gt;
+		&lt;span&gt;&lt;span class=n-form--file-tag&gt;Placeholder&lt;/span&gt;&lt;/span&gt;
 	&lt;/div&gt;
 &lt;/label&gt; </code>
 </pre>
@@ -3270,6 +3270,16 @@
 								<li><pre>data-digits=x</pre> in a number input requires x digits</li>
 							
 							</ul>
+							
+							<h3>Colors for input and textarea</h3>
+
+<pre><code class="language-css">.n-form input, .n-form textarea {
+	
+	--input-color: darkslateblue;
+	--input-bg: aliceblue;	
+	
+}</code>
+</pre>
 							
 						</div>
 						
@@ -3968,6 +3978,7 @@
 	--control-color: #fff;		
 	--control-active-bg: #cc7c7e;
 	--control-active-color: #eee;
+	--control-highlight: #bf2a2a;
 
 }</code>
 </pre>
