@@ -235,9 +235,6 @@ a.backtotop[href] {
   .n-form input[type=submit], .n-form button[type=submit], .n-form label, .n-form .n-form--check span, .n-form label > span {
     line-height: 1.5;
     min-height: 1.5em; }
-  .n-form input[type=submit], .n-form button[type=submit], .n-form button, .n-form input[type=submit], .n-form .n-form--file, .n-form .n-form--file span {
-    line-height: 3;
-    min-height: 3em; }
   .n-form label {
     font-weight: bold;
     max-width: 100%;

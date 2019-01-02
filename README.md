@@ -28,11 +28,11 @@ NPM usage:
 - [Dynamic components](https://radogado.github.io/natuive/guide/#dynamic-components), dynamically initialised by MutationObserver
 - (Mobile) [navigation](https://radogado.github.io/natuive/guide/#nav). Drop-down nav: Touch-first, CSS-only, JS enhanced, 1-3 levels, responsive, label/link items support
 - [Buttons](https://radogado.github.io/natuive/guide/#buttons) with group container for proper line wrap
-- [Modal windows](https://radogado.github.io/natuive/guide/#modal-window) with local or external content, multiple instances, fully supporting iPhone Safari toolbars*
+- [Modal windows](https://radogado.github.io/natuive/guide/#modal-window) with multiple instances, fully supporting iPhone Safari toolbars*
 - [Lightbox gallery](https://radogado.github.io/natuive/guide/#lightbox) supporting huge galleries* and click to zoom. Can be opened automatically by URI page#lightbox_id. Video in lightbox. Inline lightboxes switchable to full screen.
 - [Tooltips](https://radogado.github.io/natuive/guide/#tooltip) with full HTML content*
 - Nested ordered [lists](https://radogado.github.io/natuive/guide/#lists)*
-- [Forms](https://radogado.github.io/natuive/guide/#form) with validation, dynamic submission without page reload, full customisation and accessibility, including native file drop. Range input with blank style. Auto-expanding textarea*. Optional fieldsets.
+- [Forms](https://radogado.github.io/natuive/guide/#form) with validation, full customisation and accessibility, including native file drop. Range input with blank style. Auto-expanding textarea*. Optional fieldsets.
 - Native [sliders](https://radogado.github.io/natuive/guide/#slider)*, swipeable on mobile and desktop, with numbered or thumbnail (tabs) navigation, vertical and full window options, slider inside slider, fade in/out option, auto height option
 - [Accordions](https://radogado.github.io/natuive/guide/#fold)
 - [Tabs](https://radogado.github.io/natuive/guide/#tabs)
