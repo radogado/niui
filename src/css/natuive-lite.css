@@ -450,7 +450,8 @@ a.backtotop[href] {
       top: 0;
       left: 0;
       right: 0;
-      bottom: 0; }
+      bottom: 0;
+      z-index: -1; }
       .n-form .n-form--file span .n-form--file-tag {
         display: none; }
       .n-form .n-form--file span .n-form--file-name:empty ~ .n-form--file-tag {
@@ -459,7 +460,10 @@ a.backtotop[href] {
       width: 100%;
       cursor: pointer;
       border: none;
-      margin: 0; }
+      margin: 0;
+      background: transparent;
+      color: transparent;
+      text-indent: -100%; }
       .n-form .n-form--file input[type=file]:focus + span {
         outline: auto; }
   .n-form input[type=range] {

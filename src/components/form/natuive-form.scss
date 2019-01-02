@@ -416,6 +416,7 @@ $placeholder_color: #aaa;
 		    left: 0;
 		    right: 0;
 		    bottom: 0;
+		    z-index: -1;
 		    
 		    .n-form--file-tag {
 			    
@@ -437,7 +438,10 @@ $placeholder_color: #aaa;
 			cursor: pointer;
 			border: none;
 			margin: 0;
-		
+		    background: transparent;
+		    color: transparent;
+		    text-indent: -100%;
+
 			&:focus + span {
 				
 				outline: auto;
