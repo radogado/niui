@@ -198,34 +198,24 @@ var componentSlider = (function (){
 		slider.style.pointerEvents = slider.style.height = '';
 	
 	    window.addEventListener('keyup', sliderKeyboard);
-	    setTimeout(() => {
-	
-		    mouseEvents(slider);
-	
-		    // Make this slider active
-		
-			if (slider.children[index].id) { // Scroll page to slide hash. To do: restore focus
-		
-				scrollToAnimated(getCumulativeOffset(slider.children[index]).y, .2, () => {
-					
-					var focused = document.activeElement;
-					window.location.hash = slider.children[index].id;
-					focused.focus();
-		
-				});
+	    mouseEvents(slider);
+
+		if (slider.children[index].id) {
+
+				var focused = document.activeElement;
+				window.location.hash = slider.children[index].id;
+				focused.focus();
+			
+		} else {
+			
+			if (typeof old_index !== 'undefined' && location.hash === '#' + slider.children[old_index].id) {
 				
-			} else { // If previous slide id is in URI, remove URI hash
-				
-				if (typeof old_index !== 'undefined' && location.hash === '#' + slider.children[old_index].id) {
-					
-					removeHash();
-					
-				}
+				removeHash();
 				
 			}
-	
-		}, slide_duration/2);
-		
+			
+		}
+
 	}
 	
 	function slide(el, method, index_number) {
