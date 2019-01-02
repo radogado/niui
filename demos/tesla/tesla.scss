@@ -12,6 +12,12 @@ main img {
 
 }
 
+main p img {
+	
+	max-width: 100%;
+	
+}
+
 .n-type {
 	
 	h1, h2 {
@@ -125,6 +131,7 @@ footer a[href]:first-child {
 .narrow {
 	
 	padding: 0 13em;
+	box-sizing: border-box;
 	
 }
 

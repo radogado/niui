@@ -1129,7 +1129,8 @@ a.backtotop[href] {
     column-count: 5; }
 
 ul.n-masonry {
-  min-height: 0; }
+  min-height: 0;
+  padding: 0; }
 
 ol.n-masonry > * {
   padding-left: 2.5em; }
