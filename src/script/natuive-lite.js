@@ -16,9 +16,6 @@ document.body.setAttribute('data-js', 'true');
 var is_iPad = !!navigator.platform.match(/iPad/);
 
 var aria_expanded = 'aria-expanded';
-var scripts_location = document.getElementsByTagName('script'); // To do: 1. maybe move this global variable to window.scripts_location. 2. This is wrong with async scripts. To do: Use document.currentScript
-scripts_location = scripts_location[scripts_location.length-1].src;
-scripts_location = scripts_location.slice(0, scripts_location.length - scripts_location.split('/').pop().length);
 
 // DOM functions – start
 
@@ -426,17 +423,6 @@ function closestElement(el, target) { // Thanks http://gomakethings.com/ditching
 
 }
 
-/* Check for host PHP support */
-var php_support = 0;
-var request = new XMLHttpRequest();
-request.open('GET', document.location, true);
-request.onload = () => {
-	
-	php_support = request.getAllResponseHeaders().toLowerCase().indexOf('php') === -1 ? 0 : 1;
-
-};
-request.send(null);
-
 /* Chainable animation specified as CSS Animation */
 
 var temp = document.createElement('temp');
@@ -557,21 +543,6 @@ function copyButton (el, target, echo) {
 	});
 	
 }
-
-/*
-function loadScriptFile(file_name) {
-	
-    var js_el = document.createElement('script');
-    js_el.type = 'text/javascript';
-    js_el.src = scripts_location + file_name;
-    if (!js_el || typeof js_el === 'undefined') {
-	    
-	    document.head.appendChild(js_el);
-	
-	}
-
-}
-*/
 
 // Real time touch detection to support devices with both touch and mouse. http://www.javascriptkit.com/dhtmltutors/sticky-hover-issue-solutions.shtml
 // To do: use an attribtue instead of class
@@ -860,63 +831,7 @@ qa('a[href^="#"]').forEach((el) => {
 	
 	    });
 	
-	    if (!ready_to_submit) {
-	
-	        return false;
-	
-	    }
-	
-	    if (!hasClass(el, 'n-form--dynamic') || !(new XMLHttpRequest().upload) || !php_support) { // Browser unable to submit dynamically.
-	
-	        return true;
-	
-	    }
-	
-	    el.insertAdjacentHTML('beforeend', `<input name=targetformurl type=hidden value=${encodeURIComponent( el.method === 'get' ? el.action.replace(/\/?(\?|#|$)/, '/$1') : el.action )}>`);
-	
-	    request = new XMLHttpRequest();
-	    request.open('POST', scripts_location + 'request.php', true);
-	
-	    request.onreadystatechange = () => {
-	
-	        if (request.readyState != 4 || request.status != 200) {
-	
-	            // php script unreachable, submit form normally
-	            return true;
-	
-	        }
-	
-	        if (!request.responseText || !php_support) {
-	
-	            // php script unreachable, submit form normally
-	            el.onsubmit = () => {};
-				el.constructor.prototype.submit.call(el); // el.submit();
-	            return true;
-	
-	        }
-	
-	        // strip id's from response HTML
-	        if (request.responseText.indexOf('---error---') != -1) {
-	
-	            // Error
-	            document.getElementById('formresult').innerHTML = 'Error submitting form.';
-	            return;
-	
-	        } else {
-	
-	            // Success
-	            var loaded_html = parseHTML(request.responseText);
-	            document.getElementById('formresult').innerHTML = loaded_html.innerHTML;
-	
-	        }
-	
-	    };
-	
-	    componentModal.openFullWindow('<div id=formresult>Submitting form...</div>');
-	
-	    request.send(new FormData(el));
-	
-	    return false;
+	    return ready_to_submit;
 	
 	}
 	

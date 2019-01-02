@@ -55,63 +55,7 @@
 	
 	    });
 	
-	    if (!ready_to_submit) {
-	
-	        return false;
-	
-	    }
-	
-	    if (!hasClass(el, 'n-form--dynamic') || !(new XMLHttpRequest().upload) || !php_support) { // Browser unable to submit dynamically.
-	
-	        return true;
-	
-	    }
-	
-	    el.insertAdjacentHTML('beforeend', `<input name=targetformurl type=hidden value=${encodeURIComponent( el.method === 'get' ? el.action.replace(/\/?(\?|#|$)/, '/$1') : el.action )}>`);
-	
-	    request = new XMLHttpRequest();
-	    request.open('POST', scripts_location + 'request.php', true);
-	
-	    request.onreadystatechange = () => {
-	
-	        if (request.readyState != 4 || request.status != 200) {
-	
-	            // php script unreachable, submit form normally
-	            return true;
-	
-	        }
-	
-	        if (!request.responseText || !php_support) {
-	
-	            // php script unreachable, submit form normally
-	            el.onsubmit = () => {};
-				el.constructor.prototype.submit.call(el); // el.submit();
-	            return true;
-	
-	        }
-	
-	        // strip id's from response HTML
-	        if (request.responseText.indexOf('---error---') != -1) {
-	
-	            // Error
-	            document.getElementById('formresult').innerHTML = 'Error submitting form.';
-	            return;
-	
-	        } else {
-	
-	            // Success
-	            var loaded_html = parseHTML(request.responseText);
-	            document.getElementById('formresult').innerHTML = loaded_html.innerHTML;
-	
-	        }
-	
-	    };
-	
-	    componentModal.openFullWindow('<div id=formresult>Submitting form...</div>');
-	
-	    request.send(new FormData(el));
-	
-	    return false;
+	    return ready_to_submit;
 	
 	}
 	

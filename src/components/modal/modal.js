@@ -321,17 +321,7 @@ var componentModal = (function (){
 	    var link = el.closest('.n-modal').href;
 	    var animation = el.closest('.n-modal').getAttribute('data-anim');
 	
-/*
-	    if (!php_support && external.test(link) || !(new XMLHttpRequest().upload)) { // No PHP or XHR?
-	
-	        window.open(link, '_blank');
-	        return false;
-	
-	    }
-*/
-	
 	    var request = new XMLHttpRequest();
-// 	    request.open('GET', external.test(link) ? (scripts_location + 'request.php?targetformurl=' + link.split('#')[0]) : link.split('#')[0], true);
 	    request.open('GET', link.split('#')[0], true);
 	
 	    request.onload = () => {
