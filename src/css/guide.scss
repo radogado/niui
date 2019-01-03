@@ -22,6 +22,7 @@ main .nav-column {
     a[href] {
 	    
 	    text-decoration: none;
+        outline-offset: 2px;
 	    
     }
 
@@ -332,6 +333,7 @@ li pre {
 body:not(data-threshold) #content > * {
 		
 	overflow: auto;
+	margin: 0;
 	
 }
 
