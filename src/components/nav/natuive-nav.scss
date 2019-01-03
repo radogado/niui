@@ -300,6 +300,15 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 		margin: 0;
         
    	}
+
+
+/*
+   	// Chevron top solid color transparent background
+    background: conic-gradient( from 152deg, #fff 0, #fff 14%, transparent 15% );
+    background-repeat: no-repeat;
+    background-size: .5em 1em;
+    background-position: center center;
+*/
 	
 	&[data-ready] li > ul ~ a {
 		

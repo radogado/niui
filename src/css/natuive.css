@@ -17,6 +17,14 @@ html {
 body {
   margin: 0; }
 
+html.n-vertical-page, html.n-vertical-page body {
+  height: 100%;
+  margin: 0 auto;
+  overflow-x: hidden; }
+html.n-vertical-page body {
+  overflow: hidden;
+  height: auto; }
+
 .n-sticky-footer {
   min-height: 100vh;
   display: flex;

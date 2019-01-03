@@ -27,6 +27,25 @@ body {
 
 }
 
+html.n-vertical-page {
+
+	&, body {
+	
+		height: 100%;
+		margin: 0 auto;
+		overflow-x: hidden;
+	
+	}
+	
+	body {
+		
+		overflow: hidden;
+		height: auto;
+	
+	}
+
+}
+
 .n-sticky-footer {
 
 	min-height: 100vh; // % has problems with Chrome 67
