@@ -369,8 +369,8 @@ a.backtotop[href] {
     height: 1em;
     display: inline-block;
     background-color: var(--control-bg, #eee);
-    line-height: 1.66667;
-    font-size: -0.33333em;
+    line-height: 1.6666666667;
+    font-size: -0.3333333333em;
     text-align: center;
     color: var(--control-color, #333);
     display: none;
@@ -551,7 +551,7 @@ a.backtotop[href] {
       cursor: pointer;
       background: var(--control-bg, rgba(0, 0, 0, 0.1)); }
     .n-form input[type=range]::-moz-range-thumb {
-      border: 0px solid transparent;
+      border: 0px solid rgba(0, 0, 0, 0);
       height: 1.625em;
       width: 1.625em;
       border-radius: 50%;
@@ -1168,7 +1168,12 @@ main .n-nav ul {
 
 .n-drop {
   color: var(--control-color, #333);
-  background-color: transparent; }
+  background-color: transparent;
+  /*
+  // Up
+  	    background-image: conic-gradient( from 152deg, var(--control-color, #fff) 0, var(--control-color, #fff) 14%, transparent 15% );
+  		background-position: center center;
+  */ }
   .n-drop ul {
     padding: 0;
     margin: 0;
@@ -1252,22 +1257,29 @@ main .n-nav ul {
     right: 0;
     top: 0;
     width: 2em;
-    height: 4em; }
+    height: 100%; }
   .n-drop ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li:before {
     content: ''; }
   .n-drop.n-nav ul.n-list li:before {
     display: block; }
   .n-drop li[aria-haspopup]:before, .n-drop li > input {
-    background: linear-gradient(-113deg, transparent 60%, var(--control-bg, #fff) 63%), linear-gradient(113deg, transparent 60%, var(--control-bg, #fff) 63%), linear-gradient(to bottom, var(--control-color, #333), var(--control-color, #333));
-    background-size: 1em 1em;
+    /*
+    	    background: linear-gradient(-113deg, transparent 60%, var(--control-bg, #fff) 63%), linear-gradient(113deg, transparent 60%, var(--control-bg, #fff) 63%), linear-gradient(to bottom, var(--control-color, #333), var(--control-color, #333));
+    	    background-size: 1em 1em;
+    	    background-repeat: no-repeat;
+    		background-position: calc(100% - .5em) center;
+    		font-size: .75rem;
+    		margin: 0;
+    */
+    background-image: conic-gradient(from 334deg, var(--control-color, #fff) 0, var(--control-color, #fff) 14%, transparent 15%);
     background-repeat: no-repeat;
-    background-position: calc(100% - .5em) center;
-    font-size: .75rem;
-    margin: 0; }
+    background-size: .5em 1em;
+    background-position: center 58%; }
   .n-drop[data-ready] li > ul ~ a {
     background: none; }
   .n-drop li li[aria-haspopup]:before, .n-drop li li > input {
-    background-image: linear-gradient(27deg, transparent 60%, var(--control-bg, #fff) 63%), linear-gradient(152deg, transparent 60%, var(--control-bg, #fff) 63%), linear-gradient(to bottom, var(--control-color, #333), var(--control-color, #333)); }
+    background-image: conic-gradient(from 242deg, var(--control-color, #fff) 0, var(--control-color, #fff) 14%, transparent 15%);
+    background-size: 1em 1em; }
   .n-drop li[aria-haspopup] {
     padding-right: calc(42px - 1em); }
 
@@ -1480,8 +1492,8 @@ main .n-nav ul {
     padding: 0.46875em 0; }
   .n-type h6 {
     font-size: .6667em;
-    line-height: 1.12494;
-    padding: 0.56247em 0; }
+    line-height: 1.1249437528;
+    padding: 0.5624718764em 0; }
   .n-type pre {
     overflow: auto; }
   .n-type p {
