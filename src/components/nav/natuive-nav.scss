@@ -305,9 +305,9 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 	    background-repeat: no-repeat;
 	    background-size: .5em 1em;
 	    background-position: center 58%;
-        
-   	}
+		font-size: 1rem;        
 
+   	}
 
 	&[data-ready] li > ul ~ a {
 		

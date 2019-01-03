@@ -1274,7 +1274,8 @@ main .n-nav ul {
     background-image: conic-gradient(from 334deg, var(--control-color, #fff) 0, var(--control-color, #fff) 14%, transparent 15%);
     background-repeat: no-repeat;
     background-size: .5em 1em;
-    background-position: center 58%; }
+    background-position: center 58%;
+    font-size: 1rem; }
   .n-drop[data-ready] li > ul ~ a {
     background: none; }
   .n-drop li li[aria-haspopup]:before, .n-drop li li > input {
