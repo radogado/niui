@@ -61,9 +61,15 @@ ul.n-list {
 
 }
 
-nav.n-nav li {
+nav.n-nav {
+	
+	    --control-color: #fff;
+	    
+	    li {
 	
 	display: block;
+
+}
 
 }
 

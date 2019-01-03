@@ -714,3 +714,9 @@ ul.n-list.n-list--inline li {
 	}
 
 }
+
+.n-drop li[aria-haspopup]:before {
+
+    height: 2em;
+
+}

@@ -33,6 +33,12 @@ body.n-type {
 	font-size: 17px;
 	font-family: Camphor, Open Sans, Segoe UI, sans-serif;
 	-webkit-font-smoothing: antialiased;
+	
+	* {
+		
+		box-sizing: border-box;
+		
+	}
 
 	h2, h3 {
 		

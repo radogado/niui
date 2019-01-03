@@ -171,8 +171,8 @@ input[type=search] {
 	
 	nav.n-nav.n-drop {
 		
-		
-		--nav-bg: #282828;
+		--control-bg: #282828;
+		--control-color: #fff;
 		
 	}
 	
@@ -209,13 +209,6 @@ input[type=search] {
 	}
 
 }
-
-nav.n-nav.n-drop li[aria-haspopup] {
-	
-    background-image: url(data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M50%20100L0%200h100z%22%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E);
-	
-}
-
 
 footer {
 	

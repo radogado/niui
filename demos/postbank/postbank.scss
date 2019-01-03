@@ -364,7 +364,7 @@ ul.n-list li:before {
 		z-index: 3;
 		position: relative;
 		border-radius: 0 0 1em 1em;
-		padding: 1em;
+		padding: 0;
 		margin: 0 13%;
 		text-transform: uppercase;
 		line-height: 1.25;
@@ -1071,8 +1071,21 @@ footer .n-row > .footer-col, .footer-nav-list-wrapper {
 }
 
 nav.n-nav.n-drop {
---nav-bg: transparent;
+--control-bg: transparent;
 }
+
+.n-drop li[aria-haspopup] {
+
+	padding: 0;	
+	
+	&:before, input {
+		
+		display: none !important;
+		
+	}
+	
+}
+
 
 .nav-toggle-container {
     -webkit-transform: rotate(0deg);

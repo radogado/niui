@@ -16,6 +16,12 @@ body {
 
 }
 
+img {
+	
+	max-width: 100%;
+
+}
+
 .n-slider--arrow {
 	
 	display: none;
@@ -38,8 +44,8 @@ nav.n-nav.n-drop ul.n-list {
 	
 	nav.n-nav.n-drop {
 		
-		--nav-bg: #333;
-		color: #fff;
+		--control-bg: #333;
+		--control-color: #fff;
 		font-size: .85em;
 	    display: block;
 	
@@ -74,7 +80,7 @@ nav.n-nav {
 
 	background-color: #fff;
     border: 2px solid #f4eacc;
-    padding: 1.25em 2em;
+    padding: 1.25em;
     
     a[href] {
 	    

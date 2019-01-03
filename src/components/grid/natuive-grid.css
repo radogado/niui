@@ -229,7 +229,8 @@
     /* FF 20+ */
     break-inside: avoid-column;
     margin: 0;
-    padding: 0.75em; }
+    padding: 0.75em;
+    box-sizing: border-box; }
   .n-masonry._1\/2 {
     -moz-column-count: 2;
     -webkit-column-count: 2;

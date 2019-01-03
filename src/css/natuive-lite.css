@@ -897,7 +897,8 @@ a.backtotop[href] {
     /* FF 20+ */
     break-inside: avoid-column;
     margin: 0;
-    padding: 0.75em; }
+    padding: 0.75em;
+    box-sizing: border-box; }
   .n-masonry._1\/2 {
     -moz-column-count: 2;
     -webkit-column-count: 2;
@@ -1110,8 +1111,8 @@ ul.n-list.n-list--inline, ul.n-list.n-list--inline li, .n-nav.n-nav--scroll ul l
 .n-nav {
   vertical-align: baseline;
   display: inline-block;
-  background-color: var(--control-bg, #fff);
-  color: var(--control-color, #333); }
+  background-color: var(--control-bg, transparent);
+  color: var(--control-color, inherit); }
   .n-nav ul {
     margin: 0 0 0 -.5em;
     margin: 0;

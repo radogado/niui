@@ -5,9 +5,10 @@ body.n-type {
 	
 }
 
-footer ul.n-list li, footer ul.n-list li a {
+footer ul.n-list li, footer ul.n-list li a, footer h4 {
 	
 	display: block;
+	color: #fff;
 
 }
 
@@ -194,7 +195,7 @@ footer a[href] {
 	
 }
 
-a[href].n-btn, input[type=submit] {
+a[href].n-btn, .n-type a[href].n-btn, input[type=submit] {
 	
 	padding: .75em 2em;
 	border-radius: 3px;

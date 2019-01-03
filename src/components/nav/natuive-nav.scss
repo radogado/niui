@@ -6,8 +6,8 @@
 	
 	vertical-align: baseline;
 	display: inline-block;
-	background-color: var(--control-bg, #fff);
-	color: var(--control-color, #333);
+	background-color: var(--control-bg, transparent);
+	color: var(--control-color, inherit);
 
 	ul {
 	

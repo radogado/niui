@@ -416,6 +416,7 @@
 			break-inside: avoid-column;
 			margin: 0;
 			padding: $line-height-em/2;
+			box-sizing: border-box;
 	
 	    }
 	    

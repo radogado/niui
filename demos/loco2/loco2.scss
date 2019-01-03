@@ -145,6 +145,7 @@ ul.staff.n-list--inline li {
 	margin: 0;
 	font-weight: bold;
 	padding: 0 2em;
+	box-sizing: border-box;
 
 }
 
@@ -154,7 +155,7 @@ ul.staff.n-list--inline li {
 	border-radius: 50%;
 	border: 2px solid teal;
 	margin-bottom: 2em;
-
+	max-width: 100%;
 
 }
 

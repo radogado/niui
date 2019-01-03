@@ -14,6 +14,11 @@ body.n-type, .n-btn, .n-lightbox a, .n-row.wrap > *, .tip, button.n-btn, .n-form
 
 }
 
+body {
+	
+	    position: relative;
+}
+
 .n-form label {
 	
 	display: inline;
@@ -483,6 +488,8 @@ input[type=radio]:checked + .n-form--check-icon:before {
 nav.n-nav.n-drop {
 	
 	width: 100%;
+	--control-color: #fff;
+	--control-bg: #f90;
 
 }
 

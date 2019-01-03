@@ -3,8 +3,8 @@
 .n-nav {
   vertical-align: baseline;
   display: inline-block;
-  background-color: var(--control-bg, #fff);
-  color: var(--control-color, #333); }
+  background-color: var(--control-bg, transparent);
+  color: var(--control-color, inherit); }
   .n-nav ul {
     margin: 0 0 0 -.5em;
     margin: 0;
