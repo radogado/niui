@@ -199,9 +199,15 @@ main a[href]:not(.span-relative-parent):after, .sign-in:after {
     background: #a1ffc8
 }
 
-nav.n-nav.n-drop li {
+nav.n-nav.n-drop {
+
+    --control-color: #fff;
+    
+	li {
+		
+		background-color: transparent;
 	
-	background-color: transparent;
+	}
 
 }
 
@@ -470,6 +476,7 @@ nav.n-nav.n-drop li {
 	background: none;
     color: #6772e5;
     padding: .5em 1em;
+	margin: 3px;
     	
 }
 

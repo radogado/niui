@@ -201,6 +201,12 @@ footer {
 
 }
 
+.partners.n-row>div>div>img {
+
+	height: 2em;
+
+}
+
 .partners p b {
 	
 	font-size: 1.25em;
@@ -296,7 +302,7 @@ footer {
 
 @media (min-width: 900px) {
 	
-	.speakers img {
+	.speakers img, .speakers .n-row > div > img {
 		
 		margin-top: -1em; 
 		position: absolute;

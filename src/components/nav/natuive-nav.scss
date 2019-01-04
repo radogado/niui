@@ -262,7 +262,8 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 		border-radius: 0;
 		right: 0;
 		z-index: 1;
-		width: 2em;
+		width: 2rem;
+		margin: 0;
 					
 	}
 	
@@ -273,7 +274,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 		display: block;
 		right: 0;
 		top: 0;
-		width: 2em;
+		width: 2rem;
 		height: 100%;
 		
 	}
@@ -292,20 +293,10 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 
 	li[aria-haspopup]:before, li > input {
 	
-/*
-	    background: linear-gradient(-113deg, transparent 60%, var(--control-bg, #fff) 63%), linear-gradient(113deg, transparent 60%, var(--control-bg, #fff) 63%), linear-gradient(to bottom, var(--control-color, #333), var(--control-color, #333));
-	    background-size: 1em 1em;
-	    background-repeat: no-repeat;
-		background-position: calc(100% - .5em) center;
-		font-size: .75rem;
-		margin: 0;
-*/
 
-		background-image: conic-gradient( from 334deg, var(--control-color, #fff) 0, var(--control-color, #fff) 14%, transparent 15% );
-	    background-repeat: no-repeat;
-	    background-size: .5em 1em;
-	    background-position: center 58%;
-		font-size: 1rem;        
+		-webkit-mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EUntitled%3C/title%3E%3Cdesc%3ECreated with Sketch.%3C/desc%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(180) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A") center center no-repeat;
+		-webkit-mask-size: .5rem;
+		background-color: var(--control-color, #000);
 
    	}
 
@@ -315,17 +306,10 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 		
 	}
 
-/*
-// Up
-	    background-image: conic-gradient( from 152deg, var(--control-color, #fff) 0, var(--control-color, #fff) 14%, transparent 15% );
-		background-position: center center;
-*/
-
-	
 	li li[aria-haspopup]:before, li li > input {
 	
-	    background-image: conic-gradient(from 242deg,var(--control-color,#fff) 0,var(--control-color,#fff) 14%,transparent 15%);
-	    background-size: 1em 1em;
+		-webkit-mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EUntitled%3C/title%3E%3Cdesc%3ECreated with Sketch.%3C/desc%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(90) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A") center center no-repeat;
+		-webkit-mask-size: .5rem;
     
 	}
 	
@@ -360,7 +344,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 			}
 	
 			> ul 		> li:hover > input:not(:checked) ~ ul,
-			> ul li ul > li:hover > input:not(:checked) ~ ul,
+			> ul li ul 	> li:hover > input:not(:checked) ~ ul,
 			> ul > li:not([aria-haspopup]):hover > input:not(:checked) ~ ul,
 			> ul li:not([aria-haspopup]) ul li:hover > input:not(:checked) ~ ul {
 				
@@ -374,7 +358,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 	
 			> ul > li:not([aria-haspopup]):hover > ul,
 			> ul 		> li:hover > ul,
-			> ul li ul > li:hover > ul,
+			> ul li ul 	> li:hover > ul,
 			ul ul :checked ~ ul:not([aria-expanded]),
 			> ul li:not([aria-haspopup]) ul li:hover ~ ul {
 				
