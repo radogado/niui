@@ -59,7 +59,8 @@
   max-height: 100%;
   vertical-align: middle;
   margin: 0 auto;
-  display: block; }
+  display: block;
+  max-width: 100%; }
 
 .n-slider[data-peek] > * > img {
   padding: 0 .25em;
