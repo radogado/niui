@@ -116,6 +116,7 @@ footer ul.n-list li a[href] {
 	font-weight: bold;
 	color: rgba(0, 0, 0, 0.5);
 	display: block;
+    padding: 0;
 	
 }
 
@@ -125,6 +126,7 @@ footer ul.n-list li a[href].n-btn {
 	color: rgba(0,0,0,.3);
 	font-weight: normal;
 	padding: 0;
+	margin-top: 1em;
 
 }
 
@@ -290,6 +292,12 @@ input[type=email] {
 .n-row * .n-row {
 	
 	margin-top: -11px;
+	
+}
+
+.n-form {
+	
+	padding: 0;
 	
 }
 

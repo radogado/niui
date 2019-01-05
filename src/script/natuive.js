@@ -2804,9 +2804,9 @@ var componentSlider = (function (){
 		    
 		if (hasClass(slider, 'n-slider--fade-overlap')) { // fade slides in/out directly. Overlap new and old slides.
 			
-		    slider.children[index].style.opacity = '0';
+		    slider.children[index].style.opacity = 0;
 			slider.children[index > old_index ? index : old_index].style.marginLeft = '-100%';
-		    slider.children[old_index].style.opacity = '1';
+		    slider.children[old_index].style.opacity = 1;
 
 			// Animate both simultaneously
 

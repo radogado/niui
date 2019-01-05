@@ -1,4 +1,9 @@
-body.n-type {
+* {
+	box-sizing: border-box;
+
+}
+
+	body.n-type {
 	
 	font-family: 'Helvetica Neue', sans-serif;
 	background-color: #eaeaea;
@@ -33,6 +38,7 @@ body.n-type {
 	
 	white-space: nowrap;
 	padding: 0;
+	display: inline-block;
 
 }
 

@@ -63,12 +63,17 @@ body {
 
 }
 
+.n-type main a[href] {
+	
+	color: #fff;
+
+}
+
 .n-type {
 
 	a[href] {
 		
 		text-decoration: none;
-// 		color: #fff;
 		
 	}
 	
@@ -164,7 +169,8 @@ body {
 }
 
 .n-header .n-form {
-	
+
+	display: inline-block;
 	position: relative;
 
 	input {
@@ -371,10 +377,11 @@ a.span-relative-parent ~ a:after {
 	height: 2.8em;
 	border-radius: .2rem;
 	left: 0;
-	padding: 0;
+	padding: 1em;
 	line-height: 2.3em;
 	text-align: center;
 	background: rgba(0,0,0,.3);
+	color: #fff;
 
 }
 
