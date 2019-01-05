@@ -141,8 +141,8 @@
     height: 1em;
     display: inline-block;
     background-color: var(--control-bg, #eee);
-    line-height: 1.66667;
-    font-size: -0.33333em;
+    line-height: 1.6666666667;
+    font-size: -0.3333333333em;
     text-align: center;
     color: var(--control-color, #333);
     display: none;
@@ -323,7 +323,7 @@
       cursor: pointer;
       background: var(--control-bg, rgba(0, 0, 0, 0.1)); }
     .n-form input[type=range]::-moz-range-thumb {
-      border: 0px solid transparent;
+      border: 0px solid rgba(0, 0, 0, 0);
       height: 1.625em;
       width: 1.625em;
       border-radius: 50%;
@@ -390,9 +390,9 @@
     width: 100%;
     background-position: calc(100% - .5em);
     margin-left: 0;
-    background-color: unset;
-    height: 1.5em;
-    line-height: 1.5em; }
+    height: 3em;
+    line-height: 3em;
+    margin: 0; }
   .n-form.n-form--language input[type=submit] {
     min-height: 1em;
     padding: 0 .5em; }

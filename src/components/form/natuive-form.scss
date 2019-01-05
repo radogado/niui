@@ -708,9 +708,9 @@ $placeholder_color: #aaa;
 			width: 100%;
 			background-position: calc(100% - .5em);
 			margin-left: 0;
-			background-color: unset;
-		    height: $line-height-em;
-		    line-height: $line-height-em;
+		    height: $line-height-em*2;
+		    line-height: $line-height-em*2;
+		    margin: 0;
 			
 		}
 		
