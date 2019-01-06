@@ -55,6 +55,12 @@ body.n-type {
 
 }
 
+* {
+	
+	box-sizing: border-box;
+
+}
+
 .n-header {
 	
 	border-bottom: #6FB89B .4em solid;
@@ -88,6 +94,8 @@ body.n-type {
 }
 
 .n-banner {
+	
+	padding-top: 1em;
 	
 	h1 {
 		
@@ -170,6 +178,12 @@ footer {
 	
 	background: #000;
 	color: #fff;
+
+}
+
+.content {
+	
+	padding: 1em 0;
 
 }
 
@@ -351,6 +365,7 @@ input[type=text] {
 	box-sizing: border-box;
 	margin-bottom: 1em;
 	margin-right: 1em;
+    padding: 1em;
 
 }
 

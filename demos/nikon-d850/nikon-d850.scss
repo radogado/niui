@@ -141,6 +141,12 @@ body {
 
 }
 
+a[href] img {
+
+	max-width: 100%;
+
+}
+
 nav.n-nav.n-drop ul.n-list li {
 	
 	flex-grow: 1;
@@ -399,6 +405,7 @@ footer ul.n-list.n-row > li > span {
 	display: flex;
 	flex-direction: column;
 	height: 100%;
+	box-sizing: border-box;
 
 }
 
@@ -538,6 +545,12 @@ footer ul.n-list.n-row > li > span {
 	background: url(zoom.jpg) center center no-repeat;
 	background-position: -580px -300px;
 
+}
+
+ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li {
+
+	margin: 0;	
+	
 }
 
 @media (min-width: 600px) {

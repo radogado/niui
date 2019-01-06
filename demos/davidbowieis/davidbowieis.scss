@@ -97,8 +97,9 @@ h1, h2, h3 {
 	display: inline-block;
 	background: #000 url(earth.png) left center no-repeat;
 	background-size: auto 1.5em;
-	padding: 0 0 0 2em;
+	padding: 0 0 0 3em;
 	background-position: .75em center;
+    --control-bg: #aaa;
 	
 }
 

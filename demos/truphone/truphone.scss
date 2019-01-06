@@ -1,6 +1,12 @@
 
 @import url('//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900');
 
+* {
+	
+	box-sizing: border-box;
+	
+}
+
 body {
 	
 	color: #0d313f;
@@ -14,6 +20,14 @@ body {
 	background: url(home-banner_bg.jpg) no-repeat center center;
 	background-size: cover;
 	color: #fff;
+	
+	.n-row > * > .n-row {
+		
+	    margin-left: -.4em;
+	    max-width: none;
+	    width: calc(100% + 2.2em);
+		
+	}	
 
 }
 
@@ -70,6 +84,13 @@ body {
 .n-contain {
 	
 	max-width: 1176px;
+	overflow: hidden;
+
+}
+
+.n-header .n-contain {
+	
+	overflow: visible;
 
 }
 
