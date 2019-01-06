@@ -60,7 +60,6 @@ NPM usage:
 - Supporting IE8+, Safari, Chrome, Firefox, Opera, Android 2.3+, iOS, Windows Phone
 - Graceful degradation
 - All components are accessible by keyboard
-- Full documentation in [natUIve.pdf](https://radogado.github.io/natuive/natUIve.pdf)
 - Includes a FREE picture of a cat
 
 \* exclusive features, missing in popular frameworks

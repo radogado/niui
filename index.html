@@ -3,207 +3,4075 @@
 
 <head>
 	
-	<title>natUIve</title>
+	<title>natUIve Guide</title>
 	
 	<meta charset=utf-8>
 	<meta name=viewport content='width=device-width,initial-scale=1.0,maximum-scale=5,user-scalable=yes'>
 
 	<link rel=icon href=images/favicon.ico>
 	<link rel=styleSheet href=dist/natuive.min.css type=text/css media=screen>
-<!-- 	<link rel=styleSheet href=dist/natuive.min.css type=text/css media=screen> -->
+	<link rel=styleSheet href=src/css/guide.css type=text/css media=screen>
+	<link rel=styleSheet href=src/css/prism.css type=text/css media=screen>
+
 	<!--[if lte IE 9]> 
-		<link rel=styleSheet href=src/css/ie.css type=text/css media=screen>
-		<script src=src/script/ie-fallback.js></script> 
+		<link rel=styleSheet href=dist/ie.css type=text/css media=screen>
+		<script src=dist/ie-fallback.js type=text/javascript></script>
 	<![endif]-->
-
-</head>
-
-<body dir=ltr class="n-type">
-
-	<div class='n-header-banner n-viewport n-push-up'>
-		
-		<header class="n-header">
-			
-			<div class="n-row n-contain n-row--no-padding-">
-				
-				<div>
-			
-					<a href=# class='n-logo' style="min-height: 46px;">
-					
-						<img src=images/natuive.svg alt=Logo onerror='this.src=this.src.replace(".svg",".png");this.onerror=null;'>
-						
-					</a>
-				
-				</div>
-			
-			</div>
-		
-		</header>
 	
-		<div class=n-banner>
+</head>
+	
+<body dir=ltr class="n-type">
+<!-- <div class='notify'>Whoops</div> -->
+	<!-- Head - Start -->
+
+	<main id=content class="n-row n-row--no-spacing">
 		
-			<div class='n-contain n-row'>
+		<div class="_1/4 nav-column">
+			
+<!-- 			<div class='n-slider--nav' data-for='guide-slider'></div>		 -->
+
+			<div class="n-slider--nav n-slider--vertical n-row n-tabs" data-for="guide-slider"><a tabindex="0" href=#home>natUIve</a><a tabindex="0" href=#npm>NPM install</a><a tabindex="0" href=#page-structure>Page structure</a><a tabindex="0" href=#grid>Grid</a><a tabindex="0" href=#nav>Navigation</a><a tabindex="0" href=#typography>Typography</a><a tabindex="0" href=#aspect-ratio>Aspect ratio</a><a tabindex="0" href=#slider>Slider</a><a tabindex="0" href=#tabs>Tabs</a><a tabindex="0" href=#lightbox>Lightbox</a><a tabindex="0" href=#video>Video</a><a tabindex="0" href=#tables>Tables</a><a tabindex="0" href=#fold>Fold (Accordion)</a><a tabindex="0" href=#tooltip>Tooltip</a><a tabindex="0" href=#modal-window>Modal window</a><a tabindex="0" href=#buttons>Buttons</a><a tabindex="0" href=#lists>Lists</a><a tabindex="0" href=#form>Forms</a><a tabindex="0" href=#masonry>Masonry</a><a tabindex="0" href=#cards>Cards</a><a tabindex="0" href=#fixed-background>Fixed background</a><a tabindex="0" href=#language-selector>Language selector</a><a tabindex="0" href=#parallax>Parallax scrolling</a><a tabindex="0" href=#scroll>Scroll effects</a><a tabindex="0" href=#notifications>Notification bar</a><a tabindex="0" href=#copy>Copy to clipboard</a><a tabindex="0" href=#back-to-top>'Back to top' button</a><a tabindex="0" href=#animate>animate() function</a><a tabindex="0" href=#grid-inline-popup>Grid with inline popups</a><a tabindex="0" href=#dynamic-components>Dynamic components</a><a tabindex="0" href=#wordpress>WordPress theme</a><a tabindex="0" href=#colors>Color scheme</a></div>
+		
+		</div>
+		
+		<div class="_3/4">
+
+			<div class="n-slider--wrap n-slider--vertical n-slider--detached-nav n-tabs">
+
+				<div class='n-slider n-tabs n-slider--vertical' id='guide-slider' data-duration-="5">
+			
+				<div data-tab_title='natUIve' id=home>
+					
+					<div class='n-header-banner n-viewport n-push-up'>
+	
+						<div class=n-banner>
+		
+							<div class='contain n-row'>
+
+								<div class='_1/1 n-middle n-center'>
+					
+									<div>					
+	
+										<h2>lightweight, feature-heavy web front-end</h2>
+										<p><br></p>
+									
+										<img src=images/natuive.svg alt=Logo style="display: inline-block; vertical-align: top; height: 60px;"> <sup>2.0</sup>
+	
+										<p><br></p>
+<ul class="n-masonry n-left">
+<li>Lightweight, 9+9 K</li>
+<li>Accessible</li>
+<li>Feature-packed</li>
+<li>Dozens of demo pages</li>
+<li>Seamless loading</li>
+<li>WordPress theme</li>
+<li>No dependencies</li>
+<li>Style agnostic</li>
+<li>Cross-embeddable components</li>
+<li>Encapsulated JS and CSS</li>
+<li>Auto initialize components</li>
+<li>Built for edge cases</li>
+</ul>
+										<a href=//github.com/radogado/natuive>GitHub page</a>
+							
+										<br><br>
+								
+									</div>
+						
+								</div>
+								
+								<div class="n-row" style="--width: 1000; --height: 1000;">
+					
+
+									<a class="_1/5 n-aspect" href=demos/postbank title="Postbank"> <img src='images/postbank.jpg' alt="Postbank"> </a>
+									<a class="_1/5 n-aspect" href=demos/cnn-travel title="CNN Travel"> <img src='images/cnn-travel.png' alt="CNN Travel"> </a>
+									<a class="_1/5 n-aspect" href=demos/hasselblad title="Hasselblad Chinese"> <img src='images/hasselblad.png' alt="Hasselblad Chinese"> </a>
+									<a class="_1/5 n-aspect" href=demos/tutsplus title="Tutsplus"> <img src='images/tutsplus.png' alt="Tutsplus"> </a>
+									<a class="_1/5 n-aspect" href=demos/enoden title="Enoden"> <img src='images/enoden.jpg' alt="Enoden"> </a>
+									<a class="_1/5 n-aspect" href=demos/nikon-d850 title="Nikon D850"> <img src='images/nikon-d850.jpg' alt="Nikon D850"> </a>
+									<a class="_1/5 n-aspect" href=demos/vi.nl title="VI.nl"> <img src='images/vi.nl.png' alt="VI.nl"> </a>
+									<a class="_1/5 n-aspect" href=demos/loco2 title="Loco2"> <img src='images/loco2.jpg' alt="Loco2"> </a>
+									<a class="_1/5 n-aspect" href=demos/apex title="Apex"> <img src='images/apex.jpg' alt="Apex"> </a>
+									<a class="_1/5 n-aspect" href=demos/pixelpioneers title="Pixel Pioneers"> <img src='images/pixelpioneers.png' alt="Pixel Pioneers"> </a>
+									<a class="_1/5 n-aspect" href=demos/truphone title="Truphone"> <img src='images/truphone.jpg' alt="Truphone"> </a>
+									<a class="_1/5 n-aspect" href=demos/seehotel-jaegerwirt title="Seehotel Jägerwirt"> <img src='images/seehotel-jaegerwirt.jpg' alt="Seehotel Jägerwirt"> </a>
+									<a class="_1/5 n-aspect" href=demos/uncharted-the-lost-legacy title="Uncharted: The Lost Legacy"> <img src='images/uncharted.jpg' alt="Uncharted: The Lost Legacy"> </a>
+									<a class="_1/5 n-aspect" href=demos/davidbowieis title="David Bowie Is (Japan)"> <img src='images/davidbowieis.png' alt="David Bowie Is (Japan)"> </a>
+									<a class="_1/5 n-aspect" href=demos/norwegian title="Norwegian"> <img src='images/norwegian.png' alt="Norwegian"> </a>
+									<a class="_1/5 n-aspect" href=demos/starwars title="Star Wars"> <img src='images/starwars.png' alt="Star Wars"> </a>
+									<a class="_1/5 n-aspect" href=demos/stripe title="Stripe"> <img src='images/stripe.png' alt="Stripe"> </a>
+									<a class="_1/5 n-aspect" href=demos/amnesty title="Amnesty"> <img src='images/amnesty.png' alt="Amnesty"> </a>
+									<a class="_1/5 n-aspect" href=demos/tesla title="Tesla"> <img src='images/tesla.png' alt="Tesla"> </a>
+									<a class="_1/5 n-aspect" href=demos/brandunion title="Brand Union"> <img src='images/brandunion.png' alt="Brand Union"> </a>
+									<a class="_1/5 n-aspect" href=demos/apple title="Apple"> <img src='images/apple.png' alt="Apple"> </a>
+									<a class="_1/5 n-aspect" href=demos/vitsoe title="Vitsœ"> <img src='images/vitsoe.png' alt="Vitsœ"> </a>
+									<a class="_1/5 n-aspect" href=demos/daringfireball title="Daring Fireball"> <img src='images/daringfireball.png' alt="Daring Fireball"> </a>
+									<a class="_1/5 n-aspect" href=demos/google-design title="Google Design"> <img src='images/google-design.png' alt="Google Design"> </a>
+									<a class="_1/5 n-aspect" href=demos/gov.uk title="GOV.UK"> <img src='images/gov.uk.png' alt="GOV.UK"> </a>
+									<a class="_1/5 n-aspect" href=demos/airbnb title="Airbnb"> <img src='images/airbnb.png' alt="Airbnb"> </a>
+									<a class="_1/5 n-aspect" href=demos/mapbox title="Mapbox"> <img src='images/mapbox.png' alt="Mapbox"> </a>
+									<a class="_1/5 n-aspect" href=demos/swiss title="SWISS"> <img src='images/swiss.png' alt="SWISS"> </a>
+									<a class="_1/5 n-aspect" href=demos/mubi title="MUBI"> <img src='images/mubi.png' alt="MUBI"> </a>
+									<a class="_1/5 n-aspect" href=demos/mrj title="Mitsubishi Regional Jet"> <img src='images/mrj.png' alt="Mitsubishi Regional Jet"> </a>
+									<a class="_1/5 n-aspect" href=demos/jetblue title="JetBlue"> <img src='images/jetblue.png' alt="JetBlue"> </a>
+									<a class="_1/5 n-aspect" href=demos/seat61 title="Seat 61"> <img src='images/seat61.png' alt="Seat 61"> </a>
+									<a class="_1/5 n-aspect" href=demos/pebble title="Pebble"> <img src='images/natUIve%20(20151030)%20pebble%20-.png' alt="Pebble"> </a>
+									<a class="_1/5 n-aspect" href=demos/imperialinnovations title="Imperial Innovations"> <img src='images/natUIve%20(20151030)%20imperial%20-.png' alt="Imperial Innovations"> </a>
+									<a class="_1/5 n-aspect" href=demos/microsoft title="Microsoft"> <img src='images/natUIve%20Microsoft%20(20151030)%20-.png' alt="Microsoft"> </a>								
+								</div>
+
+							</div>
+		
+						</div>
+		
+					</div>
 				
-				<div class="n-middle n-full-mobile-width">
-
-					<picture class="n-aspect" style="--ratio: 1;">
-					
-						<img src="images/cat.jpg" alt="Portrait">
-					
-					</picture>					
-
 				</div>
-		
-				<div class='_2/3 n-middle'>
 				
+				<div data-tab_title='NPM install' id=npm>
+					
 					<div>
+						
+						<div class="n-row">
+							
+							<div>
+						
+						<h2>Install with NPM and include the natUIve files in your app</h2>
+						
+						<div class=code>
+						
+<pre><code class="language-js">npm install --save-dev natuive</code>
+</pre>
+						
+						</div>
+<br>						
+						<div class=code>
 
-						<h1 style="font-size: calc(100% + 3vw); line-height: 1.1;"> <!-- To do: this font size should have the proper line height divisible by 24px -->
+<pre><code class="language-js">require('./node_modules/natuive/index.js');</code>
+</pre>
+						
+						</div>
+						
+						</div>
+						</div>
+						
+					</div>
+					
+				</div>
+
+				<div data-tab_title='Page structure' id=page-structure>
+					
+					<div class='n-row'>
+					
+					<div>
+						
+						<h2>Page structure</h2>
+						
+						<div class="code">
+						
+<pre><code class="language-markup">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;meta charset=utf-8&gt;
+	&lt;meta name=viewport content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no'&gt;
+	&lt;link rel=styleSheet href=natuive.min.css type=text/css media=screen&gt;
+	&lt;!--[if lte IE 9]&gt; 
+		&lt;link rel=styleSheet href=ie.css type=text/css media=screen&gt;
+		&lt;script src=ie-fallback.js type=text/javascript&gt;&lt;/script&gt;
+	&lt;![endif]--&gt;
+&lt;/head&gt;
+&lt;body class=n-type&gt;
+	&lt;div class=n-header-banner&gt;
+		&lt;header class=n-header&gt;
+			Header
+		&lt;/header&gt;
+		&lt;div class=n-banner&gt;
+			Banner
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;main&gt;
+		Main content
+	&lt;/main&gt;
+	&lt;footer class=n-footer&gt;
+		Footer
+	&lt;/footer&gt;
+	&lt;script src=natuive.min.js type=text/javascript async&gt;&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+						
+						</div>
+						
+						<h3>Options</h3>
+						
+						<ul class="n-list">
 							
-							lightweight, feature-heavy front-end framework
+							<li><pre>.n-header-banner.n-viewport</pre> – full-height centered header and banner area
+								<ul class="n-list">
+									<li>add <pre>.n-push-up</pre> to balance at 1/3 height, instead of 1/2</li>
+								</ul>
+							</li>
+							<li>Use <pre>.n-section</pre> containers in <pre>main</pre> to clear inner margins at top/bottom</li>
+							<li><pre>.n-header.n-fixed</pre> for fixed header on top on narrow screens (below 600px threshold)</li>
+							<li><b>body.n-sticky-footer</b> for a sticky footer and vertical space taken by <b>main</b>.</li>
+							<li>Check the <b>Navigation</b> section for mobile burger nav.</li>
+							<li><pre>html.n-vertical-page</pre> blocks horizontal overflow.</li>
 						
-						</h1>
+						</ul>
 						
-						<h2>
+					</div>
+					
+					</div>
+				
+				</div>
+				
+				<div data-tab_title=Grid id=grid> <div> 
+					
+					<div class='n-row'>
 						
-							with a picture of a cat
+						<div class='_1/1'> 
 							
-						</h2>
+							<h2>Grid</h2> 
+							
+							<h3>Columns with classes like <b>_1/3</b> inside a container of class <b>n-row</b></h3>
 						
-						<p class=n-drop-cap>
+						</div>
 						
-							Increase conversion by decreasing page load time down to &lt;5" on slow mobile networks. Improve development by using standard building blocks that are flexible to customise and combine. Improve stability and compatibility by not pushing the browsers more than necessary. With the negligible weight of 9+9 KB (9K required CSS, 9K JS enhancements), remove the barrier between your product and your customers everywhere.
+					</div>
+					
+					<div class='n-row grid-demo'>
+					
+						<div class='_1/5 n-center'>
+							
+							<div><pre>_1/5</pre></div>
+							
+						</div>
+					
+						<div class='_4/5 n-center'>
+							
+							<div><pre>_4/5</pre></div>
+							
+						</div>
+					
+						<div class='_1/4 n-center'>
+							
+							<div><pre>_1/4</pre></div>
+							
+						</div>
+					
+						<div class='_3/4 n-center'>
+							
+							<div><pre>_3/4</pre></div>
+							
+						</div>
+					
+						<div class='_1/3 n-center'>
+							
+							<div><pre>_1/3</pre></div>
+							
+						</div>
+					
+						<div class='_2/3 n-center'>
+							
+							<div><pre>_2/3</pre></div>
+							
+						</div>
+					
+						<div class='_2/5 n-center'>
+							
+							<div><pre>_2/5</pre></div>
+							
+						</div>
+					
+						<div class='_3/5 n-center'>
+							
+							<div><pre>_3/5</pre></div>
+							
+						</div>
+					
+						<div class='_1/2 n-center'>
+							
+							<div><pre>_1/2</pre></div>
 						
-						</p>
+						</div>
+
+						<div class='_1/2 n-center'>
+							
+							<div><pre>_1/2</pre></div>
 						
-						<div class="n-btn--group">
-						
-							<a href=#features class='n-btn--big n-btn'>Features</a>
-							<a href=#showcase class='n-btn--big n-btn'>Showcase</a>
-							<a href=guide/ class='n-btn--big n-btn'>Guide</a>
-							<a href=//github.com/radogado/natuive class='n-btn--big n-btn'>Get it from GitHub</a>
+						</div>
+
+						<div class='_1/1 n-center'>
+							
+							<div><pre>_1/5</pre></div>
 						
 						</div>
 
 					</div>
+					
+					<div class='n-row'>
+						
+						<div class='_1/1'> 
+							
+<div class="code">
 
-				</div>
-			
-			</div>
+<pre><code class="language-markup">&lt;div class='n-row'&gt;
+	&lt;div&gt;
+		&lt;div&gt;...&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class=_1/3&gt;
+		&lt;div&gt;...&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+</div>
+					
+						</div>
+						
+					</div>
+					
+					<div class='n-row'>
+						
+						<div class='_1/1'> 
+							
+							<h2>Alignment</h2> 
+						
+						</div>
+						
+					</div>
+					
+					<div class='n-row grid-demo'>
+					
+						<div>
+							
+							<div>Left Top<p><br></p></div>
+						
+						</div>
+						<div class='n-center'>
+							
+							<div>Center Top</div>
+							
+						</div>
+						<div class='n-right'>
+							
+							<div>Right Top</div>
+							
+						</div>
+						<div class='n-middle'>
+							
+							<div>Left Middle</div>
+							
+						</div>
+						<div class='n-bottom'>
+							
+							<div>Left Bottom</div>
+							
+						</div>
+						<div class='n-center n-middle'>
+							
+							<div>Center Middle</div>
+							
+						</div>
+						<div class='n-right n-middle'>
+							
+							<div>Right Middle</div>
+							
+						</div>
+						<div class='n-center n-bottom'>
+							
+							<div>Center Bottom</div>
+							
+						</div>
+						<div class='n-right n-bottom'>
+							
+							<div>Right Bottom</div>
+							
+						</div>
+						<div>ThisLineIsTooLongAndMustBeClippedByTheContainerEvenThoughOverflowXandYDontWorkAsExpected</div>
+					
+					</div>
+					
+					<div class='n-row'>
+						
+						<div class='_1/1'> 
+
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-row'&gt;
+	&lt;div&gt;
+		&lt;div&gt;Left Top&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class='n-center'&gt;
+		&lt;div&gt;Center Top&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class='n-right'&gt;
+		&lt;div&gt;Right Top&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class='n-middle'&gt;
+		&lt;div&gt;Left Middle&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class='n-bottom'&gt;
+		&lt;div&gt;Left Bottom&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class='n-center n-middle'&gt;
+		&lt;div&gt;Center Middle&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class='n-right n-middle'&gt;
+		&lt;div&gt;Right Middle&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class='n-center n-bottom'&gt;
+		&lt;div&gt;Center Bottom&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class='n-right n-bottom'&gt;
+		&lt;div&gt;Right Bottom&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div&gt;ThisLineIsTooLongAndMustBeClippedByTheContainerEvenThoughOverflowXandYDontWorkAsExpected&lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+</div>					
+						</div>
+						
+					</div>
+					
+					<div class='n-row'>
+						
+						<div class='_1/1'> 
+							
+							<h3>Grid without column padding</h3> 
+
+						</div>
+						
+					</div>
+					
+					<div class='n-row grid-demo n-row--no-padding'>
+					
+						<div class='_1/2 n-bottom'>
+							
+							<div>Bottom-aligned 1/2 wide column</div>
+						
+						</div>
+						<div class='_1/4 n-right'>
+							
+							<div>Right-aligned 1/2 wide column.<p><br></p><p><br></p></div>
+							
+						</div>
+						<div class='_1/4 n-right'>
+							<div class="n-row--vertical n-row">
+								<div>Top part of a vertical row in a normal column.</div>
+								<div class='n-bottom' style='text-align: start;'>Bottom part of a vertical row.</div>
+							</div>
+						</div>
+					
+					</div>
+				
+					<div class='n-row'>
+						
+						<div class='_1/1'> 
+							
+
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-row n-row--no-padding'&gt;
+	&lt;div&gt;
+		&lt;div&gt;...&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+
+</div>					
+						</div>
+						
+					</div>
+					
+					<div class='n-row'>
+						
+						<div class='_1/1'> 
+							
+							<h3>Grid without column margin (gutter)</h3> 
+
+						</div>
+						
+					</div>
+					
+					<div class='n-row grid-demo n-row--no-margin'>
+					
+						<div class='_1/2 n-bottom'>
+							
+							<div>Bottom-aligned 1/2 wide column</div>
+						
+						</div>
+						<div class='_1/4 n-right' style='background: lightcoral;'>
+							
+							<div>Right-aligned 1/2 wide column.<p><br></p><p><br></p></div>
+							
+						</div>
+						<div class='_1/4 n-right'>
+							<div class="n-row--vertical n-row">
+								<div>Top part of a vertical row in a normal column.</div>
+								<div class='n-bottom' style='text-align: start;'>Bottom part of a vertical row.</div>
+							</div>
+						</div>
+					
+					</div>
+				
+					<div class='n-row'>
+						
+						<div class='_1/1'> 
+							
+
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-row n-row--no-margin'&gt;
+	&lt;div&gt;
+		&lt;div&gt;...&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+
+</div>					
+						</div>
+						
+					</div>
+					
+					<div class='n-row'>
+						
+						<div class='_1/1'> 
+							
+							<h3>Grid without spacing</h3> 
+							
+						</div>
+						
+					</div>
+					
+					<div class='n-row'>
+						
+						<div>
+					
+							<div class='n-row grid-demo n-row--no-spacing'>
+					
+								<div class='_1/2'>
+									1
+								</div>
+								<div class='_1/4' style='background: lightcoral;'>
+									2
+								</div>
+								<div class='_1/4'>
+									3
+								</div>
+							
+							</div>
+					
+						</div>
+					
+					</div>
+
+					<div class='n-row'>
+						
+						<div class='_1/1'> 
+							
+
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-row n-row--no-spacing'&gt;
+	&lt;div&gt;
+		&lt;div&gt;...&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+
+</div>					
+						</div>
+						
+					</div>
+					
+					<div class='n-row'>
+						
+						<div class='_1/1'> 
+							
+							<h3>Embedded grid</h3> 
+						
+						</div>
+						
+					</div>
+					
+					<div class='n-row grid-demo'>
+					
+						<div>
+							
+							<div class='n-row'>
+								
+								<div>Child grid column</div>
+								<div>Child grid column</div>
+
+							</div>							
+						
+						</div>
+						<div class='_1/3'>
+							
+							<div>Parent grid column</div>
+							
+						</div>
+					
+					</div>
+				
+					<div class='n-row'>
+						
+						<div class='_1/1'> 
+							
+
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-row'&gt;
+	&lt;div&gt;
+		&lt;div class='n-row'&gt;
+			&lt;div&gt;Child grid column&lt;/div&gt;
+			&lt;div&gt;Child grid column&lt;/div&gt;
+		&lt;/div&gt;							
+	&lt;/div&gt;
+	&lt;div class='_1/3'&gt;
+		&lt;div&gt;Parent grid column&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+
+</div>					
+						</div>
+						
+					</div>
+					
+					<div class='n-row'>
+						
+						<div class='_1/1'> 
+							
+							<h3>Embedded grid without extra spacing</h3> 
+						
+						</div>
+						
+					</div>
+					
+					<div class='n-row grid-demo'>
+					
+						<div>
+							
+							<div class='n-row n-unpad'>
+								
+								<div>Child grid column</div>
+								<div>Child grid column</div>
+
+							</div>							
+						
+						</div>
+						<div class='_1/3'>
+							
+							<div>Parent grid column</div>
+							
+						</div>
+
+					</div>
+				
+					<div class='n-row'>
+						
+						<div class='_1/1'> 
+							
+
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-row'&gt;
+	&lt;div&gt;
+		&lt;div class='n-row n-unpad'&gt;
+			&lt;div&gt;Child grid column&lt;/div&gt;
+			&lt;div&gt;Child grid column&lt;/div&gt;
+		&lt;/div&gt;							
+	&lt;/div&gt;
+	&lt;div class='_1/3'&gt;
+		&lt;div&gt;Parent grid column&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+
+</div>					
+						</div>
+						
+					</div>
+					
+					<div class='n-row'>
+						
+						<div class='_1/1'> 
+							
+							<h3>Grid with borders</h3> 
+						
+						</div>
+						
+					</div>
+					
+					<div class='n-row'>
+
+						<div>
+
+							<div class='n-row n-border'>
+							
+								<div class="_1/2"> 
+									<h2>Grid with borders</h2> 
+								</div>
+							
+								<div class='_1/2 n-center n-middle'>
+									
+									<div>
+					
+										Middle
+					
+									</div>
+							
+								</div>
+
+								<div class="_1/1">
+									
+									<div>Full width</div>
+								
+								</div>
+							
+							</div>
+<br>							
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-row n-border'&gt;
+	&lt;div&gt;...&lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+
+</div>					
+							<br>
+
+							<div class='n-row n-border-all'>
+							
+								<div class="_1/2"> 
+									<h2>Grid with all borders</h2> 
+								</div>
+							
+								<div class='_1/2 n-center n-middle'>
+									
+									<div>
+					
+										Middle
+					
+									</div>
+							
+								</div>
+
+								<div class="_1/1">
+									
+									<div>Full width</div>
+								
+								</div>
+							
+								<div class="_1/3"> 
+									<div>Top</div> 
+								</div>
+								<div class="_1/3 n-bottom n-center"> 
+									<div>Center Bottom</div> 
+								</div>
+							
+								<div class='_1/3 n-right'>
+									
+									<div>
+										
+										<div class="n-row">
+											
+											<div class="_1/1">Right</div>
+											<div class="_1/1">Right</div>
+										
+										</div>
+										
+									</div>
+							
+								</div>
+							
+					</div>
+
+						</div>
+					
+					</div>
+					
+					<div class='n-row'>
+						
+						<div class='_1/1'> 
+							
+
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-row n-border-all'&gt;
+	&lt;div&gt;...&lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+
+</div>					
+						</div>
+						
+					</div>
+					
+					<div class='n-row'>
+						
+						<div class='_1/1'> 
+							
+							<h3>Right to left layout</h3> 
+						
+						</div>
+						
+					</div>
+					
+					<div dir='rtl'>
+
+						<div class='n-row grid-demo'>
+
+	<div class='_1/2 n-bottom'>
 		
-		</div>
+		<div>Bottom-aligned 1/2 wide column</div>
+	
+	</div>
+	<div class='_1/4 n-right'>
+		
+		<div>Right-aligned 1/2 wide column.<p><br></p><p><br></p></div>
 		
 	</div>
+	<div class='_1/4 n-right'>
+		<div class="n-row--vertical n-row">
+			<div>Top part of a vertical row in a normal column.</div>
+			<div class='n-bottom' style='text-align: start;'>Bottom part of a vertical row.</div>
+		</div>
+	</div>
+	<div class='n-middle n-center'><div>1/5 <br> centered</div></div>
+	<div>
+		
+		<div>
 
-	<main id=content>
+			1/5
+		
+		</div>
 
-		<div class=n-contain>
-			
-			<div class="n-row" id="features">
-				<div>
-					<h2>Features</h2>
-					<ul class="n-list n-masonry">
-						<li>Unbreakable, flexible, responsive <a href=guide/#grid>grid</a></li>
-						<li>Built for edge cases with overflowing content</li>
-						<li>Style agnostic</li>
-						<li>Unique class names</li>
-						<li><a href=guide/#grid-inline-popup>Grid with inline popups</a></li>
-						<li><a href=guide/#nav>Navigation</a> including mobile burger and 3-level drop-down</li>
-						<li><a href=guide/#buttons>Buttons</a></li>
-						<li><a href=guide/#modal-window>Modal windows</a></li>
-						<li><a href=guide/#tooltip>Tooltips</a></li>
-						<li><a href=guide/#lists>Lists</a></li>
-						<li><a href=guide/#forms>Forms</a></li>
-						<li><a href=guide/#slider>Sliders</a></li>
-						<li><a href=guide/#lightbox>Lightbox galleries</a></li>
-						<li><a href=guide/#tabs>Tabs</a></li>
-						<li>536 types of Slider/Lightbox/Tabs and their options</li>
-						<li><a href=guide/#fold>Fold</a> (Accordions)</li>
-						<li><a href=guide/#cards>Cards</a></li>
-						<li><a href=guide/#tables>Tables</a></li>
-						<li>Sticky footer</li>
-						<li>Animated anchor links</li>
-						<li><a href=guide/#aspect-ratio>Aspect ratio</a> image container</li>
-						<li>RTL layout ready</li>
-						<li><a href=guide/#masonry>Masonry</a></li>
-						<li>Keyboard accessibility</li>
-						<li><a href=guide/#dynamic-components>Dynamic components</a></li>
-						<li><a href=guide/#copy>Copy to clipboard</a> button</li>
-						<li><a href=guide/#notifications>Notification bar</a></li>
-						<li><a href=guide/#fixed-background>Fixed background</a> section</li>
-						<li>Baseline typography</li>
-						<li><a href=https://radogado.github.io/natuive/demos/swiss/>Parallax scroll</a></li>
-						<li><a href=//rado.bg>WordPress theme</a></li>
-						<li>Functional without JS and accessible without CSS</li>
-						<li>Only 9 KB CSS and 9 KB JS enhancement</li>
-						<li>Lite version</li>
-						<li>No dependencies</li>
-						<li>Async JS support</li>
-						<li><a href=guide/>Guide</a></li>
-						<li>Support for IE (CSS-only), Safari, Chrome, Firefox, Opera, Android 2.3+, iOS</li>
-						<li>Graceful degradation</li>
-						<li>FREE picture of a cat</li>
-					</ul>
+	</div>
+
+	<div>ThisLineIsTooLongAndMustBeClippedByTheContainerEvenThoughOverflowXandYDontWorkAsExpected</div>
+	<div>1/5</div>	
+	<div>
+	
+		1/5
+
+	</div>
+
+</div>
+					
+					</div>
+					
+					<div class='n-row'>
+						
+						<div class='_1/1'> 
+							
+
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div dir='rtl'&gt;
+	...
+&lt;/div&gt;</code>
+</pre>
+
+</div>					
+						</div>
+						
+					</div>
+					
+					<div class='n-row'>
+						
+						<div class='_1/1'>
+							
+							<h3>Options</h3>
+							
+							<ul class="n-list">
+								
+								<li>Column class not mandatory. Minimum width 20%.</li>
+								<li><pre>.n-row > div > .n-row--vertical.n-row</pre> – a vertical row as tall as the parent row with equal-height full-width children.</li>
+							
+							</ul>
+						
+						</div>
+					
+					</div>
+
+				 </div> </div>
 				
+				<div data-tab_title=Navigation id=nav>
+						
+					<div class='n-row'>
+						
+						<div class=_1/1>
+							
+							<h2>Navigation</h2>
+							
+						</div>
+						
+						<div class='_1/3'>
+							
+							<h3>Standard navigation</h3>
+							
+							<nav class="n-nav">
+					
+								<ul class='n-list n-list--inline'>
+								
+									<li> <a href=#buttons>Buttons</a> </li>
+
+									<li> <a href=#drop-nav>Drop-down nav</a> </li>
+								
+									<li class='active'> <a href=#lightbox>Lightbox</a> </li>
+								
+									<li> <a href=#fold>Fold</a> </li>
+				
+									<li> <a href=#modal>Modal window</a> </li>
+			
+								</ul>
+							
+							</nav>
+							
+							<br><br>
+							
+
+<div class="code">							
+
+<pre><code class="language-markup">&lt;nav class='n-nav'&gt;
+	&lt;ul class='n-list n-list--inline'&gt;
+		&lt;li&gt; &lt;a href=#buttons&gt;Buttons&lt;/a&gt; &lt;/li&gt;
+	&lt;/ul&gt;							
+&lt;/nav&gt;</code>
+</pre>
+
+</div>						
+						</div>
+
+						<div class='_1/3'>
+							
+							<h3>Big navigation</h3>
+							
+							<nav class="n-nav">
+				
+								<ul class='n-list n-list--inline n-big-text'>
+								
+									<li class='active'> <a href=#grid>Grid</a> </li>
+				
+									<li> <a href=#slider>Slider</a> </li>
+				
+									<li> <a href=#form>Form</a> </li>
+	
+								</ul>
+											
+							</nav>
+							
+							<br><br>
+							
+
+<div class="code">							
+
+<pre><code class="language-markup">&lt;nav class='n-nav'&gt;
+	&lt;ul class='n-list--inline n-big-text'&gt;
+		&lt;li class='active'&gt; &lt;a href=#grid&gt;Grid&lt;/a&gt; &lt;/li&gt;
+		&lt;li&gt; &lt;a href=#slider&gt;Slider&lt;/a&gt; &lt;/li&gt;
+		&lt;li&gt; &lt;a href=#form&gt;Form&lt;/a&gt; &lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/nav&gt;</code>
+</pre>
+
+</div>						
+						</div>
+						
+						<div class='_1/3'>
+							
+							<h2>Scroll navigation</h2>
+							<nav class='n-nav n-nav--scroll'>
+					
+								<ul class="n-list">
+								
+									<li> <a href=#buttons>Buttons</a> </li>
+
+									<li> <a href=#drop-nav>Drop-down nav</a> </li>
+								
+									<li> <a href=#lightbox class='active'>Lightbox</a> </li>
+								
+									<li> <a href=#fold>Fold</a> </li>
+				
+									<li> <a href=#modal>Modal window</a> </li>
+			
+									<li> <a href=#video>Video</a> </li>
+	
+									<li> <a href=#aspect-ratio>Aspect ratio</a> </li>
+	
+									<li> <a href=#masonry>Masonry</a> </li>
+	
+									<li> <a href=#tables>Tables</a> </li>
+
+									<li> <a href=#tabs>Tabs</a> </li>
+
+									<li> <a href=#lists>Lists</a> </li>
+
+									<li> <a href=#cards>Cards</a> </li>
+
+									<li> <a href=//rado.bg target='_blank'>WordPress theme</a> </li>
+
+									<li> <a href=#showcase>Showcase</a> </li>
+								
+								</ul>
+							
+							</nav>
+							<br><br>
+
+<div class="code">							
+
+<pre><code class="language-markup">&lt;nav class='n-nav n-nav--scroll'&gt;
+	&lt;ul&gt;
+		&lt;li&gt; &lt;a href=#buttons&gt;Buttons&lt;/a&gt; &lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/nav&gt;</code>
+</pre>
+
+</div>						
+						</div>
+						
+						<div class='_1/1'>
+							
+							<h2>Drop navigation</h2>
+							
+							<nav class='n-nav n-drop'>
+		
+								<ul class="n-list">
+								
+								<li> 
+								
+									<input type="checkbox" name="level-0">
+									
+									<ul class="n-list">
+										
+										<li> 
+										
+											<input type="checkbox" name="level-0-1">
+									
+											<ul class="n-list">
+												
+												<li> 
+													
+													<a href='asd'>First item's second level item 1 third level item 1</a>
+												
+												</li>
+												
+												<li> 
+													
+													<a href='fdgdf'>First item's second level item 1 third level item 2</a>
+												
+												</li>
+											
+											</ul>
+										
+											<a>First item's second level item 1</a>
+										
+										</li>
+									
+										<li> 
+										
+											<input type="checkbox" name="level-0-1">
+									
+											<ul class="n-list">
+												
+												<li> 
+													
+													<a href='#'>First item's second level item 2 third level item 1</a>
+												
+												</li>
+												
+												<li> 
+													
+													<a href='#'>First item's second level item 2 third level item 1</a>
+												
+												</li>
+											
+											</ul>
+										
+											<a href=asd>First item's second level item 2</a>
+										
+										</li>
+									
+									</ul>
+								
+									<a>First item</a>
+									
+								</li>
+						
+								<li> 
+								
+									<input type="checkbox" name="level-0">
+								
+									<ul class="n-list">
+										
+										<li> 
+										
+											<input type="checkbox" name="level-0-2">
+									
+											<ul class="n-list">
+												
+												<li> 
+													
+													<a href='#'>Second item level two item 1 third level item 1</a>
+												
+												</li>
+												
+												<li> 
+													
+													<a href='#'>Second item level two item 1 third level item 1</a>
+												
+												</li>
+											
+											</ul>
+										
+											<a>Second item level two item 1</a>
+										
+										</li>
+									
+									</ul>
+									
+									<a href=asd>Second item which is a link with long text</a>
+									
+								</li>
+						
+								<li> 
+								
+									<input type="checkbox" name="level-0">
+								
+									<ul class="n-list">
+										
+										<li> 
+										
+											<a href=#>Third item second level item 1</a>
+										
+										</li>
+						
+										<li> 
+										
+											<a href=#>Third item second level item 2</a>
+										
+										</li>
+									
+									</ul>
+									
+									<a>Third item with one sub level</a>
+									
+								</li>
+							
+								<li> 
+								
+									<input type="checkbox" name="level-0">
+								
+									<ul class="n-list">
+										
+										<li> 
+										
+											<a href=#>Fourth item second level item 1</a>
+										
+										</li>
+						
+										<li> 
+										
+											<a href=#>Fourth item second level item 2</a>
+										
+										</li>
+									
+									</ul>
+									
+									<a>Fourth item with one sub level</a>
+								
+								</li>
+						
+								<li> 
+								
+									<a href='#'>Last item without a sub level</a>
+								
+								</li>
+						
+							</ul>
+							
+							</nav>
+							<br><br>
+
+							<div class="code">							
+
+<pre><code class="language-markup">&lt;nav class='n-nav n-drop'&gt;
+	&lt;ul&gt;
+		&lt;li&gt; 
+			&lt;input type='checkbox'&gt;
+			&lt;ul&gt;
+				&lt;li&gt; 
+					&lt;input type='checkbox'&gt;
+					&lt;ul&gt;
+						&lt;li&gt; 
+							&lt;a href='asd'&gt;First item's second level item 1 third level item 1&lt;/a&gt;
+						&lt;/li&gt;
+					&lt;/ul&gt;
+					&lt;a&gt;First item's second level item 1&lt;/a&gt;
+				&lt;/li&gt;
+			&lt;/ul&gt;
+			&lt;a&gt;First item&lt;/a&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/nav&gt;</code>
+</pre>
+			
+</div>
+							
+							<h2>Mobile navigation behind a burger</h2>
+
+<div class="code">
+<pre><code class="language-markup">&lt;header class=&quot;n-fixed-mobile n-header&quot;&gt;
+	&lt;div class=&quot;n-fold n-fold--mobile&quot;&gt;
+		&lt;div class=&quot;n-fold--label&quot;&gt; &lt;span class=&quot;n-burger&quot;&gt;&lt;/span&gt; &lt;/div&gt;
+		&lt;div class=&quot;n-fold--content&quot;&gt;
+			&lt;nav class=n-nav&gt;
+				&lt;ul class=&quot;n-list--inline&quot;&gt;
+					&lt;li class=&quot;active&quot;&gt; &lt;a href=&quot;#grid&quot; tabindex=&quot;0&quot;&gt;Grid&lt;/a&gt; &lt;/li&gt;
+					&lt;li&gt; &lt;a href=&quot;#slider&quot; tabindex=&quot;0&quot;&gt;Slider&lt;/a&gt; &lt;/li&gt;
+					&lt;li&gt; &lt;a href=&quot;#form&quot; tabindex=&quot;0&quot;&gt;Form&lt;/a&gt; &lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/nav&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/header&gt;				</code>
+</pre>
+</div>
+
+							<h3>Options</h3>
+							
+							<ul class="n-list">
+								
+								<li>Drop nav uses CSS variables <pre>--control-bg</pre> and <pre>--control-color</pre> for background/text color.</li>
+							
+							</ul>
+
+						</div>
+						
+					</div>
+					
+				</div>
+				
+				<div data-tab_title=Typography id=typography>
+					
+					<div class='n-row'>
+						
+						<div class="_1/1">
+							
+							<h2>For natUIve typography features like baseline alignment, wrap the below elements inside an <b>.n-type</b> container</h2>
+							
+						</div>
+						
+						<div class='_1/3'>
+							
+							<h2>Headlines</h2>
+							
+							<h1> Headline 1 </h1>
+							<h2> Headline 2 </h2>
+							<h3> Headline 3 </h3>
+							<h4> Headline 4 </h4>
+							<h5> Headline 5 </h5>
+							<h6> Headline 6 </h6>
+						
+						</div>
+							
+						<div class='_1/3'>
+							
+							<h2>Drop cap</h2>
+
+							<p class=n-drop-cap>
+						
+							Call me Ishmael. Some years ago - never mind how long precisely - having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.
+						
+							</p>
+
+<div class="code">							
+
+<pre><code class="language-markup">&lt;p class='n-drop-cap'&gt;
+	...
+&lt;/p&gt;</code>
+</pre>
+
+</div>						
+						</div>
+						<div class='_1/3'>							
+							<h2>Quote</h2>
+							
+							<q>The sky above the port was the color of television, tuned to a dead channel.</q>
+							
+
+<div class="code">							
+
+<pre><code class="language-markup">&lt;q&gt;
+	...
+&lt;/q&gt;</code>
+</pre>
+
+</div>
+					</div>
+						<div class='_1/3'>
+							
+							<h2>Links</h2>
+							
+							<p>Here is a <a href=#>link</a>.</p>
+							
+						</div>
+						<div class='_1/3'>
+							
+							<h2>Paragraph</h2>
+							
+							<p>All elements except images are baseline-aligned with height divisible by the default line height.</p>
+							
+						</div>
+					</div>
+
+
+				</div>
+				
+				<div id=aspect-ratio data-tab_title='Aspect ratio' id=aspect-ratio>
+					
+					<div class='n-row'>
+						
+						<div>
+			
+							<h2>Aspect ratio container</h2>
+							
+							<p>While the image is loading, the layout is already solid and the page doesn't jump after loading.</p>
+							
+							<picture class=n-aspect style='--width: 1600; --height: 681;'>
+							
+								<img src=images/lido.jpg alt='Lido'>
+							
+							</picture>
+							<br>
+
+							
+<div class="code">							
+
+<pre><code class="language-markup">&lt;picture class=n-aspect style='--width: 1600; --height: 681;'&gt;
+	&lt;img src=images/lido.jpg alt='Lido'&gt;
+&lt;/picture&gt;</code>
+</pre>
+
+</div>						
+
+							<h3>Options</h3>
+							
+							<ul class="n-list">
+								
+								<li>If the element has inline style <b>--ratio</b>, it uses that instead of the <b>--width/--height</b> combination.</li>
+								<li>If narrower than its parent, the aspect ratio container is inline limited by <b>--width</b>.</li>
+								<li>The container can be a <b>div</b> and the content doesn't need to be an image.</li>
+
+							</ul>
+							
+						</div>
+					
+					</div>
+					
+				</div>
+					
+				<div data-tab_title=Slider id=slider>
+					
+					<div class='n-row'>
+						
+						<div class='_1/1'>
+							
+							<h2>Slider</h2>
+							
+						</div>
+						
+						<div class='_1/2'>
+							
+							<h3>Standard</h3>
+							
+							<div class='n-slider'>
+								
+								<div class='n-center'><p><br>One<br></p></div>
+								<div class='n-center'><p><br><br>Two<br><br></p></div>
+							
+							</div>
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-slider'&gt;
+	&lt;div&gt;Slide 1&lt;/div&gt;
+	&lt;div&gt;Slide 2&lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+
+</div>
+						
+						</div>
+						
+						<div class='_1/2'>
+
+							
+							<h3>Controls on top</h3>
+							
+							<div class='n-slider n-slider--top'>
+								
+								<div class='n-center'><p><br><br>One<br><br></p></div>
+								<div class='n-center' style="background: lightcoral;"><p><br><br>Two<br><br></p></div>
+								<div class='n-center'><p><br><br>Three<br><br></p></div>
+							
+							</div>
+						
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-slider n-slider--top'&gt;
+	&lt;div&gt;Slide 1&lt;/div&gt;
+	&lt;div&gt;Slide 2&lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+
+</div>
+						</div>
+						
+						<div class='_1/2'>
+							
+							<h3>Vertical</h3>
+							
+							<div class='n-slider n-slider--vertical'>
+								
+								<div class='n-center'><p><br><br>One<br><br></p></div>
+								<div class='n-center'><p><br><br>Two</p></div>
+								<div class='n-center'><p><br><br>Three<br><br></p></div>
+							
+							</div>
+						
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-slider n-slider--vertical'&gt;
+	&lt;div&gt;Slide 1&lt;/div&gt;
+	&lt;div&gt;Slide 2&lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+
+</div>
+						</div>
+							
+						<div class='_1/2'>
+
+							<h3>Vertical with controls on the right</h3>
+							
+							<div class='n-slider n-slider--vertical n-slider--right'>
+								
+								<div class='n-center'><p><br><br>One<br><br></p></div>
+								<div class='n-center'><p><br><br>Two<br><br></p></div>
+							
+							</div>
+						
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-slider n-slider--vertical n-slider--right'&gt;
+	&lt;div&gt;Slide 1&lt;/div&gt;
+	&lt;div&gt;Slide 2&lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+
+</div>
+						</div>
+							
+						<div class='_1/2'>
+							
+							<h3>Padded (controls outside of content)</h3>
+							
+							<div class='n-slider--wrap n-pad'>
+								
+								<div class='n-slider'>
+									
+									<div><p>One</p></div>
+									<div><p>Two</p></div>
+								
+								</div>
+							
+							</div>
+						
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-slider--wrap n-pad'&gt;
+	&lt;div class='n-slider'&gt;
+		&lt;div&gt;Slide 1&lt;/div&gt;
+		&lt;div&gt;Slide 2&lt;/div&gt;
+	&lt;/div&gt;</code>
+&lt;/div&gt;</code>
+</pre>
+
+</div>
+						</div>
+
+						<div class='_1/2'>
+							
+							<h3>Peeking at neighboring slides</h3>
+							
+							<div class='n-slider' data-peek=20%>
+								
+								<div><p>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</p></div>
+								<div style="background: coral;"><p>BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB</p></div>
+								<div><p>CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC</p></div>
+							
+							</div>
+						
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-slider' data-peek='20%'&gt;
+	&lt;div&gt;Slide 1&lt;/div&gt;
+	&lt;div&gt;Slide 2&lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+
+</div>
+						</div>
+
+						<div class='_1/2'>
+							
+							<h3>Fade in/out</h3>
+							
+							<div class='n-slider--wrap n-pad'>
+							
+								<div class='n-slider n-slider--fade'>
+									
+									<div><p>One</p></div>
+									<div><p>Two</p></div>
+									<div><p>Three</p></div>
+								
+								</div>
+							
+							</div>
+						
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-slider--wrap n-pad'&gt;
+	&lt;div class='n-slider n-slider--fade'&gt;
+		&lt;div&gt;Slide 1&lt;/div&gt;
+		&lt;div&gt;Slide 2&lt;/div&gt;
+	&lt;/div&gt;</code>
+&lt;/div&gt;</code>
+</pre>
+
+</div>
+						</div>
+
+						<div class='_1/2'>
+
+							<h3>Auto height</h3>
+							
+							<div class='n-slider--wrap n-pad'>
+
+								<div class='n-slider n-slider--auto-height'>
+									
+									<div class='n-center'><p>One</p></div>
+									<div class='n-center'><p><br><br>Two<br><br>taller than One</p></div>
+								
+								</div>
+							
+							</div>
+						
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-slider--wrap n-pad'&gt;
+	&lt;div class='n-slider n-slider--auto-height n-pad'&gt;
+		&lt;div&gt;Slide 1&lt;/div&gt;
+		&lt;div&gt;Slide 2&lt;/div&gt;
+	&lt;/div&gt;</code>
+&lt;/div&gt;</code>
+</pre>
+
+</div>
+
+						</div>
+						
+						<div class="_1/1"> <h2> Slider with detached nav </h2> </div>
+						
+						<div>
+					
+							<h3>Slider here...</h3>
+							
+							<div class="n-slider" id=detached-nav-slider>
+								
+								<div>Slide 1</div>
+								<div>Slide 2</div>
+								
+							</div>
+						
+						</div>
+						
+						<div class="n-center">
+							
+							<div>
+								
+								<h3>...detached nav here</h3>
+								
+								<div class="n-slider--nav" data-for=detached-nav-slider></div>
+								
+							</div>
+							
+						</div>
+						
+						<div class='_1/1'>
+							
+							<h3>Options</h3>
+							
+							<ul class="n-list">
+								
+								<li>Full window: <pre>&lt;div class='n-slider n-full-window'&gt;</pre></li>
+								<li>Full screen: <pre>&lt;div class='n-slider n-full-screen'&gt;</pre></li>
+								<li>Slide duration <pre>&lt;div class='n-slider' data-duration=1&gt;</pre> in seconds. Default is <b>.2</b>.</li>
+								<li>Vertically center slides' content with <pre>&lt;div class='n-slider n-middle'&gt;</pre></li>
+								<li>Detach slider nav by adding an <b>id</b> to the slider and creating <pre>&lt;div class='n-slider--nav' data-for='slider-id'&gt;</pre> elsewhere</li>
+								<li>URI with hash matching a slide id in a slider, auto slides to it.</li>
+								<li><pre>data-peek=20%</pre> to peek at neighboring slides, where 20% becomes 20% padding on left and right</li>
+								<li><pre>&lt;div class='n-slider n-slider--fade-overlap'&gt;</pre> to overlap the two slides while fading out/in</li>
+							
+							</ul>
+						
+						</div>
+					
+					</div>
+					
+				</div>
+				
+				<div data-tab_title=Tabs id=tabs>
+					
+					<div class='n-row'>
+						
+						<div class='_1/1'>
+					
+							<h2 id=tabs>Tabs</h2>
+					
+						</div>
+						
+						<div class='_1/2'>
+
+							<h3>Tabs at the bottom</h3>
+	
+							<div class='n-slider n-tabs'>
+								
+								<div> <h3 class='n-tab-title'>Tab 1</h3> <p>Content of Tab 1</p> </div>
+							
+								<div> <h3 class='n-tab-title'>Tab 2</h3> <p>The content of Tab 2</p> <p>New line</p> <p>New line</p> </div>
+							
+							</div>
+						
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-slider n-tabs'&gt;
+	&lt;div&gt; ... &lt;/div&gt;
+	&lt;div data-tab_title='Tab 1'&gt; ... &lt;/div&gt;
+	&lt;div&gt; &lt;h2 class='n-tab-title'&gt;Tab title and content&lt;/h2&gt; ... &lt;/div&gt;
+	...
+&lt;/div&gt;</code>
+</pre>
+
+</div>
+
+						</div>
+						
+						<div class='_1/2'>
+
+							<h3>Tabs on top with auto height</h3>
+	
+							<div class='n-slider n-slider--top n-tabs n-slider--auto-height' data-duration=1>
+		
+								<div style='background: mintcream;'> <div class='n-pad'><h3 class='n-tab-title'>Tab 1</h3> <p>Content of Tab 1</p></div> </div>
+	
+								<div style='background: cyan;'> <div class='n-pad'><h3 class='n-tab-title'>Tab 2</h3> <p>The content of Tab 2</p> <p>New line</p> <p>New line</p> </div></div>
+	
+							</div>
+						
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-slider n-slider--top n-tabs n-slider--auto-height'&gt;
+	&lt;div data-tab_title='Tab 1'&gt; ... &lt;/div&gt;
+	...
+&lt;/div&gt;</code>
+</pre>
+
+</div>
+						</div>
+	
+						<div class='_1/2'>
+	
+							<h3>Vertical tabs</h3>	
+		
+							<div class='n-slider n-slider--vertical n-tabs'>
+				
+				<div data-tab_title='Tab 1'>
+					
+					<p class='n-pad'>Tab 1 content</p>
+							
+				</div>
+				
+				<div>
+							
+					<p class=n-tab-title> Tab 2 </p>
+							
+					<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				
+				</div>
+			
+				<div>
+				
+					<p class=n-tab-title> Tab 3 Very Long Title which Shows the Flexible Dimensions  </p>
+							
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+							
 				</div>
 				
 			</div>
-			
-			<div class='n-row' id=showcase style="--width: 1000; --height: 1000;">
-				
-				<div class="_1/1"><h2>Showcase</h2></div>
+					
+<div class="code">							
 
-				<a class='_1/5 n-aspect' href=demos/microsoft title="Microsoft"> <img src='images/natUIve%20Microsoft%20(20151030)%20-.png' alt="Microsoft"> </a>
-				<a class='_1/5 n-aspect' href=demos/imperialinnovations title="Imperial Innovations"> <img src='images/natUIve%20(20151030)%20imperial%20-.png' alt="Imperial Innovations"> </a>
-				<a class='_1/5 n-aspect' href=demos/pebble title="Pebble"> <img src='images/natUIve%20(20151030)%20pebble%20-.png' alt="Pebble"> </a>
-				<a class='_1/5 n-aspect' href=demos/seat61 title="Seat 61"> <img src='images/seat61.png' alt="Seat 61"> </a>
-				<a class='_1/5 n-aspect' href=demos/jetblue title="JetBlue"> <img src='images/jetblue.png' alt="JetBlue"> </a>
-				<a class='_1/5 n-aspect' href=demos/mrj title="Mitsubishi Regional Jet"> <img src='images/mrj.png' alt="Mitsubishi Regional Jet"> </a>
-				<a class='_1/5 n-aspect' href=demos/mubi title="MUBI"> <img src='images/mubi.png' alt="MUBI"> </a>
-				<a class='_1/5 n-aspect' href=demos/swiss title="SWISS"> <img src='images/swiss.png' alt="SWISS"> </a>
-				<a class='_1/5 n-aspect' href=demos/mapbox title="Mapbox"> <img src='images/mapbox.png' alt="Mapbox"> </a>
-				<a class='_1/5 n-aspect' href=demos/airbnb title="Airbnb"> <img src='images/airbnb.png' alt="Airbnb"> </a>
-				<a class='_1/5 n-aspect' href=demos/gov.uk title="GOV.UK"> <img src='images/gov.uk.png' alt="GOV.UK"> </a>
-				<a class='_1/5 n-aspect' href=demos/google-design title="Google Design"> <img src='images/google-design.png' alt="Google Design"> </a>
-				<a class='_1/5 n-aspect' href=demos/daringfireball title="Daring Fireball"> <img src='images/daringfireball.png' alt="Daring Fireball"> </a>
-				<a class='_1/5 n-aspect' href=demos/vitsoe title="Vitsœ"> <img src='images/vitsoe.png' alt="Vitsœ"> </a>
-				<a class='_1/5 n-aspect' href=demos/apple title="Apple"> <img src='images/apple.png' alt="Apple"> </a>
-				<a class='_1/5 n-aspect' href=demos/brandunion title="Brand Union"> <img src='images/brandunion.png' alt="Brand Union"> </a>
-				<a class='_1/5 n-aspect' href=demos/tesla title="Tesla"> <img src='images/tesla.png' alt="Tesla"> </a>
-				<a class='_1/5 n-aspect' href=demos/amnesty title="Amnesty"> <img src='images/amnesty.png' alt="Amnesty"> </a>
-				<a class='_1/5 n-aspect' href=demos/stripe title="Stripe"> <img src='images/stripe.png' alt="Stripe"> </a>
-				<a class='_1/5 n-aspect' href=demos/starwars title="Star Wars"> <img src='images/starwars.png' alt="Star Wars"> </a>
-				<a class='_1/5 n-aspect' href=demos/norwegian title="Norwegian"> <img src='images/norwegian.png' alt="Norwegian"> </a>
-				<a class='_1/5 n-aspect' href=demos/davidbowieis title="David Bowie Is (Japan)"> <img src='images/davidbowieis.png' alt="David Bowie Is (Japan)"> </a>
-				<a class='_1/5 n-aspect' href=demos/uncharted-the-lost-legacy title="Uncharted: The Lost Legacy"> <img src='images/uncharted.jpg' alt="Uncharted: The Lost Legacy"> </a>
-				<a class='_1/5 n-aspect' href=demos/seehotel-jaegerwirt title="Seehotel Jägerwirt"> <img src='images/seehotel-jaegerwirt.jpg' alt="Seehotel Jägerwirt"> </a>
-				<a class='_1/5 n-aspect' href=demos/truphone title="Truphone"> <img src='images/truphone.jpg' alt="Truphone"> </a>
-				<a class='_1/5 n-aspect' href=demos/pixelpioneers title="Pixel Pioneers"> <img src='images/pixelpioneers.png' alt="Pixel Pioneers"> </a>
-				<a class='_1/5 n-aspect' href=demos/apex title="Apex"> <img src='images/apex.jpg' alt="Apex"> </a>
-				<a class='_1/5 n-aspect' href=demos/loco2 title="Loco2"> <img src='images/loco2.jpg' alt="Loco2"> </a>
-				<a class='_1/5 n-aspect' href=demos/vi.nl title="VI.nl"> <img src='images/vi.nl.png' alt="VI.nl"> </a>
-				<a class='_1/5 n-aspect' href=demos/nikon-d850 title="Nikon D850"> <img src='images/nikon-d850.jpg' alt="Nikon D850"> </a>
-				<a class='_1/5 n-aspect' href=demos/enoden title="Enoden"> <img src='images/enoden.jpg' alt="Enoden"> </a>
-				<a class='_1/5 n-aspect' href=demos/tutsplus title="Tutsplus"> <img src='images/tutsplus.png' alt="Tutsplus"> </a>
-				<a class='_1/5 n-aspect' href=demos/hasselblad title="Hasselblad Chinese"> <img src='images/hasselblad.png' alt="Hasselblad Chinese"> </a>
-				<a class='_1/5 n-aspect' href=demos/cnn-travel title="CNN Travel"> <img src='images/cnn-travel.png' alt="CNN Travel"> </a>
-				<a class='_1/5 n-aspect' href=demos/postbank title="Postbank"> <img src='images/postbank.jpg' alt="Postbank"> </a>
+<pre><code class="language-markup">&lt;div class='n-slider n-slider--vertical n-tabs'&gt;
+	&lt;div data-tab_title='Tab 1'&gt; ... &lt;/div&gt;
+	...
+&lt;/div&gt;</code>
+</pre>
+
+</div>
+						</div>
+	
+						<div class='_1/2'>
+
+							<h3>Vertical tabs on the right</h3>	
+		
+							<div class='n-slider n-slider--vertical n-tabs n-slider--right'>
 				
-				<div class="_1/1"></div>
+				<div data-tab_title='Tab 1'>
+					
+		<!-- 								<p class=n-tab-title> Slider 2 Slide 1 </p> -->
+					
+					<p class='n-pad'>Tab 1 content</p>
+							
+				</div>
+				
+				<div>
+							
+					<p class=n-tab-title> Tab 2 </p>
+							
+					<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				
+				</div>
 			
+				<div>
+				
+					<p class=n-tab-title> Tab 3 Very Long Title which Shows the Flexible tabs Dimensions  </p>
+							
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+							
+				</div>
+				
+			</div>
+							
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-slider n-slider--vertical n-tabs n-slider--right'&gt;
+	&lt;div data-tab_title='Tab 1'&gt; ... &lt;/div&gt;
+	...
+&lt;/div&gt;</code>
+</pre>
+
+</div>
+					
+						</div>
+						
+						<div class='_1/2'>
+
+							<h3>Tabs at the bottom with detached nav</h3>
+	
+							<div class='n-slider n-tabs' id=detached-tabs>
+								
+								<div> <h3 class='n-tab-title'>Tab 1</h3> <p>Content of Tab 1</p> </div>
+							
+								<div> <h3 class='n-tab-title'>Tab 2</h3> <p>The content of Tab 2</p> <p>New line</p> <p>New line</p> </div>
+							
+							</div>
+						
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-slider n-tabs' id='detached-tabs'&gt;
+	&lt;div&gt; ... &lt;/div&gt;
+	&lt;div data-tab_title='Tab 1'&gt; ... &lt;/div&gt;
+	&lt;div&gt; &lt;h2 class='n-tab-title'&gt;Tab title and content&lt;/h2&gt; ... &lt;/div&gt;
+	...
+&lt;/div&gt;
+
+&lt;div class='n-slider--nav' data-for='detached-tabs'&gt;&lt;/div&gt;
+</code>
+</pre>
+
+</div>
+
+<div class="n-slider--nav" data-for=detached-tabs></div>
+
+						</div>
+						<div class="_1/1">
+							
+							<h3>Options</h3>
+							
+							<ul class="n-list">
+								
+								<li>Tab titles are taken from <pre>data-tab_title</pre>, <pre>.n-tab-title</pre> on a child or index by default</li>
+								<li><pre>data-duration=2</pre> for 2 seconds slide duration</li>
+
+							</ul>
+							
+						</div>
+
+					</div>
+	
+				</div>
+
+				<div data-tab_title=Lightbox id=lightbox>
+					
+					<div class='n-row'>
+						
+						<div class='_1/1'>
+							
+							<h2>Lightbox</h2>
+							
+						</div>
+						
+					</div>
+					
+					<div class='n-row'>
+						
+						<div>
+							
+							<h3>Standard</h3>
+							
+							<div class='n-lightbox'>
+							
+								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756.jpg title='First Taipei photo'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756-88x88.jpg alt=1> </a>
+								
+								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00770.jpg title='Second Taipei photo'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00770-88x88.jpg alt=2> </a>
+
+								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00795.jpg title='Third Taipei photo'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00795-88x88.jpg alt=2> </a>
+							
+							</div>
+							
+
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-lightbox'&gt;
+	&lt;a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756.jpg title='First Taipei photo'&gt;
+		&lt;img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756-88x88.jpg alt=1&gt;
+	&lt;/a&gt;
+	...
+&lt;/div&gt;</code>
+</pre>
+
+</div>							
+						</div>
+						
+						<div>
+							
+							<h3> Full screen </h3>
+							
+							<div id=lightbox1 class='n-lightbox n-full-screen'>
+							
+								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/07/DSC02506.jpg title='First Hong Kong photo'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/07/DSC02506-88x88.jpg alt=1> </a>
+								
+								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/07/DSC02321.jpg title='Second Hong Kong photo'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/07/DSC02321-88x88.jpg alt=2> </a>
+
+								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/07/DSC02548.jpg title='Third Hong Kong photo'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/07/DSC02548-88x88.jpg alt=2> </a>
+							
+							</div>
+						
+
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-lightbox n-full-screen'&gt;
+	&lt;a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756.jpg title='First Taipei photo'&gt;
+		&lt;img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756-88x88.jpg alt=1&gt;
+	&lt;/a&gt;
+	...
+&lt;/div&gt;</code>
+</pre>
+
+</div>							
+						</div>
+						
+						<div>
+							
+							<h3> Vertical with thumbnails </h3>
+								
+							<div id=lightbox2 class='n-lightbox n-slider--vertical n-lightbox--thumbnails'>
+							
+								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/06/DSC00134.jpg title='First photo from Japan'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/06/DSC00134-88x88.jpg alt=1> </a>
+								
+								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/06/DSC00193.jpg title='Second photo from Japan'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/06/DSC00193-88x88.jpg alt=2> </a>
+
+								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/06/DSC00229.jpg title='Third photo from Japan'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/06/DSC00229-88x88.jpg alt=2> </a>
+							
+							</div>
+			
+
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-lightbox n-slider--vertical n-lightbox--thumbnails'&gt;
+	&lt;a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756.jpg title='First Taipei photo'&gt;
+		&lt;img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756-88x88.jpg alt=1&gt;
+	&lt;/a&gt;
+	...
+&lt;/div&gt;</code>
+</pre>
+
+</div>							
+						</div>
+					
+						<div class="_1/1">
+							
+							<h3> Inline </h3>
+							
+							<div class="n-aspect" style="--width: 1670; --height: 1000;">
+								
+								<div id=lightbox3 class='n-lightbox n-lightbox--inline n-lightbox--thumbnails' data-autoslide-=4>
+							
+								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916.jpg title='First photo from Paris'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916-88x88.jpg alt=2> </a>
+
+								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00894.jpg title='Second photo from Paris'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00894-88x88.jpg alt=1> </a>
+								
+								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00957.jpg title='Third photo from Paris'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00957-88x88.jpg alt=2> </a>
+							
+								</div>
+							
+							</div>
+			
+
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-lightbox n-lightbox--inline n-lightbox--thumbnails'&gt;
+	&lt;a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756.jpg title='First Taipei photo'&gt;
+		&lt;img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756-88x88.jpg alt=1&gt;
+	&lt;/a&gt;
+	...
+&lt;/div&gt;</code>
+</pre>
+
+</div>							
+						</div>
+
+						<div class="_1/1">
+							
+							<h3> Inline vertical </h3>
+							
+							<div class="n-aspect" style="--width: 1670; --height: 1000;">
+								
+								<div id=lightbox44 class='n-lightbox n-lightbox--inline n-lightbox--thumbnails n-slider--vertical n-slider--outside-' data-duration=2>
+							
+									<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916.jpg title='First photo from Paris'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916-88x88.jpg alt=2> </a>
+									
+									<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/02/DSC01611.jpg title="Square"> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/02/DSC01611.jpg alt=Sq> </a>
+	
+									<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00894.jpg title='Second photo from Paris'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00894-88x88.jpg alt=1> </a>
+									
+									<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00957.jpg title='Third photo from Paris'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00957-88x88.jpg alt=2> </a>
+								
+									<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916.jpg title='First photo from Paris'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916-88x88.jpg alt=2> </a>
+	
+									<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00894.jpg title='Second photo from Paris'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00894-88x88.jpg alt=1> </a>
+									
+									<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00957.jpg title='Third photo from Paris'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00957-88x88.jpg alt=2> </a>
+								
+									<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916.jpg title='First photo from Paris'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916-88x88.jpg alt=2> </a>
+	
+									<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00894.jpg title='Second photo from Paris'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00894-88x88.jpg alt=1> </a>
+									
+									<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00957.jpg title='Third photo from Paris'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00957-88x88.jpg alt=2> </a>
+								
+									<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916.jpg title='First photo from Paris'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916-88x88.jpg alt=2> </a>
+	
+									<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00894.jpg title='Second photo from Paris'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00894-88x88.jpg alt=1> </a>
+									
+									<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00957.jpg title='Third photo from Paris'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00957-88x88.jpg alt=2> </a>
+								
+									<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916.jpg title='First photo from Paris'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916-88x88.jpg alt=2> </a>
+	
+									<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00894.jpg title='Second photo from Paris'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00894-88x88.jpg alt=1> </a>
+									
+									<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00957.jpg title='Third photo from Paris'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00957-88x88.jpg alt=2> </a>
+								
+								</div>
+							
+							</div>
+			
+
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-lightbox n-lightbox--inline n-lightbox--thumbnails n-slider--vertical'&gt;
+	&lt;a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756.jpg title='First Taipei photo'&gt;
+		&lt;img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756-88x88.jpg alt=1&gt;
+	&lt;/a&gt;
+	...
+&lt;/div&gt;</code>
+</pre>
+
+</div>							
+						</div>
+
+						<div class="_1/1">
+							
+							<h3> Inline lightbox peeking at neighboring slides </h3>
+							
+							<div class="n-aspect" style="--width: 1670; --height: 1000;">
+								
+								<div id=lightbox5 class='n-lightbox n-lightbox--inline n-lightbox--thumbnails' data-peek=10%>
+							
+								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2015/06/DSC05341.jpg title='First photo from San Francisco'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2015/06/DSC05341-88x88.jpg alt=2> </a>
+
+								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2015/06/DSC05411.jpg title='Second photo from San Francisco'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2015/06/DSC05411-88x88.jpg alt=1> </a>
+								
+								<a href=https://ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2015/06/DSC05377.jpg title='Third photo from San Francisco'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2015/06/DSC05377-88x88.jpg alt=2> </a>
+							
+								</div>
+							
+							</div>
+			
+
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-lightbox n-lightbox--inline n-lightbox--thumbnails' data-peek=10%&gt;
+	&lt;a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756.jpg title='First Taipei photo'&gt;
+		&lt;img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756-88x88.jpg alt=1&gt;
+	&lt;/a&gt;
+	...
+&lt;/div&gt;</code>
+</pre>
+
+</div>							
+						</div>
+
+						<div class="_1/1">
+							
+							<h3> Inline lightbox with detached nav </h3>
+							
+							<div class="n-row n-unpad">
+							
+								<div>
+									
+									<div class="n-aspect" style="--width: 1670; --height: 1000;">
+								
+								<div id=lightbox4 class='n-lightbox n-lightbox--inline n-lightbox--thumbnails'>
+							
+								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/02/DSC01689.jpg title='First photo from Corsica'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/02/DSC01689-88x88.jpg alt=2> </a>
+
+								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/02/DSC01663.jpg title='Second photo from Corsica'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/02/DSC01663-88x88.jpg alt=1> </a>
+								
+								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/02/DSC01611.jpg title='Third photo from Corsica'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/02/DSC01611.jpg alt=2> </a>
+							
+								</div>
+							
+							</div>
+								
+								</div>
+
+								<div class="n-middle n-center">
+									
+									<div>
+									
+										<div class="n-slider--nav" data-for=lightbox4></div>
+									
+									</div>
+								
+								</div>
+							
+							</div>
+
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-lightbox n-lightbox--inline n-lightbox--thumbnails' id='lightbox4'&gt;
+	&lt;a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756.jpg title='First Taipei photo'&gt;
+		&lt;img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756-88x88.jpg alt=1&gt;
+	&lt;/a&gt;
+	...
+&lt;/div&gt;
+
+&lt;div class="n-slider--nav" data-for=lightbox4&gt;&lt;/div&gt;</code>
+</pre>
+
+</div>
+						</div>
+					
+					</div>
+				
+					<div class='n-row'>
+						
+						<div class='_1/1'>
+							
+							<h3>Options</h3>
+							
+							<ul class="n-list">
+								
+								<li>Open automatically by URI: <b>https://site.com?image=DSC00193.jpg#lightboxid</b> or <b>https://site.com?slide=3#lightboxid</b></li>
+								<li>Captions from link title</li>
+								
+								<li>An inline lightbox inside an <b>.n-aspect</b> container will avoid page jump during initialisation</li>
+								
+								<li>Inline lightbox with thumbnails can have the thumbnails outside with <b>.outside</b></li>
+								
+								<li>Lightbox with <b>id</b> provides links to individual slides</li>
+								
+								<li>Use the <pre>data-anim</pre> parameter for custom animation (see <b>Modal window</b>)</li>
+								
+								<li>Inline lightbox will jump when sliding to an image that hasn't been loaded yet. Avoid that by wrapping the lightbox in an .n-aspect container.</li>
+								
+								<li>To avoid inline vertical lightbox jumping the unknown image height, add <b>data-width</b> and <b>data-height</b> to the anchors.</li>
+							
+							</ul>
+							
+						</div>
+						
+					</div>
+					
+				</div>
+				
+				<div data-tab_title=Video id=video>
+					
+					<div class='n-row'>
+						
+						<div>
+									
+							<h2 id=video>Video</h2>
+							
+							<p>Limited to container width.</p>
+							
+							<video poster=images/video.jpg controls=controls preload=none>
+									
+								<source type=video/mp4 src=//s3.amazonaws.com/gado/Outlying-Teaser.mp4>
+								
+								<a href=//s3.amazonaws.com/gado/Outlying-Teaser.mp4>//s3.amazonaws.com/gado/Outlying-Teaser.mp4</a>
+								
+							</video>
+<div class="code">							
+
+<pre><code class="language-markup">&lt;video poster=images/video.jpg controls=controls preload=none&gt;
+	&lt;source type=video/mp4 src=//s3.amazonaws.com/gado/Outlying-Teaser.mp4&gt;
+	&lt;a href=//s3.amazonaws.com/gado/Outlying-Teaser.mp4&gt;Video link as fallback&lt;/a&gt;
+&lt;/video&gt;</code>
+</pre>				
+
+</div>						</div>
+					
+					</div>
+				
+				</div>
+				
+				<div id=tables data-tab_title=Tables>
+				
+					<div class='n-row'>
+						
+						<div class='_1/1'>
+							
+							<h2>Tables</h2>
+					
+						</div>
+						
+						<div>
+							
+							<h3>Standard</h3>
+							
+							<table class="n-table">
+						
+						<thead>
+							<tr>
+								<td>TheTableWillBeScrollableOnNarrowScreensBecauseOfWideCell</td>
+								<td> <a>One Time</a> </td>
+								<td> <a>Second Long col</a> </td>
+								<td> <a>Three</a> </td>
+								<td> <a>Four</a> </td>
+							</tr>
+						</thead>
+						<tr>
+							<td>B</td> <td><b>3</b></td> <td><b>✔︎</b></td> <td><b>✔︎</b></td> <td><b>✔︎</b></td>
+						</tr>
+						<tr>
+							<td>Row Two with Long Headline to Test Table on Narrow Screens</td> <td><b>1</b></td> <td><b>✔︎</b></td> <td><b>✔︎</b></td> <td><b>✔︎</b></td>
+						</tr>
+						<tr>
+							<td>A</td> <td><b>2</b></td> <td><b>✔︎</b></td> <td><b>✔︎</b></td> <td><b>✔︎</b></td>
+						</tr>
+
+					</table>
+							
+<div class="code">							
+
+<pre><code class="language-markup">&lt;table class=n-table&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;td&gt;Head&lt;/td&gt;
+			...
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tr&gt;
+		&lt;td&gt;First&lt;/td&gt;
+		...
+	&lt;/tr&gt;
+	...
+&lt;/table&gt;</code>
+</pre>
+
+</div>
+						
+						</div>
+						
+						<div>
+							<h3>Headless</h3>
+										
+							<table class="n-table">
+					
+						<tr>
+							<td> <a>First</a> </td> 
+							<td> <a>Second</a> </td> 
+							<td> <a>Third</a> </td> 
+						</tr>
+						<tr>
+							<td><b>✔︎</b></td> <td><b>✔︎</b></td> <td><b>✔︎</b></td>
+						</tr>
+						<tr>
+							<td><b>✔︎</b></td> <td><b>✔︎</b></td> <td><b>✔︎</b></td>
+						</tr>
+
+					</table>
+						
+<div class="code">							
+
+<pre><code class="language-markup">&lt;table class=n-table&gt;
+	&lt;tr&gt;
+		&lt;td&gt;First&lt;/td&gt;
+		...
+	&lt;/tr&gt;
+	...
+&lt;/table&gt;</code>
+</pre>
+
+</div>
+						</div>
+					
+						<div>
+							
+							<h3>Sortable</h3>
+							
+							<table class="n-table">
+						
+						<thead>
+							<tr>
+								<td data-sort>First</td>
+								<td data-sort> <a>Second</a> </td>
+								<td data-sort> <a>Third</a> </td>
+							</tr>
+						</thead>
+						<tr>
+							<td>Bee</td> <td><b>3</b></td> <td><b>7</b></td>
+						</tr>
+						<tr>
+							<td>Candy</td> <td><b>1</b></td> <td><b>6</b></td>
+						</tr>
+						<tr>
+							<td>Asteroid</td> <td><b>4</b></td> <td><b>9</b></td>
+						</tr>
+						<tr>
+							<td>Edgar</td> <td><b>0</b></td> <td><b>8</b></td>
+						</tr>
+						<tr>
+							<td>Due</td> <td><b>2</b></td> <td><b>5</b></td>
+						</tr>
+
+					</table>
+						
+<div class="code">							
+
+<pre><code class="language-markup">&lt;table class=n-table&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;td data-sort&gt;Head&lt;/td&gt;
+			...
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tr&gt;
+		&lt;td&gt;First&lt;/td&gt;
+		...
+	&lt;/tr&gt;
+	...
+&lt;/table&gt;</code>
+</pre>
+
+</div>
+						</div>
+						
+						<div class='_1/1'>
+							
+							<div>
+								
+								<h3>Options</h3>
+								
+								<ul class="n-list">
+									
+									<li>Topmost row column with attribute <pre>data-sort</pre> makes a sortable column by number/character.</li>
+									
+									<ul class="n-list">
+										
+										<li>Ascending by default, descending with <pre>data-sort=desc</pre></li>
+									
+									</ul>
+								
+								</ul>
+
+							</div>
+						
+						</div>
+					
+					</div>
+	
+				</div>
+
+				<div id=fold data-tab_title='Fold (Accordion)'>
+					
+					<div class='n-row'>
+						
+						<div class='_1/1'>
+							
+							<h2>Fold (foldable content, accordion)</h2>
+							
+						</div>
+						
+						<div>
+						
+							<div class='n-fold'>
+							
+								<h3 class=n-fold--label> Accordion </h3>
+								<input type=checkbox class=n-trigger>
+							
+								<div id=i class='n-fold--content'>
+									
+							<div class='n-slider'>
+								
+								<div class='n-center'><p><br>One<br></p></div>
+								<div class='n-center'><p><br><br>Two<br><br></p></div>
+							
+							</div>
+
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+									
+									<p><a href="#">Link</a>.</p>
+									
+								</div>
+							
+							</div>
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-fold'&gt;
+	&lt;h3 class='n-fold--label'&gt; Label &lt;/h3&gt;
+	&lt;input type=checkbox class=n-trigger&gt;
+	&lt;div class='n-fold--content'&gt;
+		&lt;p&gt; Content. &lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>						
+
+</div>
+
+						</div>
+						
+						<div>
+	
+							<div class='n-fold' aria-expanded=true>
+							
+								<h3 class=n-fold--label> Open by default </h3>
+								<input type=checkbox class=n-trigger>
+							
+								<div id=i class='n-fold--content'>
+									
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+									
+								</div>
+							
+							</div>
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-fold' aria-expanded='true'&gt;
+	&lt;h3 class='n-fold--label'&gt; Label &lt;/h3&gt;
+	&lt;input type=checkbox class=n-trigger&gt;
+	&lt;div class='n-fold--content'&gt;
+		&lt;p&gt; Content. &lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>						
+
+</div>
+						
+						</div>
+						
+						<div>
+							
+							<div class=n-fold>
+							
+								<h3 class=n-fold--label> Truncated content </h3>
+								<input type=checkbox class=n-trigger>
+								
+								<div class='n-fold--content' style='--start-height: 6em;'>
+									
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+								</div>
+							
+							</div>
+						
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-fold'&gt;
+	&lt;h3 class='n-fold--label'&gt; Label &lt;/h3&gt;
+	&lt;input type=checkbox class=n-trigger&gt;
+	&lt;div class='n-fold--content' style='--start-height: 6em;'&gt;
+		&lt;p&gt; Content. &lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>						
+
+</div>
+
+						</div>
+						
+						<div>
+						
+							<div class='n-fold n-fold--horizontal'>
+							
+								<h3 class=n-fold--label> Horizontal accordion </h3>
+								<input type=checkbox class=n-trigger>
+								
+								<div class="n-fold--content">
+									
+									<div>
+											
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+								
+										<form>
+
+											<select>
+												
+												<option>asd</option>
+												<option> asdas</option>
+											
+											</select>
+
+										</form>
+									
+									</div>
+	
+								</div>
+							
+							</div>
+
+						</div>
+						
+						<div class="_1/1">
+														
+							<div class=n-fold>
+							
+								<h3 class=n-fold--label> Nested Accordions </h3>
+								<input type=checkbox class=n-trigger>
+								
+								<div class='n-fold--content'>
+							
+									<div class=n-fold>
+								
+										<h3 class=n-fold--label> About Inner Accordion </h3>
+										<input type=checkbox class=n-trigger>
+									
+										<div class='n-fold--content'>
+														<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+										</div>
+								
+									</div>
+								
+									<div class=n-fold>
+								
+										<h3 class=n-fold--label> About Inner Accordion 2 </h3>
+										<input type=checkbox class=n-trigger>
+									
+										<div class='n-fold--content'>
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+										</div>
+								
+									</div>
+									
+								</div>
+							
+							</div>
+						
+						</div>
+						
+						<div>
+							
+							<h3>Options</h3>
+							
+							<ul class="n-list">
+								
+								<li>Horizontal fold with <pre>.n-fold.n-fold--horizontal</pre>, needs extra wrapper inside <pre>.n-content</pre>.</li>
+								<li>Folded on mobile, always visible on desktop with <pre>.n-fold.n-fold--mobile</pre>.
+							
+							</ul>
+						
+						</div>
+					
+					</div>
+					
+				</div>
+				
+				<div data-tab_title=Tooltip id=tooltip>
+
+					<div class='n-row'>
+						<div>
+							<div>
+								<h2>Tooltip</h2>
+								<p>
+					<span class='n-tool'>
+						<span class=n-tool--label>This text has a tooltip.</span>
+						<span class='n-tool--tip'>
+							<b>Here is the tooltip</b> <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						</span>
+					</span>
+					</p>
+
+<div class="code">							
+
+<pre><code class="language-markup">&lt;span class='n-tool'&gt;
+	&lt;span class='n-tool--label'&gt;Tool label.&lt;/span&gt;
+	&lt;span class='n-tool--tip'&gt;Tip content.&lt;/span&gt;
+&lt;/span&gt;				</code>
+</pre>
+
+</div>
+					
+					</div></div></div>
+					
+				</div>
+				
+				<div data-tab_title='Modal window' id=modal-window>
+					
+					<div class='n-row'>
+						
+						<div class='_1/1'>
+							
+							<h2> Modal Window </h2>
+						
+						</div>
+						
+						<div>	
+						
+							<p><a href='external.html#content' class='n-modal'>Open a modal window inside this <span>tab</span></a>.</p>
+<div class="code">							
+
+<pre><code class="language-markup">&lt;a href='external.html#content' class='n-modal'&gt;Open a modal window here.&lt;/a&gt;</code>
+</pre>
+
+</div>						
+						</div>
+						
+						<div>
+
+							<p><a href='//natuive.net/external.html#content' class='n-modal'>Show external domain content in a modal window</a>. On error, it will be opened in a tab, browser permitting.</p>
+
+<div class="code">							
+
+<pre><code class="language-markup">&lt;a href='//natuive.net/external.html#content' class='n-modal'&gt;Open a modal window with external content.&lt;/a&gt;</code>
+</pre>
+
+</div>						
+						</div>
+						
+						<div>	
+						
+							<p><a href='external.html#content' class='n-modal' data-anim='0% { opacity: 0; } 100% { opacity: 1; }'>Open a modal window with custom animation</a>.</p>
+<div class="code">							
+
+<pre><code class="language-markup">&lt;a href='external.html#content' class='n-modal' data-anim='0% { opacity: 0; } 100% { opacity: 1; }'&gt;Open a modal window with custom animation.&lt;/a&gt;</code>
+</pre>
+
+</div>						
+						</div>
+						
+						<div>	
+						
+							<p><a href='external.html#content' class='n-modal n-modal--limited'>Limited modal window</a>.</p>
+<div class="code">							
+
+<pre><code class="language-markup">&lt;a href='external.html#content' class='n-modal limited'&gt;Open a modal window here.&lt;/a&gt;</code>
+</pre>
+
+</div>						
+						</div>
+
+						<div class="_1/1">
+							
+							<h3>Options</h3>
+							
+							<ul class="n-list">
+								
+								<li>Open a modal window with any content using <pre>nui.openFullWindow('Any content');</pre></li>
+								<li>Modals with <pre>id</pre> matching the URI hash are opened automatically</li>
+								<li><pre>#content</pre> is recommended to avoid HTML head parts</li>
+								<li><pre>nui.openFullWindow(HTML, '0% { … } 100% { … }')</pre> for custom animation, automatically reversed on close</li>
+								<li><pre>a.n-modal[data-anim]</pre> parameter specifies custom animation</li>
+								<li><pre>a.n-modal.limited</pre> for limited width/height modal window</li>
+							
+							</ul>
+						
+						</div>
+					
+					</div>
+
+				</div>
+				
+				<div data-tab_title=Buttons id=buttons>
+					
+					<div class='n-row'>
+					
+						<div class='_1/1'>
+							
+							<h2>Buttons</h2>
+						
+						</div>
+								
+						<div>
+							
+							<div>
+								
+								<h3>Normal button</h3>
+									
+								<a href=# class="n-btn">Small button</a>
+								<button disabled class="n-btn">Disabled button</button>
+								<br>
+<div class="code">							
+
+<pre><code class="language-markup">&lt;a href=# class='n-btn'&gt;Small button&lt;/a&gt;
+&lt;button class=n-btn disabled&gt;Disabled button&lt;/button&gt;</code>
+</pre>
+
+</div>									
+								<br>
+							</div>
+							
+						</div>
+						
+						<div>
+							
+							<div>
+								
+								<h3>Big button</h3>
+						
+								<a href=# class='n-btn n-btn--big'>Big button</a>
+								<br>
+							
+<div class="code">							
+
+<pre><code class="language-markup">&lt;a href=# class='n-btn n-btn--big'&gt;Big button&lt;/a&gt;</code>
+</pre>
+
+</div>
+								<br>
+
+							</div>
+						
+						</div>
+
+						<div>
+							
+							<div>
+								
+								<h3>Buttons in paragraph</h3>
+						
+								<p>Here is an <a href=# class=n-btn>Inline button</a> inside a paragraph.</p>
+							
+							</div>
+				
+						</div>
+						
+						<div>
+							
+							<div>
+								
+								<h3>Groups of buttons</h3>
+								
+								<p>Needed for proper spacing when wrapped</p>
+								
+								<div class="n-btn--group">
+								
+									<a href="#features" class="n-btn">Features</a>
+									<a href="#showcase" class="n-btn">Showcase</a>
+									<a href="guide/" class="n-btn">Guide</a>
+									<a href="//github.com/radogado/natuive" class="n-btn">Get it from GitHub</a>
+								
+								</div>
+								
+								<br>
+								
+								<div class="n-btn--group">
+								
+									<a href="#features" class="n-btn--big n-btn">Features</a>
+									<a href="#showcase" class="n-btn--big n-btn">Showcase</a>
+									<a href="guide/" class="n-btn--big n-btn">Guide</a>
+									<a href="//github.com/radogado/natuive" class="n-btn--big n-btn">Get it from GitHub</a>
+								
+								</div>
+								<br>
+							
+								<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-btn--group'&gt; ... &lt;/div&gt;</code>
+</pre>
+
+</div>
+								<br>
+
+							</div>
+							
+						</div>
+						
+						<div class="_1/1">
+							
+							<h3>Options</h3>
+							
+							<ul class="n-list">
+								
+								<li>Both <pre>&lt;a href=# class='n-btn'&gt;</pre> and <pre>&lt;button class=n-btn&gt;</pre> supported.</li>
+
+							</ul>
+						
+						</div>
+					
+					</div>
+						
+				</div>
+		
+				<div id=lists data-tab_title=Lists id=lists>
+					
+					<div class='n-row'>
+						
+						<div class="_1/1">
+							
+							<h2>Lists</h2>
+						
+						</div>
+						
+<div>
+							
+							<h3>Ordered</h3>
+												
+							<ol class="n-list">
+							
+								<li> First item
+									
+									<ol class="n-list">
+										
+										<li>First item sub item 1</li>
+									
+										<li>First item sub item 2</li>
+									
+									</ol>
+								
+								</li>
+									
+								<li>
+									
+									<h4>Second itemSecond itemSecond itemSecond itemSecond itemSecond itemSecond itemSecond itemSecond item</h4>
+									
+									<p>An in-house study at <b>Walmart.com</b> came out with the results that saw an up to 2% increase in conversions on the site for every single second of improvement on the load time. The accumulative growth of revenues went up to 1% for every 100 milliseconds of load time improvement.</p>
+									
+									<ol class="n-list">
+										<li>
+											Second item's sub item 1
+										</li>
+								
+										<li>
+											Second item's sub item 2
+											
+											Second item's sub item 2
+											
+											Second item's sub item 2
+											<ol class="n-list">
+												<li>Sub sub item</li>
+												<li>Another sub sub itemAnother sub sub itemAnother sub sub itemAnother sub sub itemAnother sub sub itemAnother sub sub itemAnother sub sub itemAnother sub sub itemAnother sub sub item</li>
+											</ol>
+										</li>
+									</ol>
+									
+								</li>
+							
+							</ol>
+						
+						</div>
+					
+						<div>
+							
+							<h3>Unordered</h3>
+							
+							<ul class="n-list">
+							
+								<li>Unordered one</li>
+								<li>Unordered two
+								
+									<ul class="n-list">
+										
+										<li>Nested one</li>
+										<li>Nested two</li>
+									
+									</ul>
+								</li>
+								<li>Unordered three</li>
+							
+							</ul>
+						
+						</div>
+						
+						<div class="_1/1">
+							
+							<h3>Options</h3>
+							
+							<ul class="n-list">
+								
+								<li><b>ul.n-list--inline</b> orders items on one line</li>
+								<li><b>ul.n-list--indent</b></li>
+								<li><b>ul.n-list--no-bullet</b> for a clean list</li>
+							
+							</ul>
+							
+						</div>
+						
+					</div>
+			
+				</div>
+				
+				<div id=form data-tab_title=Forms id=forms>
+					
+					<div class='n-row'>
+						
+						<div class='_1/1'>
+					
+							<h2>Forms</h2>
+					
+						</div>
+
+						<div class='_1/2'>
+							
+							<h3>Default</h3>
+							
+							<form class='n-form' action=https://docs.google.com/forms/d/1K55MbIgqFWkYzBOOe2-UfSpKPchOUNxhSxgCXz4YG8k/formResponse target=_blank method=post>
+						
+								<label>
+			
+									<span>Submit this to Google Forms</span>
+									<input type=text name=entry.1773453675 id=entry_1773453675>
+			
+								</label>
+			
+								<input type=submit value='Submit'>
+							
+							</form> 
+							
+							<br><br>
+							
+							<h3>Mast</h3>
+							
+							<form action=# method=post target=_blank class='n-form--mast n-form'>
+								
+								<label class=n-form--mandatory>
+			
+									<span>Excepteur sint occaecat cupidatat non proident</span>
+									<input name=last_name type=text placeholder='What is your name?'>
+			
+								</label>
+								
+								<div class=n-form--check>
+			
+									<span>Please choose:</span>
+									<label> 
+										<input type=radio name=radiodemo> <b class=n-form--check-icon></b>
+										First option
+									</label>
+									<label> 
+										<input type=radio name=radiodemo> <b class=n-form--check-icon></b>
+										Second option
+									</label>
+									<label> 
+										<input type=radio name=radiodemo> <b class=n-form--check-icon></b>
+										Third option
+									</label>
+			
+								</div>
+			
+								<label class=n-form--mandatory>
+			
+									<span>Email</span>
+									<input name=email type=email placeholder='Your Email address.'>
+			
+								</label> 
+												
+								<label>
+			
+									<span>Enter text here</span>
+									<textarea placeholder='How are you today?'></textarea>
+			
+								</label>
+						
+								<label>
+			
+									<span>Website</span>
+									<input name=URL type=url placeholder='URL of your website.'>
+			
+								</label>
+						
+								<label>
+											
+									<span>Range</span>
+									<input type=range>
+											
+								</label>
+														
+								<label>
+			
+									<span>Select a file</span>
+									<div class=n-form--file>
+										<input name=file type=file>
+										<span><span class=n-form--file-tag>Drop or browse</span></span>
+									</div>
+			
+								</label> 
+						
+								<label>
+			
+									<span>Country of residence</span>
+	
+									<select name=country>
+										<option value='' selected=selected>Country of residence →</option><option value='United Kingdom'>United Kingdom</option><option value=Afghanistan>Afghanistan</option><option value='Aland Islands'>Aland Islands</option><option value=Albania>Albania</option><option value=Algeria>Algeria</option><option value='American Samoa'>American Samoa</option><option value=Andorra>Andorra</option><option value=Angola>Angola</option><option value=Anguilla>Anguilla</option><option value=Antarctica>Antarctica</option><option value='Antigua And Barbuda'>Antigua And Barbuda</option><option value=Argentina>Argentina</option>
+									</select>
+			
+								</label>
+								
+								<label>
+			
+									<span>Telephone</span>
+									<input name=phone type=tel placeholder='Your phone number.'>
+			
+								</label>
+						
+								<div class='n-form--check n-form--mandatory'>
+			
+									<span>Check this</span>
+									<label>
+										<input name=checkbox type=checkbox> <b class=n-form--check-icon></b>
+										I accept the <a href=#>Terms and Conditions</a>.
+									</label>
+			
+								</div>
+								
+								<label>
+			
+									<span>Telephone</span>
+									<input name=phone type=tel placeholder='Your phone number.'>
+			
+								</label>
+						
+								<input type=submit value='Request more info' title='Request more info'>
+
+							</form> 
+
+<div class="code">
+
+<pre><code class="language-markup">&lt;form class='n-form n-form--mast'&gt;
+	...
+&lt;/form&gt;</code>
+</pre>	
+
+</div>
+
+						</div>
+		
+						<div class='_1/2'>
+							
+							<h3>Wide</h3>
+	
+							<form action=# method=post target=_blank novalidate class='n-form n-form--wide'>
+								
+								<label class=n-form--mandatory>
+			
+									<span>Excepteur sint occaecat cupidatat non proident</span>
+									<input name=last_name id=last_name type=text placeholder='What is your name?'>
+			
+								</label>
+			
+								<label class=n-form--mandatory>
+			
+									<span>Number input (5 digits)</span>
+									<input type=number placeholder=0 data-digits=5>
+			
+								</label>
+			
+								<div class=n-form--check>
+			
+									<span>A very long piece of label text which wraps to another line</span>
+									<label> 
+										<input type=radio name=radiodemo> <b class=n-form--check-icon></b>
+										First option
+									</label>
+									<label> 
+										<input type=radio name=radiodemo> <b class=n-form--check-icon></b>
+										Second option has very long text which wraps to the next line
+									</label>
+									<label> 
+										<input type=radio name=radiodemo> <b class=n-form--check-icon></b>
+										Third option
+									</label>
+			
+								</div>
+			
+								<label class=n-form--mandatory>
+			
+									<span>Email</span>
+									<input name=email id=email type=email placeholder='Your Email address.'>
+			
+								</label> 
+												
+								<label>
+			
+									<span>Enter text here</span>
+									<textarea placeholder='How are you today?' data-auto></textarea>
+			
+								</label>
+						
+								<label class=n-form--mandatory>
+			
+									<span>Website</span>
+									<input name=URL id=URL type=url placeholder='URL of your website.'>
+			
+								</label>
+						
+								<label>
+											
+									<span>Range</span>
+									<input type=range>
+											
+								</label>
+														
+								<label>
+			
+									<span>Select a file</span>
+									<div class=n-form--file>
+										<input name=file id=file type=file>
+										<span><span class=n-form--file-tag>Drop or browse</span></span>
+									</div>
+			
+								</label> 
+						
+								<label>
+			
+									<span>Country of residence</span>
+
+									<select name=country>
+										<option value='' selected=selected>Country of residence →</option><option value='United Kingdom'>United Kingdom</option><option value=Afghanistan>Afghanistan</option><option value='Aland Islands'>Aland Islands</option><option value=Albania>Albania</option><option value=Algeria>Algeria</option><option value='American Samoa'>American Samoa</option><option value=Andorra>Andorra</option><option value=Angola>Angola</option><option value=Anguilla>Anguilla</option><option value=Antarctica>Antarctica</option><option value='Antigua And Barbuda'>Antigua And Barbuda</option><option value=Argentina>Argentina</option>
+									</select>
+			
+								</label>
+								
+								<label>
+			
+									<span>Telephone</span>
+									<input name=phone type=tel placeholder='Your phone number.'>
+			
+								</label>
+						
+								<div class='n-form--check n-form--mandatory'>
+			
+									<span>Check this</span>
+									<label>
+										<input name=checkbox id=checkbox type=checkbox> <b class='n-form--check-icon'></b> I accept the <a href=#>Terms and Conditions</a>.
+									</label>
+			
+								</div>
+								
+								<label>
+			
+									<span>Telephone</span>
+									<input name=phone type=tel placeholder='Your phone number.'>
+			
+								</label>
+
+								<div class='n-form--check n-form--condition'>
+			
+									<span>Open disabled fieldset below</span>
+									<label>
+										<input name='checkbox' id='checkbox' type='checkbox'> <b class='n-form--check-icon'></b> Text to check alignment with checkbox.
+									</label>
+			
+								</div>
+								
+								<fieldset disabled='disabled'>
+									
+									<legend>Datalist examples</legend>
+
+									<input type='text' list='countries' placeholder='Datalist text'>
+									
+									<datalist id='countries'>
+										<option value='Afghanistan'>Afghanistan</option>
+										<option value='Aland Islands'>Aland Islands</option>
+										<option value='Albania'>Albania</option>
+									</datalist>
+								
+									<input type='date' list='days'>
+									<datalist id='days'>
+									  <option label='Independence Day'>2013-07-04</option>
+									  <option label='Labor Day'>2013-09-02</option>
+									  <option label='Columbus Day'>2013-10-14</option>
+									</datalist>
+								
+								</fieldset>
+						
+								<input type=submit value='Request more info' title='Request more info'>
+	<!-- 							<input type='reset' value='Reset' name='reset'> -->
+							
+							</form>
+							
+<div class="code">							
+
+<pre><code class="language-markup">&lt;form class='n-form n-form--wide'&gt;
+	...
+&lt;/form&gt;</code>
+</pre>	
+
+</div>
+							
+						</div>
+	
+						<div class='_1/1'>
+							
+							<h3>Elements</h3>
+
+							<div class="n-row">
+							
+								<div class="_1/3">
+							
+									<h4>Text input</h4>							
+							
+									<div class="code">							
+							
+<pre><code class="language-markup">&lt;label&gt;
+	&lt;span&gt;Label&lt;/span&gt;
+	&lt;input type='text'&gt;
+&lt;/label&gt;</code>
+</pre>
+							
+							</div>
+							
+								</div>
+							
+								<div class="_1/3">
+							
+							<h4>Number input</h4>
+							<div class="code">							
+							
+<pre><code class="language-markup">&lt;label&gt;
+	&lt;span&gt;Label&lt;/span&gt;
+	&lt;input type='number' data-digits=5&gt;
+&lt;/label&gt;</code>
+</pre>
+							
+							</div>
+							
+							</div>
+							
+								<div class="_1/3">
+							
+							<h4>Checkbox</h4>
+							<div class="code">							
+							
+<pre><code class="language-markup">&lt;div class='n-form--check'&gt;
+	&lt;span&gt;Global label&lt;/span&gt;
+	&lt;label&gt; 
+		&lt;input type='checkbox'&gt; &lt;b class=n-form--check-icon&gt;&lt;/b&gt;
+		Checkbox-specific label
+	&lt;/label&gt;
+&lt;/div&gt;</code>
+</pre>
+							
+							</div>
+							
+							</div>
+							
+								<div class="_1/3">
+							
+							<h4>Radio buttons</h4>
+							<div class="code">							
+							
+<pre><code class="language-markup">&lt;div class='n-form--check'&gt;
+	&lt;span&gt;Label for all buttons&lt;/span&gt;
+	&lt;label&gt; 
+		&lt;input type='radio' name='radiodemo'&gt; &lt;b class=n-form--check-icon&gt;&lt;/b&gt;
+		Label for this button
+	&lt;/label&gt;
+	&lt;label&gt; 
+		&lt;input type='radio' name='radiodemo'&gt; &lt;b class=n-form--check-icon&gt;&lt;/b&gt;
+		Label for this button
+	&lt;/label&gt;
+	...
+&lt;/div&gt;</code>
+</pre>
+							
+							</div>
+							
+							</div>
+							
+								<div class="_1/3">
+							
+							<h4>Textarea</h4>
+							<div class="code">							
+							
+<pre><code class="language-markup">&lt;label&gt;
+	&lt;span&gt;Label&lt;/span&gt;
+	&lt;textarea&gt;&lt;/textarea&gt;
+&lt;/label&gt;</code>
+</pre>
+							
+							</div>
+							
+							</div>
+							
+								<div class="_1/3">
+							
+							<h4>Range input</h4>
+							<div class="code">							
+							
+<pre><code class="language-markup">&lt;label&gt;
+	&lt;span&gt;Label&lt;/span&gt;
+	&lt;input type='range'&gt;
+&lt;/label&gt;</code>
+</pre>
+							
+							</div>
+							
+							</div>
+							
+								<div class="_1/3">
+							
+							<h4>File input</h4>
+							<div class="code">							
+							
+<pre><code class="language-markup">&lt;label&gt;
+	&lt;span&gt;Label&lt;/span&gt;
+	&lt;div class='n-form--file'&gt;
+		&lt;input type='file'&gt;
+		&lt;span&gt;&lt;span class=n-form--file-tag&gt;Placeholder&lt;/span&gt;&lt;/span&gt;
+	&lt;/div&gt;
+&lt;/label&gt; </code>
+</pre>
+							
+							</div>
+							
+							</div>
+							
+								<div class="_1/3">
+							
+							<h4>Select</h4>
+							<div class="code">							
+							
+<pre><code class="language-markup">&lt;label&gt;
+	&lt;span&gt;Label&lt;/span&gt;
+	&lt;select&gt;
+		&lt;option value='First option'&gt;First option&lt;/option&gt;
+		&lt;option value='Second option'&gt;Second option&lt;/option&gt;
+		...
+	&lt;/select&gt;
+&lt;/label&gt;</code>
+</pre>
+							
+							</div>
+							
+							</div>
+							
+								<div class="_1/3">
+							<h4>Optional sections</h4>
+							<div class="code">							
+							
+<pre><code class="language-markup">&lt;div class='n-form--check n-form--condition'&gt;
+	&lt;span&gt;Enable fieldset below&lt;/span&gt;
+	&lt;label&gt;
+		&lt;input type='checkbox'&gt; &lt;b class=n-form--check-icon&gt;&lt;/b&gt;
+	&lt;/label&gt;
+&lt;/div&gt;
+&lt;fieldset disabled&gt;
+	...
+&lt;/fieldset&gt;</code>
+</pre>
+							
+							</div>
+							
+							</div>							
+	
+							</div>
+
+							<h3>Options</h3>
+								
+							<ul class="n-list">
+								
+								<li>Validation enabled by <pre>&lt;label class='n-form--mandatory'&gt;</pre></li>
+								<li>Optional fieldsets are ignored by validation when disabled.</li>
+								<li>Set the placeholder colour with CSS variable <b>--placeholder_color</b>.</li>
+								<li><pre>&lt;form class='sticky-submit'&gt;</pre> to position the submit button absolutely on the right/center.</li>
+								<li><pre>&lt;textarea data-auto&gt;</pre> for automatically adjusted <b>textarea</b> height.</li>
+								<li><pre>data-digits=x</pre> in a number input requires x digits</li>
+							
+							</ul>
+							
+							<h3>Colors for input and textarea</h3>
+
+<pre><code class="language-css">.n-form input, .n-form textarea {
+	
+	--input-color: darkslateblue;
+	--input-bg: aliceblue;	
+	
+}</code>
+</pre>
+							
+						</div>
+						
+					</div>
+				
+				</div>
+				
+				<div id=masonry data-tab_title=Masonry id=masonry>
+					
+					<div class='n-row'>
+						
+						<div>
+					
+							<h2>Masonry (vertical track only)</h2>
+							
+							<div class='n-masonry'>
+								
+								<a class=n-center>A very long cell which demonstrates how Masonry arranges cells in optimised space.</a>
+								<div class=n-center><a>Cell</a></div>
+								<a class=n-center>Cell</a>
+								<a class=n-center>Cell</a>
+								
+							</div>
+
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-masonry'&gt;
+	&lt;div&gt;Item&lt;/div&gt;
+	...
+&lt;/div&gt;</code>
+</pre>
+
+</div>
+
+						</div>
+					
+					</div>
+					
+				</div>
+				
+				<div data-tab_title=Cards id=cards>
+				
+					<div class='n-row'>
+						
+						<div class="_1/1">
+					
+							<h2>Cards</h2>
+						
+						</div>
+							
+						<div>
+							<h3>Standard</h3>
+							
+							<div class='n-card'>
+							
+								<div class='n-card--content'>
+								
+								<p>Card content.</p>
+								
+								<a href=#>Link</a>.
+							
+							</div>
+						
+							</div>
+							
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-card'&gt;
+	&lt;div class='n-card--content'&gt; Content &lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+
+</div>
+
+						</div>
+					
+						<div>
+							<h3>Card with headline</h3>
+							
+							<div class='n-card'>
+							
+								<div class='n-card--head'>
+									
+									<h3>Title</h3>
+								
+								</div>
+								
+								<div class='n-card--content'>
+									
+									<p>Card content.</p>
+									
+									<a href=#>Link</a>.
+								
+								</div>
+						
+							</div>
+
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-card'&gt;
+	&lt;div class='n-card--head'&gt; Headline &lt;/div&gt;
+	&lt;div class='n-card--content'&gt; Content &lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+
+</div>
+
+						</div>
+						
+						<div>
+							<h3>Card with image</h3>
+							
+							<div class='n-card'>
+							
+								<img src=images/DSC_4225.jpg alt=Image>
+							
+								<div class='n-card--content'>
+									
+									<p>Card content.</p>
+									
+									<a href=#>Link</a>.
+								
+								</div>
+							
+							</div>
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-card'&gt;
+	&lt;img src=image.jpg alt=Image&gt;
+	&lt;div class='n-card--content'&gt; Content &lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+
+</div>
+
+						</div>
+					
+						<div>
+							
+							<h3>Card with headline and image</h3>
+							
+							<div class='n-card'>
+							
+								<div class='n-card--head n-card--image' style='background-image: url(images/DSC_4225.jpg)'>
+									
+									<h3>Title</h3>
+								
+								</div>
+								
+								<div class='n-card--content'>
+									
+									<p>Card content.</p>
+									
+									<a href=#>Link</a>.
+								
+								</div>
+							
+							</div>
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-card'&gt;
+	&lt;div class='n-card--head n-card--image' style='background-image: url(image.jpg)'&gt; Headline &lt;/div&gt;
+	&lt;div class='n-card--content'&gt; Content &lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+
+</div>
+
+						</div>
+
+						<div class="_1/1">
+					
+							<h3>Options</h3>
+							
+							<ul class="n-list">
+								
+								<li>CSS variable <pre>--card-bg</pre> specifies the background colour.</li>
+							
+							</ul>
+						
+						</div>
+							
+					</div>
+
+				</div>
+				
+				<div data-tab_title='Fixed background' id=fixed-background>
+					
+					<div class='n-row'>
+						
+						<div class='n-middle' style='min-height: 100vh;'>
+					
+							<div class='n-fixed-bg' style='background-image: url(images/DSC00470.jpg); color: #fff;'>
+								
+								<div class='n-fixed-bg--image'></div>
+								
+								<div class='n-pad'>
+
+									<br><br>
+			
+									<h2>Fixed background</h2>
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class='n-fixed-bg' style='background-image: url(image.jpg);'&gt;
+	&lt;div class='n-fixed-bg--image'&gt;&lt;/div&gt;
+	...
+&lt;/div&gt;</code>
+</pre>
+
+</div>
+
+									<div style='min-height: 100vh'></div>
+									
+									<p>takes up the full window and is visible only through the current section. Not fixed on IE/Edge.</p>
+								
+									<br><br><br>
+
+								</div>
+						
+							</div>
+							
+						</div>
+					
+					</div>
+					
+				</div>
+
+				<div data-tab_title='Language selector' id=language-selector>
+					
+					<div class='n-row'>
+						
+						<div>
+							
+							<h2>Language selector</h2>
+					
+							<form action=. method=get class='n-form n-form--language'>
+				
+								<label>
+								
+									<select name='l'>
+										
+										<option value='en'>🇬🇧 English</option>
+										<option value='fr'>🇫🇷 Français</option>
+										<option value='cn'>🇨🇳 中文</option>
+										<option value='bg'>🇧🇬 български</option>
+										<option value='jp'>🇯🇵 日本</option>
+										
+												
+									</select>
+								
+								</label>
+																		
+								<noscript>
+								
+									<input type=submit value=▶>
+								
+								</noscript>
+							
+							</form>
+							
+
+<div class="code">							
+
+<pre><code class="language-markup">&lt;form action=. method=get class='n-form n-form--language'&gt;
+	&lt;label&gt;
+		&lt;select name='l'&gt;
+			&lt;option value='en'&gt;🇬🇧 English&lt;/option&gt;
+			&lt;option value='fr'&gt;🇫🇷 Fran&ccedil;ais&lt;/option&gt;
+			&lt;option value='cn'&gt;🇨🇳 &#20013;&#25991;&lt;/option&gt;
+			&lt;option value='bg'&gt;🇧🇬 &#1073;&#1098;&#1083;&#1075;&#1072;&#1088;&#1089;&#1082;&#1080;&lt;/option&gt;
+			&lt;option value='jp'&gt;🇯🇵 &#26085;&#26412;&lt;/option&gt;
+		&lt;/select&gt;
+	&lt;/label&gt;
+	&lt;noscript&gt;
+		&lt;input type=submit value=&#9654;&gt;
+	&lt;/noscript&gt;
+&lt;/form&gt;</code>
+</pre>
+
+</div>
+						
+						</div>
+					
+					</div>
+
+			</div>
+
+				<div data-tab_title='Parallax scrolling' id=parallax> 
+					
+					<div class='n-row'>
+						
+						<div>
+							
+							<h2>Parallax scrolling</h2>
+							
+							<p><a href=//radogado.github.io/natuive/demos/swiss/ target="_blank">Open demo page</a>. Edge/IE unsupported.</p>
+
+<div class="code">							
+
+<pre><code class="language-markup">&lt;html class='n-parallax'&gt;
+    &lt;body&gt;
+        &lt;div class='n-parallax--back'&gt; ... &lt;/div&gt;
+        &lt;div class='n-parallax--front'&gt; ... &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code>
+</pre>
+
+</div>						
+						</div>
+					
+					</div>
+
+				</div>
+
+				<div data-tab_title='Scroll effects' id=scroll> 
+					
+					<div class='n-row'>
+						
+						<div>
+							
+							<div data-threshold>
+								
+							<h2>Scroll effects</h2>
+							
+							<p>Scroll to change a block's opacity, relative to body scroll.</p>
+							
+							
+							<style>div[data-threshold] { opacity: calc(1 - var(--threshold)); transition: all 0.1s linear; } </style>
+
+<div class="code">							
+
+<pre><code class="language-markup">&lt;style&gt;
+	div[data-threshold] { 
+		opacity: calc(1 - var(--threshold)); transition: all 0.1s linear; 
+	}
+&lt;/style&gt;</code>
+</pre>
+
+</div>
+								<h3>Options</h3>
+								<ul class="n-list">
+									
+									<li>Adds CSS variable <pre>--threshold</pre> showing how much of the element height has been scrolled up outside of the viewport, 0.0 ~ 1.0</li>
+									<li><pre>--height</pre> is the element height, used for calculations</li>
+									<li>When all of it is above the viewport, the element gets a <pre>.threshold</pre> class</li>
+								</ul>
+
+							</div>
+						
+						<div style='min-height: 100vh;'></div>
+						</div>
+					
+					</div>
+
+				</div>
+
+				<!--
+				<div data-tab_title='URI parameters'> 
+					
+					<div class='n-row'>
+						
+						<div>
+							
+							<h2>URI parameters</h2>
+							
+							<p>URI parameters matching the <b>parameters_list</b> array are added to all links on the page.</p>
+<pre><code class="language-markup">var parameters_list = new Array('parameter1', 'parameter2');</code>
+</pre>
+						
+						</div>
+					
+					</div>
+
+				</div>
+-->
+
+				<div data-tab_title='Notification bar' id=notifications> 
+					
+					<div class='n-row'>
+						
+						<div>
+							
+							<h2>Notification bar</h2>
+					
+
+<div class="code">
+<pre><code class="language-markup">&lt;body&gt;
+    &lt;div class='n-notify'&gt; Message &lt;/div&gt;
+    ...
+&lt;/body&gt;</code>
+</pre></div>
+
+								<p>or</p>
+
+<div class="code">
+<pre><code class="language-js">document.body.insertAdjacentHTML('afterbegin', '&lt;div class=n-notify&gt; Message &lt;/div&gt;');</code></pre>
+</div>
+<br>
+								<p>or</p>
+
+<div class="code">
+<pre><code class="language-js">nui.componentNotify.notify('Message');</code></pre>
+</div>
+<br>
+					<button class="n-btn" onclick="nui.componentNotify.notify('Notified.');">Notify me now</button>
+					<button class="n-btn" onclick="nui.componentNotify.notify('Fixed.', 'fixed');">Fixed notification bar</button>
+
+					<h3>Options</h3>
+							
+					<ul class="n-list">
+								
+								<li>Fixed on top: <pre>&lt;div class='n-notify n-notify--fixed'&gt;</pre> or <pre>nui.componentNotify.notify('Message', 'fixed');</pre></li>
+								<li><pre>nui.componentNotify.notify('Text', 'timeout')</pre> to hide it automatically after 2 seconds</li>
+							
+							</ul>
+						
+</div>
+
+</div>
+
+				</div>
+
+				<div data-tab_title='Copy to clipboard' id=copy>
+					
+					<div class='n-row'>
+						
+						<div>
+							
+							<h2>Copy to clipboard</h2>
+							
+							<div> <p id=copycontent>Text to be copied to clipboard.</p> </div>
+							
+							<button class="n-btn" id=copybutton>Copy the above text</button>
+<br>
+<div class="code">							
+
+<pre><code class="language-js">nui.copyButton(document.getElementById('copybutton'), document.getElementById('copycontent'));</code>
+</pre>
+
+</div>
+						
+<h3>Options</h3>
+							
+							<ul class="n-list">
+								
+								<li>Add a third parameter to echo the content in a notification bar</li>
+							
+							</ul>
+
+						</div>
+					
+					</div>
+
+				</div>
+
+				<div data-tab_title="'Back to top' button" id=back-to-top>
+					
+					<div class='n-row'>
+						
+						<div>
+							
+							<h2>'Back to top' button</h2>
+							
+<div class="code">							
+
+<pre><code class="language-markup">&lt;a class='backtotop' href=&quot;#&quot;&gt;&uarr;&lt;/a&gt;</code>
+</pre>
+
+</div>
+						
+						</div>
+					
+					</div>
+
+				</div>
+
+				<div data-tab_title='animate() function' id=animate>
+					
+					<div class='n-row'>
+						
+						<div>
+							
+							<h2>animate() function</h2>
+
+<div class="code">							
+
+<pre><code class="language-js">nui.animate(document.querySelector('body'), 
+	'0% { opacity: 1; transform: translateX(0); } 
+	50% { opacity: 0; transform: translateX(-50vw); } 
+	100% { opacity: 1;  transform: translateX(0); }', 
+	2);</code>
+</pre>
+
+</div>
+<br>
+							<button class="n-btn" onclick="nui.animate(document.querySelector('body'), '0% { opacity: 1; transform: translateX(0); } 50% { opacity: 0; transform: translateX(-50vw); } 100% { opacity: 1;  transform: translateX(0); }', 2);">Animate now</button>
+							
+							<h3>Options</h3>
+							
+							<ul class="n-list">
+								
+								<li>Third parameter <pre>duration</pre> is optional, default value <b>.2s</b></li>
+								<li>Callback function as a fourth parameter</li>
+							
+							</ul>
+						
+						</div>
+					
+					</div>
+
+				</div>
+				
+				<div data-tab_title='Grid with inline popups' id=grid-inline-popup>
+					
+					<div class='n-row'>
+						
+						<div>
+							
+							<h2>Grid with inline popups</h2>
+
+							<div class='n-row grid-inline-popup'>
+	
+	<div>1</div>
+	<div class="grid-inline-popup--popup">Popup for #1</div>
+	<div>2</div>
+	<div class="grid-inline-popup--popup">Popup for #2<br>break</div>
+	<div>3</div>
+	<div class="grid-inline-popup--popup">Popup for #3</div>
+	<div>4</div>
+	<div class="grid-inline-popup--popup">Popup for #4</div>
+	<div>5</div>
+	<div class="grid-inline-popup--popup">Popup for #5</div>
+	<div>6</div>
+	<div class="grid-inline-popup--popup">Popup for #6</div>
+	<div>7</div>
+	<div class="grid-inline-popup--popup">Popup for #7</div>
+	<div>8</div>
+	<div class="grid-inline-popup--popup">Popup for #8</div>
+	<div>9</div>
+	<div class="grid-inline-popup--popup">Popup for #9</div>
+	<div>10</div>
+	<div class="grid-inline-popup--popup">Popup for #10</div>
+	<div>11</div>
+	<div class="grid-inline-popup--popup">Popup for #11</div>
+	<div>12</div>
+	<div class="grid-inline-popup--popup">Popup for #12</div>
+	<div>13</div>
+	<div class="grid-inline-popup--popup">Popup for #13</div>
+	<div>14</div>
+	<div class="grid-inline-popup--popup">Popup for #14</div>
+
+</div>
+
+							<br><br>
+
+							<div class='n-row grid-inline-popup'>
+	
+	<div class="_1/3">1</div>
+	<div class="grid-inline-popup--popup">Popup for #1</div>
+	<div class="_1/3">2</div>
+	<div class="grid-inline-popup--popup">Popup for #2<br>break</div>
+	<div class="_1/3">3</div>
+	<div class="grid-inline-popup--popup">Popup for #3</div>
+	<div class="_1/3">4</div>
+	<div class="grid-inline-popup--popup">Popup for #4</div>
+	<div class="_1/3">5</div>
+	<div class="grid-inline-popup--popup">Popup for #5</div>
+	<div class="_1/3">6</div>
+	<div class="grid-inline-popup--popup">Popup for #6</div>
+
+</div>
+
+<div class="code">
+
+<pre><code class="language-markup">&lt;div class='n-row grid-inline-popup'&gt;
+	
+	&lt;div class=&quot;_1/3&quot;&gt;1&lt;/div&gt;
+	&lt;div class=&quot;grid-inline-popup--popup&quot;&gt;Popup for #1&lt;/div&gt;
+	&lt;div class=&quot;_1/3&quot;&gt;2&lt;/div&gt;
+	&lt;div class=&quot;grid-inline-popup--popup&quot;&gt;Popup for #2&lt;/div&gt;
+	&lt;div class=&quot;_1/3&quot;&gt;3&lt;/div&gt;
+	&lt;div class=&quot;grid-inline-popup--popup&quot;&gt;Popup for #3&lt;/div&gt;
+	&lt;div class=&quot;_1/3&quot;&gt;4&lt;/div&gt;
+	&lt;div class=&quot;grid-inline-popup--popup&quot;&gt;Popup for #4&lt;/div&gt;
+	&lt;div class=&quot;_1/3&quot;&gt;5&lt;/div&gt;
+	&lt;div class=&quot;grid-inline-popup--popup&quot;&gt;Popup for #5&lt;/div&gt;
+	&lt;div class=&quot;_1/3&quot;&gt;6&lt;/div&gt;
+	&lt;div class=&quot;grid-inline-popup--popup&quot;&gt;Popup for #6&lt;/div&gt;
+
+&lt;/div&gt;</code>
+</pre>
+
+</div>
+
+						</div>
+					
+					</div>
+
+				</div>
+				
+				<div data-tab_title='Dynamic components' id=dynamic-components>
+					
+					<div class="n-row">
+						
+						<div>
+							
+							<div>
+								
+								<h2>Dynamically add a component</h2>
+								<br>
+<div class="code">				
+
+<pre><code class="language-markup">nui.addComponent(host, '&lt;div class=n-slider&gt;&lt;div&gt;New&lt;/div&gt;&lt;div&gt;Slider&lt;/div&gt;&lt;/div&gt;');</code>
+</pre>
+
+</div>
+<br>
+
+<div class="n-row">
+
+<form class="n-form">
+
+	<textarea id=component-playground rows="10" style="width: 100%">
+		<div class=n-slider> 
+			<div>New</div>
+			<div>Slider</div>
+		</div>
+	</textarea>
+	<br>
+	<button class="n-btn" onclick="nui.addComponent(this.parentNode.parentNode.parentNode.parentNode, this.parentNode.querySelector('textarea').value);">Add the above component</button>
+
+</form>
+
+
+	
+<form class="n-form">	
+	
+	<textarea id=component-playground rows="10" style="width: 100%">
+	<div class=n-fold>
+		<h3 class=n-fold--label> Label </h3>
+		<input type=checkbox class=n-trigger>
+		<div class=n-fold--content><p> Content. </p><p> Content. </p><p> Content. </p></div>
+	</div>
+	</textarea>
+	<br>
+	<button class="n-btn" onclick="nui.addComponent(this.parentNode.parentNode.parentNode.parentNode, this.parentNode.querySelector('textarea').value);">Add the above component</button>
+	
+</form>
+
+
+</div>
+
+							</div>
+							
+						</div>
+					
+					</div>
+				
+				
+				</div>
+
+				<div data-tab_title='WordPress theme' id=wordpress>
+					
+					<div class="n-row">
+						
+						<div>
+							
+							<div>
+								
+								<h2>WordPress theme</h2>
+								
+								<p>Download from the natUIve GitHub page.</p>
+								
+							</div>
+							
+						</div>
+					
+					</div>
+				
+				
+				</div>
+
+				<div data-tab_title='Color scheme' id=colors>
+					
+					<div class="n-row">
+						
+						<div>
+							
+							<div>
+								
+								<h2>Color scheme for controls</h2>
+								
+<pre><code class="language-css">.n-slider--arrow, .n-slider--nav a, .n-tool:after, .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href], .n-fold > .n-fold--label, .n-drop, .n-form {
+	
+	--control-bg: lightcoral;
+	--control-color: #fff;		
+	--control-active-bg: #cc7c7e;
+	--control-active-color: #eee;
+	--control-highlight: #bf2a2a;
+
+}</code>
+</pre>
+								
+							</div>
+							
+						</div>
+					
+					</div>
+				
+				
+				</div>
+
+			</div>
+				
 			</div>
 		
 		</div>
-	
+			
 	</main>
 	
-	<footer id=footer class="n-footer">
-	
-		<a class="backtotop" href="#">&uarr;</a>
+	<!-- JS not minified, because copyButton() is used in the page -->
 
-	</footer>
+	<script src=src/script/natuive.js type=text/javascript></script>
 
-	<script src=dist/natuive.min.js type=text/javascript async></script>
+	<script>
+		
+		nui.copyButton(document.getElementById('copybutton'), document.getElementById('copycontent'));
+		document.querySelectorAll('.code').forEach(function (el) {
+			
+			el.insertAdjacentHTML('beforeend', '<button class="n-btn">Copy</button>');
+			nui.copyButton(el.querySelector('button'), el.querySelector('pre'));
+			
+		});
+		
+	</script>
+
+	<script src=src/script/prism.js type=text/javascript></script>
 
 </body>
 

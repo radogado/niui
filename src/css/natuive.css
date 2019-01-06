@@ -286,18 +286,21 @@ a.backtotop[href] {
     background-color: var(--control-bg, inherit);
     color: var(--control-color, inherit); }
     .n-fold > .n-fold--label:after {
-      content: "▼";
-      position: absolute;
-      right: 1em;
-      font-size: .67em;
-      top: 50%;
-      transform: rotate(0) translateY(-50%);
       transition: transform .2s ease-in-out;
-      transform-origin: top; }
+      content: '';
+      position: absolute;
+      display: block;
+      right: .5em;
+      top: calc(50% - .5em);
+      width: 1em;
+      height: 1em;
+      -webkit-mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EUntitled%3C/title%3E%3Cdesc%3ECreated with Sketch.%3C/desc%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(180) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A") center center no-repeat;
+      -webkit-mask-size: .5em;
+      background-color: var(--control-color, #000); }
   .n-fold[aria-expanded] > .n-fold--label {
     cursor: zoom-out; }
     .n-fold[aria-expanded] > .n-fold--label:after {
-      transform: rotate(180deg) translateY(-50%); }
+      transform: rotate(180deg); }
   .n-fold.n-fold--mobile {
     padding: 0;
     width: auto; }
@@ -1815,8 +1818,7 @@ main .n-nav ul {
   .n-drop[data-ready] li > ul ~ a {
     background: none; }
   .n-drop li li[aria-haspopup]:before, .n-drop li li > input {
-    -webkit-mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EUntitled%3C/title%3E%3Cdesc%3ECreated with Sketch.%3C/desc%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(90) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A") center center no-repeat;
-    -webkit-mask-size: .5em; }
+    -webkit-mask-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EUntitled%3C/title%3E%3Cdesc%3ECreated with Sketch.%3C/desc%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(90) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A"); }
   .n-drop li[aria-haspopup] {
     padding-right: 2em; }
 
