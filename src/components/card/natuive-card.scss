@@ -17,6 +17,18 @@
 	.n-card--content {
 		
 		background: var(--card-bg);
+		
+		p {
+		
+			margin: .75em 0;
+			
+			&:first-child {
+				
+				margin-top: 0;
+
+			}	
+			
+		}
 	
 	}
 	

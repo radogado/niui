@@ -8,6 +8,10 @@
     padding: 1em; }
   .n-card .n-card--content {
     background: var(--card-bg); }
+    .n-card .n-card--content p {
+      margin: .75em 0; }
+      .n-card .n-card--content p:first-child {
+        margin-top: 0; }
   .n-card > img {
     display: block;
     margin: 0 auto;
