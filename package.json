@@ -25,7 +25,7 @@
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^2.2.1",
     "ruby": "^0.6.1",
-    "sass": "^1.15.2"
+    "sass": "^1.15.3"
   },
   "dependencies": {
     "closure-compiler": "^0.2.12",
