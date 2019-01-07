@@ -18,42 +18,42 @@ NPM usage:
 
 ---
 
-- Unbreakable, flexible, responsive [grid](https://radogado.github.io/natuive/guide/#grid). Supports Bootstrap-style wrapping columns, but with ._1/3 (1/3) etc., instead of .col...4 (4/12). Auto equal width columns with equal height and vertical alignment.
-- Baseline-aligned [typography](https://radogado.github.io/natuive/guide/#typography)*, quote block, drop caps.
+- Unbreakable, flexible, responsive [grid](https://radogado.github.io/natuive/#grid). Supports Bootstrap-style wrapping columns, but with ._1/3 (1/3) etc., instead of .col...4 (4/12). Auto equal width columns with equal height and vertical alignment.
+- Baseline-aligned [typography](https://radogado.github.io/guide/#typography)*, quote block, drop caps.
 - Unique BEM-like class names
 - Embeddable grid and elements*
 - Built around edge cases (overflowing content etc)*
 - Blank default style, without rounded edges, shadows etc*
 - Semantic structure
-- [Dynamic components](https://radogado.github.io/natuive/guide/#dynamic-components), dynamically initialised by MutationObserver
-- (Mobile) [navigation](https://radogado.github.io/natuive/guide/#nav). Drop-down nav: Touch-first, CSS-only, JS enhanced, 1-3 levels, responsive, label/link items support
-- [Buttons](https://radogado.github.io/natuive/guide/#buttons) with group container for proper line wrap
-- [Modal windows](https://radogado.github.io/natuive/guide/#modal-window) with multiple instances, fully supporting iPhone Safari toolbars*
-- [Lightbox gallery](https://radogado.github.io/natuive/guide/#lightbox) supporting huge galleries* and click to zoom. Can be opened automatically by URI page#lightbox_id. Video in lightbox. Inline lightboxes switchable to full screen.
-- [Tooltips](https://radogado.github.io/natuive/guide/#tooltip) with full HTML content*
-- Nested ordered [lists](https://radogado.github.io/natuive/guide/#lists)*
-- [Forms](https://radogado.github.io/natuive/guide/#form) with validation, full customisation and accessibility, including native file drop. Range input with blank style. Auto-expanding textarea*. Optional fieldsets.
-- Native [sliders](https://radogado.github.io/natuive/guide/#slider)*, swipeable on mobile and desktop, with numbered or thumbnail (tabs) navigation, vertical and full window options, slider inside slider, fade in/out option, auto height option
-- [Accordions](https://radogado.github.io/natuive/guide/#fold)
-- [Tabs](https://radogado.github.io/natuive/guide/#tabs)
-- [Cards](https://radogado.github.io/natuive/guide/#cards)
-- [Grid with inline popups](https://radogado.github.io/natuive/guide/#grid-inline-popup)
-- [Tables](https://radogado.github.io/natuive/guide/#tables) accessible on narrow screens by scrolling; sortable*
+- [Dynamic components](https://radogado.github.io/natuive/#dynamic-components), dynamically initialised by MutationObserver
+- (Mobile) [navigation](https://radogado.github.io/natuive/#nav). Drop-down nav: Touch-first, CSS-only, JS enhanced, 1-3 levels, responsive, label/link items support
+- [Buttons](https://radogado.github.io/natuive/#buttons) with group container for proper line wrap
+- [Modal windows](https://radogado.github.io/natuive/#modal-window) with multiple instances, fully supporting iPhone Safari toolbars*
+- [Lightbox gallery](https://radogado.github.io/natuive/#lightbox) supporting huge galleries* and click to zoom. Can be opened automatically by URI page#lightbox_id. Video in lightbox. Inline lightboxes switchable to full screen.
+- [Tooltips](https://radogado.github.io/natuive/#tooltip) with full HTML content*
+- Nested ordered [lists](https://radogado.github.io/natuive/#lists)*
+- [Forms](https://radogado.github.io/natuive/#form) with validation, full customisation and accessibility, including native file drop. Range input with blank style. Auto-expanding textarea*. Optional fieldsets.
+- Native [sliders](https://radogado.github.io/natuive/#slider)*, swipeable on mobile and desktop, with numbered or thumbnail (tabs) navigation, vertical and full window options, slider inside slider, fade in/out option, auto height option
+- [Accordions](https://radogado.github.io/natuive/#fold)
+- [Tabs](https://radogado.github.io/natuive/#tabs)
+- [Cards](https://radogado.github.io/natuive/#cards)
+- [Grid with inline popups](https://radogado.github.io/natuive/#grid-inline-popup)
+- [Tables](https://radogado.github.io/natuive/#tables) accessible on narrow screens by scrolling; sortable*
 - Footer sticking to the very bottom on short pages*
 - Animated anchor links and 'Back to top' button 
 - Language selector
-- [Aspect ratio](https://radogado.github.io/natuive/guide/#aspect-ratio) image container*
+- [Aspect ratio](https://radogado.github.io/natuive/#aspect-ratio) image container*
 - Arabic layout ready*
-- [Masonry](https://radogado.github.io/natuive/guide/#masonry) CSS-only* (vertical track only)
-- CSS-only [parallax scrolling](https://radogado.github.io/natuive/guide/#parallax)* 
-- [Fixed background](https://radogado.github.io/natuive/guide/#fixed-background)
+- [Masonry](https://radogado.github.io/natuive/#masonry) CSS-only* (vertical track only)
+- CSS-only [parallax scrolling](https://radogado.github.io/natuive/#parallax)* 
+- [Fixed background](https://radogado.github.io/natuive/#fixed-background)
 - [WordPress theme](rado.bg)*
-- [Notification bar](https://radogado.github.io/natuive/guide/#notifications)
-- Click to [copy to clipboard](https://radogado.github.io/natuive/guide/#copy)
+- [Notification bar](https://radogado.github.io/natuive/#notifications)
+- Click to [copy to clipboard](https://radogado.github.io/natuive/#copy)
 - Support for multiple modals, nested carousels, nested accordions etc
 - Functional without JS and accessible without CSS*
-- [NPM install](https://radogado.github.io/natuive/guide/#npm)
-- [Guide](https://radogado.github.io/natuive/guide/#)
+- [NPM install](https://radogado.github.io/natuive/#npm)
+- [Documentation](https://radogado.github.io/natuive/#)
 - 9 KB First View CSS + optional 9 KB JS (combined, minified, macOS gzip)
 - ~~No IE conditional operators~~ HTML5 elements also for IE8 with html5shiv
 - No jQuery or other dependencies*
