@@ -41,7 +41,7 @@ module.exports = function(grunt) {
 		  JS: {
 			options: {
 				separator: ';',
-				banner: 'var nui = (function(){',
+				banner: 'let nui = (() => {', // let us skirt non-ES6 browsers like IE11
 				footer: 'initComponents(); return { initComponents: initComponents, animate: animate, copyButton: copyButton, componentNotify: componentNotify, addComponent: addComponent }; })();'
 		    },
 		    src: ['src/script/natuive-core.js', 'src/components/**/*.js'],
@@ -54,7 +54,7 @@ module.exports = function(grunt) {
 		  JS_lite: {
 			options: {
 				separator: ';',
-				banner: 'var nui = (function(){',
+				banner: 'let nui = (() => {',
 				footer: 'initComponents(); return { initComponents: initComponents, animate: animate, copyButton: copyButton, componentNotify: componentNotify, addComponent: addComponent }; })();'
 		    },
 		    src: ['src/script/natuive-core.js', 'src/components/form/*.js', 'src/components/nav/*.js', 'src/components/table/*.js', 'src/components/tooltip/*.js'],
