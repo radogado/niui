@@ -9,9 +9,9 @@
 	<meta name=viewport content='width=device-width,initial-scale=1.0,maximum-scale=5,user-scalable=yes'>
 
 	<link rel=icon href=images/favicon.ico>
-	<link rel=styleSheet href=src/css/natuive.css>
-<!-- 	<link rel=styleSheet href=dist/natuive.min.css type=text/css media=screen> -->
-	<!--[if lte IE 10]> 
+<!-- 	<link rel=styleSheet href=src/css/natuive.css> -->
+	<link rel=styleSheet href=dist/natuive.min.css type=text/css media=screen>
+	<!--[if lte IE 9]>
 		<link rel=styleSheet href=src/css/ie.css type=text/css media=screen>
 		<script src=src/script/ie-fallback.js></script> 
 	<![endif]-->
@@ -1941,16 +1941,6 @@
 
 <!-- 		<script src=dist/natuive.min.js type=text/javascript async></script> -->
 	<script src=src/script/natuive.js type=text/javascript async onload="nui.copyButton(document.getElementById('copybutton'), document.getElementById('copycontent'));"></script>
-
-<!--
-	<script> 
-		
-		var script = document.createElement('script');
-		script.src = ('fetch' in window) ? 'dist/natuive.min.js' : 'dist/natuive.fallback.js';
-		document.body.appendChild(script);
-
-	</script>
--->
 
 </body>
 
