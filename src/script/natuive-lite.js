@@ -1,4 +1,4 @@
-var nui = !("fetch" in window) || function(){/* natUIve by rado.bg */
+var nui = !("fetch" in window) || (() => {/* natUIve by rado.bg */
 /* DOM functions via http://youmightnotneedjquery.com */
 
 // To do: translate to ES6, as the packager adds a check to skip the below when ES6 unavailable and optionally server Babel-transpiled version using the extra footer script
@@ -1311,4 +1311,4 @@ qa('a[href^="#"]').forEach((el) => {
 })();
 
 // Component Fold – end
-initComponents(); return { initComponents: initComponents, animate: animate, copyButton: copyButton, componentNotify: componentNotify, addComponent: addComponent } }()
+initComponents(); return { initComponents: initComponents, animate: animate, copyButton: copyButton, componentNotify: componentNotify, addComponent: addComponent } })()

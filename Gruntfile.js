@@ -41,8 +41,8 @@ module.exports = function(grunt) {
 		  JS: {
 			options: {
 				separator: ';',
-				banner: 'var nui = !("fetch" in window) || function(){', // skirt non-ES6 browsers like IE11
-				footer: 'initComponents(); return { initComponents: initComponents, animate: animate, copyButton: copyButton, componentNotify: componentNotify, addComponent: addComponent } }()'
+				banner: 'var nui = !("fetch" in window) || (() => {', // skirt non-ES6 browsers like IE11
+				footer: 'initComponents(); return { initComponents: initComponents, animate: animate, copyButton: copyButton, componentNotify: componentNotify, addComponent: addComponent } })()'
 		    },
 		    src: ['src/script/natuive-core.js', 'src/components/**/*.js'],
 		    dest: 'src/script/natuive.js'
@@ -54,8 +54,8 @@ module.exports = function(grunt) {
 		  JS_lite: {
 			options: {
 				separator: ';',
-				banner: 'var nui = !("fetch" in window) || function(){', // skirt non-ES6 browsers like IE11
-				footer: 'initComponents(); return { initComponents: initComponents, animate: animate, copyButton: copyButton, componentNotify: componentNotify, addComponent: addComponent } }()'
+				banner: 'var nui = !("fetch" in window) || (() => {', // skirt non-ES6 browsers like IE11
+				footer: 'initComponents(); return { initComponents: initComponents, animate: animate, copyButton: copyButton, componentNotify: componentNotify, addComponent: addComponent } })()'
 		    },
 		    src: ['src/script/natuive-core.js', 'src/components/form/*.js', 'src/components/nav/*.js', 'src/components/table/*.js', 'src/components/tooltip/*.js'],
 		    dest: 'src/script/natuive-lite.js'
@@ -92,7 +92,7 @@ module.exports = function(grunt) {
 			  options: {
 			    compilation_level: 'SIMPLE_OPTIMIZATIONS',
 			    language_in: 'ECMASCRIPT6_STRICT',
-			    language_out: 'ECMASCRIPT6_STRICT',
+			    language_out: 'ECMASCRIPT_2015',
 			  }
 			},
 			lite: {
