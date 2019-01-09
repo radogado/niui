@@ -4061,13 +4061,17 @@
 
 	<script>
 		
-		nui.copyButton(document.getElementById('copybutton'), document.getElementById('copycontent'));
-		document.querySelectorAll('.code').forEach(function (el) {
-			
-			el.insertAdjacentHTML('beforeend', '<button class="n-btn">Copy</button>');
-			nui.copyButton(el.querySelector('button'), el.querySelector('pre'));
-			
-		});
+		if (typeof nui !== 'undefined') {
+
+			nui.copyButton(document.getElementById('copybutton'), document.getElementById('copycontent'));
+			document.querySelectorAll('.code').forEach(function (el) {
+				
+				el.insertAdjacentHTML('beforeend', '<button class="n-btn">Copy</button>');
+				nui.copyButton(el.querySelector('button'), el.querySelector('pre'));
+				
+			});
+		
+		}
 		
 	</script>
 
