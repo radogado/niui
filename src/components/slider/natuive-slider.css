@@ -72,7 +72,7 @@
   justify-content: center;
   text-align: center; }
 
-.n-slider.n-slider--auto-height > *:not([data-active]) {
+.n-slider.n-slider--auto-height[data-ready] > *:not([data-active]) {
   height: 0; }
 
 .n-slider--wrap .n-slider.n-middle > *, .n-slider.n-middle > * {

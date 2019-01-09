@@ -13,7 +13,8 @@ ul.n-list {
     width: 100%;
     list-style: none; }
   ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li {
-    margin-left: 1em; }
+    margin-left: 1em;
+    max-width: calc(100% - 1em); }
     ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li:before {
       content: '·';
       position: absolute;

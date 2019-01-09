@@ -120,7 +120,7 @@
 	
 }
 
-.n-slider.n-slider--auto-height > *:not([data-active]) {
+.n-slider.n-slider--auto-height[data-ready] > *:not([data-active]) {
 	
 	height: 0;
 

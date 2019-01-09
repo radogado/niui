@@ -27,6 +27,7 @@ ul.n-list {
 	&:not(.n-list--no-bullet):not(.n-list--inline) li {
 	
 		margin-left: 1em;
+		max-width: calc(100% - 1em);
 		
 		&:before {
 			

@@ -150,11 +150,12 @@ body:not([data-js]) .n-slider.n-slider--vertical {
 
 	> :target {
 		
-		position: absolute;
+// 		position: absolute;
 	    background: #fff;	
 	    overflow: auto;
 	    z-index: 1;
 	    display: block;
+	    max-width: 100%;
 		
 	}
 
