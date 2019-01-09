@@ -4065,10 +4065,11 @@
 	<!-- JS not minified, because copyButton() is used in the page -->
 
 	<script src=src/script/natuive.js type=text/javascript></script>
+<!-- 	<script src=dist/natuive.min.js type=text/javascript></script> -->
 
 	<script>
 		
-		if (typeof nui !== 'undefined') {
+		if (typeof nui === 'object') {
 
 			nui.copyButton(document.getElementById('copybutton'), document.getElementById('copycontent'));
 			document.querySelectorAll('.code').forEach(function (el) {
