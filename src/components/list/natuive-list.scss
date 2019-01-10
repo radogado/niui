@@ -21,6 +21,8 @@ ul.n-list {
 		position: relative;
 		width: 100%;
 		list-style: none;
+		word-break: break-word; // Overflow protection for long words
+		word-wrap: break-word;
 	
 	}
 	

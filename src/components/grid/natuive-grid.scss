@@ -417,6 +417,8 @@
 			margin: 0;
 			padding: $line-height-em/2;
 			box-sizing: border-box;
+			word-break: break-word; // Overflow protection for long words
+			word-wrap: break-word;
 	
 	    }
 	    

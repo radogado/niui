@@ -11,7 +11,9 @@ ul.n-list {
     display: block;
     position: relative;
     width: 100%;
-    list-style: none; }
+    list-style: none;
+    word-break: break-word;
+    word-wrap: break-word; }
   ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li {
     margin-left: 1em;
     max-width: calc(100% - 1em); }

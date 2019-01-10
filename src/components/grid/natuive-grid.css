@@ -230,7 +230,9 @@
     break-inside: avoid-column;
     margin: 0;
     padding: 0.75em;
-    box-sizing: border-box; }
+    box-sizing: border-box;
+    word-break: break-word;
+    word-wrap: break-word; }
   .n-masonry._1\/2 {
     -moz-column-count: 2;
     -webkit-column-count: 2;
