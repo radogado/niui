@@ -164,6 +164,17 @@ span.vertical {
 	
 	margin-bottom: 3em;
 	
+	.n-slider a {
+		
+		display: block;
+		
+		img {
+			
+			max-width: 100%;
+			
+		}
+	}
+	
 }
 
 .n-slider--wrap>.n-slider--nav {
