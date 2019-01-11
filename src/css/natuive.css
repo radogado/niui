@@ -896,6 +896,8 @@ a.backtotop[href] {
   cursor: zoom-in; }
   .grid-inline-popup > div:not(.grid-inline-popup--popup)[aria-expanded] {
     cursor: zoom-out; }
+.grid-inline-popup:not([data-ready]) > div:not(.grid-inline-popup--popup):focus + .grid-inline-popup--popup {
+  display: block; }
 
 /*# sourceMappingURL=natuive-grid-inline-popups.css.map */
 

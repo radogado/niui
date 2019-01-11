@@ -38,4 +38,10 @@
 	
 	}
 	
+	&:not([data-ready]) > div:not(.grid-inline-popup--popup):focus + .grid-inline-popup--popup {
+		
+		display: block;
+		
+	}
+	
 }
