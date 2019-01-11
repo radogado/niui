@@ -1939,16 +1939,21 @@
 							
 							<div class="n-aspect" style="--width: 1670; --height: 1000;">
 								
-								<div id=lightbox3 class='n-lightbox n-lightbox--inline n-lightbox--thumbnails' data-autoslide-=4>
-							
-								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916.jpg title='First photo from Paris'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916-88x88.jpg alt=2> </a>
-
-								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00894.jpg title='Second photo from Paris'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00894-88x88.jpg alt=1> </a>
-								
-								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00957.jpg title='Third photo from Paris'> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00957-88x88.jpg alt=2> </a>
-							
+								<div class="n-slider--wrap n-lightbox--thumbnails">
+										
+									<div class="n-lightbox--inline n-slider n-lightbox n-lightbox--thumbnails">
+									<div>
+										<img data-src="http://ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916.jpg"><p class="n-lightbox--caption">First photo from Paris</p>
+									</div>
+									<div><img data-src="http://ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00894.jpg"><p class="n-lightbox--caption">Second photo from Paris</p>
+									</div>
+									<div><img data-src="http://ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00957.jpg"><p class="n-lightbox--caption">Third photo from Paris</p>
+									</div>
 								</div>
-							
+									<div class="n-slider--nav n-lightbox--thumbnails"><a tabindex="0" style="background-image: url(&quot;https://ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916-88x88.jpg);">1</a><a tabindex="0" style="background-image: url(&quot;https://ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00894-88x88.jpg);">2</a><a tabindex="0" style="background-image: url(&quot;https://ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00957-88x88.jpg);">3</a></div>
+								
+								</div>
+
 							</div>
 			
 
@@ -2091,7 +2096,7 @@
 							
 							</div>
 
-<div class="code">							
+							<div class="code">							
 
 <pre><code class="language-markup">&lt;div class='n-lightbox n-lightbox--inline n-lightbox--thumbnails' id='lightbox4'&gt;
 	&lt;a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756.jpg title='First Taipei photo'&gt;
@@ -2104,8 +2109,97 @@
 </pre>
 
 </div>
+
 						</div>
 					
+						<div class="_1/1">
+							
+							<h3> Inline lightbox with auto height </h3>
+							
+							<div class="n-row n-unpad">
+							
+								<div>
+									
+									<div class="n-slider--wrap n-slider--vertical n-slider--outside n-lightbox--thumbnails">
+										<div class="n-slider n-lightbox n-lightbox--inline n-lightbox--thumbnails n-slider--vertical" data-duration="2">
+											<div>
+												<span class="n-aspect" style="--width: 685; --height: 1024;"> <!-- For seamless loading -->
+													<img data-src="images/DSC_5823.jpg">
+												</span>
+												<p class="n-lightbox--caption">First Image</p>
+											</div>
+											<div>
+												<img data-src="images/DSC_5975.jpg" width="512" height="342">
+												<p class="n-lightbox--caption">Second Image</p>
+											</div>
+											<div>
+												<img data-src="images/DSC_4225.jpg" data-caption="Third Image" width="999" height="669">
+												<p class="n-lightbox--caption">Third Image</p>
+											</div>
+											<div>
+												<img data-src="images/DSC_5823.jpg" data-caption="First Image" width="685" height="1024">
+												<p class="n-lightbox--caption">Fourth Image</p>
+											</div>
+											<div>
+												<video poster="images/video.jpg" controls="controls" preload="none">
+													<source type="video/mp4" src="//s3.amazonaws.com/gado/Outlying-Teaser.mp4">
+												</video>
+											</div>
+										</div>
+										<div class="n-slider--nav n-lightbox--thumbnails">
+										   <a style="background-image: url(images/DSC_5823-t.jpg);">1</a>
+										   <a style="background-image: url(images/DSC_5975-t.jpg);">2</a>
+										   <a style="background-image: url(images/DSC_4225-t.jpg);">3</a>
+										   <a>4</a>
+										   <a>5</a>
+										</div>
+									</div>
+								
+								</div>
+
+							</div>
+
+							<div class="code">							
+
+<pre><code class="language-markup">&lt;div class=&quot;n-slider--wrap n-slider--vertical n-slider--outside n-lightbox--thumbnails&quot;&gt;
+	&lt;div class=&quot;n-slider n-lightbox n-lightbox--inline n-lightbox--thumbnails n-slider--vertical&quot; data-duration=&quot;2&quot;&gt;
+		&lt;div&gt;
+			&lt;span class=&quot;n-aspect&quot; style=&quot;--width: 685; --height: 1024;&quot;&gt; &lt;!-- For seamless loading --&gt;
+				&lt;img data-src=&quot;images/DSC_5823.jpg&quot;&gt;
+			&lt;/span&gt;
+			&lt;p class=&quot;n-lightbox--caption&quot;&gt;First Image&lt;/p&gt;
+		&lt;/div&gt;
+		&lt;div&gt;
+			&lt;img data-src=&quot;images/DSC_5975.jpg&quot; width=&quot;512&quot; height=&quot;342&quot;&gt;
+			&lt;p class=&quot;n-lightbox--caption&quot;&gt;Second Image&lt;/p&gt;
+		&lt;/div&gt;
+		&lt;div&gt;
+			&lt;img data-src=&quot;images/DSC_4225.jpg&quot; data-caption=&quot;Third Image&quot; width=&quot;999&quot; height=&quot;669&quot;&gt;
+			&lt;p class=&quot;n-lightbox--caption&quot;&gt;Third Image&lt;/p&gt;
+		&lt;/div&gt;
+		&lt;div&gt;
+			&lt;img data-src=&quot;images/DSC_5823.jpg&quot; data-caption=&quot;First Image&quot; width=&quot;685&quot; height=&quot;1024&quot;&gt;
+			&lt;p class=&quot;n-lightbox--caption&quot;&gt;Fourth Image&lt;/p&gt;
+		&lt;/div&gt;
+		&lt;div&gt;
+			&lt;video poster=&quot;images/video.jpg&quot; controls=&quot;controls&quot; preload=&quot;none&quot;&gt;
+				&lt;source type=&quot;video/mp4&quot; src=&quot;//s3.amazonaws.com/gado/Outlying-Teaser.mp4&quot;&gt;
+			&lt;/video&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;n-slider--nav n-lightbox--thumbnails&quot;&gt;
+	   &lt;a style=&quot;background-image: url(images/DSC_5823-t.jpg);&quot;&gt;1&lt;/a&gt;
+	   &lt;a style=&quot;background-image: url(images/DSC_5975-t.jpg);&quot;&gt;2&lt;/a&gt;
+	   &lt;a style=&quot;background-image: url(images/DSC_4225-t.jpg);&quot;&gt;3&lt;/a&gt;
+	   &lt;a&gt;4&lt;/a&gt;
+	   &lt;a&gt;5&lt;/a&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+
+</div>
+
+						</div>
 					</div>
 				
 					<div class='n-row'>
@@ -4074,8 +4168,8 @@
 	
 	<!-- JS not minified, because copyButton() is used in the page -->
 
-<!-- 	<script src=src/script/natuive.js type=text/javascript></script> -->
-	<script src=dist/natuive.min.js type=text/javascript></script>
+	<script src=src/script/natuive.js type=text/javascript></script>
+<!-- 	<script src=dist/natuive.min.js type=text/javascript></script> -->
 
 	<script>
 		

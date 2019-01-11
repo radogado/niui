@@ -2014,6 +2014,7 @@ html.n-parallax .n-fixed-bg {
   max-width: 100%; }
 
 .n-slider[data-peek] > * > img {
+  padding: 0 .25em;
   box-sizing: content-box; }
 
 .n-slider.n-slider--center > * {
