@@ -56,7 +56,14 @@ main > 	._3\/4 > .n-slider--wrap > .n-slider.n-slider--vertical > * {
 	
 	max-height: 100vh; // Because sliding animates to full slide height
 	min-height: 100vh; // Because of slides shorter than viewport
+	overflow: auto;
 	
+}
+
+.n-slider:not([data-ready]) #home:not(:target) { // Don't flash main tab before a hash-invoked other tab
+	
+	display: none;
+
 }
 
 .n-slider.n-slider--vertical > [data-active] {
