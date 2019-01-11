@@ -329,9 +329,15 @@ var componentSlider = (function (){
 				}
 				height_change =	`height: ${height_change_number}px`;
 	
-			} else { // Vertical, not a lightbox
+			} else { // Vertical, not a lightbox, non-img content (video, iframe)
 				
+				if (hasClass(slider, 'n-slider--auto-height')) {
+
+					target_slide.style.position = 'absolute';
+	
+				}
 				height_change =	`height: ${target_slide.scrollHeight}px`;
+				target_slide.style.cssText = '';
 
 			}
 		
