@@ -314,7 +314,7 @@ var componentSlider = (function (){
 		target_slide.dataset.active = true;
 
 		var next_slide_image = target_slide.querySelector('img');
-		if (hasClass(slider, 'n-slider--vertical')) {
+		if (hasClass(slider, 'n-slider--vertical') || (hasClass(slider, 'n-slider--auto-height') && hasClass(slider, 'n-lightbox--inline'))) {
 			
 			if (hasClass(slider, 'n-lightbox--inline') && !hasClass(slider, 'n-slider--overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'n-aspect')) { // Inline lightbox only. To do: integrate n-aspect with n-slider--wrap
 			

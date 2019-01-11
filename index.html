@@ -2117,10 +2117,89 @@
 							<h3> Inline lightbox with auto height </h3>
 							
 							<div class="n-row n-unpad">
-							
+								
 								<div>
 									
-									<div class="n-slider--wrap n-slider--vertical n-slider--outside n-lightbox--thumbnails">
+									<div class="n-slider--wrap n-slider--vertical- n-slider--outside n-lightbox--thumbnails n-slider--auto-height">
+										<div class="n-slider n-lightbox n-lightbox--inline n-lightbox--thumbnails n-slider--vertical- n-slider--auto-height" data-duration="2">
+											<div>
+												<span class="n-aspect" style="--width: 685; --height: 1024;"> <!-- For seamless loading -->
+													<img data-src="images/DSC_5823.jpg">
+												</span>
+												<p class="n-lightbox--caption">First Image</p>
+											</div>
+											<div>
+												<img data-src="images/DSC_5975.jpg" width="512" height="342">
+												<p class="n-lightbox--caption">Second Image</p>
+											</div>
+											<div>
+												<img data-src="images/DSC_4225.jpg" data-caption="Third Image" width="999" height="669">
+												<p class="n-lightbox--caption">Third Image</p>
+											</div>
+											<div>
+												<img data-src="images/DSC_5823.jpg" data-caption="First Image" width="685" height="1024">
+												<p class="n-lightbox--caption">Fourth Image</p>
+											</div>
+											<div>
+												<video poster="images/video.jpg" controls="controls" preload="none">
+													<source type="video/mp4" src="//s3.amazonaws.com/gado/Outlying-Teaser.mp4">
+												</video>
+											</div>
+										</div>
+										<div class="n-slider--nav n-lightbox--thumbnails">
+										   <a style="background-image: url(images/DSC_5823-t.jpg);">1</a>
+										   <a style="background-image: url(images/DSC_5975-t.jpg);">2</a>
+										   <a style="background-image: url(images/DSC_4225-t.jpg);">3</a>
+										   <a>4</a>
+										   <a>5</a>
+										</div>
+									</div>
+
+									<div class="code">
+
+<pre><code class="language-markup">&lt;div class=&quot;n-slider--wrap n-slider--auto-height n-slider--outside n-lightbox--thumbnails&quot;&gt;
+	&lt;div class=&quot;n-slider n-lightbox n-lightbox--inline n-lightbox--thumbnails n-slider--vertical&quot; data-duration=&quot;2&quot;&gt;
+		&lt;div&gt;
+			&lt;span class=&quot;n-aspect&quot; style=&quot;--width: 685; --height: 1024;&quot;&gt; &lt;!-- For seamless loading --&gt;
+				&lt;img data-src=&quot;images/DSC_5823.jpg&quot;&gt;
+			&lt;/span&gt;
+			&lt;p class=&quot;n-lightbox--caption&quot;&gt;First Image&lt;/p&gt;
+		&lt;/div&gt;
+		&lt;div&gt;
+			&lt;img data-src=&quot;images/DSC_5975.jpg&quot; width=&quot;512&quot; height=&quot;342&quot;&gt;
+			&lt;p class=&quot;n-lightbox--caption&quot;&gt;Second Image&lt;/p&gt;
+		&lt;/div&gt;
+		&lt;div&gt;
+			&lt;img data-src=&quot;images/DSC_4225.jpg&quot; data-caption=&quot;Third Image&quot; width=&quot;999&quot; height=&quot;669&quot;&gt;
+			&lt;p class=&quot;n-lightbox--caption&quot;&gt;Third Image&lt;/p&gt;
+		&lt;/div&gt;
+		&lt;div&gt;
+			&lt;img data-src=&quot;images/DSC_5823.jpg&quot; data-caption=&quot;First Image&quot; width=&quot;685&quot; height=&quot;1024&quot;&gt;
+			&lt;p class=&quot;n-lightbox--caption&quot;&gt;Fourth Image&lt;/p&gt;
+		&lt;/div&gt;
+		&lt;div&gt;
+			&lt;video poster=&quot;images/video.jpg&quot; controls=&quot;controls&quot; preload=&quot;none&quot;&gt;
+				&lt;source type=&quot;video/mp4&quot; src=&quot;//s3.amazonaws.com/gado/Outlying-Teaser.mp4&quot;&gt;
+			&lt;/video&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;n-slider--nav n-lightbox--thumbnails&quot;&gt;
+	   &lt;a style=&quot;background-image: url(images/DSC_5823-t.jpg);&quot;&gt;1&lt;/a&gt;
+	   &lt;a style=&quot;background-image: url(images/DSC_5975-t.jpg);&quot;&gt;2&lt;/a&gt;
+	   &lt;a style=&quot;background-image: url(images/DSC_4225-t.jpg);&quot;&gt;3&lt;/a&gt;
+	   &lt;a&gt;4&lt;/a&gt;
+	   &lt;a&gt;5&lt;/a&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+
+</div>
+
+								</div>	
+								
+								<div>
+									
+									<div class="n-slider--wrap n-slider--vertical n-slider--outside- n-lightbox--thumbnails">
 										<div class="n-slider n-lightbox n-lightbox--inline n-lightbox--thumbnails n-slider--vertical" data-duration="2">
 											<div>
 												<span class="n-aspect" style="--width: 685; --height: 1024;"> <!-- For seamless loading -->
@@ -2155,11 +2234,7 @@
 										</div>
 									</div>
 								
-								</div>
-
-							</div>
-
-							<div class="code">							
+									<div class="code">
 
 <pre><code class="language-markup">&lt;div class=&quot;n-slider--wrap n-slider--vertical n-slider--outside n-lightbox--thumbnails&quot;&gt;
 	&lt;div class=&quot;n-slider n-lightbox n-lightbox--inline n-lightbox--thumbnails n-slider--vertical&quot; data-duration=&quot;2&quot;&gt;
@@ -2198,6 +2273,10 @@
 </pre>
 
 </div>
+
+								</div>
+
+							</div>
 
 						</div>
 					</div>
