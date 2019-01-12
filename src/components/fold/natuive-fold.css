@@ -118,6 +118,11 @@
   .n-fold > input[type=checkbox]:checked {
     cursor: zoom-out; }
 
+_:-ms-input-placeholder, :root .n-fold > input[type=checkbox] {
+  position: absolute;
+  top: 1em;
+  right: 1em; }
+
 @supports (--a: 1) {
   .n-fold span.n-burger:before {
     content: "";

@@ -104,7 +104,9 @@ $placeholder_color: #aaa;
 	
 	input, textarea {
 		
+		background-color: #eee;
 		background-color: var(--input-bg, #eee);
+		color: #333;
 		color: var(--input-color, #333);
 		
 	}
@@ -131,8 +133,9 @@ $placeholder_color: #aaa;
 		background-size: 1em 1em;
 		background-repeat: no-repeat;
 		background-position: calc(100% - .5em) center;
-    
+		color: #333;
 		color: var(--control-color, #333);
+		background-color: #eee;
 		background-color: var(--control-bg, #eee);
 	
 		option {
@@ -255,25 +258,25 @@ $placeholder_color: #aaa;
 		
 	}
 	
-
 		.n-form--check-icon {
 			
 			width: 1em;
 			height: 1em;
 			display: inline-block;
+			background-color: #eee;
 			background-color: var(--control-bg, #eee);
+			color: #333;
+			color: var(--control-color, #333);
 			line-height: ($line-height + 1)*(2/3);
 			font-size: ($line-height - 2)*(2em/3);
 			text-align: center;
-			color: var(--control-color, #333);
-			display: none;
 			border: none;
-		
 			margin: 0;
 			position: absolute;
 			left: 0;
 			z-index: 1;
 			top: .05em;
+			vertical-align: middle;
 		
 		}
 		
@@ -332,6 +335,7 @@ $placeholder_color: #aaa;
 			
 			content: '';
 			position: absolute;
+			background-color: #333;
 			background-color: var(--control-color, #333);
 			top: 25%;
 			right: 25%;
@@ -404,12 +408,15 @@ $placeholder_color: #aaa;
 			border: none;
 			white-space: nowrap;
 			overflow: hidden;
+			background-color: #ddd;
 			background-color: var(--control-bg, #ddd);
+			color: inherit;
 			color: var(--control-color, inherit);
 			padding: 0 $line-height-em/2 0 .75em;
 			display: block;
 			line-height: $line-height-em;
 			padding-top: $line-height-em/2;
+		    letter-spacing: 0;
 		
 			position: absolute;
 		    top: 0;
@@ -725,13 +732,14 @@ $placeholder_color: #aaa;
 	
 }	
 	
-:root .n-form--check-icon { /* Not IE8 */
-
-	display: inline-block;
-	vertical-align: middle;
+_:-ms-input-placeholder, :root input[type=radio] + .n-form--check-icon, .n-form.n-form--wide .n-form--check-icon, .n-form .n-form--file input[type=file] {
+	
+	top: .33em;
+	text-indent: 0;
+	padding: 0;
 
 }
-	
+		
 [dir=rtl] .n-form {
 	
 	.n-form--mandatory:before {

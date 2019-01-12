@@ -137,7 +137,8 @@
 
 .n-lightbox a img {
   display: block;
-  margin: 0 auto; }
+  margin: 0 auto;
+  max-width: 100%; }
 
 @supports (--a: 1) {
   .n-lightbox a.n-lightbox--video:before {

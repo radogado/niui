@@ -243,6 +243,15 @@
 	}
 
 }
+
+
+_:-ms-input-placeholder, :root .n-fold > input[type=checkbox] {
+
+	position: absolute;
+	top: 1em;
+	right: 1em;
+
+}
 	
 @supports (--a: 1) { // Newer browsers than Android Browser get 3-lines n-burger via box-shadow. Lame check if they support CSS variables.
 

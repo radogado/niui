@@ -54,7 +54,9 @@
     .n-form textarea[data-auto] {
       transform: translate3d(0, 0, 0); }
   .n-form input, .n-form textarea {
+    background-color: #eee;
     background-color: var(--input-bg, #eee);
+    color: #333;
     color: var(--input-color, #333); }
   .n-form select {
     -moz-appearance: none;
@@ -76,7 +78,9 @@
     background-size: 1em 1em;
     background-repeat: no-repeat;
     background-position: calc(100% - .5em) center;
+    color: #333;
     color: var(--control-color, #333);
+    background-color: #eee;
     background-color: var(--control-bg, #eee); }
     .n-form select option {
       padding: 0 1.5em 0 0; }
@@ -140,18 +144,20 @@
     width: 1em;
     height: 1em;
     display: inline-block;
+    background-color: #eee;
     background-color: var(--control-bg, #eee);
+    color: #333;
+    color: var(--control-color, #333);
     line-height: 1.6666666667;
     font-size: -0.3333333333em;
     text-align: center;
-    color: var(--control-color, #333);
-    display: none;
     border: none;
     margin: 0;
     position: absolute;
     left: 0;
     z-index: 1;
-    top: .05em; }
+    top: .05em;
+    vertical-align: middle; }
   .n-form.n-form--mast .n-form--check-icon {
     top: .25em; }
   .n-form.n-form--wide .n-form--check-icon {
@@ -182,6 +188,7 @@
   .n-form input[type=radio]:checked + .n-form--check-icon:before {
     content: '';
     position: absolute;
+    background-color: #333;
     background-color: var(--control-color, #333);
     top: 25%;
     right: 25%;
@@ -220,12 +227,15 @@
       border: none;
       white-space: nowrap;
       overflow: hidden;
+      background-color: #ddd;
       background-color: var(--control-bg, #ddd);
+      color: inherit;
       color: var(--control-color, inherit);
       padding: 0 0.75em 0 0.75em;
       display: block;
       line-height: 1.5em;
       padding-top: 0.75em;
+      letter-spacing: 0;
       position: absolute;
       top: 0;
       left: 0;
@@ -397,10 +407,10 @@
     min-height: 1em;
     padding: 0 .5em; }
 
-:root .n-form--check-icon {
-  /* Not IE8 */
-  display: inline-block;
-  vertical-align: middle; }
+_:-ms-input-placeholder, :root input[type=radio] + .n-form--check-icon, .n-form.n-form--wide .n-form--check-icon, .n-form .n-form--file input[type=file] {
+  top: .33em;
+  text-indent: 0;
+  padding: 0; }
 
 [dir=rtl] .n-form .n-form--mandatory:before {
   left: 0;

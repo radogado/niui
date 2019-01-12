@@ -6,7 +6,9 @@
 	
 	vertical-align: baseline;
 	display: inline-block;
+	background-color: transparent;
 	background-color: var(--control-bg, transparent);
+	color: inherit;
 	color: var(--control-color, inherit);
 
 	ul {
@@ -119,6 +121,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 
 .n-drop {
 
+    color: #333;
     color: var(--control-color, #333);
     background-color: transparent;
 
@@ -159,6 +162,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 		box-sizing: border-box;
 		position: relative;
 		width: auto;
+		background-color: #fff;
 		background-color: var(--control-bg, #fff);
 		
 	}
@@ -211,7 +215,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 	li li {
 		
 		display: block;
-		width: 100%;
+/* 		width: 100%; */
 	
 	}
 	
@@ -231,6 +235,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 		overflow: visible;
 		opacity: 1;
 		z-index: 2;
+		background-color: #fff;
 		background-color: var(--control-bg, #fff);
 
 		transform: scaleY(1);
@@ -297,6 +302,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 
 		-webkit-mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EUntitled%3C/title%3E%3Cdesc%3ECreated with Sketch.%3C/desc%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(180) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A") center center no-repeat;
 		-webkit-mask-size: .5em;
+		background-color: #000;
 		background-color: var(--control-color, #000);
 
    	}
@@ -339,6 +345,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 			
 			> ul > li > ul li {
 				
+				background-color: #fff;
 				background-color: var(--control-bg, #fff);
 				
 			}
@@ -366,6 +373,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 				overflow: visible;
 				opacity: 1;
 				z-index: 2;
+				background-color: #fff;
 				background-color: var(--control-bg, #fff);
 				transform: scaleY(1);
 				
@@ -386,6 +394,38 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 		
 		white-space: nowrap;
 		
+	}
+	
+	// IE11
+	
+	_:-ms-input-placeholder, :root nav.n-drop li:hover ul {
+		
+		overflow: visible !important;
+		z-index: 2 !important;
+		transform: none !important;
+
+	}
+
+	_:-ms-input-placeholder, :root nav.n-drop input[type=checkbox] {
+		
+		display: none !important;
+
+	}
+
+	_:-ms-input-placeholder, :root nav.n-drop li ul ~ a:before {
+		
+		content: '↓';
+		position: absolute;
+		top: .75em;
+		right: .5em;
+		text-decoration: none !important;
+
+	}
+
+	_:-ms-input-placeholder, :root nav.n-drop li li ul ~ a:before {
+		
+		content: '→';
+
 	}
 
 }

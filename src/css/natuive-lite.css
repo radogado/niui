@@ -160,7 +160,9 @@ a[href].span-relative-parent {
   word-break: break-word;
   padding: 0 .7em;
   -webkit-appearance: none;
+  background-color: #333;
   background-color: var(--control-bg, #333);
+  color: #eee;
   color: var(--control-color, #eee);
   -webkit-transition: all .1s linear;
   transition: all .1s linear;
@@ -282,7 +284,9 @@ a.backtotop[href] {
     .n-form textarea[data-auto] {
       transform: translate3d(0, 0, 0); }
   .n-form input, .n-form textarea {
+    background-color: #eee;
     background-color: var(--input-bg, #eee);
+    color: #333;
     color: var(--input-color, #333); }
   .n-form select {
     -moz-appearance: none;
@@ -304,7 +308,9 @@ a.backtotop[href] {
     background-size: 1em 1em;
     background-repeat: no-repeat;
     background-position: calc(100% - .5em) center;
+    color: #333;
     color: var(--control-color, #333);
+    background-color: #eee;
     background-color: var(--control-bg, #eee); }
     .n-form select option {
       padding: 0 1.5em 0 0; }
@@ -368,18 +374,20 @@ a.backtotop[href] {
     width: 1em;
     height: 1em;
     display: inline-block;
+    background-color: #eee;
     background-color: var(--control-bg, #eee);
+    color: #333;
+    color: var(--control-color, #333);
     line-height: 1.6666666667;
     font-size: -0.3333333333em;
     text-align: center;
-    color: var(--control-color, #333);
-    display: none;
     border: none;
     margin: 0;
     position: absolute;
     left: 0;
     z-index: 1;
-    top: .05em; }
+    top: .05em;
+    vertical-align: middle; }
   .n-form.n-form--mast .n-form--check-icon {
     top: .25em; }
   .n-form.n-form--wide .n-form--check-icon {
@@ -410,6 +418,7 @@ a.backtotop[href] {
   .n-form input[type=radio]:checked + .n-form--check-icon:before {
     content: '';
     position: absolute;
+    background-color: #333;
     background-color: var(--control-color, #333);
     top: 25%;
     right: 25%;
@@ -448,12 +457,15 @@ a.backtotop[href] {
       border: none;
       white-space: nowrap;
       overflow: hidden;
+      background-color: #ddd;
       background-color: var(--control-bg, #ddd);
+      color: inherit;
       color: var(--control-color, inherit);
       padding: 0 0.75em 0 0.75em;
       display: block;
       line-height: 1.5em;
       padding-top: 0.75em;
+      letter-spacing: 0;
       position: absolute;
       top: 0;
       left: 0;
@@ -625,10 +637,10 @@ a.backtotop[href] {
     min-height: 1em;
     padding: 0 .5em; }
 
-:root .n-form--check-icon {
-  /* Not IE8 */
-  display: inline-block;
-  vertical-align: middle; }
+_:-ms-input-placeholder, :root input[type=radio] + .n-form--check-icon, .n-form.n-form--wide .n-form--check-icon, .n-form .n-form--file input[type=file] {
+  top: .33em;
+  text-indent: 0;
+  padding: 0; }
 
 [dir=rtl] .n-form .n-form--mandatory:before {
   left: 0;
@@ -1124,7 +1136,9 @@ ul.n-list.n-list--inline, ul.n-list.n-list--inline li, .n-nav.n-nav--scroll ul l
 .n-nav {
   vertical-align: baseline;
   display: inline-block;
+  background-color: transparent;
   background-color: var(--control-bg, transparent);
+  color: inherit;
   color: var(--control-color, inherit); }
   .n-nav ul {
     margin: 0 0 0 -.5em;
@@ -1172,6 +1186,7 @@ main .n-nav ul {
   padding-left: 0; }
 
 .n-drop {
+  color: #333;
   color: var(--control-color, #333);
   background-color: transparent; }
   .n-drop ul {
@@ -1198,6 +1213,7 @@ main .n-nav ul {
     box-sizing: border-box;
     position: relative;
     width: auto;
+    background-color: #fff;
     background-color: var(--control-bg, #fff); }
   .n-drop li:not([tabindex]) > ul ~ a {
     padding-right: 42px; }
@@ -1218,7 +1234,7 @@ main .n-nav ul {
     padding-right: 1em; }
   .n-drop li li {
     display: block;
-    width: 100%; }
+    /* 		width: 100%; */ }
   .n-drop ul ul:not([aria-expanded]) {
     min-height: 0;
     max-height: 0;
@@ -1230,6 +1246,7 @@ main .n-nav ul {
     overflow: visible;
     opacity: 1;
     z-index: 2;
+    background-color: #fff;
     background-color: var(--control-bg, #fff);
     transform: scaleY(1); }
     .n-drop ul li > :checked ~ ul ul, .n-drop :focus ~ ul ul,
@@ -1268,6 +1285,7 @@ main .n-nav ul {
   .n-drop li[aria-haspopup]:before, .n-drop li > input {
     -webkit-mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EUntitled%3C/title%3E%3Cdesc%3ECreated with Sketch.%3C/desc%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(180) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A") center center no-repeat;
     -webkit-mask-size: .5em;
+    background-color: #000;
     background-color: var(--control-color, #000); }
   .n-drop[data-ready] li > ul ~ a {
     background: none; }
@@ -1284,6 +1302,7 @@ main .n-nav ul {
     transform: scaleX(0);
     transform-origin: left; }
   html:not(.can-touch) .n-drop > ul > li > ul li {
+    background-color: #fff;
     background-color: var(--control-bg, #fff); }
   html:not(.can-touch) .n-drop > ul > li:hover > input:not(:checked) ~ ul,
   html:not(.can-touch) .n-drop > ul li ul > li:hover > input:not(:checked) ~ ul,
@@ -1303,6 +1322,7 @@ main .n-nav ul {
     overflow: visible;
     opacity: 1;
     z-index: 2;
+    background-color: #fff;
     background-color: var(--control-bg, #fff);
     transform: scaleY(1); }
   html:not(.can-touch) .n-drop > ul li ul li:hover ul {
@@ -1310,7 +1330,25 @@ main .n-nav ul {
     transform: scaleX(1); }
 
   nav.n-drop li {
-    white-space: nowrap; } }
+    white-space: nowrap; }
+
+  _:-ms-input-placeholder, :root nav.n-drop li:hover ul {
+    overflow: visible !important;
+    z-index: 2 !important;
+    transform: none !important; }
+
+  _:-ms-input-placeholder, :root nav.n-drop input[type=checkbox] {
+    display: none !important; }
+
+  _:-ms-input-placeholder, :root nav.n-drop li ul ~ a:before {
+    content: '↓';
+    position: absolute;
+    top: .75em;
+    right: .5em;
+    text-decoration: none !important; }
+
+  _:-ms-input-placeholder, :root nav.n-drop li li ul ~ a:before {
+    content: '→'; } }
 @media (max-width: 599.9px) {
   .n-drop ul ul:not([aria-expanded]) {
     position: static; }
