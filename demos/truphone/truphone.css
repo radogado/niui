@@ -54,6 +54,9 @@ body {
   display: inline-block;
   vertical-align: middle; }
 
+.n-form {
+  --control-bg: #eee; }
+
 select {
   background: none; }
 
