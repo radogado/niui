@@ -5,8 +5,12 @@ main .nav-column .n-slider--nav.n-row {
 	padding: 1.5em .5em;
 	box-sizing: border-box;
     bottom: auto;
+/*
     display: flex;
     flex-direction: column;
+*/
+
+	display: block;
 	background: lightseagreen;
 	color: #fff;
 	width: 100%;
