@@ -33,10 +33,13 @@ ul.n-list {
 		
 		&:before {
 			
-			content: '·';
+			content: '•';
 			position: absolute;
-			margin-left: -.75em;
-			
+			margin-left: -.67em;
+			color: var(--list-bg);
+		    font-size: 1.5em;
+		    line-height: .9;
+    			
 		}
 		
 	}
@@ -67,10 +70,12 @@ ol.n-list {
 		    counter-increment: level1;
 		    font-weight: bold;
 		    background: #999;
-		    padding: 0 .5em;
+			background: var(--list-bg, #999);
+		    color: #fff;
+   			color: var(--list-color, #fff);
+   		    padding: 0 .5em;
 		    border-radius: 50%;
 		    margin-right: .333em;
-		    color: #fff;
 		    min-height: 1em;
 		    display: inline-block;
 		    text-indent: 0;
@@ -108,8 +113,6 @@ ol.n-list {
 	    content: counter(level1) '.' counter(level2) ' ';
 	    counter-increment: level2;
 	    border-radius: 1em;
-	    background: #999;
-	    color: #fff;
 	
 	}
 	
