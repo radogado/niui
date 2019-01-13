@@ -1941,7 +1941,7 @@
 									<div><img data-src="http://ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00957.jpg"><p class="n-lightbox--caption">Third photo from Paris</p>
 									</div>
 								</div>
-									<div class="n-slider--nav n-lightbox--thumbnails"><a tabindex="0" style="background-image: url(&quot;https://ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916-88x88.jpg);">1</a><a tabindex="0" style="background-image: url(&quot;https://ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00894-88x88.jpg);">2</a><a tabindex="0" style="background-image: url(&quot;https://ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00957-88x88.jpg);">3</a></div>
+									<div class="n-slider--nav n-lightbox--thumbnails"><a tabindex="0" style="background-image: url(https://ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916-88x88.jpg);">1</a><a tabindex="0" style="background-image: url(https://ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00894-88x88.jpg);">2</a><a tabindex="0" style="background-image: url(https://ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00957-88x88.jpg);">3</a></div>
 								
 								</div>
 
@@ -2294,6 +2294,7 @@
 								<li>Inline lightbox will jump when sliding to an image that hasn't been loaded yet. Avoid that by wrapping the lightbox in an .n-aspect container.</li>
 								
 								<li>To avoid inline vertical lightbox jumping the unknown image height, add <b>data-width</b> and <b>data-height</b> to the anchors.</li>
+								<li>Set thumbnails size with <b>--thumb-size</b>.</li>
 							
 							</ul>
 							
@@ -3012,6 +3013,7 @@
 								<li><b>ul.n-list--inline</b> orders items on one line</li>
 								<li><b>ul.n-list--indent</b></li>
 								<li><b>ul.n-list--no-bullet</b> for a clean list</li>
+								<li>Set colors by CSS variables <b>--list-bg</b> and <b>--list-color</b>.</li>
 							
 							</ul>
 							
@@ -4199,7 +4201,7 @@
 							
 							<div>
 								
-								<h2>Color scheme for controls</h2>
+								<h2>Color scheme</h2>
 								
 <pre><code class="language-css">.n-slider--arrow, .n-slider--nav a, .n-tool:after, .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href], .n-fold > .n-fold--label, .n-drop, .n-form {
 	
@@ -4215,6 +4217,13 @@
 	
 	--input-color: darkslateblue;
 	--input-bg: aliceblue;	
+	
+}
+
+.n-list {
+	
+    --list-bg: aquamarine;
+    --list-color: darkmagenta;
 	
 }</code>
 </pre>

@@ -369,11 +369,11 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap {
 .n-slider--wrap.n-slider--vertical.n-lightbox--thumbnails {
   width: 100%; }
   .n-slider--wrap.n-slider--vertical.n-lightbox--thumbnails.n-slider--outside:not(.n-slider--right) {
-    padding-left: 5em; }
+    padding-left: calc(var(--thumb-size, 4em) + 1em); }
     .n-slider--wrap.n-slider--vertical.n-lightbox--thumbnails.n-slider--outside:not(.n-slider--right) > .n-slider--arrow {
       left: calc(50% + 1.5em); }
   .n-slider--wrap.n-slider--vertical.n-lightbox--thumbnails.n-slider--outside.n-slider--right {
-    padding-right: 5em; }
+    padding-right: calc(var(--thumb-size, 4em) + 1em); }
     .n-slider--wrap.n-slider--vertical.n-lightbox--thumbnails.n-slider--outside.n-slider--right > .n-slider--arrow {
       left: calc(50% - 3.5em); }
 

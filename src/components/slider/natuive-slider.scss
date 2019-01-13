@@ -667,7 +667,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 	
 		&:not(.n-slider--right) {
 			
-			padding-left: 5em;
+			padding-left: calc(var(--thumb-size, 4em) + 1em);
 			
 			> .n-slider--arrow {
 				
@@ -679,7 +679,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 	
 		&.n-slider--right {
 			
-			padding-right: 5em;
+			padding-right: calc(var(--thumb-size, 4em) + 1em);
 			
 			> .n-slider--arrow {
 				
