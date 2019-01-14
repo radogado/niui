@@ -5,6 +5,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-closure-compiler');
 	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-gzip');
 
 	grunt.initConfig({
 		'sass': {
@@ -115,10 +116,18 @@ module.exports = function(grunt) {
 		    src: ['natuive.min.js'],
 		    dest: 'natuive-wordpress/',
 		  }
-		}  
+		},
+		'gzip': {
+		    options: { detail: true },
+		    index: {
+		      src: [
+		        'dist/natuive.min.css'
+		      ]
+		    }
+		  }
 	});
 
-	grunt.registerTask('default', ['sass', 'concat', 'cssmin', 'closure-compiler', 'copy']);
+	grunt.registerTask('default', ['sass', 'concat', 'cssmin', 'closure-compiler', 'copy', 'gzip']);
 	grunt.registerTask('dev', ['sass', 'concat', 'cssmin', 'copy']);
 
 };
