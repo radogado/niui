@@ -118,7 +118,7 @@ module.exports = function(grunt) {
 		  }
 		},
 		'gzip': {
-		    options: { detail: true },
+		    options: { detail: false },
 		    index: {
 		      src: [
 		        'dist/natuive.min.css'
