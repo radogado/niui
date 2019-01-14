@@ -588,8 +588,8 @@ _:-ms-input-placeholder, :root .n-fold > input[type=checkbox] {
     background-color: var(--control-bg, #eee);
     color: #333;
     color: var(--control-color, #333);
-    line-height: 1.6666666667;
-    font-size: -0.3333333333em;
+    line-height: 1.66667;
+    font-size: -0.33333em;
     text-align: center;
     border: none;
     margin: 0;
@@ -773,7 +773,7 @@ _:-ms-input-placeholder, :root .n-fold > input[type=checkbox] {
       cursor: pointer;
       background: var(--control-bg, rgba(0, 0, 0, 0.1)); }
     .n-form input[type=range]::-moz-range-thumb {
-      border: 0px solid rgba(0, 0, 0, 0);
+      border: 0px solid transparent;
       height: 1.625em;
       width: 1.625em;
       border-radius: 50%;
@@ -848,6 +848,11 @@ _:-ms-input-placeholder, :root .n-fold > input[type=checkbox] {
     padding: 0 .5em; }
 
 _:-ms-input-placeholder, :root input[type=radio] + .n-form--check-icon, .n-form.n-form--wide .n-form--check-icon, .n-form .n-form--file input[type=file] {
+  top: .33em;
+  text-indent: 0;
+  padding: 0; }
+
+_:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form--wide .n-form--check-icon, .n-form .n-form--file input[type=file] {
   top: .33em;
   text-indent: 0;
   padding: 0; }
@@ -2156,9 +2161,13 @@ html.n-parallax .n-fixed-bg {
       padding-bottom: 4em; }
     .n-aspect > .n-slider--wrap > .n-slider, .n-aspect > .n-slider--wrap > .n-slider > *, .n-aspect > .n-slider--wrap .n-slider.n-slider--vertical[data-ready] > *, .n-aspect > .n-slider--wrap .n-slider.n-slider--vertical[data-ready] > * > *, .n-aspect > .n-slider--wrap > .n-pad > .n-slider, .n-aspect > .n-slider--wrap > .n-pad > .n-slider > * {
       height: 100%; } }
-_:-ms-lang(x), .n-aspect > .n-slider--wrap {
-  position: static; }
+/*
+_:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE/Edge
+		
+	position: static;
 
+}
+*/
 *:-webkit-full-screen .n-slider--wrap {
   background: #000; }
 
@@ -2221,7 +2230,8 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap {
   height: 100%; }
 
 .n-slider[data-ready] > [data-active], .n-slider--overlay.n-lightbox.n-slider > * > img {
-  display: inline-block; }
+  display: inline-block;
+  object-fit: contain; }
 
 .n-slider--overlay.n-slider > img {
   padding: 0;
@@ -2542,8 +2552,8 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap {
     padding: 0.46875em 0; }
   .n-type h6 {
     font-size: .6667em;
-    line-height: 1.1249437528;
-    padding: 0.5624718764em 0; }
+    line-height: 1.12494;
+    padding: 0.56247em 0; }
   .n-type pre {
     overflow: auto; }
   .n-type p {

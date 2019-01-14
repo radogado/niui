@@ -731,8 +731,20 @@ $placeholder_color: #aaa;
 	}
 	
 }	
+
+// IE
 	
 _:-ms-input-placeholder, :root input[type=radio] + .n-form--check-icon, .n-form.n-form--wide .n-form--check-icon, .n-form .n-form--file input[type=file] {
+	
+	top: .33em;
+	text-indent: 0;
+	padding: 0;
+
+}
+
+// Edge
+
+_:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form--wide .n-form--check-icon, .n-form .n-form--file input[type=file] {
 	
 	top: .33em;
 	text-indent: 0;

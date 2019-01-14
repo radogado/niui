@@ -294,11 +294,13 @@
 
 }
 
+/*
 _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE/Edge
 		
 	position: static;
 
 }
+*/
 
 *:-webkit-full-screen .n-slider--wrap {
 
@@ -417,6 +419,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 .n-slider[data-ready] > [data-active], .n-slider--overlay.n-lightbox.n-slider > * > img {
 
 	display: inline-block;
+	object-fit: contain;
 
 }
 

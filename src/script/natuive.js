@@ -2985,7 +2985,7 @@ var componentSlider = (function (){
 		
 	    // Generate controls if needed
 		
-		var slider_nav;
+		var slider_nav = false;
 
 		if (el.id && (slider_nav = q('.n-slider--nav[data-for=' + el.id + ']'))) { // Detached nav
 			
@@ -2995,11 +2995,17 @@ var componentSlider = (function (){
 	
 		} else {
 			
-			if (!(slider_nav = container.querySelector(':scope > .n-slider--nav'))) {
+			container.childNodes.forEach(el => {
+				
+				slider_nav = (el.nodeName === 'DIV' && el.matches('.n-slider--nav')) ? el : slider_nav; 
+			
+			});
+			
+			if (!slider_nav) {
 				
 			    container.insertAdjacentHTML(hasClass(container, 'n-slider--top') ? 'afterbegin' : 'beforeend', '<div class=n-slider--nav></div>');
-	            slider_nav = container.querySelector(':scope > .n-slider--nav');
-				
+	            slider_nav = hasClass(container, 'n-slider--top') ? container.firstChild : container.lastChild;
+
 			}
 		
 		}
