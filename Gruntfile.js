@@ -128,6 +128,6 @@ module.exports = function(grunt) {
 	});
 
 	grunt.registerTask('default', ['sass', 'concat', 'cssmin', 'closure-compiler', 'copy', 'gzip']);
-	grunt.registerTask('dev', ['sass', 'concat', 'cssmin', 'copy']);
+	grunt.registerTask('dev', ['sass', 'concat', 'cssmin', 'copy', 'gzip']);
 
 };

@@ -64,12 +64,6 @@ html.n-vertical-page body {
 .n-footer > * {
   position: static; }
 
-/* Overthrow CSS:
-   For Mobile devices not supporting overflow: scroll. Enable overflow: auto on elements with overthrow class when html element has overthrow class too */
-.overthrow-enabled .overthrow {
-  overflow: auto;
-  -webkit-overflow-scrolling: touch; }
-
 /* Element as a window to an image spanning viewpoert dimensions. iOS doesn't support it natively and requires div.fixed-bg-image */
 .n-fixed-bg {
   background-size: cover;

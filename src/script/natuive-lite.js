@@ -626,11 +626,9 @@ function initThreshold(host) {
 			setTimeout(() => {
 				
 				var relativeScroll = q('html').scrollTop || bodyElement.scrollTop;
-	/*
-				q('html').style.setProperty('--scroll-top', relativeScroll);
-				q('html').style.setProperty('--scroll-bottom', q('html').scrollHeight - relativeScroll - q('html').offsetHeight);
-				q('html').style.setProperty('--page-height', q('html').scrollHeight);
-	*/
+//				q('html').style.setProperty('--scroll-top', relativeScroll);
+//				q('html').style.setProperty('--scroll-bottom', q('html').scrollHeight - relativeScroll - q('html').offsetHeight);
+//				q('html').style.setProperty('--page-height', q('html').scrollHeight);
 				var threshold = el.scrollHeight; // To do: either element height or data-threshold height in px, % or vh
 	
 				if (relativeScroll > threshold) {
