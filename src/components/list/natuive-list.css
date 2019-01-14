@@ -87,7 +87,8 @@ ul.n-list.n-list--inline, ul.n-list.n-list--inline li, .n-nav.n-nav--scroll ul l
   width: auto; }
 
 .n-nav ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li {
-  margin-left: 0; }
+  margin-left: 0;
+  max-width: 100%; }
 .n-nav ul.n-list li:before {
   display: none; }
 

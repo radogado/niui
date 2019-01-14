@@ -1128,7 +1128,8 @@ ul.n-list.n-list--inline, ul.n-list.n-list--inline li, .n-nav.n-nav--scroll ul l
   width: auto; }
 
 .n-nav ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li {
-  margin-left: 0; }
+  margin-left: 0;
+  max-width: 100%; }
 .n-nav ul.n-list li:before {
   display: none; }
 
@@ -1274,7 +1275,7 @@ main .n-nav ul {
     border-radius: 0;
     right: 0;
     z-index: 1;
-    width: 2em;
+    width: 1.25em;
     margin: 0;
     font-size: inherit; }
   .n-drop li[aria-haspopup]:before {
@@ -1283,7 +1284,7 @@ main .n-nav ul {
     display: block;
     right: 0;
     top: 0;
-    width: 2em;
+    width: 1.25em;
     height: 100%; }
   .n-drop ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li:before {
     content: ''; }

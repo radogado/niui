@@ -170,6 +170,7 @@ ul.n-list.n-list--inline, ul.n-list.n-list--inline li, .n-nav.n-nav--scroll ul l
 	&:not(.n-list--no-bullet):not(.n-list--inline) li {
 	
 		margin-left: 0;
+	    max-width: 100%;
 	
 	}
 	
