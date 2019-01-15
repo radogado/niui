@@ -276,7 +276,7 @@
 	
 		&.n-slider--outside:not(.n-slider--vertical) {
 			
-			padding-bottom: 4em;	
+			padding-bottom: var(--thumb-size, 4em);
 		
 		}
 		
@@ -338,8 +338,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 
 .n-slider.n-slider--vertical[data-ready] {
 	
-	overflow: hidden;
-	overflow-y: scroll;
+// 	overflow-y: scroll;
 	overflow: visible;
 	flex-direction: column;
 
