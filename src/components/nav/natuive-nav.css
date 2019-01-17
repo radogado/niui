@@ -83,7 +83,7 @@ main .n-nav ul {
     background-color: #fff;
     background-color: var(--control-bg, #fff); }
   .n-drop li:not([tabindex]) > ul ~ a {
-    padding-right: 42px; }
+    padding-right: 3em; }
   .n-drop li > a {
     padding: .75em;
     display: block; }
@@ -152,8 +152,8 @@ main .n-nav ul {
   .n-drop li[aria-haspopup]:before, .n-drop li > input {
     -webkit-mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(180) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A") center center no-repeat;
     -webkit-mask-size: .4em;
-    background-color: #000;
-    background-color: var(--control-color, #000); }
+    background-color: transparent;
+    background-color: var(--control-color, transparent); }
   .n-drop[data-ready] li > ul ~ a {
     background: none; }
   .n-drop li li[aria-haspopup]:before, .n-drop li li > input {
@@ -161,6 +161,16 @@ main .n-nav ul {
   .n-drop li[aria-haspopup] {
     padding-right: 2em; }
 
+@supports (-ms-ime-align: auto) {
+  .n-drop li[aria-haspopup]:before {
+    background: transparent;
+    color: var(--control-color, #000) !important;
+    content: "↓" !important;
+    text-align: center;
+    line-height: 2 !important; }
+
+  .n-drop li li[aria-haspopup]:before {
+    content: '→' !important; } }
 @media (min-width: 600px) {
   html:not(.can-touch) .n-drop ul ul:not([aria-expanded]) ul {
     transition: .1s .2s;
