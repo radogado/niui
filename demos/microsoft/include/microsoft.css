@@ -29,6 +29,9 @@
   font-weight: normal;
   font-style: normal; }
 
+* {
+  box-sizing: border-box; }
+
 body {
   background-color: #f2f2f2;
   font-family: wf_segoe-ui_normal, sans-serif; }
@@ -468,7 +471,8 @@ footer .footer-bottom span.icon-globe {
   display: inline-block; }
 
 nav.n-nav.n-drop {
-  vertical-align: middle; }
+  vertical-align: middle;
+  --control-color: #000; }
 
 ul:not(.n-list--no-bullet):not(.n-list--inline) li {
   margin: 0; }

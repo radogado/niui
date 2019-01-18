@@ -51,7 +51,10 @@ footer .disclaimer {
   color: #777; }
 
 .n-banner {
-  padding: 1em; }
+  padding: 1em;
+  box-sizing: border-box; }
+  .n-banner img {
+    max-width: 100%; }
 
 .n-type a[href], .n-type ul.n-list--inline li {
   text-decoration: none;

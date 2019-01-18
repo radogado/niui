@@ -125,3 +125,6 @@ time:before {
     content: '';
     display: table;
     clear: both; } }
+
+.clear {
+  clear: both; }

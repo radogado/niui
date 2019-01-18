@@ -19,7 +19,7 @@
     -moz-user-select: none;
     user-select: none;
     position: relative;
-    padding: .75em;
+    padding: .625em;
     padding-right: 1.5em;
     word-wrap: break-word;
     word-break: break-all;
@@ -71,9 +71,9 @@
   .n-fold.n-fold--horizontal > * {
     display: none; }
   .n-fold.n-fold--horizontal > .n-fold--label:after {
-    content: "▶"; }
+    transform: rotate(-90deg); }
   .n-fold.n-fold--horizontal[aria-expanded] > .n-fold--label:after {
-    content: "◀"; }
+    transform: rotate(90deg); }
   .n-fold.n-fold--horizontal:not([data-init]) > .n-fold--content {
     width: 0; }
   .n-fold.n-fold--horizontal[data-init] > .n-fold--content, .n-fold.n-fold--horizontal[aria-expanded] > .n-fold--content, .n-fold.n-fold--horizontal > input.n-trigger:checked ~ .n-fold--content {
@@ -100,7 +100,8 @@
     display: inline-block;
     text-align: center;
     position: relative;
-    background: #fff; }
+    background: #fff;
+    background: var(--conrol-bg, #fff); }
     .n-fold span.n-burger:after {
       content: "="; }
 
@@ -123,6 +124,10 @@ _:-ms-input-placeholder, :root .n-fold > input[type=checkbox] {
   top: 1em;
   right: 1em; }
 
+@supports (-ms-ime-align: auto) {
+  .n-fold > .n-fold--label:after {
+    background: transparent;
+    content: "↓"; } }
 @supports (--a: 1) {
   .n-fold span.n-burger:before {
     content: "";
@@ -130,7 +135,7 @@ _:-ms-input-placeholder, :root .n-fold > input[type=checkbox] {
     left: 0.25em;
     width: 1em;
     top: 0.15em;
-    box-shadow: 0 0.25em 0 1px #333, 0 0.625em 0 1px #333, 0 1em 0 1px #333; }
+    box-shadow: 0 0.25em 0 1px var(--control-color, #333), 0 0.625em 0 1px var(--control-color, #333), 0 1em 0 1px var(--control-color, #333); }
   .n-fold span.n-burger:after {
     display: none; }
   .n-fold.n-fold--horizontal > * {

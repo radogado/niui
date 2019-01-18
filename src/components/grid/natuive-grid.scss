@@ -464,12 +464,14 @@
 .n-pad {
 	
 	padding: $line-height-em/2;
+	box-sizing: border-box;
 
 }
 
 	.n-pad-half {
 		
 		padding: $line-height-em/4;
+		box-sizing: border-box;
 	
 	}
 
@@ -478,6 +480,7 @@
 		margin: #{-$line-height-em/2};
 		width: calc(100% + #{$line-height-em});
 		max-width: 100%;
+		overflow-x: hidden;
 	
 	}
 	

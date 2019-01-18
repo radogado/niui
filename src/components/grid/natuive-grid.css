@@ -254,15 +254,18 @@ ol.n-masonry > * {
   padding-left: 2.5em; }
 
 .n-pad {
-  padding: 0.75em; }
+  padding: 0.75em;
+  box-sizing: border-box; }
 
 .n-pad-half {
-  padding: 0.375em; }
+  padding: 0.375em;
+  box-sizing: border-box; }
 
 .n-unpad, .n-row > * > .n-unpad {
   margin: -0.75em;
   width: calc(100% + 1.5em);
-  max-width: 100%; }
+  max-width: 100%;
+  overflow-x: hidden; }
 
 .n-row > * > .n-unpad {
   max-width: none; }

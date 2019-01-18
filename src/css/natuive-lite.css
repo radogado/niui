@@ -254,7 +254,8 @@ a.backtotop[href] {
     margin: 0;
     min-width: 50%;
     max-width: 100%;
-    padding: 0 1em; }
+    padding: 0 1em;
+    font-weight: bold; }
   .n-form input, .n-form select, .n-form textarea, .n-form input[type=search], .n-form button {
     font-family: inherit;
     display: inline-block;
@@ -941,15 +942,18 @@ ol.n-masonry > * {
   padding-left: 2.5em; }
 
 .n-pad {
-  padding: 0.75em; }
+  padding: 0.75em;
+  box-sizing: border-box; }
 
 .n-pad-half {
-  padding: 0.375em; }
+  padding: 0.375em;
+  box-sizing: border-box; }
 
 .n-unpad, .n-row > * > .n-unpad {
   margin: -0.75em;
   width: calc(100% + 1.5em);
-  max-width: 100%; }
+  max-width: 100%;
+  overflow-x: hidden; }
 
 .n-row > * > .n-unpad {
   max-width: none; }
@@ -1237,7 +1241,7 @@ main .n-nav ul {
     padding-right: 1em; }
   .n-drop li li {
     display: block;
-    /* 		width: 100%; */ }
+    width: 100%; }
   .n-drop ul ul:not([aria-expanded]) {
     min-height: 0;
     max-height: 0;

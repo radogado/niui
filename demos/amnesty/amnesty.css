@@ -26,7 +26,8 @@ footer {
 
 .n-row img {
   display: block;
-  margin: 0 auto; }
+  margin: 0 auto;
+  max-width: 100%; }
 
 .n-row > * {
   background: center center;

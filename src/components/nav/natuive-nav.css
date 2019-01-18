@@ -101,7 +101,7 @@ main .n-nav ul {
     padding-right: 1em; }
   .n-drop li li {
     display: block;
-    /* 		width: 100%; */ }
+    width: 100%; }
   .n-drop ul ul:not([aria-expanded]) {
     min-height: 0;
     max-height: 0;

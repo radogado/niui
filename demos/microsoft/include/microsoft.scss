@@ -42,6 +42,12 @@ $line-height: 22px;
 
 }
 
+* {
+	
+	box-sizing: border-box;
+
+}
+
 body {
 	
 	background-color: #f2f2f2;
@@ -781,6 +787,7 @@ footer .footer-bottom span.icon-globe {
 nav.n-nav.n-drop {
 	
 	vertical-align: middle;
+	--control-color: #000;
 
 }
 

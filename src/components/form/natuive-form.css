@@ -30,7 +30,8 @@
     margin: 0;
     min-width: 50%;
     max-width: 100%;
-    padding: 0 1em; }
+    padding: 0 1em;
+    font-weight: bold; }
   .n-form input, .n-form select, .n-form textarea, .n-form input[type=search], .n-form button {
     font-family: inherit;
     display: inline-block;

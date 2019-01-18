@@ -102,6 +102,13 @@ footer .disclaimer {
 .n-banner {
 	
 	padding: 1em;
+	box-sizing: border-box;
+	
+	img {
+		
+		max-width: 100%;
+
+	}
 
 }
 

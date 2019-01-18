@@ -28,7 +28,7 @@
 		-moz-user-select: none;
 		user-select: none;
 		position: relative;
-		padding: .75em;
+		padding: .625em;
 		padding-right: 1.5em;
 		word-wrap: break-word;
 		word-break: break-all;
@@ -132,13 +132,13 @@
 		
 		> .n-fold--label:after {
 			
-			content: "▶";
+			transform: rotate(-90deg);
 	
 		}
 			
 		&[aria-expanded] > .n-fold--label:after {
 			
-			content: "◀";
+			transform: rotate(90deg);
 	
 		}
 			
@@ -209,6 +209,7 @@
 		text-align: center;
 		position: relative;
 		background: #fff;
+		background: var(--conrol-bg, #fff);
 
 		&:after {
 			
@@ -244,6 +245,7 @@
 
 }
 
+// IE11
 
 _:-ms-input-placeholder, :root .n-fold > input[type=checkbox] {
 
@@ -253,6 +255,17 @@ _:-ms-input-placeholder, :root .n-fold > input[type=checkbox] {
 
 }
 	
+// Edge
+@supports (-ms-ime-align:auto) { 
+
+	.n-fold > .n-fold--label:after {
+		
+		background: transparent;
+	    content: "↓";		
+		
+	}
+
+}
 @supports (--a: 1) { // Newer browsers than Android Browser get 3-lines n-burger via box-shadow. Lame check if they support CSS variables.
 
 	.n-fold {
@@ -266,7 +279,7 @@ _:-ms-input-placeholder, :root .n-fold > input[type=checkbox] {
 				left: $line-height-em/6;
 				width: $line-height-em/1.5;
 				top: $line-height-em/10;
-				box-shadow: 0 $line-height-em/6 0 1px #333, 0 $line-height-em/2.4 0 1px #333, 0 $line-height-em/1.5 0 1px #333;
+				box-shadow: 0 $line-height-em/6 0 1px var(--control-color, #333), 0 $line-height-em/2.4 0 1px var(--control-color, #333), 0 $line-height-em/1.5 0 1px var(--control-color, #333);
 		
 			}
 		
