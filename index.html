@@ -68,7 +68,7 @@
 <li>No dependencies</li>
 <li>Style agnostic</li>
 <li>Encapsulated JS and CSS</li>
-<li>Cross-embeddable components</li>
+<li>Embeddable components</li>
 <li>Auto component initialization</li>
 <li>Built for edge cases</li>
 </ul>
@@ -213,7 +213,7 @@
 									<li>add <pre>.n-push-up</pre> to balance at 1/3 height, instead of 1/2</li>
 								</ul>
 							</li>
-							<li>Use <pre>.n-section</pre> containers in <pre>main</pre> to clear inner margins at top/bottom</li>
+							<li>Use <pre>.n-section</pre> containers in <pre>main</pre> to clear inner vertical margins</li>
 							<li><pre>.n-header.n-fixed</pre> for fixed header on top on narrow screens (below 600px threshold)</li>
 							<li><b>body.n-sticky-footer</b> for a sticky footer and vertical space taken by <b>main</b>.</li>
 							<li>Check the <b>Navigation</b> section for mobile burger nav.</li>
@@ -305,7 +305,7 @@
 
 						<div class='_1/1 n-center'>
 							
-							<div><pre>_1/5</pre></div>
+							<div><pre>_1/1</pre></div>
 						
 						</div>
 
@@ -321,7 +321,7 @@
 	&lt;div&gt;
 		&lt;div&gt;...&lt;/div&gt;
 	&lt;/div&gt;
-	&lt;div class=_1/3&gt;
+	&lt;div class='_1/3'&gt;
 		&lt;div&gt;...&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
@@ -889,7 +889,7 @@
 							
 							<ul class="n-list">
 								
-								<li>Column class not mandatory. Minimum width 20%.</li>
+								<li>Column class is optional. Minimum width 20%.</li>
 								<li><pre>.n-row > div > .n-row--vertical.n-row</pre> – a vertical row as tall as the parent row with equal-height full-width children.</li>
 							
 							</ul>
@@ -1340,7 +1340,7 @@
 			
 							<h2>Aspect ratio container</h2>
 							
-							<p>While the image is loading, the layout is already solid and the page doesn't jump after loading.</p>
+							<p>As the image is loading, the layout is already solid and the page doesn't jump after the download.</p>
 							
 							<picture class=n-aspect style='--width: 1600; --height: 681;'>
 							
@@ -1363,8 +1363,8 @@
 							
 							<ul class="n-list">
 								
-								<li>If the element has inline style <b>--ratio</b>, it uses that instead of the <b>--width/--height</b> combination.</li>
-								<li>If narrower than its parent, the aspect ratio container is inline limited by <b>--width</b>.</li>
+								<li>If the element has inline style <b>--ratio</b>, it is used instead of the <b>--width/--height</b> combination.</li>
+								<li>If the image is narrower than its parent, the aspect ratio container is inline and limited by <b>--width</b>.</li>
 								<li>The container can be a <b>div</b> and the content doesn't need to be an image.</li>
 
 							</ul>
@@ -1618,13 +1618,10 @@
 							
 							<ul class="n-list">
 								
-								<li>Full window: <pre>&lt;div class='n-slider n-full-window'&gt;</pre></li>
-								<li>Full screen: <pre>&lt;div class='n-slider n-full-screen'&gt;</pre></li>
 								<li>Slide duration <pre>&lt;div class='n-slider' data-duration=1&gt;</pre> in seconds. Default is <b>.2</b>.</li>
-								<li>Vertically center slides' content with <pre>&lt;div class='n-slider n-middle'&gt;</pre></li>
-								<li>Detach slider nav by adding an <b>id</b> to the slider and creating <pre>&lt;div class='n-slider--nav' data-for='slider-id'&gt;</pre> elsewhere</li>
+								<li>Detach the nav by adding an <b>id</b> to the slider and creating <pre>&lt;div class='n-slider--nav' data-for='slider-id'&gt;</pre> elsewhere</li>
 								<li>URI with hash matching a slide id in a slider, auto slides to it.</li>
-								<li><pre>data-peek=20%</pre> to peek at neighboring slides, where 20% becomes 20% padding on left and right</li>
+								<li><pre>data-peek=20%</pre> to peek at neighboring slides, where 20% becomes 20% horizontal padding</li>
 								<li><pre>&lt;div class='n-slider n-slider--fade-overlap'&gt;</pre> to overlap the two slides while fading out/in</li>
 							
 							</ul>
@@ -1817,6 +1814,7 @@
 								
 								<li>Tab titles are taken from <pre>data-tab_title</pre>, <pre>.n-tab-title</pre> on a child or index by default</li>
 								<li><pre>data-duration=2</pre> for 2 seconds slide duration</li>
+								<li>Pre-fill the nav and put it together with the <b>.n-slider</b> inside <b>.n-slider--wrap</b> for seamless loading.</li>
 
 							</ul>
 							
@@ -2283,15 +2281,15 @@
 								<li>Open automatically by URI: <b>https://site.com?image=DSC00193.jpg#lightboxid</b> or <b>https://site.com?slide=3#lightboxid</b></li>
 								<li>Captions from link title</li>
 								
-								<li>An inline lightbox inside an <b>.n-aspect</b> container will avoid page jump during initialisation</li>
+								<li>An inline lightbox inside an <b>.n-aspect</b> container will avoid page jump during init</li>
 								
-								<li>Inline lightbox with thumbnails can have the thumbnails outside with <b>.outside</b></li>
+								<li>Inline lightbox with thumbnails can have the thumbnails outside with <b>.n-slider--outside</b></li>
 								
 								<li>Lightbox with <b>id</b> provides links to individual slides</li>
 								
 								<li>Use the <pre>data-anim</pre> parameter for custom animation (see <b>Modal window</b>)</li>
 								
-								<li>Inline lightbox will jump when sliding to an image that hasn't been loaded yet. Avoid that by wrapping the lightbox in an .n-aspect container.</li>
+								<li>Inline lightbox will jump when sliding to an image that hasn't been loaded yet. Avoid that by wrapping the lightbox in an <b>.n-aspect</b> container.</li>
 								
 								<li>To avoid inline vertical lightbox jumping the unknown image height, add <b>data-width</b> and <b>data-height</b> to the anchors.</li>
 								<li>Set thumbnails size with <b>--thumb-size</b>.</li>
@@ -2687,7 +2685,7 @@
 							
 							<ul class="n-list">
 								
-								<li>Horizontal fold with <pre>.n-fold.n-fold--horizontal</pre>, needs extra wrapper inside <pre>.n-content</pre>.</li>
+								<li>Horizontal fold with <pre>.n-fold.n-fold--horizontal</pre> needs extra wrapper inside <pre>.n-content</pre>.</li>
 								<li>Folded on mobile, always visible on desktop with <pre>.n-fold.n-fold--mobile</pre>.
 							
 							</ul>
@@ -2788,10 +2786,10 @@
 							
 							<ul class="n-list">
 								
-								<li>Open a modal window with any content using <pre>nui.openFullWindow('Any content');</pre></li>
+								<li>Open a modal window with any content using <pre>nui.componentModal.openFullWindow('Any content');</pre></li>
 								<li>Modals with <pre>id</pre> matching the URI hash are opened automatically</li>
 								<li><pre>#content</pre> is recommended to avoid HTML head parts</li>
-								<li><pre>nui.openFullWindow(HTML, '0% { … } 100% { … }')</pre> for custom animation, automatically reversed on close</li>
+								<li><pre>nui.componentModal.openFullWindow(HTML, '0% { … } 100% { … }')</pre> for custom animation, automatically reversed on close</li>
 								<li><pre>a.n-modal[data-anim]</pre> parameter specifies custom animation</li>
 								<li><pre>a.n-modal.limited</pre> for limited width/height modal window</li>
 							
@@ -3011,7 +3009,7 @@
 							<ul class="n-list">
 								
 								<li><b>ul.n-list--inline</b> orders items on one line</li>
-								<li><b>ul.n-list--indent</b></li>
+								<li><b>ul.n-list--indent</b> for margin on the left</li>
 								<li><b>ul.n-list--no-bullet</b> for a clean list</li>
 								<li>Set colors by CSS variables <b>--list-bg</b> and <b>--list-color</b>.</li>
 							
@@ -3498,7 +3496,7 @@
 								<li>Set the placeholder colour with CSS variable <b>--placeholder_color</b>.</li>
 								<li><pre>&lt;form class='sticky-submit'&gt;</pre> to position the submit button absolutely on the right/center.</li>
 								<li><pre>&lt;textarea data-auto&gt;</pre> for automatically adjusted <b>textarea</b> height.</li>
-								<li><pre>data-digits=x</pre> in a number input requires x digits</li>
+								<li><pre>data-digits=x</pre> – required digits in a number input</li>
 							
 							</ul>
 							
@@ -3806,7 +3804,7 @@
 							
 							<h2>Parallax scrolling</h2>
 							
-							<p><a href=//radogado.github.io/natuive/demos/swiss/ target="_blank">Open demo page</a>. Edge/IE unsupported.</p>
+							<p><a href=//radogado.github.io/natuive/demos/swiss/ target="_blank">Open demo page</a>.</p>
 
 <div class="code">							
 
@@ -4133,12 +4131,12 @@
 
 <form class="n-form">
 
-	<textarea id=component-playground rows="10" style="width: 100%">
-		<div class=n-slider> 
-			<div>New</div>
-			<div>Slider</div>
-		</div>
-	</textarea>
+<textarea id=component-playground rows="10" style="width: 100%">
+<div class=n-slider> 
+	<div>New</div>
+	<div>Slider</div>
+</div>
+</textarea>
 	<br>
 	<button class="n-btn" onclick="nui.addComponent(this.parentNode.parentNode.parentNode.parentNode, this.parentNode.querySelector('textarea').value);">Add the above component</button>
 
@@ -4148,13 +4146,13 @@
 	
 <form class="n-form">	
 	
-	<textarea id=component-playground rows="10" style="width: 100%">
-	<div class=n-fold>
-		<h3 class=n-fold--label> Label </h3>
-		<input type=checkbox class=n-trigger>
-		<div class=n-fold--content><p> Content. </p><p> Content. </p><p> Content. </p></div>
-	</div>
-	</textarea>
+<textarea id=component-playground rows="10" style="width: 100%">
+<div class=n-fold>
+	<h3 class=n-fold--label> Label </h3>
+	<input type=checkbox class=n-trigger>
+	<div class=n-fold--content><p> Content. </p><p> Content. </p><p> Content. </p></div>
+</div>
+</textarea>
 	<br>
 	<button class="n-btn" onclick="nui.addComponent(this.parentNode.parentNode.parentNode.parentNode, this.parentNode.querySelector('textarea').value);">Add the above component</button>
 	
@@ -4182,7 +4180,7 @@
 								
 								<h2>WordPress theme</h2>
 								
-								<p>Download from the natUIve GitHub page.</p>
+								<p><a href=//rado.bg>Demo</a>. Download from the natUIve GitHub page.</p>
 								
 							</div>
 							

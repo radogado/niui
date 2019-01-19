@@ -197,6 +197,13 @@ pre, .n-row > pre {
 
 }
 
+.n-row.grid-demo:not(.n-row--no-spacing) {
+
+    padding: 0 .33em;
+    box-sizing: border-box;
+
+}
+
 .n-row.grid-demo pre {
 
 	display: inline-block;

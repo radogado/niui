@@ -1309,4 +1309,4 @@ qa('a[href^="#"]').forEach((el) => {
 })();
 
 // Component Fold – end
-initComponents(); return { initComponents: initComponents, animate: animate, copyButton: copyButton, componentNotify: componentNotify, addComponent: addComponent } })()
+initComponents(); return { initComponents, animate, copyButton, componentNotify, componentModal, addComponent } })()

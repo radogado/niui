@@ -224,7 +224,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 .n-slider--arrow {
   position: absolute;
   top: 50%;
-  left: 0.75em;
+  left: 0.375em;
   z-index: 3;
   /* Stay on top of n-slider--nav if they are aligned vertically */
   transform: translateY(-50%); }
@@ -243,7 +243,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 
 .n-slider--arrow.n-slider--right {
   left: auto;
-  right: 0.75em; }
+  right: 0.375em; }
 
 .n-slider--arrow.n-slider--right:before {
   content: "→"; }
@@ -265,7 +265,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
   -webkit-border-radius: 50px;
   border-radius: 50%;
   transition: background-color .2s linear;
-  line-height: 1em;
+  line-height: 1;
   box-sizing: content-box;
   background-color: var(--control-bg, #f8f8f8);
   color: var(--control-color, #333); }

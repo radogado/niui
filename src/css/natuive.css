@@ -515,7 +515,7 @@ _:-ms-input-placeholder, :root .n-fold > input[type=checkbox] {
     text-indent: 1px;
     cursor: pointer;
     background-image: linear-gradient(-113deg, transparent 60%, var(--control-bg, #eee) 63%), linear-gradient(113deg, transparent 60%, var(--control-bg, #eee) 63%), linear-gradient(to bottom, var(--control-color, #333), var(--control-color, #333));
-    background-size: 1em 1em;
+    background-size: .75em .75em;
     background-repeat: no-repeat;
     background-position: calc(100% - .5em) center;
     color: #333;
@@ -588,8 +588,8 @@ _:-ms-input-placeholder, :root .n-fold > input[type=checkbox] {
     background-color: var(--control-bg, #eee);
     color: #333;
     color: var(--control-color, #333);
-    line-height: 1.6666666667;
-    font-size: -0.3333333333em;
+    line-height: 1.66667;
+    font-size: -0.33333em;
     text-align: center;
     border: none;
     margin: 0;
@@ -773,7 +773,7 @@ _:-ms-input-placeholder, :root .n-fold > input[type=checkbox] {
       cursor: pointer;
       background: var(--control-bg, rgba(0, 0, 0, 0.1)); }
     .n-form input[type=range]::-moz-range-thumb {
-      border: 0px solid rgba(0, 0, 0, 0);
+      border: 0px solid transparent;
       height: 1.625em;
       width: 1.625em;
       border-radius: 50%;
@@ -2252,7 +2252,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 .n-slider--arrow {
   position: absolute;
   top: 50%;
-  left: 0.75em;
+  left: 0.375em;
   z-index: 3;
   /* Stay on top of n-slider--nav if they are aligned vertically */
   transform: translateY(-50%); }
@@ -2271,7 +2271,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 
 .n-slider--arrow.n-slider--right {
   left: auto;
-  right: 0.75em; }
+  right: 0.375em; }
 
 .n-slider--arrow.n-slider--right:before {
   content: "→"; }
@@ -2293,7 +2293,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
   -webkit-border-radius: 50px;
   border-radius: 50%;
   transition: background-color .2s linear;
-  line-height: 1em;
+  line-height: 1;
   box-sizing: content-box;
   background-color: var(--control-bg, #f8f8f8);
   color: var(--control-color, #333); }
@@ -2564,8 +2564,8 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
     padding: 0.46875em 0; }
   .n-type h6 {
     font-size: .6667em;
-    line-height: 1.1249437528;
-    padding: 0.5624718764em 0; }
+    line-height: 1.12494;
+    padding: 0.56247em 0; }
   .n-type pre {
     overflow: auto; }
   .n-type p {
