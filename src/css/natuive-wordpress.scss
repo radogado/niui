@@ -256,17 +256,65 @@ article ul {
 
 }
 
-.comments p {
+.comments {
 	
-	width: 100%;
-	margin-bottom: 0;
-
-}
-
-
-.comments form input {
+	display: flex;
+	flex-wrap: wrap;
 	
-    border: 0;
+	> * {
+		
+		width: 50%;
+		
+	}
+	
+	> h2 {
+		
+		width: 100%;
+		
+	}
+	
+	li {
+		
+		margin-bottom: 2em;
+
+	}
+
+	p {
+		
+		width: 100%;
+		margin-bottom: 0;
+	
+	}
+	
+	.n-form {
+		
+		padding: 0;
+	
+	}
+	
+	.n-form.n-form--wide label span {
+		
+		display: inline;
+		
+	}
+	
+	.comments form input {
+		
+	    border: 0;
+	
+	}
+	
+	.comment-meta.commentmetadata {
+		
+		font-size: .75em;
+		
+	}
+	
+	.n-form label {
+		
+		min-height: 2em;
+		
+	}
 
 }
 

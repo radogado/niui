@@ -139,12 +139,28 @@ iframe, article h2 a {
 article ul {
   padding-left: 2px; }
 
-.comments p {
-  width: 100%;
-  margin-bottom: 0; }
-
-.comments form input {
-  border: 0; }
+.comments {
+  display: flex;
+  flex-wrap: wrap; }
+  .comments > * {
+    width: 50%; }
+  .comments > h2 {
+    width: 100%; }
+  .comments li {
+    margin-bottom: 2em; }
+  .comments p {
+    width: 100%;
+    margin-bottom: 0; }
+  .comments .n-form {
+    padding: 0; }
+  .comments .n-form.n-form--wide label span {
+    display: inline; }
+  .comments .comments form input {
+    border: 0; }
+  .comments .comment-meta.commentmetadata {
+    font-size: .75em; }
+  .comments .n-form label {
+    min-height: 2em; }
 
 .img-crop {
   width: 100%;

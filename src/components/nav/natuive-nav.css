@@ -242,6 +242,6 @@ main .n-nav ul {
     .n-drop ul li > input, .n-drop ul li[aria-haspopup] {
       background-position-y: 1.5em; }
     .n-drop ul li[aria-haspopup] {
-      padding-right: 42px; } }
+      padding-right: 3em; } }
 
 /*# sourceMappingURL=natuive-nav.css.map */
