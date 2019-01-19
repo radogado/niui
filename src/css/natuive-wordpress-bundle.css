@@ -1814,10 +1814,10 @@ main .n-nav ul {
     z-index: 0; }
   .n-drop ul[role=menubar] li > a {
     margin-right: 0;
-    padding-right: 1em; }
+    padding-right: .75em; }
   .n-drop ul[role=menubar] li[aria-haspopup] > a {
     margin-right: 0;
-    padding-right: 1em; }
+    padding-right: .75em; }
   .n-drop li li {
     display: block;
     width: 100%; }
@@ -2865,9 +2865,12 @@ nav.n-nav.n-drop {
   margin-top: .25em; }
 
 .n-type a[href] {
-  color: var(--control-color, #333); }
+  color: lightcoral;
+  text-decoration: none; }
 .n-type a[href]:hover, .n-type input[type=submit]:hover, .n-type a.n-btn[href]:hover, .n-type button.n-btn:hover {
   color: var(--control-highlight, #ee8822); }
+.n-type .page_item a[href] {
+  color: unset; }
 .n-type article h1, .n-type article h2, .n-type article h3, .n-type article h4, .n-type article h5 {
   font-weight: 500;
   color: #488e89; }

@@ -1235,10 +1235,10 @@ main .n-nav ul {
     z-index: 0; }
   .n-drop ul[role=menubar] li > a {
     margin-right: 0;
-    padding-right: 1em; }
+    padding-right: .75em; }
   .n-drop ul[role=menubar] li[aria-haspopup] > a {
     margin-right: 0;
-    padding-right: 1em; }
+    padding-right: .75em; }
   .n-drop li li {
     display: block;
     width: 100%; }

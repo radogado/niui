@@ -2,6 +2,8 @@
 
 @charset 'utf-8';
 
+$teal: #488e89;
+
 .n-slider--wrap {
 	
 	background: #eee;
@@ -357,7 +359,7 @@ article ul {
 	vertical-align: bottom;
 	padding: .5em;
 	font-size: 1.5rem;	
-	background: #488e89;
+	background: $teal;
 	color: 	#fff;
 	text-decoration: none;
 
@@ -487,7 +489,8 @@ nav.n-nav {
 	
 	a[href] {
 	
-		color: var(--control-color, #333);
+		color: lightcoral;
+		text-decoration: none;
 	
 	}
 	
@@ -496,13 +499,19 @@ nav.n-nav {
 			color: var(--control-highlight, #ee8822);
 	
 		}
+
+	.page_item a[href] {
+		
+		color: unset;
+		
+	}
 	
 	article {
 		
 		h1, h2, h3, h4, h5 {
 			
 			font-weight: 500;
-			color: #488e89;
+			color: $teal;
 		
 		}
 		
