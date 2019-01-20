@@ -34,7 +34,7 @@
 					?>
 
 					    <div class='logo'>
-					        <a class="n-aspect" style='--width: <?php echo $themelogo_width; ?>; --height: <?php echo $themelogo_height; ?>;' href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'>
+					        <a class="n-aspect" style='--width: <?php echo $themelogo_width/2; ?>; --height: <?php echo $themelogo_height/2; ?>;' href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'>
 						        
 								<img src='<?php echo str_replace( 'http://', '//', esc_url( get_theme_mod( 'themeslug_logo' ) ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?> Logo' class="img-responsive full">
 						        
