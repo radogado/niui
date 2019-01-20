@@ -2705,7 +2705,8 @@ button.search-submit {
 
 #content .n-lightbox.gallery a img {
   display: inline-block;
-  vertical-align: middle; }
+  vertical-align: middle;
+  height: auto; }
 
 body {
   min-height: 100%;
@@ -2794,7 +2795,8 @@ article ul {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate3d(-50%, -50%, 0); }
+    transform: translate3d(-50%, -50%, 0);
+    max-width: 100%; }
 
 .img-crop h2, article h2 a[href] {
   display: inline-block;
