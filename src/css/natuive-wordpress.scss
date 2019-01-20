@@ -261,21 +261,6 @@ article ul {
 
 .comments {
 	
-	display: flex;
-	flex-wrap: wrap;
-	
-	> * {
-		
-		width: 50%;
-		
-	}
-	
-	> h2 {
-		
-		width: 100%;
-		
-	}
-	
 	li {
 		
 		margin-bottom: 2em;
@@ -695,6 +680,31 @@ a.backtotop[href] {
 	
 		width: 100%;
 	
+	}
+	
+	.comments {
+
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		
+		> h2 {
+			
+			grid-column: 1 / 3;			
+			
+		}
+		
+		> ul {
+			
+			grid-column: 1 / 2;			
+			
+		}
+		
+		> div {
+			
+			grid-column: 2 / 3;
+			
+		}
+
 	}
 
 }
