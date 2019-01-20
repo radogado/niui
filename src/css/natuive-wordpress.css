@@ -220,7 +220,8 @@ article {
   .n-header .logo ~ .n-fold {
     margin-top: 1em; }
   .n-header .logo div {
-    padding: 0 1em; }
+    padding: 0 1em;
+    flex-grow: 1; }
     .n-header .logo div h2, .n-header .logo div h3 {
       padding-top: 0; }
 
@@ -306,6 +307,9 @@ nav.n-nav.n-drop {
 
 .n-header .n-fold.n-fold--mobile {
   display: inline-block; }
+
+.n-fold span.n-burger:before {
+  --control-color: #333; }
 
 .wp-caption {
   margin-top: 1em; }

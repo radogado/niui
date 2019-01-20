@@ -413,6 +413,7 @@ article {
 	div {
 
 		padding: 0 1em;
+		flex-grow: 1;
 		
 		h2, h3 {
 			
@@ -613,6 +614,12 @@ nav.n-nav {
 	
 	display: inline-block; // Enable closing the n-burger by tapping on its right
 	
+}
+
+.n-fold span.n-burger:before { // Workaround for the weirdest bug where the fallback value of the CSS variable disappears
+	
+    --control-color: #333;
+   
 }
 
 // Image captions
