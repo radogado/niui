@@ -614,15 +614,15 @@ function my_img_caption_shortcode( $empty, $attr, $content ){
 
 	if ($img->getAttribute('sizes')) {
 	
-		if ($size) {
+		if ($size && $size != 'full') {
 			
 			$width = $attachment['sizes'][$size]['width'];
 			$height = $attachment['sizes'][$size]['height'];
 			
 		} else {
 			
-			$width = preg_replace('/[^0-9]/', '', $attachment[width]);
-			$height = preg_replace('/[^0-9]/', '', $attachment[height]);
+			$width = preg_replace('/[^0-9]/', '', $attachment['width']);
+			$height = preg_replace('/[^0-9]/', '', $attachment['height']);
 			
 		}
 	
@@ -692,15 +692,15 @@ add_action('the_content', function ($content) {
 			$id = (int) str_replace('-', '', filter_var($img->getAttribute('class'), FILTER_SANITIZE_NUMBER_INT));
 			$attachment = wp_get_attachment_metadata($id);
 
-			if ($size) {
+			if ($size && $size != 'full') {
 				
 				$width = $attachment['sizes'][$size]['width'];
 				$height = $attachment['sizes'][$size]['height'];
 				
 			} else {
 				
-				$width = preg_replace('/[^0-9]/', '', $attachment[width]);
-				$height = preg_replace('/[^0-9]/', '', $attachment[height]);
+				$width = preg_replace('/[^0-9]/', '', $attachment['width']);
+				$height = preg_replace('/[^0-9]/', '', $attachment['height']);
 
 				$actual_width = explode('px', explode(', ', $img->getAttribute('sizes'))[1])[0]; // Get the real width from the 'sizes' attribute
 				$height = $actual_width / ($width/$height);				
