@@ -568,7 +568,8 @@ function new_nav_menu($items) {
 
 				<div class=n-fold--content> 
     				<nav class="n-nav n-drop"> 
-    					<ul class="n-list n-list--no-bullet">' . $items . '</ul>
+    					<ul class="n-list n-list--no-bullet">' . str_replace('</body></html>', '', str_replace('<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<?xml encoding="utf-8" ?><html><body>', '', $items)) . '</ul>
     				</nav>
     			</div>
     		</div>';
@@ -668,6 +669,7 @@ add_action('the_content', function ($content) {
 	
 	}
 
-	return $dom->saveHTML();
+	return str_replace('</body></html>', '', str_replace('<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<?xml version="1.0" encoding="UTF-8"?><html><body>', '', $dom->saveHTML()));
 
 }, 99);
