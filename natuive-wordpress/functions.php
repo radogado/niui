@@ -612,6 +612,8 @@ function my_img_caption_shortcode( $empty, $attr, $content ){
 
 	$size = explode(' ', explode('size-', $img->getAttribute('class'))[1])[0]; // full, large etc
 
+	$img->setAttribute('src', str_replace( 'http://', '//', $img->getAttribute('src'))); // Fix HTTPS
+
 	if ($img->getAttribute('sizes')) {
 	
 		if ($size && $size != 'full') {
@@ -628,7 +630,6 @@ function my_img_caption_shortcode( $empty, $attr, $content ){
 	
 	} else { // Legacy image format
 	
-		$img->setAttribute('src', str_replace( 'http://', '//', $img->getAttribute('src'))); // Fix HTTPS
 		$width = preg_replace('/[^0-9]/', '', $img->getAttribute('width'));
 		$height = preg_replace('/[^0-9]/', '', $img->getAttribute('height'));
 
@@ -687,6 +688,8 @@ add_action('the_content', function ($content) {
 
 		$size = explode(' ', explode('size-', $img->getAttribute('class'))[1])[0]; // full, large etc
 
+		$img->setAttribute('src', str_replace( 'http://', '//', $img->getAttribute('src'))); // Fix HTTPS
+
 		if ($img->getAttribute('sizes')) {
 			
 			$id = (int) str_replace('-', '', filter_var($img->getAttribute('class'), FILTER_SANITIZE_NUMBER_INT));
@@ -710,7 +713,6 @@ add_action('the_content', function ($content) {
 			
 		} else { // Legacy image format
 			
-			$img->setAttribute('src', str_replace( 'http://', '//', $img->getAttribute('src'))); // Fix HTTPS
 			$width = preg_replace('/[^0-9]/', '', $img->getAttribute('width'));
 			$height = preg_replace('/[^0-9]/', '', $img->getAttribute('height'));
 			
