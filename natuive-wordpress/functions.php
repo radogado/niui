@@ -576,75 +576,6 @@ function new_nav_menu($items) {
 
 }
 
-// WordPress 4 with captions: Wrap all captioned content images in a span with aspect ratio. Known issue: WP4 captioned images can't be links
-
-add_filter( 'img_caption_shortcode', 'my_img_caption_shortcode', 10, 3 );
-
-function my_img_caption_shortcode( $empty, $attr, $content ){
-
-	$img_source = do_shortcode( $content );
-
-    $attr = shortcode_atts( array(
-        'id'      => '',
-        'align'   => 'alignnone',
-        'width'   => '',
-        'height'  => '',
-        'caption' => ''
-    ), $attr );
-
-    if ( 1 > (int) $attr['width'] || empty( $attr['caption'] ) ) {
-        return '';
-    }
-
-    if ( $attr['id'] ) {
-        $attr['id'] = 'id="' . esc_attr( $attr['id'] ) . '" ';
-    }
-    
-	$id = (int) str_replace('-', '', filter_var($attr['id'], FILTER_SANITIZE_NUMBER_INT));
-
-	$dom = new DOMdocument();
-	@$dom->loadHTML($img_source);
-	$img = $dom->getElementsByTagName('img')[0];
-	$attachment = wp_get_attachment_metadata($id);
-
-	$width = 0;
-	$height = 0;
-
-	$size = explode(' ', explode('size-', $img->getAttribute('class'))[1])[0]; // full, large etc
-
-	$img->setAttribute('src', str_replace( 'http://', '//', $img->getAttribute('src'))); // Fix HTTPS
-
-	if ($img->getAttribute('sizes')) {
-	
-		if ($size && $size != 'full') {
-			
-			$width = $attachment['sizes'][$size]['width'];
-			$height = $attachment['sizes'][$size]['height'];
-			
-		} else {
-			
-			$width = preg_replace('/[^0-9]/', '', $attachment['width']);
-			$height = preg_replace('/[^0-9]/', '', $attachment['height']);
-			
-		}
-	
-	} else { // Legacy image format
-	
-		$width = preg_replace('/[^0-9]/', '', $img->getAttribute('width'));
-		$height = preg_replace('/[^0-9]/', '', $img->getAttribute('height'));
-
-	}
-
-   return '<div class="wp-block-image">'
-    . '<figure class="' . esc_attr( $attr['align'] ) . '" '
-    . '>'
-    . '<span class="n-aspect ' . $img->getAttribute('class') . '" style="--width: ' . $width . '; --height: ' . $height . ';">' . $img_source . '</span>' // Add .n-aspect and --ratio: height/width
-    . '<figcaption>' . $attr['caption'] . '</figcaption>'
-    . '</figure>'
-    . '</div>';
-
-}
-
 // Remove the extra 10px around captioned images
 
 add_filter('shortcode_atts_caption', 'fixExtraCaptionPadding');
@@ -657,7 +588,7 @@ function fixExtraCaptionPadding($attrs)
     return $attrs;
 }
 
-// WordPress 4 without captions and WordPress 5: Wrap all captionless content images in a span with aspect ratio
+// Wrap all captionless content images in a span with aspect ratio
 
 add_action('the_content', function ($content) {
 
@@ -668,7 +599,7 @@ add_action('the_content', function ($content) {
 
 	foreach ($imgs as $img) {
 
-		if($img->parentNode->tagName == 'p') {
+		if($img->parentNode->tagName == 'p') { // A paragraph with image should be full width
 			
 			$img->parentNode->setAttribute('class', 'has-image');
 			$caption = $img->parentNode->textContent; // Display caption properly on legacy images, currently hidden by CSS
@@ -677,6 +608,7 @@ add_action('the_content', function ($content) {
 
 		if($img->parentNode->tagName == 'a' && $img->parentNode->parentNode->tagName == 'p') {
 			
+
 			$img->parentNode->parentNode->setAttribute('class', 'has-image');
 			$img->parentNode->setAttribute('class', $img->getAttribute('class'));
 			$caption = $img->parentNode->parentNode->textContent;  // Display caption properly on legacy images, currently hidden by CSS
@@ -690,16 +622,24 @@ add_action('the_content', function ($content) {
 
 		$img->setAttribute('src', str_replace( 'http://', '//', $img->getAttribute('src'))); // Fix HTTPS
 
+		$id = (int) str_replace('-', '', filter_var($img->getAttribute('class'), FILTER_SANITIZE_NUMBER_INT));
+		
+		if ($id == 0) { // It's a gallery thumbnail
+			
+			break;
+			
+		}
+		
 		if ($img->getAttribute('sizes')) {
 			
-			$id = (int) str_replace('-', '', filter_var($img->getAttribute('class'), FILTER_SANITIZE_NUMBER_INT));
+
 			$attachment = wp_get_attachment_metadata($id);
 
 			if ($size && $size != 'full') {
-				
+
 				$width = $attachment['sizes'][$size]['width'];
 				$height = $attachment['sizes'][$size]['height'];
-				
+
 			} else {
 				
 				$width = preg_replace('/[^0-9]/', '', $attachment['width']);
@@ -723,10 +663,11 @@ add_action('the_content', function ($content) {
 		$wrapper->setAttribute('style', '--width: ' . $width . '; --height: ' . $height);
 		
 		$img->parentNode->replaceChild($wrapper, $img);
+
 		$wrapper->appendChild($img);
 	
 	}
 
 	return $dom->saveHTML();
 
-});
+}, 99);
