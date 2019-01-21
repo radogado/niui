@@ -2856,17 +2856,23 @@ nav.n-nav.n-drop {
   --control-bg: #eee; }
   nav.n-nav.n-drop li.current_page_item {
     --control-bg: #ddd; }
+nav.n-nav.n-drop ul li {
+  margin-right: .5em; }
 
 .single h1 {
   margin-top: .25em; }
 
+.n-type h3.comment-reply-title {
+  padding-top: 0; }
 .n-type a[href] {
   color: lightcoral;
   text-decoration: none; }
 .n-type a[href]:hover, .n-type input[type=submit]:hover, .n-type a.n-btn[href]:hover, .n-type button.n-btn:hover {
   color: var(--control-highlight, #ee8822); }
 .n-type .page_item a[href] {
-  color: unset; }
+  color: unset;
+  padding: 0 .5em;
+  line-height: 1.5; }
 .n-type article h1, .n-type article h2, .n-type article h3, .n-type article h4, .n-type article h5 {
   font-weight: 500;
   color: #488e89; }
@@ -2930,7 +2936,7 @@ nav.n-nav.n-drop {
 
 a.backtotop[href] {
   background: none;
-  bottom: -2em; }
+  bottom: -1em; }
 
 .textwidget a {
   margin-bottom: .5em;

@@ -465,6 +465,12 @@ nav.n-nav {
 
 	}
 
+	&.n-drop ul li {
+		
+		margin-right: .5em;
+		
+	}
+	
 }
 
 .single h1 {
@@ -475,6 +481,12 @@ nav.n-nav {
 
 .n-type {
 	
+	h3.comment-reply-title {
+		
+		padding-top: 0;
+
+	}
+
 	a[href] {
 	
 		color: lightcoral;
@@ -491,6 +503,8 @@ nav.n-nav {
 	.page_item a[href] {
 		
 		color: unset;
+		padding: 0 .5em;
+		line-height: 1.5;
 		
 	}
 	
@@ -643,7 +657,7 @@ nav.n-nav {
 a.backtotop[href] {
 
 	background: none;
-	bottom: -2em;
+	bottom: -1em;
 
 }
 
