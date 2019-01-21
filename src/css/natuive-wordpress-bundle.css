@@ -2746,8 +2746,7 @@ iframe, article h2 a {
   margin: 1.5em auto;
   box-sizing: border-box; }
 .n-type section > article > p.has-image {
-  text-align: center;
-  font-size: 0; }
+  text-align: center; }
 
 article ul {
   padding-left: 2px; }
@@ -2923,7 +2922,7 @@ nav.n-nav.n-drop ul li {
   --control-color: #333; }
 
 .wp-caption {
-  margin-top: 1em; }
+  margin-top: 1.5em; }
   .wp-caption a[href] {
     display: inline-block;
     max-width: 100%; }
