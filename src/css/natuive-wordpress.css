@@ -313,7 +313,8 @@ nav.n-nav.n-drop ul li {
 .wp-caption {
   margin-top: 1em; }
   .wp-caption a[href] {
-    display: inline-block; }
+    display: inline-block;
+    max-width: 100%; }
   .wp-caption.aligncenter {
     margin: 0 auto; }
   .wp-caption.alignright {
