@@ -724,6 +724,12 @@ a.backtotop[href] {
 
 }
 
+.n-drop li[aria-haspopup] {
+	
+	padding-right: 1em;
+
+}
+
 @media (max-width: 599.9px) {
 
 	.single h1 {

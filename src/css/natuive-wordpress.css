@@ -354,6 +354,9 @@ a.backtotop[href] {
       grid-column: 1 / 2; }
     .comments > div {
       grid-column: 2 / 3; } }
+.n-drop li[aria-haspopup] {
+  padding-right: 1em; }
+
 @media (max-width: 599.9px) {
   .single h1 {
     font-size: 1.5em; } }
