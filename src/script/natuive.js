@@ -1531,7 +1531,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 		if (hasClass(lightbox, 'n-lightbox--inline')) { // Secondary lightbox
 	
-	    	this_index = Array.prototype.indexOf.call(lightbox.children, anchor.parentNode); // Ignore non-anchor children of the lightbox container
+	    	this_index = Array.prototype.indexOf.call(lightbox.children, anchor.closest('.n-slider > *')); // Ignore non-anchor children of the lightbox container
 			
 		} else {
 	
@@ -2701,6 +2701,11 @@ var componentSlider = (function (){
 				if (slider.clientWidth >= next_image_width) {
 					
 					height_change_number = next_image_height;
+					
+				}
+				if (hasClass(next_slide_image.parentNode, 'n-aspect')) {
+					
+					height_change_number = next_slide_image.parentNode.offsetHeight;
 					
 				}
 				height_change =	`height: ${height_change_number}px`;

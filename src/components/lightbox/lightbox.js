@@ -308,7 +308,7 @@ var componentLightbox = (function (){
 	
 		if (hasClass(lightbox, 'n-lightbox--inline')) { // Secondary lightbox
 	
-	    	this_index = Array.prototype.indexOf.call(lightbox.children, anchor.parentNode); // Ignore non-anchor children of the lightbox container
+	    	this_index = Array.prototype.indexOf.call(lightbox.children, anchor.closest('.n-slider > *')); // Ignore non-anchor children of the lightbox container
 			
 		} else {
 	

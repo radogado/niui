@@ -327,6 +327,11 @@ var componentSlider = (function (){
 					height_change_number = next_image_height;
 					
 				}
+				if (hasClass(next_slide_image.parentNode, 'n-aspect')) {
+					
+					height_change_number = next_slide_image.parentNode.offsetHeight;
+					
+				}
 				height_change =	`height: ${height_change_number}px`;
 	
 			} else { // Vertical, not a lightbox, non-img content (video, iframe)
