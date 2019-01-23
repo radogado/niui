@@ -14,14 +14,222 @@
 
 }
 
-.n-lightbox a {
+.n-lightbox {
+    		
+	a {
 	
-	max-width: 100%;
-	height: auto;
-	border: none;
-	text-align: center;
+		max-width: 100%;
+		height: auto;
+		border: none;
+		text-align: center;
+	
+		img {
+				
+			display: block;
+			margin: 0 auto;
+			max-width: 100%;
+		
+		}
+
+	}
+
+	&:not(.n-slider) {
+
+	    margin-left: -$line-height-em/4;
+	    width: calc(100% + $line-height-em/2);
+	    max-width: none;
+    
+		a {
+		
+			display: inline-block;
+			vertical-align: middle;
+			margin: $line-height-em/4;
+			position: relative;
+			
+		}
+	
+	}
+
+	&.n-slider {
+
+		img {
+		
+			cursor: zoom-in;
+			max-width: 100%;
+			transition: opacity .2s ease-in-out;
+		
+		}
+		
+		&[data-ready] {
+			
+			img {
+			
+				height: auto; // Override CSS-only height to avoid horizontal squash
+				width: auto;
+			
+			}
+			
+			> div:not(.n-lightbox--loaded) img {
+				
+				opacity: 0;
+				
+			}
+			
+			&[data-peek]:not(.n-slider--vertical).n-slider--overlay > div:not([data-active]) {
+				
+				display: flex;
+				
+			}
+		
+		}
+	
+		> * {
+		
+			text-align: center;
+			position: relative;
+			
+			&:before {
+			
+				display: none;
+			
+			}
+		
+			p.n-lightbox--caption { /* Image captions */
+			
+				position: absolute;
+				bottom: 2em;
+				text-align: center;
+				color: #fff;
+				left: 50%;
+				transform: translateX(-50%);
+				padding: 0 .25em;
+				background: rgba(0, 0, 0, .4);
+			
+			}
+	
+			> iframe {
+			
+				width: 100%;
+				height: 100%;
+				background: #fff;
+			
+			}
+			
+			> .n-aspect {
+				
+				margin: 0 auto;
+	
+			}
+	
+		}
+	
+		&.n-lightbox--inline[data-ready] > * {
+		
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			overflow: hidden;
+			
+		}
+	
+		&.n-slider--overlay {
+			
+			> * {
+		
+				height: 100%;
+				overflow: hidden;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+	    		
+			}
+			
+			&.n-slider--vertical > *:not([data-active]) {
+			
+				display: none;
+			
+			}
+	
+			> [data-active] {
+				
+				display: flex;
+						
+				> img.n-lightbox--zoom {
+				
+					width: auto;
+					height: auto;
+					max-height: none;
+					max-width: none;
+					position: absolute;
+					top: 50%;
+					bottom: 50%;
+					left: 50%;
+					right: 50%;
+					transition: transfrom .2s linear;
+					cursor: zoom-out;
+					zoom: 0;
+					transform: translate3d(var(--x), var(--y), 0);
+				
+				}
+			
+			}
+		
+		}
+	
+		video {
+		
+			display: inline-block;
+			width: 100%;
+			max-height: 100%;
+			vertical-align: middle;
+			
+		}
+	
+	
+		&.n-slider--top > * p { /* Image captions */
+		
+			bottom: 0;
+		
+		}
+	
+	
+		a.n-btn.n-lightbox--copy {
+			
+			position: absolute;
+			top: $line-height-em/2;
+			right: $line-height-em/2;
+			margin: 0;
+			color: transparent;
+		    text-shadow: 0 0 #fff;
+		
+			&:before {
+				
+				content: "🔗";
+			
+			}
+		
+		}
+		
+		> [data-active]:not(.n-lightbox--loaded):after { // Loading spinner
+		
+			content: "";
+			position: absolute;
+			display: block;
+			top: calc(50% - 20px);
+			left: calc(50% - 20px);
+			width: 40px;
+			height: 40px;
+			background-color: #999;
+			border-radius: 100%;  
+			animation: sk-scaleout 1.0s 9 ease-in-out;
+		
+		}
+	
+	}
 
 }
+
 
 .n-aspect > .n-slider--wrap > .n-slider.n-lightbox.n-lightbox--inline img {
 
@@ -32,184 +240,6 @@
     
 }
 	
-.n-slider.n-lightbox {
-
-	img {
-	
-		cursor: zoom-in;
-		max-width: 100%;
-		transition: opacity .2s ease-in-out;
-	
-	}
-	
-	&[data-ready] {
-		
-		img {
-		
-			height: auto; // Override CSS-only height to avoid horizontal squash
-			width: auto;
-		
-		}
-		
-		> div:not(.n-lightbox--loaded) img {
-			
-			opacity: 0;
-			
-		}
-		
-		&[data-peek]:not(.n-slider--vertical).n-slider--overlay > div:not([data-active]) {
-			
-			display: flex;
-			
-		}
-	
-	}
-
-	> * {
-	
-		text-align: center;
-		position: relative;
-		
-		&:before {
-		
-			display: none;
-		
-		}
-	
-		p.n-lightbox--caption { /* Image captions */
-		
-			position: absolute;
-			bottom: 2em;
-			text-align: center;
-			color: #fff;
-			left: 50%;
-			transform: translateX(-50%);
-			padding: 0 .25em;
-			background: rgba(0, 0, 0, .4);
-		
-		}
-
-		> iframe {
-		
-			width: 100%;
-			height: 100%;
-			background: #fff;
-		
-		}
-		
-		> .n-aspect {
-			
-			margin: 0 auto;
-
-		}
-
-	}
-
-	&.n-lightbox--inline[data-ready] > * {
-	
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		overflow: hidden;
-		
-	}
-
-	&.n-slider--overlay {
-		
-		> * {
-	
-			height: 100%;
-			overflow: hidden;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-    		
-		}
-		
-		&.n-slider--vertical > *:not([data-active]) {
-		
-			display: none;
-		
-		}
-
-		> [data-active] {
-			
-			display: flex;
-					
-			> img.n-lightbox--zoom {
-			
-				width: auto;
-				height: auto;
-				max-height: none;
-				max-width: none;
-				position: absolute;
-				top: 50%;
-				bottom: 50%;
-				left: 50%;
-				right: 50%;
-				transition: transfrom .2s linear;
-				cursor: zoom-out;
-				zoom: 0;
-				transform: translate3d(var(--x), var(--y), 0);
-			
-			}
-		
-		}
-	
-	}
-
-	video {
-	
-		display: inline-block;
-		width: 100%;
-		max-height: 100%;
-		vertical-align: middle;
-		
-	}
-
-
-	&.n-slider--top > * p { /* Image captions */
-	
-		bottom: 0;
-	
-	}
-
-
-	a.n-btn.n-lightbox--copy {
-		
-		position: absolute;
-		top: $line-height-em/2;
-		right: $line-height-em/2;
-		margin: 0;
-		color: transparent;
-	    text-shadow: 0 0 #fff;
-	
-		&:before {
-			
-			content: "🔗";
-		
-		}
-	
-	}
-	
-	> [data-active]:not(.n-lightbox--loaded):after { // Loading spinner
-	
-		content: "";
-		position: absolute;
-		display: block;
-		top: calc(50% - 20px);
-		left: calc(50% - 20px);
-		width: 40px;
-		height: 40px;
-		background-color: #999;
-		border-radius: 100%;  
-		animation: sk-scaleout 1.0s 9 ease-in-out;
-	
-	}
-
-}
-
 .n-slider--wrap:not(.n-slider--outside) > .n-slider.n-lightbox.n-lightbox--thumbnails:not(.n-slider--vertical):not(.n-slider--detached-nav):not(.n-slider--top) > * p.n-lightbox--caption {
 	
 	bottom: var(--thumb-size, 4em);
@@ -254,23 +284,6 @@
 
 }
 
-.n-lightbox:not(.n-slider) a {
-	
-	display: inline-block;
-	vertical-align: middle;
-	margin: $line-height-em/2;
-	position: relative;
-	
-}
-
-	.n-lightbox a img {
-		
-		display: block;
-		margin: 0 auto;
-		max-width: 100%;
-	
-	}
-	
 	@supports (--a: 1) {
 	
 		.n-lightbox a.n-lightbox--video:before {
@@ -326,20 +339,6 @@
 	
 	}
 	
-/*
-	&.n-slider--wrap:not(.n-lightbox--inline) {
-		
-		padding-bottom: 4em;
-		
-		&.n-lightbox--thumbnails {
-			
-			padding-bottom: 5.5em;
-			
-		}
-		
-	}
-*/
-
 }
 
 

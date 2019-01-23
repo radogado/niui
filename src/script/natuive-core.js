@@ -369,6 +369,7 @@ function getCumulativeOffset(obj) { // Offset from element to top of page
 
 }
 
+/*
 function animateAnchors(e) {
 
     if (typeof e === 'undefined' || q('html').clientHeight > document.body.clientHeight) {
@@ -406,6 +407,7 @@ function animateAnchors(e) {
     return false;
 
 }
+*/
 
 function closestElement(el, target) { // Thanks http://gomakethings.com/ditching-jquery/ – Accepts either a selector string or an actual element
 
@@ -751,11 +753,13 @@ if (typeof MutationObserver === 'function') {
 initThreshold(bodyElement);
 
 // Animate anchor link jumps
+/*
 qa('a[href^="#"]').forEach((el) => {
 
 	el.onclick = el.onclick || animateAnchors; // Don't add to previous onclick event handler
 
 });
+*/
 	
 /*
 	notifyCloseEvent();

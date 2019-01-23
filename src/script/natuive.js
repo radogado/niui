@@ -369,6 +369,7 @@ function getCumulativeOffset(obj) { // Offset from element to top of page
 
 }
 
+/*
 function animateAnchors(e) {
 
     if (typeof e === 'undefined' || q('html').clientHeight > document.body.clientHeight) {
@@ -406,6 +407,7 @@ function animateAnchors(e) {
     return false;
 
 }
+*/
 
 function closestElement(el, target) { // Thanks http://gomakethings.com/ditching-jquery/ – Accepts either a selector string or an actual element
 
@@ -751,11 +753,13 @@ if (typeof MutationObserver === 'function') {
 initThreshold(bodyElement);
 
 // Animate anchor link jumps
+/*
 qa('a[href^="#"]').forEach((el) => {
 
 	el.onclick = el.onclick || animateAnchors; // Don't add to previous onclick event handler
 
 });
+*/
 	
 /*
 	notifyCloseEvent();
@@ -1496,7 +1500,15 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 			let target_width = typeof el.dataset.width === 'undefined' ? '' : `width=${el.dataset.width}`;
 			let target_height = typeof el.dataset.height === 'undefined' ? '' : `height=${el.dataset.height}`;
 					    
-		    images += `<div><img data-src="${url}" title="" data-link="${slide_link}" ${target_width} ${target_height}>${(caption ? ('<p class=n-lightbox--caption>' + caption + '</p>') : '') + link_element}</div>`;
+		    images += el.querySelector('img') ? 
+		    
+		    `<div><img data-src="${url}" title="" data-link="${slide_link}" ${target_width} ${target_height}>${(caption ? ('<p class=n-lightbox--caption>' + caption + '</p>') : '') + link_element}</div>`
+		    
+		    :
+		    
+		    `<div>${el.innerHTML}</div>`;
+		    
+		    ;
 	
 	        // Attach onload event to each image to display it only when fully loaded and avoid top-to-bottom reveal?
 	
