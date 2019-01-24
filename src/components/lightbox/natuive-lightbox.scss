@@ -197,8 +197,8 @@
 		a.n-btn.n-lightbox--copy {
 			
 			position: absolute;
-			top: $line-height-em/2;
-			right: $line-height-em/2;
+			top: $line-height-em;
+			right: 0;
 			margin: 0;
 			color: transparent;
 		    text-shadow: 0 0 #fff;
@@ -345,6 +345,16 @@
 .n-aspect > .n-lightbox--thumbnails.n-slider--wrap > .n-slider.n-slider--vertical[data-ready] > * > p.n-lightbox--caption {
 		
 	height: auto;
+	
+}
+	
+@media (max-height: 512px) and (orientation: landscape) {
+	
+	.n-lightbox.n-slider a.n-btn.n-lightbox--copy {
+	
+	    top: 0;
+	
+	}
 	
 }
 	

@@ -96,8 +96,8 @@
   bottom: 0; }
 .n-lightbox.n-slider a.n-btn.n-lightbox--copy {
   position: absolute;
-  top: 0.75em;
-  right: 0.75em;
+  top: 1.5em;
+  right: 0;
   margin: 0;
   color: transparent;
   text-shadow: 0 0 #fff; }
@@ -176,6 +176,9 @@
 .n-aspect > .n-lightbox--thumbnails.n-slider--wrap > .n-slider.n-slider--vertical[data-ready] > * > p.n-lightbox--caption {
   height: auto; }
 
+@media (max-height: 512px) and (orientation: landscape) {
+  .n-lightbox.n-slider a.n-btn.n-lightbox--copy {
+    top: 0; } }
 @media (max-height: 599.9px) {
   div.n-lightbox--thumbnails.n-slider--wrap .n-slider--nav a, div.n-lightbox--thumbnails.n-slider--wrap .n-slider--nav a[data-active] {
     line-height: 1.5;
