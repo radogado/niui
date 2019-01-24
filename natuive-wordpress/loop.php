@@ -4,31 +4,27 @@
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 		<?php if ( has_post_thumbnail()) : // Check if thumbnail exists 
-
-			$post_thumbnail_id = get_post_thumbnail_id($post->ID);
-			$post_thumbnail_url = wp_get_attachment_url( $post_thumbnail_id );
-			
 		?>
 		
-		<div class="headline">
-			
-			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="img-crop">
+			<div class="headline">
 				
-				<img src="<?php echo $post_thumbnail_url ?>" alt="Background">
-
-				<h2><?php the_title(); ?> &rarr;</h2>
+				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="img-crop">
+					
+					<?php echo get_the_post_thumbnail(); ?>
+	
+					<h2><?php the_title(); ?> &rarr;</h2>
+					
+				</a>
 				
-			</a>
-			
-		</div>
+			</div>
 
 		<?php else: ?>
 
-		<div class="headline">
-			<h2>
-				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-			</h2>
-		</div>
+			<div class="headline">
+				<h2>
+					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+				</h2>
+			</div>
 
 		<?php endif; ?>
 
