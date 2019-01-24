@@ -539,6 +539,14 @@
 		overflow-x: hidden;
 		max-width: 100%;
 
+		> * > .n-unpad {
+			
+		    margin: -.6em 0 -.6em -.3em;
+		    width: calc(100% + .6em);
+		    max-width: none;			
+			
+		}
+
 	}
 
 	.n-row > *, .n-row > [class^=_] {

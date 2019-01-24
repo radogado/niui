@@ -153,32 +153,6 @@
 
 }
 
-@media screen and (max-width: $screen-narrow-max) {
-
-	.n-slider--wrap.n-tabs > .n-slider--nav.n-row, .n-slider--nav.n-row.n-tabs {
-		
-		display: flex;
-		
-	}
-
-	.n-slider > * { // Stack slides vertically on old mobile browsers
-
-		display: block;
-
-	}
-
-	@supports (--a: 1) { // ...and restore the slider on modern browsers
-		
-		.n-slider > * {
-	
-			display: inline-block;
-	
-		}
-	
-	}
-
-}
-
 // JS enhanced. To do: add [data-ready]
 
 .n-slider.n-slider--overlay, .n-slider--wrap.n-slider--overlay {
@@ -199,17 +173,6 @@
 	height: calc(100% - #{$line-height-em*2});
 
 }
-
-@media screen and (max-width: $screen-narrow-max) {
-
-	.n-slider--wrap.n-slider--overlay, .n-slider--wrap.n-slider--vertical.n-slider--overlay {
-				
-		margin-top: $line-height-em;
-		height: calc(100% - #{$line-height-em});
-	
-	}
-
-}		
 
 // To do: move all .n-slider--wrap (enhanced slider) behind a @supports for modern browsers. Leave the basic CSS-only version for old browsers.
 
@@ -657,6 +620,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 		outline-offset: -6px; // Don't crop
 		white-space: normal;
 		min-height: 0;
+		box-sizing: border-box;
 		
 	}
 
@@ -693,3 +657,48 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 	}
 
 }
+
+@media screen and (max-width: $screen-narrow-max) {
+
+	.n-slider--wrap.n-tabs > .n-slider--nav.n-row, .n-slider--nav.n-row.n-tabs, .n-slider--wrap.n-tabs > .n-slider--nav a {
+		
+	    display: block;
+	    white-space: normal;
+    		
+	}
+
+	.n-slider--vertical.n-tabs:not(.n-slider--detached-nav) > .n-slider, .n-slider--vertical.n-tabs > .n-slider--nav.n-row.n-tabs {
+	
+		width: 100%;
+	    float: none;		
+		
+	}
+
+	.n-slider--wrap.n-slider--overlay, .n-slider--wrap.n-slider--vertical.n-slider--overlay {
+				
+		margin-top: $line-height-em;
+		height: calc(100% - #{$line-height-em});
+	
+	}
+
+/*
+	.n-slider > * { // Stack slides vertically on old mobile browsers
+
+		display: block;
+
+	}
+
+	@supports (--a: 1) { // ...and restore the slider on modern browsers
+		
+		.n-slider > * {
+	
+			display: inline-block;
+	
+		}
+	
+	}
+*/
+
+}
+
+

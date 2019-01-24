@@ -92,16 +92,6 @@
   z-index: 1;
   position: absolute; }
 
-@media screen and (max-width: 599.9px) {
-  .n-slider--wrap.n-tabs > .n-slider--nav.n-row, .n-slider--nav.n-row.n-tabs {
-    display: flex; }
-
-  .n-slider > * {
-    display: block; }
-
-  @supports (--a: 1) {
-    .n-slider > * {
-      display: inline-block; } } }
 .n-slider.n-slider--overlay, .n-slider--wrap.n-slider--overlay {
   height: 100%; }
 
@@ -112,10 +102,6 @@
 .n-slider--wrap.n-slider--vertical.n-slider--overlay {
   height: calc(100% - 3em); }
 
-@media screen and (max-width: 599.9px) {
-  .n-slider--wrap.n-slider--overlay, .n-slider--wrap.n-slider--vertical.n-slider--overlay {
-    margin-top: 1.5em;
-    height: calc(100% - 1.5em); } }
 .n-slider--wrap {
   position: relative;
   overflow: hidden;
@@ -367,7 +353,8 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
   flex: 1;
   outline-offset: -6px;
   white-space: normal;
-  min-height: 0; }
+  min-height: 0;
+  box-sizing: border-box; }
 
 .n-slider--wrap.n-slider--vertical.n-lightbox--thumbnails {
   width: 100%; }
@@ -379,5 +366,36 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
     padding-right: calc(var(--thumb-size, 4em) + 1em); }
     .n-slider--wrap.n-slider--vertical.n-lightbox--thumbnails.n-slider--outside.n-slider--right > .n-slider--arrow {
       left: calc(50% - 3.5em); }
+
+@media screen and (max-width: 599.9px) {
+  .n-slider--wrap.n-tabs > .n-slider--nav.n-row, .n-slider--nav.n-row.n-tabs, .n-slider--wrap.n-tabs > .n-slider--nav a {
+    display: block;
+    white-space: normal; }
+
+  .n-slider--vertical.n-tabs:not(.n-slider--detached-nav) > .n-slider, .n-slider--vertical.n-tabs > .n-slider--nav.n-row.n-tabs {
+    width: 100%;
+    float: none; }
+
+  .n-slider--wrap.n-slider--overlay, .n-slider--wrap.n-slider--vertical.n-slider--overlay {
+    margin-top: 1.5em;
+    height: calc(100% - 1.5em); }
+
+  /*
+  	.n-slider > * { // Stack slides vertically on old mobile browsers
+  
+  		display: block;
+  
+  	}
+  
+  	@supports (--a: 1) { // ...and restore the slider on modern browsers
+  		
+  		.n-slider > * {
+  	
+  			display: inline-block;
+  	
+  		}
+  	
+  	}
+  */ }
 
 /*# sourceMappingURL=natuive-slider.css.map */
