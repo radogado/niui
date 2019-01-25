@@ -15901,3 +15901,8 @@ msgstr "Написано от "
 #, php-format
 msgid "%s Search Results for "
 msgstr "%s резултата за "
+
+#: ../category.php:6
+msgid "Categories for "
+msgstr "Категории за "
+

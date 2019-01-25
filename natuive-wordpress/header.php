@@ -41,9 +41,13 @@
 						    </a>
 						    
 						    <div>
+
+							    <a href="<?php echo get_home_url(); ?>">
+								    
+								    <h2><?php echo get_bloginfo( 'name', 'display' );?></h2>
+								    <h3><?php printf( esc_html__( '%s', 'textdomain' ), get_bloginfo ( 'description' ) ); ?></h3>
 							    
-							    <h2><?php echo get_bloginfo( 'name', 'display' );?></h2>
-							    <h3><?php printf( esc_html__( '%s', 'textdomain' ), get_bloginfo ( 'description' ) ); ?></h3>
+							    </a>
 						    
 						    </div>
 

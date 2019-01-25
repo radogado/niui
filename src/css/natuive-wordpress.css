@@ -218,6 +218,8 @@ article {
     flex-grow: 1; }
     .n-header .logo div h2, .n-header .logo div h3 {
       padding-top: 0; }
+    .n-header .logo div h2 {
+      font-size: 2em; }
 
 .logo-img {
   min-height: 37px; }
