@@ -15896,3 +15896,8 @@ msgstr "В категории: "
 #: ../single.php:37
 msgid "This post was written by "
 msgstr "Написано от "
+
+#: ../search.php:6
+#, php-format
+msgid "%s Search Results for "
+msgstr "%s резултата за "

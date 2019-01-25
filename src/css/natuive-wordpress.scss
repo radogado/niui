@@ -250,6 +250,12 @@ iframe, article h2 a {
 //		font-size: 0; // Disable legacy images' captions, because they appear in the wrong place
 		
 	}
+	
+	.headline + p.has-image {
+		
+		margin-top: .5em;
+
+	}
 
 }
 
@@ -625,7 +631,7 @@ nav.n-nav {
 
 .wp-caption {
 	
-	margin: 1.5em auto 0 auto;
+	margin: .5em auto 0 auto;
 	
 	a[href] {
 		
@@ -636,7 +642,7 @@ nav.n-nav {
 	
 	&.aligncenter {
 	
-		margin: 0 auto;	
+		margin: .5em auto 0 auto;
 	
 	}
 	
