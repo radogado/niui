@@ -2764,6 +2764,8 @@ iframe, article h2 a {
   box-sizing: border-box; }
 .n-type section > article > p.has-image {
   text-align: center; }
+.n-type section > article > .headline + p.has-image {
+  margin-top: .5em; }
 
 article ul {
   padding-left: 2px; }
@@ -2939,17 +2941,18 @@ nav.n-nav.n-drop ul li {
   --control-color: #333; }
 
 .wp-caption {
-  margin: 1.5em auto 0 auto; }
+  margin: .5em auto 0 auto; }
   .wp-caption a[href] {
     display: inline-block;
     max-width: 100%; }
   .wp-caption.aligncenter {
-    margin: 0 auto; }
+    margin: .5em auto 0 auto; }
   .wp-caption.alignright {
     margin: 0 0 0 auto; }
   .wp-caption p.wp-caption-text {
     margin-top: 0;
-    font-size: smaller; }
+    font-size: smaller;
+    padding: 0; }
 
 a.backtotop[href] {
   background: none;
