@@ -625,7 +625,7 @@ nav.n-nav {
 
 .wp-caption {
 	
-	margin-top: 1.5em;
+	margin: 1.5em auto 0 auto;
 	
 	a[href] {
 		
@@ -681,7 +681,7 @@ a.backtotop[href] {
 	.home section article {
 	
 		width: calc(50% - .75em);
-		margin: 0 0 2em 0;
+		margin: 0 0 3em 0;
 		
 	}
 
@@ -727,6 +727,12 @@ a.backtotop[href] {
 .n-drop li[aria-haspopup] {
 	
 	padding-right: 1em;
+
+}
+
+.wp-video {
+	
+	margin: 1.5em auto 0 auto;
 
 }
 
