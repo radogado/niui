@@ -30,7 +30,7 @@
   color: #fff; }
 
 .n-slider.featured > div > * {
-  padding: 0 0.5em;
+  padding: 0 .5em;
   display: inline-block;
   background: rgba(0, 0, 0, 0.5);
   color: #fff; }
@@ -75,7 +75,7 @@ button.search-submit {
   display: none; }
 
 .n-lightbox.gallery {
-  margin: 0.5em -0.7em;
+  margin: .5em -.7em;
   display: flex;
   flex-wrap: wrap;
   margin: 1rem 0; }
@@ -133,12 +133,10 @@ iframe, article h2 a {
   max-width: 40em;
   margin: 1.5em auto;
   box-sizing: border-box; }
-
 .n-type #content section > article > p.has-image {
   text-align: center; }
   .n-type #content section > article > p.has-image img {
     display: inline-block; }
-
 .n-type #content section > article > .headline + p.has-image {
   margin-top: .5em; }
 
@@ -147,23 +145,17 @@ article ul {
 
 .comments li {
   margin-bottom: 2em; }
-
 .comments p {
   width: 100%;
   margin-bottom: 0; }
-
 .comments .n-form {
   padding: 0; }
-
 .comments .n-form.n-form--wide label span {
   display: inline; }
-
 .comments .comments form input {
   border: 0; }
-
 .comments .comment-meta.commentmetadata {
   font-size: .75em; }
-
 .comments .n-form label {
   min-height: 2em; }
 
@@ -253,12 +245,10 @@ nav.n-nav a {
   text-decoration: none; }
   nav.n-nav a.active[href], nav.n-nav a[href]:hover {
     color: var(--control-highlight, #ee8822); }
-
 nav.n-nav.n-drop {
   --control-bg: #eee; }
   nav.n-nav.n-drop li.current_page_item {
     --control-bg: #ddd; }
-
 nav.n-nav.n-drop ul li {
   margin-right: .5em; }
 
@@ -267,35 +257,28 @@ nav.n-nav.n-drop ul li {
 
 .n-type h3.comment-reply-title {
   padding-top: 0; }
-
 .n-type a[href] {
   color: lightcoral;
   text-decoration: none; }
-
 .n-type a[href]:hover, .n-type input[type=submit]:hover, .n-type a.n-btn[href]:hover, .n-type button.n-btn:hover {
   color: var(--control-highlight, #ee8822); }
-
 .n-type .page_item a[href] {
   color: unset;
-  padding: 0 0.5em;
+  padding: 0 .5em;
   line-height: 1.5; }
-
 .n-type article h1, .n-type article h2, .n-type article h3, .n-type article h4, .n-type article h5 {
   font-weight: 500;
   color: #488e89; }
-
 .n-type article .headline > h2 {
   padding: 0;
   line-height: 1.33; }
-
 .n-type article .img-crop h2 {
   color: #fff;
   position: relative;
   white-space: normal;
   line-height: 1.33;
   background: rgba(72, 142, 137, 0.88);
-  transition: background-color 0.2s ease-in-out; }
-
+  transition: background-color .2s ease-in-out; }
 .n-type article .img-crop:hover h2 {
   background: #488e89; }
 
@@ -358,13 +341,17 @@ a.backtotop[href] {
   .home section {
     display: flex;
     flex-wrap: wrap; }
+
   .home section article {
     width: calc(50% - .75em);
     margin: 0 0 3em 0; }
+
   .home section article:nth-child(2) ~ :nth-child(2n+1) {
     margin-right: 1.5em; }
+
   .home section article:nth-child(1), .home section article:nth-child(2), .home section .pagination {
     width: 100%; }
+
   .comments {
     display: grid;
     grid-template-columns: 1fr 1fr; }
@@ -374,7 +361,6 @@ a.backtotop[href] {
       grid-column: 1 / 2; }
     .comments > div {
       grid-column: 2 / 3; } }
-
 .n-drop li[aria-haspopup] {
   padding-right: 1em; }
 
@@ -384,7 +370,6 @@ a.backtotop[href] {
 @media (max-width: 599.9px) {
   .single h1 {
     font-size: 1.5em; } }
-
 .n-slider--arrow, .n-slider--nav a, .n-tool:after, .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href], .n-fold > .n-fold--label, .n-drop, .n-form, .n-ovrl > .n-ovrl--close, .n-drop ul li, .n-type nav.n-nav a[href] {
   --control-bg: lightcoral;
   --control-color: #fff;
@@ -395,3 +380,5 @@ a.backtotop[href] {
 .n-form input, .n-form textarea {
   --input-color: darkslateblue;
   --input-bg: aliceblue; }
+
+/*# sourceMappingURL=natuive-wordpress.css.map */
