@@ -234,7 +234,7 @@ iframe, article h2 a {
 
 }
 
-.n-type section > article > {
+.n-type #content section > article > {
 	
 	p:not(.has-image), ol, ul, blockquote {
 	
@@ -248,6 +248,11 @@ iframe, article h2 a {
 		
 		text-align: center;
 //		font-size: 0; // Disable legacy images' captions, because they appear in the wrong place
+		img {
+			
+			display: inline-block;
+
+		}
 		
 	}
 	
