@@ -296,7 +296,6 @@ ol.n-masonry > * {
 @media screen and (max-width: 599.9px) {
   .n-row:not(.n-half) {
     display: block;
-    overflow-x: hidden;
     max-width: 100%; }
     .n-row:not(.n-half) > * > .n-unpad {
       margin: -.6em 0 -.6em -.3em;

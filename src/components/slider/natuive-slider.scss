@@ -676,8 +676,8 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 
 	.n-slider--wrap.n-slider--overlay, .n-slider--wrap.n-slider--vertical.n-slider--overlay {
 				
-		margin-top: $line-height-em;
-		height: calc(100% - #{$line-height-em});
+		margin-top: $line-height-em*2;
+		height: calc(100% - #{$line-height-em*2});
 	
 	}
 

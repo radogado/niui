@@ -377,8 +377,8 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
     float: none; }
 
   .n-slider--wrap.n-slider--overlay, .n-slider--wrap.n-slider--vertical.n-slider--overlay {
-    margin-top: 1.5em;
-    height: calc(100% - 1.5em); }
+    margin-top: 3em;
+    height: calc(100% - 3em); }
 
   /*
   	.n-slider > * { // Stack slides vertically on old mobile browsers

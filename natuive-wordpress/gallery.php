@@ -223,7 +223,7 @@ $script = "
 
 	if (thumbnail) {
 
-		var target_lightbox_image = document.querySelector('.n-lightbox [href*=\"' + thumbnail.src.split('/').pop() + '\"]');
+		var target_lightbox_image = document.querySelector('.single-post .n-lightbox [href*=\"' + thumbnail.src.split('/').pop() + '\"]');
 		if (target_lightbox_image) {
 	
 			thumbnail.onclick = function () { 

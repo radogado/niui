@@ -97,7 +97,8 @@
 			p.n-lightbox--caption { /* Image captions */
 			
 				position: absolute;
-				bottom: 2em;
+				top: .5em;
+				margin: 0;
 				text-align: center;
 				color: #fff;
 				left: 50%;
@@ -230,6 +231,12 @@
 
 }
 
+.n-lightbox.n-slider.n-slider--top > * p.n-lightbox--caption {
+	
+	bottom: .5em;
+	top: auto;
+	
+}
 
 .n-aspect > .n-slider--wrap > .n-slider.n-lightbox.n-lightbox--inline img {
 
@@ -240,15 +247,17 @@
     
 }
 	
-.n-slider--wrap:not(.n-slider--outside) > .n-slider.n-lightbox.n-lightbox--thumbnails:not(.n-slider--vertical):not(.n-slider--detached-nav):not(.n-slider--top) > * p.n-lightbox--caption {
+.n-slider--wrap.n-slider--top:not(.n-slider--outside) > .n-slider.n-lightbox.n-lightbox--thumbnails:not(.n-slider--vertical):not(.n-slider--detached-nav):not(.n-slider--top) > * p.n-lightbox--caption {
 	
-	bottom: var(--thumb-size, 4em);
+	bottom: .5em;
+	top: auto;
 
 }
 
 .n-slider.n-lightbox.n-slider--detached-nav > * p, .n-slider--wrap.n-slider--outside .n-slider.n-lightbox > * p {
 	
 	bottom: 0;
+	top: auto;
 	margin-bottom: .5em;
 
 }
@@ -345,6 +354,13 @@
 .n-aspect > .n-lightbox--thumbnails.n-slider--wrap > .n-slider.n-slider--vertical[data-ready] > * > p.n-lightbox--caption {
 		
 	height: auto;
+	
+}
+	
+.n-lightbox--thumbnails.n-slider--wrap > .n-slider.n-slider--vertical[data-ready] > * > p.n-lightbox--caption {
+		
+	top: auto;
+	bottom: 3em;
 	
 }
 	

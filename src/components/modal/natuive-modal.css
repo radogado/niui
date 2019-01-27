@@ -61,7 +61,7 @@ html.n-full-screen {
   height: 3em;
   overflow-x: auto;
   white-space: nowrap;
-  position: absolute;
+  position: fixed;
   line-height: 1.5; }
 
 .n-ovrl--close {
@@ -95,7 +95,7 @@ html.n-full-screen {
     padding: 0 .75em; }
 
   .n-ovrl--content {
-    padding-top: 1.5em; } }
+    padding-top: 3em; } }
 @media (max-height: 512px) and (orientation: landscape) {
   .n-ovrl .n-slider--wrap.n-slider--overlay, .n-ovrl .n-slider--wrap.n-slider--vertical.n-slider--overlay {
     margin: 0;

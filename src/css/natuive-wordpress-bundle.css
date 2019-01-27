@@ -1223,7 +1223,6 @@ ol.n-masonry > * {
 @media screen and (max-width: 599.9px) {
   .n-row:not(.n-half) {
     display: block;
-    overflow-x: hidden;
     max-width: 100%; }
     .n-row:not(.n-half) > * > .n-unpad {
       margin: -.6em 0 -.6em -.3em;
@@ -1325,7 +1324,8 @@ ol.n-masonry > * {
   .n-lightbox.n-slider > * p.n-lightbox--caption {
     /* Image captions */
     position: absolute;
-    bottom: 2em;
+    top: .5em;
+    margin: 0;
     text-align: center;
     color: #fff;
     left: 50%;
@@ -1397,17 +1397,23 @@ ol.n-masonry > * {
   border-radius: 100%;
   animation: sk-scaleout 1.0s 9 ease-in-out; }
 
+.n-lightbox.n-slider.n-slider--top > * p.n-lightbox--caption {
+  bottom: .5em;
+  top: auto; }
+
 .n-aspect > .n-slider--wrap > .n-slider.n-lightbox.n-lightbox--inline img {
   position: absolute;
   max-width: 100%;
   max-height: 100%;
   object-fit: contain; }
 
-.n-slider--wrap:not(.n-slider--outside) > .n-slider.n-lightbox.n-lightbox--thumbnails:not(.n-slider--vertical):not(.n-slider--detached-nav):not(.n-slider--top) > * p.n-lightbox--caption {
-  bottom: var(--thumb-size, 4em); }
+.n-slider--wrap.n-slider--top:not(.n-slider--outside) > .n-slider.n-lightbox.n-lightbox--thumbnails:not(.n-slider--vertical):not(.n-slider--detached-nav):not(.n-slider--top) > * p.n-lightbox--caption {
+  bottom: .5em;
+  top: auto; }
 
 .n-slider.n-lightbox.n-slider--detached-nav > * p, .n-slider--wrap.n-slider--outside .n-slider.n-lightbox > * p {
   bottom: 0;
+  top: auto;
   margin-bottom: .5em; }
 
 .can-touch .n-lightbox.n-slider > * > iframe {
@@ -1457,6 +1463,10 @@ ol.n-masonry > * {
 
 .n-aspect > .n-lightbox--thumbnails.n-slider--wrap > .n-slider.n-slider--vertical[data-ready] > * > p.n-lightbox--caption {
   height: auto; }
+
+.n-lightbox--thumbnails.n-slider--wrap > .n-slider.n-slider--vertical[data-ready] > * > p.n-lightbox--caption {
+  top: auto;
+  bottom: 3em; }
 
 @media (max-height: 512px) and (orientation: landscape) {
   .n-lightbox.n-slider a.n-btn.n-lightbox--copy {
@@ -1645,7 +1655,7 @@ html.n-full-screen {
   height: 3em;
   overflow-x: auto;
   white-space: nowrap;
-  position: absolute;
+  position: fixed;
   line-height: 1.5; }
 
 .n-ovrl--close {
@@ -1679,7 +1689,7 @@ html.n-full-screen {
     padding: 0 .75em; }
 
   .n-ovrl--content {
-    padding-top: 1.5em; } }
+    padding-top: 3em; } }
 @media (max-height: 512px) and (orientation: landscape) {
   .n-ovrl .n-slider--wrap.n-slider--overlay, .n-ovrl .n-slider--wrap.n-slider--vertical.n-slider--overlay {
     margin: 0;
@@ -2404,8 +2414,8 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
     float: none; }
 
   .n-slider--wrap.n-slider--overlay, .n-slider--wrap.n-slider--vertical.n-slider--overlay {
-    margin-top: 1.5em;
-    height: calc(100% - 1.5em); }
+    margin-top: 3em;
+    height: calc(100% - 3em); }
 
   /*
   	.n-slider > * { // Stack slides vertically on old mobile browsers

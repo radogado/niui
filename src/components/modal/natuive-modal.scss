@@ -92,7 +92,7 @@ html.n-full-screen {
 		height: 3em;
 	    overflow-x: auto;
 	    white-space: nowrap;
-		position: absolute;
+		position: fixed;
 		line-height: 1.5;
 
 	}
@@ -152,7 +152,7 @@ html.n-full-screen {
 
 	.n-ovrl--content {
 		
-		padding-top: $line-height-em;
+		padding-top: $line-height-em*2;
 
 	}
 	

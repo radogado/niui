@@ -536,7 +536,7 @@
 	.n-row:not(.n-half) { // To do: revert to flex in order to use the order property on mobile
 		
 		display: block;
-		overflow-x: hidden;
+//		overflow-x: hidden; // Breaks tooltip
 		max-width: 100%;
 
 		> * > .n-unpad {
