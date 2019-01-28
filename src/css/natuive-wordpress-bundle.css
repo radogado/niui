@@ -589,8 +589,8 @@ _:-ms-input-placeholder, :root .n-fold > input[type=checkbox] {
     background-color: var(--control-bg, #eee);
     color: #333;
     color: var(--control-color, #333);
-    line-height: 1.6666666667;
-    font-size: -0.3333333333em;
+    line-height: 1.66667;
+    font-size: -0.33333em;
     text-align: center;
     border: none;
     margin: 0;
@@ -774,7 +774,7 @@ _:-ms-input-placeholder, :root .n-fold > input[type=checkbox] {
       cursor: pointer;
       background: var(--control-bg, rgba(0, 0, 0, 0.1)); }
     .n-form input[type=range]::-moz-range-thumb {
-      border: 0px solid rgba(0, 0, 0, 0);
+      border: 0px solid transparent;
       height: 1.625em;
       width: 1.625em;
       border-radius: 50%;
@@ -2591,8 +2591,8 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
     padding: 0.46875em 0; }
   .n-type h6 {
     font-size: .6667em;
-    line-height: 1.1249437528;
-    padding: 0.5624718764em 0; }
+    line-height: 1.12494;
+    padding: 0.56247em 0; }
   .n-type pre {
     overflow: auto; }
   .n-type p {
@@ -2765,8 +2765,7 @@ iframe, article h2 a {
 
 .home article, .archive article, .search-results article {
   margin-bottom: 44px;
-  position: relative;
-  overflow: hidden; }
+  position: relative; }
 
 .n-type #content section > article > p:not(.has-image), .n-type #content section > article > ol, .n-type #content section > article > ul, .n-type #content section > article > blockquote {
   max-width: 40em;
@@ -2847,9 +2846,13 @@ article h2 a[href]:after {
 .menu .current_page_item a:link, .menu .current_page_item a:visited, .img-crop:hover h2, .n-form button.search-submit:hover, .n-type article .img-crop:hover h2, #content.n-type article .headline:hover h2 a[href] {
   color: #e82; }
 
+/*
 article {
-  overflow: hidden; }
+	
+	overflow: hidden;
 
+}
+*/
 .n-header .logo {
   display: flex; }
   .n-header .logo ~ .n-fold {

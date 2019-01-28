@@ -126,8 +126,7 @@ iframe, article h2 a {
 
 .home article, .archive article, .search-results article {
   margin-bottom: 44px;
-  position: relative;
-  overflow: hidden; }
+  position: relative; }
 
 .n-type #content section > article > p:not(.has-image), .n-type #content section > article > ol, .n-type #content section > article > ul, .n-type #content section > article > blockquote {
   max-width: 40em;
@@ -208,9 +207,13 @@ article h2 a[href]:after {
 .menu .current_page_item a:link, .menu .current_page_item a:visited, .img-crop:hover h2, .n-form button.search-submit:hover, .n-type article .img-crop:hover h2, #content.n-type article .headline:hover h2 a[href] {
   color: #e82; }
 
+/*
 article {
-  overflow: hidden; }
+	
+	overflow: hidden;
 
+}
+*/
 .n-header .logo {
   display: flex; }
   .n-header .logo ~ .n-fold {
