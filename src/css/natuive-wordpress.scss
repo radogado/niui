@@ -103,7 +103,7 @@ $teal: #488e89;
 	
 }
 
-#content .n-aspect img {
+#content .n-aspect img, #content .wp-caption > img {
 	
 	display: inline-block;
 
@@ -525,6 +525,12 @@ nav.n-nav {
 		padding: 0 .5em;
 		line-height: 1.5;
 		
+	}
+	
+	p {
+		
+		text-align: left;
+		    
 	}
 	
 	article {

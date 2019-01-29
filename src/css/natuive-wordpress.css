@@ -59,7 +59,7 @@
   #content img :not(.avatar) {
     margin: 0 auto; }
 
-#content .n-aspect img {
+#content .n-aspect img, #content .wp-caption > img {
   display: inline-block; }
 
 #content .sidebar ul, #content .sidebar li, #content .comments ul, #content .sidebar li a[href] {
@@ -269,6 +269,8 @@ nav.n-nav.n-drop ul li {
   color: unset;
   padding: 0 .5em;
   line-height: 1.5; }
+.n-type p {
+  text-align: left; }
 .n-type article h1, .n-type article h2, .n-type article h3, .n-type article h4, .n-type article h5 {
   font-weight: 500;
   color: #488e89; }
