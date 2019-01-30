@@ -538,6 +538,8 @@ add_filter( 'wp_list_pages', 'new_nav_menu' );
 // Filter wp_nav_menu() to add additional links and other output
 function new_nav_menu($items) {
 
+	if (strlen($items) == 0) return;
+
 	libxml_use_internal_errors(true);
 	$DOM = new DOMDocument();
 	$DOM->loadHTML('<?xml encoding="utf-8" ?>' . $items);
@@ -560,7 +562,7 @@ function new_nav_menu($items) {
 	$DOM->formatOutput = true;
 	$items = $DOM->saveHTML();
 
-    $items = '<div class="n-fold n-fold--mobile"> 
+    return '<div class="n-fold n-fold--mobile"> 
     			<div class="n-fold--label"> 
     				<span class="n-burger"></span> 
     			</div> 
@@ -573,7 +575,6 @@ function new_nav_menu($items) {
     				</nav>
     			</div>
     		</div>';
-    return $items;
 
 }
 
