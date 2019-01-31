@@ -157,15 +157,13 @@ var componentSlider = (function (){
 		   
 		}
 	
-		var slider_wrap = el.closest('.n-slider--wrap');
-	
 	    if (toggle === 'off') {
 
-	        slider_wrap.removeEventListener('wheel', mouseWheelHandler);
+	        el.removeEventListener('wheel', mouseWheelHandler);
 	
 	    } else {
 	
-	        slider_wrap.addEventListener('wheel', mouseWheelHandler);
+	        el.addEventListener('wheel', mouseWheelHandler);
 
 	    }
 	
@@ -198,7 +196,7 @@ var componentSlider = (function (){
 		slider.style.pointerEvents = slider.style.height = '';
 	
 	    window.addEventListener('keyup', sliderKeyboard);
-	    mouseEvents(slider);
+	    mouseEvents(slider_wrap);
 
 		if (slider.children[index].id) {
 
@@ -234,10 +232,8 @@ var componentSlider = (function (){
 	
 	    }
 	    
-	
-	    mouseEvents(slider_wrap, 'off');
 	    slider.style.pointerEvents = 'none'; // Speed up animation
-	    mouseEvents(el, 'off');
+	    mouseEvents(slider_wrap, 'off');
 	    window.removeEventListener('keyup', sliderKeyboard);
 	
 		clearTimeout(slider.getAttribute('data-timeout'));
@@ -692,7 +688,7 @@ var componentSlider = (function (){
 	        
 	    }
 	    
-	    // Generate arrows
+	    // Generate arrows. To do: unify arrows handler code
 	
 	    container.insertAdjacentHTML('beforeend', '<a class="n-slider--arrow n-slider--left" tabindex=0></a><a class="n-slider--arrow n-slider--right" tabindex=0></a>');
 	
@@ -725,7 +721,7 @@ var componentSlider = (function (){
 	    
 	    // Set mouse and touch events
 	
-	    mouseEvents(el);
+	    mouseEvents(container);
 	
 	    swipeEvents(container);
 	
@@ -834,7 +830,7 @@ var componentSlider = (function (){
 		
 	}, false);
 	
-	return { makeSlider, getSliderNav, slide };
+	return { makeSlider, getSliderNav, slide, mouseEvents };
 
 })();
 
