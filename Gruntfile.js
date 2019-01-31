@@ -43,7 +43,7 @@ module.exports = function(grunt) {
 			options: {
 				separator: ';',
 				banner: 'var nui = (() => {', // skirt non-ES6 browsers like IE11
-				footer: 'initComponents(); return { initComponents, animate, copyButton, componentNotify, componentModal, addComponent } })()'
+				footer: 'initComponents(); return { initComponents, animate, copyButton, componentNotify, componentModal, addComponent, componentSlider } })()'
 		    },
 		    src: ['src/script/natuive-core.js', 'src/components/**/*.js'],
 		    dest: 'src/script/natuive.js'

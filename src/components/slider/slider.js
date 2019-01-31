@@ -823,7 +823,18 @@ var componentSlider = (function (){
 	};
 	registerComponent('slider', init);
 	
-	return { makeSlider: makeSlider, getSliderNav: getSliderNav };
+	window.addEventListener('hashchange', () => {
+		
+		let new_hash_slide = document.querySelector('.n-slider > :target');
+		if (new_hash_slide) {
+			
+			slide(new_hash_slide.parentNode, 'index', thisIndex(new_hash_slide));		
+			
+		}
+		
+	}, false);
+	
+	return { makeSlider, getSliderNav, slide };
 
 })();
 
