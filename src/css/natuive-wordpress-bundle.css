@@ -589,8 +589,8 @@ _:-ms-input-placeholder, :root .n-fold > input[type=checkbox] {
     background-color: var(--control-bg, #eee);
     color: #333;
     color: var(--control-color, #333);
-    line-height: 1.6666666667;
-    font-size: -0.3333333333em;
+    line-height: 1.66667;
+    font-size: -0.33333em;
     text-align: center;
     border: none;
     margin: 0;
@@ -774,7 +774,7 @@ _:-ms-input-placeholder, :root .n-fold > input[type=checkbox] {
       cursor: pointer;
       background: var(--control-bg, rgba(0, 0, 0, 0.1)); }
     .n-form input[type=range]::-moz-range-thumb {
-      border: 0px solid rgba(0, 0, 0, 0);
+      border: 0px solid transparent;
       height: 1.625em;
       width: 1.625em;
       border-radius: 50%;
@@ -1395,7 +1395,8 @@ ol.n-masonry > * {
   height: 40px;
   background-color: #999;
   border-radius: 100%;
-  animation: sk-scaleout 1.0s 9 ease-in-out; }
+  animation: sk-scaleout 1.0s 9 ease-in-out;
+  animation-fill-mode: forwards; }
 
 .n-lightbox.n-slider.n-slider--top > * p.n-lightbox--caption {
   bottom: .5em;
@@ -2591,8 +2592,8 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
     padding: 0.46875em 0; }
   .n-type h6 {
     font-size: .6667em;
-    line-height: 1.1249437528;
-    padding: 0.5624718764em 0; }
+    line-height: 1.12494;
+    padding: 0.56247em 0; }
   .n-type pre {
     overflow: auto; }
   .n-type p {
@@ -2799,14 +2800,14 @@ article ul {
 
 .img-crop {
   width: 100%;
-  display: block;
+  display: flex;
+  flex-direction: column;
   background-color: #eee;
   overflow: hidden;
   position: relative;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  font-size: 0;
   white-space: nowrap; }
   .img-crop:before {
     display: inline-block;
@@ -2991,10 +2992,10 @@ a.backtotop[href] {
     width: calc(50% - .75em);
     margin: 0 0 3em 0; }
 
-  .home section article:nth-child(2) ~ :nth-child(2n+1) {
+  .home section article:nth-child(2) ~ :nth-child(2n+1), .home.paged section article:first-child {
     margin-right: 1.5em; }
 
-  .home section article:nth-child(1), .home section article:nth-child(2), .home section .pagination {
+  .home:not(.paged) section article:nth-child(1), .home:not(.paged) section article:nth-child(2), .home section .pagination {
     width: 100%; }
 
   .comments {

@@ -3077,37 +3077,32 @@ var componentSlider = (function (){
 	        
 	    }
 	    
-	    // Generate arrows. To do: unify arrows handler code
+	    // Generate arrows
 	
 	    container.insertAdjacentHTML('beforeend', '<a class="n-slider--arrow n-slider--left" tabindex=0></a><a class="n-slider--arrow n-slider--right" tabindex=0></a>');
+	    
+	    let setArrowEvents = (selector, direction) => {
+		    
+		    let arrow = container.querySelector('.n-slider--arrow' + selector);
+		    arrow.onclick = arrow.onkeyup = (e) => {
+		
+				if (e.type === 'keyup' && e.keyCode !== 13) { // Slide on Enter key
+					
+					return;
 	
-	    container.querySelector('.n-slider--arrow').onclick = container.querySelector('.n-slider--arrow').onkeyup = (e) => {
+				}
 	
-			if (e.type === 'keyup' && e.keyCode !== 13) { // Slide on Enter key
-				
-				return;
+		        slide(e.target, direction);
+		
+		    };
+		    
+			cancelTouchEvent(arrow);
 
-			}
-
-	        slide(e.target, 'left');
-	
 	    };
 	    
-	    cancelTouchEvent(container.querySelector('.n-slider--arrow'));
+	    setArrowEvents('', 'left');
+	    setArrowEvents('.n-slider--right', 'right');
 	
-	    container.querySelector('.n-slider--arrow.n-slider--right').onclick = container.querySelector('.n-slider--arrow.n-slider--right').onkeyup = (e) => {
-	
-			if (e.type === 'keyup' && e.keyCode !== 13) { // Slide on Enter key
-				
-				return;
-
-			}
-	        slide(e.target, 'right');
-	
-	    };
-	
-	    cancelTouchEvent(container.querySelector('.n-slider--arrow.n-slider--right'));
-	    
 	    // Set mouse and touch events
 	
 	    mouseEvents(container);

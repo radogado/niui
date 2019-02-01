@@ -114,7 +114,8 @@
   height: 40px;
   background-color: #999;
   border-radius: 100%;
-  animation: sk-scaleout 1.0s 9 ease-in-out; }
+  animation: sk-scaleout 1.0s 9 ease-in-out;
+  animation-fill-mode: forwards; }
 
 .n-lightbox.n-slider.n-slider--top > * p.n-lightbox--caption {
   bottom: .5em;
