@@ -1360,7 +1360,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 	function openLightbox(e) { // To do: create all content in an unattached element and call openFullWindow(el), which will take over
 		
-	    if (typeof componentSlider.makeSlider !== 'function') { // slider JS not present
+	    if (typeof componentSlider.makeSlider !== 'function') { // Slider JS not present
 		    
 		    return;
 	
@@ -1464,17 +1464,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 				
 			}
 	
-			var slide_link;
-			
-			if (hasClass(lightbox, 'n-slider') || !el.href ) {
-				
-				slide_link = '';
-	
-			} else {
-	
-				slide_link = document.location.href.split('#')[0].split('?')[0] + '?image=' + el.href.split('/').pop() + '#' + lightbox.getAttribute('id');
-				
-			}
+			var slide_link =  (hasClass(lightbox, 'n-slider') || !el.href) ? '' : document.location.href.split('#')[0].split('?')[0] + '?image=' + el.href.split('/').pop() + '#' + lightbox.getAttribute('id');
 	
 		    var link_element = (hasClass(lightbox, 'n-lightbox--inline') || !lightbox.getAttribute('id')) ? '' : `<a class="n-btn n-lightbox--copy" href=${slide_link}></a>`;
 	
@@ -1506,7 +1496,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		    
 		    :
 		    
-		    `<div>${el.innerHTML}</div>`;
+		    `<div class="n-lightbox--no-image">${el.innerHTML}</div>`;
 		    
 		    ;
 	

@@ -1385,7 +1385,7 @@ ol.n-masonry > * {
   text-shadow: 0 0 #fff; }
   .n-lightbox.n-slider a.n-btn.n-lightbox--copy:before {
     content: "🔗"; }
-.n-lightbox.n-slider > [data-active]:not(.n-lightbox--loaded):after {
+.n-lightbox.n-slider > [data-active]:not(.n-lightbox--no-image):not(.n-lightbox--loaded):after {
   content: "";
   position: absolute;
   display: block;
