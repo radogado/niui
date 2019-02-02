@@ -83,7 +83,7 @@ var componentModal = (function (){
  	    return function (allow, selector) {
 	    	if (typeof selector !== "undefined") {
 		        _selector = selector;
-		        _element = document.querySelector(selector);
+		        _element = q(selector);
 	    	}
 	
 	        if (true === allow) {

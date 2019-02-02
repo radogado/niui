@@ -1774,7 +1774,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
  	    return function (allow, selector) {
 	    	if (typeof selector !== "undefined") {
 		        _selector = selector;
-		        _element = document.querySelector(selector);
+		        _element = q(selector);
 	    	}
 	
 	        if (true === allow) {
@@ -3195,7 +3195,7 @@ var componentSlider = (function (){
 	
 	window.addEventListener('hashchange', () => {
 		
-		let new_hash_slide = document.querySelector('.n-slider > :target');
+		let new_hash_slide = q('.n-slider > :target');
 		if (new_hash_slide) {
 			
 			slide(new_hash_slide.parentNode, 'index', thisIndex(new_hash_slide));		

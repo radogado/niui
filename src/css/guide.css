@@ -37,8 +37,19 @@ main > ._3\/4 > .n-slider--wrap > .n-slider.n-slider--vertical > * {
   min-height: 100vh;
   overflow: auto; }
 
-.n-slider:not([data-ready]) #home:not(:target) {
-  display: none; }
+/*
+.n-slider:not([data-ready]) #home:not(:target) { // Don't flash main tab before a hash-invoked other tab
+	
+	display: none;
+
+}
+*/
+#content > ._3\/4 > .n-slider--wrap, #content > ._3\/4 > .n-slider--wrap > .n-slider {
+  height: 100%; }
+
+#content > ._3\/4 > .n-slider--wrap > .n-slider:not([data-ready]) > :first-child {
+  position: absolute;
+  z-index: -1; }
 
 .n-slider.n-slider--vertical > [data-active] {
   overflow: auto;
@@ -96,7 +107,7 @@ body:not([data-js]) .n-slider.n-slider--vertical > *:not(:first-child) {
   display: none; }
 
 body:not([data-js]) .n-slider.n-slider--vertical > :target {
-  background: #fff;
+  background: #fffff5;
   overflow: auto;
   z-index: 1;
   display: block;
