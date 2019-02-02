@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box; }
+
 body {
   font-size: 14px; }
 
@@ -325,4 +328,9 @@ ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li {
   header nav.n-nav.n-drop ul.n-list li a, nav.n-nav.n-drop ul.n-list li input ~ a[href] {
     width: 100%; }
   .n-slider--wrap.n-tabs > .n-slider--nav a, .n-slider--wrap.n-tabs > .n-slider--nav a[data-active], .n-slider--wrap:not(.n-slider--vertical) .n-slider--nav a:first-child {
-    margin: 0; } }
+    margin: 0; }
+  nav.n-nav.n-drop > ul.n-list > li {
+    width: 100%; }
+  .n-drop ul ul:not([aria-expanded]) {
+    padding: 0;
+    width: 100%; } }

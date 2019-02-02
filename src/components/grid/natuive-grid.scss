@@ -532,6 +532,12 @@
 }
 
 @media screen and (max-width: $screen-narrow-max) {
+	
+	.n-row {
+		
+		box-sizing: border-box;
+
+	}
 
 	.n-row:not(.n-half) { // To do: revert to flex in order to use the order property on mobile
 		

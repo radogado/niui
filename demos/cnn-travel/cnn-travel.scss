@@ -194,11 +194,24 @@ span.vertical {
 
 @media (max-width: 599.9px) {
 
-	.n-row > * > .n-unpad, .n-unpad {
+	.n-row > * > .n-unpad, .n-unpad, .n-row>div>img {
 		
-		margin: 0;
+		margin: 0 auto;
 		width: auto;
 		
+	}
+
+	.n-row:not(.n-row--no-margin):not(.n-border-all):not(.n-tabs)>*, .n-row:not(.n-row--no-margin):not(.n-border-all)>[class^=_] {
+		
+		margin: 0;
+	    text-align: center;
+
+	}
+
+	main img {
+	    max-width: 100%;
+	    width: auto;
+	    margin: 0 auto;
 	}
 
 }

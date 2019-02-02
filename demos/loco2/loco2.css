@@ -181,4 +181,13 @@ ul.staff.n-list--inline li {
   ul.n-list--inline {
     width: 100%; }
   .staff img {
-    margin: 1em auto; } }
+    margin: 1em auto; }
+  input[type=text] {
+    width: 100%; }
+  .trustpilot {
+    width: 100%; }
+    .trustpilot img {
+      width: auto; }
+  main .n-right .n-form, footer ul.n-list {
+    width: 100%;
+    margin: 0; } }

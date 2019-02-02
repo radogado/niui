@@ -212,7 +212,7 @@
 		
 		}
 		
-		> [data-active]:not(.n-lightbox--no-image):not(.n-lightbox--loaded):after { // Loading spinner
+		&[data-ready] > [data-active]:not(.n-lightbox--no-image):not(.n-lightbox--loaded):after { // Loading spinner
 		
 			content: "";
 			position: absolute;

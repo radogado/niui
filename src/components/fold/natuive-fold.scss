@@ -311,6 +311,7 @@ _:-ms-input-placeholder, :root .n-fold > input[type=checkbox] {
 			display: flex;
 			width: 3em;
 			padding: 0;
+			border: none; // for iOS
 	
 		}
 	

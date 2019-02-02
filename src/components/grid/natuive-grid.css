@@ -294,6 +294,9 @@ ol.n-masonry > * {
   box-shadow: none; }
 
 @media screen and (max-width: 599.9px) {
+  .n-row {
+    box-sizing: border-box; }
+
   .n-row:not(.n-half) {
     display: block;
     max-width: 100%; }

@@ -282,3 +282,7 @@ footer .n-contain {
       z-index: 10;
       margin-top: -8px;
       background-position: 0 0; }
+
+@media (max-width: 599.9px) {
+  .banners .n-row > div {
+    text-align: center; } }

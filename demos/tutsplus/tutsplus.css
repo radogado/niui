@@ -122,3 +122,6 @@ footer {
 .n-type a[href].n-btn.n-btn--big {
   padding-left: 2.5em;
   padding-right: 2.5em; }
+
+.n-fold {
+  --control-color: #fff; }

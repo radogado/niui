@@ -80,3 +80,7 @@ footer ul.n-list li:before {
 .grey img {
   height: 54px;
   margin: 0 auto; }
+
+@media (max-width: 599.9px) {
+  .n-fold.n-fold--mobile.n-middle {
+    display: block; } }

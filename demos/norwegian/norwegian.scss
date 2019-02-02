@@ -1,3 +1,9 @@
+* {
+	
+	box-sizing: border-box;
+	
+}
+
 .n-contain {
 	
 	max-width: 1132px;
@@ -349,11 +355,13 @@ form.n-form.n-form--wide > ._1\/1 {
 
 @media (max-width: 600px) {
 	
+/*
 	header.n-row {
 		
 		display: none;
 		
 	}
+*/
 	
 	.n-banner {
 		
@@ -366,6 +374,25 @@ form.n-form.n-form--wide > ._1\/1 {
 		margin: 0;
 		width: auto;
 	
+	}
+	
+	.n-aspect {
+		
+		display: block;
+		
+	}
+	
+	._1\/2 {
+		
+		overflow: hidden;
+		
+	}
+	
+	.n-row.n-row--no-spacing {
+		
+		padding: 1em;
+		width: 100%;
+		
 	}
 
 }

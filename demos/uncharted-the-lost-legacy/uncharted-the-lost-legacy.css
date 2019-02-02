@@ -97,4 +97,8 @@ span.n-burger:before {
     font-size: 30px;
     line-height: 1.25; }
   main .n-row > ._1\/1, .n-slider .n-row {
-    min-height: 0; } }
+    min-height: 0; }
+  main .n-slider > div {
+    background-position: top center; }
+  .n-header.n-fixed-mobile .n-fold.n-fold--mobile .n-fold--content {
+    background: #000; } }

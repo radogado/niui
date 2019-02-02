@@ -1,5 +1,11 @@
 $yellow: #fd0;
 
+* {
+	
+	box-sizing: border-box;
+
+}
+
 body {
 	
 	font-size: 14px;
@@ -601,6 +607,19 @@ ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li {
 		
 		margin: 0;
 
+	}
+
+	nav.n-nav.n-drop > ul.n-list > li {
+		
+		width: 100%;	
+	
+	}
+
+	.n-drop ul ul:not([aria-expanded]) {
+		
+		padding: 0;
+		width: 100%;
+			
 	}
 
 }
