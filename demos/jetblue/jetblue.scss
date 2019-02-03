@@ -274,6 +274,12 @@ nav.n-nav.n-drop ul ul {
 
 }
 
+.box.buy {
+	
+	padding: 1em;
+
+}
+
 .buy .n-form input[type=submit] {
 	
 	background: $orange;
@@ -718,8 +724,10 @@ input[type=text].search {
 
 	input[type=text].search {
 		
+/*
 		margin: 1em;
 		width: calc(100% - 2em);
+*/
 	
 	}
 

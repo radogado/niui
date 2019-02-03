@@ -94,7 +94,7 @@ main b {
 footer .n-row {
   position: relative; }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 599.9px) {
   .n-banner .n-pad {
     padding: 0; }
   main .n-row {

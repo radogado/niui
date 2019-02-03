@@ -91,11 +91,13 @@ select {
 ul.n-list li {
   margin: 0; }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 599.9px) {
   .n-header-banner .n-slider h2 {
     margin-top: .5em; }
   footer {
-    padding: 1em; } }
+    padding: 1em; }
+  .n-row:not(.n-half) {
+    display: flex; } }
 
 .n-header-banner .n-slider h3 {
   font-size: 3.6em; }

@@ -129,9 +129,18 @@ footer a[href]:first-child {
 
 .narrow {
 	
-	padding: 0 13em;
 	box-sizing: border-box;
 	
+}
+
+@media (min-width: 1280px) {
+
+	.narrow {
+		
+		padding: 0 13em;
+		
+	}
+
 }
 
 .n-row div:not(._1\/1) .narrow {
@@ -187,7 +196,7 @@ footer a[href]:first-child {
 
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 599.9px) {
 	
 	.checkered > div:nth-child(2) {
 		
@@ -207,9 +216,30 @@ footer a[href]:first-child {
 		
 	}
 
+	.n-slider--wrap.n-tabs > .n-slider--nav.n-row {
+		
+		padding: 0 .5em;
+		box-sizing: border-box;
+		
+		a, a:first-child, a:last-child {
+		
+			border-radius: 2em;
+			
+		}
+	
+	}
+
+	.n-banner > .n-row { background-position: center !important; }
+
+	footer a[href]:first-child {
+		
+		padding-left: 1em;
+	
+	}
+
 }
 
-@media screen and (max-width: 1280px) {
+@media (min-width: 600px) and (max-width: 1280px) {
 	
 	.narrow, .n-row div:not(._1\/1) .narrow {
 		

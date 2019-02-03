@@ -97,10 +97,14 @@ footer {
 
 }
 
-footer .n-row > * {
-	
-	width: 16.666%;
-	
+@media (min-width: 600px) {
+
+	footer .n-row > * {
+		
+		width: 16.666%;
+		
+	}
+
 }
 
 footer ul.n-list li {
@@ -301,7 +305,7 @@ input[type=email] {
 	
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 599.9px) {
 	
 	.n-banner .n-row > div:first-child {
 		

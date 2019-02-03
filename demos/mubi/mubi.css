@@ -16,7 +16,8 @@ body.n-type {
   width: 100%;
   z-index: 1;
   margin: 0;
-  border-bottom: 1px solid #aaa; }
+  border-bottom: 1px solid #aaa;
+  background: rgba(0, 0, 0, 0.5); }
 
 .n-banner {
   padding-top: 5em; }

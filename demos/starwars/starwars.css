@@ -209,7 +209,8 @@ main .n-row img[class*=col] {
   display: block;
   width: 32px;
   height: 32px;
-  margin: 0 0.5em; }
+  margin: 0 0.5em;
+  padding: 0; }
 
 .n-header nav.n-nav .social li:nth-child(2) a[href] {
   background-position: 16.66667% 0%; }
@@ -229,10 +230,11 @@ main .n-row img[class*=col] {
 nav.n-nav.n-nav--scroll ul.n-list {
   padding-bottom: 0; }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 600px) {
   nav.n-nav ul.n-list li {
     display: inline-block; }
   .head-promo {
     padding: 0; }
   .n-header nav.n-nav.main._1\/1 {
-    margin: 0; } }
+    margin: 0;
+    margin-bottom: -.5em; } }

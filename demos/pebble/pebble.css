@@ -261,7 +261,7 @@ footer a[href]:hover, footer nav.n-nav form.n-form--wide label input[type=submit
 footer form .mandatory:before {
   display: none; }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 599.9px) {
   form.n-form--wide input[type=submit] {
     width: auto; }
   .n-banner {

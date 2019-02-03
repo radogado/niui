@@ -94,7 +94,7 @@ hr.ookiaks:after {
 nav.n-nav li a {
   padding-right: 0; }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 599.9px) {
   main nav.n-nav {
     position: relative; }
   main nav.n-nav:before {

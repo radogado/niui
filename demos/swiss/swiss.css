@@ -269,10 +269,11 @@ footer .about nav.n-nav a {
   background-size: auto 67%;
   margin-right: .5em; }
 
-.n-slider .n-form .n-row {
-  width: 81%;
-  margin-left: -11px;
-  margin-top: -22px; }
+@media (min-width: 600px) {
+  .n-slider .n-form .n-row {
+    width: 81%;
+    margin-left: -11px;
+    margin-top: -22px; } }
 
 .n-slider .n-form select {
   background: #fff url(arrow-select.png) no-repeat calc(100% - 1rem) 50%;
@@ -394,8 +395,10 @@ ul.n-list.n-list--inline li {
     background: #fff; }
   .n-header .n-row.logo nav.n-nav ul.n-list li:last-child {
     margin-top: 0; }
-  .n-row:not(.n-half) {
-    overflow: hidden; } }
+  .n-drop li > input, .n-drop li[aria-haspopup]:before {
+    -webkit-mask-position-y: .33em; }
+  .n-drop ul ul:not([aria-expanded]) {
+    position: absolute; } }
 
 .n-drop li[aria-haspopup]:before {
   height: 2em; }

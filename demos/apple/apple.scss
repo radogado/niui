@@ -165,7 +165,7 @@ ul.n-list li {
 
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 599.9px) {
 	
 	.n-header-banner .n-slider h2 { 
 		
@@ -179,6 +179,12 @@ ul.n-list li {
 		
 	}
 	
+	.n-row:not(.n-half) {
+	
+	    display: flex;
+	
+	}
+
 }
 
 .n-header-banner .n-slider h3 { 

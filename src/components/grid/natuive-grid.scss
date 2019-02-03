@@ -567,6 +567,7 @@
 	.n-row:not(.n-row--no-margin):not(.n-border-all):not(.n-tabs) > *, .n-row:not(.n-row--no-margin):not(.n-border-all) > [class^=_] {
 
 		margin: $line-height-em/6 0;
+		display: block;
 
 	}
 	

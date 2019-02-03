@@ -244,3 +244,11 @@ p, h2 + p:not(.n-drop-cap) {
 	margin: 1em 0;
 
 }
+
+@media (max-width: 599.9px) {
+
+main .narrow .n-row>* {
+    min-height: 0;
+}
+	
+}

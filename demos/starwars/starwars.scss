@@ -394,6 +394,7 @@ main .n-row img[class*=col] {
 		width: 32px;
 		height: 32px;
 		margin: 0 .5em;
+		padding: 0;
 		
 	}
 	
@@ -435,7 +436,7 @@ nav.n-nav.n-nav--scroll ul.n-list {
 
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 600px) {
 	
 	nav.n-nav ul.n-list li {
 		
@@ -452,6 +453,7 @@ nav.n-nav.n-nav--scroll ul.n-list {
 	.n-header nav.n-nav.main._1\/1 {
 		
 		margin: 0;
+	    margin-bottom: -.5em;
 		
 	}
 	

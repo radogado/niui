@@ -8,6 +8,12 @@ html, body, .n-row.wrap > *, p, li, .n-lightbox a, .n-btn, input[type=submit], b
 
 }
 
+* {
+	
+	box-sizing: border-box;
+
+}
+
 .n-type p, #content li {
 	
 	font-size: 18px;
@@ -53,7 +59,6 @@ body.n-type {
 		display: inline-block;
 		vertical-align: middle;
 		text-transform: uppercase;
-		margin-right: 1em;
 		padding: 0;
 	
 	}
@@ -232,7 +237,21 @@ footer {
 	
 }
 
-@media (max-width: 600px) {
+@media (min-width: 600px) {
+	
+.n-header {
+	
+	.n-form, header nav.n-nav {
+		
+		margin-right: 1em;
+	
+	}
+
+}
+	
+}
+
+@media (max-width: 599.9px) {
 	
 	.n-form#search {
 		

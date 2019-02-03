@@ -479,12 +479,16 @@ footer .about nav.n-nav a {
 
 }
 
-.n-slider .n-form .n-row {
-	
-	width: 81%;
-	margin-left: -11px;
-	margin-top: -22px;
+@media (min-width: 600px) {
 
+	.n-slider .n-form .n-row {
+		
+		width: 81%;
+		margin-left: -11px;
+		margin-top: -22px;
+	
+	}
+	
 }
 
 .n-slider .n-form select {
@@ -731,9 +735,17 @@ ul.n-list.n-list--inline li {
 	
 	.n-row:not(.n-half) {
 		
-		overflow: hidden;
+// 		overflow: hidden;
 
 	}
+
+	.n-drop li>input, .n-drop li[aria-haspopup]:before {
+	    -webkit-mask-position-y: .33em;
+	}
+
+.n-drop ul ul:not([aria-expanded]) {
+    position: absolute;
+}
 
 }
 

@@ -312,7 +312,8 @@ ol.n-masonry > * {
     box-sizing: border-box; }
 
   .n-row:not(.n-row--no-margin):not(.n-border-all):not(.n-tabs) > *, .n-row:not(.n-row--no-margin):not(.n-border-all) > [class^=_] {
-    margin: 0.25em 0; }
+    margin: 0.25em 0;
+    display: block; }
 
   @supports (--a: 1) {
     .n-row > *, .n-row > [class^=_] {
