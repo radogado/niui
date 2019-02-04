@@ -182,6 +182,13 @@
 				if (el === document.activeElement) {
 	
 					el.blur();
+					
+					let parent_item = el.parentElement.parentElement.closest('li[aria-haspopup]');
+					if (parent_item) {
+						
+						parent_item.querySelector('a').focus();
+						
+					}
 	
 				} else {
 				
