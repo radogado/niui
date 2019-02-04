@@ -270,6 +270,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 		width: 1.25em;
 		margin: 0;
 		font-size: inherit;
+		cursor: pointer;
 					
 	}
 	
@@ -313,12 +314,6 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 		
 	}
 
-	li li[aria-haspopup]:before, li li > input {
-	
-		-webkit-mask-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(90) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A");
-    
-	}
-	
 	li[aria-haspopup] {
 		
 		padding-right: 2em;
@@ -348,7 +343,17 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 
 }
 	
-@media (min-width: 600px) {
+@media (min-width: $screen-narrow) {
+
+	.n-drop li li {
+		
+		&[aria-haspopup]:before, > input {
+	
+		-webkit-mask-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(90) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A");
+    
+		}
+
+	}
 
 	html:not(.can-touch) { // Hover rules here
 		
@@ -458,14 +463,14 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 		ul:not([aria-expanded]) {
 			
 			position: static;
-		    max-width: calc(100% + 2em);
+		    width: calc(100% + 3em);
 		
 		}
 
 		ul {
 			
 			position: static;
-			width: calc(100% + 42px);
+		    width: calc(100% + 3em);
 			padding-left: .5em;
 			overflow: hidden;
 			box-sizing: border-box;

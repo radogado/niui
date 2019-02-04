@@ -590,8 +590,8 @@ _:-ms-input-placeholder, :root .n-fold > input[type=checkbox] {
     background-color: var(--control-bg, #eee);
     color: #333;
     color: var(--control-color, #333);
-    line-height: 1.6666666667;
-    font-size: -0.3333333333em;
+    line-height: 1.66667;
+    font-size: -0.33333em;
     text-align: center;
     border: none;
     margin: 0;
@@ -775,7 +775,7 @@ _:-ms-input-placeholder, :root .n-fold > input[type=checkbox] {
       cursor: pointer;
       background: var(--control-bg, rgba(0, 0, 0, 0.1)); }
     .n-form input[type=range]::-moz-range-thumb {
-      border: 0px solid rgba(0, 0, 0, 0);
+      border: 0px solid transparent;
       height: 1.625em;
       width: 1.625em;
       border-radius: 50%;
@@ -1865,7 +1865,8 @@ main .n-nav ul {
     z-index: 1;
     width: 1.25em;
     margin: 0;
-    font-size: inherit; }
+    font-size: inherit;
+    cursor: pointer; }
   .n-drop li[aria-haspopup]:before {
     content: '';
     position: absolute;
@@ -1886,8 +1887,6 @@ main .n-nav ul {
     background-color: var(--control-color, #000); }
   .n-drop[data-ready] li > ul ~ a {
     background: none; }
-  .n-drop li li[aria-haspopup]:before, .n-drop li li > input {
-    -webkit-mask-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(90) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A"); }
   .n-drop li[aria-haspopup] {
     padding-right: 2em; }
 
@@ -1902,6 +1901,9 @@ main .n-nav ul {
   .n-drop li li[aria-haspopup]:before {
     content: '→' !important; } }
 @media (min-width: 600px) {
+  .n-drop li li[aria-haspopup]:before, .n-drop li li > input {
+    -webkit-mask-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(90) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A"); }
+
   html:not(.can-touch) .n-drop ul ul:not([aria-expanded]) ul {
     transition: .1s .2s;
     opacity: 0;
@@ -1959,10 +1961,10 @@ main .n-nav ul {
 @media (max-width: 599.9px) {
   .n-drop ul ul:not([aria-expanded]) {
     position: static;
-    max-width: calc(100% + 2em); }
+    width: calc(100% + 3em); }
   .n-drop ul ul {
     position: static;
-    width: calc(100% + 42px);
+    width: calc(100% + 3em);
     padding-left: .5em;
     overflow: hidden;
     box-sizing: border-box; }
@@ -2597,8 +2599,8 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
     padding: 0.46875em 0; }
   .n-type h6 {
     font-size: .6667em;
-    line-height: 1.1249437528;
-    padding: 0.5624718764em 0; }
+    line-height: 1.12494;
+    padding: 0.56247em 0; }
   .n-type pre {
     overflow: auto; }
   .n-type p {

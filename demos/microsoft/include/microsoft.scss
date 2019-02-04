@@ -151,6 +151,12 @@ body {
 	> .n-row {
 		
 		padding-top: 0;
+		
+		> div {
+			
+			z-index: 0;
+
+		}
 	
 	}
 	
@@ -237,7 +243,7 @@ body {
 	
 	height: 1.5em; 
 	line-height: 1.5em; 
-	margin: 0 1.3em;
+	margin: 0 0 0 1.3em;
 	width: 2em;
     font-family: 'shell-icons';
 	color: #7f7f7f;
@@ -794,6 +800,12 @@ nav.n-nav.n-drop {
 ul:not(.n-list--no-bullet):not(.n-list--inline) li {
 	
 	margin: 0;
+	
+}
+
+.n-fold--content {
+	
+	width: 100%;
 	
 }
 

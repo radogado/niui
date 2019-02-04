@@ -2262,7 +2262,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 			
 			}
 		
-			el.addEventListener('touchend', (e) => {
+			let tapEvent = (e) => {
 	
 				var el = e.target;
 	
@@ -2291,7 +2291,10 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 				
 				}
 					
-			});
+			};
+		
+			el.addEventListener('touchend', tapEvent);
+			el.addEventListener('click', tapEvent);
 	
 			var anchor = el.querySelector('a');
 	

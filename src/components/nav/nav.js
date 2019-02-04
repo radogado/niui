@@ -160,7 +160,7 @@
 			
 			}
 		
-			el.addEventListener('touchend', (e) => {
+			let tapEvent = (e) => {
 	
 				var el = e.target;
 	
@@ -189,7 +189,10 @@
 				
 				}
 					
-			});
+			};
+		
+			el.addEventListener('touchend', tapEvent);
+			el.addEventListener('click', tapEvent);
 	
 			var anchor = el.querySelector('a');
 	
