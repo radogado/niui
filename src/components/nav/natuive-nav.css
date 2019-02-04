@@ -102,13 +102,13 @@ main .n-nav ul {
   .n-drop li li {
     display: block;
     width: 100%; }
-  .n-drop ul ul:not([aria-expanded]) {
+  .n-drop ul li:not([aria-expanded]) > ul {
     min-height: 0;
     max-height: 0;
     overflow: hidden;
     position: absolute; }
   .n-drop ul li > :checked ~ ul, .n-drop :focus ~ ul,
-  .n-drop a:focus ~ ul, .n-drop ul ul[aria-expanded], .n-drop li li ul[aria-expanded], .n-drop li li:not(:focus) :checked ~ ul {
+  .n-drop a:focus ~ ul, .n-drop ul li[aria-expanded] > ul, .n-drop li li[aria-expanded] > ul, .n-drop li li:not(:focus) :checked ~ ul {
     max-height: none;
     overflow: visible;
     opacity: 1;
@@ -117,10 +117,10 @@ main .n-nav ul {
     background-color: var(--control-bg, #fff);
     transform: scaleY(1); }
     .n-drop ul li > :checked ~ ul ul, .n-drop :focus ~ ul ul,
-    .n-drop a:focus ~ ul ul, .n-drop ul ul[aria-expanded] ul, .n-drop li li ul[aria-expanded] ul, .n-drop li li:not(:focus) :checked ~ ul ul {
+    .n-drop a:focus ~ ul ul, .n-drop ul li[aria-expanded] > ul ul, .n-drop li li[aria-expanded] > ul ul, .n-drop li li:not(:focus) :checked ~ ul ul {
       transform: scaleX(1);
       transform-origin: left; }
-  .n-drop ul ul[aria-expanded], .n-drop li li ul[aria-expanded], .n-drop li li:not(:focus) :checked ~ ul {
+  .n-drop ul li[aria-expanded] > ul, .n-drop li li[aria-expanded] > ul, .n-drop li li:not(:focus) :checked ~ ul {
     z-index: 2; }
   .n-drop li > input {
     -webkit-appearance: none;
@@ -174,7 +174,7 @@ main .n-nav ul {
   .n-drop li li[aria-haspopup]:before, .n-drop li li > input {
     -webkit-mask-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(90) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A"); }
 
-  html:not(.can-touch) .n-drop ul ul:not([aria-expanded]) ul {
+  html:not(.can-touch) .n-drop ul li:not([aria-expanded]) ul ul {
     transition: .1s .2s;
     opacity: 0;
     position: absolute;
@@ -195,7 +195,7 @@ main .n-nav ul {
   html:not(.can-touch) .n-drop > ul > li:not([aria-haspopup]):hover > ul,
   html:not(.can-touch) .n-drop > ul > li:hover > ul,
   html:not(.can-touch) .n-drop > ul li ul > li:hover > ul,
-  html:not(.can-touch) .n-drop ul ul :checked ~ ul:not([aria-expanded]),
+  html:not(.can-touch) .n-drop ul ul li:not([aria-expanded]) :checked ~ ul,
   html:not(.can-touch) .n-drop > ul li:not([aria-haspopup]) ul li:hover ~ ul {
     max-height: none;
     overflow: visible;
@@ -229,7 +229,7 @@ main .n-nav ul {
   _:-ms-input-placeholder, :root nav.n-drop li li ul ~ a:before {
     content: '→'; } }
 @media (max-width: 599.9px) {
-  .n-drop ul ul:not([aria-expanded]) {
+  .n-drop ul li:not([aria-expanded]) > ul {
     position: static;
     width: calc(100% + 3em); }
   .n-drop ul ul {
@@ -246,6 +246,8 @@ main .n-nav ul {
       background-position-y: 1.5em; }
     .n-drop ul li[aria-haspopup] {
       padding-right: 3em; }
+  .n-drop ul li[aria-haspopup][aria-expanded]:before {
+    -webkit-mask-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(0) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A"); }
 
   .n-drop li > input, .n-drop li[aria-haspopup]:before {
     -webkit-mask-position-y: .75em; } }

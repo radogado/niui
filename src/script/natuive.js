@@ -2110,7 +2110,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 		if (!e.target.closest('.n-nav li')) {
 	
-			qa('.n-nav ul').forEach((el) => {
+			qa('.n-nav li').forEach((el) => {
 				
 				el.removeAttribute(aria_expanded);
 				
@@ -2132,7 +2132,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		
 		if (!closestElement(e.relatedTarget, this_nav)) { // if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
 			
-			this_nav.querySelectorAll('ul').forEach((el) => {
+			this_nav.querySelectorAll('li').forEach((el) => {
 	
 				el.removeAttribute(aria_expanded);
 				
@@ -2145,7 +2145,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		var target_parent = el.closest('[aria-haspopup]');
 		if (target_parent) { // Skip if it's a top-level-only item
 			
-			target_parent.querySelectorAll('ul[aria-expanded]').forEach((el) => { // Disable active grandchildren
+			target_parent.querySelectorAll('li[aria-expanded]').forEach((el) => { // Disable active grandchildren
 		
 				el.removeAttribute(aria_expanded);
 		
@@ -2158,7 +2158,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 			el.parentNode.parentNode.nodeName === 'LI' && // of third-level nav
 			!el.parentNode.parentNode.nextElementSibling) {
 				
-				el.parentNode.parentNode.parentNode.removeAttribute(aria_expanded);
+				el.parentNode.parentNode.removeAttribute(aria_expanded);
 		
 		}
 		
@@ -2188,8 +2188,8 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		
 		el = e.target;
 	
-		el.parentNode.parentNode.setAttribute(aria_expanded, true);
-		var grand_parent = el.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('ul');
+		el.parentNode.setAttribute(aria_expanded, true);
+		var grand_parent = el.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('ul li');
 		if (grand_parent) {
 	
 			grand_parent.setAttribute(aria_expanded, true);
@@ -2237,7 +2237,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		
 			if (e.key === 'Escape') {
 				
-				e.target.closest('.n-nav').querySelectorAll('ul').forEach((el) => {
+				e.target.closest('.n-nav').querySelectorAll('li').forEach((el) => {
 					
 					el.removeAttribute(aria_expanded);
 					
