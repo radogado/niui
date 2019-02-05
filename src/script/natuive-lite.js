@@ -1003,32 +1003,50 @@ qa('a[href^="#"]').forEach((el) => {
 	}
 			
 	function dropNavFocus(e) {
-	
+
+		if (hasClass(q('html'), 'can-touch') && typeof e.target.href === 'string' && e.target.href.length > 0) {
+			
+			return;
+			
+		}
+
 		// Close focused third level child when focus moves to another top-level item
 		
 		var el = e.target.closest('.n-nav > ul > li');
-		
-		el.parentNode.childNodes.forEach((a) => {
-	
-			if (a.nodeName === 'LI' && a !== el) {
+// To do: on LI focus, make it aria-expanded and focus its a
+		[].slice.call(e.target.parentElement.parentElement.children).forEach((item) => {
 			
-				a.querySelectorAll('[aria-expanded]').forEach((el) => {
-					
-					el.removeAttribute(aria_expanded);
-					
-				});
-			
-			}
+			item.removeAttribute('aria-expanded');
 			
 		});
+
+		[].slice.call(e.target.parentElement.parentElement.parentElement.parentElement.children).forEach((item) => {
+
+			item.removeAttribute('aria-expanded');
+			
+		});
+
+		[].slice.call(el.parentElement.children).forEach((item) => {
+
+			item.removeAttribute('aria-expanded');
+			
+		});
+
+		el.setAttribute('aria-expanded', true);
+		
+		if (el.parentNode.parentNode.getAttribute('aria-haspopup')) {
+			
+			el.parentNode.parentNode.setAttribute('aria-expanded', true);
+			
+		}
 		
 		// Make current focused item's ancestors visible
 		
 		el = e.target;
 	
 		el.parentNode.setAttribute(aria_expanded, true);
-		var grand_parent = el.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('ul li');
-		if (grand_parent) {
+		var grand_parent = el.parentElement.parentElement.parentElement;
+		if (grand_parent.tagName === 'LI') {
 	
 			grand_parent.setAttribute(aria_expanded, true);
 	
@@ -1102,16 +1120,17 @@ qa('a[href^="#"]').forEach((el) => {
 		
 			let tapEvent = (e) => {
 	
+				e.stopPropagation();
+
 				var el = e.target;
 	
-				if (draggingNow || typeof el.href === 'string') {
+				if (draggingNow || (typeof el.href === 'string' && el.href.length > 0)) {
 					
 					return;
 					
 				}
 				
 				e.preventDefault();
-				e.stopPropagation();
 				
 				if (el.nodeName === 'LI') {
 					
@@ -1131,15 +1150,47 @@ qa('a[href^="#"]').forEach((el) => {
 					}
 	
 				} else {
-				
-					el.focus();
+
+					if (el.parentElement.getAttribute('aria-expanded')) { // Click on an open element which isn't in focus
+						
+						el.parentElement.removeAttribute('aria-expanded');
+						document.activeElement.blur();
+						el.querySelectorAll('[aria-expanded]').forEach((item) => {
+							
+							item.removeAttribute('aria-expanded');
+							
+						});
+						
+					} else {
+						
+						// Opening an item should close its open siblings
+						[].slice.call(el.parentElement.parentElement.children).forEach((item) => {
+							
+							item.removeAttribute('aria-expanded');
+							if (item !== el.parentElement) {
+								
+								let old_item_open_child = item.querySelector('[aria-expanded]');
+								if (old_item_open_child) {
+									
+									old_item_open_child.removeAttribute('aria-expanded');
+
+								}
+								
+							}
+							
+							
+						});
+						el.focus();
+						el.parentElement.setAttribute('aria-expanded', true);
+
+					}
 				
 				}
 					
 			};
 		
 			el.addEventListener('touchend', tapEvent);
-			el.addEventListener('click', tapEvent);
+// 			el.addEventListener('click', tapEvent);
 	
 			var anchor = el.querySelector('a');
 	
