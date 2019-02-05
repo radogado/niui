@@ -144,7 +144,8 @@ _:-ms-input-placeholder, :root .n-fold > input[type=checkbox] {
   .n-fold.n-fold--mobile > .n-fold--label, .n-fold.n-fold--mobile > input.n-trigger {
     display: inline-block;
     display: flex;
-    width: 3em;
+    width: 4em;
+    height: 4em;
     padding: 0;
     border: none; }
   .n-fold.n-fold--mobile:not([aria-expanded]) .n-fold--content {

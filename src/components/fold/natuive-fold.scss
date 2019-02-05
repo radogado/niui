@@ -309,7 +309,8 @@ _:-ms-input-placeholder, :root .n-fold > input[type=checkbox] {
 			
 			display: inline-block; // Android Browser doesn't support the below version (flex)
 			display: flex;
-			width: 3em;
+			width: 4em;
+			height: 4em;
 			padding: 0;
 			border: none; // for iOS
 	

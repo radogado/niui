@@ -267,7 +267,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 		border-radius: 0;
 		right: 0;
 		z-index: 1;
-		width: 1.25em;
+		width: 1.9em;
 		margin: 0;
 		font-size: inherit;
 		cursor: pointer;
@@ -307,6 +307,12 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 		background-color: var(--control-color, #000);
 
    	}
+   	
+   	li > input {
+	   	
+		-webkit-mask-size: .6em;
+	   	
+	}
 
 	&[data-ready] li > ul ~ a {
 		
@@ -512,6 +518,37 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 	.n-drop li > input, .n-drop li[aria-haspopup]:before {
 		
 		-webkit-mask-position-y: .75em;		
+		
+	}
+	
+	html:not([data-js]) .n-drop {
+		
+		width: 100%;
+		
+		ul li {
+			
+			display: flex;
+			flex-direction: column;
+			
+			a {
+				
+				order: -1;
+	
+			}
+			
+		}
+		
+		ul li:not([aria-expanded]) > ul {
+			
+			width: 100%;
+
+		}
+	
+	}
+
+	html:not([data-js]) .n-fold.n-fold--mobile:not([aria-expanded]) .n-fold--content {
+		
+		max-width: 100%;
 		
 	}
 
