@@ -360,7 +360,7 @@ a.backtotop[href] {
     .home:not(.paged) section article:nth-child(1) .n-lightbox.gallery a, .home:not(.paged) section article:nth-child(2) .n-lightbox.gallery a, .home section .pagination .n-lightbox.gallery a {
       width: 10%; }
 
-  .single .n-lightbox.gallery a {
+  .single .n-lightbox.gallery a, .search-results .n-lightbox.gallery a {
     width: 10%; }
 
   .comments {

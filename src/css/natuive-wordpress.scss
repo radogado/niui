@@ -730,9 +730,13 @@ a.backtotop[href] {
 	
 	}
 	
-	.single .n-lightbox.gallery a { // Retina thumbnails
+	.single, .search-results {
+		
+		.n-lightbox.gallery a { // Retina thumbnails
+				
+			 width: 10%;
 			
-		width: 10%;
+		}
 
 	}
 
