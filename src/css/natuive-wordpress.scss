@@ -721,9 +721,21 @@ a.backtotop[href] {
 	.home:not(.paged) section article:nth-child(1), .home:not(.paged) section article:nth-child(2), .home section .pagination {
 	
 		width: 100%;
+		
+		.n-lightbox.gallery a { // Retina thumbnails
+			
+			width: 10%;
+
+		}
 	
 	}
 	
+	.single .n-lightbox.gallery a { // Retina thumbnails
+			
+		width: 10%;
+
+	}
+
 	.comments {
 
 		display: grid;

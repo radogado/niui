@@ -966,8 +966,6 @@ qa('a[href^="#"]').forEach((el) => {
 	
 	function dropNavBlur(e) {
 	
-		console.log('blur: ', e.target);
-
 		var this_nav = e.target.closest('.n-nav');
 		
 		if (!closestElement(e.relatedTarget, this_nav)) { // if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
@@ -1005,8 +1003,6 @@ qa('a[href^="#"]').forEach((el) => {
 	}
 			
 	function dropNavFocus(e) {
-
-		console.log('focus: ', e.target);
 
 		if (hasClass(q('html'), 'can-touch') && typeof e.target.href === 'string' && e.target.href.length > 0) {
 			
@@ -1199,8 +1195,6 @@ qa('a[href^="#"]').forEach((el) => {
 				e.stopPropagation();
 				// To do: also ancestors, also close when open
 				let el = e.target;
-				
-				console.log('mousedown: ', el);
 				
 				if (el.getAttribute('aria-expanded')) {
 					

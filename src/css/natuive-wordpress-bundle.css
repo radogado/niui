@@ -3022,6 +3022,11 @@ a.backtotop[href] {
 
   .home:not(.paged) section article:nth-child(1), .home:not(.paged) section article:nth-child(2), .home section .pagination {
     width: 100%; }
+    .home:not(.paged) section article:nth-child(1) .n-lightbox.gallery a, .home:not(.paged) section article:nth-child(2) .n-lightbox.gallery a, .home section .pagination .n-lightbox.gallery a {
+      width: 10%; }
+
+  .single .n-lightbox.gallery a {
+    width: 10%; }
 
   .comments {
     display: grid;
