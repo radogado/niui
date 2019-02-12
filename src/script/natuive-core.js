@@ -11,7 +11,7 @@ if (typeof window['chrome'] !== 'undefined') {
 
 }
 
-document.body.setAttribute('data-js', 'true');
+document.body.setAttribute('data-natuive-js', 'true');
 
 var is_iPad = !!navigator.platform.match(/iPad/);
 

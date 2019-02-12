@@ -1985,17 +1985,17 @@ main .n-nav ul {
   .n-drop li > input, .n-drop li[aria-haspopup]:before {
     -webkit-mask-position-y: .75em; }
 
-  html:not([data-js]) .n-drop {
+  html:not([data-natuive-js]) .n-drop {
     width: 100%; }
-    html:not([data-js]) .n-drop ul li {
+    html:not([data-natuive-js]) .n-drop ul li {
       display: flex;
       flex-direction: column; }
-      html:not([data-js]) .n-drop ul li a {
+      html:not([data-natuive-js]) .n-drop ul li a {
         order: -1; }
-    html:not([data-js]) .n-drop ul li:not([aria-expanded]) > ul {
+    html:not([data-natuive-js]) .n-drop ul li:not([aria-expanded]) > ul {
       width: 100%; }
 
-  html:not([data-js]) .n-fold.n-fold--mobile:not([aria-expanded]) .n-fold--content {
+  html:not([data-natuive-js]) .n-fold.n-fold--mobile:not([aria-expanded]) .n-fold--content {
     max-width: 100%; } }
 
 /*# sourceMappingURL=natuive-nav.css.map */

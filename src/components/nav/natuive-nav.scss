@@ -521,7 +521,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 		
 	}
 	
-	html:not([data-js]) .n-drop {
+	html:not([data-natuive-js]) .n-drop {
 		
 		width: 100%;
 		
@@ -546,7 +546,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 	
 	}
 
-	html:not([data-js]) .n-fold.n-fold--mobile:not([aria-expanded]) .n-fold--content {
+	html:not([data-natuive-js]) .n-fold.n-fold--mobile:not([aria-expanded]) .n-fold--content {
 		
 		max-width: 100%;
 		
