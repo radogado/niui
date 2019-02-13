@@ -330,6 +330,13 @@ li pre {
 
 }
 
+code[class*=language-] {
+	
+	font-family: monospace !important;
+	line-height: 1.4 !important;
+	
+}
+
 .code {
 	
 	position: relative;
