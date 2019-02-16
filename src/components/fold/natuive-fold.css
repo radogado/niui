@@ -101,7 +101,7 @@
     text-align: center;
     position: relative;
     background: #fff;
-    background: var(--conrol-bg, #fff); }
+    background: var(--control-bg, #fff); }
     .n-fold span.n-burger:after {
       content: "="; }
 
@@ -142,10 +142,9 @@ _:-ms-input-placeholder, :root .n-fold > input[type=checkbox] {
     display: block; } }
 @media screen and (max-width: 599.9px) {
   .n-fold.n-fold--mobile > .n-fold--label, .n-fold.n-fold--mobile > input.n-trigger {
-    display: inline-block;
     display: flex;
-    width: 4em;
-    height: 4em;
+    width: 3em;
+    height: 3em;
     padding: 0;
     border: none; }
   .n-fold.n-fold--mobile:not([aria-expanded]) .n-fold--content {

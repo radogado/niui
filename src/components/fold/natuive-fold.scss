@@ -209,7 +209,7 @@
 		text-align: center;
 		position: relative;
 		background: #fff;
-		background: var(--conrol-bg, #fff);
+		background: var(--control-bg, #fff);
 
 		&:after {
 			
@@ -307,10 +307,9 @@ _:-ms-input-placeholder, :root .n-fold > input[type=checkbox] {
 
 		> .n-fold--label, > input.n-trigger {
 			
-			display: inline-block; // Android Browser doesn't support the below version (flex)
 			display: flex;
-			width: 4em;
-			height: 4em;
+			width: 3em;
+			height: 3em;
 			padding: 0;
 			border: none; // for iOS
 	

@@ -252,8 +252,6 @@ nav.n-nav.n-drop {
   --control-bg: #eee; }
   nav.n-nav.n-drop li.current_page_item {
     --control-bg: #ddd; }
-nav.n-nav.n-drop ul li {
-  margin-right: .5em; }
 
 .single h1 {
   margin-top: .25em; }
@@ -314,12 +312,13 @@ nav.n-nav.n-drop ul li {
   display: flex;
   margin: 0 0 0 auto; }
 
-.n-header .n-fold.n-fold--mobile {
-  display: inline-block; }
-
-.n-fold span.n-burger:before {
-  --control-color: #333; }
-
+/*
+.n-fold span.n-burger:before { // Workaround for the weirdest bug where the fallback value of the CSS variable disappears
+	
+    --control-color: #333;
+   
+}
+*/
 .wp-caption {
   margin: .5em auto 0 auto; }
   .wp-caption a[href] {
@@ -344,6 +343,9 @@ a.backtotop[href] {
   display: inline-block; }
 
 @media (min-width: 600px) {
+  nav.n-nav.n-drop ul li {
+    margin-right: .5em; }
+
   .home section {
     display: flex;
     flex-wrap: wrap; }

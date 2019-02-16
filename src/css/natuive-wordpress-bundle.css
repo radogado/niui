@@ -362,7 +362,7 @@ a.backtotop[href] {
     text-align: center;
     position: relative;
     background: #fff;
-    background: var(--conrol-bg, #fff); }
+    background: var(--control-bg, #fff); }
     .n-fold span.n-burger:after {
       content: "="; }
 
@@ -403,10 +403,9 @@ _:-ms-input-placeholder, :root .n-fold > input[type=checkbox] {
     display: block; } }
 @media screen and (max-width: 599.9px) {
   .n-fold.n-fold--mobile > .n-fold--label, .n-fold.n-fold--mobile > input.n-trigger {
-    display: inline-block;
     display: flex;
-    width: 4em;
-    height: 4em;
+    width: 3em;
+    height: 3em;
     padding: 0;
     border: none; }
   .n-fold.n-fold--mobile:not([aria-expanded]) .n-fold--content {
@@ -2920,8 +2919,6 @@ nav.n-nav.n-drop {
   --control-bg: #eee; }
   nav.n-nav.n-drop li.current_page_item {
     --control-bg: #ddd; }
-nav.n-nav.n-drop ul li {
-  margin-right: .5em; }
 
 .single h1 {
   margin-top: .25em; }
@@ -2982,12 +2979,13 @@ nav.n-nav.n-drop ul li {
   display: flex;
   margin: 0 0 0 auto; }
 
-.n-header .n-fold.n-fold--mobile {
-  display: inline-block; }
-
-.n-fold span.n-burger:before {
-  --control-color: #333; }
-
+/*
+.n-fold span.n-burger:before { // Workaround for the weirdest bug where the fallback value of the CSS variable disappears
+	
+    --control-color: #333;
+   
+}
+*/
 .wp-caption {
   margin: .5em auto 0 auto; }
   .wp-caption a[href] {
@@ -3012,6 +3010,9 @@ a.backtotop[href] {
   display: inline-block; }
 
 @media (min-width: 600px) {
+  nav.n-nav.n-drop ul li {
+    margin-right: .5em; }
+
   .home section {
     display: flex;
     flex-wrap: wrap; }
