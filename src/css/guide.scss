@@ -38,6 +38,12 @@ main .nav-column {
 
 }
 
+.n-slider.n-slider--vertical:not([data-ready]) > * {
+
+    display: none;
+
+}
+
 @-moz-document url-prefix() {
 
 	main .nav-column .n-slider--nav.n-row:after { // FF & Edge fix
