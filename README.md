@@ -64,4 +64,4 @@ NPM usage:
 
 ## Standalone components
 
-[Accordion](https://github.com/radogado/n-accordion), [Slider](https://github.com/radogado/native-slider)
+[Accordion](https://github.com/radogado/n-accordion), [Slider](https://github.com/radogado/native-slider), [Drop nav](https://github.com/radogado/nav.drop)

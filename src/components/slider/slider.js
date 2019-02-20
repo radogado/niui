@@ -337,7 +337,7 @@ var componentSlider = (function (){
 					target_slide.style.position = 'absolute';
 	
 				}
-				height_change =	`height: ${target_slide.scrollHeight}px`;
+				height_change =	`height: ${target_slide.clientHeight}px`;
 				target_slide.style.cssText = '';
 
 			}
@@ -381,6 +381,7 @@ var componentSlider = (function (){
 			var next_height =  (!hasClass(slider, 'n-slider--overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'n-aspect')) ? (`-${height_change_number}px`) : '-100%';
 		    translate_from = `translate3d(0,${index<old_index ? ('-' + computed_height + 'px') : 0},0)`;
 			
+/*
 		    var difference = Math.abs(computed_height - computed_height_old);
 
 		    if (computed_height > computed_height_old) {
@@ -392,6 +393,14 @@ var componentSlider = (function (){
 			    difference = Math.min(computed_height, computed_height_old) + difference;
 			    
 		    }
+
+		    if (computed_height === computed_height_old) {
+			    
+			    difference = 0;
+			    
+			}
+*/
+
 		    translate_to = `translate3d(0,${index<old_index ? '0' : ('-' + original_slider_height + 'px')},0)`;
 		    slider.children[old_index].style.transition = `opacity ${duration/2}s linear`;
 		    slider.children[old_index].style.opacity = 0;
