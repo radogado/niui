@@ -1424,7 +1424,8 @@ main .n-nav ul {
   overflow: auto;
   border-collapse: collapse;
   -webkit-overflow-scrolling: touch;
-  display: block; }
+  display: block;
+  margin: 1.5em 0; }
   .n-table td, .n-table th {
     padding: 1.5em 0.75em;
     vertical-align: middle; }
@@ -1455,8 +1456,7 @@ main .n-nav ul {
   	    scrollbar-highlight-color: transparent;
   	    scrollbar-shadow-color: transparent;
   */
-  -webkit-overflow-scrolling: touch;
-  margin: 1.5em 0; }
+  -webkit-overflow-scrolling: touch; }
   .n-table--wrap .n-table {
     display: table; }
 
