@@ -104,7 +104,7 @@
   text-shadow: 0 0 #fff; }
   .n-lightbox.n-slider a.n-btn.n-lightbox--copy:before {
     content: "🔗"; }
-.n-lightbox.n-slider[data-ready] > [data-active]:not(.n-lightbox--no-image):not(.n-lightbox--loaded):after {
+.n-lightbox.n-slider[data-ready] > [data-active]:not(.n-lightbox--no-image):after {
   content: "";
   position: absolute;
   display: block;
@@ -116,6 +116,8 @@
   border-radius: 100%;
   animation: sk-scaleout 1.0s 9 ease-in-out;
   animation-fill-mode: forwards; }
+.n-lightbox.n-slider[data-ready] > [data-active]:not(.n-lightbox--no-image).n-lightbox--loaded:after {
+  display: none; }
 
 .n-lightbox.n-slider.n-slider--top > * p.n-lightbox--caption {
   bottom: .5em;
