@@ -597,6 +597,18 @@ add_action('the_content', function ($content) {
 	$dom = new DOMdocument();
 	@$dom->loadHTML('<?xml version="1.0" encoding="UTF-8"?>' . "\n" . $content);
 
+	$iframes = $dom->getElementsByTagName('iframe');
+
+	foreach ($iframes as $iframe) {
+
+		if($iframe->parentNode->tagName == 'p') {
+			
+			$iframe->parentNode->setAttribute('class', 'has-iframe');
+			
+		}
+
+	}
+
 	$imgs = $dom->getElementsByTagName('img');
 
 	foreach ($imgs as $img) {
@@ -625,15 +637,23 @@ add_action('the_content', function ($content) {
 		$img->setAttribute('src', str_replace( 'http://', '//', $img->getAttribute('src'))); // Fix HTTPS
 
 		$id = (int) str_replace('-', '', filter_var($img->getAttribute('class'), FILTER_SANITIZE_NUMBER_INT));
-		
-		if ($id == 0) { // It's a gallery thumbnail
+
+		if ($id == 0) { // It's a gallery thumbnail or a bare img with width/height
 			
-			break;
+			if ($img->getAttribute('width') && $img->getAttribute('height')) {
+				
+				$width = $img->getAttribute('width');
+				$height = $img->getAttribute('height');
+				
+			} else {
+				
+				break;
+
+			}
 			
 		}
-		
-		if ($img->getAttribute('sizes')) {
-			
+
+		if ($img->getAttribute('sizes') && !strstr($img->parentNode->parentNode->getAttribute('class'), 'gallery')) {
 
 			$attachment = wp_get_attachment_metadata($id);
 

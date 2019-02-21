@@ -238,7 +238,7 @@ iframe, article h2 a {
 
 .n-type #content section > article > {
 	
-	p:not(.has-image), ol, ul, blockquote {
+	p:not(.has-image):not(.has-iframe), ol, ul, blockquote {
 	
 		max-width: 40em;
 		margin: 1.5em auto;

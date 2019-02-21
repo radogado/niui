@@ -2804,7 +2804,7 @@ iframe, article h2 a {
   margin-bottom: 44px;
   position: relative; }
 
-.n-type #content section > article > p:not(.has-image), .n-type #content section > article > ol, .n-type #content section > article > ul, .n-type #content section > article > blockquote {
+.n-type #content section > article > p:not(.has-image):not(.has-iframe), .n-type #content section > article > ol, .n-type #content section > article > ul, .n-type #content section > article > blockquote {
   max-width: 40em;
   margin: 1.5em auto;
   box-sizing: border-box; }
