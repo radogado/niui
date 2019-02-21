@@ -22,6 +22,12 @@
 		height: auto;
 		border: none;
 		text-align: center;
+		
+		&:focus {
+			
+			z-index: 1;
+
+		}
 	
 		img {
 				
@@ -227,12 +233,15 @@
 				border-radius: 100%;  
 				animation: sk-scaleout 1.0s 9 ease-in-out;
 				animation-fill-mode: forwards;
+				transform: scale(0);
+				opacity: 0;
 			
 			}
 		
 			&.n-lightbox--loaded:after {
 				
 				display: none;
+				animation: none;
 			
 			}
 		

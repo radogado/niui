@@ -1297,6 +1297,8 @@ ol.n-masonry > * {
   height: auto;
   border: none;
   text-align: center; }
+  .n-lightbox a:focus {
+    z-index: 1; }
   .n-lightbox a img {
     display: block;
     margin: 0 auto;
@@ -1401,9 +1403,12 @@ ol.n-masonry > * {
   background-color: #999;
   border-radius: 100%;
   animation: sk-scaleout 1.0s 9 ease-in-out;
-  animation-fill-mode: forwards; }
+  animation-fill-mode: forwards;
+  transform: scale(0);
+  opacity: 0; }
 .n-lightbox.n-slider[data-ready] > [data-active]:not(.n-lightbox--no-image).n-lightbox--loaded:after {
-  display: none; }
+  display: none;
+  animation: none; }
 
 .n-lightbox.n-slider.n-slider--top > * p.n-lightbox--caption {
   bottom: .5em;
@@ -2724,7 +2729,9 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
   padding: 0; }
 
 #content img {
-  display: block; }
+  display: block;
+  max-width: 100%;
+  height: auto; }
   #content img :not(.avatar) {
     margin: 0 auto; }
 

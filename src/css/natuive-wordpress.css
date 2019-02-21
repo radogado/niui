@@ -55,7 +55,9 @@
   padding: 0; }
 
 #content img {
-  display: block; }
+  display: block;
+  max-width: 100%;
+  height: auto; }
   #content img :not(.avatar) {
     margin: 0 auto; }
 

@@ -94,6 +94,8 @@ $teal: #488e89;
 #content img {
 	
 	display: block;
+	max-width: 100%;
+	height: auto;
 	
 	:not(.avatar) {
 		
