@@ -106,7 +106,7 @@
   text-shadow: 0 0 #fff; }
   .n-lightbox.n-slider a.n-btn.n-lightbox--copy:before {
     content: "🔗"; }
-.n-lightbox.n-slider[data-ready] > [data-active]:not(.n-lightbox--no-image):after {
+.n-lightbox.n-slider[data-ready] > [data-active]:not(.n-lightbox--no-image):not(.n-lightbox--loaded):after {
   content: "";
   position: absolute;
   display: block;
@@ -116,13 +116,10 @@
   height: 40px;
   background-color: #999;
   border-radius: 100%;
-  animation: sk-scaleout 1.0s 9 ease-in-out;
-  animation-fill-mode: forwards;
-  transform: scale(0);
-  opacity: 0; }
-.n-lightbox.n-slider[data-ready] > [data-active]:not(.n-lightbox--no-image).n-lightbox--loaded:after {
-  display: none;
-  animation: none; }
+  animation-fill-mode: forwards; }
+
+[data-chrome] .n-lightbox.n-slider[data-ready] > [data-active]:not(.n-lightbox--no-image):not(.n-lightbox--loaded):after {
+  animation: sk-scaleout 1.0s 9 ease-in-out; }
 
 .n-lightbox.n-slider.n-slider--top > * p.n-lightbox--caption {
   bottom: .5em;

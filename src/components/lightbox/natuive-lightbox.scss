@@ -218,37 +218,29 @@
 		
 		}
 		
-		&[data-ready] > [data-active]:not(.n-lightbox--no-image) {
-			
-			&:after { // Loading spinner
+		&[data-ready] > [data-active]:not(.n-lightbox--no-image):not(.n-lightbox--loaded):after { // Loading spinner
 		
-				content: "";
-				position: absolute;
-				display: block;
-				top: calc(50% - 20px);
-				left: calc(50% - 20px);
-				width: 40px;
-				height: 40px;
-				background-color: #999;
-				border-radius: 100%;  
-				animation: sk-scaleout 1.0s 9 ease-in-out;
-				animation-fill-mode: forwards;
-				transform: scale(0);
-				opacity: 0;
+			content: "";
+			position: absolute;
+			display: block;
+			top: calc(50% - 20px);
+			left: calc(50% - 20px);
+			width: 40px;
+			height: 40px;
+			background-color: #999;
+			border-radius: 100%;  
+			animation-fill-mode: forwards;
 			
-			}
-		
-			&.n-lightbox--loaded:after {
-				
-				display: none;
-				animation: none;
-			
-			}
-		
 		}
 	
 	}
 
+}
+
+[data-chrome] .n-lightbox.n-slider[data-ready] > [data-active]:not(.n-lightbox--no-image):not(.n-lightbox--loaded):after {
+	
+	animation: sk-scaleout 1.0s 9 ease-in-out;
+	
 }
 
 .n-lightbox.n-slider.n-slider--top > * p.n-lightbox--caption {
