@@ -1321,6 +1321,8 @@ ol.n-masonry > * {
   width: auto; }
 .n-lightbox.n-slider[data-ready] > div:not(.n-lightbox--loaded) img {
   opacity: 0; }
+.n-lightbox.n-slider[data-ready] > div[data-active] img {
+  transform: translate3d(0, 0, 0); }
 .n-lightbox.n-slider[data-ready][data-peek]:not(.n-slider--vertical).n-slider--overlay > div:not([data-active]) {
   display: flex; }
 .n-lightbox.n-slider > * {
