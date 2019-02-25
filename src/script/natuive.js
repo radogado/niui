@@ -2878,8 +2878,10 @@ var componentSlider = (function (){
 */
 
 		    translate_to = `translate3d(0,${index<old_index ? '0' : ('-' + original_slider_height + 'px')},0)`;
+/*
 		    slider.children[old_index].style.transition = `opacity ${duration/2}s linear`;
 		    slider.children[old_index].style.opacity = 0;
+*/
 		
 		} else {
 			
