@@ -1385,7 +1385,7 @@ ol.n-masonry > * {
   bottom: 0; }
 .n-lightbox.n-slider a.n-btn.n-lightbox--copy {
   position: absolute;
-  top: 1.5em;
+  top: 0.75em;
   right: 0;
   margin: 0;
   color: transparent;
