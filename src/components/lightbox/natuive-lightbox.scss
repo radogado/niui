@@ -81,12 +81,6 @@
 				
 			}
 			
-			> div[data-active] img { // Don't flash the next slide and have the image visible immediately
-				
-				transform: translate3d(0,0,0);
-				
-			}
-			
 			&[data-peek]:not(.n-slider--vertical).n-slider--overlay > div:not([data-active]) {
 				
 				display: flex;
@@ -240,6 +234,12 @@
 		}
 	
 	}
+
+}
+
+[data-active] > .n-lightbox.n-slider[data-ready] > div[data-active] > img { // Don't flash the next slide and have the image visible immediately
+	
+	transform: translate3d(0,0,0);
 
 }
 
