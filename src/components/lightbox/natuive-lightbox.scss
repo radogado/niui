@@ -109,6 +109,7 @@
 				color: #fff;
 				left: 50%;
 				transform: translateX(-50%);
+				will-change: transform; // Safari fix for disappearing while sliding
 				padding: 0 .25em;
 				background: rgba(0, 0, 0, .4);
 			
@@ -237,7 +238,7 @@
 
 }
 
-[data-active] > .n-lightbox.n-slider[data-ready] > div[data-active] > img { // Don't flash the next slide and have the image visible immediately
+[data-active] > .n-lightbox.n-slider[data-ready] > div[data-active] > img:not(.n-lightbox--zoom) { // Don't flash the next slide and have the image visible immediately
 	
 	transform: translate3d(0,0,0);
 

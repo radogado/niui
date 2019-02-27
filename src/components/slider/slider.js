@@ -9,7 +9,8 @@ var componentSlider = (function (){
 	
 	function sliderElement(e) { // Get the active slider instance
 		
-		var closest_slider_wrap = document.activeElement.closest('.n-slider--wrap');
+// 		var closest_slider_wrap = document.activeElement.closest('.n-slider--wrap');
+		var closest_slider_wrap = e.target.closest('.n-slider--wrap');
 		
 		if (closest_slider_wrap && closest_slider_wrap === focusWithin('.n-slider--wrap')) {
 	
