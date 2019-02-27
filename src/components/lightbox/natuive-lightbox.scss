@@ -109,7 +109,6 @@
 				color: #fff;
 				left: 50%;
 				transform: translateX(-50%);
-				will-change: transform; // Safari fix for disappearing while sliding
 				padding: 0 .25em;
 				background: rgba(0, 0, 0, .4);
 			
@@ -242,6 +241,12 @@
 	
 	transform: translate3d(0,0,0);
 
+}
+
+[data-active] > .n-lightbox.n-slider > * p.n-lightbox--caption {
+	
+	will-change: transform; // Safari fix for disappearing while sliding
+	
 }
 
 [data-chrome] .n-lightbox.n-slider[data-ready] > [data-active]:not(.n-lightbox--no-image):not(.n-lightbox--loaded):after {

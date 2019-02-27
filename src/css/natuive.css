@@ -1337,7 +1337,6 @@ ol.n-masonry > * {
     color: #fff;
     left: 50%;
     transform: translateX(-50%);
-    will-change: transform;
     padding: 0 .25em;
     background: rgba(0, 0, 0, 0.4); }
   .n-lightbox.n-slider > * > iframe {
@@ -1407,6 +1406,9 @@ ol.n-masonry > * {
 
 [data-active] > .n-lightbox.n-slider[data-ready] > div[data-active] > img:not(.n-lightbox--zoom) {
   transform: translate3d(0, 0, 0); }
+
+[data-active] > .n-lightbox.n-slider > * p.n-lightbox--caption {
+  will-change: transform; }
 
 [data-chrome] .n-lightbox.n-slider[data-ready] > [data-active]:not(.n-lightbox--no-image):not(.n-lightbox--loaded):after {
   animation: sk-scaleout 1.0s 9 ease-in-out; }
