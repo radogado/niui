@@ -97,9 +97,16 @@ main > 	._3\/4 > .n-slider--wrap > .n-slider.n-slider--vertical > * {
 		
 	    position: absolute;
 	    z-index: -1;
+//	    display: block; // To do: Fix. Blinks when another slide is default
 
 	}
 	
+}
+
+body:not([data-natuive-js]) #content > ._3\/4 > .n-slider--wrap > .n-slider:not([data-ready]) > :first-child {
+	
+// 	display: block;
+
 }
 
 .n-slider.n-slider--vertical > [data-active] {
@@ -183,15 +190,15 @@ main > .n-slider--wrap > .n-slider--nav a[data-active] {
 
 }
 
-body:not([data-natuive-js]) .n-slider.n-slider--vertical {
+body:not([data-natuive-js]) .n-slider.n-slider--vertical > {
 	
-	> *:not(:first-child) {
+	*:not(:first-child) {
 	
 		display: none;
 
 	}
 
-	> :target {
+	:target, .n-target {
 		
 // 		position: absolute;
 		background: #fffff5;

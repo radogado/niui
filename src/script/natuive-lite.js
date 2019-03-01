@@ -425,6 +425,28 @@ function closestElement(el, target) { // Thanks http://gomakethings.com/ditching
 
 }
 
+// Add .n-target to the :target element now, because :target is available too late, after all page content is loaded
+
+let setHashClass = () => {
+	
+	if (q('.n-target')) {
+	
+		removeClass(q('.n-target'), 'n-target');
+	
+	}
+
+	if (!!location.hash && q(location.hash)) {
+		
+		addClass(q(location.hash), 'n-target');
+		
+	}
+
+}
+
+setHashClass();
+
+window.addEventListener('hashchange', setHashClass);
+
 /* Chainable animation specified as CSS Animation */
 
 var temp = document.createElement('temp');

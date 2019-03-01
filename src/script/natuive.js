@@ -425,6 +425,28 @@ function closestElement(el, target) { // Thanks http://gomakethings.com/ditching
 
 }
 
+// Add .n-target to the :target element now, because :target is available too late, after all page content is loaded
+
+let setHashClass = () => {
+	
+	if (q('.n-target')) {
+	
+		removeClass(q('.n-target'), 'n-target');
+	
+	}
+
+	if (!!location.hash && q(location.hash)) {
+		
+		addClass(q(location.hash), 'n-target');
+		
+	}
+
+}
+
+setHashClass();
+
+window.addEventListener('hashchange', setHashClass);
+
 /* Chainable animation specified as CSS Animation */
 
 var temp = document.createElement('temp');
@@ -1636,10 +1658,12 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 	setTimeout(() => {
 		
-		if (q('.n-lightbox:target:not(.n-lightbox--inline)')) {
+		let target_el = q('.n-lightbox:target:not(.n-lightbox--inline), .n-lightbox.n-target:not(.n-lightbox--inline)');
+		
+		if (target_el) {
 			
-			addClass(q('.n-lightbox:target'), 'uri-target');
-			openLightbox(q('.n-lightbox:target > a[href]'));
+			addClass(target_el, 'uri-target');
+			openLightbox(q('.n-lightbox:target > a[href], .n-lightbox.n-target > a[href]'));
 			
 		}
 		
@@ -3304,7 +3328,7 @@ var componentSlider = (function (){
 	
 	window.addEventListener('hashchange', () => {
 		
-		let new_hash_slide = q('.n-slider > :target');
+		let new_hash_slide = q('.n-slider > :target, .n-slider > .n-target');
 		if (new_hash_slide) {
 			
 			slide(new_hash_slide.parentNode, 'index', thisIndex(new_hash_slide));		

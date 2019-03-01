@@ -828,7 +828,7 @@ var componentSlider = (function (){
 	
 	window.addEventListener('hashchange', () => {
 		
-		let new_hash_slide = q('.n-slider > :target');
+		let new_hash_slide = q('.n-slider > :target, .n-slider > .n-target');
 		if (new_hash_slide) {
 			
 			slide(new_hash_slide.parentNode, 'index', thisIndex(new_hash_slide));		

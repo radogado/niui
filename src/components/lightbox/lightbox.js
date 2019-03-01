@@ -409,10 +409,12 @@ var componentLightbox = (function (){
 	
 	setTimeout(() => {
 		
-		if (q('.n-lightbox:target:not(.n-lightbox--inline)')) {
+		let target_el = q('.n-lightbox:target:not(.n-lightbox--inline), .n-lightbox.n-target:not(.n-lightbox--inline)');
+		
+		if (target_el) {
 			
-			addClass(q('.n-lightbox:target'), 'uri-target');
-			openLightbox(q('.n-lightbox:target > a[href]'));
+			addClass(target_el, 'uri-target');
+			openLightbox(q('.n-lightbox:target > a[href], .n-lightbox.n-target > a[href]'));
 			
 		}
 		
