@@ -2696,7 +2696,7 @@ var componentSlider = (function (){
 	
 		slider.style.pointerEvents = slider.style.height = '';
 	
-	    window.addEventListener('keyup', sliderKeyboard);
+// 	    window.addEventListener('keyup', sliderKeyboard);
 	    mouseEvents(slider_wrap);
 
 		if (slider.children[index].id) {
@@ -2987,7 +2987,7 @@ var componentSlider = (function (){
 	}
 	
 	function sliderKeyboard(e) { // e.target can be either body or a slider, choose accordingly
-	
+	console.log(e.target);
 	    if (typeof e === 'undefined' || 
 
 	    	q('.n-slider--wrap[data-active]') || 
@@ -3000,20 +3000,6 @@ var componentSlider = (function (){
 	
 		var el = e.target;
 
-		var scrollable = el; // Don't slide when current element is scrollable. Check all parent nodes for scrollability – cheak each parent until body.
-		while (scrollable.nodeName !== 'BODY') {
-			
-			if (scrollable.scrollWidth > scrollable.clientWidth || scrollable.scrollHeight > scrollable.clientHeight) { 
-				
-				e.stopPropagation();
-				return;
-		
-			}
-	
-			scrollable = scrollable.parentElement;
-	
-		}
-			
 		if (!el.closest('.n-slider--wrap') && q('.n-slider--wrap')) { // Focused element is outside of any slider
 			
 		} else {
@@ -3031,30 +3017,38 @@ var componentSlider = (function (){
 		if 	(el.tagName !== 'INPUT' && el.tagName !== 'TEXTAREA' && 
 			(el = q('.n-ovrl .n-slider') || current_slider || q('.n-slider'))
 			) { // Priority: full window slider, active slider, first slider
+				
+				if (hasClass(document.activeElement, 'n-slider')) {
+					
+					el = document.activeElement;
+					
+				}
+				
+				e.stopPropagation();
+				switch (e.which) {
 	
-	        switch (e.which) {
-	
-	            case 38:
-	            	if (shouldNotSlideVertically(el)) { // Page can be scrolled by the arrow key so don't slide
-	                	
-	                	return;
-	
-	            	}
-	            case 37:
-	                slide(el, 'left');
-	                break;
-	            case 40:
-	            	if (shouldNotSlideVertically(el)) {
-	                	
-	                	return;
-	
-	            	}
-	            case 39:
-	                slide(el, 'right');
-	            default:
-	                return;
-	
-	        }
+		            case 38:
+		            	if (shouldNotSlideVertically(el)) { // Page can be scrolled by the arrow key so don't slide
+		                	
+		                	return;
+		
+		            	}
+		            case 37:
+		                slide(el, 'left');
+		                break;
+		            case 40:
+		            	if (shouldNotSlideVertically(el)) {
+		                	
+		                	return;
+		
+		            	}
+		            case 39:
+		                slide(el, 'right');
+		                break;
+		            default:
+		                return;
+		
+		    }
 			
 		}
 	
@@ -3081,6 +3075,7 @@ var componentSlider = (function (){
 		observerOff();
 		
 	    addClass(el, 'n-slider');
+		el.setAttribute('tabindex', 0); // For keyboard events
 	    makeReady(el);
 	
 		if (hasClass(el, 'n-full-window')) {
@@ -3176,6 +3171,18 @@ var componentSlider = (function (){
 		    }
 		
 		}
+
+		let slideKeyboardHandler = (e) => {
+
+			var scrollable = e.target; // Don't slide when current element is scrollable
+			if (scrollable.scrollWidth > scrollable.clientWidth || scrollable.scrollHeight > scrollable.clientHeight) { 
+				
+				e.stopPropagation();
+				return;
+		
+			}
+
+        };
 		
 	    for (var i = 0; i < el.children.length; i++) {
 
@@ -3198,6 +3205,9 @@ var componentSlider = (function (){
 	        
 	        cancelTouchEvent(slider_nav.children[i]);
 	        
+	        el.children[i].setAttribute('tabindex', 0);
+	        el.children[i].addEventListener('keyup', slideKeyboardHandler);
+		        
 	    }
 	    
 	    // Generate arrows
@@ -3321,7 +3331,7 @@ var componentSlider = (function (){
 		
 		});
 		
-	    window.addEventListener('keyup', sliderKeyboard);
+// 	    window.addEventListener('keyup', sliderKeyboard);
 
 	};
 	registerComponent('slider', init);
