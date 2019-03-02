@@ -196,7 +196,7 @@ var componentSlider = (function (){
 	
 		slider.style.pointerEvents = slider.style.height = '';
 	
-// 	    window.addEventListener('keyup', sliderKeyboard);
+	    window.addEventListener('keyup', sliderKeyboard);
 	    mouseEvents(slider_wrap);
 
 		if (slider.children[index].id) {
@@ -673,8 +673,13 @@ var componentSlider = (function (){
 		}
 
 		let slideKeyboardHandler = (e) => {
-
+			
 			var scrollable = e.target; // Don't slide when current element is scrollable
+			if (hasClass(scrollable.parentNode, '.n-slider--overlay')) {
+				
+				return;
+				
+			}
 			if (scrollable.scrollWidth > scrollable.clientWidth || scrollable.scrollHeight > scrollable.clientHeight) { 
 				
 				e.stopPropagation();
@@ -831,7 +836,7 @@ var componentSlider = (function (){
 		
 		});
 		
-// 	    window.addEventListener('keyup', sliderKeyboard);
+	    window.addEventListener('keyup', sliderKeyboard);
 
 	};
 	registerComponent('slider', init);
