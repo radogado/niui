@@ -112,18 +112,6 @@ var componentSlider = (function (){
 	
 	function initScroll(e, delta) { // Scroll happens
 	
-	    var timeNow = new Date().getTime();
-	
-	    // Cancel scroll if currently animating or within quiet period – don't slide again automatically after a slide
-	    if ((timeNow - last_slide_time) < slide_duration * 2000 /* || hasClass(q('html'), 'sliding_now') */) {
-	
-	        stopEvent(e);
-			return;
-	
-	    }
-	
-		last_slide_time = timeNow;
-	
 	    slide(sliderElement(e), delta < 0 ? 'right' : 'left');
 	
 	}
@@ -132,16 +120,32 @@ var componentSlider = (function (){
 	
 		var el = e.target;
 		
-		if (el.closest('.n-slider--nav')) { // Allow scrolling the nav bar
+		let current_slider_wrap = sliderElement(e).closest('.n-slider--wrap');
+
+		if (el.closest('.n-slider--nav') || !!current_slider_wrap.dataset.active) { // Allow scrolling the nav bar / skip an already sliding slider
 						
+			e.preventDefault();
+	        stopEvent(e);
 			return;
 	
 		}
 	
+	    var timeNow = new Date().getTime();
+	
+	    // Cancel scroll if currently animating or within quiet period – don't slide again automatically after a slide
+		let duration = sliderElement(e).getAttribute('data-duration') || slide_duration;
+	    if ((timeNow - last_slide_time) < (duration * 1000 + 200)) {
+			
+			e.preventDefault();
+	        stopEvent(e);
+			return;
+	
+	    }
+	
 	    var deltaX = (e.deltaX * -10) || e.wheelDeltaX || -e.detail; // Firefox provides 'detail' with opposite value
 	    var deltaY = (e.deltaY * -10) || e.wheelDeltaY || -e.detail;
 	/* To do: stop generating events while sliding */	
-	    if (/* !hasClass(q('html'), 'sliding_now') && */ Math.abs(hasClass(sliderElement(e), 'n-slider--vertical') ? deltaY : deltaX) > 50) {
+	    if (Math.abs(hasClass(sliderElement(e), 'n-slider--vertical') ? deltaY : deltaX) > 50) {
 	
 	        e.preventDefault();
 	        initScroll(e, (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY);
@@ -198,6 +202,8 @@ var componentSlider = (function (){
 	
 	    window.addEventListener('keyup', sliderKeyboard);
 	    mouseEvents(slider_wrap);
+	    var timeNow = new Date().getTime();
+		last_slide_time = timeNow;
 
 		if (slider.children[index].id) {
 
