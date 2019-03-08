@@ -110,46 +110,28 @@ var componentSlider = (function (){
 	
 	}
 	
-	function initScroll(e, delta) { // Scroll happens
-	
-	    slide(sliderElement(e), delta < 0 ? 'right' : 'left');
-	
-	}
-	
+	var scroll_timestamp = 0;
+
 	function mouseWheelHandler(e) {
 	
-		var el = e.target;
+		let el = e.target;
 		
-		let current_slider_wrap = sliderElement(e).closest('.n-slider--wrap');
+		let current_slider_wrap = el.closest('.n-slider--wrap');
+		let current_slider = el.closest('.n-slider');
 
-		if (el.closest('.n-slider--nav') || !!current_slider_wrap.dataset.active) { // Allow scrolling the nav bar / skip an already sliding slider
-						
-			e.preventDefault();
-	        stopEvent(e);
-			return;
+		if ((e.timeStamp - scroll_timestamp > 1666) && current_slider && !el.closest('.n-slider--nav') && !current_slider_wrap.getAttribute('data-active')) {
+		
+		    var deltaX = (e.deltaX * -10) || e.wheelDeltaX || -e.detail; // Firefox provides 'detail' with opposite value
+		    var deltaY = (e.deltaY * -10) || e.wheelDeltaY || -e.detail;
 	
-		}
+		    if (Math.abs(hasClass(current_slider, 'n-slider--vertical') ? deltaY : deltaX) > 50) {
 	
-	    var timeNow = new Date().getTime();
-	
-	    // Cancel scroll if currently animating or within quiet period – don't slide again automatically after a slide
-		let duration = sliderElement(e).getAttribute('data-duration') || slide_duration;
-	    if ((timeNow - last_slide_time) < (duration * 1000 + 200)) {
-			
-			e.preventDefault();
-	        stopEvent(e);
-			return;
-	
-	    }
-	
-	    var deltaX = (e.deltaX * -10) || e.wheelDeltaX || -e.detail; // Firefox provides 'detail' with opposite value
-	    var deltaY = (e.deltaY * -10) || e.wheelDeltaY || -e.detail;
-	/* To do: stop generating events while sliding */	
-	    if (Math.abs(hasClass(sliderElement(e), 'n-slider--vertical') ? deltaY : deltaX) > 50) {
-	
-	        e.preventDefault();
-	        initScroll(e, (Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY);
-	
+				scroll_timestamp = e.timeStamp;
+		        e.stopPropagation();
+				slide(current_slider, ((Math.abs(deltaX) > Math.abs(deltaY)) ? deltaX : deltaY) < 0 ? 'right' : 'left');
+		
+			}
+		
 		}
 	    
 	}
@@ -434,7 +416,7 @@ var componentSlider = (function (){
 		function slideEndHandler(e) { // On slide end
 		
 // 			slider.children[index].style.cssText = slider.children[old_index].style.cssText = '';
-			
+
 			delete slider_wrap.dataset.active;
 			delete slider.children[old_index].dataset.active;
 
@@ -493,7 +475,7 @@ var componentSlider = (function (){
 	}
 	
 	function sliderKeyboard(e) { // e.target can be either body or a slider, choose accordingly
-	console.log(e.target);
+
 	    if (typeof e === 'undefined' || 
 
 	    	q('.n-slider--wrap[data-active]') || 
