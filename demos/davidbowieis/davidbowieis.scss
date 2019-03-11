@@ -205,7 +205,17 @@ a[href].n-btn:hover {
 
 }
 
-@media (max-width: 600px) {
+img[src='davidbowiecoming2.png'] {
+
+	height: 72px; 
+	margin: 0 auto; 
+	padding: 1em; 
+	display: block;
+	box-sizing: border-box;
+ 
+}
+ 
+@media (max-width: 599.9px) {
 
 	.banner-bg {	
 
@@ -223,6 +233,13 @@ a[href].n-btn:hover {
 		
 		margin: 0;
 	
+	}
+
+	img[src='davidbowiecoming2.png'] {
+		
+		height: auto;
+		max-width: 100%;	
+	 
 	}
 
 }

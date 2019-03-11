@@ -39,7 +39,7 @@ body {
 		border: 1px solid;
 		border-radius: .25em;
 		background-color: #eecf3f;
-		margin: 1em 0;
+		margin: 0;
 	
 	}
 	
@@ -88,7 +88,7 @@ body {
 
 	.n-contain > .n-row {
 		
-		margin: 1em 0 2em 0;
+		margin: 0 0 2em 0;
 	
 	}
 	
@@ -122,6 +122,12 @@ body {
 		
 		border-bottom: 1px solid;
 	
+	}
+	
+	._1\/5 {
+		
+		    margin-top: 3em;
+		
 	}
 
 }
@@ -239,7 +245,7 @@ footer .about {
 
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 599.9px) {
 	
 	header nav.n-nav.n-drop {
 		
@@ -274,6 +280,10 @@ footer .about {
 		
 	}
 
+	.n-banner .n-slider > div {
+		
+		margin-top: 5.6em;		
+		
+	}
+
 }
-
-

@@ -621,5 +621,18 @@ ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li {
 		width: 100%;
 			
 	}
+	
+	.n-banner img {
+		
+		max-width: 100%;
+		height: auto;
+
+	}
+
+	.n-fold .n-fold--label {
+		
+		font-size: 1rem;
+		
+	}
 
 }
