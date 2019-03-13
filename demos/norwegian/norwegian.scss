@@ -316,12 +316,6 @@ form.n-form.n-form--wide > ._1\/1 {
 	
 	}
 
-	a[href]:first-of-type {
-		
-		margin-left: 1em;
-	
-	}
-	
 	a[href].n-logo {
 		
 		margin-right: 0;
@@ -353,15 +347,17 @@ form.n-form.n-form--wide > ._1\/1 {
 
 }
 
-@media (max-width: 600px) {
+@media (min-width: 600px) {
 	
-/*
-	header.n-row {
+	.n-header a[href]:first-of-type {
 		
-		display: none;
-		
+		margin-left: 1em;
+	
 	}
-*/
+	
+}
+
+@media (max-width: 599.9px) {
 	
 	.n-banner {
 		
@@ -393,6 +389,21 @@ form.n-form.n-form--wide > ._1\/1 {
 		padding: 1em;
 		width: 100%;
 		
+	}
+
+	.n-header a[href].n-logo {
+	
+	    margin-right: 0;
+	    width: 100vw;
+	    
+	    img {
+		    
+		    width: 100%;
+    margin: 0;
+    padding: .5em;
+    display: block;
+	    }
+	
 	}
 
 }

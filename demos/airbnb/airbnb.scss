@@ -26,10 +26,14 @@ footer ul.n-list li + li {
 
 }
 
-.n-banner {
-	
-	padding: 7em 0;
-	
+@media (min-width: 600px) {
+
+	.n-banner {
+		
+		padding: 7em 0;
+		
+	}
+
 }
 
 .n-banner h1, .n-slider h2 {

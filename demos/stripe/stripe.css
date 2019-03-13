@@ -411,4 +411,6 @@ nav.n-nav.n-drop ul li li a {
   #app-illustrations {
     display: none; }
   .n-slider.n-slider--vertical[data-ready] > * {
-    padding: 0; } }
+    padding: 0; }
+  header .n-fold--content {
+    width: 100vw; } }

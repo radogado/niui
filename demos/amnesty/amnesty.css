@@ -98,4 +98,6 @@ footer .n-row {
   .n-banner .n-pad {
     padding: 0; }
   main .n-row {
-    padding: 0 !important; } }
+    padding: 0 !important; }
+  .n-fold.n-fold--mobile > .n-fold--label {
+    margin: 0 auto 0 0; } }

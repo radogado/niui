@@ -14,8 +14,9 @@ footer ul.n-list li + li {
   background-size: cover;
   color: #fff; }
 
-.n-banner {
-  padding: 7em 0; }
+@media (min-width: 600px) {
+  .n-banner {
+    padding: 7em 0; } }
 
 .n-banner h1, .n-slider h2 {
   text-transform: uppercase;
