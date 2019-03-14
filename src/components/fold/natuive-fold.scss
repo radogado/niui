@@ -315,6 +315,13 @@ _:-ms-input-placeholder, :root .n-fold > input[type=checkbox] {
 	
 		}
 	
+		> input.n-trigger {
+			
+			width: 4em;
+			height: 4em;
+	
+		}
+	
 		&:not([aria-expanded]) .n-fold--content {
 		
 			max-height: 0;

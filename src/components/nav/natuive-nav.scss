@@ -530,11 +530,13 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 
 	}
 
+/*
 	.n-drop li > input, .n-drop li[aria-haspopup]:before {
 		
 		-webkit-mask-position-y: .75em;		
 		
 	}
+*/
 	
 	html:not([data-natuive-js]) .n-drop {
 		

@@ -408,6 +408,9 @@ _:-ms-input-placeholder, :root .n-fold > input[type=checkbox] {
     height: 3em;
     padding: 0;
     border: none; }
+  .n-fold.n-fold--mobile > input.n-trigger {
+    width: 4em;
+    height: 4em; }
   .n-fold.n-fold--mobile:not([aria-expanded]) .n-fold--content {
     max-height: 0;
     max-width: 0; }
@@ -1977,8 +1980,7 @@ main .n-nav ul {
   .n-drop ul li:not([aria-expanded]) > ul {
     position: static;
     width: calc(100% + 3em);
-    transition: max-height .2s ease-in-out;
-    overflow: hidden; }
+    transition: max-height .2s ease-in-out; }
   .n-drop ul ul {
     position: static;
     width: calc(100% + 3em);
@@ -1996,9 +1998,13 @@ main .n-nav ul {
   .n-drop ul li[aria-haspopup][aria-expanded]:before {
     -webkit-mask-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(0) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A"); }
 
-  .n-drop li > input, .n-drop li[aria-haspopup]:before {
-    -webkit-mask-position-y: .75em; }
-
+  /*
+  	.n-drop li > input, .n-drop li[aria-haspopup]:before {
+  		
+  		-webkit-mask-position-y: .75em;		
+  		
+  	}
+  */
   html:not([data-natuive-js]) .n-drop {
     width: 100%; }
     html:not([data-natuive-js]) .n-drop ul li {
