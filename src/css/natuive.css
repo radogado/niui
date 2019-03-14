@@ -1805,10 +1805,7 @@ main .n-nav ul {
     padding: 0;
     position: absolute;
     left: 0;
-    top: 100%;
-    transition: transform .2s ease-in-out;
-    transform-origin: top;
-    transform: scaleY(0); }
+    top: 100%; }
   .n-drop ul ul ul {
     margin-left: 100%;
     top: 0; }
@@ -1854,12 +1851,7 @@ main .n-nav ul {
     opacity: 1;
     z-index: 2;
     background-color: #fff;
-    background-color: var(--control-bg, #fff);
-    transform: scaleY(1); }
-    .n-drop ul li > :checked ~ ul ul, .n-drop :focus ~ ul ul,
-    .n-drop a:focus ~ ul ul, .n-drop ul li[aria-expanded] > ul ul, .n-drop li li[aria-expanded] > ul ul, .n-drop li li:not(:focus) :checked ~ ul ul {
-      transform: scaleX(1);
-      transform-origin: left; }
+    background-color: var(--control-bg, #fff); }
   .n-drop ul li[aria-expanded] > ul, .n-drop li li[aria-expanded] > ul, .n-drop li li:not(:focus) :checked ~ ul {
     z-index: 2; }
   .n-drop li > input {
@@ -1913,6 +1905,17 @@ main .n-nav ul {
   .n-drop li li[aria-haspopup]:before {
     content: '→' !important; } }
 @media (min-width: 600px) {
+  .n-drop ul ul {
+    transition: transform .2s ease-in-out;
+    transform-origin: top;
+    transform: scaleY(0); }
+  .n-drop ul li > :checked ~ ul, .n-drop :focus ~ ul,
+  .n-drop a:focus ~ ul, .n-drop ul li[aria-expanded] > ul, .n-drop li li[aria-expanded] > ul, .n-drop li li:not(:focus) :checked ~ ul {
+    transform: scaleY(1); }
+    .n-drop ul li > :checked ~ ul ul, .n-drop :focus ~ ul ul,
+    .n-drop a:focus ~ ul ul, .n-drop ul li[aria-expanded] > ul ul, .n-drop li li[aria-expanded] > ul ul, .n-drop li li:not(:focus) :checked ~ ul ul {
+      transform: scaleX(1);
+      transform-origin: left; }
   .n-drop li li[aria-haspopup]:before, .n-drop li li > input {
     -webkit-mask-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(90) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A"); }
 
@@ -1973,7 +1976,9 @@ main .n-nav ul {
 @media (max-width: 599.9px) {
   .n-drop ul li:not([aria-expanded]) > ul {
     position: static;
-    width: calc(100% + 3em); }
+    width: calc(100% + 3em);
+    transition: max-height .2s ease-in-out;
+    overflow: hidden; }
   .n-drop ul ul {
     position: static;
     width: calc(100% + 3em);

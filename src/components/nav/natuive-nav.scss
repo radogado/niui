@@ -135,14 +135,11 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 	}
 	
 	ul ul {
-		
+
 		padding: 0;
 		position: absolute;
 		left: 0;
 		top: 100%;
-		transition: transform .2s ease-in-out;
-	    transform-origin: top;
-		transform: scaleY(0);
 	
 	}
 	
@@ -237,15 +234,6 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 		z-index: 2;
 		background-color: #fff;
 		background-color: var(--control-bg, #fff);
-
-		transform: scaleY(1);
-		
-		ul {
-			
-			transform: scaleX(1);
-			transform-origin: left;
-			
-		}
 	
 	}
 	
@@ -351,14 +339,40 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 	
 @media (min-width: $screen-narrow) {
 
-	.n-drop li li {
+	.n-drop {
 		
-		&[aria-haspopup]:before, > input {
+		ul ul {
 	
-		-webkit-mask-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(90) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A");
-    
+			transition: transform .2s ease-in-out;
+		    transform-origin: top;
+			transform: scaleY(0);
+		
 		}
-
+	
+		ul li > :checked ~ ul, :focus ~ ul, 
+		a:focus ~ ul, ul li[aria-expanded] > ul, li li[aria-expanded] > ul, li li:not(:focus) :checked ~ ul {
+			
+			transform: scaleY(1);
+			
+			ul {
+				
+				transform: scaleX(1);
+				transform-origin: left;
+				
+			}
+		
+		}
+		
+		li li {
+			
+			&[aria-haspopup]:before, > input {
+		
+			-webkit-mask-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(90) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A");
+	    
+			}
+	
+		}
+	
 	}
 
 	html:not(.can-touch) { // Hover rules here
@@ -470,6 +484,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 			
 			position: static;
 		    width: calc(100% + 3em);
+		    transition: max-height .2s ease-in-out;
 		
 		}
 
