@@ -1396,20 +1396,17 @@ main .n-nav ul {
       margin: 0; }
   .n-drop ul li {
     width: 100%; }
-    .n-drop ul li > input, .n-drop ul li[aria-haspopup] {
-      background-position-y: 1.5em; }
     .n-drop ul li[aria-haspopup] {
       padding-right: 3em; }
   .n-drop ul li[aria-haspopup][aria-expanded]:before {
     -webkit-mask-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(0) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A"); }
 
-  /*
-  	.n-drop li > input, .n-drop li[aria-haspopup]:before {
-  		
-  		-webkit-mask-position-y: .75em;		
-  		
-  	}
-  */
+  .n-drop li[aria-haspopup]:before {
+    -webkit-mask-position-y: .75em; }
+
+  .n-drop li > input {
+    -webkit-mask-position-y: 1.15em; }
+
   html:not([data-natuive-js]) .n-drop {
     width: 100%; }
     html:not([data-natuive-js]) .n-drop ul li {

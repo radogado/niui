@@ -508,12 +508,6 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 			
 			width: 100%;
 		
-			> input, &[aria-haspopup] {
-				
-				background-position-y: 1.5em;
-			
-			}
-		
 			&[aria-haspopup] {
 				
 				padding-right: 3em;
@@ -530,13 +524,17 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 
 	}
 
-/*
-	.n-drop li > input, .n-drop li[aria-haspopup]:before {
+	.n-drop li[aria-haspopup]:before {
 		
 		-webkit-mask-position-y: .75em;		
 		
 	}
-*/
+	
+	.n-drop li > input {
+		
+		-webkit-mask-position-y: 1.15em;		
+		
+	}
 	
 	html:not([data-natuive-js]) .n-drop {
 		
