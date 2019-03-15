@@ -64,12 +64,6 @@
 			
 	function dropNavFocus(e) {
 
-		if (hasClass(q('html'), 'can-touch') && typeof e.target.href === 'string' && e.target.href.length > 0) {
-			
-			return;
-			
-		}
-
 		// Close focused third level child when focus moves to another top-level item
 		
 		var el = e.target.closest('.n-nav > ul > li');
@@ -213,13 +207,30 @@
 
 					if (el.parentElement.getAttribute('aria-expanded')) { // Click on an open element which isn't in focus
 						
-						el.parentElement.removeAttribute('aria-expanded');
-						document.activeElement.blur();
-						el.querySelectorAll('[aria-expanded]').forEach((item) => {
+						let item = el.parentElement.querySelector('ul');
+
+						if (getComputedStyle(item).getPropertyValue('position') === 'static') { // Mobile
+
+							item.style.overflow = 'hidden';
+								item.parentElement.setAttribute('aria-expanded', true);
+							animate(item, `0% { height: ${item.scrollHeight}px; } 100% { height: 0 }`, .2, () => { 
+
+								item.removeAttribute('style'); 
+								item.parentElement.removeAttribute('aria-expanded');
+
+							});
+
+						} else {
+
+							el.parentElement.removeAttribute('aria-expanded');
+							document.activeElement.blur();
+							el.querySelectorAll('[aria-expanded]').forEach((item) => {
+								
+								item.removeAttribute('aria-expanded');
+								
+							});
 							
-							item.removeAttribute('aria-expanded');
-							
-						});
+						}
 						
 					} else {
 						
@@ -240,8 +251,30 @@
 							
 							
 						});
-						el.focus();
-						el.parentElement.setAttribute('aria-expanded', true);
+
+						if (hasClass(q('html'), 'can-touch') && typeof e.target.href === 'string' && e.target.href.length > 0) {
+
+							return;
+
+						}
+
+						let item = el.parentElement.querySelector('ul');
+						if (getComputedStyle(item).getPropertyValue('position') === 'static') { // Mobile
+
+							item.style.overflow = 'hidden';
+							item.parentElement.setAttribute('aria-expanded', true);
+							animate(item, `0% { height: 0; } 100% { height: ${item.scrollHeight}px }`, .2, () => { 
+
+								item.removeAttribute('style'); 
+
+							});
+
+						} else {
+
+							el.focus();
+							el.parentElement.setAttribute('aria-expanded', true);
+							
+						}
 
 					}
 				
@@ -255,34 +288,88 @@
 				e.stopPropagation();
 				// To do: also ancestors, also close when open
 				let el = e.target;
-				
-				if (el.getAttribute('aria-expanded')) {
+
+				let item = el.parentElement.querySelector('ul');
+				if (getComputedStyle(item).getPropertyValue('position') === 'static') { // Mobile
+
+					item.style.overflow = 'hidden';
 					
-					if (el.querySelector('a:focus')) {
+					if (item.parentNode.hasAttribute('aria-expanded')) {
 						
-// 						el.querySelector('a:focus').blur();
+						animate(item, `0% { height: ${item.scrollHeight}px } 100% { height: 0 }`, .2, () => {
+	
+							item.removeAttribute('style'); 
+							item.parentElement.removeAttribute('aria-expanded');
+	
+						});
 						
 					} else {
-
-						el.removeAttribute('aria-expanded');
-
-					}
 					
-				} else {
-					
-					[].slice.call(el.parentElement.children).forEach((item) => {
+						item.parentElement.setAttribute('aria-expanded', true);
+						animate(item, `0% { height: 0; } 100% { height: ${item.scrollHeight}px }`, .2, () => { 
+	
+							item.removeAttribute('style'); 
+	
+						});
 						
-						item.removeAttribute('aria-expanded');
-						let old_item_open_child = item.querySelector('[aria-expanded]');
-						if (old_item_open_child) {
-							
-							old_item_open_child.removeAttribute('aria-expanded');
+					}
 
+				} else {
+
+					if (el.getAttribute('aria-expanded')) {
+						
+						if (el.querySelector('a:focus')) {
+							
+	// 						el.querySelector('a:focus').blur();
+							
+						} else {
+	
+							if (getComputedStyle(item).getPropertyValue('position') === 'static') { // Mobile
+			
+								item.style.overflow = 'hidden';
+								animate(item, `0% { height: ${item.scrollHeight}px } 100% { height: 0 }`, .2, () => {
+			
+									item.removeAttribute('style'); 
+									item.parentElement.removeAttribute('aria-expanded');
+			
+								});
+								
+							} else {
+								
+								el.removeAttribute('aria-expanded');
+							
+							}
+	
+						}
+						
+					} else {
+						
+						[].slice.call(el.parentElement.children).forEach((item) => {
+							
+							item.removeAttribute('aria-expanded');
+							let old_item_open_child = item.querySelector('[aria-expanded]');
+							if (old_item_open_child) {
+								
+								old_item_open_child.removeAttribute('aria-expanded');
+	
+							}
+						
+						});
+	
+						el.setAttribute('aria-expanded');
+
+						if (getComputedStyle(item).getPropertyValue('position') === 'static') { // Mobile
+		
+							item.style.overflow = 'hidden';
+							animate(item, `0% { height: 0 } 100% { height: ${item.scrollHeight}px }`, .2, () => {
+		
+								item.removeAttribute('style'); 
+		
+							});
+							
 						}
 					
-					});
-
-					el.setAttribute('aria-expanded', true);
+					}
 				
 				}
 				
