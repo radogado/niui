@@ -113,7 +113,7 @@
 		
 	}
 	
-	window.addEventListener('click', closeFoldClickOutside); // Close all Fold elements when clicking outside of them
+	window.addEventListener('mousedown', closeFoldClickOutside); // Close all Fold elements when clicking outside of them
 	
 	window.addEventListener('touchend', closeFoldClickOutside); // Close all Fold elements when clicking outside of them
 		

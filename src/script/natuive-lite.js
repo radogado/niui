@@ -990,18 +990,29 @@ qa('a[href^="#"]').forEach((el) => {
 	
 		var this_nav = e.target.closest('.n-nav');
 		
-		if (!closestElement(e.relatedTarget, this_nav)) { // if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
+		let el = e.target;
+		let item = el.tagName === 'LI' ? el.querySelector('ul') : el.parentElement.querySelector('ul');
+
+		if (getComputedStyle(item).getPropertyValue('position') !== 'absolute') { // Mobile
 			
-			this_nav.querySelectorAll('li').forEach((el) => {
-	
-				el.removeAttribute(aria_expanded);
+		
+		} else {
+
+			if (!closestElement(e.relatedTarget, this_nav)) { // if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
 				
-			});
-			return;
-			
+				this_nav.querySelectorAll('li').forEach((el) => {
+		
+					el.removeAttribute(aria_expanded);
+					
+				});
+				return;
+				
+			}
+		
 		}
+
 		// Close neighboring parent nav's sub navs.
-		var el = e.target;
+		el = e.target;
 		var target_parent = el.closest('[aria-haspopup]');
 		if (target_parent) { // Skip if it's a top-level-only item
 			
@@ -1169,9 +1180,9 @@ qa('a[href^="#"]').forEach((el) => {
 
 					if (el.parentElement.getAttribute('aria-expanded')) { // Click on an open element which isn't in focus
 						
-						let item = el.parentElement.querySelector('ul');
+						let item = el.tagName === 'LI' ? el.querySelector('ul') : el.parentElement.querySelector('ul');
 
-						if (getComputedStyle(item).getPropertyValue('position') === 'static') { // Mobile
+						if (getComputedStyle(item).getPropertyValue('position') !== 'absolute') { // Mobile
 
 							item.style.overflow = 'hidden';
 								item.parentElement.setAttribute('aria-expanded', true);
@@ -1220,8 +1231,8 @@ qa('a[href^="#"]').forEach((el) => {
 
 						}
 
-						let item = el.parentElement.querySelector('ul');
-						if (getComputedStyle(item).getPropertyValue('position') === 'static') { // Mobile
+						let item = el.tagName === 'LI' ? el.querySelector('ul') : el.parentElement.querySelector('ul');
+						if (getComputedStyle(item).getPropertyValue('position') !== 'absolute') { // Mobile
 
 							item.style.overflow = 'hidden';
 							item.parentElement.setAttribute('aria-expanded', true);
@@ -1251,8 +1262,8 @@ qa('a[href^="#"]').forEach((el) => {
 				// To do: also ancestors, also close when open
 				let el = e.target;
 
-				let item = el.parentElement.querySelector('ul');
-				if (getComputedStyle(item).getPropertyValue('position') === 'static') { // Mobile
+				let item = el.tagName === 'LI' ? el.querySelector('ul') : el.parentElement.querySelector('ul');
+				if (getComputedStyle(item).getPropertyValue('position') !== 'absolute') { // Mobile
 
 					item.style.overflow = 'hidden';
 					
@@ -1286,7 +1297,7 @@ qa('a[href^="#"]').forEach((el) => {
 							
 						} else {
 	
-							if (getComputedStyle(item).getPropertyValue('position') === 'static') { // Mobile
+							if (getComputedStyle(item).getPropertyValue('position') !== 'absolute') { // Mobile
 			
 								item.style.overflow = 'hidden';
 								animate(item, `0% { height: ${item.scrollHeight}px } 100% { height: 0 }`, .2, () => {
@@ -1318,9 +1329,9 @@ qa('a[href^="#"]').forEach((el) => {
 						
 						});
 	
-						el.setAttribute('aria-expanded');
+						el.setAttribute('aria-expanded', true);
 
-						if (getComputedStyle(item).getPropertyValue('position') === 'static') { // Mobile
+						if (getComputedStyle(item).getPropertyValue('position') !== 'absolute') { // Mobile
 		
 							item.style.overflow = 'hidden';
 							animate(item, `0% { height: 0 } 100% { height: ${item.scrollHeight}px }`, .2, () => {
