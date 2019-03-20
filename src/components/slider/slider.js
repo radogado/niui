@@ -512,7 +512,12 @@ var componentSlider = (function (){
 					
 				}
 				
-				e.stopPropagation();
+				if (e.key !== 'Escape') {
+				
+					e.stopPropagation();
+				
+				}
+				
 				switch (e.which) {
 	
 		            case 38:
@@ -663,7 +668,7 @@ var componentSlider = (function (){
 		let slideKeyboardHandler = (e) => {
 			
 			var scrollable = e.target; // Don't slide when current element is scrollable
-			if (hasClass(scrollable.parentNode, '.n-slider--overlay')) {
+			if (e.key === 'Escape' || hasClass(scrollable.parentNode, '.n-slider--overlay')) {
 				
 				return;
 				
