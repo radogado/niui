@@ -575,12 +575,13 @@ a.backtotop[href] {
       margin-bottom: 0.5em; }
     .n-form fieldset[disabled] {
       display: none; }
-  .n-form input[type=submit], .n-form button[type=submit] {
+  .n-form input[type=submit], .n-form button {
     width: auto;
     min-width: 0;
     padding: 0 1em;
     min-height: 2.50005em;
-    text-align: start; }
+    text-align: start;
+    font-size: 1.2em; }
   .n-form.n-form--wide textarea, .n-form.n-form--mast textarea {
     margin: -0.75em 0 0.75em 0; }
   .n-form.n-form--wide input[type=submit], .n-form.n-form--wide button[type=submit] {
