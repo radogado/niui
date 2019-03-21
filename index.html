@@ -13,6 +13,12 @@
 	<link rel=styleSheet href=src/css/guide.css type=text/css media=screen>
 	<link rel=styleSheet href=src/css/prism.css type=text/css media=screen>
 	
+	<script type="text/javascript">
+		
+		document.querySelector('html').classList += !location.hash || location.hash === '#home' ? ' start-from-home' : '';
+		
+	</script>
+	
 </head>
 	
 <body dir=ltr class="n-type">

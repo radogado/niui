@@ -45,6 +45,12 @@ main .nav-column {
 
 }
 
+.start-from-home .n-slider.n-slider--vertical:not([data-ready]) > :first-child {
+	
+	visibility: visible;
+	
+}
+
 @-moz-document url-prefix() {
 
 	main .nav-column .n-slider--nav.n-row:after { // FF & Edge fix
@@ -206,6 +212,7 @@ body:not([data-natuive-js]) .n-slider.n-slider--vertical > {
 	    overflow: auto;
 	    z-index: 1;
 	    display: block;
+	    visibility: visible;
 	    max-width: 100%;
 		
 	}
