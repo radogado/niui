@@ -4114,11 +4114,9 @@
 </div>
 </textarea>
 	<br>
-	<button class="n-btn" onclick="nui.addComponent(this.parentNode.parentNode.parentNode.parentNode, this.parentNode.querySelector('textarea').value);">Add the above component</button>
+	<button class="n-btn" onclick="nui.addComponent(document.getElementById('sandbox'), this.parentNode.querySelector('textarea').value); return false;">Add the above component</button>
 
 </form>
-
-
 	
 <form class="n-form">	
 	
@@ -4130,12 +4128,14 @@
 </div>
 </textarea>
 	<br>
-	<button class="n-btn" onclick="nui.addComponent(this.parentNode.parentNode.parentNode.parentNode, this.parentNode.querySelector('textarea').value);">Add the above component</button>
+	<button class="n-btn" onclick="nui.addComponent(document.getElementById('sandbox'), this.parentNode.querySelector('textarea').value); return false;">Add the above component</button>
 	
 </form>
 
 
 </div>
+
+<div id=sandbox></div>
 
 							</div>
 							

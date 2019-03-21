@@ -635,7 +635,7 @@ function focusWithin(selector) {
 
 function addComponent(host, el) {
 	
-	host.insertAdjacentHTML('beforeend', el);
+	host.insertAdjacentHTML('afterbegin', el);
 // 	initComponents(host); // No need, observer does it automatically
 
 }
