@@ -40,7 +40,8 @@ main .nav-column {
 
 .n-slider.n-slider--vertical:not([data-ready]) > * {
 
-    display: none;
+//     display: none;
+	visibility: hidden; // Because display none breaks horizontal accordion as it can't get its actual width
 
 }
 
