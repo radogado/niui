@@ -699,7 +699,7 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form--wide .n-
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   text-align: center; }
-  .n-row > div > img, .n-row > div > div > img, .n-row > div > picture, .n-row > div > div > picture, .n-row > div > picture > img, .n-row > div > div > picture > img {
+  .n-row img, .n-row picture {
     max-width: 100%;
     height: auto;
     border: none;
