@@ -1511,10 +1511,19 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 			
 			let target_width = typeof el.dataset.width === 'undefined' ? '' : `width=${el.dataset.width}`;
 			let target_height = typeof el.dataset.height === 'undefined' ? '' : `height=${el.dataset.height}`;
+			
+			let aspect = aspect_tail = '';
+			
+			if (!!target_width && !!target_height) {
+				
+				aspect = `<span class=n-aspect style="--width: ${el.dataset.width}; --height: ${el.dataset.height}">`;
+				aspect_tail = '</span>';
+				
+			}
 					    
 		    images += el.querySelector('img') ? 
 		    
-		    `<div><img data-src="${url}" title="" data-link="${slide_link}" ${target_width} ${target_height}>${(caption ? ('<p class=n-lightbox--caption>' + caption + '</p>') : '') + link_element}</div>`
+		    `<div>${aspect}<img data-src="${url}" title="" data-link="${slide_link}" ${target_width} ${target_height}>${aspect_tail}${(caption ? ('<p class=n-lightbox--caption>' + caption + '</p>') : '') + link_element}</div>`
 		    
 		    :
 		    
