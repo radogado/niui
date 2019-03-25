@@ -369,6 +369,11 @@ var componentSlider = (function (){
 
 			var next_height =  (!hasClass(slider, 'n-slider--overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'n-aspect')) ? (`-${height_change_number}px`) : '-100%';
 		    translate_from = `translate3d(0,${index<old_index ? ('-' + computed_height + 'px') : 0},0)`;
+		    if (hasClass(slider, 'n-tabs') && computed_height < original_slider_height) {
+				
+				slider.style.overflow = 'hidden';
+
+		    }
 			
 /*
 		    var difference = Math.abs(computed_height - computed_height_old);
@@ -419,6 +424,7 @@ var componentSlider = (function (){
 
 			delete slider_wrap.dataset.active;
 			delete slider.children[old_index].dataset.active;
+			slider.style.overflow = '';
 
 			[slider.children[index], slider.children[old_index]].forEach((el) => {
 				
