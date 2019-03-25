@@ -1,2 +1,2 @@
-require('./src/css/natuive.css');
-require('./src/script/natuive.js');
+require('./src/css/natuive-extra.css');
+require('./src/script/natuive-extra.js');
