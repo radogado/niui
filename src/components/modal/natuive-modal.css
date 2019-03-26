@@ -13,7 +13,7 @@ html.n-full-screen {
   background: #fff;
   background: rgba(255, 255, 255, 0.97);
   overflow: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
   position: fixed;
   top: 0;
   bottom: 0;
