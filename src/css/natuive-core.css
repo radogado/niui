@@ -74,7 +74,8 @@ html.n-vertical-page body {
   .n-fixed-bg {
     will-change: scroll;
     background-size: 0;
-    position: relative; }
+    position: relative;
+    z-index: 1; }
     .n-fixed-bg .n-fixed-bg--image {
       position: absolute;
       background-size: 0;
