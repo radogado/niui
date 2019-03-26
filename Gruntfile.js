@@ -99,7 +99,7 @@ module.exports = function(grunt) {
 			      'dist/natuive.min.css': ['src/css/natuive.css'],
 			      'dist/natuive-lite.min.css': ['src/css/natuive-lite.css'],
 			      'dist/natuive-extra.min.css': ['src/css/natuive-extra.css'],
-			      'natuive-wordpress/natuive-wordpress.min.css': ['src/css/natuive-wordpress-bundle.css']
+			      'natuive-wp/natuive-wordpress.min.css': ['src/css/natuive-wordpress-bundle.css']
 			    }
 			  }
 		},
@@ -146,7 +146,7 @@ module.exports = function(grunt) {
 		    expand: true,
 		    cwd: 'dist',
 		    src: ['natuive.min.js'],
-		    dest: 'natuive-wordpress/',
+		    dest: 'natuive-wp/',
 		  }
 		},
 		'gzip': {
