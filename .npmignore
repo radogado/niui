@@ -5,6 +5,8 @@ natuive-wordpress/
 src/
 *.html
 *.md
-natUIve.*
 Gruntfile.js
-
+.DS_Store
+natuive-wp.zip
+.sass-cache/
+dist/.DS_Store
