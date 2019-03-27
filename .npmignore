@@ -2,7 +2,6 @@ demos/
 images/
 natuive-grid-bootstrap/
 natuive-wordpress/
-src/
 *.html
 *.md
 Gruntfile.js
