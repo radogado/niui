@@ -473,6 +473,12 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 		content: '→';
 
 	}
+	
+	.can-touch .n-drop ul li:not([aria-expanded]) > ul {
+		
+		visibility: hidden;
+		
+	}
 
 }
 

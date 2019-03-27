@@ -232,7 +232,10 @@ main .n-nav ul {
     text-decoration: none !important; }
 
   _:-ms-input-placeholder, :root nav.n-drop li li ul ~ a:before {
-    content: '→'; } }
+    content: '→'; }
+
+  .can-touch .n-drop ul li:not([aria-expanded]) > ul {
+    visibility: hidden; } }
 @media (max-width: 599.9px) {
   .n-drop ul li:not([aria-expanded]) > ul {
     position: static;
