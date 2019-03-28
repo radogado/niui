@@ -263,7 +263,8 @@ var componentLightbox = (function (){
 			let target_width = typeof el.dataset.width === 'undefined' ? '' : `width=${el.dataset.width}`;
 			let target_height = typeof el.dataset.height === 'undefined' ? '' : `height=${el.dataset.height}`;
 			
-			let aspect = aspect_tail = '';
+			let aspect = '';
+			let aspect_tail = '';
 			
 			if (!!target_width && !!target_height) {
 				

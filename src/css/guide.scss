@@ -103,8 +103,6 @@ main > 	._3\/4 > .n-slider--wrap > .n-slider.n-slider--vertical > * {
 	> .n-slider:not([data-ready]) > :first-child {
 		
 	    position: absolute;
-	    z-index: -1;
-//	    display: block; // To do: Fix. Blinks when another slide is default
 
 	}
 	
