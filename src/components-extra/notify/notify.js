@@ -4,7 +4,11 @@ var componentNotify = (function (){
     
 	function notifyClose(el) {
 		
-		el.parentNode.removeChild(el);
+		if (!!el) {
+		
+			el.parentNode.removeChild(el);
+		
+		}
 		
 	}
 	
