@@ -145,7 +145,8 @@
 
 	}
 
-	let tapEvent = (e) => {
+/*
+	let tapEvent = (e) => { // Using clickEvent instead
 
 		e.stopPropagation();
 
@@ -243,6 +244,7 @@
 		}
 			
 	};
+*/
 
 	let clickEvent = (e) => {
 	
@@ -393,7 +395,7 @@
 		
 		});
 	
-		el.addEventListener('touchend', tapEvent);
+		el.addEventListener('touchend', clickEvent);
 		el.addEventListener('mousedown', clickEvent);
 		el.addEventListener('focusin', dropNavFocus);
 		el.addEventListener('focusout', dropNavBlur);

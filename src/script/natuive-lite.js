@@ -1107,7 +1107,8 @@ qa('a[href^="#"]').forEach((el) => {
 
 	}
 
-	let tapEvent = (e) => {
+/*
+	let tapEvent = (e) => { // Using clickEvent instead
 
 		e.stopPropagation();
 
@@ -1182,7 +1183,7 @@ qa('a[href^="#"]').forEach((el) => {
 					
 				});
 
-				if (hasClass(q('html'), 'can-touch') && typeof e.target.href === 'string' && e.target.href.length > 0) {
+				if (hasClass(q('html'), 'can-touch') && typeof e.target.href === 'string' && e.target.href.length > 0) { // Clickable links
 
 					return;
 
@@ -1205,6 +1206,7 @@ qa('a[href^="#"]').forEach((el) => {
 		}
 			
 	};
+*/
 
 	let clickEvent = (e) => {
 	
@@ -1355,7 +1357,7 @@ qa('a[href^="#"]').forEach((el) => {
 		
 		});
 	
-		el.addEventListener('touchend', tapEvent);
+		el.addEventListener('touchend', clickEvent);
 		el.addEventListener('mousedown', clickEvent);
 		el.addEventListener('focusin', dropNavFocus);
 		el.addEventListener('focusout', dropNavBlur);
