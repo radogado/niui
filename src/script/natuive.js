@@ -2287,8 +2287,6 @@ qa('a[href^="#"]').forEach((el) => {
 
 		} else {
 
-			item.style.overflow = 'hidden';
-			
 			if (item.parentNode.hasAttribute('aria-expanded')) {
 				
 				closeItem(item);				
