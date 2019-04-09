@@ -369,7 +369,6 @@ function getCumulativeOffset(obj) { // Offset from element to top of page
 
 }
 
-/*
 function animateAnchors(e) {
 
     if (typeof e === 'undefined' || q('html').clientHeight > document.body.clientHeight) {
@@ -407,7 +406,6 @@ function animateAnchors(e) {
     return false;
 
 }
-*/
 
 function closestElement(el, target) { // Thanks http://gomakethings.com/ditching-jquery/ – Accepts either a selector string or an actual element
 
@@ -775,13 +773,11 @@ if (typeof MutationObserver === 'function') {
 initThreshold(bodyElement);
 
 // Animate anchor link jumps
-/*
 qa('a[href^="#"]').forEach((el) => {
 
 	el.onclick = el.onclick || animateAnchors; // Don't add to previous onclick event handler
 
 });
-*/
 	
 /*
 	notifyCloseEvent();
@@ -2016,8 +2012,16 @@ qa('a[href^="#"]').forEach((el) => {
 		
 	}
 	
+	let navAnimating = false;
+
 	function dropNavBlur(e) {
 	
+		if (navAnimating /* && isDesktop(el.querySelector('ul')) */) {
+			
+			return;
+			
+		}
+
 		e.stopPropagation();
 
 		var this_nav = e.target.closest('.n-nav');
@@ -2069,6 +2073,12 @@ qa('a[href^="#"]').forEach((el) => {
 		var el = e.target.closest('.n-nav > ul > li');
 // To do: on LI focus, make it aria-expanded and focus its a		
 		
+		if (navAnimating /* && isDesktop(el.querySelector('ul')) */) {
+			
+			return;
+			
+		}
+
 		[[].slice.call(el.parentElement.children), [].slice.call(e.target.parentElement.parentElement.children), [].slice.call(e.target.parentElement.parentElement.parentElement.parentElement.children) ].forEach((el) => {
 			
 			el.forEach((el) => {
@@ -2107,6 +2117,7 @@ qa('a[href^="#"]').forEach((el) => {
 
 	let closeItem = (item) => {
 	
+		navAnimating = true;
 		item.style.overflow = 'hidden';
 		item.parentElement.setAttribute('aria-expanded', true);
 
@@ -2114,6 +2125,7 @@ qa('a[href^="#"]').forEach((el) => {
 		
 			item.removeAttribute('style'); 
 			item.parentElement.removeAttribute('aria-expanded');
+			navAnimating = false;
 		
 		});
 					
@@ -2121,116 +2133,17 @@ qa('a[href^="#"]').forEach((el) => {
 	
 	let openItem = (item) => {
 		
+		navAnimating = true;
 		item.style.overflow = 'hidden';
 		item.parentElement.setAttribute('aria-expanded', true);
 		animate(item, `0% { height: 0; } 100% { height: ${item.scrollHeight}px }`, .2, () => { 
 
 			item.removeAttribute('style'); 
+			navAnimating = false;
 
 		});
 
 	}
-
-/*
-	let tapEvent = (e) => { // Using clickEvent instead
-
-		e.stopPropagation();
-
-		var el = e.target;
-
-		if (draggingNow || (typeof el.href === 'string' && el.href.length > 0)) {
-			
-			return;
-			
-		}
-		
-		e.preventDefault();
-		
-		if (el.nodeName === 'LI') {
-			
-			el = el.querySelector('a');
-			
-		}
-		
-		if (el === document.activeElement) { // Tapping on a focused element
-
-			el.blur();
-			
-			let parent_item = el.parentElement.parentElement.closest('li[aria-haspopup]');
-			if (parent_item) {
-				
-				parent_item.querySelector('a').focus();
-				
-			}
-
-		} else {
-
-			if (el.parentElement.getAttribute('aria-expanded')) { // Click on an open element which isn't in focus
-				
-				let item = el.tagName === 'LI' ? el.querySelector('ul') : el.parentElement.querySelector('ul');
-
-				if (isDesktop(item)) {
-
-					el.parentElement.removeAttribute('aria-expanded');
-					document.activeElement.blur();
-					el.querySelectorAll('[aria-expanded]').forEach((item) => {
-						
-						item.removeAttribute('aria-expanded');
-						
-					});
-
-				} else {
-					
-					closeItem(item);
-
-				}
-				
-			} else {
-				
-				// Opening an item should close its open siblings
-				[].slice.call(el.parentElement.parentElement.children).forEach((item) => {
-					
-					item.removeAttribute('aria-expanded');
-					if (item !== el.parentElement) {
-						
-						let old_item_open_child = item.querySelector('[aria-expanded]');
-						if (old_item_open_child) {
-							
-// 							old_item_open_child.removeAttribute('aria-expanded');
-							openItem(old_item_open_child.querySelector('ul'));
-
-
-						}
-						
-					}
-					
-					
-				});
-
-				if (hasClass(q('html'), 'can-touch') && typeof e.target.href === 'string' && e.target.href.length > 0) { // Clickable links
-
-					return;
-
-				}
-
-				let item = el.tagName === 'LI' ? el.querySelector('ul') : el.parentElement.querySelector('ul');
-				if (isDesktop(item)) {
-
-					el.focus();
-					el.parentElement.setAttribute('aria-expanded', true);
-
-				} else {
-					
-					openItem(item);
-					
-				}
-
-			}
-		
-		}
-			
-	};
-*/
 
 	let clickEvent = (e) => {
 	
@@ -2342,6 +2255,7 @@ qa('a[href^="#"]').forEach((el) => {
 		if (!closeDropNavClickedOutsideEnabled) {
 			
 			window.addEventListener('touchend', closeDropNavClickedOutside);
+			window.addEventListener('mouseup', closeDropNavClickedOutside);
 			closeDropNavClickedOutsideEnabled = true;
 		
 		}
@@ -2378,8 +2292,7 @@ qa('a[href^="#"]').forEach((el) => {
 			}
 		
 		});
-	
-		el.addEventListener('touchend', clickEvent);
+
 		el.addEventListener('mousedown', clickEvent);
 		el.addEventListener('focusin', dropNavFocus);
 		el.addEventListener('focusout', dropNavBlur);
