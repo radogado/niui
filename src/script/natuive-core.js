@@ -567,7 +567,7 @@ function copyButton (el, target, echo) {
 }
 
 // Real time touch detection to support devices with both touch and mouse. http://www.javascriptkit.com/dhtmltutors/sticky-hover-issue-solutions.shtml
-// To do: use an attribtue instead of class
+// To do: use an attribute instead of class
 ;(function(){
 
     var isTouch = false; //var to indicate current input type (is touch versus no touch) 
