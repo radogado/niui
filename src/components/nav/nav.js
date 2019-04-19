@@ -144,6 +144,12 @@
 			item.removeAttribute('style'); 
 			item.parentElement.removeAttribute('aria-expanded');
 			navAnimating = false;
+			
+			item.querySelectorAll('[aria-expanded]').forEach(el => {
+				
+				el.removeAttribute('aria-expanded');
+				
+			});
 		
 		});
 					
@@ -226,9 +232,9 @@
 				
 				// If new item is top level, close another top level item, if any is open
 				
-				if (item.parentElement.parentElement.matches('[role=menubar]')) { // It's top level
+				if (item.parentElement.parentElement.matches('ul')) { // It's top level, To do: also on secondary level, close open sibling
 					
-					let old_item = item.closest('[role=menubar]').querySelector('[aria-expanded="true"] > ul');
+					let old_item = item.parentElement.closest('ul').querySelector('[aria-expanded="true"] > ul');
 					
 					if (old_item) {
 						

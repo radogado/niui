@@ -567,7 +567,7 @@ function copyButton (el, target, echo) {
 }
 
 // Real time touch detection to support devices with both touch and mouse. http://www.javascriptkit.com/dhtmltutors/sticky-hover-issue-solutions.shtml
-// To do: use an attribtue instead of class
+// To do: use an attribute instead of class
 ;(function(){
 
     var isTouch = false; //var to indicate current input type (is touch versus no touch) 
@@ -2126,6 +2126,12 @@ qa('a[href^="#"]').forEach((el) => {
 			item.removeAttribute('style'); 
 			item.parentElement.removeAttribute('aria-expanded');
 			navAnimating = false;
+			
+			item.querySelectorAll('[aria-expanded]').forEach(el => {
+				
+				el.removeAttribute('aria-expanded');
+				
+			});
 		
 		});
 					
@@ -2208,9 +2214,9 @@ qa('a[href^="#"]').forEach((el) => {
 				
 				// If new item is top level, close another top level item, if any is open
 				
-				if (item.parentElement.parentElement.matches('[role=menubar]')) { // It's top level
+				if (item.parentElement.parentElement.matches('ul')) { // It's top level, To do: also on secondary level, close open sibling
 					
-					let old_item = item.closest('[role=menubar]').querySelector('[aria-expanded="true"] > ul');
+					let old_item = item.parentElement.closest('ul').querySelector('[aria-expanded="true"] > ul');
 					
 					if (old_item) {
 						
