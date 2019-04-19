@@ -10,7 +10,7 @@
 	
 			qa('.n-nav li').forEach((el) => {
 				
-				el.removeAttribute(aria_expanded);
+				el.removeAttribute('aria-expanded');
 				
 			});
 			
@@ -46,12 +46,18 @@
 		
 		let el = e.target;
 		let item = el.tagName === 'LI' ? el.querySelector('ul') : el.parentElement.querySelector('ul');
+		
+		if (item) {
+			
+			item.parentElement.removeAttribute('aria-expanded');
+			
+		}
 
 		if (item && isDesktop(item) && !closestElement(e.relatedTarget, this_nav)) {
 			// if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
 			this_nav.querySelectorAll('li').forEach((el) => {
 	
-				el.removeAttribute(aria_expanded);
+				el.removeAttribute('aria-expanded');
 				
 			});
 			return;
@@ -65,7 +71,7 @@
 			
 			target_parent.querySelectorAll('li[aria-expanded]').forEach((el) => { // Disable active grandchildren
 		
-				el.removeAttribute(aria_expanded);
+				el.removeAttribute('aria-expanded');
 		
 			});
 		
@@ -76,7 +82,7 @@
 			el.parentNode.parentNode.nodeName === 'LI' && // of third-level nav
 			!el.parentNode.parentNode.nextElementSibling) {
 				
-				el.parentNode.parentNode.removeAttribute(aria_expanded);
+				el.parentNode.parentNode.removeAttribute('aria-expanded');
 		
 		}
 		
@@ -121,11 +127,11 @@
 		
 		el = e.target;
 	
-		el.parentNode.setAttribute(aria_expanded, true);
+		el.parentNode.setAttribute('aria-expanded', true);
 		var grand_parent = el.parentElement.parentElement.parentElement;
 		if (grand_parent.tagName === 'LI') {
 	
-			grand_parent.setAttribute(aria_expanded, true);
+			grand_parent.setAttribute('aria-expanded', true);
 	
 		}
 		
@@ -292,7 +298,7 @@
 				
 				e.target.closest('.n-nav').querySelectorAll('li').forEach((el) => {
 					
-					el.removeAttribute(aria_expanded);
+					el.removeAttribute('aria-expanded');
 					
 				});
 				

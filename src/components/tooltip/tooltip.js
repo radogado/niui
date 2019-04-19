@@ -10,7 +10,7 @@
 			
 			el.onclick = (e) => {
 	
-				toggleAttribute(e.target.closest('.n-tool'), aria_expanded);
+				toggleAttribute(e.target.closest('.n-tool'), 'aria-expanded');
 	
 			};		
 		
@@ -32,7 +32,7 @@
 					
 					if (e.key === 'Enter') {
 						
-						toggleAttribute(e.target.closest('.n-tool'), aria_expanded);
+						toggleAttribute(e.target.closest('.n-tool'), 'aria-expanded');
 	
 					}
 					
@@ -40,7 +40,7 @@
 	
 				label.onblur = (e) => {
 					
-					e.target.closest('.n-tool').removeAttribute(aria_expanded);
+					e.target.closest('.n-tool').removeAttribute('aria-expanded');
 	
 				}
 	

@@ -19,21 +19,21 @@
 		
 		if (hasClass(el, 'n-fold--horizontal')) {
 			
-			toggleAttribute(el, aria_expanded);
+			toggleAttribute(el, 'aria-expanded');
 			
 		} else {
 		
-			if (el.hasAttribute(aria_expanded)) {
+			if (el.hasAttribute('aria-expanded')) {
 		
 				animate(content, `0% { max-height: ${content.scrollHeight}px; } 100% { max-height: ${content_height}; }`, .2, () => {
 					
-					toggleAttribute(el, aria_expanded);
+					toggleAttribute(el, 'aria-expanded');
 					
 				});
 				
 			} else {
 				
-				toggleAttribute(el, aria_expanded);
+				toggleAttribute(el, 'aria-expanded');
 				animate(content, `0% { max-height: ${content_height}; } 100% { max-height: ${content.scrollHeight}px; }`);
 				
 			}
@@ -54,7 +54,7 @@
 			
 			qa('.n-fold.n-fold--mobile, .n-tool').forEach((el) => { // ... closes all n-burger nav menus and tooltips
 				
-				el.removeAttribute(aria_expanded);
+				el.removeAttribute('aria-expanded');
 				
 			});
 			
@@ -122,7 +122,7 @@
 		let expanded_nav = q('.n-fixed-mobile .n-fold.n-fold--mobile[aria-expanded]');
 		if (expanded_nav) {
 			
-			expanded_nav.removeAttribute(aria_expanded);
+			expanded_nav.removeAttribute('aria-expanded');
 		
 		}
 		

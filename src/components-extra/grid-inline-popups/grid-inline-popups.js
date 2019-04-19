@@ -79,8 +79,8 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 					
 				}
 	
-				el.setAttribute(aria_expanded, 'true');
-				el.previousElementSibling.setAttribute(aria_expanded, 'true');
+				el.setAttribute('aria-expanded', 'true');
+				el.previousElementSibling.setAttribute('aria-expanded', 'true');
 				var height = el.scrollHeight;
 				el.style.maxHeight = 0;
 				el.style.overflow = 'hidden';
@@ -101,8 +101,8 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 					current_popup.style.overflow = 'hidden';
 					animate(current_popup, '100% { max-height: 0; }', .2, () => {
 						
-						current_popup.removeAttribute(aria_expanded);
-						current_popup.previousElementSibling.removeAttribute(aria_expanded);
+						current_popup.removeAttribute('aria-expanded');
+						current_popup.previousElementSibling.removeAttribute('aria-expanded');
 						current_popup.style.cssText = '';
 						openNewItem(e, current_popup);
 				

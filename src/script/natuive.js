@@ -15,8 +15,6 @@ document.body.setAttribute('data-natuive-js', 'true');
 
 var is_iPad = !!navigator.platform.match(/iPad/);
 
-var aria_expanded = 'aria-expanded';
-
 // DOM functions – start
 
 function q(selector) {
@@ -815,21 +813,21 @@ qa('a[href^="#"]').forEach((el) => {
 		
 		if (hasClass(el, 'n-fold--horizontal')) {
 			
-			toggleAttribute(el, aria_expanded);
+			toggleAttribute(el, 'aria-expanded');
 			
 		} else {
 		
-			if (el.hasAttribute(aria_expanded)) {
+			if (el.hasAttribute('aria-expanded')) {
 		
 				animate(content, `0% { max-height: ${content.scrollHeight}px; } 100% { max-height: ${content_height}; }`, .2, () => {
 					
-					toggleAttribute(el, aria_expanded);
+					toggleAttribute(el, 'aria-expanded');
 					
 				});
 				
 			} else {
 				
-				toggleAttribute(el, aria_expanded);
+				toggleAttribute(el, 'aria-expanded');
 				animate(content, `0% { max-height: ${content_height}; } 100% { max-height: ${content.scrollHeight}px; }`);
 				
 			}
@@ -850,7 +848,7 @@ qa('a[href^="#"]').forEach((el) => {
 			
 			qa('.n-fold.n-fold--mobile, .n-tool').forEach((el) => { // ... closes all n-burger nav menus and tooltips
 				
-				el.removeAttribute(aria_expanded);
+				el.removeAttribute('aria-expanded');
 				
 			});
 			
@@ -918,7 +916,7 @@ qa('a[href^="#"]').forEach((el) => {
 		let expanded_nav = q('.n-fixed-mobile .n-fold.n-fold--mobile[aria-expanded]');
 		if (expanded_nav) {
 			
-			expanded_nav.removeAttribute(aria_expanded);
+			expanded_nav.removeAttribute('aria-expanded');
 		
 		}
 		
@@ -1992,7 +1990,7 @@ qa('a[href^="#"]').forEach((el) => {
 	
 			qa('.n-nav li').forEach((el) => {
 				
-				el.removeAttribute(aria_expanded);
+				el.removeAttribute('aria-expanded');
 				
 			});
 			
@@ -2028,12 +2026,18 @@ qa('a[href^="#"]').forEach((el) => {
 		
 		let el = e.target;
 		let item = el.tagName === 'LI' ? el.querySelector('ul') : el.parentElement.querySelector('ul');
+		
+		if (item) {
+			
+			item.parentElement.removeAttribute('aria-expanded');
+			
+		}
 
 		if (item && isDesktop(item) && !closestElement(e.relatedTarget, this_nav)) {
 			// if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
 			this_nav.querySelectorAll('li').forEach((el) => {
 	
-				el.removeAttribute(aria_expanded);
+				el.removeAttribute('aria-expanded');
 				
 			});
 			return;
@@ -2047,7 +2051,7 @@ qa('a[href^="#"]').forEach((el) => {
 			
 			target_parent.querySelectorAll('li[aria-expanded]').forEach((el) => { // Disable active grandchildren
 		
-				el.removeAttribute(aria_expanded);
+				el.removeAttribute('aria-expanded');
 		
 			});
 		
@@ -2058,7 +2062,7 @@ qa('a[href^="#"]').forEach((el) => {
 			el.parentNode.parentNode.nodeName === 'LI' && // of third-level nav
 			!el.parentNode.parentNode.nextElementSibling) {
 				
-				el.parentNode.parentNode.removeAttribute(aria_expanded);
+				el.parentNode.parentNode.removeAttribute('aria-expanded');
 		
 		}
 		
@@ -2103,11 +2107,11 @@ qa('a[href^="#"]').forEach((el) => {
 		
 		el = e.target;
 	
-		el.parentNode.setAttribute(aria_expanded, true);
+		el.parentNode.setAttribute('aria-expanded', true);
 		var grand_parent = el.parentElement.parentElement.parentElement;
 		if (grand_parent.tagName === 'LI') {
 	
-			grand_parent.setAttribute(aria_expanded, true);
+			grand_parent.setAttribute('aria-expanded', true);
 	
 		}
 		
@@ -2274,7 +2278,7 @@ qa('a[href^="#"]').forEach((el) => {
 				
 				e.target.closest('.n-nav').querySelectorAll('li').forEach((el) => {
 					
-					el.removeAttribute(aria_expanded);
+					el.removeAttribute('aria-expanded');
 					
 				});
 				
@@ -3290,7 +3294,7 @@ var componentSlider = (function (){
 			
 			el.onclick = (e) => {
 	
-				toggleAttribute(e.target.closest('.n-tool'), aria_expanded);
+				toggleAttribute(e.target.closest('.n-tool'), 'aria-expanded');
 	
 			};		
 		
@@ -3312,7 +3316,7 @@ var componentSlider = (function (){
 					
 					if (e.key === 'Enter') {
 						
-						toggleAttribute(e.target.closest('.n-tool'), aria_expanded);
+						toggleAttribute(e.target.closest('.n-tool'), 'aria-expanded');
 	
 					}
 					
@@ -3320,7 +3324,7 @@ var componentSlider = (function (){
 	
 				label.onblur = (e) => {
 					
-					e.target.closest('.n-tool').removeAttribute(aria_expanded);
+					e.target.closest('.n-tool').removeAttribute('aria-expanded');
 	
 				}
 	

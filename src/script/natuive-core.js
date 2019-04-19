@@ -15,8 +15,6 @@ document.body.setAttribute('data-natuive-js', 'true');
 
 var is_iPad = !!navigator.platform.match(/iPad/);
 
-var aria_expanded = 'aria-expanded';
-
 // DOM functions – start
 
 function q(selector) {
