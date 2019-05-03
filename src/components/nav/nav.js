@@ -49,21 +49,27 @@
 		
 		if (item) {
 			
-			item.parentElement.removeAttribute('aria-expanded');
-			
-		}
-
-		if (item && isDesktop(item) && !closestElement(e.relatedTarget, this_nav)) {
-			// if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
-			this_nav.querySelectorAll('li').forEach((el) => {
+			if (item.parentNode.parentNode.querySelector('ul [aria-expanded]')) {
 	
-				el.removeAttribute('aria-expanded');
-				
-			});
-			return;
-				
-		}
+				return;
+	
+			}
+	
+			item.parentElement.removeAttribute('aria-expanded');
+	
+			if (isDesktop(item) && !closestElement(e.relatedTarget, this_nav)) {
+				// if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
+				this_nav.querySelectorAll('li').forEach((el) => {
+		
+					el.removeAttribute('aria-expanded');
+					
+				});
+				return;
+					
+			}
 
+		}
+		
 		// Close neighboring parent nav's sub navs.
 		el = e.target;
 		var target_parent = el.closest('[aria-haspopup]');
