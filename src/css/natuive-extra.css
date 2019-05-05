@@ -1962,6 +1962,11 @@ main .n-nav ul {
 
   html:not([data-natuive-js]) .n-fold.n-fold--mobile:not([aria-expanded]) .n-fold--content {
     max-width: 100%; } }
+@supports (-webkit-overflow-scrolling: touch) {
+  /* CSS specific to iOS devices */
+  .n-drop :focus {
+    outline-style: dotted;
+    outline-width: 1px; } }
 
 /*# sourceMappingURL=natuive-nav.css.map */
 

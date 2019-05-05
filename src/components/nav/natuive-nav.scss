@@ -576,3 +576,16 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 	}
 
 }
+
+@supports (-webkit-overflow-scrolling: touch) {
+
+  /* CSS specific to iOS devices */ 
+  .n-drop :focus {
+	  
+	  outline-style: dotted;
+	  outline-width: 1px;
+	  
+  }
+
+}
+
