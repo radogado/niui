@@ -8,7 +8,7 @@
   color: inherit;
   color: var(--control-color, inherit); }
   .n-nav ul {
-    margin: 0 0 0 -.5em;
+    margin: 0 0 0 -0.5em;
     margin: 0;
     padding: 0;
     display: inline-block;
@@ -30,7 +30,7 @@
       white-space: nowrap; }
   .n-nav a {
     position: relative;
-    padding: 0 .25em; }
+    padding: 0 0.25em; }
   .n-nav .active a[href] {
     text-decoration: none;
     opacity: .7; }
@@ -49,6 +49,7 @@
     -webkit-overflow-scrolling: touch; }
   .n-nav--scroll ul li {
     padding: 0.75em; } }
+
 main .n-nav ul {
   padding-left: 0; }
 
@@ -161,26 +162,27 @@ main .n-nav ul {
     content: "↓" !important;
     text-align: center;
     line-height: 2 !important; }
-
   .n-drop li li[aria-haspopup]:before {
     content: '→' !important; } }
-@media (min-width: 600px) {
-  .n-drop ul ul {
-    transition: transform .2s ease-in-out;
-    transform-origin: top;
-    transform: scaleY(0); }
-  .n-drop ul li > :checked ~ ul, .n-drop :focus ~ ul,
-  .n-drop a:focus ~ ul, .n-drop ul li[aria-expanded] > ul, .n-drop li li[aria-expanded] > ul, .n-drop li li:not(:focus) :checked ~ ul {
-    transform: scaleY(1); }
-    .n-drop ul li > :checked ~ ul ul, .n-drop :focus ~ ul ul,
-    .n-drop a:focus ~ ul ul, .n-drop ul li[aria-expanded] > ul ul, .n-drop li li[aria-expanded] > ul ul, .n-drop li li:not(:focus) :checked ~ ul ul {
-      transform: scaleX(1);
-      transform-origin: left; }
-  .n-drop li li[aria-haspopup]:before, .n-drop li li > input {
-    -webkit-mask-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(90) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A"); }
 
+@media (min-width: 600px) {
+  .n-drop {
+    --desktop: true; }
+    .n-drop ul ul {
+      transition: transform 0.2s ease-in-out;
+      transform-origin: top;
+      transform: scaleY(0); }
+    .n-drop ul li > :checked ~ ul, .n-drop :focus ~ ul,
+    .n-drop a:focus ~ ul, .n-drop ul li[aria-expanded] > ul, .n-drop li li[aria-expanded] > ul, .n-drop li li:not(:focus) :checked ~ ul {
+      transform: scaleY(1); }
+      .n-drop ul li > :checked ~ ul ul, .n-drop :focus ~ ul ul,
+      .n-drop a:focus ~ ul ul, .n-drop ul li[aria-expanded] > ul ul, .n-drop li li[aria-expanded] > ul ul, .n-drop li li:not(:focus) :checked ~ ul ul {
+        transform: scaleX(1);
+        transform-origin: left; }
+    .n-drop li li[aria-haspopup]:before, .n-drop li li > input {
+      -webkit-mask-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(90) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A"); }
   html:not(.can-touch) .n-drop ul li:not([aria-expanded]) ul ul {
-    transition: .1s .2s;
+    transition: 0.1s 0.2s;
     opacity: 0;
     position: absolute;
     transform: scaleX(0);
@@ -212,35 +214,30 @@ main .n-nav ul {
   html:not(.can-touch) .n-drop > ul li ul li:hover ul {
     transition-delay: .2s;
     transform: scaleX(1); }
-
   nav.n-drop li {
     white-space: nowrap; }
-
   _:-ms-input-placeholder, :root nav.n-drop li:hover ul {
     overflow: visible !important;
     z-index: 2 !important;
     transform: none !important; }
-
   _:-ms-input-placeholder, :root nav.n-drop input[type=checkbox] {
     display: none !important; }
-
   _:-ms-input-placeholder, :root nav.n-drop li ul ~ a:before {
     content: '↓';
     position: absolute;
     top: .75em;
     right: .5em;
     text-decoration: none !important; }
-
   _:-ms-input-placeholder, :root nav.n-drop li li ul ~ a:before {
     content: '→'; }
-
   .can-touch .n-drop ul li:not([aria-expanded]) > ul {
     visibility: hidden; } }
+
 @media (max-width: 599.9px) {
   .n-drop ul li:not([aria-expanded]) > ul {
     position: static;
     width: calc(100% + 3em);
-    transition: max-height .2s ease-in-out; }
+    transition: max-height 0.2s ease-in-out; }
   .n-drop ul ul {
     position: static;
     width: calc(100% + 3em);
@@ -255,13 +252,10 @@ main .n-nav ul {
       padding-right: 3em; }
   .n-drop ul li[aria-haspopup][aria-expanded]:before {
     -webkit-mask-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(0) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A"); }
-
   .n-drop li[aria-haspopup]:before {
     -webkit-mask-position-y: .75em; }
-
   .n-drop li > input {
     -webkit-mask-position-y: 1.15em; }
-
   html:not([data-natuive-js]) .n-drop {
     width: 100%; }
     html:not([data-natuive-js]) .n-drop ul li {
@@ -271,8 +265,5 @@ main .n-nav ul {
         order: -1; }
     html:not([data-natuive-js]) .n-drop ul li:not([aria-expanded]) > ul {
       width: 100%; }
-
   html:not([data-natuive-js]) .n-fold.n-fold--mobile:not([aria-expanded]) .n-fold--content {
     max-width: 100%; } }
-
-/*# sourceMappingURL=natuive-nav.css.map */

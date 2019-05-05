@@ -1851,19 +1851,21 @@ main .n-nav ul {
   .n-drop li li[aria-haspopup]:before {
     content: '→' !important; } }
 @media (min-width: 600px) {
-  .n-drop ul ul {
-    transition: transform .2s ease-in-out;
-    transform-origin: top;
-    transform: scaleY(0); }
-  .n-drop ul li > :checked ~ ul, .n-drop :focus ~ ul,
-  .n-drop a:focus ~ ul, .n-drop ul li[aria-expanded] > ul, .n-drop li li[aria-expanded] > ul, .n-drop li li:not(:focus) :checked ~ ul {
-    transform: scaleY(1); }
-    .n-drop ul li > :checked ~ ul ul, .n-drop :focus ~ ul ul,
-    .n-drop a:focus ~ ul ul, .n-drop ul li[aria-expanded] > ul ul, .n-drop li li[aria-expanded] > ul ul, .n-drop li li:not(:focus) :checked ~ ul ul {
-      transform: scaleX(1);
-      transform-origin: left; }
-  .n-drop li li[aria-haspopup]:before, .n-drop li li > input {
-    -webkit-mask-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(90) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A"); }
+  .n-drop {
+    --desktop: true; }
+    .n-drop ul ul {
+      transition: transform .2s ease-in-out;
+      transform-origin: top;
+      transform: scaleY(0); }
+    .n-drop ul li > :checked ~ ul, .n-drop :focus ~ ul,
+    .n-drop a:focus ~ ul, .n-drop ul li[aria-expanded] > ul, .n-drop li li[aria-expanded] > ul, .n-drop li li:not(:focus) :checked ~ ul {
+      transform: scaleY(1); }
+      .n-drop ul li > :checked ~ ul ul, .n-drop :focus ~ ul ul,
+      .n-drop a:focus ~ ul ul, .n-drop ul li[aria-expanded] > ul ul, .n-drop li li[aria-expanded] > ul ul, .n-drop li li:not(:focus) :checked ~ ul ul {
+        transform: scaleX(1);
+        transform-origin: left; }
+    .n-drop li li[aria-haspopup]:before, .n-drop li li > input {
+      -webkit-mask-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(90) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A"); }
 
   html:not(.can-touch) .n-drop ul li:not([aria-expanded]) ul ul {
     transition: .1s .2s;

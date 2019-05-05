@@ -11,6 +11,23 @@
 	<link rel=icon href=images/favicon.ico>
 <!-- 	<link rel=styleSheet href=src/css/natuive-extra.css> -->
 	<link rel=styleSheet href=dist/natuive-extra.min.css>
+	
+	<style>
+		
+		nav li[aria-haspopup][aria-expanded="true"], nav li[aria-haspopup]:hover {
+			
+		    transition: background-color .2s ease-in-out;
+		    --control-bg: #fafafa;
+		
+		}
+		
+		nav li li[aria-haspopup][aria-expanded="true"], nav li li[aria-haspopup]:hover {
+			
+		    --control-bg: #f5f5f5;
+		
+		}
+	
+	</style>
 
 </head>
 
@@ -512,6 +529,66 @@
 							
 								<a href="#">Last item without a sub level</a>
 							
+							</li>
+			
+							<li>
+								
+								<input type="checkbox">
+
+								<ul class="n-list">
+									
+									<li> 
+									
+										<input type="checkbox">
+							
+										<ul class="n-list">
+											
+											<li> 
+												
+												<a href="asd">First item's second level item 1 third level item 1</a>
+											
+											</li>
+											
+											<li> 
+												
+												<a href="fdgdf">First item's second level item 1 third level item 2</a>
+											
+											</li>
+										
+										</ul>
+									
+										<a>First item's second level item 1</a>
+								
+									</li>
+								
+									<li> 
+									
+										<input type="checkbox">
+							
+										<ul class="n-list">
+											
+											<li> 
+												
+												<a href="#">First item's second level item 2 third level item 1</a>
+											
+											</li>
+											
+											<li> 
+												
+												<a href="#">First item's second level item 2 third level item 1</a>
+											
+											</li>
+										
+										</ul>
+									
+										<a href=asd>First item's second level item 2</a>
+								
+									</li>
+								
+								</ul>
+							
+								<a>First item</a>
+
 							</li>
 			
 						</ul>
