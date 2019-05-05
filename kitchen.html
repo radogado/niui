@@ -14,14 +14,14 @@
 	
 	<style>
 		
-		nav li[aria-haspopup][aria-expanded="true"], nav li[aria-haspopup]:hover {
+		nav li[aria-haspopup][aria-expanded="true"], html:not(.can-touch) nav li[aria-haspopup]:hover {
 			
 		    transition: background-color .2s ease-in-out;
 		    --control-bg: #fafafa;
 		
 		}
 		
-		nav li li[aria-haspopup][aria-expanded="true"], nav li li[aria-haspopup]:hover {
+		nav li li[aria-haspopup][aria-expanded="true"], html:not(.can-touch) nav li li[aria-haspopup]:hover {
 			
 		    --control-bg: #f5f5f5;
 		

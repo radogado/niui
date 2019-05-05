@@ -459,14 +459,14 @@ body:not(data-threshold) #content > * {
 	
 }
 
-nav li[aria-haspopup][aria-expanded="true"], nav li[aria-haspopup]:hover {
+nav li[aria-haspopup][aria-expanded="true"], html:not(.can-touch) nav li[aria-haspopup]:hover {
 	
     transition: background-color .2s ease-in-out;
     --control-bg: #d47171;
 
 }
 
-nav li li[aria-haspopup][aria-expanded="true"], nav li li[aria-haspopup]:hover {
+nav li li[aria-haspopup][aria-expanded="true"], html:not(.can-touch) nav li li[aria-haspopup]:hover {
 	
     --control-bg: #b76262;
 
