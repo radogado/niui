@@ -34,6 +34,6 @@
     "grunt-contrib-sass": "^1.0.0",
     "grunt-sass": "^3.0.2",
     "minimatch": "^3.0.4",
-    "node-sass": "^4.11.0"
+    "node-sass": "^4.12.0"
   }
 }
