@@ -1766,7 +1766,7 @@ main .n-nav ul {
     background-color: #fff;
     background-color: var(--control-bg, #fff); }
   .n-drop li:not([tabindex]) > ul ~ a {
-    padding-right: 3em; }
+    padding-right: 2.75em; }
   .n-drop li > a {
     padding: .75em;
     display: block; }
