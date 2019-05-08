@@ -13,20 +13,19 @@
 
 	/* Elements with double line-height */
 	
-	h1, h2, h3 {
-		
-		line-height: $line-height * 2;
-		
-	}
-	
 	h1, h2, h3, h4, h5, h6 {
 		
-		margin: 0;
-		padding: $line-height/2*1rem 0; // Because margin breaks siblings' baseline alignment
+		line-height: $line-height;
 		word-break: break-word; // Overflow protection for long words
 		word-wrap: break-word;
 		font-weight: 500;
+		margin: 24px 0;
 	
+	}
+	
+	h1 {
+		
+		
 	}
 	
 	h1 + p:not(.n-drop-cap), h2 + p:not(.n-drop-cap), h3 + p:not(.n-drop-cap), h4 + p:not(.n-drop-cap), h5 + p:not(.n-drop-cap), h6 + p:not(.n-drop-cap) {
@@ -38,8 +37,6 @@
 	h1 {
 		
 		font-size: 2em;
-	    line-height: $line-height;
-// 	    padding: 0;
 	    
 	}
 	
@@ -60,23 +57,20 @@
 	h4 {
 		
 		font-size: 1em;
-		line-height: $line-height;
 	
 	}
 	
 	h5 {
 		
 		font-size: .8em;
-		line-height: $line-height/.8/2;
-		padding: $line-height-em/.8/4 0;
+		line-height: 1.9;
 	
 	}
 	
 	h6 {
 		
 		font-size: .6667em;
-		line-height: $line-height/.6667/2;
-		padding: $line-height-em/.6667/4 0;
+		line-height: 2.3;
 	
 	}
 	
