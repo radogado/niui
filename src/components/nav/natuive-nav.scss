@@ -150,7 +150,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 	
 	}
 	
-	ul ul .n-left-side > ul {
+	ul ul.n-left-side ul {
 		
 		margin-left: 0;
 		left: auto;
@@ -288,7 +288,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 	
 	}
 	
-	ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li.n-left-side:before {
+	ul.n-list:not(.n-list--no-bullet):not(.n-list--inline).n-left-side li:before {
 	
 		right: auto;
 		transform: rotate(180deg);
@@ -328,13 +328,13 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 	li[aria-haspopup] {
 		
 		padding-right: 2em;
+					
+	}
+
+	ul.n-left-side li[aria-haspopup] {
 		
-		&.n-left-side {
-			
-			padding-right: 0;
-			padding-left: 2em;
-    			
-		}
+		padding-right: 0;
+		padding-left: 2em;
 					
 	}
 
@@ -415,7 +415,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 			
 			}
 			
-			ul li:not([aria-expanded]) ul .n-left-side > ul {
+			ul li:not([aria-expanded]) ul.n-left-side ul {
 			
 				transform-origin: right;
 			

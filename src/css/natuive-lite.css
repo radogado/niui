@@ -1219,7 +1219,7 @@ main .n-nav ul {
   .n-drop ul ul ul {
     margin-left: 100%;
     top: 0; }
-  .n-drop ul ul .n-left-side > ul {
+  .n-drop ul ul.n-left-side ul {
     margin-left: 0;
     left: auto;
     right: 100%; }
@@ -1293,7 +1293,7 @@ main .n-nav ul {
     height: 100%; }
   .n-drop ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li:before {
     content: ''; }
-  .n-drop ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li.n-left-side:before {
+  .n-drop ul.n-list:not(.n-list--no-bullet):not(.n-list--inline).n-left-side li:before {
     right: auto;
     transform: rotate(180deg);
     left: 0;
@@ -1312,9 +1312,9 @@ main .n-nav ul {
     background: none; }
   .n-drop li[aria-haspopup] {
     padding-right: 2em; }
-    .n-drop li[aria-haspopup].n-left-side {
-      padding-right: 0;
-      padding-left: 2em; }
+  .n-drop ul.n-left-side li[aria-haspopup] {
+    padding-right: 0;
+    padding-left: 2em; }
 
 @supports (-ms-ime-align: auto) {
   .n-drop li[aria-haspopup]:before {
@@ -1349,7 +1349,7 @@ main .n-nav ul {
     position: absolute;
     transform: scaleX(0);
     transform-origin: left; }
-  html:not(.can-touch) .n-drop ul li:not([aria-expanded]) ul .n-left-side > ul {
+  html:not(.can-touch) .n-drop ul li:not([aria-expanded]) ul.n-left-side ul {
     transform-origin: right; }
   html:not(.can-touch) .n-drop > ul > li > ul li {
     background-color: #fff;
