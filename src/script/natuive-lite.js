@@ -1271,16 +1271,30 @@ qa('a[href^="#"]').forEach((el) => {
 			
 		});
 		
+		let menubar = el;
+		
 		el.querySelectorAll('li').forEach((el) => {
 			
-			if (el.querySelector('ul')) {
+			let ul = el.querySelector('ul');
+			if (ul) {
 		
 				el.setAttribute('aria-haspopup', true);
+
+				let rect = ul.getBoundingClientRect();
+				
+				if (rect.left > menubar.getBoundingClientRect().width - (rect.left + rect.width)) {
+					
+					addClass(ul, 'n-left-side');
+					
+				}
+
 				if (el.children[0].nodeName === 'UL') {
 
 					el.insertBefore(el.children[1], el.children[0]); // Swap 'a' with 'ul'
 
 				}
+				
+				
 			
 			}
 		
