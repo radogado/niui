@@ -1917,6 +1917,10 @@ main .n-nav ul {
 
   nav.n-drop li {
     white-space: nowrap; }
+    nav.n-drop li li[haspopup] > a, nav.n-drop li li li a {
+      white-space: normal;
+      max-width: calc(33.33vw - 2em);
+      width: 100em; }
 
   _:-ms-input-placeholder, :root nav.n-drop li:hover ul {
     overflow: visible !important;

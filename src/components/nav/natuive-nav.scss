@@ -472,6 +472,14 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 		
 		white-space: nowrap;
 		
+		li[haspopup] > a, li li a {
+			
+			white-space: normal;
+			max-width: calc(33.33vw - 2em);
+			width: 100em;
+
+		}
+		
 	}
 	
 	// IE11
