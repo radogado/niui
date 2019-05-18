@@ -472,7 +472,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 		
 		white-space: nowrap;
 		
-		li[haspopup] > a, li li a {
+		li[haspopup] > a, li li a { // To do: top level width 100em, max-width: 100vw
 			
 			white-space: normal;
 			max-width: calc(33.33vw - 2em);

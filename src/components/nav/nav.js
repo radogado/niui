@@ -265,6 +265,22 @@
 		
 	};
 
+	function checkSides(ul, menubar) {
+	
+		let rect = ul.getBoundingClientRect();
+		
+		if (rect.left > menubar.getBoundingClientRect().width - (rect.left + rect.width)) {
+			
+			addClass(ul, 'n-left-side');
+			
+		} else {
+			
+			removeClass(ul, 'n-left-side');
+			
+		}
+	
+	}
+
 	function initNav(el) {
 		
 		// Delete all trigger inputs, add tabindex=0 to each li
@@ -321,16 +337,10 @@
 			
 			let ul = el.querySelector('ul');
 			if (ul) {
-		
+				
 				el.setAttribute('aria-haspopup', true);
 
-				let rect = ul.getBoundingClientRect();
-				
-				if (rect.left > menubar.getBoundingClientRect().width - (rect.left + rect.width)) {
-					
-					addClass(ul, 'n-left-side');
-					
-				}
+				checkSides(ul, menubar);
 
 				if (el.children[0].nodeName === 'UL') {
 
@@ -347,11 +357,25 @@
 		el.addEventListener('mousedown', clickEvent);
 		el.addEventListener('focusin', dropNavFocus);
 		el.addEventListener('focusout', dropNavBlur);
-			
+
 		draggingNow = false;
 	
 	}
 	
+	window.addEventListener('resize', function (e) {
+		
+		document.querySelectorAll('.n-nav.n-drop ul[role="menubar"]').forEach(ul => {
+			
+			ul.querySelectorAll('[role="menubar"] > li > ul').forEach(ul2 => {
+				
+				checkSides(ul2, ul);
+				
+			});
+			
+		});
+		
+	});
+			
 /* Nav – end */
 
 	var init = (host) => {
