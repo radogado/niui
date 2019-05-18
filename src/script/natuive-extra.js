@@ -2342,7 +2342,7 @@ qa('a[href^="#"]').forEach((el) => {
 	
 	}
 	
-	window.addEventListener('resize', function (e) {
+	window.addEventListener('resize', function (e) { // To do: also listen to the nav's mutation observer, because adding/editing items changes the layout
 		
 		document.querySelectorAll('.n-nav.n-drop ul[role="menubar"]').forEach(ul => {
 			

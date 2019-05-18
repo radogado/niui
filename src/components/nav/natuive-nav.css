@@ -229,6 +229,10 @@ main .n-nav ul {
     transition-delay: .2s;
     transform: scaleX(1); }
 
+  nav.n-drop ul[role=menubar] > li > a {
+    max-width: 100vw;
+    white-space: normal; }
+
   nav.n-drop li {
     white-space: nowrap; }
     nav.n-drop li li[haspopup] > a, nav.n-drop li li li a {
