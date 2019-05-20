@@ -159,6 +159,8 @@ article ul {
   font-size: .75em; }
 .comments .n-form label {
   min-height: 2em; }
+.comments .comment-body {
+  padding-right: 1em; }
 
 .img-crop {
   width: 100%;
