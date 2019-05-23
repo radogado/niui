@@ -1448,6 +1448,100 @@ qa('a[href^="#"]').forEach((el) => {
 ;// Component Tooltip – start
 
 (function (){
+
+	var tooltips = 0;
+
+	let setTipPosition = tip => { // Take up the most area available on top/right/bottom/left of the tool. Relative to body.
+		
+		let tool = document.querySelector('[data-n-tool="' + tip.getAttribute('for') + '"');
+		let rect = tool.getBoundingClientRect();
+
+		let top = rect.top;
+		let left = rect.left;
+		let right = document.body.clientWidth - left - rect.width;
+		let bottom = window.innerHeight - rect.height - top; // To do: check when body is shorter than viewport
+		
+		let area_top = top * document.body.clientWidth;
+		let area_right = right * window.innerHeight;
+		let area_bottom = bottom * document.body.clientWidth;
+		let area_left = left * window.innerHeight;
+		
+		let body_rect = document.body.getBoundingClientRect();
+		
+		if (area_left > area_right) {
+			
+			if (area_top > area_bottom) {
+				
+				if (area_top > area_left) { // Top.
+					
+					tip.style.top = (10 - body_rect.y) + 'px';
+					tip.style.height = (top - 40) + 'px';
+					tip.style.left = '50%';
+					tip.style.transform = 'translateX(-50%)';
+					
+				} else { // Left.
+					
+					
+				}
+				
+			} else {
+				
+				if (area_bottom > area_left) { // Bottom.
+					
+					tip.style.top = (10 - body_rect.y + top + rect.height) + 'px';
+					tip.style.height = (bottom - 40) + 'px';
+					tip.style.left = '50%';
+					tip.style.transform = 'translateX(-50%)';
+					
+				} else { // Left.
+					
+					
+				}
+
+			}
+			
+		} else {
+			
+			if (area_top > area_bottom) {
+				
+				if (area_top > area_right) { // Top.
+					
+					tip.style.top = (10 - body_rect.y) + 'px';
+					tip.style.height = (top - 40) + 'px';
+					tip.style.left = '50%';
+					tip.style.transform = 'translateX(-50%)';
+					
+				} else { // Right.
+					
+					
+				}
+				
+			} else {
+				
+				if (area_bottom > area_right) { // Bottom.
+					
+					tip.style.top = (10 - body_rect.y + top + rect.height) + 'px';
+					tip.style.height = (bottom - 40) + 'px';
+					tip.style.left = '50%';
+					tip.style.transform = 'translateX(-50%)';
+					
+				} else { // Right.
+					
+					
+				}
+				
+			}
+			
+			
+		}
+		
+	}
+	
+	function getToolTip(e) {
+		
+		return document.querySelector('.n-tool--tip[for="' + e.target.closest('.n-tool').getAttribute('data-n-tool') + '"]');
+		
+	}
     
 	var init = (host) => {
 		
@@ -1457,20 +1551,18 @@ qa('a[href^="#"]').forEach((el) => {
 			
 			el.onclick = (e) => {
 	
-				toggleAttribute(e.target.closest('.n-tool'), 'aria-expanded');
+			    setTipPosition(getToolTip(e));
+				toggleAttribute(getToolTip(e), 'aria-expanded');
 	
-			};		
+			};
 		
-		    var t = el.querySelector('.n-tool--tip');
-		    if (!t) return;
-		
-		    el.style.position = 'static'; // dangerous with absolutely-positioned containers, which should be avoided anyway
-		    el.parentNode.style.position = 'relative'; // dangerous with absolutely-positioned containers, which should be avoided anyway
-	/*
-		    t.style.top = (t.parentNode.offsetTop + t.parentNode.offsetHeight) + 'px';
-		    t.style.width = '100%';
-	*/
-	
+		    var tip = el.querySelector('.n-tool--tip');
+		    if (!tip) return;
+		    
+		    tip.setAttribute('for', tooltips);
+		    el.setAttribute('data-n-tool', tooltips++);
+		    document.body.appendChild(tip);
+		    
 			var label = el.querySelector('.n-tool--label');
 			if (label) {
 				
@@ -1479,7 +1571,7 @@ qa('a[href^="#"]').forEach((el) => {
 					
 					if (e.key === 'Enter') {
 						
-						toggleAttribute(e.target.closest('.n-tool'), 'aria-expanded');
+						toggleAttribute(getToolTip(e), 'aria-expanded');
 	
 					}
 					
@@ -1487,7 +1579,7 @@ qa('a[href^="#"]').forEach((el) => {
 	
 				label.onblur = (e) => {
 					
-					e.target.closest('.n-tool').removeAttribute('aria-expanded');
+					getToolTip(e).removeAttribute('aria-expanded');
 	
 				}
 	

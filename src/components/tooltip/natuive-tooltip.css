@@ -39,7 +39,7 @@
   width: 20em;
   line-height: 1.2; }
 
-.n-tool[aria-expanded] .n-tool--tip, html:not(.can-touch) .n-tool:hover .n-tool--tip {
+.n-tool--tip[aria-expanded], html:not(.can-touch) .n-tool:hover .n-tool--tip {
   opacity: 1;
   visibility: visible;
   top: 100%;
