@@ -3334,7 +3334,7 @@ var componentSlider = (function (){
 	var tooltips = 0;
 
 	let setTipPosition = tip => { // Take up the most area available on top/right/bottom/left of the tool. Relative to body.
-		
+
 		let tool = document.querySelector('[data-n-tool="' + tip.getAttribute('for') + '"');
 		let rect = tool.getBoundingClientRect();
 
@@ -3350,6 +3350,8 @@ var componentSlider = (function (){
 		
 		let body_rect = document.body.getBoundingClientRect();
 		
+		tip.removeAttribute('style');
+
 		if (area_left > area_right) {
 			
 			if (area_top > area_bottom) {
@@ -3363,7 +3365,12 @@ var componentSlider = (function (){
 					
 				} else { // Left.
 					
-					
+					tip.style.left = 'auto';
+					tip.style.right = (10 + right + rect.width) + 'px';
+					tip.style.width = (left - 40) + 'px';
+					tip.style.top = `calc(-1px * ${body_rect.y} + 50%)`;
+					tip.style.transform = 'translateY(-50%)';
+
 				}
 				
 			} else {
@@ -3377,6 +3384,11 @@ var componentSlider = (function (){
 					
 				} else { // Left.
 					
+					tip.style.left = 'auto';
+					tip.style.right = (10 + right + rect.width) + 'px';
+					tip.style.width = (left - 40) + 'px';
+					tip.style.top = `calc(-1px * ${body_rect.y} + 50%)`;
+					tip.style.transform = 'translateY(-50%)';
 					
 				}
 
@@ -3395,6 +3407,10 @@ var componentSlider = (function (){
 					
 				} else { // Right.
 					
+					tip.style.left = (10 - body_rect.x + rect.width + left) + 'px';
+					tip.style.width = (right - 40) + 'px';
+					tip.style.top = `calc(-1px * ${body_rect.y} + 50%)`;
+					tip.style.transform = 'translateY(-50%)';
 					
 				}
 				
@@ -3409,6 +3425,10 @@ var componentSlider = (function (){
 					
 				} else { // Right.
 					
+					tip.style.left = (10 - body_rect.x + rect.width + left) + 'px';
+					tip.style.width = (right - 40) + 'px';
+					tip.style.top = `calc(-1px * ${body_rect.y} + 50%)`;
+					tip.style.transform = 'translateY(-50%)';
 					
 				}
 				
@@ -3431,7 +3451,7 @@ var componentSlider = (function (){
 		
 		host.querySelectorAll('.n-tool:not([data-ready])').forEach((el, i) => {
 			
-			el.onclick = (e) => {
+			el.onclick = el.onmouseover = el.onmouseout = (e) => {
 	
 			    setTipPosition(getToolTip(e));
 				toggleAttribute(getToolTip(e), 'aria-expanded');

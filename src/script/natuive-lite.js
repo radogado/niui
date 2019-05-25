@@ -1452,7 +1452,7 @@ qa('a[href^="#"]').forEach((el) => {
 	var tooltips = 0;
 
 	let setTipPosition = tip => { // Take up the most area available on top/right/bottom/left of the tool. Relative to body.
-		
+
 		let tool = document.querySelector('[data-n-tool="' + tip.getAttribute('for') + '"');
 		let rect = tool.getBoundingClientRect();
 
@@ -1468,6 +1468,8 @@ qa('a[href^="#"]').forEach((el) => {
 		
 		let body_rect = document.body.getBoundingClientRect();
 		
+		tip.removeAttribute('style');
+
 		if (area_left > area_right) {
 			
 			if (area_top > area_bottom) {
@@ -1481,7 +1483,12 @@ qa('a[href^="#"]').forEach((el) => {
 					
 				} else { // Left.
 					
-					
+					tip.style.left = 'auto';
+					tip.style.right = (10 + right + rect.width) + 'px';
+					tip.style.width = (left - 40) + 'px';
+					tip.style.top = `calc(-1px * ${body_rect.y} + 50%)`;
+					tip.style.transform = 'translateY(-50%)';
+
 				}
 				
 			} else {
@@ -1495,6 +1502,11 @@ qa('a[href^="#"]').forEach((el) => {
 					
 				} else { // Left.
 					
+					tip.style.left = 'auto';
+					tip.style.right = (10 + right + rect.width) + 'px';
+					tip.style.width = (left - 40) + 'px';
+					tip.style.top = `calc(-1px * ${body_rect.y} + 50%)`;
+					tip.style.transform = 'translateY(-50%)';
 					
 				}
 
@@ -1513,6 +1525,10 @@ qa('a[href^="#"]').forEach((el) => {
 					
 				} else { // Right.
 					
+					tip.style.left = (10 - body_rect.x + rect.width + left) + 'px';
+					tip.style.width = (right - 40) + 'px';
+					tip.style.top = `calc(-1px * ${body_rect.y} + 50%)`;
+					tip.style.transform = 'translateY(-50%)';
 					
 				}
 				
@@ -1527,6 +1543,10 @@ qa('a[href^="#"]').forEach((el) => {
 					
 				} else { // Right.
 					
+					tip.style.left = (10 - body_rect.x + rect.width + left) + 'px';
+					tip.style.width = (right - 40) + 'px';
+					tip.style.top = `calc(-1px * ${body_rect.y} + 50%)`;
+					tip.style.transform = 'translateY(-50%)';
 					
 				}
 				
@@ -1549,7 +1569,7 @@ qa('a[href^="#"]').forEach((el) => {
 		
 		host.querySelectorAll('.n-tool:not([data-ready])').forEach((el, i) => {
 			
-			el.onclick = (e) => {
+			el.onclick = el.onmouseover = el.onmouseout = (e) => {
 	
 			    setTipPosition(getToolTip(e));
 				toggleAttribute(getToolTip(e), 'aria-expanded');
