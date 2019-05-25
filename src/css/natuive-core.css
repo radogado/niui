@@ -18,6 +18,7 @@ html {
 
 body {
   margin: 0;
+  position: relative;
 }
 
 html.n-vertical-page, html.n-vertical-page body {

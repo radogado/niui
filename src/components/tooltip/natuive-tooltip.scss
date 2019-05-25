@@ -43,11 +43,10 @@
 	left: 0;
 	right: 0;
 	cursor: default;
-// 	overflow: hidden;
+	overflow: auto;
 	z-index: 999;
 	text-align: left;
 	visibility: hidden;
-	display: none;
 	opacity: 0;
 	transition: opacity .2s ease-in-out;
 	width: 20em;
@@ -60,6 +59,5 @@
 	opacity: 1;
 	visibility: visible;
 	top: 100%;
-	display: block;
 	
 }

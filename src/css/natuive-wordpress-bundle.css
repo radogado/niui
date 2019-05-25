@@ -18,6 +18,7 @@ html {
 
 body {
   margin: 0;
+  position: relative;
 }
 
 html.n-vertical-page, html.n-vertical-page body {
@@ -3049,10 +3050,10 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
   left: 0;
   right: 0;
   cursor: default;
+  overflow: auto;
   z-index: 999;
   text-align: left;
   visibility: hidden;
-  display: none;
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
   width: 20em;
@@ -3063,7 +3064,6 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
   opacity: 1;
   visibility: visible;
   top: 100%;
-  display: block;
 }
 
 /*# sourceMappingURL=natuive-tooltip.css.map */

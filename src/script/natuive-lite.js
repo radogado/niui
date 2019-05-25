@@ -1449,64 +1449,88 @@ qa('a[href^="#"]').forEach((el) => {
 
 (function (){
 
-	var tooltips = 0;
+	let tooltips = 0;
 
 	let setTipPosition = tip => { // Take up the most area available on top/right/bottom/left of the tool. Relative to body.
 
 		let tool = document.querySelector('[data-n-tool="' + tip.getAttribute('for') + '"');
 		let rect = tool.getBoundingClientRect();
 
-		let top = rect.top;
-		let left = rect.left;
-		let right = document.body.clientWidth - left - rect.width;
-		let bottom = window.innerHeight - rect.height - top; // To do: check when body is shorter than viewport
+		let top = 		rect.top;
+		let left = 		rect.left;
+		let right = 	window.innerWidth - 	left - 	rect.width;
+		let bottom = 	window.innerHeight - 	top - 	rect.height; // To do: check when body is shorter than viewport
 		
-		let area_top = top * document.body.clientWidth;
+		let area_top = top * window.innerWidth;
 		let area_right = right * window.innerHeight;
-		let area_bottom = bottom * document.body.clientWidth;
+		let area_bottom = bottom * window.innerWidth;
 		let area_left = left * window.innerHeight;
 		
 		let body_rect = document.body.getBoundingClientRect();
 		
 		tip.removeAttribute('style');
+		tip.removeAttribute('data-n-position');
+		
+		let positionTop = () => {
 
+			tip.style.top = (10 - body_rect.y) + 'px';
+			tip.style.height = (top - 40) + 'px';
+			tip.style.left = `${-1*body_rect.x + window.innerWidth/2 - tip.scrollWidth/2}px`;
+			tip.setAttribute('data-n-position', 'top');
+			
+		}
+		
+		let positionBottom = () => {
+
+			tip.style.top = (10 - body_rect.y + top + rect.height) + 'px';
+			tip.style.height = (bottom - 40) + 'px';
+			tip.style.left = `${-1*body_rect.x + window.innerWidth/2 - tip.scrollWidth/2}px`;
+			tip.setAttribute('data-n-position', 'bottom');
+			
+		}
+		
+		let positionLeft = () => {
+			
+			tip.style.left = 'auto';
+			tip.style.right = (10 + body_rect.width + body_rect.x - window.innerWidth + right + rect.width) + 'px';
+			tip.style.width = (left - 40) + 'px';
+			tip.style.top = `${-1*body_rect.y + window.innerHeight/2 - tip.scrollHeight/2}px`;
+			tip.setAttribute('data-n-position', 'left');
+			
+		}
+
+		let positionRight = () => {
+
+			tip.style.left = (rect.x - body_rect.x + rect.width + 10) + 'px';
+			tip.style.width = (right - 40) + 'px';
+			tip.style.top = `${-1*body_rect.y + window.innerHeight/2 - tip.scrollHeight/2}px`;
+			tip.setAttribute('data-n-position', 'right');
+
+		}
+		
 		if (area_left > area_right) {
 			
 			if (area_top > area_bottom) {
 				
-				if (area_top > area_left) { // Top.
+				if (area_top > area_left) { // Top
 					
-					tip.style.top = (10 - body_rect.y) + 'px';
-					tip.style.height = (top - 40) + 'px';
-					tip.style.left = '50%';
-					tip.style.transform = 'translateX(-50%)';
+					positionTop();
 					
-				} else { // Left.
+				} else { // Left
 					
-					tip.style.left = 'auto';
-					tip.style.right = (10 + right + rect.width) + 'px';
-					tip.style.width = (left - 40) + 'px';
-					tip.style.top = `calc(-1px * ${body_rect.y} + 50%)`;
-					tip.style.transform = 'translateY(-50%)';
-
+					positionLeft();
+					
 				}
 				
 			} else {
 				
-				if (area_bottom > area_left) { // Bottom.
+				if (area_bottom > area_left) { // Bottom
 					
-					tip.style.top = (10 - body_rect.y + top + rect.height) + 'px';
-					tip.style.height = (bottom - 40) + 'px';
-					tip.style.left = '50%';
-					tip.style.transform = 'translateX(-50%)';
+					positionBottom();
 					
-				} else { // Left.
+				} else { // Left
 					
-					tip.style.left = 'auto';
-					tip.style.right = (10 + right + rect.width) + 'px';
-					tip.style.width = (left - 40) + 'px';
-					tip.style.top = `calc(-1px * ${body_rect.y} + 50%)`;
-					tip.style.transform = 'translateY(-50%)';
+					positionLeft();
 					
 				}
 
@@ -1516,42 +1540,29 @@ qa('a[href^="#"]').forEach((el) => {
 			
 			if (area_top > area_bottom) {
 				
-				if (area_top > area_right) { // Top.
+				if (area_top > area_right) { // Top
 					
-					tip.style.top = (10 - body_rect.y) + 'px';
-					tip.style.height = (top - 40) + 'px';
-					tip.style.left = '50%';
-					tip.style.transform = 'translateX(-50%)';
+					positionTop();
 					
-				} else { // Right.
+				} else { // Right
 					
-					tip.style.left = (10 - body_rect.x + rect.width + left) + 'px';
-					tip.style.width = (right - 40) + 'px';
-					tip.style.top = `calc(-1px * ${body_rect.y} + 50%)`;
-					tip.style.transform = 'translateY(-50%)';
+					positionRight();
 					
 				}
 				
 			} else {
 				
-				if (area_bottom > area_right) { // Bottom.
+				if (area_bottom > area_right) { // Bottom
 					
-					tip.style.top = (10 - body_rect.y + top + rect.height) + 'px';
-					tip.style.height = (bottom - 40) + 'px';
-					tip.style.left = '50%';
-					tip.style.transform = 'translateX(-50%)';
+					positionBottom();					
 					
-				} else { // Right.
+				} else { // Right
 					
-					tip.style.left = (10 - body_rect.x + rect.width + left) + 'px';
-					tip.style.width = (right - 40) + 'px';
-					tip.style.top = `calc(-1px * ${body_rect.y} + 50%)`;
-					tip.style.transform = 'translateY(-50%)';
+					positionRight();
 					
 				}
 				
 			}
-			
 			
 		}
 		
@@ -1613,5 +1624,5 @@ qa('a[href^="#"]').forEach((el) => {
 
 })();
 
-// Component Fold – end
+// Component Tooltip – end
 initComponents(); return { initComponents, animate, copyButton, addComponent } })()
