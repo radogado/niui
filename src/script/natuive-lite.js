@@ -1453,7 +1453,7 @@ qa('a[href^="#"]').forEach((el) => {
 
 	let setTipPosition = tip => { // Take up the most area available on top/right/bottom/left of the tool. Relative to body.
 
-		let tool = document.querySelector('[data-n-tool="' + tip.getAttribute('for') + '"');
+		let tool = document.querySelector('[data-n-tool="' + tip.getAttribute('for') + '"]');
 		let rect = tool.getBoundingClientRect();
 
 		let top = 		rect.top;
@@ -1580,7 +1580,7 @@ qa('a[href^="#"]').forEach((el) => {
 		
 		host.querySelectorAll('.n-tool:not([data-ready])').forEach((el, i) => {
 			
-			el.onclick = el.onmouseover = el.onmouseout = (e) => {
+			el.onclick = el.onmouseover = el.onmouseout = el.touchend = (e) => {
 	
 			    setTipPosition(getToolTip(e));
 				toggleAttribute(getToolTip(e), 'aria-expanded');

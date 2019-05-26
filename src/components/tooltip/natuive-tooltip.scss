@@ -51,6 +51,7 @@
 	transition: opacity .2s ease-in-out;
 	width: 20em;
 	line-height: $line-height/1.25;
+	display: none;
 
 }
 
@@ -59,5 +60,6 @@
 	opacity: 1;
 	visibility: visible;
 	top: 100%;
+	display: block;
 	
 }

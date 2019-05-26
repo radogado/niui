@@ -1,12 +1,10 @@
 /* CSS-only parallax scrolling. html.parallax with body children .parallax-back and .parallax-front. Thanks http://keithclark.co.uk/articles/pure-css-parallax-websites/ */
 html.n-parallax {
-  overflow-x: hidden;
-}
-html.n-parallax, html.n-parallax body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
+  overflow-x: hidden; }
+  html.n-parallax, html.n-parallax body {
+    margin: 0;
+    padding: 0;
+    height: 100%; }
 
 .n-parallax--back {
   position: absolute;
@@ -14,13 +12,11 @@ html.n-parallax, html.n-parallax body {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: -1;
-}
+  z-index: -1; }
 
 html.n-parallax .n-fixed-bg {
   background-attachment: fixed;
-  background-size: cover;
-}
+  background-size: cover; }
 
 @supports (perspective: 1px) {
   /* CSS Parallax is SUPPORTED */
@@ -31,18 +27,14 @@ html.n-parallax .n-fixed-bg {
     overflow-x: hidden;
     overflow-y: auto;
     perspective: 300px;
-    perspective-origin: 100% 100%;
-  }
+    perspective-origin: 100% 100%; }
 
   .n-parallax--front {
     transform-style: preserve-3d;
-    transform: translateZ(0);
-  }
+    transform: translateZ(0); }
 
   .n-parallax--back {
     transform: translateZ(-150px) scale(1.5);
-    transform-origin: 100% 100%;
-  }
-}
+    transform-origin: 100% 100%; } }
 
 /*# sourceMappingURL=natuive-parallax.css.map */
