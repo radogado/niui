@@ -1580,7 +1580,7 @@ qa('a[href^="#"]').forEach((el) => {
 		
 		host.querySelectorAll('.n-tool:not([data-ready])').forEach((el, i) => {
 			
-			el.onclick = el.onmouseover = el.onmouseout = el.touchend = (e) => {
+/* 			el.onclick = */ el.onmouseover = el.onmouseout = el.touchend = (e) => {
 	
 			    setTipPosition(getToolTip(e));
 				toggleAttribute(getToolTip(e), 'aria-expanded');
