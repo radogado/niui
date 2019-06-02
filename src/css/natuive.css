@@ -558,8 +558,8 @@ _:-ms-input-placeholder, :root .n-fold > input[type=checkbox] {
     background-color: var(--control-bg, #eee);
     color: #333;
     color: var(--control-color, #333);
-    line-height: 1.6666666667;
-    font-size: -0.3333333333em;
+    line-height: 1.66667;
+    font-size: -0.33333em;
     text-align: center;
     border: none;
     margin: 0;
@@ -744,7 +744,7 @@ _:-ms-input-placeholder, :root .n-fold > input[type=checkbox] {
       cursor: pointer;
       background: var(--control-bg, rgba(0, 0, 0, 0.1)); }
     .n-form input[type=range]::-moz-range-thumb {
-      border: 0px solid rgba(0, 0, 0, 0);
+      border: 0px solid transparent;
       height: 1.625em;
       width: 1.625em;
       border-radius: 50%;
@@ -2588,5 +2588,9 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
     font-size: 1.125em;
     line-height: 1.3334em;
     min-height: 1.3334em; }
+
+.n-adjust-height {
+  padding-bottom: calc(1px * var(--adjust-height));
+  box-sizing: content-box; }
 
 /*# sourceMappingURL=natuive-typography.css.map */

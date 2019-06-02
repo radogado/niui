@@ -138,7 +138,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 
 /* Grid with inline popups – end */
 
-	var init = (host) => {
+	let init = host => {
 
 		initGridInlinePopups(host);
 		

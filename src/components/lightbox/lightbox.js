@@ -436,7 +436,7 @@ var componentLightbox = (function (){
 		
 	}, 1);
 	
-	var init = (host) => {
+	let init = host => {
 		
 		host.querySelectorAll('.n-lightbox:not([data-ready])').forEach((el) => {
 		

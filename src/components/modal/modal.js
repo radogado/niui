@@ -373,7 +373,7 @@ var componentModal = (function (){
 	
 	}
 
-	var init = (host) => {
+	let init = host => {
 		
 	// Modal window: open a link's target inside it
 	

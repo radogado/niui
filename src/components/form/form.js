@@ -97,7 +97,7 @@
 
 /* Form – end */
 
-	var init = (host) => {
+	let init = host => {
 		
 		host.querySelectorAll('form.n-form').forEach((el, i) => {
 		

@@ -1028,7 +1028,7 @@ qa('a[href^="#"]').forEach((el) => {
 
 /* Form – end */
 
-	var init = (host) => {
+	let init = host => {
 		
 		host.querySelectorAll('form.n-form').forEach((el, i) => {
 		
@@ -1529,7 +1529,7 @@ qa('a[href^="#"]').forEach((el) => {
 		
 	}, 1);
 	
-	var init = (host) => {
+	let init = host => {
 		
 		host.querySelectorAll('.n-lightbox:not([data-ready])').forEach((el) => {
 		
@@ -1942,7 +1942,7 @@ qa('a[href^="#"]').forEach((el) => {
 	
 	}
 
-	var init = (host) => {
+	let init = host => {
 		
 	// Modal window: open a link's target inside it
 	
@@ -2358,7 +2358,7 @@ qa('a[href^="#"]').forEach((el) => {
 			
 /* Nav – end */
 
-	var init = (host) => {
+	let init = host => {
 		
 		host.querySelectorAll('.n-nav:not([data-ready]) > ul:not([role])').forEach((el) => {
 			
@@ -3202,7 +3202,7 @@ var componentSlider = (function (){
 	
 	}
 
-	var init = (host) => {
+	let init = host => {
 		
 		host.querySelectorAll('.n-slider:not([data-ready])').forEach((el) => {
 		
@@ -3273,7 +3273,7 @@ var componentSlider = (function (){
 	
 	}
 
-	var init = (host) => {
+	let init = host => {
 		
 		host.querySelectorAll('.n-table:not([data-ready])').forEach((el) => {
 		
@@ -3456,7 +3456,7 @@ var componentSlider = (function (){
 		
 	}
     
-	var init = (host) => {
+	var init = host => {
 		
 		/* Tooltip */
 		
@@ -3507,6 +3507,46 @@ var componentSlider = (function (){
 })();
 
 // Component Tooltip – end
+;// Component Typography – start
+
+(function (){
+
+	let init = host => {
+		
+		/* Typography */
+		
+		if (typeof ResizeObserver !== 'undefined') { // Compensate element height according to line height
+	
+			let ro = new ResizeObserver(entries => {
+				
+				entries.forEach(el => {
+					
+					let a = el.target;
+					a.style.removeProperty('--adjust-height');
+					let style = getComputedStyle(a);
+					let line_height = parseFloat(style.lineHeight);
+					let adjust = line_height - parseFloat(style.height) % line_height;
+					if (adjust !== line_height) {
+
+						a.style.setProperty('--adjust-height', adjust);
+						a.setAttribute('data-ready', true);
+					
+					}
+					
+				});
+			
+			});
+			
+			document.querySelectorAll('.n-adjust-height:not([data-ready])').forEach(el => ro.observe(el));
+		
+		}
+		
+	};
+	registerComponent('typography', init);
+
+})();
+
+// Component Typography – end
 ;// Component Grid with inline popups – start
 
 (function (){
@@ -3647,7 +3687,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 
 /* Grid with inline popups – end */
 
-	var init = (host) => {
+	let init = host => {
 
 		initGridInlinePopups(host);
 		
@@ -3697,7 +3737,7 @@ var componentNotify = (function (){
 		
 	}
 
-	var init = (host) => {
+	let init = host => {
 		
 		/* Tooltip */
 		

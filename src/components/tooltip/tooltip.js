@@ -127,7 +127,7 @@
 		
 	}
     
-	var init = (host) => {
+	var init = host => {
 		
 		/* Tooltip */
 		

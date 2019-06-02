@@ -1350,6 +1350,28 @@
 							<p>All elements except images are baseline-aligned with height divisible by the default line height.</p>
 							
 						</div>
+						<div class='_1/3'>
+							
+							<h2>Height compensation according to line height*</h2>
+							
+							<picture class="n-aspect n-adjust-height" style="--ratio: 1;">
+					
+								<img src="images/cat.jpg" alt="Portrait">
+					
+							</picture>
+
+<div class="code">							
+
+<pre><code class="language-markup">&lt;span class='n-adjust-height'&gt;
+	...
+&lt;/span&gt;</code>
+</pre>
+
+</div>						
+
+							<p>* Using ResizeObserver, as of June 2019 working in Chrome and under development in Firefox and Safari.</p>
+
+						</div>
 					</div>
 
 

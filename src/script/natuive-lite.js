@@ -891,7 +891,7 @@ qa('a[href^="#"]').forEach((el) => {
 
 /* Form – end */
 
-	var init = (host) => {
+	let init = host => {
 		
 		host.querySelectorAll('form.n-form').forEach((el, i) => {
 		
@@ -1334,7 +1334,7 @@ qa('a[href^="#"]').forEach((el) => {
 			
 /* Nav – end */
 
-	var init = (host) => {
+	let init = host => {
 		
 		host.querySelectorAll('.n-nav:not([data-ready]) > ul:not([role])').forEach((el) => {
 			
@@ -1391,7 +1391,7 @@ qa('a[href^="#"]').forEach((el) => {
 	
 	}
 
-	var init = (host) => {
+	let init = host => {
 		
 		host.querySelectorAll('.n-table:not([data-ready])').forEach((el) => {
 		
@@ -1574,7 +1574,7 @@ qa('a[href^="#"]').forEach((el) => {
 		
 	}
     
-	var init = (host) => {
+	var init = host => {
 		
 		/* Tooltip */
 		

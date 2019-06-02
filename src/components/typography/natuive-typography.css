@@ -74,4 +74,8 @@
     line-height: 1.3334em;
     min-height: 1.3334em; }
 
+.n-adjust-height {
+  padding-bottom: calc(1px * var(--adjust-height));
+  box-sizing: content-box; }
+
 /*# sourceMappingURL=natuive-typography.css.map */

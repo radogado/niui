@@ -40,7 +40,7 @@
 	
 	}
 
-	var init = (host) => {
+	let init = host => {
 		
 		host.querySelectorAll('.n-table:not([data-ready])').forEach((el) => {
 		

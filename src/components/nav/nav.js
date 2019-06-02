@@ -378,7 +378,7 @@
 			
 /* Nav – end */
 
-	var init = (host) => {
+	let init = host => {
 		
 		host.querySelectorAll('.n-nav:not([data-ready]) > ul:not([role])').forEach((el) => {
 			

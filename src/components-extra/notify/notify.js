@@ -38,7 +38,7 @@ var componentNotify = (function (){
 		
 	}
 
-	var init = (host) => {
+	let init = host => {
 		
 		/* Tooltip */
 		

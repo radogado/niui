@@ -160,3 +160,10 @@
 	}
 
 }
+
+.n-adjust-height {
+
+    padding-bottom: calc(1px * var(--adjust-height));
+    box-sizing: content-box;	
+	
+}

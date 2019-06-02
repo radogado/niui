@@ -827,7 +827,7 @@ var componentSlider = (function (){
 	
 	}
 
-	var init = (host) => {
+	let init = host => {
 		
 		host.querySelectorAll('.n-slider:not([data-ready])').forEach((el) => {
 		
