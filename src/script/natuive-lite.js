@@ -1582,8 +1582,9 @@ qa('a[href^="#"]').forEach((el) => {
 			
 /* 			el.onclick = */ el.onmouseover = el.onmouseout = el.touchend = (e) => {
 	
-			    setTipPosition(getToolTip(e));
-				toggleAttribute(getToolTip(e), 'aria-expanded');
+				let tip = getToolTip(e);
+			    setTipPosition(tip);
+				toggleAttribute(tip, 'aria-expanded');
 	
 			};
 		

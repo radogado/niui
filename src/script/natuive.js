@@ -846,7 +846,7 @@ qa('a[href^="#"]').forEach((el) => {
 	
 		if (!el.closest('.n-fold') && !el.closest('.n-tool')) { // Clicking/tapping outside of a fold/tooltip element...
 			
-			qa('.n-fold.n-fold--mobile, .n-tool').forEach((el) => { // ... closes all n-burger nav menus and tooltips
+			qa('.n-fold.n-fold--mobile[aria-expanded], .n-tool--tip[aria-expanded]').forEach(el => { // ... closes all n-burger nav menus and tooltips
 				
 				el.removeAttribute('aria-expanded');
 				
@@ -3464,8 +3464,9 @@ var componentSlider = (function (){
 			
 /* 			el.onclick = */ el.onmouseover = el.onmouseout = el.touchend = (e) => {
 	
-			    setTipPosition(getToolTip(e));
-				toggleAttribute(getToolTip(e), 'aria-expanded');
+				let tip = getToolTip(e);
+			    setTipPosition(tip);
+				toggleAttribute(tip, 'aria-expanded');
 	
 			};
 		
