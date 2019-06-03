@@ -126,6 +126,23 @@
 		return document.querySelector('.n-tool--tip[for="' + e.target.closest('.n-tool').getAttribute('data-n-tool') + '"]');
 		
 	}
+	
+	let hideTip = e => {
+		
+		let tip = getToolTip(e);
+		tip.removeAttribute('aria-expanded');
+		tip.removeAttribute('style');
+		tip.removeAttribute('data-n-position');
+		
+	}
+	
+	let showTip = e => {
+		
+		let tip = getToolTip(e);
+	    setTipPosition(tip);
+		tip.setAttribute('aria-expanded', true);
+		
+	}
     
 	var init = host => {
 		
@@ -133,14 +150,6 @@
 		
 		host.querySelectorAll('.n-tool:not([data-ready])').forEach(el => {
 			
-/* 			el.onclick = */ el.onmouseover = el.onmouseout = el.touchend = e => {
-	
-				let tip = getToolTip(e);
-			    setTipPosition(tip);
-				toggleAttribute(tip, 'aria-expanded');
-	
-			};
-		
 		    var tip = el.querySelector('.n-tool--tip');
 		    if (!tip) return;
 		    
@@ -148,27 +157,11 @@
 		    el.setAttribute('data-n-tool', tooltips++);
 		    document.body.appendChild(tip);
 		    
-			var label = el.querySelector('.n-tool--label');
-			if (label) {
-				
-				label.setAttribute('tabindex', 0);
-				label.onkeyup = (e) => {
-					
-					if (e.key === 'Enter') {
-						
-						toggleAttribute(getToolTip(e), 'aria-expanded');
-	
-					}
-					
-				}
-	
-				label.onblur = (e) => {
-					
-					getToolTip(e).removeAttribute('aria-expanded');
-	
-				}
-	
-			}
+			el.setAttribute('tabindex', 0);
+
+			el.ontouchend = el.onmouseover = el.onfocus = showTip;
+			el.onblur = el.onmouseout = hideTip;
+
 			makeReady(el);
 		
 		});
