@@ -139,8 +139,8 @@
 	let showTip = e => {
 		
 		let tip = getToolTip(e);
-	    setTipPosition(tip);
 		tip.setAttribute('aria-expanded', true);
+	    setTipPosition(tip);
 		
 	}
     
