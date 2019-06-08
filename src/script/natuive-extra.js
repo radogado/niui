@@ -3355,8 +3355,8 @@ var componentSlider = (function (){
 		
 		let positionTop = () => {
 
-			tip.style.top = (10 - body_rect.y) + 'px';
-			tip.style.height = (top - 40) + 'px';
+			tip.style.bottom = (10 + body_rect.height + body_rect.y - top) + 'px';
+			tip.style.maxHeight = (top - 40) + 'px';
 			tip.style.left = `${-1*body_rect.x + window.innerWidth/2 - tip.scrollWidth/2}px`;
 			tip.setAttribute('data-n-position', 'top');
 			
@@ -3365,7 +3365,7 @@ var componentSlider = (function (){
 		let positionBottom = () => {
 
 			tip.style.top = (10 - body_rect.y + top + rect.height) + 'px';
-			tip.style.height = (bottom - 40) + 'px';
+			tip.style.maxHeight = (bottom - 40) + 'px';
 			tip.style.left = `${-1*body_rect.x + window.innerWidth/2 - tip.scrollWidth/2}px`;
 			tip.setAttribute('data-n-position', 'bottom');
 			
@@ -3375,7 +3375,7 @@ var componentSlider = (function (){
 			
 			tip.style.left = 'auto';
 			tip.style.right = (10 + body_rect.width + body_rect.x - window.innerWidth + right + rect.width) + 'px';
-			tip.style.width = (left - 40) + 'px';
+			tip.style.maxWidth = (left - 40) + 'px';
 			tip.style.top = `${-1*body_rect.y + window.innerHeight/2 - tip.scrollHeight/2}px`;
 			tip.setAttribute('data-n-position', 'left');
 			
@@ -3384,7 +3384,7 @@ var componentSlider = (function (){
 		let positionRight = () => {
 
 			tip.style.left = (rect.x - body_rect.x + rect.width + 10) + 'px';
-			tip.style.width = (right - 40) + 'px';
+			tip.style.maxWidth = (right - 40) + 'px';
 			tip.style.top = `${-1*body_rect.y + window.innerHeight/2 - tip.scrollHeight/2}px`;
 			tip.setAttribute('data-n-position', 'right');
 

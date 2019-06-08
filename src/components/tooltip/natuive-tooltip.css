@@ -42,7 +42,6 @@
 .n-tool--tip[aria-expanded], html:not(.can-touch) .n-tool:hover .n-tool--tip {
   opacity: 1;
   visibility: visible;
-  top: 100%;
   display: block; }
 
 /*# sourceMappingURL=natuive-tooltip.css.map */
