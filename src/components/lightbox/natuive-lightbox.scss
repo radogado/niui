@@ -209,6 +209,7 @@
 			margin: 0;
 			color: transparent;
 		    text-shadow: 0 0 #fff;
+		    transform: translate3d(0,0,0); // Safari bug: hidden during slide
 		
 			&:before {
 				

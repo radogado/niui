@@ -1336,7 +1336,8 @@ ol.n-masonry > * {
   right: 0;
   margin: 0;
   color: transparent;
-  text-shadow: 0 0 #fff; }
+  text-shadow: 0 0 #fff;
+  transform: translate3d(0, 0, 0); }
   .n-lightbox.n-slider a.n-btn.n-lightbox--copy:before {
     content: "🔗"; }
 .n-lightbox.n-slider[data-ready] > [data-active]:not(.n-lightbox--no-image):not(.n-lightbox--loaded):after {
