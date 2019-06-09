@@ -200,7 +200,11 @@
 
 @media (max-height: 512px) and (orientation: landscape) {
   .n-lightbox.n-slider a.n-btn.n-lightbox--copy {
-    top: 0; } }
+    top: 0; }
+
+  .n-slider--overlay.n-slider--wrap.n-slider--vertical > .n-slider--nav {
+    padding-top: 3em;
+    box-sizing: border-box; } }
 @media (max-height: 599.9px) {
   div.n-lightbox--thumbnails.n-slider--wrap .n-slider--nav a, div.n-lightbox--thumbnails.n-slider--wrap .n-slider--nav a[data-active] {
     line-height: 1.5;
