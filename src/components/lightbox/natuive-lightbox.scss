@@ -427,7 +427,8 @@
 		&:not(.n-slider--top) .n-slider.n-lightbox > * p.n-lightbox--caption, .n-slider.n-lightbox.n-lightbox--thumbnails:not(.n-slider--vertical):not(.n-slider--detached-nav):not(.n-slider--outside):not(.n-slider--top) > * p.n-lightbox--caption {
 			
 			bottom: auto;
-		    top: -1.5em;
+// 		    top: -1.5em;
+		    top: 0;
 			
 		}
 		

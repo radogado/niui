@@ -285,7 +285,8 @@ nav.n-nav.n-drop {
   white-space: normal;
   line-height: 1.33;
   background: rgba(72, 142, 137, 0.88);
-  transition: background-color .2s ease-in-out; }
+  transition: background-color .2s ease-in-out;
+  margin-bottom: 0; }
 .n-type article .img-crop:hover h2 {
   background: #488e89; }
 

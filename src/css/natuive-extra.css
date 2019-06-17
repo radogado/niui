@@ -1448,7 +1448,7 @@ ol.n-masonry > * {
     text-shadow: none; }
   div.n-lightbox--thumbnails.n-slider--wrap:not(.n-slider--top) .n-slider.n-lightbox > * p.n-lightbox--caption, div.n-lightbox--thumbnails.n-slider--wrap .n-slider.n-lightbox.n-lightbox--thumbnails:not(.n-slider--vertical):not(.n-slider--detached-nav):not(.n-slider--outside):not(.n-slider--top) > * p.n-lightbox--caption {
     bottom: auto;
-    top: -1.5em; }
+    top: 0; }
   div.n-lightbox--thumbnails.n-slider--wrap .n-slider.n-lightbox.n-slider--vertical > * p.n-lightbox--caption {
     bottom: 3em;
     top: auto; }
@@ -1761,6 +1761,8 @@ main .n-nav ul {
   .n-drop ul ul ul {
     margin-left: 100%;
     top: 0; }
+  .n-drop ul ul.n-left-side.n-right-overflow {
+    margin-left: var(--n-right-overflow, 0); }
   .n-drop ul ul.n-left-side ul {
     margin-left: 0;
     left: auto;
@@ -1995,6 +1997,13 @@ main .n-nav ul {
   .n-drop :focus {
     outline-style: dotted;
     outline-width: 1px; } }
+[dir=rtl] .n-drop li[aria-haspopup] {
+  padding-right: 0;
+  padding-left: 2em; }
+[dir=rtl] .n-drop.n-nav ul.n-list li:before {
+  left: 0;
+  right: auto;
+  margin-left: 0; }
 
 /*# sourceMappingURL=natuive-nav.css.map */
 

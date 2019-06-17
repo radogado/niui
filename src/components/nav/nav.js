@@ -271,6 +271,18 @@
 		
 		if (rect.left > menubar.getBoundingClientRect().width - (rect.left + rect.width)) {
 			
+			if (rect.right > window.innerWidth) {
+				
+				ul.style.setProperty('--n-right-overflow', (window.innerWidth - rect.right) + 'px');
+				addClass(ul, 'n-right-overflow');
+				
+			} else {
+				
+				ul.style.removeProperty('--n-right-overflow');
+				removeClass(ul, 'n-right-overflow');
+				
+			}
+	
 			addClass(ul, 'n-left-side');
 			
 		} else {
@@ -278,7 +290,7 @@
 			removeClass(ul, 'n-left-side');
 			
 		}
-	
+		
 	}
 
 	function initNav(el) {
@@ -333,14 +345,12 @@
 		
 		let menubar = el;
 		
-		el.querySelectorAll('li').forEach((el) => {
+		el.querySelectorAll('li').forEach(el => {
 			
 			let ul = el.querySelector('ul');
 			if (ul) {
 				
 				el.setAttribute('aria-haspopup', true);
-
-				checkSides(ul, menubar);
 
 				if (el.children[0].nodeName === 'UL') {
 
@@ -348,8 +358,16 @@
 
 				}
 				
-				
+			}
+		
+		});
+
+		el.querySelectorAll('li').forEach(el => {
 			
+			let ul = el.querySelector('ul');
+			if (ul) {
+				
+				checkSides(ul, menubar);
 			}
 		
 		});

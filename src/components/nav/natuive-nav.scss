@@ -149,7 +149,13 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 		top: 0;
 	
 	}
-	
+
+	ul ul.n-left-side.n-right-overflow {
+		
+		margin-left: var(--n-right-overflow, 0);
+
+	}
+		
 	ul ul.n-left-side ul {
 		
 		margin-left: 0;
@@ -634,3 +640,21 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 
 }
 
+[dir=rtl] .n-drop {
+	
+	li[aria-haspopup] {
+		
+		padding-right: 0;
+		padding-left: 2em;		
+		
+	}
+	
+	&.n-nav ul.n-list li:before {
+		
+		left: 0;
+		right: auto;
+		margin-left: 0;
+		
+	}
+
+}
