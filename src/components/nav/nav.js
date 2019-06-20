@@ -362,13 +362,9 @@
 		
 		});
 
-		el.querySelectorAll('li').forEach(el => {
+		el.querySelectorAll('ul').forEach(ul => {
 			
-			let ul = el.querySelector('ul');
-			if (ul) {
-				
-				checkSides(ul, menubar);
-			}
+			checkSides(ul, menubar);
 		
 		});
 
@@ -380,14 +376,14 @@
 	
 	}
 	
-	window.addEventListener('resize', function (e) { // To do: also listen to the nav's mutation observer, because adding/editing items changes the layout
+	window.addEventListener('resize', function (e) { // To do: Listen to the nav's Resize Observer, because adding/editing items changes the layout, for speed
 		
-		document.querySelectorAll('.n-nav.n-drop ul[role="menubar"]').forEach(ul => {
+		document.querySelectorAll('.n-nav.n-drop ul[role="menubar"]').forEach(menubar => {
 			
-			ul.querySelectorAll('[role="menubar"] > li > ul').forEach(ul2 => {
+			menubar.querySelectorAll('ul').forEach(ul => {
 				
-				checkSides(ul2, ul);
-				
+				checkSides(ul, menubar);
+			
 			});
 			
 		});

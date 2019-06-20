@@ -162,7 +162,8 @@
 }
 
 .n-adjust-height {
-
+	
+	transition: padding-bottom .1s ease-in-out;
     padding-bottom: calc(1px * var(--adjust-height));
     box-sizing: content-box;	
 	
