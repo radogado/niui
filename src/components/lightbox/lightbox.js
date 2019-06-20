@@ -102,13 +102,13 @@ var componentLightbox = (function (){
 	
 		if (img && !img.src) {
 			
-			img.src = img.getAttribute('data-src');
+			img.src = img.getAttribute('data-src') + '?'; // '?' fixes a weird iOS bug showing small images
 			if (img.complete) {
 				
 				imageLoaded(img);
 				
 			}
-			img.onload = img.onerror = (e) => {
+			img.onload = img.onerror = e => {
 				
 				imageLoaded(e.target);
 	

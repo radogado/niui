@@ -1195,13 +1195,13 @@ qa('a[href^="#"]').forEach((el) => {
 	
 		if (img && !img.src) {
 			
-			img.src = img.getAttribute('data-src');
+			img.src = img.getAttribute('data-src') + '?';
 			if (img.complete) {
 				
 				imageLoaded(img);
 				
 			}
-			img.onload = img.onerror = (e) => {
+			img.onload = img.onerror = e => {
 				
 				imageLoaded(e.target);
 	
