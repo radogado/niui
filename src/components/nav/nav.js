@@ -269,7 +269,7 @@
 	
 		let rect = ul.getBoundingClientRect();
 		
-		if (rect.left > menubar.getBoundingClientRect().width - (rect.left + rect.width)) {
+		if (rect.left > document.body.offsetWidth - (rect.left + rect.width)) {
 			
 			if (rect.right > window.innerWidth) {
 				

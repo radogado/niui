@@ -375,8 +375,8 @@ a.backtotop[href] {
     background-color: var(--control-bg, #eee);
     color: #333;
     color: var(--control-color, #333);
-    line-height: 1.66667;
-    font-size: -0.33333em;
+    line-height: 1.6666666667;
+    font-size: -0.3333333333em;
     text-align: center;
     border: none;
     margin: 0;
@@ -561,7 +561,7 @@ a.backtotop[href] {
       cursor: pointer;
       background: var(--control-bg, rgba(0, 0, 0, 0.1)); }
     .n-form input[type=range]::-moz-range-thumb {
-      border: 0px solid transparent;
+      border: 0px solid rgba(0, 0, 0, 0);
       height: 1.625em;
       width: 1.625em;
       border-radius: 50%;
