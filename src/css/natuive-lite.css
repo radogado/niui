@@ -93,7 +93,10 @@ html.n-vertical-page body {
         background-size: cover;
         background-position: center center;
         height: 100vh;
-        transform: translate3d(0, 0, 0); } }
+        transform: translate3d(0, 0, 0); }
+
+  [data-chrome] .n-fixed-bg .n-fixed-bg--image {
+    height: auto; } }
 @supports (-ms-ime-align: auto) {
   .n-fixed-bg {
     background-size: cover; }

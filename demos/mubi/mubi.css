@@ -50,8 +50,10 @@ body.n-type {
   width: 100%; }
 
 main .n-masonry {
-  margin: 0 -1.5em;
-  width: calc(100% + 3em);
+  /*
+	margin: 0 -1.5em;
+    width: calc(100% + 3em);
+*/
   max-width: none; }
 
 .review > div {

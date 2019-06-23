@@ -62,7 +62,7 @@ td {
 td:first-child {
 	
 	white-space: nowrap;
-	padding-left: 0;
+// 	padding-left: 0;
 
 }
 
@@ -145,7 +145,6 @@ a[href].n-btn:hover {
 .black {
 	
 	color: #fff;
-	padding: 4em 0;
 	 
 }
 
@@ -158,7 +157,7 @@ a[href].n-btn:hover {
 
 .black a[href].n-btn:hover {
 	
-	background: #fff;
+	background-color: #fff;
 	color: #000;
 	
 }

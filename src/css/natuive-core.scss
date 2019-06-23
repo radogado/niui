@@ -148,7 +148,7 @@ html.n-vertical-page {
 				top: 0;
 				left: 0;
 				width: 100%;
-				height: 100%;
+				height: 100%; // Chrome bug, addressed below
 				background-image: inherit;
 				
 			}
@@ -168,6 +168,13 @@ html.n-vertical-page {
 		}
 		
 	}
+
+	[data-chrome] .n-fixed-bg .n-fixed-bg--image {
+		
+		height: auto;
+		
+	}
+
 
 }
 
