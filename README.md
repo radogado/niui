@@ -44,7 +44,7 @@ NPM usage:
 - [Aspect ratio](https://radogado.github.io/natuive/#aspect-ratio) image container
 - Arabic (RTL) layout ready
 - [Masonry](https://radogado.github.io/natuive/#masonry) CSS-only (vertical track only)
-- CSS-only [parallax scrolling](https://radogado.github.io/natuive/#parallax)
+- [Parallax scrolling](https://radogado.github.io/natuive/#parallax)
 - [Fixed background](https://radogado.github.io/natuive/#fixed-background)
 - [WordPress theme](https://radogado.github.io/natuive/natuive-wp.zip) with lightbox gallery
 - [Notification bar](https://radogado.github.io/natuive/#notifications)

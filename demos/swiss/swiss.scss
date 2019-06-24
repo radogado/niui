@@ -44,6 +44,24 @@ body.n-type {
 	
 }
 
+.n-parallax {
+	
+	position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    	
+}
+
+.n-parallax-content {
+
+	background: #fff url(Geneva-A320-Stage.jpg) top center no-repeat;
+    background-size: cover;
+	height: 100%;
+
+}
+
 .n-header nav.n-nav.n-drop ul.n-list li a {
 	
 	font-size: 1.5em;
@@ -262,6 +280,7 @@ nav.n-nav.n-drop ul.n-list li b.sub:after {
 
 .n-banner {
 	
+	position: relative;
 	min-height: 33em;
 	
 	form {
@@ -288,12 +307,6 @@ nav.n-nav.n-drop ul.n-list li b.sub:after {
 		box-sizing: border-box;
 
 	}
-
-}
-
-.n-parallax--back {
-
-	background: #fff url(Geneva-A320-Stage.jpg) top center no-repeat;
 
 }
 
