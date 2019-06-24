@@ -2397,7 +2397,7 @@ qa('a[href^="#"]').forEach((el) => {
 	
 	let updateParallax = () => {
 	
-		document.querySelectorAll('.n-parallax-content').forEach(el => {
+		qa('.n-parallax-content').forEach(el => {
 		
 			el.style.setProperty("--scrollparallax", (document.body.scrollTop || document.documentElement.scrollTop) * parallaxSpeed);
 		
@@ -2405,7 +2405,11 @@ qa('a[href^="#"]').forEach((el) => {
 			
 	};
 	
-	window.addEventListener('scroll', updateParallax);
+	if (q('.n-parallax-content')) {
+	
+		window.addEventListener('scroll', updateParallax, true);
+	
+	}
 
 	let init = host => {
 		

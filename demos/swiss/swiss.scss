@@ -56,9 +56,11 @@ body.n-type {
 
 .n-parallax-content {
 
-	background: #fff url(Geneva-A320-Stage.jpg) top center no-repeat;
+	background: #fff url(Geneva-A320-Stage.jpg) center center no-repeat;
     background-size: cover;
 	height: 100%;
+    margin-top: -2em;
+    height: calc(100% + 2em);
 
 }
 
