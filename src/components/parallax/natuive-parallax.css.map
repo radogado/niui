@@ -1,7 +1,1 @@
-{
-"version": 3,
-"mappings": "AAAA,WAAY;EAEX,QAAQ,EAAE,MAAM;;AAIjB,mBAAoB;EAEnB,WAAW,EAAE,SAAS;EACtB,SAAS,EAAE,iDAAiD",
-"sources": ["natuive-parallax.scss"],
-"names": [],
-"file": "natuive-parallax.css"
-}
+{"version":3,"sourceRoot":"","sources":["natuive-parallax.scss"],"names":[],"mappings":"AAAA;EAEC;;;AAID;EAEC;EACA","file":"natuive-parallax.css"}
