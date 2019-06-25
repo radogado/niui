@@ -332,6 +332,13 @@ var componentSlider = (function (){
 			}
 		
 			height_current = `height: ${original_slider_height}px`;
+			
+			if (hasClass(slider, 'n-slider--vertical') && !hasClass(slider, 'n-lightbox') && old_index > index) {
+
+				height_current = `height: ${original_slider_height+target_slide.clientHeight}px`;
+			
+			}
+
 			target_slide.style.display = 'block'; // Temporarily display the target slide to get its height
 			computed_height = getComputedStyle(target_slide).height;
 			target_slide.setAttribute('style', target_slide.getAttribute('style').replace('display: block;', '')); // Keep any other inline styles

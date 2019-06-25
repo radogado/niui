@@ -6,31 +6,25 @@
   border-collapse: collapse;
   -webkit-overflow-scrolling: touch;
   display: block;
-  margin: 1.5em 0;
-}
-.n-table td, .n-table th {
-  padding: 1.5em 0.75em;
-  vertical-align: middle;
-}
-.n-table th, .n-table thead td {
-  color: #fff;
-  font-weight: bold;
-  padding-bottom: 1.5em;
-  font-size: 1.1em;
-  background: rgba(0, 0, 0, 0.1);
-  text-align: left;
-  text-align: start;
-}
-.n-table tr:nth-child(2n+1) {
-  background: rgba(0, 0, 0, 0.1);
-}
-.n-table tr, .n-table td, .n-table th, .n-table iframe {
-  border: none;
-}
+  margin: 1.5em 0; }
+  .n-table td, .n-table th {
+    padding: 1.5em 0.75em;
+    vertical-align: middle; }
+  .n-table th, .n-table thead td {
+    color: #fff;
+    font-weight: bold;
+    padding-bottom: 1.5em;
+    font-size: 1.1em;
+    background: rgba(0, 0, 0, 0.1);
+    text-align: left;
+    text-align: start; }
+  .n-table tr:nth-child(2n+1) {
+    background: rgba(0, 0, 0, 0.1); }
+  .n-table tr, .n-table td, .n-table th, .n-table iframe {
+    border: none; }
 
 .n-table::-webkit-scrollbar {
-  display: none;
-}
+  display: none; }
 
 .n-table--wrap {
   overflow-x: auto;
@@ -43,38 +37,29 @@
   	    scrollbar-highlight-color: transparent;
   	    scrollbar-shadow-color: transparent;
   */
-  -webkit-overflow-scrolling: touch;
-}
-.n-table--wrap .n-table {
-  display: table;
-}
+  -webkit-overflow-scrolling: touch; }
+  .n-table--wrap .n-table {
+    display: table; }
 
 .n-table--wrap td[data-sort] {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
-  user-select: none;
-}
+  user-select: none; }
 
 @media screen and (min-width: 1px) {
   .n-table--wrap td[data-sort] {
-    cursor: pointer;
-  }
-  .n-table--wrap td[data-sort]:after {
-    content: "⇳";
-    margin-left: 0.5em;
-  }
-}
+    cursor: pointer; }
+    .n-table--wrap td[data-sort]:after {
+      content: '⇳';
+      margin-left: .5em; } }
 @media screen and (max-width: 599.9px) {
   .n-table {
     display: block;
     overflow: scroll;
-    table-layout: auto;
-  }
-  .n-table td {
-    word-break: normal;
-  }
-}
+    table-layout: auto; }
+    .n-table td {
+      word-break: normal; } }
 
 /*# sourceMappingURL=natuive-table.css.map */

@@ -664,6 +664,14 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 
 }
 
+/*
+[data-active="true"] > .n-slider.n-slider--vertical.n-tabs[data-ready] {
+	
+	overflow: hidden;
+
+}
+*/
+
 @media screen and (max-width: $screen-narrow-max) {
 
 	.n-slider--wrap.n-tabs > .n-slider--nav.n-row, .n-slider--nav.n-row.n-tabs, .n-slider--wrap.n-tabs > .n-slider--nav a {
