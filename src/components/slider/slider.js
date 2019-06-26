@@ -333,12 +333,6 @@ var componentSlider = (function (){
 		
 			height_current = `height: ${original_slider_height}px`;
 			
-			if (hasClass(slider, 'n-slider--vertical') && !hasClass(slider, 'n-lightbox') && old_index > index) {
-
-				height_current = `height: ${original_slider_height+target_slide.clientHeight}px`;
-			
-			}
-
 			target_slide.style.display = 'block'; // Temporarily display the target slide to get its height
 			computed_height = getComputedStyle(target_slide).height;
 			target_slide.setAttribute('style', target_slide.getAttribute('style').replace('display: block;', '')); // Keep any other inline styles
@@ -466,7 +460,15 @@ var componentSlider = (function (){
 			
 			} else {
 
-				animation_code = `0% { transform: ${translate_from}; ${height_current}; } 100% { ${height_change}; transform: ${translate_to}; }`;
+				if (hasClass(slider, 'n-slider--vertical') && !hasClass(slider, 'n-lightbox') && old_index > index) {
+					
+					animation_code = `0% { margin-top: -${computed_height}px; height: ${computed_height + computed_height_old}px; } 100% { margin-top: 0; ${height_change}; }`;
+
+				} else {
+
+					animation_code = `0% { transform: ${translate_from}; ${height_current}; } 100% { ${height_change}; transform: ${translate_to}; }`;
+				
+				}
 
 			}
 			
