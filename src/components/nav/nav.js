@@ -267,6 +267,9 @@
 
 	function checkSides(ul, menubar) {
 	
+		removeClass(ul, 'n-right-overflow');
+		ul.style.removeProperty('--n-right-overflow');
+
 		let rect = ul.getBoundingClientRect();
 		
 		if (rect.left > document.body.offsetWidth - (rect.left + rect.width)) {
@@ -275,11 +278,6 @@
 				
 				ul.style.setProperty('--n-right-overflow', (window.innerWidth - rect.right) + 'px');
 				addClass(ul, 'n-right-overflow');
-				
-			} else {
-				
-				ul.style.removeProperty('--n-right-overflow');
-				removeClass(ul, 'n-right-overflow');
 				
 			}
 	
@@ -376,7 +374,7 @@
 	
 	}
 	
-	window.addEventListener('resize', function (e) { // To do: Listen to the nav's Resize Observer, because adding/editing items changes the layout, for speed
+	window.addEventListener('resize', function (e) {
 		
 		document.querySelectorAll('.n-nav.n-drop ul[role="menubar"]').forEach(menubar => {
 			
