@@ -1,7 +1,7 @@
 # natUIve: mostly native front-end framework/library/toolkit
 
 
-10+10 KB framework leveraging browsers' built-in capabilities, with subtle customisation. 
+~10+~10 KB framework leveraging browsers' built-in capabilities, with subtle customisation. 
 
 To use natUIve, get [natuive.min.css](https://radogado.github.io/natuive/dist/natuive.min.css), [natuive.min.js](https://radogado.github.io/natuive/dist/natuive.min.js) and [index.html](https://radogado.github.io/natuive/dist/index.html) and edit the latter. Check the [homepage](https://radogado.github.io/natuive/) for details.
 
@@ -52,7 +52,7 @@ NPM usage:
 - Functional without JS and accessible without CSS
 - [NPM install](https://radogado.github.io/natuive/#npm)
 - [Documentation](https://radogado.github.io/natuive/#)
-- 10 KB first view CSS + optional 10 KB JS (combined, minified, macOS gzip)
+- ~10 KB first view CSS + optional ~10 KB JS (combined, minified, macOS gzip)
 - Seamless transition from CSS-only to JS-enhanced layout
 - No dependencies
 - Supporting evergreen browsers and Internet Explorer (CSS-only)

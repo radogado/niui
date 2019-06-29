@@ -27,12 +27,6 @@ module.exports = function(grunt) {
 						src: ["**/*.scss"],
 						dest: "src/components",
 						ext: ".css"
-					}, {
-					expand: true,
-						cwd: "src/components-extra",
-						src: ["**/*.scss"],
-						dest: "src/components-extra",
-						ext: ".css"
 					}]
 				},
 			WordPress: {
@@ -54,22 +48,9 @@ module.exports = function(grunt) {
 		    src: ['src/script/natuive-core.js', 'src/components/**/*.js'],
 		    dest: 'src/script/natuive.js'
 		  },
-		  JS_extra: {
-			options: {
-				separator: ';',
-				banner: 'var nui = (() => {', // skirt non-ES6 browsers like IE11
-				footer: 'initComponents(); return { initComponents, animate, copyButton, componentNotify, componentModal, addComponent, componentSlider } })()'
-		    },
-		    src: ['src/script/natuive-core.js', 'src/components/**/*.js', 'src/components-extra/**/*.js'],
-		    dest: 'src/script/natuive-extra.js'
-		  },
 		  CSS: {
 		    src: ['src/css/natuive-core.css', 'src/components/**/*.css'],
 		    dest: 'src/css/natuive.css'
-		  },
-		  CSS_extra: {
-		    src: ['src/css/natuive-core.css', 'src/components/**/*.css', 'src/components-extra/**/*.css'],
-		    dest: 'src/css/natuive-extra.css'
 		  },
 		  JS_lite: {
 			options: {
@@ -98,7 +79,6 @@ module.exports = function(grunt) {
 			    files: {
 			      'dist/natuive.min.css': ['src/css/natuive.css'],
 			      'dist/natuive-lite.min.css': ['src/css/natuive-lite.css'],
-			      'dist/natuive-extra.min.css': ['src/css/natuive-extra.css'],
 			      'natuive-wp/natuive-wordpress.min.css': ['src/css/natuive-wordpress-bundle.css']
 			    }
 			  }
@@ -108,18 +88,6 @@ module.exports = function(grunt) {
 			  closurePath: './node_modules/closure-compiler',
 			  js: 'src/script/natuive.js',
 			  jsOutputFile: 'dist/natuive.min.js',
-			  maxBuffer: 500,
-			  noreport: true,
-			  options: {
-			    compilation_level: 'SIMPLE_OPTIMIZATIONS',
-			    language_in: 'ECMASCRIPT6_STRICT',
-			    language_out: 'ECMASCRIPT_2015',
-			  }
-			},
-			extra: {
-			  closurePath: './node_modules/closure-compiler',
-			  js: 'src/script/natuive-extra.js',
-			  jsOutputFile: 'dist/natuive-extra.min.js',
 			  maxBuffer: 500,
 			  noreport: true,
 			  options: {
