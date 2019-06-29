@@ -1,0 +1,35 @@
+@charset "UTF-8";
+/* natUIve  – Card */
+.n-card {
+  margin: 1em 0;
+  --card-bg: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.1);
+  background: var(--card-bg); }
+  .n-card > * {
+    padding: 1em; }
+  .n-card .n-card--content {
+    background: var(--card-bg); }
+    .n-card .n-card--content p {
+      margin: .75em 0; }
+      .n-card .n-card--content p:first-child {
+        margin-top: 0; }
+  .n-card > img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 0; }
+  .n-card .n-card--head.n-card--image {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff; }
+    .n-card .n-card--head.n-card--image:after {
+      content: '';
+      padding-bottom: 56.25%;
+      width: 0;
+      display: inline-block;
+      vertical-align: bottom; }
+    .n-card .n-card--head.n-card--image > * {
+      display: inline-block; }
+
+/*# sourceMappingURL=natuive-card.css.map */

@@ -1,0 +1,70 @@
+/* natUIve  – Card */
+
+@import '../../css/natuive-setup';
+
+.n-card {
+	
+	margin: 1em 0;
+	--card-bg: #{rgba(0,0,0,.1)};
+	background: rgba(0,0,0,.1);
+	background: var(--card-bg);
+
+	> * {
+		
+		padding: 1em;
+	
+	}
+	
+	.n-card--content {
+		
+		background: var(--card-bg);
+		
+		p {
+		
+			margin: .75em 0;
+			
+			&:first-child {
+				
+				margin-top: 0;
+
+			}	
+			
+		}
+	
+	}
+	
+	> img {
+		
+		display: block;
+		margin: 0 auto;
+		max-width: 100%;
+		padding: 0;
+	
+	}
+	
+	.n-card--head.n-card--image {
+		
+		background-position: center center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		color: #fff;
+		
+		&:after {
+		
+			content: ''; 
+			padding-bottom: 56.25%; // 16:9
+			width: 0;
+			display: inline-block;
+			vertical-align: bottom;
+		
+		}
+	
+		> * {
+			
+			display: inline-block;
+		
+		}
+	
+	}
+
+}
