@@ -33,8 +33,8 @@
 	font-size: $font-size;
 	line-height: $line-height;
 	min-height: $line-height-em;
-	background: #333;
-	color: #ddd;
+	background-color: var(--control-bg, #444);
+	color: var(--control-color, #ddd);
 	padding: $line-height-em/2;
 	font-size: .8em;
 	font-weight: normal;
@@ -60,5 +60,49 @@
 	opacity: 1;
 	visibility: visible;
 	display: block;
+	overflow: visible; // Chevron
+	
+}
+
+.n-tool--tip {
+
+	&:after {
+		
+		content: '';
+		position: absolute;
+ 		background-color: var(--control-bg, #444);
+		
+	}
+	
+	&[data-n-position="top"]:after, &[data-n-position="bottom"]:after {
+		
+		width: 2em;
+	    height: 1em;
+ 		left: calc(50% - 1em);
+	    bottom: -1em;
+    		
+	}
+	
+	&[data-n-position="bottom"]:after {
+		
+	    top: -1em;
+    		
+	}
+	
+	&[data-n-position="left"]:after, &[data-n-position="right"]:after {
+		
+		width: 1em;
+	    height: 2em;
+ 		top: calc(50% - 1em);
+	    left: -1em;
+    		
+	}
+	
+	&[data-n-position="left"]:after {
+		
+	    right: -1em;
+	    left: auto;
+    		
+	}
 	
 }

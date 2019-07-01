@@ -26,7 +26,7 @@
 		
 		let positionTop = () => {
 
-			tip.style.bottom = (10 + body_rect.height + body_rect.y - top) + 'px';
+			tip.style.bottom = (20 + body_rect.height + body_rect.y - top) + 'px';
 			tip.style.maxHeight = (top - 40) + 'px';
 // 			tip.style.left = `${-1*body_rect.x + window.innerWidth/2 - tip.scrollWidth/2}px`;
 			tip.style.left = `${rect.x + rect.width/2 - tip.scrollWidth/2}px`;
@@ -36,7 +36,7 @@
 		
 		let positionBottom = () => {
 
-			tip.style.top = (10 - body_rect.y + top + rect.height) + 'px';
+			tip.style.top = (20 - body_rect.y + top + rect.height) + 'px';
 			tip.style.maxHeight = (bottom - 40) + 'px';
 // 			tip.style.left = `${-1*body_rect.x + window.innerWidth/2 - tip.scrollWidth/2}px`;
 			tip.style.left = `${rect.x + rect.width/2 - tip.scrollWidth/2}px`;
@@ -47,7 +47,7 @@
 		let positionLeft = () => {
 			
 			tip.style.left = 'auto';
-			tip.style.right = (10 + body_rect.width + body_rect.x - window.innerWidth + right + rect.width) + 'px';
+			tip.style.right = (20 + body_rect.width + body_rect.x - window.innerWidth + right + rect.width) + 'px';
 			tip.style.maxWidth = (left - 40) + 'px';
 // 			tip.style.top = `${-1*body_rect.y + window.innerHeight/2 - tip.scrollHeight/2}px`;
 			tip.style.top = `${-1*body_rect.y + rect.top + rect.height/2 - tip.scrollHeight/2}px`;
@@ -57,7 +57,7 @@
 
 		let positionRight = () => {
 
-			tip.style.left = (rect.x - body_rect.x + rect.width + 10) + 'px';
+			tip.style.left = (rect.x - body_rect.x + rect.width + 20) + 'px';
 			tip.style.maxWidth = (right - 40) + 'px';
 // 			tip.style.top = `${-1*body_rect.y + window.innerHeight/2 - tip.scrollHeight/2}px`;
 			tip.style.top = `${-1*body_rect.y + rect.top + rect.height/2 - tip.scrollHeight/2}px`;
