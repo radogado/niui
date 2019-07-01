@@ -71,36 +71,35 @@
 		content: '';
 		position: absolute;
  		background-color: var(--control-bg, #444);
+ 		transform: rotate(45deg);
+		width: 1em;
+	    height: 1em;
 		
 	}
 	
 	&[data-n-position="top"]:after, &[data-n-position="bottom"]:after {
 		
-		width: 2em;
-	    height: 1em;
- 		left: calc(50% - 1em);
-	    bottom: -1em;
+ 		left: calc(50% - .5em);
+	    bottom: -.45em;
     		
 	}
 	
 	&[data-n-position="bottom"]:after {
 		
-	    top: -1em;
+	    top: -.45em;
     		
 	}
 	
 	&[data-n-position="left"]:after, &[data-n-position="right"]:after {
 		
-		width: 1em;
-	    height: 2em;
- 		top: calc(50% - 1em);
-	    left: -1em;
+ 		top: calc(50% - .5em);
+	    left: -.45em;
     		
 	}
 	
 	&[data-n-position="left"]:after {
 		
-	    right: -1em;
+	    right: -.45em;
 	    left: auto;
     		
 	}

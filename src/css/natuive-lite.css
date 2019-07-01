@@ -375,8 +375,8 @@ a.backtotop[href] {
     background-color: var(--control-bg, #eee);
     color: #333;
     color: var(--control-color, #333);
-    line-height: 1.66667;
-    font-size: -0.33333em;
+    line-height: 1.6666666667;
+    font-size: -0.3333333333em;
     text-align: center;
     border: none;
     margin: 0;
@@ -561,7 +561,7 @@ a.backtotop[href] {
       cursor: pointer;
       background: var(--control-bg, rgba(0, 0, 0, 0.1)); }
     .n-form input[type=range]::-moz-range-thumb {
-      border: 0px solid transparent;
+      border: 0px solid rgba(0, 0, 0, 0);
       height: 1.625em;
       width: 1.625em;
       border-radius: 50%;
@@ -1582,21 +1582,20 @@ main .n-nav ul {
 .n-tool--tip:after {
   content: '';
   position: absolute;
-  background-color: var(--control-bg, #444); }
-.n-tool--tip[data-n-position="top"]:after, .n-tool--tip[data-n-position="bottom"]:after {
-  width: 2em;
-  height: 1em;
-  left: calc(50% - 1em);
-  bottom: -1em; }
-.n-tool--tip[data-n-position="bottom"]:after {
-  top: -1em; }
-.n-tool--tip[data-n-position="left"]:after, .n-tool--tip[data-n-position="right"]:after {
+  background-color: var(--control-bg, #444);
+  transform: rotate(45deg);
   width: 1em;
-  height: 2em;
-  top: calc(50% - 1em);
-  left: -1em; }
+  height: 1em; }
+.n-tool--tip[data-n-position="top"]:after, .n-tool--tip[data-n-position="bottom"]:after {
+  left: calc(50% - .5em);
+  bottom: -.45em; }
+.n-tool--tip[data-n-position="bottom"]:after {
+  top: -.45em; }
+.n-tool--tip[data-n-position="left"]:after, .n-tool--tip[data-n-position="right"]:after {
+  top: calc(50% - .5em);
+  left: -.45em; }
 .n-tool--tip[data-n-position="left"]:after {
-  right: -1em;
+  right: -.45em;
   left: auto; }
 
 /*# sourceMappingURL=natuive-tooltip.css.map */
