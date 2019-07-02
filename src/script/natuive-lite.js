@@ -1578,6 +1578,26 @@ qa('a[href^="#"]').forEach((el) => {
 			
 		}
 		
+		let offset = 0;
+		
+		let rect_tip = tip.getBoundingClientRect();
+		
+		if (rect_tip.y < 0) {
+			
+			offset = Math.abs(rect_tip.y) + 10;
+			
+		} else {
+			
+			if (rect_tip.bottom > window.innerHeight) {
+				
+				offset = window.innerHeight - rect_tip.bottom - 10;
+				
+			}
+			
+		}
+		
+		tip.style.setProperty('--offset', offset + 'px');
+		
 	}
 	
 	function getToolTip(e) {

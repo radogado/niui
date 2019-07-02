@@ -12,9 +12,7 @@
 		
 		content: '?';
 		display: inline-block;
-		background-color: var(--control-bg, #444);
 		border-radius: 100%;
-		color: var(--control-color, #ddd);
 		width: 1.5em;
 		text-align: center;
 	
@@ -28,30 +26,10 @@
 
 }
 
-.n-tool--tip, .n-tool--label .n-tool--tip {
+.n-tool:after, .n-tool--tip {
 
-	font-size: $font-size;
-	line-height: $line-height;
-	min-height: $line-height-em;
 	background-color: var(--control-bg, #444);
 	color: var(--control-color, #ddd);
-	padding: $line-height-em/2;
-	font-size: .8em;
-	font-weight: normal;
-	position: absolute;
-	top: auto;
-	left: 0;
-	right: 0;
-	cursor: default;
-	overflow: auto;
-	z-index: 999;
-	text-align: left;
-	visibility: hidden;
-	opacity: 0;
-	transition: opacity .2s ease-in-out;
-	width: 20em;
-	line-height: $line-height/1.25;
-	display: none;
 
 }
 
@@ -67,6 +45,21 @@
 
 	overflow: visible;
 	max-height: calc(100vh - 40px);
+	padding: $line-height-em/2;
+	font-size: .8em;
+	font-weight: normal;
+	position: absolute;
+	top: auto;
+	left: 0;
+	right: 0;
+	z-index: 999;
+	text-align: start;
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity .2s ease-in-out;
+	width: 20em;
+	line-height: $line-height/1.25;
+	display: none;
 	
 	span {
 		
@@ -98,11 +91,17 @@
     		
 	}
 	
-	&[data-n-position="left"]:after, &[data-n-position="right"]:after {
+	&[data-n-position="left"], &[data-n-position="right"] {
 		
- 		top: calc(50% - .5em);
-	    left: -.45em;
-    		
+	    margin-top: var(--offset);
+	    
+	    &:after {
+		    
+	 		top: calc(50% - .5em - var(--offset, 0));
+		    left: -.45em;
+		    
+	    }
+		
 	}
 	
 	&[data-n-position="left"]:after {

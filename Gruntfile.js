@@ -43,7 +43,7 @@ module.exports = function(grunt) {
 			options: {
 				separator: ';',
 				banner: 'var nui = (() => {', // skirt non-ES6 browsers like IE11
-				footer: 'initComponents(); return { initComponents, animate, copyButton, componentModal, addComponent, componentSlider } })()'
+				footer: 'initComponents(); return { initComponents, animate, copyButton, componentModal, addComponent, componentSlider, componentNotify } })()'
 		    },
 		    src: ['src/script/natuive-core.js', 'src/components/**/*.js'],
 		    dest: 'src/script/natuive.js'
@@ -127,7 +127,7 @@ module.exports = function(grunt) {
 		  }
 	});
 
-	grunt.registerTask('default', ['sass', 'concat', 'cssmin', 'closure-compiler', 'copy', 'gzip']);
+	grunt.registerTask('default', ['sass', 'concat', 'cssmin', 'gzip', 'closure-compiler', 'copy']);
 	grunt.registerTask('dev', ['sass', 'concat', 'cssmin', 'copy', 'gzip']);
 
 };
