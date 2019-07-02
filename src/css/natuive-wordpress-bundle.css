@@ -2624,15 +2624,17 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
     transform: rotate(45deg);
     width: 1em;
     height: 1em; }
-  .n-tool--tip[data-n-position="top"]:after, .n-tool--tip[data-n-position="bottom"]:after {
-    left: calc(50% - .5em);
-    bottom: -.45em; }
+  .n-tool--tip[data-n-position="top"], .n-tool--tip[data-n-position="bottom"] {
+    margin-left: var(--offset_x, 0); }
+    .n-tool--tip[data-n-position="top"]:after, .n-tool--tip[data-n-position="bottom"]:after {
+      left: calc(50% - .5em - var(--offset_x, 0));
+      bottom: -.45em; }
   .n-tool--tip[data-n-position="bottom"]:after {
     top: -.45em; }
   .n-tool--tip[data-n-position="left"], .n-tool--tip[data-n-position="right"] {
-    margin-top: var(--offset); }
+    margin-top: var(--offset_y, 0); }
     .n-tool--tip[data-n-position="left"]:after, .n-tool--tip[data-n-position="right"]:after {
-      top: calc(50% - .5em - var(--offset, 0));
+      top: calc(50% - .5em - var(--offset_y, 0));
       left: -.45em; }
   .n-tool--tip[data-n-position="left"]:after {
     right: -.45em;

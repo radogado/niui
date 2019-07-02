@@ -3711,25 +3711,43 @@ var componentSlider = (function (){
 			
 		}
 		
-		let offset = 0;
-		
 		let rect_tip = tip.getBoundingClientRect();
+		
+		let offset_y = 0;
 		
 		if (rect_tip.y < 0) {
 			
-			offset = Math.abs(rect_tip.y) + 10;
+			offset_y = Math.abs(rect_tip.y) + 10;
 			
 		} else {
 			
 			if (rect_tip.bottom > window.innerHeight) {
 				
-				offset = window.innerHeight - rect_tip.bottom - 10;
+				offset_y = window.innerHeight - rect_tip.bottom - 10;
 				
 			}
 			
 		}
 		
-		tip.style.setProperty('--offset', offset + 'px');
+		tip.style.setProperty('--offset_y', offset_y + 'px');
+		
+		let offset_x = 0;
+		
+		if (rect_tip.x < 0) {
+			
+			offset_x = Math.abs(rect_tip.x) + 10;
+			
+		} else {
+			
+			if (rect_tip.right > window.outerWidth) {
+				
+				offset_x = window.outerWidth - rect_tip.right - 10;
+				
+			}
+			
+		}
+		
+		tip.style.setProperty('--offset_x', offset_x + 'px');
 		
 	}
 	

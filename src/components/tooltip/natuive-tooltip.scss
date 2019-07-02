@@ -78,10 +78,16 @@
 		
 	}
 	
-	&[data-n-position="top"]:after, &[data-n-position="bottom"]:after {
+	&[data-n-position="top"], &[data-n-position="bottom"] {
 		
- 		left: calc(50% - .5em);
-	    bottom: -.45em;
+	    margin-left: var(--offset_x, 0);
+	    
+	    &:after {
+		    
+	 		left: calc(50% - .5em - var(--offset_x, 0));
+		    bottom: -.45em;
+		    
+	    }
     		
 	}
 	
@@ -93,11 +99,11 @@
 	
 	&[data-n-position="left"], &[data-n-position="right"] {
 		
-	    margin-top: var(--offset);
+	    margin-top: var(--offset_y, 0);
 	    
 	    &:after {
 		    
-	 		top: calc(50% - .5em - var(--offset, 0));
+	 		top: calc(50% - .5em - var(--offset_y, 0));
 		    left: -.45em;
 		    
 	    }
