@@ -594,8 +594,8 @@ _:-ms-input-placeholder, :root .n-fold > input[type=checkbox] {
     background-color: var(--control-bg, #eee);
     color: #333;
     color: var(--control-color, #333);
-    line-height: 1.6666666667;
-    font-size: -0.3333333333em;
+    line-height: 1.66667;
+    font-size: -0.33333em;
     text-align: center;
     border: none;
     margin: 0;
@@ -780,7 +780,7 @@ _:-ms-input-placeholder, :root .n-fold > input[type=checkbox] {
       cursor: pointer;
       background: var(--control-bg, rgba(0, 0, 0, 0.1)); }
     .n-form input[type=range]::-moz-range-thumb {
-      border: 0px solid rgba(0, 0, 0, 0);
+      border: 0px solid transparent;
       height: 1.625em;
       width: 1.625em;
       border-radius: 50%;
@@ -2617,27 +2617,31 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 .n-tool--tip[aria-expanded], html:not(.can-touch) .n-tool:hover .n-tool--tip {
   opacity: 1;
   visibility: visible;
-  display: block;
-  overflow: visible; }
+  display: flex; }
 
-.n-tool--tip:after {
-  content: '';
-  position: absolute;
-  background-color: var(--control-bg, #444);
-  transform: rotate(45deg);
-  width: 1em;
-  height: 1em; }
-.n-tool--tip[data-n-position="top"]:after, .n-tool--tip[data-n-position="bottom"]:after {
-  left: calc(50% - .5em);
-  bottom: -.45em; }
-.n-tool--tip[data-n-position="bottom"]:after {
-  top: -.45em; }
-.n-tool--tip[data-n-position="left"]:after, .n-tool--tip[data-n-position="right"]:after {
-  top: calc(50% - .5em);
-  left: -.45em; }
-.n-tool--tip[data-n-position="left"]:after {
-  right: -.45em;
-  left: auto; }
+.n-tool--tip {
+  overflow: visible;
+  max-height: calc(100vh - 40px); }
+  .n-tool--tip span {
+    overflow: auto; }
+  .n-tool--tip:after {
+    content: '';
+    position: absolute;
+    background-color: var(--control-bg, #444);
+    transform: rotate(45deg);
+    width: 1em;
+    height: 1em; }
+  .n-tool--tip[data-n-position="top"]:after, .n-tool--tip[data-n-position="bottom"]:after {
+    left: calc(50% - .5em);
+    bottom: -.45em; }
+  .n-tool--tip[data-n-position="bottom"]:after {
+    top: -.45em; }
+  .n-tool--tip[data-n-position="left"]:after, .n-tool--tip[data-n-position="right"]:after {
+    top: calc(50% - .5em);
+    left: -.45em; }
+  .n-tool--tip[data-n-position="left"]:after {
+    right: -.45em;
+    left: auto; }
 
 /*# sourceMappingURL=natuive-tooltip.css.map */
 

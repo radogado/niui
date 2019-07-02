@@ -59,12 +59,20 @@
 	
 	opacity: 1;
 	visibility: visible;
-	display: block;
-	overflow: visible; // Chevron
+	display: flex;
 	
 }
 
 .n-tool--tip {
+
+	overflow: visible;
+	max-height: calc(100vh - 40px);
+	
+	span {
+		
+		overflow: auto;
+
+	}
 
 	&:after {
 		
