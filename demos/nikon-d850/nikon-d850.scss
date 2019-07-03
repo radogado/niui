@@ -145,6 +145,18 @@ body {
 	
 	}
 
+	.n-drop ul[role=menubar] li[aria-haspopup] > a {
+		
+		padding-right: 1.75em;
+		
+	}
+
+	.n-drop li:not([tabindex]) > ul ~ a {
+	
+		padding-right: 1.75em;
+	
+	}
+
 }
 
 a[href] img {

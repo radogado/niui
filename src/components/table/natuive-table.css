@@ -5,8 +5,7 @@
   overflow: auto;
   border-collapse: collapse;
   -webkit-overflow-scrolling: touch;
-  display: block;
-  margin: 1.5em 0; }
+  display: block; }
   .n-table td, .n-table th {
     padding: 1.5em 0.75em;
     vertical-align: middle; }

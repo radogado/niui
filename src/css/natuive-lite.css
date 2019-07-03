@@ -1237,7 +1237,7 @@ main .n-nav ul {
     background-color: #fff;
     background-color: var(--control-bg, #fff); }
   .n-drop li:not([tabindex]) > ul ~ a {
-    padding-right: 1.75em; }
+    padding-right: 2.75em; }
   .n-drop li > a {
     padding: .75em;
     display: block; }
@@ -1252,7 +1252,7 @@ main .n-nav ul {
     padding-right: .75em; }
   .n-drop ul[role=menubar] li[aria-haspopup] > a {
     margin-right: 0;
-    padding-right: 1.75em; }
+    padding-right: .75em; }
   .n-drop li li {
     display: block;
     width: 100%; }
@@ -1473,8 +1473,7 @@ main .n-nav ul {
   overflow: auto;
   border-collapse: collapse;
   -webkit-overflow-scrolling: touch;
-  display: block;
-  margin: 1.5em 0; }
+  display: block; }
   .n-table td, .n-table th {
     padding: 1.5em 0.75em;
     vertical-align: middle; }
