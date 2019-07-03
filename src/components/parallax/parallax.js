@@ -8,7 +8,7 @@
 	
 	let updateParallax = () => {
 	
-		qa('.n-parallax-content').forEach(el => {
+		qa('.n-parallax--content').forEach(el => {
 		
 			el.style.setProperty("--scrollparallax", (document.body.scrollTop || document.documentElement.scrollTop) * parallaxSpeed);
 		
@@ -16,7 +16,7 @@
 			
 	};
 	
-	if (q('.n-parallax-content')) {
+	if (q('.n-parallax--content')) {
 	
 		window.addEventListener('scroll', updateParallax, true);
 	

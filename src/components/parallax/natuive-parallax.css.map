@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AAAA,WAAY;EAEX,QAAQ,EAAE,MAAM;;AAIjB,mBAAoB;EAEnB,WAAW,EAAE,SAAS;EACtB,SAAS,EAAE,iDAAiD",
+"mappings": "AAAA,WAAY;EAEX,QAAQ,EAAE,MAAM;;AAIjB,oBAAqB;EAEpB,WAAW,EAAE,SAAS;EACtB,SAAS,EAAE,iDAAiD",
 "sources": ["natuive-parallax.scss"],
 "names": [],
 "file": "natuive-parallax.css"

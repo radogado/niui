@@ -2089,7 +2089,7 @@ main .n-nav ul {
 .n-parallax {
   overflow: hidden; }
 
-.n-parallax-content {
+.n-parallax--content {
   will-change: transform;
   transform: translateY(calc( var(--scrollparallax, 0) * 1px)); }
 
