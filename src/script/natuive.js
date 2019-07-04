@@ -1,4 +1,4 @@
-var nui = (() => {/* natUIve by rado.bg */
+window.nui = (() => {/* natUIve by rado.bg */
 /* DOM functions via http://youmightnotneedjquery.com */
 
 // To do: translate to ES6, as the packager adds a check to skip the below when ES6 unavailable and optionally server Babel-transpiled version using the extra footer script
@@ -3846,4 +3846,4 @@ var componentSlider = (function (){
 })();
 
 // Component Typography – end
-initComponents(); return { initComponents, animate, copyButton, componentModal, addComponent, componentSlider, componentNotify } })()
+initComponents(); return { initComponents, animate, copyButton, componentModal, addComponent, componentSlider, componentNotify } })();
