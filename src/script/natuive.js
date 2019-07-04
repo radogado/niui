@@ -3089,7 +3089,7 @@ var componentSlider = (function (){
 			
 			} else {
 
-				if (hasClass(slider, 'n-slider--vertical') && !hasClass(slider, 'n-lightbox') && old_index > index) {
+				if (hasClass(slider, 'n-slider--vertical') && !hasClass(slider, 'n-lightbox') && old_index > index && computed_height < original_slider_height) {
 					
 					animation_code = `0% { margin-top: -${computed_height}px; height: ${computed_height + computed_height_old}px; } 100% { margin-top: 0; ${height_change}; }`;
 
