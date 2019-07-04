@@ -28,7 +28,9 @@
 
 .n-tool:after, .n-tool--tip {
 
+	background-color: #444;
 	background-color: var(--control-bg, #444);
+	color: #ddd;
 	color: var(--control-color, #ddd);
 
 }
@@ -37,6 +39,12 @@
 	
 	opacity: 1;
 	visibility: visible;
+	display: block;
+	
+}
+
+.n-tool--tip[aria-expanded] {
+	
 	display: flex;
 	
 }
@@ -71,6 +79,7 @@
 		
 		content: '';
 		position: absolute;
+ 		background-color: #444;
  		background-color: var(--control-bg, #444);
  		transform: rotate(45deg);
 		width: 1em;
