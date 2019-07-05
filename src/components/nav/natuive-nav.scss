@@ -269,7 +269,6 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 		border: none;
 		border-radius: 0;
 		right: 0;
-		z-index: 1;
 		width: 1.9em;
 		margin: 0;
 		font-size: inherit;
@@ -277,8 +276,14 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 					
 	}
 	
+	li:hover > input { // Make it usable on hover only, because otherwise it appears unwanted over overlaying elements
+
+		z-index: 1;
+
+	}
+
 	li[aria-haspopup]:before {
-		
+			
 		content: '';
 		position: absolute;
 		display: block;

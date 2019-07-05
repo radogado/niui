@@ -6,14 +6,17 @@
   padding: 1em;
   color: #fff;
   cursor: pointer;
-  z-index: 1; }
-  .n-notify:after {
-    content: ' ✕'; }
-  .n-notify.n-notify--fixed {
-    font-weight: 500;
-    position: fixed;
-    left: 0;
-    right: 0;
-    z-index: 2; }
+  z-index: 1;
+}
+.n-notify:after {
+  content: " ✕";
+}
+.n-notify.n-notify--fixed {
+  font-weight: 500;
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
 
 /*# sourceMappingURL=notify.css.map */
