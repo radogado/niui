@@ -276,14 +276,8 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 					
 	}
 	
-	li:hover > input { // Make it usable on hover only, because otherwise it appears unwanted over overlaying elements
-
-		z-index: 1;
-
-	}
-
 	li[aria-haspopup]:before {
-			
+		
 		content: '';
 		position: absolute;
 		display: block;
@@ -296,6 +290,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 	
 	ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li:before {
 	
+/* 	    display: none; */
 	    content: '';
 	
 	}
@@ -410,6 +405,30 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 	    
 			}
 	
+		}
+		
+		&:not([data-ready]) { // CSS only version
+			
+			li {
+				
+				display: flex;
+
+				> input {
+					
+					position: static;
+					order: 1;
+				
+				}
+
+				&:not([tabindex]) > ul ~ a {
+					
+					padding-right: .75em;					
+					
+				}
+
+			}
+
+			
 		}
 	
 	}
