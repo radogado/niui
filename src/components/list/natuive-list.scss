@@ -11,7 +11,7 @@ ul.n-list {
 
 	&.n-list--indent {
 		
-		margin-left: 1.5em;
+		margin-inline-start: 1.5em;
 	
 	}
 	
@@ -28,14 +28,14 @@ ul.n-list {
 	
 	&:not(.n-list--no-bullet):not(.n-list--inline) li {
 	
-		margin-left: 1em;
+		margin-inline-start: 1em;
 		max-width: calc(100% - 1em);
 		
 		&:before {
 			
 			content: '•';
 			position: absolute;
-			margin-left: -.67em;
+			margin-inline-start: -.67em;
 			color: var(--list-bg);
 		    font-size: 1.5em;
 		    line-height: .9;
@@ -46,7 +46,7 @@ ul.n-list {
 	
 	&.n-list--inline > li:first-child {
 		
-		margin-left: 0;
+		margin-inline-start: 0;
 	
 	}
 
@@ -75,7 +75,7 @@ ol.n-list {
    			color: var(--list-color, #fff);
    		    padding: 0 .5em;
 		    border-radius: 50%;
-		    margin-right: .333em;
+		    margin-inline-end: .333em;
 		    min-height: 1em;
 		    display: inline-block;
 		    text-indent: 0;
@@ -120,7 +120,7 @@ ol.n-list {
 	
 	    list-style-type: none;
 	    counter-reset: level3;
-	    margin-left: 1em;
+	    margin-inline-start: 1em;
 	
 		li:before {
 	
@@ -169,7 +169,7 @@ ul.n-list.n-list--inline, ul.n-list.n-list--inline li, .n-nav.n-nav--scroll ul l
 	
 	&:not(.n-list--no-bullet):not(.n-list--inline) li {
 	
-		margin-left: 0;
+		margin-inline-start: 0;
 	    max-width: 100%;
 	
 	}

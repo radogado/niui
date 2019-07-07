@@ -164,7 +164,7 @@ main .n-nav ul {
   border: none;
   border-radius: 0;
   right: 0;
-  width: 1.9em;
+  width: 1.875em;
   margin: 0;
   font-size: inherit;
   cursor: pointer;
@@ -179,8 +179,8 @@ main .n-nav ul {
   height: 100%;
 }
 .n-drop ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li:before {
-  /* 	    display: none; */
   content: "";
+  margin: 0;
 }
 .n-drop ul.n-list:not(.n-list--no-bullet):not(.n-list--inline).n-left-side li:before {
   right: auto;
@@ -205,7 +205,7 @@ main .n-nav ul {
   background: none;
 }
 .n-drop li[aria-haspopup] {
-  padding-right: 2em;
+  padding-inline-end: 1.875em;
 }
 .n-drop ul.n-left-side li[aria-haspopup] {
   padding-right: 0;
@@ -401,12 +401,16 @@ html:not(.can-touch) .n-drop > ul li:not([aria-haspopup]) ul li:hover ~ ul {
 }
 [dir=rtl] .n-drop li[aria-haspopup] {
   padding-right: 0;
-  padding-left: 2em;
+  padding-left: 1.875em;
 }
 [dir=rtl] .n-drop.n-nav ul.n-list li:before {
   left: 0;
   right: auto;
   margin-left: 0;
+}
+[dir=rtl] .n-drop li[aria-haspopup]:before, [dir=rtl] .n-drop li > input {
+  right: auto;
+  left: 0;
 }
 
 /*# sourceMappingURL=natuive-nav.css.map */

@@ -269,7 +269,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 		border: none;
 		border-radius: 0;
 		right: 0;
-		width: 1.9em;
+		width: 1.875em;
 		margin: 0;
 		font-size: inherit;
 		cursor: pointer;
@@ -290,8 +290,8 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 	
 	ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li:before {
 	
-/* 	    display: none; */
 	    content: '';
+	    margin: 0;
 	
 	}
 	
@@ -334,7 +334,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 
 	li[aria-haspopup] {
 		
-		padding-right: 2em;
+		padding-inline-end: 1.875em;
 					
 	}
 
@@ -654,7 +654,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 
 }
 
-@supports (-webkit-overflow-scrolling: touch) {
+@supports (-webkit-overflow-scrolling: touch) { // Not working on iOS 13?
 
   /* CSS specific to iOS devices */ 
   .n-drop :focus {
@@ -671,7 +671,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 	li[aria-haspopup] {
 		
 		padding-right: 0;
-		padding-left: 2em;		
+		padding-left: 1.875em;
 		
 	}
 	
@@ -681,6 +681,13 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 		right: auto;
 		margin-left: 0;
 		
+	}
+
+	li[aria-haspopup]:before, li > input {
+		
+	    right: auto;
+	    left: 0;		
+	
 	}
 
 }

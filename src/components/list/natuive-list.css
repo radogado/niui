@@ -7,7 +7,7 @@ ul.n-list {
   margin: 0.75em 0 0.75em 0;
 }
 ul.n-list.n-list--indent {
-  margin-left: 1.5em;
+  margin-inline-start: 1.5em;
 }
 ul.n-list li {
   display: block;
@@ -18,19 +18,19 @@ ul.n-list li {
   word-wrap: break-word;
 }
 ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li {
-  margin-left: 1em;
+  margin-inline-start: 1em;
   max-width: calc(100% - 1em);
 }
 ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li:before {
   content: "•";
   position: absolute;
-  margin-left: -0.67em;
+  margin-inline-start: -0.67em;
   color: var(--list-bg);
   font-size: 1.5em;
   line-height: 0.9;
 }
 ul.n-list.n-list--inline > li:first-child {
-  margin-left: 0;
+  margin-inline-start: 0;
 }
 
 ol.n-list {
@@ -53,7 +53,7 @@ ol.n-list > li:before {
   color: var(--list-color, #fff);
   padding: 0 0.5em;
   border-radius: 50%;
-  margin-right: 0.333em;
+  margin-inline-end: 0.333em;
   min-height: 1em;
   display: inline-block;
   text-indent: 0;
@@ -81,7 +81,7 @@ ol.n-list > li ol > li:before {
 ol.n-list ol > li ol {
   list-style-type: none;
   counter-reset: level3;
-  margin-left: 1em;
+  margin-inline-start: 1em;
 }
 ol.n-list ol > li ol li:before {
   content: counter(level1) "." counter(level2) "." counter(level3) " ";
@@ -107,7 +107,7 @@ ul.n-list.n-list--inline, ul.n-list.n-list--inline li, .n-nav.n-nav--scroll ul l
 }
 
 .n-nav ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li {
-  margin-left: 0;
+  margin-inline-start: 0;
   max-width: 100%;
 }
 .n-nav ul.n-list li:before {
