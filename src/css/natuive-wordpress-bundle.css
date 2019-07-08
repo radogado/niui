@@ -2249,9 +2249,6 @@ main .n-nav ul {
   background-color: #fff;
   background-color: var(--control-bg, #fff);
 }
-.n-drop li:not([tabindex]) > ul ~ a {
-  padding-right: 2.75em;
-}
 .n-drop li > a {
   padding: 0.75em;
   display: block;
@@ -2328,6 +2325,8 @@ main .n-nav ul {
   transform: rotate(180deg);
   left: 0;
   margin: 0;
+  top: 0;
+  height: 2em;
 }
 .n-drop.n-nav ul.n-list li:before {
   display: block;
@@ -2397,6 +2396,9 @@ main .n-nav ul {
   }
   .n-drop:not([data-ready]) li:not([tabindex]) > ul ~ a {
     padding-right: 0.75em;
+  }
+  .n-drop li:not([tabindex]) > ul ~ a {
+    padding-right: 2.75em;
   }
 
   html:not(.can-touch) .n-drop ul li:not([aria-expanded]) ul ul {
@@ -2481,6 +2483,20 @@ html:not(.can-touch) .n-drop > ul li:not([aria-haspopup]) ul li:hover ~ ul {
     visibility: hidden;
   }
 }
+[dir=rtl] .n-drop li[aria-haspopup] {
+  padding-right: 0;
+  padding-left: 1.875em;
+}
+[dir=rtl] .n-drop.n-nav ul.n-list li:before {
+  left: 0;
+  right: auto;
+  margin-left: 0;
+}
+[dir=rtl] .n-drop li[aria-haspopup]:before, [dir=rtl] .n-drop li > input {
+  right: auto;
+  left: 0;
+}
+
 @media (max-width: 599.9px) {
   .n-drop ul li:not([aria-expanded]) > ul {
     position: static;
@@ -2532,6 +2548,10 @@ html:not(.can-touch) .n-drop > ul li:not([aria-haspopup]) ul li:hover ~ ul {
   html:not([data-natuive-js]) .n-fold.n-fold--mobile:not([aria-expanded]) .n-fold--content {
     max-width: 100%;
   }
+
+  [dir=rtl] .n-drop li[aria-haspopup] {
+    padding-left: 2.5em;
+  }
 }
 @supports (-webkit-overflow-scrolling: touch) {
   /* CSS specific to iOS devices */
@@ -2539,19 +2559,6 @@ html:not(.can-touch) .n-drop > ul li:not([aria-haspopup]) ul li:hover ~ ul {
     outline-style: dotted;
     outline-width: 1px;
   }
-}
-[dir=rtl] .n-drop li[aria-haspopup] {
-  padding-right: 0;
-  padding-left: 1.875em;
-}
-[dir=rtl] .n-drop.n-nav ul.n-list li:before {
-  left: 0;
-  right: auto;
-  margin-left: 0;
-}
-[dir=rtl] .n-drop li[aria-haspopup]:before, [dir=rtl] .n-drop li > input {
-  right: auto;
-  left: 0;
 }
 
 /*# sourceMappingURL=natuive-nav.css.map */

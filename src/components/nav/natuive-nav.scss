@@ -179,12 +179,6 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 		
 	}
 	
-	li:not([tabindex]) > ul ~ a {
-	
-		padding-right: 2.75em;
-	
-	}
-	
 	li > a {
 		
 		padding: .75em;
@@ -301,7 +295,9 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 		transform: rotate(180deg);
 		left: 0;
 	    margin: 0;
-        	    
+	    top: 0;
+	    height: 2em;
+            	    
 	}
 	
 	&.n-nav ul.n-list li:before {
@@ -429,6 +425,12 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 			}
 
 			
+		}
+	
+		li:not([tabindex]) > ul ~ a {
+		
+			padding-right: 2.75em;
+		
 		}
 	
 	}
@@ -561,6 +563,32 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 
 }
 
+[dir=rtl] .n-drop {
+	
+	li[aria-haspopup] {
+		
+		padding-right: 0;
+		padding-left: 1.875em;
+		
+	}
+	
+	&.n-nav ul.n-list li:before {
+		
+		left: 0;
+		right: auto;
+		margin-left: 0;
+		
+	}
+
+	li[aria-haspopup]:before, li > input {
+		
+	    right: auto;
+	    left: 0;		
+	
+	}
+
+}
+
 @media (max-width: $screen-narrow-max) {
 
 	.n-drop ul {
@@ -652,6 +680,12 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 		
 	}
 
+	[dir=rtl] .n-drop li[aria-haspopup] {
+	
+	    padding-left: 2.5em;	
+		
+	}
+
 }
 
 @supports (-webkit-overflow-scrolling: touch) { // Not working on iOS 13?
@@ -666,28 +700,3 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 
 }
 
-[dir=rtl] .n-drop {
-	
-	li[aria-haspopup] {
-		
-		padding-right: 0;
-		padding-left: 1.875em;
-		
-	}
-	
-	&.n-nav ul.n-list li:before {
-		
-		left: 0;
-		right: auto;
-		margin-left: 0;
-		
-	}
-
-	li[aria-haspopup]:before, li > input {
-		
-	    right: auto;
-	    left: 0;		
-	
-	}
-
-}
