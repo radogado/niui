@@ -1577,9 +1577,6 @@ main .n-nav ul {
   margin: 0;
 }
 .n-drop ul.n-list:not(.n-list--no-bullet):not(.n-list--inline).n-left-side li:before {
-  right: auto;
-  transform: rotate(180deg);
-  left: 0;
   margin: 0;
   top: 0;
   height: 2em;
@@ -1602,10 +1599,6 @@ main .n-nav ul {
 }
 .n-drop li[aria-haspopup] {
   padding-inline-end: 1.875em;
-}
-.n-drop ul.n-left-side li[aria-haspopup] {
-  padding-right: 0;
-  padding-left: 2em;
 }
 
 @supports (-ms-ime-align: auto) {
@@ -1655,6 +1648,9 @@ main .n-nav ul {
   }
   .n-drop li:not([tabindex]) > ul ~ a {
     padding-right: 2.75em;
+  }
+  .n-drop ul.n-left-side li[aria-haspopup]:before {
+    transform: rotate(180deg);
   }
 
   html:not(.can-touch) .n-drop ul li:not([aria-expanded]) ul ul {
@@ -1739,7 +1735,7 @@ html:not(.can-touch) .n-drop > ul li:not([aria-haspopup]) ul li:hover ~ ul {
     visibility: hidden;
   }
 }
-[dir=rtl] .n-drop li[aria-haspopup] {
+[dir=rtl] .n-drop ul.n-left-side li[aria-haspopup], [dir=rtl] .n-drop li[aria-haspopup] {
   padding-right: 0;
   padding-left: 1.875em;
 }

@@ -291,9 +291,9 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 	
 	ul.n-list:not(.n-list--no-bullet):not(.n-list--inline).n-left-side li:before {
 	
-		right: auto;
-		transform: rotate(180deg);
-		left: 0;
+// 		right: auto;
+// 		transform: rotate(180deg);
+// 		left: 0;
 	    margin: 0;
 	    top: 0;
 	    height: 2em;
@@ -331,13 +331,6 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 	li[aria-haspopup] {
 		
 		padding-inline-end: 1.875em;
-					
-	}
-
-	ul.n-left-side li[aria-haspopup] {
-		
-		padding-right: 0;
-		padding-left: 2em;
 					
 	}
 
@@ -433,6 +426,16 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 		
 		}
 	
+		ul.n-left-side li[aria-haspopup] {
+			
+			&:before {
+				
+				transform: rotate(180deg);
+	
+			}
+						
+		}
+
 	}
 
 	html:not(.can-touch) { // Hover rules here
@@ -565,7 +568,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 
 [dir=rtl] .n-drop {
 	
-	li[aria-haspopup] {
+	ul.n-left-side li[aria-haspopup], li[aria-haspopup] {
 		
 		padding-right: 0;
 		padding-left: 1.875em;
