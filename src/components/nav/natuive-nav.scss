@@ -291,9 +291,9 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 	
 	ul.n-list:not(.n-list--no-bullet):not(.n-list--inline).n-left-side li:before {
 	
-// 		right: auto;
-// 		transform: rotate(180deg);
-// 		left: 0;
+		right: auto;
+		transform: rotate(180deg);
+		left: 0;
 	    margin: 0;
 	    top: 0;
 	    height: 2em;
@@ -428,6 +428,9 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 	
 		ul.n-left-side li[aria-haspopup] {
 			
+			padding-inline-end: 0;
+			padding-inline-start: 1.875em;
+
 			&:before {
 				
 				transform: rotate(180deg);
@@ -564,6 +567,31 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 		
 	}
 
+	[dir=rtl] .n-drop {
+		
+		li ul:not(.n-left-side) > li[aria-haspopup] {
+			
+			padding-left: 0;
+			padding-right: 1.875em;
+			
+			&:before {
+	
+				right: 0;
+				left: auto;			
+				
+			}
+			
+		}
+		
+		li ul.n-left-side > li > a {
+				
+			text-align: left;
+	
+		}
+	
+	
+	}
+
 }
 
 [dir=rtl] .n-drop {
@@ -638,6 +666,14 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 	
 	   	}
 
+		&.n-list:not(.n-list--no-bullet):not(.n-list--inline).n-left-side li:before {
+		
+			right: 0;
+			left: auto;
+			transform: none;
+	            	    
+		}
+		
 	}
 
 	.n-drop li[aria-haspopup]:before {
@@ -683,9 +719,34 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 		
 	}
 
-	[dir=rtl] .n-drop li[aria-haspopup] {
+	[dir=rtl] .n-drop {
+		
+		li[aria-haspopup] {
 	
-	    padding-left: 2.5em;	
+		    padding-left: 2.5em;
+		    
+		    ul {
+			    
+				max-width: calc(100% + 2.5em);
+			    padding-right: .5em;			    
+			    padding-left: 0;
+
+				&.n-list:not(.n-list--no-bullet):not(.n-list--inline).n-left-side li:before {
+				
+					right: auto;
+					left: 0;
+			            	    
+				}
+				
+				ul {
+					
+					max-width: calc(100% + 1.875em);
+    					
+				}
+		
+		    }
+		
+		}
 		
 	}
 
