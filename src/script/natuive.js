@@ -2138,7 +2138,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 		if (!e.target.closest('.n-nav li')) {
 	
-			qa('.n-nav li').forEach((el) => {
+			qa('.n-nav li').forEach(el => {
 				
 				el.removeAttribute('aria-expanded');
 				
@@ -2177,9 +2177,9 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		let el = e.target;
 		let item = el.tagName === 'LI' ? el.querySelector('ul') : el.parentElement.querySelector('ul');
 		
-		if (isDesktop(this_nav) && !!e.relatedTarget && !closestElement(e.relatedTarget, this_nav)) {
+		if (!this_nav.contains(e.relatedTarget) || isDesktop(this_nav) && !!e.relatedTarget && !closestElement(e.relatedTarget, this_nav)) {
 			// if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
-			this_nav.querySelectorAll('li').forEach((el) => {
+			this_nav.querySelectorAll('li').forEach(el => {
 	
 				el.removeAttribute('aria-expanded');
 				
@@ -2205,7 +2205,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		var target_parent = el.closest('[aria-haspopup]');
 		if (target_parent) { // Skip if it's a top-level-only item
 			
-			target_parent.querySelectorAll('li[aria-expanded]').forEach((el) => { // Disable active grandchildren
+			target_parent.querySelectorAll('li[aria-expanded]').forEach(el => { // Disable active grandchildren
 		
 				el.removeAttribute('aria-expanded');
 		
@@ -2239,9 +2239,9 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 			
 		}
 
-		[[].slice.call(el.parentElement.children), [].slice.call(e.target.parentElement.parentElement.children), [].slice.call(e.target.parentElement.parentElement.parentElement.parentElement.children) ].forEach((el) => {
+		[[].slice.call(el.parentElement.children), [].slice.call(e.target.parentElement.parentElement.children), [].slice.call(e.target.parentElement.parentElement.parentElement.parentElement.children) ].forEach(el => {
 			
-			el.forEach((el) => {
+			el.forEach(el => {
 				
 				el.removeAttribute('aria-expanded');
 				
@@ -2259,6 +2259,12 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 			
 		}
 		
+		el.querySelectorAll('li[aria-expanded]').forEach(el => { // Hide grandchildren
+			
+			el.removeAttribute('aria-expanded');
+			
+		});
+			
 		// Make current focused item's ancestors visible
 		
 		el = e.target;
@@ -2275,7 +2281,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 	var closeDropNavClickedOutsideEnabled = false;
 
-	let closeItem = (item) => {
+	let closeItem = item => {
 	
 		navAnimating = true;
 		item.style.overflow = 'hidden';
@@ -2297,7 +2303,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 					
 	}
 	
-	let openItem = (item) => {
+	let openItem = item => {
 		
 		navAnimating = true;
 		item.style.overflow = 'hidden';
@@ -2311,7 +2317,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 
 	}
 
-	let clickEvent = (e) => {
+	let clickEvent = e => {
 	
 		e.stopPropagation();
 		// To do: also ancestors, also close when open
@@ -2343,7 +2349,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 				
 			} else {
 				
-				[].slice.call(el.parentElement.children).forEach((item) => {
+				[].slice.call(el.parentElement.children).forEach(item => {
 					
 					item.removeAttribute('aria-expanded');
 					let old_item_open_child = item.querySelector('[aria-expanded]');
@@ -2425,7 +2431,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		
 		// Delete all trigger inputs, add tabindex=0 to each li
 		
-		el.querySelectorAll('input').forEach((el) => {
+		el.querySelectorAll('input').forEach(el => {
 			
 			el.outerHTML = '';
 			
@@ -2433,7 +2439,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		
 		el.setAttribute('role', 'menubar');
 	
-		el.querySelectorAll('li > a').forEach((el) => {
+		el.querySelectorAll('li > a').forEach(el => {
 			
 			el.setAttribute('tabindex', 0);
 	
@@ -2453,13 +2459,13 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		
 		}
 		
-		el.addEventListener('keyup', (e) => {
+		el.addEventListener('keyup', e => {
 			
 			// Check for sibling or children to expand on control keys Left/Right/etc
 		
 			if (e.key === 'Escape') {
 				
-				e.target.closest('.n-nav').querySelectorAll('li').forEach((el) => {
+				e.target.closest('.n-nav').querySelectorAll('li').forEach(el => {
 					
 					el.removeAttribute('aria-expanded');
 					
@@ -2522,7 +2528,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 
 	let init = host => {
 		
-		host.querySelectorAll('.n-nav:not([data-ready]) > ul:not([role])').forEach((el) => {
+		host.querySelectorAll('.n-nav:not([data-ready]) > ul:not([role])').forEach(el => {
 			
 			initNav(el);
 			makeReady(el.closest('.n-nav'));

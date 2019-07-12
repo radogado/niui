@@ -964,7 +964,7 @@ qa('a[href^="#"]').forEach((el) => {
 	
 		if (!e.target.closest('.n-nav li')) {
 	
-			qa('.n-nav li').forEach((el) => {
+			qa('.n-nav li').forEach(el => {
 				
 				el.removeAttribute('aria-expanded');
 				
@@ -1003,9 +1003,9 @@ qa('a[href^="#"]').forEach((el) => {
 		let el = e.target;
 		let item = el.tagName === 'LI' ? el.querySelector('ul') : el.parentElement.querySelector('ul');
 		
-		if (isDesktop(this_nav) && !!e.relatedTarget && !closestElement(e.relatedTarget, this_nav)) {
+		if (!this_nav.contains(e.relatedTarget) || isDesktop(this_nav) && !!e.relatedTarget && !closestElement(e.relatedTarget, this_nav)) {
 			// if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
-			this_nav.querySelectorAll('li').forEach((el) => {
+			this_nav.querySelectorAll('li').forEach(el => {
 	
 				el.removeAttribute('aria-expanded');
 				
@@ -1031,7 +1031,7 @@ qa('a[href^="#"]').forEach((el) => {
 		var target_parent = el.closest('[aria-haspopup]');
 		if (target_parent) { // Skip if it's a top-level-only item
 			
-			target_parent.querySelectorAll('li[aria-expanded]').forEach((el) => { // Disable active grandchildren
+			target_parent.querySelectorAll('li[aria-expanded]').forEach(el => { // Disable active grandchildren
 		
 				el.removeAttribute('aria-expanded');
 		
@@ -1065,9 +1065,9 @@ qa('a[href^="#"]').forEach((el) => {
 			
 		}
 
-		[[].slice.call(el.parentElement.children), [].slice.call(e.target.parentElement.parentElement.children), [].slice.call(e.target.parentElement.parentElement.parentElement.parentElement.children) ].forEach((el) => {
+		[[].slice.call(el.parentElement.children), [].slice.call(e.target.parentElement.parentElement.children), [].slice.call(e.target.parentElement.parentElement.parentElement.parentElement.children) ].forEach(el => {
 			
-			el.forEach((el) => {
+			el.forEach(el => {
 				
 				el.removeAttribute('aria-expanded');
 				
@@ -1085,6 +1085,12 @@ qa('a[href^="#"]').forEach((el) => {
 			
 		}
 		
+		el.querySelectorAll('li[aria-expanded]').forEach(el => { // Hide grandchildren
+			
+			el.removeAttribute('aria-expanded');
+			
+		});
+			
 		// Make current focused item's ancestors visible
 		
 		el = e.target;
@@ -1101,7 +1107,7 @@ qa('a[href^="#"]').forEach((el) => {
 	
 	var closeDropNavClickedOutsideEnabled = false;
 
-	let closeItem = (item) => {
+	let closeItem = item => {
 	
 		navAnimating = true;
 		item.style.overflow = 'hidden';
@@ -1123,7 +1129,7 @@ qa('a[href^="#"]').forEach((el) => {
 					
 	}
 	
-	let openItem = (item) => {
+	let openItem = item => {
 		
 		navAnimating = true;
 		item.style.overflow = 'hidden';
@@ -1137,7 +1143,7 @@ qa('a[href^="#"]').forEach((el) => {
 
 	}
 
-	let clickEvent = (e) => {
+	let clickEvent = e => {
 	
 		e.stopPropagation();
 		// To do: also ancestors, also close when open
@@ -1169,7 +1175,7 @@ qa('a[href^="#"]').forEach((el) => {
 				
 			} else {
 				
-				[].slice.call(el.parentElement.children).forEach((item) => {
+				[].slice.call(el.parentElement.children).forEach(item => {
 					
 					item.removeAttribute('aria-expanded');
 					let old_item_open_child = item.querySelector('[aria-expanded]');
@@ -1251,7 +1257,7 @@ qa('a[href^="#"]').forEach((el) => {
 		
 		// Delete all trigger inputs, add tabindex=0 to each li
 		
-		el.querySelectorAll('input').forEach((el) => {
+		el.querySelectorAll('input').forEach(el => {
 			
 			el.outerHTML = '';
 			
@@ -1259,7 +1265,7 @@ qa('a[href^="#"]').forEach((el) => {
 		
 		el.setAttribute('role', 'menubar');
 	
-		el.querySelectorAll('li > a').forEach((el) => {
+		el.querySelectorAll('li > a').forEach(el => {
 			
 			el.setAttribute('tabindex', 0);
 	
@@ -1279,13 +1285,13 @@ qa('a[href^="#"]').forEach((el) => {
 		
 		}
 		
-		el.addEventListener('keyup', (e) => {
+		el.addEventListener('keyup', e => {
 			
 			// Check for sibling or children to expand on control keys Left/Right/etc
 		
 			if (e.key === 'Escape') {
 				
-				e.target.closest('.n-nav').querySelectorAll('li').forEach((el) => {
+				e.target.closest('.n-nav').querySelectorAll('li').forEach(el => {
 					
 					el.removeAttribute('aria-expanded');
 					
@@ -1348,7 +1354,7 @@ qa('a[href^="#"]').forEach((el) => {
 
 	let init = host => {
 		
-		host.querySelectorAll('.n-nav:not([data-ready]) > ul:not([role])').forEach((el) => {
+		host.querySelectorAll('.n-nav:not([data-ready]) > ul:not([role])').forEach(el => {
 			
 			initNav(el);
 			makeReady(el.closest('.n-nav'));
