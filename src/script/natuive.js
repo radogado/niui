@@ -2164,7 +2164,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 
 	function dropNavBlur(e) {
 	
-		if (navAnimating) {
+		if (navAnimating || !e.relatedTarget) {
 			
 			return;
 			
@@ -2610,7 +2610,7 @@ var componentNotify = (function (){
 	
 	let updateParallax = () => {
 	
-		qa('.n-parallax--content').forEach(el => {
+		qa('.n-parallax').forEach(el => {
 		
 			el.style.setProperty("--scrollparallax", (document.body.scrollTop || document.documentElement.scrollTop) * parallaxSpeed);
 		
@@ -2618,7 +2618,7 @@ var componentNotify = (function (){
 			
 	};
 	
-	if (q('.n-parallax--content')) {
+	if (q('.n-parallax')) {
 	
 		window.addEventListener('scroll', updateParallax, true);
 	

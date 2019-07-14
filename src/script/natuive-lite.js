@@ -990,7 +990,7 @@ qa('a[href^="#"]').forEach((el) => {
 
 	function dropNavBlur(e) {
 	
-		if (navAnimating) {
+		if (navAnimating || !e.relatedTarget) {
 			
 			return;
 			

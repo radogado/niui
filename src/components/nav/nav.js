@@ -34,7 +34,7 @@
 
 	function dropNavBlur(e) {
 	
-		if (navAnimating) {
+		if (navAnimating || !e.relatedTarget) {
 			
 			return;
 			
