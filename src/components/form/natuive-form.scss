@@ -621,6 +621,9 @@ $placeholder_color: #aaa;
 		//		min-height: calc(#{$line-height-em}*2 - 2px);
 		// 		min-height: calc(var(--line-height-em)*2 + 2px);
 			line-height: 2*$line-height-em/3;
+			font-size: 1.2em;
+			min-height: 2.50005em;
+			width: 100%;			
 			
 		}
 		

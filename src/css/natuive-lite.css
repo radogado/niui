@@ -695,6 +695,9 @@ a.backtotop[href] {
   margin-bottom: calc(1.5em - 5px);
   /* fix for the failed box-sizing: border-box */
   line-height: 1em;
+  font-size: 1.2em;
+  min-height: 2.50005em;
+  width: 100%;
 }
 .n-form.n-form--wide select {
   width: 100%;
