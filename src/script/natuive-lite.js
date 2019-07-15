@@ -990,6 +990,8 @@ qa('a[href^="#"]').forEach((el) => {
 
 	function dropNavBlur(e) {
 	
+		var this_nav = e.target.closest('.n-nav');
+		
 		if (navAnimating || !e.relatedTarget) {
 			
 			return;
@@ -998,8 +1000,6 @@ qa('a[href^="#"]').forEach((el) => {
 
 		e.stopPropagation();
 
-		var this_nav = e.target.closest('.n-nav');
-		
 		let el = e.target;
 		let item = el.tagName === 'LI' ? el.querySelector('ul') : el.parentElement.querySelector('ul');
 		
@@ -1150,6 +1150,13 @@ qa('a[href^="#"]').forEach((el) => {
 		let el = e.target;
 		var this_nav = el.closest('.n-nav');
 
+		this_nav.removeEventListener('focusout', dropNavBlur);
+		if (this_nav.contains(document.activeElement)) {
+			
+			document.activeElement.blur();
+			
+		}
+
 		let item = el.tagName === 'LI' ? el.querySelector('ul') : el.parentElement.querySelector('ul');
 		if (isDesktop(this_nav)) {
 
@@ -1225,6 +1232,8 @@ qa('a[href^="#"]').forEach((el) => {
 
 		}
 		
+		this_nav.addEventListener('focusout', dropNavBlur);
+
 	};
 
 	function checkSides(ul, menubar) {

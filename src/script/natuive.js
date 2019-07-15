@@ -2164,6 +2164,8 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 
 	function dropNavBlur(e) {
 	
+		var this_nav = e.target.closest('.n-nav');
+		
 		if (navAnimating || !e.relatedTarget) {
 			
 			return;
@@ -2172,8 +2174,6 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 
 		e.stopPropagation();
 
-		var this_nav = e.target.closest('.n-nav');
-		
 		let el = e.target;
 		let item = el.tagName === 'LI' ? el.querySelector('ul') : el.parentElement.querySelector('ul');
 		
@@ -2324,6 +2324,13 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		let el = e.target;
 		var this_nav = el.closest('.n-nav');
 
+		this_nav.removeEventListener('focusout', dropNavBlur);
+		if (this_nav.contains(document.activeElement)) {
+			
+			document.activeElement.blur();
+			
+		}
+
 		let item = el.tagName === 'LI' ? el.querySelector('ul') : el.parentElement.querySelector('ul');
 		if (isDesktop(this_nav)) {
 
@@ -2399,6 +2406,8 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 
 		}
 		
+		this_nav.addEventListener('focusout', dropNavBlur);
+
 	};
 
 	function checkSides(ul, menubar) {
