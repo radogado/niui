@@ -471,8 +471,23 @@ a.backtotop[href] {
 
 _:-ms-input-placeholder, :root .n-fold > input[type=checkbox] {
   position: absolute;
-  top: 1em;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 3em;
+  opacity: 0;
+  width: 100%;
+}
+
+_:-ms-input-placeholder, :root .n-fold:before {
+  content: "↓";
+  position: absolute;
   right: 1em;
+  top: 0.5em;
+}
+
+_:-ms-input-placeholder, :root .n-fold--label:after {
+  background: none;
 }
 
 @supports (-ms-ime-align: auto) {
