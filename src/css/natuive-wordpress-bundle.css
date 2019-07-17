@@ -1540,7 +1540,7 @@ ol.n-masonry > * {
     box-sizing: border-box;
   }
 
-  .n-row:not(.n-row--no-margin):not(.n-border-all):not(.n-tabs) > *, .n-row:not(.n-row--no-margin):not(.n-border-all) > [class^=_] {
+  .n-row:not(.n-row--no-margin):not(.n-border-all):not(.n-tabs):not(.grid-inline-popup) > *, .n-row:not(.n-row--no-margin):not(.n-border-all) > [class^=_] {
     margin: 0.25em 0;
     display: block;
   }

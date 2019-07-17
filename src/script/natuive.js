@@ -1211,7 +1211,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 			el.setAttribute('tabindex', 0);
 			el.addEventListener('click', openCell);
-			el.addEventListener('touchend', openCell);
+// 			el.addEventListener('touchend', openCell);
 			el.addEventListener('keyup', (e) => { 
 				
 				if (e.key === 'Enter') {
