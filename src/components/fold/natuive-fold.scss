@@ -37,6 +37,7 @@
 		background-color: var(--control-bg, inherit);
 		color: inherit;
 		color: var(--control-color, inherit);
+		overflow: hidden; // Safari focus ring fix
 		
 		&:after {
 			

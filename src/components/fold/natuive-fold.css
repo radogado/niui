@@ -30,6 +30,7 @@
   background-color: var(--control-bg, inherit);
   color: inherit;
   color: var(--control-color, inherit);
+  overflow: hidden;
 }
 .n-fold > .n-fold--label:after {
   transition: transform 0.2s ease-in-out;
