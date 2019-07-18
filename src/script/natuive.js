@@ -2620,8 +2620,10 @@ var componentNotify = (function (){
 	let updateParallax = () => {
 	
 		qa('.n-parallax').forEach(el => {
-		
-			el.style.setProperty("--scrollparallax", (document.body.scrollTop || document.documentElement.scrollTop) * parallaxSpeed);
+			
+			let parent = el.parentElement;
+			let scroll_offset = parent.scrollHeight > parent.offsetHeight ? Math.abs(parent.getBoundingClientRect().y) : (document.body.scrollTop || document.documentElement.scrollTop);
+			el.style.setProperty("--scrollparallax",  scroll_offset * parallaxSpeed);
 		
 		});
 			
