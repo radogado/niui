@@ -8,137 +8,173 @@ $line-height: 34px;
 .n-contain {
   max-width: 1312px;
   margin: 0 auto;
-  width: 100%; }
+  width: 100%;
+}
 
 /* Basic elements */
 html {
-  height: 100%; }
+  height: 100%;
+}
 
 body {
   margin: 0;
-  position: relative; }
+  position: relative;
+}
 
 html.n-vertical-page, html.n-vertical-page body {
   height: 100%;
   margin: 0 auto;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+}
 html.n-vertical-page body {
   overflow: hidden;
-  height: auto; }
+  height: auto;
+}
 
 .n-sticky-footer {
   min-height: 100vh;
   display: flex;
   /* Sticky footer */
-  flex-direction: column; }
-  .n-sticky-footer main {
-    flex-grow: 1; }
+  flex-direction: column;
+}
+.n-sticky-footer main {
+  flex-grow: 1;
+}
 
 .n-viewport.n-header-banner {
   min-height: 100vh;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+}
 
 .n-viewport.n-header-banner .n-banner {
   flex-grow: 1;
   justify-content: center;
   flex-direction: column;
-  display: flex; }
+  display: flex;
+}
 
 .n-viewport.n-header-banner.n-push-up:after {
-  content: '';
-  flex-grow: 1; }
+  content: "";
+  flex-grow: 1;
+}
 
 .n-header a.n-logo {
-  display: inline-block; }
+  display: inline-block;
+}
 
 .n-wide-screen {
-  display: block; }
+  display: block;
+}
 
 .n-narrow-screen {
-  display: none; }
+  display: none;
+}
 
 /* Footer */
 .n-footer {
-  position: relative; }
+  position: relative;
+}
 
 .n-footer > * {
-  position: static; }
+  position: static;
+}
 
 /* Element as a window to an image spanning viewpoert dimensions. iOS doesn't support it natively and requires div.fixed-bg-image */
 .n-fixed-bg {
   background-size: cover;
-  background-position: center center; }
+  background-position: center center;
+}
 
 @supports (clip: rect(auto, auto, auto, auto)) {
   .n-fixed-bg {
     will-change: scroll;
     background-size: 0;
     position: relative;
-    z-index: 1; }
-    .n-fixed-bg .n-fixed-bg--image {
-      position: absolute;
-      background-size: 0;
-      z-index: -1;
-      clip: rect(auto, auto, auto, auto); }
-      .n-fixed-bg .n-fixed-bg--image, .n-fixed-bg .n-fixed-bg--image:before {
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: inherit; }
-      .n-fixed-bg .n-fixed-bg--image:before {
-        content: '';
-        position: fixed;
-        background-size: cover;
-        background-position: center center;
-        height: 100vh;
-        transform: translate3d(0, 0, 0); } }
+    z-index: 1;
+  }
+  .n-fixed-bg .n-fixed-bg--image {
+    position: absolute;
+    background-size: 0;
+    z-index: -1;
+    clip: rect(auto, auto, auto, auto);
+  }
+  .n-fixed-bg .n-fixed-bg--image, .n-fixed-bg .n-fixed-bg--image:before {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: inherit;
+  }
+  .n-fixed-bg .n-fixed-bg--image:before {
+    content: "";
+    position: fixed;
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+    transform: translate3d(0, 0, 0);
+  }
+}
 @supports (-ms-ime-align: auto) {
   .n-fixed-bg {
-    background-size: cover; }
-    .n-fixed-bg .n-fixed-bg--image {
-      display: none; } }
+    background-size: cover;
+  }
+  .n-fixed-bg .n-fixed-bg--image {
+    display: none;
+  }
+}
 .n-fixed {
-  position: fixed; }
-  .n-fixed.n-header {
-    position: static; }
+  position: fixed;
+}
+.n-fixed.n-header {
+  position: static;
+}
 
 a[href].span-relative-parent {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
-  left: 0; }
+  left: 0;
+}
 
 [data-animation] {
-  pointer-events: none; }
+  pointer-events: none;
+}
 
 .n-parallax--back {
-  position: absolute; }
+  position: absolute;
+}
 
 /* Narrow Screens */
 @media screen and (max-width: 599.9px) {
   .n-wide-screen {
-    display: none; }
+    display: none;
+  }
 
   .n-narrow-screen {
-    display: block; }
+    display: block;
+  }
 
   .n-viewport.n-header-banner {
     height: auto;
-    overflow: hidden; }
+    overflow: hidden;
+  }
 
   .n-header .head-right {
-    text-align: start; }
+    text-align: start;
+  }
   .n-header.n-fixed {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     background: #fff;
-    z-index: 7; }
+    z-index: 7;
+  }
   .n-header a.n-logo {
-    float: right; } }
+    float: right;
+  }
+}
 
 /*# sourceMappingURL=natuive-core.css.map */
