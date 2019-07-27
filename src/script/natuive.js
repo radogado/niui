@@ -1835,7 +1835,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		var modal = q('.n-ovrl');
 		var previous_overlay_top = parseInt(document.body.style.getPropertyValue('--overlay-top'));
 		var actual_viewport = window.innerHeight;
-		var offset_y = modal.getBoundingClientRect().y;
+		var offset_y = modal ? modal.getBoundingClientRect().y : 0;
 		if ((previous_overlay_top + '') === 'NaN') {
 			
 			previous_overlay_top = 0;
@@ -1844,7 +1844,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 
 		document.body.style.setProperty('--overlay-top', 0);
 		document.body.style.setProperty('--overlay-bottom', 0);
-		var screen_height = modal.scrollHeight;
+		var screen_height = modal ? modal.scrollHeight : 0;
 
 		if (!navigator.userAgent.match(/(iPod|iPhone)/i) || Math.abs(window.orientation) !== 90 || actual_viewport === screen_height) { // Only for mobile Safari in landscape mode
 			
@@ -1880,7 +1880,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 			
 			}
 		
-			if (modal.getBoundingClientRect().y !== 0) { // A little off
+			if (modal && modal.getBoundingClientRect().y !== 0) { // A little off
 	
 				bodyElement.style.setProperty('--overlay-top', (parseInt(bodyElement.style.getPropertyValue('--overlay-top')) - modal.getBoundingClientRect().y) + 'px');
 				bodyElement.style.setProperty('--overlay-bottom', (parseInt(bodyElement.style.getPropertyValue('--overlay-bottom')) + modal.getBoundingClientRect().y) + 'px');
@@ -2126,7 +2126,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	};
 	registerComponent('modal', init);
 
-	return { closeFullWindow: closeFullWindow, openFullWindow: openFullWindow };
+	return { closeFullWindow, openFullWindow, adjustModal };
 
 /* Modal – end */
 

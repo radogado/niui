@@ -1,10 +1,8 @@
 .n-parallax {
-  overflow: hidden;
-}
+  overflow: hidden; }
 
 .n-parallax--content {
   will-change: transform;
-  transform: translateY(calc( var(--scrollparallax, 0) * 1px));
-}
+  transform: translateY(calc( var(--scrollparallax, 0) * 1px)); }
 
 /*# sourceMappingURL=natuive-parallax.css.map */
