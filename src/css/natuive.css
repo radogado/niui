@@ -2479,6 +2479,14 @@ html:not(.can-touch) .n-drop > ul li:not([aria-haspopup]) ul li:hover ~ ul {
     width: 100em;
   }
 
+  _:-ms-input-placeholder, :root nav.n-drop li {
+    white-space: normal;
+  }
+
+  _:-ms-input-placeholder, :root nav.n-drop ul ul ul {
+    display: block;
+  }
+
   _:-ms-input-placeholder, :root nav.n-drop li:hover ul {
     overflow: visible !important;
     z-index: 2 !important;

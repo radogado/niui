@@ -530,7 +530,19 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 	}
 	
 	// IE11
-	
+
+	_:-ms-input-placeholder, :root nav.n-drop li {
+		
+		white-space: normal;
+
+	}
+		
+	_:-ms-input-placeholder, :root nav.n-drop ul ul ul {
+
+		display: block;		
+
+	}
+
 	_:-ms-input-placeholder, :root nav.n-drop li:hover ul {
 		
 		overflow: visible !important;
