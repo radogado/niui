@@ -561,6 +561,12 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 
 	}
 	
+	_:-ms-input-placeholder, :root .n-drop:not([data-ready]) li:not([tabindex]) > ul ~ a {
+		
+		padding-right: 1.75em;
+
+	}
+	
 	.can-touch .n-drop ul li:not([aria-expanded]) > ul {
 		
 		visibility: hidden;
