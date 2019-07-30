@@ -2424,13 +2424,13 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		removeClass(ul, 'n-right-overflow');
 		ul.style.removeProperty('--n-right-overflow');
 
-		let rect = ul.getBoundingClientRect();
+//		var rect = ul.getBoundingClientRect(); // Firefox doesn't preserve this var
 		
-		if (rect.left > document.body.offsetWidth - (rect.left + rect.width)) {
+		if (ul.getBoundingClientRect().left > document.body.offsetWidth - (ul.getBoundingClientRect().left + ul.getBoundingClientRect().width)) {
 			
-			if (rect.right > window.innerWidth) {
+			if (ul.getBoundingClientRect().right > window.innerWidth) {
 				
-				ul.style.setProperty('--n-right-overflow', (window.innerWidth - rect.right) + 'px');
+				ul.style.setProperty('--n-right-overflow', (window.innerWidth - ul.getBoundingClientRect().right) + 'px');
 				addClass(ul, 'n-right-overflow');
 				
 			}
