@@ -376,7 +376,8 @@ $placeholder_color: #aaa;
 		
 			background: #666;
 			color: #eee;
-			
+			padding: 0 .25em;
+
 		}
 	
 		span.n-form--check {
@@ -450,6 +451,7 @@ $placeholder_color: #aaa;
 		    background: transparent;
 		    color: transparent;
 		    text-indent: -100%;
+		    padding: 0;
 
 			&:focus + span {
 				

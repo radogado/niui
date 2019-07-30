@@ -210,7 +210,8 @@
       right: 0; }
   .n-form .n-form--alert span, .n-form .n-form--alert p {
     background: #666;
-    color: #eee; }
+    color: #eee;
+    padding: 0 .25em; }
   .n-form .n-form--alert span.n-form--check {
     background: none;
     color: #555; }
@@ -255,7 +256,8 @@
       margin: 0;
       background: transparent;
       color: transparent;
-      text-indent: -100%; }
+      text-indent: -100%;
+      padding: 0; }
       .n-form .n-form--file input[type=file]:focus + span {
         outline: auto; }
   .n-form input[type=range] {

@@ -672,7 +672,8 @@ _:-ms-input-placeholder, :root .n-fold--label:after {
       right: 0; }
   .n-form .n-form--alert span, .n-form .n-form--alert p {
     background: #666;
-    color: #eee; }
+    color: #eee;
+    padding: 0 .25em; }
   .n-form .n-form--alert span.n-form--check {
     background: none;
     color: #555; }
@@ -717,7 +718,8 @@ _:-ms-input-placeholder, :root .n-fold--label:after {
       margin: 0;
       background: transparent;
       color: transparent;
-      text-indent: -100%; }
+      text-indent: -100%;
+      padding: 0; }
       .n-form .n-form--file input[type=file]:focus + span {
         outline: auto; }
   .n-form input[type=range] {
@@ -1229,9 +1231,9 @@ ol.n-masonry > * {
 
 .n-row.n-border-all {
   --color: #000;
-  box-shadow: inset 0 0 0 2px var(--color); }
+  box-shadow: inset 0 0 0 1px var(--color); }
   .n-row.n-border-all > * {
-    box-shadow: inset 0 0 0 1px var(--color);
+    box-shadow: inset 1px 1px 0 0 var(--color);
     margin: 0;
     flex-basis: calc(var(--col-width) * 100% - var(--spacing)/2); }
 
