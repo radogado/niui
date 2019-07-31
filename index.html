@@ -4557,20 +4557,24 @@ nav li li[aria-haspopup][aria-expanded="true"], nav li li[aria-haspopup]:hover {
 			
 	</main>
 	
-	<script src=src/script/natuive.js type=module async></script> 
-<!-- 	<script src=dist/natuive.min.js type=module async></script> -->
+	<script src=src/script/natuive.js type=module async onload="setupCopy();"></script> 
+<!-- 	<script src=dist/natuive.min.js type=module async onload="setupCopy();"></script> -->
 
 	<script>
 		
-		if (typeof nui === 'object') {
-
-			nui.copyButton(document.getElementById('copybutton'), document.getElementById('copycontent'));
-			document.querySelectorAll('.code').forEach(function (el) {
-				
-				el.insertAdjacentHTML('beforeend', '<button class="n-btn">Copy</button>');
-				nui.copyButton(el.querySelector('button'), el.querySelector('pre'));
-				
-			});
+		function setupCopy() {
+		
+			if (typeof nui === 'object') {
+	
+				nui.copyButton(document.getElementById('copybutton'), document.getElementById('copycontent'));
+				document.querySelectorAll('.code').forEach(function (el) {
+					
+					el.insertAdjacentHTML('beforeend', '<button class="n-btn">Copy</button>');
+					nui.copyButton(el.querySelector('button'), el.querySelector('pre'));
+					
+				});
+			
+			}
 		
 		}
 		
