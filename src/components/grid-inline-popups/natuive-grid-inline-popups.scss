@@ -45,3 +45,13 @@
 	}
 	
 }
+
+@media (max-width: $screen-narrow-max) {
+	
+	.n-row.grid-inline-popup > * {
+		
+		margin: 0;
+		
+	}
+	
+}

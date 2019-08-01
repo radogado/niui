@@ -952,6 +952,10 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form--wide .n-
 .grid-inline-popup:not([data-ready]) > div:not(.grid-inline-popup--popup):focus + .grid-inline-popup--popup {
   display: block; }
 
+@media (max-width: 599.9px) {
+  .n-row.grid-inline-popup > * {
+    margin: 0; } }
+
 /*# sourceMappingURL=natuive-grid-inline-popups.css.map */
 
 @charset "UTF-8";
