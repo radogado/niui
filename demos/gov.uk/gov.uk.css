@@ -124,7 +124,8 @@ ul.n-list li:before {
   content: ''; }
 
 .n-banner .n-form.n-form--wide input {
-  margin: 0; }
+  margin: 0;
+  width: auto; }
 
 .n-banner .n-form.n-form--wide input[type=text] {
   width: 100%; }

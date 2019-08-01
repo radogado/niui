@@ -54,7 +54,8 @@ main .n-masonry {
 	margin: 0 -1.5em;
     width: calc(100% + 3em);
 */
-  max-width: none; }
+  max-width: none;
+  margin: 0; }
 
 .review > div {
   background: #fff;
