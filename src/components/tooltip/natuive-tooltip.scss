@@ -15,12 +15,7 @@
 		border-radius: 100%;
 		width: 1.5em;
 		text-align: center;
-	
-	}
-
-	&[aria-expanded]:after {
-		
-		content: '╳';
+		font-weight: normal;
 	
 	}
 

@@ -9,9 +9,8 @@
     display: inline-block;
     border-radius: 100%;
     width: 1.5em;
-    text-align: center; }
-  .n-tool[aria-expanded]:after {
-    content: '╳'; }
+    text-align: center;
+    font-weight: normal; }
 
 .n-tool:after, .n-tool--tip {
   background-color: #444;

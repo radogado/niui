@@ -2660,9 +2660,8 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
     display: inline-block;
     border-radius: 100%;
     width: 1.5em;
-    text-align: center; }
-  .n-tool[aria-expanded]:after {
-    content: '╳'; }
+    text-align: center;
+    font-weight: normal; }
 
 .n-tool:after, .n-tool--tip {
   background-color: #444;
