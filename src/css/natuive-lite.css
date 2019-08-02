@@ -1040,12 +1040,16 @@ ol.n-masonry > * {
   .n-row.n-border-all .n-row {
     width: calc(100% + 1.5em); }
 
-  .n-row.n-border-all > *, .n-row.n-border-all .n-row {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    overflow: hidden; }
-
+  /*
+  	.n-row.n-border-all > *, .n-row.n-border-all .n-row {
+  	
+  		margin: 0;
+  		padding: 0;
+  		width: 100%;
+  		overflow: hidden;
+  	
+  	}
+  */
   .n-masonry, .n-masonry[class^=_] {
     -moz-column-count: 2;
     -webkit-column-count: 2;
