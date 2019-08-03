@@ -8,12 +8,19 @@
 	margin: 0;
 	max-width: 100%;
 	z-index: 1;
+	text-align: initial;
 	
-	&:not([data-ready]) {
+	&.n-fold--inline {
+		
+		display: inline-block;
+
+	}
+	
+// 	&:not([data-ready]) {
 
 		display: grid;
 		
-	}
+// 	}
 
 	> .n-fold--label {
 		
