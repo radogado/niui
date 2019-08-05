@@ -196,8 +196,10 @@ a[href].span-relative-parent {
   background-color: var(--control-bg, #333);
   color: #eee;
   color: var(--control-color, #eee);
-  -webkit-transition: all 0.1s linear;
-  transition: all 0.1s linear;
+  /*
+  	-webkit-transition: all .1s linear;
+  	transition: all .1s linear;
+  */
   border: none;
   font-family: inherit;
   -webkit-touch-callout: none;
