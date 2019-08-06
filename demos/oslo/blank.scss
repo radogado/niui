@@ -9,3 +9,15 @@
 	border-bottom: 1px solid #f2f2f2;
 
 }
+
+.n-row.columns > * {
+	
+	--col-width: 1/3;
+
+}
+
+img[alt="Cycle"] {
+	
+	border-radius: 50%;
+
+}
