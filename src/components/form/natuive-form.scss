@@ -55,7 +55,6 @@ $placeholder_color: #aaa;
 		white-space: normal;
 		word-break: break-all;
 		margin: 0;
-		min-width: 50%;
 		max-width: 100%;
 		padding: 0 1em;
 		font-weight: bold;
@@ -616,7 +615,7 @@ $placeholder_color: #aaa;
 	
 	&.n-form--wide {
 		
-		input[type=submit], button[type=submit] {
+		input[type=submit], button, button[type=submit] {
 	
 			margin-bottom: calc(#{$line-height-em} - 5px); /* fix for the failed box-sizing: border-box */
 		// 		margin-bottom: calc(var(--line-height-em) - 2px); /* fix for the failed box-sizing: border-box */
@@ -625,7 +624,7 @@ $placeholder_color: #aaa;
 			line-height: 2*$line-height-em/3;
 			font-size: 1.2em;
 			min-height: 2.50005em;
-			width: 100%;			
+			width: 100%;
 			
 		}
 		
@@ -670,7 +669,14 @@ $placeholder_color: #aaa;
 	
 	&.n-form--mast {
 		
-		label {
+			input[type=submit], button, button[type=submit] {
+				
+				margin-left: 50%;
+				margin-bottom: $line-height-em*1.5;
+	
+			}
+			
+			label {
 		
 			width: 100%;
 			

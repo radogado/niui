@@ -1472,220 +1472,150 @@ qa('a[href^="#"]').forEach((el) => {
 })();
 
 // Component Table – end
-;// Component Tooltip – start
+;// Component Fold – start
 
 (function (){
-
-	let tooltips = 0;
-
-	let setTipPosition = tip => { // Take up the most area available on top/right/bottom/left of the tool. Relative to body.
-
-		let tool = document.querySelector('[data-n-tool="' + tip.getAttribute('for') + '"]');
-		let rect = tool.getBoundingClientRect();
-
-		let top = 		rect.top;
-		let left = 		rect.left;
-		let right = 	window.innerWidth - 	left - 	rect.width;
-		let bottom = 	window.innerHeight - 	top - 	rect.height; // To do: check when body is shorter than viewport
-		
-		let area_top = top * window.innerWidth;
-		let area_right = right * window.innerHeight;
-		let area_bottom = bottom * window.innerWidth;
-		let area_left = left * window.innerHeight;
-		
-		let body_rect = document.body.getBoundingClientRect();
-		
-		tip.removeAttribute('style');
-		tip.removeAttribute('data-n-position');
-		
-		let positionTop = () => {
-
-			tip.style.bottom = (20 + body_rect.height + body_rect.y - top) + 'px';
-			tip.style.maxHeight = (top - 40) + 'px';
-			tip.style.left = `${rect.x + rect.width/2 - tip.scrollWidth/2}px`;
-			tip.setAttribute('data-n-position', 'top');
-			
-		}
-		
-		let positionBottom = () => {
-
-			tip.style.top = (20 - body_rect.y + top + rect.height) + 'px';
-			tip.style.maxHeight = (bottom - 40) + 'px';
-			tip.style.left = `${rect.x + rect.width/2 - tip.scrollWidth/2}px`;
-			tip.setAttribute('data-n-position', 'bottom');
-			
-		}
-		
-		let positionLeft = () => {
-			
-			tip.style.left = 'auto';
-			tip.style.right = (20 + body_rect.width + body_rect.x - window.innerWidth + right + rect.width) + 'px';
-			tip.style.maxWidth = (left - 40) + 'px';
-			tip.style.top = `${-1*body_rect.y + rect.top + rect.height/2 - tip.scrollHeight/2}px`;
-			tip.setAttribute('data-n-position', 'left');
-			
-		}
-
-		let positionRight = () => {
-
-			tip.style.left = (rect.x - body_rect.x + rect.width + 20) + 'px';
-			tip.style.maxWidth = (right - 40) + 'px';
-			tip.style.top = `${-1*body_rect.y + rect.top + rect.height/2 - tip.scrollHeight/2}px`;
-			tip.setAttribute('data-n-position', 'right');
-
-		}
-		
-		if (area_left > area_right) {
-			
-			if (area_top > area_bottom) {
-				
-				if (area_top > area_left) { // Top
-					
-					positionTop();
-					
-				} else { // Left
-					
-					positionLeft();
-					
-				}
-				
-			} else {
-				
-				if (area_bottom > area_left) { // Bottom
-					
-					positionBottom();
-					
-				} else { // Left
-					
-					positionLeft();
-					
-				}
-
-			}
-			
-		} else {
-			
-			if (area_top > area_bottom) {
-				
-				if (area_top > area_right) { // Top
-					
-					positionTop();
-					
-				} else { // Right
-					
-					positionRight();
-					
-				}
-				
-			} else {
-				
-				if (area_bottom > area_right) { // Bottom
-					
-					positionBottom();					
-					
-				} else { // Right
-					
-					positionRight();
-					
-				}
-				
-			}
-			
-		}
-		
-		let rect_tip = tip.getBoundingClientRect();
-		
-		let offset_y = 0;
-		
-		if (rect_tip.y < 0) {
-			
-			offset_y = Math.abs(rect_tip.y) + 10;
-			
-		} else {
-			
-			if (rect_tip.bottom > window.innerHeight) {
-				
-				offset_y = window.innerHeight - rect_tip.bottom - 10;
-				
-			}
-			
-		}
-		
-		tip.style.setProperty('--offset_y', offset_y + 'px');
-		
-		let offset_x = 0;
-		
-		if (rect_tip.x < 0) {
-			
-			offset_x = Math.abs(rect_tip.x) + 10;
-			
-		} else {
-			
-			if (rect_tip.right > window.outerWidth) {
-				
-				offset_x = window.outerWidth - rect_tip.right - 10;
-				
-			}
-			
-		}
-		
-		tip.style.setProperty('--offset_x', offset_x + 'px');
-		
-	}
-	
-	function getToolTip(e) {
-		
-		return document.querySelector('.n-tool--tip[for="' + e.target.closest('.n-tool').getAttribute('data-n-tool') + '"]');
-		
-	}
-	
-	let hideTip = e => {
-		
-		let tip = getToolTip(e);
-		tip.removeAttribute('aria-expanded');
-		tip.removeAttribute('style');
-		tip.removeAttribute('data-n-position');
-		
-	}
-	
-	let showTip = e => {
-		
-		let tip = getToolTip(e);
-		tip.setAttribute('aria-expanded', true);
-	    setTipPosition(tip);
-		
-	}
     
-	var init = host => {
+/* Fold – start */
+
+	function toggleAccordion(e) {
+	
+	    stopEvent(e);
+	    var el = e.target.closest('.n-fold');
+	    var content = el.querySelector('.n-fold--content');
+
+		content.style.setProperty('--width', content.scrollWidth + 'px');
+		content.style.setProperty('--max-height', content.scrollHeight + 'px');
+	
+		var content_height = content.style.getPropertyValue('--start-height') || 0;
 		
-		/* Tooltip */
+		// Animation, not CSS, because of nested accordions
 		
-		host.querySelectorAll('.n-tool:not([data-ready])').forEach(el => {
+		if (hasClass(el, 'n-fold--horizontal')) {
 			
-		    let tip = el.querySelector('.n-tool--tip');
-		    if (!tip) return;
-		    
-			let content = tip.innerHTML;
-			tip.innerHTML = '';
-			tip.insertAdjacentHTML('afterbegin', '<span>' + content + '</span>');
-
-		    tip.setAttribute('for', tooltips);
-		    el.setAttribute('data-n-tool', tooltips++);
-		    document.body.appendChild(tip);
-		    
-			el.setAttribute('tabindex', 0);
-
-			el.ontouchend = el.onmouseover = el.onfocus = showTip;
-			el.onblur = el.onmouseout = hideTip;
-
-			makeReady(el);
+			toggleAttribute(el, 'aria-expanded');
+			
+		} else {
 		
+			if (el.hasAttribute('aria-expanded')) {
+		
+				animate(content, `0% { max-height: ${content.scrollHeight}px; } 100% { max-height: ${content_height}; }`, .2, () => {
+					
+					toggleAttribute(el, 'aria-expanded');
+					
+				});
+				
+			} else {
+				
+				toggleAttribute(el, 'aria-expanded');
+				animate(content, `0% { max-height: ${content_height}; } 100% { max-height: ${content.scrollHeight}px; }`);
+				
+			}
+		
+		}
+	
+	    return false;
+	
+	}
+	
+	// Close all Fold elements when clicking/tapping outside of them
+	
+	function closeFoldClickOutside(e) {
+		
+		var el = e.target;
+	
+		if (!el.closest('.n-fold') && !el.closest('.n-tool')) { // Clicking/tapping outside of a fold/tooltip element...
+			
+			qa('.n-fold.n-fold--mobile[aria-expanded], .n-tool--tip[aria-expanded]').forEach(el => { // ... closes all n-burger nav menus and tooltips
+				
+				el.removeAttribute('aria-expanded');
+				
+			});
+			
+		}
+		
+		// Focus on clicked slider
+		
+		if (el.closest('.n-slider')) {
+	
+			current_slider = el.closest('.n-slider');
+		
+		}
+		
+	}
+	
+	function initFold(host) {
+		
+		host.querySelectorAll('.n-fold:not([data-ready]) > .n-fold--label').forEach((el) => {
+	
+		    el.onclick = toggleAccordion;
+			el.setAttribute('tabindex', 0);
+			el.onkeyup = (e) => {
+		
+				if (e.key === 'Enter') {
+					
+					toggleAccordion(e);
+		
+				}
+				
+			};
+		
+		    el = el.parentNode;
+			var content = el.querySelector('.n-fold--content');
+			content.addEventListener('focusin', e => {
+				
+				if (!e.target.closest('.n-fold').hasAttribute('aria-expanded')) {
+					
+					toggleAccordion(e);
+					
+				}
+				
+			});
+			
+			if (hasClass(el, 'n-fold--horizontal')) {
+				
+				el.setAttribute('data-init', true);
+				content.style.setProperty('--width', content.scrollWidth + 'px');
+				content.style.height = 'auto';
+				el.removeAttribute('data-init');
+				setTimeout(() => { content.style.transition = 'width .2s ease-in-out'; }, 100);
+				
+			}
+		
+			content.style.setProperty('--max-height', content.scrollHeight + 'px');
+		
+		    if (el.querySelector('input.n-trigger')) { // Remove CSS-only triggers
+		
+		        el.querySelector('input.n-trigger').outerHTML = '';
+		
+		    }
+		
+		    makeReady(el);
+		    
 		});
 		
-	};
-	registerComponent('tooltip', init);
+	}
+	
+	window.addEventListener('mousedown', closeFoldClickOutside); // Close all Fold elements when clicking outside of them
+	
+	window.addEventListener('touchend', closeFoldClickOutside); // Close all Fold elements when clicking outside of them
+		
+	window.addEventListener('scroll', () => {  // Close fixed n-ovrl if its scrolling becomes a window scroll. Idea by a Google mobile nav.
+		
+		let expanded_nav = q('.n-fixed-mobile .n-fold.n-fold--mobile[aria-expanded]');
+		if (expanded_nav) {
+			
+			expanded_nav.removeAttribute('aria-expanded');
+		
+		}
+		
+	});
+
+/* Fold – end */
+
+	registerComponent('fold', initFold);
 
 })();
 
-// Component Tooltip – end
+// Component Fold – end
 initComponents(); return { initComponents, animate, copyButton, addComponent } })();

@@ -1,5 +1,11 @@
 @charset "UTF-8";
 
+body.n-type {
+	
+	font-size: 1.125rem;
+
+}
+
 .n-contain {
 	
 	max-width: 1180px;
@@ -40,7 +46,7 @@ footer {
 @font-face {
     font-family: osloicons;
     src: url(838e9fa079d1e4dae3c7d8f281f002f1.eot);
-    src: url(838e9fa079d1e4dae3c7d8f281f002f1.eot) format("embedded-opentype"), url(47c47cfa7d4a65e2a7988da7275f9142.ttf) format("truetype"), url(5cd00bbaf8eb640b1a1d07a99205e746.woff) format("woff"), url(/assets/images/osloicons.svg) format("svg");
+    src: url(838e9fa079d1e4dae3c7d8f281f002f1.eot) format("embedded-opentype"), url(47c47cfa7d4a65e2a7988da7275f9142.ttf) format("truetype"), url(5cd00bbaf8eb640b1a1d07a99205e746.woff) format("woff"), url(osloicons.svg) format("svg");
     font-weight: 400;
     font-style: normal
 }
@@ -51,6 +57,7 @@ footer {
 	font-family: osloicons!important;
 	line-height: 1;
 	font-size: 32px;
+	height: 32px;
 	font-style: normal;
 	color: inherit;
 

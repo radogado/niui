@@ -58,7 +58,7 @@ module.exports = function(grunt) {
 				banner: 'window.nui = (() => {', // skirt non-ES6 browsers like IE11
 				footer: 'initComponents(); return { initComponents, animate, copyButton, addComponent } })();'
 		    },
-		    src: ['src/script/natuive-core.js', 'src/components/form/*.js', 'src/components/nav/*.js', 'src/components/table/*.js', 'src/components/tooltip/*.js'],
+		    src: ['src/script/natuive-core.js', 'src/components/form/*.js', 'src/components/nav/*.js', 'src/components/table/*.js', 'src/components/fold/*.js'],
 		    dest: 'src/script/natuive-lite.js'
 		  },
 		  CSS_lite: {

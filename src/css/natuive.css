@@ -272,7 +272,7 @@ a.backtotop[href] {
   text-align: initial;
   display: grid; }
   .n-fold.n-fold--inline {
-    display: inline-block; }
+    display: inline-grid; }
   .n-fold > .n-fold--label {
     margin: 0;
     float: none;
@@ -494,7 +494,6 @@ _:-ms-input-placeholder, :root .n-fold--label:after {
     white-space: normal;
     word-break: break-all;
     margin: 0;
-    min-width: 50%;
     max-width: 100%;
     padding: 0 1em;
     font-weight: bold; }
@@ -828,7 +827,7 @@ _:-ms-input-placeholder, :root .n-fold--label:after {
     font-size: 1.2em; }
   .n-form.n-form--wide textarea, .n-form.n-form--mast textarea {
     margin: -0.75em 0 0.75em 0; }
-  .n-form.n-form--wide input[type=submit], .n-form.n-form--wide button[type=submit] {
+  .n-form.n-form--wide input[type=submit], .n-form.n-form--wide button, .n-form.n-form--wide button[type=submit] {
     margin-bottom: calc(1.5em - 5px);
     /* fix for the failed box-sizing: border-box */
     line-height: 1em;
@@ -850,6 +849,9 @@ _:-ms-input-placeholder, :root .n-fold--label:after {
     margin: 0 0 1.5em 0; }
   .n-form.n-form--wide .n-form--check label input[type=checkbox], .n-form.n-form--wide .n-form--check label input[type=radio] {
     margin-top: -.2em; }
+  .n-form.n-form--mast input[type=submit], .n-form.n-form--mast button, .n-form.n-form--mast button[type=submit] {
+    margin-left: 50%;
+    margin-bottom: 2.25em; }
   .n-form.n-form--mast label {
     width: 100%; }
     .n-form.n-form--mast label > input {

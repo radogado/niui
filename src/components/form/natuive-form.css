@@ -28,7 +28,6 @@
     white-space: normal;
     word-break: break-all;
     margin: 0;
-    min-width: 50%;
     max-width: 100%;
     padding: 0 1em;
     font-weight: bold; }
@@ -362,7 +361,7 @@
     font-size: 1.2em; }
   .n-form.n-form--wide textarea, .n-form.n-form--mast textarea {
     margin: -0.75em 0 0.75em 0; }
-  .n-form.n-form--wide input[type=submit], .n-form.n-form--wide button[type=submit] {
+  .n-form.n-form--wide input[type=submit], .n-form.n-form--wide button, .n-form.n-form--wide button[type=submit] {
     margin-bottom: calc(1.5em - 5px);
     /* fix for the failed box-sizing: border-box */
     line-height: 1em;
@@ -384,6 +383,9 @@
     margin: 0 0 1.5em 0; }
   .n-form.n-form--wide .n-form--check label input[type=checkbox], .n-form.n-form--wide .n-form--check label input[type=radio] {
     margin-top: -.2em; }
+  .n-form.n-form--mast input[type=submit], .n-form.n-form--mast button, .n-form.n-form--mast button[type=submit] {
+    margin-left: 50%;
+    margin-bottom: 2.25em; }
   .n-form.n-form--mast label {
     width: 100%; }
     .n-form.n-form--mast label > input {
