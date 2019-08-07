@@ -81,6 +81,7 @@ main > 	._3\/4 > .n-slider--wrap > .n-slider.n-slider--vertical > * {
 	min-height: 100vh; // Because of slides shorter than viewport
 	overflow: auto;
 	background: #fffff5;
+	will-change: scroll;
 	
 }
 
