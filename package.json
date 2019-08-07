@@ -26,5 +26,7 @@
     "grunt-gzip": "^0.1.0",
     "grunt-sass": ">=3.0.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "jit-grunt": "^0.10.0"
+  }
 }

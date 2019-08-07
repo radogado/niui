@@ -1,11 +1,15 @@
 module.exports = function(grunt) {
 
+/*
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-closure-compiler');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-gzip');
+*/
+
+	require('jit-grunt')(grunt);
 
 	grunt.initConfig({
 		'sass': {
