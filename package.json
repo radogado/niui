@@ -24,9 +24,8 @@
     "grunt-contrib-cssmin": "^2.2.1",
     "grunt-contrib-sass": ">=1.0.0",
     "grunt-gzip": "^0.1.0",
-    "grunt-sass": ">=3.0.2"
-  },
-  "dependencies": {
+    "grunt-sass": ">=3.0.2",
     "jit-grunt": "^0.10.0"
-  }
+  },
+  "dependencies": {}
 }

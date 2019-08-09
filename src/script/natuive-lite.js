@@ -1562,15 +1562,20 @@ qa('a[href^="#"]').forEach((el) => {
 		
 		    el = el.parentNode;
 			var content = el.querySelector('.n-fold--content');
-			content.addEventListener('focusin', e => {
-				
-				if (!e.target.closest('.n-fold').hasAttribute('aria-expanded')) {
+			
+			if (!hasClass(el, 'n-fold--mobile')) {
+			
+				content.addEventListener('focusin', e => {
 					
-					toggleAccordion(e);
+					if (!e.target.closest('.n-fold').hasAttribute('aria-expanded')) {
+						
+						toggleAccordion(e);
+						
+					}
 					
-				}
-				
-			});
+				});
+			
+			}
 			
 			if (hasClass(el, 'n-fold--horizontal')) {
 				

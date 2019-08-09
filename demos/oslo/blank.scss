@@ -15,6 +15,9 @@ body.n-type {
 .n-header {
 	
 	border-bottom: 1px solid #f2f2f2;
+	position: fixed;
+	z-index: 1;
+	background: #fff;
 
 }
 
@@ -85,6 +88,8 @@ ul {
 }
 
 .n-banner {
+	
+	padding-top: 11rem;
 
 	.n-form input[type=text] {
 		
@@ -175,5 +180,35 @@ body.n-type, .n-form button {
 .n-banner .n-pad {
 	
 	padding: 2.25em;
+	
+}
+
+.n-type a.n-btn[href], .n-form button {
+	
+	background: none;
+	border: 2px solid #f9c66b;
+	padding: .75em 1em;
+	
+}
+
+.n-type footer a.n-btn[href], .n-form button {
+	
+	padding: .5em 1em;
+	
+}
+
+.n-type header a.n-btn[href] {
+	
+	color: inherit;
+	
+}
+
+header .n-fold--content .n-fold--content {
+	
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    background: rgb(255, 255, 255);
+    top: 6rem;
 	
 }
