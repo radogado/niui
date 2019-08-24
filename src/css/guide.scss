@@ -1,3 +1,11 @@
+html, body {
+	
+	margin: 0;
+	padding: 0;
+
+}
+
+
 body {
 	
 	background: #fffff5;
@@ -25,7 +33,7 @@ main .nav-column .n-slider--nav.n-row {
 
 main .nav-column {
 	
-	height: 100vh;
+	height: 100%;
 	background: lightseagreen;
     -webkit-overflow-scrolling: touch;
     
@@ -70,15 +78,15 @@ _:-ms-lang(x), main .nav-column .n-slider--nav.n-row:after { // FF & Edge fix
 
 main, main.n-row > *, main > .n-slider--wrap {
 	
-	height: 100vh;
+	height: 100%;
     box-sizing: border-box;
 
 }
 
 main > 	._3\/4 > .n-slider--wrap > .n-slider.n-slider--vertical > * {
 	
-	max-height: 100vh; // Because sliding animates to full slide height
-	min-height: 100vh; // Because of slides shorter than viewport
+	max-height: 100%; // Because sliding animates to full slide height
+	min-height: 100%; // Because of slides shorter than viewport
 	overflow: auto;
 	background: #fffff5;
 	will-change: scroll;
@@ -220,7 +228,7 @@ body:not([data-natuive-js]) .n-slider.n-slider--vertical > {
 
 main > .n-slider--wrap > .n-slider.n-slider--vertical > .visible {
 
-	height: 100vh;
+	height: 100%;
 	overflow-y: auto;
 
 }

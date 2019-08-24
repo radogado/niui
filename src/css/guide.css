@@ -1,3 +1,7 @@
+html, body {
+  margin: 0;
+  padding: 0; }
+
 body {
   background: #fffff5; }
 
@@ -17,7 +21,7 @@ main .nav-column .n-slider--nav.n-row {
   width: 100%; }
 
 main .nav-column {
-  height: 100vh;
+  height: 100%;
   background: lightseagreen;
   -webkit-overflow-scrolling: touch; }
   main .nav-column a[href] {
@@ -38,12 +42,12 @@ _:-ms-lang(x), main .nav-column .n-slider--nav.n-row:after {
   padding-top: 1em; }
 
 main, main.n-row > *, main > .n-slider--wrap {
-  height: 100vh;
+  height: 100%;
   box-sizing: border-box; }
 
 main > ._3\/4 > .n-slider--wrap > .n-slider.n-slider--vertical > * {
-  max-height: 100vh;
-  min-height: 100vh;
+  max-height: 100%;
+  min-height: 100%;
   overflow: auto;
   background: #fffff5;
   will-change: scroll; }
@@ -125,7 +129,7 @@ body:not([data-natuive-js]) .n-slider.n-slider--vertical > :target, body:not([da
   max-width: 100%; }
 
 main > .n-slider--wrap > .n-slider.n-slider--vertical > .visible {
-  height: 100vh;
+  height: 100%;
   overflow-y: auto; }
 
 main#content {
