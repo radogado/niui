@@ -795,34 +795,38 @@ qa('a[href^="#"]').forEach((el) => {
 
 // Viewport element for iOS
 
-let adjustViewport = () => {
-	
-	document.querySelectorAll('.n-viewport').forEach(el => {
+if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 
-		el.style.height = '100vh';
-		el.style.marginTop = 0;
-// 		console.log('Element: ' + el.offsetHeight, 'Window: ' + window.innerHeight);
-
-		if (el.offsetHeight > window.innerHeight) {
-			
-			el.style.height = `calc(100vh - ${el.offsetHeight - window.innerHeight}*1px)`;
-			
-		}
+	let adjustViewport = () => {
 		
-		if (el.getBoundingClientRect().y < 0) {
+		document.querySelectorAll('.n-viewport').forEach(el => {
+	
+			el.style.height = '100vh';
+			el.style.marginTop = 0;
+	// 		console.log('Element: ' + el.offsetHeight, 'Window: ' + window.innerHeight);
+	
+			if (el.offsetHeight > window.innerHeight) {
+				
+				el.style.height = `calc(100vh - ${el.offsetHeight - window.innerHeight}*1px)`;
+				
+			}
 			
-			el.style.marginTop = `${Math.abs(el.getBoundingClientRect().y)}px`;
+			if (el.getBoundingClientRect().y < 0) {
+				
+				el.style.marginTop = `${Math.abs(el.getBoundingClientRect().y)}px`;
+				
+			}
 			
-		}
+		});
+		
+	};
+	
+	adjustViewport();
+	
+	window.addEventListener('resize', e => {
+		
+		setTimeout(adjustViewport, 100);
 		
 	});
-	
-};
 
-adjustViewport();
-
-window.addEventListener('resize', e => {
-	
-	setTimeout(adjustViewport, 100);
-	
-});
+}
