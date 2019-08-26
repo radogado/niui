@@ -825,7 +825,8 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	
 	window.addEventListener('resize', e => {
 		
-		setTimeout(adjustViewport, 100);
+		adjustViewport();
+		setTimeout(adjustViewport, 200);
 		
 	});
 
