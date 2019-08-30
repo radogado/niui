@@ -144,7 +144,7 @@ button.search-submit {
 		
 		width: 20%;
 	    margin: 0;
-	    border: 1px solid #fff;
+	    border: 1px solid transparent;
 		text-align: center;
 		box-sizing: border-box;
 	
@@ -817,4 +817,35 @@ a.backtotop[href] {
 	--input-color: darkslateblue;
 	--input-bg: aliceblue;	
 	
+}
+
+// Auto dark mode 
+
+@media (prefers-color-scheme: dark) {
+
+	body, .n-ovrl > *, .n-slider--wrap {
+		
+	    background: #000;
+	
+	}
+	
+	.n-type {
+		
+		color: #ddd;
+		
+	}
+	
+	.img-crop {
+		
+		background: #222;
+		
+	}
+	
+	.n-form input, .n-form textarea {
+	
+	    --input-color: #ddd;
+	    --input-bg: #222;
+	
+	}
+
 }
