@@ -3664,8 +3664,6 @@ var componentSlider = (function (){
 
 (function (){
 
-	let tooltips = 0;
-
 	let setTipPosition = tip => { // Take up the most area available on top/right/bottom/left of the tool. Relative to body.
 
 		let tool = document.querySelector('[data-n-tool="' + tip.getAttribute('for') + '"]');
@@ -3847,6 +3845,8 @@ var componentSlider = (function (){
 	var init = host => {
 		
 		/* Tooltip */
+		
+		let tooltips = host.querySelectorAll('.n-tool').length;
 		
 		host.querySelectorAll('.n-tool:not([data-ready])').forEach(el => {
 			
