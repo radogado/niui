@@ -865,3 +865,22 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form--wide .n-
 	}
 
 }
+
+// Rich select
+
+.n-select {
+	
+	button {
+		
+		appearance: none;
+		-webkit-appearance: none;
+		display: block;
+		cursor: pointer;
+		border: none;
+		width: 100%;
+		text-align: start;
+		padding: 0;
+    
+	}
+	
+}
