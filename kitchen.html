@@ -187,19 +187,50 @@
 						
 						<div class="n-select">
 							
-							<button><img src="http://localhost/natuive/images/natuive.svg" alt=1> Option 1</button>
+							<button><img src="images/natuive.svg" alt=1> Option 1</button>
 							<button>Option 2</button>
 							<button>Option 3</button>
+							<button>Option 4</button>
+							<button>Option 5</button>
+							<button>Option 6</button>
 							
 						</div>
 						
 						<select>
 							
 							<option>Option 1</option>
-							<option>Option 1</option>
-							<option>Option 1</option>
+							<option>Option 2</option>
+							<option>Option 3</option>
+							<option>Option 4</option>
+							<option>Option 5</option>
+							<option>Option 6</option>
 
 						</select>
+						
+						<script>
+							
+							document.querySelectorAll('.n-select').forEach(el => {
+								
+								if (el.nextElementSibling.tagName === 'SELECT') {
+									
+									let select = el.nextElementSibling; // The attached native select
+									let options = el.querySelectorAll('button');
+									
+									options.forEach(el => {
+										
+										el.onclick = e => {
+
+											select.options[[...options].indexOf(e.target.closest('button'))].selected = true; // Enable the native option index-matching this button
+											
+										};
+										
+									});
+								
+								}
+								
+							});
+							
+						</script>
 
 						<div class="n-slider--wrap n-pad">
 							

@@ -157,6 +157,7 @@ function stopEvent(e) {
 
 function thisIndex(el) {
 
+/*
     if (!el) return;
 	var node, nodes;
 	
@@ -176,6 +177,9 @@ function thisIndex(el) {
     }
 
     return (count);
+*/
+
+	return [...el.parentNode.children].indexOf(el);
 
 }
 
