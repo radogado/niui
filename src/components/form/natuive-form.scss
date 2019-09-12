@@ -870,6 +870,8 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form--wide .n-
 
 .n-select {
 	
+	position: relative;
+
 	button {
 		
 		appearance: none;
@@ -880,7 +882,47 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form--wide .n-
 		width: 100%;
 		text-align: start;
 		padding: 0;
+		font-size: 1em;
     
 	}
 	
+	&:before {
+		
+		content: '';
+		display: block;
+		height: 1em;
+		font-size: 1em;
+		
+	}
+	
+	&:after {
+		
+		content: '⌄';
+		position: absolute;
+		top: 0;
+		height: 1em;
+		width: 1em;
+		right: 0;
+		z-index: 5;
+		text-align: center;
+		line-height: 0.25;
+		font-size: 2em;								
+		
+	}
+	
+	> div {
+		
+		position: absolute;
+		top: 0;
+		z-index: 5;
+		width: 100%;
+
+	}
+	
+	&:not([aria-expanded]) button:not([aria-selected]) {
+		
+		display: none;
+
+	}
+
 }
