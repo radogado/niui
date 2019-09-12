@@ -187,12 +187,16 @@
 						
 						<div class="n-select">
 							
-							<button><img src="images/natuive.svg" alt=1> Option 1</button>
-							<button>Option 2</button>
-							<button>Option 3</button>
-							<button>Option 4</button>
-							<button>Option 5</button>
-							<button>Option 6</button>
+							<div>
+							
+								<button aria-selected><img src="images/natuive.svg" alt=1> Option 1</button>
+								<button>Option 2</button>
+								<button>Option 3</button>
+								<button>Option 4</button>
+								<button>Option 5</button>
+								<button>Option 6</button>
+							
+							</div>
 							
 						</div>
 						
@@ -207,11 +211,42 @@
 
 						</select>
 						
+						<style>
+							
+							.n-select {
+								
+								position: relative;
+
+							}
+							
+							.n-select:before {
+								
+								content: '';
+								display: block;
+								height: 1em;
+								
+							}
+							
+							.n-select > div {
+								
+								position: absolute;
+								z-index: 1;
+
+							}
+							
+							.n-select:not([aria-expanded]) button:not([aria-selected]) {
+								
+								display: none;
+
+							}
+							
+						</style>
+						
 						<script>
 							
 							document.querySelectorAll('.n-select').forEach(el => {
 								
-								if (el.nextElementSibling.tagName === 'SELECT') {
+								if (el.nextElementSibling.tagName === 'SELECT') { // Sync with hidden native select
 									
 									let select = el.nextElementSibling; // The attached native select
 									let options = el.querySelectorAll('button');
@@ -227,6 +262,25 @@
 									});
 								
 								}
+								
+								el.onclick = e => {
+
+									let el = e.target.closest('button');
+									let select = el.closest('.n-select');
+									console.log(el, select);
+									if (select.hasAttribute('aria-expanded')) { // Select the clicked option
+										
+										select.querySelector('[aria-selected]').removeAttribute('aria-selected');
+										el.setAttribute('aria-selected', true);
+										select.removeAttribute('aria-expanded');
+										
+									} else { // Open the drop-down
+										
+										select.setAttribute('aria-expanded', true);
+										
+									}
+									
+								};
 								
 							});
 							
