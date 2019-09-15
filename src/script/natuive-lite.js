@@ -5,7 +5,7 @@ window.nui = (() => {/* natUIve by rado.bg */
 
 var bodyElement = document.body;
 
-if (typeof window['chrome'] !== 'undefined') {
+if (!!window['chrome']) {
 	
 	document.body.setAttribute('data-chrome', 'true');
 
@@ -120,7 +120,7 @@ function stopEvent(e) {
 
     if (!e) {
 
-        if (typeof window.event === 'undefined') {
+        if (!window.event) {
 
             return;
 
@@ -128,7 +128,7 @@ function stopEvent(e) {
 
     }
 
-	if ( typeof e === 'undefined' ) {
+	if (!e) {
 		
 		return false;
 
@@ -307,7 +307,7 @@ function relayParameters() {
 	            
 	            var hash = el.href.split('#')[1];
 	            el.href = updateURLParameter(el.href, name, parameters[name]);
-	            if (typeof hash != 'undefined') {
+	            if (!!hash) {
 		            
 		            el.href = el.href.split('#')[0] + '#' + hash;
 		            
@@ -373,7 +373,7 @@ function getCumulativeOffset(obj) { // Offset from element to top of page
 
 function animateAnchors(e) {
 
-    if (typeof e === 'undefined' || q('html').clientHeight > document.body.clientHeight) {
+    if (!e || q('html').clientHeight > document.body.clientHeight) {
 
         return;
 
@@ -502,7 +502,7 @@ function animate(el, animation_code, duration, callback) { // Default duration =
 		}
 */
 		var styles = document.createElement('style');
-		styles.innerHTML = `@keyframes ${animation_name} {${animation_code}} [data-animation=${animation_name}] { animation-name: ${animation_name}; animation-duration: ${((typeof duration === "undefined") ? .2 : duration)}s; }`; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
+		styles.innerHTML = `@keyframes ${animation_name} {${animation_code}} [data-animation=${animation_name}] { animation-name: ${animation_name}; animation-duration: ${(!duration ? .2 : duration)}s; }`; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
 		document.head.appendChild(styles);
 		addClass(styles, animation_name);
 
@@ -554,7 +554,7 @@ function copyButton (el, target, echo) {
 
 		  document.execCommand('copy');
 		  
-		  if (typeof echo !== 'undefined' && componentNotify) {
+		  if (!!echo && componentNotify) {
 	
 			  componentNotify.notify('📋 ' + target.textContent, 'fixed timeout');
 		  
@@ -709,7 +709,7 @@ function initComponents(host) {
 
 	observerOff();
 	
-	var _host = typeof host === 'undefined' ? bodyElement : host;
+	var _host = !host ? bodyElement : host;
 
 	for (var key in components) {
 	
@@ -1471,43 +1471,39 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		
 		});
 	
-		if (typeof bodyElement.dataset !== 'undefined') { // el.dataset.sort not supported by IE10
-		
-			host.querySelectorAll('td[data-sort]').forEach((el) => { // To do: work only on tables that aren't ready
-				// asc or desc
-				if (el.dataset.sort !== 'asc' && el.dataset.sort !== 'desc') {
+		host.querySelectorAll('td[data-sort]').forEach((el) => { // To do: work only on tables that aren't ready
+			// asc or desc
+			if (el.dataset.sort !== 'asc' && el.dataset.sort !== 'desc') {
+				
+				el.dataset.sort = 'desc';
+				
+			}
+			
+			function sortTableEvent(e) {
+				
+				stopEvent(e);
+				var el = e.target;
+				var cell = el.type === 'td' ? el : el.closest('td');
+				var f; // Ascending
+				if (cell.dataset.sort === 'desc') {
 					
-					el.dataset.sort = 'desc';
+					f = -1;
+					cell.dataset.sort = 'asc';
+					
+				} else {
+					
+					f = 1;
+					cell.dataset.sort = 'desc';
 					
 				}
-				
-				function sortTableEvent(e) {
-					
-					stopEvent(e);
-					var el = e.target;
-					var cell = el.type === 'td' ? el : el.closest('td');
-					var f; // Ascending
-					if (cell.dataset.sort === 'desc') {
-						
-						f = -1;
-						cell.dataset.sort = 'asc';
-						
-					} else {
-						
-						f = 1;
-						cell.dataset.sort = 'desc';
-						
-					}
-			
-					sortTable(el.closest('table'), thisIndex(cell), f);
-					
-				}
-				
-				el.onclick = el.ontouchend = sortTableEvent;
-			
-			});
 		
-		}
+				sortTable(el.closest('table'), thisIndex(cell), f);
+				
+			}
+			
+			el.onclick = el.ontouchend = sortTableEvent;
+		
+		});
 	
 	};
 	registerComponent('table', init);

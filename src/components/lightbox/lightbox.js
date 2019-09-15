@@ -98,7 +98,7 @@ var componentLightbox = (function (){
 
 	function populateLightboxItem(slider, i) {
 		
-		var img = slider.children[(typeof i === 'undefined') ? 0 : i].querySelector('img');
+		var img = slider.children[!i ? 0 : i].querySelector('img');
 	
 		if (img && !img.src) {
 			
@@ -260,8 +260,8 @@ var componentLightbox = (function (){
 				
 			}
 			
-			let target_width = typeof el.dataset.width === 'undefined' ? '' : `width=${el.dataset.width}`;
-			let target_height = typeof el.dataset.height === 'undefined' ? '' : `height=${el.dataset.height}`;
+			let target_width = !el.dataset.width ? '' : `width=${el.dataset.width}`;
+			let target_height = !el.dataset.height ? '' : `height=${el.dataset.height}`;
 			
 			let aspect = '';
 			let aspect_tail = '';
@@ -327,13 +327,13 @@ var componentLightbox = (function (){
 	    if (location.href.indexOf('#' + lightbox.id) > -1 && hasClass(lightbox, 'uri-target')) {
 	        
 	        removeClass(lightbox, 'uri-target'); // Open URI-specified index only once, because subsequent lightbox instances would have incorrect index
-	        if (typeof getURLParameters()['slide'] != 'undefined') {
+	        if (!!getURLParameters()['slide']) {
 	
 		        this_index = getURLParameters()['slide'].split('#')[0] - 1;
 	
 		    }
 	
-			if (typeof getURLParameters()['image'] != 'undefined') {
+			if (!!getURLParameters()['image']) {
 	
 				var target_image = lightbox_target.querySelector('[data-src*="' + getURLParameters()['image'].split('#')[0] + '"]');
 				if (target_image) {

@@ -195,7 +195,7 @@ var componentSlider = (function (){
 			
 		} else {
 			
-			if (typeof old_index !== 'undefined' && location.hash === '#' + slider.children[old_index].id) {
+			if (!!old_index && location.hash === '#' + slider.children[old_index].id) {
 				
 				removeHash();
 				
@@ -491,7 +491,7 @@ var componentSlider = (function (){
 	
 	function sliderKeyboard(e) { // e.target can be either body or a slider, choose accordingly
 
-	    if (typeof e === 'undefined' || 
+	    if (!e || 
 
 	    	q('.n-slider--wrap[data-active]') || 
 	    	(q('.n-ovrl') && !q('.n-ovrl .n-slider--wrap')) // There is an overlay open and it doesn't have a slider in it

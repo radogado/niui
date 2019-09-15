@@ -22,7 +22,7 @@ var componentModal = (function (){
 	     * @return void
 	     */
 	    var preventBodyScroll = (event) => {
-	        if (!_element || typeof event.target.closest === 'undefined' || !event.target.closest(_selector)) {
+	        if (!_element || !event.target.closest || !event.target.closest(_selector)) {
 	            event.preventDefault();
 	        }
 	    };
@@ -81,7 +81,7 @@ var componentModal = (function (){
 	     * @return void
 	     */
  	    return function (allow, selector) {
-	    	if (typeof selector !== "undefined") {
+	    	if (!!selector) {
 		        _selector = selector;
 		        _element = q(selector);
 	    	}
@@ -124,7 +124,7 @@ var componentModal = (function (){
 
 		}
 		
-		if (typeof e !== 'undefined') { // On resize event (toolbars have appeared by tapping at the top or bottom area
+		if (!!e) { // On resize event (toolbars have appeared by tapping at the top or bottom area
 
 			bodyElement.style.setProperty('--overlay-top', (previous_overlay_top - offset_y) + 'px');
 			bodyElement.style.setProperty('--overlay-bottom', (screen_height - actual_viewport + offset_y) + 'px');
@@ -335,7 +335,7 @@ var componentModal = (function (){
 	                return false;
 	
 	            }
-	            var container = (typeof link.split('#')[1] != 'undefined') ? ('#' + link.split('#')[1]) : 0;
+	            var container = !!link.split('#')[1] ? ('#' + link.split('#')[1]) : 0;
 	
 				var parsed = request.responseText;
 	            if (container) {

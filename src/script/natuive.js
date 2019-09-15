@@ -5,7 +5,7 @@ window.nui = (() => {/* natUIve by rado.bg */
 
 var bodyElement = document.body;
 
-if (typeof window['chrome'] !== 'undefined') {
+if (!!window['chrome']) {
 	
 	document.body.setAttribute('data-chrome', 'true');
 
@@ -120,7 +120,7 @@ function stopEvent(e) {
 
     if (!e) {
 
-        if (typeof window.event === 'undefined') {
+        if (!window.event) {
 
             return;
 
@@ -128,7 +128,7 @@ function stopEvent(e) {
 
     }
 
-	if ( typeof e === 'undefined' ) {
+	if (!e) {
 		
 		return false;
 
@@ -307,7 +307,7 @@ function relayParameters() {
 	            
 	            var hash = el.href.split('#')[1];
 	            el.href = updateURLParameter(el.href, name, parameters[name]);
-	            if (typeof hash != 'undefined') {
+	            if (!!hash) {
 		            
 		            el.href = el.href.split('#')[0] + '#' + hash;
 		            
@@ -373,7 +373,7 @@ function getCumulativeOffset(obj) { // Offset from element to top of page
 
 function animateAnchors(e) {
 
-    if (typeof e === 'undefined' || q('html').clientHeight > document.body.clientHeight) {
+    if (!e || q('html').clientHeight > document.body.clientHeight) {
 
         return;
 
@@ -502,7 +502,7 @@ function animate(el, animation_code, duration, callback) { // Default duration =
 		}
 */
 		var styles = document.createElement('style');
-		styles.innerHTML = `@keyframes ${animation_name} {${animation_code}} [data-animation=${animation_name}] { animation-name: ${animation_name}; animation-duration: ${((typeof duration === "undefined") ? .2 : duration)}s; }`; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
+		styles.innerHTML = `@keyframes ${animation_name} {${animation_code}} [data-animation=${animation_name}] { animation-name: ${animation_name}; animation-duration: ${(!duration ? .2 : duration)}s; }`; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
 		document.head.appendChild(styles);
 		addClass(styles, animation_name);
 
@@ -554,7 +554,7 @@ function copyButton (el, target, echo) {
 
 		  document.execCommand('copy');
 		  
-		  if (typeof echo !== 'undefined' && componentNotify) {
+		  if (!!echo && componentNotify) {
 	
 			  componentNotify.notify('📋 ' + target.textContent, 'fixed timeout');
 		  
@@ -709,7 +709,7 @@ function initComponents(host) {
 
 	observerOff();
 	
-	var _host = typeof host === 'undefined' ? bodyElement : host;
+	var _host = !host ? bodyElement : host;
 
 	for (var key in components) {
 	
@@ -1398,7 +1398,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 
 	function populateLightboxItem(slider, i) {
 		
-		var img = slider.children[(typeof i === 'undefined') ? 0 : i].querySelector('img');
+		var img = slider.children[!i ? 0 : i].querySelector('img');
 	
 		if (img && !img.src) {
 			
@@ -1560,8 +1560,8 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 				
 			}
 			
-			let target_width = typeof el.dataset.width === 'undefined' ? '' : `width=${el.dataset.width}`;
-			let target_height = typeof el.dataset.height === 'undefined' ? '' : `height=${el.dataset.height}`;
+			let target_width = !el.dataset.width ? '' : `width=${el.dataset.width}`;
+			let target_height = !el.dataset.height ? '' : `height=${el.dataset.height}`;
 			
 			let aspect = '';
 			let aspect_tail = '';
@@ -1627,13 +1627,13 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	    if (location.href.indexOf('#' + lightbox.id) > -1 && hasClass(lightbox, 'uri-target')) {
 	        
 	        removeClass(lightbox, 'uri-target'); // Open URI-specified index only once, because subsequent lightbox instances would have incorrect index
-	        if (typeof getURLParameters()['slide'] != 'undefined') {
+	        if (!!getURLParameters()['slide']) {
 	
 		        this_index = getURLParameters()['slide'].split('#')[0] - 1;
 	
 		    }
 	
-			if (typeof getURLParameters()['image'] != 'undefined') {
+			if (!!getURLParameters()['image']) {
 	
 				var target_image = lightbox_target.querySelector('[data-src*="' + getURLParameters()['image'].split('#')[0] + '"]');
 				if (target_image) {
@@ -1798,7 +1798,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	     * @return void
 	     */
 	    var preventBodyScroll = (event) => {
-	        if (!_element || typeof event.target.closest === 'undefined' || !event.target.closest(_selector)) {
+	        if (!_element || !event.target.closest || !event.target.closest(_selector)) {
 	            event.preventDefault();
 	        }
 	    };
@@ -1857,7 +1857,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	     * @return void
 	     */
  	    return function (allow, selector) {
-	    	if (typeof selector !== "undefined") {
+	    	if (!!selector) {
 		        _selector = selector;
 		        _element = q(selector);
 	    	}
@@ -1900,7 +1900,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 
 		}
 		
-		if (typeof e !== 'undefined') { // On resize event (toolbars have appeared by tapping at the top or bottom area
+		if (!!e) { // On resize event (toolbars have appeared by tapping at the top or bottom area
 
 			bodyElement.style.setProperty('--overlay-top', (previous_overlay_top - offset_y) + 'px');
 			bodyElement.style.setProperty('--overlay-bottom', (screen_height - actual_viewport + offset_y) + 'px');
@@ -2111,7 +2111,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	                return false;
 	
 	            }
-	            var container = (typeof link.split('#')[1] != 'undefined') ? ('#' + link.split('#')[1]) : 0;
+	            var container = !!link.split('#')[1] ? ('#' + link.split('#')[1]) : 0;
 	
 				var parsed = request.responseText;
 	            if (container) {
@@ -2898,7 +2898,7 @@ var componentSlider = (function (){
 			
 		} else {
 			
-			if (typeof old_index !== 'undefined' && location.hash === '#' + slider.children[old_index].id) {
+			if (!!old_index && location.hash === '#' + slider.children[old_index].id) {
 				
 				removeHash();
 				
@@ -3194,7 +3194,7 @@ var componentSlider = (function (){
 	
 	function sliderKeyboard(e) { // e.target can be either body or a slider, choose accordingly
 
-	    if (typeof e === 'undefined' || 
+	    if (!e || 
 
 	    	q('.n-slider--wrap[data-active]') || 
 	    	(q('.n-ovrl') && !q('.n-ovrl .n-slider--wrap')) // There is an overlay open and it doesn't have a slider in it
@@ -3620,43 +3620,39 @@ var componentSlider = (function (){
 		
 		});
 	
-		if (typeof bodyElement.dataset !== 'undefined') { // el.dataset.sort not supported by IE10
-		
-			host.querySelectorAll('td[data-sort]').forEach((el) => { // To do: work only on tables that aren't ready
-				// asc or desc
-				if (el.dataset.sort !== 'asc' && el.dataset.sort !== 'desc') {
+		host.querySelectorAll('td[data-sort]').forEach((el) => { // To do: work only on tables that aren't ready
+			// asc or desc
+			if (el.dataset.sort !== 'asc' && el.dataset.sort !== 'desc') {
+				
+				el.dataset.sort = 'desc';
+				
+			}
+			
+			function sortTableEvent(e) {
+				
+				stopEvent(e);
+				var el = e.target;
+				var cell = el.type === 'td' ? el : el.closest('td');
+				var f; // Ascending
+				if (cell.dataset.sort === 'desc') {
 					
-					el.dataset.sort = 'desc';
+					f = -1;
+					cell.dataset.sort = 'asc';
+					
+				} else {
+					
+					f = 1;
+					cell.dataset.sort = 'desc';
 					
 				}
-				
-				function sortTableEvent(e) {
-					
-					stopEvent(e);
-					var el = e.target;
-					var cell = el.type === 'td' ? el : el.closest('td');
-					var f; // Ascending
-					if (cell.dataset.sort === 'desc') {
-						
-						f = -1;
-						cell.dataset.sort = 'asc';
-						
-					} else {
-						
-						f = 1;
-						cell.dataset.sort = 'desc';
-						
-					}
-			
-					sortTable(el.closest('table'), thisIndex(cell), f);
-					
-				}
-				
-				el.onclick = el.ontouchend = sortTableEvent;
-			
-			});
 		
-		}
+				sortTable(el.closest('table'), thisIndex(cell), f);
+				
+			}
+			
+			el.onclick = el.ontouchend = sortTableEvent;
+		
+		});
 	
 	};
 	registerComponent('table', init);
@@ -3888,7 +3884,7 @@ var componentSlider = (function (){
 		
 		/* Typography */
 		
-		if (typeof ResizeObserver !== 'undefined') { // Compensate element height according to line height
+		if (typeof ResizeObserver === 'function') { // Compensate element height according to line height
 	
 			let ro = new ResizeObserver(entries => {
 				

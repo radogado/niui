@@ -6,7 +6,7 @@
 		
 		/* Typography */
 		
-		if (typeof ResizeObserver !== 'undefined') { // Compensate element height according to line height
+		if (typeof ResizeObserver === 'function') { // Compensate element height according to line height
 	
 			let ro = new ResizeObserver(entries => {
 				

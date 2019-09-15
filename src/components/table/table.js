@@ -50,43 +50,39 @@
 		
 		});
 	
-		if (typeof bodyElement.dataset !== 'undefined') { // el.dataset.sort not supported by IE10
-		
-			host.querySelectorAll('td[data-sort]').forEach((el) => { // To do: work only on tables that aren't ready
-				// asc or desc
-				if (el.dataset.sort !== 'asc' && el.dataset.sort !== 'desc') {
+		host.querySelectorAll('td[data-sort]').forEach((el) => { // To do: work only on tables that aren't ready
+			// asc or desc
+			if (el.dataset.sort !== 'asc' && el.dataset.sort !== 'desc') {
+				
+				el.dataset.sort = 'desc';
+				
+			}
+			
+			function sortTableEvent(e) {
+				
+				stopEvent(e);
+				var el = e.target;
+				var cell = el.type === 'td' ? el : el.closest('td');
+				var f; // Ascending
+				if (cell.dataset.sort === 'desc') {
 					
-					el.dataset.sort = 'desc';
+					f = -1;
+					cell.dataset.sort = 'asc';
+					
+				} else {
+					
+					f = 1;
+					cell.dataset.sort = 'desc';
 					
 				}
-				
-				function sortTableEvent(e) {
-					
-					stopEvent(e);
-					var el = e.target;
-					var cell = el.type === 'td' ? el : el.closest('td');
-					var f; // Ascending
-					if (cell.dataset.sort === 'desc') {
-						
-						f = -1;
-						cell.dataset.sort = 'asc';
-						
-					} else {
-						
-						f = 1;
-						cell.dataset.sort = 'desc';
-						
-					}
-			
-					sortTable(el.closest('table'), thisIndex(cell), f);
-					
-				}
-				
-				el.onclick = el.ontouchend = sortTableEvent;
-			
-			});
 		
-		}
+				sortTable(el.closest('table'), thisIndex(cell), f);
+				
+			}
+			
+			el.onclick = el.ontouchend = sortTableEvent;
+		
+		});
 	
 	};
 	registerComponent('table', init);
