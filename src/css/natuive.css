@@ -1143,6 +1143,9 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form--wide .n-
 .n-select {
   position: relative;
 }
+.n-select[aria-expanded] > div {
+  margin-top: calc(-1px * var(--active-option-offset, 0));
+}
 .n-select button {
   appearance: none;
   -webkit-appearance: none;
