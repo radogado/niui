@@ -697,9 +697,10 @@ var componentSlider = (function (){
 
         };
 		
-	    for (var i = 0; i < el.children.length; i++) {
-
-			slider_nav.children[i].onclick = slider_nav.children[i].onkeyup = (e) => {
+		Array.from(el.children).forEach((el, i) => {
+			
+			let nav_item = slider_nav.children[i];
+			nav_item.onclick = nav_item.onkeyup = (e) => {
 				
 				if (e.type === 'keyup' && e.keyCode !== 13) { // Slide on Enter key
 					
@@ -716,13 +717,14 @@ var componentSlider = (function (){
 	
 	        };
 	        
-	        cancelTouchEvent(slider_nav.children[i]);
+	        cancelTouchEvent(nav_item);
 	        
-	        el.children[i].setAttribute('tabindex', 0);
-	        el.children[i].addEventListener('keyup', slideKeyboardHandler);
-		        
-	    }
-	    
+	        el.setAttribute('tabindex', 0);
+	        el.addEventListener('keyup', slideKeyboardHandler);
+			
+		});
+	
+		    
 	    // Generate arrows
 	
 	    container.insertAdjacentHTML('beforeend', '<a class="n-slider--arrow n-slider--left" tabindex=0></a><a class="n-slider--arrow n-slider--right" tabindex=0></a>');
