@@ -2017,6 +2017,7 @@ ol.n-list li > * {
   display: inline-block;
   vertical-align: top;
   padding-top: 0;
+  margin-top: 0;
 }
 ol.n-list li > ul {
   display: block;
