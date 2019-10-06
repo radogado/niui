@@ -1601,7 +1601,7 @@ main .n-nav ul {
   max-height: 0;
   overflow: hidden;
   position: absolute;
-  /* 		visibility: hidden; */
+  /* 		visibility: hidden; // Disables hover */
 }
 .n-drop ul li > :checked ~ ul, .n-drop :focus ~ ul,
 .n-drop a:focus ~ ul, .n-drop ul li[aria-expanded] > ul, .n-drop li li[aria-expanded] > ul, .n-drop li li:not(:focus) :checked ~ ul {
