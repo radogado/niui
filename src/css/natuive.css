@@ -2369,6 +2369,7 @@ main .n-nav ul {
   max-height: 0;
   overflow: hidden;
   position: absolute;
+  /* 		visibility: hidden; */
 }
 .n-drop ul li > :checked ~ ul, .n-drop :focus ~ ul,
 .n-drop a:focus ~ ul, .n-drop ul li[aria-expanded] > ul, .n-drop li li[aria-expanded] > ul, .n-drop li li:not(:focus) :checked ~ ul {
@@ -2584,10 +2585,13 @@ html:not(.can-touch) .n-drop > ul li:not([aria-haspopup]) ul li:hover ~ ul {
     padding-right: 1.75em;
   }
 
-  .can-touch .n-drop ul li:not([aria-expanded]) > ul {
-    visibility: hidden;
-  }
+  /*
+  	html.can-touch .n-drop ul li:not([aria-expanded]) > ul {
 
+  		visibility: hidden;
+
+  	}
+  */
   [dir=rtl] .n-drop li ul:not(.n-left-side) > li[aria-haspopup] {
     padding-left: 0;
     padding-right: 1.875em;

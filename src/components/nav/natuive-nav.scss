@@ -231,6 +231,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 		max-height: 0;
 		overflow: hidden;
 		position: absolute;
+/* 		visibility: hidden; // Disables hover */
 	
 	}
 	
@@ -579,11 +580,13 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 
 	}
 	
-	.can-touch .n-drop ul li:not([aria-expanded]) > ul {
+/*
+	html.can-touch .n-drop ul li:not([aria-expanded]) > ul {
 		
 		visibility: hidden;
 		
 	}
+*/
 
 	[dir=rtl] .n-drop {
 		
