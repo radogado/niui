@@ -361,6 +361,10 @@ html:not(.can-touch) .n-drop > ul li:not([aria-haspopup]) ul li:hover ~ ul {
 
   	}
   */
+  html.can-touch .n-drop li .n-left-side > li:not([aria-expanded]) {
+    overflow: hidden;
+  }
+
   [dir=rtl] .n-drop li ul:not(.n-left-side) > li[aria-haspopup] {
     padding-left: 0;
     padding-right: 1.875em;

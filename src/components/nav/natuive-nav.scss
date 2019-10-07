@@ -588,6 +588,12 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 	}
 */
 
+	html.can-touch .n-drop li .n-left-side > li:not([aria-expanded]) {
+		
+		overflow: hidden;
+	
+	}
+
 	[dir=rtl] .n-drop {
 		
 		li ul:not(.n-left-side) > li[aria-haspopup] {
