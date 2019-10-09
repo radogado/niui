@@ -563,7 +563,8 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form--wide .n-
   position: relative;
 }
 .n-select[aria-expanded] > div {
-  margin-top: calc(-1px * var(--active-option-offset, 0));
+  top: calc(-1 * var(--top-offset, 0));
+  margin-top: calc(-1px * (var(--active-option-offset, 0) + var(--top-offset, 0)));
 }
 .n-select button {
   appearance: none;
@@ -599,6 +600,7 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form--wide .n-
   top: 0;
   z-index: 5;
   width: 100%;
+  overflow: auto;
 }
 .n-select:not([aria-expanded]) button:not([aria-selected]) {
   display: none;

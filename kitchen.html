@@ -195,6 +195,26 @@
 								<button>Option 4</button>
 								<button>Option 5</button>
 								<button>Option 6</button>
+								<button>Option 2</button>
+								<button>Option 3</button>
+								<button>Option 4</button>
+								<button>Option 5</button>
+								<button>Option 6</button>
+								<button>Option 2</button>
+								<button>Option 3</button>
+								<button>Option 4</button>
+								<button>Option 5</button>
+								<button>Option 6</button>
+								<button>Option 2</button>
+								<button>Option 3</button>
+								<button>Option 4</button>
+								<button>Option 5</button>
+								<button>Option 6</button>
+								<button>Option 2</button>
+								<button>Option 3</button>
+								<button>Option 4</button>
+								<button>Option 5</button>
+								<button>Option 6</button>
 							
 							</div>
 							
@@ -208,15 +228,45 @@
 							<option>Option 4</option>
 							<option>Option 5</option>
 							<option>Option 6</option>
+							<option>Option 2</option>
+							<option>Option 3</option>
+							<option>Option 4</option>
+							<option>Option 5</option>
+							<option>Option 6</option>
+							<option>Option 2</option>
+							<option>Option 3</option>
+							<option>Option 4</option>
+							<option>Option 5</option>
+							<option>Option 6</option>
+							<option>Option 2</option>
+							<option>Option 3</option>
+							<option>Option 4</option>
+							<option>Option 5</option>
+							<option>Option 6</option>
+							<option>Option 2</option>
+							<option>Option 3</option>
+							<option>Option 4</option>
+							<option>Option 5</option>
+							<option>Option 6</option>
 
 						</select>
 						
 						<script>
 							
 							
-							// To do: close on click/tap outside
+							// To do: √ close on click/tap outside
 							// To do: drop-down overflow scrolling
 							
+							window.addEventListener('click', e => {
+								
+								if (!e.target.closest('.n-select')) {
+									
+									document.querySelectorAll('.n-select[aria-expanded]').forEach(el => el.removeAttribute('aria-expanded'));
+									
+								}
+
+							});
+
 							let selectOption = (el, select) => {
 								
 								select.querySelector('[aria-selected]').removeAttribute('aria-selected');
@@ -254,8 +304,17 @@
 										
 										select.setAttribute('aria-expanded', true);
 										
-										// (Process pointermove and) select an option on pointerup
-									
+										// Fix viewport overflow
+										if (select.children[0].getBoundingClientRect().y < 0) {
+	
+											select.children[0].style.setProperty('--top-offset', `${Math.abs(select.children[0].getBoundingClientRect().y)}px`);
+											
+										} else {
+											
+											select.children[0].style.removeProperty('--top-offset');
+											
+										}
+										
 									}
 									
 								});
@@ -268,7 +327,7 @@
 									let select = e.target.closest('.n-select');
 									console.log(e.target);
 
-									if (select.hasAttribute('aria-expanded') && !el.hasAttribute('aria-selected')) { // Select the clicked option
+									if (select && select.hasAttribute('aria-expanded') && !el.hasAttribute('aria-selected')) { // Select the clicked option
 										
 										selectOption(el, select);										
 

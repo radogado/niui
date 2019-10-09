@@ -3893,7 +3893,6 @@ var componentSlider = (function (){
 					if (adjust !== line_height) {
 
 						a.style.setProperty('--adjust-height', adjust);
-						a.setAttribute('data-ready', true);
 					
 					}
 					
@@ -3901,7 +3900,12 @@ var componentSlider = (function (){
 			
 			});
 			
-			document.querySelectorAll('.n-adjust-height:not([data-ready])').forEach(el => ro.observe(el));
+			document.querySelectorAll('.n-adjust-height:not([data-ready])').forEach(el => {
+				
+				ro.observe(el);
+				el.setAttribute('data-ready', true);
+				
+			});
 		
 		}
 		
