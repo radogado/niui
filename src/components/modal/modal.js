@@ -104,6 +104,14 @@ var componentModal = (function (){
 	
 	function adjustModal(e) {
 		
+		if (!!window.visualViewport) {
+		
+			bodyElement.style.setProperty('--overlay-top', `${window.visualViewport.offsetTop}px`);
+			bodyElement.style.setProperty('--overlay-bottom', `${window.innerHeight - window.visualViewport.height}px`);
+		
+		}
+		
+/*
 		var modal = q('.n-ovrl');
 		var previous_overlay_top = parseInt(document.body.style.getPropertyValue('--overlay-top'));
 		var actual_viewport = window.innerHeight;
@@ -166,6 +174,7 @@ var componentModal = (function (){
 			}
 		
 		}
+*/
 
 	}
 
