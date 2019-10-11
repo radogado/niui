@@ -98,7 +98,7 @@ html.n-full-screen body {
 
 @media (max-width: 599.9px) {
   .n-ovrl.n-modal--limited > .n-ovrl--content {
-    height: calc(80% - var(--overlay-bottom) - var(--overlay-top));
+    height: calc(80% - var(--overlay-bottom, 0) - var(--overlay-top, 0));
     margin: 10%;
     width: 80%;
   }
