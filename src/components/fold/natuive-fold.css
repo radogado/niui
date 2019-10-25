@@ -10,6 +10,7 @@
 }
 .n-fold.n-fold--inline {
   display: inline-grid;
+  vertical-align: top;
 }
 .n-fold > .n-fold--label {
   margin: 0;
