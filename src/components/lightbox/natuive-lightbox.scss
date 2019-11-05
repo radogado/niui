@@ -252,21 +252,19 @@
 
 // Safari doesn't do the loop properly:
 
-[data-chrome] .n-lightbox.n-slider[data-ready] > [data-active]:not(.n-lightbox--no-image):not(.n-lightbox--loaded):after {
+.n-lightbox.n-slider[data-ready] > [data-active]:not(.n-lightbox--no-image):not(.n-lightbox--loaded):after {
 	
 	animation: sk-scaleout 1.0s 9 ease-in-out;
 	
 }
 
-@-moz-document url-prefix() {
-
-	.n-lightbox.n-slider[data-ready] > [data-active]:not(.n-lightbox--no-image):not(.n-lightbox--loaded):after {
-		
-		animation: sk-scaleout 1.0s 9 ease-in-out;
-		
-	}
-
+/*
+[data-safari] .n-lightbox.n-slider[data-ready] > [data-active]:not(.n-lightbox--no-image):not(.n-lightbox--loaded):after {
+	
+	animation-iteration-count: infinite;
+	
 }
+*/
 
 .n-lightbox.n-slider.n-slider--top > * p.n-lightbox--caption {
 	

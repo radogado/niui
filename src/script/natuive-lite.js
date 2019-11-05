@@ -9,6 +9,12 @@ if (!!window['chrome']) {
 
 }
 
+if (navigator.userAgent.match(/Safari/) && !navigator.userAgent.match(/Chrome/)) {
+	
+	document.body.setAttribute('data-safari', 'true');
+	
+}
+
 document.body.setAttribute('data-natuive-js', 'true');
 
 var is_iPad = !!navigator.platform.match(/iPad/);
