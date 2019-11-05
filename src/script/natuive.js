@@ -1800,7 +1800,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	     * @return void
 	     */
 	    var preventBodyScroll = (event) => {
-	        if (!_element || !event.target.closest || !event.target.closest(_selector)) {
+	        if (!_element || !event.target.closest || !_selector.contains(event.target)) {
 	            event.preventDefault();
 	        }
 	    };
@@ -1861,7 +1861,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
  	    return function (allow, selector) {
 	    	if (!!selector) {
 		        _selector = selector;
-		        _element = q(selector);
+		        _element = selector;
 	    	}
 	
 	        if (true === allow) {
@@ -1971,7 +1971,8 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 
 	function closeFullWindow() {
 	
-		var full_window = q('.n-ovrl:last-of-type');
+		let full_window = qa('.n-ovrl');
+		full_window = full_window[full_window.length-1];
 	
 		if (full_window) {
 			
@@ -1989,7 +1990,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 			animate(full_window, animation, .2, (e) => {
 	
-				disableBodyScroll(false, '.n-ovrl:last-of-type .n-ovrl--content'); // Turn off and restore page scroll
+				disableBodyScroll(false, full_window.querySelector('.n-ovrl--content')); // Turn off and restore page scroll
 				full_window.parentNode.removeChild(full_window);
 				full_window_content = null;
 		
@@ -2008,7 +2009,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 				
 				} else {
 				
-					disableBodyScroll(true, '.n-ovrl:last-of-type .n-ovrl--content');
+					disableBodyScroll(true, full_window.querySelector('.n-ovrl--content'));
 					adjustModal();
 					
 				}
@@ -2057,9 +2058,11 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		   
 		bodyElement.appendChild(full_window_content);
 	
-	    full_window_content.querySelector('.n-ovrl--content').focus();
+		let full_window_container = full_window_content.querySelector('.n-ovrl--content');
 	
-		disableBodyScroll(true, '.n-ovrl:last-of-type .n-ovrl--content'); // Turn on and block page scroll
+	    full_window_container.focus();
+	
+		disableBodyScroll(true, full_window_container); // Turn on and block page scroll
 		
 		if (qa('.n-ovrl').length === 1) { // Sole (first) modal
 
