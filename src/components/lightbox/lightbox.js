@@ -4,8 +4,11 @@ var componentLightbox = (function (){
 
 	function adjustZoom(e) { // Event is click on image
 		
-		var width = q('.n-ovrl:last-of-type .n-slider--wrap').offsetWidth;
-		var height = q('.n-ovrl:last-of-type .n-slider--wrap').offsetHeight;
+		let overlay = qa('.n-ovrl');
+		overlay = overlay[overlay.length-1];
+		
+		var width = overlay.querySelector('.n-slider--wrap').offsetWidth;
+		var height = overlay.querySelector('.n-slider--wrap').offsetHeight;
 		
 		var el = e.target;
 
