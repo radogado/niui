@@ -250,10 +250,22 @@
 	
 }
 
+// Safari doesn't do the loop properly:
+
 [data-chrome] .n-lightbox.n-slider[data-ready] > [data-active]:not(.n-lightbox--no-image):not(.n-lightbox--loaded):after {
 	
 	animation: sk-scaleout 1.0s 9 ease-in-out;
 	
+}
+
+@-moz-document url-prefix() {
+
+	.n-lightbox.n-slider[data-ready] > [data-active]:not(.n-lightbox--no-image):not(.n-lightbox--loaded):after {
+		
+		animation: sk-scaleout 1.0s 9 ease-in-out;
+		
+	}
+
 }
 
 .n-lightbox.n-slider.n-slider--top > * p.n-lightbox--caption {
@@ -388,7 +400,7 @@
 	bottom: 3em;
 	
 }
-	
+
 @media (max-height: 512px) and (orientation: landscape) {
 	
 	.n-lightbox.n-slider a.n-btn.n-lightbox--copy {

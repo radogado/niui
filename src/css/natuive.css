@@ -1831,6 +1831,11 @@ ol.n-masonry > * {
   animation: sk-scaleout 1s 9 ease-in-out;
 }
 
+@-moz-document url-prefix() {
+  .n-lightbox.n-slider[data-ready] > [data-active]:not(.n-lightbox--no-image):not(.n-lightbox--loaded):after {
+    animation: sk-scaleout 1s 9 ease-in-out;
+  }
+}
 .n-lightbox.n-slider.n-slider--top > * p.n-lightbox--caption {
   bottom: 0.5em;
   top: auto;
