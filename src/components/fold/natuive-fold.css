@@ -139,6 +139,9 @@
 .n-fold span.n-burger:after {
   content: "=";
 }
+.n-fold[data-ready]:not([aria-expanded]):not(.n-fold--mobile) .n-fold--content {
+  display: none;
+}
 
 .n-fold--label, .n-fold > input[type=checkbox] {
   grid-column-start: 1;

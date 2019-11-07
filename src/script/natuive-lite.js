@@ -1632,6 +1632,17 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		        el.querySelector('input.n-trigger').outerHTML = '';
 		
 		    }
+		    
+			el.addEventListener('focusout', e => { // Close it when tabbing outside
+
+				let el = e.target.closest('.n-fold');
+				if (!el.contains(e.relatedTarget)) {
+
+					el.removeAttribute('aria-expanded');
+
+				}
+				
+			});
 		
 		    makeReady(el);
 		    

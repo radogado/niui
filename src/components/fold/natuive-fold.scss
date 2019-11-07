@@ -231,6 +231,16 @@
 	
 	}
 
+	&[data-ready]:not([aria-expanded]):not(.n-fold--mobile) { // Don't open it by tabbing, because of focuseable items inside
+		
+		.n-fold--content {
+			
+			display: none;
+
+		}
+		
+	}
+
 }
 
 .n-fold--label, .n-fold > input[type=checkbox] { // Overlay the checkbox over the label
