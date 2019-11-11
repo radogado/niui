@@ -422,6 +422,7 @@
 		
 		.n-slider--nav {
 			
+/*
 			a, a[data-active] {
 		
 				line-height: 1.5;
@@ -431,6 +432,9 @@
 				text-shadow: none;
 				
 			}
+*/
+			
+			display: none; // Screen too small for thumbnails
 		
 		}
 		

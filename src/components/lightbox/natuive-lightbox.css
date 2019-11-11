@@ -262,12 +262,19 @@
   }
 }
 @media (max-height: 599.9px) {
-  div.n-lightbox--thumbnails.n-slider--wrap .n-slider--nav a, div.n-lightbox--thumbnails.n-slider--wrap .n-slider--nav a[data-active] {
-    line-height: 1.5;
-    width: 1.5em;
-    min-height: 1.5em;
-    color: transparent;
-    text-shadow: none;
+  div.n-lightbox--thumbnails.n-slider--wrap .n-slider--nav {
+    /*
+    			a, a[data-active] {
+
+    				line-height: 1.5;
+    				width: 1.5em;
+    				min-height: 1.5em;
+    				color: transparent;
+    				text-shadow: none;
+
+    			}
+    */
+    display: none;
   }
   div.n-lightbox--thumbnails.n-slider--wrap:not(.n-slider--top) .n-slider.n-lightbox > * p.n-lightbox--caption, div.n-lightbox--thumbnails.n-slider--wrap .n-slider.n-lightbox.n-lightbox--thumbnails:not(.n-slider--vertical):not(.n-slider--detached-nav):not(.n-slider--outside):not(.n-slider--top) > * p.n-lightbox--caption {
     bottom: auto;

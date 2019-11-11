@@ -213,8 +213,13 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 	
 	ul[role=menubar] li[aria-haspopup] > a {
 		
+/*
 	    margin-right: 0;
 		padding-right: .75em;
+*/
+
+	    margin-right: 1.75em;
+	    padding-right: .75em;
 		
 	}
 	

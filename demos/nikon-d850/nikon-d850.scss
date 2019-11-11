@@ -142,12 +142,18 @@ body {
 		border-bottom: 1px solid #ccc;
 		border-radius: 4px;
 		padding: 0;
+		
+		li li {
+			
+			width: 100%;
+			
+		}
 	
 	}
 
 	.n-drop ul[role=menubar] li[aria-haspopup] > a {
 		
-		padding-right: 1.75em;
+		margin-right: 1.75em;
 		
 	}
 
@@ -171,6 +177,7 @@ nav.n-nav.n-drop ul.n-list li {
 	text-align: center;
 	padding: 0;
     background-color: lightgray;
+    justify-content: center;
 
 }
 
