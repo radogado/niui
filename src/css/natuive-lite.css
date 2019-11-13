@@ -1610,11 +1610,11 @@ main .n-nav ul {
   padding-right: 0.75em;
 }
 .n-drop ul[role=menubar] li[aria-haspopup] > a {
-  /*
-  	    margin-right: 0;
-  		padding-right: .75em;
-  */
   margin-right: 1.75em;
+  padding-right: 0.75em;
+}
+.n-drop[data-ready] ul[role=menubar] li[aria-haspopup] > a {
+  margin-right: 0;
   padding-right: 0.75em;
 }
 .n-drop li li {
