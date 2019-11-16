@@ -847,5 +847,18 @@ a.backtotop[href] {
 	    --input-bg: #222;
 	
 	}
+	
+	.logo .default-logo {
+		
+		background: url(img/logo-white.svg) top left no-repeat;
+    	background-size: contain;
+    		
+		img {
+			
+			opacity: 0;
+			
+		}
+		
+	}
 
 }

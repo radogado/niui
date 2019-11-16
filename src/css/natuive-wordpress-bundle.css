@@ -2188,6 +2188,10 @@ html.n-full-screen body {
   white-space: nowrap;
   position: fixed;
   line-height: 1.5;
+  font-size: inherit;
+  text-align: start;
+  border: 0;
+  outline-offset: -5px;
 }
 
 .n-ovrl--close {
@@ -4072,6 +4076,14 @@ a.backtotop[href] {
   .n-form input, .n-form textarea {
     --input-color: #ddd;
     --input-bg: #222;
+  }
+
+  .logo .default-logo {
+    background: url(img/logo-white.svg) top left no-repeat;
+    background-size: contain;
+  }
+  .logo .default-logo img {
+    opacity: 0;
   }
 }
 

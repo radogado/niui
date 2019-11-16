@@ -2061,7 +2061,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		wrapper.firstChild.appendChild(full_window_content);
 		full_window_content = wrapper;
 	
-	    full_window_content.insertAdjacentHTML('afterbegin', `<div class=n-ovrl--close> ← ${document.title}</div>`);
+	    full_window_content.insertAdjacentHTML('afterbegin', `<button class=n-ovrl--close> ← ${document.title}</button>`);
 		full_window_content.querySelector('.n-overlay-bg').onclick = full_window_content.querySelector('.n-ovrl--close').onclick = closeFullWindow;
 		full_window_content.querySelector('.n-ovrl--close').addEventListener("touchmove", (e) => { e.preventDefault(); }, { passive: false });
 		full_window_content.querySelector('.n-overlay-bg').addEventListener("touchmove", (e) => { e.preventDefault(); }, { passive: false });
