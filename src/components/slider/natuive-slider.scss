@@ -219,7 +219,7 @@
 	
 	}
 	
-	> .n-slider--nav a, > .n-slider--nav.n-tabs a, > .n-pad > .n-slider--nav.n-tabs a {
+	> .n-slider--nav *, > .n-slider--nav.n-tabs *, > .n-pad > .n-slider--nav.n-tabs * {
 		
 		display: block;
 		box-sizing: border-box;
@@ -459,7 +459,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 	
 	}
 	
-	.n-slider--arrow, .n-slider--nav a {
+	.n-slider--arrow, .n-slider--nav * {
 		
 		cursor: pointer;
 		padding: .6em;
@@ -472,6 +472,8 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 		box-sizing: content-box;
 		background-color: var(--control-bg, #f8f8f8);
 		color: var(--control-color, #333);
+		border: 0;
+		font-size: inherit;
 	
 	}
 
@@ -560,7 +562,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 
 	}
 	
-	.n-slider--nav a {
+	.n-slider--nav * {
 		
 		display: inline-block;
 		margin: .5em;
@@ -573,14 +575,14 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 		
 	}
 	
-	.n-slider.n-slider--vertical > [data-active], .n-slider--vertical > .n-slider--nav a {
+	.n-slider.n-slider--vertical > [data-active], .n-slider--vertical > .n-slider--nav * {
 		
 		display: block;
 		overflow: auto;
 		
 	}
 		
-	.n-slider--nav a[data-active] {
+	.n-slider--nav [data-active] {
 	
 		background-color: var(--control-active-bg, #ededed);
 		color: var(--control-active-color, #000);
@@ -611,7 +613,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 	
 	}
 	
-	.n-slider--wrap.n-tabs > .n-slider--nav a, .n-tabs.n-slider--nav a {
+	.n-slider--wrap.n-tabs > .n-slider--nav *, .n-tabs.n-slider--nav * {
 		
 		text-indent: 0;
 		width: auto;
@@ -674,7 +676,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 
 @media screen and (max-width: $screen-narrow-max) {
 
-	.n-slider--wrap.n-tabs > .n-slider--nav.n-row, .n-slider--nav.n-row.n-tabs, .n-slider--wrap.n-tabs > .n-slider--nav a {
+	.n-slider--wrap.n-tabs > .n-slider--nav.n-row, .n-slider--nav.n-row.n-tabs, .n-slider--wrap.n-tabs > .n-slider--nav * {
 		
 	    display: block;
 	    white-space: normal;

@@ -509,7 +509,7 @@ ul.n-list li:before {
 				
 	}
 
-	.n-slider--wrap.n-tabs.n-slider--top>.n-slider--nav a {
+	.n-slider--wrap.n-tabs.n-slider--top>.n-slider--nav * {
 		
 	    color: #fff;
         font-family: 'Akrobat';
@@ -664,7 +664,7 @@ content: "";
 
 }
 
-.n-slider--wrap.n-tabs.n-slider--top>.n-slider--nav a {
+.n-slider--wrap.n-tabs.n-slider--top>.n-slider--nav * {
 	
 	flex: initial;
 	min-width: 16em;
@@ -744,7 +744,7 @@ content: "";
 	
 }
 
-.current-currency-tab + .tabs.n-slider--nav a {
+.current-currency-tab + .tabs.n-slider--nav * {
 	
 	text-align: center;
 	background: none;
@@ -792,7 +792,7 @@ content: "";
 	
 }
 
-.n-banner .n-slider--nav a {
+.n-banner .n-slider--nav * {
 	
 	font-size: 0;
 	--nav-size: 1rem;
@@ -807,7 +807,7 @@ content: "";
 	
 }
 
-.n-banner .n-slider--nav a {
+.n-banner .n-slider--nav * {
 	
 	background: #fff;
 
@@ -1178,7 +1178,7 @@ nav.n-nav.n-drop ul ul:not([aria-expanded]), nav.n-nav.n-drop ul ul[aria-expande
 	    	
 	}
 
-	.n-slider--wrap.n-tabs.n-slider--top > .n-slider--nav a {
+	.n-slider--wrap.n-tabs.n-slider--top > .n-slider--nav * {
 		
 		max-width: 50%;
 		

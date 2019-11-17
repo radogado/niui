@@ -329,7 +329,7 @@ main .n-slider--nav {
 
 }
 
-.n-slider--nav a {
+.n-slider--nav * {
 	
 	color: transparent;
 	--nav-size: 1em;
@@ -338,7 +338,7 @@ main .n-slider--nav {
 	
 }
 
-.n-slider--nav a[data-active] {
+.n-slider--nav [data-active] {
 	
 	background: #1c3f93;
 	border-color: #1c3f93;

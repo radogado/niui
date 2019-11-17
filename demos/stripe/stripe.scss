@@ -471,7 +471,7 @@ nav.n-nav.n-drop {
 	
 }
 
-.n-slider--wrap.n-slider--vertical.n-tabs>.n-slider--nav a {
+.n-slider--wrap.n-slider--vertical.n-tabs>.n-slider--nav * {
 	
 	background: none;
     color: #6772e5;
@@ -480,7 +480,7 @@ nav.n-nav.n-drop {
     	
 }
 
-.n-slider--wrap.n-slider--vertical.n-tabs>.n-slider--nav a[data-active] {
+.n-slider--wrap.n-slider--vertical.n-tabs>.n-slider--nav [data-active] {
 	
 	background: #fff;
     color: #24b47e;

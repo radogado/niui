@@ -263,7 +263,7 @@ main a[href] {
 	
 }
 
-.n-slider--wrap.n-tabs>.n-slider--nav a {
+.n-slider--wrap.n-tabs>.n-slider--nav * {
 	
 	margin: .3em;
 	border-radius: .3em;
@@ -274,7 +274,7 @@ main a[href] {
 	
 }
 
-.n-slider--wrap.n-tabs>.n-slider--nav a[data-active] {
+.n-slider--wrap.n-tabs>.n-slider--nav [data-active] {
 	
 	background-color: #39adcc;
 	color: white;

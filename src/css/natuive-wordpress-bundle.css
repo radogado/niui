@@ -1921,7 +1921,7 @@ ol.n-masonry > * {
     left: 50%;
   }
 }
-.n-lightbox--thumbnails.n-slider--nav a {
+.n-lightbox--thumbnails.n-slider--nav * {
   line-height: var(--thumb-size, 4em);
   width: var(--thumb-size, 4em);
   min-height: var(--thumb-size, 4em);
@@ -1930,7 +1930,7 @@ ol.n-masonry > * {
   cursor: zoom-in;
   outline-offset: -6px;
 }
-.n-lightbox--thumbnails.n-slider--nav a[data-active] {
+.n-lightbox--thumbnails.n-slider--nav [data-active] {
   opacity: 0.25;
   transition: opacity 0.2s ease-in-out;
 }
@@ -1965,7 +1965,7 @@ ol.n-masonry > * {
 @media (max-height: 599.9px) {
   div.n-lightbox--thumbnails.n-slider--wrap .n-slider--nav {
     /*
-    			a, a[data-active] {
+    			*, [data-active] {
 
     				line-height: 1.5;
     				width: 1.5em;
@@ -2938,7 +2938,7 @@ html:not(.can-touch) .n-drop > ul li:not([aria-haspopup]) ul li:hover ~ ul {
 .n-slider--vertical.n-tabs.n-slider--right > .n-slider--nav.n-row, .n-slider--vertical.n-tabs > .n-slider--nav.n-row.n-tabs, .n-slider--vertical.n-tabs > .n-pad > .n-slider--nav.n-row.n-tabs {
   float: right;
 }
-.n-slider--vertical.n-tabs > .n-slider--nav a, .n-slider--vertical.n-tabs > .n-slider--nav.n-tabs a, .n-slider--vertical.n-tabs > .n-pad > .n-slider--nav.n-tabs a {
+.n-slider--vertical.n-tabs > .n-slider--nav *, .n-slider--vertical.n-tabs > .n-slider--nav.n-tabs *, .n-slider--vertical.n-tabs > .n-pad > .n-slider--nav.n-tabs * {
   display: block;
   box-sizing: border-box;
   padding: 0.5em 0.5em;
@@ -3097,7 +3097,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
   content: "↓";
 }
 
-.n-slider--arrow, .n-slider--nav a {
+.n-slider--arrow, .n-slider--nav * {
   cursor: pointer;
   padding: 0.6em;
   width: 1em;
@@ -3109,6 +3109,8 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
   box-sizing: content-box;
   background-color: var(--control-bg, #f8f8f8);
   color: var(--control-color, #333);
+  border: 0;
+  font-size: inherit;
 }
 
 .n-slider--arrow, .n-slider--nav {
@@ -3171,7 +3173,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
   left: auto;
 }
 
-.n-slider--nav a {
+.n-slider--nav * {
   display: inline-block;
   margin: 0.5em;
   line-height: 2em;
@@ -3182,12 +3184,12 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
   text-align: center;
 }
 
-.n-slider.n-slider--vertical > [data-active], .n-slider--vertical > .n-slider--nav a {
+.n-slider.n-slider--vertical > [data-active], .n-slider--vertical > .n-slider--nav * {
   display: block;
   overflow: auto;
 }
 
-.n-slider--nav a[data-active] {
+.n-slider--nav [data-active] {
   background-color: var(--control-active-bg, #ededed);
   color: var(--control-active-color, #000);
 }
@@ -3210,7 +3212,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
   padding: 0;
 }
 
-.n-slider--wrap.n-tabs > .n-slider--nav a, .n-tabs.n-slider--nav a {
+.n-slider--wrap.n-tabs > .n-slider--nav *, .n-tabs.n-slider--nav * {
   text-indent: 0;
   width: auto;
   height: auto;
@@ -3251,7 +3253,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 }
 */
 @media screen and (max-width: 599.9px) {
-  .n-slider--wrap.n-tabs > .n-slider--nav.n-row, .n-slider--nav.n-row.n-tabs, .n-slider--wrap.n-tabs > .n-slider--nav a {
+  .n-slider--wrap.n-tabs > .n-slider--nav.n-row, .n-slider--nav.n-row.n-tabs, .n-slider--wrap.n-tabs > .n-slider--nav * {
     display: block;
     white-space: normal;
   }
@@ -4052,7 +4054,7 @@ a.backtotop[href] {
     font-size: 1.5em;
   }
 }
-.n-slider--arrow, .n-slider--nav a, .n-tool:after, .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href], .n-fold > .n-fold--label, .n-drop, .n-form, .n-ovrl > .n-ovrl--close, .n-drop ul li, .n-type nav.n-nav a[href] {
+.n-slider--arrow, .n-slider--nav *, .n-tool:after, .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href], .n-fold > .n-fold--label, .n-drop, .n-form, .n-ovrl > .n-ovrl--close, .n-drop ul li, .n-type nav.n-nav a[href] {
   --control-bg: lightcoral;
   --control-color: #fff;
   --control-active-bg: #cc7c7e;

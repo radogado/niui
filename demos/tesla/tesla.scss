@@ -163,7 +163,7 @@ footer a[href]:first-child {
 
 }
 
-.n-slider--wrap.n-tabs > .n-slider--nav.n-row a {
+.n-slider--wrap.n-tabs > .n-slider--nav.n-row button {
 	
 	flex-grow: 1;
     white-space: nowrap;
@@ -176,20 +176,20 @@ footer a[href]:first-child {
 
 }
 
-.n-slider--wrap.n-tabs > .n-slider--nav.n-row a[data-active] {
+.n-slider--wrap.n-tabs > .n-slider--nav.n-row button[data-active] {
 	
 	background: #eee;
 
 }
 
-.n-slider--wrap.n-tabs > .n-slider--nav.n-row a:first-child {
+.n-slider--wrap.n-tabs > .n-slider--nav.n-row button:first-child {
 	
 	border-radius: 2em 0 0 2em;
 	border-right: none;
 
 }
 
-.n-slider--wrap.n-tabs > .n-slider--nav.n-row a:last-child {
+.n-slider--wrap.n-tabs > .n-slider--nav.n-row button:last-child {
 	
 	border-radius: 0 2em 2em 0;
 	border-left: none;

@@ -130,7 +130,7 @@ body:not([data-natuive-js]) #content > ._3\/4 > .n-slider--wrap > .n-slider:not(
     	
 }
 
-.nav-column .n-slider--nav a {
+.nav-column .n-slider--nav * {
 
 	display: block;
     width: auto;
@@ -147,14 +147,14 @@ body:not([data-natuive-js]) #content > ._3\/4 > .n-slider--wrap > .n-slider:not(
 	
 }
 
-.nav-column .n-slider--nav a[data-active] {
+.nav-column .n-slider--nav [data-active] {
 
 	--bg: lightseagreen;
 	color: lightblue;
 
 }
 
-main > .n-slider--wrap.n-slider--vertical.tabs > .n-slider--nav a {
+main > .n-slider--wrap.n-slider--vertical.tabs > .n-slider--nav * {
 
 	padding: .25em 0.5em;
 	padding-left: 0;
@@ -184,20 +184,20 @@ main > ._3\/4 > .n-slider--wrap.n-slider--vertical.n-tabs > .n-slider[data-slidi
 
 }
 
-main > .n-slider--wrap > .n-slider--nav a {
+main > .n-slider--wrap > .n-slider--nav * {
 
 	background: none;
 	color: #333;
 
 }
 
-main > .n-slider--wrap > .n-slider--nav a[data-active] {
+main > .n-slider--wrap > .n-slider--nav [data-active] {
 
 	color: lightseagreen;
 
 }
 
-.n-slider--wrap.n-tabs > .n-slider--nav a {
+.n-slider--wrap.n-tabs > .n-slider--nav * {
 
 	flex: 1 !important;
 
@@ -319,9 +319,11 @@ li pre {
 		
 	}
 	
-	.nav-column .n-slider--nav a {
+	.nav-column .n-slider--nav * {
 		
 		height: auto;
+		padding: 0;
+	    margin: .5em 0;
 		
 	}
 	
@@ -329,13 +331,6 @@ li pre {
 		
 		display: block;
 		
-	}
-	
-	.nav-column .n-slider--nav a {
-		
-		padding: 0;
-	    margin: .5em 0;
-	
 	}
 	
 	main.n-row:not(.n-half) {
@@ -439,7 +434,7 @@ body:not(data-threshold) #content > * {
 
 // Guide theme
 
-.n-slider--arrow, .n-slider--nav a, .n-tool:after, .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href], .n-fold > .n-fold--label, .n-drop, .n-form, .n-ovrl > .n-ovrl--close, .n-fold span.n-burger {
+.n-slider--arrow, .n-slider--nav *, .n-tool:after, .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href], .n-fold > .n-fold--label, .n-drop, .n-form, .n-ovrl > .n-ovrl--close, .n-fold span.n-burger {
 	
 	--control-bg: lightcoral;
 	--control-color: #fff;		

@@ -44,8 +44,9 @@ var componentSlider = (function (){
 			return slider_nav;
 	
 		} else {
-	
-			return slider_wrap.querySelectorAll('.n-slider--nav')[slider_wrap.querySelectorAll('.n-slider--nav').length-1]; // With a simple query, it would get the nav of an eventual nested slider, instead of the current one. Current nav is either a direct child or a .n-pad direct child, taken as the last one of all.
+			
+			let nav = slider_wrap.querySelectorAll('.n-slider--nav');
+			return nav[nav.length-1]; // With a simple query, it would get the nav of an eventual nested slider, instead of the current one. Current nav is either a direct child or a .n-pad direct child, taken as the last one of all.
 	
 		}
 	
@@ -230,7 +231,7 @@ var componentSlider = (function (){
 		var index;
 		var old_index;
 		var slider_nav = getSliderNav(slider_wrap);
-		var active_nav_item = slider_nav.querySelector('a[data-active]');
+		var active_nav_item = slider_nav.querySelector('[data-active]');
 		if (!active_nav_item) {
 	
 			return;
@@ -625,7 +626,7 @@ var componentSlider = (function (){
 		
 		var slider_nav = false;
 
-		if (el.id && (slider_nav = q('.n-slider--nav[data-for=' + el.id + ']'))) { // Detached nav
+		if (el.id && (slider_nav = q(`.n-slider--nav[data-for=${el.id}]`))) { // Detached nav
 			
 			addClass(container, 'n-slider--detached-nav');
 			addClass(el, 'n-slider--detached-nav');
@@ -668,11 +669,11 @@ var componentSlider = (function (){
 		        if (hasClass(el, 'n-tabs')) {
 		
 		            var tab_title = el.children[i].getAttribute('data-tab_title') || (el.children[i].querySelector('.n-tab-title') ? el.children[i].querySelector('.n-tab-title').innerHTML : i+1);
-		            slider_nav.insertAdjacentHTML('beforeend', `<a tabindex=0>${tab_title}</a>`);
+		            slider_nav.insertAdjacentHTML('beforeend', `<button>${tab_title}</button>`);
 	
 		        } else {
 		
-		            slider_nav.insertAdjacentHTML('beforeend', `<a tabindex=0>${i+1}</a>`);
+		            slider_nav.insertAdjacentHTML('beforeend', `<button>${i+1}</button>`);
 		
 		        }
 		        
@@ -700,13 +701,7 @@ var componentSlider = (function (){
 		Array.from(el.children).forEach((el, i) => {
 			
 			let nav_item = slider_nav.children[i];
-			nav_item.onclick = nav_item.onkeyup = (e) => {
-				
-				if (e.type === 'keyup' && e.keyCode !== 13) { // Slide on Enter key
-					
-					return;
-
-				}
+			nav_item.onclick = (e) => {
 				
 	            slide( // Select slider either through id or as a parent
 		            slider_nav.getAttribute('data-for') ? q('.n-slider#' + slider_nav.getAttribute('data-for')) : e.target,
@@ -727,7 +722,7 @@ var componentSlider = (function (){
 		    
 	    // Generate arrows
 	
-	    container.insertAdjacentHTML('beforeend', '<a class="n-slider--arrow n-slider--left" tabindex=0></a><a class="n-slider--arrow n-slider--right" tabindex=0></a>');
+	    container.insertAdjacentHTML('beforeend', '<button class="n-slider--arrow n-slider--left"></button><button class="n-slider--arrow n-slider--right"></button>');
 	    
 	    let setArrowEvents = (selector, direction) => {
 		    

@@ -350,7 +350,7 @@
 
 .n-lightbox--thumbnails {
 	
-	&.n-slider--nav a {
+	&.n-slider--nav * {
 	
 		line-height: var(--thumb-size, 4em);
 		width: var(--thumb-size, 4em);
@@ -362,7 +362,7 @@
 		
 	}
 	
-	&.n-slider--nav a[data-active] {
+	&.n-slider--nav [data-active] {
 	
 		opacity: .25;
 		transition: opacity .2s ease-in-out;
@@ -423,7 +423,7 @@
 		.n-slider--nav {
 			
 /*
-			a, a[data-active] {
+			*, [data-active] {
 		
 				line-height: 1.5;
 				width: 1.5em;

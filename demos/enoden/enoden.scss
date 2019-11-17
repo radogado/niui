@@ -149,7 +149,7 @@ nav.n-nav {
 	
 }
 
-.n-banner .n-slider--nav a {
+.n-banner .n-slider--nav * {
 	
 	font-size: 0;
 	--nav-size: 12px;
@@ -164,7 +164,7 @@ nav.n-nav {
 
 }
 
-.n-banner .n-slider--nav a[data-active] {
+.n-banner .n-slider--nav [data-active] {
 	
 	background: $green;
 
@@ -454,7 +454,7 @@ footer .n-contain {
 
 	}
 	
-	.n-slider--nav a {
+	.n-slider--nav * {
 		
 		color: #33322f;
 		background: none;
@@ -468,7 +468,7 @@ footer .n-contain {
 
 	}
 
-	.n-slider--nav a[data-active] {
+	.n-slider--nav [data-active] {
 
 		border-bottom: 2px solid green;
 
@@ -482,7 +482,7 @@ footer .n-contain {
 	
 }
 
-.news .n-slider--wrap.tabs > .n-slider--nav a {
+.news .n-slider--wrap.tabs > .n-slider--nav * {
 	
 		padding: .5em 1em;
 		display: inline-block;

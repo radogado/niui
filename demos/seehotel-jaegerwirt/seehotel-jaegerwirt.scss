@@ -177,7 +177,7 @@ main .n-slider ._1\/3 .image {
 
 }
 
-.n-slider--nav a {
+.n-slider--nav * {
 	
 	--nav-size: 1rem;
 	font-size: 0;
@@ -185,13 +185,13 @@ main .n-slider ._1\/3 .image {
 	
 }
 
-.n-slider--nav a[data-active], .n-banner .n-slider--nav a[data-active] {
+.n-slider--nav [data-active], .n-banner .n-slider--nav [data-active] {
 	
 	background: #eecf3f;
 
 }
 
-.n-banner .n-slider--nav a {
+.n-banner .n-slider--nav * {
 	
 	background: #fff;
 

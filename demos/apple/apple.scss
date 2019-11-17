@@ -68,7 +68,7 @@ body.n-type {
 
 }
 
-.n-slider--nav a {
+.n-slider--nav * {
 	
 	color: unset;
 	font-size: .4em;
@@ -80,7 +80,7 @@ body.n-type {
 
 }
 
-.n-slider--nav a[data-active] {
+.n-slider--nav [data-active] {
 	
 	background: none;
 	border: 1px solid #0070c9;

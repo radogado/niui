@@ -428,7 +428,7 @@ a.arrow:after {
 
 }
 
-.n-slider--nav a {
+.n-slider--nav * {
 	
 	background: $lighter-blue;
 	text-indent: -167%;
@@ -437,7 +437,7 @@ a.arrow:after {
 
 }
 
-.n-slider--nav a[data-active] {
+.n-slider--nav [data-active] {
 	
 	background: $orange;
 
