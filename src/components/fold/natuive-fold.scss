@@ -30,11 +30,13 @@
 		text-align: left;
 		text-align: start;
 		width: 100%;
+/*
 		-webkit-touch-callout: none;
 		-webkit-user-select: none;
 		-khtml-user-select: none;
 		-moz-user-select: none;
 		user-select: none;
+*/
 		position: relative;
 		padding: .625em;
 		padding-right: 1.5em;
@@ -46,6 +48,9 @@
 		color: inherit;
 		color: var(--control-color, inherit);
 		overflow: hidden; // Safari focus ring fix
+		border: 0;
+		text-align: start;
+		font-size: inherit;
 		
 		&:after {
 			
@@ -233,7 +238,7 @@
 
 	&[data-ready]:not([aria-expanded]):not(.n-fold--mobile) { // Don't open it by tabbing, because of focuseable items inside
 		
-		.n-fold--content {
+		.n-fold--content:not([style*="--start-height"]) {
 			
 			display: none;
 

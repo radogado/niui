@@ -911,16 +911,6 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		host.querySelectorAll('.n-fold:not([data-ready]) > .n-fold--label').forEach((el) => {
 	
 		    el.onclick = toggleAccordion;
-			el.setAttribute('tabindex', 0);
-			el.onkeyup = (e) => {
-		
-				if (e.key === 'Enter') {
-					
-					toggleAccordion(e);
-		
-				}
-				
-			};
 		
 		    el = el.parentNode;
 			var content = el.querySelector('.n-fold--content');
@@ -945,7 +935,11 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 				content.style.setProperty('--width', content.scrollWidth + 'px');
 				content.style.height = 'auto';
 				el.removeAttribute('data-init');
-				setTimeout(() => { content.style.transition = 'width .2s ease-in-out'; }, 100);
+				setTimeout(() => {
+					
+					content.style.transition = 'width .2s ease-in-out'; 
+				
+				}, 100);
 				
 			}
 		
@@ -957,16 +951,20 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		
 		    }
 		    
-			el.addEventListener('focusout', e => { // Close it when tabbing outside
-
-				let el = e.target.closest('.n-fold');
-				if (!el.contains(e.relatedTarget)) {
-
-					el.removeAttribute('aria-expanded');
-
-				}
-				
-			});
+		    if (hasClass(el, 'n-fold__defocus')) {
+		    
+				el.addEventListener('focusout', e => { // Close it when tabbing outside
+	
+					let el = e.target.closest('.n-fold');
+					if (!el.contains(e.relatedTarget)) {
+	
+						el.removeAttribute('aria-expanded');
+	
+					}
+					
+				});
+			
+			}
 		
 		    makeReady(el);
 		    

@@ -1526,7 +1526,7 @@
 <div class="code">
 <pre><code class="language-markup">&lt;header class='n-fixed-mobile n-header'&gt;
 	&lt;div class='n-fold n-fold--mobile'&gt;
-		&lt;div class='n-fold--label'&gt; &lt;span class='n-burger'&gt;&lt;/span&gt; &lt;/div&gt;
+		&lt;button class='n-fold--label'&gt; &lt;span class='n-burger'&gt;&lt;/span&gt; &lt;/button&gt;
 		&lt;input type='checkbox' class='n-trigger'&gt;
 		&lt;div class='n-fold--content'&gt;
 			&lt;nav class='n-nav'&gt;
@@ -2797,7 +2797,7 @@
 						
 							<div class='n-fold'>
 							
-								<h3 class=n-fold--label> Accordion </h3>
+								<button class=n-fold--label> Accordion </button>
 								<input type=checkbox class=n-trigger>
 							
 								<div id=i class='n-fold--content'>
@@ -2819,7 +2819,7 @@
 <div class="code">							
 
 <pre><code class="language-markup">&lt;div class='n-fold'&gt;
-	&lt;h3 class='n-fold--label'&gt; Label &lt;/h3&gt;
+	&lt;button class='n-fold--label'&gt; Label &lt;/button&gt;
 	&lt;input type='checkbox' class='n-trigger'&gt;
 	&lt;div class='n-fold--content'&gt;
 		&lt;p&gt; Content. &lt;/p&gt;
@@ -2848,7 +2848,7 @@
 <div class="code">							
 
 <pre><code class="language-markup">&lt;div class='n-fold' aria-expanded='true'&gt;
-	&lt;h3 class='n-fold--label'&gt; Label &lt;/h3&gt;
+	&lt;button class='n-fold--label'&gt; Label &lt;/button&gt;
 	&lt;input type='checkbox' class='n-trigger'&gt;
 	&lt;div class='n-fold--content'&gt;
 		&lt;p&gt; Content. &lt;/p&gt;
@@ -2864,7 +2864,7 @@
 							
 							<div class=n-fold>
 							
-								<h3 class=n-fold--label> Truncated content </h3>
+								<button class=n-fold--label> Truncated content </button>
 								<input type=checkbox class=n-trigger>
 								
 								<div class='n-fold--content' style='--start-height: 6em;'>
@@ -2880,7 +2880,7 @@
 <div class="code">							
 
 <pre><code class="language-markup">&lt;div class='n-fold'&gt;
-	&lt;h3 class='n-fold--label'&gt; Label &lt;/h3&gt;
+	&lt;button class='n-fold--label'&gt; Label &lt;/button&gt;
 	&lt;input type='checkbox' class='n-trigger'&gt;
 	&lt;div class='n-fold--content' style='--start-height: 6em;'&gt;
 		&lt;p&gt; Content. &lt;/p&gt;
@@ -2896,7 +2896,7 @@
 						
 							<div class='n-fold n-fold--horizontal'>
 							
-								<h3 class=n-fold--label> Horizontal accordion </h3>
+								<button class=n-fold--label> Horizontal accordion </button>
 								<input type=checkbox class=n-trigger>
 								
 								<div class="n-fold--content">
@@ -2928,14 +2928,14 @@
 														
 							<div class=n-fold>
 							
-								<h3 class=n-fold--label> Nested Accordions </h3>
+								<button class=n-fold--label> Nested Accordions </button>
 								<input type=checkbox class=n-trigger>
 								
 								<div class='n-fold--content'>
 							
 									<div class=n-fold>
 								
-										<h3 class=n-fold--label> About Inner Accordion </h3>
+										<button class=n-fold--label> About Inner Accordion </button>
 										<input type=checkbox class=n-trigger>
 									
 										<div class='n-fold--content'>
@@ -2946,7 +2946,7 @@
 								
 									<div class=n-fold>
 								
-										<h3 class=n-fold--label> About Inner Accordion 2 </h3>
+										<button class=n-fold--label> About Inner Accordion 2 </button>
 										<input type=checkbox class=n-trigger>
 									
 										<div class='n-fold--content'>
@@ -2968,7 +2968,8 @@
 							<ul class="n-list">
 								
 								<li>Horizontal fold with <pre>.n-fold.n-fold--horizontal</pre> needs extra wrapper inside <pre>.n-content</pre>.</li>
-								<li>Folded on mobile, always visible on desktop with <pre>.n-fold.n-fold--mobile</pre>.
+								<li>Folded on mobile, always visible on desktop with <pre>.n-fold.n-fold--mobile</pre>.</li>
+								<li><pre>.n-fold.n-fold__defocus</pre> to close the fold on focus out.</li>
 							
 							</ul>
 						
@@ -4438,7 +4439,7 @@
 	
 <textarea id=component-playground rows="10" style="width: 100%">
 <div class=n-fold>
-	<h3 class=n-fold--label> Label </h3>
+	<button class=n-fold--label> Label </button>
 	<input type=checkbox class=n-trigger>
 	<div class=n-fold--content><p> Content. </p><p> Content. </p><p> Content. </p></div>
 </div>

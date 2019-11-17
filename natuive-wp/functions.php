@@ -563,9 +563,9 @@ function new_nav_menu($items) {
 	$items = $DOM->saveHTML();
 
     return '<div class="n-fold n-fold--mobile"> 
-    			<div class="n-fold--label"> 
+    			<button class="n-fold--label"> 
     				<span class="n-burger"></span> 
-    			</div> 
+    			</button> 
     			<input type=checkbox class=n-trigger>
 
 				<div class=n-fold--content> 
