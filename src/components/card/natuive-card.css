@@ -24,20 +24,20 @@
   max-width: 100%;
   padding: 0;
 }
-.n-card .n-card--head.n-card--image {
+.n-card .n-card--head.n-card__image {
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
   color: #fff;
 }
-.n-card .n-card--head.n-card--image:after {
+.n-card .n-card--head.n-card__image:after {
   content: "";
   padding-bottom: 56.25%;
   width: 0;
   display: inline-block;
   vertical-align: bottom;
 }
-.n-card .n-card--head.n-card--image > * {
+.n-card .n-card--head.n-card__image > * {
   display: inline-block;
 }
 

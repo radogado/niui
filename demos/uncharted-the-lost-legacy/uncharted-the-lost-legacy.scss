@@ -114,7 +114,7 @@ footer .disclaimer {
 
 .n-type {
 	
-	a[href], ul.n-list--inline li {
+	a[href], ul.n-list__inline li {
 		
 		text-decoration: none;
 		vertical-align: middle;
@@ -166,7 +166,7 @@ span.n-burger:before {
 @media screen and (max-width: 600px) {
 	
 	
-	.n-header.n-fixed-mobile .n-fold.n-fold--mobile.open .n-fold--content {
+	.n-header.n-header__fixed-mobile .n-fold.n-fold__mobile.open .n-fold--content {
 		
 		background: #000;
 		
@@ -213,7 +213,7 @@ span.n-burger:before {
 
 	}
 
-	.n-header.n-fixed-mobile .n-fold.n-fold--mobile .n-fold--content {
+	.n-header.n-header__fixed-mobile .n-fold.n-fold__mobile .n-fold--content {
 		
 		background: #000;
 		

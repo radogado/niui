@@ -8,7 +8,7 @@
   text-align: initial;
   display: grid;
 }
-.n-fold.n-fold--inline {
+.n-fold.n-fold__inline {
   display: inline-grid;
   vertical-align: top;
 }
@@ -60,59 +60,59 @@
 .n-fold[aria-expanded] > .n-fold--label:after {
   transform: rotate(180deg);
 }
-.n-fold.n-fold--mobile {
+.n-fold.n-fold__mobile {
   padding: 0;
   width: auto;
 }
-.n-fold.n-fold--mobile > .n-fold--label:after {
+.n-fold.n-fold__mobile > .n-fold--label:after {
   display: none;
 }
-.n-fold.n-fold--mobile > .n-fold--label, .n-fold.n-fold--mobile > input.n-trigger {
+.n-fold.n-fold__mobile > .n-fold--label, .n-fold.n-fold__mobile > input.n-trigger {
   display: none;
   width: auto;
   line-height: 1.5;
   min-height: 1.5em;
   height: 3em;
 }
-.n-fold.n-fold--mobile .n-fold--content {
+.n-fold.n-fold__mobile .n-fold--content {
   /* hidden fold item */
   overflow: visible;
 }
-.n-fold:not([data-init]):not(.n-fold--mobile) .n-fold--content {
+.n-fold:not([data-init]):not(.n-fold__mobile) .n-fold--content {
   /* hidden fold item */
   overflow: hidden;
   cursor: auto;
   will-change: max-width;
 }
-.n-fold:not([data-init]):not(.n-fold--mobile) .n-fold--content > .n-fold {
+.n-fold:not([data-init]):not(.n-fold__mobile) .n-fold--content > .n-fold {
   margin: 0.3em;
 }
 .n-fold[aria-expanded] .n-fold--content {
   max-height: none;
 }
-.n-fold:not([aria-expanded]):not(.n-fold--mobile):not(.n-fold--horizontal) > .n-fold--content, .n-fold[aria-expanded]:not(.n-fold--horizontal) input.n-trigger:checked ~ .n-fold--content {
+.n-fold:not([aria-expanded]):not(.n-fold__mobile):not(.n-fold__horizontal) > .n-fold--content, .n-fold[aria-expanded]:not(.n-fold__horizontal) input.n-trigger:checked ~ .n-fold--content {
   max-height: 0;
   max-height: var(--start-height, 0);
 }
-.n-fold.n-fold--horizontal > * {
+.n-fold.n-fold__horizontal > * {
   display: none;
 }
-.n-fold.n-fold--horizontal > .n-fold--label:after {
+.n-fold.n-fold__horizontal > .n-fold--label:after {
   transform: rotate(-90deg);
 }
-.n-fold.n-fold--horizontal[aria-expanded] > .n-fold--label:after {
+.n-fold.n-fold__horizontal[aria-expanded] > .n-fold--label:after {
   transform: rotate(90deg);
 }
-.n-fold.n-fold--horizontal:not([data-init]) > .n-fold--content {
+.n-fold.n-fold__horizontal:not([data-init]) > .n-fold--content {
   width: 0;
 }
-.n-fold.n-fold--horizontal[data-init] > .n-fold--content, .n-fold.n-fold--horizontal[aria-expanded] > .n-fold--content, .n-fold.n-fold--horizontal > input.n-trigger:checked ~ .n-fold--content {
+.n-fold.n-fold__horizontal[data-init] > .n-fold--content, .n-fold.n-fold__horizontal[aria-expanded] > .n-fold--content, .n-fold.n-fold__horizontal > input.n-trigger:checked ~ .n-fold--content {
   width: 100%;
 }
-.n-fold.n-fold--horizontal > .n-fold--content {
+.n-fold.n-fold__horizontal > .n-fold--content {
   height: 0;
 }
-.n-fold.n-fold--horizontal > .n-fold--content > * {
+.n-fold.n-fold__horizontal > .n-fold--content > * {
   width: var(--width);
 }
 .n-fold:first-of-type {
@@ -124,7 +124,7 @@
 .n-fold .n-fold--content > * {
   margin-top: 0;
 }
-.n-fold:not(.n-fold--horizontal) > input.n-trigger:checked ~ .n-fold--content, .n-fold.n-fold--mobile:not(.n-fold--horizontal) .n-fold--content {
+.n-fold:not(.n-fold__horizontal) > input.n-trigger:checked ~ .n-fold--content, .n-fold.n-fold__mobile:not(.n-fold__horizontal) .n-fold--content {
   max-height: none;
 }
 .n-fold[aria-expanded] > input.n-trigger + .n-fold--content {
@@ -144,7 +144,7 @@
 .n-fold span.n-burger:after {
   content: "=";
 }
-.n-fold[data-ready]:not([aria-expanded]):not(.n-fold--mobile) .n-fold--content:not([style*="--start-height"]) {
+.n-fold[data-ready]:not([aria-expanded]):not(.n-fold__mobile) .n-fold--content:not([style*="--start-height"]) {
   display: none;
 }
 
@@ -204,58 +204,58 @@ _:-ms-input-placeholder, :root .n-fold--label:after {
   .n-fold span.n-burger:after {
     display: none;
   }
-  .n-fold.n-fold--horizontal > * {
+  .n-fold.n-fold__horizontal > * {
     display: block;
   }
 }
 @media screen and (max-width: 599.9px) {
-  .n-fold.n-fold--mobile > .n-fold--label, .n-fold.n-fold--mobile > input.n-trigger {
+  .n-fold.n-fold__mobile > .n-fold--label, .n-fold.n-fold__mobile > input.n-trigger {
     display: flex;
     width: 3em;
     height: 3em;
     padding: 0;
     border: none;
   }
-  .n-fold.n-fold--mobile > input.n-trigger {
+  .n-fold.n-fold__mobile > input.n-trigger {
     width: 4em;
     height: 4em;
   }
-  .n-fold.n-fold--mobile:not([aria-expanded]) .n-fold--content {
+  .n-fold.n-fold__mobile:not([aria-expanded]) .n-fold--content {
     max-height: 0;
     max-width: 0;
   }
-  .n-fold.n-fold--mobile > input.n-trigger:checked ~ .n-fold--content, .n-fold.n-fold--mobile > input.n-trigger:checked + .n-fold--content {
+  .n-fold.n-fold__mobile > input.n-trigger:checked ~ .n-fold--content, .n-fold.n-fold__mobile > input.n-trigger:checked + .n-fold--content {
     max-height: none;
   }
-  .n-fold.n-fold--mobile .n-fold--content {
+  .n-fold.n-fold__mobile .n-fold--content {
     overflow: hidden;
   }
 
   @supports (--a: 1) {
-    .n-header.n-fixed-mobile .n-fold.n-fold--mobile {
+    .n-header.n-header__fixed-mobile .n-fold.n-fold__mobile {
       position: fixed;
       top: 0;
       z-index: 2;
     }
-    .n-header.n-fixed-mobile .n-fold.n-fold--mobile[aria-expanded] {
+    .n-header.n-header__fixed-mobile .n-fold.n-fold__mobile[aria-expanded] {
       bottom: 0;
       overflow: visible;
     }
-    .n-header.n-fixed-mobile .n-fold.n-fold--mobile[aria-expanded] .n-fold--content {
+    .n-header.n-header__fixed-mobile .n-fold.n-fold__mobile[aria-expanded] .n-fold--content {
       overflow: auto;
       -webkit-overflow-scrolling: touch;
       position: fixed;
       top: 3em;
       bottom: 0;
     }
-    .n-header.n-fixed-mobile .n-fold.n-fold--mobile .n-fold--content {
+    .n-header.n-header__fixed-mobile .n-fold.n-fold__mobile .n-fold--content {
       padding: 0 0.375em;
       background: #fff;
     }
   }
 }
 @media screen and (min-width: 600px) {
-  .n-fold.n-fold--mobile {
+  .n-fold.n-fold__mobile {
     overflow: visible;
   }
 }

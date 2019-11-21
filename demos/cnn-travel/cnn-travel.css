@@ -132,7 +132,7 @@ span.vertical {
   .n-row > * > .n-unpad, .n-unpad, .n-row > div > img {
     margin: 0 auto;
     width: auto; }
-  .n-row:not(.n-row--no-margin):not(.n-border-all):not(.n-tabs) > *, .n-row:not(.n-row--no-margin):not(.n-border-all) > [class^=_] {
+  .n-row:not(.n-row__no-margin):not(.n-row__border-all):not(.n-tabs) > *, .n-row:not(.n-row__no-margin):not(.n-row__border-all) > [class^=_] {
     margin: 0;
     text-align: center; }
   main img {

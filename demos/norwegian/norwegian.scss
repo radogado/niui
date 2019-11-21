@@ -231,7 +231,7 @@ form.n-form select:hover {
 
 form.n-form select {
 	
-	background: url(icon-dropdown-arrow.svg) right center no-repeat;
+	background: url(icon-nav__dropdown-arrow.svg) right center no-repeat;
 	background-position: calc(100% - 1em) 1em;
 
 }
@@ -282,13 +282,13 @@ form.n-form select {
 	
 }
 
-form.n-form.n-form--wide input[type=submit] {
+form.n-form.n-form__wide input[type=submit] {
 	
 	margin: 0;
 
 }
 
-form.n-form.n-form--wide > ._1\/1 {
+form.n-form.n-form__wide > ._1\/1 {
 	
 	margin-top: -1.5em;
 	
@@ -384,7 +384,7 @@ form.n-form.n-form--wide > ._1\/1 {
 		
 	}
 	
-	.n-row.n-row--no-spacing {
+	.n-row.n-row__no-spacing {
 		
 		padding: 1em;
 		width: 100%;

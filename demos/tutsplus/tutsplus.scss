@@ -52,7 +52,7 @@ main a[href].n-btn {
 
 }
 
-main a[href].n-btn.n-btn--big {
+main a[href].n-btn.n-btn__big {
 	
 	background: none;
 	color: #82b541;
@@ -76,7 +76,7 @@ input[type=search] {
 
 }
 
-.n-banner .n-row.n-row--vertical > div > div {
+.n-banner .n-row.n-row__vertical > div > div {
 	
 	padding: 1em;
 
@@ -170,14 +170,14 @@ input[type=search] {
 
 	}
 	
-	nav.n-nav.n-drop {
+	nav.n-nav.n-nav__drop {
 		
 		--control-bg: #282828;
 		--control-color: #fff;
 		
 	}
 	
-	nav.n-nav.n-drop a[href] {
+	nav.n-nav.n-nav__drop a[href] {
 		
 		color: #fff;
 		
@@ -233,7 +233,7 @@ footer {
 		
 	}
 	
-	a[href].n-btn.n-btn--big {
+	a[href].n-btn.n-btn__big {
 	
 		padding-left: 2.5em;
 		padding-right: 2.5em;

@@ -5,7 +5,9 @@
 .no-scroll {
 
     &, & body {
+
         overflow: hidden;
+
     }
 
 }
@@ -68,7 +70,7 @@ html.n-full-screen {
 
 	}
 	
-	.n-ovrl.n-modal--limited > .n-ovrl--content {
+	.n-ovrl.n-modal__limited > .n-ovrl--content {
 
     	padding: 0;
     	height: 50vh;
@@ -137,7 +139,7 @@ html.n-full-screen {
 
 	.n-ovrl {
 		
-		&.n-modal--limited > .n-ovrl--content {
+		&.n-modal__limited > .n-ovrl--content {
 		
 			height: calc(80% - var(--overlay-bottom, 0) - var(--overlay-top, 0));
 			margin: 10%;
@@ -164,7 +166,7 @@ html.n-full-screen {
 
 @media (max-height: 512px) and (orientation: landscape) { // Move the close bar to the side, because it's inaccessible with certain toolbar configurations
 	
-	.n-ovrl .n-slider--wrap.n-slider--overlay, .n-ovrl .n-slider--wrap.n-slider--vertical.n-slider--overlay {
+	.n-ovrl .n-slider--wrap.n-slider__overlay, .n-ovrl .n-slider--wrap.n-slider__vertical.n-slider__overlay {
 		
 		margin: 0;
 		height: 100%;
@@ -203,7 +205,7 @@ html.n-full-screen {
 	
 	}
 	
-	.n-slider--overlay.n-slider--wrap {
+	.n-slider__overlay.n-slider--wrap {
 		
 		margin: 0;
 

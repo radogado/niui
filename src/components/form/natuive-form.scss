@@ -280,13 +280,13 @@ $placeholder_color: #aaa;
 		
 		}
 		
-		&.n-form--mast .n-form--check-icon {
+		&.n-form__mast .n-form--check-icon {
 			
 			top: .25em;
 		
 		}
 		
-		&.n-form--wide .n-form--check-icon {
+		&.n-form__wide .n-form--check-icon {
 			
 			top: .08em;
 		
@@ -345,13 +345,13 @@ $placeholder_color: #aaa;
 		
 		}
 		
-	.n-form--mandatory span.n-form--check:before, .n-form--mandatory span.tip:after, select::-ms-expand {
+	.n-form__mandatory span.n-form--check:before, .n-form__mandatory span.tip:after, select::-ms-expand {
 	
 		display: none;
 		
 	}
 	
-	.n-form--mandatory {
+	.n-form__mandatory {
 		
 		position: relative;
 		
@@ -625,13 +625,13 @@ $placeholder_color: #aaa;
 	
 	}
 	
-	&.n-form--wide textarea, &.n-form--mast textarea {
+	&.n-form__wide textarea, &.n-form__mast textarea {
 		
 		margin: -$line-height-em/2 0 $line-height-em/2 0;
 		
 	}
 	
-	&.n-form--wide {
+	&.n-form__wide {
 		
 		input[type=submit], button, button[type=submit] {
 	
@@ -685,7 +685,7 @@ $placeholder_color: #aaa;
 
 	}
 	
-	&.n-form--mast {
+	&.n-form__mast {
 		
 			input[type=submit], button, button[type=submit] {
 				
@@ -730,7 +730,7 @@ $placeholder_color: #aaa;
 		
 		}
 		
-		.n-form--mandatory:before {
+		.n-form__mandatory:before {
 		
 			left: calc(50% - 1em);
 			z-index: -1;
@@ -739,7 +739,7 @@ $placeholder_color: #aaa;
 	
 	}
 
-	&.n-form--language {
+	&.n-form__language {
 		
 		select {
 		
@@ -766,7 +766,7 @@ $placeholder_color: #aaa;
 
 // IE
 	
-_:-ms-input-placeholder, :root input[type=radio] + .n-form--check-icon, .n-form.n-form--wide .n-form--check-icon, .n-form .n-form--file input[type=file] {
+_:-ms-input-placeholder, :root input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-form--check-icon, .n-form .n-form--file input[type=file] {
 	
 	top: .33em;
 	text-indent: 0;
@@ -776,7 +776,7 @@ _:-ms-input-placeholder, :root input[type=radio] + .n-form--check-icon, .n-form.
 
 // Edge
 
-_:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form--wide .n-form--check-icon, .n-form .n-form--file input[type=file] {
+_:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-form--check-icon, .n-form .n-form--file input[type=file] {
 	
 	top: .33em;
 	text-indent: 0;
@@ -786,14 +786,14 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form--wide .n-
 		
 [dir=rtl] .n-form {
 	
-	.n-form--mandatory:before {
+	.n-form__mandatory:before {
 	
 		left: 0;
 		right: auto;
 	
 	}
 		
-	&.n-form--mast .n-form--mandatory:before {
+	&.n-form__mast .n-form__mandatory:before {
 	
 		right: calc(50% - 1em);
 		left: auto;

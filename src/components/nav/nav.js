@@ -324,7 +324,7 @@
 	
 		});
 	
-		if (!el.closest('.n-nav.n-drop')) { // The rest is for drop nav only
+		if (!el.closest('.n-nav.n-nav__drop')) { // The rest is for drop nav only
 			
 			return;
 	
@@ -391,7 +391,7 @@
 	
 	window.addEventListener('resize', function (e) {
 		
-		document.querySelectorAll('.n-nav.n-drop ul[role="menubar"]').forEach(menubar => {
+		document.querySelectorAll('.n-nav.n-nav__drop ul[role="menubar"]').forEach(menubar => {
 			
 			menubar.querySelectorAll('ul').forEach(ul => {
 				

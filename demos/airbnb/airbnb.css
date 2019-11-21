@@ -62,7 +62,7 @@ main .narrow .n-row img {
 main .n-row h3 {
   font-size: 2em; }
 
-main .n-row.n-row--no-spacing > * {
+main .n-row.n-row__no-spacing > * {
   color: #565a5c; }
 
 main .n-row a[href] {
@@ -70,7 +70,7 @@ main .n-row a[href] {
   background-size: cover;
   color: #fff; }
 
-main .n-row, main .n-row.n-row--no-spacing {
+main .n-row, main .n-row.n-row__no-spacing {
   margin: 0; }
 
 main .n-slider {

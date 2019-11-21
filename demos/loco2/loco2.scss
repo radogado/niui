@@ -1,6 +1,6 @@
 $pink: #ff3b79;
 
-body, .coverage ._1\/4 b, a[href].n-btn.n-btn--big, form input[type=submit] {
+body, .coverage ._1\/4 b, a[href].n-btn.n-btn__big, form input[type=submit] {
 	
 	font-weight: 400;
 
@@ -138,7 +138,7 @@ footer ul.n-list {
 
 }
 
-ul.staff.n-list--inline li {
+ul.staff.n-list__inline li {
 	
 	width: 24%;
 	text-align: center;
@@ -202,7 +202,7 @@ ul.staff.n-list--inline li {
 
 }
 
-.coverage a.n-btn.n-btn--big {
+.coverage a.n-btn.n-btn__big {
 	
 	white-space: nowrap;
 
@@ -316,14 +316,14 @@ ul.staff.n-list--inline li {
 
 @media (max-width: 599.9px) {
 	
-	ul.n-list--inline li {
+	ul.n-list__inline li {
 		
 		display: block;
 		width: auto;
 		
 	}
 	
-	ul.n-list--inline {
+	ul.n-list__inline {
 		
 		width: 100%;
 	

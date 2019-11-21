@@ -17,7 +17,7 @@ html, body, .n-row.wrap>*, nav.n-nav a, p, li, .n-lightbox a, .n-btn, input[type
 
 }
 
-.n-row.n-border-all, .n-row.n-border-all .n-row, .n-row.n-border-all .n-row>:not(:first-child) {
+.n-row.n-row__border-all, .n-row.n-row__border-all .n-row, .n-row.n-row__border-all .n-row>:not(:first-child) {
 	
 /*
 	background: #fff;
@@ -147,7 +147,7 @@ footer .n-row .n-pad {
 
 }
 
-a.n-btn--big.n-btn[href] {
+a.n-btn__big.n-btn[href] {
 	
 	font-size: 1em;
 	padding: 0 1.5em;
@@ -208,20 +208,20 @@ footer .about p:first-child {
 
 }
 
-nav.n-nav.n-drop {
+nav.n-nav.n-nav__drop {
 	
 	margin-left: 7em;
 	width: calc(100% - 8em);
 	
 }
 
-nav.n-nav.n-drop ul.n-list li a {
+nav.n-nav.n-nav__drop ul.n-list li a {
 	
 	padding: 1em .7em;
 	
 }
 
-nav.n-nav.n-drop ul.n-list li, nav.n-nav.n-drop ul.n-list li a[href], nav.n-nav.n-drop ul.n-list li b.sub, nav.n-nav.n-drop ul.n-list li .n-trigger:checked ~ a, nav.n-nav.n-drop ul.n-list li .n-trigger:checked ~ b.sub, nav.n-nav.n-drop ul.n-list ul li, nav.n-nav.n-drop ul.n-list li li a, .no-touch nav.n-nav.n-drop ul.n-list li li:hover a {
+nav.n-nav.n-nav__drop ul.n-list li, nav.n-nav.n-nav__drop ul.n-list li a[href], nav.n-nav.n-nav__drop ul.n-list li b.sub, nav.n-nav.n-nav__drop ul.n-list li .n-trigger:checked ~ a, nav.n-nav.n-nav__drop ul.n-list li .n-trigger:checked ~ b.sub, nav.n-nav.n-nav__drop ul.n-list ul li, nav.n-nav.n-nav__drop ul.n-list li li a, .no-touch nav.n-nav.n-nav__drop ul.n-list li li:hover a {
 	
 	background: #fff;
 
@@ -352,13 +352,13 @@ main .n-slider--nav {
 
 }
 
-.n-slider--arrow.n-slider--right:before {
+.n-slider--arrow.n-slider__right:before {
 	
 	content: '▶︎';
 
 }
 
-.banner .n-slider--arrow.n-slider--right {
+.banner .n-slider--arrow.n-slider__right {
 	
 	right: calc(50% - 37.7em);
 	top: auto;
@@ -377,7 +377,7 @@ main .n-slider--nav {
 
 @media screen and (max-width: 67em) {
 	
-	.banner .n-slider--arrow.n-slider--right {
+	.banner .n-slider--arrow.n-slider__right {
 		
 		right: calc(1em);
 		
@@ -405,7 +405,7 @@ main .n-slider--nav {
 
 	}
 	
-	.n-pad.n-contain, .n-row.n-border-all > *, main > .n-row.n-contain > * {
+	.n-pad.n-contain, .n-row.n-row__border-all > *, main > .n-row.n-contain > * {
 		
 		padding: 0;
 		
@@ -447,7 +447,7 @@ main .n-slider--nav {
 
 }
 
-.date, .n-row.n-border-all .n-row > .date {
+.date, .n-row.n-row__border-all .n-row > .date {
 	
 	color: #d1d1d1;
 	text-align: center;
@@ -486,7 +486,7 @@ main .n-slider--nav {
 
 }
 
-.n-contain > .n-border-all {
+.n-contain > .n-row__border-all {
 	
 	background: #fff;
 	    	    

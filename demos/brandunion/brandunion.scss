@@ -30,13 +30,13 @@ time {
 
 }
 
-.n-slider--vertical > .n-slider--nav {
+.n-slider__vertical > .n-slider--nav {
 	
 	display: none;
 	
 }
 
-.n-slider--vertical > .n-slider--arrow, .n-slider--vertical > .n-slider--arrow.right {
+.n-slider__vertical > .n-slider--arrow, .n-slider__vertical > .n-slider--arrow.right {
 	
 	top: auto;
 	right: 1em;
@@ -48,14 +48,14 @@ time {
 
 }
 
-.n-slider--vertical>.n-slider--arrow.n-slider--right {
+.n-slider__vertical>.n-slider--arrow.n-slider__right {
 	
 	left: auto;
 	right: 1em;
 	
 }
 
-.n-slider--vertical > .n-slider--arrow {
+.n-slider__vertical > .n-slider--arrow {
 	
 	bottom: 6em;
 

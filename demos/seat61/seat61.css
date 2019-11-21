@@ -142,11 +142,11 @@ footer {
     position: fixed;
     left: 0;
     z-index: 9; }
-  .n-header.n-fixed-mobile .n-fold.n-fold--mobile.open .n-fold--content {
+  .n-header.n-header__fixed-mobile .n-fold.n-fold__mobile.open .n-fold--content {
     width: 100%; }
-  .n-fold.n-fold--mobile > .n-fold--label, header.n-fixed-mobile .n-fold.n-fold--mobile.open .n-fold--content {
+  .n-fold.n-fold__mobile > .n-fold--label, header.n-header__fixed-mobile .n-fold.n-fold__mobile.open .n-fold--content {
     margin-left: -.3em; }
-  .n-header.n-fixed-mobile .n-fold.n-fold--mobile[aria-expanded] .n-fold--content {
+  .n-header.n-header__fixed-mobile .n-fold.n-fold__mobile[aria-expanded] .n-fold--content {
     width: 100%;
     left: 0;
     padding-top: 1em; }

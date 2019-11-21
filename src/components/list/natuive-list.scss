@@ -26,7 +26,7 @@ ul.n-list {
 	
 	}
 	
-	&:not(.n-list--no-bullet):not(.n-list--inline) li {
+	&:not(.n-list__no-bullet):not(.n-list__inline) li {
 	
 		margin-inline-start: 1em;
 		max-width: calc(100% - 1em);
@@ -44,7 +44,7 @@ ul.n-list {
 		
 	}
 	
-	&.n-list--inline > li:first-child {
+	&.n-list__inline > li:first-child {
 		
 		margin-inline-start: 0;
 	
@@ -158,7 +158,7 @@ ol.n-list {
 
 }
 
-ul.n-list.n-list--inline, ul.n-list.n-list--inline li, .n-nav.n-nav--scroll ul li {
+ul.n-list.n-list__inline, ul.n-list.n-list__inline li, .n-nav.n-nav__scroll ul li {
 	
 	vertical-align: top;
 	display: inline-block;
@@ -168,7 +168,7 @@ ul.n-list.n-list--inline, ul.n-list.n-list--inline li, .n-nav.n-nav--scroll ul l
 
 .n-nav ul.n-list {
 	
-	&:not(.n-list--no-bullet):not(.n-list--inline) li {
+	&:not(.n-list__no-bullet):not(.n-list__inline) li {
 	
 		margin-inline-start: 0;
 	    max-width: 100%;

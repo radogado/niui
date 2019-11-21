@@ -32,7 +32,7 @@
 
 }
 
-.n-slider.n-slider--vertical {
+.n-slider.n-slider__vertical {
 
 	> * {
 		
@@ -120,7 +120,7 @@
 	
 }
 
-.n-slider.n-slider--auto-height[data-ready] > *:not([data-active]) {
+.n-slider.n-slider__auto-height[data-ready] > *:not([data-active]) {
 	
 	height: 0;
 
@@ -140,7 +140,7 @@
 
 }
 
-.n-slider--wrap.n-slider--overlay {
+.n-slider--wrap.n-slider__overlay {
 	
 	top: 0px;
 	bottom: 0px;
@@ -155,20 +155,20 @@
 
 // JS enhanced. To do: add [data-ready]
 
-.n-slider.n-slider--overlay, .n-slider--wrap.n-slider--overlay {
+.n-slider.n-slider__overlay, .n-slider--wrap.n-slider__overlay {
 	
 	height: 100%;
 	
 }
 
-.n-slider--wrap.n-slider--overlay, .n-slider--wrap.n-slider--vertical.n-slider--overlay {
+.n-slider--wrap.n-slider__overlay, .n-slider--wrap.n-slider__vertical.n-slider__overlay {
 			
 	margin-top: $line-height-em*2;
 	height: calc(100% - #{$line-height-em*2});
 
 }		
 
-.n-slider--wrap.n-slider--vertical.n-slider--overlay/* , .n-slider.overlay, .overlay.n-slider > * */ {
+.n-slider--wrap.n-slider__vertical.n-slider__overlay/* , .n-slider.overlay, .overlay.n-slider > * */ {
 	
 	height: calc(100% - #{$line-height-em*2});
 
@@ -191,10 +191,10 @@
 
 }
 
-.n-slider--vertical.n-tabs {
+.n-slider__vertical.n-tabs {
 
 
-	&:not(.n-slider--detached-nav) > .n-slider { // Floats, because flex version is glitching when tab stack is taller than the slider. To do: fix flex version.
+	&:not(.n-slider__detached-nav) > .n-slider { // Floats, because flex version is glitching when tab stack is taller than the slider. To do: fix flex version.
 	
 		width: 75%;
 	    float: right;
@@ -207,13 +207,13 @@
 	
 	}
 	
-	&.n-slider--right > .n-slider {
+	&.n-slider__right > .n-slider {
 	
 	    float: left;
 	
 	}
 	
-	&.n-slider--right > .n-slider--nav.n-row, > .n-slider--nav.n-row.n-tabs, > .n-pad > .n-slider--nav.n-row.n-tabs {
+	&.n-slider__right > .n-slider--nav.n-row, > .n-slider--nav.n-row.n-tabs, > .n-pad > .n-slider--nav.n-row.n-tabs {
 		
 		float: right;
 	
@@ -237,13 +237,13 @@
 	    width: 100%;
 		position: absolute;
 	
-		&.n-slider--outside:not(.n-slider--vertical) {
+		&.n-slider__outside:not(.n-slider__vertical) {
 			
 			padding-bottom: var(--thumb-size, 4em);
 		
 		}
 		
-		> .n-slider, .n-slider.n-slider--vertical[data-ready] > *, > .n-pad > .n-slider {
+		> .n-slider, .n-slider.n-slider__vertical[data-ready] > *, > .n-pad > .n-slider {
 			
 			&, > * {
 			
@@ -292,14 +292,14 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 
 }
 
-.n-slider--overlay.n-slider:not(.n-slider--vertical) > * {
+.n-slider__overlay.n-slider:not(.n-slider__vertical) > * {
 	
 	overflow: auto;
 	-webkit-overflow-scrolling: touch;
 	
 }
 
-.n-slider.n-slider--vertical[data-ready] {
+.n-slider.n-slider__vertical[data-ready] {
 	
 // 	overflow-y: scroll;
 	overflow: visible;
@@ -307,7 +307,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 
 }
 
-.n-slider.n-slider--vertical[data-ready] > *, .n-slider--wrap.n-tabs > .n-slider--arrow {
+.n-slider.n-slider__vertical[data-ready] > *, .n-slider--wrap.n-tabs > .n-slider--arrow {
 
 	height: auto;
 	display: none;
@@ -338,7 +338,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 
 }
 
-.n-slider--wrap:not(.n-slider--peek) > .n-pad {
+.n-slider--wrap:not(.n-slider__peek) > .n-pad {
 
 	overflow-x: hidden;
 
@@ -360,19 +360,19 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 
 .n-slider--wrap[data-active] > .n-slider:not([data-peek]) > *:not([data-active]), 
 .n-slider--wrap[data-active] > .n-pad > .n-slider:not([data-peek]) > *:not([data-active]), 
-.n-slider.n-slider--vertical[data-ready] > *:not([data-active]) {
+.n-slider.n-slider__vertical[data-ready] > *:not([data-active]) {
 	
 	display: none;
 
 }
 
-.n-slider--overlay.n-slider > * {
+.n-slider__overlay.n-slider > * {
 	
 	padding: 0;
 
 }
 
-.n-slider--overlay.n-slider.n-slider--vertical > * {
+.n-slider__overlay.n-slider.n-slider__vertical > * {
 	
 	height: 100%;
 
@@ -384,14 +384,14 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 
 }
 
-.n-slider--overlay.n-lightbox.n-slider > * > img {
+.n-slider__overlay.n-lightbox.n-slider > * > img {
 
 	display: inline-block;
 	object-fit: contain;
 
 }
 
-.n-slider--overlay.n-slider > img {
+.n-slider__overlay.n-slider > img {
 	
 	padding: 0;
 	height: auto;
@@ -414,7 +414,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 	
 	}
 
-	.n-slider--vertical > .n-slider--arrow {
+	.n-slider__vertical > .n-slider--arrow {
 	
 		&:before {
 		
@@ -430,20 +430,20 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 	
 	}
 
-	.n-slider--arrow.n-slider--right {
+	.n-slider--arrow.n-slider__right {
 	
 		left: auto;
 		right: $line-height-em/4;
 	
 	}
 
-	.n-slider--arrow.n-slider--right:before {
+	.n-slider--arrow.n-slider__right:before {
 	
 		content: "→";
 	
 	}
 
-	.n-slider--vertical > .n-slider--arrow.n-slider--right {
+	.n-slider__vertical > .n-slider--arrow.n-slider__right {
 		
 		&:before {
 	
@@ -504,14 +504,14 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 	
 }
 
-.n-slider--wrap.n-slider--top .n-slider--nav {
+.n-slider--wrap.n-slider__top .n-slider--nav {
 	
 	bottom: auto;
 	top: 0;
 	
 }
 
-	.n-slider--wrap.n-slider--vertical > .n-slider--nav {
+	.n-slider--wrap.n-slider__vertical > .n-slider--nav {
 		
 		width: auto;
 		display: flex;
@@ -525,7 +525,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 		
 	}
 
-	.n-slider--wrap.n-slider--vertical.n-slider--outside.n-lightbox--thumbnails {
+	.n-slider--wrap.n-slider__vertical.n-slider__outside.n-lightbox__thumbnails {
 	
 		> .n-slider--nav {
 			
@@ -546,7 +546,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 				
 		}
 	
-		&.n-slider--right > .n-slider--nav {
+		&.n-slider__right > .n-slider--nav {
 			
 			left: auto;
 			right: -.5em;
@@ -555,7 +555,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 	
 	}
 	
-	.n-slider--wrap.n-slider--right.n-slider--vertical > .n-slider--nav {
+	.n-slider--wrap.n-slider__right.n-slider__vertical > .n-slider--nav {
 		
 	    right: .5em;
 	    left: auto;
@@ -575,7 +575,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 		
 	}
 	
-	.n-slider.n-slider--vertical > [data-active], .n-slider--vertical > .n-slider--nav * {
+	.n-slider.n-slider__vertical > [data-active], .n-slider__vertical > .n-slider--nav * {
 		
 		display: block;
 		overflow: auto;
@@ -632,13 +632,13 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 		
 	}
 
-.n-slider--wrap.n-slider--vertical.n-lightbox--thumbnails {
+.n-slider--wrap.n-slider__vertical.n-lightbox__thumbnails {
 	
 	width: 100%;
 	
-	&.n-slider--outside {
+	&.n-slider__outside {
 	
-		&:not(.n-slider--right) {
+		&:not(.n-slider__right) {
 			
 			padding-left: calc(var(--thumb-size, 4em) + 1em);
 			
@@ -650,7 +650,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 		
 		}
 	
-		&.n-slider--right {
+		&.n-slider__right {
 			
 			padding-right: calc(var(--thumb-size, 4em) + 1em);
 			
@@ -667,7 +667,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 }
 
 /*
-[data-active="true"] > .n-slider.n-slider--vertical.n-tabs[data-ready] {
+[data-active="true"] > .n-slider.n-slider__vertical.n-tabs[data-ready] {
 	
 	overflow: hidden;
 
@@ -683,14 +683,14 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
     		
 	}
 
-	.n-slider--vertical.n-tabs:not(.n-slider--detached-nav) > .n-slider, .n-slider--vertical.n-tabs > .n-slider--nav.n-row.n-tabs {
+	.n-slider__vertical.n-tabs:not(.n-slider__detached-nav) > .n-slider, .n-slider__vertical.n-tabs > .n-slider--nav.n-row.n-tabs {
 	
 		width: 100%;
 	    float: none;		
 		
 	}
 
-	.n-slider--wrap.n-slider--overlay, .n-slider--wrap.n-slider--vertical.n-slider--overlay {
+	.n-slider--wrap.n-slider__overlay, .n-slider--wrap.n-slider__vertical.n-slider__overlay {
 				
 		margin-top: $line-height-em*2;
 		height: calc(100% - #{$line-height-em*2});

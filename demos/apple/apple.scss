@@ -95,7 +95,7 @@ body.n-type {
 	    
 }
 
-.n-slider--arrow.n-slider--right:before {
+.n-slider--arrow.n-slider__right:before {
 	
 	content: '⟩';
 	margin-left: -.25em;
@@ -179,7 +179,7 @@ ul.n-list li {
 		
 	}
 	
-	.n-row:not(.n-half) {
+	.n-row:not(.n-row__half) {
 	
 	    display: flex;
 	

@@ -9,7 +9,7 @@
 
 	<h2><?php comments_number(); ?></h2>
 
-	<ul class="n-list n-list--no-bullet">
+	<ul class="n-list n-list__no-bullet">
 		<?php wp_list_comments('type=comment&callback=html5blankcomments'); // Custom callback in functions.php ?>
 	</ul>
 
@@ -29,7 +29,7 @@ $comments_args = array(
         // remove "Text or HTML to be displayed after the set of comment fields"
         //'comment_notes_after' => '',
         // redefine your own textarea (the comment body)
-        'class_form' => 'n-form n-form--wide',
+        'class_form' => 'n-form n-form__wide',
         'comment_field' => '<p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun' ) . '</label><textarea id="comment" name="comment" aria-required="true"></textarea></p>',
 );
 

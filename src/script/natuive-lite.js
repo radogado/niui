@@ -846,7 +846,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	
 	    var ready_to_submit = true;
 	
-	    el.querySelectorAll('.n-form--mandatory').forEach((el) => {
+	    el.querySelectorAll('.n-form__mandatory').forEach((el) => {
 		    
 		    if (el.closest('[disabled]')) { // Ignore disabled conditional fields
 			    
@@ -903,11 +903,11 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	
 	}
 	
-	if (q('.n-form--language')) { // To do: make it universal .submitonchange and for more than 1 form
+	if (q('.n-form__language')) { // To do: make it universal .submitonchange and for more than 1 form
 	
-	    q('.n-form--language select').onchange = (e) => {
+	    q('.n-form__language select').onchange = (e) => {
 	
-	        q('.n-form--language').submit();
+	        q('.n-form__language').submit();
 	
 	    };
 	
@@ -1322,7 +1322,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	
 		});
 	
-		if (!el.closest('.n-nav.n-drop')) { // The rest is for drop nav only
+		if (!el.closest('.n-nav.n-nav__drop')) { // The rest is for drop nav only
 			
 			return;
 	
@@ -1389,7 +1389,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	
 	window.addEventListener('resize', function (e) {
 		
-		document.querySelectorAll('.n-nav.n-drop ul[role="menubar"]').forEach(menubar => {
+		document.querySelectorAll('.n-nav.n-nav__drop ul[role="menubar"]').forEach(menubar => {
 			
 			menubar.querySelectorAll('ul').forEach(ul => {
 				
@@ -1529,7 +1529,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		
 		// Animation, not CSS, because of nested accordions
 		
-		if (hasClass(el, 'n-fold--horizontal')) {
+		if (hasClass(el, 'n-fold__horizontal')) {
 			
 			toggleAttribute(el, 'aria-expanded');
 			
@@ -1564,7 +1564,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	
 		if (!el.closest('.n-fold') && !el.closest('.n-tool')) { // Clicking/tapping outside of a fold/tooltip element...
 			
-			qa('.n-fold.n-fold--mobile[aria-expanded], .n-tool--tip[aria-expanded]').forEach(el => { // ... closes all n-burger nav menus and tooltips
+			qa('.n-fold.n-fold__mobile[aria-expanded], .n-tool--tip[aria-expanded]').forEach(el => { // ... closes all n-burger nav menus and tooltips
 				
 				el.removeAttribute('aria-expanded');
 				
@@ -1591,7 +1591,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		    el = el.parentNode;
 			var content = el.querySelector('.n-fold--content');
 			
-			if (!hasClass(el, 'n-fold--mobile')) {
+			if (!hasClass(el, 'n-fold__mobile')) {
 			
 				content.addEventListener('focusin', e => {
 					
@@ -1605,7 +1605,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 			
 			}
 			
-			if (hasClass(el, 'n-fold--horizontal')) {
+			if (hasClass(el, 'n-fold__horizontal')) {
 				
 				el.setAttribute('data-init', true);
 				content.style.setProperty('--width', content.scrollWidth + 'px');
@@ -1654,7 +1654,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		
 	window.addEventListener('scroll', () => {  // Close fixed n-ovrl if its scrolling becomes a window scroll. Idea by a Google mobile nav.
 		
-		let expanded_nav = q('.n-fixed-mobile .n-fold.n-fold--mobile[aria-expanded]');
+		let expanded_nav = q('.n-header__fixed-mobile .n-fold.n-fold__mobile[aria-expanded]');
 		if (expanded_nav) {
 			
 			expanded_nav.removeAttribute('aria-expanded');

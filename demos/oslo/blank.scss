@@ -225,7 +225,7 @@ header .n-fold--content .n-fold--label {
 	
 }
 
-header .n-fold--inline .n-fold--content > * {
+header .n-fold__inline .n-fold--content > * {
 	
 	vertical-align: middle;
 	
@@ -297,7 +297,7 @@ main .n-form button {
 }
 
 
-.n-fold.n-fold--mobile:not(.n-fold--horizontal) .n-fold--content.menu {
+.n-fold.n-fold__mobile:not(.n-fold__horizontal) .n-fold--content.menu {
 	
 	overflow: auto;
 
@@ -305,7 +305,7 @@ main .n-form button {
 
 @media (min-width: 600px) { // Header buttons/logo spacing
 	
-	header .n-fold--mobile > .n-fold--content > * {
+	header .n-fold__mobile > .n-fold--content > * {
     
 	    margin-inline-start: .75em;
 	    
@@ -327,7 +327,7 @@ main .n-form button {
 
 	}
 	
-	header .n-fold--mobile > .n-fold--content > * {
+	header .n-fold__mobile > .n-fold--content > * {
     
 	    &:last-child {
 		    
@@ -351,19 +351,19 @@ main .n-form button {
 
 @media (max-width: 599.9px) {
 	
-	.n-header.n-row.n-half > :first-child {
+	.n-header.n-row.n-row__half > :first-child {
 		
 		flex-basis: 30%;
 		
 	}
 	
-	.n-header.n-row.n-half > :last-child {
+	.n-header.n-row.n-row__half > :last-child {
 		
 		flex-basis: 70%;
 		
 	}
 	
-	.n-fold.n-fold--mobile {
+	.n-fold.n-fold__mobile {
 		
 	    justify-items: flex-end;
 
@@ -375,7 +375,7 @@ main .n-form button {
 	
 	}
 	
-	.n-fold.n-fold--mobile > .n-fold--label {
+	.n-fold.n-fold__mobile > .n-fold--label {
 		
 		line-height: 3;
 	    justify-content: center;

@@ -362,7 +362,7 @@ var componentModal = (function (){
 	            }
 	
 	            openFullWindow(parsed, animation); // To do: If .modal[data-animation], pass it to openFullWindow() as second parameter. Also in openLightbox().
-				transferClass(el.closest('.n-modal'), q('.n-ovrl'), 'n-modal--limited');
+				transferClass(el.closest('.n-modal'), q('.n-ovrl'), 'n-modal__limited');
 	
 	        } else {
 	            // Error

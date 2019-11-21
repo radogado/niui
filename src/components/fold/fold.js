@@ -17,7 +17,7 @@
 		
 		// Animation, not CSS, because of nested accordions
 		
-		if (hasClass(el, 'n-fold--horizontal')) {
+		if (hasClass(el, 'n-fold__horizontal')) {
 			
 			toggleAttribute(el, 'aria-expanded');
 			
@@ -52,7 +52,7 @@
 	
 		if (!el.closest('.n-fold') && !el.closest('.n-tool')) { // Clicking/tapping outside of a fold/tooltip element...
 			
-			qa('.n-fold.n-fold--mobile[aria-expanded], .n-tool--tip[aria-expanded]').forEach(el => { // ... closes all n-burger nav menus and tooltips
+			qa('.n-fold.n-fold__mobile[aria-expanded], .n-tool--tip[aria-expanded]').forEach(el => { // ... closes all n-burger nav menus and tooltips
 				
 				el.removeAttribute('aria-expanded');
 				
@@ -79,7 +79,7 @@
 		    el = el.parentNode;
 			var content = el.querySelector('.n-fold--content');
 			
-			if (!hasClass(el, 'n-fold--mobile')) {
+			if (!hasClass(el, 'n-fold__mobile')) {
 			
 				content.addEventListener('focusin', e => {
 					
@@ -93,7 +93,7 @@
 			
 			}
 			
-			if (hasClass(el, 'n-fold--horizontal')) {
+			if (hasClass(el, 'n-fold__horizontal')) {
 				
 				el.setAttribute('data-init', true);
 				content.style.setProperty('--width', content.scrollWidth + 'px');
@@ -142,7 +142,7 @@
 		
 	window.addEventListener('scroll', () => {  // Close fixed n-ovrl if its scrolling becomes a window scroll. Idea by a Google mobile nav.
 		
-		let expanded_nav = q('.n-fixed-mobile .n-fold.n-fold--mobile[aria-expanded]');
+		let expanded_nav = q('.n-header__fixed-mobile .n-fold.n-fold__mobile[aria-expanded]');
 		if (expanded_nav) {
 			
 			expanded_nav.removeAttribute('aria-expanded');

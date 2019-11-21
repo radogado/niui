@@ -99,5 +99,5 @@ footer .n-row {
     padding: 0; }
   main .n-row {
     padding: 0 !important; }
-  .n-fold.n-fold--mobile > .n-fold--label {
+  .n-fold.n-fold__mobile > .n-fold--label {
     margin: 0 auto 0 0; } }

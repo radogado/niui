@@ -28,7 +28,7 @@ img {
 
 }
 
-nav.n-nav.n-drop ul.n-list {
+nav.n-nav.n-nav__drop ul.n-list {
 
 	justify-content: flex-end;	
 
@@ -42,7 +42,7 @@ nav.n-nav.n-drop ul.n-list {
 	
 	}
 	
-	nav.n-nav.n-drop {
+	nav.n-nav.n-nav__drop {
 		
 		--control-bg: #333;
 		--control-color: #fff;
@@ -59,7 +59,7 @@ nav.n-nav.n-drop ul.n-list {
 
 }
 
-nav.n-nav.n-drop ul[role=menubar] li > a {
+nav.n-nav.n-nav__drop ul[role=menubar] li > a {
 	
 	padding: .5em;
     color: #fff;
@@ -290,7 +290,7 @@ b.circle {
 
 }
 
-.n-row.border {
+.n-row.n-row__border {
 	
 	--color: #e2e2e2;
 	background: #fff;

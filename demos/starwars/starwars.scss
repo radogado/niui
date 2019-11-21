@@ -170,7 +170,7 @@ main > .n-row > * {
 }
 */
 
-main .n-row:not(.n-row--vertical) > *, main .n-row.n-row--vertical > * > * {
+main .n-row:not(.n-row__vertical) > *, main .n-row.n-row__vertical > * > * {
 	
 	background-color: #282727;
 	border-radius: .5em;
@@ -180,44 +180,44 @@ main .n-row:not(.n-row--vertical) > *, main .n-row.n-row--vertical > * > * {
 
 }
 
-main .n-row .n-row:not(.n-row--vertical) > * {
+main .n-row .n-row:not(.n-row__vertical) > * {
 	
 	margin: 0;
 	
 }
 
-.n-row.n-row--vertical > * > * {
+.n-row.n-row__vertical > * > * {
 	
 	margin: 1em 0;
 
 }
 
-.n-row.n-row--vertical > * > *, .n-row > * {
+.n-row.n-row__vertical > * > *, .n-row > * {
 	
 	overflow: hidden;
 
 }
 
-.n-row.n-row--vertical > * {
+.n-row.n-row__vertical > * {
 	
 	border-radius: .5em;
 	margin: 0;
 
 }
 
-.n-row.n-row--vertical > * > :first-child {
+.n-row.n-row__vertical > * > :first-child {
 	
 	margin-top: 0;
 
 }
 
-main .n-row.n-row--vertical > * > * {
+main .n-row.n-row__vertical > * > * {
 
 	margin-left: 0;
 
 }
 
-.n-row.n-row--vertical > * > :last-child {
+.n-row.n-row__vertical > * > :last-child {
 	
 	margin-bottom: 0;
 
@@ -291,7 +291,7 @@ main h2 {
 	
 }
 
-.n-row.n-row--vertical * h2 {
+.n-row.n-row__vertical * h2 {
 	
 	padding-top: 0;
 	
@@ -430,7 +430,7 @@ main .n-row img[class*=col] {
 
 }
 
-nav.n-nav.n-nav--scroll ul.n-list {
+nav.n-nav.n-nav__scroll ul.n-list {
 	
 	padding-bottom: 0;
 

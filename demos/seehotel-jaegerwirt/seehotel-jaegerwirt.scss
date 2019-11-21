@@ -247,13 +247,13 @@ footer .about {
 
 @media screen and (max-width: 599.9px) {
 	
-	header nav.n-nav.n-drop {
+	header nav.n-nav.n-nav__drop {
 		
 		display: none;
 		
 	}
 
-	header.n-fixed-mobile .n-fold.mobile.open .n-fold--content {
+	header.n-header__fixed-mobile .n-fold.mobile.open .n-fold--content {
 		
 		right: 0;
 		left: 0;

@@ -46,14 +46,14 @@ main .nav-column {
 
 }
 
-.n-slider.n-slider--vertical:not([data-ready]) > * {
+.n-slider.n-slider__vertical:not([data-ready]) > * {
 
 //     display: none;
 	visibility: hidden; // Because display none breaks horizontal accordion as it can't get its actual width
 
 }
 
-.start-from-home .n-slider.n-slider--vertical:not([data-ready]) > :first-child {
+.start-from-home .n-slider.n-slider__vertical:not([data-ready]) > :first-child {
 	
 	visibility: visible;
 	
@@ -83,7 +83,7 @@ main, main.n-row > *, main > .n-slider--wrap {
 
 }
 
-main > 	._3\/4 > .n-slider--wrap > .n-slider.n-slider--vertical > * {
+main > 	._3\/4 > .n-slider--wrap > .n-slider.n-slider__vertical > * {
 	
 	max-height: 100%; // Because sliding animates to full slide height
 	min-height: 100%; // Because of slides shorter than viewport
@@ -123,7 +123,7 @@ body:not([data-natuive-js]) #content > ._3\/4 > .n-slider--wrap > .n-slider:not(
 
 }
 
-.n-slider.n-slider--vertical > [data-active] {
+.n-slider.n-slider__vertical > [data-active] {
 	
     overflow: auto;
     overflow-x: hidden;
@@ -154,7 +154,7 @@ body:not([data-natuive-js]) #content > ._3\/4 > .n-slider--wrap > .n-slider:not(
 
 }
 
-main > .n-slider--wrap.n-slider--vertical.tabs > .n-slider--nav * {
+main > .n-slider--wrap.n-slider__vertical.tabs > .n-slider--nav * {
 
 	padding: .25em 0.5em;
 	padding-left: 0;
@@ -162,14 +162,14 @@ main > .n-slider--wrap.n-slider--vertical.tabs > .n-slider--nav * {
 
 }
 
-.n-slider.n-slider--vertical {
+.n-slider.n-slider__vertical {
 	
 	flex-direction: column;
 	
 }
 
 /*
-main > ._3\/4 > .n-slider--wrap.n-slider--vertical.n-tabs > .n-slider {
+main > ._3\/4 > .n-slider--wrap.n-slider__vertical.n-tabs > .n-slider {
 
 	width: 100%;
 	height: 100vh !important;
@@ -178,7 +178,7 @@ main > ._3\/4 > .n-slider--wrap.n-slider--vertical.n-tabs > .n-slider {
 }
 */
 
-main > ._3\/4 > .n-slider--wrap.n-slider--vertical.n-tabs > .n-slider[data-sliding] {
+main > ._3\/4 > .n-slider--wrap.n-slider__vertical.n-tabs > .n-slider[data-sliding] {
 
 	overflow: visible;
 
@@ -204,7 +204,7 @@ main > .n-slider--wrap > .n-slider--nav [data-active] {
 
 }
 
-body:not([data-natuive-js]) .n-slider.n-slider--vertical > {
+body:not([data-natuive-js]) .n-slider.n-slider__vertical > {
 	
 	*:not(:first-child) {
 	
@@ -226,7 +226,7 @@ body:not([data-natuive-js]) .n-slider.n-slider--vertical > {
 
 }
 
-main > .n-slider--wrap > .n-slider.n-slider--vertical > .visible {
+main > .n-slider--wrap > .n-slider.n-slider__vertical > .visible {
 
 	height: 100%;
 	overflow-y: auto;
@@ -251,7 +251,7 @@ pre, .n-row > pre {
 
 }
 
-.n-row.grid-demo:not(.n-row--no-spacing) {
+.n-row.grid-demo:not(.n-row__no-spacing) {
 
     padding: 0 .33em;
     box-sizing: border-box;
@@ -304,14 +304,14 @@ li pre {
 
 @media (max-width: 599.9px) {
 	
-	main.n-row.n-row--no-spacing > [class^=col]._3\/4 {
+	main.n-row.n-row__no-spacing > [class^=col]._3\/4 {
 	
 	    width: 75%;
 	    margin: 0 0 0 25%;	
 		
 	}
 	
-	main.n-row.n-row--no-spacing > [class^=col]._1\/4 {
+	main.n-row.n-row__no-spacing > [class^=col]._1\/4 {
 	
 	    width: 25%;
 	    margin: 0;	
@@ -333,7 +333,7 @@ li pre {
 		
 	}
 	
-	main.n-row:not(.n-half) {
+	main.n-row:not(.n-row__half) {
 		
 		display: flex;
 		
@@ -434,7 +434,7 @@ body:not(data-threshold) #content > * {
 
 // Guide theme
 
-.n-slider--arrow, .n-slider--nav *, .n-tool:after, .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href], .n-fold > .n-fold--label, .n-drop, .n-form, .n-ovrl > .n-ovrl--close, .n-fold span.n-burger {
+.n-slider--arrow, .n-slider--nav *, .n-tool:after, .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href], .n-fold > .n-fold--label, .n-nav__drop, .n-form, .n-ovrl > .n-ovrl--close, .n-fold span.n-burger {
 	
 	--control-bg: lightcoral;
 	--control-color: #fff;		
@@ -458,7 +458,7 @@ body:not(data-threshold) #content > * {
 	
 }
 
-.n-lightbox--thumbnails {
+.n-lightbox__thumbnails {
 	
 	--thumb-size: 3em;
 	

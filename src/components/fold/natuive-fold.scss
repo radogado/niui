@@ -10,7 +10,7 @@
 	z-index: 1;
 	text-align: initial;
 	
-	&.n-fold--inline {
+	&.n-fold__inline {
 		
 		display: inline-grid;
 		vertical-align: top;
@@ -83,7 +83,7 @@
 		
 	}
 
-	&.n-fold--mobile {
+	&.n-fold__mobile {
 		
 		padding: 0;
 		width: auto;
@@ -112,7 +112,7 @@
 	
 	}
 	
-	&:not([data-init]):not(.n-fold--mobile) .n-fold--content { /* hidden fold item */
+	&:not([data-init]):not(.n-fold__mobile) .n-fold--content { /* hidden fold item */
 
 	    overflow: hidden;
 	    cursor: auto;
@@ -132,14 +132,14 @@
 
 	}
 	
-	&:not([aria-expanded]):not(.n-fold--mobile):not(.n-fold--horizontal) > .n-fold--content, &[aria-expanded]:not(.n-fold--horizontal) input.n-trigger:checked ~ .n-fold--content /* also for CSS-only open by default */ {
+	&:not([aria-expanded]):not(.n-fold__mobile):not(.n-fold__horizontal) > .n-fold--content, &[aria-expanded]:not(.n-fold__horizontal) input.n-trigger:checked ~ .n-fold--content /* also for CSS-only open by default */ {
 
 	    max-height: 0;
 	    max-height: var(--start-height, 0); // Fallback to 0
 
 	}
 	
-	&.n-fold--horizontal {
+	&.n-fold__horizontal {
 		
 		> * { // Not working in IE11-
 			
@@ -204,7 +204,7 @@
 
 	}
 
-	&:not(.n-fold--horizontal) > input.n-trigger:checked ~ .n-fold--content, &.n-fold--mobile:not(.n-fold--horizontal) .n-fold--content {
+	&:not(.n-fold__horizontal) > input.n-trigger:checked ~ .n-fold--content, &.n-fold__mobile:not(.n-fold__horizontal) .n-fold--content {
 		
 		max-height: none;
 
@@ -236,7 +236,7 @@
 	
 	}
 
-	&[data-ready]:not([aria-expanded]):not(.n-fold--mobile) { // Don't open it by tabbing, because of focuseable items inside
+	&[data-ready]:not([aria-expanded]):not(.n-fold__mobile) { // Don't open it by tabbing, because of focuseable items inside
 		
 		.n-fold--content:not([style*="--start-height"]) {
 			
@@ -337,7 +337,7 @@ _:-ms-input-placeholder, :root .n-fold--label:after {
 		
 		}
 
-		&.n-fold--horizontal > * {
+		&.n-fold__horizontal > * {
 			
 			display: block;
 	
@@ -349,7 +349,7 @@ _:-ms-input-placeholder, :root .n-fold--label:after {
 
 @media screen and (max-width: $screen-narrow-max) {
 
-	.n-fold.n-fold--mobile {
+	.n-fold.n-fold__mobile {
 
 		> .n-fold--label, > input.n-trigger {
 			
@@ -391,7 +391,7 @@ _:-ms-input-placeholder, :root .n-fold--label:after {
 
 	@supports (--a: 1) {
 
-		.n-header.n-fixed-mobile .n-fold.n-fold--mobile {
+		.n-header.n-header__fixed-mobile .n-fold.n-fold__mobile {
 			
 			position: fixed;
 		    top: 0;
@@ -429,7 +429,7 @@ _:-ms-input-placeholder, :root .n-fold--label:after {
 
 @media screen and (min-width: $screen-narrow) {
 
-	.n-fold.n-fold--mobile {
+	.n-fold.n-fold__mobile {
 		
 		overflow: visible;
 		

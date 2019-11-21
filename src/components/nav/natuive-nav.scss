@@ -36,7 +36,7 @@
 	
 	}
 	
-	&.n-nav--scroll {
+	&.n-nav__scroll {
 		
 		overflow: auto;
 		max-width: 100%;
@@ -66,7 +66,7 @@
 
 	}
 	
-	&:not(.n-drop) a[href^='#'] {
+	&:not(.n-nav__drop) a[href^='#'] {
 		
 		text-decoration: none;
 
@@ -82,7 +82,7 @@
 
 @supports (--a: 1) {
 	
-	.n-nav--scroll {
+	.n-nav__scroll {
 		
 		a {
 		
@@ -119,7 +119,7 @@ main .n-nav ul {
 
 $bg: inherit; // fallback for browsers unsupporting CSS variables
 
-.n-drop {
+.n-nav__drop {
 
     color: #333;
     color: var(--control-color, #333);
@@ -290,14 +290,14 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 		
 	}
 	
-	ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li:before {
+	ul.n-list:not(.n-list__no-bullet):not(.n-list__inline) li:before {
 	
 	    content: '';
 	    margin: 0;
 	
 	}
 	
-	ul.n-list:not(.n-list--no-bullet):not(.n-list--inline).n-left-side li:before {
+	ul.n-list:not(.n-list__no-bullet):not(.n-list__inline).n-left-side li:before {
 	
 		right: auto;
 		transform: rotate(180deg);
@@ -346,7 +346,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 
 @supports (-ms-ime-align:auto) { // Edge
 
-	.n-drop li[aria-haspopup]:before {
+	.n-nav__drop li[aria-haspopup]:before {
 			
 		background: transparent;
 		color: #000 !important;
@@ -357,7 +357,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 	
 	}
 	
-	.n-drop li li[aria-haspopup]:before {
+	.n-nav__drop li li[aria-haspopup]:before {
 		
 		content: '→' !important;
 
@@ -368,7 +368,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 	
 @media (min-width: $screen-narrow) {
 
-	.n-drop {
+	.n-nav__drop {
 		
 		--desktop: true;
 		
@@ -451,7 +451,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 
 	html:not(.can-touch) { // Hover rules here
 		
-		.n-drop {
+		.n-nav__drop {
 		
 			ul li:not([aria-expanded]) ul ul {
 			
@@ -516,14 +516,14 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 
 	}
 
-	nav.n-drop ul[role=menubar] > li > a {
+	nav.n-nav__drop ul[role=menubar] > li > a {
 		
 		max-width: 100vw;
 		white-space: normal;
 
 	}
 
-	nav.n-drop li {
+	nav.n-nav__drop li {
 		
 		white-space: nowrap;
 		
@@ -539,19 +539,19 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 	
 	// IE11
 
-	_:-ms-input-placeholder, :root nav.n-drop li {
+	_:-ms-input-placeholder, :root nav.n-nav__drop li {
 		
 		white-space: normal;
 
 	}
 		
-	_:-ms-input-placeholder, :root nav.n-drop ul ul ul {
+	_:-ms-input-placeholder, :root nav.n-nav__drop ul ul ul {
 
 		display: block;		
 
 	}
 
-	_:-ms-input-placeholder, :root nav.n-drop li:hover ul {
+	_:-ms-input-placeholder, :root nav.n-nav__drop li:hover ul {
 		
 		overflow: visible !important;
 		z-index: 2 !important;
@@ -559,13 +559,13 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 
 	}
 
-	_:-ms-input-placeholder, :root nav.n-drop input[type=checkbox] {
+	_:-ms-input-placeholder, :root nav.n-nav__drop input[type=checkbox] {
 		
 		display: none !important;
 
 	}
 
-	_:-ms-input-placeholder, :root nav.n-drop li ul ~ a:before {
+	_:-ms-input-placeholder, :root nav.n-nav__drop li ul ~ a:before {
 		
 		content: '↓';
 		position: absolute;
@@ -575,33 +575,33 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 
 	}
 
-	_:-ms-input-placeholder, :root nav.n-drop li li ul ~ a:before {
+	_:-ms-input-placeholder, :root nav.n-nav__drop li li ul ~ a:before {
 		
 		content: '→';
 
 	}
 	
-	_:-ms-input-placeholder, :root .n-drop:not([data-ready]) li:not([tabindex]) > ul ~ a {
+	_:-ms-input-placeholder, :root .n-nav__drop:not([data-ready]) li:not([tabindex]) > ul ~ a {
 		
 		padding-right: 1.75em;
 
 	}
 	
 /*
-	html.can-touch .n-drop ul li:not([aria-expanded]) > ul {
+	html.can-touch .n-nav__drop ul li:not([aria-expanded]) > ul {
 		
 		visibility: hidden;
 		
 	}
 */
 
-	html.can-touch .n-drop li .n-left-side > li:not([aria-expanded]) {
+	html.can-touch .n-nav__drop li .n-left-side > li:not([aria-expanded]) {
 		
 		overflow: hidden;
 	
 	}
 
-	[dir=rtl] .n-drop {
+	[dir=rtl] .n-nav__drop {
 		
 		li ul:not(.n-left-side) > li[aria-haspopup] {
 			
@@ -629,7 +629,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 
 }
 
-[dir=rtl] .n-drop {
+[dir=rtl] .n-nav__drop {
 	
 	ul.n-left-side li[aria-haspopup], li[aria-haspopup] {
 		
@@ -657,7 +657,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 
 @media (max-width: $screen-narrow-max) {
 
-	.n-drop ul {
+	.n-nav__drop ul {
 	
 		li:not([aria-expanded]) > ul {
 			
@@ -701,7 +701,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 	
 	   	}
 
-		&.n-list:not(.n-list--no-bullet):not(.n-list--inline).n-left-side li:before {
+		&.n-list:not(.n-list__no-bullet):not(.n-list__inline).n-left-side li:before {
 		
 			right: 0;
 			left: auto;
@@ -711,19 +711,19 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 		
 	}
 
-	.n-drop li[aria-haspopup]:before {
+	.n-nav__drop li[aria-haspopup]:before {
 		
 		-webkit-mask-position-y: .75em;		
 		
 	}
 	
-	.n-drop li > input {
+	.n-nav__drop li > input {
 		
 		-webkit-mask-position-y: 1.15em;		
 		
 	}
 	
-	html:not([data-natuive-js]) .n-drop {
+	html:not([data-natuive-js]) .n-nav__drop {
 		
 		width: 100%;
 		
@@ -748,13 +748,13 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 	
 	}
 
-	html:not([data-natuive-js]) .n-fold.n-fold--mobile:not([aria-expanded]) .n-fold--content {
+	html:not([data-natuive-js]) .n-fold.n-fold__mobile:not([aria-expanded]) .n-fold--content {
 		
 		max-width: 100%;
 		
 	}
 
-	[dir=rtl] .n-drop {
+	[dir=rtl] .n-nav__drop {
 		
 		li[aria-haspopup] {
 	
@@ -766,7 +766,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 			    padding-right: .5em;			    
 			    padding-left: 0;
 
-				&.n-list:not(.n-list--no-bullet):not(.n-list--inline).n-left-side li:before {
+				&.n-list:not(.n-list__no-bullet):not(.n-list__inline).n-left-side li:before {
 				
 					right: auto;
 					left: 0;
@@ -790,7 +790,7 @@ $bg: inherit; // fallback for browsers unsupporting CSS variables
 @supports (-webkit-overflow-scrolling: touch) { // Not working on iOS 13?
 
   /* CSS specific to iOS devices */ 
-  .n-drop :focus {
+  .n-nav__drop :focus {
 	  
 	  outline-style: dotted;
 	  outline-width: 1px;

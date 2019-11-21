@@ -49,7 +49,7 @@
 
 	}
 
-	.n-btn.n-btn--big, a[href].n-btn.n-btn--big, .n-form input[type=submit], .n-form button {
+	.n-btn.n-btn__big, a[href].n-btn.n-btn__big, .n-form input[type=submit], .n-form button {
 
 		margin: $line-height-em/3 0; // Re-calculate margin, because font-size has changed. To do: fix baseline.
 		font-size: 1.2em;
@@ -92,7 +92,7 @@ a.backtotop[href] {
 	
 	margin: 0 -.25em;
 
-	> *, .n-btn.n-btn--big, > a[href].n-btn.n-btn--big {
+	> *, .n-btn.n-btn__big, > a[href].n-btn.n-btn__big {
 		
 		margin-right: .25em;
 		margin-left: .25em;
@@ -103,7 +103,7 @@ a.backtotop[href] {
 
 @media screen and (max-width: $screen-narrow-max) {
 
-	.n-btn.n-btn--big {
+	.n-btn.n-btn__big {
 		
 		display: block;
 		text-align: center;

@@ -77,7 +77,7 @@ var componentSlider = (function (){
 		    
 	        var touches = e.touches;
 	
-	        if (touches && touches.length && !(hasClass(el, 'n-slider--vertical') && !el.closest('.n-ovrl'))) { // Don't slide vertically if not full window
+	        if (touches && touches.length && !(hasClass(el, 'n-slider__vertical') && !el.closest('.n-ovrl'))) { // Don't slide vertically if not full window
 	
 	            var deltaX = startX - touches[0].pageX;
 	            var deltaY = startY - touches[0].pageY;
@@ -85,7 +85,7 @@ var componentSlider = (function (){
 				var overlay_content = el.closest('.n-ovrl') ? el.closest('.n-ovrl').querySelector('.n-ovrl--content') : null;
 
 				// Allow vertical page scroll by swiping over the slider. Also when parent modal is scrollable vertically
-	            if (((hasClass(el, 'n-slider--vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !q('.n-ovrl .n-slider--wrap'))
+	            if (((hasClass(el, 'n-slider__vertical') ? (Math.abs(deltaY) < Math.abs(deltaX)) : (Math.abs(deltaX) < Math.abs(deltaY))) && !q('.n-ovrl .n-slider--wrap'))
 	            	|| (overlay_content && (overlay_content.scrollHeight > overlay_content.offsetHeight) && (Math.abs(deltaX) < Math.abs(deltaY)))
 	            	|| (e.target.nodeName === 'INPUT' && e.target.type === 'range')
 	            	|| hasClass(e.target.parentNode, 'n-slider--nav') || hasClass(e.target, 'n-slider--nav')
@@ -125,7 +125,7 @@ var componentSlider = (function (){
 		    var deltaX = (e.deltaX * -10) || e.wheelDeltaX || -e.detail; // Firefox provides 'detail' with opposite value
 		    var deltaY = (e.deltaY * -10) || e.wheelDeltaY || -e.detail;
 	
-		    if (Math.abs(hasClass(current_slider, 'n-slider--vertical') ? deltaY : deltaX) > 50) {
+		    if (Math.abs(hasClass(current_slider, 'n-slider__vertical') ? deltaY : deltaX) > 50) {
 	
 				scroll_timestamp = e.timeStamp;
 		        e.stopPropagation();
@@ -139,7 +139,7 @@ var componentSlider = (function (){
 	
 	function mouseEvents(el, toggle) {
 	
-	    if (!('onwheel' in window) || (hasClass(el, 'n-slider--vertical') && !el.closest('.n-ovrl'))) { // Check for mouse wheel and don't slide vertically if not full window
+	    if (!('onwheel' in window) || (hasClass(el, 'n-slider__vertical') && !el.closest('.n-ovrl'))) { // Check for mouse wheel and don't slide vertically if not full window
 		    
 		    return;
 		   
@@ -175,7 +175,7 @@ var componentSlider = (function (){
 	
 		slider.children[index].dataset.active = true; // Can't use 'sliding', because Closure Compiler obfuscates it
 	
-	    if (!hasClass(slider, 'n-slider--vertical')) {
+	    if (!hasClass(slider, 'n-slider__vertical')) {
 		    
 		    slider.style.marginLeft = `${-100*index}%`;
 		   
@@ -289,7 +289,7 @@ var componentSlider = (function (){
 		var height_change = '';
 		var height_current = '';
 		
-		if (hasClass(slider, 'n-slider--auto-height')) {
+		if (hasClass(slider, 'n-slider__auto-height')) {
 			
 			height_change =	`height: ${target_slide.scrollHeight}px`;
 			height_current = `height: ${slider.scrollHeight}px`;
@@ -300,9 +300,9 @@ var componentSlider = (function (){
 		target_slide.dataset.active = true;
 
 		var next_slide_image = target_slide.querySelector('img');
-		if (hasClass(slider, 'n-slider--vertical') || (hasClass(slider, 'n-slider--auto-height') && hasClass(slider, 'n-lightbox--inline'))) {
+		if (hasClass(slider, 'n-slider__vertical') || (hasClass(slider, 'n-slider__auto-height') && hasClass(slider, 'n-lightbox__inline'))) {
 			
-			if (hasClass(slider, 'n-lightbox--inline') && !hasClass(slider, 'n-slider--overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'n-aspect')) { // Inline lightbox only. To do: integrate n-aspect with n-slider--wrap
+			if (hasClass(slider, 'n-lightbox__inline') && !hasClass(slider, 'n-slider__overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'n-aspect')) { // Inline lightbox only. To do: integrate n-aspect with n-slider--wrap
 			
 				let next_image_width = next_slide_image.getAttribute('width') ? next_slide_image.getAttribute('width') * 1 : next_slide_image.naturalWidth; // To do: set data-width, data-height from the anochor link
 				let next_image_height = next_slide_image.getAttribute('height') ? next_slide_image.getAttribute('height') * 1 : next_slide_image.naturalHeight;
@@ -322,7 +322,7 @@ var componentSlider = (function (){
 	
 			} else { // Vertical, not a lightbox, non-img content (video, iframe)
 				
-				if (hasClass(slider, 'n-slider--auto-height')) {
+				if (hasClass(slider, 'n-slider__auto-height')) {
 
 					target_slide.style.position = 'absolute';
 	
@@ -364,12 +364,12 @@ var componentSlider = (function (){
 	
 		var translate_from, translate_to;
 		
-	    if (hasClass(slider, 'n-slider--vertical')) {
+	    if (hasClass(slider, 'n-slider__vertical')) {
 			
 			computed_height = parseInt(computed_height, 10);
 			computed_height_old = parseInt(computed_height_old, 10);
 
-			var next_height =  (!hasClass(slider, 'n-slider--overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'n-aspect')) ? (`-${height_change_number}px`) : '-100%';
+			var next_height =  (!hasClass(slider, 'n-slider__overlay') && next_slide_image && !hasClass(slider_wrap.parentNode, 'n-aspect')) ? (`-${height_change_number}px`) : '-100%';
 		    translate_from = `translate3d(0,${index<old_index ? ('-' + computed_height + 'px') : 0},0)`;
 		    if (hasClass(slider, 'n-tabs') && computed_height < original_slider_height && index < old_index) {
 				
@@ -439,7 +439,7 @@ var componentSlider = (function (){
 	
 	    }
 		    
-		if (hasClass(slider, 'n-slider--fade-overlap')) { // fade slides in/out directly. Overlap new and old slides.
+		if (hasClass(slider, 'n-slider__fade-overlap')) { // fade slides in/out directly. Overlap new and old slides.
 			
 		    slider.children[index].style.opacity = 0;
 			slider.children[index > old_index ? index : old_index].style.marginLeft = '-100%';
@@ -455,13 +455,13 @@ var componentSlider = (function (){
 			
 			var animation_code;
 	
-			if (hasClass(slider, 'n-slider--fade')) { // fade out to a color and fade in to the new slide
+			if (hasClass(slider, 'n-slider__fade')) { // fade out to a color and fade in to the new slide
 		
 				animation_code = `0% { opacity: 1; transform: ${translate_from}; ${height_current}} 49% { transform: ${translate_from} } 51% { opacity: 0; transform: ${translate_to} } 100% { ${height_change}; opacity: 1; transform: ${translate_to} }`;
 			
 			} else {
 
-				if (hasClass(slider, 'n-slider--vertical') && !hasClass(slider, 'n-lightbox') && old_index > index && computed_height < original_slider_height) {
+				if (hasClass(slider, 'n-slider__vertical') && !hasClass(slider, 'n-lightbox') && old_index > index && computed_height < original_slider_height) {
 					
 					animation_code = `0% { margin-top: -${computed_height}px; height: ${computed_height + computed_height_old}px; } 100% { margin-top: 0; ${height_change}; }`;
 
@@ -486,7 +486,7 @@ var componentSlider = (function (){
 			return false; 
 		
 		}
-		return !hasClass(el, 'n-slider--vertical') || window.innerHeight < bodyElement.scrollHeight;
+		return !hasClass(el, 'n-slider__vertical') || window.innerHeight < bodyElement.scrollHeight;
 		
 	}
 	
@@ -589,7 +589,7 @@ var componentSlider = (function (){
 	
 		if (hasClass(el, 'n-full-window')) {
 			
-		    addClass(el, 'n-slider--overlay');
+		    addClass(el, 'n-slider__overlay');
 			componentModal.openFullWindow(el.outerHTML);
 			
 		}
@@ -611,14 +611,14 @@ var componentSlider = (function (){
 
 		}
 		
-        ['n-slider--vertical', 'n-wrap', 'n-slider--top', 'n-slider--right', 'n-slider--overlay'].forEach(item => transferClass(el, container, item));
+        ['n-slider__vertical', 'n-wrap', 'n-slider__top', 'n-slider__right', 'n-slider__overlay'].forEach(item => transferClass(el, container, item));
 
 		var peek = el.getAttribute('data-peek');
 		if (peek) {
 			
-			addClass(container, 'n-slider--peek');
+			addClass(container, 'n-slider__peek');
 			
-        	container.style.padding = hasClass(el, 'n-slider--vertical') ? (peek + ' 0') : ('0 ' + peek);
+        	container.style.padding = hasClass(el, 'n-slider__vertical') ? (peek + ' 0') : ('0 ' + peek);
 
 		}
 		
@@ -628,9 +628,9 @@ var componentSlider = (function (){
 
 		if (el.id && (slider_nav = q(`.n-slider--nav[data-for=${el.id}]`))) { // Detached nav
 			
-			addClass(container, 'n-slider--detached-nav');
-			addClass(el, 'n-slider--detached-nav');
-			transferClass(container, slider_nav, 'n-slider--vertical');
+			addClass(container, 'n-slider__detached-nav');
+			addClass(el, 'n-slider__detached-nav');
+			transferClass(container, slider_nav, 'n-slider__vertical');
 	
 		} else {
 			
@@ -642,8 +642,8 @@ var componentSlider = (function (){
 			
 			if (!slider_nav) {
 				
-			    container.insertAdjacentHTML(hasClass(container, 'n-slider--top') ? 'afterbegin' : 'beforeend', '<div class=n-slider--nav></div>');
-	            slider_nav = hasClass(container, 'n-slider--top') ? container.firstChild : container.lastChild;
+			    container.insertAdjacentHTML(hasClass(container, 'n-slider__top') ? 'afterbegin' : 'beforeend', '<div class=n-slider--nav></div>');
+	            slider_nav = hasClass(container, 'n-slider__top') ? container.firstChild : container.lastChild;
 
 			}
 		
@@ -657,7 +657,7 @@ var componentSlider = (function (){
             addClass(slider_nav, 'n-row');
             addClass(slider_nav, 'n-tabs');
             transferClass(container, slider_nav, 'n-wrap');
-            transferClass(el, container, 'n-slider--vertical');
+            transferClass(el, container, 'n-slider__vertical');
 
 		}
 
@@ -684,7 +684,7 @@ var componentSlider = (function (){
 		let slideKeyboardHandler = (e) => {
 			
 			var scrollable = e.target; // Don't slide when current element is scrollable
-			if (e.key === 'Escape' || hasClass(scrollable.parentNode, '.n-slider--overlay')) {
+			if (e.key === 'Escape' || hasClass(scrollable.parentNode, '.n-slider__overlay')) {
 				
 				return;
 				
@@ -722,7 +722,7 @@ var componentSlider = (function (){
 		    
 	    // Generate arrows
 	
-	    container.insertAdjacentHTML('beforeend', '<button class="n-slider--arrow n-slider--left"></button><button class="n-slider--arrow n-slider--right"></button>');
+	    container.insertAdjacentHTML('beforeend', '<button class="n-slider--arrow n-slider--left"></button><button class="n-slider--arrow n-slider__right"></button>');
 	    
 	    let setArrowEvents = (selector, direction) => {
 		    
@@ -744,7 +744,7 @@ var componentSlider = (function (){
 	    };
 	    
 	    setArrowEvents('', 'left');
-	    setArrowEvents('.n-slider--right', 'right');
+	    setArrowEvents('.n-slider__right', 'right');
 	
 	    // Set mouse and touch events
 	
@@ -813,7 +813,7 @@ var componentSlider = (function (){
 		    
 	    el.addEventListener('keyup', sliderKeyboard);
 		
-	    if (hasClass(el, 'n-lightbox--inline')) { // It's an inline lightbox and needs to become full window/screen when clicked. If it's not a dynamically generated lightbox for full-window lightbox
+	    if (hasClass(el, 'n-lightbox__inline')) { // It's an inline lightbox and needs to become full window/screen when clicked. If it's not a dynamically generated lightbox for full-window lightbox
 		    
 		    el.onclick = e => {
 			    

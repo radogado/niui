@@ -410,13 +410,13 @@ a.span-relative-parent ~ a:after {
 
 }
 
-.n-slider--arrow.n-slider--right {
+.n-slider--arrow.n-slider__right {
 	
 	right: 0;
 	
 }
 
-.n-slider--arrow.n-slider--right:before {
+.n-slider--arrow.n-slider__right:before {
 	
 	content: '>';
 	
@@ -792,14 +792,14 @@ footer .footer-bottom span.icon-globe {
 	
 }
 
-nav.n-nav.n-drop {
+nav.n-nav.n-nav__drop {
 	
 	vertical-align: middle;
 	--control-color: #000;
 
 }
 
-ul:not(.n-list--no-bullet):not(.n-list--inline) li {
+ul:not(.n-list__no-bullet):not(.n-list__inline) li {
 	
 	margin: 0;
 	

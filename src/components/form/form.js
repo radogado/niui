@@ -10,7 +10,7 @@
 	
 	    var ready_to_submit = true;
 	
-	    el.querySelectorAll('.n-form--mandatory').forEach((el) => {
+	    el.querySelectorAll('.n-form__mandatory').forEach((el) => {
 		    
 		    if (el.closest('[disabled]')) { // Ignore disabled conditional fields
 			    
@@ -67,11 +67,11 @@
 	
 	}
 	
-	if (q('.n-form--language')) { // To do: make it universal .submitonchange and for more than 1 form
+	if (q('.n-form__language')) { // To do: make it universal .submitonchange and for more than 1 form
 	
-	    q('.n-form--language select').onchange = (e) => {
+	    q('.n-form__language select').onchange = (e) => {
 	
-	        q('.n-form--language').submit();
+	        q('.n-form__language').submit();
 	
 	    };
 	

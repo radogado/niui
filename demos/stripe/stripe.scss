@@ -199,7 +199,7 @@ main a[href]:not(.span-relative-parent):after, .sign-in:after {
     background: #a1ffc8
 }
 
-nav.n-nav.n-drop {
+nav.n-nav.n-nav__drop {
 
     --control-color: #fff;
     
@@ -471,7 +471,7 @@ nav.n-nav.n-drop {
 	
 }
 
-.n-slider--wrap.n-slider--vertical.n-tabs>.n-slider--nav * {
+.n-slider--wrap.n-slider__vertical.n-tabs>.n-slider--nav * {
 	
 	background: none;
     color: #6772e5;
@@ -480,7 +480,7 @@ nav.n-nav.n-drop {
     	
 }
 
-.n-slider--wrap.n-slider--vertical.n-tabs>.n-slider--nav [data-active] {
+.n-slider--wrap.n-slider__vertical.n-tabs>.n-slider--nav [data-active] {
 	
 	background: #fff;
     color: #24b47e;
@@ -497,7 +497,7 @@ nav.n-nav.n-drop {
 	    
 }
 
-.n-slider--wrap.n-slider--vertical.n-tabs.n-slider--right>.n-slider--nav.n-row {
+.n-slider--wrap.n-slider__vertical.n-tabs.n-slider__right>.n-slider--nav.n-row {
 	
 	padding: 1em 0;
 	
@@ -570,13 +570,13 @@ main ul {
 	
 }
 
-.no-touch nav.n-nav.n-drop ul ul li, .no-touch nav.n-nav.n-drop ul ul li:first-child, nav.n-nav.n-drop ul li a {
+.no-touch nav.n-nav.n-nav__drop ul ul li, .no-touch nav.n-nav.n-nav__drop ul ul li:first-child, nav.n-nav.n-nav__drop ul li a {
 	
 	text-align: left;
 		
 }
 
-nav.n-nav.n-drop ul li li a {
+nav.n-nav.n-nav__drop ul li li a {
 
 	color: #000;	
 
@@ -584,13 +584,13 @@ nav.n-nav.n-drop ul li li a {
 
 @media (min-width: 600px) {
 
-	.n-slider--wrap.n-slider--vertical.n-tabs>.n-slider {
+	.n-slider--wrap.n-slider__vertical.n-tabs>.n-slider {
 		
 		width: 80%;
 		
 	}
 
-	.n-slider--wrap.n-slider--vertical.n-tabs>.n-slider--nav.n-row {
+	.n-slider--wrap.n-slider__vertical.n-tabs>.n-slider--nav.n-row {
 		
 		width: 20%;
 		
@@ -606,7 +606,7 @@ nav.n-nav.n-drop ul li li a {
 
 @media screen and (max-width: 599.9px) {
 	
-	.n-header.n-fixed, .n-header.n-fixed .n-fold.n-fold--mobile .content {
+	.n-header.n-fixed, .n-header.n-fixed .n-fold.n-fold__mobile .content {
 		
 		background: #000;
 		
@@ -660,7 +660,7 @@ nav.n-nav.n-drop ul li li a {
 		
 	}
 
-	.n-slider.n-slider--vertical[data-ready]>* {
+	.n-slider.n-slider__vertical[data-ready]>* {
 		
 		padding: 0;
 		

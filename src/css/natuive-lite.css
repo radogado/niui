@@ -229,7 +229,7 @@ button.n-btn[disabled] {
   font-size: inherit;
 }
 
-.n-btn.n-btn--big, a[href].n-btn.n-btn--big, .n-form input[type=submit], .n-form button {
+.n-btn.n-btn__big, a[href].n-btn.n-btn__big, .n-form input[type=submit], .n-form button {
   margin: 0.5em 0;
   font-size: 1.2em;
   padding: 0.75em 1em;
@@ -265,13 +265,13 @@ a.backtotop[href] {
 .n-btn--group {
   margin: 0 -0.25em;
 }
-.n-btn--group > *, .n-btn--group .n-btn.n-btn--big, .n-btn--group > a[href].n-btn.n-btn--big {
+.n-btn--group > *, .n-btn--group .n-btn.n-btn__big, .n-btn--group > a[href].n-btn.n-btn__big {
   margin-right: 0.25em;
   margin-left: 0.25em;
 }
 
 @media screen and (max-width: 599.9px) {
-  .n-btn.n-btn--big {
+  .n-btn.n-btn__big {
     display: block;
     text-align: center;
   }
@@ -468,10 +468,10 @@ a.backtotop[href] {
   top: 0.05em;
   vertical-align: middle;
 }
-.n-form.n-form--mast .n-form--check-icon {
+.n-form.n-form__mast .n-form--check-icon {
   top: 0.25em;
 }
-.n-form.n-form--wide .n-form--check-icon {
+.n-form.n-form__wide .n-form--check-icon {
   top: 0.08em;
 }
 .n-form input[type=checkbox] + .n-form--check-icon:before {
@@ -512,13 +512,13 @@ a.backtotop[href] {
   left: 25%;
   border-radius: 50%;
 }
-.n-form .n-form--mandatory span.n-form--check:before, .n-form .n-form--mandatory span.tip:after, .n-form select::-ms-expand {
+.n-form .n-form__mandatory span.n-form--check:before, .n-form .n-form__mandatory span.tip:after, .n-form select::-ms-expand {
   display: none;
 }
-.n-form .n-form--mandatory {
+.n-form .n-form__mandatory {
   position: relative;
 }
-.n-form .n-form--mandatory:before {
+.n-form .n-form__mandatory:before {
   content: "*";
   color: #a00;
   position: absolute;
@@ -718,10 +718,10 @@ a.backtotop[href] {
   text-align: start;
   font-size: 1.2em;
 }
-.n-form.n-form--wide textarea, .n-form.n-form--mast textarea {
+.n-form.n-form__wide textarea, .n-form.n-form__mast textarea {
   margin: -0.75em 0 0.75em 0;
 }
-.n-form.n-form--wide input[type=submit], .n-form.n-form--wide button, .n-form.n-form--wide button[type=submit] {
+.n-form.n-form__wide input[type=submit], .n-form.n-form__wide button, .n-form.n-form__wide button[type=submit] {
   margin-bottom: calc(1.5em - 5px);
   /* fix for the failed box-sizing: border-box */
   line-height: 1em;
@@ -729,55 +729,55 @@ a.backtotop[href] {
   min-height: 2.50005em;
   width: 100%;
 }
-.n-form.n-form--wide select {
+.n-form.n-form__wide select {
   width: 100%;
   height: 3em;
   margin: -0.75em 0 0.75em 0;
 }
-.n-form.n-form--wide label, .n-form.n-form--wide label span, .n-form.n-form--wide .n-form--check span, .n-form.n-form--wide label, .n-form.n-form--wide .n-form--file {
+.n-form.n-form__wide label, .n-form.n-form__wide label span, .n-form.n-form__wide .n-form--check span, .n-form.n-form__wide label, .n-form.n-form__wide .n-form--file {
   display: block;
   width: 100%;
   clear: both;
 }
-.n-form.n-form--wide:not(.sticky-submit) input:not([type=checkbox]):not([type=radio]), .n-form.n-form--wide textarea, .n-form.n-form--wide select {
+.n-form.n-form__wide:not(.sticky-submit) input:not([type=checkbox]):not([type=radio]), .n-form.n-form__wide textarea, .n-form.n-form__wide select {
   display: block;
   width: 100%;
   border: none;
   margin: 0 0 1.5em 0;
 }
-.n-form.n-form--wide .n-form--check label input[type=checkbox], .n-form.n-form--wide .n-form--check label input[type=radio] {
+.n-form.n-form__wide .n-form--check label input[type=checkbox], .n-form.n-form__wide .n-form--check label input[type=radio] {
   margin-top: -0.2em;
 }
-.n-form.n-form--mast input[type=submit], .n-form.n-form--mast button, .n-form.n-form--mast button[type=submit] {
+.n-form.n-form__mast input[type=submit], .n-form.n-form__mast button, .n-form.n-form__mast button[type=submit] {
   margin-left: 50%;
   margin-bottom: 2.25em;
 }
-.n-form.n-form--mast label {
+.n-form.n-form__mast label {
   width: 100%;
 }
-.n-form.n-form--mast label > input {
+.n-form.n-form__mast label > input {
   margin-top: -0.75em;
 }
-.n-form.n-form--mast > label > *, .n-form.n-form--mast > .n-form--check > * {
+.n-form.n-form__mast > label > *, .n-form.n-form__mast > .n-form--check > * {
   width: 50%;
   float: right;
   margin: -0.75em 0 2.25em 0;
 }
-.n-form.n-form--mast > label > span, .n-form.n-form--mast > .n-form--check > span {
+.n-form.n-form__mast > label > span, .n-form.n-form__mast > .n-form--check > span {
   width: 50%;
   text-align: right;
   padding-right: 1em;
   float: left;
   margin: 0;
 }
-.n-form.n-form--mast > .n-form--check > * {
+.n-form.n-form__mast > .n-form--check > * {
   margin: 0;
 }
-.n-form.n-form--mast .n-form--mandatory:before {
+.n-form.n-form__mast .n-form__mandatory:before {
   left: calc(50% - 1em);
   z-index: -1;
 }
-.n-form.n-form--language select {
+.n-form.n-form__language select {
   height: auto;
   width: 100%;
   background-position: calc(100% - .5em);
@@ -786,28 +786,28 @@ a.backtotop[href] {
   line-height: 3em;
   margin: 0;
 }
-.n-form.n-form--language input[type=submit] {
+.n-form.n-form__language input[type=submit] {
   min-height: 1em;
   padding: 0 0.5em;
 }
 
-_:-ms-input-placeholder, :root input[type=radio] + .n-form--check-icon, .n-form.n-form--wide .n-form--check-icon, .n-form .n-form--file input[type=file] {
+_:-ms-input-placeholder, :root input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-form--check-icon, .n-form .n-form--file input[type=file] {
   top: 0.33em;
   text-indent: 0;
   padding: 0;
 }
 
-_:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form--wide .n-form--check-icon, .n-form .n-form--file input[type=file] {
+_:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-form--check-icon, .n-form .n-form--file input[type=file] {
   top: 0.33em;
   text-indent: 0;
   padding: 0;
 }
 
-[dir=rtl] .n-form .n-form--mandatory:before {
+[dir=rtl] .n-form .n-form__mandatory:before {
   left: 0;
   right: auto;
 }
-[dir=rtl] .n-form.n-form--mast .n-form--mandatory:before {
+[dir=rtl] .n-form.n-form__mast .n-form__mandatory:before {
   right: calc(50% - 1em);
   left: auto;
 }
@@ -1051,27 +1051,27 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form--wide .n-
       --col-width: 1/3;
     }
   }
-  .n-row.n-row--no-padding, .n-row.n-row--no-padding > * {
+  .n-row.n-row__no-padding, .n-row.n-row__no-padding > * {
     --spacing: 0.75em;
     padding: 0;
   }
 
-  .n-row.n-row--no-margin, .n-row.n-row--no-margin > *, .n-row.n-row--vertical > * {
+  .n-row.n-row__no-margin, .n-row.n-row__no-margin > *, .n-row.n-row__vertical > * {
     --spacing: 0.75em;
     margin: 0;
   }
 
-  .n-row.n-row--no-spacing > * {
+  .n-row.n-row__no-spacing > * {
     --spacing: 0em;
     padding: 0;
     margin: 0;
   }
 
-  .n-row.spacing-horizontal > * {
+  .n-row.n-row__spacing-horizontal > * {
     margin: 0 0.75em;
   }
 
-  .n-row.spacing-vertical > * {
+  .n-row.n-row__spacing-vertical > * {
     margin: 0.75em 0;
   }
 
@@ -1157,11 +1157,11 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form--wide .n-
   text-align: inherit;
 }
 
-.n-row.n-row--vertical {
+.n-row.n-row__vertical {
   flex-direction: column;
   min-height: 100%;
 }
-.n-row.n-row--vertical > *, .n-row.n-row--vertical > [class^=_], .n-row.n-row--vertical > [class*=" _"] {
+.n-row.n-row__vertical > *, .n-row.n-row__vertical > [class^=_], .n-row.n-row__vertical > [class*=" _"] {
   width: 100%;
   box-sizing: border-box;
 }
@@ -1248,17 +1248,17 @@ ol.n-masonry > * {
   margin: -1.5em 0;
 }
 
-.n-row.n-border-all {
+.n-row.n-row__border-all {
   --color: #000;
   box-shadow: inset 0 0 0 1px var(--color);
 }
-.n-row.n-border-all > * {
+.n-row.n-row__border-all > * {
   box-shadow: inset 1px 1px 0 0 var(--color);
   margin: 0;
   flex-basis: calc(var(--col-width) * 100% - var(--spacing)/2);
 }
 
-.n-row.n-border {
+.n-row.n-row__border {
   --color: #000;
   box-shadow: inset 0 0 0 1px var(--color);
 }
@@ -1269,7 +1269,7 @@ ol.n-masonry > * {
   box-shadow: inset 0 0 0 1px #e6e6e6;
 }
 
-.n-row.n-border-off, .n-row.n-border-off * {
+.n-row.n-row__border-off, .n-row.n-row__border-off * {
   box-shadow: none;
 }
 
@@ -1278,11 +1278,11 @@ ol.n-masonry > * {
     box-sizing: border-box;
   }
 
-  .n-row:not(.n-half) {
+  .n-row:not(.n-row__half) {
     display: block;
     max-width: 100%;
   }
-  .n-row:not(.n-half) > * > .n-unpad {
+  .n-row:not(.n-row__half) > * > .n-unpad {
     margin: -0.6em 0 -0.6em -0.3em;
     width: calc(100% + .6em);
     max-width: none;
@@ -1295,7 +1295,7 @@ ol.n-masonry > * {
     box-sizing: border-box;
   }
 
-  .n-row:not(.n-row--no-margin):not(.n-border-all):not(.n-tabs):not(.grid-inline-popup) > *, .n-row:not(.n-row--no-margin):not(.n-border-all) > [class^=_] {
+  .n-row:not(.n-row__no-margin):not(.n-row__border-all):not(.n-tabs):not(.grid-inline-popup) > *, .n-row:not(.n-row__no-margin):not(.n-row__border-all) > [class^=_] {
     margin: 0.25em 0;
     display: block;
   }
@@ -1315,30 +1315,30 @@ ol.n-masonry > * {
     padding: 0;
   }
 
-  .n-row.n-row--no-spacing > *, .n-row.n-row--no-spacing > [class^=_] {
+  .n-row.n-row__no-spacing > *, .n-row.n-row__no-spacing > [class^=_] {
     margin: 0;
     padding: 0;
   }
 
-  .no-mobile-gutter.n-row > * {
+  .n-row__no-mobile-gutter.n-row > * {
     padding: 0;
   }
 
-  .n-row > *, .n-row.border, .n-row.border > * {
+  .n-row > *, .n-row.n-row__border, .n-row.n-row__border > * {
     border: none;
   }
 
-  .n-row.n-half > * {
+  .n-row.n-row__half > * {
     width: 50%;
     flex: 0 0 50%;
   }
 
-  .n-row.n-border-all .n-row {
+  .n-row.n-row__border-all .n-row {
     width: calc(100% + 1.5em);
   }
 
   /*
-  	.n-row.n-border-all > *, .n-row.n-border-all .n-row {
+  	.n-row.n-row__border-all > *, .n-row.n-row__border-all .n-row {
 
   		margin: 0;
   		padding: 0;
@@ -1375,11 +1375,11 @@ ul.n-list li {
   word-break: break-word;
   word-wrap: break-word;
 }
-ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li {
+ul.n-list:not(.n-list__no-bullet):not(.n-list__inline) li {
   margin-inline-start: 1em;
   max-width: calc(100% - 1em);
 }
-ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li:before {
+ul.n-list:not(.n-list__no-bullet):not(.n-list__inline) li:before {
   content: "•";
   position: absolute;
   margin-inline-start: -0.67em;
@@ -1387,7 +1387,7 @@ ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li:before {
   font-size: 1.5em;
   line-height: 0.9;
 }
-ul.n-list.n-list--inline > li:first-child {
+ul.n-list.n-list__inline > li:first-child {
   margin-inline-start: 0;
 }
 
@@ -1459,13 +1459,13 @@ ol.n-list p {
   text-indent: 0;
 }
 
-ul.n-list.n-list--inline, ul.n-list.n-list--inline li, .n-nav.n-nav--scroll ul li {
+ul.n-list.n-list__inline, ul.n-list.n-list__inline li, .n-nav.n-nav__scroll ul li {
   vertical-align: top;
   display: inline-block;
   width: auto;
 }
 
-.n-nav ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li {
+.n-nav ul.n-list:not(.n-list__no-bullet):not(.n-list__inline) li {
   margin-inline-start: 0;
   max-width: 100%;
 }
@@ -1508,11 +1508,11 @@ ul.n-list.n-list--inline, ul.n-list.n-list--inline li, .n-nav.n-nav--scroll ul l
 .n-nav ul li:last-child {
   margin-right: 0;
 }
-.n-nav.n-nav--scroll {
+.n-nav.n-nav__scroll {
   overflow: auto;
   max-width: 100%;
 }
-.n-nav.n-nav--scroll > ul {
+.n-nav.n-nav__scroll > ul {
   display: flex;
   padding: 0.25em 0;
   flex-wrap: nowrap;
@@ -1526,7 +1526,7 @@ ul.n-list.n-list--inline, ul.n-list.n-list--inline li, .n-nav.n-nav--scroll ul l
   text-decoration: none;
   opacity: 0.7;
 }
-.n-nav:not(.n-drop) a[href^="#"] {
+.n-nav:not(.n-nav__drop) a[href^="#"] {
   text-decoration: none;
 }
 .n-nav.n-row {
@@ -1534,16 +1534,16 @@ ul.n-list.n-list--inline, ul.n-list.n-list--inline li, .n-nav.n-nav--scroll ul l
 }
 
 @supports (--a: 1) {
-  .n-nav--scroll a {
+  .n-nav__scroll a {
     padding: 0;
   }
-  .n-nav--scroll > ul {
+  .n-nav__scroll > ul {
     overflow: auto;
     max-width: 100%;
     transform: translate3d(0, 0, 0);
     -webkit-overflow-scrolling: touch;
   }
-  .n-nav--scroll ul li {
+  .n-nav__scroll ul li {
     padding: 0.75em;
   }
 }
@@ -1551,37 +1551,37 @@ main .n-nav ul {
   padding-left: 0;
 }
 
-.n-drop {
+.n-nav__drop {
   color: #333;
   color: var(--control-color, #333);
   background-color: transparent;
   max-width: 100%;
 }
-.n-drop ul {
+.n-nav__drop ul {
   padding: 0;
   margin: 0;
   min-height: 0;
   z-index: 1;
 }
-.n-drop ul ul {
+.n-nav__drop ul ul {
   padding: 0;
   position: absolute;
   left: 0;
   top: 100%;
 }
-.n-drop ul ul ul {
+.n-nav__drop ul ul ul {
   margin-left: 100%;
   top: 0;
 }
-.n-drop ul ul.n-left-side.n-right-overflow {
+.n-nav__drop ul ul.n-left-side.n-right-overflow {
   margin-left: var(--n-right-overflow, 0);
 }
-.n-drop ul ul.n-left-side ul {
+.n-nav__drop ul ul.n-left-side ul {
   margin-left: 0;
   left: auto;
   right: 100%;
 }
-.n-drop ul li {
+.n-nav__drop ul li {
   display: inline-block;
   vertical-align: top;
   margin: 0;
@@ -1592,44 +1592,44 @@ main .n-nav ul {
   background-color: #fff;
   background-color: var(--control-bg, #fff);
 }
-.n-drop li > a {
+.n-nav__drop li > a {
   padding: 0.75em;
   display: block;
 }
-.n-drop a:focus, .n-drop li > :focus {
+.n-nav__drop a:focus, .n-nav__drop li > :focus {
   outline-offset: -7px;
 }
-.n-drop a[href] {
+.n-nav__drop a[href] {
   position: relative;
 }
-.n-drop li:not([aria-haspopup]) > a {
+.n-nav__drop li:not([aria-haspopup]) > a {
   z-index: 0;
 }
-.n-drop ul[role=menubar] li > a {
+.n-nav__drop ul[role=menubar] li > a {
   margin-right: 0;
   padding-right: 0.75em;
 }
-.n-drop ul[role=menubar] li[aria-haspopup] > a {
+.n-nav__drop ul[role=menubar] li[aria-haspopup] > a {
   margin-right: 1.75em;
   padding-right: 0.75em;
 }
-.n-drop[data-ready] ul[role=menubar] li[aria-haspopup] > a {
+.n-nav__drop[data-ready] ul[role=menubar] li[aria-haspopup] > a {
   margin-right: 0;
   padding-right: 0.75em;
 }
-.n-drop li li {
+.n-nav__drop li li {
   display: block;
   width: 100%;
 }
-.n-drop ul li:not([aria-expanded]) > ul {
+.n-nav__drop ul li:not([aria-expanded]) > ul {
   min-height: 0;
   max-height: 0;
   overflow: hidden;
   position: absolute;
   /* 		visibility: hidden; // Disables hover */
 }
-.n-drop ul li > :checked ~ ul, .n-drop :focus ~ ul,
-.n-drop a:focus ~ ul, .n-drop ul li[aria-expanded] > ul, .n-drop li li[aria-expanded] > ul, .n-drop li li:not(:focus) :checked ~ ul {
+.n-nav__drop ul li > :checked ~ ul, .n-nav__drop :focus ~ ul,
+.n-nav__drop a:focus ~ ul, .n-nav__drop ul li[aria-expanded] > ul, .n-nav__drop li li[aria-expanded] > ul, .n-nav__drop li li:not(:focus) :checked ~ ul {
   max-height: none;
   overflow: visible;
   opacity: 1;
@@ -1637,10 +1637,10 @@ main .n-nav ul {
   background-color: #fff;
   background-color: var(--control-bg, #fff);
 }
-.n-drop ul li[aria-expanded] > ul, .n-drop li li[aria-expanded] > ul, .n-drop li li:not(:focus) :checked ~ ul {
+.n-nav__drop ul li[aria-expanded] > ul, .n-nav__drop li li[aria-expanded] > ul, .n-nav__drop li li:not(:focus) :checked ~ ul {
   z-index: 2;
 }
-.n-drop li > input {
+.n-nav__drop li > input {
   -webkit-appearance: none;
   -moz-appearance: none;
   display: block;
@@ -1655,7 +1655,7 @@ main .n-nav ul {
   font-size: inherit;
   cursor: pointer;
 }
-.n-drop li[aria-haspopup]:before {
+.n-nav__drop li[aria-haspopup]:before {
   content: "";
   position: absolute;
   display: block;
@@ -1664,11 +1664,11 @@ main .n-nav ul {
   width: 1.25em;
   height: 100%;
 }
-.n-drop ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li:before {
+.n-nav__drop ul.n-list:not(.n-list__no-bullet):not(.n-list__inline) li:before {
   content: "";
   margin: 0;
 }
-.n-drop ul.n-list:not(.n-list--no-bullet):not(.n-list--inline).n-left-side li:before {
+.n-nav__drop ul.n-list:not(.n-list__no-bullet):not(.n-list__inline).n-left-side li:before {
   right: auto;
   transform: rotate(180deg);
   left: 0;
@@ -1676,28 +1676,28 @@ main .n-nav ul {
   top: 0;
   height: 2em;
 }
-.n-drop.n-nav ul.n-list li:before {
+.n-nav__drop.n-nav ul.n-list li:before {
   display: block;
   height: 100%;
 }
-.n-drop li[aria-haspopup]:before, .n-drop li > input {
+.n-nav__drop li[aria-haspopup]:before, .n-nav__drop li > input {
   -webkit-mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(180) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A") center center no-repeat;
   -webkit-mask-size: 0.4em;
   background-color: #000;
   background-color: var(--control-color, #000);
 }
-.n-drop li > input {
+.n-nav__drop li > input {
   -webkit-mask-size: 0.6em;
 }
-.n-drop[data-ready] li > ul ~ a {
+.n-nav__drop[data-ready] li > ul ~ a {
   background: none;
 }
-.n-drop li[aria-haspopup] {
+.n-nav__drop li[aria-haspopup] {
   padding-inline-end: 1.875em;
 }
 
 @supports (-ms-ime-align: auto) {
-  .n-drop li[aria-haspopup]:before {
+  .n-nav__drop li[aria-haspopup]:before {
     background: transparent;
     color: #000 !important;
     color: var(--control-color, #000) !important;
@@ -1706,81 +1706,81 @@ main .n-nav ul {
     line-height: 2 !important;
   }
 
-  .n-drop li li[aria-haspopup]:before {
+  .n-nav__drop li li[aria-haspopup]:before {
     content: "→" !important;
   }
 }
 @media (min-width: 600px) {
-  .n-drop {
+  .n-nav__drop {
     --desktop: true;
   }
-  .n-drop ul ul {
+  .n-nav__drop ul ul {
     transition: transform 0.2s ease-in-out;
     transform-origin: top;
     transform: scaleY(0);
   }
-  .n-drop ul li > :checked ~ ul, .n-drop :focus ~ ul,
-.n-drop a:focus ~ ul, .n-drop ul li[aria-expanded] > ul, .n-drop li li[aria-expanded] > ul, .n-drop li li:not(:focus) :checked ~ ul {
+  .n-nav__drop ul li > :checked ~ ul, .n-nav__drop :focus ~ ul,
+.n-nav__drop a:focus ~ ul, .n-nav__drop ul li[aria-expanded] > ul, .n-nav__drop li li[aria-expanded] > ul, .n-nav__drop li li:not(:focus) :checked ~ ul {
     transform: scaleY(1);
   }
-  .n-drop ul li > :checked ~ ul ul, .n-drop :focus ~ ul ul,
-.n-drop a:focus ~ ul ul, .n-drop ul li[aria-expanded] > ul ul, .n-drop li li[aria-expanded] > ul ul, .n-drop li li:not(:focus) :checked ~ ul ul {
+  .n-nav__drop ul li > :checked ~ ul ul, .n-nav__drop :focus ~ ul ul,
+.n-nav__drop a:focus ~ ul ul, .n-nav__drop ul li[aria-expanded] > ul ul, .n-nav__drop li li[aria-expanded] > ul ul, .n-nav__drop li li:not(:focus) :checked ~ ul ul {
     transform: scaleX(1);
     transform-origin: left;
   }
-  .n-drop li li[aria-haspopup]:before, .n-drop li li > input {
+  .n-nav__drop li li[aria-haspopup]:before, .n-nav__drop li li > input {
     -webkit-mask-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(90) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A");
   }
-  .n-drop:not([data-ready]) li {
+  .n-nav__drop:not([data-ready]) li {
     display: flex;
   }
-  .n-drop:not([data-ready]) li > input {
+  .n-nav__drop:not([data-ready]) li > input {
     position: static;
     order: 1;
   }
-  .n-drop:not([data-ready]) li:not([tabindex]) > ul ~ a {
+  .n-nav__drop:not([data-ready]) li:not([tabindex]) > ul ~ a {
     padding-right: 0.75em;
   }
-  .n-drop li:not([tabindex]) > ul ~ a {
+  .n-nav__drop li:not([tabindex]) > ul ~ a {
     padding-right: 2.75em;
   }
-  .n-drop ul.n-left-side li[aria-haspopup] {
+  .n-nav__drop ul.n-left-side li[aria-haspopup] {
     padding-inline-end: 0;
     padding-inline-start: 1.875em;
   }
-  .n-drop ul.n-left-side li[aria-haspopup]:before {
+  .n-nav__drop ul.n-left-side li[aria-haspopup]:before {
     transform: rotate(180deg);
   }
 
-  html:not(.can-touch) .n-drop ul li:not([aria-expanded]) ul ul {
+  html:not(.can-touch) .n-nav__drop ul li:not([aria-expanded]) ul ul {
     transition: 0.1s 0.2s;
     opacity: 0;
     position: absolute;
     transform: scaleX(0);
     transform-origin: left;
   }
-  html:not(.can-touch) .n-drop ul li:not([aria-expanded]) ul.n-left-side ul {
+  html:not(.can-touch) .n-nav__drop ul li:not([aria-expanded]) ul.n-left-side ul {
     transform-origin: right;
   }
-  html:not(.can-touch) .n-drop > ul > li > ul li {
+  html:not(.can-touch) .n-nav__drop > ul > li > ul li {
     background-color: #fff;
     background-color: var(--control-bg, #fff);
   }
-  html:not(.can-touch) .n-drop > ul > li:hover > input:not(:checked) ~ ul,
-html:not(.can-touch) .n-drop > ul li ul > li:hover > input:not(:checked) ~ ul,
-html:not(.can-touch) .n-drop > ul > li:not([aria-haspopup]):hover > input:not(:checked) ~ ul,
-html:not(.can-touch) .n-drop > ul li:not([aria-haspopup]) ul li:hover > input:not(:checked) ~ ul {
+  html:not(.can-touch) .n-nav__drop > ul > li:hover > input:not(:checked) ~ ul,
+html:not(.can-touch) .n-nav__drop > ul li ul > li:hover > input:not(:checked) ~ ul,
+html:not(.can-touch) .n-nav__drop > ul > li:not([aria-haspopup]):hover > input:not(:checked) ~ ul,
+html:not(.can-touch) .n-nav__drop > ul li:not([aria-haspopup]) ul li:hover > input:not(:checked) ~ ul {
     min-height: 0;
     max-height: 0;
     overflow: hidden;
     z-index: 1;
     position: absolute;
   }
-  html:not(.can-touch) .n-drop > ul > li:not([aria-haspopup]):hover > ul,
-html:not(.can-touch) .n-drop > ul > li:hover > ul,
-html:not(.can-touch) .n-drop > ul li ul > li:hover > ul,
-html:not(.can-touch) .n-drop ul ul li:not([aria-expanded]) :checked ~ ul,
-html:not(.can-touch) .n-drop > ul li:not([aria-haspopup]) ul li:hover ~ ul {
+  html:not(.can-touch) .n-nav__drop > ul > li:not([aria-haspopup]):hover > ul,
+html:not(.can-touch) .n-nav__drop > ul > li:hover > ul,
+html:not(.can-touch) .n-nav__drop > ul li ul > li:hover > ul,
+html:not(.can-touch) .n-nav__drop ul ul li:not([aria-expanded]) :checked ~ ul,
+html:not(.can-touch) .n-nav__drop > ul li:not([aria-haspopup]) ul li:hover ~ ul {
     max-height: none;
     overflow: visible;
     opacity: 1;
@@ -1789,44 +1789,44 @@ html:not(.can-touch) .n-drop > ul li:not([aria-haspopup]) ul li:hover ~ ul {
     background-color: var(--control-bg, #fff);
     transform: scaleY(1);
   }
-  html:not(.can-touch) .n-drop > ul li ul li:hover ul {
+  html:not(.can-touch) .n-nav__drop > ul li ul li:hover ul {
     transition-delay: 0.2s;
     transform: scaleX(1);
   }
 
-  nav.n-drop ul[role=menubar] > li > a {
+  nav.n-nav__drop ul[role=menubar] > li > a {
     max-width: 100vw;
     white-space: normal;
   }
 
-  nav.n-drop li {
+  nav.n-nav__drop li {
     white-space: nowrap;
   }
-  nav.n-drop li li[haspopup] > a, nav.n-drop li li li a {
+  nav.n-nav__drop li li[haspopup] > a, nav.n-nav__drop li li li a {
     white-space: normal;
     max-width: calc(33.33vw - 2em);
     width: 100em;
   }
 
-  _:-ms-input-placeholder, :root nav.n-drop li {
+  _:-ms-input-placeholder, :root nav.n-nav__drop li {
     white-space: normal;
   }
 
-  _:-ms-input-placeholder, :root nav.n-drop ul ul ul {
+  _:-ms-input-placeholder, :root nav.n-nav__drop ul ul ul {
     display: block;
   }
 
-  _:-ms-input-placeholder, :root nav.n-drop li:hover ul {
+  _:-ms-input-placeholder, :root nav.n-nav__drop li:hover ul {
     overflow: visible !important;
     z-index: 2 !important;
     transform: none !important;
   }
 
-  _:-ms-input-placeholder, :root nav.n-drop input[type=checkbox] {
+  _:-ms-input-placeholder, :root nav.n-nav__drop input[type=checkbox] {
     display: none !important;
   }
 
-  _:-ms-input-placeholder, :root nav.n-drop li ul ~ a:before {
+  _:-ms-input-placeholder, :root nav.n-nav__drop li ul ~ a:before {
     content: "↓";
     position: absolute;
     top: 0.75em;
@@ -1834,128 +1834,128 @@ html:not(.can-touch) .n-drop > ul li:not([aria-haspopup]) ul li:hover ~ ul {
     text-decoration: none !important;
   }
 
-  _:-ms-input-placeholder, :root nav.n-drop li li ul ~ a:before {
+  _:-ms-input-placeholder, :root nav.n-nav__drop li li ul ~ a:before {
     content: "→";
   }
 
-  _:-ms-input-placeholder, :root .n-drop:not([data-ready]) li:not([tabindex]) > ul ~ a {
+  _:-ms-input-placeholder, :root .n-nav__drop:not([data-ready]) li:not([tabindex]) > ul ~ a {
     padding-right: 1.75em;
   }
 
   /*
-  	html.can-touch .n-drop ul li:not([aria-expanded]) > ul {
+  	html.can-touch .n-nav__drop ul li:not([aria-expanded]) > ul {
 
   		visibility: hidden;
 
   	}
   */
-  html.can-touch .n-drop li .n-left-side > li:not([aria-expanded]) {
+  html.can-touch .n-nav__drop li .n-left-side > li:not([aria-expanded]) {
     overflow: hidden;
   }
 
-  [dir=rtl] .n-drop li ul:not(.n-left-side) > li[aria-haspopup] {
+  [dir=rtl] .n-nav__drop li ul:not(.n-left-side) > li[aria-haspopup] {
     padding-left: 0;
     padding-right: 1.875em;
   }
-  [dir=rtl] .n-drop li ul:not(.n-left-side) > li[aria-haspopup]:before {
+  [dir=rtl] .n-nav__drop li ul:not(.n-left-side) > li[aria-haspopup]:before {
     right: 0;
     left: auto;
   }
-  [dir=rtl] .n-drop li ul.n-left-side > li > a {
+  [dir=rtl] .n-nav__drop li ul.n-left-side > li > a {
     text-align: left;
     text-align: start;
   }
 }
-[dir=rtl] .n-drop ul.n-left-side li[aria-haspopup], [dir=rtl] .n-drop li[aria-haspopup] {
+[dir=rtl] .n-nav__drop ul.n-left-side li[aria-haspopup], [dir=rtl] .n-nav__drop li[aria-haspopup] {
   padding-right: 0;
   padding-left: 1.875em;
 }
-[dir=rtl] .n-drop.n-nav ul.n-list li:before {
+[dir=rtl] .n-nav__drop.n-nav ul.n-list li:before {
   left: 0;
   right: auto;
   margin-left: 0;
 }
-[dir=rtl] .n-drop li[aria-haspopup]:before, [dir=rtl] .n-drop li > input {
+[dir=rtl] .n-nav__drop li[aria-haspopup]:before, [dir=rtl] .n-nav__drop li > input {
   right: auto;
   left: 0;
 }
 
 @media (max-width: 599.9px) {
-  .n-drop ul li:not([aria-expanded]) > ul {
+  .n-nav__drop ul li:not([aria-expanded]) > ul {
     position: static;
     width: calc(100% + 3em);
     transition: max-height 0.2s ease-in-out;
   }
-  .n-drop ul ul {
+  .n-nav__drop ul ul {
     position: static;
     width: calc(100% + 3em);
     padding-left: 0.5em;
     overflow: hidden;
     box-sizing: border-box;
   }
-  .n-drop ul ul ul {
+  .n-nav__drop ul ul ul {
     margin: 0;
   }
-  .n-drop ul li {
+  .n-nav__drop ul li {
     width: 100%;
   }
-  .n-drop ul li[aria-haspopup] {
+  .n-nav__drop ul li[aria-haspopup] {
     padding-right: 3em;
   }
-  .n-drop ul li[aria-haspopup][aria-expanded]:before {
+  .n-nav__drop ul li[aria-haspopup][aria-expanded]:before {
     -webkit-mask-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(0) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A");
   }
-  .n-drop ul.n-list:not(.n-list--no-bullet):not(.n-list--inline).n-left-side li:before {
+  .n-nav__drop ul.n-list:not(.n-list__no-bullet):not(.n-list__inline).n-left-side li:before {
     right: 0;
     left: auto;
     transform: none;
   }
 
-  .n-drop li[aria-haspopup]:before {
+  .n-nav__drop li[aria-haspopup]:before {
     -webkit-mask-position-y: 0.75em;
   }
 
-  .n-drop li > input {
+  .n-nav__drop li > input {
     -webkit-mask-position-y: 1.15em;
   }
 
-  html:not([data-natuive-js]) .n-drop {
+  html:not([data-natuive-js]) .n-nav__drop {
     width: 100%;
   }
-  html:not([data-natuive-js]) .n-drop ul li {
+  html:not([data-natuive-js]) .n-nav__drop ul li {
     display: flex;
     flex-direction: column;
   }
-  html:not([data-natuive-js]) .n-drop ul li a {
+  html:not([data-natuive-js]) .n-nav__drop ul li a {
     order: -1;
   }
-  html:not([data-natuive-js]) .n-drop ul li:not([aria-expanded]) > ul {
+  html:not([data-natuive-js]) .n-nav__drop ul li:not([aria-expanded]) > ul {
     width: 100%;
   }
 
-  html:not([data-natuive-js]) .n-fold.n-fold--mobile:not([aria-expanded]) .n-fold--content {
+  html:not([data-natuive-js]) .n-fold.n-fold__mobile:not([aria-expanded]) .n-fold--content {
     max-width: 100%;
   }
 
-  [dir=rtl] .n-drop li[aria-haspopup] {
+  [dir=rtl] .n-nav__drop li[aria-haspopup] {
     padding-left: 2.5em;
   }
-  [dir=rtl] .n-drop li[aria-haspopup] ul {
+  [dir=rtl] .n-nav__drop li[aria-haspopup] ul {
     max-width: calc(100% + 2.5em);
     padding-right: 0.5em;
     padding-left: 0;
   }
-  [dir=rtl] .n-drop li[aria-haspopup] ul.n-list:not(.n-list--no-bullet):not(.n-list--inline).n-left-side li:before {
+  [dir=rtl] .n-nav__drop li[aria-haspopup] ul.n-list:not(.n-list__no-bullet):not(.n-list__inline).n-left-side li:before {
     right: auto;
     left: 0;
   }
-  [dir=rtl] .n-drop li[aria-haspopup] ul ul {
+  [dir=rtl] .n-nav__drop li[aria-haspopup] ul ul {
     max-width: calc(100% + 1.875em);
   }
 }
 @supports (-webkit-overflow-scrolling: touch) {
   /* CSS specific to iOS devices */
-  .n-drop :focus {
+  .n-nav__drop :focus {
     outline-style: dotted;
     outline-width: 1px;
   }

@@ -10,7 +10,7 @@ $teal: #488e89;
 
 }
 
-.n-slider--wrap.n-slider--overlay {
+.n-slider--wrap.n-slider__overlay {
 	
 	margin-bottom: 0;
 
@@ -293,7 +293,7 @@ article ul {
 	
 	}
 	
-	.n-form.n-form--wide label span {
+	.n-form.n-form__wide label span {
 		
 		display: inline;
 		
@@ -480,7 +480,7 @@ nav.n-nav {
 
 	}
 	
-	&.n-drop {
+	&.n-nav__drop {
 		
 		--control-bg: #eee;
 		
@@ -637,7 +637,7 @@ nav.n-nav {
 
 }
 
-.n-header .n-fold.n-fold--mobile {
+.n-header .n-fold.n-fold__mobile {
 	
 //	display: inline-block; // Enable closing the n-burger by tapping on its right
 	
@@ -703,7 +703,7 @@ a.backtotop[href] {
 
 @media (min-width: 600px) {
 
-	nav.n-nav.n-drop ul li {
+	nav.n-nav.n-nav__drop ul li {
 		
 		margin-right: .5em;
 		
@@ -778,7 +778,7 @@ a.backtotop[href] {
 
 }
 
-.n-drop li[aria-haspopup] {
+.n-nav__drop li[aria-haspopup] {
 	
 	padding-right: 1em;
 
@@ -802,7 +802,7 @@ a.backtotop[href] {
 
 // Color scheme
 
-.n-slider--arrow, .n-slider--nav *, .n-tool:after, .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href], .n-fold > .n-fold--label, .n-drop, .n-form, .n-ovrl > .n-ovrl--close, .n-drop ul li, .n-type nav.n-nav a[href] {
+.n-slider--arrow, .n-slider--nav *, .n-tool:after, .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href], .n-fold > .n-fold--label, .n-nav__drop, .n-form, .n-ovrl > .n-ovrl--close, .n-nav__drop ul li, .n-type nav.n-nav a[href] {
 	
 	--control-bg: lightcoral;
 	--control-color: #fff;		
