@@ -24,7 +24,7 @@
 }
 .n-lightbox:not(.n-slider) {
   margin-left: -0.375em;
-  width: calc(100% + $line-height-em/2);
+  width: calc(100% + 0.75em);
   max-width: none;
 }
 .n-lightbox:not(.n-slider) a {

@@ -42,7 +42,7 @@
 	&:not(.n-slider) {
 
 	    margin-left: -$line-height-em/4;
-	    width: calc(100% + $line-height-em/2);
+	    width: calc(100% + #{$line-height-em/2});
 	    max-width: none;
     
 		a {
