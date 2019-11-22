@@ -185,11 +185,36 @@
 					
 					<div>
 						
+						<div class="n-slider--wrap n-pad">
+							
+							<div class="n-slider">
+								
+								<div> <p>A</p> </div>
+								<div> <p>B</p> </div>
+							
+							</div>
+
+						</div>
+						
+					</div>
+
+					<picture class="n-aspect n-adjust-height" style="--ratio: 1;">
+					
+						<img src=images/cat.jpg alt=Portrait>
+					
+					</picture>
+					
+				</div>
+		
+				<div class='_2/3 n-middle'>
+				
+					<div>
+
 						<div class="n-select">
 							
 							<div>
 							
-								<button><img src="images/natuive.svg" alt=1> Option 1</button>
+								<button><img src="images/natuive.svg" alt=1 height="41"> Option 1</button>
 								<button>Option 2</button>
 								<button>Option 3</button>
 								<button>Option 4</button>
@@ -269,9 +294,15 @@
 
 							let selectOption = (el, select) => {
 								
-								select.querySelector('[aria-selected]').removeAttribute('aria-selected');
+								if (select.querySelector('[aria-selected]')) {
+	
+									select.querySelector('[aria-selected]').removeAttribute('aria-selected');
+								
+								}
 								el.setAttribute('aria-selected', true);
 								select.style.setProperty('--active-option-offset', el.offsetTop);
+								select.setAttribute('aria-expanded', true);
+								select.style.setProperty('--active-option-height', `${el.offsetHeight}px`);
 								select.removeAttribute('aria-expanded');
 
 								let select_native = select.nextElementSibling; // The attached native select
@@ -285,7 +316,7 @@
 								
 								if (!el.querySelector('[aria-selected]')) {
 									
-									el.querySelector('button').setAttribute('aria-selected', true);
+									selectOption(el.querySelector('button'), el);
 									
 								}
 								
@@ -338,31 +369,6 @@
 							});
 							
 						</script>
-
-						<div class="n-slider--wrap n-pad">
-							
-							<div class="n-slider">
-								
-								<div> <p>A</p> </div>
-								<div> <p>B</p> </div>
-							
-							</div>
-
-						</div>
-						
-					</div>
-
-					<picture class="n-aspect n-adjust-height" style="--ratio: 1;">
-					
-						<img src=images/cat.jpg alt=Portrait>
-					
-					</picture>
-					
-				</div>
-		
-				<div class='_2/3 n-middle'>
-				
-					<div>
 
 						<div class="n-aspect" style="--ratio: 1.67">
 

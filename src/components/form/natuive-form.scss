@@ -915,7 +915,7 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 		
 		content: '';
 		display: block;
-		height: 1em;
+		height: var(--active-option-height, 1em);
 		font-size: 1em;
 		
 	}
