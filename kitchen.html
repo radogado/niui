@@ -316,6 +316,20 @@
 							
 							document.querySelectorAll('.n-select').forEach(el => {
 								
+								if (!el.nextSibling.type === 'SELECT') {
+									
+									return;
+									
+								}
+								
+								el.nextElementSibling.onchange = e => {
+									
+									// Also change the visible select
+									let el = e.target;
+									selectOption(el.previousElementSibling.querySelectorAll('button')[el.selectedIndex], el.previousElementSibling);
+									
+								};
+								
 								if (!el.querySelector('[aria-selected]')) {
 									
 									selectOption(el.querySelector('button'), el);
