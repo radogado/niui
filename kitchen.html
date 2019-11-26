@@ -345,6 +345,7 @@
 										} else {
 											
 											select.children[0].style.removeProperty('--top-offset');
+											select.style.removeProperty('--active-option-offset');
 											select.style.setProperty('--active-option-offset', el.getBoundingClientRect().y - select.getBoundingClientRect().y);
 											
 										}
