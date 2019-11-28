@@ -1176,8 +1176,8 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
   position: relative;
 }
 .n-select[aria-expanded] > div {
-  top: calc(-1 * var(--top-offset, 0));
   margin-top: calc(-1px * (var(--active-option-offset, 0) + var(--top-offset, 0)));
+  max-height: var(--max-height);
 }
 .n-select button {
   appearance: none;

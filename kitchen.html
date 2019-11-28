@@ -343,24 +343,25 @@
 									let el = e.target.closest('button');
 									let select = e.target.closest('.n-select');
 									console.log(el, select);
-									if (select.hasAttribute('aria-expanded')) { // Select the clicked option
+									if (select.hasAttribute('aria-expanded')) { // If already open, select the clicked option
 										
 										selectOption(el, select);
 										
-									} else { // Open the drop-down
+									} else { // If closed, open the drop-down
 										
 										select.setAttribute('aria-expanded', true);
 										
 										// Fix viewport overflow
+										select.children[0].style.removeProperty('--top-offset');
+										select.children[0].style.removeProperty('--max-height');
+										select.style.removeProperty('--active-option-offset');
+										select.style.setProperty('--active-option-offset', el.getBoundingClientRect().y - select.getBoundingClientRect().y);
+
 										if (select.children[0].getBoundingClientRect().y < 0) {
 	
-											select.children[0].style.setProperty('--top-offset', `${Math.abs(select.children[0].getBoundingClientRect().y)}px`);
-											
-										} else {
-											
-											select.children[0].style.removeProperty('--top-offset');
-											select.style.removeProperty('--active-option-offset');
-											select.style.setProperty('--active-option-offset', el.getBoundingClientRect().y - select.getBoundingClientRect().y);
+											select.children[0].style.setProperty('--max-height', `${select.children[0].getBoundingClientRect().height + select.children[0].getBoundingClientRect().y}px`);
+											select.children[0].style.setProperty('--top-offset', Math.abs(select.children[0].getBoundingClientRect().y));
+											select.children[0].scrollTop = Math.abs(select.children[0].getBoundingClientRect().y);
 											
 										}
 										
