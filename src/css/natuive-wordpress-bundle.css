@@ -305,6 +305,9 @@ a.backtotop[href] {
   max-width: 100%;
   padding: 0;
 }
+.n-card .n-card--head > * {
+  margin: 0;
+}
 .n-card .n-card--head.n-card__image {
   background-position: center center;
   background-size: cover;
@@ -320,6 +323,7 @@ a.backtotop[href] {
 }
 .n-card .n-card--head.n-card__image > * {
   display: inline-block;
+  margin: 0;
 }
 
 /*# sourceMappingURL=natuive-card.css.map */

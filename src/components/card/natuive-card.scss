@@ -42,6 +42,12 @@
 	
 	}
 	
+	.n-card--head > * {
+		
+		margin: 0;
+
+	}
+	
 	.n-card--head.n-card__image {
 		
 		background-position: center center;
@@ -62,6 +68,7 @@
 		> * {
 			
 			display: inline-block;
+			margin: 0;
 		
 		}
 	
