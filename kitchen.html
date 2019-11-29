@@ -360,8 +360,8 @@
 										if (select.children[0].getBoundingClientRect().y < 0) {
 	
 											select.children[0].style.setProperty('--max-height', `${select.children[0].getBoundingClientRect().height + select.children[0].getBoundingClientRect().y}px`);
-											select.children[0].style.setProperty('--top-offset', Math.abs(select.children[0].getBoundingClientRect().y));
 											select.children[0].scrollTop = Math.abs(select.children[0].getBoundingClientRect().y);
+											select.children[0].style.setProperty('--top-offset', Math.abs(select.children[0].getBoundingClientRect().y));
 											
 										}
 										
