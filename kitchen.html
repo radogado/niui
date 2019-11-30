@@ -286,7 +286,13 @@
 								
 								if (!e.target.closest('.n-select')) {
 									
-									document.querySelectorAll('.n-select[aria-expanded]').forEach(el => el.removeAttribute('aria-expanded'));
+									document.querySelectorAll('.n-select[aria-expanded]').forEach(el => {
+										
+										el.removeAttribute('aria-expanded');
+										el.children[0].style.removeProperty('--top-offset');
+										el.children[0].style.removeProperty('--max-height');
+									
+									});
 									
 								}
 
@@ -306,6 +312,8 @@
 								select.style.setProperty('--active-option-height', `${el.offsetHeight}px`);
 								console.log(el, el.offsetHeight);
 								select.removeAttribute('aria-expanded');
+								select.children[0].style.removeProperty('--top-offset');
+								select.children[0].style.removeProperty('--max-height');
 
 								let select_native = select.nextElementSibling; // The attached native select
 								let options = select.querySelectorAll('button');
@@ -352,17 +360,35 @@
 										select.setAttribute('aria-expanded', true);
 										
 										// Fix viewport overflow
-										select.children[0].style.removeProperty('--top-offset');
-										select.children[0].style.removeProperty('--max-height');
+										let options = select.children[0];
+										options.style.removeProperty('--top-offset');
+										options.style.removeProperty('--max-height');
 										select.style.removeProperty('--active-option-offset');
 										select.style.setProperty('--active-option-offset', el.getBoundingClientRect().y - select.getBoundingClientRect().y);
 
-										if (select.children[0].getBoundingClientRect().y < 0) {
-	
-											select.children[0].style.setProperty('--max-height', `${select.children[0].getBoundingClientRect().height + select.children[0].getBoundingClientRect().y}px`);
-											select.children[0].scrollTop = Math.abs(select.children[0].getBoundingClientRect().y);
-											select.children[0].style.setProperty('--top-offset', Math.abs(select.children[0].getBoundingClientRect().y));
+										if (options.getBoundingClientRect().y < 0) {
 											
+											let current_max_height = options.getBoundingClientRect().height + options.getBoundingClientRect().y;
+											options.style.setProperty('--max-height', `${current_max_height}px`);
+											options.scrollTop = Math.abs(options.getBoundingClientRect().y);
+											options.style.setProperty('--top-offset', Math.abs(options.getBoundingClientRect().y));
+											
+											if (options.getBoundingClientRect().height > window.innerHeight) {
+												
+												options.style.setProperty('--max-height', `${current_max_height - Math.abs(window.innerHeight - options.getBoundingClientRect().height)}px`);
+												
+												
+											}
+
+										} else {
+										
+											if (options.getBoundingClientRect().y + options.getBoundingClientRect().height > window.innerHeight) {
+												
+												options.style.setProperty('--max-height', `${Math.abs(window.innerHeight - options.getBoundingClientRect().y)}px`);
+												
+												
+											}
+										
 										}
 										
 									}
