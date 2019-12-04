@@ -840,6 +840,25 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
     
 /* Fold – start */
 
+	let closeAccordion = (el, content) => {
+		
+		let content_height = content.style.getPropertyValue('--start-height') || 0;
+		animate(content, `0% { max-height: ${content.scrollHeight}px; } 100% { max-height: ${content_height}; }`, .2, () => {
+			
+			toggleAttribute(el, 'aria-expanded');
+			
+		});
+		
+	};
+
+	let openAccordion = (el, content) => {
+		
+		let content_height = content.style.getPropertyValue('--start-height') || 0;
+		toggleAttribute(el, 'aria-expanded');
+		animate(content, `0% { max-height: ${content_height}; } 100% { max-height: ${content.scrollHeight}px; }`);
+		
+	};
+
 	function toggleAccordion(e) {
 	
 	    stopEvent(e);
@@ -849,8 +868,6 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		content.style.setProperty('--width', content.scrollWidth + 'px');
 		content.style.setProperty('--max-height', content.scrollHeight + 'px');
 	
-		var content_height = content.style.getPropertyValue('--start-height') || 0;
-		
 		// Animation, not CSS, because of nested accordions
 		
 		if (hasClass(el, 'n-fold__horizontal')) {
@@ -859,18 +876,21 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 			
 		} else {
 		
-			if (el.hasAttribute('aria-expanded')) {
-		
-				animate(content, `0% { max-height: ${content.scrollHeight}px; } 100% { max-height: ${content_height}; }`, .2, () => {
-					
-					toggleAttribute(el, 'aria-expanded');
-					
-				});
+			if (el.hasAttribute('aria-expanded')) { // Close
 				
-			} else {
+				closeAccordion(el, content);
 				
-				toggleAttribute(el, 'aria-expanded');
-				animate(content, `0% { max-height: ${content_height}; } 100% { max-height: ${content.scrollHeight}px; }`);
+			} else { // Open
+
+				let other = hasClass(el.parentNode, 'n-fold--group') && el.parentNode.querySelector('[aria-expanded]');
+				
+				openAccordion(el, content);				
+
+				if (other !== el) { // There is another one open, close it if in a group
+					
+					closeAccordion(other, other.querySelector('.n-fold--content'));
+					
+				}
 				
 			}
 		
