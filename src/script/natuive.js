@@ -864,12 +864,12 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	    stopEvent(e);
 	    var el = e.target.closest('.n-fold');
 	    var content = el.querySelector('.n-fold--content');
-
+		
+		content.style.display = 'block'; // To get proper width when horizontal
 		content.style.setProperty('--width', content.scrollWidth + 'px');
+		content.style.removeProperty('display');
 		content.style.setProperty('--max-height', content.scrollHeight + 'px');
 	
-		// Animation, not CSS, because of nested accordions
-		
 		if (hasClass(el, 'n-fold__horizontal')) {
 			
 			toggleAttribute(el, 'aria-expanded');
@@ -965,11 +965,11 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		
 			content.style.setProperty('--max-height', content.scrollHeight + 'px');
 		
-		    if (el.querySelector('input.n-trigger')) { // Remove CSS-only triggers
-		
-		        el.querySelector('input.n-trigger').outerHTML = '';
-		
-		    }
+		    el.querySelectorAll('input.n-trigger').forEach(el => { // Remove CSS-only triggers
+			    
+			    el.parentNode.removeChild(el);
+			    
+		    });
 		    
 		    if (hasClass(el, 'n-fold__defocus')) {
 		    
