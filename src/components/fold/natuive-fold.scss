@@ -236,7 +236,7 @@
 	
 	}
 
-	&[data-ready]:not([aria-expanded]):not(.n-fold__mobile) { // Don't open it by tabbing, because of focuseable items inside
+	&[data-ready]:not([aria-expanded]):not(.n-fold__mobile):not(.n-fold__horizontal) { // Don't open it by tabbing, because of focuseable items inside
 		
 		.n-fold--content:not([style*="--start-height"]) {
 			

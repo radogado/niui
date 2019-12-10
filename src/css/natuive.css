@@ -474,7 +474,7 @@ a.backtotop[href] {
 .n-fold span.n-burger:after {
   content: "=";
 }
-.n-fold[data-ready]:not([aria-expanded]):not(.n-fold__mobile) .n-fold--content:not([style*="--start-height"]) {
+.n-fold[data-ready]:not([aria-expanded]):not(.n-fold__mobile):not(.n-fold__horizontal) .n-fold--content:not([style*="--start-height"]) {
   display: none;
 }
 
