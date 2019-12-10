@@ -586,11 +586,10 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
   max-height: var(--max-height);
 }
 .n-select button {
-  appearance: none;
   -webkit-appearance: none;
-  display: block;
+  appearance: none;
   cursor: pointer;
-  border: none;
+  border: 0;
   width: 100%;
   text-align: start;
   padding: 0;
@@ -604,24 +603,29 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 }
 .n-select:after {
   content: "⌄";
-  position: absolute;
-  top: 0;
-  height: 1em;
-  width: 1em;
+  height: 0.5625em;
+  width: 0.5625em;
   right: 0;
-  z-index: 5;
   text-align: center;
-  line-height: 0.25;
+  line-height: 0;
   font-size: 2em;
 }
-.n-select > div {
+.n-select:after, .n-select > div {
   position: absolute;
   top: 0;
   z-index: 5;
+}
+.n-select > div {
   width: 100%;
   overflow: auto;
 }
-.n-select:not([aria-expanded]) button:not([aria-selected]) {
+.n-select > div > * {
+  display: block;
+}
+.n-select:not([aria-expanded]) > div > :not([aria-selected]) {
+  display: none;
+}
+.n-select ~ select {
   display: none;
 }
 

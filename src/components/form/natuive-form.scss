@@ -892,7 +892,6 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 	
 	&[aria-expanded] > div {
 	
-// 		top: calc(-1 * var(--top-offset, 0));
 		margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0))); // Align to the current option's vertical offset
 		max-height: var(--max-height);
 	
@@ -900,11 +899,10 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 
 	button {
 		
-		appearance: none;
 		-webkit-appearance: none;
-		display: block;
+		appearance: none;
 		cursor: pointer;
-		border: none;
+		border: 0;
 		width: 100%;
 		text-align: start;
 		padding: 0;
@@ -924,29 +922,43 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 	&:after {
 		
 		content: '⌄';
+	    height: .5625em;
+	    width: .5625em;
+		right: 0;
+		text-align: center;
+		line-height: 0;
+		font-size: 2em;								
+		
+	}
+	
+	&:after, > div {
+		
 		position: absolute;
 		top: 0;
-		height: 1em;
-		width: 1em;
-		right: 0;
 		z-index: 5;
-		text-align: center;
-		line-height: 0.25;
-		font-size: 2em;								
 		
 	}
 	
 	> div {
 		
-		position: absolute;
-		top: 0;
-		z-index: 5;
 		width: 100%;
 		overflow: auto;
+		
+		> * {
+			
+			display: block;
+
+		}
 
 	}
 	
-	&:not([aria-expanded]) button:not([aria-selected]) {
+	&:not([aria-expanded]) > div > :not([aria-selected]) {
+		
+		display: none;
+
+	}
+	
+	~ select {
 		
 		display: none;
 

@@ -217,6 +217,7 @@
 								<button><img src="images/natuive.svg" alt=1 style="height: 41px;"> Option 1</button>
 								<button>Option 2</button>
 								<button>Option 3</button>
+								<span>Label</span>
 								<button>Option 4</button>
 								<button>Option 5</button>
 								<button>Option 6</button>
@@ -298,19 +299,20 @@
 
 							});
 
-							let selectOption = (el, select) => {
+							let selectOption = (el) => {
+								
+								let select = el.closest('.n-select');
 								
 								if (select.querySelector('[aria-selected]')) {
 	
 									select.querySelector('[aria-selected]').removeAttribute('aria-selected');
 								
 								}
+
 								el.setAttribute('aria-selected', true);
-// 								select.style.setProperty('--active-option-offset', el.offsetTop);
-// 								select.style.setProperty('--active-option-offset', el.getBoundingClientRect().y - select.getBoundingClientRect().y);
 								select.setAttribute('aria-expanded', true);
 								select.style.setProperty('--active-option-height', `${el.offsetHeight}px`);
-								console.log(el, el.offsetHeight);
+// 								console.log(el, el.offsetHeight);
 								select.removeAttribute('aria-expanded');
 								select.children[0].style.removeProperty('--top-offset');
 								select.children[0].style.removeProperty('--max-height');
@@ -318,7 +320,8 @@
 								let select_native = select.nextElementSibling; // The attached native select
 								let options = select.querySelectorAll('button');
 								
-								select_native.options[[...options].indexOf(el)].selected = true; // Enable the native option index-matching this button
+// 								select_native.options[[...options].indexOf(el)].selected = true; // Enable the native option index-matching this button
+								select_native.value = select_native.children[[...el.parentNode.children].indexOf(el)].textContent;
 								
 							}
 							
@@ -330,30 +333,65 @@
 									
 								}
 								
+								// Set native select's value
+								
+								if (!el.querySelector('[aria-selected]')) {
+									
+									selectOption(el.querySelector('button'));
+									
+								}
+								
+/*
 								el.nextElementSibling.onchange = e => {
 									
 									// Also change the visible select
 									let el = e.target;
-									selectOption(el.previousElementSibling.querySelectorAll('button')[el.selectedIndex], el.previousElementSibling);
+									selectOption(el.previousElementSibling.querySelectorAll('button')[el.selectedIndex]);
 									
 								};
+*/
 								
-								if (!el.querySelector('[aria-selected]')) {
+								Object.defineProperty(el.nextElementSibling, 'value', {
 									
-									selectOption(el.querySelector('button'), el);
-									
-								}
+									set: value => {
+
+										this.value = value; // Why is "this" the window object?
+
+										[...this.children].forEach(el => {
+											
+											if (el.textContent === value) {
+												
+												this.selectedIndex = el.index;
+
+											}
+											
+										});
+
+										console.log('Setting', value, this.selectedIndex);
+
+										selectOption(this.previousElementSibling.querySelectorAll('button')[this.selectedIndex]);
+										this.children[this.selectedIndex].selected = true;
+
+									},
+									get: () => {
+										
+										console.log('Getting', this.value);
+										return this.value; 
+
+									}
 								
+								});
+
 								el.addEventListener('pointerdown', e => {
 								
 									e.preventDefault();
 									
 									let el = e.target.closest('button');
 									let select = e.target.closest('.n-select');
-									console.log(el, select);
+// 									console.log(el, select);
 									if (select.hasAttribute('aria-expanded')) { // If already open, select the clicked option
 										
-										selectOption(el, select);
+										selectOption(el);
 										
 									} else { // If closed, open the drop-down
 										
@@ -401,11 +439,11 @@
 
 									let el = e.target.closest('button');
 									let select = e.target.closest('.n-select');
-									console.log(e.target);
+// 									console.log(e.target);
 
 									if (select && select.hasAttribute('aria-expanded') && !el.hasAttribute('aria-selected')) { // Select the clicked option
 										
-										selectOption(el, select);										
+										selectOption(el);
 
 									}
 									
