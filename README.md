@@ -63,3 +63,32 @@ NPM usage:
 ## Standalone components
 
 [Accordion](https://github.com/radogado/n-accordion), [Slider](https://github.com/radogado/native-slider), [Drop nav](https://github.com/radogado/nav.drop)
+## Contributors
+
+### Code Contributors
+
+This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
+<a href="https://github.com/radogado/natuive/graphs/contributors"><img src="https://opencollective.com/natuive/contributors.svg?width=890&button=false" /></a>
+
+### Financial Contributors
+
+Become a financial contributor and help us sustain our community. [[Contribute](https://opencollective.com/natuive/contribute)]
+
+#### Individuals
+
+<a href="https://opencollective.com/natuive"><img src="https://opencollective.com/natuive/individuals.svg?width=890"></a>
+
+#### Organizations
+
+Support this project with your organization. Your logo will show up here with a link to your website. [[Contribute](https://opencollective.com/natuive/contribute)]
+
+<a href="https://opencollective.com/natuive/organization/0/website"><img src="https://opencollective.com/natuive/organization/0/avatar.svg"></a>
+<a href="https://opencollective.com/natuive/organization/1/website"><img src="https://opencollective.com/natuive/organization/1/avatar.svg"></a>
+<a href="https://opencollective.com/natuive/organization/2/website"><img src="https://opencollective.com/natuive/organization/2/avatar.svg"></a>
+<a href="https://opencollective.com/natuive/organization/3/website"><img src="https://opencollective.com/natuive/organization/3/avatar.svg"></a>
+<a href="https://opencollective.com/natuive/organization/4/website"><img src="https://opencollective.com/natuive/organization/4/avatar.svg"></a>
+<a href="https://opencollective.com/natuive/organization/5/website"><img src="https://opencollective.com/natuive/organization/5/avatar.svg"></a>
+<a href="https://opencollective.com/natuive/organization/6/website"><img src="https://opencollective.com/natuive/organization/6/avatar.svg"></a>
+<a href="https://opencollective.com/natuive/organization/7/website"><img src="https://opencollective.com/natuive/organization/7/avatar.svg"></a>
+<a href="https://opencollective.com/natuive/organization/8/website"><img src="https://opencollective.com/natuive/organization/8/avatar.svg"></a>
+<a href="https://opencollective.com/natuive/organization/9/website"><img src="https://opencollective.com/natuive/organization/9/avatar.svg"></a>
