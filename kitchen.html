@@ -449,6 +449,18 @@
 									
 								});
 
+								el.addEventListener('keyup', e => {
+									
+									console.log(e.target, e.key);
+									
+									if (e.key === 'Escape') {
+										
+										e.target.closest('.n-select').removeAttribute('aria-expanded');
+										
+									}
+									
+								});
+
 							});
 							
 						</script>
