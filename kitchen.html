@@ -325,6 +325,44 @@
 								
 							}
 							
+							let openSelect = (select, el) => {
+								
+								select.setAttribute('aria-expanded', true);
+								
+								// Fix viewport overflow
+								let options = select.children[0];
+								options.style.removeProperty('--top-offset');
+								options.style.removeProperty('--max-height');
+								select.style.removeProperty('--active-option-offset');
+								select.style.setProperty('--active-option-offset', el.getBoundingClientRect().y - select.getBoundingClientRect().y);
+
+								if (options.getBoundingClientRect().y < 0) {
+									
+									let current_max_height = options.getBoundingClientRect().height + options.getBoundingClientRect().y;
+									options.style.setProperty('--max-height', `${current_max_height}px`);
+									options.scrollTop = Math.abs(options.getBoundingClientRect().y);
+									options.style.setProperty('--top-offset', Math.abs(options.getBoundingClientRect().y));
+									
+									if (options.getBoundingClientRect().height > window.innerHeight) {
+										
+										options.style.setProperty('--max-height', `${current_max_height - Math.abs(window.innerHeight - options.getBoundingClientRect().height)}px`);
+										
+										
+									}
+
+								} else {
+								
+									if (options.getBoundingClientRect().y + options.getBoundingClientRect().height > window.innerHeight) {
+										
+										options.style.setProperty('--max-height', `${Math.abs(window.innerHeight - options.getBoundingClientRect().y)}px`);
+										
+										
+									}
+								
+								}
+								
+							}
+
 							document.querySelectorAll('.n-select').forEach(el => {
 								
 								if (!el.nextElementSibling.type === 'SELECT') {
@@ -354,7 +392,15 @@
 								Object.defineProperty(el.nextElementSibling, 'value', {
 									
 									set: value => {
-
+										
+										console.log(this);
+										
+										if (this.tagName !== 'SELECT') {
+											
+											return;
+											
+										}
+										
 										this.value = value; // Why is "this" the window object?
 
 										[...this.children].forEach(el => {
@@ -395,39 +441,7 @@
 										
 									} else { // If closed, open the drop-down
 										
-										select.setAttribute('aria-expanded', true);
-										
-										// Fix viewport overflow
-										let options = select.children[0];
-										options.style.removeProperty('--top-offset');
-										options.style.removeProperty('--max-height');
-										select.style.removeProperty('--active-option-offset');
-										select.style.setProperty('--active-option-offset', el.getBoundingClientRect().y - select.getBoundingClientRect().y);
-
-										if (options.getBoundingClientRect().y < 0) {
-											
-											let current_max_height = options.getBoundingClientRect().height + options.getBoundingClientRect().y;
-											options.style.setProperty('--max-height', `${current_max_height}px`);
-											options.scrollTop = Math.abs(options.getBoundingClientRect().y);
-											options.style.setProperty('--top-offset', Math.abs(options.getBoundingClientRect().y));
-											
-											if (options.getBoundingClientRect().height > window.innerHeight) {
-												
-												options.style.setProperty('--max-height', `${current_max_height - Math.abs(window.innerHeight - options.getBoundingClientRect().height)}px`);
-												
-												
-											}
-
-										} else {
-										
-											if (options.getBoundingClientRect().y + options.getBoundingClientRect().height > window.innerHeight) {
-												
-												options.style.setProperty('--max-height', `${Math.abs(window.innerHeight - options.getBoundingClientRect().y)}px`);
-												
-												
-											}
-										
-										}
+										openSelect(select, el);
 										
 									}
 									
@@ -452,10 +466,33 @@
 								el.addEventListener('keyup', e => {
 									
 									console.log(e.target, e.key);
+									let select = e.target.closest('.n-select');
 									
-									if (e.key === 'Escape') {
+									switch (e.key) {
 										
-										e.target.closest('.n-select').removeAttribute('aria-expanded');
+										case 'Escape': {
+										
+											select.removeAttribute('aria-expanded');
+											break;
+										
+										}; 
+
+										case 'Enter': {
+											
+											if (select.hasAttribute('aria-expanded')) { // Select the current option
+												
+												
+											} else {
+												
+												openSelect(select, el);
+												
+											}
+											
+										};
+										
+										case 'ArrowDown': {
+											
+										};
 										
 									}
 									
@@ -1903,7 +1940,7 @@
 								<label class=n-form__mandatory>
 			
 									<span>Email</span>
-									<input name=email id=email type=email placeholder='Your Email address.'>
+									<input name=email id=email0 type=email placeholder='Your Email address.'>
 			
 								</label> 
 												
@@ -1966,7 +2003,7 @@
 			
 									<span>Check this</span>
 									<label>
-										<input name=n-form--check id=checkbox type=checkbox> <b class=n-form--check-icon></b>
+										<input name=n-form--check id=checkbox0 type=checkbox> <b class=n-form--check-icon></b>
 										I accept the <a href=#>Terms and Conditions</a>.
 									</label>
 			
