@@ -942,7 +942,6 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 	> div {
 		
 		width: 100%;
-		overflow: auto;
 		
 		> * {
 			
@@ -952,6 +951,12 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 
 	}
 	
+	&[aria-expanded] div {
+
+		overflow: auto;
+	
+	}
+		
 	&:not([aria-expanded]) > div > :not([aria-selected]) {
 		
 		display: none;

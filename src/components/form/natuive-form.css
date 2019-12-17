@@ -617,10 +617,12 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 }
 .n-select > div {
   width: 100%;
-  overflow: auto;
 }
 .n-select > div > * {
   display: block;
+}
+.n-select[aria-expanded] div {
+  overflow: auto;
 }
 .n-select:not([aria-expanded]) > div > :not([aria-selected]) {
   display: none;

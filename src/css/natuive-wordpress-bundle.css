@@ -1211,10 +1211,12 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 }
 .n-select > div {
   width: 100%;
-  overflow: auto;
 }
 .n-select > div > * {
   display: block;
+}
+.n-select[aria-expanded] div {
+  overflow: auto;
 }
 .n-select:not([aria-expanded]) > div > :not([aria-selected]) {
   display: none;
@@ -3561,7 +3563,6 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 }
 
 .n-adjust-height {
-  transition: padding-bottom 0.1s ease-in-out;
   padding-bottom: calc(1px * var(--adjust-height));
   box-sizing: content-box;
 }

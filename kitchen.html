@@ -29,6 +29,42 @@
 	
 	</style>
 
+	<script> // Height adjustment during DOM population
+		
+		var MY_SELECTOR = ".n-adjust-height"; // Could be any selector
+		
+		var observer = new MutationObserver(function(mutations){
+		  for (i in mutations){
+		    for (j in mutations[i].addedNodes){
+		      // We're iterating through _all_ the elements as the parser parses them,
+		      // deciding if they're the one we're looking for.
+		      if (!!mutations[i].addedNodes[j].matches && mutations[i].addedNodes[j].matches(MY_SELECTOR)){
+			  		
+			  		let a = mutations[i].addedNodes[j];
+					a.style.removeProperty('--adjust-height');
+					let style = getComputedStyle(a);
+					let line_height = parseFloat(style.lineHeight);
+					let adjust = line_height - parseFloat(style.height) % line_height;
+					if (adjust !== line_height) {
+
+						a.style.setProperty('--adjust-height', adjust);
+					
+					}
+		
+		        // We found our element, we're done:
+		        observer.disconnect();
+		      };
+		    }
+		  }
+		});
+		
+		observer.observe(document.documentElement, {
+		  childList: true,
+		  subtree: true
+		});
+
+	</script>
+
 </head>
 
 <body dir=ltr class="n-type">
@@ -279,10 +315,6 @@
 						
 						<script>
 							
-							
-							// To do: √ close on click/tap outside
-							// To do: drop-down overflow scrolling
-							
 							window.addEventListener('click', e => {
 								
 								if (!e.target.closest('.n-select')) {
@@ -389,6 +421,7 @@
 								};
 */
 								
+/*
 								Object.defineProperty(el.nextElementSibling, 'value', {
 									
 									set: value => {
@@ -427,6 +460,7 @@
 									}
 								
 								});
+*/
 
 								el.addEventListener('pointerdown', e => {
 								
@@ -481,19 +515,39 @@
 											
 											if (select.hasAttribute('aria-expanded')) { // Select the current option
 												
+												selectOption(e.target);					
 												
-											} else {
+											} else { // ... or open the select
 												
-												openSelect(select, el);
+												openSelect(select, e.target);
 												
 											}
+											break;
 											
 										};
 										
 										case 'ArrowDown': {
 											
+											if (!select.hasAttribute('aria-expanded')) {
+												
+												openSelect(select, e.target);
+												
+											} else {
+												
+												document.activeElement.nextElementSibling.focus();
+												
+											}
+											break;
+
 										};
 										
+										case 'ArrowUp': {
+
+											document.activeElement.previousElementSibling.focus();
+											break;
+
+										};
+
 									}
 									
 								});
@@ -2548,7 +2602,7 @@
 		</div>
 
 	</footer>
-
+	
 	<!-- Footer - End -->
 
 <!-- 		<script src=dist/natuive.min.js type=module async></script> -->
