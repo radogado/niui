@@ -30,7 +30,7 @@
 	
 	// 	observerOff();
 	
-	    for (var i = 0; i < rows.length; i++) {
+	    for (let i in rows) {
 	
 	        table.querySelector('tbody').appendChild(rows[i]);
 	

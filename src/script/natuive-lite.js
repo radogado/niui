@@ -81,24 +81,6 @@ function toggleAttribute(el, attribute) {
 
 }
 
-/*
-function forEach(selector, fn) { // Because IE11 doesn't support el.forEach(). Accepts both an array and a selector
-	
-    var elements = (typeof selector === 'string') ? qa(selector) : selector;
-
-	if (elements.length > 0) {
-
-	    for (var i = 0; i < elements.length; i++) {
-	
-	        fn(elements[i], i);
-	
-	    }
-    
-    }
-
-}
-*/
-
 // DOM functions – end
 
 function transferClass(el_origin, el_target, className) {
@@ -465,7 +447,7 @@ var animations = {
 
 var animationEndEvent = false;
 
-for(var t in animations) {
+for (var t in animations) {
 
     if (temp.style[t] !== 'undefined') {
 
@@ -496,21 +478,13 @@ function animate(el, animation_code, duration, callback) { // Default duration =
 		
 		}, false);
 
-// 		var animation_name = 'a' + new Date().getTime(); // Unique animation name
 		var animation_name = `a${Math.round((Math.random()*1000000),10)}`; // Unique animation name
-/*
-		if (q('head .' + animation_name)) {
-			
-			animation_name += '-';
-			
-		}
-*/
+
 		var styles = document.createElement('style');
 		styles.innerHTML = `@keyframes ${animation_name} {${animation_code}} [data-animation=${animation_name}] { animation-name: ${animation_name}; animation-duration: ${(!duration ? .2 : duration)}s; }`; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
 		document.head.appendChild(styles);
 		addClass(styles, animation_name);
 
-// 		el.dataset.animation = animation_name;
 		el.setAttribute('data-animation', animation_name);
 	
 	}
@@ -1450,7 +1424,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	
 	// 	observerOff();
 	
-	    for (var i = 0; i < rows.length; i++) {
+	    for (let i in rows) {
 	
 	        table.querySelector('tbody').appendChild(rows[i]);
 	

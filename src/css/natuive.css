@@ -3563,6 +3563,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 }
 
 .n-adjust-height {
+  transition: padding-bottom 0.1s ease-in-out;
   padding-bottom: calc(1px * var(--adjust-height));
   box-sizing: content-box;
 }

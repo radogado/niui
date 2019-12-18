@@ -34,8 +34,8 @@
 		var MY_SELECTOR = ".n-adjust-height"; // Could be any selector
 		
 		var observer = new MutationObserver(function(mutations){
-		  for (i in mutations){
-		    for (j in mutations[i].addedNodes){
+		  for (let i in mutations){
+		    for (let j in mutations[i].addedNodes){
 		      // We're iterating through _all_ the elements as the parser parses them,
 		      // deciding if they're the one we're looking for.
 		      if (!!mutations[i].addedNodes[j].matches && mutations[i].addedNodes[j].matches(MY_SELECTOR)){
@@ -394,6 +394,19 @@
 								}
 								
 							}
+							
+							let nextMatchingSibling = (el, selector) => {
+								
+							
+								let sibling = el.nextElementSibling;
+								while (sibling) {
+										if (sibling.matches(selector)) return sibling;
+										sibling = sibling.nextElementSibling;
+									}
+								return false;
+
+							};
+
 
 							document.querySelectorAll('.n-select').forEach(el => {
 								
@@ -497,9 +510,18 @@
 									
 								});
 
-								el.addEventListener('keyup', e => {
+/*
+								el.addEventListener('keydown', e => {
+									
+									e.preventDefault();
+
+								});
+*/
+
+								el.addEventListener('keydown', e => {
 									
 									console.log(e.target, e.key);
+									e.preventDefault();
 									let select = e.target.closest('.n-select');
 									
 									switch (e.key) {
@@ -534,7 +556,12 @@
 												
 											} else {
 												
-												document.activeElement.nextElementSibling.focus();
+												let sibling = nextMatchingSibling(e.target, 'button');
+												if (sibling) {
+
+												sibling.focus();
+												
+												}
 												
 											}
 											break;
@@ -543,7 +570,21 @@
 										
 										case 'ArrowUp': {
 
-											document.activeElement.previousElementSibling.focus();
+											e.target.previousElementSibling.focus();
+											break;
+
+										};
+										
+										case 'Home': {
+											
+											e.target.parentNode.querySelector('button').focus();
+											break;
+
+										};
+
+										case 'End': {
+											
+											e.target.parentNode.querySelector('button:last-of-type').focus();
 											break;
 
 										};
