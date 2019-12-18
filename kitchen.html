@@ -333,6 +333,12 @@
 
 							let selectOption = (el) => {
 								
+								if (!el || el.tagName !== 'BUTTON') {
+									
+									return;
+									
+								}
+								
 								let select = el.closest('.n-select');
 								
 								if (select.querySelector('[aria-selected]')) {
@@ -349,11 +355,11 @@
 								select.children[0].style.removeProperty('--top-offset');
 								select.children[0].style.removeProperty('--max-height');
 
-								let select_native = select.nextElementSibling; // The attached native select
+								let select_native = select.nuiNativeSelect; // The attached native select
 								let options = select.querySelectorAll('button');
 								
 // 								select_native.options[[...options].indexOf(el)].selected = true; // Enable the native option index-matching this button
-								select_native.value = select_native.children[[...el.parentNode.children].indexOf(el)].textContent;
+								select_native.value = select_native.children[[...el.parentNode.querySelectorAll('button')].indexOf(el)].textContent;
 								
 							}
 							
@@ -397,7 +403,6 @@
 							
 							let nextMatchingSibling = (el, selector) => {
 								
-							
 								let sibling = el.nextElementSibling;
 								while (sibling) {
 										if (sibling.matches(selector)) return sibling;
@@ -407,6 +412,16 @@
 
 							};
 
+							let previousMatchingSibling = (el, selector) => {
+								
+								let sibling = el.previousElementSibling;
+								while (sibling) {
+										if (sibling.matches(selector)) return sibling;
+										sibling = sibling.previousElementSibling;
+									}
+								return false;
+
+							};
 
 							document.querySelectorAll('.n-select').forEach(el => {
 								
@@ -415,6 +430,8 @@
 									return;
 									
 								}
+								
+								el.nuiNativeSelect = el.nextElementSibling; // Also as a child, data-for match
 								
 								// Set native select's value
 								
@@ -502,7 +519,7 @@
 									let select = e.target.closest('.n-select');
 // 									console.log(e.target);
 
-									if (select && select.hasAttribute('aria-expanded') && !el.hasAttribute('aria-selected')) { // Select the clicked option
+									if (select && select.hasAttribute('aria-expanded') && el && !el.hasAttribute('aria-selected')) { // Select the clicked option
 										
 										selectOption(el);
 
@@ -559,7 +576,7 @@
 												let sibling = nextMatchingSibling(e.target, 'button');
 												if (sibling) {
 
-												sibling.focus();
+													sibling.focus();
 												
 												}
 												
@@ -570,7 +587,12 @@
 										
 										case 'ArrowUp': {
 
-											e.target.previousElementSibling.focus();
+											let sibling = previousMatchingSibling(e.target, 'button');
+											if (sibling) {
+
+												sibling.focus();
+											
+											}
 											break;
 
 										};
