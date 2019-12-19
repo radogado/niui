@@ -2197,11 +2197,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 
 })();
 
-// To do: √ adjust multiple modals – if a prior modal exists, don't re-adjust, use the current offsets
-// To do: √ When second modal triggers a resize (toolbars appear), it should call adjustModal()
-// To do: √ allow scrolling in modal content, don't let a slider inside the modal block modal's vertical swipe scroll 
 // To do: disable page scroll by arrow keys
-// To do: √ after closing the second modal, page is scrollable
 ;// Component Nav – start
 
 (function (){

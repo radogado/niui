@@ -356,10 +356,14 @@
 								select.children[0].style.removeProperty('--max-height');
 
 								let select_native = select.nuiNativeSelect; // The attached native select
-								let options = select.querySelectorAll('button');
+
+								if (select_native) {
+
+//									let options = select.querySelectorAll('button');
+	// 								select_native.options[[...options].indexOf(el)].selected = true; // Enable the native option index-matching this button
+									select_native.value = select_native.children[[...el.parentNode.querySelectorAll('button')].indexOf(el)].textContent;
 								
-// 								select_native.options[[...options].indexOf(el)].selected = true; // Enable the native option index-matching this button
-								select_native.value = select_native.children[[...el.parentNode.querySelectorAll('button')].indexOf(el)].textContent;
+								}
 								
 							}
 							
@@ -431,7 +435,7 @@
 									
 								}
 								
-								el.nuiNativeSelect = el.nextElementSibling; // Also as a child, data-for match
+								el.nuiNativeSelect = el.nextElementSibling || el.querySelector('select') || document.querySelector(`[data-for="${el.dataset.n_select}"]`); // As a sibling, child or data-for match
 								
 								// Set native select's value
 								
@@ -506,6 +510,7 @@
 									} else { // If closed, open the drop-down
 										
 										openSelect(select, el);
+										el.focus();
 										
 									}
 									
@@ -535,10 +540,27 @@
 								});
 */
 
+								el.addEventListener('focusout', e => {
+									
+									if (!e.target.closest('.n-select').contains(e.relatedTarget)) {
+									
+										e.target.closest('.n-select').removeAttribute('aria-expanded');
+									
+									}
+
+								});
+								
 								el.addEventListener('keydown', e => {
 									
-									console.log(e.target, e.key);
-									e.preventDefault();
+									console.log(e.target, e.key, e.keyCode);
+// 									e.preventDefault();
+
+									if([32, 35, 36, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+									
+										e.preventDefault();
+									
+									}
+
 									let select = e.target.closest('.n-select');
 									
 									switch (e.key) {
@@ -614,6 +636,8 @@
 									}
 									
 								});
+								
+								el.dataset.ready = true;
 
 							});
 							

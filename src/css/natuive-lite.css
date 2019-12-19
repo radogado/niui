@@ -911,6 +911,14 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 .n-select ~ select {
   display: none;
 }
+.n-select div > *, .n-select button {
+  padding: 0.5em;
+  outline-offset: -5px;
+}
+.n-select[aria-expanded] [aria-selected] {
+  background-color: var(--selected-background, #eee);
+  color: var(--selected-color, #000);
+}
 
 /*# sourceMappingURL=natuive-form.css.map */
 
