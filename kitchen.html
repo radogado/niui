@@ -427,7 +427,7 @@
 
 							};
 
-							document.querySelectorAll('.n-select').forEach(el => {
+							document.querySelectorAll('.n-select:not([data-ready])').forEach(el => {
 								
 								if (!el.nextElementSibling.type === 'SELECT') {
 									
@@ -439,7 +439,7 @@
 								
 								// Set native select's value
 								
-								if (!el.querySelector('[aria-selected]')) {
+								if (!el.querySelector('[aria-selected]')) { // Select the first option by default
 									
 									selectOption(el.querySelector('button'));
 									
@@ -496,9 +496,15 @@
 								});
 */
 
-								el.addEventListener('pointerdown', e => {
+								el.addEventListener('click', e => {
 								
-									e.preventDefault();
+/* 									e.preventDefault(); */
+
+									if (!document.querySelector('html.can-touch')) { // Touch only
+										
+										return;
+										
+									}
 									
 									let el = e.target.closest('button');
 									let select = e.target.closest('.n-select');
@@ -506,6 +512,26 @@
 									if (select.hasAttribute('aria-expanded')) { // If already open, select the clicked option
 										
 										selectOption(el);
+										
+									} else { // If closed, open the drop-down
+										
+										openSelect(select, el);
+										el.focus();
+										
+									}
+									
+								});
+								
+								el.addEventListener('mousedown', e => {
+								
+// 									e.preventDefault();
+									
+									let el = e.target.closest('button');
+									let select = e.target.closest('.n-select');
+// 									console.log(el, select);
+									if (select.hasAttribute('aria-expanded')) { // If already open, select the clicked option
+										
+// 										selectOption(el);
 										
 									} else { // If closed, open the drop-down
 										
@@ -542,9 +568,10 @@
 
 								el.addEventListener('focusout', e => {
 									
-									if (!e.target.closest('.n-select').contains(e.relatedTarget)) {
+									let select = e.target.closest('.n-select');
+									if (!select.contains(e.relatedTarget)) {
 									
-										e.target.closest('.n-select').removeAttribute('aria-expanded');
+										select.removeAttribute('aria-expanded');
 									
 									}
 
@@ -552,8 +579,7 @@
 								
 								el.addEventListener('keydown', e => {
 									
-									console.log(e.target, e.key, e.keyCode);
-// 									e.preventDefault();
+// 									console.log(e.target, e.key, e.keyCode);
 
 									if([32, 35, 36, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
 									
@@ -609,10 +635,18 @@
 										
 										case 'ArrowUp': {
 
-											let sibling = previousMatchingSibling(e.target, 'button');
-											if (sibling) {
+											if (!select.hasAttribute('aria-expanded')) {
+												
+												openSelect(select, e.target);
+												
+											} else {
 
-												sibling.focus();
+												let sibling = previousMatchingSibling(e.target, 'button');
+												if (sibling) {
+	
+													sibling.focus();
+												
+												}
 											
 											}
 											break;
