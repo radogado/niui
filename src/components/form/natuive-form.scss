@@ -908,6 +908,12 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 		padding: 0;
 		margin: 0;
 		font-size: 1em;
+		
+		* {
+			
+			pointer-events: none; // Disable dragging of images inside the option
+
+		}
     
 	}
 	

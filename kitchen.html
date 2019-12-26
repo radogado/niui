@@ -496,19 +496,24 @@
 								});
 */
 
-								el.addEventListener('click', e => {
-								
-/* 									e.preventDefault(); */
-
-									if (!document.querySelector('html.can-touch')) { // Touch only
-										
-										return;
-										
-									}
+								el.addEventListener('touchstart', e => {
 									
+									e.target.closest('.n-select').nuiTouch = true;
+
+								});
+
+								el.addEventListener('click', e => {
+
 									let el = e.target.closest('button');
 									let select = e.target.closest('.n-select');
-// 									console.log(el, select);
+
+									if (!select.nuiTouch) { // Click by touch
+
+										delete select.nuiTouch;
+										return;
+
+									}
+
 									if (select.hasAttribute('aria-expanded')) { // If already open, select the clicked option
 										
 										selectOption(el);
@@ -557,14 +562,6 @@
 									}
 									
 								});
-
-/*
-								el.addEventListener('keydown', e => {
-									
-									e.preventDefault();
-
-								});
-*/
 
 								el.addEventListener('focusout', e => {
 									

@@ -1190,6 +1190,9 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
   margin: 0;
   font-size: 1em;
 }
+.n-select button * {
+  pointer-events: none;
+}
 .n-select:before {
   content: "";
   display: block;
