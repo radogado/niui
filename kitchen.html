@@ -277,6 +277,7 @@
 								<button>Option 24</button>
 								<button>Option 25</button>
 								<button>Option 26</button>
+								<button>Starting with other than O</button>
 							
 							</div>
 							
@@ -310,6 +311,7 @@
 							<option>Option 24</option>
 							<option>Option 25</option>
 							<option>Option 26</option>
+							<button>Starting with other than O</button>
 
 						</select>
 						
@@ -507,7 +509,7 @@
 									let el = e.target.closest('button');
 									let select = e.target.closest('.n-select');
 
-									if (!select.nuiTouch) { // Click by touch
+									if (!select.nuiTouch && !!e.x) { // Click not by touch and not by Enter key
 
 										delete select.nuiTouch;
 										return;
@@ -578,7 +580,7 @@
 									
 // 									console.log(e.target, e.key, e.keyCode);
 
-									if([32, 35, 36, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+									if([32, 35, 36, 37, 38, 39, 40].indexOf(e.keyCode) > -1) { // Capture Home, End, Arrows etc
 									
 										e.preventDefault();
 									
@@ -595,6 +597,7 @@
 										
 										}; 
 
+/*
 										case 'Enter': {
 											
 											if (select.hasAttribute('aria-expanded')) { // Select the current option
@@ -609,6 +612,7 @@
 											break;
 											
 										};
+*/
 										
 										case 'ArrowDown': {
 											
