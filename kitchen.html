@@ -509,7 +509,7 @@
 									let el = e.target.closest('button');
 									let select = e.target.closest('.n-select');
 
-									if (!select.nuiTouch && !!e.x) { // Click not by touch and not by Enter key
+									if (!select.nuiTouch && !!e.offsetX) { // Click not by touch and not by Enter key
 
 										delete select.nuiTouch;
 										return;
