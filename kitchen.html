@@ -578,7 +578,7 @@
 								
 								el.addEventListener('keydown', e => {
 									
-// 									console.log(e.target, e.key, e.keyCode);
+									console.log(e.target, e.key, e.keyCode);
 
 									if([32, 35, 36, 37, 38, 39, 40].indexOf(e.keyCode) > -1) { // Capture Home, End, Arrows etc
 									
@@ -597,23 +597,6 @@
 										
 										}; 
 
-/*
-										case 'Enter': {
-											
-											if (select.hasAttribute('aria-expanded')) { // Select the current option
-												
-												selectOption(e.target);					
-												
-											} else { // ... or open the select
-												
-												openSelect(select, e.target);
-												
-											}
-											break;
-											
-										};
-*/
-										
 										case 'ArrowDown': {
 											
 											if (!select.hasAttribute('aria-expanded')) {
@@ -667,6 +650,21 @@
 											break;
 
 										};
+										
+										default: {
+											
+											for (let el of e.target.parentNode.querySelectorAll('button')) {
+												
+												if (el.textContent[0].toLowerCase() === e.key.toLowerCase()) {
+													
+													el.focus();
+													break;
+													
+												}
+												
+											}
+											
+										}
 
 									}
 									
