@@ -890,10 +890,21 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 	
 	position: relative;
 	
-	&[aria-expanded] > div {
+	&[aria-expanded] {
 	
-		margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0))); // Align to the current option's vertical offset
-		max-height: var(--max-height);
+		 > div {
+	
+			margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0))); // Align to the current option's vertical offset
+			max-height: var(--max-height);
+			overflow: auto;
+		
+		}
+		
+		button {
+			
+			outline-offset: -5px;
+
+		}
 	
 	}
 
@@ -908,13 +919,14 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 		padding: 0;
 		margin: 0;
 		font-size: 1em;
+		position: relative;
 		
 		* {
 			
 			pointer-events: none; // Disable dragging of images inside the option
 
 		}
-    
+		
 	}
 	
 	&:before {
@@ -923,18 +935,6 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 		display: block;
 		height: var(--active-option-height, 1em);
 		font-size: 1em;
-		
-	}
-	
-	&:after {
-		
-		content: '⌄';
-	    height: .5625em;
-	    width: .5625em;
-		right: 0;
-		text-align: center;
-		line-height: 0;
-		font-size: 2em;								
 		
 	}
 	
@@ -949,7 +949,6 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 	> div {
 		
 		width: 100%;
-		overflow: auto;
 		background-color: var(--control-bg, #fff);
 		
 		> * {
@@ -966,15 +965,44 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 
 	}
 	
-	&[aria-expanded] div {
-
-		overflow: auto;
+	&:not([aria-expanded]) {
+		
+		&:after {
+			
+			content: '⌄';
+		    height: .5625em;
+		    width: .5625em;
+			right: 0;
+			text-align: center;
+			line-height: 0;
+			font-size: 2em;								
+			
+		}
 	
-	}
+		button {
+			
+			white-space: nowrap;
+			overflow: hidden;
+			
+			&:after {
+				
+				content: '';
+				top: 0;
+				right: 0;
+				bottom: 0;
+				width: 1.1em;
+				background: var(--control-bg, #fff);
+				position: absolute;
+				
+			}
+    
+		}
 		
-	&:not([aria-expanded]) > div > :not([aria-selected]) {
+		> div > :not([aria-selected]) {
 		
-		display: none;
+			display: none;
+			
+		}
 
 	}
 	
@@ -987,7 +1015,6 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 	div > *, button {
 		
 		padding: .5em;
-		outline-offset: -5px;
 		
 	}
 	

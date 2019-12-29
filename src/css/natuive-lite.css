@@ -865,6 +865,10 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 .n-select[aria-expanded] > div {
   margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)));
   max-height: var(--max-height);
+  overflow: auto;
+}
+.n-select[aria-expanded] button {
+  outline-offset: -5px;
 }
 .n-select button {
   -webkit-appearance: none;
@@ -876,6 +880,7 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
   padding: 0;
   margin: 0;
   font-size: 1em;
+  position: relative;
 }
 .n-select button * {
   pointer-events: none;
@@ -886,15 +891,6 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
   height: var(--active-option-height, 1em);
   font-size: 1em;
 }
-.n-select:after {
-  content: "⌄";
-  height: 0.5625em;
-  width: 0.5625em;
-  right: 0;
-  text-align: center;
-  line-height: 0;
-  font-size: 2em;
-}
 .n-select:after, .n-select > div {
   position: absolute;
   top: 0;
@@ -902,7 +898,6 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 }
 .n-select > div {
   width: 100%;
-  overflow: auto;
   background-color: var(--control-bg, #fff);
 }
 .n-select > div > * {
@@ -914,8 +909,27 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
   -moz-user-select: none;
   user-select: none;
 }
-.n-select[aria-expanded] div {
-  overflow: auto;
+.n-select:not([aria-expanded]):after {
+  content: "⌄";
+  height: 0.5625em;
+  width: 0.5625em;
+  right: 0;
+  text-align: center;
+  line-height: 0;
+  font-size: 2em;
+}
+.n-select:not([aria-expanded]) button {
+  white-space: nowrap;
+  overflow: hidden;
+}
+.n-select:not([aria-expanded]) button:after {
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 1.1em;
+  background: var(--control-bg, #fff);
+  position: absolute;
 }
 .n-select:not([aria-expanded]) > div > :not([aria-selected]) {
   display: none;
@@ -925,7 +939,6 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 }
 .n-select div > *, .n-select button {
   padding: 0.5em;
-  outline-offset: -5px;
 }
 .n-select[aria-expanded] [aria-selected] {
   background-color: var(--selected-background, #eee);

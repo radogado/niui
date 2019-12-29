@@ -251,7 +251,7 @@
 							<div>
 							
 								<button><img src="images/natuive.svg" alt=1 style="height: 41px;"> Option 1</button>
-								<button>Option 2</button>
+								<button>Option 2 Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long </button>
 								<button>Option 3</button>
 								<span>Label</span>
 								<button>Option 4</button>
@@ -343,9 +343,11 @@
 								
 								let select = el.closest('.n-select');
 								
-								if (select.querySelector('[aria-selected]')) {
+								let selected = select.querySelector('[aria-selected]');
+								
+								if (selected) {
 	
-									select.querySelector('[aria-selected]').removeAttribute('aria-selected');
+									selected.removeAttribute('aria-selected');
 								
 								}
 
@@ -508,13 +510,22 @@
 
 									let el = e.target.closest('button');
 									let select = e.target.closest('.n-select');
-
+									
+									if (!!select.nuiMouseDown && !select.nuiTouch) {
+										
+										delete select.nuiMouseDown;
+										return;
+										
+									}
+									
+/*
 									if (!select.nuiTouch && !!e.offsetX) { // Click not by touch and not by Enter key
 
 										delete select.nuiTouch;
 										return;
 
 									}
+*/
 
 									if (select.hasAttribute('aria-expanded')) { // If already open, select the clicked option
 										
@@ -536,9 +547,11 @@
 									let el = e.target.closest('button');
 									let select = e.target.closest('.n-select');
 // 									console.log(el, select);
+
+									select.nuiMouseDown = true;
 									if (select.hasAttribute('aria-expanded')) { // If already open, select the clicked option
 										
-// 										selectOption(el);
+										selectOption(el);
 										
 									} else { // If closed, open the drop-down
 										
