@@ -86,6 +86,8 @@ let openSelect = (select) => {
 	
 	}
 	
+	select.querySelector('[aria-selected]').focus();
+	
 }
 
 let nextMatchingSibling = (el, selector) => {
@@ -187,11 +189,11 @@ document.querySelectorAll('.n-select:not([data-ready])').forEach(el => {
 		if (select.hasAttribute('aria-expanded')) { // If already open, select the clicked option
 			
 			selectOption(el);
+			el.focus();
 			
 		} else { // If closed, open the drop-down
 			
 			openSelect(select);
-			el.focus();
 			
 		}
 		
@@ -200,11 +202,10 @@ document.querySelectorAll('.n-select:not([data-ready])').forEach(el => {
 	});
 	
 	el.addEventListener('focusout', e => {
-		
+
 		let select = e.target.closest('.n-select');
-		if (!select.contains(e.relatedTarget) && !select.nuiTouch) {
+		if (!!e.relatedTarget && (!select.contains(e.relatedTarget) || e.relatedTarget === e.target.parentNode)) {
 			
-			delete select.nuiTouch;
 			select.removeAttribute('aria-expanded');
 		
 		}
