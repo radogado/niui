@@ -1186,6 +1186,7 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 .n-select button {
   -webkit-appearance: none;
   appearance: none;
+  background: none;
   cursor: pointer;
   border: 0;
   width: 100%;
@@ -1222,14 +1223,26 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
   -moz-user-select: none;
   user-select: none;
 }
+.n-select > div::-webkit-scrollbar {
+  width: 10px;
+}
+.n-select > div::-webkit-scrollbar-thumb {
+  background: #666;
+  border-radius: 20px;
+}
+.n-select > div::-webkit-scrollbar-track {
+  background: #ddd;
+  border-radius: 20px;
+}
 .n-select:not([aria-expanded]):after {
   content: "⌄";
   height: 0.5625em;
   width: 0.5625em;
-  right: 0;
+  right: 0.25em;
   text-align: center;
   line-height: 0;
-  font-size: 2em;
+  font-size: 1.33em;
+  top: 0.33em;
 }
 .n-select:not([aria-expanded]) button {
   white-space: nowrap;
@@ -1237,9 +1250,9 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 }
 .n-select:not([aria-expanded]) button:after {
   content: "";
-  top: 0;
+  top: 2px;
   right: 0;
-  bottom: 0;
+  bottom: 2px;
   width: 1.1em;
   background: var(--control-bg, #fff);
   position: absolute;
@@ -1256,6 +1269,10 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 .n-select[aria-expanded] [aria-selected] {
   background-color: var(--selected-background, #eee);
   color: var(--selected-color, #000);
+}
+
+select[data-n_select], .n-select select, .n-select + select {
+  display: none;
 }
 
 /*# sourceMappingURL=natuive-form.css.map */

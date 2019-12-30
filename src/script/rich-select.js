@@ -112,7 +112,7 @@ let previousMatchingSibling = (el, selector) => {
 
 document.querySelectorAll('.n-select:not([data-ready])').forEach(el => {
 	
-	el.nuiNativeSelect = el.nextElementSibling || el.querySelector('select') || document.querySelector(`[data-for="${el.dataset.n_select}"]`); // As a sibling, child or data-for match
+	el.nuiNativeSelect = nextMatchingSibling(el, 'select') || el.querySelector('select') || document.querySelector(`[data-n_select="${el.dataset.n_select}"]`); // As a sibling, child or data-n_select match (where data-n_select is the rich select's data-n_select attribute)
 	
 	// Set native select's value
 	
@@ -286,7 +286,7 @@ document.querySelectorAll('.n-select:not([data-ready])').forEach(el => {
 
 			};
 			
-			default: {
+			default: { // Filter options by text entered by keyboard
 				
 				for (let el of e.target.parentNode.querySelectorAll('button')) {
 					
