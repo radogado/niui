@@ -39,13 +39,21 @@ let selectOption = (el) => {
 	select.children[0].style.removeProperty('--max-height');
 
 	let select_native = select.nuiNativeSelect; // The attached native select
+	
+	let index = [...el.parentNode.querySelectorAll('button')].indexOf(el);
 
 	if (select_native) {
 
 //									let options = select.querySelectorAll('button');
 // 								select_native.options[[...options].indexOf(el)].selected = true; // Enable the native option index-matching this button
-		select_native.value = select_native.children[[...el.parentNode.querySelectorAll('button')].indexOf(el)].textContent;
+		select_native.value = select_native.children[index].textContent;
 	
+	}
+	
+	if (!!select.nuiOnChange) {
+		
+		select.nuiOnChange(index, select_native.value);
+		
 	}
 	
 }
@@ -291,8 +299,13 @@ document.querySelectorAll('.n-select:not([data-ready])').forEach(el => {
 				
 				for (let el of e.target.parentNode.querySelectorAll('button')) {
 					
-					if (el.textContent[0].toLowerCase() === e.key.toLowerCase()) {
+					if (el.textContent[0].toLowerCase() === e.key.toLowerCase()) { // To do: remove initial space from string
 						
+						if (!select.hasAttribute('aria-expanded')) {
+	
+							selectOption(el);
+							
+						}
 						el.focus();
 						break;
 						
