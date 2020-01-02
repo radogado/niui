@@ -861,6 +861,11 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 }
 .n-select {
   position: relative;
+  cursor: pointer;
+}
+.n-select[aria-expanded] [aria-selected] {
+  background-color: var(--selected-background, #eee);
+  color: var(--selected-color, #000);
 }
 .n-select[aria-expanded] > div {
   margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)));
@@ -869,6 +874,9 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 }
 .n-select[aria-expanded] button {
   outline-offset: -5px;
+}
+.n-select[aria-expanded] button:not([aria-selected]):hover {
+  background-color: var(--active-background, #ececec);
 }
 .n-select button {
   -webkit-appearance: none;
@@ -904,11 +912,6 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 .n-select > div > * {
   display: block;
   color: var(--control-color, #333);
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
 }
 .n-select > div::-webkit-scrollbar {
   width: 10px;
@@ -921,28 +924,16 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
   background: #ddd;
   border-radius: 20px;
 }
-.n-select:not([aria-expanded]):after {
-  content: "⌄";
-  height: 0.5625em;
-  width: 0.5625em;
-  right: 0.25em;
-  text-align: center;
-  line-height: 0;
-  font-size: 1.33em;
-  top: 0.33em;
+.n-select:not([aria-expanded]) > div {
+  background-image: linear-gradient(-113deg, transparent 60%, var(--control-bg, #fff) 63%), linear-gradient(113deg, transparent 60%, var(--control-bg, #fff) 63%), linear-gradient(to bottom, var(--control-color, #333), var(--control-color, #333));
+  background-size: 0.75em 0.75em;
+  background-repeat: no-repeat;
+  background-position: calc(100% - .5em) 0.75em;
 }
 .n-select:not([aria-expanded]) button {
   white-space: nowrap;
   overflow: hidden;
-}
-.n-select:not([aria-expanded]) button:after {
-  content: "";
-  top: 2px;
-  right: 0;
-  bottom: 2px;
-  width: 1.1em;
-  background: var(--control-bg, #fff);
-  position: absolute;
+  width: calc(100% - 1.5em);
 }
 .n-select:not([aria-expanded]) > div > :not([aria-selected]) {
   display: none;
@@ -952,10 +943,6 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 }
 .n-select div > *, .n-select button {
   padding: 0.5em;
-}
-.n-select[aria-expanded] [aria-selected] {
-  background-color: var(--selected-background, #eee);
-  color: var(--selected-color, #000);
 }
 
 select[data-n_select], .n-select select, .n-select + select {

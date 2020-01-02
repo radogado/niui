@@ -128,7 +128,6 @@ $placeholder_color: #aaa;
 	    margin: 0;
 		text-indent: 1px;
 		cursor: pointer;
-		
 		background-image: linear-gradient(-113deg, transparent 60%, var(--control-bg, #eee) 63%), linear-gradient(113deg, transparent 60%, var(--control-bg, #eee) 63%), linear-gradient(to bottom, var(--control-color, #333), var(--control-color, #333));
 		background-size: .75em .75em;
 		background-repeat: no-repeat;
@@ -889,9 +888,17 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 .n-select {
 	
 	position: relative;
+	cursor: pointer;
 	
 	&[aria-expanded] {
 	
+		[aria-selected] {
+			
+			background-color: var(--selected-background, #eee);
+			color: var(--selected-color, #000);
+			
+		}
+
 		 > div {
 	
 			margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0))); // Align to the current option's vertical offset
@@ -903,6 +910,16 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 		button {
 			
 			outline-offset: -5px;
+			
+			&:not([aria-selected]) {
+			
+				&:hover {
+					
+					background-color: var(--active-background, #ececec);
+					
+				}
+			
+			}
 
 		}
 	
@@ -956,11 +973,6 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 			
 			display: block;
 			color: var(--control-color, #333);
-			-webkit-touch-callout: none;
-			-webkit-user-select: none;
-			-khtml-user-select: none;
-			-moz-user-select: none;
-			user-select: none;
 
 		}
 
@@ -988,36 +1000,21 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 	
 	&:not([aria-expanded]) {
 		
-		&:after {
+		> div {
 			
-			content: '⌄';
-		    height: .5625em;
-		    width: .5625em;
-			right: .25em;
-			text-align: center;
-			line-height: 0;
-			font-size: 1.33em;
-			top: .33em;
-			
+			background-image: linear-gradient(-113deg, transparent 60%, var(--control-bg, #fff) 63%), linear-gradient(113deg, transparent 60%, var(--control-bg, #fff) 63%), linear-gradient(to bottom, var(--control-color, #333), var(--control-color, #333));
+			background-size: .75em .75em;
+			background-repeat: no-repeat;
+			background-position: calc(100% - .5em) .75em;
+		
 		}
 	
 		button {
 			
 			white-space: nowrap;
 			overflow: hidden;
+			width: calc(100% - 1.5em);
 			
-			&:after {
-				
-				content: '';
-				top: 2px;
-				right: 0;
-				bottom: 2px;
-				width: 1.1em;
-				background: var(--control-bg, #fff);
-				position: absolute;
-				
-			}
-    
 		}
 		
 		> div > :not([aria-selected]) {
@@ -1040,13 +1037,6 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 		
 	}
 	
-	&[aria-expanded] [aria-selected] {
-		
-		background-color: var(--selected-background, #eee);
-		color: var(--selected-color, #000);
-		
-	}
-
 }
 
 select[data-n_select], .n-select select, .n-select + select { // Hide the associated native select, which can be specified in 3 different ways

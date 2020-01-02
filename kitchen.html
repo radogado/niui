@@ -34,20 +34,19 @@
 		var MY_SELECTOR = ".n-adjust-height"; // Could be any selector
 		
 		var observer = new MutationObserver(function(mutations){
-		  for (let i in mutations){
-		    for (let j in mutations[i].addedNodes){
+		  for (let mutation of mutations){
+		    for (let el of mutation.addedNodes){
 		      // We're iterating through _all_ the elements as the parser parses them,
 		      // deciding if they're the one we're looking for.
-		      if (!!mutations[i].addedNodes[j].matches && mutations[i].addedNodes[j].matches(MY_SELECTOR)){
+		      if (!!el.matches && el.matches(MY_SELECTOR)){
 			  		
-			  		let a = mutations[i].addedNodes[j];
-					a.style.removeProperty('--adjust-height');
-					let style = getComputedStyle(a);
+					el.style.removeProperty('--adjust-height');
+					let style = getComputedStyle(el);
 					let line_height = parseFloat(style.lineHeight);
 					let adjust = line_height - parseFloat(style.height) % line_height;
 					if (adjust !== line_height) {
 
-						a.style.setProperty('--adjust-height', adjust);
+						el.style.setProperty('--adjust-height', adjust);
 					
 					}
 		
