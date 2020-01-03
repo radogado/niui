@@ -299,7 +299,7 @@
 					
 					for (let el of e.target.parentNode.querySelectorAll('button')) {
 						
-						if (el.textContent[0].toLowerCase() === e.key.toLowerCase()) { // To do: remove initial space from string, support multiple characters entry
+						if (el.textContent.trim()[0].toLowerCase() === e.key.toLowerCase()) { // To do: remove initial spaces from string, support multiple characters entry
 							
 							if (!select.hasAttribute('aria-expanded')) {
 		

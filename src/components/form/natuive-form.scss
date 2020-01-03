@@ -885,6 +885,21 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 
 // Rich select
 
+/*
+	
+Theme:
+
+--control-color: red;
+--control-bg: lightgoldenrodyellow;
+
+--control-selected-color: blueviolet;
+--control-selected-bg: aliceblue;
+
+--control-active-color: chocolate;
+--control-active-bg: beige;
+
+*/
+
 .n-select {
 	
 	position: relative;
@@ -894,8 +909,8 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 	
 		[aria-selected] {
 			
-			background-color: var(--selected-background, #eee);
-			color: var(--selected-color, #000);
+			background-color: var(--control-selected-bg, #eee);
+			color: var(--control-selected-color, #000);
 			
 		}
 
@@ -915,7 +930,8 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 			
 				&:hover {
 					
-					background-color: var(--active-background, #ececec);
+					background-color: var(--control-active-bg, #ececec);
+					color: var(--control-active-color, inherit);
 					
 				}
 			
@@ -938,6 +954,7 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 		margin: 0;
 		font-size: 1em;
 		position: relative;
+		color: var(--control-color, #333);
 		
 		* {
 			
@@ -972,7 +989,6 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 		> * {
 			
 			display: block;
-			color: var(--control-color, #333);
 
 		}
 

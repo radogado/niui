@@ -859,13 +859,25 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
     padding: 1.5em 0;
   }
 }
+/*
+
+Theme:
+
+--control-color: red;
+--control-bg: lightgoldenrodyellow;
+--control-selected-bg: aliceblue;
+--control-selected-color: blueviolet;
+--control-active-bg: beige;
+--control-active-color: chocolate;
+
+*/
 .n-select {
   position: relative;
   cursor: pointer;
 }
 .n-select[aria-expanded] [aria-selected] {
-  background-color: var(--selected-background, #eee);
-  color: var(--selected-color, #000);
+  background-color: var(--control-selected-bg, #eee);
+  color: var(--control-selected-color, #000);
 }
 .n-select[aria-expanded] > div {
   margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)));
@@ -876,7 +888,8 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
   outline-offset: -5px;
 }
 .n-select[aria-expanded] button:not([aria-selected]):hover {
-  background-color: var(--active-background, #ececec);
+  background-color: var(--control-active-bg, #ececec);
+  color: var(--control-active-color, inherit);
 }
 .n-select button {
   -webkit-appearance: none;
@@ -890,6 +903,7 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
   margin: 0;
   font-size: 1em;
   position: relative;
+  color: var(--control-color, #333);
 }
 .n-select button * {
   pointer-events: none;
@@ -911,7 +925,6 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 }
 .n-select > div > * {
   display: block;
-  color: var(--control-color, #333);
 }
 .n-select > div::-webkit-scrollbar {
   width: 10px;
