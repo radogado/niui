@@ -120,6 +120,80 @@
 	
 	};
 	
+	let clickSelect = e => {
+		
+		console.log(e.type, e.target);
+		
+		let el = e.target.closest('button');
+		let select = e.target.closest('.n-select');
+		
+		if (!!select.nuiPointerUp) {
+			
+			delete select.nuiPointerUp;
+			return;
+			
+		}
+		
+		if (select.hasAttribute('aria-expanded')) { // If already open, select the clicked option
+			
+			selectOption(el);
+			el.focus();
+			
+		} else { // If closed, open the drop-down
+			
+			openSelect(select);
+			
+		}
+		
+		select.addEventListener('pointerup', pointerUpSelect);
+
+	};
+	
+	let pointerDownSelect = e => {
+		
+		console.log(e.type, e.target);
+		
+		let select = e.target.closest('.n-select');
+
+		if (!select.hasAttribute('aria-expanded')) {
+		
+			select.removeEventListener('click', clickSelect);
+			openSelect(select);
+
+		} else {
+			
+			select.removeEventListener('pointerup', pointerUpSelect);
+			
+		}
+		
+	};
+
+	let pointerUpSelect = e => {
+		
+		console.log(e.type, e.target);
+		
+		let el = e.target.closest('button');
+		let select = e.target.closest('.n-select');
+
+		if (!select.hasAttribute('aria-expanded') || el.hasAttribute('aria-selected')) {
+			
+			if (el.hasAttribute('aria-selected')) {
+							
+				select.nuiPointerUp = true;
+				select.addEventListener('click', clickSelect);
+			
+			}
+			return;
+
+		}
+
+		selectOption(el);
+		el.focus();
+		select.nuiPointerUp = true;
+		select.addEventListener('click', clickSelect);
+		
+	};
+
 	document.querySelectorAll('.n-select:not([data-ready])').forEach(el => {
 		
 		el.nuiNativeSelect = nextMatchingSibling(el, 'select') || el.querySelector('select') || document.querySelector(`[data-n_select="${el.dataset.n_select}"]`); // As a sibling, child or data-n_select match (where data-n_select is the rich select's data-n_select attribute)
@@ -183,31 +257,11 @@
 		});
 	*/
 	
-		el.addEventListener('touchstart', e => {
-			
-			e.target.closest('.n-select').nuiTouch = true;
-	
-		});
-	
-		el.addEventListener('click', e => {
-	
-			let el = e.target.closest('button');
-			let select = e.target.closest('.n-select');
-			
-			if (select.hasAttribute('aria-expanded')) { // If already open, select the clicked option
-				
-				selectOption(el);
-				el.focus();
-				
-			} else { // If closed, open the drop-down
-				
-				openSelect(select);
-				
-			}
-			
-			delete select.nuiTouch;
-	
-		});
+		el.addEventListener('click', clickSelect);
+		
+		el.addEventListener('pointerdown', pointerDownSelect);
+
+		el.addEventListener('pointerup', pointerUpSelect);
 		
 		el.addEventListener('focusout', e => {
 	
