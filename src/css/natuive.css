@@ -1178,10 +1178,12 @@ Theme:
 
 --control-color: red;
 --control-bg: lightgoldenrodyellow;
---control-selected-bg: aliceblue;
+
 --control-selected-color: blueviolet;
---control-active-bg: beige;
+--control-selected-bg: aliceblue;
+
 --control-active-color: chocolate;
+--control-active-bg: beige;
 
 */
 .n-select {
@@ -1198,7 +1200,12 @@ Theme:
   overflow: auto;
 }
 .n-select[aria-expanded] button {
-  outline-offset: -5px;
+  outline-offset: -3px;
+}
+@media (hover: hover) {
+  .n-select[aria-expanded] button {
+    outline-offset: -5px;
+  }
 }
 .n-select[aria-expanded] button:not([aria-selected]):hover {
   background-color: var(--control-active-bg, #ececec);
@@ -1260,6 +1267,7 @@ Theme:
   white-space: nowrap;
   overflow: hidden;
   width: calc(100% - 1.5em);
+  outline-offset: -1.5px;
 }
 .n-select:not([aria-expanded]) > div > :not([aria-selected]) {
   display: none;

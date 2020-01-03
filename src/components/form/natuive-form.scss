@@ -924,7 +924,13 @@ Theme:
 		
 		button {
 			
-			outline-offset: -5px;
+			outline-offset: -3px;
+
+			@media (hover: hover) {
+
+				outline-offset: -5px;
+
+			}
 			
 			&:not([aria-selected]) {
 			
@@ -1030,6 +1036,7 @@ Theme:
 			white-space: nowrap;
 			overflow: hidden;
 			width: calc(100% - 1.5em);
+			outline-offset: -1.5px;
 			
 		}
 		

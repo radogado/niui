@@ -220,6 +220,8 @@
 	
 		});
 		
+		let timeout = null;
+		
 		el.addEventListener('keydown', e => {
 			
 			console.log(e.target, e.key, e.keyCode);
@@ -282,24 +284,44 @@
 				};
 				
 				case 'Home': {
-					
-					e.target.parentNode.querySelector('button').focus();
+
+					select.querySelector('button').focus();
 					break;
 	
 				};
 	
 				case 'End': {
 					
-					e.target.parentNode.querySelector('button:last-of-type').focus();
+					select.querySelector('button:last-of-type').focus();
 					break;
 	
 				};
 				
 				default: { // Filter options by text entered by keyboard
 					
-					for (let el of e.target.parentNode.querySelectorAll('button')) {
+					if (typeof select.nuiFilterIndex === 'undefined') {
 						
-						if (el.textContent.trim()[0].toLowerCase() === e.key.toLowerCase()) { // To do: remove initial spaces from string, support multiple characters entry
+						select.nuiFilterIndex = 0;
+						
+					} else {
+						
+						select.nuiFilterIndex++;
+						
+					}
+					
+					clearTimeout(timeout);
+					
+					timeout = setTimeout(() => {
+						
+						delete select.nuiFilterIndex;
+						
+					}, 1000);
+						
+					for (let el of select.querySelectorAll('button')) {
+						
+						// Add to string unless too much time has passed (2"?)
+						
+						if (el.textContent.trim().length > select.nuiFilterIndex && el.textContent.trim()[select.nuiFilterIndex].toLowerCase() === e.key.toLowerCase()) { // To do: remove initial spaces from string, support multiple characters entry
 							
 							if (!select.hasAttribute('aria-expanded')) {
 		
