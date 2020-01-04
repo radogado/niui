@@ -155,14 +155,19 @@
 		
 		let select = e.target.closest('.n-select');
 
-		if (!select.hasAttribute('aria-expanded')) {
+		if (!select.hasAttribute('aria-expanded')) { // Closed
 		
 			select.removeEventListener('click', clickSelect);
 			openSelect(select);
 
-		} else {
-			
-			select.removeEventListener('pointerup', pointerUpSelect);
+		} else { // Open
+
+			if (!e.target.hasAttribute('aria-expanded')) {
+				
+				select.removeEventListener('pointerup', pointerUpSelect);
+				e.target.click();
+				
+			}
 			
 		}
 		
