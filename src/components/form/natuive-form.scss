@@ -900,6 +900,26 @@ Theme:
 
 */
 
+@keyframes n-select {
+    
+    100% {
+	    
+	    height: 0;
+	    
+    }
+    
+}
+	
+@keyframes n-select-native {
+    
+    100% {
+	    
+	    height: auto;
+
+    }
+    
+}
+    							
 .n-select {
 	
 	position: relative;
@@ -1052,12 +1072,6 @@ Theme:
 		}
 
 	}
-	
-	~ select {
-		
-		display: none;
-
-	}
 
 	div > *, button {
 		
@@ -1067,7 +1081,33 @@ Theme:
 	
 }
 
-select[data-n_select], .n-select select, .n-select + select { // Hide the associated native select, which can be specified in 3 different ways
+.n-select:not([data-ready]) {
+
+    animation-name: n-select;
+    overflow: hidden;
+    
+    &, & + select {
+	    
+	    animation-duration: .1s;
+	    animation-fill-mode: forwards;
+	    animation-delay: 2s;
+
+    }
+    
+	& + select {
+	    
+	    animation-name: n-select-native;
+	
+		-webkit-appearance: none;
+		appearance: none;
+		border: none;
+		height: 0;
+	
+	}
+						    
+}
+
+select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + select { // Hide the associated native select, which can be specified in 3 different ways
 	
 	display: none;
 	
