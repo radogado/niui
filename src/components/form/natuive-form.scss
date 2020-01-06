@@ -981,6 +981,7 @@ Theme:
 		font-size: 1em;
 		position: relative;
 		color: var(--control-color, #333);
+		background-color: var(--control-bg, #fff);
 		
 		* {
 			
@@ -990,7 +991,7 @@ Theme:
 		
 	}
 	
-	&:before {
+	&[data-ready]:before {
 		
 		content: '';
 		display: block;
@@ -1083,6 +1084,8 @@ Theme:
 
 .n-select:not([data-ready]) {
 
+	// If no init in 2", display native fallback
+
     animation-name: n-select;
     overflow: hidden;
     
@@ -1105,6 +1108,26 @@ Theme:
 	
 	}
 						    
+	&:not([aria-expanded]) > div { // Before init. If there is no selected item, display the first one. Otherwise, display the selected item it on top of the first one.
+		
+		position: relative;
+	
+		> :not([aria-selected]):first-child {
+			
+			display: block;
+
+			~ [aria-selected] {
+				
+				display: block;
+				position: absolute;
+			    top: 0;
+				
+			}
+			
+		}
+	
+	}
+
 }
 
 select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + select { // Hide the associated native select, which can be specified in 3 different ways

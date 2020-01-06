@@ -1234,11 +1234,12 @@ Theme:
   font-size: 1em;
   position: relative;
   color: var(--control-color, #333);
+  background-color: var(--control-bg, #fff);
 }
 .n-select button * {
   pointer-events: none;
 }
-.n-select:before {
+.n-select[data-ready]:before {
   content: "";
   display: block;
   height: var(--active-option-height, 1em);
@@ -1306,6 +1307,17 @@ Theme:
   appearance: none;
   border: none;
   height: 0;
+}
+.n-select:not([data-ready]):not([aria-expanded]) > div {
+  position: relative;
+}
+.n-select:not([data-ready]):not([aria-expanded]) > div > :not([aria-selected]):first-child {
+  display: block;
+}
+.n-select:not([data-ready]):not([aria-expanded]) > div > :not([aria-selected]):first-child ~ [aria-selected] {
+  display: block;
+  position: absolute;
+  top: 0;
 }
 
 select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + select {
