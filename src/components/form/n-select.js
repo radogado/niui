@@ -122,7 +122,7 @@
 	
 	let clickSelect = e => {
 		
-		console.log(e.type, e.target);
+// 		console.log(e.type, e.target);
 		
 		let el = e.target.closest('button');
 		let select = e.target.closest('.n-select');
@@ -152,7 +152,7 @@
 	
 	let touchStartSelect = e => {
 			
-		console.log(e.type, e.target);
+// 		console.log(e.type, e.target);
 		let select = e.target.closest('.n-select');
 		select.nuiTouch = true;
 		
@@ -169,7 +169,7 @@
 
 		}
 
-		console.log(e.type, e.target);
+// 		console.log(e.type, e.target);
 
 		if (!select.hasAttribute('aria-expanded')) { // Closed
 		
@@ -200,7 +200,7 @@
 
 		}
 
-		console.log(e.type, e.target);
+// 		console.log(e.type, e.target);
 
 		if (!select.hasAttribute('aria-expanded') || el.hasAttribute('aria-selected')) {
 			
@@ -221,211 +221,217 @@
 		
 	};
 
-	document.querySelectorAll('.n-select:not([data-ready])').forEach(el => {
-		
-		el.nuiNativeSelect = nextMatchingSibling(el, 'select') || el.querySelector('select') || document.querySelector(`[data-n_select="${el.dataset.n_select}"]`); // As a sibling, child or data-n_select match (where data-n_select is the rich select's data-n_select attribute)
-		
-		// Set native select's value
-		
-		if (!el.querySelector('[aria-selected]')) { // Select the first option by default
-			
-			selectOption(el.querySelector('button'));
-			
-		}
-		
-	/*
-		el.nextElementSibling.onchange = e => {
-			
-			// Also change the visible select
-			let el = e.target;
-			selectOption(el.previousElementSibling.querySelectorAll('button')[el.selectedIndex]);
-			
-		};
-	*/
-		
-	/*
-		Object.defineProperty(el.nextElementSibling, 'value', {
-			
-			set: value => {
-				
-				console.log(this);
-				
-				if (this.tagName !== 'SELECT') {
-					
-					return;
-					
-				}
-				
-				this.value = value; // Why is "this" the window object?
-	
-				[...this.children].forEach(el => {
-					
-					if (el.textContent === value) {
-						
-						this.selectedIndex = el.index;
-	
-					}
-					
-				});
-	
-				console.log('Setting', value, this.selectedIndex);
-	
-				selectOption(this.previousElementSibling.querySelectorAll('button')[this.selectedIndex]);
-				this.children[this.selectedIndex].selected = true;
-	
-			},
-			get: () => {
-				
-				console.log('Getting', this.value);
-				return this.value; 
-	
-			}
-		
-		});
-	*/
-	
-		el.addEventListener('click', clickSelect);
-		
-		el.addEventListener('pointerdown', pointerDownSelect);
+	let init = host => {
 
-		el.addEventListener('pointerup', pointerUpSelect);
-
-		el.addEventListener('touchstart', touchStartSelect);
-		
-		el.addEventListener('focusout', e => {
-	
-			let select = e.target.closest('.n-select');
-			if (!!e.relatedTarget && (!select.contains(e.relatedTarget) || e.relatedTarget === e.target.parentNode)) {
-				
-				select.removeAttribute('aria-expanded');
+		host.querySelectorAll('.n-select:not([data-ready])').forEach(el => {
 			
+			el.nuiNativeSelect = nextMatchingSibling(el, 'select') || el.querySelector('select') || document.querySelector(`[data-n_select="${el.dataset.n_select}"]`); // As a sibling, child or data-n_select match (where data-n_select is the rich select's data-n_select attribute)
+			
+			// Set native select's value
+			
+			if (!el.querySelector('[aria-selected]')) { // Select the first option by default
+				
+				selectOption(el.querySelector('button'));
+				
 			}
-	
-		});
+			
+		/*
+			el.nextElementSibling.onchange = e => {
+				
+				// Also change the visible select
+				let el = e.target;
+				selectOption(el.previousElementSibling.querySelectorAll('button')[el.selectedIndex]);
+				
+			};
+		*/
+			
+		/*
+			Object.defineProperty(el.nextElementSibling, 'value', {
+				
+				set: value => {
+					
+					console.log(this);
+					
+					if (this.tagName !== 'SELECT') {
+						
+						return;
+						
+					}
+					
+					this.value = value; // Why is "this" the window object?
 		
-		let timeout = null;
-		
-		el.addEventListener('keydown', e => {
-			
-			console.log(e.target, e.key, e.keyCode);
-	
-			if([32, 35, 36, 37, 38, 39, 40].indexOf(e.keyCode) > -1) { // Capture Home, End, Arrows etc
-			
-				e.preventDefault();
-			
-			}
-	
-			let select = e.target.closest('.n-select');
-			
-			switch (e.key) {
-				
-				case 'Escape': {
-				
-					select.removeAttribute('aria-expanded');
-					break;
-				
-				}; 
-	
-				case 'ArrowDown': {
-					
-					if (!select.hasAttribute('aria-expanded')) {
+					[...this.children].forEach(el => {
 						
-						openSelect(select);
-						
-					} else {
-						
-						let sibling = nextMatchingSibling(e.target, 'button');
-						if (sibling) {
-	
-							sibling.focus();
-						
-						}
-						
-					}
-					break;
-	
-				};
-				
-				case 'ArrowUp': {
-	
-					if (!select.hasAttribute('aria-expanded')) {
-						
-						openSelect(select);
-						
-					} else {
-	
-						let sibling = previousMatchingSibling(e.target, 'button');
-						if (sibling) {
-	
-							sibling.focus();
-						
-						}
-					
-					}
-					break;
-	
-				};
-				
-				case 'Home': {
-
-					select.querySelector('button').focus();
-					break;
-	
-				};
-	
-				case 'End': {
-					
-					select.querySelector('button:last-of-type').focus();
-					break;
-	
-				};
-				
-				default: { // Filter options by text entered by keyboard
-					
-					if (typeof select.nuiFilterIndex === 'undefined') {
-						
-						select.nuiFilterIndex = 0;
-						
-					} else {
-						
-						select.nuiFilterIndex++;
-						
-					}
-					
-					clearTimeout(timeout);
-					
-					timeout = setTimeout(() => {
-						
-						delete select.nuiFilterIndex;
-						
-					}, 1000);
-						
-					for (let el of select.querySelectorAll('button')) {
-						
-						// Add to string unless too much time has passed (2"?)
-						
-						if (el.textContent.trim().length > select.nuiFilterIndex && el.textContent.trim()[select.nuiFilterIndex].toLowerCase() === e.key.toLowerCase()) { // To do: remove initial spaces from string, support multiple characters entry
+						if (el.textContent === value) {
 							
-							if (!select.hasAttribute('aria-expanded')) {
+							this.selectedIndex = el.index;
 		
-								selectOption(el);
+						}
+						
+					});
+		
+					console.log('Setting', value, this.selectedIndex);
+		
+					selectOption(this.previousElementSibling.querySelectorAll('button')[this.selectedIndex]);
+					this.children[this.selectedIndex].selected = true;
+		
+				},
+				get: () => {
+					
+					console.log('Getting', this.value);
+					return this.value; 
+		
+				}
+			
+			});
+		*/
+		
+			el.addEventListener('click', clickSelect);
+			
+			el.addEventListener('pointerdown', pointerDownSelect);
+	
+			el.addEventListener('pointerup', pointerUpSelect);
+	
+			el.addEventListener('touchstart', touchStartSelect);
+			
+			el.addEventListener('focusout', e => {
+		
+				let select = e.target.closest('.n-select');
+				if (!!e.relatedTarget && (!select.contains(e.relatedTarget) || e.relatedTarget === e.target.parentNode)) {
+					
+					select.removeAttribute('aria-expanded');
+				
+				}
+		
+			});
+			
+			let timeout = null;
+			
+			el.addEventListener('keydown', e => {
+				
+// 				console.log(e.target, e.key, e.keyCode);
+		
+				if([32, 35, 36, 37, 38, 39, 40].indexOf(e.keyCode) > -1) { // Capture Home, End, Arrows etc
+				
+					e.preventDefault();
+				
+				}
+		
+				let select = e.target.closest('.n-select');
+				
+				switch (e.key) {
+					
+					case 'Escape': {
+					
+						select.removeAttribute('aria-expanded');
+						break;
+					
+					}; 
+		
+					case 'ArrowDown': {
+						
+						if (!select.hasAttribute('aria-expanded')) {
+							
+							openSelect(select);
+							
+						} else {
+							
+							let sibling = nextMatchingSibling(e.target, 'button');
+							if (sibling) {
+		
+								sibling.focus();
+							
+							}
+							
+						}
+						break;
+		
+					};
+					
+					case 'ArrowUp': {
+		
+						if (!select.hasAttribute('aria-expanded')) {
+							
+							openSelect(select);
+							
+						} else {
+		
+							let sibling = previousMatchingSibling(e.target, 'button');
+							if (sibling) {
+		
+								sibling.focus();
+							
+							}
+						
+						}
+						break;
+		
+					};
+					
+					case 'Home': {
+	
+						select.querySelector('button').focus();
+						break;
+		
+					};
+		
+					case 'End': {
+						
+						select.querySelector('button:last-of-type').focus();
+						break;
+		
+					};
+					
+					default: { // Filter options by text entered by keyboard
+						
+						if (typeof select.nuiFilterIndex === 'undefined') {
+							
+							select.nuiFilterIndex = 0;
+							
+						} else {
+							
+							select.nuiFilterIndex++;
+							
+						}
+						
+						clearTimeout(timeout);
+						
+						timeout = setTimeout(() => {
+							
+							delete select.nuiFilterIndex;
+							
+						}, 1000);
+							
+						for (let el of select.querySelectorAll('button')) {
+							
+							// Add to string unless too much time has passed (2"?)
+							
+							if (el.textContent.trim().length > select.nuiFilterIndex && el.textContent.trim()[select.nuiFilterIndex].toLowerCase() === e.key.toLowerCase()) { // To do: remove initial spaces from string, support multiple characters entry
+								
+								if (!select.hasAttribute('aria-expanded')) {
+			
+									selectOption(el);
+									
+								}
+								el.focus();
+								break;
 								
 							}
-							el.focus();
-							break;
 							
 						}
 						
 					}
-					
-				}
-	
-			}
-			
-		});
 		
-		el.dataset.ready = true;
+				}
+				
+			});
+			
+			el.dataset.ready = true;
+		
+		});
 	
-	});
+	};
+
+	typeof registerComponent === "function" ? registerComponent('n-select', init) : init(document.body);
 
 })();

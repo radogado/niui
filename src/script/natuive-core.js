@@ -684,7 +684,7 @@ function initComponents(host) {
 	
 	var _host = !host ? bodyElement : host;
 
-	for (var key in components) {
+	for (let key in components) {
 	
 	    components[key][0].init(_host);
 	
