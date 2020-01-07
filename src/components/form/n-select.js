@@ -435,3 +435,4 @@
 	typeof registerComponent === "function" ? registerComponent('n-select', init) : init(document.body);
 
 })();
+

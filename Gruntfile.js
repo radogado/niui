@@ -7,6 +7,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-closure-compiler');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-gzip');
+	grunt.loadNpmTasks('grunt-contrib-watch');
 */
 
 	require('jit-grunt')(grunt);
@@ -128,7 +129,16 @@ module.exports = function(grunt) {
 		        'dist/natuive.min.css'
 		      ]
 		    }
-		  }
+		  },
+		'watch': {
+		  scripts: {
+		    files: ['src/components/**/*.js', 'src/components/**/*.scss'],
+		    tasks: ['dev'],
+		    options: {
+		      spawn: false,
+		    },
+		  },
+		}		  
 	});
 
 	grunt.registerTask('default', ['sass', 'concat', 'cssmin', 'gzip', 'closure-compiler', 'copy']);
