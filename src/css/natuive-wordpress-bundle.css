@@ -682,14 +682,14 @@ Theme:
   -moz-user-select: none;
   user-select: none;
 }
-.n-select > div::-webkit-scrollbar {
+.n-select > div.n-scrollbar::-webkit-scrollbar {
   width: 10px;
 }
-.n-select > div::-webkit-scrollbar-thumb {
-  background: #666;
+.n-select > div.n-scrollbar::-webkit-scrollbar-thumb {
+  background: #999;
   border-radius: 20px;
 }
-.n-select > div::-webkit-scrollbar-track {
+.n-select > div.n-scrollbar::-webkit-scrollbar-track {
   background: #ddd;
   border-radius: 20px;
 }

@@ -1039,7 +1039,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	let openSelect = (select) => {
 		
 		select.setAttribute('aria-expanded', true);
-		
+
 		// Fix viewport overflow
 		let options = select.children[0];
 		options.style.removeProperty('--top-offset');
@@ -1072,6 +1072,16 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		
 		}
 		
+		if (select.scrollWidth > select.querySelector('button').scrollWidth) {
+			
+			options.classList.add('n-scrollbar');
+			
+		} else {
+			
+			options.classList.remove('n-scrollbar');
+			
+		}
+
 		select.querySelector('[aria-selected]').focus();
 		
 	}
