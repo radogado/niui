@@ -117,7 +117,7 @@ main > 	._3\/4 > .n-slider--wrap > .n-slider.n-slider__vertical > * {
 	
 }
 
-body:not([data-natuive-js]) #content > ._3\/4 > .n-slider--wrap > .n-slider:not([data-ready]) > :first-child {
+body:not([data-nui-js]) #content > ._3\/4 > .n-slider--wrap > .n-slider:not([data-ready]) > :first-child {
 	
 // 	display: block;
 
@@ -204,7 +204,7 @@ main > .n-slider--wrap > .n-slider--nav [data-active] {
 
 }
 
-body:not([data-natuive-js]) .n-slider.n-slider__vertical > {
+body:not([data-nui-js]) .n-slider.n-slider__vertical > {
 	
 	*:not(:first-child) {
 	

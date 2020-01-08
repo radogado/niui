@@ -3,19 +3,25 @@
 
 var bodyElement = document.body;
 
+bodyElement.setAttribute('data-nui-js', 'true');
+
 if (!!window['chrome']) {
 	
-	document.body.setAttribute('data-chrome', 'true');
+	bodyElement.setAttribute('data-nui-chrome', 'true');
 
 }
 
 if (navigator.userAgent.match(/Safari/) && !navigator.userAgent.match(/Chrome/)) {
 	
-	document.body.setAttribute('data-safari', 'true');
+	bodyElement.setAttribute('data-nui-safari', 'true');
 	
 }
 
-document.body.setAttribute('data-natuive-js', 'true');
+if (navigator.platform.match(/Mac/) || navigator.platform.match(/iPhone/) || navigator.platform.match(/iPod/) || navigator.platform.match(/iPad/)) {
+	
+	bodyElement.setAttribute('data-nui-apple', 'true'); // Apple devices: left-hand ⤫ button, disappearing thin scrollbars
+	
+}
 
 var is_iPad = !!navigator.platform.match(/iPad/);
 

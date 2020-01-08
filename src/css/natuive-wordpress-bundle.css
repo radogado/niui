@@ -1971,7 +1971,7 @@ ol.n-masonry > * {
 }
 
 /*
-[data-safari] .n-lightbox.n-slider[data-ready] > [data-active]:not(.n-lightbox--no-image):not(.n-lightbox--loaded):after {
+[data-nui-safari] .n-lightbox.n-slider[data-ready] > [data-active]:not(.n-lightbox--no-image):not(.n-lightbox--loaded):after {
 
 	animation-iteration-count: infinite;
 
@@ -2826,21 +2826,21 @@ html:not(.can-touch) .n-nav__drop > ul li:not([aria-haspopup]) ul li:hover ~ ul 
     -webkit-mask-position-y: 1.15em;
   }
 
-  html:not([data-natuive-js]) .n-nav__drop {
+  html:not([data-nui-js]) .n-nav__drop {
     width: 100%;
   }
-  html:not([data-natuive-js]) .n-nav__drop ul li {
+  html:not([data-nui-js]) .n-nav__drop ul li {
     display: flex;
     flex-direction: column;
   }
-  html:not([data-natuive-js]) .n-nav__drop ul li a {
+  html:not([data-nui-js]) .n-nav__drop ul li a {
     order: -1;
   }
-  html:not([data-natuive-js]) .n-nav__drop ul li:not([aria-expanded]) > ul {
+  html:not([data-nui-js]) .n-nav__drop ul li:not([aria-expanded]) > ul {
     width: 100%;
   }
 
-  html:not([data-natuive-js]) .n-fold.n-fold__mobile:not([aria-expanded]) .n-fold--content {
+  html:not([data-nui-js]) .n-fold.n-fold__mobile:not([aria-expanded]) .n-fold--content {
     max-width: 100%;
   }
 

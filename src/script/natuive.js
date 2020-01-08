@@ -3,19 +3,25 @@ window.nui = (() => {/* natUIve by rado.bg */
 
 var bodyElement = document.body;
 
+bodyElement.setAttribute('data-nui-js', 'true');
+
 if (!!window['chrome']) {
 	
-	document.body.setAttribute('data-chrome', 'true');
+	bodyElement.setAttribute('data-nui-chrome', 'true');
 
 }
 
 if (navigator.userAgent.match(/Safari/) && !navigator.userAgent.match(/Chrome/)) {
 	
-	document.body.setAttribute('data-safari', 'true');
+	bodyElement.setAttribute('data-nui-safari', 'true');
 	
 }
 
-document.body.setAttribute('data-natuive-js', 'true');
+if (navigator.platform.match(/Mac/) || navigator.platform.match(/iPhone/) || navigator.platform.match(/iPod/) || navigator.platform.match(/iPad/)) {
+	
+	bodyElement.setAttribute('data-nui-apple', 'true'); // Apple devices: left-hand ⤫ button, disappearing thin scrollbars
+	
+}
 
 var is_iPad = !!navigator.platform.match(/iPad/);
 
@@ -2310,13 +2316,13 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		            _element.addEventListener('touchstart', captureClientY, { passive: false });
 		            _element.addEventListener('touchmove', preventOverscroll, { passive: false });
 	        	}
-	            document.body.addEventListener("touchmove", preventBodyScroll, { passive: false });
+	            bodyElement.addEventListener("touchmove", preventBodyScroll, { passive: false });
 	        } else {
 	        	if (false !== _element) {
 		            _element.removeEventListener('touchstart', captureClientY, { passive: false });
 		            _element.removeEventListener('touchmove', preventOverscroll, { passive: false });
 		        }
-	          document.body.removeEventListener("touchmove", preventBodyScroll, { passive: false });
+	          bodyElement.removeEventListener("touchmove", preventBodyScroll, { passive: false });
 	        }
 	    };
 	}());
@@ -2332,7 +2338,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		
 /*
 		var modal = q('.n-ovrl');
-		var previous_overlay_top = parseInt(document.body.style.getPropertyValue('--overlay-top'));
+		var previous_overlay_top = parseInt(bodyElement.style.getPropertyValue('--overlay-top'));
 		var actual_viewport = window.innerHeight;
 		var offset_y = modal ? modal.getBoundingClientRect().y : 0;
 		if ((previous_overlay_top + '') === 'NaN') {
@@ -2341,8 +2347,8 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 
 		}
 
-		document.body.style.setProperty('--overlay-top', 0);
-		document.body.style.setProperty('--overlay-bottom', 0);
+		bodyElement.style.setProperty('--overlay-top', 0);
+		bodyElement.style.setProperty('--overlay-bottom', 0);
 		var screen_height = modal ? modal.scrollHeight : 0;
 
 		if (!navigator.userAgent.match(/(iPod|iPhone)/i) || Math.abs(window.orientation) !== 90 || actual_viewport === screen_height) { // Only for mobile Safari in landscape mode
@@ -2925,7 +2931,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 
 //		var rect = ul.getBoundingClientRect(); // Firefox doesn't preserve this var
 		
-		if (ul.getBoundingClientRect().left > document.body.offsetWidth - (ul.getBoundingClientRect().left + ul.getBoundingClientRect().width)) {
+		if (ul.getBoundingClientRect().left > bodyElement.offsetWidth - (ul.getBoundingClientRect().left + ul.getBoundingClientRect().width)) {
 			
 			if (ul.getBoundingClientRect().right > window.innerWidth) {
 				
@@ -3130,7 +3136,7 @@ var componentNotify = (function (){
 		qa('.n-parallax').forEach(el => {
 			
 			let parent = el.parentElement;
-			let scroll_offset = parent.scrollHeight > parent.offsetHeight ? Math.abs(parent.getBoundingClientRect().y) : (document.body.scrollTop || document.documentElement.scrollTop);
+			let scroll_offset = parent.scrollHeight > parent.offsetHeight ? Math.abs(parent.getBoundingClientRect().y) : (bodyElement.scrollTop || document.documentElement.scrollTop);
 			el.style.setProperty("--scrollparallax",  scroll_offset * parallaxSpeed);
 		
 		});
@@ -4127,7 +4133,7 @@ var componentSlider = (function (){
 		let area_bottom = bottom * window.innerWidth;
 		let area_left = left * window.innerHeight;
 		
-		let body_rect = document.body.getBoundingClientRect();
+		let body_rect = bodyElement.getBoundingClientRect();
 		
 		tip.removeAttribute('style');
 		tip.removeAttribute('data-n-position');
@@ -4307,7 +4313,7 @@ var componentSlider = (function (){
 
 		    tip.setAttribute('for', tooltips);
 		    el.setAttribute('data-n-tool', tooltips++);
-		    document.body.appendChild(tip);
+		    bodyElement.appendChild(tip);
 		    
 			el.setAttribute('tabindex', 0);
 

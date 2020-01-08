@@ -17,7 +17,7 @@
 		let area_bottom = bottom * window.innerWidth;
 		let area_left = left * window.innerHeight;
 		
-		let body_rect = document.body.getBoundingClientRect();
+		let body_rect = bodyElement.getBoundingClientRect();
 		
 		tip.removeAttribute('style');
 		tip.removeAttribute('data-n-position');
@@ -197,7 +197,7 @@
 
 		    tip.setAttribute('for', tooltips);
 		    el.setAttribute('data-n-tool', tooltips++);
-		    document.body.appendChild(tip);
+		    bodyElement.appendChild(tip);
 		    
 			el.setAttribute('tabindex', 0);
 
