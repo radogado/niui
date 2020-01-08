@@ -327,6 +327,40 @@
 							    
 						    }
 						    
+						    @keyframes n-select-reveal {
+							    
+							    0% {
+								    
+									-webkit-mask: 	linear-gradient(0, #000, #000) no-repeat 0 calc(1px * (var(--active-option-offset) - var(--top-offset, 0))) / 100% var(--active-option-height);
+									mask: 			linear-gradient(0, #000, #000) no-repeat 0 calc(1px * (var(--active-option-offset) - var(--top-offset, 0))) / 100% var(--active-option-height);
+								
+								}
+								
+								100% {
+									
+									-webkit-mask-size: 	100% 100%;
+									mask-size: 			100% 100%;
+									-webkit-mask-position: 	0 0;
+									mask-position: 			0 0;
+									
+								}
+							    
+						    }
+						    
+						    .n-select[aria-expanded] > div {
+									
+/*
+								animation-name: n-select-reveal;
+								animation-iteration-count: 1;
+								animation-fill-mode: forwards;
+								animation-duration: .2s;
+								animation-timing-function: ease-in-out;
+*/
+
+								animation: n-select-reveal 1 forwards .2s ease-in-out;
+
+							}					    
+						    
 						</style>
 						
 <!-- 						<script src="src/script/rich-select-touch-fix.js" type="text/javascript"></script> -->
