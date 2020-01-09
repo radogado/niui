@@ -49,7 +49,7 @@ Theme:
 			
 		}
 
-		 > div {
+		> div {
 	
 			margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0))); // Align to the current option's vertical offset
 			max-height: var(--max-height);
@@ -254,3 +254,29 @@ select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + sel
 	display: none;
 	
 }
+
+// Animation
+
+.n-select[aria-expanded] > div {
+
+	-webkit-mask: linear-gradient(0, #000, #000) no-repeat 0 calc(1px * (var(--active-option-offset) - var(--top-offset, 0))) / 100% var(--active-option-height);
+
+}
+						    
+.n-select[aria-expanded][data-anim] > div {
+		
+	animation: n-select-reveal 1 forwards .2s ease-in-out;
+
+}
+
+@keyframes n-select-reveal {
+		
+	to {
+		
+		-webkit-mask-size: 	100% 100%;
+		-webkit-mask-position: 	0 0;
+
+	}
+
+}
+

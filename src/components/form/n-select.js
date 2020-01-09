@@ -7,6 +7,7 @@
 			document.querySelectorAll('.n-select[aria-expanded]').forEach(el => {
 				
 				el.removeAttribute('aria-expanded');
+				delete el.dataset.anim;
 			
 			});
 			
@@ -32,8 +33,8 @@
 		}
 	
 		el.setAttribute('aria-selected', true);
-		select.setAttribute('aria-expanded', true);
 		select.removeAttribute('aria-expanded');
+		delete select.dataset.anim;
 		select.style.setProperty('--active-option-height', `${el.offsetHeight}px`);
 		select.children[0].style.removeProperty('--top-offset');
 		select.children[0].style.removeProperty('--max-height');
@@ -60,15 +61,17 @@
 	
 	let openSelect = (select) => {
 		
-		select.setAttribute('aria-expanded', true);
 
 		// Fix viewport overflow
 		let options = select.children[0];
 		options.style.removeProperty('--top-offset');
 		options.style.removeProperty('--max-height');
 		select.style.removeProperty('--active-option-offset');
+
+		select.setAttribute('aria-expanded', true);
+
 		select.style.setProperty('--active-option-offset', select.querySelector('[aria-selected]').getBoundingClientRect().y - select.getBoundingClientRect().y);
-	
+
 		if (options.getBoundingClientRect().y < 0) {
 			
 			let current_max_height = options.getBoundingClientRect().height + options.getBoundingClientRect().y;
@@ -104,6 +107,8 @@
 			
 		}
 
+		setTimeout(() => { select.dataset.anim = true; }, 1); // Fix for Safari bug – wait for the above variables to be initialized
+	
 		select.querySelector('[aria-selected]').focus();
 		
 	}
@@ -310,7 +315,8 @@
 				if (!!e.relatedTarget && (!select.contains(e.relatedTarget) || e.relatedTarget === e.target.parentNode)) {
 					
 					select.removeAttribute('aria-expanded');
-				
+		    		delete select.dataset.anim;
+
 				}
 		
 			});
@@ -334,6 +340,8 @@
 					case 'Escape': {
 					
 						select.removeAttribute('aria-expanded');
+						delete select.dataset.anim;
+
 						break;
 					
 					}; 
