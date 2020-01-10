@@ -1227,15 +1227,19 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		select.style.removeProperty('--active-option-offset');
 
 		select.setAttribute('aria-expanded', true);
+		
+		let active_option_offset = select.querySelector('[aria-selected]').getBoundingClientRect().y - select.getBoundingClientRect().y;
+		let top_offset = 0;
 
-		select.style.setProperty('--active-option-offset', select.querySelector('[aria-selected]').getBoundingClientRect().y - select.getBoundingClientRect().y);
+		select.style.setProperty('--active-option-offset', active_option_offset);
 
 		if (options.getBoundingClientRect().y < 0) {
 			
 			let current_max_height = options.getBoundingClientRect().height + options.getBoundingClientRect().y;
 			options.style.setProperty('--max-height', `${current_max_height}px`);
 			options.scrollTop = Math.abs(options.getBoundingClientRect().y);
-			options.style.setProperty('--top-offset', Math.abs(options.getBoundingClientRect().y));
+			top_offset = Math.abs(options.getBoundingClientRect().y);
+			options.style.setProperty('--top-offset', top_offset);
 			
 			if (options.getBoundingClientRect().height > window.innerHeight) {
 				
@@ -1264,8 +1268,11 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 			options.classList.remove('n-scrollbar');
 			
 		}
+		
+		options.style.webkitMaskPositionY = `${active_option_offset - top_offset}px`;
+		options.style.webkitMaskSize = `100% 16px`;
 
-		setTimeout(() => { select.dataset.anim = true; }, 1); // Fix for Safari bug – wait for the above variables to be initialized
+		select.dataset.anim = true;
 	
 		select.querySelector('[aria-selected]').focus();
 		

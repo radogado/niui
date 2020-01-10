@@ -152,10 +152,12 @@ select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + sel
 
 .n-select[aria-expanded] > div {
   -webkit-mask: linear-gradient(0, #000, #000) no-repeat 0 calc(1px * (var(--active-option-offset) - var(--top-offset, 0)))/100% var(--active-option-height);
+  transition: -webkit-mask-size 0.2s ease-in-out, -webkit-mask-position-y 0.2s ease-in-out;
 }
 
 .n-select[aria-expanded][data-anim] > div {
-  animation: n-select-reveal 1 forwards 0.2s ease-in-out;
+  -webkit-mask-size: 100% 100% !important;
+  -webkit-mask-position-y: 0 !important;
 }
 
 @keyframes n-select-reveal {
