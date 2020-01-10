@@ -4,10 +4,9 @@
 		
 		if (!e.target.closest('.n-select')) {
 			
-			document.querySelectorAll('.n-select[aria-expanded]').forEach(el => {
+			document.querySelectorAll('.n-select[aria-expanded]').forEach(select => {
 				
-				el.removeAttribute('aria-expanded');
-				delete el.dataset.anim;
+				closeSelect(select);
 			
 			});
 			
@@ -33,8 +32,7 @@
 		}
 	
 		el.setAttribute('aria-selected', true);
-		select.removeAttribute('aria-expanded');
-		delete select.dataset.anim;
+		closeSelect(select);
 		select.style.setProperty('--active-option-height', `${el.offsetHeight}px`);
 		select.children[0].style.removeProperty('--top-offset');
 		select.children[0].style.removeProperty('--max-height');
@@ -59,14 +57,21 @@
 		
 	}
 	
-	let openSelect = (select) => {
+	let closeSelect = (select) => {
 		
+		select.removeAttribute('aria-expanded');
+   		delete select.dataset.anim;
+
+	}
+
+	let openSelect = (select) => {
 
 		// Fix viewport overflow
 		let options = select.children[0];
 		options.style.removeProperty('--top-offset');
 		options.style.removeProperty('--max-height');
 		select.style.removeProperty('--active-option-offset');
+		let option_height = `${options.scrollHeight}px`;
 
 		select.setAttribute('aria-expanded', true);
 		
@@ -112,7 +117,7 @@
 		}
 		
 		options.style.webkitMaskPositionY = `${active_option_offset - top_offset}px`;
-		options.style.webkitMaskSize = `100% 16px`;
+		options.style.webkitMaskSize = `100% ${option_height}`;
 
 		select.dataset.anim = true;
 	
@@ -251,11 +256,7 @@
 			
 			// Set native select's value
 			
-			if (!el.querySelector('[aria-selected]')) { // Select the first option by default
-				
-				selectOption(el.querySelector('button'));
-				
-			}
+			selectOption(el.querySelector('[aria-selected]') || el.querySelector('button')); // Select the first option by default
 			
 		/*
 			el.nextElementSibling.onchange = e => {
@@ -321,8 +322,7 @@
 				let select = e.target.closest('.n-select');
 				if (!!e.relatedTarget && (!select.contains(e.relatedTarget) || e.relatedTarget === e.target.parentNode)) {
 					
-					select.removeAttribute('aria-expanded');
-		    		delete select.dataset.anim;
+					closeSelect(select);
 
 				}
 		
@@ -346,9 +346,7 @@
 					
 					case 'Escape': {
 					
-						select.removeAttribute('aria-expanded');
-						delete select.dataset.anim;
-
+						closeSelect(select);
 						break;
 					
 					}; 
@@ -452,6 +450,9 @@
 			});
 			
 			el.dataset.ready = true;
+			
+			openSelect(el);
+			closeSelect(el);
 		
 		});
 	
@@ -461,3 +462,4 @@
 
 })();
 
+// To do: fix animation on first time opening the first few options
