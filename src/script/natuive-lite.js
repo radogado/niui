@@ -1038,7 +1038,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	let closeSelect = (select) => {
 		
 		select.removeAttribute('aria-expanded');
-   		delete select.dataset.anim;
+   		delete select.dataset.nSelectAnimation;
 
 	}
 
@@ -1079,7 +1079,6 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 				
 				options.style.setProperty('--max-height', `${Math.abs(window.innerHeight - options.getBoundingClientRect().y)}px`);
 				
-				
 			}
 		
 		}
@@ -1096,8 +1095,16 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		
 		options.style.webkitMaskPositionY = `${active_option_offset - top_offset}px`;
 		options.style.webkitMaskSize = `100% ${option_height}`;
+		options.style.transition = '-webkit-mask-size .75s ease-in-out, -webkit-mask-position-y .75s ease-in-out';
+		
+		options.ontransitionend = e => {
 
-		select.dataset.anim = true;
+			e.target.style.transition = '';
+			delete e.target.dataset.nSelectAnimation;
+			
+		};
+
+		select.dataset.nSelectAnimation = true;
 	
 		select.querySelector('[aria-selected]').focus();
 		

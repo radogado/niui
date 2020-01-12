@@ -261,18 +261,19 @@ select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + sel
 .n-select[aria-expanded] > div {
 
 	-webkit-mask: linear-gradient(0, #000, #000) no-repeat;
-	transition: -webkit-mask-size .15s ease-in-out, -webkit-mask-position-y .15s ease-in-out;
 
 }
 						    
-.n-select[aria-expanded][data-anim] > div {
+.n-select[aria-expanded][data-n-select-animation] > div {
 		
+// 	transition: -webkit-mask-size .75s ease-in-out, -webkit-mask-position-y .75s ease-in-out;
 // 	animation: n-select-reveal 1 forwards .2s ease-in-out;
 		-webkit-mask-size: 			100% 100% !important;
 		-webkit-mask-position-y: 	0 !important;
 
 }
 
+/*
 @keyframes n-select-reveal {
 		
 	to {
@@ -283,4 +284,5 @@ select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + sel
 	}
 
 }
+*/
 
