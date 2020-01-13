@@ -36,29 +36,7 @@
 	
 		el.setAttribute('aria-selected', true);
 
-/*
-		let options = select.children[0];
-
-		let active_option_offset = el.getBoundingClientRect().y - el.parentElement.getBoundingClientRect().y - el.parentElement.scrollTop;
-
-		// Option position = options y + eventual options scroll ()
-
-		if (el.offsetTop > select.getBoundingClientRect().y) {
-
-			active_option_offset = select.getBoundingClientRect().y;
-
-		}
-
-		let top_offset = 0; // To do: fix: Option 10, Option 4, Option 4 – wrong start position
-*/
-
 		closeSelect(select);
-		
-/*
-		options.style.webkitMaskPositionY = `${active_option_offset - top_offset}px`;
-
-		options.style.webkitMaskSize = `100% ${options.scrollHeight}px`;
-*/
 		
 		select.style.setProperty('--active-option-height', `${el.offsetHeight}px`);
 		let options = select.children[0];
@@ -88,7 +66,6 @@
 	let closeSelect = (select) => {
 		
 		select.removeAttribute('aria-expanded');
-//    		delete select.dataset.nSelectAnimation;
 
 	}
 
@@ -99,7 +76,7 @@
 		options.style.removeProperty('--top-offset');
 		options.style.removeProperty('--max-height');
 		select.style.removeProperty('--active-option-offset');
-		let option_height = `${options.scrollHeight}px`;
+		let option_height = `${options.scrollHeight}`;
 
 		select.setAttribute('aria-expanded', true);
 		
@@ -144,9 +121,9 @@
 		}
 		
 		options.style.setProperty('--mask-position-y', `${active_option_offset - top_offset}px`); // To do: adjust target position to equalise reveal speed on both sides: shorter side position += difference between short and long sides
-		options.style.setProperty('--mask-size-y', `${option_height}`);
+		options.style.setProperty('--mask-size-y', `${option_height}px`);
 
-		setTimeout( () => { options.dataset.nSelectAnimation = true; }, 1); // Timeout needed for the above variables to work
+		setTimeout(() => { options.dataset.nSelectAnimation = true; }, 1); // Timeout needed for the above variables to work
 	
 		select.querySelector('[aria-selected]').focus();
 		
@@ -486,11 +463,6 @@
 			});
 			
 			el.dataset.ready = true;
-			
-/*
-			openSelect(el);
-			closeSelect(el);
-*/
 		
 		});
 	
@@ -499,5 +471,3 @@
 	typeof registerComponent === "function" ? registerComponent('n-select', init) : init(document.body);
 
 })();
-
-// To do: fix animation on first time opening the first few options
