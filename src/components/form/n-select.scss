@@ -38,7 +38,6 @@ Theme:
 .n-select {
 	
 	position: relative;
-	cursor: pointer;
 	
 	&[aria-expanded] {
 	
@@ -167,6 +166,8 @@ Theme:
 	
 	&:not([aria-expanded]) {
 		
+		cursor: pointer;
+
 		> div {
 			
 			background-image: linear-gradient(-113deg, transparent 60%, var(--control-bg, #fff) 63%), linear-gradient(113deg, transparent 60%, var(--control-bg, #fff) 63%), linear-gradient(to bottom, var(--control-color, #333), var(--control-color, #333));
@@ -256,34 +257,17 @@ select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + sel
 }
 
 // Animation
-// The y position CSS variables aren't taken into consideration. Replace them with real numbers.
 
 .n-select[aria-expanded] > div {
 
-	-webkit-mask: linear-gradient(0, #000, #000) no-repeat;
-
-}
-						    
-.n-select[aria-expanded][data-n-select-animation] > div {
-		
-// 		transition: -webkit-mask-size .15s ease-in-out, -webkit-mask-position-y .15s ease-in-out;
-	transition: -webkit-mask-size .75s ease-in-out, -webkit-mask-position-y .75s ease-in-out;
-// 	animation: n-select-reveal 1 forwards .2s ease-in-out;
-		-webkit-mask-size: 			100% 100% !important;
-		-webkit-mask-position-y: 	0 !important;
+	-webkit-mask: 				linear-gradient(0, #000, #000) no-repeat 0 var(--mask-position-y) / 100% var(--mask-size-y);
 
 }
 
-/*
-@keyframes n-select-reveal {
-		
-	to {
-		
-		-webkit-mask-size: 	100% 100%;
-		-webkit-mask-position: 	0 0;
+.n-select[aria-expanded] > div[data-n-select-animation] {
 
-	}
+	transition: 				-webkit-mask-size .15s ease-in-out, -webkit-mask-position-y .15s ease-in-out;
+	-webkit-mask-size: 			100% 100%; 
+	-webkit-mask-position-y: 	0;
 
 }
-*/
-

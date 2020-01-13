@@ -36,6 +36,7 @@
 	
 		el.setAttribute('aria-selected', true);
 
+/*
 		let options = select.children[0];
 
 		let active_option_offset = el.getBoundingClientRect().y - el.parentElement.getBoundingClientRect().y - el.parentElement.scrollTop;
@@ -49,14 +50,18 @@
 		}
 
 		let top_offset = 0; // To do: fix: Option 10, Option 4, Option 4 – wrong start position
+*/
 
 		closeSelect(select);
 		
+/*
 		options.style.webkitMaskPositionY = `${active_option_offset - top_offset}px`;
 
 		options.style.webkitMaskSize = `100% ${options.scrollHeight}px`;
+*/
 		
 		select.style.setProperty('--active-option-height', `${el.offsetHeight}px`);
+		let options = select.children[0];
 		options.style.removeProperty('--top-offset');
 		options.style.removeProperty('--max-height');
 	
@@ -83,7 +88,7 @@
 	let closeSelect = (select) => {
 		
 		select.removeAttribute('aria-expanded');
-   		delete select.dataset.nSelectAnimation;
+//    		delete select.dataset.nSelectAnimation;
 
 	}
 
@@ -138,10 +143,10 @@
 			
 		}
 		
-		options.style.webkitMaskPositionY = `${active_option_offset - top_offset}px`; // To do: adjust target position to equalise revela speed on both sides: shorter side position += difference between short and long sides
-		options.style.webkitMaskSize = `100% ${option_height}`;
+		options.style.setProperty('--mask-position-y', `${active_option_offset - top_offset}px`); // To do: adjust target position to equalise reveal speed on both sides: shorter side position += difference between short and long sides
+		options.style.setProperty('--mask-size-y', `${option_height}`);
 
-		select.dataset.nSelectAnimation = true;
+		setTimeout( () => { options.dataset.nSelectAnimation = true; }, 1); // Timeout needed for the above variables to work
 	
 		select.querySelector('[aria-selected]').focus();
 		
@@ -174,6 +179,7 @@
 // 		console.log(e.type, e.target);
 		
 		let el = e.target.closest('button');
+		if (!el) return; // Not a button
 		let select = e.target.closest('.n-select');
 		
 		if (!!select.nuiPointerUp) {
@@ -352,6 +358,14 @@
 			
 			let timeout = null;
 			
+			el.children[0].ontransitionend = e => {
+				
+				e.target.style.removeProperty('--mask-position-y');
+				e.target.style.removeProperty('--mask-size-y');
+				delete e.target.dataset.nSelectAnimation;
+				
+			};
+						
 			el.addEventListener('keydown', e => {
 				
 // 				console.log(e.target, e.key, e.keyCode);
@@ -473,8 +487,10 @@
 			
 			el.dataset.ready = true;
 			
+/*
 			openSelect(el);
 			closeSelect(el);
+*/
 		
 		});
 	
