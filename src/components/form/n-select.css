@@ -155,6 +155,7 @@ select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + sel
 }
 
 .n-select[aria-expanded][data-n-select-animation] > div {
+  transition: -webkit-mask-size 0.75s ease-in-out, -webkit-mask-position-y 0.75s ease-in-out;
   -webkit-mask-size: 100% 100% !important;
   -webkit-mask-position-y: 0 !important;
 }

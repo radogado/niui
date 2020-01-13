@@ -16,6 +16,9 @@
 	
 	let selectOption = (el) => {
 		
+		// To do: on selecting an option, set its -webkit-mask-position-y to be used on opening animation. Also size
+		// Animation doesn't work because of !important values?
+		
 		if (!el || el.tagName !== 'BUTTON') {
 			
 			return;
@@ -32,10 +35,30 @@
 		}
 	
 		el.setAttribute('aria-selected', true);
+
+		let options = select.children[0];
+
+		let active_option_offset = el.getBoundingClientRect().y - el.parentElement.getBoundingClientRect().y - el.parentElement.scrollTop;
+
+		// Option position = options y + eventual options scroll ()
+
+		if (el.offsetTop > select.getBoundingClientRect().y) {
+
+			active_option_offset = select.getBoundingClientRect().y;
+
+		}
+
+		let top_offset = 0; // To do: fix: Option 10, Option 4, Option 4 – wrong start position
+
 		closeSelect(select);
+		
+		options.style.webkitMaskPositionY = `${active_option_offset - top_offset}px`;
+
+		options.style.webkitMaskSize = `100% ${options.scrollHeight}px`;
+		
 		select.style.setProperty('--active-option-height', `${el.offsetHeight}px`);
-		select.children[0].style.removeProperty('--top-offset');
-		select.children[0].style.removeProperty('--max-height');
+		options.style.removeProperty('--top-offset');
+		options.style.removeProperty('--max-height');
 	
 		let select_native = select.nuiNativeSelect; // The attached native select
 		
@@ -115,16 +138,8 @@
 			
 		}
 		
-		options.style.webkitMaskPositionY = `${active_option_offset - top_offset}px`;
+		options.style.webkitMaskPositionY = `${active_option_offset - top_offset}px`; // To do: adjust target position to equalise revela speed on both sides: shorter side position += difference between short and long sides
 		options.style.webkitMaskSize = `100% ${option_height}`;
-		options.style.transition = '-webkit-mask-size .75s ease-in-out, -webkit-mask-position-y .75s ease-in-out';
-		
-		options.ontransitionend = e => {
-
-			e.target.style.transition = '';
-			delete e.target.dataset.nSelectAnimation;
-			
-		};
 
 		select.dataset.nSelectAnimation = true;
 	
