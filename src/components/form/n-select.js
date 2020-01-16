@@ -1,10 +1,14 @@
+// To do:
+// CSS only version
+// Cursor pointer
+
 (function (){
 
 	window.addEventListener('click', e => {
 		
-		if (!e.target.closest('.n-select')) {
+		if (!e.target.closest('.n-select--options')) {
 			
-			document.querySelectorAll('.n-select[aria-expanded]').forEach(select => {
+			document.querySelectorAll('.n-select--options[aria-expanded]').forEach(select => {
 				
 				closeSelect(select);
 			
@@ -16,16 +20,13 @@
 	
 	let selectOption = (el) => {
 		
-		// To do: on selecting an option, set its -webkit-mask-position-y to be used on opening animation. Also size
-		// Animation doesn't work because of !important values?
-		
 		if (!el || el.tagName !== 'BUTTON') {
 			
 			return;
 			
 		}
 		
-		let select = el.closest('.n-select');
+		let select = el.closest('.n-select--options');
 		let selected = select.querySelector('[aria-selected]');
 		
 		if (selected) {
@@ -38,8 +39,8 @@
 
 		closeSelect(select);
 		
-		select.style.setProperty('--active-option-height', `${el.offsetHeight}px`);
 		let options = select.children[0];
+		select.nuiSelectWrapper.style.setProperty('--active-option-height', `${el.offsetHeight}px`);
 		options.style.removeProperty('--top-offset');
 		options.style.removeProperty('--max-height');
 	
@@ -72,11 +73,12 @@
 	let openSelect = (select) => {
 
 		// Fix viewport overflow
-		let options = select.children[0];
-		options.style.removeProperty('--top-offset');
-		options.style.removeProperty('--max-height');
+		select.style.removeProperty('--top-offset');
+		select.style.removeProperty('--max-height');
+		select.style.setProperty('--max-width', `${select.parentNode.getBoundingClientRect().width}px`);
 		select.style.removeProperty('--active-option-offset');
-		let option_height = `${options.scrollHeight}`;
+
+		let option_height = `${select.scrollHeight}`;
 
 		select.setAttribute('aria-expanded', true);
 		
@@ -85,45 +87,45 @@
 
 		select.style.setProperty('--active-option-offset', active_option_offset);
 
-		if (options.getBoundingClientRect().y < 0) {
+		if (select.getBoundingClientRect().y < 0) {
 			
-			let current_max_height = options.getBoundingClientRect().height + options.getBoundingClientRect().y;
-			options.style.setProperty('--max-height', `${current_max_height}px`);
-			options.scrollTop = Math.abs(options.getBoundingClientRect().y);
-			top_offset = Math.abs(options.getBoundingClientRect().y);
-			options.style.setProperty('--top-offset', top_offset);
+			let current_max_height = select.getBoundingClientRect().height + select.getBoundingClientRect().y;
+			select.style.setProperty('--max-height', `${current_max_height}px`);
+			select.scrollTop = Math.abs(select.getBoundingClientRect().y);
+			top_offset = Math.abs(select.getBoundingClientRect().y);
+			select.style.setProperty('--top-offset', top_offset);
 			
-			if (options.getBoundingClientRect().height > window.innerHeight) {
+			if (select.getBoundingClientRect().height > window.innerHeight) {
 				
-				options.style.setProperty('--max-height', `${current_max_height - Math.abs(window.innerHeight - options.getBoundingClientRect().height)}px`);
+				select.style.setProperty('--max-height', `${current_max_height - Math.abs(window.innerHeight - select.getBoundingClientRect().height)}px`);
 				
 				
 			}
 	
 		} else {
 		
-			if (options.getBoundingClientRect().y + options.getBoundingClientRect().height > window.innerHeight) {
+			if (select.getBoundingClientRect().y + select.getBoundingClientRect().height > window.innerHeight) {
 				
-				options.style.setProperty('--max-height', `${Math.abs(window.innerHeight - options.getBoundingClientRect().y)}px`);
+				select.style.setProperty('--max-height', `${Math.abs(window.innerHeight - select.getBoundingClientRect().y)}px`);
 				
 			}
 		
 		}
 		
-		if (select.scrollWidth > select.querySelector('button').scrollWidth) {
+		if (select.getBoundingClientRect().width > select.querySelector('button').getBoundingClientRect().width) {
 			
-			options.classList.add('n-scrollbar');
+			select.classList.add('n-scrollbar');
 			
 		} else {
 			
-			options.classList.remove('n-scrollbar');
+			select.classList.remove('n-scrollbar');
 			
 		}
 		
-		options.style.setProperty('--mask-position-y', `${active_option_offset - top_offset}px`); // To do: adjust target position to equalise reveal speed on both sides: shorter side position += difference between short and long sides
-		options.style.setProperty('--mask-size-y', `${option_height}px`);
+		select.style.setProperty('--mask-position-y', `${active_option_offset - top_offset}px`); // To do: adjust target position to equalise reveal speed on both sides: shorter side position += difference between short and long sides
+		select.style.setProperty('--mask-size-y', `${option_height}px`);
 
-		setTimeout(() => { options.dataset.nSelectAnimation = true; }, 1); // Timeout needed for the above variables to work
+		setTimeout(() => { select.dataset.nSelectAnimation = true; }, 1); // Timeout needed for the above variables to work
 	
 		select.querySelector('[aria-selected]').focus();
 		
@@ -157,7 +159,7 @@
 		
 		let el = e.target.closest('button');
 		if (!el) return; // Not a button
-		let select = e.target.closest('.n-select');
+		let select = e.target.closest('.n-select--options');
 		
 		if (!!select.nuiPointerUp) {
 			
@@ -172,7 +174,7 @@
 			el.focus();
 			
 		} else { // If closed, open the drop-down
-			
+
 			openSelect(select);
 			
 		}
@@ -185,15 +187,13 @@
 	let touchStartSelect = e => {
 			
 // 		console.log(e.type, e.target);
-		let select = e.target.closest('.n-select');
-		select.nuiTouch = true;
+		e.target.closest('.n-select--options').nuiTouch = true;
 		
 	};
 	
 	let pointerDownSelect = e => {
 		
-		
-		let select = e.target.closest('.n-select');
+		let select = e.target.closest('.n-select--options');
 
 		if (!!select.nuiTouch) {
 			
@@ -224,7 +224,7 @@
 		
 		
 		let el = e.target.closest('button');
-		let select = e.target.closest('.n-select');
+		let select = e.target.closest('.n-select--options');
 
 		if (!!select.nuiTouch) {
 			
@@ -257,11 +257,14 @@
 
 		host.querySelectorAll('.n-select:not([data-ready])').forEach(el => {
 			
-			el.nuiNativeSelect = nextMatchingSibling(el, 'select') || el.querySelector('select') || document.querySelector(`[data-n_select="${el.dataset.n_select}"]`); // As a sibling, child or data-n_select match (where data-n_select is the rich select's data-n_select attribute)
+			let wrapper = el;
+			el = el.children[0]; // Work with the inner wrapper
+			el.nuiSelectWrapper = wrapper;
+			el.classList.add('n-select--options');
+			
+			el.nuiNativeSelect = nextMatchingSibling(el.nuiSelectWrapper, 'select') || el.nuiSelectWrapper.querySelector('select') || document.querySelector(`[data-n_select="${el.nuiSelectWrapper.dataset.n_select}"]`); // As a sibling, child or data-n_select match (where data-n_select is the rich select's data-n_select attribute)
 			
 			// Set native select's value
-			
-			selectOption(el.querySelector('[aria-selected]') || el.querySelector('button')); // Select the first option by default
 			
 		/*
 			el.nextElementSibling.onchange = e => {
@@ -324,7 +327,7 @@
 			
 			el.addEventListener('focusout', e => {
 		
-				let select = e.target.closest('.n-select');
+				let select = e.target.closest('.n-select--options');
 				if (!!e.relatedTarget && (!select.contains(e.relatedTarget) || e.relatedTarget === e.target.parentNode)) {
 					
 					closeSelect(select);
@@ -335,11 +338,12 @@
 			
 			let timeout = null;
 			
-			el.children[0].ontransitionend = e => {
+			el.ontransitionend = e => {
 				
-				e.target.style.removeProperty('--mask-position-y');
-				e.target.style.removeProperty('--mask-size-y');
-				delete e.target.dataset.nSelectAnimation;
+				let el = e.target;
+				el.style.removeProperty('--mask-position-y');
+				el.style.removeProperty('--mask-size-y');
+				delete el.dataset.nSelectAnimation;
 				
 			};
 						
@@ -353,7 +357,7 @@
 				
 				}
 		
-				let select = e.target.closest('.n-select');
+				let select = e.target.closest('.n-select--options');
 				
 				switch (e.key) {
 					
@@ -442,7 +446,7 @@
 							
 							// Add to string unless too much time has passed (2"?)
 							
-							if (el.textContent.trim().length > select.nuiFilterIndex && el.textContent.trim()[select.nuiFilterIndex].toLowerCase() === e.key.toLowerCase()) { // To do: remove initial spaces from string, support multiple characters entry
+							if (el.textContent.trim().length > select.nuiFilterIndex && el.textContent.trim()[select.nuiFilterIndex].toLowerCase() === e.key.toLowerCase()) {
 								
 								if (!select.hasAttribute('aria-expanded')) {
 			
@@ -462,7 +466,9 @@
 				
 			});
 			
-			el.dataset.ready = true;
+			wrapper.dataset.ready = true;
+
+			selectOption(el.querySelector('[aria-selected]') || el.querySelector('button')); // Select the first option by default
 		
 		});
 	

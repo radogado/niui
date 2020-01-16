@@ -38,22 +38,153 @@ Theme:
 .n-select {
 	
 	position: relative;
+
+	&[data-ready]:before {
+		
+		content: '';
+		display: block;
+		height: var(--active-option-height, 1em);
+		font-size: 1em;
+		
+	}
 	
+	&:after {
+		
+		position: absolute;
+		top: 0;
+		z-index: 5;
+		
+	}
+
+	&:not([data-ready]) {
+	
+		// If no init in 2", display native fallback
+	
+	    animation-name: n-select;
+	    overflow: hidden;
+	    
+	    &, & + select {
+		    
+		    animation-duration: .1s;
+		    animation-fill-mode: forwards;
+		    animation-delay: 2s;
+	
+	    }
+	    
+		& + select {
+		    
+		    animation-name: n-select-native;
+		
+			-webkit-appearance: none;
+			appearance: none;
+			border: none;
+			height: 0;
+		
+		}
+							    
+		> :not([aria-expanded]) { // Before init. If there is no selected item, display the first one. Otherwise, display the selected item it on top of the first one.
+			
+			position: relative;
+		
+			> :not([aria-selected]):first-child {
+				
+				display: block;
+	
+				~ [aria-selected] {
+					
+					display: block;
+					position: absolute;
+				    top: 0;
+					
+				}
+				
+			}
+		
+		}
+	
+	}
+	
+}
+
+.n-select--options {
+	
+	width: 100%;
+	max-width: var(--max-width, 100%);
+	background-color: var(--control-bg, #fff);
+	position: absolute;
+	top: 0;
+	z-index: 5;
+	box-sizing: border-box;
+	
+	> * {
+		
+		display: block;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		user-select: none;
+
+	}
+
+	button {
+		
+		-webkit-appearance: none;
+		appearance: none;
+		background: none;
+		cursor: pointer;
+		border: 0;
+		width: 100%;
+		text-align: start;
+		margin: 0;
+		font-size: 1em;
+		position: relative;
+		color: var(--control-color, #333);
+		background-color: var(--control-bg, #fff);
+		
+		* {
+			
+			pointer-events: none; // Disable dragging of images inside the option
+
+		}
+		
+	}
+	
+	&.n-scrollbar {
+
+		&::-webkit-scrollbar {
+		
+		  width: 10px;
+		
+		}
+ 
+		&::-webkit-scrollbar-thumb {
+		
+		  background: #999;
+		  border-radius: 20px;
+		
+		}
+		
+		&::-webkit-scrollbar-track {
+		
+		  background: #ddd;
+		  border-radius: 20px;
+		
+		}
+	
+	}
+
 	&[aria-expanded] {
 	
+		margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0))); // Align to the current option's vertical offset
+		max-height: var(--max-height);
+		overflow: auto;
+
 		[aria-selected] {
 			
 			background-color: var(--control-selected-bg, #eee);
 			color: var(--control-selected-color, #000);
 			
-		}
-
-		> div {
-	
-			margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0))); // Align to the current option's vertical offset
-			max-height: var(--max-height);
-			overflow: auto;
-		
 		}
 		
 		button {
@@ -81,101 +212,14 @@ Theme:
 	
 	}
 
-	button {
-		
-		-webkit-appearance: none;
-		appearance: none;
-		background: none;
-		cursor: pointer;
-		border: 0;
-		width: 100%;
-		text-align: start;
-		padding: 0;
-		margin: 0;
-		font-size: 1em;
-		position: relative;
-		color: var(--control-color, #333);
-		background-color: var(--control-bg, #fff);
-		
-		* {
-			
-			pointer-events: none; // Disable dragging of images inside the option
-
-		}
-		
-	}
-	
-	&[data-ready]:before {
-		
-		content: '';
-		display: block;
-		height: var(--active-option-height, 1em);
-		font-size: 1em;
-		
-	}
-	
-	&:after, > div {
-		
-		position: absolute;
-		top: 0;
-		z-index: 5;
-		
-	}
-	
-	> div {
-		
-		width: 100%;
-		background-color: var(--control-bg, #fff);
-		
-		> * {
-			
-			display: block;
-			-webkit-touch-callout: none;
-			-webkit-user-select: none;
-			-khtml-user-select: none;
-			-moz-user-select: none;
-			user-select: none;
-
-		}
-
-		&.n-scrollbar {
-
-			&::-webkit-scrollbar {
-			
-			  width: 10px;
-			
-			}
-	 
-			&::-webkit-scrollbar-thumb {
-			
-			  background: #999;
-			  border-radius: 20px;
-			
-			}
-			
-			&::-webkit-scrollbar-track {
-			
-			  background: #ddd;
-			  border-radius: 20px;
-			
-			}
-		
-		}
-
-	}
-	
 	&:not([aria-expanded]) {
 		
 		cursor: pointer;
 
-		> div {
-			
-			background-image: linear-gradient(-113deg, transparent 60%, var(--control-bg, #fff) 63%), linear-gradient(113deg, transparent 60%, var(--control-bg, #fff) 63%), linear-gradient(to bottom, var(--control-color, #333), var(--control-color, #333));
-			background-size: .75em .75em;
-			background-repeat: no-repeat;
-			background-position: calc(100% - .5em) .75em;
-		
-		}
+		background-image: linear-gradient(-113deg, transparent 60%, var(--control-bg, #fff) 63%), linear-gradient(113deg, transparent 60%, var(--control-bg, #fff) 63%), linear-gradient(to bottom, var(--control-color, #333), var(--control-color, #333));
+		background-size: .75em .75em;
+		background-repeat: no-repeat;
+		background-position: calc(100% - .5em) .75em;
 	
 		button {
 			
@@ -186,7 +230,7 @@ Theme:
 			
 		}
 		
-		> div > :not([aria-selected]) {
+		> :not([aria-selected]) {
 		
 			display: none;
 			
@@ -194,60 +238,12 @@ Theme:
 
 	}
 
-	div > *, button {
+	> * {
 		
 		padding: .5em;
 		
 	}
 	
-}
-
-.n-select:not([data-ready]) {
-
-	// If no init in 2", display native fallback
-
-    animation-name: n-select;
-    overflow: hidden;
-    
-    &, & + select {
-	    
-	    animation-duration: .1s;
-	    animation-fill-mode: forwards;
-	    animation-delay: 2s;
-
-    }
-    
-	& + select {
-	    
-	    animation-name: n-select-native;
-	
-		-webkit-appearance: none;
-		appearance: none;
-		border: none;
-		height: 0;
-	
-	}
-						    
-	&:not([aria-expanded]) > div { // Before init. If there is no selected item, display the first one. Otherwise, display the selected item it on top of the first one.
-		
-		position: relative;
-	
-		> :not([aria-selected]):first-child {
-			
-			display: block;
-
-			~ [aria-selected] {
-				
-				display: block;
-				position: absolute;
-			    top: 0;
-				
-			}
-			
-		}
-	
-	}
-
 }
 
 select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + select { // Hide the associated native select, which can be specified in 3 different ways
@@ -258,13 +254,13 @@ select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + sel
 
 // Animation
 
-.n-select[aria-expanded] > div {
+.n-select--options[aria-expanded] {
 
 	-webkit-mask: 				linear-gradient(0, #000, #000) no-repeat 0 var(--mask-position-y) / 100% var(--mask-size-y);
 
 }
 
-.n-select[aria-expanded] > div[data-n-select-animation] {
+.n-select--options[aria-expanded][data-n-select-animation] {
 
 	transition: 				-webkit-mask-size .15s ease-in-out, -webkit-mask-position-y .15s ease-in-out;
 	-webkit-mask-size: 			100% 100%; 

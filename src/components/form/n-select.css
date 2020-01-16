@@ -25,101 +25,17 @@ Theme:
 .n-select {
   position: relative;
 }
-.n-select[aria-expanded] [aria-selected] {
-  background-color: var(--control-selected-bg, #eee);
-  color: var(--control-selected-color, #000);
-}
-.n-select[aria-expanded] > div {
-  margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)));
-  max-height: var(--max-height);
-  overflow: auto;
-}
-.n-select[aria-expanded] button {
-  outline-offset: -3px;
-}
-@media (hover: hover) {
-  .n-select[aria-expanded] button {
-    outline-offset: -5px;
-  }
-}
-.n-select[aria-expanded] button:not([aria-selected]):hover {
-  background-color: var(--control-active-bg, #ececec);
-  color: var(--control-active-color, inherit);
-}
-.n-select button {
-  -webkit-appearance: none;
-  appearance: none;
-  background: none;
-  cursor: pointer;
-  border: 0;
-  width: 100%;
-  text-align: start;
-  padding: 0;
-  margin: 0;
-  font-size: 1em;
-  position: relative;
-  color: var(--control-color, #333);
-  background-color: var(--control-bg, #fff);
-}
-.n-select button * {
-  pointer-events: none;
-}
 .n-select[data-ready]:before {
   content: "";
   display: block;
   height: var(--active-option-height, 1em);
   font-size: 1em;
 }
-.n-select:after, .n-select > div {
+.n-select:after {
   position: absolute;
   top: 0;
   z-index: 5;
 }
-.n-select > div {
-  width: 100%;
-  background-color: var(--control-bg, #fff);
-}
-.n-select > div > * {
-  display: block;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-}
-.n-select > div.n-scrollbar::-webkit-scrollbar {
-  width: 10px;
-}
-.n-select > div.n-scrollbar::-webkit-scrollbar-thumb {
-  background: #999;
-  border-radius: 20px;
-}
-.n-select > div.n-scrollbar::-webkit-scrollbar-track {
-  background: #ddd;
-  border-radius: 20px;
-}
-.n-select:not([aria-expanded]) {
-  cursor: pointer;
-}
-.n-select:not([aria-expanded]) > div {
-  background-image: linear-gradient(-113deg, transparent 60%, var(--control-bg, #fff) 63%), linear-gradient(113deg, transparent 60%, var(--control-bg, #fff) 63%), linear-gradient(to bottom, var(--control-color, #333), var(--control-color, #333));
-  background-size: 0.75em 0.75em;
-  background-repeat: no-repeat;
-  background-position: calc(100% - .5em) 0.75em;
-}
-.n-select:not([aria-expanded]) button {
-  white-space: nowrap;
-  overflow: hidden;
-  width: calc(100% - 1.5em);
-  outline-offset: -1.5px;
-}
-.n-select:not([aria-expanded]) > div > :not([aria-selected]) {
-  display: none;
-}
-.n-select div > *, .n-select button {
-  padding: 0.5em;
-}
-
 .n-select:not([data-ready]) {
   animation-name: n-select;
   overflow: hidden;
@@ -136,27 +52,113 @@ Theme:
   border: none;
   height: 0;
 }
-.n-select:not([data-ready]):not([aria-expanded]) > div {
+.n-select:not([data-ready]) > :not([aria-expanded]) {
   position: relative;
 }
-.n-select:not([data-ready]):not([aria-expanded]) > div > :not([aria-selected]):first-child {
+.n-select:not([data-ready]) > :not([aria-expanded]) > :not([aria-selected]):first-child {
   display: block;
 }
-.n-select:not([data-ready]):not([aria-expanded]) > div > :not([aria-selected]):first-child ~ [aria-selected] {
+.n-select:not([data-ready]) > :not([aria-expanded]) > :not([aria-selected]):first-child ~ [aria-selected] {
   display: block;
   position: absolute;
   top: 0;
+}
+
+.n-select--options {
+  width: 100%;
+  max-width: var(--max-width, 100%);
+  background-color: var(--control-bg, #fff);
+  position: absolute;
+  top: 0;
+  z-index: 5;
+  box-sizing: border-box;
+}
+.n-select--options > * {
+  display: block;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.n-select--options button {
+  -webkit-appearance: none;
+  appearance: none;
+  background: none;
+  cursor: pointer;
+  border: 0;
+  width: 100%;
+  text-align: start;
+  margin: 0;
+  font-size: 1em;
+  position: relative;
+  color: var(--control-color, #333);
+  background-color: var(--control-bg, #fff);
+}
+.n-select--options button * {
+  pointer-events: none;
+}
+.n-select--options.n-scrollbar::-webkit-scrollbar {
+  width: 10px;
+}
+.n-select--options.n-scrollbar::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 20px;
+}
+.n-select--options.n-scrollbar::-webkit-scrollbar-track {
+  background: #ddd;
+  border-radius: 20px;
+}
+.n-select--options[aria-expanded] {
+  margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)));
+  max-height: var(--max-height);
+  overflow: auto;
+}
+.n-select--options[aria-expanded] [aria-selected] {
+  background-color: var(--control-selected-bg, #eee);
+  color: var(--control-selected-color, #000);
+}
+.n-select--options[aria-expanded] button {
+  outline-offset: -3px;
+}
+@media (hover: hover) {
+  .n-select--options[aria-expanded] button {
+    outline-offset: -5px;
+  }
+}
+.n-select--options[aria-expanded] button:not([aria-selected]):hover {
+  background-color: var(--control-active-bg, #ececec);
+  color: var(--control-active-color, inherit);
+}
+.n-select--options:not([aria-expanded]) {
+  cursor: pointer;
+  background-image: linear-gradient(-113deg, transparent 60%, var(--control-bg, #fff) 63%), linear-gradient(113deg, transparent 60%, var(--control-bg, #fff) 63%), linear-gradient(to bottom, var(--control-color, #333), var(--control-color, #333));
+  background-size: 0.75em 0.75em;
+  background-repeat: no-repeat;
+  background-position: calc(100% - .5em) 0.75em;
+}
+.n-select--options:not([aria-expanded]) button {
+  white-space: nowrap;
+  overflow: hidden;
+  width: calc(100% - 1.5em);
+  outline-offset: -1.5px;
+}
+.n-select--options:not([aria-expanded]) > :not([aria-selected]) {
+  display: none;
+}
+.n-select--options > * {
+  padding: 0.5em;
 }
 
 select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + select {
   display: none;
 }
 
-.n-select[aria-expanded] > div {
+.n-select--options[aria-expanded] {
   -webkit-mask: linear-gradient(0, #000, #000) no-repeat 0 var(--mask-position-y)/100% var(--mask-size-y);
 }
 
-.n-select[aria-expanded] > div[data-n-select-animation] {
+.n-select--options[aria-expanded][data-n-select-animation] {
   transition: -webkit-mask-size 0.15s ease-in-out, -webkit-mask-position-y 0.15s ease-in-out;
   -webkit-mask-size: 100% 100%;
   -webkit-mask-position-y: 0;
