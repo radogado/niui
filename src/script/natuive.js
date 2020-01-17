@@ -1225,11 +1225,20 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	let closeSelect = (select) => {
 		
 		select.removeAttribute('aria-expanded');
+		select.nuiSelectWrapper.appendChild(select);
 
 	}
 
 	let openSelect = (select) => {
 
+/*
+		if (select.dataset.nSelectAnimation) {
+			
+			return;
+			
+		}
+*/
+		
 		// Fix viewport overflow
 		select.style.removeProperty('--top-offset');
 		select.style.removeProperty('--max-height');
@@ -1237,8 +1246,13 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		select.style.removeProperty('--active-option-offset');
 
 		let option_height = `${select.scrollHeight}`;
-
+		
+		select.style.setProperty('--body-offset-x', select.getBoundingClientRect().x);
+		select.style.setProperty('--body-offset-y', select.getBoundingClientRect().y);
+		
 		select.setAttribute('aria-expanded', true);
+		
+		document.body.appendChild(select);
 		
 		let active_option_offset = select.querySelector('[aria-selected]').getBoundingClientRect().y - select.getBoundingClientRect().y;
 		let top_offset = 0;

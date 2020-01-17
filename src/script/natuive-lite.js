@@ -1045,11 +1045,20 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	let closeSelect = (select) => {
 		
 		select.removeAttribute('aria-expanded');
+		select.nuiSelectWrapper.appendChild(select);
 
 	}
 
 	let openSelect = (select) => {
 
+/*
+		if (select.dataset.nSelectAnimation) {
+			
+			return;
+			
+		}
+*/
+		
 		// Fix viewport overflow
 		select.style.removeProperty('--top-offset');
 		select.style.removeProperty('--max-height');
@@ -1057,8 +1066,13 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		select.style.removeProperty('--active-option-offset');
 
 		let option_height = `${select.scrollHeight}`;
-
+		
+		select.style.setProperty('--body-offset-x', select.getBoundingClientRect().x);
+		select.style.setProperty('--body-offset-y', select.getBoundingClientRect().y);
+		
 		select.setAttribute('aria-expanded', true);
+		
+		document.body.appendChild(select);
 		
 		let active_option_offset = select.querySelector('[aria-selected]').getBoundingClientRect().y - select.getBoundingClientRect().y;
 		let top_offset = 0;
@@ -1969,184 +1983,48 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 })();
 
 // Component Table – end
-;// Component Fold – start
+;// Component Typography – start
 
 (function (){
-    
-/* Fold – start */
 
-	let closeAccordion = (el, content) => {
+	let init = host => {
 		
-		let content_height = content.style.getPropertyValue('--start-height') || 0;
-		animate(content, `0% { max-height: ${content.scrollHeight}px; } 100% { max-height: ${content_height}; }`, .2, () => {
-			
-			toggleAttribute(el, 'aria-expanded');
-			
-		});
+		/* Typography */
 		
-	};
-
-	let openAccordion = (el, content) => {
-		
-		let content_height = content.style.getPropertyValue('--start-height') || 0;
-		toggleAttribute(el, 'aria-expanded');
-		animate(content, `0% { max-height: ${content_height}; } 100% { max-height: ${content.scrollHeight}px; }`);
-		
-	};
-
-	function toggleAccordion(e) {
+		if (typeof ResizeObserver === 'function') { // Compensate element height according to line height
 	
-	    stopEvent(e);
-	    var el = e.target.closest('.n-fold');
-	    var content = el.querySelector('.n-fold--content');
-		
-		content.style.display = 'block'; // To get proper width when horizontal
-		content.style.setProperty('--width', content.scrollWidth + 'px');
-		content.style.removeProperty('display');
-		content.style.setProperty('--max-height', content.scrollHeight + 'px');
-	
-		if (hasClass(el, 'n-fold__horizontal')) {
-			
-			toggleAttribute(el, 'aria-expanded');
-			
-		} else {
-		
-			if (el.hasAttribute('aria-expanded')) { // Close
+			let ro = new ResizeObserver(entries => {
 				
-				closeAccordion(el, content);
-				
-			} else { // Open
-
-				let other = hasClass(el.parentNode, 'n-fold--group') && el.parentNode.querySelector('[aria-expanded]');
-				
-				openAccordion(el, content);				
-
-				if (other !== el) { // There is another one open, close it if in a group
+				entries.forEach(el => {
 					
-					closeAccordion(other, other.querySelector('.n-fold--content'));
+					let a = el.target;
+					a.style.removeProperty('--adjust-height');
+					let style = getComputedStyle(a);
+					let line_height = parseFloat(style.lineHeight);
+					let adjust = line_height - parseFloat(style.height) % line_height;
+					if (adjust !== line_height) {
+
+						a.style.setProperty('--adjust-height', adjust);
 					
-				}
-				
-			}
-		
-		}
-	
-	    return false;
-	
-	}
-	
-	// Close all Fold elements when clicking/tapping outside of them
-	
-	function closeFoldClickOutside(e) {
-		
-		var el = e.target;
-	
-		if (!el.closest('.n-fold') && !el.closest('.n-tool')) { // Clicking/tapping outside of a fold/tooltip element...
+					}
+					
+				});
 			
-			qa('.n-fold.n-fold__mobile[aria-expanded], .n-tool--tip[aria-expanded]').forEach(el => { // ... closes all n-burger nav menus and tooltips
-				
-				el.removeAttribute('aria-expanded');
-				
 			});
 			
-		}
-		
-		// Focus on clicked slider
-		
-		if (el.closest('.n-slider')) {
-	
-			current_slider = el.closest('.n-slider');
-		
-		}
-		
-	}
-	
-	function initFold(host) {
-		
-		host.querySelectorAll('.n-fold:not([data-ready]) > .n-fold--label').forEach((el) => {
-	
-		    el.onclick = toggleAccordion;
-		
-		    el = el.parentNode;
-			var content = el.querySelector('.n-fold--content');
-			
-			if (!hasClass(el, 'n-fold__mobile')) {
-			
-				content.addEventListener('focusin', e => {
-					
-					if (!e.target.closest('.n-fold').hasAttribute('aria-expanded')) {
-						
-						toggleAccordion(e);
-						
-					}
-					
-				});
-			
-			}
-			
-			if (hasClass(el, 'n-fold__horizontal')) {
+			document.querySelectorAll('.n-adjust-height:not([data-ready])').forEach(el => {
 				
-				el.setAttribute('data-init', true);
-				content.style.setProperty('--width', content.scrollWidth + 'px');
-				content.style.height = 'auto';
-				el.removeAttribute('data-init');
-				setTimeout(() => {
-					
-					content.style.transition = 'width .2s ease-in-out'; 
+				ro.observe(el);
+				el.setAttribute('data-ready', true);
 				
-				}, 100);
-				
-			}
-		
-			content.style.setProperty('--max-height', content.scrollHeight + 'px');
-		
-		    el.querySelectorAll('input.n-trigger').forEach(el => { // Remove CSS-only triggers
-			    
-			    el.parentNode.removeChild(el);
-			    
-		    });
-		    
-		    if (hasClass(el, 'n-fold__defocus')) {
-		    
-				el.addEventListener('focusout', e => { // Close it when tabbing outside
-	
-					let el = e.target.closest('.n-fold');
-					if (!el.contains(e.relatedTarget)) {
-	
-						el.removeAttribute('aria-expanded');
-	
-					}
-					
-				});
-			
-			}
-		
-		    makeReady(el);
-		    
-		});
-		
-	}
-	
-	window.addEventListener('mousedown', closeFoldClickOutside); // Close all Fold elements when clicking outside of them
-	
-	window.addEventListener('touchend', closeFoldClickOutside); // Close all Fold elements when clicking outside of them
-		
-	window.addEventListener('scroll', () => {  // Close fixed n-ovrl if its scrolling becomes a window scroll. Idea by a Google mobile nav.
-		
-		let expanded_nav = q('.n-header__fixed-mobile .n-fold.n-fold__mobile[aria-expanded]');
-		if (expanded_nav) {
-			
-			expanded_nav.removeAttribute('aria-expanded');
+			});
 		
 		}
 		
-	});
-
-/* Fold – end */
-
-	registerComponent('fold', initFold);
+	};
+	registerComponent('typography', init);
 
 })();
 
-// Component Fold – end
+// Component Typography – end
 initComponents(); return { initComponents, animate, copyButton, addComponent } })();

@@ -267,3 +267,13 @@ select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + sel
 	-webkit-mask-position-y: 	0;
 
 }
+
+// Detachment
+
+:not(.n-select) > .n-select--options {
+
+	position: absolute;
+    left: calc(1px * var(--body-offset-x));
+    top: calc(1px * var(--body-offset-y));
+    
+}
