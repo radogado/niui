@@ -982,11 +982,11 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 
 (function (){
 
-	window.addEventListener('click', e => {
+	let clickOutsideSelect = e => {
 		
 		if (!e.target.closest('.n-select--options')) {
 			
-			document.querySelectorAll('.n-select--options[aria-expanded]').forEach(select => {
+			document.querySelectorAll('.n-select--options[aria-expanded]:not([data-n-select-animation])').forEach(select => {
 				
 				closeSelect(select);
 			
@@ -994,7 +994,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 			
 		}
 	
-	});
+	};
 	
 	let selectOption = (el) => {
 		
@@ -1044,8 +1044,10 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	
 	let closeSelect = (select) => {
 		
+		delete select.dataset.nSelectAnimation;
 		select.removeAttribute('aria-expanded');
 		select.nuiSelectWrapper.appendChild(select);
+		document.body.removeEventListener('click', clickOutsideSelect);
 
 	}
 
@@ -1120,6 +1122,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		setTimeout(() => { select.dataset.nSelectAnimation = true; }, 1); // Timeout needed for the above variables to work
 	
 		select.querySelector('[aria-selected]').focus();
+		document.body.addEventListener('click', clickOutsideSelect);
 		
 	}
 	
