@@ -976,15 +976,11 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 })();
 
 // Component Form – end
-;// To do:
-// CSS only version
-// Cursor pointer
-
-(function (){
+;(function (){
 
 	let clickOutsideSelect = e => {
 		
-		if (!e.target.closest('.n-select--options')) {
+		if (!e.target.closest('.n-select--options') && !e.target.closest('.n-select')) {
 			
 			document.querySelectorAll('.n-select--options[aria-expanded]:not([data-n-select-animation])').forEach(select => {
 				
@@ -1069,8 +1065,8 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 
 		let option_height = `${select.scrollHeight}`;
 		
-		select.style.setProperty('--body-offset-x', select.getBoundingClientRect().x);
-		select.style.setProperty('--body-offset-y', select.getBoundingClientRect().y);
+		select.style.setProperty('--body-offset-x', select.getBoundingClientRect().x - document.body.getBoundingClientRect().x);
+		select.style.setProperty('--body-offset-y', select.getBoundingClientRect().y - document.body.getBoundingClientRect().y);
 		
 		select.setAttribute('aria-expanded', true);
 		
@@ -1150,7 +1146,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	
 	let clickSelect = e => {
 		
-// 		console.log(e.type, e.target);
+		console.log(e.type, e.target);
 		
 		let el = e.target.closest('button');
 		if (!el) return; // Not a button
@@ -1181,7 +1177,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	
 	let touchStartSelect = e => {
 			
-// 		console.log(e.type, e.target);
+		console.log(e.type, e.target);
 		e.target.closest('.n-select--options').nuiTouch = true;
 		
 	};
@@ -1196,7 +1192,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 
 		}
 
-// 		console.log(e.type, e.target);
+		console.log(e.type, e.target);
 
 		if (!select.hasAttribute('aria-expanded')) { // Closed
 		
@@ -1227,7 +1223,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 
 		}
 
-// 		console.log(e.type, e.target);
+		console.log(e.type, e.target);
 
 		if (!select.hasAttribute('aria-expanded') || el.hasAttribute('aria-selected')) {
 			

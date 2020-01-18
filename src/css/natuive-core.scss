@@ -226,7 +226,7 @@ a[href].span-relative-parent {
 .n-viewport {
 	
 	-webkit-overflow-scrolling: touch;
-	height: 100vh;
+	min-height: 100vh;
 	box-sizing: border-box;
 	overflow: auto;
 	position: relative;

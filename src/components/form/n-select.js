@@ -1,12 +1,8 @@
-// To do:
-// CSS only version
-// Cursor pointer
-
 (function (){
 
 	let clickOutsideSelect = e => {
 		
-		if (!e.target.closest('.n-select--options')) {
+		if (!e.target.closest('.n-select--options') && !e.target.closest('.n-select')) {
 			
 			document.querySelectorAll('.n-select--options[aria-expanded]:not([data-n-select-animation])').forEach(select => {
 				
@@ -91,8 +87,8 @@
 
 		let option_height = `${select.scrollHeight}`;
 		
-		select.style.setProperty('--body-offset-x', select.getBoundingClientRect().x);
-		select.style.setProperty('--body-offset-y', select.getBoundingClientRect().y);
+		select.style.setProperty('--body-offset-x', select.getBoundingClientRect().x - document.body.getBoundingClientRect().x);
+		select.style.setProperty('--body-offset-y', select.getBoundingClientRect().y - document.body.getBoundingClientRect().y);
 		
 		select.setAttribute('aria-expanded', true);
 		
@@ -172,7 +168,7 @@
 	
 	let clickSelect = e => {
 		
-// 		console.log(e.type, e.target);
+		console.log(e.type, e.target);
 		
 		let el = e.target.closest('button');
 		if (!el) return; // Not a button
@@ -203,7 +199,7 @@
 	
 	let touchStartSelect = e => {
 			
-// 		console.log(e.type, e.target);
+		console.log(e.type, e.target);
 		e.target.closest('.n-select--options').nuiTouch = true;
 		
 	};
@@ -218,7 +214,7 @@
 
 		}
 
-// 		console.log(e.type, e.target);
+		console.log(e.type, e.target);
 
 		if (!select.hasAttribute('aria-expanded')) { // Closed
 		
@@ -249,7 +245,7 @@
 
 		}
 
-// 		console.log(e.type, e.target);
+		console.log(e.type, e.target);
 
 		if (!select.hasAttribute('aria-expanded') || el.hasAttribute('aria-selected')) {
 			
