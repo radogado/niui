@@ -1,7 +1,7 @@
 # natUIve: mostly native front-end framework/library/toolkit
 
 
-~10+~10 KB framework leveraging browsers' built-in capabilities, with subtle customisation. 
+A lightweight framework leveraging browsers' built-in capabilities, with subtle and powerful customisation. 
 
 To use natUIve, get [natuive.min.css](https://radogado.github.io/natuive/dist/natuive.min.css), [natuive.min.js](https://radogado.github.io/natuive/dist/natuive.min.js) and [index.html](https://radogado.github.io/natuive/dist/index.html) and edit the latter. Check the [homepage](https://radogado.github.io/natuive/) for details.
 
