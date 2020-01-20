@@ -1251,6 +1251,15 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		select.setAttribute('aria-expanded', true);
 		
 		document.body.appendChild(select);
+		document.body.insertAdjacentHTML('beforeend', '<button id=catcher>focus catcher</button>');
+		
+		document.querySelector('#catcher').onfocus = e => {
+		
+			closeSelect(select);
+			select.nuiSelectWrapper.focus();
+			document.querySelector('#catcher').outerHTML = '';
+			
+		};
 		
 		let active_option_offset = select.querySelector('[aria-selected]').getBoundingClientRect().y - select.getBoundingClientRect().y;
 		let top_offset = 0;
@@ -1497,12 +1506,24 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 			el.addEventListener('touchstart', touchStartSelect);
 			
 			el.addEventListener('focusout', e => {
-		
+
 				let select = e.target.closest('.n-select--options');
+/*
 				if (!!e.relatedTarget && (!select.contains(e.relatedTarget) || e.relatedTarget === e.target.parentNode)) {
 					
 					closeSelect(select);
 
+				}
+*/
+
+				// If relatedTarget isn't a sibling, close and focus on select wrapper
+
+console.log(e.relatedTarget);				
+				if (select.hasAttribute('aria-expanded') && !!e.relatedTarget && e.relatedTarget.parentNode !== select) {
+					
+					closeSelect(select);
+					select.nuiSelectWrapper.focus();
+					
 				}
 		
 			});
@@ -1638,6 +1659,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 			});
 			
 			wrapper.dataset.ready = true;
+			wrapper.setAttribute('tabindex', 0);
 
 			selectOption(el.querySelector('[aria-selected]') || el.querySelector('button')); // Select the first option by default
 		
