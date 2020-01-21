@@ -63,11 +63,11 @@ module.exports = function(grunt) {
 				banner: 'window.nui = (() => {', // skirt non-ES6 browsers like IE11
 				footer: 'initComponents(); return { initComponents, animate, copyButton, addComponent } })();'
 		    },
-		    src: ['src/script/natuive-core.js', 'src/components/**/*.js', '!src/components/lightbox/*', '!src/components/slider/*', '!src/components/grid-inline-popups/*' ,'!src/components/parallax/*','!src/components/notify/*','!src/components/modal/*','!src/components/fold/*','!src/components/tooltip/*'],
+		    src: ['src/script/natuive-core.js', 'src/components/**/*.js', '!src/components/lightbox/*', '!src/components/slider/*', '!src/components/grid-inline-popups/*' ,'!src/components/parallax/*','!src/components/notify/*','!src/components/modal/*','!src/components/fold/*', '!src/components/tooltip/*'],
 		    dest: 'src/script/natuive-lite.js'
 		  },
 		  CSS_lite: {
-		    src: ['src/css/natuive-core.css', 'src/components/**/*.css', '!src/components/lightbox/*', '!src/components/slider/*', '!src/components/grid-inline-popups/*' ,'!src/components/parallax/*','!src/components/notify/*','!src/components/modal/*','!src/components/fold/*','!src/components/tooltip/*'],
+		    src: ['src/css/natuive-core.css', 'src/components/**/*.css', '!src/components/lightbox/*', '!src/components/slider/*', '!src/components/grid-inline-popups/*' ,'!src/components/parallax/*','!src/components/notify/*','!src/components/modal/*','!src/components/fold/*', '!src/components/tooltip/*'],
 		    dest: 'src/css/natuive-lite.css'
 		  },
 		  WordPress: {
