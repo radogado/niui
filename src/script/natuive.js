@@ -1251,6 +1251,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		select.setAttribute('aria-expanded', true);
 		
 		document.body.appendChild(select);
+/*
 		document.body.insertAdjacentHTML('beforeend', '<button id=catcher>focus catcher</button>');
 		
 		document.querySelector('#catcher').onfocus = e => {
@@ -1260,7 +1261,8 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 			document.querySelector('#catcher').outerHTML = '';
 			
 		};
-		
+*/
+
 		let active_option_offset = select.querySelector('[aria-selected]').getBoundingClientRect().y - select.getBoundingClientRect().y;
 		let top_offset = 0;
 
@@ -1657,6 +1659,17 @@ console.log(e.relatedTarget);
 				}
 				
 			});
+
+			el.lastElementChild.onkeydown = e => {
+			console.log(e);
+				if (e.key === 'Tab' && !e.shiftKey && e.target.parentNode.hasAttribute('aria-expanded')) {
+			
+					closeSelect(e.target.parentNode);
+					e.target.parentNode.nuiSelectWrapper.focus();
+				
+				}
+				
+			};
 			
 			wrapper.dataset.ready = true;
 			wrapper.setAttribute('tabindex', 0);
