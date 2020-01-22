@@ -756,20 +756,6 @@ if (typeof MutationObserver === 'function') {
 		let mutation = mutations[0];
         if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
 
-/*
-			var i = 0;
-			while (i < mutation.addedNodes.length) {
-				
-				var el = mutation.addedNodes[i++];
-	            if (typeof el === 'object' && el.nodeName !== '#text' && !el.getAttribute('data-ready') && el.parentNode) {
-		            
-		            initComponents(el.parentNode);
-		            
-	            }
-				
-			}
-*/
-
 			for (let el of mutation.addedNodes) {
 				
 	            if (typeof el === 'object' && el.nodeName !== '#text' && !el.getAttribute('data-ready') && el.parentNode) {

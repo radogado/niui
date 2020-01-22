@@ -623,6 +623,7 @@ Theme:
   content: "";
   display: block;
   height: var(--active-option-height, 1em);
+  transition: height 0.2s ease-in-out;
   font-size: 1em;
 }
 .n-select:after {

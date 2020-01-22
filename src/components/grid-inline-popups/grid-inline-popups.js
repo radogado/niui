@@ -64,7 +64,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 				
 				i = index_row;
 				
-				while(i < (cells.length)) {
+				while(i < cells.length) {
 					
 					cells[i].style.order = ((i - index_row) < (index - index_row)) ? -1 : 1;
 					i++;

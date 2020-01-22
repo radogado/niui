@@ -756,20 +756,6 @@ if (typeof MutationObserver === 'function') {
 		let mutation = mutations[0];
         if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
 
-/*
-			var i = 0;
-			while (i < mutation.addedNodes.length) {
-				
-				var el = mutation.addedNodes[i++];
-	            if (typeof el === 'object' && el.nodeName !== '#text' && !el.getAttribute('data-ready') && el.parentNode) {
-		            
-		            initComponents(el.parentNode);
-		            
-	            }
-				
-			}
-*/
-
 			for (let el of mutation.addedNodes) {
 				
 	            if (typeof el === 'object' && el.nodeName !== '#text' && !el.getAttribute('data-ready') && el.parentNode) {
@@ -1261,6 +1247,8 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		select.removeAttribute('aria-expanded');
 		select.nuiSelectWrapper.appendChild(select);
 		document.body.removeEventListener('click', clickOutsideSelect);
+		select.querySelector('[aria-selected]').tabIndex = -1;
+		select.nuiSelectWrapper.focus();
 
 	}
 
@@ -1285,6 +1273,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		select.style.setProperty('--body-offset-x', select.getBoundingClientRect().x - document.body.getBoundingClientRect().x);
 		select.style.setProperty('--body-offset-y', select.getBoundingClientRect().y - document.body.getBoundingClientRect().y);
 		
+		select.querySelector('[aria-selected]').removeAttribute('tabindex');
 		select.setAttribute('aria-expanded', true);
 		
 		document.body.appendChild(select);
@@ -1390,7 +1379,6 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		if (select.hasAttribute('aria-expanded')) { // If already open, select the clicked option
 			
 			selectOption(el);
-			el.focus();
 			
 		} else { // If closed, open the drop-down
 
@@ -1466,7 +1454,6 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		}
 
 		selectOption(el);
-		el.focus();
 		select.nuiPointerUp = true;
 		select.addEventListener('click', clickSelect);
 		
@@ -1497,10 +1484,10 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 			case 'Enter': {
 			
 				if (e.target.classList.contains('n-select')) {
-
-					select.querySelector('[aria-selected]').click();
-					select.querySelector('[aria-selected]').click();
-					e.stopPropagation();
+					
+					select.removeEventListener('click', clickSelect);
+					openSelect(select);
+					setTimeout(() => { select.addEventListener('click', clickSelect); }, 100); 
 
 				}
 				break;
@@ -1510,7 +1497,6 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 			case 'Escape': {
 			
 				closeSelect(select);
-				select.parentNode.focus();
 				break;
 			
 			}; 
@@ -1720,7 +1706,7 @@ console.log(e.relatedTarget);
 			el.addEventListener('keydown', selectKeyboard);
 			wrapper.addEventListener('keydown', selectKeyboard);
 						
-			el.lastElementChild.onkeydown = e => {
+			el.lastElementChild.onkeydown = e => { // Close select on tab outside
 			console.log(e);
 				if (e.key === 'Tab' && !e.shiftKey && e.target.parentNode.hasAttribute('aria-expanded')) {
 			
@@ -1731,8 +1717,10 @@ console.log(e.relatedTarget);
 				
 			};
 			
-			wrapper.dataset.ready = true;
 			wrapper.setAttribute('tabindex', 0);
+			(el.querySelector('[aria-selected]') || el.firstElementChild).tabIndex = -1;
+
+			wrapper.dataset.ready = true;
 
 			selectOption(el.querySelector('[aria-selected]') || el.querySelector('button')); // Select the first option by default
 		
@@ -1809,7 +1797,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 				
 				i = index_row;
 				
-				while(i < (cells.length)) {
+				while(i < cells.length) {
 					
 					cells[i].style.order = ((i - index_row) < (index - index_row)) ? -1 : 1;
 					i++;

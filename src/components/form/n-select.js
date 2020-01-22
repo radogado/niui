@@ -66,6 +66,8 @@
 		select.removeAttribute('aria-expanded');
 		select.nuiSelectWrapper.appendChild(select);
 		document.body.removeEventListener('click', clickOutsideSelect);
+		select.querySelector('[aria-selected]').tabIndex = -1;
+		select.nuiSelectWrapper.focus();
 
 	}
 
@@ -90,6 +92,7 @@
 		select.style.setProperty('--body-offset-x', select.getBoundingClientRect().x - document.body.getBoundingClientRect().x);
 		select.style.setProperty('--body-offset-y', select.getBoundingClientRect().y - document.body.getBoundingClientRect().y);
 		
+		select.querySelector('[aria-selected]').removeAttribute('tabindex');
 		select.setAttribute('aria-expanded', true);
 		
 		document.body.appendChild(select);
@@ -195,7 +198,6 @@
 		if (select.hasAttribute('aria-expanded')) { // If already open, select the clicked option
 			
 			selectOption(el);
-			el.focus();
 			
 		} else { // If closed, open the drop-down
 
@@ -271,7 +273,6 @@
 		}
 
 		selectOption(el);
-		el.focus();
 		select.nuiPointerUp = true;
 		select.addEventListener('click', clickSelect);
 		
@@ -302,10 +303,10 @@
 			case 'Enter': {
 			
 				if (e.target.classList.contains('n-select')) {
-
-					select.querySelector('[aria-selected]').click();
-					select.querySelector('[aria-selected]').click();
-					e.stopPropagation();
+					
+					select.removeEventListener('click', clickSelect);
+					openSelect(select);
+					setTimeout(() => { select.addEventListener('click', clickSelect); }, 100); 
 
 				}
 				break;
@@ -315,7 +316,6 @@
 			case 'Escape': {
 			
 				closeSelect(select);
-				select.parentNode.focus();
 				break;
 			
 			}; 
@@ -525,7 +525,7 @@ console.log(e.relatedTarget);
 			el.addEventListener('keydown', selectKeyboard);
 			wrapper.addEventListener('keydown', selectKeyboard);
 						
-			el.lastElementChild.onkeydown = e => {
+			el.lastElementChild.onkeydown = e => { // Close select on tab outside
 			console.log(e);
 				if (e.key === 'Tab' && !e.shiftKey && e.target.parentNode.hasAttribute('aria-expanded')) {
 			
@@ -536,8 +536,10 @@ console.log(e.relatedTarget);
 				
 			};
 			
-			wrapper.dataset.ready = true;
 			wrapper.setAttribute('tabindex', 0);
+			(el.querySelector('[aria-selected]') || el.firstElementChild).tabIndex = -1;
+
+			wrapper.dataset.ready = true;
 
 			selectOption(el.querySelector('[aria-selected]') || el.querySelector('button')); // Select the first option by default
 		
