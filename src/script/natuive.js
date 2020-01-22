@@ -1435,6 +1435,147 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		
 	};
 
+	let timeout = null;
+			
+	let selectKeyboard = e => {
+		
+				console.log(e.target, e.key, e.keyCode);
+
+		if([32, 35, 36, 37, 38, 39, 40].indexOf(e.keyCode) > -1) { // Capture Home, End, Arrows etc
+		
+			e.preventDefault();
+		
+		}
+
+		let select = e.target.closest('.n-select--options');
+		
+		if (e.target.classList.contains('n-select')) {
+			
+			select = e.target.children[0];
+			
+		}
+		
+		switch (e.key) {
+			
+			case 'Enter': {
+			
+				if (e.target.classList.contains('n-select')) {
+
+					select.querySelector('[aria-selected]').click();
+					select.querySelector('[aria-selected]').click();
+					e.stopPropagation();
+
+				}
+				break;
+			
+			}; 
+
+			case 'Escape': {
+			
+				closeSelect(select);
+				select.parentNode.focus();
+				break;
+			
+			}; 
+
+			case 'ArrowDown': {
+				
+				if (!select.hasAttribute('aria-expanded')) {
+					
+					openSelect(select);
+					
+				} else {
+					
+					let sibling = nextMatchingSibling(e.target, 'button');
+					if (sibling) {
+
+						sibling.focus();
+					
+					}
+					
+				}
+				break;
+
+			};
+			
+			case 'ArrowUp': {
+
+				if (!select.hasAttribute('aria-expanded')) {
+					
+					openSelect(select);
+					
+				} else {
+
+					let sibling = previousMatchingSibling(e.target, 'button');
+					if (sibling) {
+
+						sibling.focus();
+					
+					}
+				
+				}
+				break;
+
+			};
+			
+			case 'Home': {
+
+				select.querySelector('button').focus();
+				break;
+
+			};
+
+			case 'End': {
+				
+				select.querySelector('button:last-of-type').focus();
+				break;
+
+			};
+			
+			default: { // Filter options by text entered by keyboard
+				
+				if (typeof select.nuiFilterIndex === 'undefined') {
+					
+					select.nuiFilterIndex = 0;
+					
+				} else {
+					
+					select.nuiFilterIndex++;
+					
+				}
+				
+				clearTimeout(timeout);
+				
+				timeout = setTimeout(() => {
+					
+					delete select.nuiFilterIndex;
+					
+				}, 1000);
+					
+				for (let el of select.querySelectorAll('button')) {
+					
+					// Add to string unless too much time has passed (2"?)
+					
+					if (el.textContent.trim().length > select.nuiFilterIndex && el.textContent.trim()[select.nuiFilterIndex].toLowerCase() === e.key.toLowerCase()) {
+						
+						if (!select.hasAttribute('aria-expanded')) {
+	
+							selectOption(el);
+							
+						}
+						el.focus();
+						break;
+						
+					}
+					
+				}
+				
+			}
+
+		}
+		
+	};
+
 	let init = host => {
 
 		host.querySelectorAll('.n-select:not([data-ready])').forEach(el => {
@@ -1530,8 +1671,6 @@ console.log(e.relatedTarget);
 		
 			});
 			
-			let timeout = null;
-			
 			el.ontransitionend = e => {
 				
 				let el = e.target;
@@ -1540,126 +1679,10 @@ console.log(e.relatedTarget);
 				delete el.dataset.nSelectAnimation;
 				
 			};
-						
-			el.addEventListener('keydown', e => {
-				
-// 				console.log(e.target, e.key, e.keyCode);
-		
-				if([32, 35, 36, 37, 38, 39, 40].indexOf(e.keyCode) > -1) { // Capture Home, End, Arrows etc
-				
-					e.preventDefault();
-				
-				}
-		
-				let select = e.target.closest('.n-select--options');
-				
-				switch (e.key) {
-					
-					case 'Escape': {
-					
-						closeSelect(select);
-						break;
-					
-					}; 
-		
-					case 'ArrowDown': {
-						
-						if (!select.hasAttribute('aria-expanded')) {
-							
-							openSelect(select);
-							
-						} else {
-							
-							let sibling = nextMatchingSibling(e.target, 'button');
-							if (sibling) {
-		
-								sibling.focus();
-							
-							}
-							
-						}
-						break;
-		
-					};
-					
-					case 'ArrowUp': {
-		
-						if (!select.hasAttribute('aria-expanded')) {
-							
-							openSelect(select);
-							
-						} else {
-		
-							let sibling = previousMatchingSibling(e.target, 'button');
-							if (sibling) {
-		
-								sibling.focus();
-							
-							}
-						
-						}
-						break;
-		
-					};
-					
-					case 'Home': {
-	
-						select.querySelector('button').focus();
-						break;
-		
-					};
-		
-					case 'End': {
-						
-						select.querySelector('button:last-of-type').focus();
-						break;
-		
-					};
-					
-					default: { // Filter options by text entered by keyboard
-						
-						if (typeof select.nuiFilterIndex === 'undefined') {
-							
-							select.nuiFilterIndex = 0;
-							
-						} else {
-							
-							select.nuiFilterIndex++;
-							
-						}
-						
-						clearTimeout(timeout);
-						
-						timeout = setTimeout(() => {
-							
-							delete select.nuiFilterIndex;
-							
-						}, 1000);
-							
-						for (let el of select.querySelectorAll('button')) {
-							
-							// Add to string unless too much time has passed (2"?)
-							
-							if (el.textContent.trim().length > select.nuiFilterIndex && el.textContent.trim()[select.nuiFilterIndex].toLowerCase() === e.key.toLowerCase()) {
-								
-								if (!select.hasAttribute('aria-expanded')) {
-			
-									selectOption(el);
-									
-								}
-								el.focus();
-								break;
-								
-							}
-							
-						}
-						
-					}
-		
-				}
-				
-			});
 
+			el.addEventListener('keydown', selectKeyboard);
+			wrapper.addEventListener('keydown', selectKeyboard);
+						
 			el.lastElementChild.onkeydown = e => {
 			console.log(e);
 				if (e.key === 'Tab' && !e.shiftKey && e.target.parentNode.hasAttribute('aria-expanded')) {
