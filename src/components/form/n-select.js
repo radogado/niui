@@ -207,6 +207,7 @@
 		
 		select.addEventListener('pointerup', pointerUpSelect);
 		delete select.nuiTouch;
+		delete select.pointerDownSelect;
 
 	};
 	
@@ -220,6 +221,8 @@
 	let pointerDownSelect = e => {
 		
 		let select = e.target.closest('.n-select--options');
+		
+		select.nuiPointerDown = true; // Because of FF bug
 
 		if (!!select.nuiTouch) {
 			
@@ -493,13 +496,13 @@
 			el.addEventListener('focusout', e => {
 
 				let select = e.target.closest('.n-select--options');
-/*
-				if (!!e.relatedTarget && (!select.contains(e.relatedTarget) || e.relatedTarget === e.target.parentNode)) {
+
+				if (!!select.nuiPointerDown) { // Because of FF bug
 					
-					closeSelect(select);
+					delete select.nuiPointerDown;
+					return;
 
 				}
-*/
 
 				// If relatedTarget isn't a sibling, close and focus on select wrapper
 
