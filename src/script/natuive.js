@@ -463,7 +463,7 @@ for (var t in animations) {
 
 }
 
-function animate(el, animation_code, duration, callback) { // Default duration = .2s, callback optional
+function animate(el, animation_code, duration, callback) { // Animate with CSS Animations. Default duration = .2s, callback optional
 
 // To do: add animation-fill-mode: forwards to keep the end state
 
@@ -502,6 +502,7 @@ function animate(el, animation_code, duration, callback) { // Default duration =
 function scrollToAnimated(to, duration, callback) {
 	
 	var difference = bodyElement.clientHeight - window.innerHeight;
+
 	if (to > difference) {
 
 		to = difference;
@@ -522,6 +523,30 @@ function scrollToAnimated(to, duration, callback) {
 	animate(q('html'), `100% { transform: translate3d(0, ${-1*(to - (document.documentElement.scrollTop || bodyElement.scrollTop))}px, 0); }`, duration, scrollToCallback.bind(null, callback));
 
 }
+
+// Scroll window to top, animated with easing
+// To do: suport any element and direction. Use it to slide sliders on browsers where CSS transforms are slower. Replace the above scrollToAnimated()
+
+let scrollToElement = (duration = 1000) => {
+
+  let cosParameter = window.scrollY / 2;
+  let scrollCount = 0;
+  let oldTimestamp = performance.now();
+
+  let step = (newTimestamp) => {
+
+    scrollCount += Math.PI / (duration / (newTimestamp - oldTimestamp));
+    if (scrollCount >= Math.PI) window.scrollTo(0, 0);
+    if (window.scrollY === 0) return;
+    window.scrollTo(0, Math.round(cosParameter + cosParameter * Math.cos(scrollCount)));
+    oldTimestamp = newTimestamp;
+    window.requestAnimationFrame(step);
+
+  };
+
+  window.requestAnimationFrame(step);
+
+};
 
 // Clicking a button copies a target element's contents
 
@@ -728,13 +753,25 @@ if (typeof MutationObserver === 'function') {
 
         observerOff();
 
-		var mutation = mutations[0];
+		let mutation = mutations[0];
         if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
 
+/*
 			var i = 0;
 			while (i < mutation.addedNodes.length) {
 				
 				var el = mutation.addedNodes[i++];
+	            if (typeof el === 'object' && el.nodeName !== '#text' && !el.getAttribute('data-ready') && el.parentNode) {
+		            
+		            initComponents(el.parentNode);
+		            
+	            }
+				
+			}
+*/
+
+			for (let el of mutation.addedNodes) {
+				
 	            if (typeof el === 'object' && el.nodeName !== '#text' && !el.getAttribute('data-ready') && el.parentNode) {
 		            
 		            initComponents(el.parentNode);
