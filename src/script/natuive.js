@@ -1248,7 +1248,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		select.nuiSelectWrapper.appendChild(select);
 		document.body.removeEventListener('click', clickOutsideSelect);
 		select.querySelector('[aria-selected]').tabIndex = -1;
-		select.nuiSelectWrapper.focus();
+		setTimeout(() => { select.nuiSelectWrapper.focus(); }, 1); // Because FF
 
 	}
 
@@ -1332,9 +1332,13 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		select.style.setProperty('--mask-position-y', `${active_option_offset - top_offset}px`); // To do: adjust target position to equalise reveal speed on both sides: shorter side position += difference between short and long sides
 		select.style.setProperty('--mask-size-y', `${option_height}px`);
 
-		setTimeout(() => { select.dataset.nSelectAnimation = true; }, 1); // Timeout needed for the above variables to work
+		setTimeout(() => {
+			
+			select.dataset.nSelectAnimation = true; 
+			select.querySelector('[aria-selected]').focus();
+		
+		}, 1); // Timeout needed for the above variables to work
 	
-		select.querySelector('[aria-selected]').focus();
 		document.body.addEventListener('click', clickOutsideSelect);
 		
 	}
@@ -1369,12 +1373,14 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		if (!el) return; // Not a button
 		let select = e.target.closest('.n-select--options');
 		
+/*
 		if (!!select.nuiPointerUp) {
 			
 			delete select.nuiPointerUp;
 			return;
 			
 		}
+*/
 		
 		if (select.hasAttribute('aria-expanded')) { // If already open, select the clicked option
 			
