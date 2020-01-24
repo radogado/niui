@@ -67,7 +67,8 @@
 		select.nuiSelectWrapper.appendChild(select);
 		document.body.removeEventListener('click', clickOutsideSelect);
 		select.querySelector('[aria-selected]').tabIndex = -1;
-		setTimeout(() => { select.nuiSelectWrapper.focus(); }, 1); // Because FF
+//		setTimeout(() => { select.nuiSelectWrapper.focus(); }, 1); // Because FF
+		window.requestAnimationFrame(t => select.nuiSelectWrapper.focus());
 
 	}
 
@@ -151,13 +152,22 @@
 		select.style.setProperty('--mask-position-y', `${active_option_offset - top_offset}px`); // To do: adjust target position to equalise reveal speed on both sides: shorter side position += difference between short and long sides
 		select.style.setProperty('--mask-size-y', `${option_height}px`);
 
+/*
 		setTimeout(() => {
 			
 			select.dataset.nSelectAnimation = true; 
 			select.querySelector('[aria-selected]').focus();
 		
 		}, 1); // Timeout needed for the above variables to work
-	
+*/
+
+		window.requestAnimationFrame(t => {
+			
+			select.dataset.nSelectAnimation = true; 
+			select.querySelector('[aria-selected]').focus();
+			
+		});
+			
 		document.body.addEventListener('click', clickOutsideSelect);
 		
 	}
@@ -315,7 +325,8 @@
 					
 					select.removeEventListener('click', clickSelect);
 					openSelect(select);
-					setTimeout(() => { select.addEventListener('click', clickSelect); }, 100); 
+//					setTimeout(() => { select.addEventListener('click', clickSelect); }, 100); 
+					window.requestAnimationFrame(t => select.addEventListener('click', clickSelect));
 
 				}
 				break;
