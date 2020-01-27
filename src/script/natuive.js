@@ -1214,7 +1214,11 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	
 		el.setAttribute('aria-selected', true);
 
-		closeSelect(select);
+		if (select.hasAttribute('aria-expanded')) {
+
+			closeSelect(select);
+		
+		}
 		
 		let options = select.children[0];
 		select.nuiSelectWrapper.style.setProperty('--active-option-height', `${el.offsetHeight}px`);
@@ -1484,9 +1488,10 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		
 				console.log(e.target, e.key, e.keyCode);
 
-		if([32, 35, 36, 37, 38, 39, 40].indexOf(e.keyCode) > -1) { // Capture Home, End, Arrows etc
+		if ([32, 35, 36, 37, 38, 39, 40].includes(e.keyCode)) { // Capture Home, End, Arrows etc
 		
 			e.preventDefault();
+			e.stopPropagation();
 		
 		}
 
@@ -1726,7 +1731,7 @@ console.log(e.relatedTarget);
 			el.addEventListener('keydown', selectKeyboard);
 			wrapper.addEventListener('keydown', selectKeyboard);
 						
-			el.lastElementChild.onkeydown = e => { // Close select on tab outside
+			el.lastElementChild.onkeydown = e => { // Close select on tab outside. To do: get last button only
 			console.log(e);
 				if (e.key === 'Tab' && !e.shiftKey && e.target.parentNode.hasAttribute('aria-expanded')) {
 			
@@ -1736,6 +1741,8 @@ console.log(e.relatedTarget);
 				}
 				
 			};
+
+			el.querySelectorAll('button').forEach(el => el.type = 'button');
 			
 			wrapper.setAttribute('tabindex', 0);
 			(el.querySelector('[aria-selected]') || el.firstElementChild).tabIndex = -1;
