@@ -99,6 +99,9 @@ Theme:
 .n-select--options button * {
   pointer-events: none;
 }
+.n-select--options button:not(:first-of-type) {
+  margin-top: 1px;
+}
 .n-select--options.n-scrollbar::-webkit-scrollbar {
   width: 10px;
 }
@@ -121,6 +124,7 @@ Theme:
 }
 .n-select--options[aria-expanded] button {
   outline-offset: -3px;
+  line-height: 1.3;
 }
 @media (hover: hover) {
   .n-select--options[aria-expanded] button {
@@ -143,6 +147,10 @@ Theme:
   overflow: hidden;
   width: calc(100% - 1.5em);
   outline-offset: -1.5px;
+  font-size: 1em;
+  border: none;
+  padding: 0.5em;
+  line-height: 1.3;
 }
 .n-select--options:not([aria-expanded]) > :not([aria-selected]) {
   display: none;

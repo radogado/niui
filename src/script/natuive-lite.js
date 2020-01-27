@@ -1282,7 +1282,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 
 		}
 
-		console.log(e.type, e.target);
+		console.log(e.type, e.target, e.target.value);
 
 		if (!select.hasAttribute('aria-expanded') || el.hasAttribute('aria-selected')) {
 			
