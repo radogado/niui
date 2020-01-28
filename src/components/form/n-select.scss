@@ -178,23 +178,29 @@ Theme:
 		margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0))); // Align to the current option's vertical offset
 		max-height: var(--max-height);
 		overflow: auto;
+	    background: transparent;
 
+	    padding: .5em;
+	    margin-left: -.5em;
+	    max-width: calc(var(--max-width) + 1em);
+    
 		[aria-selected] {
 			
 			background-color: var(--control-selected-bg, #eee);
 			color: var(--control-selected-color, #000);
-			
+
 		}
 		
 		button {
 			
-			outline-offset: -3px;
+// 			outline-offset: -3px;
 
 			line-height: 1.3;
+			width: 100%;
 
 			@media (hover: hover) {
 
-				outline-offset: -5px;
+// 				outline-offset: -5px;
 
 			}
 			
@@ -214,7 +220,26 @@ Theme:
 				margin-top: 1px;
 				
 			}
+			
+			&:focus {
+				
+				z-index: 1;
+				
+			}
 		
+		}
+		
+		&:before {
+			
+			content: '';
+			position: absolute;
+			background-color: var(--control-bg,#fff);
+		    top: .5em;
+		    left: .5em;
+		    right: .5em;
+		    height: calc(var(--select-scroll-height) - 1em);
+		    box-shadow: 0 0 2px 2px;
+    			
 		}
 	
 	}

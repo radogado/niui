@@ -90,6 +90,7 @@
 		// Fix viewport overflow
 		select.style.removeProperty('--top-offset');
 		select.style.removeProperty('--max-height');
+		select.style.removeProperty('--select-scroll-height');
 		select.style.setProperty('--max-width', `${select.parentNode.getBoundingClientRect().width}px`);
 		select.style.removeProperty('--active-option-offset');
 
@@ -100,6 +101,7 @@
 		
 		select.querySelector('[aria-selected]').removeAttribute('tabindex');
 		select.setAttribute('aria-expanded', true);
+		select.style.setProperty('--select-scroll-height', `${select.scrollHeight}px`);
 		
 		document.body.appendChild(select);
 /*
