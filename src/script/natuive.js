@@ -1484,17 +1484,23 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 
 	let timeout = null;
 			
+	let trapKeyboard = e => {
+		
+		if ([32, 35, 36, 37, 38, 39, 40].includes(e.keyCode)) { // Capture Home, End, Arrows etc
+		
+			e.stopPropagation();
+			e.preventDefault();
+		
+		}
+
+	}
+
 	let selectKeyboard = e => {
 		
 				console.log(e.target, e.key, e.keyCode);
 
-		if ([32, 35, 36, 37, 38, 39, 40].includes(e.keyCode)) { // Capture Home, End, Arrows etc
+		trapKeyboard(e);	
 		
-			e.preventDefault();
-			e.stopPropagation();
-		
-		}
-
 		let select = e.target.closest('.n-select--options');
 		
 		if (e.target.classList.contains('n-select')) {
@@ -1622,6 +1628,8 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 
 		}
 		
+		return false;
+		
 	};
 
 	let init = host => {
@@ -1730,6 +1738,8 @@ console.log(e.relatedTarget);
 
 			el.addEventListener('keydown', selectKeyboard);
 			wrapper.addEventListener('keydown', selectKeyboard);
+			el.addEventListener('keyup', trapKeyboard);
+			wrapper.addEventListener('keyup', trapKeyboard);
 						
 			el.lastElementChild.onkeydown = e => { // Close select on tab outside. To do: get last button only
 			console.log(e);
