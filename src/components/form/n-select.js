@@ -32,6 +32,7 @@
 		}
 	
 		el.setAttribute('aria-selected', true);
+		select.nuiSelectWrapper.dataset.value = el.value;
 
 		if (select.hasAttribute('aria-expanded')) {
 
@@ -571,7 +572,12 @@ console.log(e.relatedTarget);
 				
 			};
 
-			el.querySelectorAll('button').forEach(el => el.type = 'button');
+			el.querySelectorAll('button').forEach(el => {
+				
+				el.type = 'button';
+				el.value = el.value || el.textContent.trim();
+				
+			});
 			
 			wrapper.setAttribute('tabindex', 0);
 			(el.querySelector('[aria-selected]') || el.firstElementChild).tabIndex = -1;
