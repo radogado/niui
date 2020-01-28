@@ -1042,7 +1042,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		}
 		
 		let options = select.children[0];
-		select.nuiSelectWrapper.style.setProperty('--active-option-height', `${el.offsetHeight}px`);
+		select.nuiSelectWrapper.style.setProperty('--active-option-height', `${el.getBoundingClientRect().height}px`);
 		options.style.removeProperty('--top-offset');
 		options.style.removeProperty('--max-height');
 	

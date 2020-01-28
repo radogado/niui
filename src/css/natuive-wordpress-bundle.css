@@ -619,12 +619,10 @@ Theme:
 .n-select {
   position: relative;
 }
-.n-select[data-ready]:before {
-  content: "";
-  display: block;
+.n-select[data-ready] {
   height: var(--active-option-height, 1em);
-  transition: height 0.2s ease-in-out;
   font-size: 1em;
+  transition: height 0.2s ease-in-out;
 }
 .n-select:after {
   position: absolute;

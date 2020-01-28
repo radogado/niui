@@ -39,13 +39,11 @@ Theme:
 	
 	position: relative;
 
-	&[data-ready]:before {
+	&[data-ready] {
 		
-		content: '';
-		display: block;
 		height: var(--active-option-height, 1em);
-		transition: height .2s ease-in-out;
 		font-size: 1em;
+		transition: height .2s ease-in-out;
 		
 	}
 	
