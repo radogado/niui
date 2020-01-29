@@ -146,13 +146,11 @@
 		
 		}
 		
-		if (select.getBoundingClientRect().width > select.querySelector('button').getBoundingClientRect().width) {
+		select.classList.remove('n-scrollbar');
+
+		if (select.getBoundingClientRect().width > (select.querySelector('button').getBoundingClientRect().width + parseInt(getComputedStyle(select).padding) * 2)) {
 			
 			select.classList.add('n-scrollbar');
-			
-		} else {
-			
-			select.classList.remove('n-scrollbar');
 			
 		}
 		
@@ -367,6 +365,10 @@
 
 						sibling.focus();
 					
+					} else {
+						
+						select.querySelector('button').focus();
+						
 					}
 					
 				}
@@ -387,6 +389,11 @@
 
 						sibling.focus();
 					
+					} else {
+						
+						let options = select.querySelectorAll('button');
+						options[options.length-1].focus();
+						
 					}
 				
 				}

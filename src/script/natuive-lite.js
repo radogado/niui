@@ -1147,13 +1147,11 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		
 		}
 		
-		if (select.getBoundingClientRect().width > select.querySelector('button').getBoundingClientRect().width) {
+		select.classList.remove('n-scrollbar');
+
+		if (select.getBoundingClientRect().width > (select.querySelector('button').getBoundingClientRect().width + parseInt(getComputedStyle(select).padding) * 2)) {
 			
 			select.classList.add('n-scrollbar');
-			
-		} else {
-			
-			select.classList.remove('n-scrollbar');
 			
 		}
 		
@@ -1368,6 +1366,10 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 
 						sibling.focus();
 					
+					} else {
+						
+						select.querySelector('button').focus();
+						
 					}
 					
 				}
@@ -1388,6 +1390,11 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 
 						sibling.focus();
 					
+					} else {
+						
+						let options = select.querySelectorAll('button');
+						options[options.length-1].focus();
+						
 					}
 				
 				}
