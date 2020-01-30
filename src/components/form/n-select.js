@@ -91,19 +91,20 @@
 		select.style.removeProperty('--top-offset');
 		select.style.removeProperty('--max-height');
 		select.style.removeProperty('--select-scroll-height');
-		select.style.setProperty('--max-width', `${select.parentNode.getBoundingClientRect().width}px`);
 		select.style.removeProperty('--active-option-offset');
+		select.classList.remove('n-select__crop-top');
 
 		let option_height = `${select.scrollHeight}`;
 		
+		select.style.setProperty('--max-width', `${select.parentNode.getBoundingClientRect().width}px`);
 		select.style.setProperty('--body-offset-x', select.getBoundingClientRect().x - document.body.getBoundingClientRect().x);
 		select.style.setProperty('--body-offset-y', select.getBoundingClientRect().y - document.body.getBoundingClientRect().y);
 		
 		select.querySelector('[aria-selected]').removeAttribute('tabindex');
 		select.setAttribute('aria-expanded', true);
-		select.style.setProperty('--select-scroll-height', `${select.scrollHeight}px`);
 		
 		document.body.appendChild(select);
+		select.style.setProperty('--select-scroll-height', `${select.getBoundingClientRect().height}px`);
 /*
 		document.body.insertAdjacentHTML('beforeend', '<button id=catcher>focus catcher</button>');
 		
@@ -128,6 +129,7 @@
 			select.scrollTop = Math.abs(select.getBoundingClientRect().y);
 			top_offset = Math.abs(select.getBoundingClientRect().y);
 			select.style.setProperty('--top-offset', top_offset);
+			select.classList.add('n-select__crop-top');
 			
 			if (select.getBoundingClientRect().height > window.innerHeight) {
 				
