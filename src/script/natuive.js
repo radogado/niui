@@ -1275,7 +1275,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		select.style.removeProperty('--active-option-offset');
 		select.classList.remove('n-select__crop-top');
 
-		let option_height = `${select.scrollHeight}`;
+		let option_height = select.getBoundingClientRect().height;
 		
 		select.style.setProperty('--max-width', `${select.parentNode.getBoundingClientRect().width}px`);
 		select.style.setProperty('--body-offset-x', select.getBoundingClientRect().x - document.body.getBoundingClientRect().x);
