@@ -475,7 +475,6 @@ Theme:
   right: 0.5em;
   height: calc(var(--select-scroll-height) - 1em);
   box-shadow: 0 0 2px 2px;
-  z-index: -1;
 }
 .n-select--options:not([aria-expanded]) {
   cursor: pointer;
@@ -507,12 +506,16 @@ Theme:
 }
 
 .n-select--options.n-select__crop-top[aria-expanded] {
+  margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - .5px);
+}
+
+[data-nui-chrome] .n-select--options.n-select__crop-top[aria-expanded] {
   margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - 1px);
 }
 
 @-moz-document url-prefix() {
   .n-select--options.n-select__crop-top[aria-expanded] {
-    margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - .5em - .5px);
+    margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - .5em);
   }
 }
 select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + select {

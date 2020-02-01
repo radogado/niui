@@ -240,7 +240,7 @@ Theme:
 		    right: .5em;
 		    height: calc(var(--select-scroll-height) - 1em);
 		    box-shadow: 0 0 2px 2px;
-		    z-index: -1;
+// 		    z-index: -1; // Weird 1px offset in Safari
     			
 		}
 	
@@ -291,6 +291,12 @@ Theme:
 
 .n-select--options.n-select__crop-top[aria-expanded] {
 
+	margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - .5px);
+	
+}
+
+[data-nui-chrome] .n-select--options.n-select__crop-top[aria-expanded] {
+
 	margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - 1px);
 	
 }
@@ -299,7 +305,7 @@ Theme:
 
 	.n-select--options.n-select__crop-top[aria-expanded] {
 	
-		margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - .5em - .5px); // Remove padding when cropped on top on Firefox
+		margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - .5em); // Remove padding when cropped on top on Firefox
 		
 	}
 
