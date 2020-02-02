@@ -1195,6 +1195,12 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	
 	};
 	
+	let closeSelectOnResize = e => {
+	
+		closeSelect(document.querySelector('.n-select--options[aria-expanded]'));
+		
+	};
+
 	let selectOption = (el) => {
 		
 		if (!el || el.tagName !== 'BUTTON') {
@@ -1252,6 +1258,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		select.removeAttribute('aria-expanded');
 		select.nuiSelectWrapper.appendChild(select);
 		document.body.removeEventListener('click', clickOutsideSelect);
+		window.removeEventListener('resize', closeSelectOnResize);
 		select.querySelector('[aria-selected]').tabIndex = -1;
 //		setTimeout(() => { select.nuiSelectWrapper.focus(); }, 1); // Because FF
 		window.requestAnimationFrame(t => select.nuiSelectWrapper.focus());
@@ -1357,6 +1364,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		});
 			
 		document.body.addEventListener('click', clickOutsideSelect);
+		window.addEventListener('resize', closeSelectOnResize);
 		
 	}
 	
@@ -1643,7 +1651,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		return false;
 		
 	};
-
+	
 	let init = host => {
 
 		host.querySelectorAll('.n-select:not([data-ready])').forEach(el => {
