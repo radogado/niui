@@ -108,7 +108,7 @@ Theme:
 .n-select--options {
 	
 	width: 100%;
-	max-width: var(--max-width, 100%);
+// 	max-width: var(--max-width, 100%);
 	background-color: var(--control-bg, #fff);
 	position: absolute;
 	top: 0;
@@ -180,10 +180,10 @@ Theme:
 		overflow: auto;
 	    background: transparent;
 
-	    padding: .5em;
-	    margin-left: -.5em;
-	    max-width: calc(var(--max-width) + 1em);
-	    border-radius: .5em;
+	    padding: var(--padding, .5em);
+	    margin-inline-start: calc(-1 * var(--padding, .5em));
+	    max-width: calc(var(--max-width) + 2 * var(--padding, .5em));
+// 	    border-radius: .5em;
     
 		[aria-selected] {
 			
@@ -235,12 +235,12 @@ Theme:
 			content: '';
 			position: absolute;
 			background-color: var(--control-bg,#fff);
-		    top: .5em;
-		    left: .5em;
-		    right: .5em;
-		    height: calc(var(--select-scroll-height) - 1em);
+		    top: var(--padding, .5em);
+		    left: var(--padding, .5em);
+		    right: var(--padding, .5em);
+		    height: calc(var(--select-scroll-height) - calc(2 * var(--padding, .5em)));
 		    box-shadow: 0 0 2px 2px;
-// 		    z-index: -1; // Weird 1px offset in Safari
+// 		    z-index: -1; // Weird 1px offset in Safari, but needed
     			
 		}
 	
@@ -284,6 +284,7 @@ Theme:
 	> * {
 		
 		padding: .5em;
+		position: relative; // To show it above the background
 		
 	}
 	
@@ -305,7 +306,7 @@ Theme:
 
 	.n-select--options.n-select__crop-top[aria-expanded] {
 	
-		margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - .5em); // Remove padding when cropped on top on Firefox
+		margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - var(--padding, .5em)); // Remove padding when cropped on top on Firefox
 		
 	}
 
@@ -321,15 +322,25 @@ select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + sel
 
 .n-select--options[aria-expanded] {
 
-	-webkit-mask: 				linear-gradient(0, #000, #000) no-repeat 0 var(--mask-position-y) / 100% var(--mask-size-y);
+	-webkit-mask: 					linear-gradient(0, #000, #000) no-repeat 0 var(--mask-position-y) / 100% var(--mask-size-y);
+
+	&[data-n-select-animation] {
+	
+		transition: 				-webkit-mask-size .15s ease-in-out, -webkit-mask-position-y .15s ease-in-out;
+		-webkit-mask-size: 			100% 100%; 
+		-webkit-mask-position-y: 	0;
+	
+	}
 
 }
 
-.n-select--options[aria-expanded][data-n-select-animation] {
+@media (prefers-reduced-motion: reduce) {
 
-	transition: 				-webkit-mask-size .15s ease-in-out, -webkit-mask-position-y .15s ease-in-out;
-	-webkit-mask-size: 			100% 100%; 
-	-webkit-mask-position-y: 	0;
+	.n-select--options[aria-expanded][data-n-select-animation] {
+	
+		transition: none;
+	
+	}
 
 }
 

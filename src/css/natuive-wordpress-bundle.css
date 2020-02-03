@@ -659,7 +659,6 @@ Theme:
 
 .n-select--options {
   width: 100%;
-  max-width: var(--max-width, 100%);
   background-color: var(--control-bg, #fff);
   position: absolute;
   top: 0;
@@ -707,10 +706,9 @@ Theme:
   max-height: var(--max-height);
   overflow: auto;
   background: transparent;
-  padding: 0.5em;
-  margin-left: -0.5em;
-  max-width: calc(var(--max-width) + 1em);
-  border-radius: 0.5em;
+  padding: var(--padding, 0.5em);
+  margin-inline-start: calc(-1 * var(--padding, .5em));
+  max-width: calc(var(--max-width) + 2 * var(--padding, .5em));
 }
 .n-select--options[aria-expanded] [aria-selected] {
   background-color: var(--control-selected-bg, #eee);
@@ -734,10 +732,10 @@ Theme:
   content: "";
   position: absolute;
   background-color: var(--control-bg, #fff);
-  top: 0.5em;
-  left: 0.5em;
-  right: 0.5em;
-  height: calc(var(--select-scroll-height) - 1em);
+  top: var(--padding, 0.5em);
+  left: var(--padding, 0.5em);
+  right: var(--padding, 0.5em);
+  height: calc(var(--select-scroll-height) - calc(2 * var(--padding, .5em)));
   box-shadow: 0 0 2px 2px;
 }
 .n-select--options:not([aria-expanded]) {
@@ -767,6 +765,7 @@ Theme:
 }
 .n-select--options > * {
   padding: 0.5em;
+  position: relative;
 }
 
 .n-select--options.n-select__crop-top[aria-expanded] {
@@ -779,7 +778,7 @@ Theme:
 
 @-moz-document url-prefix() {
   .n-select--options.n-select__crop-top[aria-expanded] {
-    margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - .5em);
+    margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - var(--padding, .5em));
   }
 }
 select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + select {
@@ -789,13 +788,17 @@ select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + sel
 .n-select--options[aria-expanded] {
   -webkit-mask: linear-gradient(0, #000, #000) no-repeat 0 var(--mask-position-y)/100% var(--mask-size-y);
 }
-
 .n-select--options[aria-expanded][data-n-select-animation] {
   transition: -webkit-mask-size 0.15s ease-in-out, -webkit-mask-position-y 0.15s ease-in-out;
   -webkit-mask-size: 100% 100%;
   -webkit-mask-position-y: 0;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .n-select--options[aria-expanded][data-n-select-animation] {
+    transition: none;
+  }
+}
 :not(.n-select) > .n-select--options {
   position: absolute;
   left: calc(1px * var(--body-offset-x));

@@ -93,6 +93,13 @@
 			
 		}
 */
+	
+		let previous_open_select = document.body.querySelector('.n-select--options[aria-expanded]');
+		if (previous_open_select) {
+			
+			closeSelect(previous_open_select);
+		
+		}
 		
 		// Fix viewport overflow
 		select.style.removeProperty('--top-offset');
