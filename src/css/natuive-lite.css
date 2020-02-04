@@ -444,7 +444,8 @@ Theme:
   background: transparent;
   padding: var(--padding, 0.5em);
   margin-inline-start: calc(-1 * var(--padding, .5em));
-  max-width: calc(var(--max-width) + 2 * var(--padding, .5em));
+  margin-inline-end: calc(-1 * var(--padding, .5em));
+  width: auto;
 }
 .n-select--options[aria-expanded] [aria-selected] {
   background-color: var(--control-selected-bg, #eee);
@@ -539,6 +540,12 @@ select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + sel
   position: absolute;
   left: calc(1px * var(--body-offset-x));
   top: calc(1px * var(--body-offset-y));
+}
+
+@media (min-width: 600px) {
+  .n-select--options[aria-expanded] {
+    max-width: calc(var(--max-width) + 2 * var(--padding, .5em));
+  }
 }
 
 /*# sourceMappingURL=n-select.css.map */
