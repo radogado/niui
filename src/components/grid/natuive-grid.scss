@@ -1,6 +1,6 @@
-/* natUIve – Grid */
+/* niui – Grid */
 
-@import '../../css/natuive-setup';
+@import '../../css/niui-setup';
 
 /* For proper fallback, use .col* for all columns. Automatic column width (no .col*) works for Flexbox only. */
 
@@ -40,7 +40,7 @@
 	
 	}
 	
-	table:not(.n-table) td { // Non-natUIve tables overflow fix
+	table:not(.n-table) td { // Non-niui tables overflow fix
 		
 	    word-break: break-word;
 		

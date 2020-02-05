@@ -2,7 +2,7 @@
 
 var componentSlider = (function (){
     
-/* natUIve Slider */
+/* niui Slider */
 
 	var last_slide_time = 14045017000;
 	var slide_duration = .5;

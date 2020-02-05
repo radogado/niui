@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* natUIve – Grid */
+/* niui – Grid */
 /* For proper fallback, use .col* for all columns. Automatic column width (no .col*) works for Flexbox only. */
 .n-row {
   width: 100%;

@@ -1,4 +1,4 @@
-/* natUIve by rado.bg */
+/* niui by rado.bg */
 /* DOM functions via http://youmightnotneedjquery.com */
 
 var bodyElement = document.body;

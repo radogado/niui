@@ -1,4 +1,4 @@
-window.nui = (() => {/* natUIve by rado.bg */
+window.nui = (() => {/* niui by rado.bg */
 /* DOM functions via http://youmightnotneedjquery.com */
 
 var bodyElement = document.body;

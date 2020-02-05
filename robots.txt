@@ -1,3 +1,3 @@
 User-agent: *
 Disallow: /demos/
-Disallow: /natuive/demos/
+Disallow: /niui/demos/

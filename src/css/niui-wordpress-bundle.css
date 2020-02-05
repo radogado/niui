@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* natUIve – rado.bg */
+/* niui – rado.bg */
 /*
 $font-size: 26px;
 $line-height: 34px;
@@ -185,10 +185,10 @@ a[href].span-relative-parent {
   }
 }
 
-/*# sourceMappingURL=natuive-core.css.map */
+/*# sourceMappingURL=niui-core.css.map */
 
 @charset "UTF-8";
-/* natUIve – Button */
+/* niui – Button */
 .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href] {
   font-size: inherit;
   line-height: 1.5;
@@ -280,7 +280,7 @@ a.backtotop[href] {
 /*# sourceMappingURL=natuive-button.css.map */
 
 @charset "UTF-8";
-/* natUIve  – Card */
+/* niui  – Card */
 .n-card {
   margin: 1em 0;
   --card-bg: rgba(0, 0, 0, 0.1);
@@ -329,7 +329,7 @@ a.backtotop[href] {
 /*# sourceMappingURL=natuive-card.css.map */
 
 @charset "UTF-8";
-/* natUIve – Fold */
+/* niui – Fold */
 .n-fold {
   position: relative;
   margin: 0;
@@ -815,7 +815,7 @@ select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + sel
 /*# sourceMappingURL=n-select.css.map */
 
 @charset "UTF-8";
-/* natUIve  – Form */
+/* niui  – Form */
 .n-form {
   --placeholder_color: #aaa;
 }
@@ -1398,7 +1398,7 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 /*# sourceMappingURL=natuive-form.css.map */
 
 @charset "UTF-8";
-/* natUIve – Grid with inline popups */
+/* niui – Grid with inline popups */
 .grid-inline-popup > .grid-inline-popup--popup {
   width: 100%;
   flex-basis: 100%;
@@ -1475,7 +1475,7 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
 /*# sourceMappingURL=aspect-ratio.css.map */
 
 @charset "UTF-8";
-/* natUIve – Grid */
+/* niui – Grid */
 /* For proper fallback, use .col* for all columns. Automatic column width (no .col*) works for Flexbox only. */
 .n-row {
   width: 100%;
@@ -1885,7 +1885,7 @@ ol.n-masonry > * {
 /*# sourceMappingURL=natuive-grid.css.map */
 
 @charset "UTF-8";
-/* natUIve – Lightbox */
+/* niui – Lightbox */
 .n-slider--wrap:not([data-active]) > .n-slider.n-slider__vertical.n-lightbox > * {
   height: 100%;
 }
@@ -2181,7 +2181,7 @@ ol.n-masonry > * {
 /*# sourceMappingURL=natuive-lightbox.css.map */
 
 @charset "UTF-8";
-/* natUIve – List */
+/* niui – List */
 ul.n-list {
   padding: 0;
   line-height: 1.5;
@@ -2307,7 +2307,7 @@ ul.n-list.n-list__inline, ul.n-list.n-list__inline li, .n-nav.n-nav__scroll ul l
 /*# sourceMappingURL=natuive-list.css.map */
 
 @charset "UTF-8";
-/* natUIve – Modal */
+/* niui – Modal */
 .no-scroll, .no-scroll body {
   overflow: hidden;
 }
@@ -2463,7 +2463,7 @@ html.n-full-screen body {
 /*# sourceMappingURL=natuive-modal.css.map */
 
 @charset "UTF-8";
-/* natUIve – Navigation */
+/* niui – Navigation */
 .n-nav {
   vertical-align: baseline;
   display: inline-block;
@@ -2944,7 +2944,7 @@ html:not(.can-touch) .n-nav__drop > ul li:not([aria-haspopup]) ul li:hover ~ ul 
 /*# sourceMappingURL=natuive-nav.css.map */
 
 @charset "UTF-8";
-/* natUIve – Notification bar */
+/* niui – Notification bar */
 .n-notify {
   background: rgba(0, 0, 0, 0.8);
   text-align: center;
@@ -2978,7 +2978,7 @@ html:not(.can-touch) .n-nav__drop > ul li:not([aria-haspopup]) ul li:hover ~ ul 
 /*# sourceMappingURL=natuive-parallax.css.map */
 
 @charset "UTF-8";
-/* natUIve – Slider – CSS-only */
+/* niui – Slider – CSS-only */
 .n-slider {
   overflow: auto;
   overflow-y: hidden;
@@ -3555,7 +3555,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 /*# sourceMappingURL=natuive-table.css.map */
 
 @charset "UTF-8";
-/* natUIve – Tooltip */
+/* niui – Tooltip */
 .n-tool {
   cursor: help;
   font-weight: bold;
@@ -3643,7 +3643,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 /*# sourceMappingURL=natuive-tooltip.css.map */
 
 @charset "UTF-8";
-/* natUIve – Typography */
+/* niui – Typography */
 .n-type {
   color: #333;
   -webkit-text-size-adjust: none;
@@ -3746,7 +3746,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 /*# sourceMappingURL=natuive-typography.css.map */
 
 @charset "UTF-8";
-/* natUIve WordPress – rado.bg */
+/* niui WordPress – rado.bg */
 .n-slider--wrap {
   background: #eee;
 }
@@ -4279,4 +4279,4 @@ a.backtotop[href] {
   }
 }
 
-/*# sourceMappingURL=natuive-wordpress.css.map */
+/*# sourceMappingURL=niui-wordpress.css.map */

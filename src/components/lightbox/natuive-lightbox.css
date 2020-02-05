@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* natUIve – Lightbox */
+/* niui – Lightbox */
 .n-slider--wrap:not([data-active]) > .n-slider.n-slider__vertical.n-lightbox > * {
   height: 100%;
 }

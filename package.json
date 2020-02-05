@@ -1,20 +1,20 @@
 {
-  "name": "natuive",
-  "version": "v2.1.3",
-  "description": "natUIve: mostly native front-end framework",
+  "name": "niui-npm",
+  "version": "2.1.3",
+  "description": "niui: mostly native front-end framework",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/radogado/natuive.git"
+    "url": "git+https://github.com/radogado/niui.git"
   },
   "author": "Radoslav Sharapanov <spacest@gmail.com> (http://github.com/radogado)",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/radogado/natuive/issues"
+    "url": "https://github.com/radogado/niui/issues"
   },
-  "homepage": "https://github.com/radogado/natuive#readme",
+  "homepage": "https://github.com/radogado/niui#readme",
   "devDependencies": {
     "closure-compiler": ">=0.2.12",
     "grunt": "^1.0.4",
@@ -28,5 +28,6 @@
     "grunt-sass": "^3.1.0",
     "jit-grunt": "^0.10.0"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "main": "index.js"
 }

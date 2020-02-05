@@ -59,7 +59,7 @@
 
 					        <a class="n-aspect default-logo" style='--width: 441px; --height: 56;' href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'>
 						        
-								<img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="natUIve WordPress" class="logo-img">
+								<img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="niui WordPress" class="logo-img">
 						        
 						    </a>
 						    

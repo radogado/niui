@@ -277,7 +277,7 @@ a.backtotop[href] {
   }
 }
 
-/*# sourceMappingURL=niui-button.css.map */
+/*# sourceMappingURL=natuive-button.css.map */
 
 @charset "UTF-8";
 /* niui  – Card */
@@ -326,7 +326,7 @@ a.backtotop[href] {
   margin: 0;
 }
 
-/*# sourceMappingURL=niui-card.css.map */
+/*# sourceMappingURL=natuive-card.css.map */
 
 @charset "UTF-8";
 /* niui – Fold */
@@ -590,7 +590,7 @@ _:-ms-input-placeholder, :root .n-fold--label:after {
   }
 }
 
-/*# sourceMappingURL=niui-fold.css.map */
+/*# sourceMappingURL=natuive-fold.css.map */
 
 /*
 
@@ -1395,7 +1395,7 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
   }
 }
 
-/*# sourceMappingURL=niui-form.css.map */
+/*# sourceMappingURL=natuive-form.css.map */
 
 @charset "UTF-8";
 /* niui – Grid with inline popups */
@@ -1429,7 +1429,7 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
   }
 }
 
-/*# sourceMappingURL=niui-grid-inline-popups.css.map */
+/*# sourceMappingURL=natuive-grid-inline-popups.css.map */
 
 @charset "UTF-8";
 /* Image aspect ratio – don't shift the page after loading the image */
@@ -1882,7 +1882,7 @@ ol.n-masonry > * {
   }
 }
 
-/*# sourceMappingURL=niui-grid.css.map */
+/*# sourceMappingURL=natuive-grid.css.map */
 
 @charset "UTF-8";
 /* niui – Lightbox */
@@ -2178,7 +2178,7 @@ ol.n-masonry > * {
   }
 }
 
-/*# sourceMappingURL=niui-lightbox.css.map */
+/*# sourceMappingURL=natuive-lightbox.css.map */
 
 @charset "UTF-8";
 /* niui – List */
@@ -2304,7 +2304,7 @@ ul.n-list.n-list__inline, ul.n-list.n-list__inline li, .n-nav.n-nav__scroll ul l
   margin: 0 0 0 0.5em;
 }
 
-/*# sourceMappingURL=niui-list.css.map */
+/*# sourceMappingURL=natuive-list.css.map */
 
 @charset "UTF-8";
 /* niui – Modal */
@@ -2460,7 +2460,7 @@ html.n-full-screen body {
   }
 }
 
-/*# sourceMappingURL=niui-modal.css.map */
+/*# sourceMappingURL=natuive-modal.css.map */
 
 @charset "UTF-8";
 /* niui – Navigation */
@@ -2941,7 +2941,7 @@ html:not(.can-touch) .n-nav__drop > ul li:not([aria-haspopup]) ul li:hover ~ ul 
   }
 }
 
-/*# sourceMappingURL=niui-nav.css.map */
+/*# sourceMappingURL=natuive-nav.css.map */
 
 @charset "UTF-8";
 /* niui – Notification bar */
@@ -2975,7 +2975,7 @@ html:not(.can-touch) .n-nav__drop > ul li:not([aria-haspopup]) ul li:hover ~ ul 
   transform: translateY(calc( var(--scrollparallax, 0) * 1px));
 }
 
-/*# sourceMappingURL=niui-parallax.css.map */
+/*# sourceMappingURL=natuive-parallax.css.map */
 
 @charset "UTF-8";
 /* niui – Slider – CSS-only */
@@ -3472,7 +3472,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
   */
 }
 
-/*# sourceMappingURL=niui-slider.css.map */
+/*# sourceMappingURL=natuive-slider.css.map */
 
 @charset "UTF-8";
 /* Tables */
@@ -3552,7 +3552,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
   }
 }
 
-/*# sourceMappingURL=niui-table.css.map */
+/*# sourceMappingURL=natuive-table.css.map */
 
 @charset "UTF-8";
 /* niui – Tooltip */
@@ -3640,7 +3640,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
   left: auto;
 }
 
-/*# sourceMappingURL=niui-tooltip.css.map */
+/*# sourceMappingURL=natuive-tooltip.css.map */
 
 @charset "UTF-8";
 /* niui – Typography */
@@ -3743,4 +3743,4 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
   box-sizing: content-box;
 }
 
-/*# sourceMappingURL=niui-typography.css.map */
+/*# sourceMappingURL=natuive-typography.css.map */

@@ -8,7 +8,7 @@
 					<div>
 						<p class="copyright">
 							&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. <?php _e('Powered by', 'html5blank'); ?>
-							<a href="//wordpress.org" title="WordPress">WordPress</a>, <a href="//github.com/html5blank/" title="HTML5 Blank">HTML5 Blank</a> & <a href="//natuive.net">natUIve</a>.
+							<a href="//wordpress.org" title="WordPress">WordPress</a>, <a href="//github.com/html5blank/" title="HTML5 Blank">HTML5 Blank</a> & <a href="//niui.dev">niui</a>.
 						</p>
 						<a href=# class="backtotop">🔝</a>
 					</div>

@@ -1,4 +1,4 @@
-window.nui = (() => {/* natUIve by rado.bg */
+window.nui = (() => {/* niui by rado.bg */
 /* DOM functions via http://youmightnotneedjquery.com */
 
 var bodyElement = document.body;
@@ -3368,7 +3368,7 @@ var componentNotify = (function (){
 
 var componentSlider = (function (){
     
-/* natUIve Slider */
+/* niui Slider */
 
 	var last_slide_time = 14045017000;
 	var slide_duration = .5;
