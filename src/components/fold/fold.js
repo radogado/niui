@@ -50,7 +50,7 @@
 				
 				openAccordion(el, content);				
 
-				if (other !== el) { // There is another one open, close it if in a group
+				if (other && other !== el) { // There is another one open, close it if in a group
 					
 					closeAccordion(other, other.querySelector('.n-fold--content'));
 					

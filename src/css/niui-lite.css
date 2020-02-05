@@ -277,7 +277,7 @@ a.backtotop[href] {
   }
 }
 
-/*# sourceMappingURL=natuive-button.css.map */
+/*# sourceMappingURL=button.css.map */
 
 @charset "UTF-8";
 /* niui  – Card */
@@ -326,229 +326,7 @@ a.backtotop[href] {
   margin: 0;
 }
 
-/*# sourceMappingURL=natuive-card.css.map */
-
-/*
-
-Theme:
-
---control-color: red;
---control-bg: lightgoldenrodyellow;
-
---control-selected-color: blueviolet;
---control-selected-bg: aliceblue;
-
---control-active-color: chocolate;
---control-active-bg: beige;
-
-*/
-@keyframes n-select {
-  100% {
-    height: 0;
-  }
-}
-@keyframes n-select-native {
-  100% {
-    height: auto;
-  }
-}
-.n-select {
-  position: relative;
-}
-.n-select[data-ready] {
-  height: var(--active-option-height, 1em);
-  font-size: 1em;
-  transition: height 0.2s ease-in-out;
-}
-.n-select:after {
-  position: absolute;
-  top: 0;
-  z-index: 5;
-}
-.n-select:not([data-ready]) {
-  animation-name: n-select;
-  overflow: hidden;
-}
-.n-select:not([data-ready]), .n-select:not([data-ready]) + select {
-  animation-duration: 0.1s;
-  animation-fill-mode: forwards;
-  animation-delay: 2s;
-}
-.n-select:not([data-ready]) + select {
-  animation-name: n-select-native;
-  -webkit-appearance: none;
-  appearance: none;
-  border: none;
-  height: 0;
-}
-.n-select:not([data-ready]) > :not([aria-expanded]) {
-  position: relative;
-}
-.n-select:not([data-ready]) > :not([aria-expanded]) > :not([aria-selected]):first-child {
-  display: block;
-}
-.n-select:not([data-ready]) > :not([aria-expanded]) > :not([aria-selected]):first-child ~ [aria-selected] {
-  display: block;
-  position: absolute;
-  top: 0;
-}
-
-.n-select--options {
-  width: 100%;
-  background-color: var(--control-bg, #fff);
-  position: absolute;
-  top: 0;
-  z-index: 5;
-  box-sizing: border-box;
-}
-.n-select--options > * {
-  display: block;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-}
-.n-select--options button {
-  -webkit-appearance: none;
-  appearance: none;
-  background: none;
-  cursor: pointer;
-  border: 0;
-  width: 100%;
-  text-align: start;
-  margin: 0;
-  font-size: 1em;
-  position: relative;
-  color: var(--control-color, #333);
-  background-color: var(--control-bg, #fff);
-}
-.n-select--options button * {
-  pointer-events: none;
-}
-.n-select--options.n-scrollbar::-webkit-scrollbar {
-  width: 10px;
-}
-.n-select--options.n-scrollbar::-webkit-scrollbar-thumb {
-  background: #999;
-  border-radius: 20px;
-}
-.n-select--options.n-scrollbar::-webkit-scrollbar-track {
-  background: #ddd;
-  border-radius: 20px;
-}
-.n-select--options[aria-expanded] {
-  margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)));
-  max-height: var(--max-height);
-  overflow: auto;
-  background: transparent;
-  padding: var(--padding, 0.5em);
-  margin-inline-start: calc(-1 * var(--padding, .5em));
-  margin-inline-end: calc(-1 * var(--padding, .5em));
-  width: auto;
-}
-.n-select--options[aria-expanded] [aria-selected] {
-  background-color: var(--control-selected-bg, #eee);
-  color: var(--control-selected-color, #000);
-}
-.n-select--options[aria-expanded] button {
-  line-height: 1.3;
-  width: 100%;
-}
-.n-select--options[aria-expanded] button:not([aria-selected]):hover {
-  background-color: var(--control-active-bg, #ececec);
-  color: var(--control-active-color, inherit);
-}
-.n-select--options[aria-expanded] button:not(:first-of-type) {
-  margin-top: 1px;
-}
-.n-select--options[aria-expanded] button:focus {
-  z-index: 1;
-}
-.n-select--options[aria-expanded]:before {
-  content: "";
-  position: absolute;
-  background-color: var(--control-bg, #fff);
-  top: var(--padding, 0.5em);
-  left: var(--padding, 0.5em);
-  right: var(--padding, 0.5em);
-  height: calc(var(--select-scroll-height) - calc(2 * var(--padding, .5em)));
-  box-shadow: 0 0 2px 2px;
-}
-.n-select--options:not([aria-expanded]) {
-  cursor: pointer;
-  background-color: var(--control-selected-bg, #fff);
-  background-image: linear-gradient(-113deg, transparent 60%, var(--control-selected-bg, #fff) 63%), linear-gradient(113deg, transparent 60%, var(--control-selected-bg, #fff) 63%), linear-gradient(to bottom, var(--control-selected-color, #333), var(--control-selected-color, #333));
-  background-size: 0.75em 0.75em;
-  background-repeat: no-repeat;
-  background-position: calc(100% - .5em) 0.75em;
-}
-.n-select--options:not([aria-expanded]) button {
-  white-space: nowrap;
-  overflow: hidden;
-  width: calc(100% - 1.5em);
-  outline-offset: -1.5px;
-  font-size: 1em;
-  border: none;
-  padding: 0.5em;
-  line-height: 1.3;
-  font-weight: normal;
-  min-height: 0;
-  color: var(--control-selected-color, #333);
-  background-color: var(--control-selected-bg, #fff);
-}
-.n-select--options:not([aria-expanded]) > :not([aria-selected]) {
-  display: none;
-}
-.n-select--options > * {
-  padding: 0.5em;
-  position: relative;
-}
-
-.n-select--options.n-select__crop-top[aria-expanded] {
-  margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - .5px);
-}
-
-[data-nui-chrome] .n-select--options.n-select__crop-top[aria-expanded] {
-  margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - 1px);
-}
-
-@-moz-document url-prefix() {
-  .n-select--options.n-select__crop-top[aria-expanded] {
-    margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - var(--padding, .5em));
-  }
-}
-select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + select {
-  display: none;
-}
-
-.n-select--options[aria-expanded] {
-  -webkit-mask: linear-gradient(0, #000, #000) no-repeat 0 var(--mask-position-y)/100% var(--mask-size-y);
-}
-.n-select--options[aria-expanded][data-n-select-animation] {
-  transition: -webkit-mask-size 0.15s ease-in-out, -webkit-mask-position-y 0.15s ease-in-out;
-  -webkit-mask-size: 100% 100%;
-  -webkit-mask-position-y: 0;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .n-select--options[aria-expanded][data-n-select-animation] {
-    transition: none;
-  }
-}
-:not(.n-select) > .n-select--options {
-  position: absolute;
-  left: calc(1px * var(--body-offset-x));
-  top: calc(1px * var(--body-offset-y));
-}
-
-@media (min-width: 600px) {
-  .n-select--options[aria-expanded] {
-    max-width: calc(var(--max-width) + 2 * var(--padding, .5em));
-  }
-}
-
-/*# sourceMappingURL=n-select.css.map */
+/*# sourceMappingURL=card.css.map */
 
 @charset "UTF-8";
 /* niui  – Form */
@@ -1131,7 +909,229 @@ _:-ms-lang(x), input[type=radio] + .n-form--check-icon, .n-form.n-form__wide .n-
   }
 }
 
-/*# sourceMappingURL=natuive-form.css.map */
+/*# sourceMappingURL=form.css.map */
+
+/*
+
+Theme:
+
+--control-color: red;
+--control-bg: lightgoldenrodyellow;
+
+--control-selected-color: blueviolet;
+--control-selected-bg: aliceblue;
+
+--control-active-color: chocolate;
+--control-active-bg: beige;
+
+*/
+@keyframes n-select {
+  100% {
+    height: 0;
+  }
+}
+@keyframes n-select-native {
+  100% {
+    height: auto;
+  }
+}
+.n-select {
+  position: relative;
+}
+.n-select[data-ready] {
+  height: var(--active-option-height, 1em);
+  font-size: 1em;
+  transition: height 0.2s ease-in-out;
+}
+.n-select:after {
+  position: absolute;
+  top: 0;
+  z-index: 5;
+}
+.n-select:not([data-ready]) {
+  animation-name: n-select;
+  overflow: hidden;
+}
+.n-select:not([data-ready]), .n-select:not([data-ready]) + select {
+  animation-duration: 0.1s;
+  animation-fill-mode: forwards;
+  animation-delay: 2s;
+}
+.n-select:not([data-ready]) + select {
+  animation-name: n-select-native;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  height: 0;
+}
+.n-select:not([data-ready]) > :not([aria-expanded]) {
+  position: relative;
+}
+.n-select:not([data-ready]) > :not([aria-expanded]) > :not([aria-selected]):first-child {
+  display: block;
+}
+.n-select:not([data-ready]) > :not([aria-expanded]) > :not([aria-selected]):first-child ~ [aria-selected] {
+  display: block;
+  position: absolute;
+  top: 0;
+}
+
+.n-select--options {
+  width: 100%;
+  background-color: var(--control-bg, #fff);
+  position: absolute;
+  top: 0;
+  z-index: 5;
+  box-sizing: border-box;
+}
+.n-select--options > * {
+  display: block;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.n-select--options button {
+  -webkit-appearance: none;
+  appearance: none;
+  background: none;
+  cursor: pointer;
+  border: 0;
+  width: 100%;
+  text-align: start;
+  margin: 0;
+  font-size: 1em;
+  position: relative;
+  color: var(--control-color, #333);
+  background-color: var(--control-bg, #fff);
+}
+.n-select--options button * {
+  pointer-events: none;
+}
+.n-select--options.n-scrollbar::-webkit-scrollbar {
+  width: 10px;
+}
+.n-select--options.n-scrollbar::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 20px;
+}
+.n-select--options.n-scrollbar::-webkit-scrollbar-track {
+  background: #ddd;
+  border-radius: 20px;
+}
+.n-select--options[aria-expanded] {
+  margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)));
+  max-height: var(--max-height);
+  overflow: auto;
+  background: transparent;
+  padding: var(--padding, 0.5em);
+  margin-inline-start: calc(-1 * var(--padding, .5em));
+  margin-inline-end: calc(-1 * var(--padding, .5em));
+  width: auto;
+}
+.n-select--options[aria-expanded] [aria-selected] {
+  background-color: var(--control-selected-bg, #eee);
+  color: var(--control-selected-color, #000);
+}
+.n-select--options[aria-expanded] button {
+  line-height: 1.3;
+  width: 100%;
+}
+.n-select--options[aria-expanded] button:not([aria-selected]):hover {
+  background-color: var(--control-active-bg, #ececec);
+  color: var(--control-active-color, inherit);
+}
+.n-select--options[aria-expanded] button:not(:first-of-type) {
+  margin-top: 1px;
+}
+.n-select--options[aria-expanded] button:focus {
+  z-index: 1;
+}
+.n-select--options[aria-expanded]:before {
+  content: "";
+  position: absolute;
+  background-color: var(--control-bg, #fff);
+  top: var(--padding, 0.5em);
+  left: var(--padding, 0.5em);
+  right: var(--padding, 0.5em);
+  height: calc(var(--select-scroll-height) - calc(2 * var(--padding, .5em)));
+  box-shadow: 0 0 2px 2px;
+}
+.n-select--options:not([aria-expanded]) {
+  cursor: pointer;
+  background-color: var(--control-selected-bg, #fff);
+  background-image: linear-gradient(-113deg, transparent 60%, var(--control-selected-bg, #fff) 63%), linear-gradient(113deg, transparent 60%, var(--control-selected-bg, #fff) 63%), linear-gradient(to bottom, var(--control-selected-color, #333), var(--control-selected-color, #333));
+  background-size: 0.75em 0.75em;
+  background-repeat: no-repeat;
+  background-position: calc(100% - .5em) 0.75em;
+}
+.n-select--options:not([aria-expanded]) button {
+  white-space: nowrap;
+  overflow: hidden;
+  width: calc(100% - 1.5em);
+  outline-offset: -1.5px;
+  font-size: 1em;
+  border: none;
+  padding: 0.5em;
+  line-height: 1.3;
+  font-weight: normal;
+  min-height: 0;
+  color: var(--control-selected-color, #333);
+  background-color: var(--control-selected-bg, #fff);
+}
+.n-select--options:not([aria-expanded]) > :not([aria-selected]) {
+  display: none;
+}
+.n-select--options > * {
+  padding: 0.5em;
+  position: relative;
+}
+
+.n-select--options.n-select__crop-top[aria-expanded] {
+  margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - .5px);
+}
+
+[data-nui-chrome] .n-select--options.n-select__crop-top[aria-expanded] {
+  margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - 1px);
+}
+
+@-moz-document url-prefix() {
+  .n-select--options.n-select__crop-top[aria-expanded] {
+    margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - var(--padding, .5em));
+  }
+}
+select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + select {
+  display: none;
+}
+
+.n-select--options[aria-expanded] {
+  -webkit-mask: linear-gradient(0, #000, #000) no-repeat 0 var(--mask-position-y)/100% var(--mask-size-y);
+}
+.n-select--options[aria-expanded][data-n-select-animation] {
+  transition: -webkit-mask-size 0.15s ease-in-out, -webkit-mask-position-y 0.15s ease-in-out;
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-position-y: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .n-select--options[aria-expanded][data-n-select-animation] {
+    transition: none;
+  }
+}
+:not(.n-select) > .n-select--options {
+  position: absolute;
+  left: calc(1px * var(--body-offset-x));
+  top: calc(1px * var(--body-offset-y));
+}
+
+@media (min-width: 600px) {
+  .n-select--options[aria-expanded] {
+    max-width: calc(var(--max-width) + 2 * var(--padding, .5em));
+  }
+}
+
+/*# sourceMappingURL=n-select.css.map */
 
 @charset "UTF-8";
 /* Image aspect ratio – don't shift the page after loading the image */
@@ -1584,7 +1584,7 @@ ol.n-masonry > * {
   }
 }
 
-/*# sourceMappingURL=natuive-grid.css.map */
+/*# sourceMappingURL=grid.css.map */
 
 @charset "UTF-8";
 /* niui – List */
@@ -1710,7 +1710,7 @@ ul.n-list.n-list__inline, ul.n-list.n-list__inline li, .n-nav.n-nav__scroll ul l
   margin: 0 0 0 0.5em;
 }
 
-/*# sourceMappingURL=natuive-list.css.map */
+/*# sourceMappingURL=list.css.map */
 
 @charset "UTF-8";
 /* niui – Navigation */
@@ -2191,7 +2191,7 @@ html:not(.can-touch) .n-nav__drop > ul li:not([aria-haspopup]) ul li:hover ~ ul 
   }
 }
 
-/*# sourceMappingURL=natuive-nav.css.map */
+/*# sourceMappingURL=nav.css.map */
 
 @charset "UTF-8";
 /* Tables */
@@ -2271,7 +2271,7 @@ html:not(.can-touch) .n-nav__drop > ul li:not([aria-haspopup]) ul li:hover ~ ul 
   }
 }
 
-/*# sourceMappingURL=natuive-table.css.map */
+/*# sourceMappingURL=table.css.map */
 
 @charset "UTF-8";
 /* niui – Typography */
@@ -2374,4 +2374,4 @@ html:not(.can-touch) .n-nav__drop > ul li:not([aria-haspopup]) ul li:hover ~ ul 
   box-sizing: content-box;
 }
 
-/*# sourceMappingURL=natuive-typography.css.map */
+/*# sourceMappingURL=typography.css.map */
