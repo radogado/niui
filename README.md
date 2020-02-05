@@ -58,7 +58,7 @@ NPM usage:
 - Supporting evergreen browsers and Internet Explorer (CSS-only)
 - All components accessible by keyboard
 
-© 2014-2019 [rado.bg](http://rado.bg)
+© 2014-2020 [rado.bg](http://rado.bg)
 
 ## Standalone components
 
