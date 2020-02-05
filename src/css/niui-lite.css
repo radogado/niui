@@ -2369,7 +2369,6 @@ html:not(.can-touch) .n-nav__drop > ul li:not([aria-haspopup]) ul li:hover ~ ul 
 }
 
 .n-adjust-height {
-  transition: padding-bottom 0.1s ease-in-out;
   padding-bottom: calc(1px * var(--adjust-height));
   box-sizing: content-box;
 }
