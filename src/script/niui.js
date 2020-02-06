@@ -1256,6 +1256,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		
 		delete select.dataset.nSelectAnimation;
 		select.removeAttribute('aria-expanded');
+		document.body.classList.remove('n-select--open');
 		select.nuiSelectWrapper.appendChild(select);
 		document.body.removeEventListener('click', clickOutsideSelect);
 		window.removeEventListener('resize', closeSelectOnResize);
@@ -1296,6 +1297,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		select.style.setProperty('--body-offset-y', select.getBoundingClientRect().y - document.body.getBoundingClientRect().y);
 		
 		select.querySelector('[aria-selected]').removeAttribute('tabindex');
+		document.body.classList.add('n-select--open');
 		select.setAttribute('aria-expanded', true);
 		
 		document.body.appendChild(select);

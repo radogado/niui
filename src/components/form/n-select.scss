@@ -34,6 +34,12 @@ Theme:
     }
     
 }
+
+body.n-select--open {
+	
+	overflow: hidden;
+
+}
     							
 .n-select {
 	
@@ -179,11 +185,12 @@ Theme:
 		max-height: var(--max-height);
 		overflow: auto;
 	    background: transparent;
+	    width: calc(var(--max-width) + 2 * var(--padding, .5em));
 
 	    padding: var(--padding, .5em);
 	    margin-inline-start: calc(-1 * var(--padding, .5em));
 	    margin-inline-end: calc(-1 * var(--padding, .5em));
-	    width: auto;
+// 	    width: auto;
 // 	    border-radius: .5em;
     
 		[aria-selected] {
@@ -217,11 +224,13 @@ Theme:
 			
 			}
 
+/*
 			&:not(:first-of-type) {
 				
 				margin-top: 1px;
 				
 			}
+*/
 			
 			&:focus {
 				
@@ -286,11 +295,13 @@ Theme:
 		
 		padding: .5em;
 		position: relative; // To show it above the background
+		font-family: inherit; // iOS bug
 		
 	}
 	
 }
 
+/*
 .n-select--options.n-select__crop-top[aria-expanded] {
 
 	margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - .5px);
@@ -299,9 +310,10 @@ Theme:
 
 [data-nui-chrome] .n-select--options.n-select__crop-top[aria-expanded] {
 
-	margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - 1px);
+	margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)));
 	
 }
+*/
 
 @-moz-document url-prefix() {
 
