@@ -1078,24 +1078,16 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		select.removeAttribute('aria-expanded');
 		document.body.classList.remove('n-select--open');
 		select.nuiSelectWrapper.appendChild(select);
-		document.body.removeEventListener('click', clickOutsideSelect);
 		window.removeEventListener('resize', closeSelectOnResize);
 		select.querySelector('[aria-selected]').tabIndex = -1;
-//		setTimeout(() => { select.nuiSelectWrapper.focus(); }, 1); // Because FF
 		window.requestAnimationFrame(t => select.nuiSelectWrapper.focus());
+		document.body.removeEventListener('click', clickOutsideSelect);
+		select.removeEventListener('pointerup', pointerUpSelect);
 
 	}
 
 	let openSelect = (select) => {
 
-/*
-		if (select.dataset.nSelectAnimation) {
-			
-			return;
-			
-		}
-*/
-	
 		let previous_open_select = document.body.querySelector('.n-select--options[aria-expanded]');
 		if (previous_open_select) {
 			
@@ -1122,17 +1114,6 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		
 		document.body.appendChild(select);
 		select.style.setProperty('--select-scroll-height', `${select.getBoundingClientRect().height}px`);
-/*
-		document.body.insertAdjacentHTML('beforeend', '<button id=catcher>focus catcher</button>');
-		
-		document.querySelector('#catcher').onfocus = e => {
-		
-			closeSelect(select);
-			select.nuiSelectWrapper.focus();
-			document.querySelector('#catcher').outerHTML = '';
-			
-		};
-*/
 
 		let active_option_offset = select.querySelector('[aria-selected]').getBoundingClientRect().y - select.getBoundingClientRect().y;
 		let top_offset = 0;
@@ -1183,13 +1164,14 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 				select.dataset.nSelectAnimation = true; 
 				select.querySelector('[aria-selected]').focus();
 			
-			}, 1); // Timeout needed for the above variables to work
+			}, 1); // Timeout needed for the above CSS variables to work
 	
 		});
 			
-		document.body.addEventListener('click', clickOutsideSelect);
 		window.addEventListener('resize', closeSelectOnResize);
-		
+		document.body.addEventListener('click', clickOutsideSelect);
+		select.addEventListener('pointerup', pointerUpSelect);
+				
 	}
 	
 	let nextMatchingSibling = (el, selector) => {
@@ -1216,71 +1198,28 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	
 	let clickSelect = e => {
 		
-		console.log(e.type, e.target);
-		
-		let el = e.target.closest('button');
-		if (!el) return; // Not a button
 		let select = e.target.closest('.n-select--options');
 		
-/*
-		if (!!select.nuiPointerUp) {
-			
-			delete select.nuiPointerUp;
-			return;
-			
-		}
-*/
-		
-		if (select.hasAttribute('aria-expanded')) { // If already open, select the clicked option
-			
-			selectOption(el);
-			
-		} else { // If closed, open the drop-down
-
-			openSelect(select);
-			
-		}
-		
-		select.addEventListener('pointerup', pointerUpSelect);
-		delete select.nuiTouch;
-		delete select.pointerDownSelect;
-
-	};
-	
-	let touchStartSelect = e => {
-			
 		console.log(e.type, e.target);
-		e.target.closest('.n-select--options').nuiTouch = true;
+
+		if (select.hasAttribute('aria-expanded')) { // Open
+		
+			selectOption(e.target);
+			
+		}
 		
 	};
-	
+
 	let pointerDownSelect = e => {
 		
 		let select = e.target.closest('.n-select--options');
 		
-		select.nuiPointerDown = true; // Because of FF bug
-
-		if (!!select.nuiTouch) {
-			
-			return;
-
-		}
-
 		console.log(e.type, e.target);
 
 		if (!select.hasAttribute('aria-expanded')) { // Closed
 		
 			openSelect(select);
 
-		} else { // Open
-
-			if (!e.target.hasAttribute('aria-expanded')) {
-				
-				select.removeEventListener('pointerup', pointerUpSelect);
-				e.target.click();
-				
-			}
-			
 		}
 		
 	};
@@ -1291,29 +1230,15 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		let el = e.target.closest('button');
 		let select = e.target.closest('.n-select--options');
 
-		if (!!select.nuiTouch) {
-			
-			return;
-
-		}
-
 		console.log(e.type, e.target, e.target.value);
 
 		if (!select.hasAttribute('aria-expanded') || el.hasAttribute('aria-selected')) {
 			
-			if (el.hasAttribute('aria-selected')) {
-							
-				select.nuiPointerUp = true;
-				select.addEventListener('click', clickSelect);
-			
-			}
 			return;
 
 		}
 
 		selectOption(el);
-		select.nuiPointerUp = true;
-		select.addEventListener('click', clickSelect);
 		
 	};
 
@@ -1350,10 +1275,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 			
 				if (e.target.classList.contains('n-select')) {
 					
-					select.removeEventListener('click', clickSelect);
 					openSelect(select);
-//					setTimeout(() => { select.addEventListener('click', clickSelect); }, 100); 
-					window.requestAnimationFrame(t => select.addEventListener('click', clickSelect));
 
 				}
 				break;
@@ -1540,28 +1462,17 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 			});
 		*/
 		
-			el.addEventListener('click', clickSelect);
-			
 			el.addEventListener('pointerdown', pointerDownSelect);
 	
-			el.addEventListener('pointerup', pointerUpSelect);
-	
-			el.addEventListener('touchstart', touchStartSelect);
+			el.addEventListener('click', clickSelect); // Selects a clicked (pointer upped) option
 			
 			el.addEventListener('focusout', e => {
 
 				let select = e.target.closest('.n-select--options');
 
-				if (!!select.nuiPointerDown) { // Because of FF bug
-					
-					delete select.nuiPointerDown;
-					return;
-
-				}
-
 				// If relatedTarget isn't a sibling, close and focus on select wrapper
 
-console.log(e.relatedTarget);				
+console.log('relatedTarget', e.relatedTarget);				
 				if (select.hasAttribute('aria-expanded') && !!e.relatedTarget && e.relatedTarget.parentNode !== select) {
 					
 					closeSelect(select);
