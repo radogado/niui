@@ -1399,7 +1399,13 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	};
 	
 	let init = host => {
+		
+		if (!window.PointerEvent) { // CSS-only fallback when Pointer Events aren't supported
+			
+			return;
 
+		}
+		
 		host.querySelectorAll('.n-select:not([data-ready])').forEach(el => {
 			
 			let wrapper = el;
