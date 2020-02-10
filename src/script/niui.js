@@ -1703,9 +1703,9 @@ console.log('relatedTarget', e.relatedTarget);
 			wrapper.setAttribute('tabindex', 0);
 			(el.querySelector('[aria-selected]') || el.firstElementChild).tabIndex = -1;
 
-			wrapper.dataset.ready = true;
-
 			selectOption(el.querySelector('[aria-selected]') || el.querySelector('button')); // Select the first option by default
+
+			wrapper.dataset.ready = true;
 		
 		});
 	

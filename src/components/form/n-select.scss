@@ -30,6 +30,7 @@ Theme:
     100% {
 	    
 	    height: auto;
+	    position: static;
 
     }
     
@@ -44,10 +45,10 @@ body.n-select--open {
 .n-select {
 	
 	position: relative;
+	height: var(--active-option-height, auto);
 
 	&[data-ready] {
 		
-		height: var(--active-option-height, 1em);
 		font-size: 1em;
 		transition: height .2s ease-in-out;
 		
@@ -79,11 +80,11 @@ body.n-select--open {
 		& + select {
 		    
 		    animation-name: n-select-native;
-		
 			-webkit-appearance: none;
 			appearance: none;
 			border: none;
 			height: 0;
+			position: absolute;
 		
 		}
 							    

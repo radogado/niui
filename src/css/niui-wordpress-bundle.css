@@ -1197,6 +1197,7 @@ Theme:
 @keyframes n-select-native {
   100% {
     height: auto;
+    position: static;
   }
 }
 body.n-select--open {
@@ -1205,9 +1206,9 @@ body.n-select--open {
 
 .n-select {
   position: relative;
+  height: var(--active-option-height, auto);
 }
 .n-select[data-ready] {
-  height: var(--active-option-height, 1em);
   font-size: 1em;
   transition: height 0.2s ease-in-out;
 }
@@ -1231,6 +1232,7 @@ body.n-select--open {
   appearance: none;
   border: none;
   height: 0;
+  position: absolute;
 }
 .n-select:not([data-ready]) > :not([aria-expanded]) {
   position: relative;
