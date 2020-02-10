@@ -15,6 +15,7 @@ Theme:
 
 */
 
+/*
 @keyframes n-select {
     
     100% {
@@ -35,6 +36,7 @@ Theme:
     }
     
 }
+*/
 
 body.n-select--open {
 	
@@ -46,6 +48,8 @@ body.n-select--open {
 	
 	position: relative;
 	height: var(--active-option-height, auto);
+	display: inline-block;
+	max-width: 100%;
 
 	&[data-ready] {
 		
@@ -94,19 +98,29 @@ body.n-select--open {
 		
 			> :not([aria-selected]):first-child {
 				
-				display: block;
-	
+				visibility: visible;
+			    height: auto;
+			    padding: var(--padding, .5em);
+    	
 				~ [aria-selected] {
 					
-					display: block;
-					position: absolute;
+					visibility: visible;
+				    height: auto;
+				    padding: var(--padding, .5em);
+    				position: absolute;
 				    top: 0;
 					
 				}
 				
 			}
-		
+
 		}
+	
+	}
+
+	> .n-select--options > :not([aria-selected]) {
+		
+		visibility: visible;
 	
 	}
 	
@@ -114,13 +128,15 @@ body.n-select--open {
 
 .n-select--options {
 	
-	width: 100%;
+//	width: 100%; // For wide version only
+	width: auto;
+    max-width: 100%;
 // 	max-width: var(--max-width, 100%);
 	background-color: var(--control-bg, #fff);
-	position: absolute;
 	top: 0;
 	z-index: 5;
 	box-sizing: border-box;
+	--padding: .5em;
 	
 	> * {
 		
@@ -182,11 +198,12 @@ body.n-select--open {
 
 	&[aria-expanded] {
 	
+		position: absolute;
 		margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0))); // Align to the current option's vertical offset
 		max-height: var(--max-height);
 		overflow: auto;
 	    background: transparent;
-	    width: calc(var(--max-width) + 2 * var(--padding, .5em));
+//	    width: calc(var(--max-width) + 2 * var(--padding, .5em)); // For wide version only
 
 	    padding: var(--padding, .5em);
 	    margin-inline-start: calc(-1 * var(--padding, .5em));
@@ -271,7 +288,8 @@ body.n-select--open {
 			
 			white-space: nowrap;
 			overflow: hidden;
-			width: calc(100% - 1.5em);
+			max-width: calc(100% - 1.5em);
+			width: auto;
 			outline-offset: -1.5px;
 			font-size: 1em;
 		    border: none;
@@ -286,8 +304,11 @@ body.n-select--open {
 		
 		> :not([aria-selected]) {
 		
-			display: none;
-			
+// 			display: none;
+    		height: 0;
+			padding: 0;
+			visibility: hidden;
+    			
 		}
 
 	}

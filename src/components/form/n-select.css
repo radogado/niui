@@ -12,17 +12,28 @@ Theme:
 --control-active-bg: beige;
 
 */
+/*
 @keyframes n-select {
-  100% {
-    height: 0;
-  }
+
+    100% {
+
+	    height: 0;
+
+    }
+
 }
+
 @keyframes n-select-native {
-  100% {
-    height: auto;
-    position: static;
-  }
+
+    100% {
+
+	    height: auto;
+	    position: static;
+
+    }
+
 }
+*/
 body.n-select--open {
   overflow: hidden;
 }
@@ -30,6 +41,8 @@ body.n-select--open {
 .n-select {
   position: relative;
   height: var(--active-option-height, auto);
+  display: inline-block;
+  max-width: 100%;
 }
 .n-select[data-ready] {
   font-size: 1em;
@@ -61,21 +74,29 @@ body.n-select--open {
   position: relative;
 }
 .n-select:not([data-ready]) > :not([aria-expanded]) > :not([aria-selected]):first-child {
-  display: block;
+  visibility: visible;
+  height: auto;
+  padding: var(--padding, 0.5em);
 }
 .n-select:not([data-ready]) > :not([aria-expanded]) > :not([aria-selected]):first-child ~ [aria-selected] {
-  display: block;
+  visibility: visible;
+  height: auto;
+  padding: var(--padding, 0.5em);
   position: absolute;
   top: 0;
+}
+.n-select > .n-select--options > :not([aria-selected]) {
+  visibility: visible;
 }
 
 .n-select--options {
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   background-color: var(--control-bg, #fff);
-  position: absolute;
   top: 0;
   z-index: 5;
   box-sizing: border-box;
+  --padding: .5em;
 }
 .n-select--options > * {
   display: block;
@@ -114,11 +135,11 @@ body.n-select--open {
   border-radius: 20px;
 }
 .n-select--options[aria-expanded] {
+  position: absolute;
   margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)));
   max-height: var(--max-height);
   overflow: auto;
   background: transparent;
-  width: calc(var(--max-width) + 2 * var(--padding, .5em));
   padding: var(--padding, 0.5em);
   margin-inline-start: calc(-1 * var(--padding, .5em));
   margin-inline-end: calc(-1 * var(--padding, .5em));
@@ -166,7 +187,8 @@ body.n-select--open {
 .n-select--options:not([aria-expanded]) button {
   white-space: nowrap;
   overflow: hidden;
-  width: calc(100% - 1.5em);
+  max-width: calc(100% - 1.5em);
+  width: auto;
   outline-offset: -1.5px;
   font-size: 1em;
   border: none;
@@ -178,7 +200,9 @@ body.n-select--open {
   background-color: var(--control-selected-bg, #fff);
 }
 .n-select--options:not([aria-expanded]) > :not([aria-selected]) {
-  display: none;
+  height: 0;
+  padding: 0;
+  visibility: hidden;
 }
 .n-select--options > * {
   padding: 0.5em;

@@ -1703,8 +1703,25 @@ console.log('relatedTarget', e.relatedTarget);
 			wrapper.setAttribute('tabindex', 0);
 			(el.querySelector('[aria-selected]') || el.firstElementChild).tabIndex = -1;
 
-			selectOption(el.querySelector('[aria-selected]') || el.querySelector('button')); // Select the first option by default
+/*
+			let max_width = 0;
+			
+			[...el.children].forEach(el => {
+				
+				let width = getComputedStyle(el).width;
+				if (width > max_width) {
+					
+					max_width = width;
+				
+				}
+			
+			});
+			
+			el.style.setProperty('--max-width', max_width);
+*/
 
+			selectOption(el.querySelector('[aria-selected]') || el.querySelector('button')); // Select the first option by default
+			
 			wrapper.dataset.ready = true;
 		
 		});
