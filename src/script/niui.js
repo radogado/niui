@@ -1263,6 +1263,8 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		window.requestAnimationFrame(t => select.nuiSelectWrapper.focus());
 		document.body.removeEventListener('click', clickOutsideSelect);
 		select.removeEventListener('pointerup', pointerUpSelect);
+		let wrapper = select.parentNode;
+		wrapper.style.removeProperty('--width');
 
 	}
 
@@ -1275,6 +1277,9 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		
 		}
 		
+		let wrapper = select.parentNode;
+		wrapper.style.setProperty('--width', `${wrapper.getBoundingClientRect().width}px`);
+				
 		// Fix viewport overflow
 		select.style.removeProperty('--top-offset');
 		select.style.removeProperty('--max-height');

@@ -49,7 +49,9 @@ body.n-select--open {
 	position: relative;
 	height: var(--active-option-height, auto);
 	display: inline-block;
+	vertical-align: middle;
 	max-width: 100%;
+	width: var(--width, auto);
 
 	&[data-ready] {
 		
