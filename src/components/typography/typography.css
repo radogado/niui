@@ -16,6 +16,12 @@
   font-weight: 500;
   margin: 24px 0;
 }
+@media (max-width: 599.9px) {
+  .n-type h1, .n-type h2, .n-type h3, .n-type h4, .n-type h5, .n-type h6 {
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+}
 .n-type h1 + p:not(.n-drop-cap), .n-type h2 + p:not(.n-drop-cap), .n-type h3 + p:not(.n-drop-cap), .n-type h4 + p:not(.n-drop-cap), .n-type h5 + p:not(.n-drop-cap), .n-type h6 + p:not(.n-drop-cap) {
   margin-top: 0;
 }

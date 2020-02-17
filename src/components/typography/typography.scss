@@ -20,6 +20,13 @@
 		word-wrap: break-word;
 		font-weight: 500;
 		margin: 24px 0;
+		
+		@media (max-width: $screen-narrow-max) {
+			
+	        -webkit-hyphens: auto;
+	        hyphens: auto;
+
+		}
 	
 	}
 	
