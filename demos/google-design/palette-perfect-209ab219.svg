@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1280 640" enable-background="new 0 0 1280 640" xml:space="preserve">
+<g>
+	<defs>
+		<rect id="SVGID_1_" width="1280" height="640"/>
+	</defs>
+	<clipPath id="SVGID_2_">
+		<use xlink:href="#SVGID_1_"  overflow="visible"/>
+	</clipPath>
+	<g clip-path="url(#SVGID_2_)">
+		<rect x="-32" y="-16.5" fill="#00914C" width="1344" height="672"/>
+		
+			<rect x="-303.3" y="193.1" transform="matrix(-0.9763 -0.2164 0.2164 -0.9763 97.9626 1236.8751)" fill="#008141" width="840" height="840"/>
+		
+			<rect x="610.6" y="299.6" transform="matrix(0.9763 0.2164 -0.2164 0.9763 86.3792 -130.7227)" fill="#FACF00" width="58.8" height="58.8"/>
+		
+			<rect x="504.1" y="432.3" transform="matrix(0.9763 0.2164 -0.2164 0.9763 206.3733 -179.8034)" fill="#63BC66" width="840" height="840"/>
+		
+			<rect x="743.3" y="-375.1" transform="matrix(0.9763 0.2164 -0.2164 0.9763 37.2985 -250.7168)" fill="#48B04B" width="840" height="840"/>
+		
+			<rect x="-64.1" y="-614.3" transform="matrix(-0.9763 -0.2164 0.2164 -0.9763 745.4684 -306.9354)" fill="#00914C" width="840" height="840"/>
+	</g>
+</g>
+</svg>

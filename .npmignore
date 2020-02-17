@@ -1,0 +1,11 @@
+demos/
+images/
+natuive-grid-bootstrap/
+natuive-wordpress/
+*.html
+*.md
+Gruntfile.js
+.DS_Store
+natuive-wp.zip
+.sass-cache/
+dist/.DS_Store

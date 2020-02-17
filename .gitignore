@@ -1,1 +1,5 @@
 .DS_Store
+.sass-cache
+__MACOSX
+node_modules
+package-lock.json

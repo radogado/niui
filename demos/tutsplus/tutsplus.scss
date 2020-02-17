@@ -1,0 +1,259 @@
+body {
+	
+	font-family: Roboto, sans-serif;
+	
+}
+
+.n-contain {
+	
+    max-width: 1302px;
+	    
+}
+
+.n-header {
+	
+	background: #282828;
+	color: #fff;
+	
+}
+
+.n-banner {
+	
+	padding: 0 .25em;
+	box-sizing: border-box;
+
+	div {
+		
+		background-position: center center;
+		background-size: cover;
+		color: #fff;
+	
+	}
+	
+	h2 {
+	
+		font-size: 30px;
+	
+	}
+	
+	a[href].n-btn {
+		
+		color: #49b293;
+		background: #fff;
+		
+	}
+
+}
+
+main a[href].n-btn {
+	
+	color: #fff;
+	background-color: #f93d66;	
+
+}
+
+main a[href].n-btn.n-btn__big {
+	
+	background: none;
+	color: #82b541;
+	border-radius: 4px;
+	border: 2px #82b541 solid;	
+
+}
+
+.n-form {
+	
+	padding: 0;
+
+}
+
+input[type=search] {
+	
+	margin: 0;
+	border: 1px solid #666;
+	border-radius: 4px;
+    min-height: 2em;
+
+}
+
+.n-banner .n-row.n-row__vertical > div > div {
+	
+	padding: 1em;
+
+}
+
+.n-card > img {
+	
+	width: 100%;
+
+}
+
+.n-card .n-card--content {
+	
+	padding: .5em;
+
+}
+
+.dark-grey {
+	
+	background-color: #303030;
+	color: #fff;
+	
+	.n-card {
+		
+		background: #fff;
+		color: #000;
+
+	}
+	
+	.n-row.card-grid > * {
+		
+		border: none;
+	
+	}
+
+}
+
+.n-row.card-grid {
+	
+	padding: 1em 0;
+	
+	> * {
+		
+		background: #fff;
+		border-radius: 3px;
+		border: solid 1px #e4e4e4;
+		box-sizing: border-box;
+		padding: 0;
+		
+	}
+	
+	.n-card, .n-card .n-card--content {
+		
+		background: none;
+		margin: 0;
+	
+	}
+
+}
+
+.meta {
+	
+	font-size: .75em;	
+	
+	&.n-row > * > img {
+		
+		display: inline-block;
+	    width: 34px;
+	    float: left;
+	    margin-right: .5em;
+	    border-radius: 50%;
+	
+	}
+	
+	a[href] {
+	
+		color: #c94e4b;
+		font-weight: bold;
+		text-transform: uppercase;
+		text-decoration: none;
+	
+	}
+
+}
+
+.n-header {
+	
+	a[href] {
+	
+		text-decoration: none;
+
+	}
+	
+	nav.n-nav.n-nav__drop {
+		
+		--control-bg: #282828;
+		--control-color: #fff;
+		
+	}
+	
+	nav.n-nav.n-nav__drop a[href] {
+		
+		color: #fff;
+		
+	}
+
+}
+
+.diagram {
+	
+	padding: 100px 0;
+	background-image: url(landingpage_tuts_bg1@2x-936130b73bdc6b8299071bfc0a322608.jpg), url(landingpage_tuts_bg2@2x-b8124807eafcda4a5d4d358a2398225b.jpg);
+	background-repeat: no-repeat;
+	background-size: auto 125%;
+	background-position: calc(50% - 950px) 70%, calc(50% + 950px) 70%;
+	background-origin: right, left;
+	
+	.n-row {
+		
+		max-width: 1180px;
+		margin: 0 auto;
+
+	}
+	
+	.n-row .n-row img {
+		
+		width: 82px;
+		display: block;
+		margin: 1em auto;
+		
+	}
+
+}
+
+footer {
+	
+	background: #000;
+	color: #fff;
+	
+	a[href] {
+		
+		text-decoration: none;
+
+	}
+
+}
+
+.n-type {
+	
+	a[href].n-btn {
+		
+		border-radius: 4px;
+		padding: .5em 2em;
+		
+	}
+	
+	a[href].n-btn.n-btn__big {
+	
+		padding-left: 2.5em;
+		padding-right: 2.5em;
+	
+	}
+
+}
+
+.n-fold {
+
+    --control-color: #fff;
+    
+}
+
+@media (max-width: 599.9px) {
+	
+.n-form input[type=search] {
+	
+	width: 100%;
+	
+}
+	
+}

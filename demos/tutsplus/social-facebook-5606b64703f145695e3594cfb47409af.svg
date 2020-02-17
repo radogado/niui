@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.1 (15681) - http://www.bohemiancoding.com/sketch -->
+    <title>FOOTER</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Footer---12-Col" sketch:type="MSArtboardGroup" transform="translate(-1175.000000, -635.000000)">
+            <g id="FOOTER" sketch:type="MSLayerGroup">
+                <g id="2" transform="translate(0.000000, 593.000000)" sketch:type="MSShapeGroup">
+                    <g id="Social-links" transform="translate(1175.000000, 41.000000)">
+                        <g id="Rectangle-23-+-Imported-Layers" transform="translate(0.000000, 1.000000)">
+                            <rect id="Rectangle-23" fill="#39589D" x="0" y="0" width="36" height="36" rx="4"></rect>
+                            <path d="M13,18.4748148 L13,15.0488889 L15.8457143,15.0488889 L15.8457143,12.5259259 C15.8457143,11.0911111 16.2328571,9.97777778 17.0064286,9.18666667 C17.78,8.39555556 18.8107143,8 20.0978571,8 C21.1914286,8 22.04,8.04592593 22.6428571,8.13851852 L22.6428571,11.1940741 L20.8907143,11.1940741 C20.2507143,11.1940741 19.8192857,11.3325926 19.5957143,11.6103704 C19.3721429,11.8881481 19.2607143,12.3044444 19.2607143,12.86 L19.2607143,15.0474074 L22.5307143,15.0474074 L22.0957143,18.4733333 L19.2607143,18.4733333 L19.2607143,27.2577778 L15.8457143,27.2577778 L15.8457143,18.4733333 L13,18.4733333 L13,18.4748148" id="Imported-Layers" fill="#FFFFFF"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,263 @@
+@charset "UTF-8";
+/* niui – Fold */
+.n-fold {
+  position: relative;
+  margin: 0;
+  max-width: 100%;
+  z-index: 1;
+  text-align: initial;
+  display: grid;
+}
+.n-fold.n-fold__inline {
+  display: inline-grid;
+  vertical-align: top;
+}
+.n-fold > .n-fold--label {
+  margin: 0;
+  float: none;
+  text-align: left;
+  text-align: start;
+  width: 100%;
+  /*
+  		-webkit-touch-callout: none;
+  		-webkit-user-select: none;
+  		-khtml-user-select: none;
+  		-moz-user-select: none;
+  		user-select: none;
+  */
+  position: relative;
+  padding: 0.625em;
+  padding-right: 1.5em;
+  word-wrap: break-word;
+  word-break: break-all;
+  box-sizing: border-box;
+  background-color: inherit;
+  background-color: var(--control-bg, inherit);
+  color: inherit;
+  color: var(--control-color, inherit);
+  overflow: hidden;
+  border: 0;
+  text-align: start;
+  font-size: inherit;
+}
+.n-fold > .n-fold--label:after {
+  transition: transform 0.2s ease-in-out;
+  content: "";
+  position: absolute;
+  display: block;
+  right: 0.5em;
+  top: calc(50% - .5em);
+  width: 1em;
+  height: 1em;
+  -webkit-mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(180) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A") center center no-repeat;
+  -webkit-mask-size: 0.5em;
+  background-color: #000;
+  background-color: var(--control-color, #000);
+}
+.n-fold[aria-expanded] > .n-fold--label {
+  cursor: zoom-out;
+}
+.n-fold[aria-expanded] > .n-fold--label:after {
+  transform: rotate(180deg);
+}
+.n-fold.n-fold__mobile {
+  padding: 0;
+  width: auto;
+}
+.n-fold.n-fold__mobile > .n-fold--label:after {
+  display: none;
+}
+.n-fold.n-fold__mobile > .n-fold--label, .n-fold.n-fold__mobile > input.n-trigger {
+  display: none;
+  width: auto;
+  line-height: 1.5;
+  min-height: 1.5em;
+  height: 3em;
+}
+.n-fold.n-fold__mobile .n-fold--content {
+  /* hidden fold item */
+  overflow: visible;
+}
+.n-fold:not([data-init]):not(.n-fold__mobile) .n-fold--content {
+  /* hidden fold item */
+  overflow: hidden;
+  cursor: auto;
+  will-change: max-width;
+}
+.n-fold:not([data-init]):not(.n-fold__mobile) .n-fold--content > .n-fold {
+  margin: 0.3em;
+}
+.n-fold[aria-expanded] .n-fold--content {
+  max-height: none;
+}
+.n-fold:not([aria-expanded]):not(.n-fold__mobile):not(.n-fold__horizontal) > .n-fold--content, .n-fold[aria-expanded]:not(.n-fold__horizontal) input.n-trigger:checked ~ .n-fold--content {
+  max-height: 0;
+  max-height: var(--start-height, 0);
+}
+.n-fold.n-fold__horizontal > * {
+  display: none;
+}
+.n-fold.n-fold__horizontal > .n-fold--label:after {
+  transform: rotate(-90deg);
+}
+.n-fold.n-fold__horizontal[aria-expanded] > .n-fold--label:after {
+  transform: rotate(90deg);
+}
+.n-fold.n-fold__horizontal:not([data-init]) > .n-fold--content {
+  width: 0;
+}
+.n-fold.n-fold__horizontal[data-init] > .n-fold--content, .n-fold.n-fold__horizontal[aria-expanded] > .n-fold--content, .n-fold.n-fold__horizontal > input.n-trigger:checked ~ .n-fold--content {
+  width: 100%;
+}
+.n-fold.n-fold__horizontal > .n-fold--content {
+  height: 0;
+}
+.n-fold.n-fold__horizontal > .n-fold--content > * {
+  width: var(--width);
+}
+.n-fold:first-of-type {
+  margin-bottom: 0;
+}
+.n-fold:first-of-type .n-fold--content {
+  padding-top: 0;
+}
+.n-fold .n-fold--content > * {
+  margin-top: 0;
+}
+.n-fold:not(.n-fold__horizontal) > input.n-trigger:checked ~ .n-fold--content, .n-fold.n-fold__mobile:not(.n-fold__horizontal) .n-fold--content {
+  max-height: none;
+}
+.n-fold[aria-expanded] > input.n-trigger + .n-fold--content {
+  display: inline-block;
+}
+.n-fold span.n-burger {
+  width: 1.5em;
+  height: 1.5em;
+  line-height: 1.5em;
+  font-size: 2em;
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  background: #fff;
+  background: var(--control-bg, #fff);
+}
+.n-fold span.n-burger:after {
+  content: "=";
+}
+.n-fold[data-ready]:not([aria-expanded]):not(.n-fold__mobile):not(.n-fold__horizontal) .n-fold--content:not([style*="--start-height"]) {
+  display: none;
+}
+
+.n-fold--label, .n-fold > input[type=checkbox] {
+  grid-column-start: 1;
+  grid-row-start: 1;
+  width: auto;
+  height: auto;
+  cursor: zoom-in;
+}
+
+.n-fold > input[type=checkbox] {
+  z-index: 1;
+  -webkit-appearance: none;
+  margin: 0;
+}
+.n-fold > input[type=checkbox]:checked {
+  cursor: zoom-out;
+}
+
+_:-ms-input-placeholder, :root .n-fold > input[type=checkbox] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 3em;
+  opacity: 0;
+  width: 100%;
+}
+
+_:-ms-input-placeholder, :root .n-fold:before {
+  content: "↓";
+  position: absolute;
+  right: 1em;
+  top: 0.5em;
+}
+
+_:-ms-input-placeholder, :root .n-fold--label:after {
+  background: none;
+}
+
+@supports (-ms-ime-align: auto) {
+  .n-fold > .n-fold--label:after {
+    background: transparent;
+    content: "↓";
+  }
+}
+@supports (--a: 1) {
+  .n-fold span.n-burger:before {
+    content: "";
+    position: absolute;
+    left: 0.25em;
+    width: 1em;
+    top: 0.15em;
+    box-shadow: 0 0.25em 0 1px var(--control-color, #333), 0 0.625em 0 1px var(--control-color, #333), 0 1em 0 1px var(--control-color, #333);
+  }
+  .n-fold span.n-burger:after {
+    display: none;
+  }
+  .n-fold.n-fold__horizontal > * {
+    display: block;
+  }
+}
+@media screen and (max-width: 599.9px) {
+  .n-fold.n-fold__mobile > .n-fold--label, .n-fold.n-fold__mobile > input.n-trigger {
+    display: flex;
+    width: 3em;
+    height: 3em;
+    padding: 0;
+    border: none;
+  }
+  .n-fold.n-fold__mobile > input.n-trigger {
+    width: 4em;
+    height: 4em;
+  }
+  .n-fold.n-fold__mobile:not([aria-expanded]) .n-fold--content {
+    max-height: 0;
+    max-width: 0;
+  }
+  .n-fold.n-fold__mobile > input.n-trigger:checked ~ .n-fold--content, .n-fold.n-fold__mobile > input.n-trigger:checked + .n-fold--content {
+    max-height: none;
+  }
+  .n-fold.n-fold__mobile .n-fold--content {
+    overflow: hidden;
+  }
+
+  @supports (--a: 1) {
+    .n-header.n-header__fixed-mobile .n-fold.n-fold__mobile {
+      position: fixed;
+      top: 0;
+      z-index: 2;
+    }
+    .n-header.n-header__fixed-mobile .n-fold.n-fold__mobile[aria-expanded] {
+      bottom: 0;
+      overflow: visible;
+    }
+    .n-header.n-header__fixed-mobile .n-fold.n-fold__mobile[aria-expanded] .n-fold--content {
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+      position: fixed;
+      top: 3em;
+      bottom: 0;
+    }
+    .n-header.n-header__fixed-mobile .n-fold.n-fold__mobile .n-fold--content {
+      padding: 0 0.375em;
+      background: #fff;
+    }
+  }
+}
+@media screen and (min-width: 600px) {
+  .n-fold.n-fold__mobile {
+    overflow: visible;
+  }
+}
+
+/*# sourceMappingURL=fold.css.map */

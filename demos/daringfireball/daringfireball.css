@@ -1,0 +1,106 @@
+@charset "UTF-8";
+body.n-type {
+  font-family: Verdana, sans-serif;
+  color: #eee;
+  background-color: #4a525a;
+  font-size: 12px; }
+  body.n-type h2 {
+    line-height: 1.5; }
+    body.n-type h2 a[href] {
+      color: #ccc; }
+
+.n-contain {
+  max-width: 960px; }
+
+img {
+  max-width: 100%; }
+
+.n-row > *, .n-row > [class^=col] {
+  padding: 1.5em;
+  --spacing: 2em; }
+
+blockquote {
+  color: #ddd;
+  margin-left: .2em; }
+
+article a[href] {
+  text-decoration: none;
+  border: none;
+  border-bottom: 1px solid; }
+
+article a[href].permalink, article a[href].footnoteBackLink {
+  border-bottom: none; }
+
+ul.n-list {
+  margin-left: 2em;
+  list-style-type: square;
+  font-size: unset; }
+
+nav.n-nav {
+  --control-color: #fff; }
+  nav.n-nav li {
+    display: block; }
+
+ol.n-list > li:before {
+  background: none;
+  vertical-align: top;
+  min-height: 0;
+  min-width: 0;
+  margin-right: 0;
+  padding-top: 0;
+  padding-right: 0;
+  content: counter(level1) ".";
+  font-weight: normal; }
+
+.n-type ol.n-list p {
+  margin: 0; }
+
+.ads {
+  margin-top: 7em; }
+
+strong, h2, nav.n-nav li a[href] {
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  font-weight: normal;
+  text-decoration: none;
+  line-height: 1.5;
+  font-family: "Gill Sans MT", "Gill Sans", "Gill Sans Std", Verdana, "Bitstream Vera Sans", sans-serif; }
+
+footer .n-form {
+  display: flex; }
+
+footer .n-form input[type=text] {
+  flex-grow: 1;
+  margin: 0;
+  font-size: unset; }
+
+footer .n-form input[type=submit] {
+  font-weight: normal;
+  font-size: unset; }
+
+hr.ookiaks {
+  color: #bbb;
+  margin: 2em 0 3em 0;
+  padding-right: 2em;
+  height: 0;
+  border-width: 0;
+  background-color: inherit;
+  text-align: center; }
+
+hr.ookiaks:after {
+  content: "··•··";
+  letter-spacing: 2em; }
+
+nav.n-nav li a {
+  padding-right: 0; }
+
+@media screen and (max-width: 599.9px) {
+  main nav.n-nav {
+    position: relative; }
+  main nav.n-nav:before {
+    content: '🍔'; }
+  input.n-trigger.n-burger {
+    left: auto;
+    right: 0; }
+  main .sidebar {
+    order: 2; } }

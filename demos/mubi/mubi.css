@@ -1,0 +1,134 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box; }
+
+body.n-type {
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #eaeaea; }
+
+.n-header-banner, .n-header a[href], .n-banner a[href], .related {
+  background-size: cover;
+  background-position: center center;
+  color: #fff; }
+
+.n-header {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  margin: 0;
+  border-bottom: 1px solid #aaa;
+  background: rgba(0, 0, 0, 0.5); }
+
+.n-banner {
+  padding-top: 5em; }
+
+.n-header .n-form {
+  white-space: nowrap;
+  padding: 0;
+  display: inline-block; }
+
+.n-header .n-form > * {
+  display: inline-block;
+  float: none;
+  width: auto;
+  vertical-align: middle;
+  margin: 0; }
+
+.n-type h1, .n-type h2, .n-type h3, .n-type h4, .n-type button.n-btn, .n-type a.n-btn {
+  text-transform: uppercase; }
+
+.n-type a.n-btn[href], .n-type button.n-btn {
+  background: #009c7c;
+  font-weight: bold; }
+
+.n-type a[href] {
+  text-decoration: none;
+  font-weight: bold; }
+
+.n-type a.related[href] {
+  font-weight: normal;
+  width: 100%; }
+
+main .n-masonry {
+  /*
+	margin: 0 -1.5em;
+    width: calc(100% + 3em);
+*/
+  max-width: none;
+  margin: 0; }
+
+.review > div {
+  background: #fff;
+  padding: 1em; }
+
+.review img {
+  width: 40px;
+  margin-right: .3em; }
+
+hr {
+  border-top-color: #666; }
+
+.list {
+  background: #fff; }
+
+.list img {
+  border: 1px solid transparent; }
+
+.list b {
+  color: #009c7c; }
+
+.related.n-aspect > div {
+  padding: 1em;
+  color: #fff;
+  text-transform: uppercase;
+  text-shadow: 1px 0px 1px #000; }
+
+.rating {
+  white-space: nowrap;
+  color: #878787;
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 1.7em; }
+
+.rating:before {
+  content: '★★★★★'; }
+
+.rating b {
+  display: block;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 67%;
+  font-weight: normal; }
+
+.rating b:before {
+  content: '★★★★★'; }
+
+main .rating b {
+  color: #fee134; }
+
+time {
+  color: #999; }
+
+time:before {
+  content: '🕒 '; }
+
+.n-form input[type=submit] {
+  margin-top: 0;
+  background: transparent; }
+
+.n-form input[type=text] {
+  background: transparent;
+  color: #fff; }
+
+@media (max-width: 599.9px) {
+  .review > div:after {
+    content: '';
+    display: table;
+    clear: both; } }
+
+.clear {
+  clear: both; }
