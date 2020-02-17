@@ -614,7 +614,7 @@ function copyButton (el, target, echo) {
 
 function makeReady(el) {
 	
-	el.setAttribute('data-ready', true);
+	el.dataset.ready = true;
 
 }
 
