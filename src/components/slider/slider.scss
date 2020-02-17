@@ -482,6 +482,7 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	user-select: none;
+	will-change: transform; // iPhone bug
 
 }
 
