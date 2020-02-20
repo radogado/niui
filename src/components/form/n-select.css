@@ -237,7 +237,7 @@ select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + sel
 }
 
 .n-select--options[aria-expanded] {
-  -webkit-mask: linear-gradient(0, #000, #000) no-repeat 0 var(--mask-position-y)/100% var(--mask-size-y);
+  -webkit-mask: linear-gradient(0, #000, #000) no-repeat 0 var(--mask-position-y)/calc(var(--max-width) + .5em) var(--mask-size-y);
 }
 .n-select--options[aria-expanded][data-n-select-animation] {
   transition: -webkit-mask-size 0.15s ease-in-out, -webkit-mask-position-y 0.15s ease-in-out;
