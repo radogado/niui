@@ -1708,20 +1708,7 @@ console.log('relatedTarget', e.relatedTarget);
 			wrapper.setAttribute('tabindex', 0);
 			(el.querySelector('[aria-selected]') || el.firstElementChild).tabIndex = -1;
 
-			let inline_width = 0;
-			
-			[...el.children].forEach(el => {
-				
-				let width = parseInt(getComputedStyle(el).width);
-				if (width > inline_width) {
-					
-					inline_width = width;
-				
-				}
-			
-			});
-			
-			el.style.setProperty('--inline-width', `${inline_width}px`);
+			el.style.setProperty('--inline-width', `${el.getBoundingClientRect().width}px`);
 
 			selectOption(el.querySelector('[aria-selected]') || el.querySelector('button')); // Select the first option by default
 			

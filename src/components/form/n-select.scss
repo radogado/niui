@@ -15,7 +15,6 @@ Theme:
 
 */
 
-/*
 @keyframes n-select {
     
     100% {
@@ -36,7 +35,6 @@ Theme:
     }
     
 }
-*/
 
 body.n-select--open {
 	
@@ -58,6 +56,14 @@ body.n-select--open {
 		font-size: 1em;
 		transition: height .2s ease-in-out;
 		
+		> .n-select--options > :not([aria-selected]) {
+		
+    		height: 0;
+			padding: 0;
+			visibility: hidden;
+    			
+		}
+
 	}
 	
 	&:after {
@@ -94,6 +100,7 @@ body.n-select--open {
 		
 		}
 							    
+/*
 		> :not([aria-expanded]) { // Before init. If there is no selected item, display the first one. Otherwise, display the selected item it on top of the first one.
 			
 			position: relative;
@@ -117,21 +124,49 @@ body.n-select--open {
 			}
 
 		}
+*/
 	
+		.n-select--options {
+			
+			display: inline-grid;
+			
+			> * {
+				
+				grid-column: 1/2;
+				grid-row: 1/2;
+				
+			}
+		
+			> :first-child {
+				
+				z-index: 1;
+				
+			}
+			
+			> [aria-selected] {
+				
+				z-index: 2;
+				
+			}
+				
+		}
+
 	}
 
+/*
 	> .n-select--options > :not([aria-selected]) {
 		
 		visibility: visible;
 	
 	}
+*/
 	
 }
 
 .n-select--options {
 	
 //	width: 100%; // For wide version only
-	width: calc(4em + var(--inline-width));
+	width: var(--inline-width);
     max-width: 100%;
 // 	max-width: var(--max-width, 100%);
 	background-color: var(--control-bg, #fff);
@@ -305,15 +340,6 @@ body.n-select--open {
     			
 		}
 		
-		> :not([aria-selected]) {
-		
-// 			display: none;
-    		height: 0;
-			padding: 0;
-			visibility: hidden;
-    			
-		}
-
 	}
 
 	> * {
@@ -337,6 +363,14 @@ body.n-select--open {
 [data-nui-chrome] .n-select--options.n-select__crop-top[aria-expanded] {
 
 	margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)));
+	
+}
+*/
+
+/*
+[data-nui-chrome]:not(.n-select) > .n-select--options.n-select__crop-top[aria-expanded] {
+	
+    top: calc(1px * var(--body-offset-y) - 1px);
 	
 }
 */
