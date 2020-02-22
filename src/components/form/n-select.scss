@@ -100,33 +100,7 @@ body.n-select--open {
 			position: absolute;
 		
 		}
-							    
-/*
-		> :not([aria-expanded]) { // Before init. If there is no selected item, display the first one. Otherwise, display the selected item it on top of the first one.
-			
-			position: relative;
-		
-			> :not([aria-selected]):first-child {
-				
-				visibility: visible;
-			    height: auto;
-			    padding: var(--padding, .5em);
-    	
-				~ [aria-selected] {
-					
-					visibility: visible;
-				    height: auto;
-				    padding: var(--padding, .5em);
-    				position: absolute;
-				    top: 0;
-					
-				}
-				
-			}
 
-		}
-*/
-	
 		.n-select--options {
 			
 			display: inline-grid;
@@ -137,39 +111,23 @@ body.n-select--open {
 				grid-row: 1/2;
 				
 			}
-		
-			> :first-child {
-				
-				z-index: 1;
-				
-			}
 			
-			> [aria-selected] {
+			> :not(:first-child):not([aria-selected]) {
 				
-				z-index: 2;
+				opacity: 0;
 				
 			}
-				
+		
 		}
 
 	}
 
-/*
-	> .n-select--options > :not([aria-selected]) {
-		
-		visibility: visible;
-	
-	}
-*/
-	
 }
 
 .n-select--options {
 	
-//	width: 100%; // For wide version only
 	width: var(--inline-width);
     max-width: 100%;
-// 	max-width: var(--max-width, 100%);
 	background-color: var(--control-bg, #fff);
 	top: 0;
 	z-index: 5;

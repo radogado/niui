@@ -1211,13 +1211,6 @@ body.n-select--open {
   vertical-align: middle;
   max-width: 100%;
   width: var(--width, auto);
-  /*
-  	> .n-select--options > :not([aria-selected]) {
-
-  		visibility: visible;
-
-  	}
-  */
 }
 .n-select[data-ready] {
   font-size: 1em;
@@ -1237,31 +1230,6 @@ body.n-select--open {
 .n-select:not([data-ready]) {
   animation-name: n-select;
   overflow: hidden;
-  /*
-  		> :not([aria-expanded]) { // Before init. If there is no selected item, display the first one. Otherwise, display the selected item it on top of the first one.
-
-  			position: relative;
-
-  			> :not([aria-selected]):first-child {
-
-  				visibility: visible;
-  			    height: auto;
-  			    padding: var(--padding, .5em);
-
-  				~ [aria-selected] {
-
-  					visibility: visible;
-  				    height: auto;
-  				    padding: var(--padding, .5em);
-      				position: absolute;
-  				    top: 0;
-
-  				}
-
-  			}
-
-  		}
-  */
 }
 .n-select:not([data-ready]), .n-select:not([data-ready]) + select {
   animation-duration: 0.1s;
@@ -1283,11 +1251,8 @@ body.n-select--open {
   grid-column: 1/2;
   grid-row: 1/2;
 }
-.n-select:not([data-ready]) .n-select--options > :first-child {
-  z-index: 1;
-}
-.n-select:not([data-ready]) .n-select--options > [aria-selected] {
-  z-index: 2;
+.n-select:not([data-ready]) .n-select--options > :not(:first-child):not([aria-selected]) {
+  opacity: 0;
 }
 
 .n-select--options {
