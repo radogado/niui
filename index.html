@@ -13,7 +13,11 @@
 	<link rel=icon href=images/favicon.ico>
 	<link rel=styleSheet href=dist/niui.min.css type=text/css media=screen>
 	<link rel=styleSheet href=src/css/guide.css type=text/css media=screen>
+	<script src=src/script/niui.js type=module async onload="setupCopy();"></script> 
+<!-- 	<script src=dist/niui.min.js type=module async onload="setupCopy();"></script> -->
+
 	<link rel=styleSheet href=src/css/prism.css type=text/css media=screen>
+	<script src=src/script/prism.js type=text/javascript async></script>
 	
 	<script type="text/javascript">
 		
@@ -199,6 +203,24 @@
 						
 						<h2>Page structure</h2>
 						
+						<h3>Minimal</h3>
+						
+						<div class="code">
+						
+<pre><code class="language-markup">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;link rel="styleSheet" href="niui.min.css" type="text/css" media="screen"&gt;
+	&lt;script src="niui.min.js" type="module" async&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</div>
+						<h3>Recommended</h3>
+
 						<div class="code">
 						
 <pre><code class="language-markup">&lt;!DOCTYPE html&gt;
@@ -4711,9 +4733,6 @@ nav li li[aria-haspopup][aria-expanded="true"], nav li li[aria-haspopup]:hover {
 			
 	</main>
 	
-	<script src=src/script/niui.js type=module async onload="setupCopy();"></script> 
-<!-- 	<script src=dist/niui.min.js type=module async onload="setupCopy();"></script> -->
-
 	<script>
 		
 		function setupCopy() {
@@ -4733,8 +4752,6 @@ nav li li[aria-haspopup][aria-expanded="true"], nav li li[aria-haspopup]:hover {
 		}
 		
 	</script>
-
-	<script src=src/script/prism.js type=text/javascript async></script>
 
 </body>
 
