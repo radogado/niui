@@ -644,6 +644,7 @@ function addComponent(host, el) {
 
 }
 
+/*
 function initThreshold(host) {
 
 // Scroll effects
@@ -696,6 +697,7 @@ function initThreshold(host) {
 	});
 
 }
+*/
 
 var current_slider = q('.slider');
 var draggingNow = false;
@@ -774,7 +776,7 @@ if (typeof MutationObserver === 'function') {
 	
 }
 
-initThreshold(bodyElement);
+// initThreshold(bodyElement);
 
 // Animate anchor link jumps
 qa('a[href^="#"]').forEach((el) => {
