@@ -226,7 +226,7 @@ var componentSlider = (function (){
 	    mouseEvents(slider_wrap, 'off');
 	    window.removeEventListener('keyup', sliderKeyboard);
 	
-		clearTimeout(slider.getAttribute('data-timeout'));
+		clearTimeout(slider.dataset.timeout);
 		
 		var index;
 		var old_index;
@@ -356,11 +356,11 @@ var componentSlider = (function (){
 	
 		if (slider_nav.querySelector('[data-active]')) {
 	
-		    slider_nav.querySelector('[data-active]').removeAttribute('data-active');
+		    delete slider_nav.querySelector('[data-active]').dataset.active;
 	
 	    }
 	
-		var duration = slider.getAttribute('data-duration') || slide_duration;
+		var duration = slider.dataset.duration || slide_duration;
 	
 		var translate_from, translate_to;
 		
@@ -405,7 +405,7 @@ var componentSlider = (function (){
 		
 		} else {
 			
-			if (slider.getAttribute('data-peek')) {
+			if (!!slider.dataset.peek) {
 			
 			    translate_from = 'translate3d(0,0,0)';
 			    translate_to = `translate3d(${offset_sign * (index - old_index)}00%,0,0)`;
@@ -575,7 +575,7 @@ var componentSlider = (function (){
 	
 	function makeSlider(el, current_slide) {
 	
-		if (el.getAttribute('data-ready')) { // Already created
+		if (!!el.dataset.ready) { // Already created
 			
 			return;
 			
@@ -613,7 +613,7 @@ var componentSlider = (function (){
 		
         ['n-slider__vertical', 'n-wrap', 'n-slider__top', 'n-slider__right', 'n-slider__overlay'].forEach(item => transferClass(el, container, item));
 
-		var peek = el.getAttribute('data-peek');
+		var peek = el.dataset.peek;
 		if (peek) {
 			
 			addClass(container, 'n-slider__peek');
@@ -668,7 +668,7 @@ var componentSlider = (function (){
 		
 		        if (hasClass(el, 'n-tabs')) {
 		
-		            var tab_title = el.children[i].getAttribute('data-tab_title') || (el.children[i].querySelector('.n-tab-title') ? el.children[i].querySelector('.n-tab-title').innerHTML : i+1);
+		            var tab_title = el.children[i].dataset.tabTitle || (el.children[i].querySelector('.n-tab-title') ? el.children[i].querySelector('.n-tab-title').innerHTML : i+1);
 		            slider_nav.insertAdjacentHTML('beforeend', `<button>${tab_title}</button>`);
 	
 		        } else {
@@ -704,7 +704,7 @@ var componentSlider = (function (){
 			nav_item.onclick = (e) => {
 				
 	            slide( // Select slider either through id or as a parent
-		            slider_nav.getAttribute('data-for') ? q('.n-slider#' + slider_nav.getAttribute('data-for')) : e.target,
+		            slider_nav.dataset.for ? q('.n-slider#' + slider_nav.dataset.for) : e.target,
 					'index', thisIndex(e.target)
 				);
 				
@@ -766,7 +766,7 @@ var componentSlider = (function (){
 	    
 	    container.addEventListener('mouseover', (e) => {
 
-		    clearTimeout(el.getAttribute('data-timeout'));
+		    clearTimeout(el.dataset.timeout);
 		   
 		});
 	    
@@ -781,14 +781,14 @@ var componentSlider = (function (){
 	        
 	    });
 	
-	    if (el.getAttribute('data-autoslide') !== null) { // auto slide
+	    if (!!el.dataset.autoslide) { // auto slide
 	
-			var delay = el.getAttribute('data-autoslide');
+			var delay = el.dataset.autoslide;
 			delay = delay.length > 0 ? (1000 * delay) : 4000;
 	        var autoSlide = () => {
 	
 	            slide(el, 'right');
-	            el.setAttribute('data-timeout', setTimeout(autoSlide, delay));
+	            el.dataset.timeout = setTimeout(autoSlide, delay);
 	
 	        };
 	

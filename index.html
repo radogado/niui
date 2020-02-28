@@ -13,6 +13,28 @@
 	<link rel=icon href=images/favicon.ico>
 	<link rel=styleSheet href=dist/niui.min.css type=text/css media=screen>
 	<link rel=styleSheet href=src/css/guide.css type=text/css media=screen>
+
+	
+	<script>
+		
+		function setupCopy() {
+		
+			if (typeof nui === "object") {
+	
+				nui.copyButton(document.getElementById("copybutton"), document.getElementById("copycontent"));
+				document.querySelectorAll(".code").forEach(function (el) {
+					
+					el.insertAdjacentHTML("beforeend", "<button class='n-btn'>Copy</button>");
+					nui.copyButton(el.querySelector("button"), el.querySelector("pre"));
+					
+				});
+			
+			}
+		
+		}
+		
+	</script>
+
 	<script src=src/script/niui.js type=module async onload="setupCopy();"></script> 
 <!-- 	<script src=dist/niui.min.js type=module async onload="setupCopy();"></script> -->
 
@@ -3506,7 +3528,7 @@
 		
 								</select>
 								
-								<br>
+								<br><br>
 		
 								<input type=submit value="Submit">
 							
@@ -4734,26 +4756,6 @@ nav li li[aria-haspopup][aria-expanded="true"], nav li li[aria-haspopup]:hover {
 		</div>
 			
 	</main>
-	
-	<script>
-		
-		function setupCopy() {
-		
-			if (typeof nui === "object") {
-	
-				nui.copyButton(document.getElementById("copybutton"), document.getElementById("copycontent"));
-				document.querySelectorAll(".code").forEach(function (el) {
-					
-					el.insertAdjacentHTML("beforeend", "<button class='n-btn'>Copy</button>");
-					nui.copyButton(el.querySelector("button"), el.querySelector("pre"));
-					
-				});
-			
-			}
-		
-		}
-		
-	</script>
 
 </body>
 

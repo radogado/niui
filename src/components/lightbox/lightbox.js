@@ -105,7 +105,7 @@ var componentLightbox = (function (){
 	
 		if (img && !img.src) {
 			
-			img.src = img.getAttribute('data-src') + '?'; // '?' fixes a weird iOS bug showing small images
+			img.src = img.dataset.src + '?'; // '?' fixes a weird iOS bug showing small images
 			if (img.complete) {
 				
 				imageLoaded(img);
@@ -152,7 +152,7 @@ var componentLightbox = (function (){
 		}
 		
 	    var lightbox = el.closest('.n-lightbox');
-	    var animation = lightbox.getAttribute('data-anim');
+	    var animation = lightbox.dataset.anim;
 		var lightbox_target = document.createElement('div');
 		var inline_static = lightbox.matches('.n-lightbox__inline:not(.n-slider)');
 		
@@ -165,15 +165,15 @@ var componentLightbox = (function (){
 		['n-slider', 'n-lightbox'].forEach(item => addClass(lightbox_target, item));
 		['n-lightbox__thumbnails', 'n-slider__top', 'n-slider__fade'].forEach(item => transferClass(lightbox, lightbox_target, item));
 		
-		if (lightbox.getAttribute('data-duration')) {
+		if (!!lightbox.dataset.duration) {
 			
-			lightbox_target.setAttribute('data-duration', lightbox.getAttribute('data-duration'));
+			lightbox_target.dataset.duration = lightbox.dataset.duration;
 
 		}
 
-		if (lightbox.getAttribute('data-autoslide') !== null) {
+		if (!!lightbox.dataset.autoslide) {
 			
-			lightbox_target.setAttribute('data-autoslide', lightbox.getAttribute('data-autoslide'));
+			lightbox_target.dataset.autoslide = lightbox.dataset.autoslide;
 
 		}
 	
@@ -196,9 +196,9 @@ var componentLightbox = (function (){
 	
 		['n-slider__vertical', 'n-slider__right'].forEach(item => transferClass(lightbox, lightbox_target, item));
 	
-		if (lightbox.getAttribute('data-peek')) {
+		if (!!lightbox.dataset.peek) {
 					
-			lightbox_target.setAttribute('data-peek', lightbox.getAttribute('data-peek'));
+			lightbox_target.dataset.peek = lightbox.dataset.peek;
 	
 		}	
 		
@@ -215,7 +215,7 @@ var componentLightbox = (function (){
 		    
 			el.setAttribute('tabindex', 0);
 	
-		    thumbnails.push((el.querySelector('img') ? (el.querySelector('img').getAttribute('data-src') || el.querySelector('img').src) : '#'));
+		    thumbnails.push((el.querySelector('img') ? (el.querySelector('img').dataset.src || el.querySelector('img').src) : '#'));
 	
 			if (hasClass(el, 'n-lightbox--video') || el.querySelector('n-lightbox--video')) {
 				// video poster = the anchor's img child, if it exists
@@ -244,10 +244,10 @@ var componentLightbox = (function (){
 	
 		    var link_element = (hasClass(lightbox, 'n-lightbox__inline') || !lightbox.getAttribute('id')) ? '' : `<a class="n-btn n-lightbox--copy" href=${slide_link}></a>`;
 	
-		    var url = hasClass(lightbox, 'n-slider') ? (el.querySelector('img') ? el.querySelector('img').getAttribute('data-src') : '') : el.href;
+		    var url = hasClass(lightbox, 'n-slider') ? (el.querySelector('img') ? el.querySelector('img').datasetsrc : '') : el.href;
 		    
 			var caption = el.title ? el.title : (el.querySelector('img') ? el.querySelector('img').title : '');
-			var caption_attribute = el.querySelector('img') ? el.querySelector('img').getAttribute('data-caption') : false;
+			var caption_attribute = el.querySelector('img') ? el.querySelector('img').dataset.caption : false;
 			
 			if (typeof caption_attribute === 'string') { // When an inline lightbox opens a full window one
 				

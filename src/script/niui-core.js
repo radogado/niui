@@ -3,23 +3,23 @@
 
 var bodyElement = document.body;
 
-bodyElement.setAttribute('data-nui-js', 'true');
+bodyElement.dataset.nuiJs = true;
 
 if (!!window['chrome']) {
 	
-	bodyElement.setAttribute('data-nui-chrome', 'true');
+	bodyElement.dataset.nuiChrome = true;
 
 }
 
 if (navigator.userAgent.match(/Safari/) && !navigator.userAgent.match(/Chrome/)) {
 	
-	bodyElement.setAttribute('data-nui-safari', 'true');
+	bodyElement.dataset.nuiSafari = true;
 	
 }
 
 if (navigator.platform.match(/Mac/) || navigator.platform.match(/iPhone/) || navigator.platform.match(/iPod/) || navigator.platform.match(/iPad/)) {
 	
-	bodyElement.setAttribute('data-nui-apple', 'true'); // Apple devices: left-hand ⤫ button, disappearing thin scrollbars
+	bodyElement.dataset.nuiApple = true; // Apple devices: left-hand ⤫ button, disappearing thin scrollbars
 	
 }
 
@@ -467,14 +467,14 @@ function animate(el, animation_code, duration, callback) { // Animate with CSS A
 
 // To do: add animation-fill-mode: forwards to keep the end state
 
-	if (!el.getAttribute('data-animation') && animationEndEvent) {
+	if (!el.dataset.animation && animationEndEvent) {
 
 		el.addEventListener(animationEndEvent, function animationEndHandler(e) {
 			
 			stopEvent(e);
 			var el = e.target; 
-			document.head.removeChild(q('.' + el.getAttribute('data-animation')));
-			el.removeAttribute('data-animation');
+			document.head.removeChild(q('.' + el.dataset.animation));
+			delete el.dataset.animation;
 	 		el.removeEventListener(animationEndEvent, animationEndHandler);
 			if (typeof callback === 'function') {
 		
@@ -491,7 +491,7 @@ function animate(el, animation_code, duration, callback) { // Animate with CSS A
 		document.head.appendChild(styles);
 		addClass(styles, animation_name);
 
-		el.setAttribute('data-animation', animation_name);
+		el.dataset.animation = animation_name;
 	
 	}
 	
@@ -760,7 +760,7 @@ if (typeof MutationObserver === 'function') {
 
 			for (let el of mutation.addedNodes) {
 				
-	            if (typeof el === 'object' && el.nodeName !== '#text' && !el.getAttribute('data-ready') && el.parentNode) {
+	            if (typeof el === 'object' && el.nodeName !== '#text' && !el.dataset.ready && el.parentNode) {
 		            
 		            initComponents(el.parentNode);
 		            

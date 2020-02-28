@@ -44,6 +44,7 @@ body.n-select--open {
   padding: 0;
   visibility: hidden;
   overflow: hidden;
+  display: block;
 }
 .n-select:after {
   position: absolute;

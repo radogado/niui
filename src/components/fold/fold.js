@@ -115,10 +115,10 @@
 			
 			if (hasClass(el, 'n-fold__horizontal')) {
 				
-				el.setAttribute('data-init', true);
+				el.dataset.init = true;
 				content.style.setProperty('--width', content.scrollWidth + 'px');
 				content.style.height = 'auto';
-				el.removeAttribute('data-init');
+				delete el.dataset.init;
 				setTimeout(() => {
 					
 					content.style.transition = 'width .2s ease-in-out'; 

@@ -199,7 +199,7 @@ var componentModal = (function (){
 		if (full_window) {
 			
 			window.scrollTo(previousScrollX, previousScrollY);
-			var animation = full_window.querySelector('.n-ovrl--content > div').getAttribute('data-anim'); // Custom animation?
+			var animation = full_window.querySelector('.n-ovrl--content > div').dataset.anim; // Custom animation?
 			if (animation.length < 11) { // '', 'null' or 'undefined'?
 				
 				animation = '0% { transform: translate3d(0,0,0) } 100% { transform: translate3d(0,-100%,0) }'; // 100% instead of 100vh, bc IE fails
@@ -264,7 +264,7 @@ var componentModal = (function (){
 	
 		}
 	
-		full_window_content.setAttribute('data-anim', animation);
+		full_window_content.dataset.anim = animation;
 	
 		var wrapper = document.createElement('div');
 		addClass(wrapper, 'n-ovrl');
@@ -331,7 +331,7 @@ var componentModal = (function (){
 	    var el = e.target;
 	
 	    var link = el.closest('.n-modal').href;
-	    var animation = el.closest('.n-modal').getAttribute('data-anim');
+	    var animation = el.closest('.n-modal').dataset.anim;
 	
 	    var request = new XMLHttpRequest();
 	    request.open('GET', link.split('#')[0], true);

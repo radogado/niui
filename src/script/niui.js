@@ -3,23 +3,23 @@ window.nui = (() => {/* niui by rado.bg */
 
 var bodyElement = document.body;
 
-bodyElement.setAttribute('data-nui-js', 'true');
+bodyElement.dataset.nuiJs = true;
 
 if (!!window['chrome']) {
 	
-	bodyElement.setAttribute('data-nui-chrome', 'true');
+	bodyElement.dataset.nuiChrome = true;
 
 }
 
 if (navigator.userAgent.match(/Safari/) && !navigator.userAgent.match(/Chrome/)) {
 	
-	bodyElement.setAttribute('data-nui-safari', 'true');
+	bodyElement.dataset.nuiSafari = true;
 	
 }
 
 if (navigator.platform.match(/Mac/) || navigator.platform.match(/iPhone/) || navigator.platform.match(/iPod/) || navigator.platform.match(/iPad/)) {
 	
-	bodyElement.setAttribute('data-nui-apple', 'true'); // Apple devices: left-hand ⤫ button, disappearing thin scrollbars
+	bodyElement.dataset.nuiApple = true; // Apple devices: left-hand ⤫ button, disappearing thin scrollbars
 	
 }
 
@@ -467,14 +467,14 @@ function animate(el, animation_code, duration, callback) { // Animate with CSS A
 
 // To do: add animation-fill-mode: forwards to keep the end state
 
-	if (!el.getAttribute('data-animation') && animationEndEvent) {
+	if (!el.dataset.animation && animationEndEvent) {
 
 		el.addEventListener(animationEndEvent, function animationEndHandler(e) {
 			
 			stopEvent(e);
 			var el = e.target; 
-			document.head.removeChild(q('.' + el.getAttribute('data-animation')));
-			el.removeAttribute('data-animation');
+			document.head.removeChild(q('.' + el.dataset.animation));
+			delete el.dataset.animation;
 	 		el.removeEventListener(animationEndEvent, animationEndHandler);
 			if (typeof callback === 'function') {
 		
@@ -491,7 +491,7 @@ function animate(el, animation_code, duration, callback) { // Animate with CSS A
 		document.head.appendChild(styles);
 		addClass(styles, animation_name);
 
-		el.setAttribute('data-animation', animation_name);
+		el.dataset.animation = animation_name;
 	
 	}
 	
@@ -760,7 +760,7 @@ if (typeof MutationObserver === 'function') {
 
 			for (let el of mutation.addedNodes) {
 				
-	            if (typeof el === 'object' && el.nodeName !== '#text' && !el.getAttribute('data-ready') && el.parentNode) {
+	            if (typeof el === 'object' && el.nodeName !== '#text' && !el.dataset.ready && el.parentNode) {
 		            
 		            initComponents(el.parentNode);
 		            
@@ -956,10 +956,10 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 			
 			if (hasClass(el, 'n-fold__horizontal')) {
 				
-				el.setAttribute('data-init', true);
+				el.dataset.init = true;
 				content.style.setProperty('--width', content.scrollWidth + 'px');
 				content.style.height = 'auto';
-				el.removeAttribute('data-init');
+				delete el.dataset.init;
 				setTimeout(() => {
 					
 					content.style.transition = 'width .2s ease-in-out'; 
@@ -1052,7 +1052,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 					&& 
 					!(RegExp(/^\d+$/).test(el.querySelector('input[type=number]').value))
 					||
-					(el.querySelector('input[type=number][data-digits]') && (el.querySelector('input[type=number]').value.length != el.querySelector('input[type=number]').getAttribute('data-digits')))
+					(el.querySelector('input[type=number][data-digits]') && (el.querySelector('input[type=number]').value.length !== el.querySelector('input[type=number]').dataset.digits))
 				) ||
 				( el.querySelector('input[type=radio]') && !el.querySelector('input[type=radio]').checked )
 			   ) 
@@ -1980,7 +1980,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 		if (img && !img.src) {
 			
-			img.src = img.getAttribute('data-src') + '?'; // '?' fixes a weird iOS bug showing small images
+			img.src = img.dataset.src + '?'; // '?' fixes a weird iOS bug showing small images
 			if (img.complete) {
 				
 				imageLoaded(img);
@@ -2027,7 +2027,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		}
 		
 	    var lightbox = el.closest('.n-lightbox');
-	    var animation = lightbox.getAttribute('data-anim');
+	    var animation = lightbox.dataset.anim;
 		var lightbox_target = document.createElement('div');
 		var inline_static = lightbox.matches('.n-lightbox__inline:not(.n-slider)');
 		
@@ -2040,15 +2040,15 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		['n-slider', 'n-lightbox'].forEach(item => addClass(lightbox_target, item));
 		['n-lightbox__thumbnails', 'n-slider__top', 'n-slider__fade'].forEach(item => transferClass(lightbox, lightbox_target, item));
 		
-		if (lightbox.getAttribute('data-duration')) {
+		if (!!lightbox.dataset.duration) {
 			
-			lightbox_target.setAttribute('data-duration', lightbox.getAttribute('data-duration'));
+			lightbox_target.dataset.duration = lightbox.dataset.duration;
 
 		}
 
-		if (lightbox.getAttribute('data-autoslide') !== null) {
+		if (!!lightbox.dataset.autoslide) {
 			
-			lightbox_target.setAttribute('data-autoslide', lightbox.getAttribute('data-autoslide'));
+			lightbox_target.dataset.autoslide = lightbox.dataset.autoslide;
 
 		}
 	
@@ -2071,9 +2071,9 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 		['n-slider__vertical', 'n-slider__right'].forEach(item => transferClass(lightbox, lightbox_target, item));
 	
-		if (lightbox.getAttribute('data-peek')) {
+		if (!!lightbox.dataset.peek) {
 					
-			lightbox_target.setAttribute('data-peek', lightbox.getAttribute('data-peek'));
+			lightbox_target.dataset.peek = lightbox.dataset.peek;
 	
 		}	
 		
@@ -2090,7 +2090,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		    
 			el.setAttribute('tabindex', 0);
 	
-		    thumbnails.push((el.querySelector('img') ? (el.querySelector('img').getAttribute('data-src') || el.querySelector('img').src) : '#'));
+		    thumbnails.push((el.querySelector('img') ? (el.querySelector('img').dataset.src || el.querySelector('img').src) : '#'));
 	
 			if (hasClass(el, 'n-lightbox--video') || el.querySelector('n-lightbox--video')) {
 				// video poster = the anchor's img child, if it exists
@@ -2119,10 +2119,10 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 		    var link_element = (hasClass(lightbox, 'n-lightbox__inline') || !lightbox.getAttribute('id')) ? '' : `<a class="n-btn n-lightbox--copy" href=${slide_link}></a>`;
 	
-		    var url = hasClass(lightbox, 'n-slider') ? (el.querySelector('img') ? el.querySelector('img').getAttribute('data-src') : '') : el.href;
+		    var url = hasClass(lightbox, 'n-slider') ? (el.querySelector('img') ? el.querySelector('img').datasetsrc : '') : el.href;
 		    
 			var caption = el.title ? el.title : (el.querySelector('img') ? el.querySelector('img').title : '');
-			var caption_attribute = el.querySelector('img') ? el.querySelector('img').getAttribute('data-caption') : false;
+			var caption_attribute = el.querySelector('img') ? el.querySelector('img').dataset.caption : false;
 			
 			if (typeof caption_attribute === 'string') { // When an inline lightbox opens a full window one
 				
@@ -2553,7 +2553,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		if (full_window) {
 			
 			window.scrollTo(previousScrollX, previousScrollY);
-			var animation = full_window.querySelector('.n-ovrl--content > div').getAttribute('data-anim'); // Custom animation?
+			var animation = full_window.querySelector('.n-ovrl--content > div').dataset.anim; // Custom animation?
 			if (animation.length < 11) { // '', 'null' or 'undefined'?
 				
 				animation = '0% { transform: translate3d(0,0,0) } 100% { transform: translate3d(0,-100%,0) }'; // 100% instead of 100vh, bc IE fails
@@ -2618,7 +2618,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 		}
 	
-		full_window_content.setAttribute('data-anim', animation);
+		full_window_content.dataset.anim = animation;
 	
 		var wrapper = document.createElement('div');
 		addClass(wrapper, 'n-ovrl');
@@ -2685,7 +2685,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	    var el = e.target;
 	
 	    var link = el.closest('.n-modal').href;
-	    var animation = el.closest('.n-modal').getAttribute('data-anim');
+	    var animation = el.closest('.n-modal').dataset.anim;
 	
 	    var request = new XMLHttpRequest();
 	    request.open('GET', link.split('#')[0], true);
@@ -3515,7 +3515,7 @@ var componentSlider = (function (){
 	    mouseEvents(slider_wrap, 'off');
 	    window.removeEventListener('keyup', sliderKeyboard);
 	
-		clearTimeout(slider.getAttribute('data-timeout'));
+		clearTimeout(slider.dataset.timeout);
 		
 		var index;
 		var old_index;
@@ -3645,11 +3645,11 @@ var componentSlider = (function (){
 	
 		if (slider_nav.querySelector('[data-active]')) {
 	
-		    slider_nav.querySelector('[data-active]').removeAttribute('data-active');
+		    delete slider_nav.querySelector('[data-active]').dataset.active;
 	
 	    }
 	
-		var duration = slider.getAttribute('data-duration') || slide_duration;
+		var duration = slider.dataset.duration || slide_duration;
 	
 		var translate_from, translate_to;
 		
@@ -3694,7 +3694,7 @@ var componentSlider = (function (){
 		
 		} else {
 			
-			if (slider.getAttribute('data-peek')) {
+			if (!!slider.dataset.peek) {
 			
 			    translate_from = 'translate3d(0,0,0)';
 			    translate_to = `translate3d(${offset_sign * (index - old_index)}00%,0,0)`;
@@ -3864,7 +3864,7 @@ var componentSlider = (function (){
 	
 	function makeSlider(el, current_slide) {
 	
-		if (el.getAttribute('data-ready')) { // Already created
+		if (!!el.dataset.ready) { // Already created
 			
 			return;
 			
@@ -3902,7 +3902,7 @@ var componentSlider = (function (){
 		
         ['n-slider__vertical', 'n-wrap', 'n-slider__top', 'n-slider__right', 'n-slider__overlay'].forEach(item => transferClass(el, container, item));
 
-		var peek = el.getAttribute('data-peek');
+		var peek = el.dataset.peek;
 		if (peek) {
 			
 			addClass(container, 'n-slider__peek');
@@ -3957,7 +3957,7 @@ var componentSlider = (function (){
 		
 		        if (hasClass(el, 'n-tabs')) {
 		
-		            var tab_title = el.children[i].getAttribute('data-tab_title') || (el.children[i].querySelector('.n-tab-title') ? el.children[i].querySelector('.n-tab-title').innerHTML : i+1);
+		            var tab_title = el.children[i].dataset.tabTitle || (el.children[i].querySelector('.n-tab-title') ? el.children[i].querySelector('.n-tab-title').innerHTML : i+1);
 		            slider_nav.insertAdjacentHTML('beforeend', `<button>${tab_title}</button>`);
 	
 		        } else {
@@ -3993,7 +3993,7 @@ var componentSlider = (function (){
 			nav_item.onclick = (e) => {
 				
 	            slide( // Select slider either through id or as a parent
-		            slider_nav.getAttribute('data-for') ? q('.n-slider#' + slider_nav.getAttribute('data-for')) : e.target,
+		            slider_nav.dataset.for ? q('.n-slider#' + slider_nav.dataset.for) : e.target,
 					'index', thisIndex(e.target)
 				);
 				
@@ -4055,7 +4055,7 @@ var componentSlider = (function (){
 	    
 	    container.addEventListener('mouseover', (e) => {
 
-		    clearTimeout(el.getAttribute('data-timeout'));
+		    clearTimeout(el.dataset.timeout);
 		   
 		});
 	    
@@ -4070,14 +4070,14 @@ var componentSlider = (function (){
 	        
 	    });
 	
-	    if (el.getAttribute('data-autoslide') !== null) { // auto slide
+	    if (!!el.dataset.autoslide) { // auto slide
 	
-			var delay = el.getAttribute('data-autoslide');
+			var delay = el.dataset.autoslide;
 			delay = delay.length > 0 ? (1000 * delay) : 4000;
 	        var autoSlide = () => {
 	
 	            slide(el, 'right');
-	            el.setAttribute('data-timeout', setTimeout(autoSlide, delay));
+	            el.dataset.timeout = setTimeout(autoSlide, delay);
 	
 	        };
 	
@@ -4265,14 +4265,14 @@ var componentSlider = (function (){
 		let body_rect = bodyElement.getBoundingClientRect();
 		
 		tip.removeAttribute('style');
-		tip.removeAttribute('data-n-position');
+		delete tip.dataset.position;
 		
 		let positionTop = () => {
 
 			tip.style.bottom = (20 + body_rect.height + body_rect.y - top) + 'px';
 			tip.style.maxHeight = (top - 40) + 'px';
 			tip.style.left = `${rect.x + rect.width/2 - tip.scrollWidth/2}px`;
-			tip.setAttribute('data-n-position', 'top');
+			tip.dataset.nPosition = 'top';
 			
 		}
 		
@@ -4281,7 +4281,7 @@ var componentSlider = (function (){
 			tip.style.top = (20 - body_rect.y + top + rect.height) + 'px';
 			tip.style.maxHeight = (bottom - 40) + 'px';
 			tip.style.left = `${rect.x + rect.width/2 - tip.scrollWidth/2}px`;
-			tip.setAttribute('data-n-position', 'bottom');
+			tip.dataset.nPosition = 'bottom';
 			
 		}
 		
@@ -4291,7 +4291,7 @@ var componentSlider = (function (){
 			tip.style.right = (20 + body_rect.width + body_rect.x - window.innerWidth + right + rect.width) + 'px';
 			tip.style.maxWidth = (left - 40) + 'px';
 			tip.style.top = `${-1*body_rect.y + rect.top + rect.height/2 - tip.scrollHeight/2}px`;
-			tip.setAttribute('data-n-position', 'left');
+			tip.dataset.nPosition = 'left';
 			
 		}
 
@@ -4300,7 +4300,7 @@ var componentSlider = (function (){
 			tip.style.left = (rect.x - body_rect.x + rect.width + 20) + 'px';
 			tip.style.maxWidth = (right - 40) + 'px';
 			tip.style.top = `${-1*body_rect.y + rect.top + rect.height/2 - tip.scrollHeight/2}px`;
-			tip.setAttribute('data-n-position', 'right');
+			tip.dataset.nPosition = 'right';
 
 		}
 		
@@ -4404,7 +4404,7 @@ var componentSlider = (function (){
 	
 	function getToolTip(e) {
 		
-		return document.querySelector('.n-tool--tip[for="' + e.target.closest('.n-tool').getAttribute('data-n-tool') + '"]');
+		return document.querySelector('.n-tool--tip[for="' + e.target.closest('.n-tool').dataset.nTool + '"]');
 		
 	}
 	
@@ -4413,7 +4413,7 @@ var componentSlider = (function (){
 		let tip = getToolTip(e);
 		tip.removeAttribute('aria-expanded');
 		tip.removeAttribute('style');
-		tip.removeAttribute('data-n-position');
+		delete tip.dataset.position;
 		
 	}
 	
@@ -4441,7 +4441,7 @@ var componentSlider = (function (){
 			tip.insertAdjacentHTML('afterbegin', '<span>' + content + '</span>');
 
 		    tip.setAttribute('for', tooltips);
-		    el.setAttribute('data-n-tool', tooltips++);
+		    el.dataset.nTool = tooltips++;
 		    bodyElement.appendChild(tip);
 		    
 			el.setAttribute('tabindex', 0);

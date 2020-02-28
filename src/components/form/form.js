@@ -31,7 +31,7 @@
 					&& 
 					!(RegExp(/^\d+$/).test(el.querySelector('input[type=number]').value))
 					||
-					(el.querySelector('input[type=number][data-digits]') && (el.querySelector('input[type=number]').value.length != el.querySelector('input[type=number]').getAttribute('data-digits')))
+					(el.querySelector('input[type=number][data-digits]') && (el.querySelector('input[type=number]').value.length !== el.querySelector('input[type=number]').dataset.digits))
 				) ||
 				( el.querySelector('input[type=radio]') && !el.querySelector('input[type=radio]').checked )
 			   ) 
