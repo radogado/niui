@@ -1,25 +1,23 @@
 /* niui by rado.bg */
 /* DOM functions via http://youmightnotneedjquery.com */
 
-var bodyElement = document.body;
-
-bodyElement.dataset.nuiJs = true;
+document.body.dataset.nuiJs = true;
 
 if (!!window['chrome']) {
 	
-	bodyElement.dataset.nuiChrome = true;
+	document.body.dataset.nuiChrome = true;
 
 }
 
 if (navigator.userAgent.match(/Safari/) && !navigator.userAgent.match(/Chrome/)) {
 	
-	bodyElement.dataset.nuiSafari = true;
+	document.body.dataset.nuiSafari = true;
 	
 }
 
 if (navigator.platform.match(/Mac/) || navigator.platform.match(/iPhone/) || navigator.platform.match(/iPod/) || navigator.platform.match(/iPad/)) {
 	
-	bodyElement.dataset.nuiApple = true; // Apple devices: left-hand ⤫ button, disappearing thin scrollbars
+	document.body.dataset.nuiApple = true; // Apple devices: left-hand ⤫ button, disappearing thin scrollbars
 	
 }
 
@@ -501,7 +499,7 @@ function animate(el, animation_code, duration, callback) { // Animate with CSS A
 
 function scrollToAnimated(to, duration, callback) {
 	
-	var difference = bodyElement.clientHeight - window.innerHeight;
+	var difference = document.body.clientHeight - window.innerHeight;
 
 	if (to > difference) {
 
@@ -511,7 +509,7 @@ function scrollToAnimated(to, duration, callback) {
 	
 	function scrollToCallback (callback) {
 
-		q('html').scrollTop = bodyElement.scrollTop = to;
+		q('html').scrollTop = document.body.scrollTop = to;
 		if (typeof callback === 'function') {
 			
 			callback();
@@ -520,7 +518,7 @@ function scrollToAnimated(to, duration, callback) {
 		
 	}
 	
-	animate(q('html'), `100% { transform: translate3d(0, ${-1*(to - (document.documentElement.scrollTop || bodyElement.scrollTop))}px, 0); }`, duration, scrollToCallback.bind(null, callback));
+	animate(q('html'), `100% { transform: translate3d(0, ${-1*(to - (document.documentElement.scrollTop || document.body.scrollTop))}px, 0); }`, duration, scrollToCallback.bind(null, callback));
 
 }
 
@@ -654,7 +652,7 @@ function initThreshold(host) {
 	
 			setTimeout(() => {
 				
-				var relativeScroll = q('html').scrollTop || bodyElement.scrollTop;
+				var relativeScroll = q('html').scrollTop || document.body.scrollTop;
 //				q('html').style.setProperty('--scroll-top', relativeScroll);
 //				q('html').style.setProperty('--scroll-bottom', q('html').scrollHeight - relativeScroll - q('html').offsetHeight);
 //				q('html').style.setProperty('--page-height', q('html').scrollHeight);
@@ -679,13 +677,13 @@ function initThreshold(host) {
 				if (relativeScroll >= threshold) {
 					
 					addClass(el, 'threshold');
-					bodyElement.setAttribute('data-threshold', true);
+					document.body.setAttribute('data-threshold', true);
 					
 				} else {
 					
 					removeClass(el, 'threshold');
-					removeClass(bodyElement, 'threshold');
-					bodyElement.removeAttribute('data-threshold');
+					removeClass(document.body, 'threshold');
+					document.body.removeAttribute('data-threshold');
 					
 				}
 				
@@ -715,7 +713,7 @@ function initComponents(host) {
 
 	observerOff();
 	
-	var _host = !host ? bodyElement : host;
+	var _host = !host ? document.body : host;
 
 	for (let key in components) {
 	
@@ -733,7 +731,7 @@ function observerOn() {
 	
 	if (observer) {
 		
-		observer.observe(bodyElement, {childList: true, subtree: true});
+		observer.observe(document.body, {childList: true, subtree: true});
 
 	}
 	
@@ -776,7 +774,7 @@ if (typeof MutationObserver === 'function') {
 	
 }
 
-// initThreshold(bodyElement);
+// initThreshold(document.body);
 
 // Animate anchor link jumps
 qa('a[href^="#"]').forEach((el) => {

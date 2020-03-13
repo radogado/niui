@@ -486,7 +486,7 @@ var componentSlider = (function (){
 			return false; 
 		
 		}
-		return !hasClass(el, 'n-slider__vertical') || window.innerHeight < bodyElement.scrollHeight;
+		return !hasClass(el, 'n-slider__vertical') || window.innerHeight < document.body.scrollHeight;
 		
 	}
 	

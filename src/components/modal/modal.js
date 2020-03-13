@@ -91,13 +91,13 @@ var componentModal = (function (){
 		            _element.addEventListener('touchstart', captureClientY, { passive: false });
 		            _element.addEventListener('touchmove', preventOverscroll, { passive: false });
 	        	}
-	            bodyElement.addEventListener("touchmove", preventBodyScroll, { passive: false });
+	            document.body.addEventListener("touchmove", preventBodyScroll, { passive: false });
 	        } else {
 	        	if (false !== _element) {
 		            _element.removeEventListener('touchstart', captureClientY, { passive: false });
 		            _element.removeEventListener('touchmove', preventOverscroll, { passive: false });
 		        }
-	          bodyElement.removeEventListener("touchmove", preventBodyScroll, { passive: false });
+	          document.body.removeEventListener("touchmove", preventBodyScroll, { passive: false });
 	        }
 	    };
 	}());
@@ -106,14 +106,14 @@ var componentModal = (function (){
 		
 		if (!!window.visualViewport) {
 		
-			bodyElement.style.setProperty('--overlay-top', `${window.visualViewport.offsetTop}px`);
-			bodyElement.style.setProperty('--overlay-bottom', `${window.innerHeight - window.visualViewport.height}px`);
+			document.body.style.setProperty('--overlay-top', `${window.visualViewport.offsetTop}px`);
+			document.body.style.setProperty('--overlay-bottom', `${window.innerHeight - window.visualViewport.height}px`);
 		
 		}
 		
 /*
 		var modal = q('.n-ovrl');
-		var previous_overlay_top = parseInt(bodyElement.style.getPropertyValue('--overlay-top'));
+		var previous_overlay_top = parseInt(document.body.style.getPropertyValue('--overlay-top'));
 		var actual_viewport = window.innerHeight;
 		var offset_y = modal ? modal.getBoundingClientRect().y : 0;
 		if ((previous_overlay_top + '') === 'NaN') {
@@ -122,8 +122,8 @@ var componentModal = (function (){
 
 		}
 
-		bodyElement.style.setProperty('--overlay-top', 0);
-		bodyElement.style.setProperty('--overlay-bottom', 0);
+		document.body.style.setProperty('--overlay-top', 0);
+		document.body.style.setProperty('--overlay-bottom', 0);
 		var screen_height = modal ? modal.scrollHeight : 0;
 
 		if (!navigator.userAgent.match(/(iPod|iPhone)/i) || Math.abs(window.orientation) !== 90 || actual_viewport === screen_height) { // Only for mobile Safari in landscape mode
@@ -134,8 +134,8 @@ var componentModal = (function (){
 		
 		if (!!e) { // On resize event (toolbars have appeared by tapping at the top or bottom area
 
-			bodyElement.style.setProperty('--overlay-top', (previous_overlay_top - offset_y) + 'px');
-			bodyElement.style.setProperty('--overlay-bottom', (screen_height - actual_viewport + offset_y) + 'px');
+			document.body.style.setProperty('--overlay-top', (previous_overlay_top - offset_y) + 'px');
+			document.body.style.setProperty('--overlay-bottom', (screen_height - actual_viewport + offset_y) + 'px');
 			
 		} else {
 		
@@ -147,29 +147,29 @@ var componentModal = (function (){
 
 			if (actual_viewport <= screen_height) { // modal is cropped, adjust its top/bottom
 				
-				if ((bodyElement.scrollHeight + bodyElement.getBoundingClientRect().y) === actual_viewport) {// page scrolled at the bottom
+				if ((document.body.scrollHeight + document.body.getBoundingClientRect().y) === actual_viewport) {// page scrolled at the bottom
 
-					bodyElement.style.setProperty('--overlay-bottom', 0);
-					bodyElement.style.setProperty('--overlay-top', (screen_height - actual_viewport) + 'px');
+					document.body.style.setProperty('--overlay-bottom', 0);
+					document.body.style.setProperty('--overlay-top', (screen_height - actual_viewport) + 'px');
 	
 				} else {
 	
-					bodyElement.style.setProperty('--overlay-top', 0);
-					bodyElement.style.setProperty('--overlay-bottom', (screen_height - actual_viewport) + 'px');
+					document.body.style.setProperty('--overlay-top', 0);
+					document.body.style.setProperty('--overlay-bottom', (screen_height - actual_viewport) + 'px');
 				}
 			
 			}
 		
 			if (modal && modal.getBoundingClientRect().y !== 0) { // A little off
 	
-				bodyElement.style.setProperty('--overlay-top', (parseInt(bodyElement.style.getPropertyValue('--overlay-top')) - modal.getBoundingClientRect().y) + 'px');
-				bodyElement.style.setProperty('--overlay-bottom', (parseInt(bodyElement.style.getPropertyValue('--overlay-bottom')) + modal.getBoundingClientRect().y) + 'px');
+				document.body.style.setProperty('--overlay-top', (parseInt(document.body.style.getPropertyValue('--overlay-top')) - modal.getBoundingClientRect().y) + 'px');
+				document.body.style.setProperty('--overlay-bottom', (parseInt(document.body.style.getPropertyValue('--overlay-bottom')) + modal.getBoundingClientRect().y) + 'px');
 				
 			}
 			
-			if ((actual_viewport + parseInt(bodyElement.style.getPropertyValue('--overlay-top')) + parseInt(bodyElement.style.getPropertyValue('--overlay-bottom'))) > screen_height) { // Extra bug when scrolled near the bottom
+			if ((actual_viewport + parseInt(document.body.style.getPropertyValue('--overlay-top')) + parseInt(document.body.style.getPropertyValue('--overlay-bottom'))) > screen_height) { // Extra bug when scrolled near the bottom
 				
-				bodyElement.style.setProperty('--overlay-bottom', (screen_height - actual_viewport - parseInt(bodyElement.style.getPropertyValue('--overlay-top'))) + 'px');
+				document.body.style.setProperty('--overlay-bottom', (screen_height - actual_viewport - parseInt(document.body.style.getPropertyValue('--overlay-top'))) + 'px');
 				
 			}
 		
@@ -278,7 +278,7 @@ var componentModal = (function (){
 		full_window_content.querySelector('.n-overlay-bg').addEventListener("touchmove", (e) => { e.preventDefault(); }, { passive: false });
 		window.addEventListener('keyup', keyUpClose);
 		   
-		bodyElement.appendChild(full_window_content);
+		document.body.appendChild(full_window_content);
 	
 		let full_window_container = full_window_content.querySelector('.n-ovrl--content');
 	

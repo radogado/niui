@@ -1,25 +1,23 @@
 window.nui = (() => {/* niui by rado.bg */
 /* DOM functions via http://youmightnotneedjquery.com */
 
-var bodyElement = document.body;
-
-bodyElement.dataset.nuiJs = true;
+document.body.dataset.nuiJs = true;
 
 if (!!window['chrome']) {
 	
-	bodyElement.dataset.nuiChrome = true;
+	document.body.dataset.nuiChrome = true;
 
 }
 
 if (navigator.userAgent.match(/Safari/) && !navigator.userAgent.match(/Chrome/)) {
 	
-	bodyElement.dataset.nuiSafari = true;
+	document.body.dataset.nuiSafari = true;
 	
 }
 
 if (navigator.platform.match(/Mac/) || navigator.platform.match(/iPhone/) || navigator.platform.match(/iPod/) || navigator.platform.match(/iPad/)) {
 	
-	bodyElement.dataset.nuiApple = true; // Apple devices: left-hand ⤫ button, disappearing thin scrollbars
+	document.body.dataset.nuiApple = true; // Apple devices: left-hand ⤫ button, disappearing thin scrollbars
 	
 }
 
@@ -501,7 +499,7 @@ function animate(el, animation_code, duration, callback) { // Animate with CSS A
 
 function scrollToAnimated(to, duration, callback) {
 	
-	var difference = bodyElement.clientHeight - window.innerHeight;
+	var difference = document.body.clientHeight - window.innerHeight;
 
 	if (to > difference) {
 
@@ -511,7 +509,7 @@ function scrollToAnimated(to, duration, callback) {
 	
 	function scrollToCallback (callback) {
 
-		q('html').scrollTop = bodyElement.scrollTop = to;
+		q('html').scrollTop = document.body.scrollTop = to;
 		if (typeof callback === 'function') {
 			
 			callback();
@@ -520,7 +518,7 @@ function scrollToAnimated(to, duration, callback) {
 		
 	}
 	
-	animate(q('html'), `100% { transform: translate3d(0, ${-1*(to - (document.documentElement.scrollTop || bodyElement.scrollTop))}px, 0); }`, duration, scrollToCallback.bind(null, callback));
+	animate(q('html'), `100% { transform: translate3d(0, ${-1*(to - (document.documentElement.scrollTop || document.body.scrollTop))}px, 0); }`, duration, scrollToCallback.bind(null, callback));
 
 }
 
@@ -654,7 +652,7 @@ function initThreshold(host) {
 	
 			setTimeout(() => {
 				
-				var relativeScroll = q('html').scrollTop || bodyElement.scrollTop;
+				var relativeScroll = q('html').scrollTop || document.body.scrollTop;
 //				q('html').style.setProperty('--scroll-top', relativeScroll);
 //				q('html').style.setProperty('--scroll-bottom', q('html').scrollHeight - relativeScroll - q('html').offsetHeight);
 //				q('html').style.setProperty('--page-height', q('html').scrollHeight);
@@ -679,13 +677,13 @@ function initThreshold(host) {
 				if (relativeScroll >= threshold) {
 					
 					addClass(el, 'threshold');
-					bodyElement.setAttribute('data-threshold', true);
+					document.body.setAttribute('data-threshold', true);
 					
 				} else {
 					
 					removeClass(el, 'threshold');
-					removeClass(bodyElement, 'threshold');
-					bodyElement.removeAttribute('data-threshold');
+					removeClass(document.body, 'threshold');
+					document.body.removeAttribute('data-threshold');
 					
 				}
 				
@@ -715,7 +713,7 @@ function initComponents(host) {
 
 	observerOff();
 	
-	var _host = !host ? bodyElement : host;
+	var _host = !host ? document.body : host;
 
 	for (let key in components) {
 	
@@ -733,7 +731,7 @@ function observerOn() {
 	
 	if (observer) {
 		
-		observer.observe(bodyElement, {childList: true, subtree: true});
+		observer.observe(document.body, {childList: true, subtree: true});
 
 	}
 	
@@ -776,7 +774,7 @@ if (typeof MutationObserver === 'function') {
 	
 }
 
-// initThreshold(bodyElement);
+// initThreshold(document.body);
 
 // Animate anchor link jumps
 qa('a[href^="#"]').forEach((el) => {
@@ -2445,13 +2443,13 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		            _element.addEventListener('touchstart', captureClientY, { passive: false });
 		            _element.addEventListener('touchmove', preventOverscroll, { passive: false });
 	        	}
-	            bodyElement.addEventListener("touchmove", preventBodyScroll, { passive: false });
+	            document.body.addEventListener("touchmove", preventBodyScroll, { passive: false });
 	        } else {
 	        	if (false !== _element) {
 		            _element.removeEventListener('touchstart', captureClientY, { passive: false });
 		            _element.removeEventListener('touchmove', preventOverscroll, { passive: false });
 		        }
-	          bodyElement.removeEventListener("touchmove", preventBodyScroll, { passive: false });
+	          document.body.removeEventListener("touchmove", preventBodyScroll, { passive: false });
 	        }
 	    };
 	}());
@@ -2460,14 +2458,14 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		
 		if (!!window.visualViewport) {
 		
-			bodyElement.style.setProperty('--overlay-top', `${window.visualViewport.offsetTop}px`);
-			bodyElement.style.setProperty('--overlay-bottom', `${window.innerHeight - window.visualViewport.height}px`);
+			document.body.style.setProperty('--overlay-top', `${window.visualViewport.offsetTop}px`);
+			document.body.style.setProperty('--overlay-bottom', `${window.innerHeight - window.visualViewport.height}px`);
 		
 		}
 		
 /*
 		var modal = q('.n-ovrl');
-		var previous_overlay_top = parseInt(bodyElement.style.getPropertyValue('--overlay-top'));
+		var previous_overlay_top = parseInt(document.body.style.getPropertyValue('--overlay-top'));
 		var actual_viewport = window.innerHeight;
 		var offset_y = modal ? modal.getBoundingClientRect().y : 0;
 		if ((previous_overlay_top + '') === 'NaN') {
@@ -2476,8 +2474,8 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 
 		}
 
-		bodyElement.style.setProperty('--overlay-top', 0);
-		bodyElement.style.setProperty('--overlay-bottom', 0);
+		document.body.style.setProperty('--overlay-top', 0);
+		document.body.style.setProperty('--overlay-bottom', 0);
 		var screen_height = modal ? modal.scrollHeight : 0;
 
 		if (!navigator.userAgent.match(/(iPod|iPhone)/i) || Math.abs(window.orientation) !== 90 || actual_viewport === screen_height) { // Only for mobile Safari in landscape mode
@@ -2488,8 +2486,8 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		
 		if (!!e) { // On resize event (toolbars have appeared by tapping at the top or bottom area
 
-			bodyElement.style.setProperty('--overlay-top', (previous_overlay_top - offset_y) + 'px');
-			bodyElement.style.setProperty('--overlay-bottom', (screen_height - actual_viewport + offset_y) + 'px');
+			document.body.style.setProperty('--overlay-top', (previous_overlay_top - offset_y) + 'px');
+			document.body.style.setProperty('--overlay-bottom', (screen_height - actual_viewport + offset_y) + 'px');
 			
 		} else {
 		
@@ -2501,29 +2499,29 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 
 			if (actual_viewport <= screen_height) { // modal is cropped, adjust its top/bottom
 				
-				if ((bodyElement.scrollHeight + bodyElement.getBoundingClientRect().y) === actual_viewport) {// page scrolled at the bottom
+				if ((document.body.scrollHeight + document.body.getBoundingClientRect().y) === actual_viewport) {// page scrolled at the bottom
 
-					bodyElement.style.setProperty('--overlay-bottom', 0);
-					bodyElement.style.setProperty('--overlay-top', (screen_height - actual_viewport) + 'px');
+					document.body.style.setProperty('--overlay-bottom', 0);
+					document.body.style.setProperty('--overlay-top', (screen_height - actual_viewport) + 'px');
 	
 				} else {
 	
-					bodyElement.style.setProperty('--overlay-top', 0);
-					bodyElement.style.setProperty('--overlay-bottom', (screen_height - actual_viewport) + 'px');
+					document.body.style.setProperty('--overlay-top', 0);
+					document.body.style.setProperty('--overlay-bottom', (screen_height - actual_viewport) + 'px');
 				}
 			
 			}
 		
 			if (modal && modal.getBoundingClientRect().y !== 0) { // A little off
 	
-				bodyElement.style.setProperty('--overlay-top', (parseInt(bodyElement.style.getPropertyValue('--overlay-top')) - modal.getBoundingClientRect().y) + 'px');
-				bodyElement.style.setProperty('--overlay-bottom', (parseInt(bodyElement.style.getPropertyValue('--overlay-bottom')) + modal.getBoundingClientRect().y) + 'px');
+				document.body.style.setProperty('--overlay-top', (parseInt(document.body.style.getPropertyValue('--overlay-top')) - modal.getBoundingClientRect().y) + 'px');
+				document.body.style.setProperty('--overlay-bottom', (parseInt(document.body.style.getPropertyValue('--overlay-bottom')) + modal.getBoundingClientRect().y) + 'px');
 				
 			}
 			
-			if ((actual_viewport + parseInt(bodyElement.style.getPropertyValue('--overlay-top')) + parseInt(bodyElement.style.getPropertyValue('--overlay-bottom'))) > screen_height) { // Extra bug when scrolled near the bottom
+			if ((actual_viewport + parseInt(document.body.style.getPropertyValue('--overlay-top')) + parseInt(document.body.style.getPropertyValue('--overlay-bottom'))) > screen_height) { // Extra bug when scrolled near the bottom
 				
-				bodyElement.style.setProperty('--overlay-bottom', (screen_height - actual_viewport - parseInt(bodyElement.style.getPropertyValue('--overlay-top'))) + 'px');
+				document.body.style.setProperty('--overlay-bottom', (screen_height - actual_viewport - parseInt(document.body.style.getPropertyValue('--overlay-top'))) + 'px');
 				
 			}
 		
@@ -2632,7 +2630,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 		full_window_content.querySelector('.n-overlay-bg').addEventListener("touchmove", (e) => { e.preventDefault(); }, { passive: false });
 		window.addEventListener('keyup', keyUpClose);
 		   
-		bodyElement.appendChild(full_window_content);
+		document.body.appendChild(full_window_content);
 	
 		let full_window_container = full_window_content.querySelector('.n-ovrl--content');
 	
@@ -3060,7 +3058,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 
 //		var rect = ul.getBoundingClientRect(); // Firefox doesn't preserve this var
 		
-		if (ul.getBoundingClientRect().left > bodyElement.offsetWidth - (ul.getBoundingClientRect().left + ul.getBoundingClientRect().width)) {
+		if (ul.getBoundingClientRect().left > document.body.offsetWidth - (ul.getBoundingClientRect().left + ul.getBoundingClientRect().width)) {
 			
 			if (ul.getBoundingClientRect().right > window.innerWidth) {
 				
@@ -3223,7 +3221,7 @@ var componentNotify = (function (){
 	
 	function notify(content, option) {
 		
-		bodyElement.insertAdjacentHTML('afterbegin', `<div class="n-notify${(option && (option.indexOf('fixed') !== -1) ? ' n-notify__fixed' : '')}">${content}</div>`);
+		document.body.insertAdjacentHTML('afterbegin', `<div class="n-notify${(option && (option.indexOf('fixed') !== -1) ? ' n-notify__fixed' : '')}">${content}</div>`);
 		notifyCloseEvent();
 		if (option && option.indexOf('timeout') !== -1) {
 			
@@ -3265,7 +3263,7 @@ var componentNotify = (function (){
 		qa('.n-parallax').forEach(el => {
 			
 			let parent = el.parentElement;
-			let scroll_offset = parent.scrollHeight > parent.offsetHeight ? Math.abs(parent.getBoundingClientRect().y) : (bodyElement.scrollTop || document.documentElement.scrollTop);
+			let scroll_offset = parent.scrollHeight > parent.offsetHeight ? Math.abs(parent.getBoundingClientRect().y) : (document.body.scrollTop || document.documentElement.scrollTop);
 			el.style.setProperty("--scrollparallax",  scroll_offset * parallaxSpeed);
 		
 		});
@@ -3775,7 +3773,7 @@ var componentSlider = (function (){
 			return false; 
 		
 		}
-		return !hasClass(el, 'n-slider__vertical') || window.innerHeight < bodyElement.scrollHeight;
+		return !hasClass(el, 'n-slider__vertical') || window.innerHeight < document.body.scrollHeight;
 		
 	}
 	
@@ -4262,7 +4260,7 @@ var componentSlider = (function (){
 		let area_bottom = bottom * window.innerWidth;
 		let area_left = left * window.innerHeight;
 		
-		let body_rect = bodyElement.getBoundingClientRect();
+		let body_rect = document.body.getBoundingClientRect();
 		
 		tip.removeAttribute('style');
 		delete tip.dataset.position;
@@ -4442,7 +4440,7 @@ var componentSlider = (function (){
 
 		    tip.setAttribute('for', tooltips);
 		    el.dataset.nTool = tooltips++;
-		    bodyElement.appendChild(tip);
+		    document.body.appendChild(tip);
 		    
 			el.setAttribute('tabindex', 0);
 

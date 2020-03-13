@@ -1397,6 +1397,15 @@ body.n-select--open {
 @-moz-document url-prefix() {
   .n-select--options.n-select__crop-top[aria-expanded] {
     margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - var(--padding, .5em));
+    max-height: calc(var(--max-height) + 2 * var(--padding, .5em));
+  }
+  .n-select--options.n-select__crop-top[aria-expanded]:after {
+    content: "";
+    height: var(--padding, 0.5em);
+    display: block;
+  }
+  .n-select--options.n-select__crop-top[aria-expanded] > :last-child {
+    margin-block-end: var(--padding, 0.5em);
   }
 }
 select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + select {

@@ -287,7 +287,7 @@
 
 //		var rect = ul.getBoundingClientRect(); // Firefox doesn't preserve this var
 		
-		if (ul.getBoundingClientRect().left > bodyElement.offsetWidth - (ul.getBoundingClientRect().left + ul.getBoundingClientRect().width)) {
+		if (ul.getBoundingClientRect().left > document.body.offsetWidth - (ul.getBoundingClientRect().left + ul.getBoundingClientRect().width)) {
 			
 			if (ul.getBoundingClientRect().right > window.innerWidth) {
 				
