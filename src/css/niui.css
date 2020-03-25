@@ -3540,6 +3540,27 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
   text-align: left;
   text-align: start;
 }
+.n-table th button.n-table-sort, .n-table thead td button.n-table-sort {
+  width: 100%;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  font: inherit;
+  text-align: inherit;
+  border: 0;
+  padding: 0;
+  background: none;
+  color: inherit;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.n-table th button.n-table-sort:after, .n-table thead td button.n-table-sort:after {
+  content: "⇳";
+  margin-left: 0.5em;
+}
 .n-table tr:nth-child(2n+1) {
   background: rgba(0, 0, 0, 0.1);
 }
@@ -3566,27 +3587,6 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
 }
 .n-table--wrap .n-table {
   display: table;
-}
-.n-table--wrap .n-table th button.n-table-sort, .n-table--wrap .n-table thead td button.n-table-sort {
-  width: 100%;
-  cursor: pointer;
-  -webkit-appearance: none;
-  appearance: none;
-  font: inherit;
-  text-align: inherit;
-  border: 0;
-  padding: 0;
-  background: none;
-  color: inherit;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-}
-.n-table--wrap .n-table th button.n-table-sort:after, .n-table--wrap .n-table thead td button.n-table-sort:after {
-  content: "⇳";
-  margin-left: 0.5em;
 }
 
 @media screen and (max-width: 599.9px) {
