@@ -28,21 +28,6 @@
 		text-align: left;
 		text-align: start; // RTL support
 		
-		button {
-			
-		    width: 100%;
-		    cursor: pointer;
-		    -webkit-appearance: none;
-		    appearance: none;
-		    font: inherit;
-		    text-align: inherit;
-		    border: 0;
-		    padding: 0;
-			background: none;
-    		color: inherit;
-    			
-		}
-
 	}
 
 	tr:nth-child(2n+1) {
@@ -59,61 +44,65 @@
 	
 }
 
-	.n-table::-webkit-scrollbar {
+.n-table::-webkit-scrollbar {
+
+    display: none;
+
+}
+
+.n-table--wrap {
 	
-	    display: none;
-	
-	}
-	
-	.n-table--wrap {
-		
-		overflow-x: auto;
+	overflow-x: auto;
 /*
-	    scrollbar-3dlight-color: grey;
-	    scrollbar-arrow-color: grey;
-	    scrollbar-base-color: transparent;
-	    scrollbar-darkshadow-color: grey;
-	    scrollbar-face-color: transparent;
-	    scrollbar-highlight-color: transparent;
-	    scrollbar-shadow-color: transparent;
+    scrollbar-3dlight-color: grey;
+    scrollbar-arrow-color: grey;
+    scrollbar-base-color: transparent;
+    scrollbar-darkshadow-color: grey;
+    scrollbar-face-color: transparent;
+    scrollbar-highlight-color: transparent;
+    scrollbar-shadow-color: transparent;
 */
-	    -webkit-overflow-scrolling: touch;
-	
-		.n-table {
-			
-			display: table;
-	
-		}
-		
-	}
-	
-	.n-table--wrap td[data-sort] {
-		
-		-webkit-touch-callout: none;
-		-webkit-user-select: none;
-		-khtml-user-select: none;
-		-moz-user-select: none;
-		user-select: none;
+    -webkit-overflow-scrolling: touch;
 
-	}
-	
-	@media screen and (min-width: 1px) { // IE9+
-	
-		.n-table--wrap td[data-sort] {
+	.n-table {
+		
+		display: table;
+
+		th, thead td {
 			
-			cursor: pointer;
-	
-			&:after {
+			button.n-table-sort {
 				
-				content: '⇳';
-				margin-left: .5em;
-				
+			    width: 100%;
+			    cursor: pointer;
+			    -webkit-appearance: none;
+			    appearance: none;
+			    font: inherit;
+			    text-align: inherit;
+			    border: 0;
+			    padding: 0;
+				background: none;
+	    		color: inherit;
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				user-select: none;
+	    			
+				&:after {
+					
+					content: '⇳';
+					margin-left: .5em;
+					
+				}
+
 			}
-			
-		}
 	
-	}
+		}
 
+	}
+	
+}
+	
 @media screen and (max-width: $screen-narrow-max) {
 
 	.n-table {

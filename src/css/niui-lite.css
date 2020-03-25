@@ -2258,18 +2258,6 @@ html:not(.can-touch) .n-nav__drop > ul li:not([aria-haspopup]) ul li:hover ~ ul 
   text-align: left;
   text-align: start;
 }
-.n-table th button, .n-table thead td button {
-  width: 100%;
-  cursor: pointer;
-  -webkit-appearance: none;
-  appearance: none;
-  font: inherit;
-  text-align: inherit;
-  border: 0;
-  padding: 0;
-  background: none;
-  color: inherit;
-}
 .n-table tr:nth-child(2n+1) {
   background: rgba(0, 0, 0, 0.1);
 }
@@ -2284,37 +2272,41 @@ html:not(.can-touch) .n-nav__drop > ul li:not([aria-haspopup]) ul li:hover ~ ul 
 .n-table--wrap {
   overflow-x: auto;
   /*
-  	    scrollbar-3dlight-color: grey;
-  	    scrollbar-arrow-color: grey;
-  	    scrollbar-base-color: transparent;
-  	    scrollbar-darkshadow-color: grey;
-  	    scrollbar-face-color: transparent;
-  	    scrollbar-highlight-color: transparent;
-  	    scrollbar-shadow-color: transparent;
+      scrollbar-3dlight-color: grey;
+      scrollbar-arrow-color: grey;
+      scrollbar-base-color: transparent;
+      scrollbar-darkshadow-color: grey;
+      scrollbar-face-color: transparent;
+      scrollbar-highlight-color: transparent;
+      scrollbar-shadow-color: transparent;
   */
   -webkit-overflow-scrolling: touch;
 }
 .n-table--wrap .n-table {
   display: table;
 }
-
-.n-table--wrap td[data-sort] {
+.n-table--wrap .n-table th button.n-table-sort, .n-table--wrap .n-table thead td button.n-table-sort {
+  width: 100%;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  font: inherit;
+  text-align: inherit;
+  border: 0;
+  padding: 0;
+  background: none;
+  color: inherit;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   user-select: none;
 }
-
-@media screen and (min-width: 1px) {
-  .n-table--wrap td[data-sort] {
-    cursor: pointer;
-  }
-  .n-table--wrap td[data-sort]:after {
-    content: "⇳";
-    margin-left: 0.5em;
-  }
+.n-table--wrap .n-table th button.n-table-sort:after, .n-table--wrap .n-table thead td button.n-table-sort:after {
+  content: "⇳";
+  margin-left: 0.5em;
 }
+
 @media screen and (max-width: 599.9px) {
   .n-table {
     display: block;

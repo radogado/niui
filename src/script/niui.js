@@ -4179,7 +4179,7 @@ var componentSlider = (function (){
 		
 		host.querySelectorAll('.n-table:not([data-ready])').forEach((el) => {
 		
-			el.querySelectorAll('thead td button, th button').forEach(button => button.addEventListener('click', e => {
+			el.querySelectorAll('thead td button.n-table-sort, th button.n-table-sort').forEach(button => button.addEventListener('click', e => {
 
 				let th = e.target.closest('th') || e.target.closest('td');
 				const tbody = th.closest('table').querySelector('tbody');
