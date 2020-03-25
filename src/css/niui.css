@@ -3540,6 +3540,18 @@ _:-ms-lang(x), .n-aspect > .n-slider--wrap { // n-aspect ratio not working in IE
   text-align: left;
   text-align: start;
 }
+.n-table th button, .n-table thead td button {
+  width: 100%;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  font: inherit;
+  text-align: inherit;
+  border: 0;
+  padding: 0;
+  background: none;
+  color: inherit;
+}
 .n-table tr:nth-child(2n+1) {
   background: rgba(0, 0, 0, 0.1);
 }
