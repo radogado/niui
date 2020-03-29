@@ -28,6 +28,8 @@
     "grunt-sass": "^3.1.0",
     "jit-grunt": "^0.10.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "grunt-terser": "^1.0.0"
+  },
   "main": "index.js"
 }

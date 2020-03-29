@@ -114,7 +114,18 @@ module.exports = function(grunt) {
 			  }
 			}
 		},
-		'copy': {
+		'terser': {
+		  options: {
+			  ecma: '2015'
+		  },
+		  main: {
+		    files: {
+		      './dist/niui.min.js': ['./src/script/niui.js'],
+		      './dist/niui-lite.min.js': ['./src/script/niui-lite.js'],
+		    }
+		  }
+		},
+  		'copy': {
 		  WP: {
 		    expand: true,
 		    cwd: 'dist',
@@ -124,9 +135,14 @@ module.exports = function(grunt) {
 		},
 		'gzip': {
 		    options: { detail: false },
-		    index: {
+		    css: {
 		      src: [
 		        'dist/niui.min.css'
+		      ]
+		    },
+		    js: {
+		      src: [
+		        'dist/niui.min.js'
 		      ]
 		    }
 		  },
@@ -141,7 +157,7 @@ module.exports = function(grunt) {
 		}		  
 	});
 
-	grunt.registerTask('default', ['sass', 'concat', 'cssmin', 'gzip', 'closure-compiler', 'copy']);
+	grunt.registerTask('default', ['sass', 'concat', 'cssmin', /* 'closure-compiler', */ 'terser', 'gzip', 'copy']);
 	grunt.registerTask('dev', ['sass', 'concat', 'cssmin', 'copy', 'gzip']);
 
 };
