@@ -2117,7 +2117,7 @@ function initGridInlinePopups(host) { // Limitation: each row must have equal wi
 	
 		    var link_element = (hasClass(lightbox, 'n-lightbox__inline') || !lightbox.getAttribute('id')) ? '' : `<a class="n-btn n-lightbox--copy" href=${slide_link}></a>`;
 	
-		    var url = hasClass(lightbox, 'n-slider') ? (el.querySelector('img') ? el.querySelector('img').datasetsrc : '') : el.href;
+		    var url = hasClass(lightbox, 'n-slider') ? (el.querySelector('img') ? el.querySelector('img').dataset.src : '') : el.href;
 		    
 			var caption = el.title ? el.title : (el.querySelector('img') ? el.querySelector('img').title : '');
 			var caption_attribute = el.querySelector('img') ? el.querySelector('img').dataset.caption : false;
