@@ -1918,18 +1918,22 @@ console.log('relatedTarget', e.relatedTarget);
 		
 		});
 
-		el.querySelectorAll('ul').forEach(ul => {
-			
-			checkSides(ul, menubar);
-		
-		});
-
 		el.addEventListener('mousedown', clickEvent);
 		el.addEventListener('focusin', dropNavFocus);
 		el.addEventListener('focusout', dropNavBlur);
 
 		draggingNow = false;
 	
+		window.requestAnimationFrame(() => { // Give the browser time to update
+	
+			el.querySelectorAll('ul').forEach(ul => {
+				
+				checkSides(ul, menubar);
+			
+			});
+		
+		});
+
 	}
 	
 	window.addEventListener('resize', function (e) {
