@@ -7,13 +7,14 @@
 	
 	<meta charset=utf-8>
 	<meta name=viewport content='width=device-width,initial-scale=1.0,maximum-scale=5,user-scalable=yes'>
-<!-- 		<script src=dist/niui.min.js type=module async></script> -->
-	<script src="src/script/niui.js" type="module" defer onload="nui.copyButton(document.getElementById('copybutton'), document.getElementById('copycontent'));"></script>
 
 
 	<link rel=icon href=images/favicon.ico>
 <!-- 	<link rel=styleSheet href=src/css/niui.css> -->
 	<link rel=styleSheet href=dist/niui.min.css>
+	<script src="dist/niui-preload.min.js"></script> <!-- Load and execute immediately. Should be on the same host as the above CSS file, not waiting for another request -->
+<!-- 		<script src=dist/niui.min.js type=module async></script> -->
+	<script src="src/script/niui.js" type="module" defer onload="nui.copyButton(document.getElementById('copybutton'), document.getElementById('copycontent'));"></script>
 	
 	<style>
 		
@@ -31,41 +32,6 @@
 		}
 	
 	</style>
-
-	<script> // Height adjustment during DOM population
-		
-		var MY_SELECTOR = ".n-adjust-height"; // Could be any selector
-		
-		var observer = new MutationObserver(function(mutations){
-		  for (let mutation of mutations){
-		    for (let el of mutation.addedNodes){
-		      // We're iterating through _all_ the elements as the parser parses them,
-		      // deciding if they're the one we're looking for.
-		      if (!!el.matches && el.matches(MY_SELECTOR)){
-			  		
-					el.style.removeProperty('--adjust-height');
-					let style = getComputedStyle(el);
-					let line_height = parseFloat(style.lineHeight);
-					let adjust = line_height - parseFloat(style.height) % line_height;
-					if (adjust !== line_height) {
-
-						el.style.setProperty('--adjust-height', adjust);
-					
-					}
-		
-		        // We found our element, we're done:
-		        observer.disconnect();
-		      };
-		    }
-		  }
-		});
-		
-		observer.observe(document.documentElement, {
-		  childList: true,
-		  subtree: true
-		});
-
-	</script>
 
 </head>
 
@@ -239,6 +205,12 @@
 					<picture class="n-aspect n-adjust-height" style="--ratio: 1;">
 					
 						<img src=images/cat.jpg alt=Portrait>
+					
+					</picture>
+					
+					<picture class="n-aspect n-adjust-height" style="--width: 256; --height: 256;">
+					
+						<img src=images/cat.jpg alt=Portrait width=256>
 					
 					</picture>
 					

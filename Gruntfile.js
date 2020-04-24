@@ -4,7 +4,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
-	grunt.loadNpmTasks('grunt-closure-compiler');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-gzip');
 	grunt.loadNpmTasks('grunt-contrib-watch');
@@ -88,32 +87,6 @@ module.exports = function(grunt) {
 			    }
 			  }
 		},
-		'closure-compiler': {
-			dist: {
-			  closurePath: './node_modules/closure-compiler',
-			  js: 'src/script/niui.js',
-			  jsOutputFile: 'dist/niui.min.js',
-			  maxBuffer: 500,
-			  noreport: true,
-			  options: {
-			    compilation_level: 'SIMPLE_OPTIMIZATIONS',
-			    language_in: 'ECMASCRIPT6_STRICT',
-			    language_out: 'ECMASCRIPT_2015',
-			  }
-			},
-			lite: {
-			  closurePath: './node_modules/closure-compiler',
-			  js: 'src/script/niui-lite.js',
-			  jsOutputFile: 'dist/niui-lite.min.js',
-			  maxBuffer: 500,
-			  noreport: true,
-			  options: {
-			    compilation_level: 'SIMPLE_OPTIMIZATIONS',
-			    language_in: 'ECMASCRIPT6_STRICT',
-			    jscomp_off: 'checkVars'
-			  }
-			}
-		},
 		'terser': {
 		  options: {
 			  ecma: '2015'
@@ -122,6 +95,7 @@ module.exports = function(grunt) {
 		    files: {
 		      './dist/niui.min.js': ['./src/script/niui.js'],
 		      './dist/niui-lite.min.js': ['./src/script/niui-lite.js'],
+		      './dist/niui-preload.min.js': ['./src/script/niui-preload.js'],
 		    }
 		  }
 		},
@@ -157,7 +131,7 @@ module.exports = function(grunt) {
 		}		  
 	});
 
-	grunt.registerTask('default', ['sass', 'concat', 'cssmin', /* 'closure-compiler', */ 'terser', 'gzip', 'copy']);
+	grunt.registerTask('default', ['sass', 'concat', 'cssmin', 'terser', 'gzip', 'copy']);
 	grunt.registerTask('dev', ['sass', 'concat', 'cssmin', 'copy', 'gzip']);
 
 };
