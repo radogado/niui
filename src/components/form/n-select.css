@@ -179,6 +179,7 @@ body.n-select--open {
   overflow: hidden;
   max-width: calc(100% - 1.5em);
   width: auto;
+  margin: 0;
   outline-offset: -1.5px;
   font-size: 1em;
   border: none;
@@ -233,6 +234,10 @@ body.n-select--open {
 }
 select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + select {
   display: none;
+}
+
+.n-form__wide .n-select, .n-form__wide .n-select--options {
+  width: 100%;
 }
 
 .n-select--options[aria-expanded] {

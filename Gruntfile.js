@@ -123,7 +123,7 @@ module.exports = function(grunt) {
 		'watch': {
 		  scripts: {
 		    files: ['src/components/**/*.js', 'src/components/**/*.scss'],
-		    tasks: ['dev'],
+		    tasks: ['default'],
 		    options: {
 		      spawn: false,
 		    },

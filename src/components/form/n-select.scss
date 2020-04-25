@@ -287,6 +287,7 @@ body.n-select--open {
 			overflow: hidden;
 			max-width: calc(100% - 1.5em);
 			width: auto;
+			margin: 0;
 			outline-offset: -1.5px;
 			font-size: 1em;
 		    border: none;
@@ -363,6 +364,16 @@ body.n-select--open {
 select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + select { // Hide the associated native select, which can be specified in 3 different ways
 	
 	display: none;
+	
+}
+
+.n-form__wide { 
+	
+	.n-select, .n-select--options {
+		
+		width: 100%;
+		
+	}
 	
 }
 
