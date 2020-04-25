@@ -210,8 +210,8 @@ body.n-select--open {
     
 		[aria-selected] {
 			
-			background-color: var(--control-selected-bg, #eee);
-			color: var(--control-selected-color, #000);
+			background-color: var(--control-active-bg, #eee);
+			color: var(--control-active-color, #000);
 
 		}
 		
@@ -275,8 +275,8 @@ body.n-select--open {
 		
 		cursor: pointer;
 
-		background-color: var(--control-selected-bg, #fff);
-		background-image: linear-gradient(-113deg, transparent 60%, var(--control-selected-bg, #fff) 63%), linear-gradient(113deg, transparent 60%, var(--control-selected-bg, #fff) 63%), linear-gradient(to bottom, var(--control-selected-color, #333), var(--control-selected-color, #333));
+		background-color: var(--control-bg, #fff);
+		background-image: linear-gradient(-113deg, transparent 60%, var(--control-bg, #fff) 63%), linear-gradient(113deg, transparent 60%, var(--control-bg, #fff) 63%), linear-gradient(to bottom, var(--control-color, #333), var(--control-color, #333));
 		background-size: .75em .75em;
 		background-repeat: no-repeat;
 		background-position: calc(100% - .5em) .75em;
@@ -296,9 +296,9 @@ body.n-select--open {
 			line-height: 1.3;
 			font-weight: normal;
 			min-height: 0;
-			color: var(--control-selected-color,#333);
-			background-color: var(--control-selected-bg,#fff);
-    			
+		    color: var(--control-color,#333);
+		    background-color: var(--control-bg,#fff);
+        			
 		}
 		
 	}
