@@ -5,11 +5,10 @@ Theme:
 --control-color: red;
 --control-bg: lightgoldenrodyellow;
 
---control-selected-color: blueviolet;
---control-selected-bg: aliceblue;
-
 --control-active-color: chocolate;
 --control-active-bg: beige;
+
+--control-highlight: red;
 
 */
 @keyframes n-select {
@@ -150,7 +149,7 @@ body.n-select--open {
   */
 }
 .n-select--options[aria-expanded] button:not([aria-selected]):hover {
-  background-color: var(--control-active-bg, #ececec);
+  background-color: var(--control-highlight, #ececec);
   color: var(--control-active-color, inherit);
 }
 .n-select--options[aria-expanded] button:focus {
@@ -164,6 +163,8 @@ body.n-select--open {
   left: var(--padding, 0.5em);
   right: var(--padding, 0.5em);
   height: calc(var(--select-scroll-height) - calc(2 * var(--padding, .5em)));
+}
+.n-select--options[aria-expanded].n-select__shadow:before {
   box-shadow: 0 0 2px 2px;
 }
 .n-select--options:not([aria-expanded]) {

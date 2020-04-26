@@ -7,11 +7,10 @@ Theme:
 --control-color: red;
 --control-bg: lightgoldenrodyellow;
 
---control-selected-color: blueviolet;
---control-selected-bg: aliceblue;
-
 --control-active-color: chocolate;
 --control-active-bg: beige;
+
+--control-highlight: red;
 
 */
 
@@ -232,7 +231,7 @@ body.n-select--open {
 			
 				&:hover {
 					
-					background-color: var(--control-active-bg, #ececec);
+					background-color: var(--control-highlight, #ececec);
 					color: var(--control-active-color, inherit);
 					
 				}
@@ -264,9 +263,14 @@ body.n-select--open {
 		    left: var(--padding, .5em);
 		    right: var(--padding, .5em);
 		    height: calc(var(--select-scroll-height) - calc(2 * var(--padding, .5em)));
-		    box-shadow: 0 0 2px 2px;
 // 		    z-index: -1; // Weird 1px offset in Safari, but needed
     			
+		}
+		
+		&.n-select__shadow:before {
+			
+		    box-shadow: 0 0 2px 2px;
+			
 		}
 	
 	}
