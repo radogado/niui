@@ -49,6 +49,7 @@ body.n-select--open {
 	vertical-align: middle;
 	max-width: 100%;
 	width: var(--width, auto);
+	--padding: .5em;
 
 	&[data-ready] {
 		
@@ -67,6 +68,21 @@ body.n-select--open {
 
 	}
 	
+	&:before {
+		
+		content: '';
+		position: absolute;
+		background-color: var(--control-color, #fff);
+		--chevron: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16.003 18.626l7.081-7.081L25 13.46l-8.997 8.998-9.003-9 1.917-1.916z'/%3E%3C/svg%3E");
+		-webkit-mask: var(--chevron) no-repeat 0 0 / contain;
+		mask: var(--chevron) no-repeat 0 0 / contain;
+		width: .75em;
+		height: .75em;
+		right: .3em;
+		top: .7em;
+
+	}
+		
 	&:after {
 		
 		position: absolute;
@@ -124,15 +140,32 @@ body.n-select--open {
 
 }
 
-.n-select--options {
+.n-select--options, .n-select select {
 	
 	width: var(--inline-width);
     max-width: 100%;
+    color: var(--control-color, #333);
 	background-color: var(--control-bg, #fff);
 	top: 0;
 	z-index: 5;
 	box-sizing: border-box;
-	--padding: .5em;
+	-webkit-appearance: none;
+	appearance: none;
+    font: inherit;
+    border-radius: 0;
+    border: none;
+
+}
+
+.n-select select {
+	
+	padding: var(--padding, .5em);
+    padding-inline-end: 1.5em;
+	cursor: pointer;
+	
+}
+
+.n-select--options {
 	
 	> * {
 		
@@ -278,22 +311,6 @@ body.n-select--open {
 	&:not([aria-expanded]) {
 		
 		cursor: pointer;
-		position: relative;
-		
-		&:before {
-			
-			content: '';
-			position: absolute;
-			background-color: var(--control-color, #fff);
-			--chevron: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16.003 18.626l7.081-7.081L25 13.46l-8.997 8.998-9.003-9 1.917-1.916z'/%3E%3C/svg%3E");
-			-webkit-mask: var(--chevron) no-repeat 0 0 / contain;
-			mask: var(--chevron) no-repeat 0 0 / contain;
-			width: .75em;
-			height: .75em;
-			right: .3em;
-			top: .67em;
-    
-		}
 		
 		button {
 			

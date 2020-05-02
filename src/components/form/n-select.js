@@ -262,6 +262,12 @@
 	let selectKeyboard = e => {
 		
 				console.log(e.target, e.key, e.keyCode);
+				
+		if (e.target.tagName === 'SELECT') {
+			
+			return;
+
+		}
 
 		trapKeyboard(e);	
 		
@@ -269,7 +275,7 @@
 		
 		if (e.target.classList.contains('n-select')) {
 			
-			select = e.target.children[0];
+			select = e.target.querySelector('.n-select--options');
 			
 		}
 		
@@ -527,7 +533,7 @@ console.log('relatedTarget', e.relatedTarget);
 			wrapper.setAttribute('tabindex', 0);
 			(el.querySelector('[aria-selected]') || el.firstElementChild).tabIndex = -1;
 
-			el.style.setProperty('--inline-width', `${el.getBoundingClientRect().width}px`);
+			wrapper.style.setProperty('--inline-width', `${el.getBoundingClientRect().width}px`);
 
 			selectOption(el.querySelector('[aria-selected]') || el.querySelector('button')); // Select the first option by default
 			

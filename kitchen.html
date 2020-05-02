@@ -13,8 +13,8 @@
 <!-- 	<link rel=styleSheet href=src/css/niui.css> -->
 	<link rel=styleSheet href=dist/niui.min.css>
 	<script src="dist/niui-preload.min.js"></script> <!-- Load and execute immediately. Should be on the same host as the above CSS file, not waiting for another request -->
-<!-- 		<script src=dist/niui.min.js type=module async></script> -->
-	<script src="src/script/niui.js" type="module" defer onload="nui.copyButton(document.getElementById('copybutton'), document.getElementById('copycontent'));"></script>
+<!-- 		<script src=dist/niui.min.js type=module defer></script> -->
+<!-- 	<script src="src/script/niui.js" type="module" defer onload="nui.copyButton(document.getElementById('copybutton'), document.getElementById('copycontent'));"></script> -->
 	
 	<style>
 		
@@ -252,39 +252,40 @@
 							
 							</div>
 							
+							<select>
+								
+								<option>Option 1</option>
+								<option>Option 2</option>
+								<option>Option 3</option>
+								<option>Oslo 4</option>
+								<option>Option 5</option>
+								<option>Option 6</option>
+								<option>Option 7</option>
+								<option>Option 8</option>
+								<option>Option 9</option>
+								<option>Option 10</option>
+								<option>Option 11</option>
+								<option>Option 12</option>
+								<option>Option 13</option>
+								<option>Option 14</option>
+								<option>Option 15</option>
+								<option>Option 16</option>
+								<option>Option 17</option>
+								<option>Option 18</option>
+								<option>Option 19</option>
+								<option>Option 20</option>
+								<option>Option 21</option>
+								<option>Option 22</option>
+								<option>Option 23</option>
+								<option>Option 24</option>
+								<option>Austria</option>
+								<option>Australia</option>
+								<option>Starting with other than O</option>
+	
+							</select>
+
 						</div>
 						
-						<select>
-							
-							<option>Option 1</option>
-							<option>Option 2</option>
-							<option>Option 3</option>
-							<option>Oslo 4</option>
-							<option>Option 5</option>
-							<option>Option 6</option>
-							<option>Option 7</option>
-							<option>Option 8</option>
-							<option>Option 9</option>
-							<option>Option 10</option>
-							<option>Option 11</option>
-							<option>Option 12</option>
-							<option>Option 13</option>
-							<option>Option 14</option>
-							<option>Option 15</option>
-							<option>Option 16</option>
-							<option>Option 17</option>
-							<option>Option 18</option>
-							<option>Option 19</option>
-							<option>Option 20</option>
-							<option>Option 21</option>
-							<option>Option 22</option>
-							<option>Option 23</option>
-							<option>Option 24</option>
-							<option>Austria</option>
-							<option>Australia</option>
-							<option>Starting with other than O</option>
-
-						</select>
 <br><br>						
 
 						<a>Pre</a>
@@ -299,6 +300,14 @@
 							
 							</div>
 							
+							<select>
+								
+								<option>Option 1</option>
+								<option>Option 2</option>
+								<option>Option 3</option>
+	
+							</select>
+
 						</div>
 						
 						<a>Post</a>
@@ -307,9 +316,9 @@
 
 						<a>Pre</a>
 						
-						<div class="n-select">
+						<div class="n-select" style="--control-bg: transparent; --control-color: #333;">
 							
-							<div class="n-select--options">
+							<div class="n-select--options n-select__shadow" style="--control-bg: transparent; --control-color: #333;">
 							
 								<button>Inline select which is too long to fit here in this inline space</button>
 								<button>Option 1</button>
@@ -504,7 +513,7 @@
 						
 						<style> /* Rich select theme */
 							
-							.n-select--options {
+							.n-select, .n-select--options {
 							
 							    --control-color: #F1EEDB;
 							    --control-bg: #725368;
