@@ -929,6 +929,7 @@ Theme:
     height: 0;
     width: 0;
     padding: 0;
+    visibility: hidden;
   }
 }
 @keyframes n-select-native {
@@ -1034,7 +1035,6 @@ body.n-select--open {
   -khtml-user-select: none;
   -moz-user-select: none;
   user-select: none;
-  animation-name: n-select;
 }
 .n-select--options button {
   -webkit-appearance: none;
