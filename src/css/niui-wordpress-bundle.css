@@ -1199,6 +1199,8 @@ Theme:
 @keyframes n-select-native {
   100% {
     height: auto;
+    width: auto;
+    padding: var(--padding, 0.5em);
     position: static;
   }
 }
@@ -1230,13 +1232,14 @@ body.n-select--open {
 .n-select:before {
   content: "";
   position: absolute;
+  cursor: pointer;
   background-color: var(--control-color, #fff);
   --chevron: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16.003 18.626l7.081-7.081L25 13.46l-8.997 8.998-9.003-9 1.917-1.916z'/%3E%3C/svg%3E");
   -webkit-mask: var(--chevron) no-repeat 0 0/contain;
   mask: var(--chevron) no-repeat 0 0/contain;
   width: 0.75em;
   height: 0.75em;
-  right: 0.3em;
+  right: 0.4em;
   top: 0.7em;
 }
 .n-select:after {
@@ -1255,6 +1258,8 @@ body.n-select--open {
   appearance: none;
   border: none;
   height: 0;
+  width: 0;
+  padding: 0;
   vertical-align: top;
 }
 .n-select:not([data-ready]) .n-select--options {
@@ -1285,7 +1290,7 @@ body.n-select--open {
 
 .n-select select {
   padding: var(--padding, 0.5em);
-  padding-inline-end: 1.5em;
+  padding-inline-end: 2em;
   cursor: pointer;
 }
 

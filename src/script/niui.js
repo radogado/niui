@@ -1397,7 +1397,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 
 	let pointerDownSelect = e => {
 		
-		let select = e.target.closest('.n-select--options');
+		let select = e.target.closest('.n-select--options') || e.target.querySelector('.n-select--options');
 		
 		console.log(e.type, e.target);
 
@@ -1600,11 +1600,11 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		host.querySelectorAll('.n-select:not([data-ready])').forEach(el => {
 			
 			let wrapper = el;
-			el = el.children[0]; // Work with the inner wrapper
+			el = el.querySelector('.n-select--options'); // Work with the inner wrapper
 			el.nuiSelectWrapper = wrapper;
 			el.classList.add('n-select--options');
 			
-			el.nuiNativeSelect = nextMatchingSibling(el.nuiSelectWrapper, 'select') || el.nuiSelectWrapper.querySelector('select') || document.querySelector(`[data-n_select="${el.nuiSelectWrapper.dataset.n_select}"]`); // As a sibling, child or data-n_select match (where data-n_select is the rich select's data-n_select attribute)
+			el.nuiNativeSelect = el.nuiSelectWrapper.querySelector('select') || nextMatchingSibling(el.nuiSelectWrapper, 'select') || document.querySelector(`[data-n_select="${el.nuiSelectWrapper.dataset.n_select}"]`); // As a sibling, child or data-n_select match (where data-n_select is the rich select's data-n_select attribute)
 			
 			// Set native select's value
 			
@@ -1659,7 +1659,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 			});
 		*/
 		
-			el.addEventListener('pointerdown', pointerDownSelect);
+			wrapper.addEventListener('pointerdown', pointerDownSelect);
 	
 			el.addEventListener('click', clickSelect); // Selects a clicked (pointer upped) option
 			
