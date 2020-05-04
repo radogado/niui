@@ -1421,6 +1421,11 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 			
 			let wrapper = el;
 			el = el.querySelector('.n-select--options'); // Work with the inner wrapper
+			if (!el) {
+				
+				return;
+
+			}
 			el.nuiSelectWrapper = wrapper;
 			el.classList.add('n-select--options');
 			

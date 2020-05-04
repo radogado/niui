@@ -56,6 +56,8 @@ body.n-select--open {
 	width: var(--width, auto);
 	--padding: .5em;
 	line-height: 1.3;
+	z-index: 0;
+    background-color: var(--control-bg,#fff);
 
 	&[data-ready] {
 		
@@ -87,6 +89,7 @@ body.n-select--open {
 		height: .75em;
 		right: .4em;
 		top: .7em;
+		z-index: -1;
 
 	}
 		
@@ -154,7 +157,7 @@ body.n-select--open {
 	width: var(--inline-width);
     max-width: 100%;
     color: var(--control-color, #333);
-	background-color: var(--control-bg, #fff);
+	background-color: transparent;
 	top: 0;
 	z-index: 5;
 	box-sizing: border-box;
