@@ -25,6 +25,7 @@ Theme:
     width: auto;
     padding: var(--padding, 0.5em);
     position: static;
+    margin-inline-end: 1.167em;
   }
 }
 body.n-select--open {
@@ -73,7 +74,7 @@ body.n-select--open {
   top: 0;
   z-index: 5;
 }
-.n-select:not([data-ready]) .n-select--options, .n-select:not([data-ready]) .n-select--options > *, .n-select:not([data-ready]) select {
+.n-select:not([data-ready]) .n-select--options, .n-select:not([data-ready]) select {
   animation-duration: 0.1s;
   animation-fill-mode: forwards;
   animation-delay: 2s;
@@ -268,7 +269,7 @@ select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + sel
   display: none;
 }
 
-.n-form__wide .n-select, .n-form__wide .n-select--options {
+.n-form__wide .n-select, .n-form__wide .n-select--options, .n-form__wide .n-select select {
   width: 100%;
 }
 
