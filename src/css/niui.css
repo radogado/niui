@@ -1190,19 +1190,25 @@ Theme:
 */
 @keyframes n-select {
   100% {
-    height: 0;
-    width: 0;
-    padding: 0;
-    visibility: hidden;
+    /*
+    	    height: 0;
+    	    width: 0;
+    	    padding: 0;
+    	    visibility: hidden;
+    */
+    opacity: 0;
   }
 }
 @keyframes n-select-native {
   100% {
-    height: auto;
-    width: auto;
-    padding: var(--padding, 0.5em);
-    position: static;
-    margin-inline-end: 1.167em;
+    /*
+    	    height: auto;
+    	    width: auto;
+    	    padding: var(--padding, .5em);
+    	    position: static;
+    	    margin-inline-end: 1.167em;
+    */
+    opacity: 1;
   }
 }
 body.n-select--open {
@@ -1261,10 +1267,19 @@ body.n-select--open {
   -webkit-appearance: none;
   appearance: none;
   border: none;
-  height: 0;
-  width: 0;
+  /*
+  			height: 0;
+  			width: 0;
+  */
   padding: 0;
-  vertical-align: top;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding-inline-start: 0.67em;
 }
 .n-select:not([data-ready]) .n-select--options {
   display: inline-grid;

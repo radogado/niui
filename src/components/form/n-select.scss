@@ -18,10 +18,13 @@ Theme:
     
     100% {
 	    
+/*
 	    height: 0;
 	    width: 0;
 	    padding: 0;
 	    visibility: hidden;
+*/
+		opacity: 0;
 	    
     }
     
@@ -31,11 +34,15 @@ Theme:
     
     100% {
 	    
+/*
 	    height: auto;
 	    width: auto;
 	    padding: var(--padding, .5em);
 	    position: static;
 	    margin-inline-end: 1.167em;
+*/
+		
+		opacity: 1;
 
     }
     
@@ -122,12 +129,21 @@ body.n-select--open {
 			-webkit-appearance: none;
 			appearance: none;
 			border: none;
+/*
 			height: 0;
 			width: 0;
+*/
 			padding: 0;
 // 			margin-inline-end: 1.167em;
-			vertical-align: top;
-// 			position: absolute;
+// 			vertical-align: top;
+			opacity: 0;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			padding-inline-start: .67em;
 		
 		}
 
