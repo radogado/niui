@@ -1545,42 +1545,26 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 			
 			default: { // Filter options by text entered by keyboard
 				
-				if (typeof select.nuiFilterIndex === 'undefined') {
-					
-					select.nuiFilterIndex = 0;
-					
-				} else {
-					
-					select.nuiFilterIndex++;
-					
-				}
-				
+				select.nuiSearchTerm += e.key.toLowerCase();
 				clearTimeout(timeout);
 				
 				timeout = setTimeout(() => {
 					
-					delete select.nuiFilterIndex;
-					
-				}, 1000);
-					
-				for (let el of select.querySelectorAll('button')) {
-					
-					// Add to string unless too much time has passed (2"?)
-					
-					if (el.textContent.trim().length > select.nuiFilterIndex && el.textContent.trim()[select.nuiFilterIndex].toLowerCase() === e.key.toLowerCase()) {
+					// select the option that starts with select.nuiSearchTerm
+					for (let el of select.querySelectorAll('button')) {
 						
-						if (!select.hasAttribute('aria-expanded')) {
-	
+						if (el.value.toLowerCase().startsWith(select.nuiSearchTerm)) {
+							
 							selectOption(el);
 							
 						}
-						el.focus();
-						break;
 						
 					}
+								
+					select.nuiSearchTerm = '';
 					
-				}
-				
+				}, 200);
+					
 			}
 
 		}
@@ -1722,6 +1706,7 @@ console.log('relatedTarget', e.relatedTarget);
 			wrapper.style.setProperty('--inline-width', `${el.getBoundingClientRect().width}px`);
 
 			selectOption(el.querySelector('[aria-selected]') || el.querySelector('button')); // Select the first option by default
+			el.nuiSearchTerm = '';
 			
 			wrapper.dataset.ready = true;
 		
