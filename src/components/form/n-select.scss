@@ -60,7 +60,7 @@ body.n-select--open {
 	
 	position: relative;
 	height: var(--active-option-height, auto);
-	display: inline-block;
+	display: inline-grid;
 	vertical-align: middle;
 	max-width: 100%;
 	width: var(--width, auto);
@@ -139,13 +139,17 @@ body.n-select--open {
 // 			margin-inline-end: 1.167em;
 // 			vertical-align: top;
 			opacity: 0;
+/*
 			position: absolute;
 			top: 0;
 			right: 0;
 			bottom: 0;
 			left: 0;
+*/
 			width: 100%;
-			padding-inline-start: .67em;
+			padding-inline-start: .5em;
+			padding-inline-end: 1.8em;
+			line-height: 2.25;
 		
 		}
 
@@ -186,6 +190,9 @@ body.n-select--open {
     font: inherit;
     border-radius: 0;
     border: none;
+    
+    grid-column: 1/1;
+    grid-row: 1/1;
 
 }
 

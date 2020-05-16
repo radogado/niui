@@ -1411,10 +1411,29 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		host.querySelectorAll('.n-select:not([data-ready])').forEach(el => {
 			
 			let wrapper = el;
+			
+			if (el.tagName === 'SELECT') {
+				
+				return;
+
+			}
+			
 			el = el.querySelector('.n-select--options'); // Work with the inner wrapper
 			if (!el) {
 				
-				return;
+// 				return; 
+				
+				// Or generate it from the native select and attach as n-select's first child. If only native is needed, then use only select.n-select
+				el = document.createElement('div');
+				let native_select = wrapper.querySelector('select');
+				let options = '';
+				[...native_select.children].forEach(el => {
+					
+					options += `<button value="${el.value}">${el.textContent}</button>`;
+					
+				});
+				el.insertAdjacentHTML('beforeend', options);
+				wrapper.appendChild(el);
 
 			}
 			el.nuiSelectWrapper = wrapper;
