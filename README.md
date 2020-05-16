@@ -1,4 +1,4 @@
-# niui: mostly native front-end framework/library/toolkit
+# niui: mostly native front-end library
 
 
 A lightweight framework leveraging browsers' built-in capabilities, with subtle and powerful customisation. 
