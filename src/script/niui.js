@@ -1382,7 +1382,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	};
 	
 	let clickSelect = e => {
-		
+
 		let select = e.target.closest('.n-select--options');
 		
 		console.log(e.type, e.target);
@@ -1424,6 +1424,13 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		}
 
 		selectOption(el);
+
+		document.body.style.pointerEvents = 'none'; // Prevent iPad from clicking the element behind
+		setTimeout(() => {
+			
+			document.body.style.pointerEvents = '';
+			
+		}, 100);
 		
 	};
 
