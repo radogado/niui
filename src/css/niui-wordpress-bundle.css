@@ -1213,6 +1213,8 @@ Theme:
 }
 body.n-select--open {
   overflow: hidden;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .n-select {
