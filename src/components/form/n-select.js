@@ -175,7 +175,6 @@
 			
 		window.addEventListener('resize', closeSelectOnResize);
 		document.body.addEventListener('click', clickOutsideSelect);
-		select.addEventListener('pointerup', pointerUpSelect);
 		!!nuiDisableBodyScroll && nuiDisableBodyScroll(true, select);
 				
 	}
@@ -521,6 +520,7 @@ console.log('relatedTarget', e.relatedTarget);
 				el.style.removeProperty('--mask-position-y');
 				el.style.removeProperty('--mask-size-y');
 				delete el.dataset.nSelectAnimation;
+				el.addEventListener('pointerup', pointerUpSelect);
 				
 			};
 
