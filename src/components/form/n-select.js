@@ -84,6 +84,7 @@
 		select.removeEventListener('pointerup', pointerUpSelect);
 		let wrapper = select.parentNode;
 		wrapper.style.removeProperty('--width');
+		!!nuiDisableBodyScroll && nuiDisableBodyScroll(false, select);
 
 	}
 
@@ -175,6 +176,7 @@
 		window.addEventListener('resize', closeSelectOnResize);
 		document.body.addEventListener('click', clickOutsideSelect);
 		select.addEventListener('pointerup', pointerUpSelect);
+		!!nuiDisableBodyScroll && nuiDisableBodyScroll(true, select);
 				
 	}
 	

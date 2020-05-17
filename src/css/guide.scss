@@ -93,7 +93,7 @@ main > 	._3\/4 > .n-slider--wrap > .n-slider.n-slider__vertical > * {
 	
 	max-height: 100%; // Because sliding animates to full slide height
 	min-height: 100%; // Because of slides shorter than viewport
-	overflow: auto;
+	overflow-y: auto;
 	background: #fffff5;
 	will-change: scroll;
 	
