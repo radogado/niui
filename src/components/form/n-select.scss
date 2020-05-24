@@ -18,12 +18,6 @@ Theme:
     
     100% {
 	    
-/*
-	    height: 0;
-	    width: 0;
-	    padding: 0;
-	    visibility: hidden;
-*/
 		opacity: 0;
 	    
     }
@@ -34,14 +28,6 @@ Theme:
     
     100% {
 	    
-/*
-	    height: auto;
-	    width: auto;
-	    padding: var(--padding, .5em);
-	    position: static;
-	    margin-inline-end: 1.167em;
-*/
-		
 		opacity: 1;
 
     }
@@ -127,25 +113,10 @@ body.n-select--open {
 	    
 		select {
 		    
-		    animation-name: n-select-native;
 			-webkit-appearance: none;
 			appearance: none;
 			border: none;
-/*
-			height: 0;
-			width: 0;
-*/
 			padding: 0;
-// 			margin-inline-end: 1.167em;
-// 			vertical-align: top;
-			opacity: 0;
-/*
-			position: absolute;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-*/
 			width: 100%;
 			padding-inline-start: .5em;
 			padding-inline-end: 1.8em;
@@ -170,6 +141,13 @@ body.n-select--open {
 				
 			}
 		
+			~ select {
+	
+			    animation-name: n-select-native;
+				opacity: 0;
+			
+			}
+		
 		}
 
 	}
@@ -178,7 +156,7 @@ body.n-select--open {
 
 .n-select--options, .n-select select {
 	
-	width: var(--inline-width);
+	width: auto;
     max-width: 100%;
     color: var(--control-color, #333);
 	background-color: transparent;
@@ -193,6 +171,7 @@ body.n-select--open {
     
     grid-column: 1/1;
     grid-row: 1/1;
+    overflow: hidden;
 
 }
 
