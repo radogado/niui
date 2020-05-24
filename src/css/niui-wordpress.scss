@@ -137,7 +137,7 @@ button.search-submit {
 	margin: .5em -.7em;	
 	display: flex;
 	flex-wrap: wrap;
-
+    max-width: 100%;
 	margin: 1rem 0;
 	
 	a {
@@ -182,6 +182,7 @@ body {
 			max-height: 20em;
 			overflow: hidden;
 			position: relative;
+			max-width: 100%;
 		
 		}
 	

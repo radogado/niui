@@ -97,6 +97,7 @@ button.search-submit {
   margin: 0.5em -0.7em;
   display: flex;
   flex-wrap: wrap;
+  max-width: 100%;
   margin: 1rem 0;
 }
 .n-lightbox.gallery a {
@@ -128,6 +129,7 @@ body.home .n-lightbox.gallery, body.archive .n-lightbox.gallery, body.search-res
   max-height: 20em;
   overflow: hidden;
   position: relative;
+  max-width: 100%;
 }
 body.home .n-lightbox.gallery:before, body.archive .n-lightbox.gallery:before, body.search-results .n-lightbox.gallery:before {
   content: "";
