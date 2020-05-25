@@ -205,7 +205,7 @@
 
 		let select = e.target.closest('.n-select--options');
 		
-		console.log(e.type, e.target);
+/* 		console.log(e.type, e.target); */
 
 		if (select.hasAttribute('aria-expanded')) { // Open
 		
@@ -219,7 +219,7 @@
 		
 		let select = e.target.closest('.n-select--options') || e.target.querySelector('.n-select--options');
 		
-		console.log(e.type, e.target);
+/* 		console.log(e.type, e.target); */
 
 		if (!select.hasAttribute('aria-expanded')) { // Closed
 		
@@ -235,7 +235,7 @@
 		let el = e.target.closest('button');
 		let select = e.target.closest('.n-select--options');
 
-		console.log(e.type, e.target, e.target.value);
+/* 		console.log(e.type, e.target, e.target.value); */
 
 		if (!select.hasAttribute('aria-expanded') || el.hasAttribute('aria-selected')) {
 			
@@ -269,7 +269,7 @@
 
 	let selectKeyboard = e => {
 		
-				console.log(e.target, e.key, e.keyCode);
+/* 				console.log(e.target, e.key, e.keyCode); */
 				
 		if (e.target.tagName === 'SELECT') {
 			
@@ -504,7 +504,7 @@
 
 				// If relatedTarget isn't a sibling, close and focus on select wrapper
 
-console.log('relatedTarget', e.relatedTarget);				
+/* console.log('relatedTarget', e.relatedTarget);				 */
 				if (select.hasAttribute('aria-expanded') && !!e.relatedTarget && e.relatedTarget.parentNode !== select) {
 					
 					closeSelect(select);
@@ -530,7 +530,7 @@ console.log('relatedTarget', e.relatedTarget);
 			wrapper.addEventListener('keyup', trapKeyboard);
 						
 			el.lastElementChild.onkeydown = e => { // Close select on tab outside. To do: get last button only
-			console.log(e);
+// 			console.log(e);
 				if (e.key === 'Tab' && !e.shiftKey && e.target.parentNode.hasAttribute('aria-expanded')) {
 			
 					closeSelect(e.target.parentNode);

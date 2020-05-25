@@ -63,7 +63,8 @@ body.n-select--open {
 		> .n-select--options > :not([aria-selected]) {
 		
     		height: 0;
-			padding: 0;
+			padding-top: 0;
+			padding-bottom: 0;
 			visibility: hidden;
 			overflow: hidden;
 			display: block;
