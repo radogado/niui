@@ -237,7 +237,7 @@
 
 /* 		console.log(e.type, e.target, e.target.value); */
 
-		if (!select.hasAttribute('aria-expanded') || el.hasAttribute('aria-selected')) {
+		if (!el || !select.hasAttribute('aria-expanded') || el.hasAttribute('aria-selected')) {
 			
 			return;
 
@@ -421,19 +421,17 @@
 			el = el.querySelector('.n-select--options'); // Work with the inner wrapper
 			if (!el) {
 				
-// 				return; 
-				
-				// Or generate it from the native select and attach as n-select's first child. If only native is needed, then use only select.n-select
-				el = document.createElement('div');
-				let native_select = wrapper.querySelector('select');
+				// Or generate it from the native select and attach as n-select's first child. If only native is needed, then use only select.n-select?
 				let options = '';
-				[...native_select.children].forEach(el => {
+				wrapper.querySelectorAll('option').forEach(el => {
 					
 					options += `<button value="${el.value}">${el.textContent}</button>`;
 					
 				});
+
+				el = document.createElement('div');
 				el.insertAdjacentHTML('beforeend', options);
-				wrapper.appendChild(el);
+				wrapper.prepend(el);
 
 			}
 			el.nuiSelectWrapper = wrapper;
