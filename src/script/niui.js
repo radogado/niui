@@ -1240,7 +1240,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	
 	//									let options = select.querySelectorAll('button');
 	// 								select_native.options[[...options].indexOf(el)].selected = true; // Enable the native option index-matching this button
-			select_native.value = select_native.children[index].textContent;
+			select_native.value = select.children[index].value;
 		
 		}
 		
@@ -1257,7 +1257,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		delete select.dataset.nSelectAnimation;
 		select.removeAttribute('aria-expanded');
 		document.body.classList.remove('n-select--open');
-		select.nuiSelectWrapper.appendChild(select);
+		select.nuiSelectWrapper.prepend(select);
 		window.removeEventListener('resize', closeSelectOnResize);
 		select.querySelector('[aria-selected]').tabIndex = -1;
 		window.requestAnimationFrame(t => select.nuiSelectWrapper.focus());
@@ -1466,6 +1466,12 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 			
 			select = e.target.querySelector('.n-select--options');
 			
+		}
+		
+		if (!select) {
+			
+			return;
+
 		}
 		
 		switch (e.key) {
