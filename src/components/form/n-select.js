@@ -395,9 +395,10 @@
 					// select the option that starts with select.nuiSearchTerm
 					for (let el of select.querySelectorAll('button')) {
 						
-						if (el.value.toLowerCase().startsWith(select.nuiSearchTerm)) {
+						if (el.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").startsWith(select.nuiSearchTerm.normalize("NFD").replace(/[\u0300-\u036f]/g, ""))) { // Fuzzy logic for umlauts etc
 							
 							selectOption(el);
+							break;
 							
 						}
 						
