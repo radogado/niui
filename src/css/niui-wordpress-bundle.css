@@ -1259,7 +1259,7 @@ body.n-select--open {
   padding: 0;
   width: 100%;
   padding-inline-start: 0.5em;
-  padding-inline-end: 1.8em;
+  padding-inline-end: 1.961em;
   line-height: 2.25;
 }
 .n-select:not([data-ready]) .n-select--options {
@@ -1297,7 +1297,7 @@ body.n-select--open {
 
 .n-select select {
   padding: var(--padding, 0.5em);
-  padding-inline-end: 2em;
+  padding-inline-end: 1.961em;
   cursor: pointer;
 }
 
