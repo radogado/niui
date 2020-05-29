@@ -1001,9 +1001,11 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 // Component Form – end
 ;(function (){
 
+	let getSelect = el => el.closest('.n-select--options');
+
 	let clickOutsideSelect = e => {
 		
-		if (!e.target.closest('.n-select--options') && !e.target.closest('.n-select')) {
+		if (!getSelect(e.target) && !e.target.closest('.n-select')) {
 			
 			document.querySelectorAll('.n-select--options[aria-expanded]:not([data-n-select-animation])').forEach(select => {
 				
@@ -1204,9 +1206,16 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	
 	let clickSelect = e => {
 
-		let select = e.target.closest('.n-select--options');
+		let select = getSelect(e.target);
 		
-/* 		console.log(e.type, e.target); */
+		console.log(e.type, e.target);
+		
+		if (!!e.target.href) {
+			
+			closeSelect(select);
+			return;
+			
+		}
 
 		if (select.hasAttribute('aria-expanded')) { // Open
 		
@@ -1218,7 +1227,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 
 	let pointerDownSelect = e => {
 		
-		let select = e.target.closest('.n-select--options') || e.target.querySelector('.n-select--options');
+		let select = getSelect(e.target) || e.target.querySelector('.n-select--options');
 		
 /* 		console.log(e.type, e.target); */
 
@@ -1234,7 +1243,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		
 		
 		let el = e.target.closest('button');
-		let select = e.target.closest('.n-select--options');
+		let select = getSelect(e.target);
 
 /* 		console.log(e.type, e.target, e.target.value); */
 
@@ -1280,7 +1289,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 
 		trapKeyboard(e);	
 		
-		let select = e.target.closest('.n-select--options');
+		let select = getSelect(e.target);
 		
 		if (e.target.classList.contains('n-select')) {
 			
@@ -1322,7 +1331,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 					
 				} else {
 					
-					let sibling = nextMatchingSibling(e.target, 'button');
+					let sibling = nextMatchingSibling(e.target, 'button, a[href]');
 					if (sibling) {
 
 						sibling.focus();
@@ -1346,7 +1355,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 					
 				} else {
 
-					let sibling = previousMatchingSibling(e.target, 'button');
+					let sibling = previousMatchingSibling(e.target, 'button, a[href]');
 					if (sibling) {
 
 						sibling.focus();
@@ -1505,7 +1514,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 			
 			el.addEventListener('focusout', e => {
 
-				let select = e.target.closest('.n-select--options');
+				let select = getSelect(e.target);
 
 				// If relatedTarget isn't a sibling, close and focus on select wrapper
 
