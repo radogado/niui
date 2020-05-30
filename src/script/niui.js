@@ -1750,6 +1750,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 			el.nuiSearchTerm = '';
 			
 			wrapper.dataset.ready = true;
+			wrapper.style.setProperty('--active-option-height', `${el.querySelector('[aria-selected]').getBoundingClientRect().height}px`);
 		
 		});
 	
