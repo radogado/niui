@@ -1211,7 +1211,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 
 		let select = e.target.closest('.n-select--options');
 		
-/* 		console.log(e.type, e.target); */
+// 		console.log(e.type, e.target);
 
 		if (select.hasAttribute('aria-expanded')) { // Open
 		
@@ -1225,11 +1225,15 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		
 		let select = e.target.closest('.n-select--options') || e.target.querySelector('.n-select--options');
 		
-/* 		console.log(e.type, e.target); */
+// 		console.log(e.type, e.target);
 
 		if (!select.hasAttribute('aria-expanded')) { // Closed
 		
 			openSelect(select);
+			
+			// Prevent the click event from closing it right away
+			select.removeEventListener('click', clickSelect);
+			setTimeout(() => { select.addEventListener('click', clickSelect) }, 100);
 
 		}
 		
@@ -1241,7 +1245,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		let el = e.target.closest('button');
 		let select = e.target.closest('.n-select--options');
 
-/* 		console.log(e.type, e.target, e.target.value); */
+// 		console.log(e.type, e.target, e.target.value);
 
 		if (!el || !select.hasAttribute('aria-expanded') || el.hasAttribute('aria-selected')) {
 			
