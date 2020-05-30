@@ -465,19 +465,24 @@ function animate(el, animation_code, duration, callback) { // Animate with CSS A
 
 // To do: add animation-fill-mode: forwards to keep the end state
 
-	if (!el.dataset.animation && animationEndEvent) {
+	if (!el.dataset.nuiAnimation && animationEndEvent) {
 
 		el.addEventListener(animationEndEvent, function animationEndHandler(e) {
 			
-			stopEvent(e);
-			var el = e.target; 
-			document.head.removeChild(q('.' + el.dataset.animation));
-			delete el.dataset.animation;
-	 		el.removeEventListener(animationEndEvent, animationEndHandler);
-			if (typeof callback === 'function') {
-		
-				callback();
-		
+			var el = e.target;
+			
+			if (!!el.dataset.nuiAnimation) {
+			
+				stopEvent(e);
+				document.head.removeChild(q('.' + el.dataset.nuiAnimation));
+				delete el.dataset.nuiAnimation;
+		 		el.removeEventListener(animationEndEvent, animationEndHandler);
+				if (typeof callback === 'function') {
+			
+					callback();
+			
+				}
+			
 			}
 		
 		}, false);
@@ -485,11 +490,11 @@ function animate(el, animation_code, duration, callback) { // Animate with CSS A
 		var animation_name = `a${Math.round((Math.random()*1000000),10)}`; // Unique animation name
 
 		var styles = document.createElement('style');
-		styles.innerHTML = `@keyframes ${animation_name} {${animation_code}} [data-animation=${animation_name}] { animation-name: ${animation_name}; animation-duration: ${(!duration ? .2 : duration)}s; }`; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
+		styles.innerHTML = `@keyframes ${animation_name} {${animation_code}} [data-nui-animation=${animation_name}] { animation-name: ${animation_name}; animation-duration: ${(!duration ? .2 : duration)}s; }`; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
 		document.head.appendChild(styles);
 		addClass(styles, animation_name);
 
-		el.dataset.animation = animation_name;
+		el.dataset.nuiAnimation = animation_name;
 	
 	}
 	

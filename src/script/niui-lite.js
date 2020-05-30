@@ -465,19 +465,24 @@ function animate(el, animation_code, duration, callback) { // Animate with CSS A
 
 // To do: add animation-fill-mode: forwards to keep the end state
 
-	if (!el.dataset.animation && animationEndEvent) {
+	if (!el.dataset.nuiAnimation && animationEndEvent) {
 
 		el.addEventListener(animationEndEvent, function animationEndHandler(e) {
 			
-			stopEvent(e);
-			var el = e.target; 
-			document.head.removeChild(q('.' + el.dataset.animation));
-			delete el.dataset.animation;
-	 		el.removeEventListener(animationEndEvent, animationEndHandler);
-			if (typeof callback === 'function') {
-		
-				callback();
-		
+			var el = e.target;
+			
+			if (!!el.dataset.nuiAnimation) {
+			
+				stopEvent(e);
+				document.head.removeChild(q('.' + el.dataset.nuiAnimation));
+				delete el.dataset.nuiAnimation;
+		 		el.removeEventListener(animationEndEvent, animationEndHandler);
+				if (typeof callback === 'function') {
+			
+					callback();
+			
+				}
+			
 			}
 		
 		}, false);
@@ -485,11 +490,11 @@ function animate(el, animation_code, duration, callback) { // Animate with CSS A
 		var animation_name = `a${Math.round((Math.random()*1000000),10)}`; // Unique animation name
 
 		var styles = document.createElement('style');
-		styles.innerHTML = `@keyframes ${animation_name} {${animation_code}} [data-animation=${animation_name}] { animation-name: ${animation_name}; animation-duration: ${(!duration ? .2 : duration)}s; }`; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
+		styles.innerHTML = `@keyframes ${animation_name} {${animation_code}} [data-nui-animation=${animation_name}] { animation-name: ${animation_name}; animation-duration: ${(!duration ? .2 : duration)}s; }`; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
 		document.head.appendChild(styles);
 		addClass(styles, animation_name);
 
-		el.dataset.animation = animation_name;
+		el.dataset.nuiAnimation = animation_name;
 	
 	}
 	
@@ -1001,11 +1006,9 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 // Component Form – end
 ;(function (){
 
-	let getSelect = el => el.closest('.n-select--options');
-
 	let clickOutsideSelect = e => {
 		
-		if (!getSelect(e.target) && !e.target.closest('.n-select')) {
+		if (!e.target.closest('.n-select--options') && !e.target.closest('.n-select')) {
 			
 			document.querySelectorAll('.n-select--options[aria-expanded]:not([data-n-select-animation])').forEach(select => {
 				
@@ -1206,16 +1209,9 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	
 	let clickSelect = e => {
 
-		let select = getSelect(e.target);
+		let select = e.target.closest('.n-select--options');
 		
-		console.log(e.type, e.target);
-		
-		if (!!e.target.href) {
-			
-			closeSelect(select);
-			return;
-			
-		}
+/* 		console.log(e.type, e.target); */
 
 		if (select.hasAttribute('aria-expanded')) { // Open
 		
@@ -1227,7 +1223,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 
 	let pointerDownSelect = e => {
 		
-		let select = getSelect(e.target) || e.target.querySelector('.n-select--options');
+		let select = e.target.closest('.n-select--options') || e.target.querySelector('.n-select--options');
 		
 /* 		console.log(e.type, e.target); */
 
@@ -1243,7 +1239,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		
 		
 		let el = e.target.closest('button');
-		let select = getSelect(e.target);
+		let select = e.target.closest('.n-select--options');
 
 /* 		console.log(e.type, e.target, e.target.value); */
 
@@ -1289,7 +1285,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 
 		trapKeyboard(e);	
 		
-		let select = getSelect(e.target);
+		let select = e.target.closest('.n-select--options');
 		
 		if (e.target.classList.contains('n-select')) {
 			
@@ -1331,7 +1327,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 					
 				} else {
 					
-					let sibling = nextMatchingSibling(e.target, 'button, a[href]');
+					let sibling = nextMatchingSibling(e.target, 'button');
 					if (sibling) {
 
 						sibling.focus();
@@ -1355,7 +1351,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 					
 				} else {
 
-					let sibling = previousMatchingSibling(e.target, 'button, a[href]');
+					let sibling = previousMatchingSibling(e.target, 'button');
 					if (sibling) {
 
 						sibling.focus();
@@ -1396,10 +1392,9 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 					// select the option that starts with select.nuiSearchTerm
 					for (let el of select.querySelectorAll('button')) {
 						
-						if (el.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").startsWith(select.nuiSearchTerm.normalize("NFD").replace(/[\u0300-\u036f]/g, ""))) { // Fuzzy logic for umlauts etc
+						if (el.value.toLowerCase().startsWith(select.nuiSearchTerm)) {
 							
 							selectOption(el);
-							break;
 							
 						}
 						
@@ -1515,7 +1510,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 			
 			el.addEventListener('focusout', e => {
 
-				let select = getSelect(e.target);
+				let select = e.target.closest('.n-select--options');
 
 				// If relatedTarget isn't a sibling, close and focus on select wrapper
 

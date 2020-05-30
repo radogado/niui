@@ -1,10 +1,8 @@
 (function (){
 
-	let getSelect = el => el.closest('.n-select--options');
-
 	let clickOutsideSelect = e => {
 		
-		if (!getSelect(e.target) && !e.target.closest('.n-select')) {
+		if (!e.target.closest('.n-select--options') && !e.target.closest('.n-select')) {
 			
 			document.querySelectorAll('.n-select--options[aria-expanded]:not([data-n-select-animation])').forEach(select => {
 				
@@ -205,16 +203,9 @@
 	
 	let clickSelect = e => {
 
-		let select = getSelect(e.target);
+		let select = e.target.closest('.n-select--options');
 		
-		console.log(e.type, e.target);
-		
-		if (!!e.target.href) {
-			
-			closeSelect(select);
-			return;
-			
-		}
+/* 		console.log(e.type, e.target); */
 
 		if (select.hasAttribute('aria-expanded')) { // Open
 		
@@ -226,7 +217,7 @@
 
 	let pointerDownSelect = e => {
 		
-		let select = getSelect(e.target) || e.target.querySelector('.n-select--options');
+		let select = e.target.closest('.n-select--options') || e.target.querySelector('.n-select--options');
 		
 /* 		console.log(e.type, e.target); */
 
@@ -242,7 +233,7 @@
 		
 		
 		let el = e.target.closest('button');
-		let select = getSelect(e.target);
+		let select = e.target.closest('.n-select--options');
 
 /* 		console.log(e.type, e.target, e.target.value); */
 
@@ -288,7 +279,7 @@
 
 		trapKeyboard(e);	
 		
-		let select = getSelect(e.target);
+		let select = e.target.closest('.n-select--options');
 		
 		if (e.target.classList.contains('n-select')) {
 			
@@ -330,7 +321,7 @@
 					
 				} else {
 					
-					let sibling = nextMatchingSibling(e.target, 'button, a[href]');
+					let sibling = nextMatchingSibling(e.target, 'button');
 					if (sibling) {
 
 						sibling.focus();
@@ -354,7 +345,7 @@
 					
 				} else {
 
-					let sibling = previousMatchingSibling(e.target, 'button, a[href]');
+					let sibling = previousMatchingSibling(e.target, 'button');
 					if (sibling) {
 
 						sibling.focus();
@@ -395,10 +386,9 @@
 					// select the option that starts with select.nuiSearchTerm
 					for (let el of select.querySelectorAll('button')) {
 						
-						if (el.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").startsWith(select.nuiSearchTerm.normalize("NFD").replace(/[\u0300-\u036f]/g, ""))) { // Fuzzy logic for umlauts etc
+						if (el.value.toLowerCase().startsWith(select.nuiSearchTerm)) {
 							
 							selectOption(el);
-							break;
 							
 						}
 						
@@ -514,7 +504,7 @@
 			
 			el.addEventListener('focusout', e => {
 
-				let select = getSelect(e.target);
+				let select = e.target.closest('.n-select--options');
 
 				// If relatedTarget isn't a sibling, close and focus on select wrapper
 

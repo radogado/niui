@@ -138,7 +138,7 @@ a[href].span-relative-parent {
   left: 0;
 }
 
-[data-animation] {
+[data-nui-animation] {
   pointer-events: none;
 }
 
