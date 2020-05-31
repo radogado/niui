@@ -244,19 +244,26 @@
 
 	let pointerUpSelect = e => {
 		
-		
 		let el = e.target.closest('button');
 		let select = e.target.closest('.n-select--options');
 
 // 		console.log(e.type, e.target, e.target.value);
 
-		if (!el || !select.hasAttribute('aria-expanded') || el.hasAttribute('aria-selected')) {
+		if (!!e.target.href) {
 			
-			return;
+			e.target.click();
+			
+		} else {
 
+			if (!el || !select.hasAttribute('aria-expanded') || el.hasAttribute('aria-selected')) {
+				
+				return;
+	
+			}
+		
+			selectOption(el);
+		
 		}
-
-		selectOption(el);
 
 		document.body.style.pointerEvents = 'none'; // Prevent iPad from clicking the element behind
 		setTimeout(() => {
