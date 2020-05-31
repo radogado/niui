@@ -1210,13 +1210,22 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	let clickSelect = e => {
 
 		let select = e.target.closest('.n-select--options');
+		let el = e.target;
 		
 // 		console.log(e.type, e.target);
 
 		if (select.hasAttribute('aria-expanded')) { // Open
 		
-			selectOption(e.target);
+			if (!!el.href) {
+				
+				closeSelect(select);
+				
+			} else {
+		
+				selectOption(el);
 			
+			}
+
 		}
 		
 	};
@@ -1331,7 +1340,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 					
 				} else {
 					
-					let sibling = nextMatchingSibling(e.target, 'button');
+					let sibling = nextMatchingSibling(e.target, 'button, a[href]');
 					if (sibling) {
 
 						sibling.focus();
@@ -1355,7 +1364,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 					
 				} else {
 
-					let sibling = previousMatchingSibling(e.target, 'button');
+					let sibling = previousMatchingSibling(e.target, 'button, a[href]');
 					if (sibling) {
 
 						sibling.focus();
