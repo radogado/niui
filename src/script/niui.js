@@ -1270,6 +1270,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		select.removeEventListener('pointerup', pointerUpSelect);
 		let wrapper = select.parentNode;
 		wrapper.style.removeProperty('--width');
+		select.style.removeProperty('--scroll-help-top');
 		!!nuiDisableBodyScroll && nuiDisableBodyScroll(false, select);
 
 	}
