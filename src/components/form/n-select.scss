@@ -222,7 +222,15 @@ body.n-select--open {
 		* {
 			
 			pointer-events: none; // Disable dragging of images inside the option
+			vertical-align: middle;
 
+		}
+		
+		img {
+			
+			height: 2em;
+			margin: 0 .5em;
+			
 		}
 		
 	}
