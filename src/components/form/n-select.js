@@ -407,7 +407,7 @@
 					// select the option that starts with select.nuiSearchTerm
 					for (let el of select.querySelectorAll('button')) {
 						
-						if (el.value.toLowerCase().startsWith(select.nuiSearchTerm)) {
+						if (el.textContent.trim().toLowerCase().startsWith(select.nuiSearchTerm)) {
 							
 							selectOption(el);
 							
