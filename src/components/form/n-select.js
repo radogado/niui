@@ -2,9 +2,9 @@
 
 	let clickOutsideSelect = e => {
 		
-		if (!e.target.closest('.n-select--options') && !e.target.closest('.n-select')) {
+		if (!e.target.closest('.n-select__options') && !e.target.closest('.n-select')) {
 			
-			document.querySelectorAll('.n-select--options[aria-expanded]:not([data-n-select-animation])').forEach(select => {
+			document.querySelectorAll('.n-select__options[aria-expanded]:not([data-n-select-animation])').forEach(select => {
 				
 				closeSelect(select);
 			
@@ -16,7 +16,7 @@
 	
 	let closeSelectOnResize = e => {
 	
-		closeSelect(document.querySelector('.n-select--options[aria-expanded]'));
+		closeSelect(document.querySelector('.n-select__options[aria-expanded]'));
 		
 	};
 
@@ -28,7 +28,7 @@
 			
 		}
 		
-		let select = el.closest('.n-select--options');
+		let select = el.closest('.n-select__options');
 		let selected = select.querySelector('[aria-selected]');
 		
 		if (selected) {
@@ -75,7 +75,7 @@
 		
 		delete select.dataset.nSelectAnimation;
 		select.removeAttribute('aria-expanded');
-		document.body.classList.remove('n-select--open');
+		document.body.classList.remove('n-select__open');
 		select.nuiSelectWrapper.prepend(select);
 		window.removeEventListener('resize', closeSelectOnResize);
 		select.querySelector('[aria-selected]').tabIndex = -1;
@@ -91,7 +91,7 @@
 
 	let openSelect = (select) => {
 
-		let previous_open_select = document.body.querySelector('.n-select--options[aria-expanded]');
+		let previous_open_select = document.body.querySelector('.n-select__options[aria-expanded]');
 		if (previous_open_select) {
 			
 			closeSelect(previous_open_select);
@@ -106,7 +106,7 @@
 		select.style.removeProperty('--max-height');
 		select.style.removeProperty('--select-scroll-height');
 		select.style.removeProperty('--active-option-offset');
-		select.classList.remove('n-select__crop-top');
+		select.classList.remove('n-select--crop-top');
 
 		let option_height = select.getBoundingClientRect().height;
 		
@@ -115,7 +115,7 @@
 		select.style.setProperty('--body-offset-y', select.getBoundingClientRect().y - document.body.getBoundingClientRect().y);
 		
 		select.querySelector('[aria-selected]').removeAttribute('tabindex');
-		document.body.classList.add('n-select--open');
+		document.body.classList.add('n-select__open');
 		select.setAttribute('aria-expanded', true);
 		
 		document.body.appendChild(select);
@@ -133,7 +133,7 @@
 			select.scrollTop = Math.abs(select.getBoundingClientRect().y);
 			top_offset = Math.abs(select.getBoundingClientRect().y);
 			select.style.setProperty('--top-offset', top_offset);
-			select.classList.add('n-select__crop-top');
+			select.classList.add('n-select--crop-top');
 			
 			if (select.getBoundingClientRect().height > window.innerHeight) {
 				
@@ -204,7 +204,7 @@
 	
 	let clickSelect = e => {
 
-		let select = e.target.closest('.n-select--options');
+		let select = e.target.closest('.n-select__options');
 		let el = e.target;
 		
 // 		console.log(e.type, e.target);
@@ -227,7 +227,7 @@
 
 	let pointerDownSelect = e => {
 		
-		let select = e.target.closest('.n-select--options') || e.target.querySelector('.n-select--options');
+		let select = e.target.closest('.n-select__options') || e.target.querySelector('.n-select__options');
 		
 // 		console.log(e.type, e.target);
 
@@ -246,7 +246,7 @@
 	let pointerUpSelect = e => {
 		
 		let el = e.target.closest('button');
-		let select = e.target.closest('.n-select--options');
+		let select = e.target.closest('.n-select__options');
 
 // 		console.log(e.type, e.target, e.target.value);
 
@@ -300,11 +300,11 @@
 
 		trapKeyboard(e);	
 		
-		let select = e.target.closest('.n-select--options');
+		let select = e.target.closest('.n-select__options');
 		
 		if (e.target.classList.contains('n-select')) {
 			
-			select = e.target.querySelector('.n-select--options');
+			select = e.target.querySelector('.n-select__options');
 			
 		}
 		
@@ -445,7 +445,7 @@
 
 			}
 			
-			el = el.querySelector('.n-select--options'); // Work with the inner wrapper
+			el = el.querySelector('.n-select__options'); // Work with the inner wrapper
 			if (!el) {
 				
 				// Or generate it from the native select and attach as n-select's first child. If only native is needed, then use only select.n-select?
@@ -462,7 +462,7 @@
 
 			}
 			el.nuiSelectWrapper = wrapper;
-			el.classList.add('n-select--options');
+			el.classList.add('n-select__options');
 			
 			el.nuiNativeSelect = el.nuiSelectWrapper.querySelector('select') || nextMatchingSibling(el.nuiSelectWrapper, 'select') || document.querySelector(`[data-n_select="${el.nuiSelectWrapper.dataset.n_select}"]`); // As a sibling, child or data-n_select match (where data-n_select is the rich select's data-n_select attribute)
 			
@@ -525,7 +525,7 @@
 			
 			el.addEventListener('focusout', e => {
 
-				let select = e.target.closest('.n-select--options');
+				let select = e.target.closest('.n-select__options');
 
 				// If relatedTarget isn't a sibling, close and focus on select wrapper
 

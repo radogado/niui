@@ -34,7 +34,7 @@ Theme:
     
 }
 
-body.n-select--open {
+body.n-select__open {
 	
 	overflow: hidden;
 	-webkit-user-select: none;
@@ -59,7 +59,7 @@ body.n-select--open {
 		font-size: 1em;
 		transition: height .2s ease-in-out;
 		
-		> .n-select--options > :not([aria-selected]) {
+		> .n-select__options > :not([aria-selected]) {
 		
     		height: 0;
 			padding-top: 0;
@@ -103,7 +103,7 @@ body.n-select--open {
 	
 // 	    overflow: hidden;
 	    
-	    .n-select--options, select {
+	    .n-select__options, select {
 		    
 		    animation-duration: .1s;
 		    animation-fill-mode: forwards;
@@ -124,7 +124,7 @@ body.n-select--open {
 		
 		}
 
-		.n-select--options {
+		.n-select__options {
 			
 			display: inline-grid;
 			
@@ -154,13 +154,13 @@ body.n-select--open {
 
 }
 
-.n-select--options, .n-select {
+.n-select__options, .n-select {
 
 	--padding: .5em;
 
 }
 
-.n-select--options, .n-select select {
+.n-select__options, .n-select select {
 	
 	width: auto;
     max-width: 100%;
@@ -189,7 +189,7 @@ body.n-select--open {
 	
 }
 
-.n-select--options {
+.n-select__options {
 
     animation-name: n-select;
 	
@@ -273,13 +273,13 @@ body.n-select--open {
 	    top: calc(1px * var(--body-offset-y));
 	    box-sizing: content-box;
 
-	    &.n-select__crop-top {
+	    &.n-select--crop-top {
 		    
 			top: calc(1px * var(--body-offset-y) - 2*var(--padding));	    
 		    
 	    }
     
-	    &:not(.n-select__crop-top) { // Already taken whole upper space
+	    &:not(.n-select--crop-top) { // Already taken whole upper space
 	
 		    padding-top: calc(1px*var(--scroll-help-top, 0));
 		    
@@ -351,7 +351,7 @@ body.n-select--open {
     			
 		}
 		
-		&.n-select__shadow:before {
+		&.n-select--shadow:before {
 			
 		    box-shadow: 0 0 2px 2px;
 			
@@ -397,13 +397,13 @@ body.n-select--open {
 }
 
 /*
-.n-select--options.n-select__crop-top[aria-expanded] {
+.n-select__options.n-select--crop-top[aria-expanded] {
 
 	margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - .5px);
 	
 }
 
-[data-nui-chrome] .n-select--options.n-select__crop-top[aria-expanded] {
+[data-nui-chrome] .n-select__options.n-select--crop-top[aria-expanded] {
 
 	margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)));
 	
@@ -411,7 +411,7 @@ body.n-select--open {
 */
 
 /*
-[data-nui-chrome]:not(.n-select) > .n-select--options.n-select__crop-top[aria-expanded] {
+[data-nui-chrome]:not(.n-select) > .n-select__options.n-select--crop-top[aria-expanded] {
 	
     top: calc(1px * var(--body-offset-y) - 1px);
 	
@@ -420,7 +420,7 @@ body.n-select--open {
 
 @-moz-document url-prefix() {
 
-	.n-select--options.n-select__crop-top[aria-expanded] {
+	.n-select__options.n-select--crop-top[aria-expanded] {
 	
 		margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - var(--padding, .5em)); // Remove padding when cropped on top on Firefox
 		max-height: calc(var(--max-height) + 2 * var(--padding, .5em));
@@ -451,7 +451,7 @@ select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + sel
 
 .n-form__wide { 
 	
-	.n-select, .n-select--options, .n-select select {
+	.n-select, .n-select__options, .n-select select {
 		
 		width: 100%;
 		
@@ -461,7 +461,7 @@ select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + sel
 
 // Animation
 
-.n-select--options[aria-expanded] {
+.n-select__options[aria-expanded] {
 
 	-webkit-mask: 					linear-gradient(0, #000, #000) no-repeat 0 var(--mask-position-y) / calc(var(--max-width) + .5em) var(--mask-size-y);
 
@@ -477,7 +477,7 @@ select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + sel
 
 @media (prefers-reduced-motion: reduce) {
 
-	.n-select--options[aria-expanded][data-n-select-animation] {
+	.n-select__options[aria-expanded][data-n-select-animation] {
 	
 		transition: none;
 	
@@ -487,7 +487,7 @@ select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + sel
 
 @media (min-width: 600px) {
 	
-	.n-select--options[aria-expanded] {
+	.n-select__options[aria-expanded] {
 		
 		width: calc(var(--max-width) + var(--padding));
 		
