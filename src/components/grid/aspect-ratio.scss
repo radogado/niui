@@ -17,6 +17,7 @@ $selector: '.n-aspect';
 		vertical-align: top; // Lose the unwanted spacing at the bottom
 		width: calc(1px * var(--width, 100%)); // Number without 'px'
 		max-width: 100%;
+		text-align: start;
 		
 		> img {
 			
@@ -33,7 +34,7 @@ $selector: '.n-aspect';
 			
 		}
 	
-		&[style*='--ratio'] {
+		&[style*='--ratio'], &#{$selector}--ratio {
 			
 			width: calc(1px * var(--width, 10000)); // Magic number to achieve 100%, because max-width will kick in
 			max-width: 100%;
