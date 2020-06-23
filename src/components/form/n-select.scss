@@ -463,7 +463,7 @@ select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + sel
 
 .n-select__options[aria-expanded] {
 
-	-webkit-mask: 					linear-gradient(0, #000, #000) no-repeat 0 var(--mask-position-y) / calc(var(--max-width) + .5em) var(--mask-size-y);
+	-webkit-mask: 					linear-gradient(0, #000, #000) no-repeat 0 calc((var(--mask-position-y) + var(--scroll-help-top, 0)) * 1px) / calc(var(--max-width) + .5em) var(--mask-size-y);
 
 	&[data-n-select-animation] {
 	

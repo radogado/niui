@@ -1188,7 +1188,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 
 	let clickOutsideSelect = e => {
 		
-		if (!e.target.closest('.n-select__options') && !e.target.closest('.n-select')) {
+		if (!e.target.closest('.n-select__options > *') && !e.target.closest('.n-select')) {
 			
 			document.querySelectorAll('.n-select__options[aria-expanded]:not([data-n-select-animation])').forEach(select => {
 				
@@ -1335,6 +1335,15 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 				select.style.setProperty('--max-height', `${Math.abs(window.innerHeight - select.getBoundingClientRect().y)}px`);
 				
 			}
+			
+			let available_top_space = select.getBoundingClientRect().y;
+			
+			if (select.scrollHeight > select.getBoundingClientRect().height) {
+				
+				let cropped_space = select.getBoundingClientRect().height - select.scrollHeight;
+				select.style.setProperty('--scroll-help-top', Math.abs(Math.min(cropped_space, available_top_space)));
+				
+			}
 		
 		}
 		
@@ -1346,7 +1355,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 			
 		}
 		
-		select.style.setProperty('--mask-position-y', `${active_option_offset - top_offset}px`); // To do: adjust target position to equalise reveal speed on both sides: shorter side position += difference between short and long sides
+		select.style.setProperty('--mask-position-y', `${active_option_offset - top_offset}`); // To do: adjust target position to equalise reveal speed on both sides: shorter side position += difference between short and long sides
 		select.style.setProperty('--mask-size-y', `${option_height}px`);
 
 		window.requestAnimationFrame(t => {
