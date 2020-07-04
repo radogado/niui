@@ -18,7 +18,7 @@ Theme:
     
     100% {
 	    
-		opacity: 0;
+		visibility: hidden;
 	    
     }
     
@@ -28,7 +28,7 @@ Theme:
     
     100% {
 	    
-		opacity: 1;
+		visibility: visible;
 
     }
     
@@ -121,6 +121,10 @@ body.n-select__open {
 			padding-inline-start: .5em;
 			padding-inline-end: 1.961em;
 			line-height: 2.25;
+			margin: 0;
+			background: none;
+			visibility: hidden;
+		    animation-name: n-select-native;
 		
 		}
 
@@ -139,13 +143,6 @@ body.n-select__open {
 				
 				opacity: 0;
 				
-			}
-		
-			~ select {
-	
-			    animation-name: n-select-native;
-				opacity: 0;
-			
 			}
 		
 		}
@@ -187,12 +184,16 @@ body.n-select__open {
     padding-inline-end: 1.961em;
 	cursor: pointer;
 	
+	~ .n-select__options {
+	
+	    animation-name: n-select;
+	
+	}
+
 }
 
 .n-select__options {
 
-    animation-name: n-select;
-	
 	> * {
 		
 		display: block;

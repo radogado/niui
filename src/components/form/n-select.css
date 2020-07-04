@@ -13,12 +13,12 @@ Theme:
 */
 @keyframes n-select {
   100% {
-    opacity: 0;
+    visibility: hidden;
   }
 }
 @keyframes n-select-native {
   100% {
-    opacity: 1;
+    visibility: visible;
   }
 }
 body.n-select__open {
@@ -83,6 +83,10 @@ body.n-select__open {
   padding-inline-start: 0.5em;
   padding-inline-end: 1.961em;
   line-height: 2.25;
+  margin: 0;
+  background: none;
+  visibility: hidden;
+  animation-name: n-select-native;
 }
 .n-select:not([data-ready]) .n-select__options {
   display: inline-grid;
@@ -92,10 +96,6 @@ body.n-select__open {
   grid-row: 1/2;
 }
 .n-select:not([data-ready]) .n-select__options > :not(:first-child):not([aria-selected]) {
-  opacity: 0;
-}
-.n-select:not([data-ready]) .n-select__options ~ select {
-  animation-name: n-select-native;
   opacity: 0;
 }
 
@@ -126,10 +126,10 @@ body.n-select__open {
   padding-inline-end: 1.961em;
   cursor: pointer;
 }
-
-.n-select__options {
+.n-select select ~ .n-select__options {
   animation-name: n-select;
 }
+
 .n-select__options > * {
   display: block;
   -webkit-touch-callout: none;
