@@ -121,6 +121,7 @@ body.n-select__open {
 			padding-inline-start: .5em;
 			padding-inline-end: 1.961em;
 			line-height: 2.25;
+			height: auto;
 			margin: 0;
 			background: none;
 			visibility: hidden;
@@ -146,6 +147,12 @@ body.n-select__open {
 			}
 		
 		}
+
+	}
+	
+	> input {
+		
+		display: none;
 
 	}
 
@@ -227,8 +234,9 @@ body.n-select__open {
 
 		}
 		
-		img {
+		img { // Must have default dimensions to avoid layout jump while loading
 			
+			width: 2em;
 			height: 2em;
 			margin: 0 .5em;
 			

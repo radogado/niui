@@ -14,17 +14,11 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		'sass': {
 			core: { 
-					options: {
-						sourcemap: false
-					},
     				files: {
 					'src/css/niui-core.css': 'src/css/niui-core.scss'
 					}
 				},
 			components: {
-				options: {
-					sourcemap: false
-				},
 				files: [{
 					expand: true,
 						cwd: "src/components",

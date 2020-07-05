@@ -1260,6 +1260,7 @@ body.n-select__open {
   padding-inline-start: 0.5em;
   padding-inline-end: 1.961em;
   line-height: 2.25;
+  height: auto;
   margin: 0;
   background: none;
   visibility: hidden;
@@ -1274,6 +1275,9 @@ body.n-select__open {
 }
 .n-select:not([data-ready]) .n-select__options > :not(:first-child):not([aria-selected]) {
   opacity: 0;
+}
+.n-select > input {
+  display: none;
 }
 
 .n-select__options, .n-select {
@@ -1334,6 +1338,7 @@ body.n-select__open {
   vertical-align: middle;
 }
 .n-select__options button img {
+  width: 2em;
   height: 2em;
   margin: 0 0.5em;
 }

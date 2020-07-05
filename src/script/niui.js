@@ -1661,6 +1661,15 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 			
 			el.nuiNativeSelect = el.nuiSelectWrapper.querySelector('select') || nextMatchingSibling(el.nuiSelectWrapper, 'select') || document.querySelector(`[data-n_select="${el.nuiSelectWrapper.dataset.n_select}"]`); // As a sibling, child or data-n_select match (where data-n_select is the rich select's data-n_select attribute)
 			
+			if (!el.nuiNativeSelect) { // Missing native select, so generate it
+				
+				let input = document.createElement('input');
+				input.name = el.dataset.name;
+				wrapper.append(input);
+				el.nuiNativeSelect = input;
+				
+			}
+			
 			// Set native select's value
 			
 		/*
