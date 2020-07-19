@@ -260,26 +260,6 @@ body.n-select__open {
   font-family: inherit;
 }
 
-/*
-.n-select__options.n-select--crop-top[aria-expanded] {
-
-	margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - .5px);
-
-}
-
-[data-nui-chrome] .n-select__options.n-select--crop-top[aria-expanded] {
-
-	margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)));
-
-}
-*/
-/*
-[data-nui-chrome]:not(.n-select) > .n-select__options.n-select--crop-top[aria-expanded] {
-
-    top: calc(1px * var(--body-offset-y) - 1px);
-
-}
-*/
 @-moz-document url-prefix() {
   .n-select__options.n-select--crop-top[aria-expanded] {
     margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - var(--padding, .5em));

@@ -101,8 +101,6 @@ body.n-select__open {
 	
 		// If no init in 2", display native fallback
 	
-// 	    overflow: hidden;
-	    
 	    .n-select__options, select {
 		    
 		    animation-duration: .1s;
@@ -309,8 +307,6 @@ body.n-select__open {
 		
 		button, a[href] {
 			
-// 			outline-offset: -3px;
-
 			line-height: 1.3;
 			width: 100%;
 			box-sizing: border-box;
@@ -404,28 +400,6 @@ body.n-select__open {
 	}
 	
 }
-
-/*
-.n-select__options.n-select--crop-top[aria-expanded] {
-
-	margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - .5px);
-	
-}
-
-[data-nui-chrome] .n-select__options.n-select--crop-top[aria-expanded] {
-
-	margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)));
-	
-}
-*/
-
-/*
-[data-nui-chrome]:not(.n-select) > .n-select__options.n-select--crop-top[aria-expanded] {
-	
-    top: calc(1px * var(--body-offset-y) - 1px);
-	
-}
-*/
 
 @-moz-document url-prefix() {
 
