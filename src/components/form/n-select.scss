@@ -236,7 +236,7 @@ body.n-select__open {
 			
 			width: 2em;
 			height: 2em;
-			margin: 0 .5em;
+			margin-inline-end: .5em;
 			
 		}
 		
@@ -273,17 +273,20 @@ body.n-select__open {
 		max-height: var(--max-height);
 		overflow: auto;
 	    background: transparent;
-	    padding: var(--padding, .5em);
+	    padding: 0;
+/*
 	    margin-inline-start: calc(-1 * var(--padding, .5em));
 	    margin-inline-end: calc(-1 * var(--padding, .5em));
+*/
 	    left: calc(1px * var(--body-offset-x));
 	    top: calc(1px * var(--body-offset-y));
 	    box-sizing: content-box;
 
 	    &.n-select--crop-top {
 		    
-			top: calc(1px * var(--body-offset-y) - 2*var(--padding));	    
-		    
+			top: calc(1px * var(--body-offset-y));
+			margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - 1px*var(--scroll-help-top, 0)); // Align to the current option's vertical offset
+    		    
 	    }
     
 	    &:not(.n-select--crop-top) { // Already taken whole upper space
@@ -348,15 +351,15 @@ body.n-select__open {
 			
 			content: '';
 			position: absolute;
-			background-color: var(--control-bg,#fff);
-		    top: var(--padding, .5em);
-		    left: var(--padding, .5em);
-		    right: var(--padding, .5em);
-		    height: calc(var(--select-scroll-height) - calc(2 * var(--padding, .5em)));
+			background-color: var(--control-bg, #fff);
+		    top: 0;
+		    left: 0;
+		    right: 0;
+		    bottom: 0;
     			
 		}
 		
-		&.n-select--shadow:before {
+		&.n-select--shadow {
 			
 		    box-shadow: 0 0 2px 2px;
 			
