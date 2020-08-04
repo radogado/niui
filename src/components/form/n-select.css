@@ -21,10 +21,12 @@ Theme:
     visibility: visible;
   }
 }
-body.n-select__open {
-  overflow: hidden;
-  -webkit-user-select: none;
-  user-select: none;
+body.n-select--open {
+  /*
+  	overflow: hidden;
+  	-webkit-user-select: none;
+  	user-select: none;
+  */
 }
 
 .n-select {
@@ -231,7 +233,7 @@ body.n-select__open {
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: calc(-1px*var(--scroll-help-top,0));
 }
 .n-select__options[aria-expanded].n-select--shadow {
   box-shadow: 0 0 2px 2px;

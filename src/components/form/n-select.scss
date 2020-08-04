@@ -34,11 +34,13 @@ Theme:
     
 }
 
-body.n-select__open {
+body.n-select--open {
 	
+/*
 	overflow: hidden;
 	-webkit-user-select: none;
 	user-select: none;
+*/
 
 }
     							
@@ -355,7 +357,7 @@ body.n-select__open {
 		    top: 0;
 		    left: 0;
 		    right: 0;
-		    bottom: 0;
+		    bottom: calc(-1px*var(--scroll-help-top,0));
     			
 		}
 		
