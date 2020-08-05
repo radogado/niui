@@ -20,7 +20,7 @@
 		
 	};
 
-	let selectOption = (el) => {
+	let selectOption = (el, close = true) => {
 		
 		if (!el || el.tagName !== 'BUTTON') {
 			
@@ -39,13 +39,17 @@
 	
 		el.setAttribute('aria-selected', true);
 		select.nuiSelectWrapper.dataset.value = el.value;
-
 		if (select.hasAttribute('aria-expanded')) {
 
-			closeSelect(select);
+			el.focus();
+			if (close) {
+	
+				closeSelect(select);
+			
+			}
 		
 		}
-		
+
 		let options = select.children[0];
 		select.nuiSelectWrapper.style.setProperty('--active-option-height', `${el.getBoundingClientRect().height}px`);
 		options.style.removeProperty('--top-offset');
@@ -418,7 +422,7 @@
 						
 						if (el.textContent.trim().toLowerCase().startsWith(select.nuiSearchTerm)) {
 							
-							selectOption(el);
+							selectOption(el, false);
 							
 						}
 						
@@ -585,7 +589,7 @@
 
 			el.querySelectorAll('button').forEach(el => {
 				
-				el.type = 'button';
+				el.type = 'button'; // Unlike the default 'submit'
 				el.value = el.value || el.textContent.trim();
 				
 			});
