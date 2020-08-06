@@ -287,7 +287,7 @@ body.n-select--open {
 	    &.n-select--crop-top {
 		    
 			top: calc(1px * var(--body-offset-y));
-			margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - 1px*var(--scroll-help-top, 0)); // Align to the current option's vertical offset
+			margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - 1px * var(--scroll-help-top, 0)); // Align to the current option's vertical offset
     		    
 	    }
     
@@ -406,6 +406,7 @@ body.n-select--open {
 	
 }
 
+/*
 @-moz-document url-prefix() {
 
 	.n-select__options.n-select--crop-top[aria-expanded] {
@@ -430,6 +431,7 @@ body.n-select--open {
 	}
 
 }
+*/
 
 select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + select { // Hide the associated native select, which can be specified in 3 different ways
 	

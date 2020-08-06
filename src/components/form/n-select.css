@@ -195,7 +195,7 @@ body.n-select--open {
 }
 .n-select__options[aria-expanded].n-select--crop-top {
   top: calc(1px * var(--body-offset-y));
-  margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - 1px*var(--scroll-help-top, 0));
+  margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - 1px * var(--scroll-help-top, 0));
 }
 .n-select__options[aria-expanded]:not(.n-select--crop-top) {
   padding-top: calc(1px*var(--scroll-help-top, 0));
@@ -265,20 +265,32 @@ body.n-select--open {
   font-family: inherit;
 }
 
+/*
 @-moz-document url-prefix() {
-  .n-select__options.n-select--crop-top[aria-expanded] {
-    margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - var(--padding, .5em));
-    max-height: calc(var(--max-height) + 2 * var(--padding, .5em));
-  }
-  .n-select__options.n-select--crop-top[aria-expanded]:after {
-    content: "";
-    height: var(--padding, 0.5em);
-    display: block;
-  }
-  .n-select__options.n-select--crop-top[aria-expanded] > :last-child {
-    margin-block-end: var(--padding, 0.5em);
-  }
+
+	.n-select__options.n-select--crop-top[aria-expanded] {
+
+		margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - var(--padding, .5em)); // Remove padding when cropped on top on Firefox
+		max-height: calc(var(--max-height) + 2 * var(--padding, .5em));
+
+		&:after {
+
+			content: '';
+			height: var(--padding, .5em);
+			display: block;
+
+		}
+
+		> :last-child {
+
+			margin-block-end: var(--padding, .5em);
+
+		}
+
+	}
+
 }
+*/
 select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + select {
   display: none;
 }
