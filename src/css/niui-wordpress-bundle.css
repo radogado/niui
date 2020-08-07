@@ -1233,7 +1233,7 @@ body.n-select--open {
   content: "";
   position: absolute;
   cursor: pointer;
-  background-color: var(--control-color, #fff);
+  background-color: var(--control-color, #333);
   --chevron: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16.003 18.626l7.081-7.081L25 13.46l-8.997 8.998-9.003-9 1.917-1.916z'/%3E%3C/svg%3E");
   -webkit-mask: var(--chevron) no-repeat 0 0/contain;
   mask: var(--chevron) no-repeat 0 0/contain;
