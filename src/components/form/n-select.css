@@ -63,7 +63,7 @@ body.n-select--open {
   width: 0.75em;
   height: 0.75em;
   right: 0.4em;
-  top: 0.7em;
+  top: calc(50% - .375em);
   z-index: -1;
 }
 .n-select:after {
@@ -225,6 +225,7 @@ body.n-select--open {
 }
 .n-select__options[aria-expanded] button:focus, .n-select__options[aria-expanded] a[href]:focus {
   z-index: 1;
+  outline-offset: -3px;
 }
 .n-select__options[aria-expanded]:before {
   content: "";

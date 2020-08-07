@@ -86,7 +86,7 @@ body.n-select--open {
 		width: .75em;
 		height: .75em;
 		right: .4em;
-		top: .7em;
+	    top: calc(50% - .375em);
 		z-index: -1;
 
 	}
@@ -344,6 +344,7 @@ body.n-select--open {
 			&:focus {
 				
 				z-index: 1;
+				outline-offset: -3px;
 				
 			}
 		
