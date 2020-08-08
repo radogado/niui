@@ -481,7 +481,7 @@ select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + sel
 
 @media (min-width: 600px) {
 	
-	.n-select__options[aria-expanded] {
+	.n-select .n-select__options[aria-expanded] {
 		
 		width: calc(var(--max-width) + var(--padding));
 		
