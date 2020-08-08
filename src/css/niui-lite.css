@@ -1080,16 +1080,20 @@ body.n-select--open {
   height: 2em;
   margin-inline-end: 0.5em;
 }
+.n-select__options.n-scrollbar {
+  scrollbar-width: 0.333em;
+  scrollbar-color: #999 #eee;
+}
 .n-select__options.n-scrollbar::-webkit-scrollbar {
-  width: 10px;
+  width: 0.333em;
 }
 .n-select__options.n-scrollbar::-webkit-scrollbar-thumb {
   background: #999;
-  border-radius: 20px;
+  border-radius: 0.333em;
 }
 .n-select__options.n-scrollbar::-webkit-scrollbar-track {
-  background: #ddd;
-  border-radius: 20px;
+  background: #eee;
+  border-radius: 0.333em;
 }
 .n-select__options[aria-expanded] {
   position: absolute;

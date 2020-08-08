@@ -167,7 +167,7 @@
 		
 		select.classList.remove('n-scrollbar');
 
-		if (select.getBoundingClientRect().width > (select.querySelector('button').getBoundingClientRect().width + parseInt(getComputedStyle(select).padding) * 2)) {
+		if (select.getBoundingClientRect().width > (select.querySelector('button').getBoundingClientRect().width + parseInt(getComputedStyle(select).paddingInlineEnd) * 2)) {
 			
 			select.classList.add('n-scrollbar');
 			

@@ -248,23 +248,26 @@ body.n-select--open {
 
 		&::-webkit-scrollbar {
 		
-		  width: 10px;
+		  width: .333em;
 		
 		}
  
 		&::-webkit-scrollbar-thumb {
 		
 		  background: #999;
-		  border-radius: 20px;
+		  border-radius: .333em;
 		
 		}
 		
 		&::-webkit-scrollbar-track {
 		
-		  background: #ddd;
-		  border-radius: 20px;
+		  background: #eee;
+		  border-radius: .333em;
 		
 		}
+		
+		scrollbar-width: .333em;
+		scrollbar-color: #999 #eee;
 	
 	}
 
