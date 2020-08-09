@@ -1277,7 +1277,22 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		select.style.removeProperty('--scroll-help-top');
 		!!nuiDisableBodyScroll && nuiDisableBodyScroll(false, select);
 
+		let parent = wrapper;
+		while(parent !== document.body) {
+
+			parent.removeEventListener('scroll', closeSelectOnScroll); 
+			parent = parent.parentNode; 
+			
+		}
+		
 	}
+	
+	let closeSelectOnScroll = e => {
+		
+		let select = document.querySelector('body > .n-select__options');
+		closeSelect(select);
+
+	};
 
 	let openSelect = (select) => {
 
@@ -1376,6 +1391,14 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		window.addEventListener('resize', closeSelectOnResize);
 		document.body.addEventListener('click', clickOutsideSelect);
 		!!nuiDisableBodyScroll && nuiDisableBodyScroll(true, select);
+		
+		let parent = wrapper.parentNode;
+		while(parent !== document.body) {
+
+			parent.addEventListener('scroll', closeSelectOnScroll); 
+			parent = parent.parentNode; 
+			
+		}
 				
 	}
 	

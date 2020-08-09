@@ -1,6 +1,6 @@
 {
   "name": "niui-npm",
-  "version": "2.1.3",
+  "version": "2.2.0",
   "description": "niui: mostly native front-end framework",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
