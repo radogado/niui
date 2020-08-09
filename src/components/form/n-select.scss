@@ -286,6 +286,8 @@ body.n-select--open {
 	    left: calc(1px * var(--body-offset-x));
 	    top: calc(1px * var(--body-offset-y));
 	    box-sizing: content-box;
+	    
+	    min-width: var(--max-width); // For when the closed select is wider than the options
 
 	    &.n-select--crop-top {
 		    

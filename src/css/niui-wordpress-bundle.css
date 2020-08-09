@@ -1373,6 +1373,7 @@ body.n-select--open {
   left: calc(1px * var(--body-offset-x));
   top: calc(1px * var(--body-offset-y));
   box-sizing: content-box;
+  min-width: var(--max-width);
 }
 .n-select__options[aria-expanded].n-select--crop-top {
   top: calc(1px * var(--body-offset-y));
