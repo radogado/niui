@@ -227,6 +227,7 @@
 		position: relative;
 		background: #fff;
 		background: var(--control-bg, #fff);
+		
 
 		&:after {
 			
@@ -326,6 +327,7 @@ _:-ms-input-placeholder, :root .n-fold--label:after {
 				width: $line-height-em/1.5;
 				top: $line-height-em/10;
 				box-shadow: 0 $line-height-em/6 0 1px var(--control-color, #333), 0 $line-height-em/2.4 0 1px var(--control-color, #333), 0 $line-height-em/1.5 0 1px var(--control-color, #333);
+				height: .1px;
 		
 			}
 		
@@ -401,6 +403,7 @@ _:-ms-input-placeholder, :root .n-fold--label:after {
 				
 			    bottom: 0;
 			    overflow: visible; // iPhone fix
+			    z-index: 4;
 		
 				.n-fold--content {
 					
