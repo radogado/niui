@@ -2380,7 +2380,6 @@ ol.n-list ol > li ol li:before {
 }
 ol.n-list ol > li {
   text-indent: -3.3em;
-  overflow-x: hidden;
 }
 ol.n-list ol ol > li {
   text-indent: -3.95em;
