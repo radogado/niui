@@ -19,7 +19,7 @@ NPM usage:
 ---
 
 - Unbreakable, flexible, responsive [grid](https://radogado.github.io/niui/#grid). Supports Bootstrap-style wrapping columns, but with ._1/3 (1/3) etc., instead of .col...4 (4/12). Auto equal width columns with equal height and vertical alignment.
-- Baseline-aligned [typography](https://radogado.github.io/guide/#typography), quote block, drop caps.
+- Baseline-aligned [typography](https://radogado.github.io/niui/#typography), quote block, drop caps.
 - Unique class names
 - Embeddable grid and elements. Support for multiple modals, nested carousels, nested accordions etc
 - Built around edge cases (overflowing headlines, images etc)
