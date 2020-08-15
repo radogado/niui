@@ -89,6 +89,7 @@
 		let wrapper = select.parentNode;
 		wrapper.style.removeProperty('--width');
 		select.style.removeProperty('--scroll-help-top');
+		select.classList.remove('n-select--scroll-help-top');
 		!!nuiDisableBodyScroll && nuiDisableBodyScroll(false, select);
 
 		let parent = wrapper;
@@ -174,7 +175,13 @@
 			if (select.scrollHeight > select.getBoundingClientRect().height) {
 				
 				let cropped_space = select.getBoundingClientRect().height - select.scrollHeight;
-				select.style.setProperty('--scroll-help-top', Math.abs(Math.min(cropped_space, available_top_space)));
+				let scroll_help_top = Math.abs(Math.min(cropped_space, available_top_space)) - parseInt(getComputedStyle(select).paddingInlineEnd) * 2;
+				if (scroll_help_top > 0) {
+
+					select.style.setProperty('--scroll-help-top', scroll_help_top);
+					select.classList.add('n-select--scroll-help-top');
+				
+				}
 				
 			}
 		

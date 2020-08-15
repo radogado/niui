@@ -278,7 +278,8 @@ body.n-select--open {
 		max-height: var(--max-height);
 		overflow: auto;
 	    background: transparent;
-	    padding: 0;
+	    padding: 0 1em;
+	    margin-inline-start: -1em;
 /*
 	    margin-inline-start: calc(-1 * var(--padding, .5em));
 	    margin-inline-end: calc(-1 * var(--padding, .5em));
@@ -288,6 +289,18 @@ body.n-select--open {
 	    box-sizing: content-box;
 	    
 	    min-width: var(--max-width); // For when the closed select is wider than the options
+	    
+	    > :first-child {
+		    
+		    margin-top: 1em;
+
+	    }
+
+	    > :last-child {
+		    
+		    margin-bottom: 1em;
+
+	    }
 
 	    &.n-select--crop-top {
 		    
@@ -349,7 +362,7 @@ body.n-select--open {
 			&:focus {
 				
 				z-index: 1;
-				outline-offset: -3px;
+// 				outline-offset: -3px;
 				
 			}
 		
@@ -360,16 +373,23 @@ body.n-select--open {
 			content: '';
 			position: absolute;
 			background-color: var(--control-bg, #fff);
-		    top: 0;
-		    left: 0;
-		    right: 0;
-		    bottom: calc(-1px*var(--scroll-help-top,0));
+// 			background-color: red;
+		    top: 1em;
+		    left: 1em;
+		    right: 1em;
+		    height: calc(100% + 1px*var(--top-offset, 0) - 2 * 1em);
     			
 		}
 		
-		&.n-select--shadow {
+		&.n-select--scroll-help-top:before {
 			
-		    box-shadow: 0 0 2px 2px;
+		    height: calc(100% + 1px*var(--top-offset, 0));
+    			
+		}
+		
+		&.n-select--shadow:before {
+			
+		    box-shadow: 0 0 2px 2px #333;
 			
 		}
 	

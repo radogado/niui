@@ -1101,7 +1101,8 @@ body.n-select--open {
   max-height: var(--max-height);
   overflow: auto;
   background: transparent;
-  padding: 0;
+  padding: 0 1em;
+  margin-inline-start: -1em;
   /*
   	    margin-inline-start: calc(-1 * var(--padding, .5em));
   	    margin-inline-end: calc(-1 * var(--padding, .5em));
@@ -1110,6 +1111,12 @@ body.n-select--open {
   top: calc(1px * var(--body-offset-y));
   box-sizing: content-box;
   min-width: var(--max-width);
+}
+.n-select__options[aria-expanded] > :first-child {
+  margin-top: 1em;
+}
+.n-select__options[aria-expanded] > :last-child {
+  margin-bottom: 1em;
 }
 .n-select__options[aria-expanded].n-select--crop-top {
   top: calc(1px * var(--body-offset-y));
@@ -1143,19 +1150,21 @@ body.n-select--open {
 }
 .n-select__options[aria-expanded] button:focus, .n-select__options[aria-expanded] a[href]:focus {
   z-index: 1;
-  outline-offset: -3px;
 }
 .n-select__options[aria-expanded]:before {
   content: "";
   position: absolute;
   background-color: var(--control-bg, #fff);
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: calc(-1px*var(--scroll-help-top,0));
+  top: 1em;
+  left: 1em;
+  right: 1em;
+  height: calc(100% + 1px*var(--top-offset, 0) - 2 * 1em);
 }
-.n-select__options[aria-expanded].n-select--shadow {
-  box-shadow: 0 0 2px 2px;
+.n-select__options[aria-expanded].n-select--scroll-help-top:before {
+  height: calc(100% + 1px*var(--top-offset, 0));
+}
+.n-select__options[aria-expanded].n-select--shadow:before {
+  box-shadow: 0 0 2px 2px #333;
 }
 .n-select__options:not([aria-expanded]) {
   cursor: pointer;
