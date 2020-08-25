@@ -280,10 +280,6 @@ body.n-select--open {
 	    background: transparent;
 	    padding: 0 1em;
 	    margin-inline-start: -1em;
-/*
-	    margin-inline-start: calc(-1 * var(--padding, .5em));
-	    margin-inline-end: calc(-1 * var(--padding, .5em));
-*/
 	    left: calc(1px * var(--body-offset-x));
 	    top: calc(1px * var(--body-offset-y));
 	    box-sizing: content-box;
@@ -334,12 +330,6 @@ body.n-select--open {
 			width: 100%;
 			box-sizing: border-box;
 
-			@media (hover: hover) {
-
-// 				outline-offset: -5px;
-
-			}
-			
 			&:not([aria-selected]) {
 			
 				&:hover {
@@ -351,18 +341,9 @@ body.n-select--open {
 			
 			}
 
-/*
-			&:not(:first-of-type) {
-				
-				margin-top: 1px;
-				
-			}
-*/
-			
 			&:focus {
 				
 				z-index: 1;
-// 				outline-offset: -3px;
 				
 			}
 		
@@ -373,7 +354,6 @@ body.n-select--open {
 			content: '';
 			position: absolute;
 			background-color: var(--control-bg, #fff);
-// 			background-color: red;
 		    top: 1em;
 		    left: 1em;
 		    right: 1em;
@@ -431,33 +411,6 @@ body.n-select--open {
 	}
 	
 }
-
-/*
-@-moz-document url-prefix() {
-
-	.n-select__options.n-select--crop-top[aria-expanded] {
-	
-		margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - var(--padding, .5em)); // Remove padding when cropped on top on Firefox
-		max-height: calc(var(--max-height) + 2 * var(--padding, .5em));
-
-		&:after {
-			
-			content: '';
-			height: var(--padding, .5em);
-			display: block;
-
-		}
-		
-		> :last-child {
-			
-			margin-block-end: var(--padding, .5em);
-			
-		}
-		
-	}
-
-}
-*/
 
 select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + select { // Hide the associated native select, which can be specified in 3 different ways
 	
