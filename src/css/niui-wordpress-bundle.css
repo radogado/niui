@@ -1424,7 +1424,7 @@ body.n-select--open {
   top: 1em;
   left: 1em;
   right: 1em;
-  height: calc(100% + 1px*var(--top-offset, 0) - 2 * 1em);
+  height: calc(var(--select-scroll-height) - 2 * 1em);
 }
 .n-select__options[aria-expanded].n-select--scroll-help-top:before {
   height: calc(100% + 1px*var(--top-offset, 0));
