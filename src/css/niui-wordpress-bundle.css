@@ -1369,10 +1369,6 @@ body.n-select--open {
   background: transparent;
   padding: 0 1em;
   margin-inline-start: -1em;
-  /*
-  	    margin-inline-start: calc(-1 * var(--padding, .5em));
-  	    margin-inline-end: calc(-1 * var(--padding, .5em));
-  */
   left: calc(1px * var(--body-offset-x));
   top: calc(1px * var(--body-offset-y));
   box-sizing: content-box;
@@ -1402,13 +1398,6 @@ body.n-select--open {
   line-height: 1.3;
   width: 100%;
   box-sizing: border-box;
-  /*
-  			&:not(:first-of-type) {
-
-  				margin-top: 1px;
-
-  			}
-  */
 }
 .n-select__options[aria-expanded] button:not([aria-selected]):hover, .n-select__options[aria-expanded] a[href]:not([aria-selected]):hover {
   background-color: var(--control-highlight, #ececec);
@@ -1459,32 +1448,6 @@ body.n-select--open {
   font-family: inherit;
 }
 
-/*
-@-moz-document url-prefix() {
-
-	.n-select__options.n-select--crop-top[aria-expanded] {
-
-		margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - var(--padding, .5em)); // Remove padding when cropped on top on Firefox
-		max-height: calc(var(--max-height) + 2 * var(--padding, .5em));
-
-		&:after {
-
-			content: '';
-			height: var(--padding, .5em);
-			display: block;
-
-		}
-
-		> :last-child {
-
-			margin-block-end: var(--padding, .5em);
-
-		}
-
-	}
-
-}
-*/
 select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + select {
   display: none;
 }
