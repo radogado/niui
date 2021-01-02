@@ -32,7 +32,8 @@
   overflow: visible;
 }
 
-.n-slider.featured a[href], .n-slider.featured p {
+.n-slider.featured a[href],
+.n-slider.featured p {
   color: #fff;
 }
 
@@ -74,11 +75,15 @@
   margin: 0 auto;
 }
 
-#content .n-aspect img, #content .wp-caption > img {
+#content .n-aspect img,
+#content .wp-caption > img {
   display: inline-block;
 }
 
-#content .sidebar ul, #content .sidebar li, #content .comments ul, #content .sidebar li a[href] {
+#content .sidebar ul,
+#content .sidebar li,
+#content .comments ul,
+#content .sidebar li a[href] {
   list-style: none;
   padding-left: 0;
   margin: 0;
@@ -147,21 +152,28 @@ body.home .n-lightbox.gallery:before, body.archive .n-lightbox.gallery:before, b
   top: 49%;
 }
 
-.wp-caption, iframe {
+.wp-caption,
+iframe {
   max-width: 100%;
 }
 
-iframe, article h2 a {
+iframe,
+article h2 a {
   margin: 0 auto;
   display: block;
 }
 
-.home article, .archive article, .search-results article {
+.home article,
+.archive article,
+.search-results article {
   margin-bottom: 44px;
   position: relative;
 }
 
-.n-type #content section > article > p:not(.has-image):not(.has-iframe), .n-type #content section > article > ol, .n-type #content section > article > ul, .n-type #content section > article > blockquote {
+.n-type #content section > article > p:not(.has-image):not(.has-iframe),
+.n-type #content section > article > ol,
+.n-type #content section > article > ul,
+.n-type #content section > article > blockquote {
   max-width: 40em;
   margin: 1.5em auto;
   box-sizing: border-box;
@@ -232,7 +244,8 @@ article ul {
   max-width: 100%;
 }
 
-.img-crop h2, article h2 a[href] {
+.img-crop h2,
+article h2 a[href] {
   display: inline-block;
   vertical-align: bottom;
   padding: 0.5em;
@@ -258,7 +271,12 @@ article h2 a[href]:after {
 
 }
 */
-.menu .current_page_item a:link, .menu .current_page_item a:visited, .img-crop:hover h2, .n-form button.search-submit:hover, .n-type article .img-crop:hover h2, #content.n-type article .headline:hover h2 a[href] {
+.menu .current_page_item a:link,
+.menu .current_page_item a:visited,
+.img-crop:hover h2,
+.n-form button.search-submit:hover,
+.n-type article .img-crop:hover h2,
+#content.n-type article .headline:hover h2 a[href] {
   color: #e82;
 }
 
@@ -279,7 +297,8 @@ article {
   padding: 0 1em;
   flex-grow: 1;
 }
-.n-header .logo div h2, .n-header .logo div h3 {
+.n-header .logo div h2,
+.n-header .logo div h3 {
   padding-top: 0;
 }
 .n-header .logo div h2 {
@@ -332,7 +351,10 @@ nav.n-nav.n-nav__drop li.current_page_item {
   color: lightcoral;
   text-decoration: none;
 }
-.n-type a[href]:hover, .n-type input[type=submit]:hover, .n-type a.n-btn[href]:hover, .n-type button.n-btn:hover {
+.n-type a[href]:hover,
+.n-type input[type=submit]:hover,
+.n-type a.n-btn[href]:hover,
+.n-type button.n-btn:hover {
   color: var(--control-highlight, #ee8822);
 }
 .n-type .page_item a[href] {
@@ -343,7 +365,11 @@ nav.n-nav.n-nav__drop li.current_page_item {
 .n-type p {
   text-align: left;
 }
-.n-type article h1, .n-type article h2, .n-type article h3, .n-type article h4, .n-type article h5 {
+.n-type article h1,
+.n-type article h2,
+.n-type article h3,
+.n-type article h4,
+.n-type article h5 {
   font-weight: 500;
   color: #488e89;
 }
@@ -368,11 +394,14 @@ nav.n-nav.n-nav__drop li.current_page_item {
   margin: 1em 0;
   max-width: 100%;
 }
-.wp-block-image figure, .wp-block-image figure[class*=align] {
+.wp-block-image figure,
+.wp-block-image figure[class*=align] {
   display: block;
   margin: 0;
 }
-.wp-block-image, .wp-block-image figure, .wp-block-image figure[class*=align] {
+.wp-block-image,
+.wp-block-image figure,
+.wp-block-image figure[class*=align] {
   display: flex;
   flex-direction: column;
   max-width: 100%;
@@ -401,12 +430,12 @@ nav.n-nav.n-nav__drop li.current_page_item {
 }
 
 /*
-.n-fold span.n-burger:before { // Workaround for the weirdest bug where the fallback value of the CSS variable disappears
+	.n-fold span.n-burger:before { // Workaround for the weirdest bug where the fallback value of the CSS variable disappears
 
-    --control-color: #333;
+	    --control-color: #333;
 
-}
-*/
+	}
+	*/
 .wp-caption {
   margin: 0.5em auto 0 auto;
 }
@@ -448,22 +477,29 @@ a.backtotop[href] {
   }
 
   .home section article {
-    width: calc(50% - .75em);
+    width: calc(50% - 0.75em);
     margin: 0 0 3em 0;
   }
 
-  .home section article:nth-child(2) ~ :nth-child(2n+1), .home.paged section article:first-child {
+  .home section article:nth-child(2) ~ :nth-child(2n+1),
+.home.paged section article:first-child {
     margin-right: 1.5em;
   }
 
-  .home:not(.paged) section article:nth-child(1), .home:not(.paged) section article:nth-child(2), .home section .pagination {
+  .home:not(.paged) section article:nth-child(1),
+.home:not(.paged) section article:nth-child(2),
+.home section .pagination {
     width: 100%;
   }
-  .home:not(.paged) section article:nth-child(1) .n-lightbox.gallery a, .home:not(.paged) section article:nth-child(2) .n-lightbox.gallery a, .home section .pagination .n-lightbox.gallery a {
+  .home:not(.paged) section article:nth-child(1) .n-lightbox.gallery a,
+.home:not(.paged) section article:nth-child(2) .n-lightbox.gallery a,
+.home section .pagination .n-lightbox.gallery a {
     width: 10%;
   }
 
-  .single .n-lightbox.gallery a, .search-results .n-lightbox.gallery a, .archive .n-lightbox.gallery a {
+  .single .n-lightbox.gallery a,
+.search-results .n-lightbox.gallery a,
+.archive .n-lightbox.gallery a {
     width: 10%;
   }
 
@@ -494,7 +530,22 @@ a.backtotop[href] {
     font-size: 1.5em;
   }
 }
-.n-slider--arrow, .n-slider--nav *, .n-tool:after, .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href], .n-fold > .n-fold--label, .n-nav__drop, .n-form, .n-ovrl > .n-ovrl--close, .n-nav__drop ul li, .n-type nav.n-nav a[href] {
+.n-slider--arrow,
+.n-slider--nav *,
+.n-tool:after,
+.n-btn,
+.n-form input[type=submit],
+.n-form button[type=submit],
+.n-form button[type=reset],
+button.n-btn,
+a.n-btn[href],
+.n-type a.n-btn[href],
+.n-fold > .n-fold--label,
+.n-nav__drop,
+.n-form,
+.n-ovrl > .n-ovrl--close,
+.n-nav__drop ul li,
+.n-type nav.n-nav a[href] {
   --control-bg: lightcoral;
   --control-color: #fff;
   --control-active-bg: #cc7c7e;
@@ -502,13 +553,16 @@ a.backtotop[href] {
   --control-highlight: #bf2a2a;
 }
 
-.n-form input, .n-form textarea {
+.n-form input,
+.n-form textarea {
   --input-color: darkslateblue;
   --input-bg: aliceblue;
 }
 
 @media (prefers-color-scheme: dark) {
-  body, .n-ovrl > *, .n-slider--wrap {
+  body,
+.n-ovrl > *,
+.n-slider--wrap {
     background: #000;
   }
 
@@ -520,7 +574,8 @@ a.backtotop[href] {
     background: #222;
   }
 
-  .n-form input, .n-form textarea {
+  .n-form input,
+.n-form textarea {
     --input-color: #ddd;
     --input-bg: #222;
   }

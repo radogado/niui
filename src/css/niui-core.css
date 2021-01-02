@@ -21,7 +21,8 @@ body {
   position: relative;
 }
 
-html.n-vertical-page, html.n-vertical-page body {
+html.n-vertical-page,
+html.n-vertical-page body {
   height: 100%;
   margin: 0 auto;
   overflow-x: hidden;
