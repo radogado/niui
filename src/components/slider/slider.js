@@ -525,7 +525,7 @@ var componentSlider = (function () {
       slider_nav.innerHTML = "";
       for (var i = 0; i < el.children.length; i++) {
         if (hasClass(el, "n-tabs")) {
-          var tab_title = el.children[i].dataset.tab_title || (el.children[i].querySelector(".n-tab-title") ? el.children[i].querySelector(".n-tab-title").innerHTML : i + 1);
+          var tab_title = el.children[i].dataset.tabTitle || (el.children[i].querySelector(".n-tab-title") ? el.children[i].querySelector(".n-tab-title").innerHTML : i + 1);
           slider_nav.insertAdjacentHTML("beforeend", `<button>${tab_title}</button>`);
         } else {
           slider_nav.insertAdjacentHTML("beforeend", `<button>${i + 1}</button>`);
