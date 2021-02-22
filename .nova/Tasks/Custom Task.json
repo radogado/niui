@@ -1,0 +1,9 @@
+{
+  "actions" : {
+    "build" : {
+      "enabled" : true,
+      "script" : "grunt"
+    }
+  },
+  "identifier" : "1569CB54-232E-4B36-94DE-68D87A212B5E"
+}
