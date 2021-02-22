@@ -10,7 +10,9 @@
 				
 				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="img-crop">
 					
-					<?php echo get_the_post_thumbnail(); ?>
+					<!-- <?php echo get_the_post_thumbnail(); ?> -->
+
+					<?php echo str_replace("<img", "<img loading=\"lazy\"", get_the_post_thumbnail()); ?>
 	
 					<h2><?php the_title(); ?> &rarr;</h2>
 					

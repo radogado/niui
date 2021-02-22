@@ -46,7 +46,7 @@
   position: absolute;
   display: block;
   right: 0.5em;
-  top: calc(50% - .5em);
+  top: calc(50% - 0.5em);
   width: 1em;
   height: 1em;
   -webkit-mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(180) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A") center center no-repeat;
@@ -67,7 +67,8 @@
 .n-fold.n-fold__mobile > .n-fold--label:after {
   display: none;
 }
-.n-fold.n-fold__mobile > .n-fold--label, .n-fold.n-fold__mobile > input.n-trigger {
+.n-fold.n-fold__mobile > .n-fold--label,
+.n-fold.n-fold__mobile > input.n-trigger {
   display: none;
   width: auto;
   line-height: 1.5;
@@ -106,7 +107,8 @@
 .n-fold.n-fold__horizontal:not([data-init]) > .n-fold--content {
   width: 0;
 }
-.n-fold.n-fold__horizontal[data-init] > .n-fold--content, .n-fold.n-fold__horizontal[aria-expanded] > .n-fold--content, .n-fold.n-fold__horizontal > input.n-trigger:checked ~ .n-fold--content {
+.n-fold.n-fold__horizontal[data-init] > .n-fold--content, .n-fold.n-fold__horizontal[aria-expanded] > .n-fold--content,
+.n-fold.n-fold__horizontal > input.n-trigger:checked ~ .n-fold--content {
   width: 100%;
 }
 .n-fold.n-fold__horizontal > .n-fold--content {
@@ -148,7 +150,8 @@
   display: none;
 }
 
-.n-fold--label, .n-fold > input[type=checkbox] {
+.n-fold--label,
+.n-fold > input[type=checkbox] {
   grid-column-start: 1;
   grid-row-start: 1;
   width: auto;
@@ -165,7 +168,8 @@
   cursor: zoom-out;
 }
 
-_:-ms-input-placeholder, :root .n-fold > input[type=checkbox] {
+_:-ms-input-placeholder,
+:root .n-fold > input[type=checkbox] {
   position: absolute;
   top: 0;
   right: 0;
@@ -175,14 +179,16 @@ _:-ms-input-placeholder, :root .n-fold > input[type=checkbox] {
   width: 100%;
 }
 
-_:-ms-input-placeholder, :root .n-fold:before {
+_:-ms-input-placeholder,
+:root .n-fold:before {
   content: "↓";
   position: absolute;
   right: 1em;
   top: 0.5em;
 }
 
-_:-ms-input-placeholder, :root .n-fold--label:after {
+_:-ms-input-placeholder,
+:root .n-fold--label:after {
   background: none;
 }
 
@@ -210,7 +216,8 @@ _:-ms-input-placeholder, :root .n-fold--label:after {
   }
 }
 @media screen and (max-width: 599.9px) {
-  .n-fold.n-fold__mobile > .n-fold--label, .n-fold.n-fold__mobile > input.n-trigger {
+  .n-fold.n-fold__mobile > .n-fold--label,
+.n-fold.n-fold__mobile > input.n-trigger {
     display: flex;
     width: 3em;
     height: 3em;
@@ -225,7 +232,8 @@ _:-ms-input-placeholder, :root .n-fold--label:after {
     max-height: 0;
     max-width: 0;
   }
-  .n-fold.n-fold__mobile > input.n-trigger:checked ~ .n-fold--content, .n-fold.n-fold__mobile > input.n-trigger:checked + .n-fold--content {
+  .n-fold.n-fold__mobile > input.n-trigger:checked ~ .n-fold--content,
+.n-fold.n-fold__mobile > input.n-trigger:checked + .n-fold--content {
     max-height: none;
   }
   .n-fold.n-fold__mobile .n-fold--content {

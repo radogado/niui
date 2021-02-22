@@ -112,7 +112,8 @@ main .n-nav ul {
   padding: 0.75em;
   display: block;
 }
-.n-nav__drop a:focus, .n-nav__drop li > :focus {
+.n-nav__drop a:focus,
+.n-nav__drop li > :focus {
   outline-offset: -7px;
 }
 .n-nav__drop a[href] {
@@ -144,8 +145,12 @@ main .n-nav ul {
   position: absolute;
   /* 		visibility: hidden; // Disables hover */
 }
-.n-nav__drop ul li > :checked ~ ul, .n-nav__drop :focus ~ ul,
-.n-nav__drop a:focus ~ ul, .n-nav__drop ul li[aria-expanded] > ul, .n-nav__drop li li[aria-expanded] > ul, .n-nav__drop li li:not(:focus) :checked ~ ul {
+.n-nav__drop ul li > :checked ~ ul,
+.n-nav__drop :focus ~ ul,
+.n-nav__drop a:focus ~ ul,
+.n-nav__drop ul li[aria-expanded] > ul,
+.n-nav__drop li li[aria-expanded] > ul,
+.n-nav__drop li li:not(:focus) :checked ~ ul {
   max-height: none;
   overflow: visible;
   opacity: 1;
@@ -153,7 +158,9 @@ main .n-nav ul {
   background-color: #fff;
   background-color: var(--control-bg, #fff);
 }
-.n-nav__drop ul li[aria-expanded] > ul, .n-nav__drop li li[aria-expanded] > ul, .n-nav__drop li li:not(:focus) :checked ~ ul {
+.n-nav__drop ul li[aria-expanded] > ul,
+.n-nav__drop li li[aria-expanded] > ul,
+.n-nav__drop li li:not(:focus) :checked ~ ul {
   z-index: 2;
 }
 .n-nav__drop li > input {
@@ -196,7 +203,8 @@ main .n-nav ul {
   display: block;
   height: 100%;
 }
-.n-nav__drop li[aria-haspopup]:before, .n-nav__drop li > input {
+.n-nav__drop li[aria-haspopup]:before,
+.n-nav__drop li > input {
   -webkit-mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(180) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A") center center no-repeat;
   -webkit-mask-size: 0.4em;
   background-color: #000;
@@ -235,16 +243,25 @@ main .n-nav ul {
     transform-origin: top;
     transform: scaleY(0);
   }
-  .n-nav__drop ul li > :checked ~ ul, .n-nav__drop :focus ~ ul,
-.n-nav__drop a:focus ~ ul, .n-nav__drop ul li[aria-expanded] > ul, .n-nav__drop li li[aria-expanded] > ul, .n-nav__drop li li:not(:focus) :checked ~ ul {
+  .n-nav__drop ul li > :checked ~ ul,
+.n-nav__drop :focus ~ ul,
+.n-nav__drop a:focus ~ ul,
+.n-nav__drop ul li[aria-expanded] > ul,
+.n-nav__drop li li[aria-expanded] > ul,
+.n-nav__drop li li:not(:focus) :checked ~ ul {
     transform: scaleY(1);
   }
-  .n-nav__drop ul li > :checked ~ ul ul, .n-nav__drop :focus ~ ul ul,
-.n-nav__drop a:focus ~ ul ul, .n-nav__drop ul li[aria-expanded] > ul ul, .n-nav__drop li li[aria-expanded] > ul ul, .n-nav__drop li li:not(:focus) :checked ~ ul ul {
+  .n-nav__drop ul li > :checked ~ ul ul,
+.n-nav__drop :focus ~ ul ul,
+.n-nav__drop a:focus ~ ul ul,
+.n-nav__drop ul li[aria-expanded] > ul ul,
+.n-nav__drop li li[aria-expanded] > ul ul,
+.n-nav__drop li li:not(:focus) :checked ~ ul ul {
     transform: scaleX(1);
     transform-origin: left;
   }
-  .n-nav__drop li li[aria-haspopup]:before, .n-nav__drop li li > input {
+  .n-nav__drop li li[aria-haspopup]:before,
+.n-nav__drop li li > input {
     -webkit-mask-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(90) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A");
   }
   .n-nav__drop:not([data-ready]) li {
@@ -318,31 +335,37 @@ html:not(.can-touch) .n-nav__drop > ul li:not([aria-haspopup]) ul li:hover ~ ul 
   nav.n-nav__drop li {
     white-space: nowrap;
   }
-  nav.n-nav__drop li li[haspopup] > a, nav.n-nav__drop li li li a {
+  nav.n-nav__drop li li[haspopup] > a,
+nav.n-nav__drop li li li a {
     white-space: normal;
     max-width: calc(33.33vw - 2em);
     width: 100em;
   }
 
-  _:-ms-input-placeholder, :root nav.n-nav__drop li {
+  _:-ms-input-placeholder,
+:root nav.n-nav__drop li {
     white-space: normal;
   }
 
-  _:-ms-input-placeholder, :root nav.n-nav__drop ul ul ul {
+  _:-ms-input-placeholder,
+:root nav.n-nav__drop ul ul ul {
     display: block;
   }
 
-  _:-ms-input-placeholder, :root nav.n-nav__drop li:hover ul {
+  _:-ms-input-placeholder,
+:root nav.n-nav__drop li:hover ul {
     overflow: visible !important;
     z-index: 2 !important;
     transform: none !important;
   }
 
-  _:-ms-input-placeholder, :root nav.n-nav__drop input[type=checkbox] {
+  _:-ms-input-placeholder,
+:root nav.n-nav__drop input[type=checkbox] {
     display: none !important;
   }
 
-  _:-ms-input-placeholder, :root nav.n-nav__drop li ul ~ a:before {
+  _:-ms-input-placeholder,
+:root nav.n-nav__drop li ul ~ a:before {
     content: "↓";
     position: absolute;
     top: 0.75em;
@@ -350,11 +373,13 @@ html:not(.can-touch) .n-nav__drop > ul li:not([aria-haspopup]) ul li:hover ~ ul 
     text-decoration: none !important;
   }
 
-  _:-ms-input-placeholder, :root nav.n-nav__drop li li ul ~ a:before {
+  _:-ms-input-placeholder,
+:root nav.n-nav__drop li li ul ~ a:before {
     content: "→";
   }
 
-  _:-ms-input-placeholder, :root .n-nav__drop:not([data-ready]) li:not([tabindex]) > ul ~ a {
+  _:-ms-input-placeholder,
+:root .n-nav__drop:not([data-ready]) li:not([tabindex]) > ul ~ a {
     padding-right: 1.75em;
   }
 
@@ -382,7 +407,8 @@ html:not(.can-touch) .n-nav__drop > ul li:not([aria-haspopup]) ul li:hover ~ ul 
     text-align: start;
   }
 }
-[dir=rtl] .n-nav__drop ul.n-left-side li[aria-haspopup], [dir=rtl] .n-nav__drop li[aria-haspopup] {
+[dir=rtl] .n-nav__drop ul.n-left-side li[aria-haspopup],
+[dir=rtl] .n-nav__drop li[aria-haspopup] {
   padding-right: 0;
   padding-left: 1.875em;
 }
@@ -391,7 +417,8 @@ html:not(.can-touch) .n-nav__drop > ul li:not([aria-haspopup]) ul li:hover ~ ul 
   right: auto;
   margin-left: 0;
 }
-[dir=rtl] .n-nav__drop li[aria-haspopup]:before, [dir=rtl] .n-nav__drop li > input {
+[dir=rtl] .n-nav__drop li[aria-haspopup]:before,
+[dir=rtl] .n-nav__drop li > input {
   right: auto;
   left: 0;
 }

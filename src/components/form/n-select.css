@@ -63,7 +63,7 @@ body.n-select--open {
   width: 0.75em;
   height: 0.75em;
   right: 0.4em;
-  top: calc(50% - .375em);
+  top: calc(50% - 0.375em);
   z-index: -1;
 }
 .n-select:after {
@@ -71,7 +71,8 @@ body.n-select--open {
   top: 0;
   z-index: 5;
 }
-.n-select:not([data-ready]) .n-select__options, .n-select:not([data-ready]) select {
+.n-select:not([data-ready]) .n-select__options,
+.n-select:not([data-ready]) select {
   animation-duration: 0.1s;
   animation-fill-mode: forwards;
   animation-delay: 2s;
@@ -105,11 +106,13 @@ body.n-select--open {
   display: none;
 }
 
-.n-select__options, .n-select {
-  --padding: .5em;
+.n-select__options,
+.n-select {
+  --padding: 0.5em;
 }
 
-.n-select__options, .n-select select {
+.n-select__options,
+.n-select select {
   width: auto;
   max-width: 100%;
   color: var(--control-color, #333);
@@ -184,7 +187,7 @@ body.n-select--open {
 }
 .n-select__options[aria-expanded] {
   position: absolute;
-  margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - 1px*var(--scroll-help-top, 0));
+  margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - 1px * var(--scroll-help-top, 0));
   max-height: var(--max-height);
   overflow: auto;
   background: transparent;
@@ -206,25 +209,28 @@ body.n-select--open {
   margin-top: calc(-1px * (var(--active-option-offset, 0) - var(--top-offset, 0)) - 1px * var(--scroll-help-top, 0));
 }
 .n-select__options[aria-expanded]:not(.n-select--crop-top) {
-  padding-top: calc(1px*var(--scroll-help-top, 0));
+  padding-top: calc(1px * var(--scroll-help-top, 0));
 }
 .n-select__options[aria-expanded]:not(.n-select--crop-top):before {
-  margin-top: calc(1px*var(--scroll-help-top, 0));
+  margin-top: calc(1px * var(--scroll-help-top, 0));
 }
 .n-select__options[aria-expanded] [aria-selected] {
   background-color: var(--control-active-bg, #eee);
   color: var(--control-active-color, #000);
 }
-.n-select__options[aria-expanded] button, .n-select__options[aria-expanded] a[href] {
+.n-select__options[aria-expanded] button,
+.n-select__options[aria-expanded] a[href] {
   line-height: 1.3;
   width: 100%;
   box-sizing: border-box;
 }
-.n-select__options[aria-expanded] button:not([aria-selected]):hover, .n-select__options[aria-expanded] a[href]:not([aria-selected]):hover {
+.n-select__options[aria-expanded] button:not([aria-selected]):hover,
+.n-select__options[aria-expanded] a[href]:not([aria-selected]):hover {
   background-color: var(--control-highlight, #ececec);
   color: var(--control-active-color, inherit);
 }
-.n-select__options[aria-expanded] button:focus, .n-select__options[aria-expanded] a[href]:focus {
+.n-select__options[aria-expanded] button:focus,
+.n-select__options[aria-expanded] a[href]:focus {
   z-index: 1;
 }
 .n-select__options[aria-expanded]:before {
@@ -237,7 +243,7 @@ body.n-select--open {
   height: calc(var(--select-scroll-height) - 2 * 1em);
 }
 .n-select__options[aria-expanded].n-select--scroll-help-top:before {
-  height: calc(100% + 1px*var(--top-offset, 0));
+  height: calc(100% + 1px * var(--top-offset, 0));
 }
 .n-select__options[aria-expanded].n-select--shadow:before {
   box-shadow: 0 0 2px 2px #333;
@@ -269,16 +275,20 @@ body.n-select--open {
   font-family: inherit;
 }
 
-select[data-n_select], .n-select[data-ready] select, .n-select[data-ready] + select {
+select[data-n_select],
+.n-select[data-ready] select,
+.n-select[data-ready] + select {
   display: none;
 }
 
-.n-form__wide .n-select, .n-form__wide .n-select__options, .n-form__wide .n-select select {
+.n-form__wide .n-select,
+.n-form__wide .n-select__options,
+.n-form__wide .n-select select {
   width: 100%;
 }
 
 .n-select__options[aria-expanded] {
-  -webkit-mask: linear-gradient(0, #000, #000) no-repeat 0 calc((var(--mask-position-y) + var(--scroll-help-top, 0)) * 1px)/calc(var(--max-width) + .5em) var(--mask-size-y);
+  -webkit-mask: linear-gradient(0, #000, #000) no-repeat 0 calc((var(--mask-position-y) + var(--scroll-help-top, 0)) * 1px)/calc(var(--max-width) + 0.5em) var(--mask-size-y);
 }
 .n-select__options[aria-expanded][data-n-select-animation] {
   transition: -webkit-mask-size 0.15s ease-in-out, -webkit-mask-position-y 0.15s ease-in-out;
