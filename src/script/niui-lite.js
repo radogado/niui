@@ -1306,6 +1306,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 
 	typeof registerComponent === "function" ? registerComponent("n-select", init) : init(document.body);
 })();
+;// import "../../../node_modules/n-carousel/n-carousel.js";
 ;// Component Nav – start
 
 (function () {

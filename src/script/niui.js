@@ -2323,6 +2323,7 @@ window.nuiDisableBodyScroll = (function () {
 })();
 
 // To do: disable page scroll by arrow keys
+;// import "../../../node_modules/n-carousel/n-carousel.js";
 ;// Component Nav – start
 
 (function () {

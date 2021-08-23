@@ -23,6 +23,7 @@
     "grunt-contrib-sass": "^2.0.0",
     "grunt-contrib-watch": "^1.1.0",
     "grunt-gzip": "^0.1.0",
+    "grunt-rollup": "^11.9.0-0",
     "grunt-sass": "^3.1.0",
     "grunt-terser": "^2.0.0",
     "jit-grunt": "^0.10.0",
