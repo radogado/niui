@@ -25,9 +25,11 @@
     "grunt-gzip": "^0.1.0",
     "grunt-sass": "^3.1.0",
     "grunt-terser": "^2.0.0",
+    "gzip-size": "^6.0.0",
     "jit-grunt": "^0.10.0",
     "n-carousel": "^1.0.22",
     "rollup": "^2.56.3",
+    "sass": "^1.38.1",
     "terser": "^5.7.2"
   },
   "main": "index.js",
