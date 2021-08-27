@@ -4,6 +4,8 @@ natuive-grid-bootstrap/
 natuive-wordpress/
 *.html
 *.md
+*.dev.*
+*.dev/
 Gruntfile.js
 .DS_Store
 natuive-wp.zip
