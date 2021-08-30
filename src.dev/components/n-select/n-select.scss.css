@@ -21,14 +21,6 @@ Theme:
     visibility: visible;
   }
 }
-body.n-select--open {
-  /*
-  	overflow: hidden;
-  	-webkit-user-select: none;
-  	user-select: none;
-  */
-}
-
 .n-select {
   position: relative;
   height: var(--active-option-height, auto);
@@ -36,9 +28,32 @@ body.n-select--open {
   vertical-align: middle;
   max-width: 100%;
   width: var(--width, auto);
-  line-height: 1.3;
   z-index: 0;
   background-color: var(--control-bg, #fff);
+  line-height: var(--line-height, 1.333);
+}
+.n-select:before {
+  content: "";
+  position: absolute;
+  cursor: pointer;
+  background-color: var(--control-color, #333);
+  --chevron: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16.003 18.626l7.081-7.081L25 13.46l-8.997 8.998-9.003-9 1.917-1.916z'/%3E%3C/svg%3E");
+  -webkit-mask: var(--chevron) no-repeat 0 0/contain;
+  mask: var(--chevron) no-repeat 0 0/contain;
+  -webkit-mask-size: 150%;
+  -webkit-mask-position: 50%;
+  mask-size: 150%;
+  mask-position: 50%;
+  width: 0.75em;
+  height: 0.75em;
+  margin-inline-start: calc(100% - 1.25em);
+  top: calc(50% - 0.375em);
+  z-index: -1;
+}
+.n-select:after {
+  position: absolute;
+  top: 0;
+  z-index: 5;
 }
 .n-select[data-ready] {
   font-size: 1em;
@@ -51,25 +66,6 @@ body.n-select--open {
   visibility: hidden;
   overflow: hidden;
   display: block;
-}
-.n-select:before {
-  content: "";
-  position: absolute;
-  cursor: pointer;
-  background-color: var(--control-color, #333);
-  --chevron: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16.003 18.626l7.081-7.081L25 13.46l-8.997 8.998-9.003-9 1.917-1.916z'/%3E%3C/svg%3E");
-  -webkit-mask: var(--chevron) no-repeat 0 0/contain;
-  mask: var(--chevron) no-repeat 0 0/contain;
-  width: 0.75em;
-  height: 0.75em;
-  right: 0.4em;
-  top: calc(50% - 0.375em);
-  z-index: -1;
-}
-.n-select:after {
-  position: absolute;
-  top: 0;
-  z-index: 5;
 }
 .n-select:not([data-ready]) .n-select__options,
 .n-select:not([data-ready]) select {
@@ -85,10 +81,11 @@ body.n-select--open {
   width: 100%;
   padding-inline-start: 0.5em;
   padding-inline-end: 1.961em;
-  line-height: 2.25;
   height: auto;
   margin: 0;
   background: none;
+}
+.n-select:not([data-ready]) select:not(:only-child) {
   visibility: hidden;
   animation-name: n-select-native;
 }
@@ -102,8 +99,17 @@ body.n-select--open {
 .n-select:not([data-ready]) .n-select__options > :not(:first-child):not([aria-selected]) {
   opacity: 0;
 }
+.n-select:not([data-ready]) .n-select__options:not([aria-expanded]) button[aria-selected] {
+  background: var(--control-bg, #fff);
+}
 .n-select > input {
   display: none;
+}
+.n-select.n-select--wide {
+  width: 100%;
+}
+.n-select.n-select--open {
+  opacity: 0;
 }
 
 .n-select__options,
@@ -134,6 +140,7 @@ body.n-select--open {
   padding: var(--padding, 0.5em);
   padding-inline-end: 1.961em;
   cursor: pointer;
+  line-height: calc(1 + var(--line-height, 1.333));
 }
 .n-select select ~ .n-select__options {
   animation-name: n-select;
@@ -146,6 +153,7 @@ body.n-select--open {
   -khtml-user-select: none;
   -moz-user-select: none;
   user-select: none;
+  line-height: inherit;
 }
 .n-select__options button {
   -webkit-appearance: none;
@@ -171,8 +179,8 @@ body.n-select--open {
   margin-inline-end: 0.5em;
 }
 .n-select__options.n-scrollbar {
-  scrollbar-width: 0.333em;
-  scrollbar-color: #999 #eee;
+  scrollbar-width: none;
+  scrollbar-color: #999 transparent;
 }
 .n-select__options.n-scrollbar::-webkit-scrollbar {
   width: 0.333em;
@@ -182,7 +190,7 @@ body.n-select--open {
   border-radius: 0.333em;
 }
 .n-select__options.n-scrollbar::-webkit-scrollbar-track {
-  background: #eee;
+  background: transparent;
   border-radius: 0.333em;
 }
 .n-select__options[aria-expanded] {
@@ -191,18 +199,18 @@ body.n-select--open {
   max-height: var(--max-height);
   overflow: auto;
   background: transparent;
-  padding: 0 1em;
-  margin-inline-start: -1em;
+  padding: 0 var(--padding, 1em);
+  margin-inline-start: calc(-1 * var(--padding, 1em));
   left: calc(1px * var(--body-offset-x));
   top: calc(1px * var(--body-offset-y));
   box-sizing: content-box;
   min-width: var(--max-width);
 }
 .n-select__options[aria-expanded] > :first-child {
-  margin-top: 1em;
+  margin-top: var(--padding, 1em);
 }
 .n-select__options[aria-expanded] > :last-child {
-  margin-bottom: 1em;
+  margin-bottom: var(--padding, 1em);
 }
 .n-select__options[aria-expanded].n-select--crop-top {
   top: calc(1px * var(--body-offset-y));
@@ -220,7 +228,6 @@ body.n-select--open {
 }
 .n-select__options[aria-expanded] button,
 .n-select__options[aria-expanded] a[href] {
-  line-height: 1.3;
   width: 100%;
   box-sizing: border-box;
 }
@@ -237,16 +244,16 @@ body.n-select--open {
   content: "";
   position: absolute;
   background-color: var(--control-bg, #fff);
-  top: 1em;
-  left: 1em;
-  right: 1em;
-  height: calc(var(--select-scroll-height) - 2 * 1em);
+  top: var(--padding, 1em);
+  left: var(--padding, 1em);
+  right: var(--padding, 1em);
+  height: calc(var(--select-scroll-height) - 2 * var(--padding, 1em));
 }
 .n-select__options[aria-expanded].n-select--scroll-help-top:before {
   height: calc(100% + 1px * var(--top-offset, 0));
 }
 .n-select__options[aria-expanded].n-select--shadow:before {
-  box-shadow: 0 0 2px 2px #333;
+  box-shadow: 0 0 4px 3px #3333338c;
 }
 .n-select__options:not([aria-expanded]) {
   cursor: pointer;
@@ -260,9 +267,7 @@ body.n-select--open {
   outline-offset: -1.5px;
   font-size: 1em;
   border: none;
-  padding: 0.5em;
   padding-inline-end: 2em;
-  line-height: 1.3;
   font-weight: normal;
   min-height: 0;
   color: var(--control-color, #333);
@@ -281,14 +286,9 @@ select[data-n_select],
   display: none;
 }
 
-.n-form__wide .n-select,
-.n-form__wide .n-select__options,
-.n-form__wide .n-select select {
-  width: 100%;
-}
-
 .n-select__options[aria-expanded] {
-  -webkit-mask: linear-gradient(0, #000, #000) no-repeat 0 calc((var(--mask-position-y) + var(--scroll-help-top, 0)) * 1px)/calc(var(--max-width) + 0.5em) var(--mask-size-y);
+  -webkit-mask: linear-gradient(0, #000, #000) no-repeat 0 calc((var(--mask-position-y) + var(--scroll-help-top, 0)) * 1px)/calc(var(--max-width) + var(--padding, 1em)) var(--mask-size-y);
+  overscroll-behavior: contain;
 }
 .n-select__options[aria-expanded][data-n-select-animation] {
   transition: -webkit-mask-size 0.15s ease-in-out, -webkit-mask-position-y 0.15s ease-in-out;
@@ -306,5 +306,37 @@ select[data-n_select],
     width: calc(var(--max-width) + var(--padding));
   }
 }
+.n-select--rounded.n-select, .n-select--rounded.n-select__options:before {
+  border-radius: var(--radius, 0.333em);
+}
+.n-select--rounded.n-select__options button:first-of-type {
+  border-top-left-radius: var(--radius, 0.333em);
+  border-top-right-radius: var(--radius, 0.333em);
+}
+.n-select--rounded.n-select__options button:last-of-type {
+  border-bottom-left-radius: var(--radius, 0.333em);
+  border-bottom-right-radius: var(--radius, 0.333em);
+}
 
-/*# sourceMappingURL=n-select.css.map */
+.n-select:focus:not(:focus-visible),
+.n-select__options button:focus:not(:focus-visible) {
+  outline: 0;
+}
+
+_::-webkit-full-page-media,
+_:future,
+:root body.n-select--open {
+  overflow: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+[dir=rtl] .n-select__options[aria-expanded] {
+  margin-inline-end: 0;
+  left: auto;
+  right: calc(100% - 1px * var(--body-offset-x) - var(--max-width));
+  -webkit-mask-position-x: 100%;
+  mask-position-x: 100%;
+}
+
+/*# sourceMappingURL=n-select.scss.css.map */
