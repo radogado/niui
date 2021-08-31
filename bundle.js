@@ -1,6 +1,9 @@
 window.nui = (() => {
 'use strict';
 
+//→ niui-core.js:
+'use strict';
+
 /* niui by rado.bg */
 /* DOM functions via http://youmightnotneedjquery.com */
 
@@ -42,6 +45,14 @@ function removeClass(el, className) {
 function hasClass(el, className) {
 	return el.classList.contains(className);
 	// To do: remove a single '.' for foolproof operation; Support multiple classes separated by space, dot, comma
+}
+
+function toggleClass(el, className) {
+	if (hasClass(el, className)) {
+		removeClass(el, className);
+	} else {
+		addClass(el, className);
+	}
 }
 
 function toggleAttribute(el, attribute) {
@@ -94,6 +105,39 @@ function stopEvent(e) {
 	return false;
 }
 
+function thisIndex(el) {
+	/*
+    if (!el) return;
+	var node, nodes;
+	
+    nodes = node = el.parentNode.childNodes;
+
+    var i = 0;
+    var count = 0;
+
+    while ((node = nodes.item(i++)) && node !== el) {
+
+        if (node.nodeType === 1) {
+
+            count++;
+
+        }
+
+    }
+
+    return (count);
+*/
+
+	return [...el.parentNode.children].indexOf(el);
+}
+
+function getCookie(k) {
+	// Thanks Simon Steinberger
+
+	var v = document.cookie.match("(^|;) ?" + k + "=([^;]*)(;|$)");
+	return v ? v[2] : null;
+}
+
 function wrap(toWrap, wrapper) {
 	// Thanks yckart
 
@@ -120,6 +164,48 @@ function wrap(toWrap, wrapper) {
 	//     observerOn();
 
 	return wrapper;
+}
+
+/*
+function ready(fn) { // Not working with async and defer
+
+  if (document.readyState != 'loading') {
+
+    fn();
+
+  } else if (document.addEventListener) {
+
+    document.addEventListener('DOMContentLoaded', fn);
+
+  } else {
+
+    document.attachEvent('onreadystatechange', function() {
+    	if (document.readyState != 'loading')
+        	fn();
+    });
+
+  }
+
+}
+*/
+
+function removeHash() {
+	history.pushState("", document.title, window.location.pathname + window.location.search);
+}
+
+/* ––– */
+
+function getURLParameters() {
+	// return all URL parameters in an array
+
+	var res = {};
+	var re = /[?&]([^?&]+)=([^?&]+)/g;
+
+	location.href.replace(re, (_, k, v) => {
+		res[k] = v;
+	});
+
+	return res;
 }
 
 /*
@@ -188,9 +274,14 @@ function arrow_keys_handler(e) {
 		case 32:
 			e.preventDefault();
 			break; // Space
+		default:
+			break; // do not block other keys
 	}
 }
+
+var external = RegExp("^((f|ht)tps?:)?//(?!" + location.host + ")");
 var full_window_content = null;
+var previousScrollOffset = 0;
 var previouslyFocused = false;
 
 /* Animate anchor links */
@@ -354,6 +445,45 @@ function scrollToAnimated(to, duration, callback) {
 	);
 }
 
+// Scroll window to top, animated with easing
+// To do: suport any element and direction. Use it to slide sliders on browsers where CSS transforms are slower. Replace the above scrollToAnimated()
+
+let scrollToElement = (duration = 1000) => {
+	let cosParameter = window.scrollY / 2;
+	let scrollCount = 0;
+	let oldTimestamp = performance.now();
+
+	let step = (newTimestamp) => {
+		scrollCount += Math.PI / (duration / (newTimestamp - oldTimestamp));
+		if (scrollCount >= Math.PI) window.scrollTo(0, 0);
+		if (window.scrollY === 0) return;
+		window.scrollTo(0, Math.round(cosParameter + cosParameter * Math.cos(scrollCount)));
+		oldTimestamp = newTimestamp;
+		window.requestAnimationFrame(step);
+	};
+
+	window.requestAnimationFrame(step);
+};
+
+// Clicking a button copies a target element's contents
+
+function copyButton(el, target, echo) {
+	el.addEventListener("click", (event) => {
+		window.getSelection().removeAllRanges(); // Clear previous clipboard
+		var range = document.createRange();
+		range.selectNode(target);
+		window.getSelection().addRange(range);
+
+		try {
+			document.execCommand("copy");
+
+			if (!!echo && componentNotify) {
+				componentNotify.notify("📋 " + target.textContent, "fixed timeout");
+			}
+		} catch (err) {}
+	});
+}
+
 // Real time touch detection to support devices with both touch and mouse. http://www.javascriptkit.com/dhtmltutors/sticky-hover-issue-solutions.shtml
 // To do: use an attribute instead of class
 (function () {
@@ -387,6 +517,24 @@ function scrollToAnimated(to, duration, callback) {
 
 function makeReady(el) {
 	el.dataset.ready = true;
+}
+
+function focusWithin(selector) {
+	// To do: If not IE/Edge, return q(selector + ':focus-within');
+
+	var result = null;
+	qa(selector).forEach((el) => {
+		if (el.querySelector(":focus")) {
+			result = el;
+		}
+	});
+
+	return result;
+}
+
+function addComponent(host, el) {
+	host.insertAdjacentHTML("afterbegin", el);
+	// 	initComponents(host); // No need, observer does it automatically
 }
 
 /*
@@ -444,7 +592,8 @@ function initThreshold(host) {
 }
 */
 
-q(".slider");
+var current_slider = q(".slider");
+var draggingNow = false;
 
 var components = new Array();
 
@@ -546,6 +695,9 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	});
 }
 
+//→ fold.js:
+'use strict';
+
 // Component Fold – start
 
 (function () {
@@ -617,7 +769,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		// Focus on clicked slider
 
 		if (el.closest(".n-slider")) {
-			el.closest(".n-slider");
+			current_slider = el.closest(".n-slider");
 		}
 	}
 
@@ -686,6 +838,11 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 
 	registerComponent("fold", initFold);
 })();
+
+// Component Fold – end
+
+//→ form.js:
+'use strict';
 
 // Component Form – start
 
@@ -800,6 +957,11 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	registerComponent("form", init);
 })();
 
+// Component Form – end
+
+//→ grid-inline-popups.js:
+'use strict';
+
 // Component Grid with inline popups – start
 
 (function () {
@@ -911,6 +1073,11 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	registerComponent("grid-inline-popups", init);
 })();
 
+// Component Grid with inline popups – end
+
+//→ disable-body-scroll-ios.js:
+'use strict';
+
 /**
  * This is a function where type checking is disabled.
  * @suppress {misplacedTypeAnnotation}
@@ -1012,7 +1179,10 @@ window.nuiDisableBodyScroll = (function () {
 	};
 })();
 
-((function () {
+//→ modal.js:
+'use strict';
+
+var componentModal = (function () {
 	/* Modal – start */
 
 	function adjustModal(e) {
@@ -1291,7 +1461,12 @@ window.nuiDisableBodyScroll = (function () {
 	return { closeFullWindow, openFullWindow, adjustModal };
 
 	/* Modal – end */
-}))();
+})();
+
+// To do: disable page scroll by arrow keys
+
+//→ n-carousel-from-npm.js:
+'use strict';
 
 (function() {
 	const ceilingWidth = (el) => Math.ceil(parseFloat(getComputedStyle(el).width));
@@ -1362,9 +1537,11 @@ window.nuiDisableBodyScroll = (function () {
 
 	const isRTL = (el) => getComputedStyle(el).direction === "rtl";
 
+	const resize_observer_support = typeof ResizeObserver === "function";
+
 	const toggleFullScreen = (el) => {
 		el = el.closest(".n-carousel");
-		el.querySelector(":scope > .n-carousel__content");
+		let carousel = el.querySelector(":scope > .n-carousel__content");
 
 		const restoreScroll = () => {
 			if (!document.webkitIsFullScreen) {
@@ -1592,9 +1769,11 @@ window.nuiDisableBodyScroll = (function () {
 			var distanceH = new_height - starth;
 			var duration = parseFloat(el.parentNode.dataset.duration) * 1000 || default_duration;
 			var start = null;
+			var end = null;
 
 			let startAnim = (timeStamp) => {
 				start = timeStamp;
+				end = start + duration;
 				draw(timeStamp);
 			};
 
@@ -1719,6 +1898,7 @@ window.nuiDisableBodyScroll = (function () {
 	var isScrolling;
 	var lastScrollX;
 	var lastScrollY;
+	var isResizing;
 
 	const scrollStop = (e) => {
 		// return;
@@ -1735,8 +1915,8 @@ window.nuiDisableBodyScroll = (function () {
 		// console.log("scrolling", e, e.target.scrollLeft);
 		let el = e.target;
 
-		scrollStartX(el) % ceilingWidth(el.children[0]);
-		el.scrollTop % ceilingHeight(el.children[0]);
+		let mod_x = scrollStartX(el) % ceilingWidth(el.children[0]);
+		let mod_y = el.scrollTop % ceilingHeight(el.children[0]);
 
 		// console.log("mod while scrolling", mod_x, mod_y);
 		// console.log("scroll while scrolling", scrollStartX(el));
@@ -1758,6 +1938,8 @@ window.nuiDisableBodyScroll = (function () {
 
 				// console.log("stuck", new_x, new_y, el);
 				updateCarousel(el);
+				// console.log("unstucking to ", new_y);
+				let tabbing = false;
 				if (!isSafari || !!el.tabbing) {
 					slideTo(el, isVertical(el) ? new_y : new_x);
 				}
@@ -2184,9 +2366,12 @@ window.nuiDisableBodyScroll = (function () {
 	typeof registerComponent === "function" ? registerComponent("n-carousel", init) : init();
 })();
 
+//→ n-select.js:
+'use strict';
+
 (function () {
 	const isChrome = !!navigator.userAgent.match("Chrome");
-	navigator.userAgent.match(/Safari/) && !isChrome;
+	const isSafari = navigator.userAgent.match(/Safari/) && !isChrome;
 	let clickOutsideSelect = (e) => {
 		if (!e.target.closest(".n-select__options > *") && !e.target.closest(".n-select")) {
 			document.querySelectorAll(".n-select__options[aria-expanded]:not([data-n-select-animation])").forEach((select) => {
@@ -2665,6 +2850,9 @@ window.nuiDisableBodyScroll = (function () {
 	typeof registerComponent === "function" ? registerComponent("n-select", init) : init(document.body);
 })();
 
+//→ nav.js:
+'use strict';
+
 // Component Nav – start
 
 (function () {
@@ -2833,7 +3021,9 @@ window.nuiDisableBodyScroll = (function () {
 		let item = el.tagName === "LI" ? el.querySelector("ul") : el.parentElement.querySelector("ul");
 		if (isDesktop(this_nav)) {
 			if (el.getAttribute("aria-expanded")) {
-				if (el.querySelector("a:focus")) ; else {
+				if (el.querySelector("a:focus")) {
+					// 						el.querySelector('a:focus').blur();
+				} else {
 					if (isDesktop(this_nav)) {
 						el.removeAttribute("aria-expanded");
 					} else {
@@ -2936,6 +3126,8 @@ window.nuiDisableBodyScroll = (function () {
 			}
 		});
 
+		let menubar = el;
+
 		el.querySelectorAll("li").forEach((el) => {
 			let ul = el.querySelector("ul");
 			if (ul) {
@@ -2951,11 +3143,13 @@ window.nuiDisableBodyScroll = (function () {
 		el.addEventListener("focusin", dropNavFocus);
 		el.addEventListener("focusout", dropNavBlur);
 
+		draggingNow = false;
+
 		window.requestAnimationFrame(() => {
 			// Give the browser time to update
 
 			el.querySelectorAll("ul").forEach((ul) => {
-				checkSides(ul);
+				checkSides(ul, menubar);
 			});
 		});
 	}
@@ -2963,7 +3157,7 @@ window.nuiDisableBodyScroll = (function () {
 	window.addEventListener("resize", function (e) {
 		document.querySelectorAll('.n-nav.n-nav__drop ul[role="menubar"]').forEach((menubar) => {
 			menubar.querySelectorAll("ul").forEach((ul) => {
-				checkSides(ul);
+				checkSides(ul, menubar);
 			});
 		});
 	});
@@ -2979,9 +3173,14 @@ window.nuiDisableBodyScroll = (function () {
 	registerComponent("nav", init);
 })();
 
+// Component Nav – end
+
+//→ notify.js:
+'use strict';
+
 // Component Notification bar – start
 
-((function () {
+var componentNotify = (function () {
 	function notifyClose(el) {
 		if (!!el) {
 			el.parentNode.removeChild(el);
@@ -3017,7 +3216,12 @@ window.nuiDisableBodyScroll = (function () {
 	registerComponent("notify", init);
 
 	return { notify: notify };
-}))();
+})();
+
+// Component Notification bar – end
+
+//→ parallax.js:
+'use strict';
 
 // Component Parallax – start
 
@@ -3041,6 +3245,11 @@ window.nuiDisableBodyScroll = (function () {
 	let init = (host) => {};
 	registerComponent("parallax", init);
 })();
+
+// Component Parallax – end
+
+//→ table.js:
+'use strict';
 
 // Component Table – start
 
@@ -3080,6 +3289,11 @@ window.nuiDisableBodyScroll = (function () {
 	};
 	registerComponent("table", init);
 })();
+
+// Component Table – end
+
+//→ tooltip.js:
+'use strict';
 
 // Component Tooltip – start
 
@@ -3252,6 +3466,11 @@ window.nuiDisableBodyScroll = (function () {
 	registerComponent("tooltip", init);
 })();
 
+// Component Tooltip – end
+
+//→ typography.js:
+'use strict';
+
 // Component Typography – start
 
 (function () {
@@ -3284,4 +3503,4 @@ window.nuiDisableBodyScroll = (function () {
 })();
 
 // Component Typography – end
-initComponents(); return { initComponents, animate, copyButton, componentModal, addComponent, componentSlider, componentNotify } })();
+initComponents(); return { initComponents, animate, copyButton, componentModal, addComponent, componentNotify } })();
