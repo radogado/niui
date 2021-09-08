@@ -437,12 +437,13 @@ function scrollToAnimated(to, duration, callback) {
 		}
 	}
 
-	animate(
-		q("html"),
-		`100% { transform: translate3d(0, ${-1 * (to - (document.documentElement.scrollTop || document.body.scrollTop))}px, 0); }`,
-		duration,
-		scrollToCallback.bind(null, callback)
-	);
+	// animate(
+	// 	q("html"),
+	// 	`100% { transform: translate3d(0, ${-1 * (to - (document.documentElement.scrollTop || document.body.scrollTop))}px, 0); }`,
+	// 	duration,
+	// 	scrollToCallback.bind(null, callback)
+	// );	
+	q("html").animate([{transform: "translate3d(0, 0, 0)"}, {transform: `translate3d(0, ${-1 * (to - (document.documentElement.scrollTop || document.body.scrollTop))}px, 0)`}], duration).onfinish = () => { scrollToCallback(callback);};
 }
 
 // Scroll window to top, animated with easing
@@ -705,15 +706,21 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 
 	let closeAccordion = (el, content) => {
 		let content_height = content.style.getPropertyValue("--start-height") || 0;
-		animate(content, `0% { max-height: ${content.scrollHeight}px; } 100% { max-height: ${content_height}; }`, 0.2, () => {
+		// animate(content, `0% { max-height: ${content.scrollHeight}px; } 100% { max-height: ${content_height}; }`, 0.2, () => {
+		// 	toggleAttribute(el, "aria-expanded");
+		// });
+
+		content.animate([{ maxHeight: `${content.scrollHeight}px` }, { maxHeight: content_height }], 200).onfinish = () => {
 			toggleAttribute(el, "aria-expanded");
-		});
+		};
+
 	};
 
 	let openAccordion = (el, content) => {
 		let content_height = content.style.getPropertyValue("--start-height") || 0;
 		toggleAttribute(el, "aria-expanded");
-		animate(content, `0% { max-height: ${content_height}; } 100% { max-height: ${content.scrollHeight}px; }`);
+		// animate(content, `0% { max-height: ${content_height}; } 100% { max-height: ${content.scrollHeight}px; }`);
+		content.animate([{ maxHeight: content_height }, { maxHeight: `${content.scrollHeight}px` }], 200);
 	};
 
 	function toggleAccordion(e) {
@@ -846,7 +853,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 
 // Component Form – start
 
-(function () {
+(function() {
 	/* Form – start */
 
 	function submitForm(e) {
@@ -876,7 +883,9 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 				// 				animate(el.closest('form'), '33% { transform: translateX(-9px) } 66% { transform: translateX(9px) } 100% { transform: translateX(0) } ', 999);
 				// Margin animation, because transform animation hides neighbouring content on iPad
 				let form = el.closest("form");
-				animate(form, `0% { width: ${form.scrollWidth}px; } 33% { margin-left: -9px; } 66% { margin-left: 18px; } 100% { width: ${form.scrollWidth}px; margin-left: 0; }`, 0.25);
+				// animate(form, `0% { width: ${form.scrollWidth}px; } 33% { margin-left: -9px; } 66% { margin-left: 18px; } 100% { width: ${form.scrollWidth}px; margin-left: 0; }`, 0.25);
+
+				form.animate([{ width: `${form.scrollWidth}px` }, { marginLeft: `-9px` }, { marginLeft: `18px` }, { width: `${form.scrollWidth}px`, marginLeft: 0 }], 250);
 				return;
 			} else {
 				removeClass(el, "n-form--alert");
@@ -2986,7 +2995,7 @@ var componentModal = (function () {
 		item.style.overflow = "hidden";
 		item.parentElement.setAttribute("aria-expanded", true);
 
-		animate(item, `0% { height: ${item.scrollHeight}px; } 100% { height: 0 }`, 0.2, () => {
+		item.animate([{ height: `${item.scrollHeight}px` }, { height: 0 }], 200).onfinish = () => {
 			item.removeAttribute("style");
 			item.parentElement.removeAttribute("aria-expanded");
 			navAnimating = false;
@@ -2994,17 +3003,17 @@ var componentModal = (function () {
 			item.querySelectorAll("[aria-expanded]").forEach((el) => {
 				el.removeAttribute("aria-expanded");
 			});
-		});
+		};
 	};
 
 	let openItem = (item) => {
 		navAnimating = true;
 		item.style.overflow = "hidden";
 		item.parentElement.setAttribute("aria-expanded", true);
-		animate(item, `0% { height: 0; } 100% { height: ${item.scrollHeight}px }`, 0.2, () => {
+		item.animate([{ height: 0 }, { height: `${item.scrollHeight}px` }], 200).onfinish = () => {
 			item.removeAttribute("style");
 			navAnimating = false;
-		});
+		};
 	};
 
 	let clickEvent = (e) => {

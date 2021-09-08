@@ -5,15 +5,21 @@
 
 	let closeAccordion = (el, content) => {
 		let content_height = content.style.getPropertyValue("--start-height") || 0;
-		animate(content, `0% { max-height: ${content.scrollHeight}px; } 100% { max-height: ${content_height}; }`, 0.2, () => {
+		// animate(content, `0% { max-height: ${content.scrollHeight}px; } 100% { max-height: ${content_height}; }`, 0.2, () => {
+		// 	toggleAttribute(el, "aria-expanded");
+		// });
+
+		content.animate([{ maxHeight: `${content.scrollHeight}px` }, { maxHeight: content_height }], 200).onfinish = () => {
 			toggleAttribute(el, "aria-expanded");
-		});
+		};
+
 	};
 
 	let openAccordion = (el, content) => {
 		let content_height = content.style.getPropertyValue("--start-height") || 0;
 		toggleAttribute(el, "aria-expanded");
-		animate(content, `0% { max-height: ${content_height}; } 100% { max-height: ${content.scrollHeight}px; }`);
+		// animate(content, `0% { max-height: ${content_height}; } 100% { max-height: ${content.scrollHeight}px; }`);
+		content.animate([{ maxHeight: content_height }, { maxHeight: `${content.scrollHeight}px` }], 200);
 	};
 
 	function toggleAccordion(e) {

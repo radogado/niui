@@ -131,7 +131,7 @@
 		item.style.overflow = "hidden";
 		item.parentElement.setAttribute("aria-expanded", true);
 
-		animate(item, `0% { height: ${item.scrollHeight}px; } 100% { height: 0 }`, 0.2, () => {
+		item.animate([{ height: `${item.scrollHeight}px` }, { height: 0 }], 200).onfinish = () => {
 			item.removeAttribute("style");
 			item.parentElement.removeAttribute("aria-expanded");
 			navAnimating = false;
@@ -139,17 +139,17 @@
 			item.querySelectorAll("[aria-expanded]").forEach((el) => {
 				el.removeAttribute("aria-expanded");
 			});
-		});
+		};
 	};
 
 	let openItem = (item) => {
 		navAnimating = true;
 		item.style.overflow = "hidden";
 		item.parentElement.setAttribute("aria-expanded", true);
-		animate(item, `0% { height: 0; } 100% { height: ${item.scrollHeight}px }`, 0.2, () => {
+		item.animate([{ height: 0 }, { height: `${item.scrollHeight}px` }], 200).onfinish = () => {
 			item.removeAttribute("style");
 			navAnimating = false;
-		});
+		};
 	};
 
 	let clickEvent = (e) => {

@@ -431,12 +431,13 @@ function scrollToAnimated(to, duration, callback) {
 		}
 	}
 
-	animate(
-		q("html"),
-		`100% { transform: translate3d(0, ${-1 * (to - (document.documentElement.scrollTop || document.body.scrollTop))}px, 0); }`,
-		duration,
-		scrollToCallback.bind(null, callback)
-	);
+	// animate(
+	// 	q("html"),
+	// 	`100% { transform: translate3d(0, ${-1 * (to - (document.documentElement.scrollTop || document.body.scrollTop))}px, 0); }`,
+	// 	duration,
+	// 	scrollToCallback.bind(null, callback)
+	// );	
+	q("html").animate([{transform: "translate3d(0, 0, 0)"}, {transform: `translate3d(0, ${-1 * (to - (document.documentElement.scrollTop || document.body.scrollTop))}px, 0)`}], duration).onfinish = () => { scrollToCallback(callback);};
 }
 
 // Scroll window to top, animated with easing
