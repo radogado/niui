@@ -90,16 +90,18 @@ var componentModal = (function () {
 
 		if (full_window) {
 			window.scrollTo(previousScrollX, previousScrollY);
+			let direction_option = 'normal';
 			var animation = full_window.querySelector(".n-ovrl--content > div").dataset.anim; // Custom animation?
 			if (animation.length < 11) {
 				// '', 'null' or 'undefined'?
 
-				animation = "0% { transform: translate3d(0,0,0) } 100% { transform: translate3d(0,-100%,0) }"; // 100% instead of 100vh, bc IE fails
+				// animation = "0% { transform: translate3d(0,0,0) } 100% { transform: translate3d(0,-100%,0) }";
+				animation = [{ transform: "translate3d(0,0,0)" }, { transform: "translate3d(0,-100%,0)" }];
 			} else {
-				full_window.style.cssText = "animation-direction: reverse;";
+				direction_option = 'reverse';
 			}
 
-			animate(full_window, animation, 0.2, (e) => {
+			full_window.animate(animation, {duration: 200, direction: direction_option}).onfinish = () => {
 				nuiDisableBodyScroll(false, full_window.querySelector(".n-ovrl--content")); // Turn off and restore page scroll
 				full_window.parentNode.removeChild(full_window);
 				full_window_content = null;
@@ -125,7 +127,7 @@ var componentModal = (function () {
 				if (previouslyFocused) {
 					previouslyFocused.focus();
 				}
-			});
+			};
 		}
 	}
 
@@ -199,7 +201,7 @@ var componentModal = (function () {
 				full_window_content.requestFullScreen();
 			}
 		} else {
-			animate(full_window_content, typeof animation === "string" ? animation : "0% { transform: translate3d(0,-100%,0) } 100% { transform: translate3d(0,0,0) }", 0.2);
+			full_window_content.animate(typeof animation === "string" ? animation : [{ transform: "translate3d(0,-100%,0)" }, { transform: "translate3d(0,0,0)" }], 200);
 		}
 
 		return false;

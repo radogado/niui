@@ -384,42 +384,42 @@ for (var t in animations) {
 	}
 }
 
-function animate(el, animation_code, duration, callback) {
-	// Animate with CSS Animations. Default duration = .2s, callback optional
-
-	// To do: add animation-fill-mode: forwards to keep the end state
-
-	if (!el.dataset.nuiAnimation && animationEndEvent) {
-		el.addEventListener(
-			animationEndEvent,
-			function animationEndHandler(e) {
-				var el = e.target;
-
-				if (!!el.dataset.nuiAnimation) {
-					stopEvent(e);
-					document.head.removeChild(q("." + el.dataset.nuiAnimation));
-					delete el.dataset.nuiAnimation;
-					el.removeEventListener(animationEndEvent, animationEndHandler);
-					if (typeof callback === "function") {
-						callback();
-					}
-				}
-			},
-			false
-		);
-
-		var animation_name = `a${Math.round(Math.random() * 1000000, 10)}`; // Unique animation name
-
-		var styles = document.createElement("style");
-		styles.innerHTML = `@keyframes ${animation_name} {${animation_code}} [data-nui-animation=${animation_name}] { animation-name: ${animation_name}; animation-duration: ${
-			!duration ? 0.2 : duration
-		}s; }`; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
-		document.head.appendChild(styles);
-		addClass(styles, animation_name);
-
-		el.dataset.nuiAnimation = animation_name;
-	}
-}
+// function animate(el, animation_code, duration, callback) {
+// 	// Animate with CSS Animations. Default duration = .2s, callback optional
+// 
+// 	// To do: add animation-fill-mode: forwards to keep the end state
+// 
+// 	if (!el.dataset.nuiAnimation && animationEndEvent) {
+// 		el.addEventListener(
+// 			animationEndEvent,
+// 			function animationEndHandler(e) {
+// 				var el = e.target;
+// 
+// 				if (!!el.dataset.nuiAnimation) {
+// 					stopEvent(e);
+// 					document.head.removeChild(q("." + el.dataset.nuiAnimation));
+// 					delete el.dataset.nuiAnimation;
+// 					el.removeEventListener(animationEndEvent, animationEndHandler);
+// 					if (typeof callback === "function") {
+// 						callback();
+// 					}
+// 				}
+// 			},
+// 			false
+// 		);
+// 
+// 		var animation_name = `a${Math.round(Math.random() * 1000000, 10)}`; // Unique animation name
+// 
+// 		var styles = document.createElement("style");
+// 		styles.innerHTML = `@keyframes ${animation_name} {${animation_code}} [data-nui-animation=${animation_name}] { animation-name: ${animation_name}; animation-duration: ${
+// 			!duration ? 0.2 : duration
+// 		}s; }`; // Where animation format is 		0% { opacity: 1 } 100% { opacity: 0 }
+// 		document.head.appendChild(styles);
+// 		addClass(styles, animation_name);
+// 
+// 		el.dataset.nuiAnimation = animation_name;
+// 	}
+// }
 
 // Scroll the page to any position
 
@@ -1040,9 +1040,9 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 					var height = el.scrollHeight;
 					el.style.maxHeight = 0;
 					el.style.overflow = "hidden";
-					animate(el, `100% { max-height: ${height}px; }`, 0.2, () => {
+					el.animate([{ maxHeight: 0 }, { maxHeight: `${height}px` }], 200).onfinish = () => {
 						el.style.cssText = "";
-					});
+					};
 				}
 
 				function openCell(e) {
@@ -1050,12 +1050,12 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 					if (current_popup) {
 						current_popup.style.maxHeight = current_popup.scrollHeight + "px";
 						current_popup.style.overflow = "hidden";
-						animate(current_popup, "100% { max-height: 0; }", 0.2, () => {
+						current_popup.animate([{ maxHeight: 0 }], 200).onfinish = () => {
 							current_popup.removeAttribute("aria-expanded");
 							current_popup.previousElementSibling.removeAttribute("aria-expanded");
 							current_popup.style.cssText = "";
 							openNewItem(e, current_popup);
-						});
+						};
 					} else {
 						openNewItem(e);
 					}
@@ -1283,16 +1283,18 @@ var componentModal = (function () {
 
 		if (full_window) {
 			window.scrollTo(previousScrollX, previousScrollY);
+			let direction_option = 'normal';
 			var animation = full_window.querySelector(".n-ovrl--content > div").dataset.anim; // Custom animation?
 			if (animation.length < 11) {
 				// '', 'null' or 'undefined'?
 
-				animation = "0% { transform: translate3d(0,0,0) } 100% { transform: translate3d(0,-100%,0) }"; // 100% instead of 100vh, bc IE fails
+				// animation = "0% { transform: translate3d(0,0,0) } 100% { transform: translate3d(0,-100%,0) }";
+				animation = [{ transform: "translate3d(0,0,0)" }, { transform: "translate3d(0,-100%,0)" }];
 			} else {
-				full_window.style.cssText = "animation-direction: reverse;";
+				direction_option = 'reverse';
 			}
 
-			animate(full_window, animation, 0.2, (e) => {
+			full_window.animate(animation, {duration: 200, direction: direction_option}).onfinish = () => {
 				nuiDisableBodyScroll(false, full_window.querySelector(".n-ovrl--content")); // Turn off and restore page scroll
 				full_window.parentNode.removeChild(full_window);
 				full_window_content = null;
@@ -1318,7 +1320,7 @@ var componentModal = (function () {
 				if (previouslyFocused) {
 					previouslyFocused.focus();
 				}
-			});
+			};
 		}
 	}
 
@@ -1392,7 +1394,7 @@ var componentModal = (function () {
 				full_window_content.requestFullScreen();
 			}
 		} else {
-			animate(full_window_content, typeof animation === "string" ? animation : "0% { transform: translate3d(0,-100%,0) } 100% { transform: translate3d(0,0,0) }", 0.2);
+			full_window_content.animate(typeof animation === "string" ? animation : [{ transform: "translate3d(0,-100%,0)" }, { transform: "translate3d(0,0,0)" }], 200);
 		}
 
 		return false;

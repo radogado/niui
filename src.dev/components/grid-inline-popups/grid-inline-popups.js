@@ -67,9 +67,9 @@
 					var height = el.scrollHeight;
 					el.style.maxHeight = 0;
 					el.style.overflow = "hidden";
-					animate(el, `100% { max-height: ${height}px; }`, 0.2, () => {
+					el.animate([{ maxHeight: 0 }, { maxHeight: `${height}px` }], 200).onfinish = () => {
 						el.style.cssText = "";
-					});
+					};
 				}
 
 				function openCell(e) {
@@ -77,12 +77,12 @@
 					if (current_popup) {
 						current_popup.style.maxHeight = current_popup.scrollHeight + "px";
 						current_popup.style.overflow = "hidden";
-						animate(current_popup, "100% { max-height: 0; }", 0.2, () => {
+						current_popup.animate([{ maxHeight: 0 }], 200).onfinish = () => {
 							current_popup.removeAttribute("aria-expanded");
 							current_popup.previousElementSibling.removeAttribute("aria-expanded");
 							current_popup.style.cssText = "";
 							openNewItem(e, current_popup);
-						});
+						};
 					} else {
 						openNewItem(e);
 					}
