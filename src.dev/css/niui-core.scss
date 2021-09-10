@@ -103,7 +103,7 @@ html.n-vertical-page {
 		position: relative;
 		z-index: 1;
 
-		.n-fixed-bg--image {
+		.n-fixed-bg__image {
 			position: absolute;
 			background-size: 0;
 			z-index: -1;
@@ -137,7 +137,7 @@ html.n-vertical-page {
 	.n-fixed-bg {
 		background-size: cover;
 
-		.n-fixed-bg--image {
+		.n-fixed-bg__image {
 			display: none;
 		}
 	}
