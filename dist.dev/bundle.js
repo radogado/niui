@@ -3514,4 +3514,4 @@ var componentNotify = (function () {
 })();
 
 // Component Typography – end
-initComponents(); return { initComponents, animate, copyButton, componentModal, addComponent, componentNotify } })();
+initComponents(); return { initComponents, copyButton, componentModal, addComponent, componentNotify } })();

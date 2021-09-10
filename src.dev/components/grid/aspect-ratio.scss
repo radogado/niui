@@ -7,8 +7,7 @@ $selector: ".n-aspect";
 		
 		display: block;
 		
-		aspect-ratio: var(--ratio);
-		aspect-ratio: calc(var(--width) / var(--height));
+		aspect-ratio: var(--ratio, calc(var(--width)/ var(--height)));
 
 		> img {
 			max-width: 100%;
