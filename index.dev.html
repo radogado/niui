@@ -321,7 +321,7 @@
 							<li>
 								<pre>html.n-vertical-page</pre> blocks horizontal overflow.
 							</li>
-							<li>Lite version available at <a href=dist/niui-lite.min.css download>niui-lite.min.css</a> and <a href=dist/niui-lite.min.js download>niui-lite.min.js</a> without Slider, Tabs, Lightbox, Cards, Grid with Inline Popups, Modal, Notify, Parallax, Tooltip.</li>
+							<li>Lite version available at <a href=dist/niui-lite.min.css download>niui-lite.min.css</a> and <a href=dist/niui-lite.min.js download>niui-lite.min.js</a> without Carousel, Tabs, Lightbox, Cards, Grid with Inline Popups, Modal, Notify, Parallax, Tooltip.</li>
 
 						</ul>
 
@@ -1100,7 +1100,7 @@
 
 								<li class="n-nav-current"> <a href=#grid>Grid</a> </li>
 
-								<li> <a href=#slider>Slider</a> </li>
+								<li> <a href=#slider>Carousel</a> </li>
 
 								<li> <a href=#form>Form</a> </li>
 
@@ -1116,7 +1116,7 @@
 							<pre><code class="language-markup">&lt;nav class="n-nav"&gt;
 	&lt;ul class="n-list__inline n-big-text"&gt;
 		&lt;li class="n-nav-current"&gt; &lt;a href="#grid"&gt;Grid&lt;/a&gt; &lt;/li&gt;
-		&lt;li&gt; &lt;a href="#slider"&gt;Slider&lt;/a&gt; &lt;/li&gt;
+		&lt;li&gt; &lt;a href="#slider"&gt;Carousel&lt;/a&gt; &lt;/li&gt;
 		&lt;li&gt; &lt;a href="#form"&gt;Form&lt;/a&gt; &lt;/li&gt;
 	&lt;/ul&gt;
 &lt;/nav&gt;</code>
@@ -1665,7 +1665,7 @@
 			&lt;nav class="n-nav"&gt;
 				&lt;ul class="n-list__inline"&gt;
 					&lt;li class="n-nav-current"&gt; &lt;a href="#grid" tabindex="0"&gt;Grid&lt;/a&gt; &lt;/li&gt;
-					&lt;li&gt; &lt;a href="#slider" tabindex="0"&gt;Slider&lt;/a&gt; &lt;/li&gt;
+					&lt;li&gt; &lt;a href="#slider" tabindex="0"&gt;Carousel&lt;/a&gt; &lt;/li&gt;
 					&lt;li&gt; &lt;a href="#form" tabindex="0"&gt;Form&lt;/a&gt; &lt;/li&gt;
 				&lt;/ul&gt;
 			&lt;/nav&gt;
@@ -1863,7 +1863,7 @@
 
 					<div class="_1/1">
 
-						<h2>Slider</h2>
+						<h2>Carousel</h2>
 
 					</div>
 
@@ -2110,12 +2110,12 @@
 					</div>
 
 					<div class="_1/1">
-						<h2> Slider with detached nav </h2>
+						<h2> Carousel with detached nav </h2>
 					</div>
 
 					<div>
 
-						<h3>Slider here...</h3>
+						<h3>Carousel here...</h3>
 
 						<div class="n-carousel__content" id=detached-nav-slider>
 
@@ -2147,10 +2147,10 @@
 							<li>Slide duration
 								<pre>&lt;div class="n-carousel__content" data-duration="1"&gt;</pre> in seconds. Default is <b>.2</b>.
 							</li>
-							<li>Detach the nav by adding an <b>id</b> to the slider and creating
+							<li>Detach the nav by adding an <b>id</b> to the Carousel and creating
 								<pre>&lt;div class="n-carousel__content--nav" data-for="slider-id"&gt;</pre> elsewhere
 							</li>
-							<li>URI with hash matching a slide id in a slider, auto slides to it.</li>
+							<li>URI with hash matching a slide id in a Carousel, auto slides to it.</li>
 							<li>
 								<pre>data-peek="20%"</pre> to peek at neighboring slides, where 20% becomes 20% horizontal padding
 							</li>
@@ -5003,7 +5003,7 @@
 							<br>
 							<div class="code">
 
-								<pre><code class="language-markup">nui.addComponent(host, "&lt;div class=n-carousel__content&gt;&lt;div&gt;New&lt;/div&gt;&lt;div&gt;Slider&lt;/div&gt;&lt;/div&gt;");</code>
+								<pre><code class="language-markup">nui.addComponent(host, "&lt;div class=n-carousel__content&gt;&lt;div&gt;New&lt;/div&gt;&lt;div&gt;Carousel&lt;/div&gt;&lt;/div&gt;");</code>
 </pre>
 
 							</div>
@@ -5016,7 +5016,7 @@
 									<textarea id=component-playground rows="10" style="width: 100%">
 <div class=n-carousel__content> 
 	<div>New</div>
-	<div>Slider</div>
+	<div>Carousel</div>
 </div>
 </textarea>
 									<br>
