@@ -1,6 +1,6 @@
 // Component Grid with inline popups – start
 
-(function () {
+(function() {
 	/* Grid with inline popups – start */
 
 	function initGridInlinePopups(host) {

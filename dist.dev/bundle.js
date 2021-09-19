@@ -973,7 +973,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 
 // Component Grid with inline popups – start
 
-(function () {
+(function() {
 	/* Grid with inline popups – start */
 
 	function initGridInlinePopups(host) {
