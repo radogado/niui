@@ -1,0 +1,110 @@
+<style>
+	.n-popin {
+
+		display: grid;
+		--n-popin-columns: 3;
+		grid-template: auto / repeat(var(--n-popin-columns), auto);
+		gap: .5rem;
+
+	}
+
+	.n-popin>*>button {
+		user-select: none;
+		font: inherit;
+		appearance: none;
+		-webkit-appearance: none;
+		border: none;
+		background: var(--control-bg, #eee);
+		color: var(--control-color, #333);
+		padding: .5rem;
+		cursor: zoom-in;
+	}
+
+	.n-popin>[aria-expanded]>button {
+
+		background: var(--control-acrtive-bg, #fff);
+		color: var(--control-active-color, #222);
+		cursor: zoom-out;
+
+	}
+
+	.n-popin>* {
+		display: contents;
+	}
+
+	.n-popin>*>:last-child {
+		display: none;
+	}
+
+	.n-popin>[aria-expanded]> :not(button) {
+
+		display: block;
+		grid-row: var(--n-popin-open-row, 0);
+		grid-column: 1/-1;
+		padding: .5rem;
+
+	}
+</style>
+
+
+<div class="n-popin">
+
+	<div>
+		<button>1</button>
+		<div>Content for 1</div>
+	</div>
+	<div>
+		<button>2</button>
+		<div>Content for 2</div>
+	</div>
+	<div>
+		<button>3</button>
+		<div>Content for 3</div>
+	</div>
+	<div>
+		<button>4</button>
+		<div>Content for 4</div>
+	</div>
+	<div>
+		<button>5</button>
+		<div>Content for 5</div>
+	</div>
+	<div>
+		<button>6</button>
+		<div>Content for 6</div>
+	</div>
+	<div>
+		<button>7</button>
+		<div>Content for 7</div>
+	</div>
+	<div>
+		<button>8</button>
+		<div>Content for 8</div>
+	</div>
+	<div>
+		<button>9</button>
+		<div>Content for 9</div>
+	</div>
+	<div>
+		<button>10</button>
+		<div>Content for 10</div>
+	</div>
+
+</div>
+
+<script>
+	document.querySelectorAll('.n-popin > * > button').forEach(el => {
+		el.onclick = e => {
+			let el = e.target;
+			let container = el.closest('.n-popin');
+			let content = el.parentNode;
+			let previous = container.querySelector(':scope > [aria-expanded]');
+			previous?.removeAttribute('aria-expanded');
+			if (previous !== content) {
+				let row = Math.floor([...el.parentNode.parentNode.children].indexOf(el.parentNode) / getComputedStyle(container).getPropertyValue('--n-popin-columns') * 1) + 2;
+				container.style.setProperty('--n-popin-open-row', row);
+				content.ariaExpanded = true;
+			}
+		}
+	});
+</script>

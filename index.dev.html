@@ -77,7 +77,7 @@
 			<button><span>Notification bar</span></button>
 			<button><span>Copy to clipboard</span></button>
 			<button><span>"Back to top" button</span></button>
-			<button><span>Grid with inline popups</span></button>
+			<button><span>Popin</span></button>
 			<button><span>Dynamic components</span></button>
 			<button><span>WordPress theme</span></button>
 			<button><span>Color scheme</a>
@@ -222,7 +222,7 @@
 								<li>Carousel</li>
 								<li>Tabs</li>
 								<li>Lightbox</li>
-								<li>Grid with inline popups</li>
+								<li>Popin</li>
 								<li>Notify</li>
 								<li>Fold (Accordion)</li>
 								<li>Tooltip</li>
@@ -321,7 +321,7 @@
 							<li>
 								<pre>html.n-vertical-page</pre> blocks horizontal overflow.
 							</li>
-							<li>Lite version available at <a href=dist/niui-lite.min.css download>niui-lite.min.css</a> and <a href=dist/niui-lite.min.js download>niui-lite.min.js</a> without Carousel, Tabs, Lightbox, Cards, Grid with Inline Popups, Modal, Notify, Parallax, Tooltip.</li>
+							<li>Lite version available at <a href=dist/niui-lite.min.css download>niui-lite.min.css</a> and <a href=dist/niui-lite.min.js download>niui-lite.min.js</a> without Carousel, Tabs, Lightbox, Cards, Popin, Modal, Notify, Parallax, Tooltip.</li>
 
 						</ul>
 
@@ -4903,85 +4903,70 @@
 
 			</div>
 
-			<div data-tab-title="Grid with inline popups" id=grid-inline-popup>
+			<div data-tab-title="Popin" id=grid-inline-popup>
 
 				<div class="n-row">
 
 					<div>
 
-						<h2>Grid with inline popups</h2>
+						<h2>Popin</h2>
 
-						<div class="n-row grid-inline-popup">
+						<div class="n-popin">
 
-							<div tabindex="0">1</div>
-							<div class="grid-inline-popup--popup">Popup for #1</div>
-							<div tabindex="0">2</div>
-							<div class="grid-inline-popup--popup">Popup for #2<br>break</div>
-							<div tabindex="0">3</div>
-							<div class="grid-inline-popup--popup">Popup for #3</div>
-							<div tabindex="0">4</div>
-							<div class="grid-inline-popup--popup">Popup for #4</div>
-							<div tabindex="0">5</div>
-							<div class="grid-inline-popup--popup">Popup for #5</div>
-							<div tabindex="0">6</div>
-							<div class="grid-inline-popup--popup">Popup for #6</div>
-							<div tabindex="0">7</div>
-							<div class="grid-inline-popup--popup">Popup for #7</div>
-							<div tabindex="0">8</div>
-							<div class="grid-inline-popup--popup">Popup for #8</div>
-							<div tabindex="0">9</div>
-							<div class="grid-inline-popup--popup">Popup for #9</div>
-							<div tabindex="0">10</div>
-							<div class="grid-inline-popup--popup">Popup for #10</div>
-							<div tabindex="0">11</div>
-							<div class="grid-inline-popup--popup">Popup for #11</div>
-							<div tabindex="0">12</div>
-							<div class="grid-inline-popup--popup">Popup for #12</div>
-							<div tabindex="0">13</div>
-							<div class="grid-inline-popup--popup">Popup for #13</div>
-							<div tabindex="0">14</div>
-							<div class="grid-inline-popup--popup">Popup for #14</div>
-
-						</div>
-
-						<br><br>
-
-						<div class="n-row grid-inline-popup">
-
-							<div class="_1/3" tabindex="0">1</div>
-							<div class="grid-inline-popup--popup">Popup for #1</div>
-							<div class="_1/3" tabindex="0">2</div>
-							<div class="grid-inline-popup--popup">Popup for #2<br>break</div>
-							<div class="_1/3" tabindex="0">3</div>
-							<div class="grid-inline-popup--popup">Popup for #3</div>
-							<div class="_1/3" tabindex="0">4</div>
-							<div class="grid-inline-popup--popup">Popup for #4</div>
-							<div class="_1/3" tabindex="0">5</div>
-							<div class="grid-inline-popup--popup">Popup for #5</div>
-							<div class="_1/3" tabindex="0">6</div>
-							<div class="grid-inline-popup--popup">Popup for #6</div>
+							<div>
+								<button>1</button>
+								<div>Content for 1</div>
+							</div>
+							<div>
+								<button>2</button>
+								<div>Content for 2</div>
+							</div>
+							<div>
+								<button>3</button>
+								<div>Content for 3</div>
+							</div>
+							<div>
+								<button>4</button>
+								<div>Content for 4</div>
+							</div>
+							<div>
+								<button>5</button>
+								<div>Content for 5</div>
+							</div>
+							<div>
+								<button>6</button>
+								<div>Content for 6</div>
+							</div>
+							<div>
+								<button>7</button>
+								<div>Content for 7</div>
+							</div>
+							<div>
+								<button>8</button>
+								<div>Content for 8</div>
+							</div>
+							<div>
+								<button>9</button>
+								<div>Content for 9</div>
+							</div>
+							<div>
+								<button>10</button>
+								<div>Content for 10</div>
+							</div>
 
 						</div>
+
+						<br>
 
 						<div class="code">
 
-							<pre><code class="language-markup">&lt;div class="n-row grid-inline-popup"&gt;
-	
-	&lt;div class="_1/3" tabindex="0"&gt;1&lt;/div&gt;
-	&lt;div class="grid-inline-popup--popup"&gt;Popup for #1&lt;/div&gt;
-	&lt;div class="_1/3" tabindex="0"&gt;2&lt;/div&gt;
-	&lt;div class="grid-inline-popup--popup"&gt;Popup for #2&lt;/div&gt;
-	&lt;div class="_1/3" tabindex="0"&gt;3&lt;/div&gt;
-	&lt;div class="grid-inline-popup--popup"&gt;Popup for #3&lt;/div&gt;
-	&lt;div class="_1/3" tabindex="0"&gt;4&lt;/div&gt;
-	&lt;div class="grid-inline-popup--popup"&gt;Popup for #4&lt;/div&gt;
-	&lt;div class="_1/3" tabindex="0"&gt;5&lt;/div&gt;
-	&lt;div class="grid-inline-popup--popup"&gt;Popup for #5&lt;/div&gt;
-	&lt;div class="_1/3" tabindex="0"&gt;6&lt;/div&gt;
-	&lt;div class="grid-inline-popup--popup"&gt;Popup for #6&lt;/div&gt;
-
-&lt;/div&gt;</code>
-</pre>
+							<pre><code class="language-markup">&lt;div class="n-popin"&gt;
+	&lt;div&gt;
+		&lt;button&gt;1&lt;/button&gt;
+		&lt;div&gt;Content for 1&lt;/div&gt;
+	&lt;/div&gt;
+	...
+&lt;/div&gt;</code></pre>
 
 						</div>
 

@@ -1,0 +1,62 @@
+/* niui – Popin */
+
+// @import "../../css/niui-setup";
+
+.n-popin {
+
+	display: grid;
+	--n-popin-columns: 1;
+
+	@media (min-width: 600px) {
+		--n-popin-columns: 3;
+
+	}
+
+	grid-template: auto / repeat(var(--n-popin-columns), auto);
+	gap: .5rem;
+
+	>* {
+		display: contents;
+
+		>* {
+
+			padding: .5rem;
+
+		}
+
+		> :not(button) {
+			display: none;
+		}
+
+		>button {
+			user-select: none;
+			font: inherit;
+			appearance: none;
+			-webkit-appearance: none;
+			border: none;
+			background: var(--control-bg, #eee);
+			color: var(--control-color, #333);
+			cursor: zoom-in;
+		}
+
+	}
+
+	>[aria-expanded] {
+		>button {
+
+			background: var(--control-acrtive-bg, #fff);
+			color: var(--control-active-color, #222);
+			cursor: zoom-out;
+
+		}
+
+		> :not(button) {
+
+			display: block;
+			grid-row: var(--n-popin-open-row, 0);
+			grid-column: 1/-1;
+
+		}
+	}
+
+}
