@@ -2306,7 +2306,7 @@ input[type=radio] + .n-form--check-icon,
 @supports (--a: 1) {
   .n-aspect {
     display: block;
-    aspect-ratio: var(--ratio, calc(var(--width)/ var(--height)));
+    aspect-ratio: var(--ratio, calc(var(--width) / var(--height)));
   }
   .n-aspect > img {
     max-width: 100%;
@@ -3565,7 +3565,7 @@ html.n-full-screen body {
 
 @media (max-width: 599.9px) {
   .n-ovrl.n-modal__limited > .n-ovrl--content {
-    height: calc(80% - var(--overlay-bottom, 0)  - var(--overlay-top, 0));
+    height: calc(80% - var(--overlay-bottom, 0) - var(--overlay-top, 0));
     margin: 10%;
     width: 80%;
   }
@@ -3721,7 +3721,7 @@ html.n-full-screen body {
 
 @media (max-width: 599.9px) {
   .n-ovrl.n-modal__limited > .n-ovrl--content {
-    height: calc(80% - var(--overlay-bottom, 0)  - var(--overlay-top, 0));
+    height: calc(80% - var(--overlay-bottom, 0) - var(--overlay-top, 0));
     margin: 10%;
     width: 80%;
   }
@@ -4742,7 +4742,6 @@ Theme:
   width: 2em;
   height: 2em;
   margin-inline-end: 0.5em;
-  max-width: none;
 }
 .n-select__options.n-scrollbar {
   scrollbar-width: none;
@@ -4839,7 +4838,7 @@ Theme:
   color: var(--control-color, #333);
   background: none;
 }
-.n-select__options > *, .n-select__options > button {
+.n-select__options > * {
   padding: 0.5em;
   padding-inline-end: 2em;
   position: relative;

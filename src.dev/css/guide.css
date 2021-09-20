@@ -99,6 +99,8 @@ html {
   }
 }
 .demo {
+  background: #fffff5;
+  color: darkslateblue;
   max-width: 1366.666px;
   margin: auto;
 }
@@ -126,7 +128,7 @@ html {
   font: inherit;
 }
 .demo a[href] {
-  color: #cecfd6;
+  color: inherit;
 }
 .demo a[href]:visited {
   text-decoration: none;
@@ -148,7 +150,7 @@ code[class*=language-] {
 .code pre {
   padding: 1em;
   margin: 0 !important;
-  background: #fff !important;
+  background: #f1f3f8 !important;
 }
 .code button.n-btn {
   position: absolute;
@@ -208,7 +210,7 @@ _:future,
 
 .n-carousel__previous,
 .n-carousel__next,
-.n-slider--index *,
+.n-carousel__index *,
 .n-tool:after,
 .n-btn,
 .n-form input[type=submit],
@@ -255,6 +257,11 @@ html:not(.can-touch) nav li[aria-haspopup]:hover {
 nav li li[aria-haspopup][aria-expanded=true],
 html:not(.can-touch) nav li li[aria-haspopup]:hover {
   --control-bg: #b76262;
+}
+
+.n-row.grid-demo > * {
+  background: lightseagreen;
+  color: #fff;
 }
 
 /*# sourceMappingURL=guide.css.map */

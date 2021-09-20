@@ -113,6 +113,8 @@ html {
 }
 
 .demo {
+	background: #fffff5;
+	color: darkslateblue;
 
 	&.n-carousel.n-carousel--vertical:not(.n-carousel--auto-height),
 	&.n-carousel.n-carousel--vertical:not(.n-carousel--auto-height)>.n-carousel__content {
@@ -157,7 +159,7 @@ html {
 	}
 
 	a[href] {
-		color: #cecfd6;
+		color: inherit;
 	}
 
 	a[href]:visited {
@@ -181,7 +183,7 @@ code[class*="language-"] {
 	pre {
 		padding: 1em;
 		margin: 0 !important;
-		background: #fff !important;
+		background: #f1f3f8 !important;
 	}
 
 	button.n-btn {
@@ -256,7 +258,7 @@ _:future,
 
 .n-carousel__previous,
 .n-carousel__next,
-.n-slider--index *,
+.n-carousel__index *,
 .n-tool:after,
 .n-btn,
 .n-form input[type="submit"],
@@ -303,4 +305,9 @@ html:not(.can-touch) nav li[aria-haspopup]:hover {
 nav li li[aria-haspopup][aria-expanded="true"],
 html:not(.can-touch) nav li li[aria-haspopup]:hover {
 	--control-bg: #b76262;
+}
+
+.n-row.grid-demo>* {
+	background: lightseagreen;
+	color: #fff;
 }
