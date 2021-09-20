@@ -2286,7 +2286,10 @@ var componentModal = (function () {
 		});
 
 	};
-	registerComponent("popin", init);
+	// registerComponent("popin", init);
+
+	typeof registerComponent === "function" ? registerComponent("n-popin", init) : init(document.body);
+
 })();
 
 // Component Popin – end
