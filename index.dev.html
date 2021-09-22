@@ -1658,10 +1658,10 @@
 
 						<div class="code">
 							<pre><code class="language-markup">&lt;header class="n-header__fixed-mobile n-header"&gt;
-	&lt;div class="n-fold n-fold__mobile"&gt;
-		&lt;button class="n-fold--label"&gt; &lt;span class="n-burger"&gt;&lt;/span&gt; &lt;/button&gt;
+	&lt;div class="n-fold n-fold--mobile"&gt;
+		&lt;button class="n-fold__label"&gt; &lt;span class="n-burger"&gt;&lt;/span&gt; &lt;/button&gt;
 		&lt;input type="checkbox" class="n-trigger"&gt;
-		&lt;div class="n-fold--content"&gt;
+		&lt;div class="n-fold__content"&gt;
 			&lt;nav class="n-nav"&gt;
 				&lt;ul class="n-list__inline"&gt;
 					&lt;li class="n-nav-current"&gt; &lt;a href="#grid" tabindex="0"&gt;Grid&lt;/a&gt; &lt;/li&gt;
@@ -3060,10 +3060,10 @@
 
 						<div class="n-fold">
 
-							<button class=n-fold--label> Accordion </button>
+							<button class=n-fold__label> Accordion </button>
 							<input type=checkbox class=n-trigger>
 
-							<div id=i class="n-fold--content">
+							<div id=i class="n-fold__content">
 
 								<div class="n-carousel__content">
 
@@ -3086,9 +3086,9 @@
 						<div class="code">
 
 							<pre><code class="language-markup">&lt;div class="n-fold"&gt;
-	&lt;button class="n-fold--label"&gt; Label &lt;/button&gt;
+	&lt;button class="n-fold__label"&gt; Label &lt;/button&gt;
 	&lt;input type="checkbox" class="n-trigger"&gt;
-	&lt;div class="n-fold--content"&gt;
+	&lt;div class="n-fold__content"&gt;
 		&lt;p&gt; Content. &lt;/p&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</code>
@@ -3102,10 +3102,10 @@
 
 						<div class="n-fold" aria-expanded=true>
 
-							<button class=n-fold--label> Open by default </button>
+							<button class=n-fold__label> Open by default </button>
 							<input type=checkbox class=n-trigger>
 
-							<div id=i class="n-fold--content">
+							<div id=i class="n-fold__content">
 
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
 
@@ -3115,9 +3115,9 @@
 						<div class="code">
 
 							<pre><code class="language-markup">&lt;div class="n-fold" aria-expanded="true"&gt;
-	&lt;button class="n-fold--label"&gt; Label &lt;/button&gt;
+	&lt;button class="n-fold__label"&gt; Label &lt;/button&gt;
 	&lt;input type="checkbox" class="n-trigger"&gt;
-	&lt;div class="n-fold--content"&gt;
+	&lt;div class="n-fold__content"&gt;
 		&lt;p&gt; Content. &lt;/p&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</code>
@@ -3131,10 +3131,10 @@
 
 						<div class="n-fold">
 
-							<button class=n-fold--label> Truncated content </button>
+							<button class=n-fold__label> Truncated content </button>
 							<input type=checkbox class=n-trigger>
 
-							<div class="n-fold--content" style="--start-height: 6em;">
+							<div class="n-fold__content" style="--start-height: 6em;">
 
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
@@ -3147,9 +3147,9 @@
 						<div class="code">
 
 							<pre><code class="language-markup">&lt;div class="n-fold"&gt;
-	&lt;button class="n-fold--label"&gt; Label &lt;/button&gt;
+	&lt;button class="n-fold__label"&gt; Label &lt;/button&gt;
 	&lt;input type="checkbox" class="n-trigger"&gt;
-	&lt;div class="n-fold--content" style="--start-height: 6em;"&gt;
+	&lt;div class="n-fold__content" style="--start-height: 6em;"&gt;
 		&lt;p&gt; Content. &lt;/p&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</code>
@@ -3161,12 +3161,12 @@
 
 					<div>
 
-						<div class="n-fold n-fold__horizontal">
+						<div class="n-fold n-fold--horizontal">
 
-							<button class=n-fold--label> Horizontal accordion </button>
+							<button class=n-fold__label> Horizontal accordion </button>
 							<input type=checkbox class=n-trigger>
 
-							<div class="n-fold--content">
+							<div class="n-fold__content">
 
 								<div>
 
@@ -3197,10 +3197,10 @@
 
 							<div class="n-fold">
 
-								<button class=n-fold--label>Group fold 1 </button>
+								<button class=n-fold__label>Group fold 1 </button>
 								<input type=checkbox class=n-trigger>
 
-								<div class="n-fold--content">
+								<div class="n-fold__content">
 
 									Content 1
 
@@ -3209,10 +3209,10 @@
 							</div>
 							<div class="n-fold">
 
-								<button class=n-fold--label>Group fold 2 </button>
+								<button class=n-fold__label>Group fold 2 </button>
 								<input type=checkbox class=n-trigger>
 
-								<div class="n-fold--content">
+								<div class="n-fold__content">
 
 									Content 2
 
@@ -3221,10 +3221,10 @@
 							</div>
 							<div class="n-fold">
 
-								<button class=n-fold--label>Group fold 3 </button>
+								<button class=n-fold__label>Group fold 3 </button>
 								<input type=checkbox class=n-trigger>
 
-								<div class="n-fold--content">
+								<div class="n-fold__content">
 
 									Content 3
 
@@ -3263,17 +3263,17 @@
 
 						<div class="n-fold">
 
-							<button class=n-fold--label> Nested Accordions </button>
+							<button class=n-fold__label> Nested Accordions </button>
 							<input type=checkbox class=n-trigger>
 
-							<div class="n-fold--content">
+							<div class="n-fold__content">
 
 								<div class=n-fold>
 
-									<button class=n-fold--label> About Inner Accordion </button>
+									<button class=n-fold__label> About Inner Accordion </button>
 									<input type=checkbox class=n-trigger>
 
-									<div class="n-fold--content">
+									<div class="n-fold__content">
 										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 									</div>
 
@@ -3281,10 +3281,10 @@
 
 								<div class=n-fold>
 
-									<button class=n-fold--label> About Inner Accordion 2 </button>
+									<button class=n-fold__label> About Inner Accordion 2 </button>
 									<input type=checkbox class=n-trigger>
 
-									<div class="n-fold--content">
+									<div class="n-fold__content">
 										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 									</div>
 
@@ -3303,14 +3303,14 @@
 						<ul class="n-list">
 
 							<li>Horizontal fold with
-								<pre>.n-fold.n-fold__horizontal</pre> needs extra wrapper inside
+								<pre>.n-fold.n-fold--horizontal</pre> needs extra wrapper inside
 								<pre>.n-content</pre>.
 							</li>
-							<li>Folded on mobile, always visible on desktop with
-								<pre>.n-fold.n-fold__mobile</pre>.
+							<li>Folded on mobile, always visible on desktop width
+								<pre>.n-fold.n-fold--mobile</pre>.
 							</li>
 							<li>
-								<pre>.n-fold.n-fold__defocus</pre> to close the fold on focus out.
+								<pre>.n-fold.n-fold--defocus</pre> to close the fold on focus out.
 							</li>
 
 						</ul>
@@ -5013,9 +5013,9 @@
 
 									<textarea id=component-playground2 rows="10" style="width: 100%">
 <div class=n-fold>
-	<button class=n-fold--label> Label </button>
+	<button class=n-fold__label> Label </button>
 	<input type=checkbox class=n-trigger>
-	<div class=n-fold--content><p> Content. </p><p> Content. </p><p> Content. </p></div>
+	<div class=n-fold__content><p> Content. </p><p> Content. </p><p> Content. </p></div>
 </div>
 </textarea>
 									<br>
@@ -5074,7 +5074,7 @@
 
 							<h2>Color scheme</h2>
 
-							<pre><code class="language-css">.n-carousel__content--arrow, .n-carousel__content--nav *, .n-tool:after, .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href], .n-fold > .n-fold--label, .n-nav__drop, .n-form, .n-fold span.n-burger, .n-select__options {
+							<pre><code class="language-css">.n-carousel__content--arrow, .n-carousel__content--nav *, .n-tool:after, .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href], .n-fold > .n-fold__label, .n-nav__drop, .n-form, .n-fold span.n-burger, .n-select__options {
 	
 	--control-bg: lightcoral;
 	--control-color: #fff;		

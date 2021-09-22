@@ -726,7 +726,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	function toggleAccordion(e) {
 		stopEvent(e);
 		var el = e.target.closest(".n-fold");
-		var content = el.querySelector(".n-fold--content");
+		var content = el.querySelector(".n-fold__content");
 
 		content.style.display = "block"; // To get proper width when horizontal
 		content.style.setProperty("--width", content.scrollWidth + "px");
@@ -750,7 +750,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 				if (other && other !== el) {
 					// There is another one open, close it if in a group
 
-					closeAccordion(other, other.querySelector(".n-fold--content"));
+					closeAccordion(other, other.querySelector(".n-fold__content"));
 				}
 			}
 		}
@@ -781,11 +781,11 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	}
 
 	function initFold(host) {
-		host.querySelectorAll(".n-fold:not([data-ready]) > .n-fold--label").forEach((el) => {
+		host.querySelectorAll(".n-fold:not([data-ready]) > .n-fold__label").forEach((el) => {
 			el.onclick = toggleAccordion;
 
 			el = el.parentNode;
-			var content = el.querySelector(".n-fold--content");
+			var content = el.querySelector(".n-fold__content");
 
 			if (!hasClass(el, "n-fold__mobile")) {
 				content.addEventListener("focusin", (e) => {

@@ -3,7 +3,7 @@
 @supports (--a: 1) {
   .n-aspect {
     display: block;
-    aspect-ratio: var(--ratio, calc(var(--width) / var(--height)));
+    aspect-ratio: var(--ratio, calc(var(--width)/ var(--height)));
   }
   .n-aspect > img {
     max-width: 100%;
