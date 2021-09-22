@@ -10,7 +10,8 @@
 		// });
 
 		content.animate([{ maxHeight: `${content.scrollHeight}px` }, { maxHeight: content_height }], 200).onfinish = () => {
-			toggleAttribute(el, "aria-expanded");
+			// toggleAttribute(el, "aria-expanded");
+			el.removeAttribute("aria-expanded");
 		};
 
 	};
@@ -19,7 +20,10 @@
 		let content_height = content.style.getPropertyValue("--start-height") || 0;
 		toggleAttribute(el, "aria-expanded");
 		// animate(content, `0% { max-height: ${content_height}; } 100% { max-height: ${content.scrollHeight}px; }`);
-		content.animate([{ maxHeight: content_height }, { maxHeight: `${content.scrollHeight}px` }], 200);
+		content.animate([{ maxHeight: content_height }, { maxHeight: `${content.scrollHeight}px` }], {duration: 200}).onfinish = () => {
+			// toggleAttribute(el, "aria-expanded");
+			el.setAttribute("aria-expanded", true);
+		};
 	};
 
 	function toggleAccordion(e) {
@@ -79,7 +83,7 @@
 		}
 	}
 
-	function initFold(host) {
+	function init(host) {
 		host.querySelectorAll(".n-fold:not([data-ready]) > .n-fold__label").forEach((el) => {
 			el.onclick = toggleAccordion;
 
@@ -112,7 +116,7 @@
 				el.parentNode.removeChild(el);
 			});
 
-			if (hasClass(el, "n-fold__defocus")) {
+			if (hasClass(el, "n-fold--defocus")) {
 				el.addEventListener("focusout", (e) => {
 					// Close it when tabbing outside
 
@@ -142,7 +146,7 @@
 
 	/* Fold – end */
 
-	registerComponent("fold", initFold);
+	registerComponent("fold", init);
 })();
 
 // Component Fold – end

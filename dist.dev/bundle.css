@@ -526,7 +526,6 @@ a.backtotop[href] {
   word-wrap: break-word;
   word-break: break-all;
   box-sizing: border-box;
-  background-color: inherit;
   background-color: var(--control-bg, inherit);
   color: inherit;
   color: var(--control-color, inherit);
@@ -544,9 +543,11 @@ a.backtotop[href] {
   top: calc(50% - 0.5em);
   width: 1em;
   height: 1em;
-  -webkit-mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(180) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A") center center no-repeat;
+  --icon: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(180) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A");
+  -webkit-mask: var(--icon) center center no-repeat;
   -webkit-mask-size: 0.5em;
-  background-color: #000;
+  mask: var(--icon) center center no-repeat;
+  mask-size: 0.5em;
   background-color: var(--control-color, #000);
 }
 .n-fold[aria-expanded] > .n-fold__label {
@@ -587,7 +588,6 @@ a.backtotop[href] {
   max-height: none;
 }
 .n-fold:not([aria-expanded]):not(.n-fold--mobile):not(.n-fold--horizontal) > .n-fold__content, .n-fold[aria-expanded]:not(.n-fold--horizontal) input.n-trigger:checked ~ .n-fold__content {
-  max-height: 0;
   max-height: var(--start-height, 0);
 }
 .n-fold--horizontal > * {
@@ -635,7 +635,6 @@ a.backtotop[href] {
   display: inline-block;
   text-align: center;
   position: relative;
-  background: #fff;
   background: var(--control-bg, #fff);
 }
 .n-fold span.n-burger:after {
@@ -654,6 +653,7 @@ a.backtotop[href] {
 }
 .n-fold > input[type=checkbox] {
   z-index: 1;
+  appearance: none;
   -webkit-appearance: none;
   margin: 0;
 }
@@ -693,8 +693,7 @@ a.backtotop[href] {
     max-height: 0;
     max-width: 0;
   }
-  .n-fold--mobile > input.n-trigger:checked ~ .n-fold__content,
-.n-fold--mobile > input.n-trigger:checked + .n-fold__content {
+  .n-fold--mobile > input.n-trigger:checked ~ .n-fold__content {
     max-height: none;
   }
   .n-fold--mobile .n-fold__content {
@@ -759,7 +758,6 @@ a.backtotop[href] {
   word-wrap: break-word;
   word-break: break-all;
   box-sizing: border-box;
-  background-color: inherit;
   background-color: var(--control-bg, inherit);
   color: inherit;
   color: var(--control-color, inherit);
@@ -777,9 +775,11 @@ a.backtotop[href] {
   top: calc(50% - 0.5em);
   width: 1em;
   height: 1em;
-  -webkit-mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(180) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A") center center no-repeat;
+  --icon: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(180) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A");
+  -webkit-mask: var(--icon) center center no-repeat;
   -webkit-mask-size: 0.5em;
-  background-color: #000;
+  mask: var(--icon) center center no-repeat;
+  mask-size: 0.5em;
   background-color: var(--control-color, #000);
 }
 .n-fold[aria-expanded] > .n-fold__label {
@@ -820,7 +820,6 @@ a.backtotop[href] {
   max-height: none;
 }
 .n-fold:not([aria-expanded]):not(.n-fold--mobile):not(.n-fold--horizontal) > .n-fold__content, .n-fold[aria-expanded]:not(.n-fold--horizontal) input.n-trigger:checked ~ .n-fold__content {
-  max-height: 0;
   max-height: var(--start-height, 0);
 }
 .n-fold--horizontal > * {
@@ -868,7 +867,6 @@ a.backtotop[href] {
   display: inline-block;
   text-align: center;
   position: relative;
-  background: #fff;
   background: var(--control-bg, #fff);
 }
 .n-fold span.n-burger:after {
@@ -887,6 +885,7 @@ a.backtotop[href] {
 }
 .n-fold > input[type=checkbox] {
   z-index: 1;
+  appearance: none;
   -webkit-appearance: none;
   margin: 0;
 }
@@ -926,8 +925,7 @@ a.backtotop[href] {
     max-height: 0;
     max-width: 0;
   }
-  .n-fold--mobile > input.n-trigger:checked ~ .n-fold__content,
-.n-fold--mobile > input.n-trigger:checked + .n-fold__content {
+  .n-fold--mobile > input.n-trigger:checked ~ .n-fold__content {
     max-height: none;
   }
   .n-fold--mobile .n-fold__content {
