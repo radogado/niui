@@ -116,14 +116,6 @@ html.n-vertical-page body {
     transform: translate3d(0, 0, 0);
   }
 }
-@supports (-ms-ime-align: auto) {
-  .n-fixed-bg {
-    background-size: cover;
-  }
-  .n-fixed-bg .n-fixed-bg__image {
-    display: none;
-  }
-}
 .n-fixed {
   position: fixed;
 }

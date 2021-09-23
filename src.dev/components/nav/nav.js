@@ -244,7 +244,7 @@
 			el.setAttribute("tabindex", 0);
 		});
 
-		if (!el.closest(".n-nav.n-nav__drop")) {
+		if (!el.closest(".n-nav.n-nav--drop")) {
 			// The rest is for drop nav only
 
 			return;
@@ -300,7 +300,7 @@
 	}
 
 	window.addEventListener("resize", function (e) {
-		document.querySelectorAll('.n-nav.n-nav__drop ul[role="menubar"]').forEach((menubar) => {
+		document.querySelectorAll('.n-nav.n-nav--drop ul[role="menubar"]').forEach((menubar) => {
 			menubar.querySelectorAll("ul").forEach((ul) => {
 				checkSides(ul, menubar);
 			});

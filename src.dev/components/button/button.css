@@ -52,11 +52,11 @@ button.n-btn[disabled] {
   font-size: inherit;
 }
 
-.n-btn.n-btn__big,
-a[href].n-btn.n-btn__big,
+.n-btn.n-btn--big,
+a[href].n-btn.n-btn--big,
 .n-form input[type=submit],
 .n-form button {
-  margin: 0.5em 0;
+  margin: calc(1.5em/3) 0;
   font-size: 1.2em;
   padding: 0.75em 1em;
   line-height: 1.05em;
@@ -92,7 +92,7 @@ a.backtotop[href] {
   margin: 0 -0.25em;
 }
 .n-btn--group > *,
-.n-btn--group .n-btn.n-btn__big,
+.n-btn--group .n-btn.n-btn--big,
 .n-btn--group > a[href].n-btn.n-btn__big {
   margin-right: 0.25em;
   margin-left: 0.25em;

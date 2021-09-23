@@ -125,7 +125,7 @@
 	};
 
 	function getToolTip(e) {
-		return document.querySelector('.n-tool--tip[for="' + e.target.closest(".n-tool").dataset.nTool + '"]');
+		return document.querySelector('.n-tool__tip[for="' + e.target.closest(".n-tool").dataset.nTool + '"]');
 	}
 
 	let hideTip = (e) => {
@@ -147,7 +147,7 @@
 		let tooltips = host.querySelectorAll(".n-tool").length;
 
 		host.querySelectorAll(".n-tool:not([data-ready])").forEach((el) => {
-			let tip = el.querySelector(".n-tool--tip");
+			let tip = el.querySelector(".n-tool__tip");
 			if (!tip) return;
 
 			let content = tip.innerHTML;

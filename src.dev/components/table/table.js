@@ -29,7 +29,7 @@
 				})
 			);
 
-			addClass(wrap(el), "n-table--wrap");
+			addClass(wrap(el), "n-table__wrap");
 			makeReady(el);
 			el.parentNode.setAttribute("tabindex", 0);
 		});

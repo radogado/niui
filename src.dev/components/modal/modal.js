@@ -91,7 +91,7 @@ var componentModal = (function () {
 		if (full_window) {
 			window.scrollTo(previousScrollX, previousScrollY);
 			let direction_option = 'normal';
-			var animation = full_window.querySelector(".n-ovrl--content > div").dataset.anim; // Custom animation?
+			var animation = full_window.querySelector(".n-ovrl__content > div").dataset.anim; // Custom animation?
 			if (animation.length < 11) {
 				// '', 'null' or 'undefined'?
 
@@ -102,7 +102,7 @@ var componentModal = (function () {
 			}
 
 			full_window.animate(animation, {duration: 200, direction: direction_option}).onfinish = () => {
-				nuiDisableBodyScroll(false, full_window.querySelector(".n-ovrl--content")); // Turn off and restore page scroll
+				nuiDisableBodyScroll(false, full_window.querySelector(".n-ovrl__content")); // Turn off and restore page scroll
 				full_window.parentNode.removeChild(full_window);
 				full_window_content = null;
 
@@ -114,13 +114,8 @@ var componentModal = (function () {
 					window.removeEventListener("keyup", keyUpClose);
 					removeClass(q("html"), "no-scroll");
 
-					if (!q(".n-slider")) {
-						// No sliders on the page to control with arrow keys
-
-						window.removeEventListener("keydown", arrow_keys_handler, false);
-					}
 				} else {
-					nuiDisableBodyScroll(true, full_window.querySelector(".n-ovrl--content"));
+					nuiDisableBodyScroll(true, full_window.querySelector(".n-ovrl__content"));
 					adjustModal();
 				}
 
@@ -148,20 +143,20 @@ var componentModal = (function () {
 
 		var wrapper = document.createElement("div");
 		addClass(wrapper, "n-ovrl");
-		wrapper.insertAdjacentHTML("beforeend", "<div class=n-ovrl--content tabindex=0></div><div class=n-overlay-bg></div>");
+		wrapper.insertAdjacentHTML("beforeend", "<div class=n-ovrl__content tabindex=0></div><div class=n-ovrl__bg></div>");
 		wrapper.firstChild.appendChild(full_window_content);
 		full_window_content = wrapper;
 
-		full_window_content.insertAdjacentHTML("afterbegin", `<button class=n-ovrl--close> ← ${document.title}</button>`);
-		full_window_content.querySelector(".n-overlay-bg").onclick = full_window_content.querySelector(".n-ovrl--close").onclick = closeFullWindow;
-		full_window_content.querySelector(".n-ovrl--close").addEventListener(
+		full_window_content.insertAdjacentHTML("afterbegin", `<button class=n-ovrl__close> ← ${document.title}</button>`);
+		full_window_content.querySelector(".n-ovrl__bg").onclick = full_window_content.querySelector(".n-ovrl__close").onclick = closeFullWindow;
+		full_window_content.querySelector(".n-ovrl__close").addEventListener(
 			"touchmove",
 			(e) => {
 				e.preventDefault();
 			},
 			{ passive: false }
 		);
-		full_window_content.querySelector(".n-overlay-bg").addEventListener(
+		full_window_content.querySelector(".n-ovrl__bg").addEventListener(
 			"touchmove",
 			(e) => {
 				e.preventDefault();
@@ -172,7 +167,7 @@ var componentModal = (function () {
 
 		document.body.appendChild(full_window_content);
 
-		let full_window_container = full_window_content.querySelector(".n-ovrl--content");
+		let full_window_container = full_window_content.querySelector(".n-ovrl__content");
 
 		full_window_container.focus();
 
@@ -239,7 +234,7 @@ var componentModal = (function () {
 				}
 
 				openFullWindow(parsed, animation); // To do: If .modal[data-animation], pass it to openFullWindow() as second parameter. Also in openLightbox().
-				transferClass(el.closest(".n-modal"), q(".n-ovrl"), "n-modal__limited");
+				transferClass(el.closest(".n-modal"), q(".n-ovrl"), "n-modal--imited");
 			} else {
 				// Error
 				closeFullWindow();

@@ -81,7 +81,7 @@
 	}
 
 	.n-drop-cap:first-letter {
-		float: left;
+		float: start;
 		font-size: 5em;
 		padding: 0.1em 0.1em 0.1em 0;
 		margin-top: -0.2em;
@@ -108,26 +108,11 @@
 	.quote,
 	blockquote,
 	q {
-		border-left: 1px solid #bbb;
-		padding-left: 1em;
+		border-inline-start: 1px solid #bbb;
+		padding-inline-start: 1em;
 		display: block;
-		margin: $line-height-em 0 $line-height-em 1em;
-	}
-
-	&[dir="rtl"] {
-		.n-drop-cap:first-letter {
-			float: right;
-		}
-
-		.quote,
-		blockquote {
-			margin-left: 0;
-			border-left: none;
-			padding-left: 0;
-			margin-right: 1em;
-			border-right: 1px solid #bbb;
-			padding-right: 1em;
-		}
+		margin: $line-height-em 0 $line-height-em 0;
+		margin-inline-start: 1em;
 	}
 
 	.n-big-text {

@@ -49,11 +49,11 @@ button.n-btn[disabled] {
 	font-size: inherit;
 }
 
-.n-btn.n-btn__big,
-a[href].n-btn.n-btn__big,
+.n-btn.n-btn--big,
+a[href].n-btn.n-btn--big,
 .n-form input[type="submit"],
 .n-form button {
-	margin: $line-height-em/3 0; // Re-calculate margin, because font-size has changed. To do: fix baseline.
+	margin: calc(#{$line-height-em}/3) 0; // Re-calculate margin, because font-size has changed. To do: fix baseline.
 	font-size: 1.2em;
 	padding: 0.75em 1em;
 	line-height: 1.05em;
@@ -71,7 +71,8 @@ a.backtotop[href] {
 	background: rgba(0, 0, 0, 0.2);
 	color: #fff;
 	border-radius: 2em;
-	font-family: "Hiragino Mincho ProN"; /* fix for iOS */
+	font-family: "Hiragino Mincho ProN";
+	/* fix for iOS */
 	cursor: pointer;
 	position: absolute;
 	bottom: -1em;
@@ -90,9 +91,9 @@ a.backtotop[href] {
 .n-btn--group {
 	margin: 0 -0.25em;
 
-	> *,
-	.n-btn.n-btn__big,
-	> a[href].n-btn.n-btn__big {
+	>*,
+	.n-btn.n-btn--big,
+	>a[href].n-btn.n-btn__big {
 		margin-right: 0.25em;
 		margin-left: 0.25em;
 	}

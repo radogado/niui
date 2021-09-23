@@ -19,7 +19,6 @@
   padding-bottom: 1.5em;
   font-size: 1.1em;
   background: rgba(0, 0, 0, 0.1);
-  text-align: left;
   text-align: start;
 }
 .n-table th button.n-table-sort,
@@ -34,10 +33,6 @@
   padding: 0;
   background: none;
   color: inherit;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
   user-select: none;
 }
 .n-table th button.n-table-sort:after,
@@ -59,7 +54,7 @@
   display: none;
 }
 
-.n-table--wrap {
+.n-table__wrap {
   overflow-x: auto;
   /*
       scrollbar-3dlight-color: grey;
@@ -72,7 +67,7 @@
   */
   -webkit-overflow-scrolling: touch;
 }
-.n-table--wrap .n-table {
+.n-table__wrap .n-table {
   display: table;
 }
 

@@ -8,7 +8,7 @@
 
 		var ready_to_submit = true;
 
-		el.querySelectorAll(".n-form__mandatory").forEach((el) => {
+		el.querySelectorAll(".n-form--mandatory").forEach((el) => {
 			if (el.closest("[disabled]")) {
 				// Ignore disabled conditional fields
 
@@ -45,20 +45,20 @@
 	function updateFileInput(e) {
 		var el = e.target;
 
-		el.parentNode.querySelector("span.n-form--file-name").innerHTML = el.value.substring(el.value.lastIndexOf("\\") + 1);
+		el.parentNode.querySelector("span.n-form__file-name").innerHTML = el.value.substring(el.value.lastIndexOf("\\") + 1);
 	}
 
-	if (q(".n-form__language")) {
+	if (q(".n-form--language")) {
 		// To do: make it universal .submitonchange and for more than 1 form
 
-		q(".n-form__language select").onchange = (e) => {
-			q(".n-form__language").submit();
+		q(".n-form--language select").onchange = (e) => {
+			q(".n-form--language").submit();
 		};
 	}
 
 	function toggleConditionalFieldset(e) {
 		var el = e.target;
-		var fieldset = el.closest(".n-form--condition").nextElementSibling;
+		var fieldset = el.closest(".n-form__condition").nextElementSibling;
 		var attribute = "disabled";
 
 		if (el.checked) {
@@ -76,12 +76,12 @@
 
 			el.querySelectorAll("input[type=file]").forEach((el, i) => {
 				el.onchange = updateFileInput;
-				el.parentNode.querySelector("span").insertAdjacentHTML("afterbegin", "<span class=n-form--file-name></span>");
+				el.parentNode.querySelector("span").insertAdjacentHTML("afterbegin", "<span class=n-form__file-name></span>");
 			});
 
 			// 	Conditional form fieldsets
 
-			el.querySelectorAll(".n-form--check.n-form--condition input").forEach((el, i) => {
+			el.querySelectorAll(".n-form__check.n-form__condition input").forEach((el, i) => {
 				el.onchange = toggleConditionalFieldset;
 			});
 

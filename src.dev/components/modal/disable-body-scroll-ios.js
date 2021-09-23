@@ -2,7 +2,7 @@
  * This is a function where type checking is disabled.
  * @suppress {misplacedTypeAnnotation}
  */
-window.nuiDisableBodyScroll = (function () {
+window.nuiDisableBodyScroll = (function() {
 	// Thanks Thijs Huijssoon https://gist.github.com/thuijssoon
 
 	/**
@@ -48,8 +48,7 @@ window.nuiDisableBodyScroll = (function () {
 	 */
 	var preventOverscroll = (event) => {
 		// only respond to a single touch
-		if (event.targetTouches.length !== 1 || event.target.closest(".n-slider--nav")) {
-			// also if trying to swipe slider/lightbox nav
+		if (event.targetTouches.length !== 1) {
 			return;
 		}
 
@@ -77,7 +76,7 @@ window.nuiDisableBodyScroll = (function () {
 	 * @param  string selector Selector to element to change scroll permission
 	 * @return void
 	 */
-	return function (allow, selector) {
+	return function(allow, selector) {
 		if (!!selector) {
 			_selector = selector;
 			_element = selector;

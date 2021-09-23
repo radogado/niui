@@ -131,18 +131,6 @@ html.n-vertical-page {
 	}
 }
 
-@supports (-ms-ime-align: auto) {
-	// Disable jumpy Edge
-
-	.n-fixed-bg {
-		background-size: cover;
-
-		.n-fixed-bg__image {
-			display: none;
-		}
-	}
-}
-
 .n-fixed {
 	position: fixed;
 

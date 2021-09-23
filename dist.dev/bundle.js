@@ -521,7 +521,6 @@ function makeReady(el) {
 }
 
 function focusWithin(selector) {
-	// To do: If not IE/Edge, return q(selector + ':focus-within');
 
 	var result = null;
 	qa(selector).forEach((el) => {
@@ -593,7 +592,7 @@ function initThreshold(host) {
 }
 */
 
-var current_slider = q(".slider");
+var current_slider = q(".n-carousel__content");
 var draggingNow = false;
 
 var components = new Array();
@@ -865,7 +864,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 
 		var ready_to_submit = true;
 
-		el.querySelectorAll(".n-form__mandatory").forEach((el) => {
+		el.querySelectorAll(".n-form--mandatory").forEach((el) => {
 			if (el.closest("[disabled]")) {
 				// Ignore disabled conditional fields
 
@@ -902,20 +901,20 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	function updateFileInput(e) {
 		var el = e.target;
 
-		el.parentNode.querySelector("span.n-form--file-name").innerHTML = el.value.substring(el.value.lastIndexOf("\\") + 1);
+		el.parentNode.querySelector("span.n-form__file-name").innerHTML = el.value.substring(el.value.lastIndexOf("\\") + 1);
 	}
 
-	if (q(".n-form__language")) {
+	if (q(".n-form--language")) {
 		// To do: make it universal .submitonchange and for more than 1 form
 
-		q(".n-form__language select").onchange = (e) => {
-			q(".n-form__language").submit();
+		q(".n-form--language select").onchange = (e) => {
+			q(".n-form--language").submit();
 		};
 	}
 
 	function toggleConditionalFieldset(e) {
 		var el = e.target;
-		var fieldset = el.closest(".n-form--condition").nextElementSibling;
+		var fieldset = el.closest(".n-form__condition").nextElementSibling;
 		var attribute = "disabled";
 
 		if (el.checked) {
@@ -933,12 +932,12 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 
 			el.querySelectorAll("input[type=file]").forEach((el, i) => {
 				el.onchange = updateFileInput;
-				el.parentNode.querySelector("span").insertAdjacentHTML("afterbegin", "<span class=n-form--file-name></span>");
+				el.parentNode.querySelector("span").insertAdjacentHTML("afterbegin", "<span class=n-form__file-name></span>");
 			});
 
 			// 	Conditional form fieldsets
 
-			el.querySelectorAll(".n-form--check.n-form--condition input").forEach((el, i) => {
+			el.querySelectorAll(".n-form__check.n-form__condition input").forEach((el, i) => {
 				el.onchange = toggleConditionalFieldset;
 			});
 
@@ -979,7 +978,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
  * This is a function where type checking is disabled.
  * @suppress {misplacedTypeAnnotation}
  */
-window.nuiDisableBodyScroll = (function () {
+window.nuiDisableBodyScroll = (function() {
 	// Thanks Thijs Huijssoon https://gist.github.com/thuijssoon
 
 	/**
@@ -1025,8 +1024,7 @@ window.nuiDisableBodyScroll = (function () {
 	 */
 	var preventOverscroll = (event) => {
 		// only respond to a single touch
-		if (event.targetTouches.length !== 1 || event.target.closest(".n-slider--nav")) {
-			// also if trying to swipe slider/lightbox nav
+		if (event.targetTouches.length !== 1) {
 			return;
 		}
 
@@ -1054,7 +1052,7 @@ window.nuiDisableBodyScroll = (function () {
 	 * @param  string selector Selector to element to change scroll permission
 	 * @return void
 	 */
-	return function (allow, selector) {
+	return function(allow, selector) {
 		if (!!selector) {
 			_selector = selector;
 			_element = selector;
@@ -1172,7 +1170,7 @@ var componentModal = (function () {
 		if (full_window) {
 			window.scrollTo(previousScrollX, previousScrollY);
 			let direction_option = 'normal';
-			var animation = full_window.querySelector(".n-ovrl--content > div").dataset.anim; // Custom animation?
+			var animation = full_window.querySelector(".n-ovrl__content > div").dataset.anim; // Custom animation?
 			if (animation.length < 11) {
 				// '', 'null' or 'undefined'?
 
@@ -1183,7 +1181,7 @@ var componentModal = (function () {
 			}
 
 			full_window.animate(animation, {duration: 200, direction: direction_option}).onfinish = () => {
-				nuiDisableBodyScroll(false, full_window.querySelector(".n-ovrl--content")); // Turn off and restore page scroll
+				nuiDisableBodyScroll(false, full_window.querySelector(".n-ovrl__content")); // Turn off and restore page scroll
 				full_window.parentNode.removeChild(full_window);
 				full_window_content = null;
 
@@ -1195,13 +1193,8 @@ var componentModal = (function () {
 					window.removeEventListener("keyup", keyUpClose);
 					removeClass(q("html"), "no-scroll");
 
-					if (!q(".n-slider")) {
-						// No sliders on the page to control with arrow keys
-
-						window.removeEventListener("keydown", arrow_keys_handler, false);
-					}
 				} else {
-					nuiDisableBodyScroll(true, full_window.querySelector(".n-ovrl--content"));
+					nuiDisableBodyScroll(true, full_window.querySelector(".n-ovrl__content"));
 					adjustModal();
 				}
 
@@ -1229,20 +1222,20 @@ var componentModal = (function () {
 
 		var wrapper = document.createElement("div");
 		addClass(wrapper, "n-ovrl");
-		wrapper.insertAdjacentHTML("beforeend", "<div class=n-ovrl--content tabindex=0></div><div class=n-overlay-bg></div>");
+		wrapper.insertAdjacentHTML("beforeend", "<div class=n-ovrl__content tabindex=0></div><div class=n-ovrl__bg></div>");
 		wrapper.firstChild.appendChild(full_window_content);
 		full_window_content = wrapper;
 
-		full_window_content.insertAdjacentHTML("afterbegin", `<button class=n-ovrl--close> ← ${document.title}</button>`);
-		full_window_content.querySelector(".n-overlay-bg").onclick = full_window_content.querySelector(".n-ovrl--close").onclick = closeFullWindow;
-		full_window_content.querySelector(".n-ovrl--close").addEventListener(
+		full_window_content.insertAdjacentHTML("afterbegin", `<button class=n-ovrl__close> ← ${document.title}</button>`);
+		full_window_content.querySelector(".n-ovrl__bg").onclick = full_window_content.querySelector(".n-ovrl__close").onclick = closeFullWindow;
+		full_window_content.querySelector(".n-ovrl__close").addEventListener(
 			"touchmove",
 			(e) => {
 				e.preventDefault();
 			},
 			{ passive: false }
 		);
-		full_window_content.querySelector(".n-overlay-bg").addEventListener(
+		full_window_content.querySelector(".n-ovrl__bg").addEventListener(
 			"touchmove",
 			(e) => {
 				e.preventDefault();
@@ -1253,7 +1246,7 @@ var componentModal = (function () {
 
 		document.body.appendChild(full_window_content);
 
-		let full_window_container = full_window_content.querySelector(".n-ovrl--content");
+		let full_window_container = full_window_content.querySelector(".n-ovrl__content");
 
 		full_window_container.focus();
 
@@ -1320,7 +1313,7 @@ var componentModal = (function () {
 				}
 
 				openFullWindow(parsed, animation); // To do: If .modal[data-animation], pass it to openFullWindow() as second parameter. Also in openLightbox().
-				transferClass(el.closest(".n-modal"), q(".n-ovrl"), "n-modal__limited");
+				transferClass(el.closest(".n-modal"), q(".n-ovrl"), "n-modal--imited");
 			} else {
 				// Error
 				closeFullWindow();
@@ -3031,7 +3024,7 @@ var componentModal = (function () {
 			el.setAttribute("tabindex", 0);
 		});
 
-		if (!el.closest(".n-nav.n-nav__drop")) {
+		if (!el.closest(".n-nav.n-nav--drop")) {
 			// The rest is for drop nav only
 
 			return;
@@ -3087,7 +3080,7 @@ var componentModal = (function () {
 	}
 
 	window.addEventListener("resize", function (e) {
-		document.querySelectorAll('.n-nav.n-nav__drop ul[role="menubar"]').forEach((menubar) => {
+		document.querySelectorAll('.n-nav.n-nav--drop ul[role="menubar"]').forEach((menubar) => {
 			menubar.querySelectorAll("ul").forEach((ul) => {
 				checkSides(ul, menubar);
 			});
@@ -3128,7 +3121,7 @@ var componentNotify = (function () {
 	}
 
 	function notify(content, option) {
-		document.body.insertAdjacentHTML("afterbegin", `<div class="n-notify${option && option.indexOf("fixed") !== -1 ? " n-notify__fixed" : ""}">${content}</div>`);
+		document.body.insertAdjacentHTML("afterbegin", `<div class="n-notify${option && option.indexOf("fixed") !== -1 ? " n-notify--fixed" : ""}">${content}</div>`);
 		notifyCloseEvent();
 		if (option && option.indexOf("timeout") !== -1) {
 			setTimeout(() => {
@@ -3214,7 +3207,7 @@ var componentNotify = (function () {
 				})
 			);
 
-			addClass(wrap(el), "n-table--wrap");
+			addClass(wrap(el), "n-table__wrap");
 			makeReady(el);
 			el.parentNode.setAttribute("tabindex", 0);
 		});
@@ -3354,7 +3347,7 @@ var componentNotify = (function () {
 	};
 
 	function getToolTip(e) {
-		return document.querySelector('.n-tool--tip[for="' + e.target.closest(".n-tool").dataset.nTool + '"]');
+		return document.querySelector('.n-tool__tip[for="' + e.target.closest(".n-tool").dataset.nTool + '"]');
 	}
 
 	let hideTip = (e) => {
@@ -3376,7 +3369,7 @@ var componentNotify = (function () {
 		let tooltips = host.querySelectorAll(".n-tool").length;
 
 		host.querySelectorAll(".n-tool:not([data-ready])").forEach((el) => {
-			let tip = el.querySelector(".n-tool--tip");
+			let tip = el.querySelector(".n-tool__tip");
 			if (!tip) return;
 
 			let content = tip.innerHTML;

@@ -515,7 +515,6 @@ function makeReady(el) {
 }
 
 function focusWithin(selector) {
-	// To do: If not IE/Edge, return q(selector + ':focus-within');
 
 	var result = null;
 	qa(selector).forEach((el) => {
@@ -587,7 +586,7 @@ function initThreshold(host) {
 }
 */
 
-var current_slider = q(".slider");
+var current_slider = q(".n-carousel__content");
 var draggingNow = false;
 
 var components = new Array();
