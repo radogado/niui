@@ -1,5 +1,4 @@
 /* niui – Modal */
-
 @import "../../css/niui-setup";
 
 .no-scroll {
@@ -83,7 +82,7 @@ html.n-full-screen {
 		padding-top: 0;
 	}
 
-	&.n-modal--limited>.n-ovrl__content {
+	&.n-modal--limited > .n-ovrl__content {
 		padding: 0;
 		height: 50vh;
 		margin-top: 25vh;
@@ -91,15 +90,11 @@ html.n-full-screen {
 		margin-left: 25vw;
 	}
 
-	>* {
+	> * {
 		background: #fff;
 		position: relative;
 	}
-
-
 }
-
-
 
 .n-ovrl__bg {
 	position: absolute;
@@ -114,7 +109,7 @@ html.n-full-screen {
 
 @media (max-width: $screen-narrow-max) {
 	.n-ovrl {
-		&.n-modal--limited>.n-ovrl__content {
+		&.n-modal--limited > .n-ovrl__content {
 			height: calc(80% - var(--overlay-bottom, 0) - var(--overlay-top, 0));
 			margin: 10%;
 			width: 80%;
@@ -129,18 +124,17 @@ html.n-full-screen {
 			padding-top: $line-height-em * 2;
 		}
 	}
-
 }
 
 @media (max-height: 512px) and (orientation: landscape) {
-	// Move the close bar to the side, because it's inaccessible with certain toolbar configurations
 
+	// Move the close bar to the side, because it's inaccessible with certain toolbar configurations
 	.n-ovrl {
 		&__content {
 			padding: 0;
 		}
 
-		>.n-ovrl--close {
+		> .n-ovrl--close {
 			left: 0.5rem;
 			right: auto;
 			margin-top: 0.5rem;
@@ -162,5 +156,4 @@ html.n-full-screen {
 			}
 		}
 	}
-
 }

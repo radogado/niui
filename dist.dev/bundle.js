@@ -6,25 +6,18 @@ window.nui = (() => {
 
 /* niui by rado.bg */
 /* DOM functions via http://youmightnotneedjquery.com */
-
 document.body.dataset.nuiJs = true;
-
 if (!!window["chrome"]) {
 	document.body.dataset.nuiChrome = true;
 }
-
 if (navigator.userAgent.match(/Safari/) && !navigator.userAgent.match(/Chrome/)) {
 	document.body.dataset.nuiSafari = true;
 }
-
 if (navigator.platform.match(/Mac/) || navigator.platform.match(/iPhone/) || navigator.platform.match(/iPod/) || navigator.platform.match(/iPad/)) {
 	document.body.dataset.nuiApple = true; // Apple devices: left-hand ⤫ button, disappearing thin scrollbars
 }
-
 var is_iPad = !!navigator.platform.match(/iPad/);
-
 // DOM functions – start
-
 function q(selector) {
 	return document.querySelector(selector);
 }
@@ -62,9 +55,7 @@ function toggleAttribute(el, attribute) {
 		el.setAttribute(attribute, true);
 	}
 }
-
 // DOM functions – end
-
 function transferClass(el_origin, el_target, className) {
 	if (hasClass(el_origin, className)) {
 		addClass(el_target, className);
@@ -84,24 +75,19 @@ function stopEvent(e) {
 			return;
 		}
 	}
-
 	if (!e) {
 		return false;
 	}
-
 	//e.cancelBubble is supported by IE, this will kill the bubbling process.
 	e.cancelBubble = true;
 	e.returnValue = false;
-
 	//e.stopPropagation works only in Firefox.
 	if (e.stopPropagation) {
 		e.stopPropagation();
 	}
-
 	if (e.preventDefault) {
 		e.preventDefault();
 	}
-
 	return false;
 }
 
@@ -127,45 +113,34 @@ function thisIndex(el) {
 
     return (count);
 */
-
 	return [...el.parentNode.children].indexOf(el);
 }
 
 function getCookie(k) {
 	// Thanks Simon Steinberger
-
 	var v = document.cookie.match("(^|;) ?" + k + "=([^;]*)(;|$)");
 	return v ? v[2] : null;
 }
 
 function wrap(toWrap, wrapper) {
 	// Thanks yckart
-
 	// 	observerOff();
-
 	wrapper = wrapper || document.createElement("div");
-
 	var sibling = toWrap.nextSibling;
 	var parent = toWrap.parentNode;
 	wrapper.appendChild(toWrap);
-
 	if (parent) {
 		// Already attached to DOM
-
 		if (sibling) {
 			// Attach the wrapper
-
 			parent.insertBefore(wrapper, sibling);
 		} else {
 			parent.appendChild(wrapper);
 		}
 	}
-
 	//     observerOn();
-
 	return wrapper;
 }
-
 /*
 function ready(fn) { // Not working with async and defer
 
@@ -188,26 +163,19 @@ function ready(fn) { // Not working with async and defer
 
 }
 */
-
 function removeHash() {
 	history.pushState("", document.title, window.location.pathname + window.location.search);
 }
-
 /* ––– */
-
 function getURLParameters() {
 	// return all URL parameters in an array
-
 	var res = {};
 	var re = /[?&]([^?&]+)=([^?&]+)/g;
-
 	location.href.replace(re, (_, k, v) => {
 		res[k] = v;
 	});
-
 	return res;
 }
-
 /*
 // URI parameters
 
@@ -264,7 +232,6 @@ function relayParameters() {
 
 }
 */
-
 function arrow_keys_handler(e) {
 	switch (e.keyCode) {
 		case 37:
@@ -278,20 +245,15 @@ function arrow_keys_handler(e) {
 			break; // do not block other keys
 	}
 }
-
 var external = RegExp("^((f|ht)tps?:)?//(?!" + location.host + ")");
 var full_window_content = null;
 var previousScrollOffset = 0;
 var previouslyFocused = false;
-
 /* Animate anchor links */
-
 function getCumulativeOffset(obj) {
 	// Offset from element to top of page
-
 	var left, top;
 	left = top = 0;
-
 	if (obj.offsetParent) {
 		do {
 			left += obj.offsetLeft;
@@ -299,7 +261,6 @@ function getCumulativeOffset(obj) {
 			obj = obj.offsetParent;
 		} while (obj);
 	}
-
 	return {
 		x: left,
 		y: top,
@@ -311,79 +272,58 @@ function animateAnchors(e) {
 		return;
 	}
 	var el = e.target;
-
 	while (typeof el.href !== "string") {
 		// If a child of the link is clicked
-
 		el = el.parentNode;
 	}
-
 	if (el.href.split(/#|\?/)[0] != window.location.href.split(/#|\?/)[0]) {
 		// External page?
-
 		return;
 	}
-
 	var hash = null;
 	if (el.href.split("#").pop().length > 0) {
 		hash = document.getElementById(el.href.split("#").pop());
 	}
-
 	scrollToAnimated(hash === null ? 0 : getCumulativeOffset(hash).y, 0.5, (e) => {
 		// To do: fix jumping to new hash – is the fallback executed properly in animate()?
-
 		window.location = el.href.split("#")[0] + "#" + el.href.split("#").pop();
 	});
-
 	return false;
 }
 
 function closestElement(el, target) {
 	// Thanks http://gomakethings.com/ditching-jquery/ – Accepts either a selector string or an actual element
-
 	for (; el && el !== document; el = el.parentNode) {
 		if (el === target) {
 			return el;
 		}
 	}
-
 	return false;
 }
-
 // Add .n-target to the :target element now, because :target is available too late, after all page content is loaded
-
 let setHashClass = () => {
 	if (q(".n-target")) {
 		removeClass(q(".n-target"), "n-target");
 	}
-
 	if (!!location.hash && q(location.hash)) {
 		addClass(q(location.hash), "n-target");
 	}
 };
-
 setHashClass();
-
 window.addEventListener("hashchange", setHashClass);
-
 /* Chainable animation specified as CSS Animation */
-
 var temp = document.createElement("temp");
-
 var animations = {
 	animation: "animationend",
 	MozAnimation: "animationend",
 	WebkitAnimation: "webkitAnimationEnd",
 };
-
 var animationEndEvent = false;
-
 for (var t in animations) {
 	if (temp.style[t] !== "undefined") {
 		animationEndEvent = animations[t];
 	}
 }
-
 // function animate(el, animation_code, duration, callback) {
 // 	// Animate with CSS Animations. Default duration = .2s, callback optional
 // 
@@ -420,12 +360,9 @@ for (var t in animations) {
 // 		el.dataset.nuiAnimation = animation_name;
 // 	}
 // }
-
 // Scroll the page to any position
-
 function scrollToAnimated(to, duration, callback) {
 	var difference = document.body.clientHeight - window.innerHeight;
-
 	if (to > difference) {
 		to = difference;
 	}
@@ -436,24 +373,20 @@ function scrollToAnimated(to, duration, callback) {
 			callback();
 		}
 	}
-
 	// animate(
 	// 	q("html"),
 	// 	`100% { transform: translate3d(0, ${-1 * (to - (document.documentElement.scrollTop || document.body.scrollTop))}px, 0); }`,
 	// 	duration,
 	// 	scrollToCallback.bind(null, callback)
 	// );	
-	q("html").animate([{transform: "translate3d(0, 0, 0)"}, {transform: `translate3d(0, ${-1 * (to - (document.documentElement.scrollTop || document.body.scrollTop))}px, 0)`}], duration).onfinish = () => { scrollToCallback(callback);};
+	q("html").animate([{ transform: "translate3d(0, 0, 0)" }, { transform: `translate3d(0, ${-1 * (to - (document.documentElement.scrollTop || document.body.scrollTop))}px, 0)` }], duration).onfinish = () => { scrollToCallback(callback); };
 }
-
 // Scroll window to top, animated with easing
 // To do: suport any element and direction. Use it to slide sliders on browsers where CSS transforms are slower. Replace the above scrollToAnimated()
-
 let scrollToElement = (duration = 1000) => {
 	let cosParameter = window.scrollY / 2;
 	let scrollCount = 0;
 	let oldTimestamp = performance.now();
-
 	let step = (newTimestamp) => {
 		scrollCount += Math.PI / (duration / (newTimestamp - oldTimestamp));
 		if (scrollCount >= Math.PI) window.scrollTo(0, 0);
@@ -462,57 +395,45 @@ let scrollToElement = (duration = 1000) => {
 		oldTimestamp = newTimestamp;
 		window.requestAnimationFrame(step);
 	};
-
 	window.requestAnimationFrame(step);
 };
-
 // Clicking a button copies a target element's contents
-
 function copyButton(el, target, echo) {
 	el.addEventListener("click", (event) => {
 		window.getSelection().removeAllRanges(); // Clear previous clipboard
 		var range = document.createRange();
 		range.selectNode(target);
 		window.getSelection().addRange(range);
-
 		try {
 			document.execCommand("copy");
-
 			if (!!echo && componentNotify) {
 				componentNotify.notify("📋 " + target.textContent, "fixed timeout");
 			}
 		} catch (err) {}
 	});
 }
-
 // Real time touch detection to support devices with both touch and mouse. http://www.javascriptkit.com/dhtmltutors/sticky-hover-issue-solutions.shtml
 // To do: use an attribute instead of class
 (function () {
 	var isTouch = false; //var to indicate current input type (is touch versus no touch)
 	var isTouchTimer;
-
 	let addtouchclass = (e) => {
 		clearTimeout(isTouchTimer);
 		isTouch = true;
 		addClass(q("html"), "can-touch");
-
 		isTouchTimer = setTimeout(() => {
 			isTouch = false;
 		}, 500); //maintain "istouch" state for 500ms so removetouchclass doesn't get fired immediately following a touch event
 	};
-
 	let removetouchclass = (e) => {
 		if (!isTouch) {
 			//remove 'can-touch' class if not triggered by a touch event and class is present
-
 			isTouch = false;
 			removeClass(q("html"), "can-touch");
 		}
 	};
-
 	document.addEventListener("mouseover", removetouchclass, false); //this event gets called when input type is everything from touch to mouse/ trackpad
 	document.addEventListener("touchstart", addtouchclass, false); //this event only gets called when input type is touch
-
 	addtouchclass();
 })();
 
@@ -521,14 +442,12 @@ function makeReady(el) {
 }
 
 function focusWithin(selector) {
-
 	var result = null;
 	qa(selector).forEach((el) => {
 		if (el.querySelector(":focus")) {
 			result = el;
 		}
 	});
-
 	return result;
 }
 
@@ -536,7 +455,6 @@ function addComponent(host, el) {
 	host.insertAdjacentHTML("afterbegin", el);
 	// 	initComponents(host); // No need, observer does it automatically
 }
-
 /*
 function initThreshold(host) {
 
@@ -591,10 +509,8 @@ function initThreshold(host) {
 
 }
 */
-
 var current_slider = q(".n-carousel__content");
 var draggingNow = false;
-
 var components = new Array();
 
 function registerComponent(name, init) {
@@ -604,16 +520,12 @@ function registerComponent(name, init) {
 
 function initComponents(host) {
 	observerOff();
-
 	var _host = !host ? document.body : host;
-
 	for (let key in components) {
 		components[key][0].init(_host);
 	}
-
 	observerOn();
 }
-
 var observer = false;
 
 function observerOn() {
@@ -627,11 +539,9 @@ function observerOff() {
 		observer.disconnect();
 	}
 }
-
 if (typeof MutationObserver === "function") {
 	observer = new MutationObserver((mutations, observer) => {
 		observerOff();
-
 		let mutation = mutations[0];
 		if (mutation.type === "childList" && mutation.addedNodes.length > 0) {
 			for (let el of mutation.addedNodes) {
@@ -640,18 +550,14 @@ if (typeof MutationObserver === "function") {
 				}
 			}
 		}
-
 		observerOn();
 	});
 }
-
 // initThreshold(document.body);
-
 // Animate anchor link jumps
 qa('a[href^="#"]').forEach((el) => {
 	el.onclick = el.onclick || animateAnchors; // Don't add to previous onclick event handler
 });
-
 /*
 	notifyCloseEvent();
 
@@ -667,28 +573,22 @@ qa('a[href^="#"]').forEach((el) => {
 		
 	});
 */
-
 // Viewport element for iOS
-
 if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	let adjustViewport = () => {
 		document.querySelectorAll(".n-viewport").forEach((el) => {
 			el.style.height = "100vh";
 			el.style.marginTop = 0;
 			// 		console.log('Element: ' + el.offsetHeight, 'Window: ' + window.innerHeight);
-
 			if (el.offsetHeight > window.innerHeight) {
 				el.style.height = `calc(100vh - ${el.offsetHeight - window.innerHeight}*1px)`;
 			}
-
 			if (el.getBoundingClientRect().y < 0) {
 				el.style.marginTop = `${Math.abs(el.getBoundingClientRect().y)}px`;
 			}
 		});
 	};
-
 	adjustViewport();
-
 	window.addEventListener("resize", (e) => {
 		adjustViewport();
 		setTimeout(adjustViewport, 200);
@@ -699,28 +599,23 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 'use strict';
 
 // Component Fold – start
-
 (function () {
 	/* Fold – start */
-
 	let closeAccordion = (el, content) => {
 		let content_height = content.style.getPropertyValue("--start-height") || 0;
 		// animate(content, `0% { max-height: ${content.scrollHeight}px; } 100% { max-height: ${content_height}; }`, 0.2, () => {
 		// 	toggleAttribute(el, "aria-expanded");
 		// });
-
 		content.animate([{ maxHeight: `${content.scrollHeight}px` }, { maxHeight: content_height }], 200).onfinish = () => {
 			// toggleAttribute(el, "aria-expanded");
 			el.removeAttribute("aria-expanded");
 		};
-
 	};
-
 	let openAccordion = (el, content) => {
 		let content_height = content.style.getPropertyValue("--start-height") || 0;
 		toggleAttribute(el, "aria-expanded");
 		// animate(content, `0% { max-height: ${content_height}; } 100% { max-height: ${content.scrollHeight}px; }`);
-		content.animate([{ maxHeight: content_height }, { maxHeight: `${content.scrollHeight}px` }], {duration: 200}).onfinish = () => {
+		content.animate([{ maxHeight: content_height }, { maxHeight: `${content.scrollHeight}px` }], { duration: 200 }).onfinish = () => {
 			// toggleAttribute(el, "aria-expanded");
 			el.setAttribute("aria-expanded", true);
 		};
@@ -730,54 +625,39 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		stopEvent(e);
 		var el = e.target.closest(".n-fold");
 		var content = el.querySelector(".n-fold__content");
-
 		content.style.display = "block"; // To get proper width when horizontal
 		content.style.setProperty("--width", content.scrollWidth + "px");
 		content.style.removeProperty("display");
 		content.style.setProperty("--max-height", content.scrollHeight + "px");
-
 		if (hasClass(el, "n-fold__horizontal")) {
 			toggleAttribute(el, "aria-expanded");
 		} else {
 			if (el.hasAttribute("aria-expanded")) {
 				// Close
-
 				closeAccordion(el, content);
 			} else {
 				// Open
-
 				let other = hasClass(el.parentNode, "n-fold--group") && el.parentNode.querySelector("[aria-expanded]");
-
 				openAccordion(el, content);
-
 				if (other && other !== el) {
 					// There is another one open, close it if in a group
-
 					closeAccordion(other, other.querySelector(".n-fold__content"));
 				}
 			}
 		}
-
 		return false;
 	}
-
 	// Close all Fold elements when clicking/tapping outside of them
-
 	function closeFoldClickOutside(e) {
 		var el = e.target;
-
 		if (!el.closest(".n-fold") && !el.closest(".n-tool")) {
 			// Clicking/tapping outside of a fold/tooltip element...
-
 			qa(".n-fold.n-fold__mobile[aria-expanded], .n-tool--tip[aria-expanded]").forEach((el) => {
 				// ... closes all n-burger nav menus and tooltips
-
 				el.removeAttribute("aria-expanded");
 			});
 		}
-
 		// Focus on clicked slider
-
 		if (el.closest(".n-slider")) {
 			current_slider = el.closest(".n-slider");
 		}
@@ -786,10 +666,8 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	function init(host) {
 		host.querySelectorAll(".n-fold:not([data-ready]) > .n-fold__label").forEach((el) => {
 			el.onclick = toggleAccordion;
-
 			el = el.parentNode;
 			var content = el.querySelector(".n-fold__content");
-
 			if (!hasClass(el, "n-fold__mobile")) {
 				content.addEventListener("focusin", (e) => {
 					if (!e.target.closest(".n-fold").hasAttribute("aria-expanded")) {
@@ -797,7 +675,6 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 					}
 				});
 			}
-
 			if (hasClass(el, "n-fold__horizontal")) {
 				el.dataset.init = true;
 				content.style.setProperty("--width", content.scrollWidth + "px");
@@ -807,79 +684,53 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 					content.style.transition = "width .2s ease-in-out";
 				}, 100);
 			}
-
 			content.style.setProperty("--max-height", content.scrollHeight + "px");
-
 			el.querySelectorAll("input.n-trigger").forEach((el) => {
 				// Remove CSS-only triggers
-
 				el.parentNode.removeChild(el);
 			});
-
 			if (hasClass(el, "n-fold--defocus")) {
 				el.addEventListener("focusout", (e) => {
 					// Close it when tabbing outside
-
 					let el = e.target.closest(".n-fold");
 					if (!el.contains(e.relatedTarget)) {
 						el.removeAttribute("aria-expanded");
 					}
 				});
 			}
-
 			makeReady(el);
 		});
 	}
-
 	window.addEventListener("mousedown", closeFoldClickOutside); // Close all Fold elements when clicking outside of them
-
 	window.addEventListener("touchend", closeFoldClickOutside); // Close all Fold elements when clicking outside of them
-
 	window.addEventListener("scroll", () => {
 		// Close fixed n-ovrl if its scrolling becomes a window scroll. Idea by a Google mobile nav.
-
 		let expanded_nav = q(".n-header__fixed-mobile .n-fold.n-fold__mobile[aria-expanded]");
 		if (expanded_nav) {
 			expanded_nav.removeAttribute("aria-expanded");
 		}
 	});
-
 	/* Fold – end */
-
 	registerComponent("fold", init);
 })();
-
 // Component Fold – end
 
 //→ form.js:
 'use strict';
 
 // Component Form – start
-
-(function() {
+(function () {
 	/* Form – start */
-
 	function submitForm(e) {
 		var el = e.target;
-
 		var ready_to_submit = true;
-
 		el.querySelectorAll(".n-form--mandatory").forEach((el) => {
 			if (el.closest("[disabled]")) {
 				// Ignore disabled conditional fields
-
 				return;
 			}
-
 			if (
-				(el.querySelector("input, select, textarea") && !el.querySelector("input, select, textarea").value) ||
-				(el.querySelector("input[type=checkbox]") && !el.querySelector("input[type=checkbox]").checked) ||
-				(el.querySelector("input[type=email]") && !RegExp(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/).test(el.querySelector("input[type=email]").value)) ||
-				(el.querySelector("input[type=url]") && !RegExp(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/).test(el.querySelector("input[type=url]").value)) ||
-				(el.querySelector("input[type=number]") && !RegExp(/^\d+$/).test(el.querySelector("input[type=number]").value)) ||
-				(el.querySelector("input[type=number][data-digits]") && el.querySelector("input[type=number]").value.length !== el.querySelector("input[type=number]").dataset.digits) ||
-				(el.querySelector("input[type=radio]") && !el.querySelector("input[type=radio]").checked)
-			) {
+				(el.querySelector("input, select, textarea") && !el.querySelector("input, select, textarea").value) || (el.querySelector("input[type=checkbox]") && !el.querySelector("input[type=checkbox]").checked) || (el.querySelector("input[type=email]") && !RegExp(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/).test(el.querySelector("input[type=email]").value)) || (el.querySelector("input[type=url]") && !RegExp(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/).test(el.querySelector("input[type=url]").value)) || (el.querySelector("input[type=number]") && !RegExp(/^\d+$/).test(el.querySelector("input[type=number]").value)) || (el.querySelector("input[type=number][data-digits]") && el.querySelector("input[type=number]").value.length !== el.querySelector("input[type=number]").dataset.digits) || (el.querySelector("input[type=radio]") && !el.querySelector("input[type=radio]").checked)) {
 				ready_to_submit = false;
 				el.querySelector("input").focus();
 				addClass(el, "n-form--alert");
@@ -887,26 +738,21 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 				// Margin animation, because transform animation hides neighbouring content on iPad
 				let form = el.closest("form");
 				// animate(form, `0% { width: ${form.scrollWidth}px; } 33% { margin-left: -9px; } 66% { margin-left: 18px; } 100% { width: ${form.scrollWidth}px; margin-left: 0; }`, 0.25);
-
 				form.animate([{ width: `${form.scrollWidth}px` }, { marginLeft: `-9px` }, { marginLeft: `18px` }, { width: `${form.scrollWidth}px`, marginLeft: 0 }], 250);
 				return;
 			} else {
 				removeClass(el, "n-form--alert");
 			}
 		});
-
 		return ready_to_submit;
 	}
 
 	function updateFileInput(e) {
 		var el = e.target;
-
 		el.parentNode.querySelector("span.n-form__file-name").innerHTML = el.value.substring(el.value.lastIndexOf("\\") + 1);
 	}
-
 	if (q(".n-form--language")) {
 		// To do: make it universal .submitonchange and for more than 1 form
-
 		q(".n-form--language select").onchange = (e) => {
 			q(".n-form--language").submit();
 		};
@@ -916,59 +762,45 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		var el = e.target;
 		var fieldset = el.closest(".n-form__condition").nextElementSibling;
 		var attribute = "disabled";
-
 		if (el.checked) {
 			fieldset.removeAttribute(attribute);
 		} else {
 			fieldset.setAttribute(attribute, "disabled");
 		}
 	}
-
 	/* Form – end */
-
 	let init = (host) => {
 		host.querySelectorAll("form.n-form").forEach((el, i) => {
 			el.onsubmit = el.onsubmit || submitForm;
-
 			el.querySelectorAll("input[type=file]").forEach((el, i) => {
 				el.onchange = updateFileInput;
 				el.parentNode.querySelector("span").insertAdjacentHTML("afterbegin", "<span class=n-form__file-name></span>");
 			});
-
 			// 	Conditional form fieldsets
-
 			el.querySelectorAll(".n-form__check.n-form__condition input").forEach((el, i) => {
 				el.onchange = toggleConditionalFieldset;
 			});
-
 			// Auto textarea height.
-
 			el.querySelectorAll("textarea[data-auto]").forEach((el) => {
 				el.onkeyup = (e) => {
 					el = e.target;
-
 					while (el.rows > 1 && el.scrollHeight < el.offsetHeight) {
 						el.rows--;
 					}
-
 					while (el.scrollHeight > el.offsetHeight) {
 						if (el.rows > 20) {
 							break;
 						}
 						el.rows++;
 					}
-
 					el.rows++;
 				};
 			});
-
 			makeReady(el);
 		});
 	};
-
 	registerComponent("form", init);
 })();
-
 // Component Form – end
 
 //→ disable-body-scroll-ios.js:
@@ -1079,13 +911,11 @@ window.nuiDisableBodyScroll = (function() {
 
 var componentModal = (function () {
 	/* Modal – start */
-
 	function adjustModal(e) {
 		if (!!window.visualViewport) {
 			document.body.style.setProperty("--overlay-top", `${window.visualViewport.offsetTop}px`);
 			document.body.style.setProperty("--overlay-bottom", `${window.innerHeight - window.visualViewport.height}px`);
 		}
-
 		/*
 		var modal = q('.n-ovrl');
 		var previous_overlay_top = parseInt(document.body.style.getPropertyValue('--overlay-top'));
@@ -1155,49 +985,40 @@ var componentModal = (function () {
 	function keyUpClose(e) {
 		if ((e || window.event).keyCode === 27) {
 			// Esc
-
 			closeFullWindow();
 		}
 	}
-
 	var previousScrollX = 0;
 	var previousScrollY = 0;
 
 	function closeFullWindow() {
 		let full_window = qa(".n-ovrl");
 		full_window = full_window[full_window.length - 1];
-
 		if (full_window) {
 			window.scrollTo(previousScrollX, previousScrollY);
 			let direction_option = 'normal';
 			var animation = full_window.querySelector(".n-ovrl__content > div").dataset.anim; // Custom animation?
 			if (animation.length < 11) {
 				// '', 'null' or 'undefined'?
-
 				// animation = "0% { transform: translate3d(0,0,0) } 100% { transform: translate3d(0,-100%,0) }";
 				animation = [{ transform: "translate3d(0,0,0)" }, { transform: "translate3d(0,-100%,0)" }];
 			} else {
 				direction_option = 'reverse';
 			}
-
-			full_window.animate(animation, {duration: 200, direction: direction_option}).onfinish = () => {
+			full_window.animate(animation, { duration: 200, direction: direction_option }).onfinish = () => {
 				nuiDisableBodyScroll(false, full_window.querySelector(".n-ovrl__content")); // Turn off and restore page scroll
 				full_window.parentNode.removeChild(full_window);
 				full_window_content = null;
-
 				if (!q(".n-ovrl")) {
 					// A single overlay is gone, leaving no overlays on the page
-
 					window.removeEventListener("resize", adjustModal);
 					window.removeEventListener("keydown", arrow_keys_handler); // To do: unglobal this and apply only to modal
 					window.removeEventListener("keyup", keyUpClose);
 					removeClass(q("html"), "no-scroll");
-
 				} else {
 					nuiDisableBodyScroll(true, full_window.querySelector(".n-ovrl__content"));
 					adjustModal();
 				}
-
 				if (previouslyFocused) {
 					previouslyFocused.focus();
 				}
@@ -1207,64 +1028,44 @@ var componentModal = (function () {
 
 	function openFullWindow(el, animation) {
 		// el is an HTML string
-
 		previouslyFocused = document.activeElement;
-
 		full_window_content = document.createElement("div");
-
 		if (typeof el === "string") {
 			full_window_content.innerHTML = el;
 		} else {
 			full_window_content.appendChild(el);
 		}
-
 		full_window_content.dataset.anim = animation;
-
 		var wrapper = document.createElement("div");
 		addClass(wrapper, "n-ovrl");
 		wrapper.insertAdjacentHTML("beforeend", "<div class=n-ovrl__content tabindex=0></div><div class=n-ovrl__bg></div>");
 		wrapper.firstChild.appendChild(full_window_content);
 		full_window_content = wrapper;
-
 		full_window_content.insertAdjacentHTML("afterbegin", `<button class=n-ovrl__close> ← ${document.title}</button>`);
 		full_window_content.querySelector(".n-ovrl__bg").onclick = full_window_content.querySelector(".n-ovrl__close").onclick = closeFullWindow;
-		full_window_content.querySelector(".n-ovrl__close").addEventListener(
-			"touchmove",
+		full_window_content.querySelector(".n-ovrl__close").addEventListener("touchmove",
 			(e) => {
 				e.preventDefault();
-			},
-			{ passive: false }
-		);
-		full_window_content.querySelector(".n-ovrl__bg").addEventListener(
-			"touchmove",
+			}, { passive: false });
+		full_window_content.querySelector(".n-ovrl__bg").addEventListener("touchmove",
 			(e) => {
 				e.preventDefault();
-			},
-			{ passive: false }
-		);
+			}, { passive: false });
 		window.addEventListener("keyup", keyUpClose);
-
 		document.body.appendChild(full_window_content);
-
 		let full_window_container = full_window_content.querySelector(".n-ovrl__content");
-
 		full_window_container.focus();
-
 		nuiDisableBodyScroll(true, full_window_container); // Turn on and block page scroll
-
 		if (qa(".n-ovrl").length === 1) {
 			// Sole (first) modal
-
 			addClass(q("html"), "no-scroll");
 			previousScrollX = window.scrollX;
 			previousScrollY = window.scrollY;
 			window.addEventListener("resize", adjustModal);
 			adjustModal();
 		}
-
 		if (full_window_content.querySelector(".n-full-screen") && !is_iPad) {
 			// iPad iOS 12 full screen is still experimental and buggy
-
 			if (full_window_content.webkitRequestFullScreen) {
 				full_window_content.webkitRequestFullScreen();
 			}
@@ -1277,21 +1078,16 @@ var componentModal = (function () {
 		} else {
 			full_window_content.animate(typeof animation === "string" ? animation : [{ transform: "translate3d(0,-100%,0)" }, { transform: "translate3d(0,0,0)" }], 200);
 		}
-
 		return false;
 	}
 
 	function modalWindow(e) {
 		// Modal window of an external file content
-
 		var el = e.target;
-
 		var link = el.closest(".n-modal").href;
 		var animation = el.closest(".n-modal").dataset.anim;
-
 		var request = new XMLHttpRequest();
 		request.open("GET", link.split("#")[0], true);
-
 		request.onload = () => {
 			if (request.status >= 200 && request.status < 400) {
 				// Success
@@ -1301,7 +1097,6 @@ var componentModal = (function () {
 					return false;
 				}
 				var container = !!link.split("#")[1] ? "#" + link.split("#")[1] : 0;
-
 				var parsed = request.responseText;
 				if (container) {
 					parsed = parseHTML(request.responseText);
@@ -1311,7 +1106,6 @@ var componentModal = (function () {
 					}
 					parsed = parsed.querySelector(container).innerHTML;
 				}
-
 				openFullWindow(parsed, animation); // To do: If .modal[data-animation], pass it to openFullWindow() as second parameter. Also in openLightbox().
 				transferClass(el.closest(".n-modal"), q(".n-ovrl"), "n-modal--imited");
 			} else {
@@ -1319,42 +1113,31 @@ var componentModal = (function () {
 				closeFullWindow();
 			}
 		};
-
 		request.onerror = () => {
 			// Error
 			closeFullWindow();
 			window.open(link, "_blank");
 		};
-
 		request.send();
-
 		return false;
 	}
-
 	let init = (host) => {
 		// Modal window: open a link's target inside it
-
 		host.querySelectorAll("a.n-modal[href]:not([data-ready])").forEach((el) => {
 			if (el.href !== location.href.split("#")[0] + "#") {
 				// Is it an empty anchor?
-
 				el.onclick = modalWindow;
 			}
-
 			if (!el.getAttribute("rel")) {
 				el.setAttribute("rel", "prefetch");
 			}
-
 			makeReady(el);
 		});
 	};
 	registerComponent("modal", init);
-
 	return { closeFullWindow, openFullWindow, adjustModal };
-
 	/* Modal – end */
 })();
-
 // To do: disable page scroll by arrow keys
 
 //→ n-carousel-from-npm.js:
@@ -2262,11 +2045,8 @@ var componentModal = (function () {
 'use strict';
 
 // Component Popin – start
-
-(function() {
-
+(function () {
 	let init = (host) => {
-
 		host.querySelectorAll('.n-popin > * > button').forEach(el => {
 			el.onclick = e => {
 				let el = e.target;
@@ -2281,14 +2061,10 @@ var componentModal = (function () {
 				}
 			};
 		});
-
 	};
 	// registerComponent("popin", init);
-
 	typeof registerComponent === "function" ? registerComponent("n-popin", init) : init(document.body);
-
 })();
-
 // Component Popin – end
 
 //→ n-select.js:
@@ -2779,18 +2555,14 @@ var componentModal = (function () {
 'use strict';
 
 // Component Nav – start
-
 (function () {
 	/* Nav – start */
-
 	function closeDropNavClickedOutside(e) {
 		// Close the nav when clicking outside
-
 		if (!e.target.closest(".n-nav li")) {
 			qa(".n-nav li").forEach((el) => {
 				el.removeAttribute("aria-expanded");
 			});
-
 			if (q(".n-nav :focus")) {
 				q(".n-nav :focus").blur();
 			}
@@ -2799,24 +2571,18 @@ var componentModal = (function () {
 
 	function isDesktop(nav) {
 		// Checks the UL sub nav element
-
 		return !!getComputedStyle(nav).getPropertyValue("--desktop");
 	}
-
 	let navAnimating = false;
 
 	function dropNavBlur(e) {
 		var this_nav = e.target.closest(".n-nav");
-
 		if (navAnimating || !e.relatedTarget) {
 			return;
 		}
-
 		e.stopPropagation();
-
 		let el = e.target;
 		let item = el.tagName === "LI" ? el.querySelector("ul") : el.parentElement.querySelector("ul");
-
 		if (!this_nav.contains(e.relatedTarget) || (isDesktop(this_nav) && !!e.relatedTarget && !closestElement(e.relatedTarget, this_nav))) {
 			// if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
 			this_nav.querySelectorAll("li").forEach((el) => {
@@ -2824,52 +2590,39 @@ var componentModal = (function () {
 			});
 			return;
 		}
-
 		if (item) {
 			if (item.parentNode.parentNode.querySelector("ul [aria-expanded]")) {
 				// To do: Unless it's the first/last item and user has back/forward tabbed away from it?
-
 				return;
 			}
-
 			item.parentElement.removeAttribute("aria-expanded");
 		}
-
 		// Close neighboring parent nav's sub navs.
 		el = e.target;
 		var target_parent = el.closest("[aria-haspopup]");
 		if (target_parent) {
 			// Skip if it's a top-level-only item
-
 			target_parent.querySelectorAll("li[aria-expanded]").forEach((el) => {
 				// Disable active grandchildren
-
 				el.removeAttribute("aria-expanded");
 			});
 		}
-
 		el = e.target.parentNode;
-		if (
-			!el.nextElementSibling && // last item
+		if (!el.nextElementSibling && // last item
 			el.parentNode.parentNode.nodeName === "LI" && // of third-level nav
-			!el.parentNode.parentNode.nextElementSibling
-		) {
+			!el.parentNode.parentNode.nextElementSibling) {
 			el.parentNode.parentNode.removeAttribute("aria-expanded");
 		}
 	}
 
 	function dropNavFocus(e) {
 		// Close focused third level child when focus moves to another top-level item
-
 		e.stopPropagation();
-
 		var el = e.target.closest(".n-nav > ul > li");
 		// To do: on LI focus, make it aria-expanded and focus its a
-
 		if (navAnimating) {
 			return;
 		}
-
 		[
 			[].slice.call(el.parentElement.children),
 			[].slice.call(e.target.parentElement.parentElement.children),
@@ -2879,49 +2632,37 @@ var componentModal = (function () {
 				el.removeAttribute("aria-expanded");
 			});
 		});
-
 		el.setAttribute("aria-expanded", true);
 		// 		openItem(el.querySelector('ul'));
-
 		if (el.parentNode.parentNode.getAttribute("aria-haspopup")) {
 			el.parentNode.parentNode.setAttribute("aria-expanded", true);
 		}
-
 		el.querySelectorAll("li[aria-expanded]").forEach((el) => {
 			// Hide grandchildren
-
 			el.removeAttribute("aria-expanded");
 		});
-
 		// Make current focused item's ancestors visible
-
 		el = e.target;
-
 		el.parentNode.setAttribute("aria-expanded", true);
 		var grand_parent = el.parentElement.parentElement.parentElement;
 		if (grand_parent.tagName === "LI") {
 			grand_parent.setAttribute("aria-expanded", true);
 		}
 	}
-
 	var closeDropNavClickedOutsideEnabled = false;
-
 	let closeItem = (item) => {
 		navAnimating = true;
 		item.style.overflow = "hidden";
 		item.parentElement.setAttribute("aria-expanded", true);
-
 		item.animate([{ height: `${item.scrollHeight}px` }, { height: 0 }], 200).onfinish = () => {
 			item.removeAttribute("style");
 			item.parentElement.removeAttribute("aria-expanded");
 			navAnimating = false;
-
 			item.querySelectorAll("[aria-expanded]").forEach((el) => {
 				el.removeAttribute("aria-expanded");
 			});
 		};
 	};
-
 	let openItem = (item) => {
 		navAnimating = true;
 		item.style.overflow = "hidden";
@@ -2931,18 +2672,15 @@ var componentModal = (function () {
 			navAnimating = false;
 		};
 	};
-
 	let clickEvent = (e) => {
 		e.stopPropagation();
 		// To do: also ancestors, also close when open
 		let el = e.target;
 		var this_nav = el.closest(".n-nav");
-
 		this_nav.removeEventListener("focusout", dropNavBlur);
 		if (this_nav.contains(document.activeElement)) {
 			document.activeElement.blur();
 		}
-
 		let item = el.tagName === "LI" ? el.querySelector("ul") : el.parentElement.querySelector("ul");
 		if (isDesktop(this_nav)) {
 			if (el.getAttribute("aria-expanded")) {
@@ -2963,9 +2701,7 @@ var componentModal = (function () {
 						old_item_open_child.removeAttribute("aria-expanded");
 					}
 				});
-
 				el.setAttribute("aria-expanded", true);
-
 				if (!isDesktop(this_nav)) {
 					openItem(item);
 				}
@@ -2975,36 +2711,28 @@ var componentModal = (function () {
 				closeItem(item);
 			} else {
 				// If new item is top level, close another top level item, if any is open
-
 				if (item.parentElement.parentElement.matches("ul")) {
 					// It's top level, To do: also on secondary level, close open sibling
-
 					let old_item = item.parentElement.closest("ul").querySelector('[aria-expanded="true"] > ul');
-
 					if (old_item) {
 						closeItem(old_item);
 					}
 				}
-
 				openItem(item);
 			}
 		}
-
 		this_nav.addEventListener("focusout", dropNavBlur);
 	};
 
 	function checkSides(ul, menubar) {
 		removeClass(ul, "n-right-overflow");
 		ul.style.removeProperty("--n-right-overflow");
-
 		//		var rect = ul.getBoundingClientRect(); // Firefox doesn't preserve this var
-
 		if (ul.getBoundingClientRect().left > document.body.offsetWidth - (ul.getBoundingClientRect().left + ul.getBoundingClientRect().width)) {
 			if (ul.getBoundingClientRect().right > window.innerWidth) {
 				ul.style.setProperty("--n-right-overflow", window.innerWidth - ul.getBoundingClientRect().right + "px");
 				addClass(ul, "n-right-overflow");
 			}
-
 			addClass(ul, "n-left-side");
 		} else {
 			removeClass(ul, "n-left-side");
@@ -3013,72 +2741,52 @@ var componentModal = (function () {
 
 	function initNav(el) {
 		// Delete all trigger inputs, add tabindex=0 to each li
-
 		el.querySelectorAll("input").forEach((el) => {
 			el.outerHTML = "";
 		});
-
 		el.setAttribute("role", "menubar");
-
 		el.querySelectorAll("li > a").forEach((el) => {
 			el.setAttribute("tabindex", 0);
 		});
-
 		if (!el.closest(".n-nav.n-nav--drop")) {
 			// The rest is for drop nav only
-
 			return;
 		}
-
 		if (!closeDropNavClickedOutsideEnabled) {
 			window.addEventListener("touchend", closeDropNavClickedOutside);
 			window.addEventListener("mouseup", closeDropNavClickedOutside);
 			closeDropNavClickedOutsideEnabled = true;
 		}
-
 		el.addEventListener("keyup", (e) => {
 			// Check for sibling or children to expand on control keys Left/Right/etc
-
 			if (e.key === "Escape") {
-				e.target
-					.closest(".n-nav")
-					.querySelectorAll("li")
-					.forEach((el) => {
-						el.removeAttribute("aria-expanded");
-					});
-
+				e.target.closest(".n-nav").querySelectorAll("li").forEach((el) => {
+					el.removeAttribute("aria-expanded");
+				});
 				document.activeElement.blur();
 			}
 		});
-
 		let menubar = el;
-
 		el.querySelectorAll("li").forEach((el) => {
 			let ul = el.querySelector("ul");
 			if (ul) {
 				el.setAttribute("aria-haspopup", true);
-
 				if (el.children[0].nodeName === "UL") {
 					el.insertBefore(el.children[1], el.children[0]); // Swap 'a' with 'ul'
 				}
 			}
 		});
-
 		el.addEventListener("mousedown", clickEvent);
 		el.addEventListener("focusin", dropNavFocus);
 		el.addEventListener("focusout", dropNavBlur);
-
 		draggingNow = false;
-
 		window.requestAnimationFrame(() => {
 			// Give the browser time to update
-
 			el.querySelectorAll("ul").forEach((ul) => {
 				checkSides(ul, menubar);
 			});
 		});
 	}
-
 	window.addEventListener("resize", function (e) {
 		document.querySelectorAll('.n-nav.n-nav--drop ul[role="menubar"]').forEach((menubar) => {
 			menubar.querySelectorAll("ul").forEach((ul) => {
@@ -3086,9 +2794,7 @@ var componentModal = (function () {
 			});
 		});
 	});
-
 	/* Nav – end */
-
 	let init = (host) => {
 		host.querySelectorAll(".n-nav:not([data-ready]) > ul:not([role])").forEach((el) => {
 			initNav(el);
@@ -3097,14 +2803,12 @@ var componentModal = (function () {
 	};
 	registerComponent("nav", init);
 })();
-
 // Component Nav – end
 
 //→ notify.js:
 'use strict';
 
 // Component Notification bar – start
-
 var componentNotify = (function () {
 	function notifyClose(el) {
 		if (!!el) {
@@ -3129,32 +2833,25 @@ var componentNotify = (function () {
 			}, 2000);
 		}
 	}
-
 	let init = (host) => {
 		/* Tooltip */
-
 		host.querySelectorAll(".n-notify:not([data-ready])").forEach((el, i) => {
 			notifyCloseEvent();
 			makeReady(el);
 		});
 	};
 	registerComponent("notify", init);
-
 	return { notify: notify };
 })();
-
 // Component Notification bar – end
 
 //→ parallax.js:
 'use strict';
 
 // Component Parallax – start
-
 (function () {
 	// Thanks Dave Rupert
-
 	let parallaxSpeed = 0.2;
-
 	let updateParallax = () => {
 		qa(".n-parallax").forEach((el) => {
 			let parent = el.parentElement;
@@ -3162,51 +2859,36 @@ var componentNotify = (function () {
 			el.style.setProperty("--scrollparallax", scroll_offset * parallaxSpeed);
 		});
 	};
-
 	if (q(".n-parallax")) {
 		window.addEventListener("scroll", updateParallax, true);
 	}
-
 	let init = (host) => {};
 	registerComponent("parallax", init);
 })();
-
 // Component Parallax – end
 
 //→ table.js:
 'use strict';
 
 // Component Table – start
-
 (function () {
 	/* Sort parent table's rows by matching column number alternatively desc/asc on click */
 	const toggleSort = (th) => {
 		let previous = th.closest("tr").querySelector("td[data-ascending]");
-
 		if (previous && previous !== th) {
 			delete previous.dataset.ascending;
 		}
-
 		return th.toggleAttribute("data-ascending");
 	};
-
 	const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
-
-	const comparer = (idx, asc) => (a, b) =>
-		((v1, v2) => (v1 !== "" && v2 !== "" && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)))(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
-
+	const comparer = (idx, asc) => (a, b) => ((v1, v2) => (v1 !== "" && v2 !== "" && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)))(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
 	let init = (host) => {
 		host.querySelectorAll(".n-table:not([data-ready])").forEach((el) => {
-			el.querySelectorAll("thead td button.n-table-sort, th button.n-table-sort").forEach((button) =>
-				button.addEventListener("click", (e) => {
-					let th = e.target.closest("th") || e.target.closest("td");
-					const tbody = th.closest("table").querySelector("tbody");
-					Array.from(tbody.querySelectorAll("tr"))
-						.sort(comparer(Array.from(th.parentNode.children).indexOf(th), toggleSort(th)))
-						.forEach((tr) => tbody.appendChild(tr));
-				})
-			);
-
+			el.querySelectorAll("thead td button.n-table-sort, th button.n-table-sort").forEach((button) => button.addEventListener("click", (e) => {
+				let th = e.target.closest("th") || e.target.closest("td");
+				const tbody = th.closest("table").querySelector("tbody");
+				Array.from(tbody.querySelectorAll("tr")).sort(comparer(Array.from(th.parentNode.children).indexOf(th), toggleSort(th))).forEach((tr) => tbody.appendChild(tr));
+			}));
 			addClass(wrap(el), "n-table__wrap");
 			makeReady(el);
 			el.parentNode.setAttribute("tabindex", 0);
@@ -3214,50 +2896,40 @@ var componentNotify = (function () {
 	};
 	registerComponent("table", init);
 })();
-
 // Component Table – end
 
 //→ tooltip.js:
 'use strict';
 
 // Component Tooltip – start
-
 (function () {
 	let setTipPosition = (tip) => {
 		// Take up the most area available on top/right/bottom/left of the tool. Relative to body.
-
 		let tool = document.querySelector('[data-n-tool="' + tip.getAttribute("for") + '"]');
 		let rect = tool.getBoundingClientRect();
-
 		let top = rect.top;
 		let left = rect.left;
 		let right = window.innerWidth - left - rect.width;
 		let bottom = window.innerHeight - top - rect.height; // To do: check when body is shorter than viewport
-
 		let area_top = top * window.innerWidth;
 		let area_right = right * window.innerHeight;
 		let area_bottom = bottom * window.innerWidth;
 		let area_left = left * window.innerHeight;
-
 		let body_rect = document.body.getBoundingClientRect();
-
 		tip.removeAttribute("style");
 		delete tip.dataset.position;
-
 		let positionTop = () => {
 			tip.style.bottom = 20 + body_rect.height + body_rect.y - top + "px";
 			tip.style.maxHeight = top - 40 + "px";
 			tip.style.left = `${rect.x + rect.width / 2 - tip.scrollWidth / 2}px`;
 			tip.dataset.nPosition = "top";
 		};
-
 		let positionBottom = () => {
 			tip.style.top = 20 - body_rect.y + top + rect.height + "px";
 			tip.style.maxHeight = bottom - 40 + "px";
 			tip.style.left = `${rect.x + rect.width / 2 - tip.scrollWidth / 2}px`;
 			tip.dataset.nPosition = "bottom";
 		};
-
 		let positionLeft = () => {
 			tip.style.left = "auto";
 			tip.style.right = 20 + body_rect.width + body_rect.x - window.innerWidth + right + rect.width + "px";
@@ -3265,33 +2937,27 @@ var componentNotify = (function () {
 			tip.style.top = `${-1 * body_rect.y + rect.top + rect.height / 2 - tip.scrollHeight / 2}px`;
 			tip.dataset.nPosition = "left";
 		};
-
 		let positionRight = () => {
 			tip.style.left = rect.x - body_rect.x + rect.width + 20 + "px";
 			tip.style.maxWidth = right - 40 + "px";
 			tip.style.top = `${-1 * body_rect.y + rect.top + rect.height / 2 - tip.scrollHeight / 2}px`;
 			tip.dataset.nPosition = "right";
 		};
-
 		if (area_left > area_right) {
 			if (area_top > area_bottom) {
 				if (area_top > area_left) {
 					// Top
-
 					positionTop();
 				} else {
 					// Left
-
 					positionLeft();
 				}
 			} else {
 				if (area_bottom > area_left) {
 					// Bottom
-
 					positionBottom();
 				} else {
 					// Left
-
 					positionLeft();
 				}
 			}
@@ -3299,30 +2965,23 @@ var componentNotify = (function () {
 			if (area_top > area_bottom) {
 				if (area_top > area_right) {
 					// Top
-
 					positionTop();
 				} else {
 					// Right
-
 					positionRight();
 				}
 			} else {
 				if (area_bottom > area_right) {
 					// Bottom
-
 					positionBottom();
 				} else {
 					// Right
-
 					positionRight();
 				}
 			}
 		}
-
 		let rect_tip = tip.getBoundingClientRect();
-
 		let offset_y = 0;
-
 		if (rect_tip.y < 0) {
 			offset_y = Math.abs(rect_tip.y) + 10;
 		} else {
@@ -3330,11 +2989,8 @@ var componentNotify = (function () {
 				offset_y = window.innerHeight - rect_tip.bottom - 10;
 			}
 		}
-
 		tip.style.setProperty("--offset_y", offset_y + "px");
-
 		let offset_x = 0;
-
 		if (rect_tip.x < 0) {
 			offset_x = Math.abs(rect_tip.x) + 10;
 		} else {
@@ -3342,69 +2998,54 @@ var componentNotify = (function () {
 				offset_x = window.outerWidth - rect_tip.right - 10;
 			}
 		}
-
 		tip.style.setProperty("--offset_x", offset_x + "px");
 	};
 
 	function getToolTip(e) {
 		return document.querySelector('.n-tool__tip[for="' + e.target.closest(".n-tool").dataset.nTool + '"]');
 	}
-
 	let hideTip = (e) => {
 		let tip = getToolTip(e);
 		tip.removeAttribute("aria-expanded");
 		tip.removeAttribute("style");
 		delete tip.dataset.position;
 	};
-
 	let showTip = (e) => {
 		let tip = getToolTip(e);
 		tip.setAttribute("aria-expanded", true);
 		setTipPosition(tip);
 	};
-
 	var init = (host) => {
 		/* Tooltip */
-
 		let tooltips = host.querySelectorAll(".n-tool").length;
-
 		host.querySelectorAll(".n-tool:not([data-ready])").forEach((el) => {
 			let tip = el.querySelector(".n-tool__tip");
 			if (!tip) return;
-
 			let content = tip.innerHTML;
 			tip.innerHTML = "";
 			tip.insertAdjacentHTML("afterbegin", "<span>" + content + "</span>");
-
 			tip.setAttribute("for", tooltips);
 			el.dataset.nTool = tooltips++;
 			document.body.appendChild(tip);
-
 			el.setAttribute("tabindex", 0);
-
 			el.ontouchend = el.onmouseover = el.onfocus = showTip;
 			el.onblur = el.onmouseout = hideTip;
-
 			makeReady(el);
 		});
 	};
 	registerComponent("tooltip", init);
 })();
-
 // Component Tooltip – end
 
 //→ typography.js:
 'use strict';
 
 // Component Typography – start
-
 (function () {
 	let init = (host) => {
 		/* Typography */
-
 		if (typeof ResizeObserver === "function") {
 			// Compensate element height according to line height
-
 			let ro = new ResizeObserver((entries) => {
 				entries.forEach((el) => {
 					let a = el.target;
@@ -3417,7 +3058,6 @@ var componentNotify = (function () {
 					}
 				});
 			});
-
 			document.querySelectorAll(".n-adjust-height:not([data-ready])").forEach((el) => {
 				ro.observe(el);
 				el.dataset.ready = true;
@@ -3426,6 +3066,5 @@ var componentNotify = (function () {
 	};
 	registerComponent("typography", init);
 })();
-
 // Component Typography – end
 initComponents(); return { initComponents, copyButton, componentModal, addComponent, componentNotify } })();

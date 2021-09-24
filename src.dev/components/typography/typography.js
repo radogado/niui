@@ -1,12 +1,9 @@
 // Component Typography – start
-
 (function () {
 	let init = (host) => {
 		/* Typography */
-
 		if (typeof ResizeObserver === "function") {
 			// Compensate element height according to line height
-
 			let ro = new ResizeObserver((entries) => {
 				entries.forEach((el) => {
 					let a = el.target;
@@ -19,7 +16,6 @@
 					}
 				});
 			});
-
 			document.querySelectorAll(".n-adjust-height:not([data-ready])").forEach((el) => {
 				ro.observe(el);
 				el.dataset.ready = true;
@@ -28,5 +24,4 @@
 	};
 	registerComponent("typography", init);
 })();
-
 // Component Typography – end

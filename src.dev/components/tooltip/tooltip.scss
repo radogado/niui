@@ -1,5 +1,4 @@
 /* niui – Tooltip */
-
 @import "../../css/niui-setup";
 
 .n-tool {
@@ -38,8 +37,8 @@ html:not(.can-touch) .n-tool:hover .n-tool__tip {
 	font-weight: normal;
 	position: absolute;
 	top: auto;
-	left: 0;
-	right: 0;
+	inset-inline-start: 0;
+	inset-inline-end: 0;
 	z-index: 999;
 	text-align: start;
 	visibility: hidden;
@@ -68,10 +67,10 @@ html:not(.can-touch) .n-tool:hover .n-tool__tip {
 
 	&[data-n-position="top"],
 	&[data-n-position="bottom"] {
-		margin-left: var(--offset_x, 0);
+		margin-inline-start: var(--offset_x, 0);
 
 		&:after {
-			left: calc(50% - 0.5em - var(--offset_x, 0));
+			inset-inline-start: calc(50% - 0.5em - var(--offset_x, 0));
 			bottom: -0.45em;
 		}
 	}
@@ -86,12 +85,12 @@ html:not(.can-touch) .n-tool:hover .n-tool__tip {
 
 		&:after {
 			top: calc(50% - 0.5em - var(--offset_y, 0));
-			left: -0.45em;
+			inset-inline-start: -0.45em;
 		}
 	}
 
 	&[data-n-position="left"]:after {
-		right: -0.45em;
-		left: auto;
+		inset-inline-start: -0.45em;
+		inset-inline-end: auto;
 	}
 }

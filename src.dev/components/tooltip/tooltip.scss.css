@@ -35,8 +35,8 @@ html:not(.can-touch) .n-tool:hover .n-tool__tip {
   font-weight: normal;
   position: absolute;
   top: auto;
-  left: 0;
-  right: 0;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
   z-index: 999;
   text-align: start;
   visibility: hidden;
@@ -61,10 +61,10 @@ html:not(.can-touch) .n-tool:hover .n-tool__tip {
   height: 1em;
 }
 .n-tool__tip[data-n-position=top], .n-tool__tip[data-n-position=bottom] {
-  margin-left: var(--offset_x, 0);
+  margin-inline-start: var(--offset_x, 0);
 }
 .n-tool__tip[data-n-position=top]:after, .n-tool__tip[data-n-position=bottom]:after {
-  left: calc(50% - 0.5em - var(--offset_x, 0));
+  inset-inline-start: calc(50% - 0.5em - var(--offset_x, 0));
   bottom: -0.45em;
 }
 .n-tool__tip[data-n-position=bottom]:after {
@@ -75,11 +75,11 @@ html:not(.can-touch) .n-tool:hover .n-tool__tip {
 }
 .n-tool__tip[data-n-position=left]:after, .n-tool__tip[data-n-position=right]:after {
   top: calc(50% - 0.5em - var(--offset_y, 0));
-  left: -0.45em;
+  inset-inline-start: -0.45em;
 }
 .n-tool__tip[data-n-position=left]:after {
-  right: -0.45em;
-  left: auto;
+  inset-inline-start: -0.45em;
+  inset-inline-end: auto;
 }
 
 /*# sourceMappingURL=tooltip.scss.css.map */

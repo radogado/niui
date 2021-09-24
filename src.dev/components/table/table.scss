@@ -1,5 +1,4 @@
 /* Tables */
-
 @import "../../css/niui-setup";
 
 .n-table {
@@ -8,8 +7,8 @@
 	border-collapse: collapse;
 	-webkit-overflow-scrolling: touch;
 	display: block;
-	// 	margin: $line-height-em 0;
 
+	// 	margin: $line-height-em 0;
 	td,
 	th {
 		padding: $line-height-em $line-height-em/2;

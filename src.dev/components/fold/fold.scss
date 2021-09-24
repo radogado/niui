@@ -1,5 +1,4 @@
 /* niui – Fold */
-
 @import "../../css/niui-setup";
 
 .n-fold {
@@ -54,7 +53,7 @@
 		}
 	}
 
-	&[aria-expanded]>.n-fold__label {
+	&[aria-expanded] > .n-fold__label {
 		cursor: zoom-out;
 
 		&:after {
@@ -66,12 +65,12 @@
 		padding: 0;
 		width: auto;
 
-		>.n-fold__label:after {
+		> .n-fold__label:after {
 			display: none;
 		}
 
-		>.n-fold__label,
-		>input.n-trigger {
+		> .n-fold__label,
+		> input.n-trigger {
 			display: none;
 			width: auto;
 			line-height: $line-height;
@@ -81,21 +80,18 @@
 
 		.n-fold__content {
 			/* hidden fold item */
-
 			overflow: visible;
 		}
 	}
 
 	&:not([data-init]):not(.n-fold--mobile) .n-fold__content {
 		/* hidden fold item */
-
 		overflow: hidden;
 		cursor: auto;
 		will-change: max-width;
 
-		>.n-fold {
+		> .n-fold {
 			// Don't crop the focus outline
-
 			margin: 0.3em;
 		}
 	}
@@ -104,8 +100,8 @@
 		max-height: none;
 	}
 
-	&:not([aria-expanded]):not(.n-fold--mobile):not(.n-fold--horizontal)>.n-fold__content,
-	&[aria-expanded]:not(.n-fold--horizontal) input.n-trigger:checked~.n-fold__content
+	&:not([aria-expanded]):not(.n-fold--mobile):not(.n-fold--horizontal) > .n-fold__content,
+	&[aria-expanded]:not(.n-fold--horizontal) input.n-trigger:checked ~ .n-fold__content
 
 	/* also for CSS-only open by default */
 		{
@@ -113,33 +109,32 @@
 	}
 
 	&--horizontal {
-		>* {
-
+		> * {
 			display: none;
 		}
 
-		>.n-fold__label:after {
+		> .n-fold__label:after {
 			transform: rotate(-90deg);
 		}
 
-		&[aria-expanded]>.n-fold__label:after {
+		&[aria-expanded] > .n-fold__label:after {
 			transform: rotate(90deg);
 		}
 
-		&:not([data-init])>.n-fold__content {
+		&:not([data-init]) > .n-fold__content {
 			width: 0;
 		}
 
-		&[data-init]>.n-fold__content,
-		&[aria-expanded]>.n-fold__content,
-		>input.n-trigger:checked~.n-fold__content {
+		&[data-init] > .n-fold__content,
+		&[aria-expanded] > .n-fold__content,
+		> input.n-trigger:checked ~ .n-fold__content {
 			width: 100%;
 		}
 
-		>.n-fold__content {
+		> .n-fold__content {
 			height: 0;
 
-			>* {
+			> * {
 				width: var(--width);
 			}
 		}
@@ -153,16 +148,16 @@
 		}
 	}
 
-	&__content>* {
+	&__content > * {
 		margin-top: 0;
 	}
 
-	&:not(.n-fold--horizontal)>input.n-trigger:checked~.n-fold__content,
+	&:not(.n-fold--horizontal) > input.n-trigger:checked ~ .n-fold__content,
 	&.n-fold--mobile:not(.n-fold--horizontal) .n-fold__content {
 		max-height: none;
 	}
 
-	&[aria-expanded]>input.n-trigger+.n-fold__content {
+	&[aria-expanded] > input.n-trigger + .n-fold__content {
 		display: inline-block;
 	}
 
@@ -182,17 +177,16 @@
 	}
 
 	&[data-ready]:not([aria-expanded]):not(.n-fold--mobile):not(.n-fold--horizontal) {
-		// Don't open it by tabbing, because of focuseable items inside
 
+		// Don't open it by tabbing, because of focuseable items inside
 		.n-fold--content:not([style*="--start-height"]) {
 			display: none;
 		}
 	}
 
 	&__label,
-	>input[type="checkbox"] {
+	> input[type="checkbox"] {
 		// Overlay the checkbox over the label
-
 		grid-column-start: 1;
 		grid-row-start: 1;
 		width: auto;
@@ -200,7 +194,7 @@
 		cursor: zoom-in;
 	}
 
-	>input[type="checkbox"] {
+	> input[type="checkbox"] {
 		z-index: 1;
 		appearance: none;
 		-webkit-appearance: none;
@@ -228,17 +222,16 @@
 		}
 	}
 
-	&--horizontal>* {
+	&--horizontal > * {
 		display: block;
 	}
-
 }
 
 @media screen and (max-width: $screen-narrow-max) {
 	.n-fold--mobile {
 
-		>.n-fold__label,
-		>input.n-trigger {
+		> .n-fold__label,
+		> input.n-trigger {
 			display: flex;
 			width: 3em;
 			height: 3em;
@@ -246,7 +239,7 @@
 			border: none; // for iOS
 		}
 
-		>input.n-trigger {
+		> input.n-trigger {
 			width: 4em;
 			height: 4em;
 		}
@@ -256,14 +249,12 @@
 			max-width: 0;
 		}
 
-		>input.n-trigger:checked~.n-fold__content {
-
+		> input.n-trigger:checked ~ .n-fold__content {
 			max-height: none;
 		}
 
 		.n-fold__content {
 			// hidden fold item
-
 			overflow: hidden;
 		}
 	}

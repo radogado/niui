@@ -1,5 +1,4 @@
 /* niui – Notification bar */
-
 @import "../../css/niui-setup";
 
 .n-notify {
@@ -14,7 +13,7 @@
 		content: " ✕";
 	}
 
-	&.n-notify--fixed {
+	&--fixed {
 		font-weight: 500;
 		position: fixed;
 		left: 0;

@@ -1,5 +1,4 @@
 /* niui  – Card */
-
 @import "../../css/niui-setup";
 
 .n-card {
@@ -8,7 +7,7 @@
 	background: rgba(0, 0, 0, 0.1);
 	background: var(--card-bg);
 
-	>* {
+	> * {
 		padding: 1em;
 	}
 
@@ -24,14 +23,14 @@
 		}
 	}
 
-	>img {
+	> img {
 		display: block;
 		margin: 0 auto;
 		max-width: 100%;
 		padding: 0;
 	}
 
-	&__head>* {
+	&__head > * {
 		margin: 0;
 	}
 
@@ -49,7 +48,7 @@
 			vertical-align: bottom;
 		}
 
-		>* {
+		> * {
 			display: inline-block;
 			margin: 0;
 		}

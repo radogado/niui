@@ -11,7 +11,7 @@
 .n-notify:after {
   content: " ✕";
 }
-.n-notify.n-notify--fixed {
+.n-notify--fixed {
   font-weight: 500;
   position: fixed;
   left: 0;

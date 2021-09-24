@@ -1,9 +1,6 @@
 // Component Popin – start
-
-(function() {
-
+(function () {
 	let init = (host) => {
-
 		host.querySelectorAll('.n-popin > * > button').forEach(el => {
 			el.onclick = e => {
 				let el = e.target;
@@ -18,12 +15,8 @@
 				}
 			}
 		});
-
 	};
 	// registerComponent("popin", init);
-
 	typeof registerComponent === "function" ? registerComponent("n-popin", init) : init(document.body);
-
 })();
-
 // Component Popin – end

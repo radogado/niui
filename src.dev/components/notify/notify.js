@@ -1,5 +1,4 @@
 // Component Notification bar – start
-
 var componentNotify = (function () {
 	function notifyClose(el) {
 		if (!!el) {
@@ -24,18 +23,14 @@ var componentNotify = (function () {
 			}, 2000);
 		}
 	}
-
 	let init = (host) => {
 		/* Tooltip */
-
 		host.querySelectorAll(".n-notify:not([data-ready])").forEach((el, i) => {
 			notifyCloseEvent();
 			makeReady(el);
 		});
 	};
 	registerComponent("notify", init);
-
 	return { notify: notify };
 })();
-
 // Component Notification bar – end

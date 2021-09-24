@@ -1,5 +1,4 @@
 /* niui – Typography */
-
 @import "../../css/niui-setup";
 
 .n-type {
@@ -11,7 +10,6 @@
 	letter-spacing: 0.5px; // For proof: because sometimes there are aberrations with non-default spacing. Safari bug: value flashing from 0 https://bugs.webkit.org/show_bug.cgi?id=193008
 
 	/* Elements with double line-height */
-
 	h1,
 	h2,
 	h3,
@@ -30,8 +28,7 @@
 		}
 	}
 
-	h1 {
-	}
+	h1 {}
 
 	h1 + p:not(.n-drop-cap),
 	h2 + p:not(.n-drop-cap),
