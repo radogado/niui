@@ -1,5 +1,4 @@
 /* niui – Button */
-
 @import "../../css/niui-setup";
 
 .n-btn,
@@ -62,7 +61,6 @@ a[href].n-btn.n-btn--big,
 }
 
 /* Back to top button */
-
 a.backtotop[href] {
 	line-height: 1;
 	margin: 0.7333em auto;
@@ -87,13 +85,12 @@ a.backtotop[href] {
 }
 
 // A group of buttons etc with proper horizontal margins also when wrapped
-
 .n-btn--group {
 	margin: 0 -0.25em;
 
-	>*,
+	> *,
 	.n-btn.n-btn--big,
-	>a[href].n-btn.n-btn__big {
+	> a[href].n-btn.n-btn__big {
 		margin-right: 0.25em;
 		margin-left: 0.25em;
 	}
