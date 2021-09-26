@@ -11,8 +11,7 @@
 .n-card {
   margin: 1em 0;
   --card-bg: rgba(0, 0, 0, 0.1);
-  background: rgba(0, 0, 0, 0.1);
-  background: var(--card-bg);
+  background: var(--card-bg, rgba(0, 0, 0, 0.1));
 }
 .n-card > * {
   padding: 1em;

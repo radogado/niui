@@ -207,12 +207,16 @@ main .n-nav ul {
 }
 .n-nav--drop li[aria-haspopup]:before,
 .n-nav--drop li > input {
-  -webkit-mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(180) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A") center center no-repeat;
+  --mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(180) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A") center center no-repeat;
+  -webkit-mask: var(--mask);
   -webkit-mask-size: 0.4em;
+  mask: var(--mask);
+  mask-size: 0.4em;
   background-color: var(--control-color, #000);
 }
 .n-nav--drop li > input {
   -webkit-mask-size: 0.6em;
+  mask-size: 0.6em;
 }
 .n-nav--drop[data-ready] li > ul ~ a {
   background: none;
@@ -249,7 +253,9 @@ main .n-nav ul {
   }
   .n-nav--drop li li[aria-haspopup]:before,
 .n-nav--drop li li > input {
-    -webkit-mask-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(90) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A");
+    --mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(90) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A");
+    -webkit-mask-image: var(--mask);
+    mask-image: var(--mask);
   }
   .n-nav--drop:not([data-ready]) li {
     display: flex;
@@ -382,7 +388,9 @@ nav.n-nav--drop li li li a {
     padding-inline-end: 3em;
   }
   .n-nav--drop ul li[aria-haspopup][aria-expanded]:before {
-    -webkit-mask-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(0) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A");
+    --mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(0) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A");
+    -webkit-mask-image: var(--mask);
+    mask-image: var(--mask);
   }
   .n-nav--drop ul.n-list:not(.n-list--no-bullet):not(.n-list--inline).n-left-side li:before {
     inset-inline-end: 0;
@@ -392,10 +400,12 @@ nav.n-nav--drop li li li a {
 
   .n-nav--drop li[aria-haspopup]:before {
     -webkit-mask-position-y: 0.75em;
+    mask-position-y: 0.75em;
   }
 
   .n-nav--drop li > input {
     -webkit-mask-position-y: 1.15em;
+    mask-position-y: 1.15em;
   }
 
   html:not([data-nui-js]) .n-nav--drop {

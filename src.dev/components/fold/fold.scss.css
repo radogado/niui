@@ -28,12 +28,11 @@
   user-select: none;
   position: relative;
   padding: 0.625em;
-  padding-right: 1.5em;
+  padding-inline-end: 1.5em;
   word-wrap: break-word;
   word-break: break-all;
   box-sizing: border-box;
   background-color: var(--control-bg, inherit);
-  color: inherit;
   color: var(--control-color, inherit);
   overflow: hidden;
   border: 0;
@@ -45,7 +44,7 @@
   content: "";
   position: absolute;
   display: block;
-  right: 0.5em;
+  inset-inline-end: 0.5em;
   top: calc(50% - 0.5em);
   width: 1em;
   height: 1em;
@@ -169,7 +168,7 @@
 .n-fold span.n-burger:before {
   content: "";
   position: absolute;
-  left: 0.25em;
+  inset-inline-start: 0.25em;
   width: 1em;
   top: 0.15em;
   box-shadow: 0 0.25em 0 1px var(--control-color, #333), 0 0.625em 0 1px var(--control-color, #333), 0 1em 0 1px var(--control-color, #333);

@@ -102,8 +102,8 @@ a.backtotop[href] {
 .n-btn--group > *,
 .n-btn--group .n-btn.n-btn--big,
 .n-btn--group > a[href].n-btn.n-btn__big {
-  margin-right: 0.25em;
-  margin-left: 0.25em;
+  margin-inline-end: 0.25em;
+  margin-inline-start: 0.25em;
 }
 
 @media screen and (max-width: 599.9px) {

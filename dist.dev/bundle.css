@@ -180,6 +180,14 @@ a[href].span-relative-parent {
 /*# sourceMappingURL=niui-core.css.map */
 @charset "UTF-8";
 /* niui – Button */
+:root {
+  --font-size: 16px;
+  --line-height: 1.5;
+  --line-height-em: calc(1em * var(--line-height));
+  --color: #333;
+  --bg: #fff;
+}
+
 .n-btn,
 .n-form input[type=submit],
 .n-form button[type=submit],
@@ -274,8 +282,8 @@ a.backtotop[href] {
 .n-btn--group > *,
 .n-btn--group .n-btn.n-btn--big,
 .n-btn--group > a[href].n-btn.n-btn__big {
-  margin-right: 0.25em;
-  margin-left: 0.25em;
+  margin-inline-end: 0.25em;
+  margin-inline-start: 0.25em;
 }
 
 @media screen and (max-width: 599.9px) {
@@ -390,8 +398,8 @@ a.backtotop[href] {
 .n-btn--group > *,
 .n-btn--group .n-btn.n-btn--big,
 .n-btn--group > a[href].n-btn.n-btn__big {
-  margin-right: 0.25em;
-  margin-left: 0.25em;
+  margin-inline-end: 0.25em;
+  margin-inline-start: 0.25em;
 }
 
 @media screen and (max-width: 599.9px) {
@@ -404,11 +412,18 @@ a.backtotop[href] {
 /*# sourceMappingURL=button.scss.css.map */
 @charset "UTF-8";
 /* niui  – Card */
+:root {
+  --font-size: 16px;
+  --line-height: 1.5;
+  --line-height-em: calc(1em * var(--line-height));
+  --color: #333;
+  --bg: #fff;
+}
+
 .n-card {
   margin: 1em 0;
   --card-bg: rgba(0, 0, 0, 0.1);
-  background: rgba(0, 0, 0, 0.1);
-  background: var(--card-bg);
+  background: var(--card-bg, rgba(0, 0, 0, 0.1));
 }
 .n-card > * {
   padding: 1em;
@@ -463,8 +478,7 @@ a.backtotop[href] {
 .n-card {
   margin: 1em 0;
   --card-bg: rgba(0, 0, 0, 0.1);
-  background: rgba(0, 0, 0, 0.1);
-  background: var(--card-bg);
+  background: var(--card-bg, rgba(0, 0, 0, 0.1));
 }
 .n-card > * {
   padding: 1em;
@@ -536,12 +550,11 @@ a.backtotop[href] {
   user-select: none;
   position: relative;
   padding: 0.625em;
-  padding-right: 1.5em;
+  padding-inline-end: 1.5em;
   word-wrap: break-word;
   word-break: break-all;
   box-sizing: border-box;
   background-color: var(--control-bg, inherit);
-  color: inherit;
   color: var(--control-color, inherit);
   overflow: hidden;
   border: 0;
@@ -553,7 +566,7 @@ a.backtotop[href] {
   content: "";
   position: absolute;
   display: block;
-  right: 0.5em;
+  inset-inline-end: 0.5em;
   top: calc(50% - 0.5em);
   width: 1em;
   height: 1em;
@@ -677,7 +690,7 @@ a.backtotop[href] {
 .n-fold span.n-burger:before {
   content: "";
   position: absolute;
-  left: 0.25em;
+  inset-inline-start: 0.25em;
   width: 1em;
   top: 0.15em;
   box-shadow: 0 0.25em 0 1px var(--control-color, #333), 0 0.625em 0 1px var(--control-color, #333), 0 1em 0 1px var(--control-color, #333);
@@ -774,12 +787,11 @@ a.backtotop[href] {
   user-select: none;
   position: relative;
   padding: 0.625em;
-  padding-right: 1.5em;
+  padding-inline-end: 1.5em;
   word-wrap: break-word;
   word-break: break-all;
   box-sizing: border-box;
   background-color: var(--control-bg, inherit);
-  color: inherit;
   color: var(--control-color, inherit);
   overflow: hidden;
   border: 0;
@@ -791,7 +803,7 @@ a.backtotop[href] {
   content: "";
   position: absolute;
   display: block;
-  right: 0.5em;
+  inset-inline-end: 0.5em;
   top: calc(50% - 0.5em);
   width: 1em;
   height: 1em;
@@ -915,7 +927,7 @@ a.backtotop[href] {
 .n-fold span.n-burger:before {
   content: "";
   position: absolute;
-  left: 0.25em;
+  inset-inline-start: 0.25em;
   width: 1em;
   top: 0.15em;
   box-shadow: 0 0.25em 0 1px var(--control-color, #333), 0 0.625em 0 1px var(--control-color, #333), 0 1em 0 1px var(--control-color, #333);
@@ -5532,12 +5544,16 @@ main .n-nav ul {
 }
 .n-nav--drop li[aria-haspopup]:before,
 .n-nav--drop li > input {
-  -webkit-mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(180) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A") center center no-repeat;
+  --mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(180) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A") center center no-repeat;
+  -webkit-mask: var(--mask);
   -webkit-mask-size: 0.4em;
+  mask: var(--mask);
+  mask-size: 0.4em;
   background-color: var(--control-color, #000);
 }
 .n-nav--drop li > input {
   -webkit-mask-size: 0.6em;
+  mask-size: 0.6em;
 }
 .n-nav--drop[data-ready] li > ul ~ a {
   background: none;
@@ -5574,7 +5590,9 @@ main .n-nav ul {
   }
   .n-nav--drop li li[aria-haspopup]:before,
 .n-nav--drop li li > input {
-    -webkit-mask-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(90) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A");
+    --mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(90) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A");
+    -webkit-mask-image: var(--mask);
+    mask-image: var(--mask);
   }
   .n-nav--drop:not([data-ready]) li {
     display: flex;
@@ -5707,7 +5725,9 @@ nav.n-nav--drop li li li a {
     padding-inline-end: 3em;
   }
   .n-nav--drop ul li[aria-haspopup][aria-expanded]:before {
-    -webkit-mask-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(0) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A");
+    --mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(0) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A");
+    -webkit-mask-image: var(--mask);
+    mask-image: var(--mask);
   }
   .n-nav--drop ul.n-list:not(.n-list--no-bullet):not(.n-list--inline).n-left-side li:before {
     inset-inline-end: 0;
@@ -5717,10 +5737,12 @@ nav.n-nav--drop li li li a {
 
   .n-nav--drop li[aria-haspopup]:before {
     -webkit-mask-position-y: 0.75em;
+    mask-position-y: 0.75em;
   }
 
   .n-nav--drop li > input {
     -webkit-mask-position-y: 1.15em;
+    mask-position-y: 1.15em;
   }
 
   html:not([data-nui-js]) .n-nav--drop {
@@ -5959,12 +5981,16 @@ main .n-nav ul {
 }
 .n-nav--drop li[aria-haspopup]:before,
 .n-nav--drop li > input {
-  -webkit-mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(180) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A") center center no-repeat;
+  --mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(180) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A") center center no-repeat;
+  -webkit-mask: var(--mask);
   -webkit-mask-size: 0.4em;
+  mask: var(--mask);
+  mask-size: 0.4em;
   background-color: var(--control-color, #000);
 }
 .n-nav--drop li > input {
   -webkit-mask-size: 0.6em;
+  mask-size: 0.6em;
 }
 .n-nav--drop[data-ready] li > ul ~ a {
   background: none;
@@ -6001,7 +6027,9 @@ main .n-nav ul {
   }
   .n-nav--drop li li[aria-haspopup]:before,
 .n-nav--drop li li > input {
-    -webkit-mask-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(90) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A");
+    --mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(90) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A");
+    -webkit-mask-image: var(--mask);
+    mask-image: var(--mask);
   }
   .n-nav--drop:not([data-ready]) li {
     display: flex;
@@ -6134,7 +6162,9 @@ nav.n-nav--drop li li li a {
     padding-inline-end: 3em;
   }
   .n-nav--drop ul li[aria-haspopup][aria-expanded]:before {
-    -webkit-mask-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(0) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A");
+    --mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(0) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A");
+    -webkit-mask-image: var(--mask);
+    mask-image: var(--mask);
   }
   .n-nav--drop ul.n-list:not(.n-list--no-bullet):not(.n-list--inline).n-left-side li:before {
     inset-inline-end: 0;
@@ -6144,10 +6174,12 @@ nav.n-nav--drop li li li a {
 
   .n-nav--drop li[aria-haspopup]:before {
     -webkit-mask-position-y: 0.75em;
+    mask-position-y: 0.75em;
   }
 
   .n-nav--drop li > input {
     -webkit-mask-position-y: 1.15em;
+    mask-position-y: 1.15em;
   }
 
   html:not([data-nui-js]) .n-nav--drop {

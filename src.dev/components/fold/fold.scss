@@ -22,12 +22,11 @@
 		user-select: none;
 		position: relative;
 		padding: 0.625em;
-		padding-right: 1.5em;
+		padding-inline-end: 1.5em;
 		word-wrap: break-word;
 		word-break: break-all;
 		box-sizing: border-box;
 		background-color: var(--control-bg, inherit);
-		color: inherit;
 		color: var(--control-color, inherit);
 		overflow: hidden; // Safari focus ring fix
 		border: 0;
@@ -39,7 +38,7 @@
 			content: "";
 			position: absolute;
 			display: block;
-			right: 0.5em;
+			inset-inline-end: 0.5em;
 			top: calc(50% - 0.5em);
 			width: 1em;
 			height: 1em;
@@ -208,7 +207,7 @@
 		&:before {
 			content: "";
 			position: absolute;
-			left: $line-height-em/6;
+			inset-inline-start: $line-height-em/6;
 			width: $line-height-em/1.5;
 			top: $line-height-em/10;
 			box-shadow: 0 $line-height-em/6 0 1px var(--control-color, #333), 0 $line-height-em/2.4 0 1px var(--control-color, #333),
@@ -271,7 +270,6 @@
 
 				.n-fold__content {
 					overflow: auto;
-					
 					position: fixed;
 					top: 3em; // header height, shouldn't be hardcoded
 					bottom: 0;
