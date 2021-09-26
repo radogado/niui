@@ -17,7 +17,6 @@
 	&__label {
 		margin: 0;
 		float: none;
-		text-align: left;
 		text-align: start;
 		width: 100%;
 		user-select: none;
@@ -272,7 +271,7 @@
 
 				.n-fold__content {
 					overflow: auto;
-					-webkit-overflow-scrolling: touch;
+					
 					position: fixed;
 					top: 3em; // header height, shouldn't be hardcoded
 					bottom: 0;

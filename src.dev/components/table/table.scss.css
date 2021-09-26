@@ -1,10 +1,17 @@
 @charset "UTF-8";
 /* Tables */
+:root {
+  --font-size: 16px;
+  --line-height: 1.5;
+  --line-height-em: calc(1em * var(--line-height));
+  --color: #333;
+  --bg: #fff;
+}
+
 .n-table {
   width: 100%;
   overflow: auto;
   border-collapse: collapse;
-  -webkit-overflow-scrolling: touch;
   display: block;
 }
 .n-table td,
@@ -65,7 +72,6 @@
       scrollbar-highlight-color: transparent;
       scrollbar-shadow-color: transparent;
   */
-  -webkit-overflow-scrolling: touch;
 }
 .n-table__wrap .n-table {
   display: table;

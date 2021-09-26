@@ -1,5 +1,13 @@
 @charset "UTF-8";
 /* niui – List */
+:root {
+  --font-size: 16px;
+  --line-height: 1.5;
+  --line-height-em: calc(1em * var(--line-height));
+  --color: #333;
+  --bg: #fff;
+}
+
 ul.n-list {
   padding: 0;
   line-height: 1.5;
@@ -48,9 +56,7 @@ ol.n-list > li:before {
   content: counter(level1);
   counter-increment: level1;
   font-weight: bold;
-  background: #999;
   background: var(--list-bg, #999);
-  color: #fff;
   color: var(--list-color, #fff);
   padding: 0 0.5em;
   border-radius: 50%;

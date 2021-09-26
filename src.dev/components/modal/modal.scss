@@ -48,7 +48,7 @@ html.n-full-screen {
 		// 	    color: #fff;
 		overflow-y: auto;
 		overflow-x: none;
-		-webkit-overflow-scrolling: touch;
+		
 		background: transparent;
 		height: 100%; // For Android Browser, which doesn't understand the bottom line
 		// 		height: calc(100% - #{$line-height-em*2});
@@ -87,7 +87,7 @@ html.n-full-screen {
 		height: 50vh;
 		margin-top: 25vh;
 		width: 50vw;
-		margin-left: 25vw;
+		margin-inline-start: 25vw;
 	}
 
 	> * {
@@ -135,8 +135,8 @@ html.n-full-screen {
 		}
 
 		> .n-ovrl--close {
-			left: 0.5rem;
-			right: auto;
+			inset-inline-start: 0.5rem;
+			inset-inline-end: auto;
 			margin-top: 0.5rem;
 			top: var(--overlay-top, 0);
 			width: 40px;

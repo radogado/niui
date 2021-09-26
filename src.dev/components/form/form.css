@@ -1,5 +1,13 @@
 @charset "UTF-8";
 /* niui  – Form */
+:root {
+  --font-size: 16px;
+  --line-height: 1.5;
+  --line-height-em: calc(1em * var(--line-height));
+  --color: #333;
+  --bg: #fff;
+}
+
 .n-form {
   padding: 1.5em 0;
   --placeholder_color: #aaa;
@@ -108,7 +116,7 @@
 .n-form select, .n-form__file {
   vertical-align: top;
   border: none;
-  margin-left: 0;
+  margin-inline-start: 0;
 }
 .n-form input[type=search] {
   -webkit-appearance: none;
@@ -137,7 +145,7 @@
 .n-form.sticky-submit button[type=submit] {
   position: absolute;
   top: 50%;
-  right: 0;
+  inset-inline-end: 0;
   transform: translateY(-50%);
 }
 .n-form__check {
@@ -159,12 +167,12 @@
 .n-form__check label {
   text-align: start;
   font-weight: normal;
-  clear: right;
+  clear: end;
   margin: 0;
   cursor: pointer;
   min-height: 0;
   user-select: none;
-  padding-left: 0;
+  padding-inline-start: 0;
   padding-bottom: 0;
   display: inline;
 }
@@ -190,7 +198,7 @@
   border: none;
   margin: 0;
   position: absolute;
-  left: 0;
+  inset-inline-start: 0;
   z-index: 1;
   top: 0.05em;
   vertical-align: middle;
@@ -251,8 +259,8 @@
   position: absolute;
   top: 0;
   font-weight: bold;
-  left: auto;
-  right: 0;
+  inset-inline-start: auto;
+  inset-inline-end: 0;
 }
 .n-form--alert {
   /*
@@ -451,7 +459,7 @@
 .n-form--wide input[type=submit],
 .n-form--wide button,
 .n-form--wide button[type=submit] {
-  margin-bottom: calc($line-height-em - 5px);
+  margin-bottom: calc(1.5em - 5px);
   /* fix for the failed box-sizing: border-box */
   line-height: 1em;
   font-size: 1.2em;
@@ -487,7 +495,7 @@
 .n-form--mast input[type=submit],
 .n-form--mast button,
 .n-form--mast button[type=submit] {
-  margin-left: 50%;
+  margin-inline-start: 50%;
   margin-bottom: 2.25em;
 }
 .n-form--mast label {
@@ -499,29 +507,29 @@
 .n-form--mast > label > *,
 .n-form--mast > .n-form__check > * {
   width: 50%;
-  float: right;
+  float: end;
   margin: -0.75em 0 2.25em 0;
 }
 .n-form--mast > label > span,
 .n-form--mast > .n-form__check > span {
   width: 50%;
-  text-align: right;
-  padding-right: 1em;
-  float: left;
+  text-align: end;
+  padding-inline-end: 1em;
+  float: start;
   margin: 0;
 }
 .n-form--mast > .n-form__check > * {
   margin: 0;
 }
 .n-form--mast .n-form--mandatory:before {
-  left: calc(50% - 1em);
+  inset-inline-start: calc(50% - 1em);
   z-index: -1;
 }
 .n-form--language select {
   height: auto;
   width: 100%;
   background-position: calc(100% - 0.5em);
-  margin-left: 0;
+  margin-inline-start: 0;
   height: 3em;
   line-height: 3em;
   margin: 0;
@@ -529,19 +537,6 @@
 .n-form--language input[type=submit] {
   min-height: 1em;
   padding: 0 0.5em;
-}
-
-[dir=rtl] .n-form .n-form--mandatory:before {
-  left: 0;
-  right: auto;
-}
-[dir=rtl] .n-form--mast .n-form--mandatory:before {
-  right: calc(50% - 1em);
-  left: auto;
-}
-[dir=rtl] .n-form select {
-  padding-left: 0;
-  padding-right: 0.8em;
 }
 
 /*# sourceMappingURL=form.css.map */

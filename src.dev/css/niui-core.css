@@ -1,5 +1,13 @@
 @charset "UTF-8";
 /* niui – rado.bg */
+:root {
+  --font-size: 16px;
+  --line-height: 1.5;
+  --line-height-em: calc(1em * var(--line-height));
+  --color: #333;
+  --bg: #fff;
+}
+
 /*
 $font-size: 26px;
 $line-height: 34px;
@@ -81,7 +89,7 @@ html.n-vertical-page body {
   position: static;
 }
 
-/* Element as a window to an image spanning viewpoert dimensions. iOS doesn't support it natively and requires div.fixed-bg-image */
+/* Element as a window to an image spanning viewpoert dimensions. iOS doesn't support it natively and requires div.fixed-bg__image */
 .n-fixed-bg {
   background-size: cover;
   background-position: center center;
@@ -131,16 +139,7 @@ a[href].span-relative-parent {
   left: 0;
 }
 
-[data-nui-animation] {
-  pointer-events: none;
-}
-
-.n-parallax--back {
-  position: absolute;
-}
-
 .n-viewport {
-  -webkit-overflow-scrolling: touch;
   min-height: 100vh;
   box-sizing: border-box;
   overflow: auto;

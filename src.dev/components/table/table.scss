@@ -5,7 +5,7 @@
 	width: 100%;
 	overflow: auto;
 	border-collapse: collapse;
-	-webkit-overflow-scrolling: touch;
+	
 	display: block;
 
 	// 	margin: $line-height-em 0;
@@ -71,7 +71,7 @@
     scrollbar-highlight-color: transparent;
     scrollbar-shadow-color: transparent;
 */
-	-webkit-overflow-scrolling: touch;
+	
 
 	.n-table {
 		display: table;

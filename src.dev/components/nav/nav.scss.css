@@ -1,11 +1,17 @@
 @charset "UTF-8";
 /* niui – Navigation */
+:root {
+  --font-size: 16px;
+  --line-height: 1.5;
+  --line-height-em: calc(1em * var(--line-height));
+  --color: #333;
+  --bg: #fff;
+}
+
 .n-nav {
   vertical-align: baseline;
   display: inline-block;
-  background-color: transparent;
   background-color: var(--control-bg, transparent);
-  color: inherit;
   color: var(--control-color, inherit);
 }
 .n-nav ul {
@@ -22,7 +28,7 @@
   margin: 0;
 }
 .n-nav ul li:last-child {
-  margin-right: 0;
+  margin-inline-end: 0;
 }
 .n-nav.n-nav--scroll {
   overflow: auto;
@@ -57,18 +63,16 @@
     overflow: auto;
     max-width: 100%;
     transform: translate3d(0, 0, 0);
-    -webkit-overflow-scrolling: touch;
   }
   .n-nav--scroll ul li {
     padding: 0.75em;
   }
 }
 main .n-nav ul {
-  padding-left: 0;
+  padding-inline-start: 0;
 }
 
 .n-nav--drop {
-  color: #333;
   color: var(--control-color, #333);
   background-color: transparent;
   max-width: 100%;
@@ -82,20 +86,20 @@ main .n-nav ul {
 .n-nav--drop ul ul {
   padding: 0;
   position: absolute;
-  left: 0;
+  inset-inline-start: 0;
   top: 100%;
 }
 .n-nav--drop ul ul ul {
-  margin-left: 100%;
+  margin-inline-start: 100%;
   top: 0;
 }
 .n-nav--drop ul ul.n-left-side.n-right-overflow {
-  margin-left: var(--n-right-overflow, 0);
+  margin-inline-start: var(--n-right-overflow, 0);
 }
 .n-nav--drop ul ul.n-left-side ul {
-  margin-left: 0;
-  left: auto;
-  right: 100%;
+  margin-inline-start: 0;
+  inset-inline-start: auto;
+  inset-inline-end: 100%;
 }
 .n-nav--drop ul li {
   display: inline-block;
@@ -105,7 +109,6 @@ main .n-nav ul {
   box-sizing: border-box;
   position: relative;
   width: auto;
-  background-color: #fff;
   background-color: var(--control-bg, #fff);
 }
 .n-nav--drop li > a {
@@ -123,16 +126,16 @@ main .n-nav ul {
   z-index: 0;
 }
 .n-nav--drop ul[role=menubar] li > a {
-  margin-right: 0;
-  padding-right: 0.75em;
+  margin-inline-end: 0;
+  padding-inline-end: 0.75em;
 }
 .n-nav--drop ul[role=menubar] li[aria-haspopup] > a {
-  margin-right: 1.75em;
-  padding-right: 0.75em;
+  margin-inline-end: 1.75em;
+  padding-inline-end: 0.75em;
 }
 .n-nav--drop[data-ready] ul[role=menubar] li[aria-haspopup] > a {
-  margin-right: 0;
-  padding-right: 0.75em;
+  margin-inline-end: 0;
+  padding-inline-end: 0.75em;
 }
 .n-nav--drop li li {
   display: block;
@@ -155,7 +158,6 @@ main .n-nav ul {
   overflow: visible;
   opacity: 1;
   z-index: 2;
-  background-color: #fff;
   background-color: var(--control-bg, #fff);
 }
 .n-nav--drop ul li[aria-expanded] > ul,
@@ -172,7 +174,7 @@ main .n-nav ul {
   height: 100%;
   border: none;
   border-radius: 0;
-  right: 0;
+  inset-inline-end: 0;
   width: 1.875em;
   margin: 0;
   font-size: inherit;
@@ -182,7 +184,7 @@ main .n-nav ul {
   content: "";
   position: absolute;
   display: block;
-  right: 0;
+  inset-inline-end: 0;
   top: 0;
   width: 1.25em;
   height: 100%;
@@ -192,9 +194,9 @@ main .n-nav ul {
   margin: 0;
 }
 .n-nav--drop ul.n-list:not(.n-list__no-bullet):not(.n-list__inline).n-left-side li:before {
-  right: auto;
+  inset-inline-end: auto;
   transform: rotate(180deg);
-  left: 0;
+  inset-inline-start: 0;
   margin: 0;
   top: 0;
   height: 2em;
@@ -207,7 +209,6 @@ main .n-nav ul {
 .n-nav--drop li > input {
   -webkit-mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(180) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A") center center no-repeat;
   -webkit-mask-size: 0.4em;
-  background-color: #000;
   background-color: var(--control-color, #000);
 }
 .n-nav--drop li > input {
@@ -258,10 +259,10 @@ main .n-nav ul {
     order: 1;
   }
   .n-nav--drop:not([data-ready]) li:not([tabindex]) > ul ~ a {
-    padding-right: 0.75em;
+    padding-inline-end: 0.75em;
   }
   .n-nav--drop li:not([tabindex]) > ul ~ a {
-    padding-right: 2.75em;
+    padding-inline-end: 2.75em;
   }
   .n-nav--drop ul.n-left-side li[aria-haspopup] {
     padding-inline-end: 0;
@@ -276,13 +277,12 @@ main .n-nav ul {
     opacity: 0;
     position: absolute;
     transform: scaleX(0);
-    transform-origin: left;
+    transform-origin: start;
   }
   html:not(.can-touch) .n-nav--drop ul li:not([aria-expanded]) ul.n-left-side ul {
-    transform-origin: right;
+    transform-origin: end;
   }
   html:not(.can-touch) .n-nav--drop > ul > li > ul li {
-    background-color: #fff;
     background-color: var(--control-bg, #fff);
   }
   html:not(.can-touch) .n-nav--drop > ul > li:hover > input:not(:checked) ~ ul,
@@ -304,7 +304,6 @@ html:not(.can-touch) .n-nav--drop > ul li:not([aria-haspopup]) ul li:hover ~ ul 
     overflow: visible;
     opacity: 1;
     z-index: 2;
-    background-color: #fff;
     background-color: var(--control-bg, #fff);
     transform: scaleY(1);
   }
@@ -333,32 +332,31 @@ nav.n-nav--drop li li li a {
   }
 
   [dir=rtl] .n-nav--drop li ul:not(.n-left-side) > li[aria-haspopup] {
-    padding-left: 0;
-    padding-right: 1.875em;
+    padding-inline-start: 0;
+    padding-inline-end: 1.875em;
   }
   [dir=rtl] .n-nav--drop li ul:not(.n-left-side) > li[aria-haspopup]:before {
-    right: 0;
-    left: auto;
+    inset-inline-end: 0;
+    inset-inline-start: auto;
   }
   [dir=rtl] .n-nav--drop li ul.n-left-side > li > a {
-    text-align: left;
     text-align: start;
   }
 }
 [dir=rtl] .n-nav--drop ul.n-left-side li[aria-haspopup],
 [dir=rtl] .n-nav--drop li[aria-haspopup] {
-  padding-right: 0;
-  padding-left: 1.875em;
+  padding-inline-end: 0;
+  padding-inline-start: 1.875em;
 }
 [dir=rtl] .n-nav--drop.n-nav ul.n-list li:before {
-  left: 0;
-  right: auto;
-  margin-left: 0;
+  inset-inline-start: 0;
+  inset-inline-end: auto;
+  margin-inline-start: 0;
 }
 [dir=rtl] .n-nav--drop li[aria-haspopup]:before,
 [dir=rtl] .n-nav--drop li > input {
-  right: auto;
-  left: 0;
+  inset-inline-end: auto;
+  inset-inline-start: 0;
 }
 
 @media (max-width: 599.9px) {
@@ -370,7 +368,7 @@ nav.n-nav--drop li li li a {
   .n-nav--drop ul ul {
     position: static;
     width: calc(100% + 3em);
-    padding-left: 0.5em;
+    padding-inline-start: 0.5em;
     overflow: hidden;
     box-sizing: border-box;
   }
@@ -381,14 +379,14 @@ nav.n-nav--drop li li li a {
     width: 100%;
   }
   .n-nav--drop ul li[aria-haspopup] {
-    padding-right: 3em;
+    padding-inline-end: 3em;
   }
   .n-nav--drop ul li[aria-haspopup][aria-expanded]:before {
     -webkit-mask-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(0) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A");
   }
   .n-nav--drop ul.n-list:not(.n-list--no-bullet):not(.n-list--inline).n-left-side li:before {
-    right: 0;
-    left: auto;
+    inset-inline-end: 0;
+    inset-inline-start: auto;
     transform: none;
   }
 
@@ -416,22 +414,6 @@ nav.n-nav--drop li li li a {
 
   html:not([data-nui-js]) .n-fold.n-fold--mobile:not([aria-expanded]) .n-fold__content {
     max-width: 100%;
-  }
-
-  [dir=rtl] .n-nav--drop li[aria-haspopup] {
-    padding-left: 2.5em;
-  }
-  [dir=rtl] .n-nav--drop li[aria-haspopup] ul {
-    max-width: calc(100% + 2.5em);
-    padding-right: 0.5em;
-    padding-left: 0;
-  }
-  [dir=rtl] .n-nav--drop li[aria-haspopup] ul.n-list:not(.n-list--no-bullet):not(.n-list--inline).n-left-side li:before {
-    right: auto;
-    left: 0;
-  }
-  [dir=rtl] .n-nav--drop li[aria-haspopup] ul ul {
-    max-width: calc(100% + 1.875em);
   }
 }
 @supports (-webkit-overflow-scrolling: touch) {

@@ -1,5 +1,13 @@
 @charset "UTF-8";
 /* niui – rado.bg */
+:root {
+  --font-size: 16px;
+  --line-height: 1.5;
+  --line-height-em: calc(1em * var(--line-height));
+  --color: #333;
+  --bg: #fff;
+}
+
 /*
 $font-size: 26px;
 $line-height: 34px;
@@ -81,7 +89,7 @@ html.n-vertical-page body {
   position: static;
 }
 
-/* Element as a window to an image spanning viewpoert dimensions. iOS doesn't support it natively and requires div.fixed-bg-image */
+/* Element as a window to an image spanning viewpoert dimensions. iOS doesn't support it natively and requires div.fixed-bg__image */
 .n-fixed-bg {
   background-size: cover;
   background-position: center center;
@@ -131,16 +139,7 @@ a[href].span-relative-parent {
   left: 0;
 }
 
-[data-nui-animation] {
-  pointer-events: none;
-}
-
-.n-parallax--back {
-  position: absolute;
-}
-
 .n-viewport {
-  -webkit-overflow-scrolling: touch;
   min-height: 100vh;
   box-sizing: border-box;
   overflow: auto;
@@ -289,6 +288,14 @@ a.backtotop[href] {
 /*# sourceMappingURL=button.css.map */
 @charset "UTF-8";
 /* niui – Button */
+:root {
+  --font-size: 16px;
+  --line-height: 1.5;
+  --line-height-em: calc(1em * var(--line-height));
+  --color: #333;
+  --bg: #fff;
+}
+
 .n-btn,
 .n-form input[type=submit],
 .n-form button[type=submit],
@@ -445,6 +452,14 @@ a.backtotop[href] {
 /*# sourceMappingURL=card.css.map */
 @charset "UTF-8";
 /* niui  – Card */
+:root {
+  --font-size: 16px;
+  --line-height: 1.5;
+  --line-height-em: calc(1em * var(--line-height));
+  --color: #333;
+  --bg: #fff;
+}
+
 .n-card {
   margin: 1em 0;
   --card-bg: rgba(0, 0, 0, 0.1);
@@ -493,6 +508,14 @@ a.backtotop[href] {
 /*# sourceMappingURL=card.scss.css.map */
 @charset "UTF-8";
 /* niui – Fold */
+:root {
+  --font-size: 16px;
+  --line-height: 1.5;
+  --line-height-em: calc(1em * var(--line-height));
+  --color: #333;
+  --bg: #fff;
+}
+
 .n-fold {
   display: grid;
   position: relative;
@@ -508,7 +531,6 @@ a.backtotop[href] {
 .n-fold__label {
   margin: 0;
   float: none;
-  text-align: left;
   text-align: start;
   width: 100%;
   user-select: none;
@@ -705,7 +727,6 @@ a.backtotop[href] {
     }
     .n-header.n-header__fixed-mobile .n-fold--mobile[aria-expanded] .n-fold__content {
       overflow: auto;
-      -webkit-overflow-scrolling: touch;
       position: fixed;
       top: 3em;
       bottom: 0;
@@ -725,6 +746,14 @@ a.backtotop[href] {
 /*# sourceMappingURL=fold.css.map */
 @charset "UTF-8";
 /* niui – Fold */
+:root {
+  --font-size: 16px;
+  --line-height: 1.5;
+  --line-height-em: calc(1em * var(--line-height));
+  --color: #333;
+  --bg: #fff;
+}
+
 .n-fold {
   display: grid;
   position: relative;
@@ -740,7 +769,6 @@ a.backtotop[href] {
 .n-fold__label {
   margin: 0;
   float: none;
-  text-align: left;
   text-align: start;
   width: 100%;
   user-select: none;
@@ -937,7 +965,6 @@ a.backtotop[href] {
     }
     .n-header.n-header__fixed-mobile .n-fold--mobile[aria-expanded] .n-fold__content {
       overflow: auto;
-      -webkit-overflow-scrolling: touch;
       position: fixed;
       top: 3em;
       bottom: 0;
@@ -957,6 +984,14 @@ a.backtotop[href] {
 /*# sourceMappingURL=fold.scss.css.map */
 @charset "UTF-8";
 /* niui  – Form */
+:root {
+  --font-size: 16px;
+  --line-height: 1.5;
+  --line-height-em: calc(1em * var(--line-height));
+  --color: #333;
+  --bg: #fff;
+}
+
 .n-form {
   padding: 1.5em 0;
   --placeholder_color: #aaa;
@@ -1065,7 +1100,7 @@ a.backtotop[href] {
 .n-form select, .n-form__file {
   vertical-align: top;
   border: none;
-  margin-left: 0;
+  margin-inline-start: 0;
 }
 .n-form input[type=search] {
   -webkit-appearance: none;
@@ -1094,7 +1129,7 @@ a.backtotop[href] {
 .n-form.sticky-submit button[type=submit] {
   position: absolute;
   top: 50%;
-  right: 0;
+  inset-inline-end: 0;
   transform: translateY(-50%);
 }
 .n-form__check {
@@ -1116,12 +1151,12 @@ a.backtotop[href] {
 .n-form__check label {
   text-align: start;
   font-weight: normal;
-  clear: right;
+  clear: end;
   margin: 0;
   cursor: pointer;
   min-height: 0;
   user-select: none;
-  padding-left: 0;
+  padding-inline-start: 0;
   padding-bottom: 0;
   display: inline;
 }
@@ -1147,7 +1182,7 @@ a.backtotop[href] {
   border: none;
   margin: 0;
   position: absolute;
-  left: 0;
+  inset-inline-start: 0;
   z-index: 1;
   top: 0.05em;
   vertical-align: middle;
@@ -1208,8 +1243,8 @@ a.backtotop[href] {
   position: absolute;
   top: 0;
   font-weight: bold;
-  left: auto;
-  right: 0;
+  inset-inline-start: auto;
+  inset-inline-end: 0;
 }
 .n-form--alert {
   /*
@@ -1408,7 +1443,7 @@ a.backtotop[href] {
 .n-form--wide input[type=submit],
 .n-form--wide button,
 .n-form--wide button[type=submit] {
-  margin-bottom: calc($line-height-em - 5px);
+  margin-bottom: calc(1.5em - 5px);
   /* fix for the failed box-sizing: border-box */
   line-height: 1em;
   font-size: 1.2em;
@@ -1444,7 +1479,7 @@ a.backtotop[href] {
 .n-form--mast input[type=submit],
 .n-form--mast button,
 .n-form--mast button[type=submit] {
-  margin-left: 50%;
+  margin-inline-start: 50%;
   margin-bottom: 2.25em;
 }
 .n-form--mast label {
@@ -1456,29 +1491,29 @@ a.backtotop[href] {
 .n-form--mast > label > *,
 .n-form--mast > .n-form__check > * {
   width: 50%;
-  float: right;
+  float: end;
   margin: -0.75em 0 2.25em 0;
 }
 .n-form--mast > label > span,
 .n-form--mast > .n-form__check > span {
   width: 50%;
-  text-align: right;
-  padding-right: 1em;
-  float: left;
+  text-align: end;
+  padding-inline-end: 1em;
+  float: start;
   margin: 0;
 }
 .n-form--mast > .n-form__check > * {
   margin: 0;
 }
 .n-form--mast .n-form--mandatory:before {
-  left: calc(50% - 1em);
+  inset-inline-start: calc(50% - 1em);
   z-index: -1;
 }
 .n-form--language select {
   height: auto;
   width: 100%;
   background-position: calc(100% - 0.5em);
-  margin-left: 0;
+  margin-inline-start: 0;
   height: 3em;
   line-height: 3em;
   margin: 0;
@@ -1486,24 +1521,19 @@ a.backtotop[href] {
 .n-form--language input[type=submit] {
   min-height: 1em;
   padding: 0 0.5em;
-}
-
-[dir=rtl] .n-form .n-form--mandatory:before {
-  left: 0;
-  right: auto;
-}
-[dir=rtl] .n-form--mast .n-form--mandatory:before {
-  right: calc(50% - 1em);
-  left: auto;
-}
-[dir=rtl] .n-form select {
-  padding-left: 0;
-  padding-right: 0.8em;
 }
 
 /*# sourceMappingURL=form.css.map */
 @charset "UTF-8";
 /* niui  – Form */
+:root {
+  --font-size: 16px;
+  --line-height: 1.5;
+  --line-height-em: calc(1em * var(--line-height));
+  --color: #333;
+  --bg: #fff;
+}
+
 .n-form {
   padding: 1.5em 0;
   --placeholder_color: #aaa;
@@ -1612,7 +1642,7 @@ a.backtotop[href] {
 .n-form select, .n-form__file {
   vertical-align: top;
   border: none;
-  margin-left: 0;
+  margin-inline-start: 0;
 }
 .n-form input[type=search] {
   -webkit-appearance: none;
@@ -1641,7 +1671,7 @@ a.backtotop[href] {
 .n-form.sticky-submit button[type=submit] {
   position: absolute;
   top: 50%;
-  right: 0;
+  inset-inline-end: 0;
   transform: translateY(-50%);
 }
 .n-form__check {
@@ -1663,12 +1693,12 @@ a.backtotop[href] {
 .n-form__check label {
   text-align: start;
   font-weight: normal;
-  clear: right;
+  clear: end;
   margin: 0;
   cursor: pointer;
   min-height: 0;
   user-select: none;
-  padding-left: 0;
+  padding-inline-start: 0;
   padding-bottom: 0;
   display: inline;
 }
@@ -1694,7 +1724,7 @@ a.backtotop[href] {
   border: none;
   margin: 0;
   position: absolute;
-  left: 0;
+  inset-inline-start: 0;
   z-index: 1;
   top: 0.05em;
   vertical-align: middle;
@@ -1755,8 +1785,8 @@ a.backtotop[href] {
   position: absolute;
   top: 0;
   font-weight: bold;
-  left: auto;
-  right: 0;
+  inset-inline-start: auto;
+  inset-inline-end: 0;
 }
 .n-form--alert {
   /*
@@ -1955,7 +1985,7 @@ a.backtotop[href] {
 .n-form--wide input[type=submit],
 .n-form--wide button,
 .n-form--wide button[type=submit] {
-  margin-bottom: calc($line-height-em - 5px);
+  margin-bottom: calc(1.5em - 5px);
   /* fix for the failed box-sizing: border-box */
   line-height: 1em;
   font-size: 1.2em;
@@ -1991,7 +2021,7 @@ a.backtotop[href] {
 .n-form--mast input[type=submit],
 .n-form--mast button,
 .n-form--mast button[type=submit] {
-  margin-left: 50%;
+  margin-inline-start: 50%;
   margin-bottom: 2.25em;
 }
 .n-form--mast label {
@@ -2003,29 +2033,29 @@ a.backtotop[href] {
 .n-form--mast > label > *,
 .n-form--mast > .n-form__check > * {
   width: 50%;
-  float: right;
+  float: end;
   margin: -0.75em 0 2.25em 0;
 }
 .n-form--mast > label > span,
 .n-form--mast > .n-form__check > span {
   width: 50%;
-  text-align: right;
-  padding-right: 1em;
-  float: left;
+  text-align: end;
+  padding-inline-end: 1em;
+  float: start;
   margin: 0;
 }
 .n-form--mast > .n-form__check > * {
   margin: 0;
 }
 .n-form--mast .n-form--mandatory:before {
-  left: calc(50% - 1em);
+  inset-inline-start: calc(50% - 1em);
   z-index: -1;
 }
 .n-form--language select {
   height: auto;
   width: 100%;
   background-position: calc(100% - 0.5em);
-  margin-left: 0;
+  margin-inline-start: 0;
   height: 3em;
   line-height: 3em;
   margin: 0;
@@ -2033,19 +2063,6 @@ a.backtotop[href] {
 .n-form--language input[type=submit] {
   min-height: 1em;
   padding: 0 0.5em;
-}
-
-[dir=rtl] .n-form .n-form--mandatory:before {
-  left: 0;
-  right: auto;
-}
-[dir=rtl] .n-form--mast .n-form--mandatory:before {
-  right: calc(50% - 1em);
-  left: auto;
-}
-[dir=rtl] .n-form select {
-  padding-left: 0;
-  padding-right: 0.8em;
 }
 
 /*# sourceMappingURL=form.scss.css.map */
@@ -2099,13 +2116,18 @@ a.backtotop[href] {
 /*# sourceMappingURL=aspect-ratio.scss.css.map */
 @charset "UTF-8";
 /* niui – Grid */
+:root {
+  --font-size: 16px;
+  --line-height: 1.5;
+  --line-height-em: calc(1em * var(--line-height));
+  --color: #333;
+  --bg: #fff;
+}
+
 /* For proper fallback, use .col* for all columns. Automatic column width (no .col*) works for Flexbox only. */
 .n-row {
   width: 100%;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   text-align: center;
 }
@@ -2362,7 +2384,7 @@ ul.n-masonry {
 }
 
 ol.n-masonry > * {
-  padding-left: 2.5em;
+  padding-inline-start: 2.5em;
 }
 
 .n-pad {
@@ -2508,13 +2530,18 @@ ol.n-masonry > * {
 /*# sourceMappingURL=grid.css.map */
 @charset "UTF-8";
 /* niui – Grid */
+:root {
+  --font-size: 16px;
+  --line-height: 1.5;
+  --line-height-em: calc(1em * var(--line-height));
+  --color: #333;
+  --bg: #fff;
+}
+
 /* For proper fallback, use .col* for all columns. Automatic column width (no .col*) works for Flexbox only. */
 .n-row {
   width: 100%;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   text-align: center;
 }
@@ -2771,7 +2798,7 @@ ul.n-masonry {
 }
 
 ol.n-masonry > * {
-  padding-left: 2.5em;
+  padding-inline-start: 2.5em;
 }
 
 .n-pad {
@@ -2917,6 +2944,14 @@ ol.n-masonry > * {
 /*# sourceMappingURL=grid.scss.css.map */
 @charset "UTF-8";
 /* niui – List */
+:root {
+  --font-size: 16px;
+  --line-height: 1.5;
+  --line-height-em: calc(1em * var(--line-height));
+  --color: #333;
+  --bg: #fff;
+}
+
 ul.n-list {
   padding: 0;
   line-height: 1.5;
@@ -2965,9 +3000,7 @@ ol.n-list > li:before {
   content: counter(level1);
   counter-increment: level1;
   font-weight: bold;
-  background: #999;
   background: var(--list-bg, #999);
-  color: #fff;
   color: var(--list-color, #fff);
   padding: 0 0.5em;
   border-radius: 50%;
@@ -3045,6 +3078,14 @@ ul.n-list.n-list--inline li,
 /*# sourceMappingURL=list.css.map */
 @charset "UTF-8";
 /* niui – List */
+:root {
+  --font-size: 16px;
+  --line-height: 1.5;
+  --line-height-em: calc(1em * var(--line-height));
+  --color: #333;
+  --bg: #fff;
+}
+
 ul.n-list {
   padding: 0;
   line-height: 1.5;
@@ -3093,9 +3134,7 @@ ol.n-list > li:before {
   content: counter(level1);
   counter-increment: level1;
   font-weight: bold;
-  background: #999;
   background: var(--list-bg, #999);
-  color: #fff;
   color: var(--list-color, #fff);
   padding: 0 0.5em;
   border-radius: 50%;
@@ -3173,6 +3212,14 @@ ul.n-list.n-list--inline li,
 /*# sourceMappingURL=list.scss.css.map */
 @charset "UTF-8";
 /* niui – Modal */
+:root {
+  --font-size: 16px;
+  --line-height: 1.5;
+  --line-height-em: calc(1em * var(--line-height));
+  --color: #333;
+  --bg: #fff;
+}
+
 .no-scroll, .no-scroll body {
   overflow: hidden;
 }
@@ -3213,7 +3260,6 @@ html.n-full-screen body {
   bottom: 0;
   overflow-y: auto;
   overflow-x: none;
-  -webkit-overflow-scrolling: touch;
   background: transparent;
   height: 100%;
   padding-top: 3em;
@@ -3247,7 +3293,7 @@ html.n-full-screen body {
   height: 50vh;
   margin-top: 25vh;
   width: 50vw;
-  margin-left: 25vw;
+  margin-inline-start: 25vw;
 }
 .n-ovrl > * {
   background: #fff;
@@ -3284,8 +3330,8 @@ html.n-full-screen body {
     padding: 0;
   }
   .n-ovrl > .n-ovrl--close {
-    left: 0.5rem;
-    right: auto;
+    inset-inline-start: 0.5rem;
+    inset-inline-end: auto;
     margin-top: 0.5rem;
     top: var(--overlay-top, 0);
     width: 40px;
@@ -3308,6 +3354,14 @@ html.n-full-screen body {
 /*# sourceMappingURL=modal.css.map */
 @charset "UTF-8";
 /* niui – Modal */
+:root {
+  --font-size: 16px;
+  --line-height: 1.5;
+  --line-height-em: calc(1em * var(--line-height));
+  --color: #333;
+  --bg: #fff;
+}
+
 .no-scroll, .no-scroll body {
   overflow: hidden;
 }
@@ -3348,7 +3402,6 @@ html.n-full-screen body {
   bottom: 0;
   overflow-y: auto;
   overflow-x: none;
-  -webkit-overflow-scrolling: touch;
   background: transparent;
   height: 100%;
   padding-top: 3em;
@@ -3382,7 +3435,7 @@ html.n-full-screen body {
   height: 50vh;
   margin-top: 25vh;
   width: 50vw;
-  margin-left: 25vw;
+  margin-inline-start: 25vw;
 }
 .n-ovrl > * {
   background: #fff;
@@ -3419,8 +3472,8 @@ html.n-full-screen body {
     padding: 0;
   }
   .n-ovrl > .n-ovrl--close {
-    left: 0.5rem;
-    right: auto;
+    inset-inline-start: 0.5rem;
+    inset-inline-end: auto;
     margin-top: 0.5rem;
     top: var(--overlay-top, 0);
     width: 40px;
@@ -5272,12 +5325,18 @@ _:future,
 /*# sourceMappingURL=n-select.scss.css.map */
 @charset "UTF-8";
 /* niui – Navigation */
+:root {
+  --font-size: 16px;
+  --line-height: 1.5;
+  --line-height-em: calc(1em * var(--line-height));
+  --color: #333;
+  --bg: #fff;
+}
+
 .n-nav {
   vertical-align: baseline;
   display: inline-block;
-  background-color: transparent;
   background-color: var(--control-bg, transparent);
-  color: inherit;
   color: var(--control-color, inherit);
 }
 .n-nav ul {
@@ -5294,7 +5353,7 @@ _:future,
   margin: 0;
 }
 .n-nav ul li:last-child {
-  margin-right: 0;
+  margin-inline-end: 0;
 }
 .n-nav.n-nav--scroll {
   overflow: auto;
@@ -5329,18 +5388,16 @@ _:future,
     overflow: auto;
     max-width: 100%;
     transform: translate3d(0, 0, 0);
-    -webkit-overflow-scrolling: touch;
   }
   .n-nav--scroll ul li {
     padding: 0.75em;
   }
 }
 main .n-nav ul {
-  padding-left: 0;
+  padding-inline-start: 0;
 }
 
 .n-nav--drop {
-  color: #333;
   color: var(--control-color, #333);
   background-color: transparent;
   max-width: 100%;
@@ -5354,20 +5411,20 @@ main .n-nav ul {
 .n-nav--drop ul ul {
   padding: 0;
   position: absolute;
-  left: 0;
+  inset-inline-start: 0;
   top: 100%;
 }
 .n-nav--drop ul ul ul {
-  margin-left: 100%;
+  margin-inline-start: 100%;
   top: 0;
 }
 .n-nav--drop ul ul.n-left-side.n-right-overflow {
-  margin-left: var(--n-right-overflow, 0);
+  margin-inline-start: var(--n-right-overflow, 0);
 }
 .n-nav--drop ul ul.n-left-side ul {
-  margin-left: 0;
-  left: auto;
-  right: 100%;
+  margin-inline-start: 0;
+  inset-inline-start: auto;
+  inset-inline-end: 100%;
 }
 .n-nav--drop ul li {
   display: inline-block;
@@ -5377,7 +5434,6 @@ main .n-nav ul {
   box-sizing: border-box;
   position: relative;
   width: auto;
-  background-color: #fff;
   background-color: var(--control-bg, #fff);
 }
 .n-nav--drop li > a {
@@ -5395,16 +5451,16 @@ main .n-nav ul {
   z-index: 0;
 }
 .n-nav--drop ul[role=menubar] li > a {
-  margin-right: 0;
-  padding-right: 0.75em;
+  margin-inline-end: 0;
+  padding-inline-end: 0.75em;
 }
 .n-nav--drop ul[role=menubar] li[aria-haspopup] > a {
-  margin-right: 1.75em;
-  padding-right: 0.75em;
+  margin-inline-end: 1.75em;
+  padding-inline-end: 0.75em;
 }
 .n-nav--drop[data-ready] ul[role=menubar] li[aria-haspopup] > a {
-  margin-right: 0;
-  padding-right: 0.75em;
+  margin-inline-end: 0;
+  padding-inline-end: 0.75em;
 }
 .n-nav--drop li li {
   display: block;
@@ -5427,7 +5483,6 @@ main .n-nav ul {
   overflow: visible;
   opacity: 1;
   z-index: 2;
-  background-color: #fff;
   background-color: var(--control-bg, #fff);
 }
 .n-nav--drop ul li[aria-expanded] > ul,
@@ -5444,7 +5499,7 @@ main .n-nav ul {
   height: 100%;
   border: none;
   border-radius: 0;
-  right: 0;
+  inset-inline-end: 0;
   width: 1.875em;
   margin: 0;
   font-size: inherit;
@@ -5454,7 +5509,7 @@ main .n-nav ul {
   content: "";
   position: absolute;
   display: block;
-  right: 0;
+  inset-inline-end: 0;
   top: 0;
   width: 1.25em;
   height: 100%;
@@ -5464,9 +5519,9 @@ main .n-nav ul {
   margin: 0;
 }
 .n-nav--drop ul.n-list:not(.n-list__no-bullet):not(.n-list__inline).n-left-side li:before {
-  right: auto;
+  inset-inline-end: auto;
   transform: rotate(180deg);
-  left: 0;
+  inset-inline-start: 0;
   margin: 0;
   top: 0;
   height: 2em;
@@ -5479,7 +5534,6 @@ main .n-nav ul {
 .n-nav--drop li > input {
   -webkit-mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(180) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A") center center no-repeat;
   -webkit-mask-size: 0.4em;
-  background-color: #000;
   background-color: var(--control-color, #000);
 }
 .n-nav--drop li > input {
@@ -5530,10 +5584,10 @@ main .n-nav ul {
     order: 1;
   }
   .n-nav--drop:not([data-ready]) li:not([tabindex]) > ul ~ a {
-    padding-right: 0.75em;
+    padding-inline-end: 0.75em;
   }
   .n-nav--drop li:not([tabindex]) > ul ~ a {
-    padding-right: 2.75em;
+    padding-inline-end: 2.75em;
   }
   .n-nav--drop ul.n-left-side li[aria-haspopup] {
     padding-inline-end: 0;
@@ -5548,13 +5602,12 @@ main .n-nav ul {
     opacity: 0;
     position: absolute;
     transform: scaleX(0);
-    transform-origin: left;
+    transform-origin: start;
   }
   html:not(.can-touch) .n-nav--drop ul li:not([aria-expanded]) ul.n-left-side ul {
-    transform-origin: right;
+    transform-origin: end;
   }
   html:not(.can-touch) .n-nav--drop > ul > li > ul li {
-    background-color: #fff;
     background-color: var(--control-bg, #fff);
   }
   html:not(.can-touch) .n-nav--drop > ul > li:hover > input:not(:checked) ~ ul,
@@ -5576,7 +5629,6 @@ html:not(.can-touch) .n-nav--drop > ul li:not([aria-haspopup]) ul li:hover ~ ul 
     overflow: visible;
     opacity: 1;
     z-index: 2;
-    background-color: #fff;
     background-color: var(--control-bg, #fff);
     transform: scaleY(1);
   }
@@ -5605,32 +5657,31 @@ nav.n-nav--drop li li li a {
   }
 
   [dir=rtl] .n-nav--drop li ul:not(.n-left-side) > li[aria-haspopup] {
-    padding-left: 0;
-    padding-right: 1.875em;
+    padding-inline-start: 0;
+    padding-inline-end: 1.875em;
   }
   [dir=rtl] .n-nav--drop li ul:not(.n-left-side) > li[aria-haspopup]:before {
-    right: 0;
-    left: auto;
+    inset-inline-end: 0;
+    inset-inline-start: auto;
   }
   [dir=rtl] .n-nav--drop li ul.n-left-side > li > a {
-    text-align: left;
     text-align: start;
   }
 }
 [dir=rtl] .n-nav--drop ul.n-left-side li[aria-haspopup],
 [dir=rtl] .n-nav--drop li[aria-haspopup] {
-  padding-right: 0;
-  padding-left: 1.875em;
+  padding-inline-end: 0;
+  padding-inline-start: 1.875em;
 }
 [dir=rtl] .n-nav--drop.n-nav ul.n-list li:before {
-  left: 0;
-  right: auto;
-  margin-left: 0;
+  inset-inline-start: 0;
+  inset-inline-end: auto;
+  margin-inline-start: 0;
 }
 [dir=rtl] .n-nav--drop li[aria-haspopup]:before,
 [dir=rtl] .n-nav--drop li > input {
-  right: auto;
-  left: 0;
+  inset-inline-end: auto;
+  inset-inline-start: 0;
 }
 
 @media (max-width: 599.9px) {
@@ -5642,7 +5693,7 @@ nav.n-nav--drop li li li a {
   .n-nav--drop ul ul {
     position: static;
     width: calc(100% + 3em);
-    padding-left: 0.5em;
+    padding-inline-start: 0.5em;
     overflow: hidden;
     box-sizing: border-box;
   }
@@ -5653,14 +5704,14 @@ nav.n-nav--drop li li li a {
     width: 100%;
   }
   .n-nav--drop ul li[aria-haspopup] {
-    padding-right: 3em;
+    padding-inline-end: 3em;
   }
   .n-nav--drop ul li[aria-haspopup][aria-expanded]:before {
     -webkit-mask-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(0) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A");
   }
   .n-nav--drop ul.n-list:not(.n-list--no-bullet):not(.n-list--inline).n-left-side li:before {
-    right: 0;
-    left: auto;
+    inset-inline-end: 0;
+    inset-inline-start: auto;
     transform: none;
   }
 
@@ -5688,22 +5739,6 @@ nav.n-nav--drop li li li a {
 
   html:not([data-nui-js]) .n-fold.n-fold--mobile:not([aria-expanded]) .n-fold__content {
     max-width: 100%;
-  }
-
-  [dir=rtl] .n-nav--drop li[aria-haspopup] {
-    padding-left: 2.5em;
-  }
-  [dir=rtl] .n-nav--drop li[aria-haspopup] ul {
-    max-width: calc(100% + 2.5em);
-    padding-right: 0.5em;
-    padding-left: 0;
-  }
-  [dir=rtl] .n-nav--drop li[aria-haspopup] ul.n-list:not(.n-list--no-bullet):not(.n-list--inline).n-left-side li:before {
-    right: auto;
-    left: 0;
-  }
-  [dir=rtl] .n-nav--drop li[aria-haspopup] ul ul {
-    max-width: calc(100% + 1.875em);
   }
 }
 @supports (-webkit-overflow-scrolling: touch) {
@@ -5717,12 +5752,18 @@ nav.n-nav--drop li li li a {
 /*# sourceMappingURL=nav.css.map */
 @charset "UTF-8";
 /* niui – Navigation */
+:root {
+  --font-size: 16px;
+  --line-height: 1.5;
+  --line-height-em: calc(1em * var(--line-height));
+  --color: #333;
+  --bg: #fff;
+}
+
 .n-nav {
   vertical-align: baseline;
   display: inline-block;
-  background-color: transparent;
   background-color: var(--control-bg, transparent);
-  color: inherit;
   color: var(--control-color, inherit);
 }
 .n-nav ul {
@@ -5739,7 +5780,7 @@ nav.n-nav--drop li li li a {
   margin: 0;
 }
 .n-nav ul li:last-child {
-  margin-right: 0;
+  margin-inline-end: 0;
 }
 .n-nav.n-nav--scroll {
   overflow: auto;
@@ -5774,18 +5815,16 @@ nav.n-nav--drop li li li a {
     overflow: auto;
     max-width: 100%;
     transform: translate3d(0, 0, 0);
-    -webkit-overflow-scrolling: touch;
   }
   .n-nav--scroll ul li {
     padding: 0.75em;
   }
 }
 main .n-nav ul {
-  padding-left: 0;
+  padding-inline-start: 0;
 }
 
 .n-nav--drop {
-  color: #333;
   color: var(--control-color, #333);
   background-color: transparent;
   max-width: 100%;
@@ -5799,20 +5838,20 @@ main .n-nav ul {
 .n-nav--drop ul ul {
   padding: 0;
   position: absolute;
-  left: 0;
+  inset-inline-start: 0;
   top: 100%;
 }
 .n-nav--drop ul ul ul {
-  margin-left: 100%;
+  margin-inline-start: 100%;
   top: 0;
 }
 .n-nav--drop ul ul.n-left-side.n-right-overflow {
-  margin-left: var(--n-right-overflow, 0);
+  margin-inline-start: var(--n-right-overflow, 0);
 }
 .n-nav--drop ul ul.n-left-side ul {
-  margin-left: 0;
-  left: auto;
-  right: 100%;
+  margin-inline-start: 0;
+  inset-inline-start: auto;
+  inset-inline-end: 100%;
 }
 .n-nav--drop ul li {
   display: inline-block;
@@ -5822,7 +5861,6 @@ main .n-nav ul {
   box-sizing: border-box;
   position: relative;
   width: auto;
-  background-color: #fff;
   background-color: var(--control-bg, #fff);
 }
 .n-nav--drop li > a {
@@ -5840,16 +5878,16 @@ main .n-nav ul {
   z-index: 0;
 }
 .n-nav--drop ul[role=menubar] li > a {
-  margin-right: 0;
-  padding-right: 0.75em;
+  margin-inline-end: 0;
+  padding-inline-end: 0.75em;
 }
 .n-nav--drop ul[role=menubar] li[aria-haspopup] > a {
-  margin-right: 1.75em;
-  padding-right: 0.75em;
+  margin-inline-end: 1.75em;
+  padding-inline-end: 0.75em;
 }
 .n-nav--drop[data-ready] ul[role=menubar] li[aria-haspopup] > a {
-  margin-right: 0;
-  padding-right: 0.75em;
+  margin-inline-end: 0;
+  padding-inline-end: 0.75em;
 }
 .n-nav--drop li li {
   display: block;
@@ -5872,7 +5910,6 @@ main .n-nav ul {
   overflow: visible;
   opacity: 1;
   z-index: 2;
-  background-color: #fff;
   background-color: var(--control-bg, #fff);
 }
 .n-nav--drop ul li[aria-expanded] > ul,
@@ -5889,7 +5926,7 @@ main .n-nav ul {
   height: 100%;
   border: none;
   border-radius: 0;
-  right: 0;
+  inset-inline-end: 0;
   width: 1.875em;
   margin: 0;
   font-size: inherit;
@@ -5899,7 +5936,7 @@ main .n-nav ul {
   content: "";
   position: absolute;
   display: block;
-  right: 0;
+  inset-inline-end: 0;
   top: 0;
   width: 1.25em;
   height: 100%;
@@ -5909,9 +5946,9 @@ main .n-nav ul {
   margin: 0;
 }
 .n-nav--drop ul.n-list:not(.n-list__no-bullet):not(.n-list__inline).n-left-side li:before {
-  right: auto;
+  inset-inline-end: auto;
   transform: rotate(180deg);
-  left: 0;
+  inset-inline-start: 0;
   margin: 0;
   top: 0;
   height: 2em;
@@ -5924,7 +5961,6 @@ main .n-nav ul {
 .n-nav--drop li > input {
   -webkit-mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(180) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A") center center no-repeat;
   -webkit-mask-size: 0.4em;
-  background-color: #000;
   background-color: var(--control-color, #000);
 }
 .n-nav--drop li > input {
@@ -5975,10 +6011,10 @@ main .n-nav ul {
     order: 1;
   }
   .n-nav--drop:not([data-ready]) li:not([tabindex]) > ul ~ a {
-    padding-right: 0.75em;
+    padding-inline-end: 0.75em;
   }
   .n-nav--drop li:not([tabindex]) > ul ~ a {
-    padding-right: 2.75em;
+    padding-inline-end: 2.75em;
   }
   .n-nav--drop ul.n-left-side li[aria-haspopup] {
     padding-inline-end: 0;
@@ -5993,13 +6029,12 @@ main .n-nav ul {
     opacity: 0;
     position: absolute;
     transform: scaleX(0);
-    transform-origin: left;
+    transform-origin: start;
   }
   html:not(.can-touch) .n-nav--drop ul li:not([aria-expanded]) ul.n-left-side ul {
-    transform-origin: right;
+    transform-origin: end;
   }
   html:not(.can-touch) .n-nav--drop > ul > li > ul li {
-    background-color: #fff;
     background-color: var(--control-bg, #fff);
   }
   html:not(.can-touch) .n-nav--drop > ul > li:hover > input:not(:checked) ~ ul,
@@ -6021,7 +6056,6 @@ html:not(.can-touch) .n-nav--drop > ul li:not([aria-haspopup]) ul li:hover ~ ul 
     overflow: visible;
     opacity: 1;
     z-index: 2;
-    background-color: #fff;
     background-color: var(--control-bg, #fff);
     transform: scaleY(1);
   }
@@ -6050,32 +6084,31 @@ nav.n-nav--drop li li li a {
   }
 
   [dir=rtl] .n-nav--drop li ul:not(.n-left-side) > li[aria-haspopup] {
-    padding-left: 0;
-    padding-right: 1.875em;
+    padding-inline-start: 0;
+    padding-inline-end: 1.875em;
   }
   [dir=rtl] .n-nav--drop li ul:not(.n-left-side) > li[aria-haspopup]:before {
-    right: 0;
-    left: auto;
+    inset-inline-end: 0;
+    inset-inline-start: auto;
   }
   [dir=rtl] .n-nav--drop li ul.n-left-side > li > a {
-    text-align: left;
     text-align: start;
   }
 }
 [dir=rtl] .n-nav--drop ul.n-left-side li[aria-haspopup],
 [dir=rtl] .n-nav--drop li[aria-haspopup] {
-  padding-right: 0;
-  padding-left: 1.875em;
+  padding-inline-end: 0;
+  padding-inline-start: 1.875em;
 }
 [dir=rtl] .n-nav--drop.n-nav ul.n-list li:before {
-  left: 0;
-  right: auto;
-  margin-left: 0;
+  inset-inline-start: 0;
+  inset-inline-end: auto;
+  margin-inline-start: 0;
 }
 [dir=rtl] .n-nav--drop li[aria-haspopup]:before,
 [dir=rtl] .n-nav--drop li > input {
-  right: auto;
-  left: 0;
+  inset-inline-end: auto;
+  inset-inline-start: 0;
 }
 
 @media (max-width: 599.9px) {
@@ -6087,7 +6120,7 @@ nav.n-nav--drop li li li a {
   .n-nav--drop ul ul {
     position: static;
     width: calc(100% + 3em);
-    padding-left: 0.5em;
+    padding-inline-start: 0.5em;
     overflow: hidden;
     box-sizing: border-box;
   }
@@ -6098,14 +6131,14 @@ nav.n-nav--drop li li li a {
     width: 100%;
   }
   .n-nav--drop ul li[aria-haspopup] {
-    padding-right: 3em;
+    padding-inline-end: 3em;
   }
   .n-nav--drop ul li[aria-haspopup][aria-expanded]:before {
     -webkit-mask-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(0) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A");
   }
   .n-nav--drop ul.n-list:not(.n-list--no-bullet):not(.n-list--inline).n-left-side li:before {
-    right: 0;
-    left: auto;
+    inset-inline-end: 0;
+    inset-inline-start: auto;
     transform: none;
   }
 
@@ -6133,22 +6166,6 @@ nav.n-nav--drop li li li a {
 
   html:not([data-nui-js]) .n-fold.n-fold--mobile:not([aria-expanded]) .n-fold__content {
     max-width: 100%;
-  }
-
-  [dir=rtl] .n-nav--drop li[aria-haspopup] {
-    padding-left: 2.5em;
-  }
-  [dir=rtl] .n-nav--drop li[aria-haspopup] ul {
-    max-width: calc(100% + 2.5em);
-    padding-right: 0.5em;
-    padding-left: 0;
-  }
-  [dir=rtl] .n-nav--drop li[aria-haspopup] ul.n-list:not(.n-list--no-bullet):not(.n-list--inline).n-left-side li:before {
-    right: auto;
-    left: 0;
-  }
-  [dir=rtl] .n-nav--drop li[aria-haspopup] ul ul {
-    max-width: calc(100% + 1.875em);
   }
 }
 @supports (-webkit-overflow-scrolling: touch) {
@@ -6184,6 +6201,14 @@ nav.n-nav--drop li li li a {
 /*# sourceMappingURL=notify.css.map */
 @charset "UTF-8";
 /* niui – Notification bar */
+:root {
+  --font-size: 16px;
+  --line-height: 1.5;
+  --line-height-em: calc(1em * var(--line-height));
+  --color: #333;
+  --bg: #fff;
+}
+
 .n-notify {
   background: rgba(0, 0, 0, 0.8);
   text-align: center;
@@ -6226,11 +6251,18 @@ nav.n-nav--drop li li li a {
 /*# sourceMappingURL=parallax.scss.css.map */
 @charset "UTF-8";
 /* Tables */
+:root {
+  --font-size: 16px;
+  --line-height: 1.5;
+  --line-height-em: calc(1em * var(--line-height));
+  --color: #333;
+  --bg: #fff;
+}
+
 .n-table {
   width: 100%;
   overflow: auto;
   border-collapse: collapse;
-  -webkit-overflow-scrolling: touch;
   display: block;
 }
 .n-table td,
@@ -6291,7 +6323,6 @@ nav.n-nav--drop li li li a {
       scrollbar-highlight-color: transparent;
       scrollbar-shadow-color: transparent;
   */
-  -webkit-overflow-scrolling: touch;
 }
 .n-table__wrap .n-table {
   display: table;
@@ -6311,11 +6342,18 @@ nav.n-nav--drop li li li a {
 /*# sourceMappingURL=table.css.map */
 @charset "UTF-8";
 /* Tables */
+:root {
+  --font-size: 16px;
+  --line-height: 1.5;
+  --line-height-em: calc(1em * var(--line-height));
+  --color: #333;
+  --bg: #fff;
+}
+
 .n-table {
   width: 100%;
   overflow: auto;
   border-collapse: collapse;
-  -webkit-overflow-scrolling: touch;
   display: block;
 }
 .n-table td,
@@ -6376,7 +6414,6 @@ nav.n-nav--drop li li li a {
       scrollbar-highlight-color: transparent;
       scrollbar-shadow-color: transparent;
   */
-  -webkit-overflow-scrolling: touch;
 }
 .n-table__wrap .n-table {
   display: table;
@@ -6481,6 +6518,14 @@ html:not(.can-touch) .n-tool:hover .n-tool__tip {
 /*# sourceMappingURL=tooltip.css.map */
 @charset "UTF-8";
 /* niui – Tooltip */
+:root {
+  --font-size: 16px;
+  --line-height: 1.5;
+  --line-height-em: calc(1em * var(--line-height));
+  --color: #333;
+  --bg: #fff;
+}
+
 .n-tool {
   cursor: help;
   font-weight: bold;
@@ -6566,6 +6611,14 @@ html:not(.can-touch) .n-tool:hover .n-tool__tip {
 /*# sourceMappingURL=tooltip.scss.css.map */
 @charset "UTF-8";
 /* niui – Typography */
+:root {
+  --font-size: 16px;
+  --line-height: 1.5;
+  --line-height-em: calc(1em * var(--line-height));
+  --color: #333;
+  --bg: #fff;
+}
+
 .n-type {
   color: #333;
   -webkit-text-size-adjust: none;
@@ -6584,6 +6637,7 @@ html:not(.can-touch) .n-tool:hover .n-tool__tip {
   line-height: 1.5;
   word-break: break-word;
   word-wrap: break-word;
+  font-size: 1em;
   font-weight: 500;
   margin: 24px 0;
 }
@@ -6616,9 +6670,6 @@ html:not(.can-touch) .n-tool:hover .n-tool__tip {
 .n-type h3 {
   font-size: 1.2em;
   line-height: 1.26375;
-}
-.n-type h4 {
-  font-size: 1em;
 }
 .n-type h5 {
   font-size: 0.8em;
@@ -6680,6 +6731,14 @@ html:not(.can-touch) .n-tool:hover .n-tool__tip {
 /*# sourceMappingURL=typography.css.map */
 @charset "UTF-8";
 /* niui – Typography */
+:root {
+  --font-size: 16px;
+  --line-height: 1.5;
+  --line-height-em: calc(1em * var(--line-height));
+  --color: #333;
+  --bg: #fff;
+}
+
 .n-type {
   color: #333;
   -webkit-text-size-adjust: none;
@@ -6698,6 +6757,7 @@ html:not(.can-touch) .n-tool:hover .n-tool__tip {
   line-height: 1.5;
   word-break: break-word;
   word-wrap: break-word;
+  font-size: 1em;
   font-weight: 500;
   margin: 24px 0;
 }
@@ -6730,9 +6790,6 @@ html:not(.can-touch) .n-tool:hover .n-tool__tip {
 .n-type h3 {
   font-size: 1.2em;
   line-height: 1.26375;
-}
-.n-type h4 {
-  font-size: 1em;
 }
 .n-type h5 {
   font-size: 0.8em;

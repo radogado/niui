@@ -1,12 +1,17 @@
 @charset "UTF-8";
 /* niui – Grid */
+:root {
+  --font-size: 16px;
+  --line-height: 1.5;
+  --line-height-em: calc(1em * var(--line-height));
+  --color: #333;
+  --bg: #fff;
+}
+
 /* For proper fallback, use .col* for all columns. Automatic column width (no .col*) works for Flexbox only. */
 .n-row {
   width: 100%;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   text-align: center;
 }
@@ -263,7 +268,7 @@ ul.n-masonry {
 }
 
 ol.n-masonry > * {
-  padding-left: 2.5em;
+  padding-inline-start: 2.5em;
 }
 
 .n-pad {

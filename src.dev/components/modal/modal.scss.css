@@ -1,5 +1,13 @@
 @charset "UTF-8";
 /* niui – Modal */
+:root {
+  --font-size: 16px;
+  --line-height: 1.5;
+  --line-height-em: calc(1em * var(--line-height));
+  --color: #333;
+  --bg: #fff;
+}
+
 .no-scroll, .no-scroll body {
   overflow: hidden;
 }
@@ -40,7 +48,6 @@ html.n-full-screen body {
   bottom: 0;
   overflow-y: auto;
   overflow-x: none;
-  -webkit-overflow-scrolling: touch;
   background: transparent;
   height: 100%;
   padding-top: 3em;
@@ -74,7 +81,7 @@ html.n-full-screen body {
   height: 50vh;
   margin-top: 25vh;
   width: 50vw;
-  margin-left: 25vw;
+  margin-inline-start: 25vw;
 }
 .n-ovrl > * {
   background: #fff;
@@ -111,8 +118,8 @@ html.n-full-screen body {
     padding: 0;
   }
   .n-ovrl > .n-ovrl--close {
-    left: 0.5rem;
-    right: auto;
+    inset-inline-start: 0.5rem;
+    inset-inline-end: auto;
     margin-top: 0.5rem;
     top: var(--overlay-top, 0);
     width: 40px;

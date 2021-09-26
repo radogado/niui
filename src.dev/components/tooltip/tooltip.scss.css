@@ -1,5 +1,13 @@
 @charset "UTF-8";
 /* niui – Tooltip */
+:root {
+  --font-size: 16px;
+  --line-height: 1.5;
+  --line-height-em: calc(1em * var(--line-height));
+  --color: #333;
+  --bg: #fff;
+}
+
 .n-tool {
   cursor: help;
   font-weight: bold;

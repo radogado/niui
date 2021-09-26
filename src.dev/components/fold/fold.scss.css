@@ -1,5 +1,13 @@
 @charset "UTF-8";
 /* niui – Fold */
+:root {
+  --font-size: 16px;
+  --line-height: 1.5;
+  --line-height-em: calc(1em * var(--line-height));
+  --color: #333;
+  --bg: #fff;
+}
+
 .n-fold {
   display: grid;
   position: relative;
@@ -15,7 +23,6 @@
 .n-fold__label {
   margin: 0;
   float: none;
-  text-align: left;
   text-align: start;
   width: 100%;
   user-select: none;
@@ -212,7 +219,6 @@
     }
     .n-header.n-header__fixed-mobile .n-fold--mobile[aria-expanded] .n-fold__content {
       overflow: auto;
-      -webkit-overflow-scrolling: touch;
       position: fixed;
       top: 3em;
       bottom: 0;

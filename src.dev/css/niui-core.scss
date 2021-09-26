@@ -87,7 +87,7 @@ html.n-vertical-page {
 	position: static;
 }
 
-/* Element as a window to an image spanning viewpoert dimensions. iOS doesn't support it natively and requires div.fixed-bg-image */
+/* Element as a window to an image spanning viewpoert dimensions. iOS doesn't support it natively and requires div.fixed-bg__image */
 .n-fixed-bg {
 	background-size: cover;
 	background-position: center center;
@@ -143,18 +143,8 @@ a[href].span-relative-parent {
 	left: 0;
 }
 
-[data-nui-animation] {
-	// Speed up animated elements
-	pointer-events: none;
-}
-
-// Fallback before loading the full parallax CSS
-.n-parallax--back {
-	position: absolute;
-}
-
 .n-viewport {
-	-webkit-overflow-scrolling: touch;
+	
 	min-height: 100vh;
 	box-sizing: border-box;
 	overflow: auto;
