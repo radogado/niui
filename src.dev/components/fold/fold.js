@@ -101,7 +101,7 @@
 			makeReady(el);
 		});
 	}
-	window.addEventListener("mousedown", closeFoldClickOutside); // Close all Fold elements when clicking outside of them
+	window.addEventListener("pointerup", closeFoldClickOutside); // Close all Fold elements when clicking outside of them
 	window.addEventListener("touchend", closeFoldClickOutside); // Close all Fold elements when clicking outside of them
 	window.addEventListener("scroll", () => {
 		// Close fixed n-ovrl if its scrolling becomes a window scroll. Idea by a Google mobile nav.
