@@ -2,48 +2,32 @@
 <html lang=en>
 
 <head>
-
 	<title>niui</title>
-
 	<meta name="Description" content="niui front end framework">
-
 	<meta charset="utf-8">
 	<meta name=viewport content="width=device-width,initial-scale=1.0,maximum-scale=5,user-scalable=yes">
-
 	<link rel=icon href=images/favicon.ico>
 	<link rel=styleSheet href=dist.dev/bundle.min.css type=text/css media=screen>
 	<link rel=styleSheet href=src.dev/css/guide.css type=text/css media=screen>
 	<script src="dist/niui-preload.min.js"></script> <!-- Load and execute immediately. Should be on the same host as the above CSS file, not waiting for another request -->
-
-
 	<script>
 		function setupCopy() {
-
 			if (typeof nui === "object") {
-
 				nui.copyButton(document.getElementById("copybutton"), document.getElementById("copycontent"));
 				document.querySelectorAll(".code").forEach(function(el) {
-
 					el.insertAdjacentHTML("beforeend", "<button class='n-btn'>Copy</button>");
 					nui.copyButton(el.querySelector("button"), el.querySelector("pre"));
-
 				});
-
 			}
-
 		}
 	</script>
-
 	<script src=dist.dev/bundle.js type=module defer onload="setupCopy();"></script>
 	<!-- 	<script src=dist/niui.min.js type=module defer onload="setupCopy();"></script> -->
-
 	<link rel=styleSheet href=src.dev/css/prism.css type=text/css media=screen>
 	<script src="src.dev/script/prism.js" type="text/javascript" defer></script>
-
 	<script type="text/javascript">
 		document.querySelector("html").classList += !location.hash || location.hash === "#home" ? " start-from-home" : "";
 	</script>
-
 </head>
 
 <body dir=ltr class="n-type">
@@ -82,32 +66,21 @@
 			<button><span>Color scheme</a>
 		</div>
 		<main class="n-carousel__content">
-
 			<div id=home>
-
 				<div class="n-row">
-
 					<div class="_1/3 n-middle- n-center-">
-
 						<div style="padding-top: 2.5em;">
-
 							<!-- 										<img src=images/niui.svg alt=Logo style="display: inline-block; vertical-align: top; width: calc(100% - 3em);"> -->
 							<span class="n-aspect" style="--ratio: 3.06; width: calc(100% - 3em); display: inline-block; vertical-align: top;">
 								<img src="images/niui.svg" alt="Logo" style="width: 100%;">
 							</span>
-
 							<sup>3.0</sup>
-
 							<p></p>
 							<h1>Native Internet User Interface</h1>
 							<h2>lightweight, feature-heavy web front-end</h2>
-
 						</div>
-
 					</div>
-
 					<div>
-
 						<ul class="n-masonry n-left">
 							<li>Lightweight, ~10+~10 K</li>
 							<li>Accessible</li>
@@ -122,24 +95,14 @@
 							<li>Auto component initialization</li>
 							<li>Built for edge cases</li>
 						</ul>
-
 					</div>
-
 					<div class="_1/1">
-
 						<a href=//github.com/radogado/niui>GitHub page</a>
-
 						<p><br></p>
-
 						<h2>Reimplemented real world examples</h2>
-
 					</div>
-
 				</div>
-
 				<div class="n-row" style="--width: 1000; --height: 1000;">
-
-
 					<a class="_1/5 n-aspect" href=demos/oslo title="Oslo"> <img src="images/oslo.jpg" alt="Oslo"> </a>
 					<a class="_1/5 n-aspect" href=demos/tomakeafilm title="To Make a Film"> <img src="images/tomakeafilm.jpg" alt="To Make a Film"> </a>
 					<a class="_1/5 n-aspect" href=demos/postbank title="Postbank"> <img src="images/postbank.jpg" alt="Postbank"> </a>
@@ -178,46 +141,30 @@
 					<a class="_1/5 n-aspect" href=demos/imperialinnovations title="Imperial Innovations"> <img src="images/niui%20(20151030)%20imperial%20-.png" alt="Imperial Innovations"> </a>
 					<a class="_1/5 n-aspect" href=demos/microsoft title="Microsoft"> <img src="images/niui%20Microsoft%20(20151030)%20-.png" alt="Microsoft"> </a>
 				</div>
-
 				<div class="n-row">
 					<div>
 						<p>Developed by <a href=//rado.bg>Radoslav Sharapanov</a> since 2014</p>
 						<p><a href=https://www.paypal.me/radogado>Buy me a beer</a></p>
 					</div>
 				</div>
-
 			</div>
-
 			<div id=npm>
-
 				<div>
-
 					<div class="n-row">
-
 						<div>
-
 							<h2>Get <a href=dist/niui.min.css download>niui.min.css</a>, <a href=dist/niui.min.js download>niui.min.js</a> and <a href=dist/index.html download>index.html</a> and edit the latter.</h2>
-
 							<h2>Or install with NPM and include the niui files in your app</h2>
-
 							<div class=code>
-
 								<pre><code class="language-js">npm install --save-dev niui-npm</code>
 </pre>
-
 							</div>
 							<br>
 							<div class=code>
-
 								<pre><code class="language-js">require("./node_modules/niui-npm/index.js");</code>
 </pre>
-
 							</div>
-
 							<h3>Lite version available at <a href=dist/niui-lite.min.css download>niui-lite.min.css</a>, <a href=dist/niui-lite.min.js download>niui-lite.min.js</a> without the following components:</h3>
-
 							<ul>
-
 								<li>Carousel</li>
 								<li>Tabs</li>
 								<li>Lightbox</li>
@@ -226,28 +173,17 @@
 								<li>Accordion</li>
 								<li>Tooltip</li>
 								<li>Parallax</li>
-
 							</ul>
-
 						</div>
 					</div>
-
 				</div>
-
 			</div>
-
 			<div id=page-structure>
-
 				<div class="n-row">
-
 					<div>
-
 						<h2>Page structure</h2>
-
 						<h3>Minimal</h3>
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -261,9 +197,7 @@
 </code></pre>
 						</div>
 						<h3>Recommended</h3>
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -291,16 +225,11 @@
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-
 						</div>
-
 						<h3>Options</h3>
-
 						<ul class="n-list">
-
 							<li>
-								<pre>.n-header-banner.n-viewport</pre> – full-height centered header and banner area
-								<ul class="n-list">
+								<pre>.n-header-banner.n-viewport</pre> – full-height centered header and banner area <ul class="n-list">
 									<li>add
 										<pre>.n-push-up</pre> to balance at 1/3 height, instead of 1/2
 									</li>
@@ -321,128 +250,78 @@
 								<pre>html.n-vertical-page</pre> blocks horizontal overflow.
 							</li>
 							<li>Lite version available at <a href=dist/niui-lite.min.css download>niui-lite.min.css</a> and <a href=dist/niui-lite.min.js download>niui-lite.min.js</a> without Carousel, Tabs, Lightbox, Cards, Popin, Modal, Notify, Parallax, Tooltip.</li>
-
 						</ul>
-
 					</div>
-
 				</div>
-
 			</div>
-
 			<div data-tab-title=Grid id=grid>
 				<div>
-
 					<div class="n-row">
-
 						<div class="_1/1">
-
 							<h2>Grid</h2>
-
 							<h3>Columns with classes like <b>_1/3</b> inside a container of class <b>n-row</b></h3>
-
 						</div>
-
 					</div>
-
 					<div class="n-row grid-demo">
-
 						<div class="_1/5 n-center">
-
 							<div>
 								<pre>_1/5</pre>
 							</div>
-
 						</div>
-
 						<div class="_4/5 n-center">
-
 							<div>
 								<pre>_4/5</pre>
 							</div>
-
 						</div>
-
 						<div class="_1/4 n-center">
-
 							<div>
 								<pre>_1/4</pre>
 							</div>
-
 						</div>
-
 						<div class="_3/4 n-center">
-
 							<div>
 								<pre>_3/4</pre>
 							</div>
-
 						</div>
-
 						<div class="_1/3 n-center">
-
 							<div>
 								<pre>_1/3</pre>
 							</div>
-
 						</div>
-
 						<div class="_2/3 n-center">
-
 							<div>
 								<pre>_2/3</pre>
 							</div>
-
 						</div>
-
 						<div class="_2/5 n-center">
-
 							<div>
 								<pre>_2/5</pre>
 							</div>
-
 						</div>
-
 						<div class="_3/5 n-center">
-
 							<div>
 								<pre>_3/5</pre>
 							</div>
-
 						</div>
-
 						<div class="_1/2 n-center">
-
 							<div>
 								<pre>_1/2</pre>
 							</div>
-
 						</div>
-
 						<div class="_1/2 n-center">
-
 							<div>
 								<pre>_1/2</pre>
 							</div>
-
 						</div>
-
 						<div class="_1/1 n-center">
-
 							<div>
 								<pre>_1/1</pre>
 							</div>
-
 						</div>
-
 					</div>
-
 					<div class="n-row">
-
 						<div class="_1/1">
-
 							<div class="code">
-
 								<pre><code class="language-markup">&lt;div class="n-row"&gt;
 	&lt;div&gt;
 		&lt;div&gt;...&lt;/div&gt;
@@ -451,81 +330,48 @@
 		&lt;div&gt;...&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
-
 							</div>
-
 						</div>
-
 					</div>
-
 					<div class="n-row">
-
 						<div class="_1/1">
-
 							<h2>Alignment</h2>
-
 						</div>
-
 					</div>
-
 					<div class="n-row grid-demo">
-
 						<div>
-
 							<div>Left Top<p><br></p>
 							</div>
-
 						</div>
 						<div class="n-center">
-
 							<div>Center Top</div>
-
 						</div>
 						<div class="n-right">
-
 							<div>Right Top</div>
-
 						</div>
 						<div class="n-middle">
-
 							<div>Left Middle</div>
-
 						</div>
 						<div class="n-bottom">
-
 							<div>Left Bottom</div>
-
 						</div>
 						<div class="n-center n-middle">
-
 							<div>Center Middle</div>
-
 						</div>
 						<div class="n-right n-middle">
-
 							<div>Right Middle</div>
-
 						</div>
 						<div class="n-center n-bottom">
-
 							<div>Center Bottom</div>
-
 						</div>
 						<div class="n-right n-bottom">
-
 							<div>Right Bottom</div>
-
 						</div>
 						<div>ThisLineIsTooLongAndMustBeClippedByTheContainerEvenThoughOverflowXandYDontWorkAsExpected</div>
-
 					</div>
-
 					<div class="n-row">
-
 						<div class="_1/1">
-
 							<div class="code">
-
 								<pre><code class="language-markup">&lt;div class="n-row"&gt;
 	&lt;div&gt;
 		&lt;div&gt;Left Top&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;/div&gt;
@@ -559,32 +405,20 @@
 </pre>
 							</div>
 						</div>
-
 					</div>
-
 					<div class="n-row">
-
 						<div class="_1/1">
-
 							<h3>Grid without column padding</h3>
-
 						</div>
-
 					</div>
-
 					<div class="n-row grid-demo n-row--no-padding">
-
 						<div class="_1/2 n-bottom">
-
 							<div>Bottom-aligned 1/2 wide column</div>
-
 						</div>
 						<div class="_1/4 n-right">
-
 							<div>Right-aligned 1/2 wide column.<p><br></p>
 								<p><br></p>
 							</div>
-
 						</div>
 						<div class="_1/4 n-right">
 							<div class="n-row--vertical n-row">
@@ -592,51 +426,32 @@
 								<div class="n-bottom" style="text-align: start;">Bottom part of a vertical row.</div>
 							</div>
 						</div>
-
 					</div>
-
 					<div class="n-row">
-
 						<div class="_1/1">
-
-
 							<div class="code">
-
 								<pre><code class="language-markup">&lt;div class="n-row n-row--no-padding"&gt;
 	&lt;div&gt;
 		&lt;div&gt;...&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</code>
 </pre>
-
 							</div>
 						</div>
-
 					</div>
-
 					<div class="n-row">
-
 						<div class="_1/1">
-
 							<h3>Grid without column margin (gutter)</h3>
-
 						</div>
-
 					</div>
-
 					<div class="n-row grid-demo n-row--no-margin">
-
 						<div class="_1/2 n-bottom">
-
 							<div>Bottom-aligned 1/2 wide column</div>
-
 						</div>
 						<div class="_1/4 n-right" style="background: lightcoral;">
-
 							<div>Right-aligned 1/2 wide column.<p><br></p>
 								<p><br></p>
 							</div>
-
 						</div>
 						<div class="_1/4 n-right">
 							<div class="n-row--vertical n-row">
@@ -644,116 +459,64 @@
 								<div class="n-bottom" style="text-align: start;">Bottom part of a vertical row.</div>
 							</div>
 						</div>
-
 					</div>
-
 					<div class="n-row">
-
 						<div class="_1/1">
-
-
 							<div class="code">
-
 								<pre><code class="language-markup">&lt;div class="n-row n-row--no-margin"&gt;
 	&lt;div&gt;
 		&lt;div&gt;...&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</code>
 </pre>
-
 							</div>
 						</div>
-
 					</div>
-
 					<div class="n-row">
-
 						<div class="_1/1">
-
 							<h3>Grid without spacing</h3>
-
 						</div>
-
 					</div>
-
 					<div class="n-row">
-
 						<div>
-
 							<div class="n-row grid-demo n-row--no-spacing">
-
-								<div class="_1/2">
-									1
-								</div>
-								<div class="_1/4" style="background: lightcoral;">
-									2
-								</div>
-								<div class="_1/4">
-									3
-								</div>
-
+								<div class="_1/2"> 1 </div>
+								<div class="_1/4" style="background: lightcoral;"> 2 </div>
+								<div class="_1/4"> 3 </div>
 							</div>
-
 						</div>
-
 					</div>
-
 					<div class="n-row">
-
 						<div class="_1/1">
-
-
 							<div class="code">
-
 								<pre><code class="language-markup">&lt;div class="n-row n-row--no-spacing"&gt;
 	&lt;div&gt;
 		&lt;div&gt;...&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</code>
 </pre>
-
 							</div>
 						</div>
-
 					</div>
-
 					<div class="n-row">
-
 						<div class="_1/1">
-
 							<h3>Embedded grid</h3>
-
 						</div>
-
 					</div>
-
 					<div class="n-row grid-demo">
-
 						<div>
-
 							<div class="n-row">
-
 								<div>Child grid column</div>
 								<div>Child grid column</div>
-
 							</div>
-
 						</div>
 						<div class="_1/3">
-
 							<div>Parent grid column</div>
-
 						</div>
-
 					</div>
-
 					<div class="n-row">
-
 						<div class="_1/1">
-
-
 							<div class="code">
-
 								<pre><code class="language-markup">&lt;div class="n-row"&gt;
 	&lt;div&gt;
 		&lt;div class="n-row"&gt;
@@ -766,49 +529,28 @@
 	&lt;/div&gt;
 &lt;/div&gt;</code>
 </pre>
-
 							</div>
 						</div>
-
 					</div>
-
 					<div class="n-row">
-
 						<div class="_1/1">
-
 							<h3>Embedded grid without extra spacing</h3>
-
 						</div>
-
 					</div>
-
 					<div class="n-row grid-demo">
-
 						<div>
-
 							<div class="n-row n-unpad">
-
 								<div>Child grid column</div>
 								<div>Child grid column</div>
-
 							</div>
-
 						</div>
 						<div class="_1/3">
-
 							<div>Parent grid column</div>
-
 						</div>
-
 					</div>
-
 					<div class="n-row">
-
 						<div class="_1/1">
-
-
 							<div class="code">
-
 								<pre><code class="language-markup">&lt;div class="n-row"&gt;
 	&lt;div&gt;
 		&lt;div class="n-row n-unpad"&gt;
@@ -821,152 +563,86 @@
 	&lt;/div&gt;
 &lt;/div&gt;</code>
 </pre>
-
 							</div>
 						</div>
-
 					</div>
-
 					<div class="n-row">
-
 						<div class="_1/1">
-
 							<h3>Grid with borders</h3>
-
 						</div>
-
 					</div>
-
 					<div class="n-row">
-
 						<div>
-
 							<div class="n-row n-row--border">
-
 								<div class="_1/2">
 									<h2>Grid with borders</h2>
 								</div>
-
 								<div class="_1/2 n-center n-middle">
-
-									<div>
-
-										Middle
-
-									</div>
-
+									<div> Middle </div>
 								</div>
-
 								<div class="_1/1">
-
 									<div>Full width</div>
-
 								</div>
-
 							</div>
 							<br>
 							<div class="code">
-
 								<pre><code class="language-markup">&lt;div class="n-row n-row--border"&gt;
 	&lt;div&gt;...&lt;/div&gt;
 &lt;/div&gt;</code>
 </pre>
-
 							</div>
 							<br>
-
 							<div class="n-row n-row--border-all">
-
 								<div class="_1/2">
 									<h2>Grid with all borders</h2>
 								</div>
-
 								<div class="_1/2 n-center n-middle">
-
-									<div>
-
-										Middle
-
-									</div>
-
+									<div> Middle </div>
 								</div>
-
 								<div class="_1/1">
-
 									<div>Full width</div>
-
 								</div>
-
 								<div class="_1/3">
 									<div>Top</div>
 								</div>
 								<div class="_1/3 n-bottom n-center">
 									<div>Center Bottom</div>
 								</div>
-
 								<div class="_1/3 n-right">
-
 									<div>
-
 										<div class="n-row">
-
 											<div class="_1/1">Right</div>
 											<div class="_1/1">Right</div>
-
 										</div>
-
 									</div>
-
 								</div>
-
 							</div>
-
 						</div>
-
 					</div>
-
 					<div class="n-row">
-
 						<div class="_1/1">
-
-
 							<div class="code">
-
 								<pre><code class="language-markup">&lt;div class="n-row n-row--border-all"&gt;
 	&lt;div&gt;...&lt;/div&gt;
 &lt;/div&gt;</code>
 </pre>
-
 							</div>
 						</div>
-
 					</div>
-
 					<div class="n-row">
-
 						<div class="_1/1">
-
 							<h3>Right to left layout</h3>
-
 						</div>
-
 					</div>
-
 					<div dir="rtl">
-
 						<div class="n-row grid-demo">
-
 							<div class="_1/2 n-bottom">
-
 								<div>Bottom-aligned 1/2 wide column</div>
-
 							</div>
 							<div class="_1/4 n-right">
-
 								<div>Right-aligned 1/2 wide column.<p><br></p>
 									<p><br></p>
 								</div>
-
 							</div>
 							<div class="_1/4 n-right">
 								<div class="n-row--vertical n-row">
@@ -978,52 +654,27 @@
 								<div>1/5 <br> centered</div>
 							</div>
 							<div>
-
-								<div>
-
-									1/5
-
-								</div>
-
+								<div> 1/5 </div>
 							</div>
-
 							<div>ThisLineIsTooLongAndMustBeClippedByTheContainerEvenThoughOverflowXandYDontWorkAsExpected</div>
 							<div>1/5</div>
-							<div>
-
-								1/5
-
-							</div>
-
+							<div> 1/5 </div>
 						</div>
-
 					</div>
-
 					<div class="n-row">
-
 						<div class="_1/1">
-
-
 							<div class="code">
-
 								<pre><code class="language-markup">&lt;div dir="rtl"&gt;
 	...
 &lt;/div&gt;</code>
 </pre>
-
 							</div>
 						</div>
-
 					</div>
-
 					<div class="n-row">
-
 						<div class="_1/1">
-
 							<h3>Options</h3>
-
 							<ul class="n-list">
-
 								<li>Column class is optional. Minimum width 20%.</li>
 								<li>
 									<pre>.n-row > div > .n-row--vertical.n-row</pre> – a vertical row as tall as the parent row with equal-height full-width children.
@@ -1032,86 +683,48 @@
 								<li>A column with
 									<pre>.n-full-mobile-width</pre> will take the full mobile width.
 								</li>
-
 							</ul>
-
 						</div>
-
 					</div>
-
 				</div>
 			</div>
-
 			<div data-tab-title=Navigation id=nav>
-
 				<div class="n-row">
-
 					<div class=_1/1>
-
 						<h2>Navigation</h2>
-
 					</div>
-
 					<div class="_1/3">
-
 						<h3>Standard navigation</h3>
-
 						<nav class="n-nav">
-
 							<ul class="n-list n-list--inline">
-
 								<li> <a href=#buttons>Buttons</a> </li>
-
 								<li> <a href=#drop-nav>Drop-down nav</a> </li>
-
 								<li class="n-nav-current"> <a href=#lightbox>Lightbox</a> </li>
-
 								<li> <a href=#accordion>Accordion</a> </li>
-
 								<li> <a href=#modal>Modal window</a> </li>
-
 							</ul>
-
 						</nav>
-
 						<br><br>
-
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;nav class="n-nav"&gt;
 	&lt;ul class="n-list n-list--inline"&gt;
 		&lt;li&gt; &lt;a href="#buttons"&gt;Buttons&lt;/a&gt; &lt;/li&gt;
 	&lt;/ul&gt;							
 &lt;/nav&gt;</code>
 </pre>
-
 						</div>
 					</div>
-
 					<div class="_1/3">
-
 						<h3>Big navigation</h3>
-
 						<nav class="n-nav">
-
 							<ul class="n-list n-list--inline n-big-text">
-
 								<li class="n-nav-current"> <a href=#grid>Grid</a> </li>
-
 								<li> <a href=#slider>Carousel</a> </li>
-
 								<li> <a href=#form>Form</a> </li>
-
 							</ul>
-
 						</nav>
-
 						<br><br>
-
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;nav class="n-nav"&gt;
 	&lt;ul class="n-list--inline n-big-text"&gt;
 		&lt;li class="n-nav-current"&gt; &lt;a href="#grid"&gt;Grid&lt;/a&gt; &lt;/li&gt;
@@ -1120,512 +733,263 @@
 	&lt;/ul&gt;
 &lt;/nav&gt;</code>
 </pre>
-
 						</div>
 					</div>
-
 					<div class="_1/3">
-
 						<h2>Scroll navigation</h2>
 						<nav class="n-nav n-nav--scroll">
-
 							<ul class="n-list">
-
 								<li> <a href=#buttons>Buttons</a> </li>
-
 								<li> <a href=#drop-nav>Drop-down nav</a> </li>
-
 								<li> <a href=#lightbox class="n-nav-current">Lightbox</a> </li>
-
 								<li> <a href=#accordion>Accordion</a> </li>
-
 								<li> <a href=#modal>Modal window</a> </li>
-
 								<li> <a href=#video>Video</a> </li>
-
 								<li> <a href=#aspect-ratio>Aspect ratio</a> </li>
-
 								<li> <a href=#masonry>Masonry</a> </li>
-
 								<li> <a href=#tables>Tables</a> </li>
-
 								<li> <a href=#tabs>Tabs</a> </li>
-
 								<li> <a href=#lists>Lists</a> </li>
-
 								<li> <a href=#cards>Cards</a> </li>
-
 								<li> <a href=//rado.bg target="_blank">WordPress theme</a> </li>
-
 								<li> <a href=#showcase>Showcase</a> </li>
-
 							</ul>
-
 						</nav>
 						<br><br>
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;nav class="n-nav n-nav--scroll"&gt;
 	&lt;ul&gt;
 		&lt;li&gt; &lt;a href="#buttons"&gt;Buttons&lt;/a&gt; &lt;/li&gt;
 	&lt;/ul&gt;
 &lt;/nav&gt;</code>
 </pre>
-
 						</div>
 					</div>
-
 					<div class="_1/1">
-
 						<h2>Drop navigation</h2>
-
 						<nav class="n-nav n-nav--drop">
-
 							<ul class="n-list">
-
 								<li>
-
 									<input type="checkbox" name="level-0">
-
 									<ul class="n-list">
-
 										<li>
-
 											<input type="checkbox" name="level-0-1">
-
 											<ul class="n-list">
-
 												<li>
-
 													<a href="asd">First item's second level item 1 third level item 1</a>
-
 												</li>
-
 												<li>
-
 													<a href="fdgdf">First item's second level item 1 third level item 2</a>
-
 												</li>
-
 											</ul>
-
 											<a>First item's second level item 1</a>
-
 										</li>
-
 										<li>
-
 											<input type="checkbox" name="level-0-1">
-
 											<ul class="n-list">
-
 												<li>
-
 													<a href="#">First item's second level item 2 third level item 1</a>
-
 												</li>
-
 												<li>
-
 													<a href="#">First item's second level item 2 third level item 1</a>
-
 												</li>
-
 											</ul>
-
 											<a href=asd>First item's second level item 2</a>
-
 										</li>
-
 									</ul>
-
 									<a>First item</a>
-
 								</li>
-
 								<li>
-
 									<input type="checkbox" name="level-0">
-
 									<ul class="n-list">
-
 										<li>
-
 											<input type="checkbox" name="level-0-2">
-
 											<ul class="n-list">
-
 												<li>
-
 													<a href="#">Second item level two item 1 third level item 1</a>
-
 												</li>
-
 												<li>
-
 													<a href="#">Second item level two item 1 third level item 1</a>
-
 												</li>
-
 											</ul>
-
 											<a>Second item level two item 1</a>
-
 										</li>
-
 									</ul>
-
 									<a href=asd>Second item which is a link with long text</a>
-
 								</li>
-
 								<li>
-
 									<input type="checkbox" name="level-0">
-
 									<ul class="n-list">
-
 										<li>
-
 											<a href=#>Third item second level item 1</a>
-
 										</li>
-
 										<li>
-
 											<a href=#>Third item second level item 2</a>
-
 										</li>
-
 									</ul>
-
 									<a>Third item with one sub level</a>
-
 								</li>
-
 								<li>
-
 									<input type="checkbox" name="level-0">
-
 									<ul class="n-list">
-
 										<li>
-
 											<a href=#>Fourth item second level item 1</a>
-
 										</li>
-
 										<li>
-
 											<a href=#>Fourth item second level item 2</a>
-
 										</li>
-
 									</ul>
-
 									<a>Fourth item with one sub level</a>
-
 								</li>
-
 								<li>
-
 									<a href="#">Last item without a sub level</a>
-
 								</li>
-
 								<li>
-
 									<input type="checkbox" name="level-0">
-
 									<ul class="n-list">
-
 										<li>
-
 											<input type="checkbox" name="level-0-1">
-
 											<ul class="n-list">
-
 												<li>
-
 													<a href="asd">First item's second level item 1 third level item 1</a>
-
 												</li>
-
 												<li>
-
 													<a href="fdgdf">First item's second level item 1 third level item 2</a>
-
 												</li>
-
 											</ul>
-
 											<a>First item's second level item 1</a>
-
 										</li>
-
 										<li>
-
 											<input type="checkbox" name="level-0-1">
-
 											<ul class="n-list">
-
 												<li>
-
 													<a href="#">First item's second level item 2 third level item 1</a>
-
 												</li>
-
 												<li>
-
 													<a href="#">First item's second level item 2 third level item 1</a>
-
 												</li>
-
 											</ul>
-
 											<a href=asd>First item's second level item 2</a>
-
 										</li>
-
 									</ul>
-
 									<a>First item (reprise)</a>
-
 								</li>
-
 							</ul>
-
 						</nav>
-
 						<h3>Drop navigation right-to-left</h3>
-
 						<div dir="rtl">
-
 							<nav class="n-nav n-nav--drop">
-
 								<ul class="n-list">
-
 									<li>
-
 										<input type="checkbox" name="level-0">
-
 										<ul class="n-list">
-
 											<li>
-
 												<input type="checkbox" name="level-0-1">
-
 												<ul class="n-list">
-
 													<li>
-
 														<a href="asd">مورد اول سطح دوم 1 مورد سطح سوم 1</a>
-
 													</li>
-
 													<li>
-
 														<a href="fdgdf">مورد دوم سطح اول 1 مورد سطح سوم 2</a>
-
 													</li>
-
 												</ul>
-
 												<a>مورد اول سطح دوم 1</a>
-
 											</li>
-
 											<li>
-
 												<input type="checkbox" name="level-0-1">
-
 												<ul class="n-list">
-
 													<li>
-
 														<a href="#">مورد اول سطح دوم 2 مورد سطح سوم 1</a>
-
 													</li>
-
 													<li>
-
 														<a href="#">مورد اول سطح دوم 2 مورد سطح سوم 1</a>
-
 													</li>
-
 												</ul>
-
 												<a href=asd>مورد دوم سطح دوم 2</a>
-
 											</li>
-
 										</ul>
-
 										<a>مورد اول</a>
-
 									</li>
-
 									<li>
-
 										<input type="checkbox" name="level-0">
-
 										<ul class="n-list">
-
 											<li>
-
 												<input type="checkbox" name="level-0-2">
-
 												<ul class="n-list">
-
 													<li>
-
 														<a href="#">مورد دوم سطح دو مورد 1 مورد سطح سوم 1</a>
-
 													</li>
-
 													<li>
-
 														<a href="#">مورد دوم سطح دو مورد 1 مورد سطح سوم 1</a>
-
 													</li>
-
 												</ul>
-
 												<a>مورد دوم سطح دو مورد 1</a>
-
 											</li>
-
 										</ul>
-
 										<a href=asd>مورد دوم که پیوندی با متن طولانی است</a>
-
 									</li>
-
 									<li>
-
 										<input type="checkbox" name="level-0">
-
 										<ul class="n-list">
-
 											<li>
-
 												<a href=#>مورد سوم سطح دوم 1</a>
-
 											</li>
-
 											<li>
-
 												<a href=#>مورد سوم مورد دوم سطح 2</a>
-
 											</li>
-
 										</ul>
-
 										<a>مورد سوم با یک سطح فرعی</a>
-
 									</li>
-
 									<li>
-
 										<input type="checkbox" name="level-0">
-
 										<ul class="n-list">
-
 											<li>
-
 												<a href=#>مورد چهارم مورد سطح دوم 1</a>
-
 											</li>
-
 											<li>
-
 												<a href=#>مورد چهارم مورد دوم سطح 2</a>
-
 											</li>
-
 										</ul>
-
 										<a>مورد چهارم با یک سطح فرعی</a>
-
 									</li>
-
 									<li>
-
 										<a href="#">مورد آخر بدون سطح زیر</a>
-
 									</li>
-
 									<li>
-
 										<input type="checkbox" name="level-0">
-
 										<ul class="n-list">
-
 											<li>
-
 												<input type="checkbox" name="level-0-1">
-
 												<ul class="n-list">
-
 													<li>
-
 														<a href="asd">مورد اول سطح دوم 1 مورد سطح سوم 1</a>
-
 													</li>
-
 													<li>
-
 														<a href="fdgdf">مورد دوم سطح اول 1 مورد سطح سوم 2</a>
-
 													</li>
-
 												</ul>
-
 												<a>موارد اول مورد سطح دوم 11</a>
-
 											</li>
-
 											<li>
-
 												<input type="checkbox" name="level-0-1">
-
 												<ul class="n-list">
-
 													<li>
-
 														<a href="#">مورد اول سطح دوم 2 مورد سطح سوم 1</a>
-
 													</li>
-
 													<li>
-
 														<a href="#">مورد اول سطح دوم 2 مورد سطح سوم 1</a>
-
 													</li>
-
 												</ul>
-
 												<a href=asd>مورد دوم سطح دوم 2</a>
-
 											</li>
-
 										</ul>
-
 										<a>مورد اول (تکرار)</a>
-
 									</li>
-
 								</ul>
-
 							</nav>
-
 						</div>
-
 						<br><br>
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;nav class="n-nav n-nav--drop"&gt;
 	&lt;ul&gt;
 		&lt;li&gt; 
@@ -1646,15 +1010,10 @@
 	&lt;/ul&gt;
 &lt;/nav&gt;</code>
 </pre>
-
 						</div>
-
 					</div>
-
 					<div class="_1/3">
-
 						<h2>Mobile navigation behind a burger</h2>
-
 						<div class="code">
 							<pre><code class="language-markup">&lt;header class="n-header__fixed-mobile n-header"&gt;
 	&lt;div class="n-fold n-fold--mobile"&gt;
@@ -1673,15 +1032,10 @@
 &lt;/header&gt;				</code>
 </pre>
 						</div>
-
 						<p>The <b>header</b> fixed-positioning is optional</p>
-
 					</div>
-
 					<div class="_1/3">
-
 						<h2>Rich select navigation</h2>
-
 						<div class="n-select">
 							<div class="n-select__options">
 								<button>Go to page...</button>
@@ -1691,7 +1045,6 @@
 						</div>
 						<br>
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;div class=&quot;n-select&quot;&gt;
 	&lt;div class=&quot;n-select__options&quot;&gt;
 		&lt;button&gt;Go to page...&lt;/button&gt;
@@ -1700,207 +1053,122 @@
 	&lt;/div&gt;
 &lt;/div&gt;</code>
 </pre>
-
 						</div>
 					</div>
-
 					<div class="_1/1">
-
 						<h3>Options</h3>
-
 						<ul class="n-list">
-
 							<li>Drop nav uses CSS variables
 								<pre>--control-bg</pre> and
 								<pre>--control-color</pre> for background/text color.
 							</li>
-
 						</ul>
-
 					</div>
-
 				</div>
-
 			</div>
-
 			<div data-tab-title=Typography id=typography>
-
 				<div class="n-row">
-
 					<div class="_1/1">
-
 						<h2>For niui typography features like baseline alignment, wrap the below elements inside an <b>.n-type</b> container</h2>
-
 					</div>
-
 					<div class="_1/3">
-
 						<h2>Headlines</h2>
-
 						<h1> Headline 1 </h1>
 						<h2> Headline 2 </h2>
 						<h3> Headline 3 </h3>
 						<h4> Headline 4 </h4>
 						<h5> Headline 5 </h5>
 						<h6> Headline 6 </h6>
-
 						<h2>Quote</h2>
-
 						<q>The sky above the port was the color of television, tuned to a dead channel.</q>
-
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;q&gt;
 	...
 &lt;/q&gt;</code>
 </pre>
-
 						</div>
 					</div>
-
 					<div class="_1/3">
-
 						<h2>Drop cap</h2>
-
-						<p class=n-drop-cap>
-
-							Call me Ishmael. Some years ago - never mind how long precisely - having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.
-
-						</p>
-
+						<p class=n-drop-cap> Call me Ishmael. Some years ago - never mind how long precisely - having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. </p>
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;p class="n-drop-cap"&gt;
 	...
 &lt;/p&gt;</code>
 </pre>
-
 						</div>
 						<h2>Links</h2>
-
 						<p>Here is a <a href=#>link</a>.</p>
-
 						<h2>Paragraph</h2>
-
 						<p>All elements except images are baseline-aligned with height divisible by the default line height. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
 					</div>
 					<div class="_1/3">
-
 						<h2>Height compensation according to line height</h2>
-
 						<picture class="n-aspect n-adjust-height" style="--ratio: 1;">
-
 							<img src="images/cat.jpg" alt="Portrait">
-
 						</picture>
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;span class="n-adjust-height"&gt;
 	...
 &lt;/span&gt;</code>
 </pre>
-
 						</div>
-
 						<p>To avoid shifting on page load, add <b>niui-preload.min.js</b> in <b>&lt;head&gt;</b>.</p>
-
 					</div>
 				</div>
-
-
 			</div>
-
 			<div id=aspect-ratio id=aspect-ratio>
-
 				<div class="n-row">
-
 					<div>
-
 						<h2>Aspect ratio container</h2>
-
 						<p>As the image is loading, the layout is already solid and the page doesn't jump after the download.</p>
-
 						<picture class=n-aspect style="--width: 1600; --height: 681;">
-
 							<img src=images/lido.jpg alt="Lido">
-
 						</picture>
 						<br>
-
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;picture class="n-aspect" style="--width: 1600; --height: 681;"&gt;
 	&lt;img src="images/lido.jpg" alt="Lido"&gt;
 &lt;/picture&gt;</code>
 </pre>
-
 						</div>
-
 						<h3>Options</h3>
-
 						<ul class="n-list">
-
 							<li>If the element has inline style <b>--ratio</b>, the <b>--width/--height</b> combination is ignored.</li>
 							<!-- <li>If the image is narrower than its parent, the aspect ratio container is inline and limited by <b>--width</b>.</li> -->
 							<li>The container can be a <b>div</b> and the content doesn't need to be an image.</li>
-
 						</ul>
-
 					</div>
-
 				</div>
-
 			</div>
-
 			<div data-tab-title=Slider id=slider>
-
 				<div class="n-row">
-
 					<div class="_1/1">
-
 						<h2>Carousel</h2>
-
 					</div>
-
 					<div class="_1/2">
-
 						<h3>Standard</h3>
-
 						<div class="n-carousel">
 							<div class="n-carousel__content">
-
 								<div class="n-center">
 									<p><br>One<br></p>
 								</div>
 								<div class="n-center">
 									<p><br><br>Two<br><br></p>
 								</div>
-
 							</div>
 						</div>
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;div class="n-carousel__content"&gt;
 	&lt;div&gt;Slide 1&lt;/div&gt;
 	&lt;div&gt;Slide 2&lt;/div&gt;
 &lt;/div&gt;</code>
 </pre>
-
 						</div>
-
 					</div>
-
 					<div class="_1/2">
-
-
 						<h3>Controls on top</h3>
-
 						<div class="n-carousel__content n-carousel__content__top">
-
 							<div class="n-center">
 								<p><br><br>One<br><br></p>
 							</div>
@@ -1910,26 +1178,18 @@
 							<div class="n-center">
 								<p><br><br>Three<br><br></p>
 							</div>
-
 						</div>
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;div class="n-carousel__content n-carousel__content__top"&gt;
 	&lt;div&gt;Slide 1&lt;/div&gt;
 	&lt;div&gt;Slide 2&lt;/div&gt;
 &lt;/div&gt;</code>
 </pre>
-
 						</div>
 					</div>
-
 					<div class="_1/2">
-
 						<h3>Vertical</h3>
-
 						<div class="n-carousel__content n-carousel__content__vertical">
-
 							<div class="n-center">
 								<p><br><br>One<br><br></p>
 							</div>
@@ -1939,67 +1199,46 @@
 							<div class="n-center">
 								<p><br><br>Three<br><br></p>
 							</div>
-
 						</div>
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;div class="n-carousel__content n-carousel__content__vertical"&gt;
 	&lt;div&gt;Slide 1&lt;/div&gt;
 	&lt;div&gt;Slide 2&lt;/div&gt;
 &lt;/div&gt;</code>
 </pre>
-
 						</div>
 					</div>
-
 					<div class="_1/2">
-
 						<h3>Vertical with controls on the right</h3>
-
 						<div class="n-carousel__content n-carousel__content__vertical n-carousel__content__right">
-
 							<div class="n-center">
 								<p><br><br>One<br><br></p>
 							</div>
 							<div class="n-center">
 								<p><br><br>Two<br><br></p>
 							</div>
-
 						</div>
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;div class="n-carousel__content n-carousel__content__vertical n-carousel__content__right"&gt;
 	&lt;div&gt;Slide 1&lt;/div&gt;
 	&lt;div&gt;Slide 2&lt;/div&gt;
 &lt;/div&gt;</code>
 </pre>
-
 						</div>
 					</div>
-
 					<div class="_1/2">
-
 						<h3>Padded (controls outside of content)</h3>
-
 						<div class="n-carousel n-pad">
-
 							<div class="n-carousel__content">
-
 								<div>
 									<p>One</p>
 								</div>
 								<div>
 									<p>Two</p>
 								</div>
-
 							</div>
-
 						</div>
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;div class="n-carousel n-pad"&gt;
 	&lt;div class="n-carousel__content"&gt;
 		&lt;div&gt;Slide 1&lt;/div&gt;
@@ -2007,16 +1246,11 @@
 	&lt;/div&gt;</code>
 &lt;/div&gt;</code>
 </pre>
-
 						</div>
 					</div>
-
 					<div class="_1/2">
-
 						<h3>Peeking at neighboring slides</h3>
-
 						<div class="n-carousel__content" data-peek=20%>
-
 							<div>
 								<p>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</p>
 							</div>
@@ -2026,28 +1260,19 @@
 							<div>
 								<p>CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC</p>
 							</div>
-
 						</div>
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;div class="n-carousel__content" data-peek="20%"&gt;
 	&lt;div&gt;Slide 1&lt;/div&gt;
 	&lt;div&gt;Slide 2&lt;/div&gt;
 &lt;/div&gt;</code>
 </pre>
-
 						</div>
 					</div>
-
 					<div class="_1/2">
-
 						<h3>Fade in/out</h3>
-
 						<div class="n-carousel n-pad">
-
 							<div class="n-carousel__content n-carousel__content__fade">
-
 								<div>
 									<p>One</p>
 								</div>
@@ -2057,13 +1282,9 @@
 								<div>
 									<p>Three</p>
 								</div>
-
 							</div>
-
 						</div>
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;div class="n-carousel n-pad"&gt;
 	&lt;div class="n-carousel__content n-carousel__content__fade"&gt;
 		&lt;div&gt;Slide 1&lt;/div&gt;
@@ -2071,31 +1292,21 @@
 	&lt;/div&gt;</code>
 &lt;/div&gt;</code>
 </pre>
-
 						</div>
 					</div>
-
 					<div class="_1/2">
-
 						<h3>Auto height</h3>
-
 						<div class="n-carousel n-pad">
-
 							<div class="n-carousel__content n-carousel__content__auto-height">
-
 								<div class="n-center">
 									<p>One</p>
 								</div>
 								<div class="n-center">
 									<p><br><br>Two<br><br>taller than One</p>
 								</div>
-
 							</div>
-
 						</div>
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;div class="n-carousel n-pad"&gt;
 	&lt;div class="n-carousel__content n-carousel__content__auto-height n-pad"&gt;
 		&lt;div&gt;Slide 1&lt;/div&gt;
@@ -2103,46 +1314,27 @@
 	&lt;/div&gt;</code>
 &lt;/div&gt;</code>
 </pre>
-
 						</div>
-
 					</div>
-
 					<div class="_1/1">
 						<h2> Carousel with detached nav </h2>
 					</div>
-
 					<div>
-
 						<h3>Carousel here...</h3>
-
 						<div class="n-carousel__content" id=detached-nav-slider>
-
 							<div>Slide 1</div>
 							<div>Slide 2</div>
-
 						</div>
-
 					</div>
-
 					<div class="n-center">
-
 						<div>
-
 							<h3>...detached nav here</h3>
-
 							<div class="n-carousel__content--nav" data-for=detached-nav-slider></div>
-
 						</div>
-
 					</div>
-
 					<div class="_1/1">
-
 						<h3>Options</h3>
-
 						<ul class="n-list">
-
 							<li>Slide duration
 								<pre>&lt;div class="n-carousel__content" data-duration="1"&gt;</pre> in seconds. Default is <b>.2</b>.
 							</li>
@@ -2156,47 +1348,30 @@
 							<li>
 								<pre>&lt;div class="n-carousel__content n-carousel__content__fade-overlap"&gt;</pre> to overlap the two slides while fading out/in
 							</li>
-
 						</ul>
-
 					</div>
-
 				</div>
-
 			</div>
-
 			<div data-tab-title=Tabs id=tabs>
-
 				<div class="n-row">
-
 					<div class="_1/1">
-
 						<h2>Tabs</h2>
-
 					</div>
-
 					<div class="_1/2">
-
 						<h3>Tabs at the bottom</h3>
-
 						<div class="n-carousel__content n-tabs">
-
 							<div>
 								<h3 class="n-tab-title">Tab 1</h3>
 								<p>Content of Tab 1</p>
 							</div>
-
 							<div>
 								<h3 class="n-tab-title">Tab 2</h3>
 								<p>The content of Tab 2</p>
 								<p>New line</p>
 								<p>New line</p>
 							</div>
-
 						</div>
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;div class="n-carousel__content n-tabs"&gt;
 	&lt;div&gt; ... &lt;/div&gt;
 	&lt;div data-tab-title="Tab 1"&gt; ... &lt;/div&gt;
@@ -2204,24 +1379,17 @@
 	...
 &lt;/div&gt;</code>
 </pre>
-
 						</div>
-
 					</div>
-
 					<div class="_1/2">
-
 						<h3>Tabs on top with auto height</h3>
-
 						<div class="n-carousel__content n-carousel__content__top n-tabs n-carousel__content__auto-height" data-duration=1>
-
 							<div style="background: mintcream;">
 								<div class="n-pad">
 									<h3 class="n-tab-title">Tab 1</h3>
 									<p>Content of Tab 1</p>
 								</div>
 							</div>
-
 							<div style="background: cyan;">
 								<div class="n-pad">
 									<h3 class="n-tab-title">Tab 2</h3>
@@ -2230,127 +1398,77 @@
 									<p>New line</p>
 								</div>
 							</div>
-
 						</div>
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;div class="n-carousel__content n-carousel__content__top n-tabs n-carousel__content__auto-height"&gt;
 	&lt;div data-tab-title="Tab 1"&gt; ... &lt;/div&gt;
 	...
 &lt;/div&gt;</code>
 </pre>
-
 						</div>
 					</div>
-
 					<div class="_1/2">
-
 						<h3>Vertical tabs</h3>
-
 						<div class="n-carousel__content n-carousel__content__vertical n-tabs">
-
 							<div data-tab-title="Tab 1">
-
 								<p class="n-pad">Tab 1 content</p>
-
 							</div>
-
 							<div>
-
 								<p class=n-tab-title> Tab 2 </p>
-
 								<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-
 							</div>
-
 							<div>
-
 								<p class=n-tab-title> Tab 3 Very Long Title which Shows the Flexible Dimensions </p>
-
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-
 							</div>
-
 						</div>
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;div class="n-carousel__content n-carousel__content__vertical n-tabs"&gt;
 	&lt;div data-tab-title="Tab 1"&gt; ... &lt;/div&gt;
 	...
 &lt;/div&gt;</code>
 </pre>
-
 						</div>
 					</div>
-
 					<div class="_1/2">
-
 						<h3>Vertical tabs on the right</h3>
-
 						<div class="n-carousel__content n-carousel__content__vertical n-tabs n-carousel__content__right">
-
 							<div data-tab-title="Tab 1">
-
 								<!-- 								<p class=n-tab-title> Slider 2 Slide 1 </p> -->
-
 								<p class="n-pad">Tab 1 content</p>
-
 							</div>
-
 							<div>
-
 								<p class=n-tab-title> Tab 2 </p>
-
 								<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-
 							</div>
-
 							<div>
-
 								<p class=n-tab-title> Tab 3 Very Long Title which Shows the Flexible tabs Dimensions </p>
-
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-
 							</div>
-
 						</div>
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;div class="n-carousel__content n-carousel__content__vertical n-tabs n-carousel__content__right"&gt;
 	&lt;div data-tab-title="Tab 1"&gt; ... &lt;/div&gt;
 	...
 &lt;/div&gt;</code>
 </pre>
-
 						</div>
-
 					</div>
-
 					<div class="_1/2">
-
 						<h3>Tabs at the bottom with detached nav</h3>
-
 						<div class="n-carousel__content n-tabs" id=detached-tabs>
-
 							<div>
 								<h3 class="n-tab-title">Tab 1</h3>
 								<p>Content of Tab 1</p>
 							</div>
-
 							<div>
 								<h3 class="n-tab-title">Tab 2</h3>
 								<p>The content of Tab 2</p>
 								<p>New line</p>
 								<p>New line</p>
 							</div>
-
 						</div>
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;div class="n-carousel__content n-tabs" id="detached-tabs"&gt;
 	&lt;div&gt; ... &lt;/div&gt;
 	&lt;div data-tab-title="Tab 1"&gt; ... &lt;/div&gt;
@@ -2361,18 +1479,12 @@
 &lt;div class="n-carousel__content--nav" data-for="detached-tabs"&gt;&lt;/div&gt;
 </code>
 </pre>
-
 						</div>
-
 						<div class="n-carousel__content--nav" data-for=detached-tabs></div>
-
 					</div>
 					<div class="_1/1">
-
 						<h3>Options</h3>
-
 						<ul class="n-list">
-
 							<li>Tab titles are taken from
 								<pre>data-tab-title</pre>,
 								<pre>.n-tab-title</pre> on a child or index by default
@@ -2381,46 +1493,25 @@
 								<pre>data-duration="2"</pre> for 2 seconds slide duration
 							</li>
 							<li>Pre-fill the nav and put it together with the <b>.n-carousel__content</b> inside <b>.n-carousel</b> for seamless loading.</li>
-
 						</ul>
-
 					</div>
-
 				</div>
-
 			</div>
-
 			<div data-tab-title=Lightbox id=lightbox>
-
 				<div class="n-row">
-
 					<div class="_1/1">
-
 						<h2>Lightbox</h2>
-
 					</div>
-
 				</div>
-
 				<div class="n-row">
-
 					<div>
-
 						<h3>Standard</h3>
-
 						<div class="n-lightbox n-carousel__content__top-">
-
 							<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756.jpg title="First Taipei photo"> <span class="n-aspect" style="--width: 88;--height: 88;"> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756-88x88.jpg alt=1> </span> </a>
-
 							<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00770.jpg title="Second Taipei photo"> <span class="n-aspect" style="--width: 88;--height: 88;"> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00770-88x88.jpg alt=2> </span> </a>
-
 							<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00795.jpg title="Third Taipei photo"> <span class="n-aspect" style="--width: 88;--height: 88;"> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00795-88x88.jpg alt=2> </span> </a>
-
 						</div>
-
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;div class="n-lightbox"&gt;
 	&lt;a href="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756.jpg" title="First Taipei photo"&gt;
 		&lt;img src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756-88x88.jpg" alt="1"&gt;
@@ -2428,27 +1519,16 @@
 	...
 &lt;/div&gt;</code>
 </pre>
-
 						</div>
 					</div>
-
 					<div>
-
 						<h3> Full screen </h3>
-
 						<div id=lightbox1 class="n-lightbox n-full-screen">
-
 							<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/07/DSC02506.jpg title="First Hong Kong photo"> <span class="n-aspect" style="--width: 88;--height: 88;"> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/07/DSC02506-88x88.jpg alt=1> </span> </a>
-
 							<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/07/DSC02321.jpg title="Second Hong Kong photo"> <span class="n-aspect" style="--width: 88;--height: 88;"> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/07/DSC02321-88x88.jpg alt=2> </span> </a>
-
 							<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/07/DSC02548.jpg title="Third Hong Kong photo"> <span class="n-aspect" style="--width: 88;--height: 88;"> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/07/DSC02548-88x88.jpg alt=2> </span> </a>
-
 						</div>
-
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;div class="n-lightbox n-full-screen"&gt;
 	&lt;a href="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756.jpg" title="First Taipei photo"&gt;
 		&lt;img src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756-88x88.jpg" alt="1"&gt;
@@ -2456,27 +1536,16 @@
 	...
 &lt;/div&gt;</code>
 </pre>
-
 						</div>
 					</div>
-
 					<div>
-
 						<h3> Vertical with thumbnails </h3>
-
 						<div class="n-lightbox n-carousel__content__vertical n-lightbox__thumbnails">
-
 							<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/06/DSC00134.jpg title="First photo from Japan"> <span class="n-aspect" style="--width: 88;--height: 88;"> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/06/DSC00134-88x88.jpg alt=1> </span> </a>
-
 							<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/06/DSC00193.jpg title="Second photo from Japan"> <span class="n-aspect" style="--width: 88;--height: 88;"> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/06/DSC00193-88x88.jpg alt=2> </span> </a>
-
 							<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/06/DSC00229.jpg title="Third photo from Japan"> <span class="n-aspect" style="--width: 88;--height: 88;"> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/06/DSC00229-88x88.jpg alt=2> </span> </a>
-
 						</div>
-
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;div class="n-lightbox n-carousel__content__vertical n-lightbox__thumbnails"&gt;
 	&lt;a href="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756.jpg" title="First Taipei photo"&gt;
 		&lt;img src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756-88x88.jpg" alt="1"&gt;
@@ -2484,18 +1553,12 @@
 	...
 &lt;/div&gt;</code>
 </pre>
-
 						</div>
 					</div>
-
 					<div class="_1/2">
-
 						<h3> 1.67:1 inline </h3>
-
 						<div class="n-aspect" style="--width: 1670; --height: 1000;">
-
 							<div class="n-carousel n-lightbox__thumbnails n-carousel__content__top-">
-
 								<div class="n-lightbox__inline n-carousel__content n-lightbox n-lightbox__thumbnails" data-duration-=3>
 									<div>
 										<img data-src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/04/DSC02727.jpg">
@@ -2509,14 +1572,9 @@
 									</div>
 								</div>
 								<div class="n-carousel__content--nav n-lightbox__thumbnails"><button style="background-image: url(//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/04/DSC02727-188x188.jpg);">1</button><button style="background-image: url(//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/04/DSC02700-188x188.jpg);">2</button><button style="background-image: url(//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/04/DSC02685-188x188.jpg);">3</button></div>
-
 							</div>
-
 						</div>
-
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;div class="n-lightbox n-lightbox__inline n-lightbox__thumbnails"&gt;
 	&lt;a href="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756.jpg" title="First Taipei photo"&gt;
 		&lt;img src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756-88x88.jpg" alt="1"&gt;
@@ -2524,57 +1582,31 @@
 	...
 &lt;/div&gt;</code>
 </pre>
-
 						</div>
 					</div>
-
 					<div class="_1/2">
-
 						<h3> 1.67:1 inline vertical </h3>
-
 						<div class="n-aspect" style="--width: 1670; --height: 1000;">
-
 							<div id=lightbox44 class="n-lightbox n-lightbox__inline n-lightbox__thumbnails n-carousel__content__vertical n-carousel__content__outside-" data-duration=2>
-
 								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916.jpg title="First photo from Paris"> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916-88x88.jpg alt=2> </a>
-
 								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/02/DSC01611.jpg title="Square"> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/02/DSC01611.jpg alt=Sq> </a>
-
 								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00894.jpg title="Second photo from Paris"> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00894-88x88.jpg alt=1> </a>
-
 								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00957.jpg title="Third photo from Paris"> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00957-88x88.jpg alt=2> </a>
-
 								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916.jpg title="First photo from Paris"> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916-88x88.jpg alt=2> </a>
-
 								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00894.jpg title="Second photo from Paris"> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00894-88x88.jpg alt=1> </a>
-
 								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00957.jpg title="Third photo from Paris"> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00957-88x88.jpg alt=2> </a>
-
 								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916.jpg title="First photo from Paris"> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916-88x88.jpg alt=2> </a>
-
 								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00894.jpg title="Second photo from Paris"> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00894-88x88.jpg alt=1> </a>
-
 								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00957.jpg title="Third photo from Paris"> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00957-88x88.jpg alt=2> </a>
-
 								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916.jpg title="First photo from Paris"> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916-88x88.jpg alt=2> </a>
-
 								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00894.jpg title="Second photo from Paris"> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00894-88x88.jpg alt=1> </a>
-
 								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00957.jpg title="Third photo from Paris"> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00957-88x88.jpg alt=2> </a>
-
 								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916.jpg title="First photo from Paris"> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00916-88x88.jpg alt=2> </a>
-
 								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00894.jpg title="Second photo from Paris"> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00894-88x88.jpg alt=1> </a>
-
 								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00957.jpg title="Third photo from Paris"> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/01/DSC00957-88x88.jpg alt=2> </a>
-
 							</div>
-
 						</div>
-
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;div class="n-lightbox n-lightbox__inline n-lightbox__thumbnails n-carousel__content__vertical"&gt;
 	&lt;a href="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756.jpg" title="First Taipei photo"&gt;
 		&lt;img src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756-88x88.jpg" alt="1"&gt;
@@ -2582,30 +1614,18 @@
 	...
 &lt;/div&gt;</code>
 </pre>
-
 						</div>
 					</div>
-
 					<div class="_1/2">
-
 						<h3> Inline lightbox peeking at neighboring slides </h3>
-
 						<div class="n-aspect" style="--width: 1670; --height: 1000;">
-
 							<div id=lightbox5 class="n-lightbox n-lightbox__inline n-lightbox__thumbnails" data-peek=10%>
-
 								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2015/06/DSC05341.jpg title="First photo from San Francisco"> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2015/06/DSC05341-88x88.jpg alt=2> </a>
-
 								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2015/06/DSC05411.jpg title="Second photo from San Francisco"> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2015/06/DSC05411-88x88.jpg alt=1> </a>
-
 								<a href=https://ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2015/06/DSC05377.jpg title="Third photo from San Francisco"> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2015/06/DSC05377-88x88.jpg alt=2> </a>
-
 							</div>
-
 						</div>
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;div class="n-lightbox n-lightbox__inline n-lightbox__thumbnails" data-peek=10%&gt;
 	&lt;a href="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756.jpg" title="First Taipei photo"&gt;
 		&lt;img src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756-88x88.jpg" alt=1&gt;
@@ -2613,39 +1633,22 @@
 	...
 &lt;/div&gt;</code>
 </pre>
-
 						</div>
-
 					</div>
-
 					<div class="_1/2">
-
 						<h3> Inline lightbox with detached nav </h3>
-
 						<div class="n-row n-unpad">
-
 							<div>
-
 								<div class="n-aspect" style="--width: 1670; --height: 1000;">
-
 									<div id=lightbox4 class="n-lightbox n-lightbox__inline n-lightbox__thumbnails">
-
 										<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/02/DSC01689.jpg title="First photo from Corsica"> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/02/DSC01689-88x88.jpg alt=2> </a>
-
 										<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/02/DSC01663.jpg title="Second photo from Corsica"> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/02/DSC01663-88x88.jpg alt=1> </a>
-
 										<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/02/DSC01611.jpg title="Third photo from Corsica"> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/02/DSC01611.jpg alt=2> </a>
-
 									</div>
-
 								</div>
-
 							</div>
-
 						</div>
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;div class="n-lightbox n-lightbox__inline n-lightbox__thumbnails" id="lightbox4"&gt;
 	&lt;a href="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756.jpg" title="First Taipei photo"&gt;
 		&lt;img src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756-88x88.jpg" alt=1&gt;
@@ -2655,21 +1658,13 @@
 
 &lt;div class="n-carousel__content--nav" data-for=lightbox4&gt;&lt;/div&gt;</code>
 </pre>
-
 						</div>
-
 						<div class="n-carousel__content--nav" data-for=lightbox4></div>
-
 					</div>
-
 					<div class="_1/1">
-
 						<h3> Inline lightbox with auto height </h3>
-
 						<div class="n-row n-unpad">
-
 							<div>
-
 								<div class="n-carousel n-carousel__content__vertical- n-carousel__content__outside n-lightbox__thumbnails n-carousel__content__auto-height">
 									<div class="n-carousel__content n-lightbox n-lightbox__inline n-lightbox__thumbnails n-carousel__content__vertical- n-carousel__content__auto-height" data-duration="2">
 										<div>
@@ -2711,9 +1706,7 @@
 										<button>5</button>
 									</div>
 								</div>
-
 								<div class="code">
-
 									<pre><code class="language-markup">&lt;div class="n-carousel n-carousel__content__auto-height n-carousel__content__outside n-lightbox__thumbnails"&gt;
 	&lt;div class="n-carousel__content n-lightbox n-lightbox__inline n-lightbox__thumbnails n-carousel__content__vertical" data-duration="2"&gt;
 		&lt;div&gt;
@@ -2730,13 +1723,9 @@
 	&lt;/div&gt;
 &lt;/div&gt;</code>
 </pre>
-
 								</div>
-
 							</div>
-
 							<div>
-
 								<div class="n-carousel n-carousel__content__vertical n-carousel__content__outside- n-lightbox__thumbnails">
 									<div class="n-carousel__content n-lightbox n-lightbox__inline n-lightbox__thumbnails n-carousel__content__vertical" data-duration="2">
 										<div>
@@ -2778,9 +1767,7 @@
 										<button>5</button>
 									</div>
 								</div>
-
 								<div class="code">
-
 									<pre><code class="language-markup">&lt;div class="n-carousel n-carousel__content__vertical n-carousel__content__outside n-lightbox__thumbnails"&gt;
 	&lt;div class="n-carousel__content n-lightbox n-lightbox__inline n-lightbox__thumbnails n-carousel__content__vertical" data-duration="2"&gt;
 		&lt;div&gt;
@@ -2797,98 +1784,57 @@
 	&lt;/div&gt;
 &lt;/div&gt;</code>
 </pre>
-
 								</div>
-
 							</div>
-
 						</div>
-
 					</div>
 				</div>
-
 				<div class="n-row">
-
 					<div class="_1/1">
-
 						<h3>Options</h3>
-
 						<ul class="n-list">
-
 							<li>Open automatically by URI: <b>https://site.com?image=DSC00193.jpg#lightboxid</b> or <b>https://site.com?slide=3#lightboxid</b></li>
 							<li>Captions from link title</li>
-
 							<li>An inline lightbox inside an <b>.n-aspect</b> container will avoid page jump during init</li>
-
 							<li>Inline lightbox with thumbnails can have the thumbnails outside with <b>.n-carousel__content__outside</b></li>
-
 							<li>Lightbox with <b>id</b> provides links to individual slides</li>
-
 							<li>Use the
 								<pre>data-anim</pre> parameter for custom animation (see <b>Modal window</b>)
 							</li>
-
 							<li>Inline lightbox will jump when sliding to an image that hasn"t been loaded yet. Avoid that by wrapping the lightbox in an <b>.n-aspect</b> container.</li>
-
 							<li>To avoid inline vertical lightbox jumping the unknown image height, add <b>data-width</b> and <b>data-height</b> to the anchors.</li>
 							<li>Set thumbnails size with <b>--thumb-size</b>.</li>
-
 						</ul>
-
 					</div>
-
 				</div>
-
 			</div>
-
 			<div data-tab-title=Video id=video>
-
 				<div class="n-row">
-
 					<div>
-
 						<h2>Video</h2>
-
 						<p>Limited to container width.</p>
-
 						<video poster=images/video.jpg controls=controls preload=none>
-
 							<source type=video/mp4 src=//s3.amazonaws.com/gado/Outlying-Teaser.mp4>
-
 							<a href=//s3.amazonaws.com/gado/Outlying-Teaser.mp4>//s3.amazonaws.com/gado/Outlying-Teaser.mp4</a>
-
 						</video>
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;video poster="images/video.jpg" controls="controls" preload="none"&gt;
 	&lt;source type="video/mp4" src="//s3.amazonaws.com/gado/Outlying-Teaser.mp4"&gt;
 	&lt;a href="//s3.amazonaws.com/gado/Outlying-Teaser.mp4"&gt;Video link as fallback&lt;/a&gt;
 &lt;/video&gt;</code>
 </pre>
-
 						</div>
 					</div>
-
 				</div>
-
 			</div>
-
 			<div id=tables data-tab-title=Tables>
-
 				<div class="n-row">
-
 					<div class="_1/1">
-
 						<h2>Tables</h2>
-
 					</div>
-
 					<div>
-
 						<h3>Standard</h3>
-
 						<table class="n-table">
-
 							<thead>
 								<tr>
 									<td>TheTableWillBeScrollableOnNarrowScreensBecauseOfWideCell</td>
@@ -2919,11 +1865,8 @@
 								<td><b>✔︎</b></td>
 								<td><b>✔︎</b></td>
 							</tr>
-
 						</table>
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;table class="n-table"&gt;
 	&lt;thead&gt;
 		&lt;tr&gt;
@@ -2938,16 +1881,11 @@
 	...
 &lt;/table&gt;</code>
 </pre>
-
 						</div>
-
 					</div>
-
 					<div>
 						<h3>Headless</h3>
-
 						<table class="n-table">
-
 							<tr>
 								<td> <a>First</a> </td>
 								<td> <a>Second</a> </td>
@@ -2963,11 +1901,8 @@
 								<td><b>✔︎</b></td>
 								<td><b>✔︎</b></td>
 							</tr>
-
 						</table>
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;table class="n-table"&gt;
 	&lt;tr&gt;
 		&lt;td&gt;First&lt;/td&gt;
@@ -2976,16 +1911,11 @@
 	...
 &lt;/table&gt;</code>
 </pre>
-
 						</div>
 					</div>
-
 					<div>
-
 						<h3>Sortable</h3>
-
 						<table class="n-table">
-
 							<thead>
 								<tr>
 									<td><button class="n-table-sort">First</button></td>
@@ -3018,11 +1948,8 @@
 								<td><b>2</b></td>
 								<td><b>5</b></td>
 							</tr>
-
 						</table>
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;table class="n-table"&gt;
 	&lt;thead&gt;
 		&lt;tr&gt;
@@ -3037,48 +1964,32 @@
 	...
 &lt;/table&gt;</code>
 </pre>
-
 						</div>
 					</div>
-
 				</div>
-
 			</div>
-
 			<div id=accordion>
-
 				<div class="n-row">
-
 					<div class="_1/1">
-
 						<h2>Accordion</h2>
-
 					</div>
-
 					<div>
-
 						<details class="n-accordion">
 							<summary>What's the HTML5 details element?</summary>
 							<div>
 								<div>
-
 									<div class="n-center">
 										<p><br>One<br></p>
 									</div>
 									<div class="n-center">
 										<p><br><br>Two<br><br></p>
 									</div>
-
 								</div>
-
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-
 								<p><a href="#">Link</a>.</p>
 							</div>
 						</details>
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;div class="n-fold"&gt;
 	&lt;button class="n-fold__label"&gt; Label &lt;/button&gt;
 	&lt;input type="checkbox" class="n-trigger"&gt;
@@ -3087,23 +1998,17 @@
 	&lt;/div&gt;
 &lt;/div&gt;</code>
 </pre>
-
 						</div>
-
 					</div>
-
 					<div>
-
 						<details class="n-accordion" open>
 							<summary>Open by default</summary>
 							<div>
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-
 								<p><a href="#">Link</a>.</p>
 							</div>
 						</details>
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;div class="n-fold" aria-expanded="true"&gt;
 	&lt;button class="n-fold__label"&gt; Label &lt;/button&gt;
 	&lt;input type="checkbox" class="n-trigger"&gt;
@@ -3112,30 +2017,18 @@
 	&lt;/div&gt;
 &lt;/div&gt;</code>
 </pre>
-
 						</div>
-
 					</div>
-
 					<div>
-
 						<div class="n-fold">
-
 							<button class=n-fold__label> Truncated content </button>
 							<input type=checkbox class=n-trigger>
-
 							<div class="n-fold__content" style="--start-height: 6em;">
-
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
 							</div>
-
 						</div>
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;div class="n-fold"&gt;
 	&lt;button class="n-fold__label"&gt; Label &lt;/button&gt;
 	&lt;input type="checkbox" class="n-trigger"&gt;
@@ -3144,78 +2037,50 @@
 	&lt;/div&gt;
 &lt;/div&gt;</code>
 </pre>
-
 						</div>
-
 					</div>
-
 					<div>
-
 						<div class="n-fold n-fold--horizontal">
-
 							<button class=n-fold__label> Horizontal accordion </button>
 							<input type=checkbox class=n-trigger>
-
 							<div class="n-fold__content">
-
 								<div>
-
 									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
 									<form>
-
 										<select>
-
 											<option>asd</option>
 											<option> asdas</option>
-
 										</select>
-
 									</form>
-
 								</div>
-
 							</div>
-
 						</div>
-
 					</div>
-
 					<div>
-
 						<div class="n-accordion__group">
-
 							<details class="n-accordion">
 								<summary>Accordion 1</summary>
 								<div>
 									<p>Content 1</p>
-
 									<p><a href="#">Link</a>.</p>
 								</div>
 							</details>
-
 							<details class="n-accordion">
 								<summary>Accordion 2</summary>
 								<div>
 									<p>Content 2</p>
-
 									<p><a href="#">Link</a>.</p>
 								</div>
 							</details>
-
 							<details class="n-accordion">
 								<summary>Accordion 3</summary>
 								<div>
 									<p>Content 3</p>
-
 									<p><a href="#">Link</a>.</p>
 								</div>
 							</details>
-
 						</div>
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;div class="n-accordion__group"&gt;
 
 	&lt;div class="n-fold"&gt;
@@ -3234,13 +2099,9 @@
 
 &lt;/div&gt;</code>
 </pre>
-
 						</div>
-
 					</div>
-
 					<div class="_1/1">
-
 						<details class="n-accordion">
 							<summary>Nested Accordions</summary>
 							<div>
@@ -3248,7 +2109,6 @@
 									<summary>Nested Accordions</summary>
 									<div>
 										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-
 										<p><a href="#">Link</a>.</p>
 									</div>
 								</details>
@@ -3256,21 +2116,15 @@
 									<summary>Nested Accordions</summary>
 									<div>
 										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-
 										<p><a href="#">Link</a>.</p>
 									</div>
 								</details>
 							</div>
 						</details>
-
 					</div>
-
 					<div class="_1/1">
-
 						<h2>Popin</h2>
-
 						<div class="n-accordion__popin">
-
 							<details class="n-accordion">
 								<summary>1</summary>
 								<div>Content for 1</div>
@@ -3311,13 +2165,9 @@
 								<summary>10</summary>
 								<div>Content for 10</div>
 							</details>
-
 						</div>
-
 						<br>
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;div class="n-accordion__popin"&gt;
 	&lt;details class="n-accordion"&gt;
 		&lt;summary&gt;1&lt;/summary&gt;
@@ -3325,18 +2175,11 @@
 	&lt;/details&gt;
 	...
 &lt;/div&gt;</code></pre>
-
 						</div>
-
 					</div>
-
-
 					<div>
-
 						<h3>Options</h3>
-
 						<ul class="n-list">
-
 							<li>Horizontal fold with
 								<pre>.n-fold.n-fold--horizontal</pre> needs extra wrapper inside
 								<pre>.n-content</pre>.
@@ -3347,17 +2190,11 @@
 							<li>
 								<pre>.n-fold.n-fold--defocus</pre> to close the fold on focus out.
 							</li>
-
 						</ul>
-
 					</div>
-
 				</div>
-
 			</div>
-
 			<div data-tab-title=Tooltip id=tooltip>
-
 				<div class="n-row">
 					<div>
 						<div>
@@ -3366,50 +2203,33 @@
 								<span class="n-tool">
 									<span class=n-tool--label>This text has a tooltip.</span>
 									<span class="n-tool__tip">
-										<b>Here is the tooltip</b> <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-									</span>
+										<b>Here is the tooltip</b> <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </span>
 								</span>
 							</p>
-
 							<p>The tip will appear on the side of the tool with the most space available and won"t be affected by overflow: hidden around the tool.</p>
-
 							<div class="code">
-
 								<pre><code class="language-markup">&lt;span class="n-tool"&gt;
 	Tool label.
 	&lt;span class="n-tool__tip"&gt;Tip content.&lt;/span&gt;
 &lt;/span&gt;				</code>
 </pre>
-
 							</div>
-
 						</div>
 					</div>
 				</div>
-
 			</div>
-
 			<div id=modal-window>
-
 				<div class="n-row">
-
 					<div class="_1/1">
-
 						<h2> Modal Window </h2>
-
 					</div>
-
 					<div>
-
 						<p><a href="external.html#content" class="n-modal">Open a modal window inside this <span>tab</span></a>.</p>
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;a href="external.html#content" class="n-modal"&gt;Open a modal window here.&lt;/a&gt;</code>
 </pre>
-
 						</div>
 					</div>
-
 					<!--
 						<div>
 
@@ -3423,35 +2243,23 @@
 </div>						
 						</div>
 -->
-
 					<div>
-
 						<p><a href="external.html#content" class="n-modal" data-anim="0% { opacity: 0; } 100% { opacity: 1; }">Open a modal window with custom animation</a>.</p>
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;a href="external.html#content" class="n-modal" data-anim="0% { opacity: 0; } 100% { opacity: 1; }"&gt;Open a modal window with custom animation.&lt;/a&gt;</code>
 </pre>
-
 						</div>
 					</div>
-
 					<div>
-
 						<p><a href="external.html#content" class="n-modal n-modal__limited">Limited modal window</a>.</p>
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;a href="external.html#content" class="n-modal limited"&gt;Open a modal window here.&lt;/a&gt;</code>
 </pre>
-
 						</div>
 					</div>
-
 					<div class="_1/1">
-
 						<h3>Options</h3>
-
 						<ul class="n-list">
-
 							<li>Open a modal window with any content using
 								<pre>nui.componentModal.openFullWindow("Any content");</pre>
 							</li>
@@ -3470,286 +2278,158 @@
 							<li>
 								<pre>a.n-modal.n-modal__limited</pre> for limited width/height modal window
 							</li>
-
 						</ul>
-
 					</div>
-
 				</div>
-
 			</div>
-
 			<div data-tab-title=Buttons id=buttons>
-
 				<div class="n-row">
-
 					<div class="_1/1">
-
 						<h2>Buttons</h2>
-
 					</div>
-
 					<div>
-
 						<div>
-
 							<h3>Normal button</h3>
-
 							<a href=# class="n-btn">Small button</a>
 							<button disabled class="n-btn">Disabled button</button>
 							<br>
 							<div class="code">
-
 								<pre><code class="language-markup">&lt;a href="#" class="n-btn"&gt;Small button&lt;/a&gt;
 &lt;button class="n-btn" disabled&gt;Disabled button&lt;/button&gt;</code>
 </pre>
-
 							</div>
 							<br>
 						</div>
-
 					</div>
-
 					<div>
-
 						<div>
-
 							<h3>Big button</h3>
-
 							<a href=# class="n-btn n-btn--big">Big button</a>
 							<br>
-
 							<div class="code">
-
 								<pre><code class="language-markup">&lt;a href="#" class="n-btn n-btn--big"&gt;Big button&lt;/a&gt;</code>
 </pre>
-
 							</div>
 							<br>
-
 						</div>
-
 					</div>
-
 					<div>
-
 						<div>
-
 							<h3>Buttons in paragraph</h3>
-
 							<p>Here is an <a href=# class=n-btn>Inline button</a> inside a paragraph.</p>
-
 						</div>
-
 					</div>
-
 					<div>
-
 						<div>
-
 							<h3>Groups of buttons</h3>
-
 							<p>Needed for proper spacing when wrapped</p>
-
 							<div class="n-btn__group">
-
 								<a href="#features" class="n-btn">Features</a>
 								<a href="#showcase" class="n-btn">Showcase</a>
 								<a href="guide/" class="n-btn">Guide</a>
 								<a href="//github.com/radogado/niui" class="n-btn">Get it from GitHub</a>
-
 							</div>
-
 							<br>
-
 							<div class="n-btn__group">
-
 								<a href="#features" class="n-btn--big n-btn">Features</a>
 								<a href="#showcase" class="n-btn--big n-btn">Showcase</a>
 								<a href="guide/" class="n-btn--big n-btn">Guide</a>
 								<a href="//github.com/radogado/niui" class="n-btn--big n-btn">Get it from GitHub</a>
-
 							</div>
 							<br>
-
 							<div class="code">
-
 								<pre><code class="language-markup">&lt;div class="n-btn__group"&gt; ... &lt;/div&gt;</code>
 </pre>
-
 							</div>
 							<br>
-
 						</div>
-
 					</div>
-
 					<div class="_1/1">
-
 						<h3>Options</h3>
-
 						<ul class="n-list">
-
 							<li>Both
 								<pre>&lt;a href=# class="n-btn"&gt;</pre> and
 								<pre>&lt;button class=n-btn&gt;</pre> supported.
 							</li>
-
 						</ul>
-
 					</div>
-
 				</div>
-
 			</div>
-
 			<div id=lists data-tab-title=Lists id=lists>
-
 				<div class="n-row">
-
 					<div class="_1/1">
-
 						<h2>Lists</h2>
-
 					</div>
-
 					<div>
-
 						<h3>Ordered</h3>
-
 						<ol class="n-list">
-
-							<li> First item
-
-								<ol class="n-list">
-
+							<li> First item <ol class="n-list">
 									<li>First item sub item 1</li>
-
 									<li>First item sub item 2</li>
-
 								</ol>
-
 							</li>
-
 							<li>
-
 								<h4>Second itemSecond itemSecond itemSecond itemSecond itemSecond itemSecond itemSecond itemSecond item</h4>
-
 								<p>An in-house study at <b>Walmart.com</b> came out with the results that saw an up to 2% increase in conversions on the site for every single second of improvement on the load time. The accumulative growth of revenues went up to 1% for every 100 milliseconds of load time improvement.</p>
-
 								<ol class="n-list">
-									<li>
-										Second item's sub item 1
-									</li>
-
-									<li>
-										Second item's sub item 2
-
-										Second item's sub item 2
-
-										Second item's sub item 2
-										<ol class="n-list">
+									<li> Second item's sub item 1 </li>
+									<li> Second item's sub item 2 Second item's sub item 2 Second item's sub item 2 <ol class="n-list">
 											<li>Sub sub item</li>
 											<li>Another sub sub itemAnother sub sub itemAnother sub sub itemAnother sub sub itemAnother sub sub itemAnother sub sub itemAnother sub sub itemAnother sub sub itemAnother sub sub item</li>
 										</ol>
 									</li>
 								</ol>
-
 							</li>
-
 						</ol>
-
 					</div>
-
 					<div>
-
 						<h3>Unordered</h3>
-
 						<ul class="n-list">
-
 							<li>Unordered one</li>
-							<li>Unordered two
-
-								<ul class="n-list">
-
+							<li>Unordered two <ul class="n-list">
 									<li>Nested one</li>
 									<li>Nested two</li>
-
 								</ul>
 							</li>
 							<li>Unordered three</li>
-
 						</ul>
-
 					</div>
-
 					<div class="_1/1">
-
 						<h3>Options</h3>
-
 						<ul class="n-list">
-
 							<li><b>ul.n-list--inline</b> orders items on one line</li>
 							<li><b>ul.n-list--indent</b> for margin on the left</li>
 							<li><b>ul.n-list--no-bullet</b> for a clean list</li>
 							<li>Set colors by CSS variables <b>--list-bg</b> and <b>--list-color</b>.</li>
-
 						</ul>
-
 					</div>
-
 				</div>
-
 			</div>
-
 			<div id=form data-tab-title=Forms id=forms>
-
 				<div class="n-row">
-
 					<div class="_1/1">
-
 						<h2>Forms</h2>
-
 					</div>
-
 					<div class="_1/2">
-
 						<h3>Default</h3>
-
 						<form class="n-form" action=https://docs.google.com/forms/d/1K55MbIgqFWkYzBOOe2-UfSpKPchOUNxhSxgCXz4YG8k/formResponse target=_blank method=post>
-
 							<label>
-
 								<span>Submit this to Google Forms</span>
 								<input type=text name=entry.1773453675 id=entry_1773453675>
-
 							</label>
-
 							<input type=submit value="Submit">
-
 						</form>
-
 						<br><br>
-
 						<h3>Mast</h3>
-
 						<form action=# method=post target=_blank class="n-form--mast n-form">
-
 							<label class=n-form--mandatory>
-
 								<span>Excepteur sint occaecat cupidatat non proident</span>
 								<input name=last_name type=text placeholder="What is your name?">
-
 							</label>
-
 							<label>
-
 								<span>Country of residence (rich select)</span>
-
 								<div class="n-select">
-
 									<div class="n-select__options" data-name="select1">
-
 										<button value="3"> <img src="images/flags/af.svg" alt="Country">Afghanistan</button>
 										<button value="240"> <img src="images/flags/ax.svg" alt="Country">Åland</button>
 										<button value="6"> <img src="images/flags/al.svg" alt="Country">Albania</button>
@@ -3986,17 +2666,11 @@
 										<button value="232"> <img src="images/flags/ye.svg" alt="Country">Yemen</button>
 										<button value="236"> <img src="images/flags/zm.svg" alt="Country">Zambia</button>
 										<button value="237"> <img src="images/flags/zw.svg" alt="Country">Zimbabwe</button>
-
 									</div>
-
 								</div>
-
 							</label>
-
 							<label>
-
 								<span>Country of residence (native select)</span>
-
 								<select name=country>
 									<option value="" selected=selected>Country of residence →</option>
 									<option value="United Kingdom">United Kingdom</option>
@@ -4012,184 +2686,106 @@
 									<option value="Antigua And Barbuda">Antigua And Barbuda</option>
 									<option value=Argentina>Argentina</option>
 								</select>
-
 							</label>
-
 							<div class=n-form__check>
-
 								<span>Please choose:</span>
 								<label>
-									<input type=radio name=radiodemo> <b class=n-form__check-icon></b>
-									First option
-								</label>
+									<input type=radio name=radiodemo> <b class=n-form__check-icon></b> First option </label>
 								<label>
-									<input type=radio name=radiodemo> <b class=n-form__check-icon></b>
-									Second option
-								</label>
+									<input type=radio name=radiodemo> <b class=n-form__check-icon></b> Second option </label>
 								<label>
-									<input type=radio name=radiodemo> <b class=n-form__check-icon></b>
-									Third option
-								</label>
-
+									<input type=radio name=radiodemo> <b class=n-form__check-icon></b> Third option </label>
 							</div>
-
 							<label class=n-form--mandatory>
-
 								<span>Email</span>
 								<input name=email type=email placeholder="Your Email address.">
-
 							</label>
-
 							<label>
-
 								<span>Enter text here</span>
 								<textarea placeholder="How are you today?"></textarea>
-
 							</label>
-
 							<label>
-
 								<span>Website</span>
 								<input name=URL type=url placeholder="URL of your website.">
-
 							</label>
-
 							<label>
-
 								<span>Range</span>
 								<input type=range>
-
 							</label>
-
 							<label>
-
 								<span>Select a file</span>
 								<div class=n-form__file>
 									<input name=file type=file>
 									<span><span class=n-form__file-tag>Drop or browse</span></span>
 								</div>
-
 							</label>
-
 							<label>
-
 								<span>Telephone</span>
 								<input name=phone type=tel placeholder="Your phone number.">
-
 							</label>
-
 							<div class="n-form__check n-form--mandatory">
-
 								<span>Check this</span>
 								<label>
-									<input name=checkbox type=checkbox> <b class=n-form__check-icon></b>
-									I accept the <a href=#>Terms and Conditions</a>.
-								</label>
-
+									<input name=checkbox type=checkbox> <b class=n-form__check-icon></b> I accept the <a href=#>Terms and Conditions</a>. </label>
 							</div>
-
 							<label>
-
 								<span>Telephone</span>
 								<input name=phone type=tel placeholder="Your phone number.">
-
 							</label>
-
 							<input type=submit value="Request more info" title="Request more info">
-
 						</form>
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;form class="n-form n-form--mast"&gt;
 	...
 &lt;/form&gt;</code>
 </pre>
-
 						</div>
-
 					</div>
-
 					<div class="_1/2">
-
 						<h3>Wide</h3>
-
 						<form action=# method=post target=_blank novalidate class="n-form n-form--wide">
-
 							<label class=n-form--mandatory>
-
 								<span>Excepteur sint occaecat cupidatat non proident</span>
 								<input name=last_name id=last_name type=text placeholder="What is your name?">
-
 							</label>
-
 							<label class=n-form--mandatory>
-
 								<span>Number input (5 digits)</span>
 								<input type=number placeholder=0 data-digits="5">
-
 							</label>
-
 							<div class=n-form__check>
-
 								<span>A very long piece of label text which wraps to another line</span>
 								<label>
-									<input type=radio name=radiodemo> <b class=n-form__check-icon></b>
-									First option
-								</label>
+									<input type=radio name=radiodemo> <b class=n-form__check-icon></b> First option </label>
 								<label>
-									<input type=radio name=radiodemo> <b class=n-form__check-icon></b>
-									Second option has very long text which wraps to the next line
-								</label>
+									<input type=radio name=radiodemo> <b class=n-form__check-icon></b> Second option has very long text which wraps to the next line </label>
 								<label>
-									<input type=radio name=radiodemo> <b class=n-form__check-icon></b>
-									Third option
-								</label>
-
+									<input type=radio name=radiodemo> <b class=n-form__check-icon></b> Third option </label>
 							</div>
-
 							<label class=n-form--mandatory>
-
 								<span>Email</span>
 								<input name=email id=email type=email placeholder="Your Email address.">
-
 							</label>
-
 							<label>
-
 								<span>Enter text here</span>
 								<textarea placeholder="How are you today?" data-auto></textarea>
-
 							</label>
-
 							<label class=n-form--mandatory>
-
 								<span>Website</span>
 								<input name=URL id=URL type=url placeholder="URL of your website.">
-
 							</label>
-
 							<label>
-
 								<span>Range</span>
 								<input type=range>
-
 							</label>
-
 							<label>
-
 								<span>Select a file</span>
 								<div class=n-form__file>
 									<input name=file id=file type=file>
 									<span><span class=n-form__file-tag>Drop or browse</span></span>
 								</div>
-
 							</label>
-
 							<label>
-
 								<span>Country of residence</span>
-
 								<select name=country>
 									<option value="" selected=selected>Country of residence →</option>
 									<option value="United Kingdom">United Kingdom</option>
@@ -4205,120 +2801,76 @@
 									<option value="Antigua And Barbuda">Antigua And Barbuda</option>
 									<option value=Argentina>Argentina</option>
 								</select>
-
 							</label>
-
 							<label>
-
 								<span>Telephone</span>
 								<input name=phone type=tel placeholder="Your phone number.">
-
 							</label>
-
 							<div class="n-form__check n-form--mandatory">
-
 								<span>Check this</span>
 								<label>
-									<input name="checkbox" id="checkbox2" type="checkbox"> <b class="n-form__check-icon"></b> I accept the <a href=#>Terms and Conditions</a>.
-								</label>
-
+									<input name="checkbox" id="checkbox2" type="checkbox"> <b class="n-form__check-icon"></b> I accept the <a href=#>Terms and Conditions</a>. </label>
 							</div>
-
 							<label>
-
 								<span>Telephone</span>
 								<input name=phone type=tel placeholder="Your phone number.">
-
 							</label>
-
 							<div class="n-form__check n-form__condition">
-
 								<span>Open disabled fieldset below</span>
 								<label>
-									<input name="checkbox" id="checkbox" type="checkbox"> <b class="n-form__check-icon"></b> Text to check alignment with checkbox.
-								</label>
-
+									<input name="checkbox" id="checkbox" type="checkbox"> <b class="n-form__check-icon"></b> Text to check alignment with checkbox. </label>
 							</div>
-
 							<fieldset disabled="disabled">
-
 								<legend>Datalist examples</legend>
-
 								<input type="text" list="countries" placeholder="Datalist text" aria-label="Datalist">
-
 								<datalist id="countries">
 									<option value="Afghanistan">Afghanistan</option>
 									<option value="Aland Islands">Aland Islands</option>
 									<option value="Albania">Albania</option>
 								</datalist>
-
 								<input type="date" list="days" aria-label="Days">
 								<datalist id="days">
 									<option label="Independence Day">2013-07-04</option>
 									<option label="Labor Day">2013-09-02</option>
 									<option label="Columbus Day">2013-10-14</option>
 								</datalist>
-
 							</fieldset>
-
 							<input type=submit value="Request more info" title="Request more info">
 							<!-- 							<input type="reset" value="Reset" name="reset"> -->
-
 						</form>
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;form class="n-form n-form--wide"&gt;
 	...
 &lt;/form&gt;</code>
 </pre>
-
 						</div>
-
 					</div>
-
 					<div class="_1/1">
-
 						<h3>Elements</h3>
-
 						<div class="n-row">
-
 							<div class="_1/3">
-
 								<h4>Text input</h4>
-
 								<div class="code">
-
 									<pre><code class="language-markup">&lt;label&gt;
 	&lt;span&gt;Label&lt;/span&gt;
 	&lt;input type="text"&gt;
 &lt;/label&gt;</code>
 </pre>
-
 								</div>
-
 							</div>
-
 							<div class="_1/3">
-
 								<h4>Number input</h4>
 								<div class="code">
-
 									<pre><code class="language-markup">&lt;label&gt;
 	&lt;span&gt;Label&lt;/span&gt;
 	&lt;input type="number" data-digits="5"&gt;
 &lt;/label&gt;</code>
 </pre>
-
 								</div>
-
 							</div>
-
 							<div class="_1/3">
-
 								<h4>Checkbox</h4>
 								<div class="code">
-
 									<pre><code class="language-markup">&lt;div class="n-form__check"&gt;
 	&lt;span&gt;Global label&lt;/span&gt;
 	&lt;label&gt; 
@@ -4327,16 +2879,11 @@
 	&lt;/label&gt;
 &lt;/div&gt;</code>
 </pre>
-
 								</div>
-
 							</div>
-
 							<div class="_1/3">
-
 								<h4>Radio buttons</h4>
 								<div class="code">
-
 									<pre><code class="language-markup">&lt;div class="n-form__check"&gt;
 	&lt;span&gt;Label for all buttons&lt;/span&gt;
 	&lt;label&gt; 
@@ -4350,46 +2897,31 @@
 	...
 &lt;/div&gt;</code>
 </pre>
-
 								</div>
-
 							</div>
-
 							<div class="_1/3">
-
 								<h4>Textarea</h4>
 								<div class="code">
-
 									<pre><code class="language-markup">&lt;label&gt;
 	&lt;span&gt;Label&lt;/span&gt;
 	&lt;textarea&gt;&lt;/textarea&gt;
 &lt;/label&gt;</code>
 </pre>
-
 								</div>
-
 							</div>
-
 							<div class="_1/3">
-
 								<h4>Range input</h4>
 								<div class="code">
-
 									<pre><code class="language-markup">&lt;label&gt;
 	&lt;span&gt;Label&lt;/span&gt;
 	&lt;input type="range"&gt;
 &lt;/label&gt;</code>
 </pre>
-
 								</div>
-
 							</div>
-
 							<div class="_1/3">
-
 								<h4>File input</h4>
 								<div class="code">
-
 									<pre><code class="language-markup">&lt;label&gt;
 	&lt;span&gt;Label&lt;/span&gt;
 	&lt;div class="n-form__file"&gt;
@@ -4398,16 +2930,11 @@
 	&lt;/div&gt;
 &lt;/label&gt; </code>
 </pre>
-
 								</div>
-
 							</div>
-
 							<div class="_1/3">
-
 								<h4>Select</h4>
 								<div class="code">
-
 									<pre><code class="language-markup">&lt;label&gt;
 	&lt;span&gt;Label&lt;/span&gt;
 	&lt;select&gt;
@@ -4417,16 +2944,11 @@
 	&lt;/select&gt;
 &lt;/label&gt;</code>
 </pre>
-
 								</div>
-
 							</div>
-
 							<div class="_1/3">
-
 								<h4>Rich select</h4>
 								<div class="code">
-
 									<pre><code class="language-markup">&lt;label&gt;
 	&lt;span&gt;Label&lt;/span&gt;
 	&lt;div class=&quot;n-select&quot;&gt;
@@ -4443,15 +2965,11 @@
 	&lt;/div&gt;
 &lt;/label&gt;</code>
 </pre>
-
 								</div>
-
 							</div>
-
 							<div class="_1/3">
 								<h4>Optional sections</h4>
 								<div class="code">
-
 									<pre><code class="language-markup">&lt;div class="n-form__check n-form__condition"&gt;
 	&lt;span&gt;Enable fieldset below&lt;/span&gt;
 	&lt;label&gt;
@@ -4462,17 +2980,11 @@
 	...
 &lt;/fieldset&gt;</code>
 </pre>
-
 								</div>
-
 							</div>
-
 						</div>
-
 						<h3>Options</h3>
-
 						<ul class="n-list">
-
 							<li>Validation enabled by
 								<pre>&lt;label class="n-form--mandatory"&gt;</pre>
 							</li>
@@ -4490,11 +3002,8 @@
 							<li>The rich select can be used outside of a form without label. It can also contain links instead of option buttons.</li>
 							<li>Rich select with shadow via <b>.n-select__options.n-select--shadow</b>.</li>
 							<li>Rich select theme CSS variables: <b>--control-color</b>, <b>--control-bg</b>, <b>--control-selected-color</b>, <b>--control-selected-bg</b>, <b>--control-active-color</b>, <b>--control-active-bg</b>, <b>--control-highlight</b>.</li>
-
 						</ul>
-
 						<h3>Colors for input and textarea</h3>
-
 						<pre><code class="language-css">.n-form input, .n-form textarea {
 	
 	--input-color: darkslateblue;
@@ -4502,271 +3011,156 @@
 	
 }</code>
 </pre>
-
 					</div>
-
 				</div>
-
 			</div>
-
 			<div id=masonry data-tab-title=Masonry id=masonry>
-
 				<div class="n-row">
-
 					<div>
-
 						<h2>Masonry (vertical track only)</h2>
-
 						<div class="n-masonry">
-
 							<a class=n-center>A very long cell which demonstrates how Masonry arranges cells in optimised space.</a>
 							<div class=n-center><a>Cell</a></div>
 							<a class=n-center>Cell</a>
 							<a class=n-center>Cell</a>
-
 						</div>
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;div class="n-masonry"&gt;
 	&lt;div&gt;Item&lt;/div&gt;
 	...
 &lt;/div&gt;</code>
 </pre>
-
 						</div>
-
 					</div>
-
 				</div>
-
 			</div>
-
 			<div data-tab-title=Cards id=cards>
-
 				<div class="n-row">
-
 					<div class="_1/1">
-
 						<h2>Cards</h2>
-
 					</div>
-
 					<div>
 						<h3>Standard</h3>
-
 						<div class="n-card">
-
 							<div class="n-card__content">
-
 								<p>Card content.</p>
-
 								<a href=#>Link</a>.
-
 							</div>
-
 						</div>
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;div class="n-card"&gt;
 	&lt;div class="n-card__content"&gt; Content &lt;/div&gt;
 &lt;/div&gt;</code>
 </pre>
-
 						</div>
-
 					</div>
-
 					<div>
 						<h3>Card with headline</h3>
-
 						<div class="n-card">
-
 							<div class="n-card__head">
-
 								<h3>Title</h3>
-
 							</div>
-
 							<div class="n-card__content">
-
 								<p>Card content.</p>
-
 								<a href=#>Link</a>.
-
 							</div>
-
 						</div>
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;div class="n-card"&gt;
 	&lt;div class="n-card__head"&gt; Headline &lt;/div&gt;
 	&lt;div class="n-card__content"&gt; Content &lt;/div&gt;
 &lt;/div&gt;</code>
 </pre>
-
 						</div>
-
 					</div>
-
 					<div>
 						<h3>Card with image</h3>
-
 						<div class="n-card">
-
 							<img src=images/DSC_4225.jpg alt=Image>
-
 							<div class="n-card__content">
-
 								<p>Card content.</p>
-
 								<a href=#>Link</a>.
-
 							</div>
-
 						</div>
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;div class="n-card"&gt;
 	&lt;img src="image.jpg" alt="Image"&gt;
 	&lt;div class="n-card__content"&gt; Content &lt;/div&gt;
 &lt;/div&gt;</code>
 </pre>
-
 						</div>
-
 					</div>
-
 					<div>
-
 						<h3>Card with headline and image</h3>
-
 						<div class="n-card">
-
 							<div class="n-card__head n-card--image" style="background-image: url(images/DSC_4225.jpg)">
-
 								<h3>Title</h3>
-
 							</div>
-
 							<div class="n-card__content">
-
 								<p>Card content.</p>
-
 								<a href=#>Link</a>.
-
 							</div>
-
 						</div>
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;div class="n-card"&gt;
 	&lt;div class="n-card__head n-card--image" style="background-image: url(image.jpg)"&gt; Headline &lt;/div&gt;
 	&lt;div class="n-card__content"&gt; Content &lt;/div&gt;
 &lt;/div&gt;</code>
 </pre>
-
 						</div>
-
 					</div>
-
 					<div class="_1/1">
-
 						<h3>Options</h3>
-
 						<ul class="n-list">
-
 							<li>CSS variable
 								<pre>--card-bg</pre> specifies the background colour.
 							</li>
-
 						</ul>
-
 					</div>
-
 				</div>
-
 			</div>
-
 			<div id=fixed-background>
-
 				<div class="n-row">
-
 					<div class="n-middle" style="min-height: 100vh;">
-
 						<div class="n-fixed-bg" style="background-image: url(images/DSC00470.jpg); color: #fff;">
-
 							<div class="n-fixed-bg__image"></div>
-
 							<div class="n-pad">
-
 								<br><br>
-
 								<h2>Fixed background</h2>
 								<div class="code">
-
 									<pre><code class="language-markup">&lt;div class="n-fixed-bg" style="background-image: url(image.jpg);"&gt;
 	&lt;div class="n-fixed-bg__image"&gt;&lt;/div&gt;
 	...
 &lt;/div&gt;</code>
 </pre>
-
 								</div>
-
 								<div style="min-height: 100vh"></div>
-
 								<p>takes up the full window and is visible only through the current section. Not fixed on IE/Edge.</p>
-
 								<br><br><br>
-
 							</div>
-
 						</div>
-
 					</div>
-
 				</div>
-
 			</div>
-
 			<div id=language-selector>
-
 				<div class="n-row">
-
 					<div>
-
 						<h2>Language selector</h2>
-
 						<form action=. method=get class="n-form n-form__language">
-
 							<label>
-
 								<select name="l">
-
 									<option value="en">🇬🇧 English</option>
 									<option value="fr">🇫🇷 Français</option>
 									<option value="cn">🇨🇳 中文</option>
 									<option value="bg">🇧🇬 български</option>
 									<option value="jp">🇯🇵 日本</option>
-
-
 								</select>
-
 							</label>
-
 							<noscript>
-
 								<input type=submit value=▶>
-
 							</noscript>
-
 						</form>
-
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;form action="." method="get" class="n-form n-form__language"&gt;
 	&lt;label&gt;
 		&lt;select name="l"&gt;
@@ -4782,34 +3176,21 @@
 	&lt;/noscript&gt;
 &lt;/form&gt;</code>
 </pre>
-
 						</div>
-
 					</div>
-
 				</div>
-
 			</div>
-
 			<div id=parallax>
-
 				<div class="n-row">
-
 					<div style="height: calc(100vh - 1.5em);">
-
 						<h2>Parallax scrolling</h2>
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;div class="n-parallax"&gt;
 	&lt;div class="n-parallax--content"&gt; ... &lt;/div&gt;
 &lt;/div&gt;</code>
 </pre>
-
 						</div>
-
 						<h3>Above</h3>
-
 						<div class="n-parallax">
 							<div class="n-parallax--content" style="background: url(images/lido.jpg);
     background-size: cover;
@@ -4817,28 +3198,16 @@
 								<p><br><br><br>Offset relative either to scrolling parent or body.</p>
 							</div>
 						</div>
-
 						<h3>Below</h3>
-
 						<!-- 							<p><a href=//radogado.github.io/niui/demos/swiss/ target="_blank">Open demo page</a>.</p> -->
-
 						<div style="min-height: 150vh;"></div>
-
 					</div>
-
 				</div>
-
 			</div>
-
 			<div id=notifications>
-
 				<div class="n-row">
-
 					<div>
-
 						<h2>Notification bar</h2>
-
-
 						<div class="code">
 							<pre><code class="language-markup">&lt;body&gt;
     &lt;div class="n-notify"&gt; Message &lt;/div&gt;
@@ -4846,26 +3215,20 @@
 &lt;/body&gt;</code>
 </pre>
 						</div>
-
 						<p>or</p>
-
 						<div class="code">
 							<pre><code class="language-js">document.body.insertAdjacentHTML("afterbegin", "&lt;div class=n-notify&gt; Message &lt;/div&gt;");</code></pre>
 						</div>
 						<br>
 						<p>or</p>
-
 						<div class="code">
 							<pre><code class="language-js">nui.componentNotify.notify("Message");</code></pre>
 						</div>
 						<br>
 						<button class="n-btn" onclick="nui.componentNotify.notify('Notified.');">Notify me now</button>
 						<button class="n-btn" onclick="nui.componentNotify.notify('Fixed.', 'fixed');">Fixed notification bar</button>
-
 						<h3>Options</h3>
-
 						<ul class="n-list">
-
 							<li>Fixed on top:
 								<pre>&lt;div class="n-notify n-notify--fixed"&gt;</pre> or
 								<pre>nui.componentNotify.notify("Message", "fixed");</pre>
@@ -4873,93 +3236,54 @@
 							<li>
 								<pre>nui.componentNotify.notify("Text", "timeout")</pre> to hide it automatically after 2 seconds
 							</li>
-
 						</ul>
-
 					</div>
-
 				</div>
-
 			</div>
-
 			<div id=copy>
-
 				<div class="n-row">
-
 					<div>
-
 						<h2>Copy to clipboard</h2>
-
 						<div>
 							<p id=copycontent>Text to be copied to clipboard.</p>
 						</div>
-
 						<button class="n-btn" id=copybutton>Copy the above text</button>
 						<br>
 						<div class="code">
-
 							<pre><code class="language-js">nui.copyButton(document.getElementById("copybutton"), document.getElementById("copycontent"));</code>
 </pre>
-
 						</div>
-
 						<h3>Options</h3>
-
 						<ul class="n-list">
-
 							<li>Add a third parameter to echo the content in a notification bar</li>
-
 						</ul>
-
 					</div>
-
 				</div>
-
 			</div>
-
 			<div Back to top\" button" id=back-to-top>
-
 				<div class="n-row">
-
 					<div>
-
 						<h2>"Back to top" button</h2>
-
 						<div class="code">
-
 							<pre><code class="language-markup">&lt;a class="backtotop" href="#"&gt;&uarr;&lt;/a&gt;</code>
 </pre>
-
 						</div>
-
 					</div>
-
 				</div>
-
 			</div>
-
 			<div id=dynamic-components>
-
 				<div class="n-row">
-
 					<div>
-
 						<div>
-
 							<h2>Dynamically add a component</h2>
 							<br>
 							<div class="code">
-
 								<pre><code class="language-markup">nui.addComponent(host, "&lt;div class=n-carousel__content&gt;&lt;div&gt;New&lt;/div&gt;&lt;div&gt;Carousel&lt;/div&gt;&lt;/div&gt;");</code>
 </pre>
-
 							</div>
 							<br>
-
 							<div class="n-row">
-
 								<form class="n-form">
-
 									<textarea id=component-playground rows="10" style="width: 100%" aria-label="Component playground">
 <div class=n-carousel__content> 
 	<div>New</div>
@@ -4968,11 +3292,8 @@
 </textarea>
 									<br>
 									<button class="n-btn" onclick="nui.addComponent(document.getElementById('sandbox'), this.parentNode.querySelector('textarea').value); return false;">Add the above component</button>
-
 								</form>
-
 								<form class="n-form">
-
 									<textarea id=component-playground2 rows="10" style="width: 100%" aria-label="Component playground 2">
 <div class=n-fold>
 	<button class=n-fold__label> Label </button>
@@ -4982,60 +3303,31 @@
 </textarea>
 									<br>
 									<button class="n-btn" onclick="nui.addComponent(document.getElementById('sandbox'), this.parentNode.querySelector('textarea').value); return false;">Add the above component</button>
-
 								</form>
-
-
 							</div>
-
 							<div id=sandbox></div>
-
 						</div>
-
 					</div>
-
 				</div>
-
-
 			</div>
-
 			<div id=wordpress>
-
 				<div class="n-row">
-
 					<div>
-
 						<div>
-
 							<h2>WordPress theme</h2>
-
 							<p><a href=//rado.bg>Demo 1</a></p>
-
 							<p><a href=//bulgaro.asia>Demo 2</a></p>
-
 							<p><a href=niui-wp.zip download>Download</a></p>
-
 							<p>Note: Image gallery currently not supported in the Block Editor. Please use the Classic Editor for galleries.</p>
-
 						</div>
-
 					</div>
-
 				</div>
-
-
 			</div>
-
 			<div id=colors>
-
 				<div class="n-row">
-
 					<div>
-
 						<div>
-
 							<h2>Color scheme</h2>
-
 							<pre><code class="language-css">.n-carousel__content--arrow, .n-carousel__content--nav *, .n-tool:after, .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href], .n-fold > .n-fold__label, .n-nav--drop, .n-form, .n-accordion, .n-select__options {
 	
 	--control-bg: lightcoral;
@@ -5073,19 +3365,12 @@ nav li li[aria-haspopup][aria-expanded="true"], nav li li[aria-haspopup]:hover {
 	
 }</code>
 </pre>
-
 						</div>
-
 					</div>
-
 				</div>
-
-
 			</div>
-
 		</main>
 	</div>
-
 </body>
 
 </html>

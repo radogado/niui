@@ -1,0 +1,4 @@
+{
+  "workspace.preview_server_allow_external" : true,
+  "workspace.preview_server_port" : 33333
+}
