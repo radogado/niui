@@ -3221,50 +3221,40 @@
 
 					<div>
 
-						<div class="n-fold--group">
+						<div class="n-accordion__group">
 
-							<div class="n-fold">
+							<details class="n-accordion">
+								<summary>Accordion 1</summary>
+								<div>
+									<p>Content 1</p>
 
-								<button class=n-fold__label>Group fold 1 </button>
-								<input type=checkbox class=n-trigger>
-
-								<div class="n-fold__content">
-
-									Content 1
-
+									<p><a href="#">Link</a>.</p>
 								</div>
+							</details>
 
-							</div>
-							<div class="n-fold">
+							<details class="n-accordion">
+								<summary>Accordion 2</summary>
+								<div>
+									<p>Content 2</p>
 
-								<button class=n-fold__label>Group fold 2 </button>
-								<input type=checkbox class=n-trigger>
-
-								<div class="n-fold__content">
-
-									Content 2
-
+									<p><a href="#">Link</a>.</p>
 								</div>
+							</details>
 
-							</div>
-							<div class="n-fold">
+							<details class="n-accordion">
+								<summary>Accordion 3</summary>
+								<div>
+									<p>Content 3</p>
 
-								<button class=n-fold__label>Group fold 3 </button>
-								<input type=checkbox class=n-trigger>
-
-								<div class="n-fold__content">
-
-									Content 3
-
+									<p><a href="#">Link</a>.</p>
 								</div>
-
-							</div>
+							</details>
 
 						</div>
 
 						<div class="code">
 
-							<pre><code class="language-markup">&lt;div class="n-fold--group"&gt;
+							<pre><code class="language-markup">&lt;div class="n-accordion__group"&gt;
 
 	&lt;div class="n-fold"&gt;
 	
@@ -3566,7 +3556,7 @@
 
 							<p>Needed for proper spacing when wrapped</p>
 
-							<div class="n-btn--group">
+							<div class="n-btn__group">
 
 								<a href="#features" class="n-btn">Features</a>
 								<a href="#showcase" class="n-btn">Showcase</a>
@@ -3577,7 +3567,7 @@
 
 							<br>
 
-							<div class="n-btn--group">
+							<div class="n-btn__group">
 
 								<a href="#features" class="n-btn--big n-btn">Features</a>
 								<a href="#showcase" class="n-btn--big n-btn">Showcase</a>
@@ -3589,7 +3579,7 @@
 
 							<div class="code">
 
-								<pre><code class="language-markup">&lt;div class="n-btn--group"&gt; ... &lt;/div&gt;</code>
+								<pre><code class="language-markup">&lt;div class="n-btn__group"&gt; ... &lt;/div&gt;</code>
 </pre>
 
 							</div>
@@ -4259,7 +4249,7 @@
 
 								<legend>Datalist examples</legend>
 
-								<input type="text" list="countries" placeholder="Datalist text">
+								<input type="text" list="countries" placeholder="Datalist text" aria-label="Datalist">
 
 								<datalist id="countries">
 									<option value="Afghanistan">Afghanistan</option>
@@ -4267,7 +4257,7 @@
 									<option value="Albania">Albania</option>
 								</datalist>
 
-								<input type="date" list="days">
+								<input type="date" list="days" aria-label="Days">
 								<datalist id="days">
 									<option label="Independence Day">2013-07-04</option>
 									<option label="Labor Day">2013-09-02</option>
@@ -5048,7 +5038,7 @@
 
 								<form class="n-form">
 
-									<textarea id=component-playground rows="10" style="width: 100%">
+									<textarea id=component-playground rows="10" style="width: 100%" aria-label="Component playground">
 <div class=n-carousel__content> 
 	<div>New</div>
 	<div>Carousel</div>
@@ -5061,7 +5051,7 @@
 
 								<form class="n-form">
 
-									<textarea id=component-playground2 rows="10" style="width: 100%">
+									<textarea id=component-playground2 rows="10" style="width: 100%" aria-label="Component playground 2">
 <div class=n-fold>
 	<button class=n-fold__label> Label </button>
 	<input type=checkbox class=n-trigger>

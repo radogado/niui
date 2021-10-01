@@ -276,12 +276,12 @@ a.backtotop[href] {
   box-sizing: border-box;
 }
 
-.n-btn--group {
+.n-btn__group {
   margin: 0 -0.25em;
 }
-.n-btn--group > *,
-.n-btn--group .n-btn.n-btn--big,
-.n-btn--group > a[href].n-btn.n-btn__big {
+.n-btn__group > *,
+.n-btn__group .n-btn.n-btn--big,
+.n-btn__group > a[href].n-btn.n-btn__big {
   margin-inline-end: 0.25em;
   margin-inline-start: 0.25em;
 }
