@@ -22,14 +22,18 @@
 	// };
 	function toggleAccordion(e) {
 		let el = e.target.parentNode;
-		if (el.parentNode.classList.contains('n-accordion__group')) {
+		let container = el.closest('.n-accordion__popin');
+		if (el.parentNode.classList.contains('n-accordion__group') || container) {
 			el.parentNode.querySelectorAll(':scope > details').forEach(el2 => {
 				if (el2 !== el) {
 					el2.open = false;
 				}
 			});
 		}
-		// stopEvent(e);
+		if (container) {
+			let row = Math.floor([...container.children].indexOf(el) / getComputedStyle(container).getPropertyValue('--n-popin-columns') * 1) + 2;
+			container.style.setProperty('--n-popin-open-row', row);
+		} // stopEvent(e);
 		// var el = e.target.closest(".n-fold");
 		// var content = el.querySelector(".n-fold__content");
 		// content.style.display = "block"; // To get proper width when horizontal

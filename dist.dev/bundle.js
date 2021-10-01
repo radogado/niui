@@ -595,7 +595,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	});
 }
 
-//→ fold.js:
+//→ accordion.js:
 'use strict';
 
 // Component Fold – start
@@ -622,14 +622,18 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	// };
 	function toggleAccordion(e) {
 		let el = e.target.parentNode;
-		if (el.parentNode.classList.contains('n-accordion__group')) {
+		let container = el.closest('.n-accordion__popin');
+		if (el.parentNode.classList.contains('n-accordion__group') || container) {
 			el.parentNode.querySelectorAll(':scope > details').forEach(el2 => {
 				if (el2 !== el) {
 					el2.open = false;
 				}
 			});
 		}
-		// stopEvent(e);
+		if (container) {
+			let row = Math.floor([...container.children].indexOf(el) / getComputedStyle(container).getPropertyValue('--n-popin-columns') * 1) + 2;
+			container.style.setProperty('--n-popin-open-row', row);
+		} // stopEvent(e);
 		// var el = e.target.closest(".n-fold");
 		// var content = el.querySelector(".n-fold__content");
 		// content.style.display = "block"; // To get proper width when horizontal
@@ -2072,32 +2076,6 @@ var componentModal = (function () {
 
 	typeof registerComponent === "function" ? registerComponent("n-carousel", init) : init();
 })();
-
-//→ popin.js:
-'use strict';
-
-// Component Popin – start
-(function () {
-	let init = (host) => {
-		host.querySelectorAll('.n-popin > * > button').forEach(el => {
-			el.onclick = e => {
-				let el = e.target;
-				let container = el.closest('.n-popin');
-				let content = el.parentNode;
-				let previous = container.querySelector(':scope > [aria-expanded]');
-				previous?.removeAttribute('aria-expanded');
-				if (previous !== content) {
-					let row = Math.floor([...el.parentNode.parentNode.children].indexOf(el.parentNode) / getComputedStyle(container).getPropertyValue('--n-popin-columns') * 1) + 2;
-					container.style.setProperty('--n-popin-open-row', row);
-					content.ariaExpanded = true;
-				}
-			};
-		});
-	};
-	// registerComponent("popin", init);
-	typeof registerComponent === "function" ? registerComponent("n-popin", init) : init(document.body);
-})();
-// Component Popin – end
 
 //→ n-select.js:
 'use strict';

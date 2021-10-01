@@ -50,4 +50,30 @@ details.n-accordion details {
   margin: 0.25em;
 }
 
-/*# sourceMappingURL=fold.scss.css.map */
+.n-accordion__popin {
+  display: grid;
+  --n-popin-columns: 1;
+  grid-template: auto/repeat(var(--n-popin-columns), auto);
+  gap: 0.5rem;
+}
+@media (min-width: 600px) {
+  .n-accordion__popin {
+    --n-popin-columns: 3;
+  }
+}
+.n-accordion__popin > * {
+  display: contents;
+}
+.n-accordion__popin > * > * {
+  padding: 0.5rem;
+}
+.n-accordion__popin > [open] > summary {
+  background: var(--control-active-bg, #fff);
+  color: var(--control-active-color, #222);
+}
+.n-accordion__popin > [open] > :not(summary) {
+  grid-row: var(--n-popin-open-row, 0);
+  grid-column: 1/-1;
+}
+
+/*# sourceMappingURL=accordion.scss.css.map */
