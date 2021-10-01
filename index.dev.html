@@ -63,7 +63,7 @@
 			<button><span>Lightbox</span></button>
 			<button><span>Video</span></button>
 			<button><span>Tables</span></button>
-			<button><span>Fold (Accordion)</span></button>
+			<button><span>Accordion</span></button>
 			<button><span>Tooltip</span></button>
 			<button><span>Modal window</span></button>
 			<button><span>Buttons</span></button>
@@ -224,7 +224,7 @@
 								<li>Lightbox</li>
 								<li>Popin</li>
 								<li>Notify</li>
-								<li>Fold (Accordion)</li>
+								<li>Accordion</li>
 								<li>Tooltip</li>
 								<li>Parallax</li>
 
@@ -1067,7 +1067,7 @@
 
 								<li class="n-nav-current"> <a href=#lightbox>Lightbox</a> </li>
 
-								<li> <a href=#fold>Fold</a> </li>
+								<li> <a href=#accordion>Accordion</a> </li>
 
 								<li> <a href=#modal>Modal window</a> </li>
 
@@ -1138,7 +1138,7 @@
 
 								<li> <a href=#lightbox class="n-nav-current">Lightbox</a> </li>
 
-								<li> <a href=#fold>Fold</a> </li>
+								<li> <a href=#accordion>Accordion</a> </li>
 
 								<li> <a href=#modal>Modal window</a> </li>
 
@@ -3046,13 +3046,13 @@
 
 			</div>
 
-			<div id=fold data-tab-title="Fold (Accordion)">
+			<div id=accordion>
 
 				<div class="n-row">
 
 					<div class="_1/1">
 
-						<h2>Fold (foldable content, accordion)</h2>
+						<h2>Accordion</h2>
 
 					</div>
 
@@ -3078,31 +3078,6 @@
 							</div>
 						</details>
 
-						<div class="n-fold">
-
-							<button class=n-fold__label> Accordion </button>
-							<input type=checkbox class=n-trigger>
-
-							<div id=i class="n-fold__content">
-
-								<div>
-
-									<div class="n-center">
-										<p><br>One<br></p>
-									</div>
-									<div class="n-center">
-										<p><br><br>Two<br><br></p>
-									</div>
-
-								</div>
-
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-
-								<p><a href="#">Link</a>.</p>
-
-							</div>
-
-						</div>
 						<div class="code">
 
 							<pre><code class="language-markup">&lt;div class="n-fold"&gt;
@@ -3128,18 +3103,6 @@
 								<p><a href="#">Link</a>.</p>
 							</div>
 						</details>
-						<div class="n-fold" aria-expanded=true>
-
-							<button class=n-fold__label> Open by default </button>
-							<input type=checkbox class=n-trigger>
-
-							<div id=i class="n-fold__content">
-
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-
-							</div>
-
-						</div>
 						<div class="code">
 
 							<pre><code class="language-markup">&lt;div class="n-fold" aria-expanded="true"&gt;
@@ -3300,39 +3263,6 @@
 								</details>
 							</div>
 						</details>
-
-						<div class="n-fold">
-
-							<button class=n-fold__label> Nested Accordions </button>
-							<input type=checkbox class=n-trigger>
-
-							<div class="n-fold__content">
-
-								<div class=n-fold>
-
-									<button class=n-fold__label> About Inner Accordion </button>
-									<input type=checkbox class=n-trigger>
-
-									<div class="n-fold__content">
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-									</div>
-
-								</div>
-
-								<div class=n-fold>
-
-									<button class=n-fold__label> About Inner Accordion 2 </button>
-									<input type=checkbox class=n-trigger>
-
-									<div class="n-fold__content">
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-									</div>
-
-								</div>
-
-							</div>
-
-						</div>
 
 					</div>
 
@@ -5114,7 +5044,7 @@
 
 							<h2>Color scheme</h2>
 
-							<pre><code class="language-css">.n-carousel__content--arrow, .n-carousel__content--nav *, .n-tool:after, .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href], .n-fold > .n-fold__label, .n-nav--drop, .n-form, .n-fold span.n-burger, .n-select__options {
+							<pre><code class="language-css">.n-carousel__content--arrow, .n-carousel__content--nav *, .n-tool:after, .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href], .n-fold > .n-fold__label, .n-nav--drop, .n-form, .n-accordion, .n-select__options {
 	
 	--control-bg: lightcoral;
 	--control-color: #fff;		
