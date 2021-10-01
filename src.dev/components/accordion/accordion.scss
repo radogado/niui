@@ -289,10 +289,14 @@
 // 		overflow: visible;
 // 	}
 // }
-
 details.n-accordion {
 	> summary {
 		list-style: none;
+
+		&::-webkit-details-marker {
+			display: none;
+		}
+
 		user-select: none;
 		cursor: zoom-in;
 		letter-spacing: initial;
@@ -323,6 +327,8 @@ details.n-accordion {
 	}
 
 	&[open] > summary {
+		background: var(--control-active-bg, #fff);
+		color: var(--control-active-color, #222);
 		cursor: zoom-out;
 
 		&:after {
@@ -330,9 +336,6 @@ details.n-accordion {
 		}
 	}
 
-	> summary::-webkit-details-marker {
-		display: none;
-	}
 	details {
 		margin: .25em;
 	}
@@ -355,15 +358,9 @@ details.n-accordion {
 		> * {
 			padding: .5rem;
 		}
-
 	}
 
 	> [open] {
-		> summary {
-			background: var(--control-active-bg, #fff);
-			color: var(--control-active-color, #222);
-		}
-
 		> :not(summary) {
 			grid-row: var(--n-popin-open-row, 0);
 			grid-column: 1/-1;

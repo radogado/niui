@@ -21,6 +21,9 @@ details.n-accordion > summary {
   background-color: var(--control-bg, inherit);
   color: var(--control-color, inherit);
 }
+details.n-accordion > summary::-webkit-details-marker {
+  display: none;
+}
 details.n-accordion > summary:after {
   transition: transform 0.2s ease-in-out;
   content: "";
@@ -38,13 +41,12 @@ details.n-accordion > summary:after {
   background-color: var(--control-color, #000);
 }
 details.n-accordion[open] > summary {
+  background: var(--control-active-bg, #fff);
+  color: var(--control-active-color, #222);
   cursor: zoom-out;
 }
 details.n-accordion[open] > summary:after {
   transform: rotate(180deg);
-}
-details.n-accordion > summary::-webkit-details-marker {
-  display: none;
 }
 details.n-accordion details {
   margin: 0.25em;
@@ -66,10 +68,6 @@ details.n-accordion details {
 }
 .n-accordion__popin > * > * {
   padding: 0.5rem;
-}
-.n-accordion__popin > [open] > summary {
-  background: var(--control-active-bg, #fff);
-  color: var(--control-active-color, #222);
 }
 .n-accordion__popin > [open] > :not(summary) {
   grid-row: var(--n-popin-open-row, 0);
