@@ -219,8 +219,8 @@ h1:after {
 	vertical-align: super;
 }
 
-[href="n-carousel.min.css"],
-[href="n-carousel.min.js"] {
+[href*=".min.css"],
+[href*=".min.js"] {
 	text-decoration: none;
 	white-space: nowrap;
 

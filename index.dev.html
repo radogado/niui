@@ -7,7 +7,7 @@
 	<meta charset="utf-8">
 	<meta name=viewport content="width=device-width,initial-scale=1.0,maximum-scale=5,user-scalable=yes">
 	<link rel=icon href=images/favicon.ico>
-	<link rel=styleSheet href=dist.dev/bundle.min.css type=text/css media=screen>
+	<link rel=styleSheet href=dist.dev/niui.min.css type=text/css media=screen>
 	<link rel=styleSheet href=src.dev/css/guide.css type=text/css media=screen>
 	<script src="dist/niui-preload.min.js"></script> <!-- Load and execute immediately. Should be on the same host as the above CSS file, not waiting for another request -->
 	<script>
@@ -21,7 +21,7 @@
 			}
 		}
 	</script>
-	<script src=dist.dev/bundle.js type=module defer onload="setupCopy();"></script>
+	<script src=dist.dev/niui.js type=module defer onload="setupCopy();"></script>
 	<!-- 	<script src=dist/niui.min.js type=module defer onload="setupCopy();"></script> -->
 	<link rel=styleSheet href=src.dev/css/prism.css type=text/css media=screen>
 	<script src="src.dev/script/prism.js" type="text/javascript" defer></script>
@@ -79,6 +79,7 @@
 							<h1>Native Internet User Interface</h1>
 							<h2>lightweight, feature-heavy web front-end</h2>
 						</div>
+						<p><a href="dist.dev/niui.min.css">niui.min.css</a>, <a href="dist.dev/niui.min.js">niui.min.js</a></p>
 					</div>
 					<div>
 						<ul class="n-masonry n-left">
@@ -3371,6 +3372,15 @@ nav li li[aria-haspopup][aria-expanded="true"], nav li li[aria-haspopup]:hover {
 			</div>
 		</main>
 	</div>
+	<script>
+		["css", "js"].forEach((el) => {
+			fetch(`dist.dev/niui.min.${el}.size`).then((response) => response.text()).then((text) => {
+				document.querySelectorAll(`[href*=".min.${el}"]`).forEach(link => {
+					link.dataset.size = `${parseFloat(text / 1024).toFixed(1)} KB`
+				})
+			})
+		});
+	</script>
 </body>
 
 </html>

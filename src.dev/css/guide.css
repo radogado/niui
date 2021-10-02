@@ -177,13 +177,13 @@ h1:after {
   vertical-align: super;
 }
 
-[href="n-carousel.min.css"],
-[href="n-carousel.min.js"] {
+[href*=".min.css"],
+[href*=".min.js"] {
   text-decoration: none;
   white-space: nowrap;
 }
-[href="n-carousel.min.css"]:after,
-[href="n-carousel.min.js"]:after {
+[href*=".min.css"]:after,
+[href*=".min.js"]:after {
   content: attr(data-size);
   padding-inline-start: 1ch;
   min-width: 6ch;
@@ -191,12 +191,12 @@ h1:after {
   font-size: 0.75em;
   vertical-align: top;
 }
-[href="n-carousel.min.css"][data-size="0.0 KB"]:after,
-[href="n-carousel.min.js"][data-size="0.0 KB"]:after {
+[href*=".min.css"][data-size="0.0 KB"]:after,
+[href*=".min.js"][data-size="0.0 KB"]:after {
   opacity: 0;
 }
-[href="n-carousel.min.css"] b,
-[href="n-carousel.min.js"] b {
+[href*=".min.css"] b,
+[href*=".min.js"] b {
   text-decoration: underline;
   min-width: 4ch;
   display: inline-block;
