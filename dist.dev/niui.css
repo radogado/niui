@@ -1745,14 +1745,6 @@ body[data-frozen] {
 .n-carousel:not(.n-carousel--vertical).n-carousel--auto-height > .n-carousel__content > * {
   min-height: 9em;
 }
-.n-carousel:not(.n-carousel--vertical):-webkit-full-screen > .n-carousel__content, .n-carousel:not(.n-carousel--vertical).n-carousel--overlay > .n-carousel__content {
-  height: 100% !important;
-}
-.n-carousel:not(.n-carousel--vertical):-webkit-full-screen > .n-carousel__content figure,
-.n-carousel:not(.n-carousel--vertical):-webkit-full-screen > .n-carousel__content img, .n-carousel:not(.n-carousel--vertical).n-carousel--overlay > .n-carousel__content figure,
-.n-carousel:not(.n-carousel--vertical).n-carousel--overlay > .n-carousel__content img {
-  max-height: 100%;
-}
 
 [data-ready].n-carousel--auto-height:not(.n-carousel--vertical):not([data-sliding]) > .n-carousel__content > :not([data-active]) {
   overflow: visible;
@@ -1763,11 +1755,24 @@ body[data-frozen] {
   flex-direction: column;
 }
 
-.n-carousel:-webkit-full-screen {
-  max-height: 100% !important;
-}
 .n-carousel:-webkit-full-screen > .n-carousel__close {
   display: none;
+}
+
+.n-carousel:-webkit-full-screen, .n-carousel.n-carousel--overlay {
+  max-height: 100% !important;
+}
+.n-carousel:-webkit-full-screen > .n-carousel__content, .n-carousel.n-carousel--overlay > .n-carousel__content {
+  height: 100% !important;
+}
+.n-carousel:-webkit-full-screen > .n-carousel__content figure,
+.n-carousel:-webkit-full-screen > .n-carousel__content img,
+.n-carousel:-webkit-full-screen > .n-carousel__content video,
+.n-carousel:-webkit-full-screen > .n-carousel__content iframe, .n-carousel.n-carousel--overlay > .n-carousel__content figure,
+.n-carousel.n-carousel--overlay > .n-carousel__content img,
+.n-carousel.n-carousel--overlay > .n-carousel__content video,
+.n-carousel.n-carousel--overlay > .n-carousel__content iframe {
+  max-height: 100%;
 }
 
 .n-carousel:fullscreen {
@@ -2359,8 +2364,9 @@ _:future,
   background: rgba(0, 0, 0, 0.3);
   color: #ddd;
 }
-.n-carousel--lightbox.n-carousel--auto-height figure {
+.n-carousel--lightbox.n-carousel--auto-height figure, .n-carousel--lightbox.n-carousel--auto-height video, .n-carousel--lightbox.n-carousel--auto-height iframe {
   height: auto;
+  max-height: none;
 }
 .n-carousel--lightbox.n-carousel--index-start figure {
   grid-template: 1fr auto/auto;
@@ -2398,6 +2404,8 @@ _:future,
   margin: auto;
   max-width: 100%;
   max-height: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
 }
 
 /*# sourceMappingURL=n-carousel-from-npm.scss.css.map */

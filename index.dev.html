@@ -1930,11 +1930,69 @@
 					</div>
 					<div class="_1/2">
 						<h3> Inline lightbox with auto height </h3>
-						<div class="n-carousel n-carousel__content__vertical- n-carousel__content__outside n-lightbox__thumbnails n-carousel__content__auto-height">
+
+						<div class="n-carousel n-carousel--lightbox n-carousel--auto-height">
+							<ul class="n-carousel__content">
+								<li>
+									<figure>
+										<picture>
+											<img width="1365" height="2048" src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/09/DSC04909.jpg" alt="Demo Image 1" loading="lazy" />
+										</picture>
+										<figcaption>First Toronto photo</figcaption>
+									</figure>
+								</li>
+								<li>
+									<figure>
+										<picture>
+											<img width="1365" height="2048" src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/09/DSC04890.jpg" alt="Demo Image 1" loading="lazy" />
+										</picture>
+										<figcaption>First Taipei photo</figcaption>
+									</figure>
+								</li>
+								<li>
+									<figure>
+										<picture>
+											<img width="2048" height="871" src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/09/DSC04894.jpg" alt="Demo Image 1" loading="lazy" />
+										</picture>
+										<figcaption>First Taipei photo</figcaption>
+									</figure>
+								</li>
+								<li>
+									<figure>
+										<picture>
+											<img width="2048" height="1365" src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/09/DSC04871.jpg" alt="Demo Image 1" loading="lazy" />
+										</picture>
+										<figcaption>First Taipei photo</figcaption>
+									</figure>
+								</li>
+								<li>
+									<video poster="images/video.jpg" controls="controls" preload="none" style="aspect-ratio: 16/9">
+										<source type="video/mp4" src="//s3.amazonaws.com/gado/Outlying-Teaser.mp4">
+									</video>
+								</li>
+							</ul>
+							<div class="n-carousel__previous">
+								<button><span>Previous</span></button>
+							</div>
+							<div class="n-carousel__next">
+								<button><span>Next</span></button>
+							</div>
+							<div class="n-carousel__index n-carousel__index--thumbnails">
+								<button><img src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/09/DSC04909-188x188.jpg" alt="1"></button>
+								<button><img src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/09/DSC04890-188x188.jpg" alt="3"></button>
+								<button><img src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/09/DSC04894-188x188.jpg" alt="2"></button>
+								<button><img src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/09/DSC04871-188x188.jpg" alt="3"></button>
+								<button>5</button>
+							</div>
+							<div class="n-carousel__full-screen">
+								<button><span>Toggle full screen</span></button>
+							</div>
+						</div>
+
+						<!-- <div class="n-carousel n-carousel__content__vertical- n-carousel__content__outside n-lightbox__thumbnails n-carousel__content__auto-height">
 							<div class="n-carousel__content n-lightbox n-lightbox__inline n-lightbox__thumbnails n-carousel__content__vertical- n-carousel__content__auto-height" data-duration="2">
 								<div>
 									<span class="n-aspect" style="--width: 1365; --height: 2048;">
-										<!-- For seamless loading -->
 										<img data-src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/09/DSC04909.jpg">
 									</span>
 									<p class="n-lightbox--caption">First image from Toronto</p>
@@ -1970,7 +2028,7 @@
 								<button style="background-image: url(//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/09/DSC04871-188x188.jpg);">4</button>
 								<button>5</button>
 							</div>
-						</div>
+						</div> -->
 						<div class="code">
 							<pre><code class="language-markup">&lt;div class="n-carousel n-carousel__content__auto-height n-carousel__content__outside n-lightbox__thumbnails"&gt;
 	&lt;div class="n-carousel__content n-lightbox n-lightbox__inline n-lightbox__thumbnails n-carousel__content__vertical" data-duration="2"&gt;
