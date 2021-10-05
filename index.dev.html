@@ -1621,8 +1621,8 @@
 							</div>
 							<div class="n-carousel__index n-carousel__index--thumbnails">
 								<button><img src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/06/DSC00134-88x88.jpg" alt="1"></button>
-								<button><img src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00770-88x88.jpg" alt="2"></button>
-								<button><img src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/06/DSC00193-88x88.jpg" alt="3"></button>
+								<button><img src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/06/DSC00193-88x88.jpg" alt="2"></button>
+								<button><img src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/06/DSC00229-88x88.jpg" alt="3"></button>
 							</div>
 							<div class="n-carousel__full-screen">
 								<button><span>Toggle full screen</span></button>
@@ -1859,7 +1859,38 @@
 					</div>
 					<div class="_1/2">
 						<h3> Inline lightbox with detached nav </h3>
-						<div class="n-row n-unpad">
+
+						<div class="n-carousel n-carousel--lightbox" style="aspect-ratio: 1.67" id="carousel-detached">
+							<ul class="n-carousel__content">
+								<li>
+									<figure>
+										<picture>
+											<img width="2048" height="1152" src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/02/DSC01689.jpg" alt="Demo Image 1" loading="lazy" />
+										</picture>
+										<figcaption>First photo from Corsica</figcaption>
+									</figure>
+								</li>
+								<li>
+									<figure>
+										<picture>
+											<img width="2048" height="1152" src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/02/DSC01663.jpg" alt="Demo Image 1" loading="lazy" />
+										</picture>
+										<figcaption>Second photo from Corsica</figcaption>
+									</figure>
+								</li>
+								<li>
+									<figure>
+										<picture>
+											<img width="2048" height="1152" src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/02/DSC01611.jpg" alt="Demo Image 1" loading="lazy" />
+										</picture>
+										<figcaption>Third photo from Corsica</figcaption>
+									</figure>
+								</li>
+							</ul>
+						</div>
+
+
+						<!-- <div class="n-row n-unpad">
 							<div>
 								<div class="n-aspect" style="--width: 1670; --height: 1000;">
 									<div id=lightbox4 class="n-lightbox n-lightbox__inline n-lightbox__thumbnails">
@@ -1869,7 +1900,7 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 						<div class="code">
 							<pre><code class="language-markup">&lt;div class="n-lightbox n-lightbox__inline n-lightbox__thumbnails" id="lightbox4"&gt;
 	&lt;a href="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756.jpg" title="First Taipei photo"&gt;
@@ -1881,55 +1912,67 @@
 &lt;div class="n-carousel__content--nav" data-for=lightbox4&gt;&lt;/div&gt;</code>
 </pre>
 						</div>
-						<div class="n-carousel__content--nav" data-for=lightbox4></div>
+
+						<div class="n-carousel__previous" data-for="carousel-detached">
+							<button><span>Previous</span></button>
+						</div>
+						<div class="n-carousel__next" data-for="carousel-detached">
+							<button><span>Next</span></button>
+						</div>
+						<!-- <div class="n-carousel__index n-carousel__index--thumbnails" data-for="carousel-detached">
+							<button><img src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/02/DSC01689-88x88.jpg" alt="1"></button>
+							<button><img src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/02/DSC01663-88x88.jpg" alt="2"></button>
+							<button><img src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/02/DSC01611.jpg" alt="3"></button>
+						</div> -->
+
 					</div>
-					<div class="_1/1">
+					<div class="_1/2">
+					</div>
+					<div class="_1/2">
 						<h3> Inline lightbox with auto height </h3>
-						<div class="n-row n-unpad">
-							<div>
-								<div class="n-carousel n-carousel__content__vertical- n-carousel__content__outside n-lightbox__thumbnails n-carousel__content__auto-height">
-									<div class="n-carousel__content n-lightbox n-lightbox__inline n-lightbox__thumbnails n-carousel__content__vertical- n-carousel__content__auto-height" data-duration="2">
-										<div>
-											<span class="n-aspect" style="--width: 1365; --height: 2048;">
-												<!-- For seamless loading -->
-												<img data-src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/09/DSC04909.jpg">
-											</span>
-											<p class="n-lightbox--caption">First image from Toronto</p>
-										</div>
-										<div>
-											<span class="n-aspect" style="--width: 1365; --height: 2048;">
-												<img data-src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/09/DSC04890.jpg">
-											</span>
-											<p class="n-lightbox--caption">Second image from Toronto</p>
-										</div>
-										<div>
-											<span class="n-aspect" style="--width: 2048; --height: 871;">
-												<img data-src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/09/DSC04894.jpg">
-											</span>
-											<p class="n-lightbox--caption">Third image from Toronto</p>
-										</div>
-										<div>
-											<span class="n-aspect" style="--width: 2048; --height: 1365;">
-												<img data-src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/09/DSC04871.jpg">
-											</span>
-											<p class="n-lightbox--caption">Fourth image from Toronto</p>
-										</div>
-										<div>
-											<video poster="images/video.jpg" controls="controls" preload="none">
-												<source type="video/mp4" src="//s3.amazonaws.com/gado/Outlying-Teaser.mp4">
-											</video>
-										</div>
-									</div>
-									<div class="n-carousel__content--nav n-lightbox__thumbnails">
-										<button style="background-image: url(//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/09/DSC04909-188x188.jpg);">1</button>
-										<button style="background-image: url(//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/09/DSC04890-188x188.jpg);">2</button>
-										<button style="background-image: url(//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/09/DSC04894-188x188.jpg);">3</button>
-										<button style="background-image: url(//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/09/DSC04871-188x188.jpg);">4</button>
-										<button>5</button>
-									</div>
+						<div class="n-carousel n-carousel__content__vertical- n-carousel__content__outside n-lightbox__thumbnails n-carousel__content__auto-height">
+							<div class="n-carousel__content n-lightbox n-lightbox__inline n-lightbox__thumbnails n-carousel__content__vertical- n-carousel__content__auto-height" data-duration="2">
+								<div>
+									<span class="n-aspect" style="--width: 1365; --height: 2048;">
+										<!-- For seamless loading -->
+										<img data-src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/09/DSC04909.jpg">
+									</span>
+									<p class="n-lightbox--caption">First image from Toronto</p>
 								</div>
-								<div class="code">
-									<pre><code class="language-markup">&lt;div class="n-carousel n-carousel__content__auto-height n-carousel__content__outside n-lightbox__thumbnails"&gt;
+								<div>
+									<span class="n-aspect" style="--width: 1365; --height: 2048;">
+										<img data-src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/09/DSC04890.jpg">
+									</span>
+									<p class="n-lightbox--caption">Second image from Toronto</p>
+								</div>
+								<div>
+									<span class="n-aspect" style="--width: 2048; --height: 871;">
+										<img data-src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/09/DSC04894.jpg">
+									</span>
+									<p class="n-lightbox--caption">Third image from Toronto</p>
+								</div>
+								<div>
+									<span class="n-aspect" style="--width: 2048; --height: 1365;">
+										<img data-src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/09/DSC04871.jpg">
+									</span>
+									<p class="n-lightbox--caption">Fourth image from Toronto</p>
+								</div>
+								<div>
+									<video poster="images/video.jpg" controls="controls" preload="none">
+										<source type="video/mp4" src="//s3.amazonaws.com/gado/Outlying-Teaser.mp4">
+									</video>
+								</div>
+							</div>
+							<div class="n-carousel__content--nav n-lightbox__thumbnails">
+								<button style="background-image: url(//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/09/DSC04909-188x188.jpg);">1</button>
+								<button style="background-image: url(//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/09/DSC04890-188x188.jpg);">2</button>
+								<button style="background-image: url(//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/09/DSC04894-188x188.jpg);">3</button>
+								<button style="background-image: url(//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/09/DSC04871-188x188.jpg);">4</button>
+								<button>5</button>
+							</div>
+						</div>
+						<div class="code">
+							<pre><code class="language-markup">&lt;div class="n-carousel n-carousel__content__auto-height n-carousel__content__outside n-lightbox__thumbnails"&gt;
 	&lt;div class="n-carousel__content n-lightbox n-lightbox__inline n-lightbox__thumbnails n-carousel__content__vertical" data-duration="2"&gt;
 		&lt;div&gt;
 			&lt;span class="n-aspect" style="--width: 685; --height: 1024;"&gt; &lt;!-- For seamless loading --&gt;
@@ -1945,52 +1988,55 @@
 	&lt;/div&gt;
 &lt;/div&gt;</code>
 </pre>
+						</div>
+
+					</div>
+
+					<div class="_1/2">
+						<h3> Inline lightbox with auto height – vertical</h3>
+						<div class="n-carousel n-carousel__content__vertical n-carousel__content__outside- n-lightbox__thumbnails">
+							<div class="n-carousel__content n-lightbox n-lightbox__inline n-lightbox__thumbnails n-carousel__content__vertical" data-duration="2">
+								<div>
+									<span class="n-aspect" style="--width: 2048; --height: 1152;">
+										<!-- For seamless loading -->
+										<img data-src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/10/07151132/DSC04452.jpg">
+									</span>
+									<p class="n-lightbox--caption">First photo from New York</p>
+								</div>
+								<div>
+									<span class="n-aspect" style="--width: 2048; --height: 1365;">
+										<img data-src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/10/07152120/DSC04467.jpg">
+									</span>
+									<p class="n-lightbox--caption">Second photo from New York</p>
+								</div>
+								<div>
+									<span class="n-aspect" style="--width: 1365; --height: 2048;">
+										<img data-src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/10/08084837/DSC04128.jpg">
+									</span>
+									<p class="n-lightbox--caption">Third photo from New York</p>
+								</div>
+								<div>
+									<span class="n-aspect" style="--width: 2048; --height: 1365;">
+										<img data-src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/10/08085246/DSC04531.jpg">
+									</span>
+									<p class="n-lightbox--caption">Fourth photo from New York</p>
+								</div>
+								<div>
+									<video poster="images/video.jpg" controls="controls" preload="none">
+										<source type="video/mp4" src="//s3.amazonaws.com/gado/Outlying-Teaser.mp4">
+									</video>
 								</div>
 							</div>
-							<div>
-								<div class="n-carousel n-carousel__content__vertical n-carousel__content__outside- n-lightbox__thumbnails">
-									<div class="n-carousel__content n-lightbox n-lightbox__inline n-lightbox__thumbnails n-carousel__content__vertical" data-duration="2">
-										<div>
-											<span class="n-aspect" style="--width: 2048; --height: 1152;">
-												<!-- For seamless loading -->
-												<img data-src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/10/07151132/DSC04452.jpg">
-											</span>
-											<p class="n-lightbox--caption">First photo from New York</p>
-										</div>
-										<div>
-											<span class="n-aspect" style="--width: 2048; --height: 1365;">
-												<img data-src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/10/07152120/DSC04467.jpg">
-											</span>
-											<p class="n-lightbox--caption">Second photo from New York</p>
-										</div>
-										<div>
-											<span class="n-aspect" style="--width: 1365; --height: 2048;">
-												<img data-src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/10/08084837/DSC04128.jpg">
-											</span>
-											<p class="n-lightbox--caption">Third photo from New York</p>
-										</div>
-										<div>
-											<span class="n-aspect" style="--width: 2048; --height: 1365;">
-												<img data-src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/10/08085246/DSC04531.jpg">
-											</span>
-											<p class="n-lightbox--caption">Fourth photo from New York</p>
-										</div>
-										<div>
-											<video poster="images/video.jpg" controls="controls" preload="none">
-												<source type="video/mp4" src="//s3.amazonaws.com/gado/Outlying-Teaser.mp4">
-											</video>
-										</div>
-									</div>
-									<div class="n-carousel__content--nav n-lightbox__thumbnails">
-										<button style="background-image: url(//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/10/07151132/DSC04452-188x188.jpg);">1</button>
-										<button style="background-image: url(//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/10/07152120/DSC04467-188x188.jpg);">2</button>
-										<button style="background-image: url(//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/10/08084837/DSC04128-188x188.jpg);">3</button>
-										<button style="background-image: url(//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/10/08085246/DSC04531-188x188.jpg);">4</button>
-										<button>5</button>
-									</div>
-								</div>
-								<div class="code">
-									<pre><code class="language-markup">&lt;div class="n-carousel n-carousel__content__vertical n-carousel__content__outside n-lightbox__thumbnails"&gt;
+							<div class="n-carousel__content--nav n-lightbox__thumbnails">
+								<button style="background-image: url(//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/10/07151132/DSC04452-188x188.jpg);">1</button>
+								<button style="background-image: url(//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/10/07152120/DSC04467-188x188.jpg);">2</button>
+								<button style="background-image: url(//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/10/08084837/DSC04128-188x188.jpg);">3</button>
+								<button style="background-image: url(//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/10/08085246/DSC04531-188x188.jpg);">4</button>
+								<button>5</button>
+							</div>
+						</div>
+						<div class="code">
+							<pre><code class="language-markup">&lt;div class="n-carousel n-carousel__content__vertical n-carousel__content__outside n-lightbox__thumbnails"&gt;
 	&lt;div class="n-carousel__content n-lightbox n-lightbox__inline n-lightbox__thumbnails n-carousel__content__vertical" data-duration="2"&gt;
 		&lt;div&gt;
 			&lt;span class="n-aspect" style="--width: 685; --height: 1024;"&gt; &lt;!-- For seamless loading --&gt;
@@ -2006,8 +2052,6 @@
 	&lt;/div&gt;
 &lt;/div&gt;</code>
 </pre>
-								</div>
-							</div>
 						</div>
 					</div>
 				</div>
