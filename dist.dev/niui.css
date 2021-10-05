@@ -887,7 +887,7 @@ a.backtotop[href] {
 .n-form--wide input[type=submit],
 .n-form--wide button,
 .n-form--wide button[type=submit] {
-  margin-bottom: calc($line-height-em - 5px);
+  margin-bottom: calc(1.5em - 5px);
   /* fix for the failed box-sizing: border-box */
   line-height: 1em;
   font-size: 1.2em;
@@ -973,7 +973,7 @@ a.backtotop[href] {
 @supports (--a: 1) {
   .n-aspect {
     display: block;
-    aspect-ratio: var(--ratio, calc(var(--width)/ var(--height)));
+    aspect-ratio: var(--ratio, calc(var(--width) / var(--height)));
   }
   .n-aspect > img {
     max-width: 100%;
@@ -1716,6 +1716,9 @@ body[data-frozen] {
 .n-carousel__content > * > * {
   overflow: auto;
 }
+.n-carousel__content img {
+  height: auto;
+}
 
 .n-carousel:not(.n-carousel--vertical) > .n-carousel__content {
   overflow-x: auto;
@@ -1736,11 +1739,19 @@ body[data-frozen] {
 }
 .n-carousel:not(.n-carousel--vertical).n-carousel--auto-height > .n-carousel__content {
   overflow-y: hidden;
-  height: var(--height);
+  height: var(--height, auto);
 }
 .n-carousel:not(.n-carousel--vertical).n-carousel--auto-height > .n-carousel__content,
 .n-carousel:not(.n-carousel--vertical).n-carousel--auto-height > .n-carousel__content > * {
   min-height: 9em;
+}
+.n-carousel:not(.n-carousel--vertical):-webkit-full-screen > .n-carousel__content, .n-carousel:not(.n-carousel--vertical).n-carousel--overlay > .n-carousel__content {
+  height: 100% !important;
+}
+.n-carousel:not(.n-carousel--vertical):-webkit-full-screen > .n-carousel__content figure,
+.n-carousel:not(.n-carousel--vertical):-webkit-full-screen > .n-carousel__content img, .n-carousel:not(.n-carousel--vertical).n-carousel--overlay > .n-carousel__content figure,
+.n-carousel:not(.n-carousel--vertical).n-carousel--overlay > .n-carousel__content img {
+  max-height: 100%;
 }
 
 [data-ready].n-carousel--auto-height:not(.n-carousel--vertical):not([data-sliding]) > .n-carousel__content > :not([data-active]) {
@@ -2348,6 +2359,9 @@ _:future,
   background: rgba(0, 0, 0, 0.3);
   color: #ddd;
 }
+.n-carousel--lightbox.n-carousel--auto-height figure {
+  height: auto;
+}
 .n-carousel--lightbox.n-carousel--index-start figure {
   grid-template: 1fr auto/auto;
 }
@@ -2369,8 +2383,14 @@ _:future,
   box-sizing: border-box;
   padding: 0 0.5px;
 }
+.n-carousel--lightbox.n-carousel--auto-height img {
+  max-height: none;
+}
 .n-carousel--lightbox:-webkit-full-screen img {
   max-height: 100%;
+}
+.n-carousel--lightbox:-webkit-full-screen.n-carousel--auto-height figure {
+  height: 100%;
 }
 .n-carousel--lightbox iframe,
 .n-carousel--lightbox video {

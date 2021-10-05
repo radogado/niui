@@ -1803,13 +1803,50 @@
 					</div>
 					<div class="_1/2">
 						<h3> Inline lightbox peeking at neighboring slides </h3>
-						<div class="n-aspect" style="--width: 1670; --height: 1000;">
-							<div id=lightbox5 class="n-lightbox n-lightbox__inline n-lightbox__thumbnails" data-peek=10%>
-								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2015/06/DSC05341.jpg title="First photo from San Francisco"> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2015/06/DSC05341-88x88.jpg alt=2> </a>
-								<a href=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2015/06/DSC05411.jpg title="Second photo from San Francisco"> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2015/06/DSC05411-88x88.jpg alt=1> </a>
-								<a href=https://ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2015/06/DSC05377.jpg title="Third photo from San Francisco"> <img src=//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2015/06/DSC05377-88x88.jpg alt=2> </a>
+
+						<div class="n-carousel n-carousel--lightbox n-carousel--peek">
+							<ul class="n-carousel__content">
+								<li>
+									<figure>
+										<picture>
+											<img width="2048" height="1152" src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2015/06/DSC05341.jpg" alt="Demo Image 1" loading="lazy" />
+										</picture>
+										<figcaption>First photo from San Francisco</figcaption>
+									</figure>
+								</li>
+								<li>
+									<figure>
+										<picture>
+											<img width="2048" height="1152" src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2015/06/DSC05411.jpg" alt="Demo Image 1" loading="lazy" />
+										</picture>
+										<figcaption>Second photo from San Francisco</figcaption>
+									</figure>
+								</li>
+								<li>
+									<figure>
+										<picture>
+											<img width="2048" height="1152" src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2015/06/DSC05377.jpg" alt="Demo Image 1" loading="lazy" />
+										</picture>
+										<figcaption>Third photo from San Francisco</figcaption>
+									</figure>
+								</li>
+							</ul>
+							<div class="n-carousel__previous">
+								<button><span>Previous</span></button>
+							</div>
+							<div class="n-carousel__next">
+								<button><span>Next</span></button>
+							</div>
+							<div class="n-carousel__index n-carousel__index--thumbnails">
+								<button><img src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2015/06/DSC05341-88x88.jpg" alt="1"></button>
+								<button><img src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2015/06/DSC05411-88x88.jpg" alt="2"></button>
+								<button><img src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2015/06/DSC05377-88x88.jpg" alt="3"></button>
+							</div>
+							<div class="n-carousel__full-screen">
+								<button><span>Toggle full screen</span></button>
 							</div>
 						</div>
+
 						<div class="code">
 							<pre><code class="language-markup">&lt;div class="n-lightbox n-lightbox__inline n-lightbox__thumbnails" data-peek=10%&gt;
 	&lt;a href="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756.jpg" title="First Taipei photo"&gt;
