@@ -1516,9 +1516,12 @@ var componentModal = (function () {
 			index.children[active].disabled = true;
 		}
 		observersOn(el);
+		// Sliding to a slide with a hash? Update the URI
 		let hash = el.children[active].id;
+		// console.log(hash);
 		if (!!hash) {
-			location.hash = `#${hash}`;
+			console.log(hash);
+			location.hash = `#${hash}`; // Doesn't work with soft reload. To do: scroll to relevant slide
 		}
 	};
 	// Setup isScrolling variable
@@ -1870,6 +1873,17 @@ var componentModal = (function () {
 			});
 			let content = el.querySelector(":scope > .n-carousel__content");
 			content.tabIndex = 0;
+			let hashed_slide = !!location.hash ? content.querySelector(':scope > ' + location.hash) : false;
+			if (hashed_slide) {
+				// console.log(hashed_slide);
+				let index = [...hashed_slide.parentNode.children].indexOf(hashed_slide);
+				if (isVertical(content)) {
+					content.dataset.y = index;
+				} else {
+					content.dataset.x = index;
+				}
+				slideTo(content, index);
+			}
 			if (el.matches(".n-carousel--vertical.n-carousel--auto-height")) {
 				content.style.height = getComputedStyle(content).height;
 				el.dataset.ready = true;
