@@ -456,7 +456,7 @@ nav.n-nav.n-nav__drop li.current_page_item {
   padding: 0;
 }
 
-a.backtotop[href] {
+a.n-backtotop[href] {
   background: none;
   bottom: -1em;
 }

@@ -210,9 +210,11 @@ main .n-nav ul {
   --mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(180) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A") center center no-repeat;
   -webkit-mask: var(--mask);
   -webkit-mask-size: 0.4em;
+  -webkit-mask-repeat: no-repeat;
   mask: var(--mask);
   mask-size: 0.4em;
   background-color: var(--control-color, #000);
+  mask-repeat: no-repeat;
 }
 .n-nav--drop li > input {
   -webkit-mask-size: 0.6em;
@@ -255,7 +257,9 @@ main .n-nav ul {
 .n-nav--drop li li > input {
     --mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(90) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A");
     -webkit-mask-image: var(--mask);
+    -webkit-mask-position: center;
     mask-image: var(--mask);
+    mask-position: center;
   }
   .n-nav--drop:not([data-ready]) li {
     display: flex;
