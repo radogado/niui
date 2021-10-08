@@ -887,7 +887,7 @@ a.n-backtotop[href] {
 .n-form--wide input[type=submit],
 .n-form--wide button,
 .n-form--wide button[type=submit] {
-  margin-bottom: calc(1.5em - 5px);
+  margin-bottom: calc($line-height-em - 5px);
   /* fix for the failed box-sizing: border-box */
   line-height: 1em;
   font-size: 1.2em;
@@ -920,36 +920,37 @@ a.n-backtotop[href] {
 .n-form--wide .n-form__check label input[type=radio] {
   margin-top: -0.2em;
 }
-.n-form--mast input[type=submit],
-.n-form--mast button,
-.n-form--mast button[type=submit] {
+.n-form.n-form--mast input[type=submit],
+.n-form.n-form--mast button,
+.n-form.n-form--mast button[type=submit] {
   margin-inline-start: 50%;
   margin-bottom: 2.25em;
 }
-.n-form--mast label {
+.n-form.n-form--mast label {
   width: 100%;
 }
-.n-form--mast label > input {
+.n-form.n-form--mast label > input {
   margin-top: -0.75em;
 }
-.n-form--mast > label > *,
-.n-form--mast > .n-form__check > * {
+.n-form.n-form--mast > label > *,
+.n-form.n-form--mast > .n-form__check > * {
   width: 50%;
-  float: end;
+  float: right;
+  clear: right;
   margin: -0.75em 0 2.25em 0;
 }
-.n-form--mast > label > span,
-.n-form--mast > .n-form__check > span {
+.n-form.n-form--mast > label > span,
+.n-form.n-form--mast > .n-form__check > span {
   width: 50%;
   text-align: end;
   padding-inline-end: 1em;
-  float: start;
+  float: left;
   margin: 0;
 }
-.n-form--mast > .n-form__check > * {
+.n-form.n-form--mast > .n-form__check > * {
   margin: 0;
 }
-.n-form--mast .n-form--mandatory:before {
+.n-form.n-form--mast .n-form--mandatory:before {
   inset-inline-start: calc(50% - 1em);
   z-index: -1;
 }
@@ -973,7 +974,7 @@ a.n-backtotop[href] {
 @supports (--a: 1) {
   .n-aspect {
     display: block;
-    aspect-ratio: var(--ratio, calc(var(--width) / var(--height)));
+    aspect-ratio: var(--ratio, calc(var(--width)/ var(--height)));
   }
   .n-aspect > img {
     max-width: 100%;

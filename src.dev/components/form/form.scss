@@ -574,7 +574,7 @@ $placeholder_color: #aaa;
 		}
 	}
 
-	&--mast {
+	&.n-form--mast {
 
 		input[type="submit"],
 		button,
@@ -594,7 +594,8 @@ $placeholder_color: #aaa;
 		> label > *,
 		> .n-form__check > * {
 			width: 50%;
-			float: end;
+			float: right;
+			clear: right;
 			margin: #{-$line-height-em/2} 0 #{$line-height-em * 1.5} 0;
 		}
 
@@ -603,7 +604,7 @@ $placeholder_color: #aaa;
 			width: 50%;
 			text-align: end;
 			padding-inline-end: 1em;
-			float: start;
+			float: left;
 			margin: 0;
 		}
 
