@@ -112,7 +112,16 @@ html {
 }
 
 .demo {
-	background: #fffff5;
+
+	&,
+	.n-carousel__content > * {
+		background: #fffff5;
+	}
+
+	.n-carousel__content > [data-active] {
+		z-index: 1;
+	}
+
 	color: darkslateblue;
 
 	&.n-carousel.n-carousel--vertical:not(.n-carousel--auto-height),
