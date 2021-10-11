@@ -115,15 +115,21 @@ $placeholder_color: #aaa;
 		cursor: pointer;
 		// background-image: linear-gradient(-113deg, transparent 60%, var(--control-bg, #eee) 63%), linear-gradient(113deg, transparent 60%, var(--control-bg, #eee) 63%),
 		// 	linear-gradient(to bottom, var(--control-color, #333), var(--control-color, #333));
-		background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16.003 18.626l7.081-7.081L25 13.46l-8.997 8.998-9.003-9 1.917-1.916z'/%3E%3C/svg%3E");
-		background-size: 1em;
+		// background-size: 0.75em 0.75em;
+		// background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16.003 18.626l7.081-7.081L25 13.46l-8.997 8.998-9.003-9 1.917-1.916z'/%3E%3C/svg%3E");
+		// background-size: 1em;
+		// background-repeat: no-repeat;
+		// background-position: calc(100% - 0.5em) center;
+		background: linear-gradient(to bottom left, transparent 30%, var(--control-color, #333) 10%, var(--control-color, #333) 50%, transparent 30%), linear-gradient(to bottom right, transparent 30%, var(--control-color, #333) 10%, var(--control-color, #333) 50%, transparent 30%);
+		background-size: .4em .4em;
 		background-repeat: no-repeat;
-		background-position: calc(100% - 0.5em) center;
+		background-position: calc(100% - .85em), calc(100% - .5em);
 		color: var(--control-color, #333);
 		background-color: var(--control-bg, #eee);
 
 		option {
-			padding: 0 1.5em 0 0;
+			padding: 0;
+			padding-inline-end: 1.5em;
 		}
 	}
 
@@ -586,6 +592,10 @@ $placeholder_color: #aaa;
 
 		label {
 			width: 100%;
+			display: grid;
+			grid-template: auto/1fr 1fr;
+			gap: 1em;
+			margin-bottom: 1.5em;
 
 			> input {
 				margin-top: #{-$line-height-em/2};
@@ -594,23 +604,36 @@ $placeholder_color: #aaa;
 
 		> label > *,
 		> .n-form__check > * {
-			width: 50%;
-			float: right;
-			clear: right;
+			// width: 50%;
+			width: 100%;
+			// float: right;
+			// clear: right;
 			margin: #{-$line-height-em/2} 0 #{$line-height-em * 1.5} 0;
+			grid-column: -2/-1;
 		}
 
 		> label > span,
 		> .n-form__check > span {
-			width: 50%;
+			// width: 50%;
 			text-align: end;
 			padding-inline-end: 1em;
-			float: left;
+			// float: left;
+			grid-column: 1;
 			margin: 0;
 		}
 
-		> .n-form__check > * {
-			margin: 0;
+		> .n-form__check {
+			display: grid;
+			grid-template: auto/1fr 1fr;
+
+			> * {
+				margin: 0;
+			}
+
+			label {
+				display: block;
+				margin-inline-start: .5em;
+			}
 		}
 
 		.n-form--mandatory:before {

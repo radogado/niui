@@ -531,15 +531,16 @@ a.n-backtotop[href] {
   margin: 0;
   text-indent: 1px;
   cursor: pointer;
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16.003 18.626l7.081-7.081L25 13.46l-8.997 8.998-9.003-9 1.917-1.916z'/%3E%3C/svg%3E");
-  background-size: 1em;
+  background: linear-gradient(to bottom left, transparent 30%, var(--control-color, #333) 10%, var(--control-color, #333) 50%, transparent 30%), linear-gradient(to bottom right, transparent 30%, var(--control-color, #333) 10%, var(--control-color, #333) 50%, transparent 30%);
+  background-size: 0.4em 0.4em;
   background-repeat: no-repeat;
-  background-position: calc(100% - 0.5em) center;
+  background-position: calc(100% - 0.85em), calc(100% - 0.5em);
   color: var(--control-color, #333);
   background-color: var(--control-bg, #eee);
 }
 .n-form select option {
-  padding: 0 1.5em 0 0;
+  padding: 0;
+  padding-inline-end: 1.5em;
 }
 .n-form select, .n-form__file {
   vertical-align: top;
@@ -928,27 +929,37 @@ a.n-backtotop[href] {
 }
 .n-form.n-form--mast label {
   width: 100%;
+  display: grid;
+  grid-template: auto/1fr 1fr;
+  gap: 1em;
+  margin-bottom: 1.5em;
 }
 .n-form.n-form--mast label > input {
   margin-top: -0.75em;
 }
 .n-form.n-form--mast > label > *,
 .n-form.n-form--mast > .n-form__check > * {
-  width: 50%;
-  float: right;
-  clear: right;
+  width: 100%;
   margin: -0.75em 0 2.25em 0;
+  grid-column: -2/-1;
 }
 .n-form.n-form--mast > label > span,
 .n-form.n-form--mast > .n-form__check > span {
-  width: 50%;
   text-align: end;
   padding-inline-end: 1em;
-  float: left;
+  grid-column: 1;
   margin: 0;
+}
+.n-form.n-form--mast > .n-form__check {
+  display: grid;
+  grid-template: auto/1fr 1fr;
 }
 .n-form.n-form--mast > .n-form__check > * {
   margin: 0;
+}
+.n-form.n-form--mast > .n-form__check label {
+  display: block;
+  margin-inline-start: 0.5em;
 }
 .n-form.n-form--mast .n-form--mandatory:before {
   inset-inline-start: calc(50% - 1em);
