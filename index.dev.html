@@ -167,15 +167,13 @@
 							<h2>Get <a href=dist/niui.min.css download>niui.min.css</a>, <a href=dist/niui.min.js download>niui.min.js</a> and <a href=dist/index.html download>index.html</a> and edit the latter.</h2>
 							<h2>Or install with NPM and include the niui files in your app</h2>
 							<div class=code>
-								<pre><code class="language-js">npm install --save-dev niui-npm</code>
-</pre>
+								<pre><code class="language-js">npm install --save-dev niui-npm</code></pre>
 							</div>
 							<br>
 							<div class=code>
-								<pre><code class="language-js">require("./node_modules/niui-npm/index.js");</code>
-</pre>
+								<pre><code class="language-js">require("./node_modules/niui-npm/index.js");</code></pre>
 							</div>
-							<h3>Lite version available at <a href=dist/niui-lite.min.css download>niui-lite.min.css</a>, <a href=dist/niui-lite.min.js download>niui-lite.min.js</a> without the following components:</h3>
+							<!-- <h3>Lite version available at <a href=dist/niui-lite.min.css download>niui-lite.min.css</a>, <a href=dist/niui-lite.min.js download>niui-lite.min.js</a> without the following components:</h3>
 							<ul>
 								<li>Carousel</li>
 								<li>Tabs</li>
@@ -185,7 +183,7 @@
 								<li>Accordion</li>
 								<li>Tooltip</li>
 								<li>Parallax</li>
-							</ul>
+							</ul> -->
 						</div>
 					</div>
 				</div>
@@ -1119,11 +1117,10 @@
 						<picture class="n-aspect n-adjust-height" style="--ratio: 1;">
 							<img src="images/cat.jpg" alt="Portrait">
 						</picture>
-						<div class="code">
+						<div class="code n-adjust-height">
 							<pre><code class="language-markup">&lt;span class="n-adjust-height"&gt;
 	...
-&lt;/span&gt;</code>
-</pre>
+&lt;/span&gt;</code></pre>
 						</div>
 						<p>To avoid shifting on page load, add <b>niui-preload.min.js</b> in <b>&lt;head&gt;</b>.</p>
 					</div>
@@ -1169,6 +1166,12 @@
 									<p><br><br>Two<br><br></p>
 								</div>
 							</div>
+							<div class="n-carousel__previous">
+								<button><span>Previous</span></button>
+							</div>
+							<div class="n-carousel__next">
+								<button><span>Next</span></button>
+							</div>
 						</div>
 						<div class="code">
 							<pre><code class="language-markup">&lt;div class="n-carousel__content"&gt;
@@ -1180,17 +1183,28 @@
 					</div>
 					<div class="_1/2">
 						<h3>Controls on top</h3>
-						<div class="n-carousel__content n-carousel__content__top">
-							<div class="n-center">
-								<p><br><br>One<br><br></p>
+
+						<div class="n-carousel n-carousel--index-start">
+							<div class="n-carousel__content">
+								<div class="n-center">
+									<p><br>One<br></p>
+								</div>
+								<div class="n-center">
+									<p><br><br>Two<br><br></p>
+								</div>
 							</div>
-							<div class="n-center" style="background: lightcoral;">
-								<p><br><br>Two<br><br></p>
+							<div class="n-carousel__previous">
+								<button><span>Previous</span></button>
 							</div>
-							<div class="n-center">
-								<p><br><br>Three<br><br></p>
+							<div class="n-carousel__next">
+								<button><span>Next</span></button>
+							</div>
+							<div class="n-carousel__index">
+								<button><span>1</span></button>
+								<button><span>2</span></button>
 							</div>
 						</div>
+
 						<div class="code">
 							<pre><code class="language-markup">&lt;div class="n-carousel__content n-carousel__content__top"&gt;
 	&lt;div&gt;Slide 1&lt;/div&gt;
@@ -1201,15 +1215,24 @@
 					</div>
 					<div class="_1/2">
 						<h3>Vertical</h3>
-						<div class="n-carousel__content n-carousel__content__vertical">
-							<div class="n-center">
-								<p><br><br>One<br><br></p>
+						<div class="n-carousel n-carousel--vertical">
+							<div class="n-carousel__content">
+								<div class="n-center">
+									<p><br>One<br></p>
+								</div>
+								<div class="n-center">
+									<p><br><br>Two<br><br></p>
+								</div>
 							</div>
-							<div class="n-center">
-								<p><br><br>Two</p>
+							<div class="n-carousel__previous">
+								<button><span>Previous</span></button>
 							</div>
-							<div class="n-center">
-								<p><br><br>Three<br><br></p>
+							<div class="n-carousel__next">
+								<button><span>Next</span></button>
+							</div>
+							<div class="n-carousel__index">
+								<button><span>1</span></button>
+								<button><span>2</span></button>
 							</div>
 						</div>
 						<div class="code">
@@ -1222,12 +1245,24 @@
 					</div>
 					<div class="_1/2">
 						<h3>Vertical with controls on the right</h3>
-						<div class="n-carousel__content n-carousel__content__vertical n-carousel__content__right">
-							<div class="n-center">
-								<p><br><br>One<br><br></p>
+						<div class="n-carousel n-carousel--vertical n-carousel--index-end">
+							<div class="n-carousel__content">
+								<div class="n-center">
+									<p><br>One<br></p>
+								</div>
+								<div class="n-center">
+									<p><br><br>Two<br><br></p>
+								</div>
 							</div>
-							<div class="n-center">
-								<p><br><br>Two<br><br></p>
+							<div class="n-carousel__previous">
+								<button><span>Previous</span></button>
+							</div>
+							<div class="n-carousel__next">
+								<button><span>Next</span></button>
+							</div>
+							<div class="n-carousel__index">
+								<button><span>1</span></button>
+								<button><span>2</span></button>
 							</div>
 						</div>
 						<div class="code">
@@ -1240,14 +1275,24 @@
 					</div>
 					<div class="_1/2">
 						<h3>Padded (controls outside of content)</h3>
-						<div class="n-carousel n-pad">
+						<div class="n-carousel n-carousel--controls-outside">
 							<div class="n-carousel__content">
-								<div>
-									<p>One</p>
+								<div class="n-center">
+									<p><br>One<br></p>
 								</div>
-								<div>
-									<p>Two</p>
+								<div class="n-center">
+									<p><br><br>Two<br><br></p>
 								</div>
+							</div>
+							<div class="n-carousel__previous">
+								<button><span>Previous</span></button>
+							</div>
+							<div class="n-carousel__next">
+								<button><span>Next</span></button>
+							</div>
+							<div class="n-carousel__index">
+								<button><span>1</span></button>
+								<button><span>2</span></button>
 							</div>
 						</div>
 						<div class="code">
@@ -1262,15 +1307,24 @@
 					</div>
 					<div class="_1/2">
 						<h3>Peeking at neighboring slides</h3>
-						<div class="n-carousel__content" data-peek=20%>
-							<div>
-								<p>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</p>
+						<div class="n-carousel n-carousel--peek">
+							<div class="n-carousel__content">
+								<div class="n-center">
+									<p><br>One<br></p>
+								</div>
+								<div class="n-center" style="background: coral;">
+									<p><br><br>Two<br><br></p>
+								</div>
 							</div>
-							<div style="background: coral;">
-								<p>BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB</p>
+							<div class="n-carousel__previous">
+								<button><span>Previous</span></button>
 							</div>
-							<div>
-								<p>CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC</p>
+							<div class="n-carousel__next">
+								<button><span>Next</span></button>
+							</div>
+							<div class="n-carousel__index">
+								<button><span>1</span></button>
+								<button><span>2</span></button>
 							</div>
 						</div>
 						<div class="code">
@@ -1281,7 +1335,7 @@
 </pre>
 						</div>
 					</div>
-					<div class="_1/2">
+					<!-- <div class="_1/2">
 						<h3>Fade in/out</h3>
 						<div class="n-carousel n-pad">
 							<div class="n-carousel__content n-carousel__content__fade">
@@ -1305,17 +1359,23 @@
 &lt;/div&gt;</code>
 </pre>
 						</div>
-					</div>
+					</div> -->
 					<div class="_1/2">
 						<h3>Auto height</h3>
-						<div class="n-carousel n-pad">
-							<div class="n-carousel__content n-carousel__content__auto-height">
+						<div class="n-carousel n-carousel--auto-height">
+							<div class="n-carousel__content">
 								<div class="n-center">
-									<p>One</p>
+									<p><br>One<br></p>
 								</div>
 								<div class="n-center">
-									<p><br><br>Two<br><br>taller than One</p>
+									<p><br><br>Two<br><br></p>
 								</div>
+							</div>
+							<div class="n-carousel__previous">
+								<button><span>Previous</span></button>
+							</div>
+							<div class="n-carousel__next">
+								<button><span>Next</span></button>
 							</div>
 						</div>
 						<div class="code">
@@ -1333,15 +1393,30 @@
 					</div>
 					<div>
 						<h3>Carousel here...</h3>
-						<div class="n-carousel__content" id=detached-nav-slider>
-							<div>Slide 1</div>
-							<div>Slide 2</div>
+						<div class="n-carousel" id="detached-carousel">
+							<div class="n-carousel__content">
+								<div class="n-center">
+									<p><br>One<br></p>
+								</div>
+								<div class="n-center">
+									<p><br><br>Two<br><br></p>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="n-center">
 						<div>
 							<h3>...detached nav here</h3>
-							<div class="n-carousel__content--nav" data-for=detached-nav-slider></div>
+							<div class="n-carousel__previous" data-for="detached-carousel">
+								<button><span>Previous</span></button>
+							</div>
+							<div class="n-carousel__next" data-for="detached-carousel">
+								<button><span>Next</span></button>
+							</div>
+							<div class="n-carousel__index" data-for="detached-carousel">
+								<button><span>1</span></button>
+								<button><span>2</span></button>
+							</div>
 						</div>
 					</div>
 					<div class="_1/1">
@@ -1371,7 +1446,7 @@
 					</div>
 					<div class="_1/2">
 						<h3>Tabs at the bottom</h3>
-						<div class="n-carousel n-carousel--tabs">
+						<div class="n-carousel n-carousel--tabs n-carousel--controls-outside">
 							<ul class="n-carousel__content">
 								<li>
 									<h3>Tab 1</h3>
@@ -1405,7 +1480,7 @@
 					</div>
 					<div class="_1/2">
 						<h3>Tabs on top with auto height</h3>
-						<div class="n-carousel n-carousel--tabs n-carousel--auto-height n-carousel--index-start">
+						<div class="n-carousel n-carousel--tabs n-carousel--auto-height n-carousel--index-start n-carousel--controls-outside">
 							<ul class="n-carousel__content">
 								<li>
 									<h3>Tab 1</h3>
@@ -1437,7 +1512,7 @@
 					</div>
 					<div class="_1/2">
 						<h3>Vertical tabs</h3>
-						<div class="n-carousel n-carousel--tabs n-carousel--vertical">
+						<div class="n-carousel n-carousel--tabs n-carousel--vertical n-carousel--controls-outside">
 							<ul class="n-carousel__content">
 								<li>
 									<h3>Tab 1</h3>
@@ -1469,7 +1544,7 @@
 					</div>
 					<div class="_1/2">
 						<h3>Vertical tabs on the right</h3>
-						<div class="n-carousel n-carousel--tabs n-carousel--vertical n-carousel--index-end">
+						<div class="n-carousel n-carousel--tabs n-carousel--vertical n-carousel--index-end n-carousel--controls-outside">
 							<ul class="n-carousel__content">
 								<li>
 									<h3>Tab 1</h3>
@@ -1489,20 +1564,6 @@
 								<button><span>Tab 1</span></button>
 								<button><span>Tab 2</span></button>
 								<button><span>Tab 3</span></button>
-							</div>
-						</div>
-						<div class="n-carousel__content n-carousel__content__vertical n-tabs n-carousel__content__right">
-							<div data-tab-title="Tab 1">
-								<!-- 								<p class=n-tab-title> Slider 2 Slide 1 </p> -->
-								<p class="n-pad">Tab 1 content</p>
-							</div>
-							<div>
-								<p class=n-tab-title> Tab 2 </p>
-								<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-							</div>
-							<div>
-								<p class=n-tab-title> Tab 3 Very Long Title which Shows the Flexible tabs Dimensions </p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
 							</div>
 						</div>
 						<div class="code">

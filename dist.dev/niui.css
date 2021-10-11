@@ -531,8 +531,8 @@ a.n-backtotop[href] {
   margin: 0;
   text-indent: 1px;
   cursor: pointer;
-  background-image: linear-gradient(-113deg, transparent 60%, var(--control-bg, #eee) 63%), linear-gradient(113deg, transparent 60%, var(--control-bg, #eee) 63%), linear-gradient(to bottom, var(--control-color, #333), var(--control-color, #333));
-  background-size: 0.75em 0.75em;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16.003 18.626l7.081-7.081L25 13.46l-8.997 8.998-9.003-9 1.917-1.916z'/%3E%3C/svg%3E");
+  background-size: 1em;
   background-repeat: no-repeat;
   background-position: calc(100% - 0.5em) center;
   color: var(--control-color, #333);
@@ -887,7 +887,7 @@ a.n-backtotop[href] {
 .n-form--wide input[type=submit],
 .n-form--wide button,
 .n-form--wide button[type=submit] {
-  margin-bottom: calc($line-height-em - 5px);
+  margin-bottom: calc(1.5em - 5px);
   /* fix for the failed box-sizing: border-box */
   line-height: 1em;
   font-size: 1.2em;
@@ -974,7 +974,7 @@ a.n-backtotop[href] {
 @supports (--a: 1) {
   .n-aspect {
     display: block;
-    aspect-ratio: var(--ratio, calc(var(--width)/ var(--height)));
+    aspect-ratio: var(--ratio, calc(var(--width) / var(--height)));
   }
   .n-aspect > img {
     max-width: 100%;
