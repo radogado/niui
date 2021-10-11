@@ -28,6 +28,17 @@
 	<script type="text/javascript">
 		document.querySelector("html").classList += !location.hash || location.hash === "#home" ? " start-from-home" : "";
 	</script>
+	<style>
+		:root {
+			--viewport-height: 100vh;
+		}
+
+		@supports (height: -webkit-fill-available) {
+			:root {
+				--viewport-height: -webkit-fill-available;
+			}
+		}
+	</style>
 </head>
 
 <body dir=ltr class="n-type">
@@ -1360,16 +1371,26 @@
 					</div>
 					<div class="_1/2">
 						<h3>Tabs at the bottom</h3>
-						<div class="n-carousel__content n-tabs">
-							<div>
-								<h3 class="n-tab-title">Tab 1</h3>
-								<p>Content of Tab 1</p>
-							</div>
-							<div>
-								<h3 class="n-tab-title">Tab 2</h3>
-								<p>The content of Tab 2</p>
-								<p>New line</p>
-								<p>New line</p>
+						<div class="n-carousel n-carousel--tabs">
+							<ul class="n-carousel__content">
+								<li>
+									<h3>Tab 1</h3>
+									<p>Content of Tab 1</p>
+								</li>
+								<li>
+									<h3>Tab 2</h3>
+									<p>The content of Tab 2</p>
+									<p>New line</p>
+									<p>New line</p>
+								</li>
+								<li>
+									<p>Three</p>
+								</li>
+							</ul>
+							<div class="n-carousel__index">
+								<button><span>Tab 1</span></button>
+								<button><span>Tab 2</span></button>
+								<button><span>Tab 3</span></button>
 							</div>
 						</div>
 						<div class="code">
@@ -1384,20 +1405,26 @@
 					</div>
 					<div class="_1/2">
 						<h3>Tabs on top with auto height</h3>
-						<div class="n-carousel__content n-carousel__content__top n-tabs n-carousel__content__auto-height" data-duration=1>
-							<div style="background: mintcream;">
-								<div class="n-pad">
-									<h3 class="n-tab-title">Tab 1</h3>
+						<div class="n-carousel n-carousel--tabs n-carousel--auto-height n-carousel--index-start">
+							<ul class="n-carousel__content">
+								<li>
+									<h3>Tab 1</h3>
 									<p>Content of Tab 1</p>
-								</div>
-							</div>
-							<div style="background: cyan;">
-								<div class="n-pad">
-									<h3 class="n-tab-title">Tab 2</h3>
+								</li>
+								<li>
+									<h3>Tab 2</h3>
 									<p>The content of Tab 2</p>
 									<p>New line</p>
 									<p>New line</p>
-								</div>
+								</li>
+								<li>
+									<p>Three</p>
+								</li>
+							</ul>
+							<div class="n-carousel__index">
+								<button><span>Tab 1</span></button>
+								<button><span>Tab 2</span></button>
+								<button><span>Tab 3</span></button>
 							</div>
 						</div>
 						<div class="code">
@@ -1410,17 +1437,26 @@
 					</div>
 					<div class="_1/2">
 						<h3>Vertical tabs</h3>
-						<div class="n-carousel__content n-carousel__content__vertical n-tabs">
-							<div data-tab-title="Tab 1">
-								<p class="n-pad">Tab 1 content</p>
-							</div>
-							<div>
-								<p class=n-tab-title> Tab 2 </p>
-								<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-							</div>
-							<div>
-								<p class=n-tab-title> Tab 3 Very Long Title which Shows the Flexible Dimensions </p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+						<div class="n-carousel n-carousel--tabs n-carousel--vertical">
+							<ul class="n-carousel__content">
+								<li>
+									<h3>Tab 1</h3>
+									<p>Content of Tab 1</p>
+								</li>
+								<li>
+									<h3>Tab 2</h3>
+									<p>The content of Tab 2</p>
+									<p>New line</p>
+									<p>New line</p>
+								</li>
+								<li>
+									<p>Three</p>
+								</li>
+							</ul>
+							<div class="n-carousel__index">
+								<button><span>Tab 1</span></button>
+								<button><span>Tab 2</span></button>
+								<button><span>Tab 3</span></button>
 							</div>
 						</div>
 						<div class="code">
@@ -1433,6 +1469,28 @@
 					</div>
 					<div class="_1/2">
 						<h3>Vertical tabs on the right</h3>
+						<div class="n-carousel n-carousel--tabs n-carousel--vertical n-carousel--index-end">
+							<ul class="n-carousel__content">
+								<li>
+									<h3>Tab 1</h3>
+									<p>Content of Tab 1</p>
+								</li>
+								<li>
+									<h3>Tab 2</h3>
+									<p>The content of Tab 2</p>
+									<p>New line</p>
+									<p>New line</p>
+								</li>
+								<li>
+									<p>Three</p>
+								</li>
+							</ul>
+							<div class="n-carousel__index">
+								<button><span>Tab 1</span></button>
+								<button><span>Tab 2</span></button>
+								<button><span>Tab 3</span></button>
+							</div>
+						</div>
 						<div class="n-carousel__content n-carousel__content__vertical n-tabs n-carousel__content__right">
 							<div data-tab-title="Tab 1">
 								<!-- 								<p class=n-tab-title> Slider 2 Slide 1 </p> -->
@@ -1457,17 +1515,22 @@
 					</div>
 					<div class="_1/2">
 						<h3>Tabs at the bottom with detached nav</h3>
-						<div class="n-carousel__content n-tabs" id=detached-tabs>
-							<div>
-								<h3 class="n-tab-title">Tab 1</h3>
-								<p>Content of Tab 1</p>
-							</div>
-							<div>
-								<h3 class="n-tab-title">Tab 2</h3>
-								<p>The content of Tab 2</p>
-								<p>New line</p>
-								<p>New line</p>
-							</div>
+						<div class="n-carousel n-carousel--tabs" id="detached-tabs">
+							<ul class="n-carousel__content">
+								<li>
+									<h3>Tab 1</h3>
+									<p>Content of Tab 1</p>
+								</li>
+								<li>
+									<h3>Tab 2</h3>
+									<p>The content of Tab 2</p>
+									<p>New line</p>
+									<p>New line</p>
+								</li>
+								<li>
+									<p>Three</p>
+								</li>
+							</ul>
 						</div>
 						<div class="code">
 							<pre><code class="language-markup">&lt;div class="n-carousel__content n-tabs" id="detached-tabs"&gt;
@@ -1481,7 +1544,11 @@
 </code>
 </pre>
 						</div>
-						<div class="n-carousel__content--nav" data-for=detached-tabs></div>
+						<div class="n-carousel__index" data-for="detached-tabs">
+							<button><span>Tab 1</span></button>
+							<button><span>Tab 2</span></button>
+							<button><span>Tab 3</span></button>
+						</div>
 					</div>
 					<div class="_1/1">
 						<h3>Options</h3>
@@ -1803,7 +1870,6 @@
 					</div>
 					<div class="_1/2">
 						<h3> Inline lightbox with detached nav </h3>
-
 						<div class="n-carousel n-carousel--lightbox" style="aspect-ratio: 1.67" id="carousel-detached">
 							<ul class="n-carousel__content">
 								<li>
@@ -1832,8 +1898,6 @@
 								</li>
 							</ul>
 						</div>
-
-
 						<!-- <div class="n-row n-unpad">
 							<div>
 								<div class="n-aspect" style="--width: 1670; --height: 1000;">
@@ -1856,7 +1920,6 @@
 &lt;div class="n-carousel__content--nav" data-for=lightbox4&gt;&lt;/div&gt;</code>
 </pre>
 						</div>
-
 						<div class="n-carousel__previous" data-for="carousel-detached">
 							<button><span>Previous</span></button>
 						</div>
@@ -1868,11 +1931,9 @@
 							<button><img src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/02/DSC01663-88x88.jpg" alt="2"></button>
 							<button><img src="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2017/02/DSC01611.jpg" alt="3"></button>
 						</div> -->
-
 					</div>
 					<div class="_1/1">
 						<h3> Inline lightbox peeking at neighboring slides </h3>
-
 						<div class="n-carousel n-carousel--lightbox n-carousel--peek">
 							<ul class="n-carousel__content">
 								<li>
@@ -1915,7 +1976,6 @@
 								<button><span>Toggle full screen</span></button>
 							</div>
 						</div>
-
 						<div class="code">
 							<pre><code class="language-markup">&lt;div class="n-lightbox n-lightbox__inline n-lightbox__thumbnails" data-peek=10%&gt;
 &lt;a href="//ds4jxjfidrdz4.cloudfront.net/wp-content/uploads/2016/08/DSC00756.jpg" title="First Taipei photo"&gt;
@@ -1928,7 +1988,6 @@
 					</div>
 					<div class="_1/2">
 						<h3> Inline lightbox with auto height </h3>
-
 						<div class="n-carousel n-carousel--lightbox n-carousel--auto-height">
 							<ul class="n-carousel__content">
 								<li>
@@ -1986,7 +2045,6 @@
 								<button><span>Toggle full screen</span></button>
 							</div>
 						</div>
-
 						<!-- <div class="n-carousel n-carousel__content__vertical- n-carousel__content__outside n-lightbox__thumbnails n-carousel__content__auto-height">
 							<div class="n-carousel__content n-lightbox n-lightbox__inline n-lightbox__thumbnails n-carousel__content__vertical- n-carousel__content__auto-height" data-duration="2">
 								<div>
@@ -2045,12 +2103,9 @@
 &lt;/div&gt;</code>
 </pre>
 						</div>
-
 					</div>
-
 					<div class="_1/2">
 						<h3> Inline lightbox with auto height – vertical</h3>
-
 						<div class="n-carousel n-carousel--lightbox n-carousel--auto-height">
 							<ul class="n-carousel__content">
 								<li>
@@ -2102,7 +2157,6 @@
 								<button><span>Toggle full screen</span></button>
 							</div>
 						</div>
-
 						<div class="code">
 							<pre><code class="language-markup">&lt;div class="n-carousel n-carousel__content__vertical n-carousel__content__outside n-lightbox__thumbnails"&gt;
 	&lt;div class="n-carousel__content n-lightbox n-lightbox__inline n-lightbox__thumbnails n-carousel__content__vertical" data-duration="2"&gt;
