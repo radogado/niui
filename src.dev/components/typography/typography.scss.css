@@ -73,7 +73,7 @@
 }
 .n-type p {
   font-size: 1em;
-  margin: 1.5em 0;
+  margin: 1.5rem 0;
   line-height: 1.5;
 }
 .n-type .n-drop-cap:first-letter {
@@ -104,7 +104,7 @@
   border-inline-start: 1px solid #bbb;
   padding-inline-start: 1em;
   display: block;
-  margin: 1.5em 0 1.5em 0;
+  margin: 1.5rem 0 1.5rem 0;
   margin-inline-start: 1em;
 }
 .n-type .n-big-text {
@@ -113,7 +113,7 @@
   min-height: 1.3334em;
 }
 
-.n-adjust-height {
+.n-adjust-height, .n-row picture.n-adjust-height {
   border-bottom: calc(1px * var(--adjust-height)) solid transparent;
   box-sizing: content-box;
 }

@@ -16,14 +16,14 @@
 }
 .n-table td,
 .n-table th {
-  padding: 1.5em 0.75em;
+  padding: 1.5rem 0.75rem;
   vertical-align: middle;
 }
 .n-table th,
 .n-table thead td {
   color: #fff;
   font-weight: bold;
-  padding-bottom: 1.5em;
+  padding-bottom: 1.5rem;
   font-size: 1.1em;
   background: rgba(0, 0, 0, 0.1);
   text-align: start;

@@ -50,7 +50,7 @@ html.n-full-screen body {
   overflow-x: none;
   background: transparent;
   height: 100%;
-  padding-top: 3em;
+  padding-top: 3rem;
 }
 .n-ovrl__close {
   color: var(--control-color, #fff);
@@ -110,7 +110,7 @@ html.n-full-screen body {
     padding: 0 0.75em;
   }
   .n-ovrl__content {
-    padding-top: 3em;
+    padding-top: 3rem;
   }
 }
 @media (max-height: 512px) and (orientation: landscape) {

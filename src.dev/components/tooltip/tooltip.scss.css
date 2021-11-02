@@ -38,7 +38,7 @@ html:not(.can-touch) .n-tool:hover .n-tool__tip {
 .n-tool__tip {
   overflow: visible;
   max-height: calc(100vh - 40px);
-  padding: 0.75em;
+  padding: 0.75rem;
   font-size: 0.8em;
   font-weight: normal;
   position: absolute;

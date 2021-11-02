@@ -17,7 +17,7 @@ a.n-btn[href],
 .n-type a.n-btn[href] {
   font-size: inherit;
   line-height: 1.5;
-  min-height: 1.5em;
+  min-height: 1.5rem;
   text-decoration: none;
   display: inline-block;
   cursor: pointer;
@@ -64,7 +64,7 @@ button.n-btn[disabled] {
 a[href].n-btn.n-btn--big,
 .n-form input[type=submit],
 .n-form button {
-  margin: calc(1.5em/3) 0;
+  margin: calc(1.5rem/3) 0;
   font-size: 1.2em;
   padding: 0.75em 1em;
   line-height: 1.05em;

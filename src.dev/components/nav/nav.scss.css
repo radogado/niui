@@ -65,7 +65,7 @@
     transform: translate3d(0, 0, 0);
   }
   .n-nav--scroll ul li {
-    padding: 0.75em;
+    padding: 0.75rem;
   }
 }
 main .n-nav ul {
