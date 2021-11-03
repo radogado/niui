@@ -3,13 +3,13 @@
 :root {
   --font-size: 16px;
   --line-height: 1.5;
-  --line-height-em: calc(1em * var(--line-height));
+  --line-height-em: calc(1rem * var(--line-height));
   --color: #333;
   --bg: #fff;
 }
 
 .n-form {
-  padding: 1.5em 0;
+  padding: var(--line-height-em) 0;
   --placeholder_color: #aaa;
 }
 .n-form * {
@@ -29,22 +29,22 @@
 .n-form button[type=submit],
 .n-form label, .n-form__check span,
 .n-form label > span {
-  line-height: 1.5;
-  min-height: 1.5em;
+  line-height: var(--line-height);
+  min-height: var(--line-height-em);
 }
 .n-form label {
   font-weight: bold;
   max-width: 100%;
   position: relative;
   padding: 0;
-  margin: 0 0 1.5em 0;
-  min-height: 3em;
+  margin: 0 0 var(--line-height-em) 0;
+  min-height: calc(var(--line-height-em) * 2);
 }
 .n-form input[type=submit],
 .n-form button,
 .n-form button[type=submit] {
   height: auto;
-  line-height: 1.5;
+  line-height: var(--line-height);
   white-space: normal;
   word-break: break-all;
   margin: 0;
@@ -63,8 +63,8 @@
   resize: none;
   vertical-align: top;
   border-radius: 0;
-  padding: 0 0.75em;
-  min-height: 3em;
+  padding: 0 calc(var(--line-height-em) / 2);
+  min-height: calc(var(--line-height-em) * 2);
   border: 0;
   font-size: 1em;
   border: 1px dotted transparent;
@@ -72,9 +72,9 @@
 .n-form textarea {
   border-bottom: 1px dotted transparent;
   height: 0;
-  min-height: 4.5em;
-  padding-top: 0.75em;
-  margin: 1.5em 0;
+  min-height: calc(var(--line-height-em) * 3);
+  padding-top: calc(var(--line-height-em) / 2);
+  margin: var(--line-height-em) 0;
 }
 .n-form textarea:not([data-auto]) {
   overflow: auto;
@@ -96,7 +96,7 @@
   min-height: 0;
   text-indent: 0px;
   padding: 0 1.6em 0 0.8em;
-  height: 3em;
+  height: calc(var(--line-height-em) * 2);
   white-space: nowrap;
   text-indent: -1px;
   text-overflow: "";
@@ -136,7 +136,7 @@
   display: inline-block;
   width: auto;
   padding-top: 0;
-  margin: 1.5em 0;
+  margin: var(--line-height-em) 0;
   vertical-align: middle;
 }
 .n-form.sticky-submit {
@@ -151,8 +151,8 @@
 }
 .n-form__check {
   display: block;
-  min-height: 1.5em;
-  margin-bottom: 1.5em;
+  min-height: var(--line-height-em);
+  margin-bottom: var(--line-height-em);
 }
 .n-form__check span {
   display: inline-block;
@@ -193,8 +193,8 @@
   display: inline-block;
   background-color: var(--control-bg, #eee);
   color: var(--control-color, #333);
-  line-height: 1.6666666667;
-  font-size: -0.3333333333em;
+  line-height: calc((var(--line-height) + 1) * 0.6666666667);
+  font-size: calc((var(--line-height) - 2) * 0.6666666667em);
   text-align: center;
   border: none;
   margin: 0;
@@ -297,7 +297,7 @@
 }
 .n-form__file {
   font-weight: normal;
-  margin: 0 0 1.5em 0;
+  margin: 0 0 var(--line-height) 0;
   cursor: pointer;
   font-style: italic;
   padding: 0;
@@ -311,10 +311,10 @@
   overflow: hidden;
   background-color: var(--control-bg, #ddd);
   color: var(--control-color, inherit);
-  padding: 0 0.75em 0 0.75em;
+  padding: 0 calc(var(--line-height-em) / 2) 0 0.75em;
   display: block;
-  line-height: 1.5em;
-  padding-top: 0.75em;
+  line-height: var(--line-height-em);
+  padding-top: calc(var(--line-height-em) / 2);
   letter-spacing: 0;
   position: absolute;
   top: 0;
@@ -437,10 +437,10 @@
 .n-form fieldset {
   border: 1px solid;
   display: block;
-  margin: 0.75em 0;
+  margin: calc(var(--line-height-em) / 2) 0;
 }
 .n-form fieldset input:last-of-type {
-  margin-bottom: 0.5em;
+  margin-bottom: calc(var(--line-height-em) / 3);
 }
 .n-form fieldset[disabled] {
   display: none;
@@ -450,27 +450,26 @@
   width: auto;
   min-width: 0;
   padding: 0 1em;
-  min-height: 2.50005em;
+  min-height: calc(var(--line-height-em) * 1.6667);
   text-align: start;
   font-size: 1.2em;
 }
 .n-form--wide textarea, .n-form--mast textarea {
-  margin: -0.75em 0 0.75em 0;
+  margin: calc(var(--line-height-em) / -2) 0 calc(var(--line-height-em) / 2) 0;
 }
 .n-form--wide input[type=submit],
 .n-form--wide button,
 .n-form--wide button[type=submit] {
-  margin-bottom: calc(1.5em - 5px);
-  /* fix for the failed box-sizing: border-box */
-  line-height: 1em;
+  margin-bottom: calc(var(--line-height-em) - 5px);
+  line-height: calc(var(--line-height-em) / 3 * 2);
   font-size: 1.2em;
   min-height: 2.50005em;
   width: 100%;
 }
 .n-form--wide select {
   width: 100%;
-  height: 3em;
-  margin: -0.75em 0 0.75em 0;
+  height: calc(var(line-height-em) * 2);
+  margin: calc(var(line-height-em) / -2) 0 calc(var(line-height-em) / 2) 0;
 }
 .n-form--wide label,
 .n-form--wide label span,
@@ -487,7 +486,7 @@
   display: block;
   width: 100%;
   border: none;
-  margin: 0 0 1.5em 0;
+  margin: 0 0 var(--line-height-em) 0;
 }
 .n-form--wide .n-form__check label input[type=checkbox],
 .n-form--wide .n-form__check label input[type=radio] {
@@ -497,7 +496,7 @@
 .n-form.n-form--mast button,
 .n-form.n-form--mast button[type=submit] {
   margin-inline-start: 50%;
-  margin-bottom: 2.25em;
+  margin-bottom: calc(var(line-height-em) * 1.5);
 }
 .n-form.n-form--mast label {
   width: 100%;
@@ -507,12 +506,12 @@
   margin-bottom: 1.5em;
 }
 .n-form.n-form--mast label > input {
-  margin-top: -0.75em;
+  margin-top: calc(var(line-height-em) * -2);
 }
 .n-form.n-form--mast > label > *,
 .n-form.n-form--mast > .n-form__check > * {
   width: 100%;
-  margin: -0.75em 0 2.25em 0;
+  margin: calc(var(line-height-em) * -2) 0 calc(var(line-height-em) * 1.5) 0;
   grid-column: -2/-1;
 }
 .n-form.n-form--mast > label > span,
@@ -542,8 +541,8 @@
   width: 100%;
   background-position: calc(100% - 0.5em);
   margin-inline-start: 0;
-  height: 3em;
-  line-height: 3em;
+  height: calc(var(line-height-em) * 2);
+  line-height: calc(var(line-height-em) * 2);
   margin: 0;
 }
 .n-form--language input[type=submit] {

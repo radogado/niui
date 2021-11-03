@@ -9,8 +9,8 @@ button.n-btn,
 a.n-btn[href],
 .n-type a.n-btn[href] {
 	font-size: inherit;
-	line-height: $line-height;
-	min-height: $line-height-em;
+	line-height: var(--line-height);
+	min-height: var(--line-height-em);
 	text-decoration: none;
 	display: inline-block;
 	cursor: pointer;
@@ -52,7 +52,7 @@ button.n-btn[disabled] {
 a[href].n-btn.n-btn--big,
 .n-form input[type="submit"],
 .n-form button {
-	margin: calc(#{$line-height-em}/3) 0; // Re-calculate margin, because font-size has changed. To do: fix baseline.
+	margin: calc(var(--line-height-em)/3) 0; // Re-calculate margin, because font-size has changed. To do: fix baseline.
 	font-size: 1.2em;
 	padding: 0.75em 1em;
 	line-height: 1.05em;

@@ -3,7 +3,7 @@
 :root {
   --font-size: 16px;
   --line-height: 1.5;
-  --line-height-em: calc(1em * var(--line-height));
+  --line-height-em: calc(1rem * var(--line-height));
   --color: #333;
   --bg: #fff;
 }
@@ -12,9 +12,8 @@
 $font-size: 26px;
 $line-height: 34px;
 */
-/* Rewrite base variables here; add theme CSS below this one in <head> */
 .n-contain {
-  max-width: 1312px;
+  max-width: 82ch;
   margin: 0 auto;
   width: 100%;
 }
@@ -183,7 +182,7 @@ a[href].span-relative-parent {
 :root {
   --font-size: 16px;
   --line-height: 1.5;
-  --line-height-em: calc(1em * var(--line-height));
+  --line-height-em: calc(1rem * var(--line-height));
   --color: #333;
   --bg: #fff;
 }
@@ -260,7 +259,7 @@ details.n-accordion details {
 :root {
   --font-size: 16px;
   --line-height: 1.5;
-  --line-height-em: calc(1em * var(--line-height));
+  --line-height-em: calc(1rem * var(--line-height));
   --color: #333;
   --bg: #fff;
 }
@@ -273,8 +272,8 @@ button.n-btn,
 a.n-btn[href],
 .n-type a.n-btn[href] {
   font-size: inherit;
-  line-height: 1.5;
-  min-height: 1.5rem;
+  line-height: var(--line-height);
+  min-height: var(--line-height-em);
   text-decoration: none;
   display: inline-block;
   cursor: pointer;
@@ -321,7 +320,7 @@ button.n-btn[disabled] {
 a[href].n-btn.n-btn--big,
 .n-form input[type=submit],
 .n-form button {
-  margin: calc(1.5rem/3) 0;
+  margin: calc(var(--line-height-em) / 3) 0;
   font-size: 1.2em;
   padding: 0.75em 1em;
   line-height: 1.05em;
@@ -376,7 +375,7 @@ a.n-backtotop[href] {
 :root {
   --font-size: 16px;
   --line-height: 1.5;
-  --line-height-em: calc(1em * var(--line-height));
+  --line-height-em: calc(1rem * var(--line-height));
   --color: #333;
   --bg: #fff;
 }
@@ -431,13 +430,13 @@ a.n-backtotop[href] {
 :root {
   --font-size: 16px;
   --line-height: 1.5;
-  --line-height-em: calc(1em * var(--line-height));
+  --line-height-em: calc(1rem * var(--line-height));
   --color: #333;
   --bg: #fff;
 }
 
 .n-form {
-  padding: 1.5rem 0;
+  padding: var(--line-height-em) 0;
   --placeholder_color: #aaa;
 }
 .n-form * {
@@ -457,22 +456,22 @@ a.n-backtotop[href] {
 .n-form button[type=submit],
 .n-form label, .n-form__check span,
 .n-form label > span {
-  line-height: 1.5;
-  min-height: 1.5rem;
+  line-height: var(--line-height);
+  min-height: var(--line-height-em);
 }
 .n-form label {
   font-weight: bold;
   max-width: 100%;
   position: relative;
   padding: 0;
-  margin: 0 0 1.5rem 0;
-  min-height: 3rem;
+  margin: 0 0 var(--line-height-em) 0;
+  min-height: calc(var(--line-height-em) * 2);
 }
 .n-form input[type=submit],
 .n-form button,
 .n-form button[type=submit] {
   height: auto;
-  line-height: 1.5;
+  line-height: var(--line-height);
   white-space: normal;
   word-break: break-all;
   margin: 0;
@@ -491,8 +490,8 @@ a.n-backtotop[href] {
   resize: none;
   vertical-align: top;
   border-radius: 0;
-  padding: 0 0.75rem;
-  min-height: 3rem;
+  padding: 0 calc(var(--line-height-em) / 2);
+  min-height: calc(var(--line-height-em) * 2);
   border: 0;
   font-size: 1em;
   border: 1px dotted transparent;
@@ -500,9 +499,9 @@ a.n-backtotop[href] {
 .n-form textarea {
   border-bottom: 1px dotted transparent;
   height: 0;
-  min-height: 4.5rem;
-  padding-top: 0.75rem;
-  margin: 1.5rem 0;
+  min-height: calc(var(--line-height-em) * 3);
+  padding-top: calc(var(--line-height-em) / 2);
+  margin: var(--line-height-em) 0;
 }
 .n-form textarea:not([data-auto]) {
   overflow: auto;
@@ -524,7 +523,7 @@ a.n-backtotop[href] {
   min-height: 0;
   text-indent: 0px;
   padding: 0 1.6em 0 0.8em;
-  height: 3rem;
+  height: calc(var(--line-height-em) * 2);
   white-space: nowrap;
   text-indent: -1px;
   text-overflow: "";
@@ -564,7 +563,7 @@ a.n-backtotop[href] {
   display: inline-block;
   width: auto;
   padding-top: 0;
-  margin: 1.5rem 0;
+  margin: var(--line-height-em) 0;
   vertical-align: middle;
 }
 .n-form.sticky-submit {
@@ -579,8 +578,8 @@ a.n-backtotop[href] {
 }
 .n-form__check {
   display: block;
-  min-height: 1.5rem;
-  margin-bottom: 1.5rem;
+  min-height: var(--line-height-em);
+  margin-bottom: var(--line-height-em);
 }
 .n-form__check span {
   display: inline-block;
@@ -621,8 +620,8 @@ a.n-backtotop[href] {
   display: inline-block;
   background-color: var(--control-bg, #eee);
   color: var(--control-color, #333);
-  line-height: 1.6666666667;
-  font-size: -0.3333333333em;
+  line-height: calc((var(--line-height) + 1) * 0.6666666667);
+  font-size: calc((var(--line-height) - 2) * 0.6666666667em);
   text-align: center;
   border: none;
   margin: 0;
@@ -725,7 +724,7 @@ a.n-backtotop[href] {
 }
 .n-form__file {
   font-weight: normal;
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 var(--line-height) 0;
   cursor: pointer;
   font-style: italic;
   padding: 0;
@@ -739,10 +738,10 @@ a.n-backtotop[href] {
   overflow: hidden;
   background-color: var(--control-bg, #ddd);
   color: var(--control-color, inherit);
-  padding: 0 0.75rem 0 0.75em;
+  padding: 0 calc(var(--line-height-em) / 2) 0 0.75em;
   display: block;
-  line-height: 1.5rem;
-  padding-top: 0.75rem;
+  line-height: var(--line-height-em);
+  padding-top: calc(var(--line-height-em) / 2);
   letter-spacing: 0;
   position: absolute;
   top: 0;
@@ -865,10 +864,10 @@ a.n-backtotop[href] {
 .n-form fieldset {
   border: 1px solid;
   display: block;
-  margin: 0.75rem 0;
+  margin: calc(var(--line-height-em) / 2) 0;
 }
 .n-form fieldset input:last-of-type {
-  margin-bottom: 0.5rem;
+  margin-bottom: calc(var(--line-height-em) / 3);
 }
 .n-form fieldset[disabled] {
   display: none;
@@ -878,27 +877,26 @@ a.n-backtotop[href] {
   width: auto;
   min-width: 0;
   padding: 0 1em;
-  min-height: 2.50005rem;
+  min-height: calc(var(--line-height-em) * 1.6667);
   text-align: start;
   font-size: 1.2em;
 }
 .n-form--wide textarea, .n-form--mast textarea {
-  margin: -0.75rem 0 0.75rem 0;
+  margin: calc(var(--line-height-em) / -2) 0 calc(var(--line-height-em) / 2) 0;
 }
 .n-form--wide input[type=submit],
 .n-form--wide button,
 .n-form--wide button[type=submit] {
-  margin-bottom: calc(1.5rem - 5px);
-  /* fix for the failed box-sizing: border-box */
-  line-height: 1rem;
+  margin-bottom: calc(var(--line-height-em) - 5px);
+  line-height: calc(var(--line-height-em) / 3 * 2);
   font-size: 1.2em;
   min-height: 2.50005em;
   width: 100%;
 }
 .n-form--wide select {
   width: 100%;
-  height: 3rem;
-  margin: -0.75rem 0 0.75rem 0;
+  height: calc(var(line-height-em) * 2);
+  margin: calc(var(line-height-em) / -2) 0 calc(var(line-height-em) / 2) 0;
 }
 .n-form--wide label,
 .n-form--wide label span,
@@ -915,7 +913,7 @@ a.n-backtotop[href] {
   display: block;
   width: 100%;
   border: none;
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 var(--line-height-em) 0;
 }
 .n-form--wide .n-form__check label input[type=checkbox],
 .n-form--wide .n-form__check label input[type=radio] {
@@ -925,7 +923,7 @@ a.n-backtotop[href] {
 .n-form.n-form--mast button,
 .n-form.n-form--mast button[type=submit] {
   margin-inline-start: 50%;
-  margin-bottom: 2.25rem;
+  margin-bottom: calc(var(line-height-em) * 1.5);
 }
 .n-form.n-form--mast label {
   width: 100%;
@@ -935,12 +933,12 @@ a.n-backtotop[href] {
   margin-bottom: 1.5em;
 }
 .n-form.n-form--mast label > input {
-  margin-top: -0.75rem;
+  margin-top: calc(var(line-height-em) * -2);
 }
 .n-form.n-form--mast > label > *,
 .n-form.n-form--mast > .n-form__check > * {
   width: 100%;
-  margin: -0.75rem 0 2.25rem 0;
+  margin: calc(var(line-height-em) * -2) 0 calc(var(line-height-em) * 1.5) 0;
   grid-column: -2/-1;
 }
 .n-form.n-form--mast > label > span,
@@ -970,8 +968,8 @@ a.n-backtotop[href] {
   width: 100%;
   background-position: calc(100% - 0.5em);
   margin-inline-start: 0;
-  height: 3rem;
-  line-height: 3rem;
+  height: calc(var(line-height-em) * 2);
+  line-height: calc(var(line-height-em) * 2);
   margin: 0;
 }
 .n-form--language input[type=submit] {
@@ -982,25 +980,23 @@ a.n-backtotop[href] {
 /*# sourceMappingURL=form.scss.css.map */
 @charset "UTF-8";
 /* Image aspect ratio – don't shift the page after loading the image */
-@supports (--a: 1) {
-  .n-aspect {
-    display: block;
-    aspect-ratio: var(--ratio, calc(var(--width) / var(--height)));
-  }
-  .n-aspect > img {
-    max-width: 100%;
-    height: auto;
-    margin: 0 auto;
-    display: block;
-  }
-  .n-aspect.n-bottom > * {
-    align-self: flex-end;
-    vertical-align: bottom;
-  }
-  .n-aspect.n-middle > * {
-    align-self: center;
-    vertical-align: middle;
-  }
+.n-aspect {
+  display: block;
+  aspect-ratio: var(--ratio, calc(var(--width) / var(--height)));
+}
+.n-aspect > img {
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+.n-aspect.n-bottom > * {
+  align-self: flex-end;
+  vertical-align: bottom;
+}
+.n-aspect.n-middle > * {
+  align-self: center;
+  vertical-align: middle;
 }
 
 /*# sourceMappingURL=aspect-ratio.scss.css.map */
@@ -1009,7 +1005,7 @@ a.n-backtotop[href] {
 :root {
   --font-size: 16px;
   --line-height: 1.5;
-  --line-height-em: calc(1em * var(--line-height));
+  --line-height-em: calc(1rem * var(--line-height));
   --color: #333;
   --bg: #fff;
 }
@@ -1044,10 +1040,10 @@ a.n-backtotop[href] {
 .n-row > * {
   position: relative;
   word-wrap: break-word;
-  width: calc(20% - 1.5rem);
+  width: calc(20% - var(--line-height-em));
   --col-width: 1/5;
-  padding: calc(0.375rem);
-  margin: calc(0.375rem);
+  padding: calc(var(--line-height-em) / 4);
+  margin: calc(var(--line-height-em) / 4);
   flex-grow: 1;
   text-align: start;
   min-width: 0;
@@ -1102,14 +1098,14 @@ a.n-backtotop[href] {
 
 @-moz-document url-prefix() {
   .n-row > * {
-    margin: calc(0.375rem - 0.0009em);
+    margin: calc(var(--line-height-em) / 4 - 0.0009em);
   }
 }
 /* colXY where the column takes up X/Y of space; colY means 1/Y */
 @supports (--a: 1) {
   .n-row > *,
 .n-row > [class^=_] {
-    --spacing: 1.5rem;
+    --spacing: var(--line-height-em);
     flex-basis: calc(var(--col-width) * 100% - var(--spacing));
   }
 
@@ -1125,14 +1121,14 @@ a.n-backtotop[href] {
   }
   .n-row.n-row--no-padding,
 .n-row.n-row--no-padding > * {
-    --spacing: 0.75rem;
+    --spacing: calc(var(--line-height-em)/2);
     padding: 0;
   }
 
   .n-row.n-row--no-margin,
 .n-row.n-row--no-margin > *,
 .n-row.n-row--vertical > * {
-    --spacing: 0.75rem;
+    --spacing: calc(var(--line-height-em)/2);
     margin: 0;
   }
 
@@ -1143,11 +1139,11 @@ a.n-backtotop[href] {
   }
 
   .n-row.n-row--spacing-horizontal > * {
-    margin: 0 0.75rem;
+    margin: 0 calc(var(--line-height-em) / 2);
   }
 
   .n-row.n-row--spacing-vertical > * {
-    margin: 0.75rem 0;
+    margin: calc(var(--line-height-em) / 2) 0;
   }
 }
 .n-left,
@@ -1227,7 +1223,7 @@ a.n-backtotop[href] {
 .n-masonry {
   column-count: 3;
   column-gap: 0;
-  margin: 1.5rem 0;
+  margin: var(--line-height-em) 0;
 }
 .n-masonry > * {
   display: table;
@@ -1237,7 +1233,7 @@ a.n-backtotop[href] {
   /* FF 20+ */
   break-inside: avoid-column;
   margin: 0;
-  padding: 0.75rem;
+  padding: calc(var(--line-height-em) / 2);
   box-sizing: border-box;
   word-break: break-word;
   word-wrap: break-word;
@@ -1262,19 +1258,19 @@ ol.n-masonry > * {
 }
 
 .n-pad {
-  padding: 0.75rem;
+  padding: calc(var(--line-height-em) / 2);
   box-sizing: border-box;
 }
 
 .n-pad-half {
-  padding: 0.375rem;
+  padding: calc(var(--line-height-em) / 4);
   box-sizing: border-box;
 }
 
 .n-unpad,
 .n-row > * > .n-unpad {
-  margin: -0.75rem;
-  width: calc(100% + 1.5rem);
+  margin: calc(var(--line-height-em) / -2);
+  width: calc(var(--line-height-em) + 100%);
   max-width: 100%;
   overflow-x: hidden;
 }
@@ -1284,7 +1280,7 @@ ol.n-masonry > * {
 }
 
 .n-unpad-vertical {
-  margin: -1.5rem 0;
+  margin: calc(-1 * var(--line-height-em)) 0;
 }
 
 .n-row.n-row--border-all {
@@ -1338,7 +1334,7 @@ ol.n-masonry > * {
 
   .n-row:not(.n-row--no-margin):not(.n-row--border-all):not(.n-tabs) > *,
 .n-row:not(.n-row--no-margin):not(.n-row--border-all) > [class^=_] {
-    margin: 0.25rem 0;
+    margin: calc(var(--line-height-em) / 6) 0;
     display: block;
   }
 
@@ -1381,7 +1377,7 @@ ol.n-masonry > * {
   }
 
   .n-row.n-row--border-all .n-row {
-    width: calc(100% + 1.5rem);
+    width: calc(100% + var(--line-height-em));
   }
 
   /*
@@ -1407,16 +1403,16 @@ ol.n-masonry > * {
 :root {
   --font-size: 16px;
   --line-height: 1.5;
-  --line-height-em: calc(1em * var(--line-height));
+  --line-height-em: calc(1rem * var(--line-height));
   --color: #333;
   --bg: #fff;
 }
 
 ul.n-list {
   padding: 0;
-  line-height: 1.5;
-  min-height: 1.5rem;
-  margin: 0.75rem 0 0.75rem 0;
+  line-height: var(--line-height);
+  min-height: var(--line-height);
+  margin: calc(var(--line-height) / 2) 0;
 }
 ul.n-list.n-list--indent {
   margin-inline-start: 1.5em;
@@ -1449,11 +1445,11 @@ ol.n-list {
   list-style-type: none;
   counter-reset: level1;
   padding: 0;
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 var(--line-height-em) 0;
 }
 ol.n-list > li {
   text-indent: -2.3em;
-  margin: 1.5rem 0 0.75rem 2.3em;
+  margin: var(--line-height-em) 0 calc(var(--line-height-em) / 2) 2.3em;
 }
 ol.n-list > li:before {
   width: auto;
@@ -1529,7 +1525,7 @@ ul.n-list.n-list--inline li,
 }
 
 [dir=rtl] ol.n-list > li {
-  margin: 1.5rem 2.3em 0.75rem 0;
+  margin: var(--line-height-em) 2.3em calc(var(--line-height-em) / 2) 0;
 }
 [dir=rtl] ol.n-list > li:before {
   margin: 0 0 0 0.5em;
@@ -1541,7 +1537,7 @@ ul.n-list.n-list--inline li,
 :root {
   --font-size: 16px;
   --line-height: 1.5;
-  --line-height-em: calc(1em * var(--line-height));
+  --line-height-em: calc(1rem * var(--line-height));
   --color: #333;
   --bg: #fff;
 }
@@ -1588,7 +1584,7 @@ html.n-full-screen body {
   overflow-x: none;
   background: transparent;
   height: 100%;
-  padding-top: 3rem;
+  padding-top: calc(var(--line-height-em) * 2);
 }
 .n-ovrl__close {
   color: var(--control-color, #fff);
@@ -1609,7 +1605,7 @@ html.n-full-screen body {
   text-align: start;
   border: 0;
   outline-offset: -5px;
-  line-height: 3;
+  line-height: calc(var(--line-height-em) * 2);
 }
 .n-ovrl--headless {
   padding-top: 0;
@@ -1648,7 +1644,7 @@ html.n-full-screen body {
     padding: 0 0.75em;
   }
   .n-ovrl__content {
-    padding-top: 3rem;
+    padding-top: calc(var(--line-height-em) * 2);
   }
 }
 @media (max-height: 512px) and (orientation: landscape) {
@@ -2753,7 +2749,7 @@ _:future,
 :root {
   --font-size: 16px;
   --line-height: 1.5;
-  --line-height-em: calc(1em * var(--line-height));
+  --line-height-em: calc(1rem * var(--line-height));
   --color: #333;
   --bg: #fff;
 }
@@ -2815,7 +2811,7 @@ _:future,
     transform: translate3d(0, 0, 0);
   }
   .n-nav--scroll ul li {
-    padding: 0.75rem;
+    padding: calc(var(--line-height-em) / 2);
   }
 }
 main .n-nav ul {
@@ -3194,7 +3190,7 @@ nav.n-nav--drop li li li a {
 :root {
   --font-size: 16px;
   --line-height: 1.5;
-  --line-height-em: calc(1em * var(--line-height));
+  --line-height-em: calc(1rem * var(--line-height));
   --color: #333;
   --bg: #fff;
 }
@@ -3234,7 +3230,7 @@ nav.n-nav--drop li li li a {
 :root {
   --font-size: 16px;
   --line-height: 1.5;
-  --line-height-em: calc(1em * var(--line-height));
+  --line-height-em: calc(1rem * var(--line-height));
   --color: #333;
   --bg: #fff;
 }
@@ -3247,14 +3243,14 @@ nav.n-nav--drop li li li a {
 }
 .n-table td,
 .n-table th {
-  padding: 1.5rem 0.75rem;
+  padding: var(--line-height-em) calc(var(--line-height-em) / 2);
   vertical-align: middle;
 }
 .n-table th,
 .n-table thead td {
   color: #fff;
   font-weight: bold;
-  padding-bottom: 1.5rem;
+  padding-bottom: var(--line-height-em);
   font-size: 1.1em;
   background: rgba(0, 0, 0, 0.1);
   text-align: start;
@@ -3325,7 +3321,7 @@ nav.n-nav--drop li li li a {
 :root {
   --font-size: 16px;
   --line-height: 1.5;
-  --line-height-em: calc(1em * var(--line-height));
+  --line-height-em: calc(1rem * var(--line-height));
   --color: #333;
   --bg: #fff;
 }
@@ -3360,7 +3356,7 @@ html:not(.can-touch) .n-tool:hover .n-tool__tip {
 .n-tool__tip {
   overflow: visible;
   max-height: calc(100vh - 40px);
-  padding: 0.75rem;
+  padding: calc(var(--line-height-em) / 2);
   font-size: 0.8em;
   font-weight: normal;
   position: absolute;
@@ -3373,7 +3369,7 @@ html:not(.can-touch) .n-tool:hover .n-tool__tip {
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
   width: 20em;
-  line-height: 1.2;
+  line-height: calc(var(--line-height-em) / 1.25);
   display: none;
 }
 .n-tool__tip[aria-expanded] {
@@ -3418,7 +3414,7 @@ html:not(.can-touch) .n-tool:hover .n-tool__tip {
 :root {
   --font-size: 16px;
   --line-height: 1.5;
-  --line-height-em: calc(1em * var(--line-height));
+  --line-height-em: calc(1rem * var(--line-height));
   --color: #333;
   --bg: #fff;
 }
@@ -3426,8 +3422,8 @@ html:not(.can-touch) .n-tool:hover .n-tool__tip {
 .n-type {
   color: #333;
   -webkit-text-size-adjust: none;
-  font-size: 16px;
-  line-height: 1.5;
+  font-size: var(--font-size, 16px);
+  line-height: var(--line-height);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   letter-spacing: 0.5px;
   /* Elements with double line-height */
@@ -3438,7 +3434,7 @@ html:not(.can-touch) .n-tool:hover .n-tool__tip {
 .n-type h4,
 .n-type h5,
 .n-type h6 {
-  line-height: 1.5;
+  line-height: var(--line-height);
   word-break: break-word;
   word-wrap: break-word;
   font-size: 1em;
@@ -3469,11 +3465,11 @@ html:not(.can-touch) .n-tool:hover .n-tool__tip {
 }
 .n-type h2 {
   font-size: 1.5em;
-  line-height: 1;
+  line-height: calc(var(--line-height) / 1.5);
 }
 .n-type h3 {
   font-size: 1.2em;
-  line-height: 1.26375;
+  line-height: calc(var(--line-height) * 1.011 / 1.2);
 }
 .n-type h5 {
   font-size: 0.8em;
@@ -3488,8 +3484,8 @@ html:not(.can-touch) .n-tool:hover .n-tool__tip {
 }
 .n-type p {
   font-size: 1em;
-  margin: 1.5rem 0;
-  line-height: 1.5;
+  margin: var(--line-height-em) 0;
+  line-height: var(--line-height);
 }
 .n-type .n-drop-cap:first-letter {
   float: left;
@@ -3519,7 +3515,7 @@ html:not(.can-touch) .n-tool:hover .n-tool__tip {
   border-inline-start: 1px solid #bbb;
   padding-inline-start: 1em;
   display: block;
-  margin: 1.5rem 0 1.5rem 0;
+  margin: var(--line-height-em) 0;
   margin-inline-start: 1em;
 }
 .n-type .n-big-text {

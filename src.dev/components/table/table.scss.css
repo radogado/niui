@@ -3,7 +3,7 @@
 :root {
   --font-size: 16px;
   --line-height: 1.5;
-  --line-height-em: calc(1em * var(--line-height));
+  --line-height-em: calc(1rem * var(--line-height));
   --color: #333;
   --bg: #fff;
 }
@@ -16,14 +16,14 @@
 }
 .n-table td,
 .n-table th {
-  padding: 1.5rem 0.75rem;
+  padding: var(--line-height-em) calc(var(--line-height-em) / 2);
   vertical-align: middle;
 }
 .n-table th,
 .n-table thead td {
   color: #fff;
   font-weight: bold;
-  padding-bottom: 1.5rem;
+  padding-bottom: var(--line-height-em);
   font-size: 1.1em;
   background: rgba(0, 0, 0, 0.1);
   text-align: start;

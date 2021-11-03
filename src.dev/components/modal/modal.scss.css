@@ -3,7 +3,7 @@
 :root {
   --font-size: 16px;
   --line-height: 1.5;
-  --line-height-em: calc(1em * var(--line-height));
+  --line-height-em: calc(1rem * var(--line-height));
   --color: #333;
   --bg: #fff;
 }
@@ -50,7 +50,7 @@ html.n-full-screen body {
   overflow-x: none;
   background: transparent;
   height: 100%;
-  padding-top: 3rem;
+  padding-top: calc(var(--line-height-em) * 2);
 }
 .n-ovrl__close {
   color: var(--control-color, #fff);
@@ -71,7 +71,7 @@ html.n-full-screen body {
   text-align: start;
   border: 0;
   outline-offset: -5px;
-  line-height: 3;
+  line-height: calc(var(--line-height-em) * 2);
 }
 .n-ovrl--headless {
   padding-top: 0;
@@ -110,7 +110,7 @@ html.n-full-screen body {
     padding: 0 0.75em;
   }
   .n-ovrl__content {
-    padding-top: 3rem;
+    padding-top: calc(var(--line-height-em) * 2);
   }
 }
 @media (max-height: 512px) and (orientation: landscape) {

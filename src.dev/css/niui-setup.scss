@@ -12,7 +12,7 @@ $bg: #fff;
 :root {
 	--font-size: 16px;
 	--line-height: 1.5;
-	--line-height-em: calc(1em * var(--line-height));
+	--line-height-em: calc(1rem * var(--line-height));
 	--color: #333;
 	--bg: #fff;
 }

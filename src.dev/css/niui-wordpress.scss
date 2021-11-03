@@ -1,6 +1,9 @@
 /* niui WordPress – rado.bg */
 @charset 'utf-8';
-$teal: #488e89;
+
+:root {
+	--color-teal: #488e89;
+}
 
 .n-slider--wrap {
 	background: #eee;
@@ -284,7 +287,7 @@ article h2 a[href] {
 	vertical-align: bottom;
 	padding: 0.5em;
 	font-size: 1.5rem;
-	background: $teal;
+	background: var(--color-teal);
 	color: #fff;
 	text-decoration: none;
 }
@@ -424,7 +427,7 @@ nav.n-nav {
 		h4,
 		h5 {
 			font-weight: 500;
-			color: $teal;
+			color: var(--color-teal);
 		}
 
 		.headline > h2 {

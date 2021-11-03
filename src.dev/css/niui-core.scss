@@ -3,9 +3,8 @@
 @import "niui-setup";
 @import "theme-variables";
 
-/* Rewrite base variables here; add theme CSS below this one in <head> */
 .n-contain {
-	max-width: 82 * $font-size;
+	max-width: 82ch;
 	margin: 0 auto;
 	width: 100%;
 }

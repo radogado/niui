@@ -3,16 +3,16 @@
 :root {
   --font-size: 16px;
   --line-height: 1.5;
-  --line-height-em: calc(1em * var(--line-height));
+  --line-height-em: calc(1rem * var(--line-height));
   --color: #333;
   --bg: #fff;
 }
 
 ul.n-list {
   padding: 0;
-  line-height: 1.5;
-  min-height: 1.5rem;
-  margin: 0.75rem 0 0.75rem 0;
+  line-height: var(--line-height);
+  min-height: var(--line-height);
+  margin: calc(var(--line-height) / 2) 0;
 }
 ul.n-list.n-list--indent {
   margin-inline-start: 1.5em;
@@ -45,11 +45,11 @@ ol.n-list {
   list-style-type: none;
   counter-reset: level1;
   padding: 0;
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 var(--line-height-em) 0;
 }
 ol.n-list > li {
   text-indent: -2.3em;
-  margin: 1.5rem 0 0.75rem 2.3em;
+  margin: var(--line-height-em) 0 calc(var(--line-height-em) / 2) 2.3em;
 }
 ol.n-list > li:before {
   width: auto;
@@ -125,7 +125,7 @@ ul.n-list.n-list--inline li,
 }
 
 [dir=rtl] ol.n-list > li {
-  margin: 1.5rem 2.3em 0.75rem 0;
+  margin: var(--line-height-em) 2.3em calc(var(--line-height-em) / 2) 0;
 }
 [dir=rtl] ol.n-list > li:before {
   margin: 0 0 0 0.5em;

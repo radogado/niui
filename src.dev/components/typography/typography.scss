@@ -4,8 +4,8 @@
 .n-type {
 	color: #333;
 	-webkit-text-size-adjust: none;
-	font-size: $font-size;
-	line-height: $line-height;
+	font-size: var(--font-size, 16px);
+	line-height: var(--line-height);
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 	letter-spacing: 0.5px; // For proof: because sometimes there are aberrations with non-default spacing. Safari bug: value flashing from 0 https://bugs.webkit.org/show_bug.cgi?id=193008
 
@@ -16,7 +16,7 @@
 	h4,
 	h5,
 	h6 {
-		line-height: $line-height;
+		line-height: var(--line-height);
 		word-break: break-word; // Overflow protection for long words
 		word-wrap: break-word;
 		font-size: 1em;
@@ -39,12 +39,12 @@
 
 	h2 {
 		font-size: 1.5em; // 	line-height: 1.333;
-		line-height: $line-height/1.5; // = standard line-height / new font-size in em
+		line-height: calc(var(--line-height)/1.5); // = standard line-height / new font-size in em
 	}
 
 	h3 {
 		font-size: 1.2em;
-		line-height: ($line-height * 1.011)/1.2;
+		line-height: calc((var(--line-height) * 1.011)/1.2);
 	}
 
 	h5 {
@@ -63,8 +63,8 @@
 
 	p {
 		font-size: 1em;
-		margin: $line-height-em 0;
-		line-height: $line-height;
+		margin: var(--line-height-em) 0;
+		line-height: var(--line-height);
 	}
 
 	.n-drop-cap:first-letter {
@@ -100,7 +100,7 @@
 		border-inline-start: 1px solid #bbb;
 		padding-inline-start: 1em;
 		display: block;
-		margin: $line-height-em 0 $line-height-em 0;
+		margin: var(--line-height-em) 0;
 		margin-inline-start: 1em;
 	}
 

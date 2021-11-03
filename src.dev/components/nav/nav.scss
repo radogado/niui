@@ -70,7 +70,7 @@
 		}
 
 		ul li {
-			padding: $line-height-em/2;
+			padding: calc(var(--line-height-em)/2);
 		}
 	}
 }
@@ -78,9 +78,6 @@
 main .n-nav ul {
 	padding-inline-start: 0;
 }
-
-// Drop nav
-$bg: inherit; // fallback for browsers unsupporting CSS variables
 
 .n-nav--drop {
 	color: var(--control-color, #333);
