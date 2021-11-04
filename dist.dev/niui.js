@@ -1182,6 +1182,7 @@ var componentModal = (function () {
 (function () {
 	const ceilingWidth = (el) => Math.ceil(parseFloat(getComputedStyle(el).width));
 	const ceilingHeight = (el) => Math.ceil(parseFloat(getComputedStyle(el).height));
+	const focusableElements = 'button, [href], input, select, textarea, details, summary, video, [tabindex]:not([tabindex="-1"])';
 
 	function isElementInViewport(el) {
 		let rect = el.getBoundingClientRect();
@@ -1283,7 +1284,6 @@ var componentModal = (function () {
 	const trapFocus = (modal) => {
 		// FROM: https://uxdesign.cc/how-to-trap-focus-inside-modal-to-make-it-ada-compliant-6a50f9a70700
 		// add all the elements inside modal which you want to make focusable
-		const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
 		const firstFocusableElement = modal.querySelectorAll(focusableElements)[0]; // get first element to be focused inside modal
 		const focusableContent = modal.querySelectorAll(focusableElements);
 		const lastFocusableElement = focusableContent[focusableContent.length - 1]; // get last element to be focused inside modal
@@ -1520,9 +1520,38 @@ var componentModal = (function () {
 		let hash = el.children[active].id;
 		// console.log(hash);
 		if (!!hash) {
-			console.log(hash);
+			// console.log(hash);
 			location.hash = `#${hash}`; // Doesn't work with soft reload. To do: scroll to relevant slide
 		}
+		// Disable focus on children of non-active slides
+		// Active slides of nested carousels should also have disabled focus
+		// Restore previous tabindex without taking into account the tabindex just added by the script
+		[...el.children].forEach(slide => {
+			if (slide !== el.children[active]) {
+				slide.querySelectorAll(focusableElements).forEach(el2 => {
+					if (el2.closest('.n-carousel__content > :not([data-active])')) {
+						if (el2.getAttribute('tabindex') && !el2.dataset.focusDisabled) {
+							el2.dataset.oldTabIndex = el2.tabIndex;
+						}
+						el2.dataset.focusDisabled = true;
+						el2.tabIndex = -1;
+					}
+				});
+				// slide.dataset.disabledChildrenFocus = true;
+			}
+		});
+		// console.log(el.children[active]);
+		el.children[active].querySelectorAll('[data-focus-disabled]').forEach(el2 => {
+			if (!el2.closest('.n-carousel__content > :not([data-active])')) {
+				el2.removeAttribute('tabindex');
+				delete el2.dataset.focusDisabled;
+				if (!!el2.dataset.oldTabIndex) {
+					el2.tabIndex = el2.dataset.oldTabIndex;
+					delete el2.dataset.oldTabIndex;
+				}
+			}
+		});
+		// delete el.children[active].dataset.disabledChildrenFocus;
 	};
 	// Setup isScrolling variable
 	var isScrolling;
@@ -1872,7 +1901,7 @@ var componentModal = (function () {
 				}
 			});
 			let content = el.querySelector(":scope > .n-carousel__content");
-			content.tabIndex = 0;
+			// content.tabIndex = 0;
 			let hashed_slide = !!location.hash ? content.querySelector(':scope > ' + location.hash) : false;
 			if (hashed_slide) {
 				// console.log(hashed_slide);
@@ -2682,7 +2711,8 @@ var componentNotify = (function () {
 	}
 
 	function notify(content, option) {
-		document.body.insertAdjacentHTML("afterbegin", `<div class="n-notify${option && option.indexOf("fixed") !== -1 ? " n-notify--fixed" : ""}">${content}</div>`);
+		document.body.insertAdjacentHTML("afterbegin", `<button class="n-notify${option && option.indexOf("fixed") !== -1 ? " n-notify--fixed" : ""}">${content}</button>`);
+		q(".n-notify").focus();
 		notifyCloseEvent();
 		if (option && option.indexOf("timeout") !== -1) {
 			setTimeout(() => {

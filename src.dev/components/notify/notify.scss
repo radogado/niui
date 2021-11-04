@@ -6,8 +6,13 @@
 	text-align: center;
 	padding: 1em;
 	color: #fff;
-	cursor: pointer;
+	cursor: crosshair;
 	z-index: 1;
+	-webkit-appearance: none;
+	appearance: none;
+	border: none;
+	width: 100%;
+	font: inherit;
 
 	&:after {
 		content: " ✕";
@@ -19,5 +24,10 @@
 		left: 0;
 		right: 0;
 		z-index: 2;
+	}
+
+	&:focus:focus-visible {
+		outline-offset: -3px;
+		outline: auto;
 	}
 }
