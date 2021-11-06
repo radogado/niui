@@ -229,7 +229,7 @@
 		background-color: var(--control-bg, #eee);
 		color: var(--control-color, #333);
 		line-height: calc((var(--line-height) + 1) * (2/3));
-		font-size: calc((var(--line-height) - 2) * (2em/3));
+		// font-size: calc((var(--line-height) - 2) * (2em/3));
 		text-align: center;
 		border: none;
 		margin: 0;
@@ -240,12 +240,11 @@
 		vertical-align: middle;
 	}
 
-	&--mast .n-form__check-icon {
-		top: 0.25em;
-	}
-
-	&--wide .n-form__check-icon {
-		top: 0.08em;
+	&--mast,
+	&--wide {
+		.n-form__check-icon {
+			top: 0.25em;
+		}
 	}
 
 	input[type="checkbox"] + .n-form__check-icon:before {
@@ -542,8 +541,8 @@
 
 		select {
 			width: 100%;
-			height: calc(var(line-height-em) * 2);
-			margin: calc(var(line-height-em) / -2) 0 calc(var(line-height-em) / 2) 0;
+			height: calc(var(--line-height-em) * 2);
+			margin: calc(var(--line-height-em) / -2) 0 calc(var(--line-height-em) / 2) 0;
 		}
 
 		label,
@@ -580,7 +579,7 @@
 		button,
 		button[type="submit"] {
 			margin-inline-start: 50%;
-			margin-bottom: calc(var(line-height-em) * 1.5);
+			margin-bottom: calc(var(--line-height-em) * 1.5);
 		}
 
 		label {
@@ -589,10 +588,9 @@
 			grid-template: auto/1fr 1fr;
 			gap: 1em;
 			margin-bottom: 1.5em;
-
-			> input {
-				margin-top: calc(var(line-height-em) * -2);
-			}
+			// > input {
+			// 	margin-top: calc(var(--line-height-em) * -2);
+			// }
 		}
 
 		> label > *,
@@ -601,7 +599,7 @@
 			width: 100%;
 			// float: right;
 			// clear: right;
-			margin: calc(var(line-height-em) * -2) 0 calc(var(line-height-em) * 1.5) 0;
+			margin: calc(var(--line-height-em) / -2) 0 calc(var(--line-height-em) * 1.5) 0;
 			grid-column: -2/-1;
 		}
 
@@ -641,8 +639,8 @@
 			width: 100%;
 			background-position: calc(100% - 0.5em);
 			margin-inline-start: 0;
-			height: calc(var(line-height-em) * 2);
-			line-height: calc(var(line-height-em) * 2);
+			height: calc(var(--line-height-em) * 2);
+			line-height: calc(var(--line-height-em) * 2);
 			margin: 0;
 		}
 

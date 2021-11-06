@@ -16,7 +16,7 @@
 }
 .n-table td,
 .n-table th {
-  padding: var(--line-height-em) calc(var(--line-height-em) / 2);
+  padding: var(--line-height-em) calc(var(--line-height-em)/2);
   vertical-align: middle;
 }
 .n-table th,

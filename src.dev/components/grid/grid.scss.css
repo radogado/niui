@@ -40,8 +40,8 @@
   word-wrap: break-word;
   width: calc(20% - var(--line-height-em));
   --col-width: 1/5;
-  padding: calc(var(--line-height-em) / 4);
-  margin: calc(var(--line-height-em) / 4);
+  padding: calc(var(--line-height-em)/4);
+  margin: calc(var(--line-height-em)/4);
   flex-grow: 1;
   text-align: start;
   min-width: 0;
@@ -96,7 +96,7 @@
 
 @-moz-document url-prefix() {
   .n-row > * {
-    margin: calc(var(--line-height-em) / 4 - 0.0009em);
+    margin: calc(var(--line-height-em)/4 - 0.0009em);
   }
 }
 /* colXY where the column takes up X/Y of space; colY means 1/Y */
@@ -137,11 +137,11 @@
   }
 
   .n-row.n-row--spacing-horizontal > * {
-    margin: 0 calc(var(--line-height-em) / 2);
+    margin: 0 calc(var(--line-height-em)/2);
   }
 
   .n-row.n-row--spacing-vertical > * {
-    margin: calc(var(--line-height-em) / 2) 0;
+    margin: calc(var(--line-height-em)/2) 0;
   }
 }
 .n-left,
@@ -231,7 +231,7 @@
   /* FF 20+ */
   break-inside: avoid-column;
   margin: 0;
-  padding: calc(var(--line-height-em) / 2);
+  padding: calc(var(--line-height-em)/2);
   box-sizing: border-box;
   word-break: break-word;
   word-wrap: break-word;
@@ -256,12 +256,12 @@ ol.n-masonry > * {
 }
 
 .n-pad {
-  padding: calc(var(--line-height-em) / 2);
+  padding: calc(var(--line-height-em)/2);
   box-sizing: border-box;
 }
 
 .n-pad-half {
-  padding: calc(var(--line-height-em) / 4);
+  padding: calc(var(--line-height-em)/4);
   box-sizing: border-box;
 }
 

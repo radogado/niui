@@ -65,7 +65,7 @@
     transform: translate3d(0, 0, 0);
   }
   .n-nav--scroll ul li {
-    padding: calc(var(--line-height-em) / 2);
+    padding: calc(var(--line-height-em)/2);
   }
 }
 main .n-nav ul {

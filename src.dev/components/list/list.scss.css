@@ -12,7 +12,7 @@ ul.n-list {
   padding: 0;
   line-height: var(--line-height);
   min-height: var(--line-height);
-  margin: calc(var(--line-height) / 2) 0;
+  margin: calc(var(--line-height)/2) 0;
 }
 ul.n-list.n-list--indent {
   margin-inline-start: 1.5em;
@@ -49,7 +49,7 @@ ol.n-list {
 }
 ol.n-list > li {
   text-indent: -2.3em;
-  margin: var(--line-height-em) 0 calc(var(--line-height-em) / 2) 2.3em;
+  margin: var(--line-height-em) 0 calc(var(--line-height-em)/2) 2.3em;
 }
 ol.n-list > li:before {
   width: auto;
@@ -125,7 +125,7 @@ ul.n-list.n-list--inline li,
 }
 
 [dir=rtl] ol.n-list > li {
-  margin: var(--line-height-em) 2.3em calc(var(--line-height-em) / 2) 0;
+  margin: var(--line-height-em) 2.3em calc(var(--line-height-em)/2) 0;
 }
 [dir=rtl] ol.n-list > li:before {
   margin: 0 0 0 0.5em;
