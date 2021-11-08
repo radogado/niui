@@ -165,10 +165,10 @@ code[class*=language-] {
   margin: 0;
   -webkit-appearance: none;
   appearance: none;
-  background: lightcoral;
+  background: #017e7e;
   border: none;
   cursor: pointer;
-  color: #163544;
+  color: white;
   font-weight: bold;
   padding: 0.5em;
   border-radius: 0;
@@ -218,16 +218,11 @@ _:future,
 }
 
 :root .demo {
-  --control-bg: lightcoral;
-  --control-color: #163544;
+  --control-bg: #017e7e;
+  --control-color: white;
   --control-active-bg: #cc7c7e;
   --control-active-color: #eee;
-  --control-highlight: #bf2a2a;
-}
-
-.n-accordion {
-  --control-color: #670d5b;
-  --control-bg: rgb(255, 158, 158);
+  --control-highlight: #2abfb0;
 }
 
 .n-form input,
