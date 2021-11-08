@@ -683,25 +683,6 @@ a.n-backtotop[href] {
   inset-inline-start: auto;
   inset-inline-end: 0;
 }
-.n-form--alert {
-  /*
-  		input {
-
-  			background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 21 26' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg%3E%3Ctext%3E%3Ctspan x='0' y='20'%3E⚠️%3C/tspan%3E%3C/text%3E%3C/g%3E%3C/svg%3E");
-  			background-position: calc(100% - .5em) calc(50% - .1em);
-  			background-size: 1.25em;
-  			background-repeat: no-repeat;
-  			padding-inline-end: 2.5em;
-
-  		}
-
-  		input[type=checkbox] {
-
-  		    padding-inline-end: 3em;
-
-  		}
-  */
-}
 .n-form--alert span,
 .n-form--alert p {
   background: #666;
@@ -771,54 +752,6 @@ a.n-backtotop[href] {
   background: none;
   margin: 0;
   padding: 0;
-  /*
-  		&::-ms-track {
-
-  			width: 100%;
-  			height: .7125em;
-  			cursor: pointer;
-  			background: transparent;
-  			border-color: transparent;
-  			color: transparent;
-
-  		}
-
-  		&::-ms-fill-lower {
-
-  			background: rgba(0, 0, 0, 0.1);
-
-  		}
-
-  		&::-ms-fill-upper {
-
-  			background: rgba(0, 0, 0, 0.1);
-
-  		}
-
-  		&::-ms-thumb {
-
-  			border: 0px solid rgba(0, 0, 0, 0);
-  			height: 1.625em;
-  			width: 1.625em;
-  			border-radius: .9375em;
-  			background: var(--thumb-color);
-  			cursor: pointer;
-  			height: .7125em;
-
-  		}
-
-  		&:focus::-ms-fill-lower {
-
-  			background: rgba(0, 0, 0, 0.1);
-
-  		}
-
-  		&:focus::-ms-fill-upper {
-
-  			background: rgba(5, 5, 5, 0.1);
-
-  		}
-  */
 }
 .n-form input[type=range]::-webkit-slider-runnable-track {
   width: 100%;
@@ -928,8 +861,19 @@ a.n-backtotop[href] {
   column-gap: 1em;
   margin-bottom: 1.5em;
 }
-.n-form.n-form--mast fieldset label,
+.n-form.n-form--mast fieldset {
+  border-color: transparent;
+  border: none;
+  padding: calc(var(--line-height-em) / 2);
+  padding-top: 0;
+  padding-bottom: var(--line-height-em);
+}
 .n-form.n-form--mast fieldset legend {
+  width: 50%;
+  margin-bottom: calc(-1 * var(--line-height-em));
+  text-align: end;
+}
+.n-form.n-form--mast fieldset label {
   display: block;
   margin: 0;
 }
@@ -958,22 +902,16 @@ a.n-backtotop[href] {
 }
 .n-form.n-form--mast > .n-form__check label {
   display: block;
-  margin-inline-start: 0.5em;
 }
 .n-form.n-form--mast > .n-form__check fieldset {
-  display: block;
-}
-.n-form.n-form--mast > .n-form__check fieldset label input[type=checkbox],
-.n-form.n-form--mast > .n-form__check fieldset label input[type=radio] {
-  margin-bottom: -0.125em;
+  display: contents;
 }
 .n-form.n-form--mast > .n-form__check fieldset legend,
 .n-form.n-form--mast > .n-form__check fieldset label {
   margin: 0;
 }
-.n-form.n-form--mast fieldset label input[type=checkbox],
-.n-form.n-form--mast fieldset label input[type=radio] {
-  margin-bottom: -0.125em;
+.n-form.n-form--mast > .n-form__check fieldset legend {
+  grid-column: 1;
 }
 .n-form.n-form--mast .n-form--mandatory:before {
   inset-inline-start: calc(50% - 0.5em);
