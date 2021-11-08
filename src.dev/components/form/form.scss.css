@@ -490,7 +490,7 @@
 .n-form.n-form--mast input[type=submit],
 .n-form.n-form--mast button,
 .n-form.n-form--mast button[type=submit] {
-  margin-inline-start: 50%;
+  margin-inline-start: calc(50% + 0.5em);
   margin-bottom: calc(var(--line-height-em) * 1.5);
 }
 .n-form.n-form--mast label,
@@ -518,13 +518,13 @@
 .n-form.n-form--mast > .n-form__check > span,
 .n-form.n-form--mast > .n-form__check fieldset > span {
   text-align: end;
-  padding-inline-end: 1em;
   grid-column: 1;
   margin: 0;
 }
 .n-form.n-form--mast > .n-form__check {
   display: grid;
   grid-template: auto/1fr 1fr;
+  column-gap: 1em;
 }
 .n-form.n-form--mast > .n-form__check > * {
   margin: 0;
@@ -549,7 +549,7 @@
   margin-bottom: -0.125em;
 }
 .n-form.n-form--mast .n-form--mandatory:before {
-  inset-inline-start: calc(50% - 1em);
+  inset-inline-start: calc(50% - 0.5em);
   z-index: -1;
 }
 .n-form--language select {

@@ -586,7 +586,7 @@
 		input[type="submit"],
 		button,
 		button[type="submit"] {
-			margin-inline-start: 50%;
+			margin-inline-start: calc(50% + .5em);
 			margin-bottom: calc(var(--line-height-em) * 1.5);
 		}
 
@@ -637,6 +637,7 @@
 		> .n-form__check {
 			display: grid;
 			grid-template: auto/1fr 1fr;
+			column-gap: 1em;
 
 			> * {
 				margin: 0;
@@ -676,7 +677,7 @@
 		}
 
 		.n-form--mandatory:before {
-			inset-inline-start: calc(50% - 1em);
+			inset-inline-start: calc(50% - .5em);
 			z-index: -1;
 		}
 	}
