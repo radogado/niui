@@ -2,7 +2,7 @@
 /* Image aspect ratio – don't shift the page after loading the image */
 .n-aspect {
   display: block;
-  aspect-ratio: var(--ratio, calc(var(--width)/ var(--height)));
+  aspect-ratio: var(--ratio, calc(var(--width) / var(--height)));
 }
 .n-aspect > img {
   max-width: 100%;

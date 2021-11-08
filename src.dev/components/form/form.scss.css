@@ -106,7 +106,7 @@
   background: linear-gradient(to bottom left, transparent 30%, var(--control-color, #333) 10%, var(--control-color, #333) 50%, transparent 30%), linear-gradient(to bottom right, transparent 30%, var(--control-color, #333) 10%, var(--control-color, #333) 50%, transparent 30%);
   background-size: 0.4em 0.4em;
   background-repeat: no-repeat;
-  background-position: calc(100% - .85em), calc(100% - .5em);
+  background-position: calc(100% - 0.85em), calc(100% - 0.5em);
   color: var(--control-color, #333);
   background-color: var(--control-bg, #eee);
 }
@@ -149,26 +149,21 @@
   inset-inline-end: 0;
   transform: translateY(-50%);
 }
-.n-form__check {
+.n-form__check, .n-form fieldset {
   display: block;
   min-height: var(--line-height-em);
   margin-bottom: var(--line-height-em);
 }
-.n-form__check span {
+.n-form__check span, .n-form fieldset span {
   display: inline-block;
   font-weight: bold;
   margin-top: 0;
   cursor: default;
 }
-.n-form__check:after {
-  content: "";
-  display: block;
-  clear: both;
-}
-.n-form__check label {
+.n-form__check label, .n-form fieldset label {
   text-align: start;
   font-weight: normal;
-  clear: end;
+  clear: right;
   margin: 0;
   cursor: pointer;
   min-height: 0;
@@ -177,14 +172,15 @@
   padding-bottom: 0;
   display: inline;
 }
-.n-form__check label span {
+.n-form__check label span, .n-form fieldset label span {
   width: auto;
 }
-.n-form__check label:last-child {
+.n-form__check label:last-child, .n-form fieldset label:last-child {
   margin-bottom: 0;
 }
 .n-form__check label input[type=checkbox],
-.n-form__check label input[type=radio] {
+.n-form__check label input[type=radio], .n-form fieldset label input[type=checkbox],
+.n-form fieldset label input[type=radio] {
   margin: -0.25em 0.2em 0 0;
 }
 .n-form__check-icon {
@@ -193,7 +189,7 @@
   display: inline-block;
   background-color: var(--control-bg, #eee);
   color: var(--control-color, #333);
-  line-height: calc((var(--line-height) + 1) * (2/3));
+  line-height: calc((var(--line-height) + 1) * 0.6666666667);
   text-align: center;
   border: none;
   margin: 0;
@@ -246,6 +242,7 @@
 .n-form--mandatory {
   position: relative;
 }
+.n-form--mandatory fieldset:before,
 .n-form--mandatory span.n-form__check:before,
 .n-form--mandatory span.tip:after {
   display: none;
@@ -284,7 +281,8 @@
   color: #eee;
   padding: 0 0.25em;
 }
-.n-form--alert span.n-form__check {
+.n-form--alert span.n-form__check,
+.n-form--alert fieldset {
   background: none;
   color: #555;
 }
@@ -307,10 +305,10 @@
   overflow: hidden;
   background-color: var(--control-bg, #ddd);
   color: var(--control-color, inherit);
-  padding: 0 calc(var(--line-height-em)/2) 0 0.75em;
+  padding: 0 calc(var(--line-height-em) / 2) 0 0.75em;
   display: block;
   line-height: var(--line-height-em);
-  padding-top: calc(var(--line-height-em)/2);
+  padding-top: calc(var(--line-height-em) / 2);
   letter-spacing: 0;
   position: absolute;
   top: 0;
@@ -428,15 +426,13 @@
   cursor: pointer;
 }
 .n-form legend {
-  padding: 0 0.5em;
+  font-weight: bold;
 }
 .n-form fieldset {
   border: 1px solid;
   display: block;
-  margin: calc(var(--line-height-em)/2) 0;
-}
-.n-form fieldset input:last-of-type {
-  margin-bottom: calc(var(--line-height-em)/3);
+  margin: var(--line-height-em) 0;
+  padding: calc(var(--line-height-em) / 2 - 0.5px);
 }
 .n-form fieldset[disabled] {
   display: none;
@@ -457,7 +453,7 @@
 .n-form--wide button,
 .n-form--wide button[type=submit] {
   margin-bottom: calc(var(--line-height-em) - 5px);
-  line-height: calc((var(--line-height-em)/3) * 2);
+  line-height: calc(var(--line-height-em) / 3 * 2);
   font-size: 1.2em;
   min-height: 2.50005em;
   width: 100%;
@@ -470,6 +466,7 @@
 .n-form--wide label,
 .n-form--wide label span,
 .n-form--wide .n-form__check span,
+.n-form--wide fieldset label,
 .n-form--wide label,
 .n-form--wide .n-form__file {
   display: block;
@@ -485,7 +482,9 @@
   margin: 0 0 var(--line-height-em) 0;
 }
 .n-form--wide .n-form__check label input[type=checkbox],
-.n-form--wide .n-form__check label input[type=radio] {
+.n-form--wide .n-form__check label input[type=radio],
+.n-form--wide fieldset label input[type=checkbox],
+.n-form--wide fieldset label input[type=radio] {
   margin-top: -0.2em;
 }
 .n-form.n-form--mast input[type=submit],
@@ -494,21 +493,30 @@
   margin-inline-start: 50%;
   margin-bottom: calc(var(--line-height-em) * 1.5);
 }
-.n-form.n-form--mast label {
+.n-form.n-form--mast label,
+.n-form.n-form--mast fieldset {
   width: 100%;
   display: grid;
   grid-template: auto/1fr 1fr;
-  gap: 1em;
+  column-gap: 1em;
   margin-bottom: 1.5em;
 }
+.n-form.n-form--mast fieldset label,
+.n-form.n-form--mast fieldset legend {
+  display: block;
+  margin: 0;
+}
 .n-form.n-form--mast > label > *,
-.n-form.n-form--mast > .n-form__check > * {
+.n-form.n-form--mast > .n-form__check > *,
+.n-form.n-form--mast > .n-form__check fieldset > *,
+.n-form.n-form--mast fieldset > * {
   width: 100%;
   margin: calc(var(--line-height-em) / -2) 0 calc(var(--line-height-em) * 1.5) 0;
   grid-column: -2/-1;
 }
 .n-form.n-form--mast > label > span,
-.n-form.n-form--mast > .n-form__check > span {
+.n-form.n-form--mast > .n-form__check > span,
+.n-form.n-form--mast > .n-form__check fieldset > span {
   text-align: end;
   padding-inline-end: 1em;
   grid-column: 1;
@@ -524,6 +532,21 @@
 .n-form.n-form--mast > .n-form__check label {
   display: block;
   margin-inline-start: 0.5em;
+}
+.n-form.n-form--mast > .n-form__check fieldset {
+  display: block;
+}
+.n-form.n-form--mast > .n-form__check fieldset label input[type=checkbox],
+.n-form.n-form--mast > .n-form__check fieldset label input[type=radio] {
+  margin-bottom: -0.125em;
+}
+.n-form.n-form--mast > .n-form__check fieldset legend,
+.n-form.n-form--mast > .n-form__check fieldset label {
+  margin: 0;
+}
+.n-form.n-form--mast fieldset label input[type=checkbox],
+.n-form.n-form--mast fieldset label input[type=radio] {
+  margin-bottom: -0.125em;
 }
 .n-form.n-form--mast .n-form--mandatory:before {
   inset-inline-start: calc(50% - 1em);

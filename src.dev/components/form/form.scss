@@ -177,7 +177,8 @@
 		}
 	}
 
-	&__check {
+	&__check,
+	& fieldset {
 		display: block;
 		min-height: var(--line-height-em);
 		margin-bottom: var(--line-height-em);
@@ -189,16 +190,15 @@
 			cursor: default;
 		}
 
-		&:after {
-			content: "";
-			display: block;
-			clear: both;
-		}
-
+		// &:after {
+		// 	content: "";
+		// 	display: block;
+		// 	clear: both;
+		// }
 		label {
 			text-align: start;
 			font-weight: normal;
-			clear: end;
+			clear: right;
 			margin: 0;
 			cursor: pointer;
 			min-height: 0;
@@ -292,6 +292,7 @@
 	&--mandatory {
 		position: relative;
 
+		fieldset:before,
 		span.n-form__check:before,
 		span.tip:after {
 			display: none;
@@ -317,7 +318,8 @@
 			padding: 0 0.25em;
 		}
 
-		span.n-form__check {
+		span.n-form__check,
+		fieldset {
 			background: none;
 			color: #555;
 		}
@@ -495,16 +497,18 @@
 	}
 
 	legend {
-		padding: 0 0.5em;
+		// padding: 0 0.5em;
+		font-weight: bold;
 	}
 
 	fieldset {
 		border: 1px solid;
 		display: block;
-		margin: calc(var(--line-height-em)/2) 0;
+		margin: var(--line-height-em) 0;
+		padding: calc(var(--line-height-em)/ 2 - .5px);
 
 		input:last-of-type {
-			margin-bottom: calc(var(--line-height-em)/3);
+			// margin-bottom: calc(var(--line-height-em)/3);
 		}
 
 		&[disabled] {
@@ -548,6 +552,7 @@
 		label,
 		label span,
 		.n-form__check span,
+		fieldset label,
 		label,
 		.n-form__file {
 			display: block;
@@ -564,11 +569,14 @@
 			margin: 0 0 var(--line-height-em) 0;
 		}
 
-		.n-form__check label {
+		.n-form__check,
+		fieldset {
+			label {
 
-			input[type="checkbox"],
-			input[type="radio"] {
-				margin-top: -0.2em;
+				input[type="checkbox"],
+				input[type="radio"] {
+					margin-top: -0.2em;
+				}
 			}
 		}
 	}
@@ -582,19 +590,31 @@
 			margin-bottom: calc(var(--line-height-em) * 1.5);
 		}
 
-		label {
+		label,
+		fieldset {
 			width: 100%;
 			display: grid;
 			grid-template: auto/1fr 1fr;
-			gap: 1em;
+			column-gap: 1em;
 			margin-bottom: 1.5em;
 			// > input {
 			// 	margin-top: calc(var(--line-height-em) * -2);
 			// }
 		}
 
+		fieldset {
+
+			label,
+			legend {
+				display: block;
+				margin: 0;
+			}
+		}
+
 		> label > *,
-		> .n-form__check > * {
+		> .n-form__check > *,
+		> .n-form__check fieldset > *,
+		fieldset > * {
 			// width: 50%;
 			width: 100%;
 			// float: right;
@@ -604,10 +624,11 @@
 		}
 
 		> label > span,
-		> .n-form__check > span {
+		> .n-form__check > span,
+		> .n-form__check fieldset > span {
 			// width: 50%;
 			text-align: end;
-			padding-inline-end: 1em;
+			// padding-inline-end: 1em;
 			// float: left;
 			grid-column: 1;
 			margin: 0;
@@ -624,6 +645,33 @@
 			label {
 				display: block;
 				margin-inline-start: .5em;
+			}
+
+			fieldset {
+				display: block;
+
+				label {
+
+					input[type="checkbox"],
+					input[type="radio"] {
+						margin-bottom: -0.125em;
+					}
+				}
+
+				legend,
+				label {
+					margin: 0;
+				}
+			}
+		}
+
+		fieldset {
+			label {
+
+				input[type="checkbox"],
+				input[type="radio"] {
+					margin-bottom: -0.125em;
+				}
 			}
 		}
 

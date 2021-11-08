@@ -320,7 +320,7 @@ button.n-btn[disabled] {
 a[href].n-btn.n-btn--big,
 .n-form input[type=submit],
 .n-form button {
-  margin: calc(var(--line-height-em)/3) 0;
+  margin: calc(var(--line-height-em) / 3) 0;
   font-size: 1.2em;
   padding: 0.75em 1em;
   line-height: 1.05em;
@@ -533,7 +533,7 @@ a.n-backtotop[href] {
   background: linear-gradient(to bottom left, transparent 30%, var(--control-color, #333) 10%, var(--control-color, #333) 50%, transparent 30%), linear-gradient(to bottom right, transparent 30%, var(--control-color, #333) 10%, var(--control-color, #333) 50%, transparent 30%);
   background-size: 0.4em 0.4em;
   background-repeat: no-repeat;
-  background-position: calc(100% - .85em), calc(100% - .5em);
+  background-position: calc(100% - 0.85em), calc(100% - 0.5em);
   color: var(--control-color, #333);
   background-color: var(--control-bg, #eee);
 }
@@ -576,26 +576,21 @@ a.n-backtotop[href] {
   inset-inline-end: 0;
   transform: translateY(-50%);
 }
-.n-form__check {
+.n-form__check, .n-form fieldset {
   display: block;
   min-height: var(--line-height-em);
   margin-bottom: var(--line-height-em);
 }
-.n-form__check span {
+.n-form__check span, .n-form fieldset span {
   display: inline-block;
   font-weight: bold;
   margin-top: 0;
   cursor: default;
 }
-.n-form__check:after {
-  content: "";
-  display: block;
-  clear: both;
-}
-.n-form__check label {
+.n-form__check label, .n-form fieldset label {
   text-align: start;
   font-weight: normal;
-  clear: end;
+  clear: right;
   margin: 0;
   cursor: pointer;
   min-height: 0;
@@ -604,14 +599,15 @@ a.n-backtotop[href] {
   padding-bottom: 0;
   display: inline;
 }
-.n-form__check label span {
+.n-form__check label span, .n-form fieldset label span {
   width: auto;
 }
-.n-form__check label:last-child {
+.n-form__check label:last-child, .n-form fieldset label:last-child {
   margin-bottom: 0;
 }
 .n-form__check label input[type=checkbox],
-.n-form__check label input[type=radio] {
+.n-form__check label input[type=radio], .n-form fieldset label input[type=checkbox],
+.n-form fieldset label input[type=radio] {
   margin: -0.25em 0.2em 0 0;
 }
 .n-form__check-icon {
@@ -620,7 +616,7 @@ a.n-backtotop[href] {
   display: inline-block;
   background-color: var(--control-bg, #eee);
   color: var(--control-color, #333);
-  line-height: calc((var(--line-height) + 1) * (2/3));
+  line-height: calc((var(--line-height) + 1) * 0.6666666667);
   text-align: center;
   border: none;
   margin: 0;
@@ -673,6 +669,7 @@ a.n-backtotop[href] {
 .n-form--mandatory {
   position: relative;
 }
+.n-form--mandatory fieldset:before,
 .n-form--mandatory span.n-form__check:before,
 .n-form--mandatory span.tip:after {
   display: none;
@@ -711,7 +708,8 @@ a.n-backtotop[href] {
   color: #eee;
   padding: 0 0.25em;
 }
-.n-form--alert span.n-form__check {
+.n-form--alert span.n-form__check,
+.n-form--alert fieldset {
   background: none;
   color: #555;
 }
@@ -734,10 +732,10 @@ a.n-backtotop[href] {
   overflow: hidden;
   background-color: var(--control-bg, #ddd);
   color: var(--control-color, inherit);
-  padding: 0 calc(var(--line-height-em)/2) 0 0.75em;
+  padding: 0 calc(var(--line-height-em) / 2) 0 0.75em;
   display: block;
   line-height: var(--line-height-em);
-  padding-top: calc(var(--line-height-em)/2);
+  padding-top: calc(var(--line-height-em) / 2);
   letter-spacing: 0;
   position: absolute;
   top: 0;
@@ -855,15 +853,13 @@ a.n-backtotop[href] {
   cursor: pointer;
 }
 .n-form legend {
-  padding: 0 0.5em;
+  font-weight: bold;
 }
 .n-form fieldset {
   border: 1px solid;
   display: block;
-  margin: calc(var(--line-height-em)/2) 0;
-}
-.n-form fieldset input:last-of-type {
-  margin-bottom: calc(var(--line-height-em)/3);
+  margin: var(--line-height-em) 0;
+  padding: calc(var(--line-height-em) / 2 - 0.5px);
 }
 .n-form fieldset[disabled] {
   display: none;
@@ -884,7 +880,7 @@ a.n-backtotop[href] {
 .n-form--wide button,
 .n-form--wide button[type=submit] {
   margin-bottom: calc(var(--line-height-em) - 5px);
-  line-height: calc((var(--line-height-em)/3) * 2);
+  line-height: calc(var(--line-height-em) / 3 * 2);
   font-size: 1.2em;
   min-height: 2.50005em;
   width: 100%;
@@ -897,6 +893,7 @@ a.n-backtotop[href] {
 .n-form--wide label,
 .n-form--wide label span,
 .n-form--wide .n-form__check span,
+.n-form--wide fieldset label,
 .n-form--wide label,
 .n-form--wide .n-form__file {
   display: block;
@@ -912,7 +909,9 @@ a.n-backtotop[href] {
   margin: 0 0 var(--line-height-em) 0;
 }
 .n-form--wide .n-form__check label input[type=checkbox],
-.n-form--wide .n-form__check label input[type=radio] {
+.n-form--wide .n-form__check label input[type=radio],
+.n-form--wide fieldset label input[type=checkbox],
+.n-form--wide fieldset label input[type=radio] {
   margin-top: -0.2em;
 }
 .n-form.n-form--mast input[type=submit],
@@ -921,21 +920,30 @@ a.n-backtotop[href] {
   margin-inline-start: 50%;
   margin-bottom: calc(var(--line-height-em) * 1.5);
 }
-.n-form.n-form--mast label {
+.n-form.n-form--mast label,
+.n-form.n-form--mast fieldset {
   width: 100%;
   display: grid;
   grid-template: auto/1fr 1fr;
-  gap: 1em;
+  column-gap: 1em;
   margin-bottom: 1.5em;
 }
+.n-form.n-form--mast fieldset label,
+.n-form.n-form--mast fieldset legend {
+  display: block;
+  margin: 0;
+}
 .n-form.n-form--mast > label > *,
-.n-form.n-form--mast > .n-form__check > * {
+.n-form.n-form--mast > .n-form__check > *,
+.n-form.n-form--mast > .n-form__check fieldset > *,
+.n-form.n-form--mast fieldset > * {
   width: 100%;
   margin: calc(var(--line-height-em) / -2) 0 calc(var(--line-height-em) * 1.5) 0;
   grid-column: -2/-1;
 }
 .n-form.n-form--mast > label > span,
-.n-form.n-form--mast > .n-form__check > span {
+.n-form.n-form--mast > .n-form__check > span,
+.n-form.n-form--mast > .n-form__check fieldset > span {
   text-align: end;
   padding-inline-end: 1em;
   grid-column: 1;
@@ -951,6 +959,21 @@ a.n-backtotop[href] {
 .n-form.n-form--mast > .n-form__check label {
   display: block;
   margin-inline-start: 0.5em;
+}
+.n-form.n-form--mast > .n-form__check fieldset {
+  display: block;
+}
+.n-form.n-form--mast > .n-form__check fieldset label input[type=checkbox],
+.n-form.n-form--mast > .n-form__check fieldset label input[type=radio] {
+  margin-bottom: -0.125em;
+}
+.n-form.n-form--mast > .n-form__check fieldset legend,
+.n-form.n-form--mast > .n-form__check fieldset label {
+  margin: 0;
+}
+.n-form.n-form--mast fieldset label input[type=checkbox],
+.n-form.n-form--mast fieldset label input[type=radio] {
+  margin-bottom: -0.125em;
 }
 .n-form.n-form--mast .n-form--mandatory:before {
   inset-inline-start: calc(50% - 1em);
@@ -975,7 +998,7 @@ a.n-backtotop[href] {
 /* Image aspect ratio – don't shift the page after loading the image */
 .n-aspect {
   display: block;
-  aspect-ratio: var(--ratio, calc(var(--width)/ var(--height)));
+  aspect-ratio: var(--ratio, calc(var(--width) / var(--height)));
 }
 .n-aspect > img {
   max-width: 100%;
@@ -1035,8 +1058,8 @@ a.n-backtotop[href] {
   word-wrap: break-word;
   width: calc(20% - var(--line-height-em));
   --col-width: 1/5;
-  padding: calc(var(--line-height-em)/4);
-  margin: calc(var(--line-height-em)/4);
+  padding: calc(var(--line-height-em) / 4);
+  margin: calc(var(--line-height-em) / 4);
   flex-grow: 1;
   text-align: start;
   min-width: 0;
@@ -1091,7 +1114,7 @@ a.n-backtotop[href] {
 
 @-moz-document url-prefix() {
   .n-row > * {
-    margin: calc(var(--line-height-em)/4 - 0.0009em);
+    margin: calc(var(--line-height-em) / 4 - 0.0009em);
   }
 }
 /* colXY where the column takes up X/Y of space; colY means 1/Y */
@@ -1132,11 +1155,11 @@ a.n-backtotop[href] {
   }
 
   .n-row.n-row--spacing-horizontal > * {
-    margin: 0 calc(var(--line-height-em)/2);
+    margin: 0 calc(var(--line-height-em) / 2);
   }
 
   .n-row.n-row--spacing-vertical > * {
-    margin: calc(var(--line-height-em)/2) 0;
+    margin: calc(var(--line-height-em) / 2) 0;
   }
 }
 .n-left,
@@ -1226,7 +1249,7 @@ a.n-backtotop[href] {
   /* FF 20+ */
   break-inside: avoid-column;
   margin: 0;
-  padding: calc(var(--line-height-em)/2);
+  padding: calc(var(--line-height-em) / 2);
   box-sizing: border-box;
   word-break: break-word;
   word-wrap: break-word;
@@ -1251,12 +1274,12 @@ ol.n-masonry > * {
 }
 
 .n-pad {
-  padding: calc(var(--line-height-em)/2);
+  padding: calc(var(--line-height-em) / 2);
   box-sizing: border-box;
 }
 
 .n-pad-half {
-  padding: calc(var(--line-height-em)/4);
+  padding: calc(var(--line-height-em) / 4);
   box-sizing: border-box;
 }
 
@@ -1405,7 +1428,7 @@ ul.n-list {
   padding: 0;
   line-height: var(--line-height);
   min-height: var(--line-height);
-  margin: calc(var(--line-height)/2) 0;
+  margin: calc(var(--line-height) / 2) 0;
 }
 ul.n-list.n-list--indent {
   margin-inline-start: 1.5em;
@@ -1442,7 +1465,7 @@ ol.n-list {
 }
 ol.n-list > li {
   text-indent: -2.3em;
-  margin: var(--line-height-em) 0 calc(var(--line-height-em)/2) 2.3em;
+  margin: var(--line-height-em) 0 calc(var(--line-height-em) / 2) 2.3em;
 }
 ol.n-list > li:before {
   width: auto;
@@ -1518,7 +1541,7 @@ ul.n-list.n-list--inline li,
 }
 
 [dir=rtl] ol.n-list > li {
-  margin: var(--line-height-em) 2.3em calc(var(--line-height-em)/2) 0;
+  margin: var(--line-height-em) 2.3em calc(var(--line-height-em) / 2) 0;
 }
 [dir=rtl] ol.n-list > li:before {
   margin: 0 0 0 0.5em;
@@ -2804,7 +2827,7 @@ _:future,
     transform: translate3d(0, 0, 0);
   }
   .n-nav--scroll ul li {
-    padding: calc(var(--line-height-em)/2);
+    padding: calc(var(--line-height-em) / 2);
   }
 }
 main .n-nav ul {
@@ -3245,7 +3268,7 @@ nav.n-nav--drop li li li a {
 }
 .n-table td,
 .n-table th {
-  padding: var(--line-height-em) calc(var(--line-height-em)/2);
+  padding: var(--line-height-em) calc(var(--line-height-em) / 2);
   vertical-align: middle;
 }
 .n-table th,
@@ -3358,7 +3381,7 @@ html:not(.can-touch) .n-tool:hover .n-tool__tip {
 .n-tool__tip {
   overflow: visible;
   max-height: calc(100vh - 40px);
-  padding: calc(var(--line-height-em)/2);
+  padding: calc(var(--line-height-em) / 2);
   font-size: 0.8em;
   font-weight: normal;
   position: absolute;
@@ -3371,7 +3394,7 @@ html:not(.can-touch) .n-tool:hover .n-tool__tip {
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
   width: 20em;
-  line-height: calc(var(--line-height-em)/1.25);
+  line-height: calc(var(--line-height-em) / 1.25);
   display: none;
 }
 .n-tool__tip[aria-expanded] {
@@ -3467,11 +3490,11 @@ html:not(.can-touch) .n-tool:hover .n-tool__tip {
 }
 .n-type h2 {
   font-size: 1.5em;
-  line-height: calc(var(--line-height)/1.5);
+  line-height: calc(var(--line-height) / 1.5);
 }
 .n-type h3 {
   font-size: 1.2em;
-  line-height: calc((var(--line-height) * 1.011)/1.2);
+  line-height: calc(var(--line-height) * 1.011 / 1.2);
 }
 .n-type h5 {
   font-size: 0.8em;

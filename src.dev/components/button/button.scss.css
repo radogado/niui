@@ -64,7 +64,7 @@ button.n-btn[disabled] {
 a[href].n-btn.n-btn--big,
 .n-form input[type=submit],
 .n-form button {
-  margin: calc(var(--line-height-em)/3) 0;
+  margin: calc(var(--line-height-em) / 3) 0;
   font-size: 1.2em;
   padding: 0.75em 1em;
   line-height: 1.05em;

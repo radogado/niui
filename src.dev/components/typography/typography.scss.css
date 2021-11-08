@@ -54,11 +54,11 @@
 }
 .n-type h2 {
   font-size: 1.5em;
-  line-height: calc(var(--line-height)/1.5);
+  line-height: calc(var(--line-height) / 1.5);
 }
 .n-type h3 {
   font-size: 1.2em;
-  line-height: calc((var(--line-height) * 1.011)/1.2);
+  line-height: calc(var(--line-height) * 1.011 / 1.2);
 }
 .n-type h5 {
   font-size: 0.8em;

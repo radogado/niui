@@ -2471,7 +2471,7 @@
 					<div>
 						<div class="n-fold">
 							<button class=n-fold__label> Truncated content </button>
-							<input type=checkbox class=n-trigger>
+							<input type=checkbox class=n-trigger aria-label="Trigger 1">
 							<div class="n-fold__content" style="--start-height: 6em;">
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -2491,12 +2491,12 @@
 					<div>
 						<div class="n-fold n-fold--horizontal">
 							<button class=n-fold__label> Horizontal accordion </button>
-							<input type=checkbox class=n-trigger>
+							<input type=checkbox class=n-trigger aria-label="Trigger 2">
 							<div class="n-fold__content">
 								<div>
 									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 									<form>
-										<select>
+										<select aria-label="Demo select">
 											<option>asd</option>
 											<option> asdas</option>
 										</select>
@@ -3136,16 +3136,15 @@
 									<option value=Argentina>Argentina</option>
 								</select>
 							</label>
-							<div class=n-form__check>
-								<span>Please choose:</span>
+							<fieldset>
+								<legend>Please choose:</legend>
 								<label>
 									<input type=radio name=radiodemo> <b class=n-form__check-icon></b> First option </label>
 								<label>
 									<input type=radio name=radiodemo> <b class=n-form__check-icon></b> Second option </label>
 								<label>
 									<input type=radio name=radiodemo> <b class=n-form__check-icon></b> Third option </label>
-							</div>
-							<label class=n-form--mandatory>
+							</fieldset>							<label class=n-form--mandatory>
 								<span>Email</span>
 								<input name=email type=email placeholder="Your Email address.">
 							</label>
@@ -3173,9 +3172,18 @@
 								<input name=phone type=tel placeholder="Your phone number.">
 							</label>
 							<div class="n-form__check n-form--mandatory">
-								<span>Check this</span>
-								<label>
-									<input name=checkbox type=checkbox> <b class=n-form__check-icon></b> I accept the <a href=#>Terms and Conditions</a>. </label>
+								<div class="n-form__check">
+									<span>Check this</span>
+									<label>
+										<input name="checkbox" id="checkbox2" type="checkbox"> <b class="n-form__check-icon"></b> I accept the <a href=#>Terms and Conditions</a>. </label>
+								</div>
+							</div>
+							<div class="n-form__check n-form--mandatory">
+								<fieldset>
+									<legend>Check this (Fieldset)</legend>
+									<label>
+										<input name="checkbox" id="checkbox2" type="checkbox"> <b class="n-form__check-icon"></b> I accept the <a href=#>Terms and Conditions</a>. </label>
+								</fieldset>
 							</div>
 							<label>
 								<span>Telephone</span>
@@ -3201,15 +3209,15 @@
 								<span>Number input (5 digits)</span>
 								<input type=number placeholder=0 data-digits="5">
 							</label>
-							<div class=n-form__check>
-								<span>A very long piece of label text which wraps to another line</span>
+							<fieldset>
+								<legend>A very long piece of label text which wraps to another line</legend>
 								<label>
 									<input type=radio name=radiodemo> <b class=n-form__check-icon></b> First option </label>
 								<label>
 									<input type=radio name=radiodemo> <b class=n-form__check-icon></b> Second option has very long text which wraps to the next line </label>
 								<label>
 									<input type=radio name=radiodemo> <b class=n-form__check-icon></b> Third option </label>
-							</div>
+							</fieldset>
 							<label class=n-form--mandatory>
 								<span>Email</span>
 								<input name=email id=email type=email placeholder="Your Email address.">
@@ -3256,9 +3264,18 @@
 								<input name=phone type=tel placeholder="Your phone number.">
 							</label>
 							<div class="n-form__check n-form--mandatory">
-								<span>Check this</span>
-								<label>
-									<input name="checkbox" id="checkbox2" type="checkbox"> <b class="n-form__check-icon"></b> I accept the <a href=#>Terms and Conditions</a>. </label>
+								<div class="n-form__check">
+									<span>Check this</span>
+									<label>
+										<input name="checkbox" id="checkbox2" type="checkbox"> <b class="n-form__check-icon"></b> I accept the <a href=#>Terms and Conditions</a>. </label>
+								</div>
+							</div>
+							<div class="n-form__check n-form--mandatory">
+								<fieldset>
+									<legend>Check this (Fieldset)</legend>
+									<label>
+										<input name="checkbox" id="checkbox2" type="checkbox"> <b class="n-form__check-icon"></b> I accept the <a href=#>Terms and Conditions</a>. </label>
+								</fieldset>
 							</div>
 							<label>
 								<span>Telephone</span>
