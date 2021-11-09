@@ -188,7 +188,6 @@
 		el.querySelectorAll("input").forEach((el) => {
 			el.outerHTML = "";
 		});
-		el.setAttribute("role", "menubar");
 		el.querySelectorAll("li > a").forEach((el) => {
 			el.setAttribute("tabindex", 0);
 		});
@@ -232,7 +231,7 @@
 		});
 	}
 	window.addEventListener("resize", function (e) {
-		document.querySelectorAll('.n-nav.n-nav--drop ul[role="menubar"]').forEach((menubar) => {
+		document.querySelectorAll('.n-nav.n-nav--drop ul').forEach((menubar) => {
 			menubar.querySelectorAll("ul").forEach((ul) => {
 				checkSides(ul, menubar);
 			});

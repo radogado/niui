@@ -34,27 +34,33 @@
 	}
 
 	h1 {
-		font-size: 2em;
-	}
+font-size: 2.5rem;
+line-height: 1.2;	}
 
 	h2 {
-		font-size: 1.5em; // 	line-height: 1.333;
-		line-height: calc(var(--line-height)/1.5); // = standard line-height / new font-size in em
+font-size: 2.25rem;
+line-height: 1.35;
 	}
 
 	h3 {
-		font-size: 1.2em;
-		line-height: calc((var(--line-height) * 1.011)/1.2);
+font-size: 2rem;
+line-height: 1.5;
 	}
 
+h4 {
+font-size: 1.75rem;
+line-height: 1.725;
+	}
+	
+	
 	h5 {
-		font-size: 0.8em;
-		line-height: 1.9;
+font-size: 1.5rem;
+line-height: 2;
 	}
 
 	h6 {
-		font-size: 0.6667em;
-		line-height: 2.3;
+		font-size: 1.25rem;
+		line-height: 1.2;	
 	}
 
 	pre {

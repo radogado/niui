@@ -1,23 +1,22 @@
 // Component Form – start
-(function () {
-	/* Form – start */
-	function submitForm(e) {
-		var el = e.target;
+(function () {	/* Form – start */
+	function submitForm(e) {		
+		var el = e.target;		
 		var ready_to_submit = true;
-		el.querySelectorAll(".n-form--mandatory").forEach((el) => {
-			if (el.closest("[disabled]")) {
-				// Ignore disabled conditional fields
-				return;
-			}
+		el.querySelectorAll(".n-form--mandatory:not([disabled])").forEach((el) => {
 			if (
-				(el.querySelector("input, select, textarea") && !el.querySelector("input, select, textarea").value) || (el.querySelector("input[type=checkbox]") && !el.querySelector("input[type=checkbox]").checked) || (el.querySelector("input[type=email]") && !RegExp(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/).test(el.querySelector("input[type=email]").value)) || (el.querySelector("input[type=url]") && !RegExp(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/).test(el.querySelector("input[type=url]").value)) || (el.querySelector("input[type=number]") && !RegExp(/^\d+$/).test(el.querySelector("input[type=number]").value)) || (el.querySelector("input[type=number][data-digits]") && el.querySelector("input[type=number]").value.length !== el.querySelector("input[type=number]").dataset.digits) || (el.querySelector("input[type=radio]") && !el.querySelector("input[type=radio]").checked)) {
+				(el.querySelector("input, select, textarea") && !el.querySelector("input, select, textarea").value) || 
+				(el.querySelector("input[type=checkbox]") && !el.querySelector("input[type=checkbox]").checked) || 
+				(el.querySelector("input[type=radio]") && !el.querySelector("input[type=radio]").checked) ||
+				(el.querySelector("input[type=email]") && !RegExp(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/).test(el.querySelector("input[type=email]").value)) || 
+				(el.querySelector("input[type=url]") && !RegExp(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/).test(el.querySelector("input[type=url]").value)) || (el.querySelector("input[type=number]") && !RegExp(/^\d+$/).test(el.querySelector("input[type=number]").value)) || 
+				(el.querySelector("input[type=number][data-digits]") && el.querySelector("input[type=number]").value.length !== parseInt(el.querySelector("input[type=number]").dataset.digits))
+			) {
 				ready_to_submit = false;
 				el.querySelector("input").focus();
 				addClass(el, "n-form--alert");
-				// 				animate(el.closest('form'), '33% { transform: translateX(-9px) } 66% { transform: translateX(9px) } 100% { transform: translateX(0) } ', 999);
 				// Margin animation, because transform animation hides neighbouring content on iPad
 				let form = el.closest("form");
-				// animate(form, `0% { width: ${form.scrollWidth}px; } 33% { margin-left: -9px; } 66% { margin-left: 18px; } 100% { width: ${form.scrollWidth}px; margin-left: 0; }`, 0.25);
 				form.animate([{ width: `${form.scrollWidth}px` }, { marginLeft: `-9px` }, { marginLeft: `18px` }, { width: `${form.scrollWidth}px`, marginLeft: 0 }], 250);
 				return;
 			} else {
