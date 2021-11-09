@@ -35,6 +35,7 @@
 		q(".n-form--language select").onchange = (e) => {
 			q(".n-form--language").submit();
 		};
+		q(".n-form--language noscript").remove();
 	}
 
 	function toggleConditionalFieldset(e) {

@@ -188,7 +188,6 @@ h1:after {
 
 [href*=".min.css"],
 [href*=".min.js"] {
-  text-decoration: none;
   white-space: nowrap;
 }
 [href*=".min.css"]:after,

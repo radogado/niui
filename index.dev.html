@@ -83,7 +83,7 @@
 						<div style="padding-top: 2.5em;">
 							<!-- 										<img src=images/niui.svg alt=Logo style="display: inline-block; vertical-align: top; width: calc(100% - 3em);"> -->
 							<span class="n-aspect" style="--ratio: 3.06; width: calc(100% - 3em); display: inline-block; vertical-align: top;">
-								<img src="images/niui.svg" alt="Logo" style="width: 100%;">
+								<img src="images/niui.svg" alt="niui Logo" style="width: 100%;">
 							</span>
 							<sup>3.0</sup>
 							<p></p>
@@ -264,7 +264,7 @@
 					</div>
 				</div>
 			</div>
-			<div data-tab-title=Grid id=grid>
+			<div  id=grid>
 				<div>
 					<div class="n-row">
 						<div class="_1/1">
@@ -698,7 +698,7 @@
 					</div>
 				</div>
 			</div>
-			<div data-tab-title=Navigation id=nav>
+			<div  id=nav>
 				<div class="n-row">
 					<div class=_1/1>
 						<h2>Navigation</h2>
@@ -708,10 +708,10 @@
 						<nav class="n-nav">
 							<ul class="n-list n-list--inline">
 								<li> <a href=#buttons>Buttons</a> </li>
-								<li> <a href=#drop-nav>Drop-down nav</a> </li>
+								<li> <a href=#nav>Drop-down nav</a> </li>
 								<li class="n-nav-current"> <a href=#lightbox>Lightbox</a> </li>
 								<li> <a href=#accordion>Accordion</a> </li>
-								<li> <a href=#modal>Modal window</a> </li>
+								<li> <a href=#modal-window>Modal window</a> </li>
 							</ul>
 						</nav>
 						<br><br>
@@ -750,10 +750,10 @@
 						<nav class="n-nav n-nav--scroll">
 							<ul class="n-list">
 								<li> <a href=#buttons>Buttons</a> </li>
-								<li> <a href=#drop-nav>Drop-down nav</a> </li>
+								<li> <a href=#nav>Drop-down nav</a> </li>
 								<li> <a href=#lightbox class="n-nav-current">Lightbox</a> </li>
 								<li> <a href=#accordion>Accordion</a> </li>
-								<li> <a href=#modal>Modal window</a> </li>
+								<li> <a href=#modal-window>Modal window</a> </li>
 								<li> <a href=#video>Video</a> </li>
 								<li> <a href=#aspect-ratio>Aspect ratio</a> </li>
 								<li> <a href=#masonry>Masonry</a> </li>
@@ -762,7 +762,7 @@
 								<li> <a href=#lists>Lists</a> </li>
 								<li> <a href=#cards>Cards</a> </li>
 								<li> <a href=//rado.bg target="_blank">WordPress theme</a> </li>
-								<li> <a href=#showcase>Showcase</a> </li>
+								<li> <a href=#home>Showcase</a> </li>
 							</ul>
 						</nav>
 						<br><br>
@@ -1046,6 +1046,7 @@
 					</div>
 					<div class="_1/3">
 						<h2>Rich select navigation</h2>
+						<label>A rich select with links instead of buttons
 						<div class="n-select">
 							<div class="n-select__options">
 								<button>Go to page...</button>
@@ -1053,6 +1054,7 @@
 								<a href="#form">Forms</a>
 							</div>
 						</div>
+						</label>
 						<br>
 						<div class="code">
 							<pre><code class="language-markup">&lt;div class=&quot;n-select&quot;&gt;
@@ -1076,7 +1078,7 @@
 					</div>
 				</div>
 			</div>
-			<div data-tab-title=Typography id=typography>
+			<div  id=typography>
 				<div class="n-row">
 					<div class="_1/1">
 						<h2>For niui typography features like baseline alignment, wrap the below elements inside an <b>.n-type</b> container</h2>
@@ -1150,7 +1152,7 @@
 					</div>
 				</div>
 			</div>
-			<div data-tab-title=Slider id=slider>
+			<div  id=slider>
 				<div class="n-row">
 					<div class="_1/1">
 						<h2>Carousel</h2>
@@ -1439,7 +1441,7 @@
 					</div>
 				</div>
 			</div>
-			<div data-tab-title=Tabs id=tabs>
+			<div  id=tabs>
 				<div class="n-row">
 					<div class="_1/1">
 						<h2>Tabs</h2>
@@ -1626,7 +1628,7 @@
 					</div>
 				</div>
 			</div>
-			<div data-tab-title=Lightbox id=lightbox>
+			<div  id=lightbox>
 				<div class="n-row">
 					<div class="_1/1">
 						<h2>Lightbox</h2>
@@ -2257,7 +2259,7 @@
 					</div>
 				</div>
 			</div>
-			<div data-tab-title=Video id=video>
+			<div  id=video>
 				<div class="n-row">
 					<div>
 						<h2>Video</h2>
@@ -2276,7 +2278,7 @@
 					</div>
 				</div>
 			</div>
-			<div id=tables data-tab-title=Tables>
+			<div id=tables >
 				<div class="n-row">
 					<div class="_1/1">
 						<h2>Tables</h2>
@@ -2643,7 +2645,7 @@
 					</div>
 				</div>
 			</div>
-			<div data-tab-title=Tooltip id=tooltip>
+			<div  id=tooltip>
 				<div class="n-row">
 					<div>
 						<div>
@@ -2731,7 +2733,7 @@
 					</div>
 				</div>
 			</div>
-			<div data-tab-title=Buttons id=buttons>
+			<div  id=buttons>
 				<div class="n-row">
 					<div class="_1/1">
 						<h2>Buttons</h2>
@@ -2773,15 +2775,15 @@
 							<h3>Groups of buttons</h3>
 							<p>Needed for proper spacing when wrapped</p>
 							<div class="n-btn__group">
-								<a href="#features" class="n-btn">Features</a>
-								<a href="#showcase" class="n-btn">Showcase</a>
+								<a href="#home" class="n-btn">Features</a>
+								<a href="#" class="n-btn">Showcase</a>
 								<a href="guide/" class="n-btn">Guide</a>
 								<a href="//github.com/radogado/niui" class="n-btn">Get it from GitHub</a>
 							</div>
 							<br>
 							<div class="n-btn__group">
-								<a href="#features" class="n-btn--big n-btn">Features</a>
-								<a href="#showcase" class="n-btn--big n-btn">Showcase</a>
+								<a href="#home" class="n-btn--big n-btn">Features</a>
+								<a href="#" class="n-btn--big n-btn">Showcase</a>
 								<a href="guide/" class="n-btn--big n-btn">Guide</a>
 								<a href="//github.com/radogado/niui" class="n-btn--big n-btn">Get it from GitHub</a>
 							</div>
@@ -2804,7 +2806,7 @@
 					</div>
 				</div>
 			</div>
-			<div id=lists data-tab-title=Lists id=lists>
+			<div id=lists  id=lists>
 				<div class="n-row">
 					<div class="_1/1">
 						<h2>Lists</h2>
@@ -2854,7 +2856,7 @@
 					</div>
 				</div>
 			</div>
-			<div id=form data-tab-title=Forms id=forms>
+			<div id=form  id=forms>
 				<div class="n-row">
 					<div class="_1/1">
 						<h2>Forms</h2>
@@ -3171,11 +3173,11 @@
 								<span>Telephone</span>
 								<input name=phone type=tel placeholder="Your phone number.">
 							</label>
-							<div class="n-form__check n-form--mandatory">
+<!-- 							<div class="n-form__check n-form--mandatory">
 								<span>Check this</span>
 								<label>
 									<input name="checkbox" id="checkbox2" type="checkbox"> <b class="n-form__check-icon"></b> I accept the <a href=#>Terms and Conditions</a>. </label>
-							</div>
+							</div> -->
 							<div class="n-form__check n-form--mandatory">
 								<fieldset>
 									<legend>Check this (Fieldset)</legend>
@@ -3261,13 +3263,13 @@
 								<span>Telephone</span>
 								<input name=phone type=tel placeholder="Your phone number.">
 							</label>
-							<div class="n-form__check n-form--mandatory">
+<!-- 							<div class="n-form__check n-form--mandatory">
 								<div class="n-form__check">
 									<span>Check this</span>
 									<label>
 										<input name="checkbox" id="checkbox2" type="checkbox"> <b class="n-form__check-icon"></b> I accept the <a href=#>Terms and Conditions</a>. </label>
 								</div>
-							</div>
+							</div> -->
 							<div class="n-form__check n-form--mandatory">
 								<fieldset>
 									<legend>Check this (Fieldset)</legend>
@@ -3478,7 +3480,7 @@
 					</div>
 				</div>
 			</div>
-			<div id=masonry data-tab-title=Masonry id=masonry>
+			<div id=masonry  id=masonry>
 				<div class="n-row">
 					<div>
 						<h2>Masonry (vertical track only)</h2>
@@ -3498,7 +3500,7 @@
 					</div>
 				</div>
 			</div>
-			<div data-tab-title=Cards id=cards>
+			<div  id=cards>
 				<div class="n-row">
 					<div class="_1/1">
 						<h2>Cards</h2>
@@ -3540,7 +3542,7 @@
 					<div>
 						<h3>Card with image</h3>
 						<div class="n-card">
-							<img src=images/DSC_4225.jpg alt=Image>
+							<img src=images/DSC_4225.jpg alt="A photo of red taxi">
 							<div class="n-card__content">
 								<p>Card content.</p>
 								<a href=#>Link</a>.
