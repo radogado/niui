@@ -626,7 +626,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		window.requestAnimationFrame(() => {
 			el.style.height = 0;
 			el.style.overflow = 'hidden';
-			el.animate([{height: 0}, {height: `${el.scrollHeight}px`}], 1200).onfinish = () => {
+			el.animate([{height: 0}, {height: `${el.scrollHeight}px`}], 200).onfinish = () => {
 				el.style.height = el.style.overflow = '';
 			};
 		});
@@ -637,7 +637,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 			window.requestAnimationFrame(() => {
 				el.parentNode.open = true;
 				el.style.overflow = 'hidden';
-				el.animate([{height: `${el.scrollHeight}px`}, {height: 0}], 1200).onfinish = () => {
+				el.animate([{height: `${el.scrollHeight}px`}, {height: 0}], 200).onfinish = () => {
 					el.style.height = el.style.overflow = '';
 					el.parentNode.removeAttribute('open');
 				};
@@ -655,10 +655,10 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 		}
 		let container = el.closest('.n-accordion__popin');
 		if (el.parentNode.classList.contains('n-accordion__group') || container) {
-			el.parentNode.querySelectorAll(':scope > details').forEach(el2 => {
+			el.parentNode.querySelectorAll(':scope > details[open]').forEach(el2 => {
 				if (el2 !== el) {
-					el2.open = false;
-					// closeAccordion(el.querySelector(':scope > :not(summary)'))
+					// el2.open = false;
+					closeAccordion(el2.querySelector(':scope > :not(summary)'));
 				}
 			});
 		}
