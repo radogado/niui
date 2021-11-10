@@ -216,7 +216,7 @@ _:future,
   height: -webkit-fill-available;
 }
 
-:root .demo {
+:root body {
   --control-bg: #017e7e;
   --control-color: white;
   --control-active-bg: #cc7c7e;

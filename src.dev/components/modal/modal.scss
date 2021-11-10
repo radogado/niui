@@ -45,7 +45,6 @@ html.n-full-screen {
 		left: 0;
 		right: 0;
 		bottom: 0;
-		// 	    color: #fff;
 		overflow-y: auto;
 		overflow-x: none;
 		
@@ -54,7 +53,7 @@ html.n-full-screen {
 		padding-top: calc(var(--line-height-em) * 2);
 	}
 
-	&__close {
+	> .n-ovrl__close {
 		color: var(--control-color, #fff);
 		cursor: pointer;
 		padding: 0.75em;
@@ -73,7 +72,6 @@ html.n-full-screen {
 		text-align: start;
 		border: 0;
 		outline-offset: -5px;
-		line-height: calc(var(--line-height-em) * 2);
 	}
 
 	&--headless {
