@@ -18,7 +18,7 @@
 	"devDependencies": {
 		"clean-css-cli": "^5.3.3",
 		"gzip-size": "^6.0.0",
-		"n-carousel": "^1.0.31",
+		"n-carousel": "^1.0.33",
 		"n-select": "^1.0.3",
 		"rollup": "^2.56.3",
 		"sass": "^1.38.1",

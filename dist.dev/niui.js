@@ -952,70 +952,6 @@ var componentModal = (function () {
 			document.body.style.setProperty("--overlay-top", `${window.visualViewport.offsetTop}px`);
 			document.body.style.setProperty("--overlay-bottom", `${window.innerHeight - window.visualViewport.height}px`);
 		}
-		/*
-		var modal = q('.n-ovrl');
-		var previous_overlay_top = parseInt(document.body.style.getPropertyValue('--overlay-top'));
-		var actual_viewport = window.innerHeight;
-		var offset_y = modal ? modal.getBoundingClientRect().y : 0;
-		if ((previous_overlay_top + '') === 'NaN') {
-			
-			previous_overlay_top = 0;
-
-		}
-
-		document.body.style.setProperty('--overlay-top', 0);
-		document.body.style.setProperty('--overlay-bottom', 0);
-		var screen_height = modal ? modal.scrollHeight : 0;
-
-		if (!navigator.userAgent.match(/(iPod|iPhone)/i) || Math.abs(window.orientation) !== 90 || actual_viewport === screen_height) { // Only for mobile Safari in landscape mode
-			
-			return;
-
-		}
-		
-		if (!!e) { // On resize event (toolbars have appeared by tapping at the top or bottom area
-
-			document.body.style.setProperty('--overlay-top', (previous_overlay_top - offset_y) + 'px');
-			document.body.style.setProperty('--overlay-bottom', (screen_height - actual_viewport + offset_y) + 'px');
-			
-		} else {
-		
-			if (qa('.n-ovrl').length > 1) { // Multiple modals: offset has been set, no need to do anything
-				
-				return;
-	
-			}
-
-			if (actual_viewport <= screen_height) { // modal is cropped, adjust its top/bottom
-				
-				if ((document.body.scrollHeight + document.body.getBoundingClientRect().y) === actual_viewport) {// page scrolled at the bottom
-
-					document.body.style.setProperty('--overlay-bottom', 0);
-					document.body.style.setProperty('--overlay-top', (screen_height - actual_viewport) + 'px');
-	
-				} else {
-	
-					document.body.style.setProperty('--overlay-top', 0);
-					document.body.style.setProperty('--overlay-bottom', (screen_height - actual_viewport) + 'px');
-				}
-			
-			}
-		
-			if (modal && modal.getBoundingClientRect().y !== 0) { // A little off
-	
-				document.body.style.setProperty('--overlay-top', (parseInt(document.body.style.getPropertyValue('--overlay-top')) - modal.getBoundingClientRect().y) + 'px');
-				document.body.style.setProperty('--overlay-bottom', (parseInt(document.body.style.getPropertyValue('--overlay-bottom')) + modal.getBoundingClientRect().y) + 'px');
-				
-			}
-			
-			if ((actual_viewport + parseInt(document.body.style.getPropertyValue('--overlay-top')) + parseInt(document.body.style.getPropertyValue('--overlay-bottom'))) > screen_height) { // Extra bug when scrolled near the bottom
-				
-				document.body.style.setProperty('--overlay-bottom', (screen_height - actual_viewport - parseInt(document.body.style.getPropertyValue('--overlay-top'))) + 'px');
-				
-			}
-		
-		}
-*/
 	}
 
 	function keyUpClose(e) {
@@ -1034,14 +970,13 @@ var componentModal = (function () {
 			window.scrollTo(previousScrollX, previousScrollY);
 			let direction_option = 'normal';
 			var animation = full_window.querySelector(".n-ovrl__content > div").dataset.anim; // Custom animation?
-			if (animation.length < 11) {
-				// '', 'null' or 'undefined'?
-				// animation = "0% { transform: translate3d(0,0,0) } 100% { transform: translate3d(0,-100%,0) }";
-				animation = [{ transform: "translate3d(0,0,0)" }, { transform: "translate3d(0,-100%,0)" }];
+			if (animation.length < 11) {				// '', 'null' or 'undefined'?
+				animation = '[{ "transform": "translate3d(0,0,0)" }, { "transform": "translate3d(0,-100%,0)" }]';
 			} else {
 				direction_option = 'reverse';
 			}
-			full_window.animate(animation, { duration: 200, direction: direction_option }).onfinish = () => {
+
+			full_window.animate(JSON.parse(animation), { duration: 200, direction: direction_option }).onfinish = () => {
 				nuiDisableBodyScroll(false, full_window.querySelector(".n-ovrl__content")); // Turn off and restore page scroll
 				full_window.parentNode.removeChild(full_window);
 				full_window_content = null;
@@ -1100,8 +1035,7 @@ var componentModal = (function () {
 			window.addEventListener("resize", adjustModal);
 			adjustModal();
 		}
-		if (full_window_content.querySelector(".n-full-screen") && !is_iPad) {
-			// iPad iOS 12 full screen is still experimental and buggy
+		if (full_window_content.querySelector(".n-full-screen")) {
 			if (full_window_content.webkitRequestFullScreen) {
 				full_window_content.webkitRequestFullScreen();
 			}
@@ -1112,13 +1046,13 @@ var componentModal = (function () {
 				full_window_content.requestFullScreen();
 			}
 		} else {
-			full_window_content.animate(typeof animation === "string" ? animation : [{ transform: "translate3d(0,-100%,0)" }, { transform: "translate3d(0,0,0)" }], 200);
+			full_window_content.animate(typeof animation === "string" ? JSON.parse(animation) : [{ transform: "translate3d(0,-100%,0)" }, { transform: "translate3d(0,0,0)" }], 200);
 		}
 		return false;
 	}
 
 	function modalWindow(e) {
-		// Modal window of an external file content
+		// Modal window of external file content
 		var el = e.target;
 		var link = el.closest(".n-modal").href;
 		var animation = el.closest(".n-modal").dataset.anim;
@@ -1756,13 +1690,10 @@ var componentModal = (function () {
 			!!document.exitFullscreen ? document.exitFullscreen() : document.webkitExitFullscreen();
 		}
 		let carousel = e.target.closest(".n-carousel");
-		// if (carousel.classList.contains("n-carousel--overlay")) {
-		//   carousel.animate([{ transform: "none" }, { transform: "translateY(-100%)" }], { duration: 200 }).onfinish = () => {
-		//     carousel.classList.remove("n-carousel--overlay");
-		//   };
-		// }
-		carousel.classList.remove("n-carousel--overlay");
-		delete document.body.dataset.frozen;
+		if (carousel) {
+			carousel.classList.remove("n-carousel--overlay");
+			delete document.body.dataset.frozen;
+		}
 	};
 	const verticalAutoObserver = new ResizeObserver((entries) => {
 		window.requestAnimationFrame(() => {
