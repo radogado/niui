@@ -620,13 +620,45 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 	// 		el.setAttribute("aria-expanded", true);
 	// 	};
 	// };
-	function toggleAccordion(e) {
+	
+	const openAccordion = el => {
+		
+		window.requestAnimationFrame(() => {
+			el.style.height = 0;
+			el.style.overflow = 'hidden';
+			el.animate([{height: 0}, {height: `${el.scrollHeight}px`}], 1200).onfinish = () => {
+				el.style.height = el.style.overflow = '';
+			};
+		});
+				
+	};
+
+	const closeAccordion = el => {
+			window.requestAnimationFrame(() => {
+				el.parentNode.open = true;
+				el.style.overflow = 'hidden';
+				el.animate([{height: `${el.scrollHeight}px`}, {height: 0}], 1200).onfinish = () => {
+					el.style.height = el.style.overflow = '';
+					el.parentNode.removeAttribute('open');
+				};
+			});
+					
+		};
+	
+		function toggleAccordion(e) {
 		let el = e.target.parentNode;
+		// console.log(!!el.open);
+		if (!el.open) {
+			openAccordion(e.target.nextElementSibling);
+		} else {
+			closeAccordion(e.target.nextElementSibling);
+		}
 		let container = el.closest('.n-accordion__popin');
 		if (el.parentNode.classList.contains('n-accordion__group') || container) {
 			el.parentNode.querySelectorAll(':scope > details').forEach(el2 => {
 				if (el2 !== el) {
 					el2.open = false;
+					// closeAccordion(el.querySelector(':scope > :not(summary)'))
 				}
 			});
 		}

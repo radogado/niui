@@ -22,20 +22,6 @@ body {
   color: white;
 }
 
-.n-carousel {
-  text-align: center;
-  --control-bg: rgb(255, 158, 158);
-  --control-color: #670d5b;
-}
-
-.n-carousel__content {
-  text-align: start;
-}
-.n-carousel__content img {
-  max-width: 100%;
-  align-self: center;
-}
-
 pre {
   overflow: auto;
 }
@@ -216,7 +202,7 @@ _:future,
   height: -webkit-fill-available;
 }
 
-:root body {
+:root {
   --control-bg: #017e7e;
   --control-color: white;
   --control-active-bg: #cc7c7e;
