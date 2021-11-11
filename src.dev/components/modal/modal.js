@@ -29,7 +29,7 @@ var componentModal = (function () {
 				direction_option = 'reverse';
 			}
 
-			full_window.animate(JSON.parse(animation), { duration: 200, direction: direction_option }).onfinish = () => {
+			full_window.animate(JSON.parse(animation), { duration: 200, direction: direction_option, easing: 'ease-in-out' }).onfinish = () => {
 				nuiDisableBodyScroll(false, full_window.querySelector(".n-ovrl__content")); // Turn off and restore page scroll
 				full_window.parentNode.removeChild(full_window);
 				full_window_content = null;
@@ -99,7 +99,7 @@ var componentModal = (function () {
 				full_window_content.requestFullScreen();
 			}
 		} else {
-			full_window_content.animate(typeof animation === "string" ? JSON.parse(animation) : [{ transform: "translate3d(0,-100%,0)" }, { transform: "translate3d(0,0,0)" }], 200);
+			full_window_content.animate(typeof animation === "string" ? JSON.parse(animation) : [{ transform: "translate3d(0,-100%,0)" }, { transform: "translate3d(0,0,0)" }], { duration: 200, easing: 'ease-in-out'});
 		}
 		return false;
 	}

@@ -8,6 +8,9 @@
   --bg: #fff;
 }
 
+details.n-accordion > * {
+  overflow: auto;
+}
 details.n-accordion > summary {
   list-style: none;
   user-select: none;
@@ -65,9 +68,6 @@ details.n-accordion details {
 }
 .n-accordion__popin > * {
   display: contents;
-}
-.n-accordion__popin > * > * {
-  padding: 0.5rem;
 }
 .n-accordion__popin > [open] > :not(summary) {
   grid-row: var(--n-popin-open-row, 0);
