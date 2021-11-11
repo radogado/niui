@@ -1,6 +1,6 @@
 // Component Accordion
 (function () {
-  const animate_options = { easing: "ease-in-out", duration: 200 };
+  const animate_options = { easing: "ease-in-out", duration: window.matchMedia("(prefers-reduced-motion: no-preference)").matches ? 200 : 0 };
 
   const openAccordion = (el) => {
     window.requestAnimationFrame(() => {

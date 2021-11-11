@@ -401,7 +401,7 @@ if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
 
 // Component Accordion
 (function () {
-  const animate_options = { easing: "ease-in-out", duration: 200 };
+  const animate_options = { easing: "ease-in-out", duration: window.matchMedia("(prefers-reduced-motion: no-preference)").matches ? 200 : 0 };
 
   const openAccordion = (el) => {
     window.requestAnimationFrame(() => {
@@ -651,167 +651,179 @@ window.nuiDisableBodyScroll = (function() {
 'use strict';
 
 var componentModal = (function () {
-	/* Modal – start */
-	function adjustModal(e) {
-		if (!!window.visualViewport) {
-			document.body.style.setProperty("--overlay-top", `${window.visualViewport.offsetTop}px`);
-			document.body.style.setProperty("--overlay-bottom", `${window.innerHeight - window.visualViewport.height}px`);
-		}
-	}
+  /* Modal – start */
+  function adjustModal(e) {
+    if (!!window.visualViewport) {
+      document.body.style.setProperty("--overlay-top", `${window.visualViewport.offsetTop}px`);
+      document.body.style.setProperty("--overlay-bottom", `${window.innerHeight - window.visualViewport.height}px`);
+    }
+  }
 
-	function keyUpClose(e) {
-		if ((e || window.event).keyCode === 27) {
-			// Esc
-			closeFullWindow();
-		}
-	}
-	var previousScrollX = 0;
-	var previousScrollY = 0;
+  function keyUpClose(e) {
+    if ((e || window.event).keyCode === 27) {
+      // Esc
+      closeFullWindow();
+    }
+  }
+  var previousScrollX = 0;
+  var previousScrollY = 0;
 
-	function closeFullWindow() {
-		let full_window = qa(".n-ovrl");
-		full_window = full_window[full_window.length - 1];
-		if (full_window) {
-			window.scrollTo(previousScrollX, previousScrollY);
-			let direction_option = 'normal';
-			var animation = full_window.querySelector(".n-ovrl__content > div").dataset.anim; // Custom animation?
-			if (animation.length < 11) {				// '', 'null' or 'undefined'?
-				animation = '[{ "transform": "translate3d(0,0,0)" }, { "transform": "translate3d(0,-100%,0)" }]';
-			} else {
-				direction_option = 'reverse';
-			}
+  const animation_duration = window.matchMedia("(prefers-reduced-motion: no-preference)").matches ? 200 : 0;
 
-			full_window.animate(JSON.parse(animation), { duration: 200, direction: direction_option, easing: 'ease-in-out' }).onfinish = () => {
-				nuiDisableBodyScroll(false, full_window.querySelector(".n-ovrl__content")); // Turn off and restore page scroll
-				full_window.parentNode.removeChild(full_window);
-				full_window_content = null;
-				if (!q(".n-ovrl")) {
-					// A single overlay is gone, leaving no overlays on the page
-					window.removeEventListener("resize", adjustModal);
-					window.removeEventListener("keydown", arrow_keys_handler); // To do: unglobal this and apply only to modal
-					window.removeEventListener("keyup", keyUpClose);
-					removeClass(q("html"), "no-scroll");
-				} else {
-					nuiDisableBodyScroll(true, full_window.querySelector(".n-ovrl__content"));
-					adjustModal();
-				}
-				if (previouslyFocused) {
-					previouslyFocused.focus();
-				}
-			};
-		}
-	}
+  function closeFullWindow() {
+    let full_window = qa(".n-ovrl");
+    full_window = full_window[full_window.length - 1];
+    if (full_window) {
+      window.scrollTo(previousScrollX, previousScrollY);
+      let direction_option = "normal";
+      var animation = full_window.querySelector(".n-ovrl__content > div").dataset.anim; // Custom animation?
+      if (animation.length < 11) {
+        // '', 'null' or 'undefined'?
+        animation = '[{ "transform": "translate3d(0,0,0)" }, { "transform": "translate3d(0,-100%,0)" }]';
+      } else {
+        direction_option = "reverse";
+      }
 
-	function openFullWindow(el, animation) {
-		// el is an HTML string
-		previouslyFocused = document.activeElement;
-		full_window_content = document.createElement("div");
-		if (typeof el === "string") {
-			full_window_content.innerHTML = el;
-		} else {
-			full_window_content.appendChild(el);
-		}
-		full_window_content.dataset.anim = animation;
-		var wrapper = document.createElement("div");
-		addClass(wrapper, "n-ovrl");
-		wrapper.insertAdjacentHTML("beforeend", "<div class=n-ovrl__content tabindex=0></div><div class=n-ovrl__bg></div>");
-		wrapper.firstChild.appendChild(full_window_content);
-		full_window_content = wrapper;
-		full_window_content.insertAdjacentHTML("afterbegin", `<button class=n-ovrl__close> ← ${document.title}</button>`);
-		full_window_content.querySelector(".n-ovrl__bg").onclick = full_window_content.querySelector(".n-ovrl__close").onclick = closeFullWindow;
-		full_window_content.querySelector(".n-ovrl__close").addEventListener("touchmove",
-			(e) => {
-				e.preventDefault();
-			}, { passive: false });
-		full_window_content.querySelector(".n-ovrl__bg").addEventListener("touchmove",
-			(e) => {
-				e.preventDefault();
-			}, { passive: false });
-		window.addEventListener("keyup", keyUpClose);
-		document.body.appendChild(full_window_content);
-		let full_window_container = full_window_content.querySelector(".n-ovrl__content");
-		full_window_container.focus();
-		nuiDisableBodyScroll(true, full_window_container); // Turn on and block page scroll
-		if (qa(".n-ovrl").length === 1) {
-			// Sole (first) modal
-			addClass(q("html"), "no-scroll");
-			previousScrollX = window.scrollX;
-			previousScrollY = window.scrollY;
-			window.addEventListener("resize", adjustModal);
-			adjustModal();
-		}
-		if (full_window_content.querySelector(".n-full-screen")) {
-			if (full_window_content.webkitRequestFullScreen) {
-				full_window_content.webkitRequestFullScreen();
-			}
-			if (full_window_content.mozRequestFullScreen) {
-				full_window_content.mozRequestFullScreen();
-			}
-			if (full_window_content.requestFullScreen) {
-				full_window_content.requestFullScreen();
-			}
-		} else {
-			full_window_content.animate(typeof animation === "string" ? JSON.parse(animation) : [{ transform: "translate3d(0,-100%,0)" }, { transform: "translate3d(0,0,0)" }], { duration: 200, easing: 'ease-in-out'});
-		}
-		return false;
-	}
+      full_window.animate(JSON.parse(animation), { duration: animation_duration, direction: direction_option, easing: "ease-in-out" }).onfinish = () => {
+        nuiDisableBodyScroll(false, full_window.querySelector(".n-ovrl__content")); // Turn off and restore page scroll
+        full_window.parentNode.removeChild(full_window);
+        full_window_content = null;
+        if (!q(".n-ovrl")) {
+          // A single overlay is gone, leaving no overlays on the page
+          window.removeEventListener("resize", adjustModal);
+          window.removeEventListener("keydown", arrow_keys_handler); // To do: unglobal this and apply only to modal
+          window.removeEventListener("keyup", keyUpClose);
+          removeClass(q("html"), "no-scroll");
+        } else {
+          nuiDisableBodyScroll(true, full_window.querySelector(".n-ovrl__content"));
+          adjustModal();
+        }
+        if (previouslyFocused) {
+          previouslyFocused.focus();
+        }
+      };
+    }
+  }
 
-	function modalWindow(e) {
-		// Modal window of external file content
-		var el = e.target;
-		var link = el.closest(".n-modal").href;
-		var animation = el.closest(".n-modal").dataset.anim;
-		var request = new XMLHttpRequest();
-		request.open("GET", link.split("#")[0], true);
-		request.onload = () => {
-			if (request.status >= 200 && request.status < 400) {
-				// Success
-				if (!request.responseText) {
-					closeFullWindow();
-					window.open(link, "Modal");
-					return false;
-				}
-				var container = !!link.split("#")[1] ? "#" + link.split("#")[1] : 0;
-				var parsed = request.responseText;
-				if (container) {
-					parsed = parseHTML(request.responseText);
-					if (!parsed.querySelector(container)) {
-						closeFullWindow();
-						return false;
-					}
-					parsed = parsed.querySelector(container).innerHTML;
-				}
-				openFullWindow(parsed, animation); // To do: If .modal[data-animation], pass it to openFullWindow() as second parameter. Also in openLightbox().
-				transferClass(el.closest(".n-modal"), q(".n-ovrl"), "n-modal--imited");
-			} else {
-				// Error
-				closeFullWindow();
-			}
-		};
-		request.onerror = () => {
-			// Error
-			closeFullWindow();
-			window.open(link, "_blank");
-		};
-		request.send();
-		return false;
-	}
-	let init = (host) => {
-		// Modal window: open a link's target inside it
-		host.querySelectorAll("a.n-modal[href]:not([data-ready])").forEach((el) => {
-			if (el.href !== location.href.split("#")[0] + "#") {
-				// Is it an empty anchor?
-				el.onclick = modalWindow;
-			}
-			if (!el.getAttribute("rel")) {
-				el.setAttribute("rel", "prefetch");
-			}
-			makeReady(el);
-		});
-	};
-	registerComponent("modal", init);
-	return { closeFullWindow, openFullWindow, adjustModal };
-	/* Modal – end */
+  function openFullWindow(el, animation) {
+    // el is an HTML string
+    previouslyFocused = document.activeElement;
+    full_window_content = document.createElement("div");
+    if (typeof el === "string") {
+      full_window_content.innerHTML = el;
+    } else {
+      full_window_content.appendChild(el);
+    }
+    full_window_content.dataset.anim = animation;
+    var wrapper = document.createElement("div");
+    addClass(wrapper, "n-ovrl");
+    wrapper.insertAdjacentHTML("beforeend", "<div class=n-ovrl__content tabindex=0></div><div class=n-ovrl__bg></div>");
+    wrapper.firstChild.appendChild(full_window_content);
+    full_window_content = wrapper;
+    full_window_content.insertAdjacentHTML("afterbegin", `<button class=n-ovrl__close> ← ${document.title}</button>`);
+    full_window_content.querySelector(".n-ovrl__bg").onclick = full_window_content.querySelector(".n-ovrl__close").onclick = closeFullWindow;
+    full_window_content.querySelector(".n-ovrl__close").addEventListener(
+      "touchmove",
+      (e) => {
+        e.preventDefault();
+      },
+      { passive: false }
+    );
+    full_window_content.querySelector(".n-ovrl__bg").addEventListener(
+      "touchmove",
+      (e) => {
+        e.preventDefault();
+      },
+      { passive: false }
+    );
+    window.addEventListener("keyup", keyUpClose);
+    document.body.appendChild(full_window_content);
+    let full_window_container = full_window_content.querySelector(".n-ovrl__content");
+    full_window_container.focus();
+    nuiDisableBodyScroll(true, full_window_container); // Turn on and block page scroll
+    if (qa(".n-ovrl").length === 1) {
+      // Sole (first) modal
+      addClass(q("html"), "no-scroll");
+      previousScrollX = window.scrollX;
+      previousScrollY = window.scrollY;
+      window.addEventListener("resize", adjustModal);
+      adjustModal();
+    }
+    if (full_window_content.querySelector(".n-full-screen")) {
+      if (full_window_content.webkitRequestFullScreen) {
+        full_window_content.webkitRequestFullScreen();
+      }
+      if (full_window_content.mozRequestFullScreen) {
+        full_window_content.mozRequestFullScreen();
+      }
+      if (full_window_content.requestFullScreen) {
+        full_window_content.requestFullScreen();
+      }
+    } else {
+      full_window_content.animate(typeof animation === "string" ? JSON.parse(animation) : [{ transform: "translate3d(0,-100%,0)" }, { transform: "translate3d(0,0,0)" }], {
+        duration: animation_duration,
+        easing: "ease-in-out",
+      });
+    }
+    return false;
+  }
+
+  function modalWindow(e) {
+    // Modal window of external file content
+    var el = e.target;
+    var link = el.closest(".n-modal").href;
+    var animation = el.closest(".n-modal").dataset.anim;
+    var request = new XMLHttpRequest();
+    request.open("GET", link.split("#")[0], true);
+    request.onload = () => {
+      if (request.status >= 200 && request.status < 400) {
+        // Success
+        if (!request.responseText) {
+          closeFullWindow();
+          window.open(link, "Modal");
+          return false;
+        }
+        var container = !!link.split("#")[1] ? "#" + link.split("#")[1] : 0;
+        var parsed = request.responseText;
+        if (container) {
+          parsed = parseHTML(request.responseText);
+          if (!parsed.querySelector(container)) {
+            closeFullWindow();
+            return false;
+          }
+          parsed = parsed.querySelector(container).innerHTML;
+        }
+        openFullWindow(parsed, animation); // To do: If .modal[data-animation], pass it to openFullWindow() as second parameter. Also in openLightbox().
+        transferClass(el.closest(".n-modal"), q(".n-ovrl"), "n-modal--imited");
+      } else {
+        // Error
+        closeFullWindow();
+      }
+    };
+    request.onerror = () => {
+      // Error
+      closeFullWindow();
+      window.open(link, "_blank");
+    };
+    request.send();
+    return false;
+  }
+  let init = (host) => {
+    // Modal window: open a link's target inside it
+    host.querySelectorAll("a.n-modal[href]:not([data-ready])").forEach((el) => {
+      if (el.href !== location.href.split("#")[0] + "#") {
+        // Is it an empty anchor?
+        el.onclick = modalWindow;
+      }
+      if (!el.getAttribute("rel")) {
+        el.setAttribute("rel", "prefetch");
+      }
+      makeReady(el);
+    });
+  };
+  registerComponent("modal", init);
+  return { closeFullWindow, openFullWindow, adjustModal };
+  /* Modal – end */
 })();
 // To do: disable page scroll by arrow keys
 
@@ -2078,251 +2090,255 @@ var componentModal = (function () {
 
 // Component Nav – start
 (function () {
-	/* Nav – start */
-	function closeDropNavClickedOutside(e) {
-		// Close the nav when clicking outside
-		if (!e.target.closest(".n-nav li")) {
-			qa(".n-nav li").forEach((el) => {
-				el.removeAttribute("aria-expanded");
-			});
-			if (q(".n-nav :focus")) {
-				q(".n-nav :focus").blur();
-			}
-		}
-	}
+  /* Nav – start */
+  function closeDropNavClickedOutside(e) {
+    // Close the nav when clicking outside
+    if (!e.target.closest(".n-nav li")) {
+      qa(".n-nav li").forEach((el) => {
+        el.removeAttribute("aria-expanded");
+      });
+      if (q(".n-nav :focus")) {
+        q(".n-nav :focus").blur();
+      }
+    }
+  }
 
-	function isDesktop(nav) {
-		// Checks the UL sub nav element
-		return !!getComputedStyle(nav).getPropertyValue("--desktop");
-	}
-	let navAnimating = false;
+  function isDesktop(nav) {
+    // Checks the UL sub nav element
+    return !!getComputedStyle(nav).getPropertyValue("--desktop");
+  }
+  let navAnimating = false;
 
-	function dropNavBlur(e) {
-		var this_nav = e.target.closest(".n-nav");
-		if (navAnimating || !e.relatedTarget) {
-			return;
-		}
-		e.stopPropagation();
-		let el = e.target;
-		let item = el.tagName === "LI" ? el.querySelector("ul") : el.parentElement.querySelector("ul");
-		if (!this_nav.contains(e.relatedTarget) || (isDesktop(this_nav) && !!e.relatedTarget && !closestElement(e.relatedTarget, this_nav))) {
-			// if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
-			this_nav.querySelectorAll("li").forEach((el) => {
-				el.removeAttribute("aria-expanded");
-			});
-			return;
-		}
-		if (item) {
-			if (item.parentNode.parentNode.querySelector("ul [aria-expanded]")) {
-				// To do: Unless it's the first/last item and user has back/forward tabbed away from it?
-				return;
-			}
-			item.parentElement.removeAttribute("aria-expanded");
-		}
-		// Close neighboring parent nav's sub navs.
-		el = e.target;
-		var target_parent = el.closest("[aria-haspopup]");
-		if (target_parent) {
-			// Skip if it's a top-level-only item
-			target_parent.querySelectorAll("li[aria-expanded]").forEach((el) => {
-				// Disable active grandchildren
-				el.removeAttribute("aria-expanded");
-			});
-		}
-		el = e.target.parentNode;
-		if (!el.nextElementSibling && // last item
-			el.parentNode.parentNode.nodeName === "LI" && // of third-level nav
-			!el.parentNode.parentNode.nextElementSibling) {
-			el.parentNode.parentNode.removeAttribute("aria-expanded");
-		}
-	}
+  function dropNavBlur(e) {
+    var this_nav = e.target.closest(".n-nav");
+    if (navAnimating || !e.relatedTarget) {
+      return;
+    }
+    e.stopPropagation();
+    let el = e.target;
+    let item = el.tagName === "LI" ? el.querySelector("ul") : el.parentElement.querySelector("ul");
+    if (!this_nav.contains(e.relatedTarget) || (isDesktop(this_nav) && !!e.relatedTarget && !closestElement(e.relatedTarget, this_nav))) {
+      // if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
+      this_nav.querySelectorAll("li").forEach((el) => {
+        el.removeAttribute("aria-expanded");
+      });
+      return;
+    }
+    if (item) {
+      if (item.parentNode.parentNode.querySelector("ul [aria-expanded]")) {
+        // To do: Unless it's the first/last item and user has back/forward tabbed away from it?
+        return;
+      }
+      item.parentElement.removeAttribute("aria-expanded");
+    }
+    // Close neighboring parent nav's sub navs.
+    el = e.target;
+    var target_parent = el.closest("[aria-haspopup]");
+    if (target_parent) {
+      // Skip if it's a top-level-only item
+      target_parent.querySelectorAll("li[aria-expanded]").forEach((el) => {
+        // Disable active grandchildren
+        el.removeAttribute("aria-expanded");
+      });
+    }
+    el = e.target.parentNode;
+    if (
+      !el.nextElementSibling && // last item
+      el.parentNode.parentNode.nodeName === "LI" && // of third-level nav
+      !el.parentNode.parentNode.nextElementSibling
+    ) {
+      el.parentNode.parentNode.removeAttribute("aria-expanded");
+    }
+  }
 
-	function dropNavFocus(e) {
-		// Close focused third level child when focus moves to another top-level item
-		e.stopPropagation();
-		var el = e.target.closest(".n-nav > ul > li");
-		// To do: on LI focus, make it aria-expanded and focus its a
-		if (navAnimating) {
-			return;
-		}
-		[
-			[].slice.call(el.parentElement.children),
-			[].slice.call(e.target.parentElement.parentElement.children),
-			[].slice.call(e.target.parentElement.parentElement.parentElement.parentElement.children),
-		].forEach((el) => {
-			el.forEach((el) => {
-				el.removeAttribute("aria-expanded");
-			});
-		});
-		el.setAttribute("aria-expanded", true);
-		// 		openItem(el.querySelector('ul'));
-		if (el.parentNode.parentNode.getAttribute("aria-haspopup")) {
-			el.parentNode.parentNode.setAttribute("aria-expanded", true);
-		}
-		el.querySelectorAll("li[aria-expanded]").forEach((el) => {
-			// Hide grandchildren
-			el.removeAttribute("aria-expanded");
-		});
-		// Make current focused item's ancestors visible
-		el = e.target;
-		el.parentNode.setAttribute("aria-expanded", true);
-		var grand_parent = el.parentElement.parentElement.parentElement;
-		if (grand_parent.tagName === "LI") {
-			grand_parent.setAttribute("aria-expanded", true);
-		}
-	}
-	var closeDropNavClickedOutsideEnabled = false;
-	let closeItem = (item) => {
-		navAnimating = true;
-		item.style.overflow = "hidden";
-		item.parentElement.setAttribute("aria-expanded", true);
-		item.animate([{ height: `${item.scrollHeight}px` }, { height: 0 }], 200).onfinish = () => {
-			item.removeAttribute("style");
-			item.parentElement.removeAttribute("aria-expanded");
-			navAnimating = false;
-			item.querySelectorAll("[aria-expanded]").forEach((el) => {
-				el.removeAttribute("aria-expanded");
-			});
-		};
-	};
-	let openItem = (item) => {
-		navAnimating = true;
-		item.style.overflow = "hidden";
-		item.parentElement.setAttribute("aria-expanded", true);
-		item.animate([{ height: 0 }, { height: `${item.scrollHeight}px` }], 200).onfinish = () => {
-			item.removeAttribute("style");
-			navAnimating = false;
-		};
-	};
-	let clickEvent = (e) => {
-		e.stopPropagation();
-		// To do: also ancestors, also close when open
-		let el = e.target;
-		var this_nav = el.closest(".n-nav");
-		this_nav.removeEventListener("focusout", dropNavBlur);
-		if (this_nav.contains(document.activeElement)) {
-			document.activeElement.blur();
-		}
-		let item = el.tagName === "LI" ? el.querySelector("ul") : el.parentElement.querySelector("ul");
-		if (isDesktop(this_nav)) {
-			if (el.getAttribute("aria-expanded")) {
-				if (el.querySelector("a:focus")) {
-					// 						el.querySelector('a:focus').blur();
-				} else {
-					if (isDesktop(this_nav)) {
-						el.removeAttribute("aria-expanded");
-					} else {
-						closeItem(item);
-					}
-				}
-			} else {
-				[].slice.call(el.parentElement.children).forEach((item) => {
-					item.removeAttribute("aria-expanded");
-					let old_item_open_child = item.querySelector("[aria-expanded]");
-					if (old_item_open_child) {
-						old_item_open_child.removeAttribute("aria-expanded");
-					}
-				});
-				el.setAttribute("aria-expanded", true);
-				if (!isDesktop(this_nav)) {
-					openItem(item);
-				}
-			}
-		} else {
-			if (item.parentNode.hasAttribute("aria-expanded")) {
-				closeItem(item);
-			} else {
-				// If new item is top level, close another top level item, if any is open
-				if (item.parentElement.parentElement.matches("ul")) {
-					// It's top level, To do: also on secondary level, close open sibling
-					let old_item = item.parentElement.closest("ul").querySelector('[aria-expanded="true"] > ul');
-					if (old_item) {
-						closeItem(old_item);
-					}
-				}
-				openItem(item);
-			}
-		}
-		this_nav.addEventListener("focusout", dropNavBlur);
-	};
+  function dropNavFocus(e) {
+    // Close focused third level child when focus moves to another top-level item
+    e.stopPropagation();
+    var el = e.target.closest(".n-nav > ul > li");
+    // To do: on LI focus, make it aria-expanded and focus its a
+    if (navAnimating) {
+      return;
+    }
+    [
+      [].slice.call(el.parentElement.children),
+      [].slice.call(e.target.parentElement.parentElement.children),
+      [].slice.call(e.target.parentElement.parentElement.parentElement.parentElement.children),
+    ].forEach((el) => {
+      el.forEach((el) => {
+        el.removeAttribute("aria-expanded");
+      });
+    });
+    el.setAttribute("aria-expanded", true);
+    // 		openItem(el.querySelector('ul'));
+    if (el.parentNode.parentNode.getAttribute("aria-haspopup")) {
+      el.parentNode.parentNode.setAttribute("aria-expanded", true);
+    }
+    el.querySelectorAll("li[aria-expanded]").forEach((el) => {
+      // Hide grandchildren
+      el.removeAttribute("aria-expanded");
+    });
+    // Make current focused item's ancestors visible
+    el = e.target;
+    el.parentNode.setAttribute("aria-expanded", true);
+    var grand_parent = el.parentElement.parentElement.parentElement;
+    if (grand_parent.tagName === "LI") {
+      grand_parent.setAttribute("aria-expanded", true);
+    }
+  }
+  var closeDropNavClickedOutsideEnabled = false;
+  let closeItem = (item) => {
+    navAnimating = true;
+    item.style.overflow = "hidden";
+    item.parentElement.setAttribute("aria-expanded", true);
+    item.animate([{ height: `${item.scrollHeight}px` }, { height: 0 }], 200).onfinish = () => {
+      item.removeAttribute("style");
+      item.parentElement.removeAttribute("aria-expanded");
+      navAnimating = false;
+      item.querySelectorAll("[aria-expanded]").forEach((el) => {
+        el.removeAttribute("aria-expanded");
+      });
+    };
+  };
+  let openItem = (item) => {
+    navAnimating = true;
+    item.style.overflow = "hidden";
+    item.parentElement.setAttribute("aria-expanded", true);
+    item.animate([{ height: 0 }, { height: `${item.scrollHeight}px` }], 200).onfinish = () => {
+      item.removeAttribute("style");
+      navAnimating = false;
+    };
+  };
+  let clickEvent = (e) => {
+    e.stopPropagation();
+    // To do: also ancestors, also close when open
+    let el = e.target;
+    var this_nav = el.closest(".n-nav");
+    this_nav.removeEventListener("focusout", dropNavBlur);
+    if (this_nav.contains(document.activeElement)) {
+      document.activeElement.blur();
+    }
+    let item = el.tagName === "LI" ? el.querySelector("ul") : el.parentElement.querySelector("ul");
+    if (isDesktop(this_nav)) {
+      if (el.getAttribute("aria-expanded")) {
+        if (el.querySelector("a:focus")) {
+          // 						el.querySelector('a:focus').blur();
+        } else {
+          if (isDesktop(this_nav)) {
+            el.removeAttribute("aria-expanded");
+          } else {
+            closeItem(item);
+          }
+        }
+      } else {
+        [].slice.call(el.parentElement.children).forEach((item) => {
+          item.removeAttribute("aria-expanded");
+          let old_item_open_child = item.querySelector("[aria-expanded]");
+          if (old_item_open_child) {
+            old_item_open_child.removeAttribute("aria-expanded");
+          }
+        });
+        el.setAttribute("aria-expanded", true);
+        if (!isDesktop(this_nav)) {
+          openItem(item);
+        }
+      }
+    } else {
+      if (item.parentNode.hasAttribute("aria-expanded")) {
+        closeItem(item);
+      } else {
+        // If new item is top level, close another top level item, if any is open
+        if (item.parentElement.parentElement.matches("ul")) {
+          // It's top level, To do: also on secondary level, close open sibling
+          let old_item = item.parentElement.closest("ul").querySelector('[aria-expanded="true"] > ul');
+          if (old_item) {
+            closeItem(old_item);
+          }
+        }
+        openItem(item);
+      }
+    }
+    this_nav.addEventListener("focusout", dropNavBlur);
+  };
 
-	function checkSides(ul, menubar) {
-		removeClass(ul, "n-right-overflow");
-		ul.style.removeProperty("--n-right-overflow");
-		//		var rect = ul.getBoundingClientRect(); // Firefox doesn't preserve this var
-		if (ul.getBoundingClientRect().left > document.body.offsetWidth - (ul.getBoundingClientRect().left + ul.getBoundingClientRect().width)) {
-			if (ul.getBoundingClientRect().right > window.innerWidth) {
-				ul.style.setProperty("--n-right-overflow", window.innerWidth - ul.getBoundingClientRect().right + "px");
-				addClass(ul, "n-right-overflow");
-			}
-			addClass(ul, "n-left-side");
-		} else {
-			removeClass(ul, "n-left-side");
-		}
-	}
+  function checkSides(ul, menubar) {
+    removeClass(ul, "n-right-overflow");
+    ul.style.removeProperty("--n-right-overflow");
+    //		var rect = ul.getBoundingClientRect(); // Firefox doesn't preserve this var
+    if (ul.getBoundingClientRect().left > document.body.offsetWidth - (ul.getBoundingClientRect().left + ul.getBoundingClientRect().width)) {
+      if (ul.getBoundingClientRect().right > window.innerWidth) {
+        ul.style.setProperty("--n-right-overflow", window.innerWidth - ul.getBoundingClientRect().right + "px");
+        addClass(ul, "n-right-overflow");
+      }
+      addClass(ul, "n-left-side");
+    } else {
+      removeClass(ul, "n-left-side");
+    }
+  }
 
-	function initNav(el) {
-		// Delete all trigger inputs, add tabindex=0 to each li
-		el.querySelectorAll("input").forEach((el) => {
-			el.outerHTML = "";
-		});
-		el.querySelectorAll("li > a").forEach((el) => {
-			el.setAttribute("tabindex", 0);
-		});
-		if (!el.closest(".n-nav.n-nav--drop")) {
-			// The rest is for drop nav only
-			return;
-		}
-		if (!closeDropNavClickedOutsideEnabled) {
-			window.addEventListener("touchend", closeDropNavClickedOutside);
-			window.addEventListener("mouseup", closeDropNavClickedOutside);
-			closeDropNavClickedOutsideEnabled = true;
-		}
-		el.addEventListener("keyup", (e) => {
-			// Check for sibling or children to expand on control keys Left/Right/etc
-			if (e.key === "Escape") {
-				e.target.closest(".n-nav").querySelectorAll("li").forEach((el) => {
-					el.removeAttribute("aria-expanded");
-				});
-				document.activeElement.blur();
-			}
-		});
-		let menubar = el;
-		el.querySelectorAll("li").forEach((el) => {
-			let ul = el.querySelector("ul");
-			if (ul) {
-				el.setAttribute("aria-haspopup", true);
-				if (el.children[0].nodeName === "UL") {
-					el.insertBefore(el.children[1], el.children[0]); // Swap 'a' with 'ul'
-				}
-			}
-		});
-		el.addEventListener("mousedown", clickEvent);
-		el.addEventListener("focusin", dropNavFocus);
-		el.addEventListener("focusout", dropNavBlur);
-		draggingNow = false;
-		window.requestAnimationFrame(() => {
-			// Give the browser time to update
-			el.querySelectorAll("ul").forEach((ul) => {
-				checkSides(ul, menubar);
-			});
-		});
-	}
-	window.addEventListener("resize", function (e) {
-		document.querySelectorAll('.n-nav.n-nav--drop ul').forEach((menubar) => {
-			menubar.querySelectorAll("ul").forEach((ul) => {
-				checkSides(ul, menubar);
-			});
-		});
-	});
-	/* Nav – end */
-	let init = (host) => {
-		host.querySelectorAll(".n-nav:not([data-ready]) > ul:not([role])").forEach((el) => {
-			initNav(el);
-			makeReady(el.closest(".n-nav"));
-		});
-	};
-	registerComponent("nav", init);
+  function initNav(el) {
+    // Delete all trigger inputs, add tabindex=0 to each li
+    el.querySelectorAll("input").forEach((el) => {
+      el.outerHTML = "";
+    });
+    el.querySelectorAll("li > a").forEach((el) => {
+      el.setAttribute("tabindex", 0);
+    });
+    if (!el.closest(".n-nav.n-nav--drop")) {
+      // The rest is for drop nav only
+      return;
+    }
+    if (!closeDropNavClickedOutsideEnabled) {
+      window.addEventListener("touchend", closeDropNavClickedOutside);
+      window.addEventListener("mouseup", closeDropNavClickedOutside);
+      closeDropNavClickedOutsideEnabled = true;
+    }
+    el.addEventListener("keyup", (e) => {
+      // Check for sibling or children to expand on control keys Left/Right/etc
+      if (e.key === "Escape") {
+        e.target
+          .closest(".n-nav")
+          .querySelectorAll("li")
+          .forEach((el) => {
+            el.removeAttribute("aria-expanded");
+          });
+        document.activeElement.blur();
+      }
+    });
+    let menubar = el;
+    el.querySelectorAll("li").forEach((el) => {
+      let ul = el.querySelector("ul");
+      if (ul) {
+        el.setAttribute("aria-haspopup", true);
+        if (el.children[0].nodeName === "UL") {
+          el.insertBefore(el.children[1], el.children[0]); // Swap 'a' with 'ul'
+        }
+      }
+    });
+    el.addEventListener("mousedown", clickEvent);
+    el.addEventListener("focusin", dropNavFocus);
+    el.addEventListener("focusout", dropNavBlur);
+    window.requestAnimationFrame(() => {
+      // Give the browser time to update
+      el.querySelectorAll("ul").forEach((ul) => {
+        checkSides(ul, menubar);
+      });
+    });
+  }
+  window.addEventListener("resize", function (e) {
+    document.querySelectorAll(".n-nav.n-nav--drop ul").forEach((menubar) => {
+      menubar.querySelectorAll("ul").forEach((ul) => {
+        checkSides(ul, menubar);
+      });
+    });
+  });
+  /* Nav – end */
+  let init = (host) => {
+    host.querySelectorAll(".n-nav:not([data-ready]) > ul:not([role])").forEach((el) => {
+      initNav(el);
+      makeReady(el.closest(".n-nav"));
+    });
+  };
+  registerComponent("nav", init);
 })();
 // Component Nav – end
 
