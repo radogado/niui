@@ -17,7 +17,7 @@ details.n-accordion > summary {
   cursor: zoom-in;
   letter-spacing: initial;
   position: relative;
-  padding: 0.625em;
+  padding: calc(var(--line-height-em, 1.5rem) / 2);
   padding-inline-end: 1.5em;
   word-wrap: break-word;
   word-break: break-all;
@@ -52,7 +52,7 @@ details.n-accordion[open] > summary:after {
   transform: rotate(180deg);
 }
 details.n-accordion details {
-  margin: 0.25em;
+  margin: calc(var(--line-height-em, 1.5rem) / 2);
 }
 
 .n-accordion__popin {
