@@ -1466,7 +1466,7 @@ ul.n-list.n-list--inline,
 ul.n-list.n-list--inline li,
 .n-nav.n-nav--scroll ul li {
   vertical-align: top;
-  display: inline-block;
+  display: inline-flex;
   width: auto;
 }
 
@@ -2710,7 +2710,6 @@ _:future,
 .n-nav {
   vertical-align: baseline;
   display: inline-block;
-  background-color: var(--control-bg, transparent);
   color: var(--control-color, inherit);
 }
 .n-nav ul {
@@ -2724,6 +2723,7 @@ _:future,
   flex-wrap: wrap;
 }
 .n-nav ul li {
+  background-color: var(--control-bg, transparent);
   margin: 0;
 }
 .n-nav ul li:last-child {
@@ -2735,13 +2735,16 @@ _:future,
 }
 .n-nav.n-nav--scroll > ul {
   display: flex;
-  padding: 0.25em 0;
   flex-wrap: nowrap;
   white-space: nowrap;
 }
 .n-nav a {
   position: relative;
   padding: 0 0.25em;
+  display: inline-block;
+}
+.n-nav .n-big-text a {
+  padding: 0 0.5em;
 }
 .n-nav .n-nav-current a[href] {
   text-decoration: none;
@@ -2906,7 +2909,8 @@ main .n-nav ul {
 }
 .n-nav--drop li[aria-haspopup]:before,
 .n-nav--drop li > input {
-  --mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(180) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A") center center no-repeat;
+  --mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(180) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A")
+    center center no-repeat;
   -webkit-mask: var(--mask);
   -webkit-mask-size: 0.4em;
   -webkit-mask-repeat: no-repeat;
@@ -2986,10 +2990,10 @@ main .n-nav ul {
     opacity: 0;
     position: absolute;
     transform: scaleX(0);
-    transform-origin: start;
+    transform-origin: left;
   }
   html:not(.can-touch) .n-nav--drop ul li:not([aria-expanded]) ul.n-left-side ul {
-    transform-origin: end;
+    transform-origin: right;
   }
   html:not(.can-touch) .n-nav--drop > ul > li > ul li {
     background-color: var(--control-bg, #fff);
@@ -3487,7 +3491,7 @@ html:not(.can-touch) .n-tool:hover .n-tool__tip {
 }
 .n-type .n-big-text {
   font-size: 1.125em;
-  line-height: 1.3334em;
+  line-height: calc(2 * var(--line-height-em));
   min-height: 1.3334em;
 }
 

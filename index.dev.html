@@ -170,6 +170,7 @@
 								<pre><code class="language-js">npm install --save-dev niui-npm</code></pre>
 							</div>
 							<br>
+							<p>To do: fix index.js</p>
 							<div class=code>
 								<pre><code class="language-js">require("./node_modules/niui-npm/index.js");</code></pre>
 							</div>
@@ -212,7 +213,7 @@
 &lt;html&gt;
 &lt;head&gt;
 	&lt;meta charset="utf-8"&gt;
-	&lt;meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=yes"&gt;
+	&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=yes, viewport-fit=cover"&gt;
 	&lt;link rel="styleSheet" href="niui.min.css" type="text/css" media="screen"&gt;
 &lt;/head&gt;
 &lt;body class="n-type"&gt;
@@ -705,7 +706,15 @@
 					</div>
 					<div class="_1/3">
 						<h3>Standard navigation</h3>
-						<nav class="n-nav">
+<nav class="n-nav">
+		<ul class="n-list n-list--inline">
+			<li> <a href=#buttons>Buttons</a> </li>
+			<li> <a href=#nav>Drop-down nav</a> </li>
+			<li class="n-nav-current"> <a href=#lightbox>Lightbox</a> </li>
+		</ul>
+	</nav>
+	<br><br>
+							<nav class="n-nav">
 							<ul class="n-list n-list--inline">
 								<li> <a href=#buttons>Buttons</a> </li>
 								<li> <a href=#nav>Drop-down nav</a> </li>

@@ -114,7 +114,7 @@
 }
 .n-type .n-big-text {
   font-size: 1.125em;
-  line-height: 1.3334em;
+  line-height: calc(2 * var(--line-height-em));
   min-height: 1.3334em;
 }
 

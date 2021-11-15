@@ -112,7 +112,7 @@ ul.n-list.n-list--inline,
 ul.n-list.n-list--inline li,
 .n-nav.n-nav--scroll ul li {
   vertical-align: top;
-  display: inline-block;
+  display: inline-flex;
   width: auto;
 }
 
