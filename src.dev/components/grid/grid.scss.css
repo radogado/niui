@@ -119,14 +119,14 @@
   }
   .n-row.n-row--no-padding,
 .n-row.n-row--no-padding > * {
-    --spacing: calc(var(--line-height-em)/2);
+    --spacing: calc(var(--line-height-em) / 2);
     padding: 0;
   }
 
   .n-row.n-row--no-margin,
 .n-row.n-row--no-margin > *,
 .n-row.n-row--vertical > * {
-    --spacing: calc(var(--line-height-em)/2);
+    --spacing: calc(var(--line-height-em) / 2);
     margin: 0;
   }
 
@@ -231,7 +231,7 @@
   /* FF 20+ */
   break-inside: avoid-column;
   margin: 0;
-  padding: calc(var(--line-height-em) / 2);
+  padding: calc(var(--line-height-em) / 2) 0;
   box-sizing: border-box;
   word-break: break-word;
   word-wrap: break-word;

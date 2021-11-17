@@ -29,6 +29,7 @@
   font-size: 1em;
   font-weight: 500;
   margin: 24px 0;
+  line-height: 3rem;
 }
 @media (max-width: 599.9px) {
   .n-type h1,
@@ -49,29 +50,28 @@
 .n-type h6 + p:not(.n-drop-cap) {
   margin-top: 0;
 }
+.n-type h4,
+.n-type h5,
+.n-type h6 {
+  line-height: 1.5rem;
+}
 .n-type h1 {
-  font-size: 2.5rem;
-  line-height: 1.2;
+  font-size: 2.75rem;
 }
 .n-type h2 {
   font-size: 2.25rem;
-  line-height: 1.35;
 }
 .n-type h3 {
   font-size: 2rem;
-  line-height: 1.5;
 }
 .n-type h4 {
   font-size: 1.75rem;
-  line-height: 1.725;
 }
 .n-type h5 {
   font-size: 1.5rem;
-  line-height: 2;
 }
 .n-type h6 {
   font-size: 1.25rem;
-  line-height: 1.2;
 }
 .n-type pre {
   overflow: auto;
@@ -103,7 +103,7 @@
   margin: 1em 0;
   padding: 0;
 }
-.n-type .quote,
+.n-type .n-quote,
 .n-type blockquote,
 .n-type q {
   border-inline-start: 1px solid #bbb;
@@ -118,7 +118,8 @@
   min-height: 1.3334em;
 }
 
-.n-adjust-height, .n-row picture.n-adjust-height {
+.n-adjust-height,
+.n-row picture.n-adjust-height {
   border-bottom: calc(1px * var(--adjust-height)) solid transparent;
   box-sizing: content-box;
 }

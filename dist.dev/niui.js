@@ -652,6 +652,37 @@ window.nuiDisableBodyScroll = (function() {
 
 var componentModal = (function () {
   /* Modal – start */
+
+  const focusableElements = 'button, [href], input, select, textarea, details, summary, video, [tabindex]:not([tabindex="-1"])';
+  const trapFocus = (modal) => {
+    // FROM: https://uxdesign.cc/how-to-trap-focus-inside-modal-to-make-it-ada-compliant-6a50f9a70700
+    // add all the elements inside modal which you want to make focusable
+    const firstFocusableElement = modal.querySelectorAll(focusableElements)[0]; // get first element to be focused inside modal
+    const focusableContent = modal.querySelectorAll(focusableElements);
+    const lastFocusableElement = focusableContent[focusableContent.length - 1]; // get last element to be focused inside modal
+    document.addEventListener("keydown", function (e) {
+      let isTabPressed = e.key === "Tab" || e.keyCode === 9;
+      if (!isTabPressed) {
+        return;
+      }
+      if (e.shiftKey) {
+        // if shift key pressed for shift + tab combination
+        if (document.activeElement === firstFocusableElement) {
+          lastFocusableElement.focus(); // add focus for the last focusable element
+          e.preventDefault();
+        }
+      } else {
+        // if tab key is pressed
+        if (document.activeElement === lastFocusableElement) {
+          // if focused has reached to last focusable element then focus first focusable element after pressing tab
+          firstFocusableElement.focus(); // add focus for the first focusable element
+          e.preventDefault();
+        }
+      }
+    });
+    firstFocusableElement.focus();
+  };
+
   function adjustModal(e) {
     if (!!window.visualViewport) {
       document.body.style.setProperty("--overlay-top", `${window.visualViewport.offsetTop}px`);
@@ -721,7 +752,15 @@ var componentModal = (function () {
     wrapper.firstChild.appendChild(full_window_content);
     full_window_content = wrapper;
     full_window_content.insertAdjacentHTML("afterbegin", `<button class=n-ovrl__close> ← ${document.title}</button>`);
-    full_window_content.querySelector(".n-ovrl__bg").onclick = full_window_content.querySelector(".n-ovrl__close").onclick = closeFullWindow;
+    full_window_content.onclick = (e) => {
+      let modals = qa(".n-ovrl");
+      if (modals) {
+        let modal = modals[modals.length - 1];
+        if (e.target === modal || e.target.parentNode === modal) {
+          closeFullWindow();
+        }
+      }
+    };
     full_window_content.querySelector(".n-ovrl__close").addEventListener(
       "touchmove",
       (e) => {
@@ -738,6 +777,7 @@ var componentModal = (function () {
     );
     window.addEventListener("keyup", keyUpClose);
     document.body.appendChild(full_window_content);
+    trapFocus(full_window_content);
     let full_window_container = full_window_content.querySelector(".n-ovrl__content");
     full_window_container.focus();
     nuiDisableBodyScroll(true, full_window_container); // Turn on and block page scroll
@@ -794,7 +834,8 @@ var componentModal = (function () {
           parsed = parsed.querySelector(container).innerHTML;
         }
         openFullWindow(parsed, animation); // To do: If .modal[data-animation], pass it to openFullWindow() as second parameter. Also in openLightbox().
-        transferClass(el.closest(".n-modal"), q(".n-ovrl"), "n-modal--imited");
+        transferClass(el.closest(".n-modal"), q(".n-ovrl"), "n-modal--limited");
+        transferClass(el.closest(".n-modal"), q(".n-ovrl"), "n-modal--full");
       } else {
         // Error
         closeFullWindow();

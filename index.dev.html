@@ -21,7 +21,7 @@
 			}
 		}
 	</script>
-	<script src=dist.dev/niui.js type=module defer onload="setupCopy();"></script>
+	<script src="dist.dev/niui.js" type="module" defer onload="setupCopy();"> </script>
 	<!-- 	<script src=dist/niui.min.js type=module defer onload="setupCopy();"></script> -->
 	<link rel=styleSheet href=src.dev/css/prism.css type=text/css media=screen>
 	<script src="src.dev/script/prism.js" type="text/javascript" defer></script>
@@ -74,25 +74,24 @@
 			<button><span>"Back to top" button</span></button>
 			<button><span>Dynamic components</span></button>
 			<button><span>WordPress theme</span></button>
-			<button><span>Color scheme</a>
+			<button><span>Color scheme</span></button>
 		</div>
 		<main class="n-carousel__content">
 			<div id=home>
 				<div class="n-row">
 					<div class="_1/3 n-middle- n-center-">
-						<div style="padding-top: 2.5em;">
+						<div>
 							<!-- 										<img src=images/niui.svg alt=Logo style="display: inline-block; vertical-align: top; width: calc(100% - 3em);"> -->
-							<span class="n-aspect" style="--ratio: 3.06; width: calc(100% - 3em); display: inline-block; vertical-align: top;">
+							<span class="n-aspect n-adjust-height" style="--ratio: 3.06; width: calc(100% - 3em); display: inline-block; vertical-align: top;">
 								<img src="images/niui.svg" alt="niui Logo" style="width: 100%;">
 							</span>
 							<sup>3.0</sup>
-							<p></p>
-							<h1>Native Internet User Interface</h1>
 							<h2>lightweight, feature-heavy web front-end</h2>
 						</div>
 						<p><a href="dist.dev/niui.min.css">niui.min.css</a>, <a href="dist.dev/niui.min.js">niui.min.js</a></p>
 					</div>
 					<div>
+<h1>Native Internet User Interface</h1>
 						<ul class="n-masonry n-left">
 							<li>Lightweight, ~10+~10 K</li>
 							<li>Accessible</li>
@@ -109,7 +108,7 @@
 						</ul>
 					</div>
 					<div class="_1/1">
-						<a href=//github.com/radogado/niui>GitHub page</a>
+						<a href="//github.com/radogado/niui">GitHub page</a>
 						<p><br></p>
 						<h2>Reimplemented real world examples</h2>
 					</div>
@@ -2711,7 +2710,7 @@
 						</div>
 					</div>
 					<div>
-						<p><a href="external.html#content" class="n-modal n-modal__limited">Limited modal window</a>.</p>
+						<p><a href="external.html#content" class="n-modal n-modal--full">Full modal window</a>.</p>
 						<div class="code">
 							<pre><code class="language-markup">&lt;a href="external.html#content" class="n-modal limited"&gt;Open a modal window here.&lt;/a&gt;</code>
 </pre>
@@ -2736,7 +2735,7 @@
 								<pre>a.n-modal[data-anim]</pre> parameter specifies custom animation
 							</li>
 							<li>
-								<pre>a.n-modal.n-modal__limited</pre> for limited width/height modal window
+								<pre>a.n-modal.n-modal--limited</pre> for limited width/height modal window
 							</li>
 						</ul>
 					</div>
@@ -3851,7 +3850,7 @@ nav li li[aria-haspopup][aria-expanded="true"], nav li li[aria-haspopup]:hover {
 		["css", "js"].forEach((el) => {
 			fetch(`dist.dev/niui.min.${el}.size`).then((response) => response.text()).then((text) => {
 				document.querySelectorAll(`[href*=".min.${el}"]`).forEach(link => {
-					link.dataset.size = `${parseFloat(text / 1024).toFixed(1)} KB`
+					link.dataset.size = `${Math.round(text / 1024)} K`
 				})
 			})
 		});

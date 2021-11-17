@@ -159,17 +159,10 @@ code[class*=language-] {
   padding: 0.5em;
   border-radius: 0;
 }
-.code code[class*=language-], .code pre[class*=language-] {
+.code code[class*=language-],
+.code pre[class*=language-] {
   text-shadow: none;
   background: white;
-}
-
-h1:after {
-  content: attr(data-version);
-  padding-inline-start: 1ch;
-  font-size: 0.5em;
-  font-weight: normal;
-  vertical-align: super;
 }
 
 [href*=".min.css"],
@@ -179,8 +172,8 @@ h1:after {
 [href*=".min.css"]:after,
 [href*=".min.js"]:after {
   content: attr(data-size);
-  padding-inline-start: 1ch;
-  min-width: 6ch;
+  padding-inline-start: 0.5ch;
+  min-width: 5ch;
   display: inline-block;
   font-size: 0.75em;
   vertical-align: top;

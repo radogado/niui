@@ -2,154 +2,157 @@
 @import "../../css/niui-setup";
 
 .no-scroll {
-
-	&,
-	& body {
-		overflow: hidden;
-	}
+  &,
+  & body {
+    overflow: hidden;
+  }
 }
 
 html.n-full-screen {
-	background: #000;
+  background: #000;
 
-	body {
-		opacity: 0;
-	}
+  body {
+    opacity: 0;
+  }
 }
 
 .n-ovrl {
-	z-index: 999999;
-	background: #fff;
-	background: rgba(255, 255, 255, 0.97);
-	overflow: hidden;
-	overflow-y: auto;
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	top: var(--overlay-top, 0);
-	bottom: var(--overlay-bottom, 0);
-	right: 0;
-	left: 0;
-	border-top: none;
-	-webkit-backface-visibility: hidden;
-	-moz-backface-visibility: hidden;
-	backface-visibility: hidden;
+  z-index: 999999;
+  background: rgba(255, 255, 255, 0.97);
+  overflow: hidden;
+  overflow-y: auto;
+  position: fixed;
+  top: var(--overlay-top, 0);
+  width: 100%;
+  height: 100%;
+  height: -webkit-fill-available;
+  box-sizing: border-box;
+  // right: 0;
+  // left: 0;
+  // border-top: none;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 
-	* {
-		box-sizing: border-box;
-	}
+  display: flex;
+  flex-direction: column;
 
-	&__content {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		overflow-y: auto;
-		overflow-x: none;
-		
-		background: transparent;
-		height: 100%; // For Android Browser, which doesn't understand the bottom line
-		padding-top: calc(var(--line-height-em) * 2);
-	}
+  border: calc(50vw - 35ch) solid transparent;
+  border-top-width: 3ch;
+  border-bottom-width: 3ch;
 
-	> .n-ovrl__close {
-		color: var(--control-color, #fff);
-		cursor: pointer;
-		padding: 0.75em;
-		font-weight: bold;
-		background-color: var(--control-bg, rgba(0, 0, 0, 0.7));
-		width: 100%;
-		z-index: 99999;
-		top: 0;
-		overflow: hidden;
-		height: 3em;
-		overflow-x: auto;
-		white-space: nowrap;
-		position: fixed;
-		line-height: 1.5;
-		font-size: inherit;
-		text-align: start;
-		border: 0;
-		outline-offset: -5px;
-	}
+  @media (max-width: 900px) {
+    border-width: 1ch;
+  }
 
-	&--headless {
-		padding-top: 0;
-	}
+  * {
+    box-sizing: border-box;
+  }
 
-	&.n-modal--limited > .n-ovrl__content {
-		padding: 0;
-		height: 50vh;
-		margin-top: 25vh;
-		width: 50vw;
-		margin-inline-start: 25vw;
-	}
+  &__content {
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+    // right: 0;
+    // bottom: 0;
+    // overflow-y: auto;
+    // overflow-x: none;
+    overflow: auto;
 
-	> * {
-		background: #fff;
-		position: relative;
-	}
-}
+    background: transparent;
+    // height: 100%; // For Android Browser, which doesn't understand the bottom line
+    // padding-top: calc(var(--line-height-em) * 2);
+  }
 
-.n-ovrl__bg {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	z-index: -1;
-	cursor: crosshair;
-	background: transparent;
+  > .n-ovrl__close {
+    color: var(--control-color, #fff);
+    cursor: pointer;
+    padding: 0.75em;
+    font: inherit;
+    font-weight: bold;
+    background-color: var(--control-bg, rgba(0, 0, 0, 0.7));
+    width: 100%;
+    z-index: 99999;
+    top: 0;
+    position: sticky;
+    overflow: hidden;
+    height: 3em;
+    overflow-x: auto;
+    white-space: nowrap;
+    line-height: var(--line-height-em, 1.5rem);
+    text-align: start;
+    border: 0;
+    outline-offset: -5px;
+
+    flex: 3em 0 0;
+  }
+
+  // &--headless {
+  // 	padding-top: 0;
+  // }
+
+  &.n-modal--full {
+    border: none;
+    // .n-ovrl__bg {
+    //   position: fixed;
+    //   top: var(--overlay-top, 0);
+    //   width: 100%;
+    //   height: 100%;
+    //   height: -webkit-fill-available;
+    // }
+  }
+
+  > * {
+    background: #fff;
+    position: relative;
+  }
 }
 
 @media (max-width: $screen-narrow-max) {
-	.n-ovrl {
-		&.n-modal--limited > .n-ovrl__content {
-			height: calc(80% - var(--overlay-bottom, 0) - var(--overlay-top, 0));
-			margin: 10%;
-			width: 80%;
-		}
+  .n-ovrl {
+    &.n-modal--limited > .n-ovrl__content {
+      height: calc(80% - var(--overlay-bottom, 0) - var(--overlay-top, 0));
+      margin: 10%;
+      width: 80%;
+    }
 
-		&__close {
-			height: 1.5em;
-			padding: 0 0.75em;
-		}
+    &__close {
+      height: 1.5em;
+      padding: 0 0.75em;
+    }
 
-		&__content {
-			padding-top: calc(var(--line-height-em) * 2);
-		}
-	}
+    &__content {
+      padding-top: calc(var(--line-height-em) * 2);
+    }
+  }
 }
 
 @media (max-height: 512px) and (orientation: landscape) {
+  // Move the close bar to the side, because it's inaccessible with certain toolbar configurations
+  .n-ovrl {
+    &__content {
+      padding: 0;
+    }
 
-	// Move the close bar to the side, because it's inaccessible with certain toolbar configurations
-	.n-ovrl {
-		&__content {
-			padding: 0;
-		}
+    > .n-ovrl--close {
+      inset-inline-start: 0.5rem;
+      inset-inline-end: auto;
+      margin-top: 0.5rem;
+      top: var(--overlay-top, 0);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 0;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
 
-		> .n-ovrl--close {
-			inset-inline-start: 0.5rem;
-			inset-inline-end: auto;
-			margin-top: 0.5rem;
-			top: var(--overlay-top, 0);
-			width: 40px;
-			height: 40px;
-			border-radius: 50%;
-			font-size: 0;
-			display: flex;
-			justify-content: center;
-			flex-direction: column;
-
-			&:after {
-				content: "╳";
-				font-size: 1rem;
-				display: inline-block;
-				width: 40px;
-				text-align: center;
-			}
-		}
-	}
+      &:after {
+        content: "╳";
+        font-size: 1rem;
+        display: inline-block;
+        width: 40px;
+        text-align: center;
+      }
+    }
+  }
 }

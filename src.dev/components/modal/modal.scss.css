@@ -21,81 +21,62 @@ html.n-full-screen body {
 
 .n-ovrl {
   z-index: 999999;
-  background: #fff;
   background: rgba(255, 255, 255, 0.97);
   overflow: hidden;
   overflow-y: auto;
   position: fixed;
-  top: 0;
-  bottom: 0;
   top: var(--overlay-top, 0);
-  bottom: var(--overlay-bottom, 0);
-  right: 0;
-  left: 0;
-  border-top: none;
+  width: 100%;
+  height: 100%;
+  height: -webkit-fill-available;
+  box-sizing: border-box;
   -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
   backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  border: calc(50vw - 35ch) solid transparent;
+  border-top-width: 3ch;
+  border-bottom-width: 3ch;
+}
+@media (max-width: 900px) {
+  .n-ovrl {
+    border-width: 1ch;
+  }
 }
 .n-ovrl * {
   box-sizing: border-box;
 }
 .n-ovrl__content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  overflow-y: auto;
-  overflow-x: none;
+  overflow: auto;
   background: transparent;
-  height: 100%;
-  padding-top: calc(var(--line-height-em) * 2);
 }
 .n-ovrl > .n-ovrl__close {
   color: var(--control-color, #fff);
   cursor: pointer;
   padding: 0.75em;
+  font: inherit;
   font-weight: bold;
   background-color: var(--control-bg, rgba(0, 0, 0, 0.7));
   width: 100%;
   z-index: 99999;
   top: 0;
+  position: sticky;
   overflow: hidden;
   height: 3em;
   overflow-x: auto;
   white-space: nowrap;
-  position: fixed;
-  line-height: 1.5;
-  font-size: inherit;
+  line-height: var(--line-height-em, 1.5rem);
   text-align: start;
   border: 0;
   outline-offset: -5px;
+  flex: 3em 0 0;
 }
-.n-ovrl--headless {
-  padding-top: 0;
-}
-.n-ovrl.n-modal--limited > .n-ovrl__content {
-  padding: 0;
-  height: 50vh;
-  margin-top: 25vh;
-  width: 50vw;
-  margin-inline-start: 25vw;
+.n-ovrl.n-modal--full {
+  border: none;
 }
 .n-ovrl > * {
   background: #fff;
   position: relative;
-}
-
-.n-ovrl__bg {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  cursor: crosshair;
-  background: transparent;
 }
 
 @media (max-width: 599.9px) {
