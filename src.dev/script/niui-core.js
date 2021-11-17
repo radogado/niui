@@ -367,25 +367,3 @@ if (typeof MutationObserver === "function") {
 qa('a[href^="#"]').forEach((el) => {
   el.onclick = el.onclick || animateAnchors; // Don't add to previous onclick event handler
 });
-
-// Viewport element for iOS
-if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
-  let adjustViewport = () => {
-    document.querySelectorAll(".n-viewport").forEach((el) => {
-      el.style.height = "100vh";
-      el.style.marginTop = 0;
-      // 		console.log('Element: ' + el.offsetHeight, 'Window: ' + window.innerHeight);
-      if (el.offsetHeight > window.innerHeight) {
-        el.style.height = `calc(100vh - ${el.offsetHeight - window.innerHeight}*1px)`;
-      }
-      if (el.getBoundingClientRect().y < 0) {
-        el.style.marginTop = `${Math.abs(el.getBoundingClientRect().y)}px`;
-      }
-    });
-  };
-  adjustViewport();
-  window.addEventListener("resize", (e) => {
-    adjustViewport();
-    setTimeout(adjustViewport, 200);
-  });
-}

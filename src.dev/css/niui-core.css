@@ -49,19 +49,21 @@ html.n-vertical-page body {
   flex-grow: 1;
 }
 
+.n-viewport {
+  height: 100vh;
+  height: -webkit-fill-available;
+}
 .n-viewport.n-header-banner {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
-
 .n-viewport.n-header-banner .n-banner {
   flex-grow: 1;
   justify-content: center;
   flex-direction: column;
   display: flex;
 }
-
 .n-viewport.n-header-banner.n-push-up:after {
   content: "";
   flex-grow: 1;
