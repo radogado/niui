@@ -490,18 +490,5 @@
   inset-inline-start: calc(50% - 0.5em);
   z-index: -1;
 }
-.n-form--language select {
-  height: auto;
-  width: 100%;
-  background-position: calc(100% - 0.5em);
-  margin-inline-start: 0;
-  height: calc(var(--line-height-em) * 2);
-  line-height: calc(var(--line-height-em) * 2);
-  margin: 0;
-}
-.n-form--language input[type=submit] {
-  min-height: 1em;
-  padding: 0 0.5em;
-}
 
 /*# sourceMappingURL=form.scss.css.map */
