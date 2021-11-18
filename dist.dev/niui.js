@@ -173,29 +173,29 @@ function getCumulativeOffset(obj) {
   };
 }
 
-function animateAnchors(e) {
-  if (!e || q("html").clientHeight > document.body.clientHeight) {
-    return;
-  }
-  var el = e.target;
-  while (typeof el.href !== "string") {
-    // If a child of the link is clicked
-    el = el.parentNode;
-  }
-  if (el.href.split(/#|\?/)[0] != window.location.href.split(/#|\?/)[0]) {
-    // External page?
-    return;
-  }
-  var hash = null;
-  if (el.href.split("#").pop().length > 0) {
-    hash = document.getElementById(el.href.split("#").pop());
-  }
-  scrollToAnimated(hash === null ? 0 : getCumulativeOffset(hash).y, 0.5, (e) => {
-    // To do: fix jumping to new hash – is the fallback executed properly in animate()?
-    window.location = el.href.split("#")[0] + "#" + el.href.split("#").pop();
-  });
-  return false;
-}
+// function animateAnchors(e) {
+//   if (!e || q("html").clientHeight > document.body.clientHeight) {
+//     return;
+//   }
+//   var el = e.target;
+//   while (typeof el.href !== "string") {
+//     // If a child of the link is clicked
+//     el = el.parentNode;
+//   }
+//   if (el.href.split(/#|\?/)[0] != window.location.href.split(/#|\?/)[0]) {
+//     // External page?
+//     return;
+//   }
+//   var hash = null;
+//   if (el.href.split("#").pop().length > 0) {
+//     hash = document.getElementById(el.href.split("#").pop());
+//   }
+//   scrollToAnimated(hash === null ? 0 : getCumulativeOffset(hash).y, 0.5, (e) => {
+//     // To do: fix jumping to new hash – is the fallback executed properly in animate()?
+//     window.location = el.href.split("#")[0] + "#" + el.href.split("#").pop();
+//   });
+//   return false;
+// }
 
 function closestElement(el, target) {
   // Thanks http://gomakethings.com/ditching-jquery/ – Accepts either a selector string or an actual element
@@ -373,9 +373,9 @@ if (typeof MutationObserver === "function") {
 }
 // initThreshold(document.body);
 // Animate anchor link jumps
-qa('a[href^="#"]').forEach((el) => {
-  el.onclick = el.onclick || animateAnchors; // Don't add to previous onclick event handler
-});
+// qa('a[href^="#"]').forEach((el) => {
+//   el.onclick = el.onclick || animateAnchors; // Don't add to previous onclick event handler
+// });
 
 //→ accordion.js:
 'use strict';

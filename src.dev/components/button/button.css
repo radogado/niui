@@ -73,29 +73,6 @@ a[href].n-btn.n-btn--big,
 }
 
 /* Back to top button */
-a.n-backtotop[href] {
-  line-height: 1;
-  margin: 0.7333em auto;
-  font-weight: bold;
-  background: transparent;
-  background: rgba(0, 0, 0, 0.2);
-  color: #fff;
-  border-radius: 2em;
-  font-family: "Hiragino Mincho ProN";
-  /* fix for iOS */
-  cursor: pointer;
-  position: absolute;
-  bottom: -1em;
-  left: 50%;
-  transform: translateX(-50%);
-  text-decoration: none;
-  z-index: 999;
-  padding: 0.5em;
-  width: 2em;
-  text-align: center;
-  box-sizing: border-box;
-}
-
 .n-btn__group {
   margin: 0 -0.25em;
 }
