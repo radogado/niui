@@ -50,6 +50,9 @@ html.n-full-screen body {
   overflow: auto;
   background: transparent;
 }
+.n-modal__content:focus {
+  outline: 0;
+}
 .n-modal > .n-modal__close {
   color: var(--control-color, #fff);
   cursor: pointer;

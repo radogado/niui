@@ -48,6 +48,9 @@ html.n-full-screen {
   &__content {
     overflow: auto;
     background: transparent;
+    &:focus {
+      outline: 0;
+    }
   }
 
   > .n-modal__close {
