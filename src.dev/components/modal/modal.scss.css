@@ -19,7 +19,7 @@ html.n-full-screen body {
   opacity: 0;
 }
 
-.n-ovrl {
+.n-modal {
   z-index: 999999;
   background: rgba(255, 255, 255, 0.97);
   overflow: hidden;
@@ -39,18 +39,18 @@ html.n-full-screen body {
   border-bottom-width: 3ch;
 }
 @media (max-width: 900px) {
-  .n-ovrl {
+  .n-modal {
     border-width: 1ch;
   }
 }
-.n-ovrl * {
+.n-modal * {
   box-sizing: border-box;
 }
-.n-ovrl__content {
+.n-modal__content {
   overflow: auto;
   background: transparent;
 }
-.n-ovrl > .n-ovrl__close {
+.n-modal > .n-modal__close {
   color: var(--control-color, #fff);
   cursor: pointer;
   padding: 0.75em;
@@ -71,33 +71,48 @@ html.n-full-screen body {
   outline-offset: -5px;
   flex: 3em 0 0;
 }
-.n-ovrl.n-modal--full {
+.n-modal.n-modal--full {
   border: none;
 }
-.n-ovrl > * {
+.n-modal--shadow:not(.n-modal--full) .n-modal__bg {
+  z-index: -1;
+  position: fixed;
+  width: 70ch;
+  max-width: calc(100% - 2ch);
+  box-shadow: 0 0 0.15em 0.1em var(--control-bg, grey);
+  top: 3ch;
+  bottom: 3ch;
+}
+@media (max-width: 900px) {
+  .n-modal--shadow:not(.n-modal--full) .n-modal__bg {
+    width: 100%;
+    left: 1ch;
+    right: 1ch;
+    top: 1ch;
+    bottom: 1ch;
+  }
+}
+.n-modal--rounded .n-modal__bg {
+  border-radius: 0.5ch;
+}
+.n-modal--rounded .n-modal__content {
+  border-bottom-left-radius: 0.5ch;
+  border-bottom-right-radius: 0.5ch;
+}
+.n-modal--rounded .n-modal__close {
+  border-top-left-radius: 0.5ch;
+  border-top-right-radius: 0.5ch;
+}
+.n-modal > * {
   background: #fff;
   position: relative;
 }
 
-@media (max-width: 599.9px) {
-  .n-ovrl.n-modal--limited > .n-ovrl__content {
-    height: calc(80% - var(--overlay-bottom, 0) - var(--overlay-top, 0));
-    margin: 10%;
-    width: 80%;
-  }
-  .n-ovrl__close {
-    height: 1.5em;
-    padding: 0 0.75em;
-  }
-  .n-ovrl__content {
-    padding-top: calc(var(--line-height-em) * 2);
-  }
-}
 @media (max-height: 512px) and (orientation: landscape) {
-  .n-ovrl__content {
+  .n-modal__content {
     padding: 0;
   }
-  .n-ovrl > .n-ovrl--close {
+  .n-modal > .n-modal--close {
     inset-inline-start: 0.5rem;
     inset-inline-end: auto;
     margin-top: 0.5rem;
@@ -110,7 +125,7 @@ html.n-full-screen body {
     justify-content: center;
     flex-direction: column;
   }
-  .n-ovrl > .n-ovrl--close:after {
+  .n-modal > .n-modal--close:after {
     content: "╳";
     font-size: 1rem;
     display: inline-block;

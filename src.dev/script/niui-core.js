@@ -51,9 +51,12 @@ function toggleAttribute(el, attribute) {
 }
 // DOM functions – end
 function transferClass(el_origin, el_target, className) {
-  if (hasClass(el_origin, className)) {
-    addClass(el_target, className);
-  }
+  let classes = typeof className === "string" ? new Array(className) : className;
+  classes.forEach((el) => {
+    if (hasClass(el_origin, el)) {
+      addClass(el_target, el);
+    }
+  });
 }
 
 function parseHTML(str) {

@@ -66,6 +66,10 @@ body[data-frozen] {
   overflow: visible;
 }
 
+[data-sliding][data-ready].n-carousel--auto-height > .n-carousel__content > * {
+  overflow: hidden;
+}
+
 .n-carousel--vertical:not(.n-carousel--auto-height) > .n-carousel__content,
 .n-carousel--vertical[data-ready] > .n-carousel__content {
   flex-direction: column;
@@ -680,7 +684,9 @@ _:future,
   background: rgba(0, 0, 0, 0.3);
   color: #ddd;
 }
-.n-carousel--lightbox.n-carousel--auto-height figure, .n-carousel--lightbox.n-carousel--auto-height video, .n-carousel--lightbox.n-carousel--auto-height iframe {
+.n-carousel--lightbox.n-carousel--auto-height figure,
+.n-carousel--lightbox.n-carousel--auto-height video,
+.n-carousel--lightbox.n-carousel--auto-height iframe {
   height: auto;
   max-height: none;
 }

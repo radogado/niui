@@ -50,12 +50,12 @@ var componentModal = (function () {
   const animation_duration = window.matchMedia("(prefers-reduced-motion: no-preference)").matches ? 200 : 0;
 
   function closeFullWindow() {
-    let full_window = qa(".n-ovrl");
+    let full_window = qa(".n-modal");
     full_window = full_window[full_window.length - 1];
     if (full_window) {
       window.scrollTo(previousScrollX, previousScrollY);
       let direction_option = "normal";
-      var animation = full_window.querySelector(".n-ovrl__content > div").dataset.anim; // Custom animation?
+      var animation = full_window.querySelector(".n-modal__content > div").dataset.anim; // Custom animation?
       if (animation.length < 11) {
         // '', 'null' or 'undefined'?
         animation = '[{ "transform": "translate3d(0,0,0)" }, { "transform": "translate3d(0,-100%,0)" }]';
@@ -64,17 +64,17 @@ var componentModal = (function () {
       }
 
       full_window.animate(JSON.parse(animation), { duration: animation_duration, direction: direction_option, easing: "ease-in-out" }).onfinish = () => {
-        nuiDisableBodyScroll(false, full_window.querySelector(".n-ovrl__content")); // Turn off and restore page scroll
+        nuiDisableBodyScroll(false, full_window.querySelector(".n-modal__content")); // Turn off and restore page scroll
         full_window.parentNode.removeChild(full_window);
         full_window_content = null;
-        if (!q(".n-ovrl")) {
+        if (!q(".n-modal")) {
           // A single overlay is gone, leaving no overlays on the page
           window.removeEventListener("resize", adjustModal);
           window.removeEventListener("keydown", arrow_keys_handler); // To do: unglobal this and apply only to modal
           window.removeEventListener("keyup", keyUpClose);
           removeClass(q("html"), "no-scroll");
         } else {
-          nuiDisableBodyScroll(true, full_window.querySelector(".n-ovrl__content"));
+          nuiDisableBodyScroll(true, full_window.querySelector(".n-modal__content"));
           adjustModal();
         }
         if (previouslyFocused) {
@@ -95,13 +95,13 @@ var componentModal = (function () {
     }
     full_window_content.dataset.anim = animation;
     var wrapper = document.createElement("div");
-    addClass(wrapper, "n-ovrl");
-    wrapper.insertAdjacentHTML("beforeend", "<div class=n-ovrl__content tabindex=0></div><div class=n-ovrl__bg></div>");
+    addClass(wrapper, "n-modal");
+    wrapper.insertAdjacentHTML("beforeend", "<div class=n-modal__content tabindex=0></div><div class=n-modal__bg></div>");
     wrapper.firstChild.appendChild(full_window_content);
     full_window_content = wrapper;
-    full_window_content.insertAdjacentHTML("afterbegin", `<button class=n-ovrl__close> ← ${document.title}</button>`);
+    full_window_content.insertAdjacentHTML("afterbegin", `<button class=n-modal__close> ← ${document.title}</button>`);
     full_window_content.onclick = (e) => {
-      let modals = qa(".n-ovrl");
+      let modals = qa(".n-modal");
       if (modals) {
         let modal = modals[modals.length - 1];
         if (e.target === modal || e.target.parentNode === modal) {
@@ -109,14 +109,14 @@ var componentModal = (function () {
         }
       }
     };
-    full_window_content.querySelector(".n-ovrl__close").addEventListener(
+    full_window_content.querySelector(".n-modal__close").addEventListener(
       "touchmove",
       (e) => {
         e.preventDefault();
       },
       { passive: false }
     );
-    full_window_content.querySelector(".n-ovrl__bg").addEventListener(
+    full_window_content.querySelector(".n-modal__bg").addEventListener(
       "touchmove",
       (e) => {
         e.preventDefault();
@@ -126,10 +126,10 @@ var componentModal = (function () {
     window.addEventListener("keyup", keyUpClose);
     document.body.appendChild(full_window_content);
     trapFocus(full_window_content);
-    let full_window_container = full_window_content.querySelector(".n-ovrl__content");
+    let full_window_container = full_window_content.querySelector(".n-modal__content");
     full_window_container.focus();
     nuiDisableBodyScroll(true, full_window_container); // Turn on and block page scroll
-    if (qa(".n-ovrl").length === 1) {
+    if (qa(".n-modal").length === 1) {
       // Sole (first) modal
       addClass(q("html"), "no-scroll");
       previousScrollX = window.scrollX;
@@ -159,8 +159,8 @@ var componentModal = (function () {
   function modalWindow(e) {
     // Modal window of external file content
     var el = e.target;
-    var link = el.closest(".n-modal").href;
-    var animation = el.closest(".n-modal").dataset.anim;
+    var link = el.closest(".n-modal-link").href;
+    var animation = el.closest(".n-modal-link").dataset.anim;
     var request = new XMLHttpRequest();
     request.open("GET", link.split("#")[0], true);
     request.onload = () => {
@@ -182,8 +182,7 @@ var componentModal = (function () {
           parsed = parsed.querySelector(container).innerHTML;
         }
         openFullWindow(parsed, animation); // To do: If .modal[data-animation], pass it to openFullWindow() as second parameter. Also in openLightbox().
-        transferClass(el.closest(".n-modal"), q(".n-ovrl"), "n-modal--limited");
-        transferClass(el.closest(".n-modal"), q(".n-ovrl"), "n-modal--full");
+        transferClass(el.closest(".n-modal-link"), q(".n-modal"), ["n-modal--limited", "n-modal--full", "n-modal--rounded", "n-modal--shadow"]);
       } else {
         // Error
         closeFullWindow();
@@ -199,7 +198,7 @@ var componentModal = (function () {
   }
   let init = (host) => {
     // Modal window: open a link's target inside it
-    host.querySelectorAll("a.n-modal[href]:not([data-ready])").forEach((el) => {
+    host.querySelectorAll("a.n-modal-link[href]:not([data-ready])").forEach((el) => {
       if (el.href !== location.href.split("#")[0] + "#") {
         // Is it an empty anchor?
         el.onclick = modalWindow;

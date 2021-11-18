@@ -16,7 +16,7 @@ html.n-full-screen {
   }
 }
 
-.n-ovrl {
+.n-modal {
   z-index: 999999;
   background: rgba(255, 255, 255, 0.97);
   overflow: hidden;
@@ -27,9 +27,6 @@ html.n-full-screen {
   height: 100%;
   height: -webkit-fill-available;
   box-sizing: border-box;
-  // right: 0;
-  // left: 0;
-  // border-top: none;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 
@@ -49,21 +46,11 @@ html.n-full-screen {
   }
 
   &__content {
-    // position: absolute;
-    // top: 0;
-    // left: 0;
-    // right: 0;
-    // bottom: 0;
-    // overflow-y: auto;
-    // overflow-x: none;
     overflow: auto;
-
     background: transparent;
-    // height: 100%; // For Android Browser, which doesn't understand the bottom line
-    // padding-top: calc(var(--line-height-em) * 2);
   }
 
-  > .n-ovrl__close {
+  > .n-modal__close {
     color: var(--control-color, #fff);
     cursor: pointer;
     padding: 0.75em;
@@ -86,19 +73,41 @@ html.n-full-screen {
     flex: 3em 0 0;
   }
 
-  // &--headless {
-  // 	padding-top: 0;
-  // }
-
   &.n-modal--full {
     border: none;
-    // .n-ovrl__bg {
-    //   position: fixed;
-    //   top: var(--overlay-top, 0);
-    //   width: 100%;
-    //   height: 100%;
-    //   height: -webkit-fill-available;
-    // }
+  }
+
+  &--shadow:not(.n-modal--full) {
+    .n-modal__bg {
+      z-index: -1;
+      position: fixed;
+      width: 70ch;
+      max-width: calc(100% - 2ch);
+      box-shadow: 0 0 0.15em 0.1em var(--control-bg, grey);
+      top: 3ch;
+      bottom: 3ch;
+      @media (max-width: 900px) {
+        width: 100%;
+        left: 1ch;
+        right: 1ch;
+        top: 1ch;
+        bottom: 1ch;
+      }
+    }
+  }
+
+  &--rounded {
+    .n-modal__bg {
+      border-radius: 0.5ch;
+    }
+    .n-modal__content {
+      border-bottom-left-radius: 0.5ch;
+      border-bottom-right-radius: 0.5ch;
+    }
+    .n-modal__close {
+      border-top-left-radius: 0.5ch;
+      border-top-right-radius: 0.5ch;
+    }
   }
 
   > * {
@@ -107,33 +116,14 @@ html.n-full-screen {
   }
 }
 
-@media (max-width: $screen-narrow-max) {
-  .n-ovrl {
-    &.n-modal--limited > .n-ovrl__content {
-      height: calc(80% - var(--overlay-bottom, 0) - var(--overlay-top, 0));
-      margin: 10%;
-      width: 80%;
-    }
-
-    &__close {
-      height: 1.5em;
-      padding: 0 0.75em;
-    }
-
-    &__content {
-      padding-top: calc(var(--line-height-em) * 2);
-    }
-  }
-}
-
 @media (max-height: 512px) and (orientation: landscape) {
   // Move the close bar to the side, because it's inaccessible with certain toolbar configurations
-  .n-ovrl {
+  .n-modal {
     &__content {
       padding: 0;
     }
 
-    > .n-ovrl--close {
+    > .n-modal--close {
       inset-inline-start: 0.5rem;
       inset-inline-end: auto;
       margin-top: 0.5rem;

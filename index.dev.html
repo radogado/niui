@@ -2639,36 +2639,36 @@
 						<h2> Modal Window </h2>
 					</div>
 					<div>
-						<p><a href="external.html#content" class="n-modal">Open a modal window inside this <span>tab</span></a>.</p>
+						<p><a href="external.dev.html#content" class="n-modal-link">Open a modal window inside this <span>tab</span></a>.</p>
 						<div class="code">
-							<pre><code class="language-markup">&lt;a href="external.html#content" class="n-modal"&gt;Open a modal window here.&lt;/a&gt;</code>
+							<pre><code class="language-markup">&lt;a href="external.dev.html#content" class="n-modal-link"&gt;Open a modal window here.&lt;/a&gt;</code>
 </pre>
 						</div>
 					</div>
 					<!--
 						<div>
 
-							<p><a href="//niui.net/external.html#content" class="n-modal">Show external domain content in a modal window</a>. On error, it will be opened in a tab, browser permitting.</p>
+							<p><a href="//niui.net/external.dev.html#content" class="n-modal-link">Show external domain content in a modal window</a>. On error, it will be opened in a tab, browser permitting.</p>
 
 <div class="code">							
 
-<pre><code class="language-markup">&lt;a href="//niui.net/external.html#content" class="n-modal"&gt;Open a modal window with external content.&lt;/a&gt;</code>
+<pre><code class="language-markup">&lt;a href="//niui.net/external.dev.html#content" class="n-modal-link"&gt;Open a modal window with external content.&lt;/a&gt;</code>
 </pre>
 
 </div>						
 						</div>
 -->
 					<div>
-						<p><a href="external.html#content" class="n-modal" data-anim='[{ "opacity": 0 }, { "opacity": 1 }]'>Open a modal window with custom animation</a>.</p>
+						<p><a href="external.dev.html#content" class="n-modal-link n-modal--rounded n-modal--shadow" data-anim='[{ "opacity": 0 }, { "opacity": 1 }]'>Open a modal window with custom animation</a>.</p>
 						<div class="code">
-							<pre><code class="language-markup">&lt;a href="external.html#content" class="n-modal" data-anim="0% { opacity: 0; } 100% { opacity: 1; }"&gt;Open a modal window with custom animation.&lt;/a&gt;</code>
+							<pre><code class="language-markup">&lt;a href="external.dev.html#content" class="n-modal-link" data-anim="0% { opacity: 0; } 100% { opacity: 1; }"&gt;Open a modal window with custom animation.&lt;/a&gt;</code>
 </pre>
 						</div>
 					</div>
 					<div>
-						<p><a href="external.html#content" class="n-modal n-modal--full">Full modal window</a>.</p>
+						<p><a href="external.dev.html#content" class="n-modal-link n-modal--full">Full modal window</a>.</p>
 						<div class="code">
-							<pre><code class="language-markup">&lt;a href="external.html#content" class="n-modal limited"&gt;Open a modal window here.&lt;/a&gt;</code>
+							<pre><code class="language-markup">&lt;a href="external.dev.html#content" class="n-modal-link limited"&gt;Open a modal window here.&lt;/a&gt;</code>
 </pre>
 						</div>
 					</div>
@@ -2688,10 +2688,10 @@
 								<pre>nui.componentModal.openFullWindow(HTML, "0% { … } 100% { … }")</pre> for custom animation, automatically reversed on close
 							</li>
 							<li>
-								<pre>a.n-modal[data-anim]</pre> parameter specifies custom animation
+								<pre>a.n-modal-link[data-anim]</pre> parameter specifies custom animation
 							</li>
 							<li>
-								<pre>a.n-modal.n-modal--limited</pre> for limited width/height modal window
+								<pre>a.n-modal-link.n-modal--full</pre> for full width/height modal window
 							</li>
 						</ul>
 					</div>
