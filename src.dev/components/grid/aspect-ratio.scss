@@ -1,0 +1,24 @@
+/* Image aspect ratio – don't shift the page after loading the image */
+$selector: ".n-aspect";
+
+#{$selector} {
+	display: block;
+	aspect-ratio: var(--ratio, calc(var(--width)/ var(--height)));
+
+	> img {
+		max-width: 100%;
+		height: auto;
+		margin: 0 auto;
+		display: block;
+	}
+
+	&.n-bottom > * {
+		align-self: flex-end;
+		vertical-align: bottom;
+	}
+
+	&.n-middle > * {
+		align-self: center;
+		vertical-align: middle;
+	}
+}

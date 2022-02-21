@@ -1,15 +1,13 @@
 /* niui – Grid with inline popups */
 
-@import '../../css/niui-setup';
+@import "../../css/niui-setup";
 
 // Grid with inline popup
 
 .grid-inline-popup {
-	
 	> .grid-inline-popup--popup {
-	
 		width: 100%;
-	    flex-basis: 100%;
+		flex-basis: 100%;
 		order: 0;
 		will-change: max-height;
 		/* avoid glitchy animation: */
@@ -17,41 +15,27 @@
 		margin-bottom: 0;
 		padding-top: 0;
 		padding-bottom: 0;
-		
+
 		&:not([aria-expanded]) {
-		
 			display: none;
-		
 		}
-		
 	}
 
 	> div:not(.grid-inline-popup--popup) {
-		
 		cursor: zoom-in;
-	
+
 		&[aria-expanded] {
-			
 			cursor: zoom-out;
-		
 		}
-	
 	}
-	
+
 	&:not([data-ready]) > div:not(.grid-inline-popup--popup):focus + .grid-inline-popup--popup {
-		
 		display: block;
-		
 	}
-	
 }
 
 @media (max-width: $screen-narrow-max) {
-	
 	.n-row.grid-inline-popup > * {
-		
 		margin: 0;
-		
 	}
-	
 }

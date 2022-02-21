@@ -102,7 +102,7 @@ html.n-full-screen body {
 
 @media (max-width: 599.9px) {
   .n-ovrl.n-modal__limited > .n-ovrl--content {
-    height: calc(80% - var(--overlay-bottom, 0) - var(--overlay-top, 0));
+    height: calc(80% - var(--overlay-bottom, 0)  - var(--overlay-top, 0));
     margin: 10%;
     width: 80%;
   }
@@ -117,7 +117,8 @@ html.n-full-screen body {
   }
 }
 @media (max-height: 512px) and (orientation: landscape) {
-  .n-ovrl .n-slider--wrap.n-slider__overlay, .n-ovrl .n-slider--wrap.n-slider__vertical.n-slider__overlay {
+  .n-ovrl .n-slider--wrap.n-slider__overlay,
+.n-ovrl .n-slider--wrap.n-slider__vertical.n-slider__overlay {
     margin: 0;
     height: 100%;
   }

@@ -1,422 +1,321 @@
 // Component Nav – start
 
-(function (){
-    
-/* Nav – start */
+(function () {
+	/* Nav – start */
 
-	function closeDropNavClickedOutside(e) { // Close the nav when clicking outside
-	
-		if (!e.target.closest('.n-nav li')) {
-	
-			qa('.n-nav li').forEach(el => {
-				
-				el.removeAttribute('aria-expanded');
-				
+	function closeDropNavClickedOutside(e) {
+		// Close the nav when clicking outside
+
+		if (!e.target.closest(".n-nav li")) {
+			qa(".n-nav li").forEach((el) => {
+				el.removeAttribute("aria-expanded");
 			});
-			
-			if (q('.n-nav :focus')) {
-	
-				q('.n-nav :focus').blur();
-			
+
+			if (q(".n-nav :focus")) {
+				q(".n-nav :focus").blur();
 			}
-			
 		}
-		
 	}
-	
-	function isDesktop(nav) { // Checks the UL sub nav element
-		
-		return !!getComputedStyle(nav).getPropertyValue('--desktop');
-		
+
+	function isDesktop(nav) {
+		// Checks the UL sub nav element
+
+		return !!getComputedStyle(nav).getPropertyValue("--desktop");
 	}
-	
+
 	let navAnimating = false;
 
 	function dropNavBlur(e) {
-	
-		var this_nav = e.target.closest('.n-nav');
-		
+		var this_nav = e.target.closest(".n-nav");
+
 		if (navAnimating || !e.relatedTarget) {
-			
 			return;
-			
 		}
 
 		e.stopPropagation();
 
 		let el = e.target;
-		let item = el.tagName === 'LI' ? el.querySelector('ul') : el.parentElement.querySelector('ul');
-		
-		if (!this_nav.contains(e.relatedTarget) || isDesktop(this_nav) && !!e.relatedTarget && !closestElement(e.relatedTarget, this_nav)) {
+		let item = el.tagName === "LI" ? el.querySelector("ul") : el.parentElement.querySelector("ul");
+
+		if (!this_nav.contains(e.relatedTarget) || (isDesktop(this_nav) && !!e.relatedTarget && !closestElement(e.relatedTarget, this_nav))) {
 			// if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
-			this_nav.querySelectorAll('li').forEach(el => {
-	
-				el.removeAttribute('aria-expanded');
-				
+			this_nav.querySelectorAll("li").forEach((el) => {
+				el.removeAttribute("aria-expanded");
 			});
 			return;
-				
 		}
 
 		if (item) {
-			
-			if (item.parentNode.parentNode.querySelector('ul [aria-expanded]')) { // To do: Unless it's the first/last item and user has back/forward tabbed away from it?
-	
+			if (item.parentNode.parentNode.querySelector("ul [aria-expanded]")) {
+				// To do: Unless it's the first/last item and user has back/forward tabbed away from it?
+
 				return;
-	
 			}
-	
-			item.parentElement.removeAttribute('aria-expanded');
-	
+
+			item.parentElement.removeAttribute("aria-expanded");
 		}
-		
+
 		// Close neighboring parent nav's sub navs.
 		el = e.target;
-		var target_parent = el.closest('[aria-haspopup]');
-		if (target_parent) { // Skip if it's a top-level-only item
-			
-			target_parent.querySelectorAll('li[aria-expanded]').forEach(el => { // Disable active grandchildren
-		
-				el.removeAttribute('aria-expanded');
-		
+		var target_parent = el.closest("[aria-haspopup]");
+		if (target_parent) {
+			// Skip if it's a top-level-only item
+
+			target_parent.querySelectorAll("li[aria-expanded]").forEach((el) => {
+				// Disable active grandchildren
+
+				el.removeAttribute("aria-expanded");
 			});
-		
 		}
-	
+
 		el = e.target.parentNode;
-		if (!el.nextElementSibling && // last item
-			el.parentNode.parentNode.nodeName === 'LI' && // of third-level nav
-			!el.parentNode.parentNode.nextElementSibling) {
-				
-				el.parentNode.parentNode.removeAttribute('aria-expanded');
-		
+		if (
+			!el.nextElementSibling && // last item
+			el.parentNode.parentNode.nodeName === "LI" && // of third-level nav
+			!el.parentNode.parentNode.nextElementSibling
+		) {
+			el.parentNode.parentNode.removeAttribute("aria-expanded");
 		}
-		
 	}
-			
+
 	function dropNavFocus(e) {
-
 		// Close focused third level child when focus moves to another top-level item
-		
+
 		e.stopPropagation();
-		
-		var el = e.target.closest('.n-nav > ul > li');
-// To do: on LI focus, make it aria-expanded and focus its a		
-		
+
+		var el = e.target.closest(".n-nav > ul > li");
+		// To do: on LI focus, make it aria-expanded and focus its a
+
 		if (navAnimating) {
-			
 			return;
-			
 		}
 
-		[[].slice.call(el.parentElement.children), [].slice.call(e.target.parentElement.parentElement.children), [].slice.call(e.target.parentElement.parentElement.parentElement.parentElement.children) ].forEach(el => {
-			
-			el.forEach(el => {
-				
-				el.removeAttribute('aria-expanded');
-				
-			})
-			
-			
+		[
+			[].slice.call(el.parentElement.children),
+			[].slice.call(e.target.parentElement.parentElement.children),
+			[].slice.call(e.target.parentElement.parentElement.parentElement.parentElement.children),
+		].forEach((el) => {
+			el.forEach((el) => {
+				el.removeAttribute("aria-expanded");
+			});
 		});
 
-		el.setAttribute('aria-expanded', true);
-// 		openItem(el.querySelector('ul'));
-		
-		if (el.parentNode.parentNode.getAttribute('aria-haspopup')) {
-			
-			el.parentNode.parentNode.setAttribute('aria-expanded', true);
-			
+		el.setAttribute("aria-expanded", true);
+		// 		openItem(el.querySelector('ul'));
+
+		if (el.parentNode.parentNode.getAttribute("aria-haspopup")) {
+			el.parentNode.parentNode.setAttribute("aria-expanded", true);
 		}
-		
-		el.querySelectorAll('li[aria-expanded]').forEach(el => { // Hide grandchildren
-			
-			el.removeAttribute('aria-expanded');
-			
+
+		el.querySelectorAll("li[aria-expanded]").forEach((el) => {
+			// Hide grandchildren
+
+			el.removeAttribute("aria-expanded");
 		});
-			
+
 		// Make current focused item's ancestors visible
-		
+
 		el = e.target;
-	
-		el.parentNode.setAttribute('aria-expanded', true);
+
+		el.parentNode.setAttribute("aria-expanded", true);
 		var grand_parent = el.parentElement.parentElement.parentElement;
-		if (grand_parent.tagName === 'LI') {
-	
-			grand_parent.setAttribute('aria-expanded', true);
-	
+		if (grand_parent.tagName === "LI") {
+			grand_parent.setAttribute("aria-expanded", true);
 		}
-		
 	}
-	
+
 	var closeDropNavClickedOutsideEnabled = false;
 
-	let closeItem = item => {
-	
+	let closeItem = (item) => {
 		navAnimating = true;
-		item.style.overflow = 'hidden';
-		item.parentElement.setAttribute('aria-expanded', true);
+		item.style.overflow = "hidden";
+		item.parentElement.setAttribute("aria-expanded", true);
 
-		animate(item, `0% { height: ${item.scrollHeight}px; } 100% { height: 0 }`, .2, () => { 
-		
-			item.removeAttribute('style'); 
-			item.parentElement.removeAttribute('aria-expanded');
+		animate(item, `0% { height: ${item.scrollHeight}px; } 100% { height: 0 }`, 0.2, () => {
+			item.removeAttribute("style");
+			item.parentElement.removeAttribute("aria-expanded");
 			navAnimating = false;
-			
-			item.querySelectorAll('[aria-expanded]').forEach(el => {
-				
-				el.removeAttribute('aria-expanded');
-				
+
+			item.querySelectorAll("[aria-expanded]").forEach((el) => {
+				el.removeAttribute("aria-expanded");
 			});
-		
 		});
-					
-	}
-	
-	let openItem = item => {
-		
+	};
+
+	let openItem = (item) => {
 		navAnimating = true;
-		item.style.overflow = 'hidden';
-		item.parentElement.setAttribute('aria-expanded', true);
-		animate(item, `0% { height: 0; } 100% { height: ${item.scrollHeight}px }`, .2, () => { 
-
-			item.removeAttribute('style'); 
+		item.style.overflow = "hidden";
+		item.parentElement.setAttribute("aria-expanded", true);
+		animate(item, `0% { height: 0; } 100% { height: ${item.scrollHeight}px }`, 0.2, () => {
+			item.removeAttribute("style");
 			navAnimating = false;
-
 		});
+	};
 
-	}
-
-	let clickEvent = e => {
-	
+	let clickEvent = (e) => {
 		e.stopPropagation();
 		// To do: also ancestors, also close when open
 		let el = e.target;
-		var this_nav = el.closest('.n-nav');
+		var this_nav = el.closest(".n-nav");
 
-		this_nav.removeEventListener('focusout', dropNavBlur);
+		this_nav.removeEventListener("focusout", dropNavBlur);
 		if (this_nav.contains(document.activeElement)) {
-			
 			document.activeElement.blur();
-			
 		}
 
-		let item = el.tagName === 'LI' ? el.querySelector('ul') : el.parentElement.querySelector('ul');
+		let item = el.tagName === "LI" ? el.querySelector("ul") : el.parentElement.querySelector("ul");
 		if (isDesktop(this_nav)) {
-
-			if (el.getAttribute('aria-expanded')) {
-				
-				if (el.querySelector('a:focus')) {
-					
-// 						el.querySelector('a:focus').blur();
-					
+			if (el.getAttribute("aria-expanded")) {
+				if (el.querySelector("a:focus")) {
+					// 						el.querySelector('a:focus').blur();
 				} else {
-
 					if (isDesktop(this_nav)) {
-	
-						el.removeAttribute('aria-expanded');
-					
+						el.removeAttribute("aria-expanded");
 					} else {
-						
 						closeItem(item);
-												
 					}
-
 				}
-				
 			} else {
-				
-				[].slice.call(el.parentElement.children).forEach(item => {
-					
-					item.removeAttribute('aria-expanded');
-					let old_item_open_child = item.querySelector('[aria-expanded]');
+				[].slice.call(el.parentElement.children).forEach((item) => {
+					item.removeAttribute("aria-expanded");
+					let old_item_open_child = item.querySelector("[aria-expanded]");
 					if (old_item_open_child) {
-						
-						old_item_open_child.removeAttribute('aria-expanded');
-
+						old_item_open_child.removeAttribute("aria-expanded");
 					}
-				
 				});
 
-				el.setAttribute('aria-expanded', true);
+				el.setAttribute("aria-expanded", true);
 
 				if (!isDesktop(this_nav)) {
-					
 					openItem(item);
-					
 				}
-			
 			}
-
 		} else {
-
-			if (item.parentNode.hasAttribute('aria-expanded')) {
-				
-				closeItem(item);				
-				
+			if (item.parentNode.hasAttribute("aria-expanded")) {
+				closeItem(item);
 			} else {
-				
 				// If new item is top level, close another top level item, if any is open
-				
-				if (item.parentElement.parentElement.matches('ul')) { // It's top level, To do: also on secondary level, close open sibling
-					
-					let old_item = item.parentElement.closest('ul').querySelector('[aria-expanded="true"] > ul');
-					
+
+				if (item.parentElement.parentElement.matches("ul")) {
+					// It's top level, To do: also on secondary level, close open sibling
+
+					let old_item = item.parentElement.closest("ul").querySelector('[aria-expanded="true"] > ul');
+
 					if (old_item) {
-						
 						closeItem(old_item);
-											
 					}
-					
 				}
-				
+
 				openItem(item);
-				
 			}
-
 		}
-		
-		this_nav.addEventListener('focusout', dropNavBlur);
 
+		this_nav.addEventListener("focusout", dropNavBlur);
 	};
 
 	function checkSides(ul, menubar) {
-	
-		removeClass(ul, 'n-right-overflow');
-		ul.style.removeProperty('--n-right-overflow');
+		removeClass(ul, "n-right-overflow");
+		ul.style.removeProperty("--n-right-overflow");
 
-//		var rect = ul.getBoundingClientRect(); // Firefox doesn't preserve this var
-		
-		if (ul.getBoundingClientRect().left > bodyElement.offsetWidth - (ul.getBoundingClientRect().left + ul.getBoundingClientRect().width)) {
-			
+		//		var rect = ul.getBoundingClientRect(); // Firefox doesn't preserve this var
+
+		if (ul.getBoundingClientRect().left > document.body.offsetWidth - (ul.getBoundingClientRect().left + ul.getBoundingClientRect().width)) {
 			if (ul.getBoundingClientRect().right > window.innerWidth) {
-				
-				ul.style.setProperty('--n-right-overflow', (window.innerWidth - ul.getBoundingClientRect().right) + 'px');
-				addClass(ul, 'n-right-overflow');
-				
+				ul.style.setProperty("--n-right-overflow", window.innerWidth - ul.getBoundingClientRect().right + "px");
+				addClass(ul, "n-right-overflow");
 			}
-	
-			addClass(ul, 'n-left-side');
-			
+
+			addClass(ul, "n-left-side");
 		} else {
-			
-			removeClass(ul, 'n-left-side');
-			
+			removeClass(ul, "n-left-side");
 		}
-		
 	}
 
 	function initNav(el) {
-		
 		// Delete all trigger inputs, add tabindex=0 to each li
-		
-		el.querySelectorAll('input').forEach(el => {
-			
-			el.outerHTML = '';
-			
+
+		el.querySelectorAll("input").forEach((el) => {
+			el.outerHTML = "";
 		});
-		
-		el.setAttribute('role', 'menubar');
-	
-		el.querySelectorAll('li > a').forEach(el => {
-			
-			el.setAttribute('tabindex', 0);
-	
+
+		el.setAttribute("role", "menubar");
+
+		el.querySelectorAll("li > a").forEach((el) => {
+			el.setAttribute("tabindex", 0);
 		});
-	
-		if (!el.closest('.n-nav.n-nav__drop')) { // The rest is for drop nav only
-			
+
+		if (!el.closest(".n-nav.n-nav__drop")) {
+			// The rest is for drop nav only
+
 			return;
-	
 		}
-	
+
 		if (!closeDropNavClickedOutsideEnabled) {
-			
-			window.addEventListener('touchend', closeDropNavClickedOutside);
-			window.addEventListener('mouseup', closeDropNavClickedOutside);
+			window.addEventListener("touchend", closeDropNavClickedOutside);
+			window.addEventListener("mouseup", closeDropNavClickedOutside);
 			closeDropNavClickedOutsideEnabled = true;
-		
 		}
-		
-		el.addEventListener('keyup', e => {
-			
+
+		el.addEventListener("keyup", (e) => {
 			// Check for sibling or children to expand on control keys Left/Right/etc
-		
-			if (e.key === 'Escape') {
-				
-				e.target.closest('.n-nav').querySelectorAll('li').forEach(el => {
-					
-					el.removeAttribute('aria-expanded');
-					
-				});
-				
+
+			if (e.key === "Escape") {
+				e.target
+					.closest(".n-nav")
+					.querySelectorAll("li")
+					.forEach((el) => {
+						el.removeAttribute("aria-expanded");
+					});
+
 				document.activeElement.blur();
-				
 			}
-			
 		});
-		
+
 		let menubar = el;
-		
-		el.querySelectorAll('li').forEach(el => {
-			
-			let ul = el.querySelector('ul');
+
+		el.querySelectorAll("li").forEach((el) => {
+			let ul = el.querySelector("ul");
 			if (ul) {
-				
-				el.setAttribute('aria-haspopup', true);
+				el.setAttribute("aria-haspopup", true);
 
-				if (el.children[0].nodeName === 'UL') {
-
+				if (el.children[0].nodeName === "UL") {
 					el.insertBefore(el.children[1], el.children[0]); // Swap 'a' with 'ul'
-
 				}
-				
 			}
-		
 		});
 
-		el.querySelectorAll('ul').forEach(ul => {
-			
-			checkSides(ul, menubar);
-		
-		});
-
-		el.addEventListener('mousedown', clickEvent);
-		el.addEventListener('focusin', dropNavFocus);
-		el.addEventListener('focusout', dropNavBlur);
+		el.addEventListener("mousedown", clickEvent);
+		el.addEventListener("focusin", dropNavFocus);
+		el.addEventListener("focusout", dropNavBlur);
 
 		draggingNow = false;
-	
-	}
-	
-	window.addEventListener('resize', function (e) {
-		
-		document.querySelectorAll('.n-nav.n-nav__drop ul[role="menubar"]').forEach(menubar => {
-			
-			menubar.querySelectorAll('ul').forEach(ul => {
-				
+
+		window.requestAnimationFrame(() => {
+			// Give the browser time to update
+
+			el.querySelectorAll("ul").forEach((ul) => {
 				checkSides(ul, menubar);
-			
 			});
-			
 		});
-		
+	}
+
+	window.addEventListener("resize", function (e) {
+		document.querySelectorAll('.n-nav.n-nav__drop ul[role="menubar"]').forEach((menubar) => {
+			menubar.querySelectorAll("ul").forEach((ul) => {
+				checkSides(ul, menubar);
+			});
+		});
 	});
-			
-/* Nav – end */
 
-	let init = host => {
-		
-		host.querySelectorAll('.n-nav:not([data-ready]) > ul:not([role])').forEach(el => {
-			
+	/* Nav – end */
+
+	let init = (host) => {
+		host.querySelectorAll(".n-nav:not([data-ready]) > ul:not([role])").forEach((el) => {
 			initNav(el);
-			makeReady(el.closest('.n-nav'));
-			
+			makeReady(el.closest(".n-nav"));
 		});
-
 	};
-	registerComponent('nav', init);
-
+	registerComponent("nav", init);
 })();
 
 // Component Nav – end

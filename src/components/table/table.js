@@ -1,92 +1,40 @@
 // Component Table – start
 
-(function (){
-    
-/* Sort parent table's rows by matching column number alternatively desc/asc on click */
-	function sortTable(table, column, f) {
+(function () {
+	/* Sort parent table's rows by matching column number alternatively desc/asc on click */
+	const toggleSort = (th) => {
+		let previous = th.closest("tr").querySelector("td[data-ascending]");
 
-		var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'), 0);;
-		
-		rows.sort((a, b) => {
-		
-			var A = a.querySelectorAll('td')[column].textContent.toUpperCase();
-			var B = b.querySelectorAll('td')[column].textContent.toUpperCase();
-			
-			if(A < B) {
-				
-				return 1*f;
-				
-			}
-	
-			if(A > B) {
-				
-				return -1*f;
-	
-			}
-	
-			return 0;
-		
-		});
-	
-	// 	observerOff();
-	
-	    for (let i in rows) {
-	
-	        table.querySelector('tbody').appendChild(rows[i]);
-	
-	    }
-	    
-	// 	observerOn();
-	
-	}
+		if (previous && previous !== th) {
+			delete previous.dataset.ascending;
+		}
 
-	let init = host => {
-		
-		host.querySelectorAll('.n-table:not([data-ready])').forEach((el) => {
-		
-			addClass(wrap(el), 'n-table--wrap');
-			makeReady(el);
-			el.parentNode.setAttribute('tabindex', 0);
-		
-		});
-	
-		host.querySelectorAll('td[data-sort]').forEach((el) => { // To do: work only on tables that aren't ready
-			// asc or desc
-			if (el.dataset.sort !== 'asc' && el.dataset.sort !== 'desc') {
-				
-				el.dataset.sort = 'desc';
-				
-			}
-			
-			function sortTableEvent(e) {
-				
-				stopEvent(e);
-				var el = e.target;
-				var cell = el.type === 'td' ? el : el.closest('td');
-				var f; // Ascending
-				if (cell.dataset.sort === 'desc') {
-					
-					f = -1;
-					cell.dataset.sort = 'asc';
-					
-				} else {
-					
-					f = 1;
-					cell.dataset.sort = 'desc';
-					
-				}
-		
-				sortTable(el.closest('table'), thisIndex(cell), f);
-				
-			}
-			
-			el.onclick = el.ontouchend = sortTableEvent;
-		
-		});
-	
+		return th.toggleAttribute("data-ascending");
 	};
-	registerComponent('table', init);
 
+	const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
+
+	const comparer = (idx, asc) => (a, b) =>
+		((v1, v2) => (v1 !== "" && v2 !== "" && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)))(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
+
+	let init = (host) => {
+		host.querySelectorAll(".n-table:not([data-ready])").forEach((el) => {
+			el.querySelectorAll("thead td button.n-table-sort, th button.n-table-sort").forEach((button) =>
+				button.addEventListener("click", (e) => {
+					let th = e.target.closest("th") || e.target.closest("td");
+					const tbody = th.closest("table").querySelector("tbody");
+					Array.from(tbody.querySelectorAll("tr"))
+						.sort(comparer(Array.from(th.parentNode.children).indexOf(th), toggleSort(th)))
+						.forEach((tr) => tbody.appendChild(tr));
+				})
+			);
+
+			addClass(wrap(el), "n-table--wrap");
+			makeReady(el);
+			el.parentNode.setAttribute("tabindex", 0);
+		});
+	};
+	registerComponent("table", init);
 })();
 
 // Component Table – end

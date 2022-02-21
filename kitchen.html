@@ -8,9 +8,13 @@
 	<meta charset=utf-8>
 	<meta name=viewport content='width=device-width,initial-scale=1.0,maximum-scale=5,user-scalable=yes'>
 
+
 	<link rel=icon href=images/favicon.ico>
 <!-- 	<link rel=styleSheet href=src/css/niui.css> -->
 	<link rel=styleSheet href=dist/niui.min.css>
+	<script src="dist/niui-preload.min.js"></script> <!-- Load and execute immediately. Should be on the same host as the above CSS file, not waiting for another request -->
+<!-- 		<script src=dist/niui.min.js type=module defer></script> -->
+	<script src="src/script/niui.js" type="module" async onload="nui.copyButton(document.getElementById('copybutton'), document.getElementById('copycontent'));"></script>
 	
 	<style>
 		
@@ -28,41 +32,6 @@
 		}
 	
 	</style>
-
-	<script> // Height adjustment during DOM population
-		
-		var MY_SELECTOR = ".n-adjust-height"; // Could be any selector
-		
-		var observer = new MutationObserver(function(mutations){
-		  for (let mutation of mutations){
-		    for (let el of mutation.addedNodes){
-		      // We're iterating through _all_ the elements as the parser parses them,
-		      // deciding if they're the one we're looking for.
-		      if (!!el.matches && el.matches(MY_SELECTOR)){
-			  		
-					el.style.removeProperty('--adjust-height');
-					let style = getComputedStyle(el);
-					let line_height = parseFloat(style.lineHeight);
-					let adjust = line_height - parseFloat(style.height) % line_height;
-					if (adjust !== line_height) {
-
-						el.style.setProperty('--adjust-height', adjust);
-					
-					}
-		
-		        // We found our element, we're done:
-		        observer.disconnect();
-		      };
-		    }
-		  }
-		});
-		
-		observer.observe(document.documentElement, {
-		  childList: true,
-		  subtree: true
-		});
-
-	</script>
 
 </head>
 
@@ -233,19 +202,74 @@
 						
 					</div>
 
-					<picture class="n-aspect n-adjust-height" style="--ratio: 1;">
-					
-						<img src=images/cat.jpg alt=Portrait>
-					
-					</picture>
-					
 					<form onsubmit="console.log('✉️'); return false;">
 					
+						<a>Pre</a>
+						
 						<div class="n-select">
 							
-							<div class="n-select--options">
+							<select>
+								
+								<option>Option 1</option>
+								<option value="3">Small select option 3</option>
+								<option>Last chance</option>
+	
+							</select>
+
+<!--
+							<div class="n-select__options">
+							
+								<button>Option 1</button>
+								<button>Small select option 3</button>
+								<button>Last chance</button>
+							
+							</div>
+-->
+							
+						</div>
+						
+						<a>Post</a>
+						
+						<br><br>
+
+						<div class="n-select">
+							
+							<select>
+								
+								<option>Option 1</option>
+								<option>Option 2</option>
+								<option>Option 3</option>
+								<option>Oslo 4</option>
+								<option>Option 5</option>
+								<option>Option 6</option>
+								<option>Option 7</option>
+								<option>Option 8</option>
+								<option>Option 9</option>
+								<option>Option 10</option>
+								<option>Option 11</option>
+								<option>Option 12</option>
+								<option>Option 13</option>
+								<option>Option 14</option>
+								<option>Option 15</option>
+								<option>Option 16</option>
+								<option>Option 17</option>
+								<option>Option 18</option>
+								<option>Option 19</option>
+								<option>Option 20</option>
+								<option>Option 21</option>
+								<option>Option 22</option>
+								<option>Option 23</option>
+								<option>Option 24</option>
+								<option>Austria</option>
+								<option>Australia</option>
+								<option>Starting with other than O</option>
+	
+							</select>
+
+							<div class="n-select__options n-select--shadow">
 							
 								<button><img src="images/niui.svg" alt=1 style="width: 125.5px; height: 41px;"> Option 1</button>
+								<button>Option 2 Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Option 2 Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long</button>
 								<button>Option 2 Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long </button>
 								<button aria-selected->Option 3</button>
 								<span>Label</span>
@@ -278,45 +302,15 @@
 							
 						</div>
 						
-						<select>
-							
-							<option>Option 1</option>
-							<option>Option 2</option>
-							<option>Option 3</option>
-							<option>Oslo 4</option>
-							<option>Option 5</option>
-							<option>Option 6</option>
-							<option>Option 7</option>
-							<option>Option 8</option>
-							<option>Option 9</option>
-							<option>Option 10</option>
-							<option>Option 11</option>
-							<option>Option 12</option>
-							<option>Option 13</option>
-							<option>Option 14</option>
-							<option>Option 15</option>
-							<option>Option 16</option>
-							<option>Option 17</option>
-							<option>Option 18</option>
-							<option>Option 19</option>
-							<option>Option 20</option>
-							<option>Option 21</option>
-							<option>Option 22</option>
-							<option>Option 23</option>
-							<option>Option 24</option>
-							<option>Austria</option>
-							<option>Australia</option>
-							<option>Starting with other than O</option>
-
-						</select>
 <br><br>						
 
 						<a>Pre</a>
 						
-						<div class="n-select">
+						<div class="n-select" style="--control-bg: transparent; --control-color: #333;">
 							
-							<div class="n-select--options">
+							<div class="n-select__options n-select--shadow" style="--control-bg: transparent; --control-color: #333;">
 							
+								<button>Inline select which is too long to fit here in this inline space</button>
 								<button>Option 1</button>
 								<button>Small select option 3</button>
 								<button>Last chance</button>
@@ -329,6 +323,18 @@
 
 					</form>
 						
+					<picture class="n-aspect n-adjust-height" style="--ratio: 1;">
+					
+						<img src=images/cat.jpg alt=Portrait>
+					
+					</picture>
+					
+					<picture class="n-aspect n-adjust-height" style="--width: 256; --height: 256;">
+					
+						<img src=images/cat.jpg alt=Portrait width=256>
+					
+					</picture>
+					
 				</div>
 		
 				<div class='_2/3 n-middle'>
@@ -438,7 +444,39 @@
 
 						<div class="n-select">
 							
-							<div class="n-select--options">
+							<select>
+								
+								<option>Option 1</option>
+								<option>Option 2</option>
+								<option>Option 3</option>
+								<option>Oslo 4</option>
+								<option>Option 5</option>
+								<option>Option 6</option>
+								<option>Option 7</option>
+								<option>Option 8</option>
+								<option>Option 9</option>
+								<option>Option 10</option>
+								<option>Option 11</option>
+								<option>Option 12</option>
+								<option>Option 13</option>
+								<option>Option 14</option>
+								<option>Option 15</option>
+								<option>Option 16</option>
+								<option>Option 17</option>
+								<option>Option 18</option>
+								<option>Option 19</option>
+								<option>Option 20</option>
+								<option>Option 21</option>
+								<option>Option 22</option>
+								<option>Option 23</option>
+								<option>Option 24</option>
+								<option>Austria</option>
+								<option>Australia</option>
+								<option>Starting with other than O</option>
+	
+							</select>
+							
+							<div class="n-select__options">
 							
 								<button><img src="images/niui.svg" alt=1 style="height: 41px;"> Option 1</button>
 								<button>Option 2 Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long </button>
@@ -473,43 +511,11 @@
 							
 						</div>
 						
-						<select>
-							
-							<option>Option 1</option>
-							<option>Option 2</option>
-							<option>Option 3</option>
-							<option>Oslo 4</option>
-							<option>Option 5</option>
-							<option>Option 6</option>
-							<option>Option 7</option>
-							<option>Option 8</option>
-							<option>Option 9</option>
-							<option>Option 10</option>
-							<option>Option 11</option>
-							<option>Option 12</option>
-							<option>Option 13</option>
-							<option>Option 14</option>
-							<option>Option 15</option>
-							<option>Option 16</option>
-							<option>Option 17</option>
-							<option>Option 18</option>
-							<option>Option 19</option>
-							<option>Option 20</option>
-							<option>Option 21</option>
-							<option>Option 22</option>
-							<option>Option 23</option>
-							<option>Option 24</option>
-							<option>Austria</option>
-							<option>Australia</option>
-							<option>Starting with other than O</option>
-
-						</select>
-						
 						<p>P</p>
 						
 						<style> /* Rich select theme */
 							
-							.n-select--options {
+							.n-select, .n-select__options {
 							
 							    --control-color: #F1EEDB;
 							    --control-bg: #725368;
@@ -517,6 +523,7 @@
 							    --control-selected-bg: #634159;
 							    --control-active-color: #f2bfe7;
 							    --control-active-bg: #634159;
+							    --control-highlight: #634159;
 							    
 						    }
 						    
@@ -1403,7 +1410,7 @@
 
 			</div>
 				
-			<div class='n-row n-row__no-spacing-' id=grid>
+			<div class='n-row n-row__no-spacing-' id=grid  style="scroll-margin-top: 3em;">
 				
 				<div class="_1/1"> 
 					
@@ -2119,7 +2126,7 @@
 		
 		<div class="n-fixed-bg" style="background-image: url(images/DSC00470.jpg); color: #fff;">
 			
-			<div class="n-fixed-bg--image"></div>
+			<div class="n-fixed-bg__image"></div>
 			
 			<div class='n-row n-contain'>
 				
@@ -2469,9 +2476,6 @@
 	</footer>
 	
 	<!-- Footer - End -->
-
-<!-- 		<script src=dist/niui.min.js type=module async></script> -->
-	<script src=src/script/niui.js type="module" async onload="nui.copyButton(document.getElementById('copybutton'), document.getElementById('copycontent'));"></script>
 
 </body>
 

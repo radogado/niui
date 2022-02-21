@@ -13,7 +13,34 @@
 	<link rel=icon href=images/favicon.ico>
 	<link rel=styleSheet href=dist/niui.min.css type=text/css media=screen>
 	<link rel=styleSheet href=src/css/guide.css type=text/css media=screen>
+	<script src="dist/niui-preload.min.js"></script> <!-- Load and execute immediately. Should be on the same host as the above CSS file, not waiting for another request -->
+
+	
+	<script>
+		
+		function setupCopy() {
+		
+			if (typeof nui === "object") {
+	
+				nui.copyButton(document.getElementById("copybutton"), document.getElementById("copycontent"));
+				document.querySelectorAll(".code").forEach(function (el) {
+					
+					el.insertAdjacentHTML("beforeend", "<button class='n-btn'>Copy</button>");
+					nui.copyButton(el.querySelector("button"), el.querySelector("pre"));
+					
+				});
+			
+			}
+		
+		}
+		
+	</script>
+
+	<script src=src/script/niui.js type=module defer onload="setupCopy();"></script> 
+<!-- 	<script src=dist/niui.min.js type=module defer onload="setupCopy();"></script> -->
+
 	<link rel=styleSheet href=src/css/prism.css type=text/css media=screen>
+	<script src=src/script/prism.js type=text/javascript defer></script>
 	
 	<script type="text/javascript">
 		
@@ -33,7 +60,7 @@
 			
 <!-- 			<div class="n-slider--nav" data-for="guide-slider"></div>		 -->
 
-			<div class="n-slider--nav n-slider__vertical n-row n-tabs" data-for="guide-slider"><a tabindex="0" href=#home>niui</a><a tabindex="0" href=#npm>Get started</a><a tabindex="0" href=#page-structure>Page structure</a><a tabindex="0" href=#grid>Grid</a><a tabindex="0" href=#nav>Navigation</a><a tabindex="0" href=#typography>Typography</a><a tabindex="0" href=#aspect-ratio>Aspect ratio</a><a tabindex="0" href=#slider>Slider (Carousel)</a><a tabindex="0" href=#tabs>Tabs</a><a tabindex="0" href=#lightbox>Lightbox</a><a tabindex="0" href=#video>Video</a><a tabindex="0" href=#tables>Tables</a><a tabindex="0" href=#fold>Fold (Accordion)</a><a tabindex="0" href=#tooltip>Tooltip</a><a tabindex="0" href=#modal-window>Modal window</a><a tabindex="0" href=#buttons>Buttons</a><a tabindex="0" href=#lists>Lists</a><a tabindex="0" href=#form>Forms</a><a tabindex="0" href=#masonry>Masonry</a><a tabindex="0" href=#cards>Cards</a><a tabindex="0" href=#fixed-background>Fixed background</a><a tabindex="0" href=#language-selector>Language selector</a><a tabindex="0" href=#parallax>Parallax scrolling</a><a tabindex="0" href=#scroll>Scroll effects</a><a tabindex="0" href=#notifications>Notification bar</a><a tabindex="0" href=#copy>Copy to clipboard</a><a tabindex="0" href=#back-to-top>"Back to top" button</a><a tabindex="0" href=#animate>animate() function</a><a tabindex="0" href=#grid-inline-popup>Grid with inline popups</a><a tabindex="0" href=#dynamic-components>Dynamic components</a><a tabindex="0" href=#wordpress>WordPress theme</a><a tabindex="0" href=#colors>Color scheme</a></div>
+			<div class="n-slider--nav n-slider__vertical n-row n-tabs" data-for="guide-slider"><a tabindex="0" href=#home>niui</a><a tabindex="0" href=#npm>Get started</a><a tabindex="0" href=#page-structure>Page structure</a><a tabindex="0" href=#grid>Grid</a><a tabindex="0" href=#nav>Navigation</a><a tabindex="0" href=#typography>Typography</a><a tabindex="0" href=#aspect-ratio>Aspect ratio</a><a tabindex="0" href=#slider>Slider (Carousel)</a><a tabindex="0" href=#tabs>Tabs</a><a tabindex="0" href=#lightbox>Lightbox</a><a tabindex="0" href=#video>Video</a><a tabindex="0" href=#tables>Tables</a><a tabindex="0" href=#fold>Fold (Accordion)</a><a tabindex="0" href=#tooltip>Tooltip</a><a tabindex="0" href=#modal-window>Modal window</a><a tabindex="0" href=#buttons>Buttons</a><a tabindex="0" href=#lists>Lists</a><a tabindex="0" href=#form>Forms</a><a tabindex="0" href=#masonry>Masonry</a><a tabindex="0" href=#cards>Cards</a><a tabindex="0" href=#fixed-background>Fixed background</a><a tabindex="0" href=#language-selector>Language selector</a><a tabindex="0" href=#parallax>Parallax scrolling</a><!-- <a tabindex="0" href=#scroll>Scroll effects</a> --><a tabindex="0" href=#notifications>Notification bar</a><a tabindex="0" href=#copy>Copy to clipboard</a><a tabindex="0" href=#back-to-top>"Back to top" button</a><a tabindex="0" href=#animate>animate() function</a><a tabindex="0" href=#grid-inline-popup>Grid with inline popups</a><a tabindex="0" href=#dynamic-components>Dynamic components</a><a tabindex="0" href=#wordpress>WordPress theme</a><a tabindex="0" href=#colors>Color scheme</a></div>
 		
 		</div>
 		
@@ -43,7 +70,7 @@
 
 				<div class="n-slider n-tabs n-slider__vertical" id="guide-slider" data-duration-="999">
 			
-				<div data-tab_title="niui" id=home>
+				<div data-tab-title="niui" id=home>
 					
 					<div class="n-row">
 
@@ -143,7 +170,7 @@
 				
 				</div>
 				
-				<div data-tab_title="Get started" id=npm>
+				<div data-tab-title="Get started" id=npm>
 					
 					<div>
 						
@@ -191,7 +218,7 @@
 					
 				</div>
 
-				<div data-tab_title="Page structure" id=page-structure>
+				<div data-tab-title="Page structure" id=page-structure>
 					
 					<div class="n-row">
 					
@@ -199,6 +226,24 @@
 						
 						<h2>Page structure</h2>
 						
+						<h3>Minimal</h3>
+						
+						<div class="code">
+						
+<pre><code class="language-markup">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;link rel="styleSheet" href="niui.min.css" type="text/css" media="screen"&gt;
+	&lt;script src="niui.min.js" type="module" defer&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</div>
+						<h3>Recommended</h3>
+
 						<div class="code">
 						
 <pre><code class="language-markup">&lt;!DOCTYPE html&gt;
@@ -223,7 +268,7 @@
 	&lt;footer class="n-footer"&gt;
 		Footer
 	&lt;/footer&gt;
-	&lt;script src="niui.min.js" type="module" async&gt;&lt;/script&gt;
+	&lt;script src="niui.min.js" type="module" defer&gt;&lt;/script&gt;
 
 &lt;/body&gt;
 &lt;/html&gt;
@@ -255,7 +300,7 @@
 				
 				</div>
 				
-				<div data-tab_title=Grid id=grid> <div> 
+				<div data-tab-title=Grid id=grid> <div> 
 					
 					<div class="n-row">
 						
@@ -930,7 +975,7 @@
 
 				 </div> </div>
 				
-				<div data-tab_title=Navigation id=nav>
+				<div data-tab-title=Navigation id=nav>
 						
 					<div class="n-row">
 						
@@ -1536,6 +1581,10 @@
 </pre>
 			
 </div>
+						
+						</div>
+						
+						<div class="_1/3">
 							
 							<h2>Mobile navigation behind a burger</h2>
 
@@ -1557,9 +1606,39 @@
 &lt;/header&gt;				</code>
 </pre>
 </div>
-
+						
 <p>The <b>header</b> fixed-positioning is optional</p>
+						
+						</div>
 
+						<div class="_1/3">
+							
+							<h2>Rich select navigation</h2>
+							
+							<div class="n-select">
+								<div class="n-select__options">
+									<button>Go to page...</button>
+									<a href="#home">Home</a>
+									<a href="#form">Forms</a>
+								</div>
+							</div>								
+							<br>
+<div class="code">							
+
+<pre><code class="language-markup">&lt;div class=&quot;n-select&quot;&gt;
+	&lt;div class=&quot;n-select__options&quot;&gt;
+		&lt;button&gt;Go to page...&lt;/button&gt;
+		&lt;a href=&quot;#home&quot;&gt;Home&lt;/a&gt;
+		&lt;a href=&quot;#form&quot;&gt;Forms&lt;/a&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+
+</div>					
+						</div>
+						
+						<div class="_1/1">
+						
 							<h3>Options</h3>
 							
 							<ul class="n-list">
@@ -1574,7 +1653,7 @@
 					
 				</div>
 				
-				<div data-tab_title=Typography id=typography>
+				<div data-tab-title=Typography id=typography>
 					
 					<div class="n-row">
 						
@@ -1639,7 +1718,7 @@
 						</div>
 						<div class="_1/3">
 							
-							<h2>Height compensation according to line height*</h2>
+							<h2>Height compensation according to line height</h2>
 							
 							<picture class="n-aspect n-adjust-height" style="--ratio: 1;">
 					
@@ -1656,7 +1735,7 @@
 
 </div>						
 
-							<p>* Using Resize Observer, as of September 2019 working in Chrome and Firefox and under development in Safari.</p>
+							<p>To avoid shifting on page load, add <b>niui-preload.min.js</b> in <b>&lt;head&gt;</b>.</p>
 
 						</div>
 					</div>
@@ -1664,7 +1743,7 @@
 
 				</div>
 				
-				<div id=aspect-ratio data-tab_title="Aspect ratio" id=aspect-ratio>
+				<div id=aspect-ratio data-tab-title="Aspect ratio" id=aspect-ratio>
 					
 					<div class="n-row">
 						
@@ -1707,7 +1786,7 @@
 					
 				</div>
 					
-				<div data-tab_title=Slider id=slider>
+				<div data-tab-title=Slider id=slider>
 					
 					<div class="n-row">
 						
@@ -1964,7 +2043,7 @@
 					
 				</div>
 				
-				<div data-tab_title=Tabs id=tabs>
+				<div data-tab-title=Tabs id=tabs>
 					
 					<div class="n-row">
 						
@@ -1990,7 +2069,7 @@
 
 <pre><code class="language-markup">&lt;div class="n-slider n-tabs"&gt;
 	&lt;div&gt; ... &lt;/div&gt;
-	&lt;div data-tab_title="Tab 1"&gt; ... &lt;/div&gt;
+	&lt;div data-tab-title="Tab 1"&gt; ... &lt;/div&gt;
 	&lt;div&gt; &lt;h2 class="n-tab-title"&gt;Tab title and content&lt;/h2&gt; ... &lt;/div&gt;
 	...
 &lt;/div&gt;</code>
@@ -2015,7 +2094,7 @@
 <div class="code">							
 
 <pre><code class="language-markup">&lt;div class="n-slider n-slider__top n-tabs n-slider__auto-height"&gt;
-	&lt;div data-tab_title="Tab 1"&gt; ... &lt;/div&gt;
+	&lt;div data-tab-title="Tab 1"&gt; ... &lt;/div&gt;
 	...
 &lt;/div&gt;</code>
 </pre>
@@ -2029,7 +2108,7 @@
 		
 							<div class="n-slider n-slider__vertical n-tabs">
 				
-				<div data-tab_title="Tab 1">
+				<div data-tab-title="Tab 1">
 					
 					<p class="n-pad">Tab 1 content</p>
 							
@@ -2056,7 +2135,7 @@
 <div class="code">							
 
 <pre><code class="language-markup">&lt;div class="n-slider n-slider__vertical n-tabs"&gt;
-	&lt;div data-tab_title="Tab 1"&gt; ... &lt;/div&gt;
+	&lt;div data-tab-title="Tab 1"&gt; ... &lt;/div&gt;
 	...
 &lt;/div&gt;</code>
 </pre>
@@ -2070,7 +2149,7 @@
 		
 							<div class="n-slider n-slider__vertical n-tabs n-slider__right">
 				
-				<div data-tab_title="Tab 1">
+				<div data-tab-title="Tab 1">
 					
 		<!-- 								<p class=n-tab-title> Slider 2 Slide 1 </p> -->
 					
@@ -2099,7 +2178,7 @@
 <div class="code">							
 
 <pre><code class="language-markup">&lt;div class="n-slider n-slider__vertical n-tabs n-slider__right"&gt;
-	&lt;div data-tab_title="Tab 1"&gt; ... &lt;/div&gt;
+	&lt;div data-tab-title="Tab 1"&gt; ... &lt;/div&gt;
 	...
 &lt;/div&gt;</code>
 </pre>
@@ -2124,7 +2203,7 @@
 
 <pre><code class="language-markup">&lt;div class="n-slider n-tabs" id="detached-tabs"&gt;
 	&lt;div&gt; ... &lt;/div&gt;
-	&lt;div data-tab_title="Tab 1"&gt; ... &lt;/div&gt;
+	&lt;div data-tab-title="Tab 1"&gt; ... &lt;/div&gt;
 	&lt;div&gt; &lt;h2 class="n-tab-title"&gt;Tab title and content&lt;/h2&gt; ... &lt;/div&gt;
 	...
 &lt;/div&gt;
@@ -2144,7 +2223,7 @@
 							
 							<ul class="n-list">
 								
-								<li>Tab titles are taken from <pre>data-tab_title</pre>, <pre>.n-tab-title</pre> on a child or index by default</li>
+								<li>Tab titles are taken from <pre>data-tab-title</pre>, <pre>.n-tab-title</pre> on a child or index by default</li>
 								<li><pre>data-duration="2"</pre> for 2 seconds slide duration</li>
 								<li>Pre-fill the nav and put it together with the <b>.n-slider</b> inside <b>.n-slider--wrap</b> for seamless loading.</li>
 
@@ -2156,7 +2235,7 @@
 	
 				</div>
 
-				<div data-tab_title=Lightbox id=lightbox>
+				<div data-tab-title=Lightbox id=lightbox>
 					
 					<div class="n-row">
 						
@@ -2600,7 +2679,7 @@
 					
 				</div>
 				
-				<div data-tab_title=Video id=video>
+				<div data-tab-title=Video id=video>
 					
 					<div class="n-row">
 						
@@ -2631,7 +2710,7 @@
 				
 				</div>
 				
-				<div id=tables data-tab_title=Tables>
+				<div id=tables data-tab-title=Tables>
 				
 					<div class="n-row">
 						
@@ -2730,9 +2809,9 @@
 						
 						<thead>
 							<tr>
-								<td data-sort>First</td>
-								<td data-sort> <a>Second</a> </td>
-								<td data-sort> <a>Third</a> </td>
+								<td><button class="n-table-sort">First</button></td>
+								<td> <a><button class="n-table-sort">Second</button></a> </td>
+								<td> <a><button class="n-table-sort">Third</button></a> </td>
 							</tr>
 						</thead>
 						<tr>
@@ -2758,7 +2837,7 @@
 <pre><code class="language-markup">&lt;table class="n-table"&gt;
 	&lt;thead&gt;
 		&lt;tr&gt;
-			&lt;td data-sort&gt;Head&lt;/td&gt;
+			&lt;td&gt;&lt;button class="n-table-sort"&gt;Head&lt;/button&gt&lt;/td&gt;
 			...
 		&lt;/tr&gt;
 	&lt;/thead&gt;
@@ -2772,34 +2851,12 @@
 
 </div>
 						</div>
-						
-						<div class="_1/1">
-							
-							<div>
-								
-								<h3>Options</h3>
-								
-								<ul class="n-list">
-									
-									<li>Topmost row column with attribute <pre>data-sort</pre> makes a sortable column by number/character.</li>
-									
-									<ul class="n-list">
-										
-										<li>Ascending by default, descending with <pre>data-sort=desc</pre></li>
-									
-									</ul>
-								
-								</ul>
-
-							</div>
-						
-						</div>
-					
+											
 					</div>
 	
 				</div>
 
-				<div id=fold data-tab_title="Fold (Accordion)">
+				<div id=fold data-tab-title="Fold (Accordion)">
 					
 					<div class="n-row">
 						
@@ -2851,7 +2908,7 @@
 	
 							<div class="n-fold" aria-expanded=true>
 							
-								<h3 class=n-fold--label> Open by default </h3>
+								<button class=n-fold--label> Open by default </button>
 								<input type=checkbox class=n-trigger>
 							
 								<div id=i class="n-fold--content">
@@ -3063,7 +3120,7 @@
 					
 				</div>
 				
-				<div data-tab_title=Tooltip id=tooltip>
+				<div data-tab-title=Tooltip id=tooltip>
 
 					<div class="n-row">
 						<div>
@@ -3094,7 +3151,7 @@
 					
 				</div>
 				
-				<div data-tab_title="Modal window" id=modal-window>
+				<div data-tab-title="Modal window" id=modal-window>
 					
 					<div class="n-row">
 						
@@ -3172,7 +3229,7 @@
 
 				</div>
 				
-				<div data-tab_title=Buttons id=buttons>
+				<div data-tab-title=Buttons id=buttons>
 					
 					<div class="n-row">
 					
@@ -3293,7 +3350,7 @@
 						
 				</div>
 		
-				<div id=lists data-tab_title=Lists id=lists>
+				<div id=lists data-tab-title=Lists id=lists>
 					
 					<div class="n-row">
 						
@@ -3392,7 +3449,7 @@
 			
 				</div>
 				
-				<div id=form data-tab_title=Forms id=forms>
+				<div id=form data-tab-title=Forms id=forms>
 					
 					<div class="n-row">
 						
@@ -3414,78 +3471,7 @@
 									<input type=text name=entry.1773453675 id=entry_1773453675>
 			
 								</label>
-			
-								<div class="n-select">
-									
-									<div class="n-select--options">
-									
-										<button><img src="images/niui.svg" alt=1 style="height: 41px;"> Option 1</button>
-										<button>Option 2 Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long </button>
-										<button aria-selected->Option 3</button>
-										<span>Label</span>
-										<button>Oslo 4</button>
-										<button>Option 5</button>
-										<button>Option 6</button>
-										<button>Option 7</button>
-										<button>Option 8</button>
-										<button>Option 9</button>
-										<button>Option 10</button>
-										<button>Option 11</button>
-										<button>Option 12</button>
-										<button>Option 13</button>
-										<button>Option 14</button>
-										<button>Option 15</button>
-										<button>Option 16</button>
-										<button>Option 17</button>
-										<button>Option 18</button>
-										<button>Option 19</button>
-										<button>Option 20</button>
-										<button>Option 21</button>
-										<button>Option 22</button>
-										<button>Option 23</button>
-										<button>Option 24</button>
-										<button>Austria</button>
-										<button>Australia</button>
-										<button>Starting with other than O</button>
-									
-									</div>
-									
-								</div>
 								
-								<select>
-									
-									<option>Option 1</option>
-									<option>Option 2</option>
-									<option>Option 3</option>
-									<option>Oslo 4</option>
-									<option>Option 5</option>
-									<option>Option 6</option>
-									<option>Option 7</option>
-									<option>Option 8</option>
-									<option>Option 9</option>
-									<option>Option 10</option>
-									<option>Option 11</option>
-									<option>Option 12</option>
-									<option>Option 13</option>
-									<option>Option 14</option>
-									<option>Option 15</option>
-									<option>Option 16</option>
-									<option>Option 17</option>
-									<option>Option 18</option>
-									<option>Option 19</option>
-									<option>Option 20</option>
-									<option>Option 21</option>
-									<option>Option 22</option>
-									<option>Option 23</option>
-									<option>Option 24</option>
-									<option>Austria</option>
-									<option>Australia</option>
-									<option>Starting with other than O</option>
-		
-								</select>
-								
-								<br>
-		
 								<input type=submit value="Submit">
 							
 							</form> 
@@ -3500,6 +3486,267 @@
 			
 									<span>Excepteur sint occaecat cupidatat non proident</span>
 									<input name=last_name type=text placeholder="What is your name?">
+			
+								</label>
+								
+								<label>
+								
+									<span>Country of residence (rich select)</span>
+	
+									<div class="n-select">
+										
+										<div class="n-select__options" data-name="select1">
+		
+	<button value="3">		<img src="images/flags/af.svg" alt="Country">Afghanistan</button>
+	<button value="240">	<img src="images/flags/ax.svg" alt="Country">Åland</button>	
+	<button value="6">	<img src="images/flags/al.svg" alt="Country">Albania</button>
+	<button value="59">	<img src="images/flags/dz.svg" alt="Country">Algeria</button>
+	<button value="12">	<img src="images/flags/as.svg" alt="Country">American Samoa</button>
+	<button value="1">	<img src="images/flags/ad.svg" alt="Country">Andorra</button>
+	<button value="9">	<img src="images/flags/ao.svg" alt="Country">Angola</button>
+	<button value="5">	<img src="images/flags/ai.svg" alt="Country">Anguilla</button>
+	<button value="4">	<img src="images/flags/ag.svg" alt="Country">Antigua and Barbuda</button>
+	<button value="11">	<img src="images/flags/ar.svg" alt="Country">Argentina</button>
+	<button value="7">	<img src="images/flags/am.svg" alt="Country">Armenia</button>
+	<button value="15">	<img src="images/flags/aw.svg" alt="Country">Aruba</button>
+	<button value="14">	<img src="images/flags/au.svg" alt="Country">Australia</button>
+	<button value="13">	<img src="images/flags/at.svg" alt="Country">Austria</button>
+	<button value="16">	<img src="images/flags/az.svg" alt="Country">Azerbaijan</button>
+	<button value="23">	<img src="images/flags/bh.svg" alt="Country">Bahrain</button>
+	<button value="19">	<img src="images/flags/bd.svg" alt="Country">Bangladesh</button>
+	<button value="18">	<img src="images/flags/bb.svg" alt="Country">Barbados</button>
+	<button value="34">	<img src="images/flags/by.svg" alt="Country">Belarus</button>
+	<button value="20">	<img src="images/flags/be.svg" alt="Country">Belgium</button>
+	<button value="35">	<img src="images/flags/bz.svg" alt="Country">Belize</button>
+	<button value="25">	<img src="images/flags/bj.svg" alt="Country">Benin</button>
+	<button value="26">	<img src="images/flags/bm.svg" alt="Country">Bermuda</button>
+	<button value="31">	<img src="images/flags/bt.svg" alt="Country">Bhutan</button>
+	<button value="28">	<img src="images/flags/bo.svg" alt="Country">Bolivia</button>
+	<button value="249">	<img src="images/flags/bq-se.svg" alt="Country">Bonaire, Sint Eustatius and Saba</button>
+	<button value="17">	<img src="images/flags/ba.svg" alt="Country">Bosnia and Herzegovina</button>
+	<button value="33">	<img src="images/flags/bw.svg" alt="Country">Botswana</button>
+	<button value="29">	<img src="images/flags/br.svg" alt="Country">Brazil</button>
+	<button value="100">	<img src="images/flags/ca-bc.svg" alt="Country">British Indian Ocean Territory</button>
+	<button value="226">	<img src="images/flags/vg.svg" alt="Country">British Virgin Islands</button>
+	<button value="27">	<img src="images/flags/bn.svg" alt="Country">Brunei</button>
+	<button value="22">	<img src="images/flags/bg.svg" alt="Country">Bulgaria</button>
+	<button value="21">	<img src="images/flags/bf.svg" alt="Country">Burkina Faso</button>
+	<button value="24">	<img src="images/flags/bi.svg" alt="Country">Burundi</button>
+	<button value="110">	<img src="images/flags/kh.svg" alt="Country">Cambodia</button>
+	<button value="45">	<img src="images/flags/cm.svg" alt="Country">Cameroon</button>
+	<button value="36">	<img src="images/flags/ca.svg" alt="Country">Canada</button>
+	<button value="50">	<img src="images/flags/cv.svg" alt="Country">Cape Verde</button>
+	<button value="117">	<img src="images/flags/ky.svg" alt="Country">Cayman Islands</button>
+	<button value="39">	<img src="images/flags/cf.svg" alt="Country">Central African Republic</button>
+	<button value="202">	<img src="images/flags/td.svg" alt="Country">Chad</button>
+	<button value="44">	<img src="images/flags/cl.svg" alt="Country">Chile</button>
+	<button value="46">	<img src="images/flags/cn.svg" alt="Country">China</button>
+	<button value="51">	<img src="images/flags/cx.svg" alt="Country">Christmas Island</button>
+	<button value="37">	<img src="images/flags/cc.svg" alt="Country">Cocos (Keeling) Islands</button>
+	<button value="47">	<img src="images/flags/co.svg" alt="Country">Colombia</button>
+	<button value="112">	<img src="images/flags/km.svg" alt="Country">Comoros</button>
+	<button value="38">	<img src="images/flags/cg.svg" alt="Country">Congo</button>
+	<button value="40">	<img src="images/flags/cd.svg" alt="Country">Congo-Brazzaville</button>
+	<button value="43">	<img src="images/flags/ck.svg" alt="Country">Cook Islands</button>
+	<button value="48">	<img src="images/flags/cr.svg" alt="Country">Costa Rica</button>
+	<button value="42">	<img src="images/flags/ci.svg" alt="Country">Côte d’Ivoire</button>
+	<button value="93">	<img src="images/flags/hr.svg" alt="Country">Croatia</button>
+	<button value="49">	<img src="images/flags/cu.svg" alt="Country">Cuba</button>
+	<button value="250">	<img src="images/flags/cw.svg" alt="Country">Curaçao</button>
+	<button value="52">	<img src="images/flags/cy.svg" alt="Country">Cyprus</button>
+	<button value="53">	<img src="images/flags/cz.svg" alt="Country">Czech Republic</button>
+	<button value="56">	<img src="images/flags/dk.svg" alt="Country">Denmark</button>
+	<button value="55">	<img src="images/flags/dj.svg" alt="Country">Djibouti</button>
+	<button value="57">	<img src="images/flags/dm.svg" alt="Country">Dominica</button>
+	<button value="58">	<img src="images/flags/do.svg" alt="Country">Dominican Republic</button>
+	<button value="60">	<img src="images/flags/ec.svg" alt="Country">Ecuador</button>
+	<button value="62">	<img src="images/flags/eg.svg" alt="Country">Egypt</button>
+	<button value="198">	<img src="images/flags/sv.svg" alt="Country">El Salvador</button>
+	<button value="84">	<img src="images/flags/gq.svg" alt="Country">Equatorial Guinea</button>
+	<button value="64">	<img src="images/flags/er.svg" alt="Country">Eritrea</button>
+	<button value="61">	<img src="images/flags/ee.svg" alt="Country">Estonia</button>
+	<button value="200">	<img src="images/flags/sz.svg" alt="Country">Eswatini</button>
+	<button value="66">	<img src="images/flags/et.svg" alt="Country">Ethiopia</button>
+	<button value="69">	<img src="images/flags/fk.svg" alt="Country">Falkland Islands</button>
+	<button value="71">	<img src="images/flags/fo.svg" alt="Country">Faroes</button>
+	<button value="68">	<img src="images/flags/fj.svg" alt="Country">Fiji</button>
+	<button value="67">	<img src="images/flags/fi.svg" alt="Country">Finland</button>
+	<button value="72">	<img src="images/flags/fr.svg" alt="Country">France</button>
+	<button value="77">	<img src="images/flags/ge.svg" alt="Country">French Guiana</button>
+	<button value="166">	<img src="images/flags/pf.svg" alt="Country">French Polynesia</button>
+	<button value="73">	<img src="images/flags/ga.svg" alt="Country">Gabon</button>
+	<button value="81">	<img src="images/flags/gm.svg" alt="Country">Gambia</button>
+	<button value="76">	<img src="images/flags/ge.svg" alt="Country">Georgia</button>
+	<button value="54">	<img src="images/flags/de.svg" alt="Country">Germany</button>
+	<button value="78">	<img src="images/flags/gh.svg" alt="Country">Ghana</button>
+	<button value="79">	<img src="images/flags/gi.svg" alt="Country">Gibraltar</button>
+	<button value="85">	<img src="images/flags/gr.svg" alt="Country">Greece</button>
+	<button value="80">	<img src="images/flags/gl.svg" alt="Country">Greenland</button>
+	<button value="75">	<img src="images/flags/gd.svg" alt="Country">Grenada</button>
+	<button value="88">	<img src="images/flags/gu.svg" alt="Country">Guam</button>
+	<button value="87">	<img src="images/flags/gt.svg" alt="Country">Guatemala</button>
+	<button value="245">	<img src="images/flags/gg.svg" alt="Country">Guernsey</button>
+	<button value="82">	<img src="images/flags/gn.svg" alt="Country">Guinea</button>
+	<button value="89">	<img src="images/flags/gw.svg" alt="Country">Guinea-Bissau</button>
+	<button value="90">	<img src="images/flags/gy.svg" alt="Country">Guyana</button>
+	<button value="94">	<img src="images/flags/ht.svg" alt="Country">Haiti</button>
+	<button value="92">	<img src="images/flags/hn.svg" alt="Country">Honduras</button>
+	<button value="91">	<img src="images/flags/hk.svg" alt="Country">Hong Kong SAR of China</button>
+	<button value="95">	<img src="images/flags/hu.svg" alt="Country">Hungary</button>
+	<button value="103">	<img src="images/flags/is.svg" alt="Country">Iceland</button>
+	<button value="99">	<img src="images/flags/in.svg" alt="Country">India</button>
+	<button value="96">	<img src="images/flags/id.svg" alt="Country">Indonesia</button>
+	<button value="102">	<img src="images/flags/ir.svg" alt="Country">Iran</button>
+	<button value="101">	<img src="images/flags/iq.svg" alt="Country">Iraq</button>
+	<button value="97">	<img src="images/flags/ie.svg" alt="Country">Ireland</button>
+	<button value="246">	<img src="images/flags/im.svg" alt="Country">Isle of Man</button>
+	<button value="98">	<img src="images/flags/il.svg" alt="Country">Israel</button>
+	<button value="104">	<img src="images/flags/it.svg" alt="Country">Italy</button>
+	<button value="105">	<img src="images/flags/jm.svg" alt="Country">Jamaica</button>
+	<button value="107">	<img src="images/flags/jp.svg" alt="Country">Japan</button>
+	<button value="244">	<img src="images/flags/je.svg" alt="Country">Jersey</button>
+	<button value="106">	<img src="images/flags/jo.svg" alt="Country">Jordan</button>
+	<button value="118">	<img src="images/flags/kz.svg" alt="Country">Kazakhstan</button>
+	<button value="108">	<img src="images/flags/ke.svg" alt="Country">Kenya</button>
+	<button value="111">	<img src="images/flags/ki.svg" alt="Country">Kiribati</button>
+	<button value="253">	<img src="images/flags/xk.svg" alt="Country">Kosovo</button>
+	<button value="116">	<img src="images/flags/kw.svg" alt="Country">Kuwait</button>
+	<button value="109">	<img src="images/flags/kg.svg" alt="Country">Kyrgyzstan</button>
+	<button value="119">	<img src="images/flags/la.svg" alt="Country">Laos</button>
+	<button value="128">	<img src="images/flags/lv.svg" alt="Country">Latvia</button>
+	<button value="120">	<img src="images/flags/lb.svg" alt="Country">Lebanon</button>
+	<button value="125">	<img src="images/flags/ls.svg" alt="Country">Lesotho</button>
+	<button value="124">	<img src="images/flags/lr.svg" alt="Country">Liberia</button>
+	<button value="129">	<img src="images/flags/ly.svg" alt="Country">Libya</button>
+	<button value="122">	<img src="images/flags/li.svg" alt="Country">Liechtenstein</button>
+	<button value="126">	<img src="images/flags/lt.svg" alt="Country">Lithuania</button>
+	<button value="127">	<img src="images/flags/lu.svg" alt="Country">Luxembourg</button>
+	<button value="139">	<img src="images/flags/mo.svg" alt="Country">Macao SAR of China</button>
+	<button value="135">	<img src="images/flags/mk.svg" alt="Country">Macedonia</button>
+	<button value="133">	<img src="images/flags/mg.svg" alt="Country">Madagascar</button>
+	<button value="147">	<img src="images/flags/mw.svg" alt="Country">Malawi</button>
+	<button value="149">	<img src="images/flags/my.svg" alt="Country">Malaysia</button>
+	<button value="146">	<img src="images/flags/mv.svg" alt="Country">Maldives</button>
+	<button value="136">	<img src="images/flags/ml.svg" alt="Country">Mali</button>
+	<button value="144">	<img src="images/flags/mt.svg" alt="Country">Malta</button>
+	<button value="134">	<img src="images/flags/mh.svg" alt="Country">Marshall Islands</button>
+	<button value="141">	<img src="images/flags/mq.svg" alt="Country">Martinique</button>
+	<button value="142">	<img src="images/flags/mr.svg" alt="Country">Mauritania</button>
+	<button value="145">	<img src="images/flags/mu.svg" alt="Country">Mauritius</button>
+	<button value="148">	<img src="images/flags/mx.svg" alt="Country">Mexico</button>
+	<button value="70">	<img src="images/flags/fm.svg" alt="Country">Micronesia</button>
+	<button value="132">	<img src="images/flags/md.svg" alt="Country">Moldova</button>
+	<button value="131">	<img src="images/flags/mc.svg" alt="Country">Monaco</button>
+	<button value="138">	<img src="images/flags/mn.svg" alt="Country">Mongolia</button>
+	<button value="242">	<img src="images/flags/me.svg" alt="Country">Montenegro</button>
+	<button value="143">	<img src="images/flags/ms.svg" alt="Country">Montserrat</button>
+	<button value="130">	<img src="images/flags/ma.svg" alt="Country">Morocco</button>
+	<button value="150">	<img src="images/flags/mz.svg" alt="Country">Mozambique</button>
+	<button value="137">	<img src="images/flags/mm.svg" alt="Country">Myanmar</button>
+	<button value="151">	<img src="images/flags/na.svg" alt="Country">Namibia</button>
+	<button value="160">	<img src="images/flags/nr.svg" alt="Country">Nauru</button>
+	<button value="159">	<img src="images/flags/np.svg" alt="Country">Nepal</button>
+	<button value="157">	<img src="images/flags/nl.svg" alt="Country">Netherlands</button>
+	<button value="162">	<img src="images/flags/nz.svg" alt="Country">New Zealand</button>
+	<button value="156">	<img src="images/flags/ni.svg" alt="Country">Nicaragua</button>
+	<button value="153">	<img src="images/flags/ne.svg" alt="Country">Niger</button>
+	<button value="155">	<img src="images/flags/ng.svg" alt="Country">Nigeria</button>
+	<button value="161">	<img src="images/flags/nu.svg" alt="Country">Niue</button>
+	<button value="154">	<img src="images/flags/nf.svg" alt="Country">Norfolk Island</button>
+	<button value="140">	<img src="images/flags/mp.svg" alt="Country">Northern Marianas</button>
+	<button value="114">	<img src="images/flags/kp.svg" alt="Country">North Korea</button>
+	<button value="158">	<img src="images/flags/no.svg" alt="Country">Norway</button>
+	<button value="163">	<img src="images/flags/om.svg" alt="Country">Oman</button>
+	<button value="169">	<img src="images/flags/pk.svg" alt="Country">Pakistan</button>
+	<button value="175">	<img src="images/flags/pw.svg" alt="Country">Palau</button>
+	<button value="238">	<img src="images/flags/ps.svg" alt="Country">Palestine</button>
+	<button value="164">	<img src="images/flags/pa.svg" alt="Country">Panama</button>
+	<button value="167">	<img src="images/flags/pg.svg" alt="Country">Papua New Guinea</button>
+	<button value="176">	<img src="images/flags/py.svg" alt="Country">Paraguay</button>
+	<button value="165">	<img src="images/flags/pe.svg" alt="Country">Peru</button>
+	<button value="168">	<img src="images/flags/ph.svg" alt="Country">Philippines</button>
+	<button value="172">	<img src="images/flags/pn.svg" alt="Country">Pitcairn Islands</button>
+	<button value="170">	<img src="images/flags/pl.svg" alt="Country">Poland</button>
+	<button value="174">	<img src="images/flags/pt.svg" alt="Country">Portugal</button>
+	<button value="173">	<img src="images/flags/pr.svg" alt="Country">Puerto Rico</button>
+	<button value="177">	<img src="images/flags/qa.svg" alt="Country">Qatar</button>
+	<button value="179">	<img src="images/flags/ro.svg" alt="Country">Romania</button>
+	<button value="180">	<img src="images/flags/ru.svg" alt="Country">Russia</button>
+	<button value="181">	<img src="images/flags/rw.svg" alt="Country">Rwanda</button>
+	<button value="248">	<img src="images/flags/bl.svg" alt="Country">Saint Barthélemy</button>
+	<button value="113">	<img src="images/flags/kn.svg" alt="Country">Saint Kitts and Nevis</button>
+	<button value="121">	<img src="images/flags/lc.svg" alt="Country">Saint Lucia</button>
+	<button value="224">	<img src="images/flags/vc.svg" alt="Country">Saint Vincent and the Grenadines</button>
+	<button value="231">	<img src="images/flags/ws.svg" alt="Country">Samoa</button>
+	<button value="193">	<img src="images/flags/sm.svg" alt="Country">San Marino</button>
+	<button value="197">	<img src="images/flags/st.svg" alt="Country">São Tomé e Príncipe</button>
+	<button value="182">	<img src="images/flags/sa.svg" alt="Country">Saudi Arabia</button>
+	<button value="194">	<img src="images/flags/sn.svg" alt="Country">Senegal</button>
+	<button value="243">	<img src="images/flags/rs.svg" alt="Country">Serbia</button>
+	<button value="184">	<img src="images/flags/sc.svg" alt="Country">Seychelles</button>
+	<button value="192">	<img src="images/flags/sl.svg" alt="Country">Sierra Leone</button>
+	<button value="187">	<img src="images/flags/sg.svg" alt="Country">Singapore</button>
+	<button value="251">	<img src="images/flags/sx.svg" alt="Country">Sint Maarten</button>
+	<button value="191">	<img src="images/flags/sk.svg" alt="Country">Slovakia</button>
+	<button value="189">	<img src="images/flags/si.svg" alt="Country">Slovenia</button>
+	<button value="183">	<img src="images/flags/sb.svg" alt="Country">Solomon Islands</button>
+	<button value="195">	<img src="images/flags/so.svg" alt="Country">Somalia</button>
+	<button value="235">	<img src="images/flags/za.svg" alt="Country">South Africa</button>
+	<button value="115">	<img src="images/flags/kr.svg" alt="Country">South Korea</button>
+	<button value="252">	<img src="images/flags/ss.svg" alt="Country">South Sudan</button>
+	<button value="65">	<img src="images/flags/es.svg" alt="Country">Spain</button>
+	<button value="123">	<img src="images/flags/lk.svg" alt="Country">Sri Lanka</button>
+	<button value="185">	<img src="images/flags/sd.svg" alt="Country">Sudan</button>
+	<button value="196">	<img src="images/flags/sr.svg" alt="Country">Suriname</button>
+	<button value="190">	<img src="images/flags/sindh.svg" alt="Country">Svalbard</button>
+	<button value="186">	<img src="images/flags/se.svg" alt="Country">Sweden</button>
+	<button value="41">	<img src="images/flags/ch.svg" alt="Country">Switzerland</button>
+	<button value="199">	<img src="images/flags/sy.svg" alt="Country">Syria</button>
+	<button value="215">	<img src="images/flags/tw.svg" alt="Country">Taiwan</button>
+	<button value="206">	<img src="images/flags/tj.svg" alt="Country">Tajikistan</button>
+	<button value="216">	<img src="images/flags/tz.svg" alt="Country">Tanzania</button>
+	<button value="205">	<img src="images/flags/th.svg" alt="Country">Thailand</button>
+	<button value="30">	<img src="images/flags/bs.svg" alt="Country">The Bahamas</button>
+	<button value="211">	<img src="images/flags/tl.svg" alt="Country">Timor-Leste</button>
+	<button value="204">	<img src="images/flags/tg.svg" alt="Country">Togo</button>
+	<button value="207">	<img src="images/flags/tk.svg" alt="Country">Tokelau</button>
+	<button value="210">	<img src="images/flags/to.svg" alt="Country">Tonga</button>
+	<button value="213">	<img src="images/flags/tt.svg" alt="Country">Trinidad and Tobago</button>
+	<button value="209">	<img src="images/flags/tn.svg" alt="Country">Tunisia</button>
+	<button value="212">	<img src="images/flags/tr.svg" alt="Country">Turkey</button>
+	<button value="208">	<img src="images/flags/tm.svg" alt="Country">Turkmenistan</button>
+	<button value="201">	<img src="images/flags/tc.svg" alt="Country">Turks and Caicos Islands</button>
+	<button value="214">	<img src="images/flags/tv.svg" alt="Country">Tuvalu</button>
+	<button value="218">	<img src="images/flags/ug.svg" alt="Country">Uganda</button>
+	<button value="217">	<img src="images/flags/ua.svg" alt="Country">Ukraine</button>
+	<button value="2">	<img src="images/flags/ae.svg" alt="Country">United Arab Emirates</button>
+	<button value="74" selected="selected">	<img src="images/flags/gb.svg" alt="Country">United Kingdom</button>
+	<button value="220">	<img src="images/flags/us.svg" alt="Country">United States</button>
+	<button value="221">	<img src="images/flags/uy.svg" alt="Country">Uruguay</button>
+	<button value="227">	<img src="images/flags/vi.svg" alt="Country">US Virgin Islands</button>
+	<button value="222">	<img src="images/flags/uz.svg" alt="Country">Uzbekistan</button>
+	<button value="229">	<img src="images/flags/vu.svg" alt="Country">Vanuatu</button>
+	<button value="223">	<img src="images/flags/va.svg" alt="Country">Vatican City</button>
+	<button value="225">	<img src="images/flags/ve.svg" alt="Country">Venezuela</button>
+	<button value="228">	<img src="images/flags/vn.svg" alt="Country">Vietnam</button>
+	<button value="63">	<img src="images/flags/eh.svg" alt="Country">Western Sahara</button>
+	<button value="232">	<img src="images/flags/ye.svg" alt="Country">Yemen</button>
+	<button value="236">	<img src="images/flags/zm.svg" alt="Country">Zambia</button>
+	<button value="237">	<img src="images/flags/zw.svg" alt="Country">Zimbabwe</button>
+	
+	</div>
+										
+									</div>
+									
+								</label>
+								
+								<label>
+			
+									<span>Country of residence (native select)</span>
+	
+									<select name=country>
+										<option value="" selected=selected>Country of residence →</option><option value="United Kingdom">United Kingdom</option><option value=Afghanistan>Afghanistan</option><option value="Aland Islands">Aland Islands</option><option value=Albania>Albania</option><option value=Algeria>Algeria</option><option value="American Samoa">American Samoa</option><option value=Andorra>Andorra</option><option value=Angola>Angola</option><option value=Anguilla>Anguilla</option><option value=Antarctica>Antarctica</option><option value="Antigua And Barbuda">Antigua And Barbuda</option><option value=Argentina>Argentina</option>
+									</select>
 			
 								</label>
 								
@@ -3558,16 +3805,6 @@
 									</div>
 			
 								</label> 
-						
-								<label>
-			
-									<span>Country of residence</span>
-	
-									<select name=country>
-										<option value="" selected=selected>Country of residence →</option><option value="United Kingdom">United Kingdom</option><option value=Afghanistan>Afghanistan</option><option value="Aland Islands">Aland Islands</option><option value=Albania>Albania</option><option value=Algeria>Algeria</option><option value="American Samoa">American Samoa</option><option value=Andorra>Andorra</option><option value=Angola>Angola</option><option value=Anguilla>Anguilla</option><option value=Antarctica>Antarctica</option><option value="Antigua And Barbuda">Antigua And Barbuda</option><option value=Argentina>Argentina</option>
-									</select>
-			
-								</label>
 								
 								<label>
 			
@@ -3909,6 +4146,32 @@
 							</div>
 							
 								<div class="_1/3">
+							
+							<h4>Rich select</h4>
+							<div class="code">							
+							
+<pre><code class="language-markup">&lt;label&gt;
+	&lt;span&gt;Label&lt;/span&gt;
+	&lt;div class=&quot;n-select&quot;&gt;
+		&lt;select name=&quot;select1&quot;&gt; &lt;!-- Optional --&gt;
+			&lt;option&gt;Option 1&lt;/option&gt;
+			&lt;option value=&quot;2&quot;&gt;Option 2&lt;/option&gt;
+			&lt;option&gt;Option 3&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;div class=&quot;n-select__options&quot; data-name=&quot;select1&quot;&gt;
+			&lt;button&gt;Option 1&lt;/button&gt;
+			&lt;button value=&quot;2&quot;&gt;Option 2&lt;/button&gt;
+			&lt;button&gt;Option 3&lt;/button&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/label&gt;</code>
+</pre>
+							
+							</div>
+							
+							</div>
+							
+								<div class="_1/3">
 							<h4>Optional sections</h4>
 							<div class="code">							
 							
@@ -3939,6 +4202,9 @@
 								<li><pre>&lt;form class="sticky-submit"&gt;</pre> to position the submit button absolutely on the right/center.</li>
 								<li><pre>&lt;textarea data-auto&gt;</pre> for automatically adjusted <b>textarea</b> height.</li>
 								<li><pre>data-digits=x</pre> – required digits in a number input</li>
+								<li>The rich select can be used outside of a form without label. It can also contain links instead of option buttons.</li>
+								<li>Rich select with shadow via <b>.n-select__options.n-select--shadow</b>.</li>
+								<li>Rich select theme CSS variables: <b>--control-color</b>, <b>--control-bg</b>, <b>--control-selected-color</b>, <b>--control-selected-bg</b>, <b>--control-active-color</b>, <b>--control-active-bg</b>, <b>--control-highlight</b>.</li>
 							
 							</ul>
 							
@@ -3958,7 +4224,7 @@
 				
 				</div>
 				
-				<div id=masonry data-tab_title=Masonry id=masonry>
+				<div id=masonry data-tab-title=Masonry id=masonry>
 					
 					<div class="n-row">
 						
@@ -3991,7 +4257,7 @@
 					
 				</div>
 				
-				<div data-tab_title=Cards id=cards>
+				<div data-tab-title=Cards id=cards>
 				
 					<div class="n-row">
 						
@@ -4137,7 +4403,7 @@
 
 				</div>
 				
-				<div data-tab_title="Fixed background" id=fixed-background>
+				<div data-tab-title="Fixed background" id=fixed-background>
 					
 					<div class="n-row">
 						
@@ -4145,7 +4411,7 @@
 					
 							<div class="n-fixed-bg" style="background-image: url(images/DSC00470.jpg); color: #fff;">
 								
-								<div class="n-fixed-bg--image"></div>
+								<div class="n-fixed-bg__image"></div>
 								
 								<div class="n-pad">
 
@@ -4155,7 +4421,7 @@
 <div class="code">							
 
 <pre><code class="language-markup">&lt;div class="n-fixed-bg" style="background-image: url(image.jpg);"&gt;
-	&lt;div class="n-fixed-bg--image"&gt;&lt;/div&gt;
+	&lt;div class="n-fixed-bg__image"&gt;&lt;/div&gt;
 	...
 &lt;/div&gt;</code>
 </pre>
@@ -4178,7 +4444,7 @@
 					
 				</div>
 
-				<div data-tab_title="Language selector" id=language-selector>
+				<div data-tab-title="Language selector" id=language-selector>
 					
 					<div class="n-row">
 						
@@ -4238,7 +4504,7 @@
 
 			</div>
 
-				<div data-tab_title="Parallax scrolling" id=parallax> 
+				<div data-tab-title="Parallax scrolling" id=parallax> 
 					
 					<div class="n-row">
 						
@@ -4275,7 +4541,8 @@
 
 				</div>
 
-				<div data-tab_title="Scroll effects" id=scroll> 
+<!--
+				<div data-tab-title="Scroll effects" id=scroll> 
 					
 					<div class="n-row">
 						
@@ -4316,9 +4583,10 @@
 					</div>
 
 				</div>
+-->
 
 				<!--
-				<div data-tab_title="URI parameters"> 
+				<div data-tab-title="URI parameters"> 
 					
 					<div class="n-row">
 						
@@ -4337,7 +4605,7 @@
 				</div>
 -->
 
-				<div data-tab_title="Notification bar" id=notifications> 
+				<div data-tab-title="Notification bar" id=notifications> 
 					
 					<div class="n-row">
 						
@@ -4383,7 +4651,7 @@
 
 				</div>
 
-				<div data-tab_title="Copy to clipboard" id=copy>
+				<div data-tab-title="Copy to clipboard" id=copy>
 					
 					<div class="n-row">
 						
@@ -4416,7 +4684,7 @@
 
 				</div>
 
-				<div data-tab_title=""Back to top" button" id=back-to-top>
+				<div data-tab-title=""Back to top" button" id=back-to-top>
 					
 					<div class="n-row">
 						
@@ -4437,7 +4705,7 @@
 
 				</div>
 
-				<div data-tab_title="animate() function" id=animate>
+				<div data-tab-title="animate() function" id=animate>
 					
 					<div class="n-row">
 						
@@ -4472,7 +4740,7 @@
 
 				</div>
 				
-				<div data-tab_title="Grid with inline popups" id=grid-inline-popup>
+				<div data-tab-title="Grid with inline popups" id=grid-inline-popup>
 					
 					<div class="n-row">
 						
@@ -4560,7 +4828,7 @@
 
 				</div>
 				
-				<div data-tab_title="Dynamic components" id=dynamic-components>
+				<div data-tab-title="Dynamic components" id=dynamic-components>
 					
 					<div class="n-row">
 						
@@ -4621,7 +4889,7 @@
 				
 				</div>
 
-				<div data-tab_title="WordPress theme" id=wordpress>
+				<div data-tab-title="WordPress theme" id=wordpress>
 					
 					<div class="n-row">
 						
@@ -4637,6 +4905,8 @@
 								
 								<p><a href=niui-wp.zip download>Download</a></p>
 								
+								<p>Note: Image gallery currently not supported in the Block Editor. Please use the Classic Editor for galleries.</p>
+								
 							</div>
 							
 						</div>
@@ -4646,7 +4916,7 @@
 				
 				</div>
 
-				<div data-tab_title="Color scheme" id=colors>
+				<div data-tab-title="Color scheme" id=colors>
 					
 					<div class="n-row">
 						
@@ -4656,7 +4926,7 @@
 								
 								<h2>Color scheme</h2>
 								
-<pre><code class="language-css">.n-slider--arrow, .n-slider--nav *, .n-tool:after, .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href], .n-fold > .n-fold--label, .n-nav__drop, .n-form, .n-fold span.n-burger {
+<pre><code class="language-css">.n-slider--arrow, .n-slider--nav *, .n-tool:after, .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href], .n-fold > .n-fold--label, .n-nav__drop, .n-form, .n-fold span.n-burger, .n-select__options {
 	
 	--control-bg: lightcoral;
 	--control-color: #fff;		
@@ -4710,31 +4980,6 @@ nav li li[aria-haspopup][aria-expanded="true"], nav li li[aria-haspopup]:hover {
 		</div>
 			
 	</main>
-	
-	<script src=src/script/niui.js type=module async onload="setupCopy();"></script> 
-<!-- 	<script src=dist/niui.min.js type=module async onload="setupCopy();"></script> -->
-
-	<script>
-		
-		function setupCopy() {
-		
-			if (typeof nui === "object") {
-	
-				nui.copyButton(document.getElementById("copybutton"), document.getElementById("copycontent"));
-				document.querySelectorAll(".code").forEach(function (el) {
-					
-					el.insertAdjacentHTML("beforeend", "<button class='n-btn'>Copy</button>");
-					nui.copyButton(el.querySelector("button"), el.querySelector("pre"));
-					
-				});
-			
-			}
-		
-		}
-		
-	</script>
-
-	<script src=src/script/prism.js type=text/javascript async></script>
 
 </body>
 

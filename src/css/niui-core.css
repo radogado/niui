@@ -21,7 +21,8 @@ body {
   position: relative;
 }
 
-html.n-vertical-page, html.n-vertical-page body {
+html.n-vertical-page,
+html.n-vertical-page body {
   height: 100%;
   margin: 0 auto;
   overflow-x: hidden;
@@ -93,20 +94,20 @@ html.n-vertical-page body {
     position: relative;
     z-index: 1;
   }
-  .n-fixed-bg .n-fixed-bg--image {
+  .n-fixed-bg .n-fixed-bg__image {
     position: absolute;
     background-size: 0;
     z-index: -1;
     clip: rect(auto, auto, auto, auto);
   }
-  .n-fixed-bg .n-fixed-bg--image, .n-fixed-bg .n-fixed-bg--image:before {
+  .n-fixed-bg .n-fixed-bg__image, .n-fixed-bg .n-fixed-bg__image:before {
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-image: inherit;
   }
-  .n-fixed-bg .n-fixed-bg--image:before {
+  .n-fixed-bg .n-fixed-bg__image:before {
     content: "";
     position: fixed;
     background-size: cover;
@@ -119,7 +120,7 @@ html.n-vertical-page body {
   .n-fixed-bg {
     background-size: cover;
   }
-  .n-fixed-bg .n-fixed-bg--image {
+  .n-fixed-bg .n-fixed-bg__image {
     display: none;
   }
 }
@@ -138,7 +139,7 @@ a[href].span-relative-parent {
   left: 0;
 }
 
-[data-animation] {
+[data-nui-animation] {
   pointer-events: none;
 }
 

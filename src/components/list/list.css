@@ -101,7 +101,9 @@ ol.n-list p {
   text-indent: 0;
 }
 
-ul.n-list.n-list__inline, ul.n-list.n-list__inline li, .n-nav.n-nav__scroll ul li {
+ul.n-list.n-list__inline,
+ul.n-list.n-list__inline li,
+.n-nav.n-nav__scroll ul li {
   vertical-align: top;
   display: inline-block;
   width: auto;

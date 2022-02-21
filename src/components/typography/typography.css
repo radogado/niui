@@ -9,7 +9,12 @@
   letter-spacing: 0.5px;
   /* Elements with double line-height */
 }
-.n-type h1, .n-type h2, .n-type h3, .n-type h4, .n-type h5, .n-type h6 {
+.n-type h1,
+.n-type h2,
+.n-type h3,
+.n-type h4,
+.n-type h5,
+.n-type h6 {
   line-height: 1.5;
   word-break: break-word;
   word-wrap: break-word;
@@ -17,12 +22,22 @@
   margin: 24px 0;
 }
 @media (max-width: 599.9px) {
-  .n-type h1, .n-type h2, .n-type h3, .n-type h4, .n-type h5, .n-type h6 {
+  .n-type h1,
+.n-type h2,
+.n-type h3,
+.n-type h4,
+.n-type h5,
+.n-type h6 {
     -webkit-hyphens: auto;
     hyphens: auto;
   }
 }
-.n-type h1 + p:not(.n-drop-cap), .n-type h2 + p:not(.n-drop-cap), .n-type h3 + p:not(.n-drop-cap), .n-type h4 + p:not(.n-drop-cap), .n-type h5 + p:not(.n-drop-cap), .n-type h6 + p:not(.n-drop-cap) {
+.n-type h1 + p:not(.n-drop-cap),
+.n-type h2 + p:not(.n-drop-cap),
+.n-type h3 + p:not(.n-drop-cap),
+.n-type h4 + p:not(.n-drop-cap),
+.n-type h5 + p:not(.n-drop-cap),
+.n-type h6 + p:not(.n-drop-cap) {
   margin-top: 0;
 }
 .n-type h1 {
@@ -76,7 +91,9 @@
   margin: 1em 0;
   padding: 0;
 }
-.n-type .quote, .n-type blockquote, .n-type q {
+.n-type .quote,
+.n-type blockquote,
+.n-type q {
   border-left: 1px solid #bbb;
   padding-left: 1em;
   display: block;
@@ -85,7 +102,8 @@
 .n-type[dir=rtl] .n-drop-cap:first-letter {
   float: right;
 }
-.n-type[dir=rtl] .quote, .n-type[dir=rtl] blockquote {
+.n-type[dir=rtl] .quote,
+.n-type[dir=rtl] blockquote {
   margin-left: 0;
   border-left: none;
   padding-left: 0;

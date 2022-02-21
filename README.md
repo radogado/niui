@@ -1,4 +1,4 @@
-# niui: mostly native front-end framework/library/toolkit
+# niui: mostly native front-end library
 
 
 A lightweight framework leveraging browsers' built-in capabilities, with subtle and powerful customisation. 
@@ -19,7 +19,7 @@ NPM usage:
 ---
 
 - Unbreakable, flexible, responsive [grid](https://radogado.github.io/niui/#grid). Supports Bootstrap-style wrapping columns, but with ._1/3 (1/3) etc., instead of .col...4 (4/12). Auto equal width columns with equal height and vertical alignment.
-- Baseline-aligned [typography](https://radogado.github.io/guide/#typography), quote block, drop caps.
+- Baseline-aligned [typography](https://radogado.github.io/niui/#typography), quote block, drop caps.
 - Unique class names
 - Embeddable grid and elements. Support for multiple modals, nested carousels, nested accordions etc
 - Built around edge cases (overflowing headlines, images etc)
@@ -32,7 +32,7 @@ NPM usage:
 - [Lightbox gallery](https://radogado.github.io/niui/#lightbox) supporting huge galleries and click to zoom. Can be opened automatically by URI page#lightbox_id. Video in lightbox. Inline lightboxes switchable to full screen.
 - [Tooltips](https://radogado.github.io/niui/#tooltip) with full HTML content
 - Nested ordered [lists](https://radogado.github.io/niui/#lists)
-- [Forms](https://radogado.github.io/niui/#form) with validation, customisation and accessibility.
+- [Forms](https://radogado.github.io/niui/#form) with validation, customisation and accessibility. Rich select available.
 - Native [sliders](https://radogado.github.io/niui/#slider), swipeable on mobile and desktop, with numbered or thumbnail (tabs) navigation, vertical and full window options, slider inside slider, fade in/out option, auto height option
 - [Accordions](https://radogado.github.io/niui/#fold)
 - [Tabs](https://radogado.github.io/niui/#tabs)

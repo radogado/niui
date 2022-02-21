@@ -1,0 +1,22 @@
+@charset "UTF-8";
+/* Image aspect ratio – don't shift the page after loading the image */
+.n-aspect {
+  display: block;
+  aspect-ratio: var(--ratio, calc(var(--width) / var(--height)));
+}
+.n-aspect > img {
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+.n-aspect.n-bottom > * {
+  align-self: flex-end;
+  vertical-align: bottom;
+}
+.n-aspect.n-middle > * {
+  align-self: center;
+  vertical-align: middle;
+}
+
+/*# sourceMappingURL=aspect-ratio.scss.css.map */
