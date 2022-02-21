@@ -1,18 +1,16 @@
 /* Tables */
-
 @import "../../css/niui-setup";
 
 .n-table {
 	width: 100%;
 	overflow: auto;
 	border-collapse: collapse;
-	-webkit-overflow-scrolling: touch;
+	
 	display: block;
-	// 	margin: $line-height-em 0;
 
 	td,
 	th {
-		padding: $line-height-em $line-height-em/2;
+		padding: var(--line-height-em) calc(var(--line-height-em)/2);
 		vertical-align: middle;
 	}
 
@@ -20,10 +18,9 @@
 	thead td {
 		color: #fff;
 		font-weight: bold;
-		padding-bottom: $line-height-em;
+		padding-bottom: var(--line-height-em);
 		font-size: 1.1em;
 		background: rgba(0, 0, 0, 0.1);
-		text-align: left;
 		text-align: start; // RTL support
 
 		button.n-table-sort {
@@ -37,10 +34,6 @@
 			padding: 0;
 			background: none;
 			color: inherit;
-			-webkit-touch-callout: none;
-			-webkit-user-select: none;
-			-khtml-user-select: none;
-			-moz-user-select: none;
 			user-select: none;
 
 			&:after {
@@ -66,7 +59,7 @@
 	display: none;
 }
 
-.n-table--wrap {
+.n-table__wrap {
 	overflow-x: auto;
 	/*
     scrollbar-3dlight-color: grey;
@@ -77,7 +70,7 @@
     scrollbar-highlight-color: transparent;
     scrollbar-shadow-color: transparent;
 */
-	-webkit-overflow-scrolling: touch;
+	
 
 	.n-table {
 		display: table;

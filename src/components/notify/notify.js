@@ -1,5 +1,4 @@
 // Component Notification bar – start
-
 var componentNotify = (function () {
 	function notifyClose(el) {
 		if (!!el) {
@@ -16,7 +15,8 @@ var componentNotify = (function () {
 	}
 
 	function notify(content, option) {
-		document.body.insertAdjacentHTML("afterbegin", `<div class="n-notify${option && option.indexOf("fixed") !== -1 ? " n-notify__fixed" : ""}">${content}</div>`);
+		document.body.insertAdjacentHTML("afterbegin", `<button class="n-notify${option && option.indexOf("fixed") !== -1 ? " n-notify--fixed" : ""}">${content}</button>`);
+		q(".n-notify").focus();
 		notifyCloseEvent();
 		if (option && option.indexOf("timeout") !== -1) {
 			setTimeout(() => {
@@ -24,18 +24,14 @@ var componentNotify = (function () {
 			}, 2000);
 		}
 	}
-
 	let init = (host) => {
 		/* Tooltip */
-
 		host.querySelectorAll(".n-notify:not([data-ready])").forEach((el, i) => {
 			notifyCloseEvent();
 			makeReady(el);
 		});
 	};
 	registerComponent("notify", init);
-
 	return { notify: notify };
 })();
-
 // Component Notification bar – end

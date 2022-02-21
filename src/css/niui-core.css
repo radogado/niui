@@ -1,12 +1,19 @@
 @charset "UTF-8";
 /* niui – rado.bg */
+:root {
+  --font-size: 16px;
+  --line-height: 1.5;
+  --line-height-em: calc(1rem * var(--line-height));
+  --color: #333;
+  --bg: #fff;
+}
+
 /*
 $font-size: 26px;
 $line-height: 34px;
 */
-/* Rewrite base variables here; add theme CSS below this one in <head> */
 .n-contain {
-  max-width: 1312px;
+  max-width: 82ch;
   margin: 0 auto;
   width: 100%;
 }
@@ -42,19 +49,21 @@ html.n-vertical-page body {
   flex-grow: 1;
 }
 
+.n-viewport {
+  height: 100vh;
+  height: -webkit-fill-available;
+}
 .n-viewport.n-header-banner {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
-
 .n-viewport.n-header-banner .n-banner {
   flex-grow: 1;
   justify-content: center;
   flex-direction: column;
   display: flex;
 }
-
 .n-viewport.n-header-banner.n-push-up:after {
   content: "";
   flex-grow: 1;
@@ -81,7 +90,7 @@ html.n-vertical-page body {
   position: static;
 }
 
-/* Element as a window to an image spanning viewpoert dimensions. iOS doesn't support it natively and requires div.fixed-bg-image */
+/* Element as a window to an image spanning viewpoert dimensions. iOS doesn't support it natively and requires div.fixed-bg__image */
 .n-fixed-bg {
   background-size: cover;
   background-position: center center;
@@ -116,14 +125,6 @@ html.n-vertical-page body {
     transform: translate3d(0, 0, 0);
   }
 }
-@supports (-ms-ime-align: auto) {
-  .n-fixed-bg {
-    background-size: cover;
-  }
-  .n-fixed-bg .n-fixed-bg__image {
-    display: none;
-  }
-}
 .n-fixed {
   position: fixed;
 }
@@ -139,16 +140,7 @@ a[href].span-relative-parent {
   left: 0;
 }
 
-[data-nui-animation] {
-  pointer-events: none;
-}
-
-.n-parallax--back {
-  position: absolute;
-}
-
 .n-viewport {
-  -webkit-overflow-scrolling: touch;
   min-height: 100vh;
   box-sizing: border-box;
   overflow: auto;

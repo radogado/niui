@@ -1,6 +1,5 @@
 (() => {
 	// Height adjustment during DOM population
-
 	let observer = new MutationObserver((mutations) => {
 		for (let mutation of mutations) {
 			for (let el of mutation.addedNodes) {
@@ -14,14 +13,12 @@
 					if (adjust !== line_height) {
 						el.style.setProperty("--adjust-height", adjust);
 					}
-
 					// We found our element, we're done:
 					observer.disconnect();
 				}
 			}
 		}
 	});
-
 	observer.observe(document.documentElement, {
 		childList: true,
 		subtree: true,

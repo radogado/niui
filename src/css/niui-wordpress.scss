@@ -1,8 +1,9 @@
 /* niui WordPress – rado.bg */
-
 @charset 'utf-8';
 
-$teal: #488e89;
+:root {
+	--color-teal: #488e89;
+}
 
 .n-slider--wrap {
 	background: #eee;
@@ -189,6 +190,7 @@ article h2 a {
 }
 
 .n-type #content section > article > {
+
 	p:not(.has-image):not(.has-iframe),
 	ol,
 	ul,
@@ -200,6 +202,7 @@ article h2 a {
 
 	p.has-image {
 		text-align: center;
+
 		//		font-size: 0; // Disable legacy images' captions, because they appear in the wrong place
 		img {
 			display: inline-block;
@@ -284,7 +287,7 @@ article h2 a[href] {
 	vertical-align: bottom;
 	padding: 0.5em;
 	font-size: 1.5rem;
-	background: $teal;
+	background: var(--color-teal);
 	color: #fff;
 	text-decoration: none;
 }
@@ -305,7 +308,6 @@ article h2 a[href]:after {
 
 }
 */
-
 .menu .current_page_item a:link,
 .menu .current_page_item a:visited,
 .img-crop:hover h2,
@@ -322,7 +324,6 @@ article {
 
 }
 */
-
 .n-header .logo {
 	display: flex;
 
@@ -355,7 +356,6 @@ article {
 
 footer {
 	// Stick footer to the bottom
-
 	flex-grow: 1;
 	display: flex;
 	justify-content: flex-end;
@@ -420,13 +420,14 @@ nav.n-nav {
 	}
 
 	article {
+
 		h1,
 		h2,
 		h3,
 		h4,
 		h5 {
 			font-weight: 500;
-			color: $teal;
+			color: var(--color-teal);
 		}
 
 		.headline > h2 {
@@ -508,9 +509,7 @@ nav.n-nav {
 	   
 	}
 	*/
-
 // Image captions
-
 .wp-caption {
 	margin: 0.5em auto 0 auto;
 
@@ -535,7 +534,7 @@ nav.n-nav {
 	}
 }
 
-a.backtotop[href] {
+a.n-backtotop[href] {
 	background: none;
 	bottom: -1em;
 }
@@ -572,7 +571,6 @@ a.backtotop[href] {
 
 		.n-lightbox.gallery a {
 			// Retina thumbnails
-
 			width: 10%;
 		}
 	}
@@ -582,7 +580,6 @@ a.backtotop[href] {
 	.archive {
 		.n-lightbox.gallery a {
 			// Retina thumbnails
-
 			width: 10%;
 		}
 	}
@@ -620,7 +617,6 @@ a.backtotop[href] {
 }
 
 // Color scheme
-
 .n-slider--arrow,
 .n-slider--nav *,
 .n-tool:after,
@@ -651,8 +647,8 @@ a.n-btn[href],
 }
 
 // Auto dark mode
-
 @media (prefers-color-scheme: dark) {
+
 	body,
 	.n-ovrl > *,
 	.n-slider--wrap {

@@ -1,746 +1,622 @@
 /* niui  – Form */
-
 @import "../../css/niui-setup";
 
-$placeholder_color: #aaa;
-
 .n-form {
-	* {
-		box-sizing: border-box;
-	}
-
-	label,
-	input,
-	textarea {
-		display: inline-block;
-		vertical-align: middle;
-	}
-
-	--placeholder_color: #aaa;
-
-	::-webkit-input-placeholder {
-		color: $placeholder_color;
-		color: var(--placeholder_color);
-		-webkit-text-fill-color: $placeholder_color;
-		-webkit-text-fill-color: var(--placeholder_color);
-	}
-
-	input[type="submit"],
-	button[type="submit"],
-	label,
-	.n-form--check span,
-	label > span {
-		line-height: $line-height;
-		min-height: $line-height-em;
-	}
-
-	label {
-		font-weight: bold;
-		max-width: 100%;
-		position: relative;
-		padding: 0;
-		margin: 0 0 $line-height-em 0;
-		min-height: $line-height-em * 2;
-	}
-
-	input[type="submit"],
-	button,
-	button[type="submit"] {
-		height: auto;
-		line-height: $line-height;
-		white-space: normal;
-		word-break: break-all;
-		margin: 0;
-		max-width: 100%;
-		padding: 0 1em;
-		font-weight: bold;
-	}
-
-	input,
-	select,
-	textarea,
-	input[type="search"],
-	button {
-		font-family: inherit;
-		display: inline-block;
-		overflow: hidden;
-		resize: none;
-		vertical-align: top;
-		border-radius: 0;
-		padding: 0 $line-height-em/2;
-		min-height: $line-height-em * 2;
-		border: 0;
-		font-size: 1em;
-		border: 1px dotted transparent;
-		// 		color: inherit;
-	}
-
-	textarea {
-		border-bottom: 1px dotted transparent;
-		height: 0;
-		min-height: $line-height-em * 3;
-		// 		min-height: calc(var(--line-height-em) * 3);
-		padding-top: $line-height-em/2;
-		// 	padding-top: .85em;
-		margin: $line-height-em 0;
-
-		&:not([data-auto]) {
-			overflow: auto;
-		}
-
-		&[data-auto] {
-			transform: translate3d(0, 0, 0); // Fix for disappearing textarea after deleting its overflowed text
-		}
-	}
-
-	input,
-	textarea {
-		background-color: #eee;
-		background-color: var(--input-bg, #eee);
-		color: #333;
-		color: var(--input-color, #333);
-	}
-
-	select {
-		-moz-appearance: none;
-		-webkit-appearance: none;
-		appearance: none;
-		text-indent: 0.01px;
-		text-overflow: "";
-		min-height: 0;
-		text-indent: 0px;
-		padding: 0 1.6em 0 0.8em;
-		height: $line-height-em * 2;
-		white-space: nowrap;
-		text-indent: -1px;
-		text-overflow: "";
-		margin: 0;
-		text-indent: 1px;
-		cursor: pointer;
-		background-image: linear-gradient(-113deg, transparent 60%, var(--control-bg, #eee) 63%), linear-gradient(113deg, transparent 60%, var(--control-bg, #eee) 63%),
-			linear-gradient(to bottom, var(--control-color, #333), var(--control-color, #333));
-		background-size: 0.75em 0.75em;
-		background-repeat: no-repeat;
-		background-position: calc(100% - 0.5em) center;
-		color: #333;
-		color: var(--control-color, #333);
-		background-color: #eee;
-		background-color: var(--control-bg, #eee);
-
-		option {
-			padding: 0 1.5em 0 0;
-		}
-	}
-
-	select,
-	.n-form--file {
-		vertical-align: top;
-		border: none;
-		margin-left: 0;
-	}
-
-	input[type="search"] {
-		-webkit-appearance: none; // Prevent iOS from rounding the input edges
-		border-radius: 0;
-
-		&::-webkit-search-decoration,
-		&::-webkit-search-cancel-button {
-			-webkit-appearance: none;
-		}
-	}
-
-	label,
-	label span,
-	.n-form--check span {
-		margin: 0;
-		text-align: start;
-	}
-
-	input,
-	select {
-		display: inline-block;
-		width: auto;
-		padding-top: 0;
-		margin: $line-height-em 0;
-		vertical-align: middle;
-	}
-
-	&.sticky-submit {
-		position: relative;
-
-		input[type="submit"],
-		button[type="submit"] {
-			position: absolute;
-			top: 50%;
-			right: 0;
-			transform: translateY(-50%);
-		}
-	}
-
-	.n-form--check {
-		display: block;
-		min-height: $line-height-em;
-		margin-bottom: $line-height-em;
-
-		span {
-			display: inline-block;
-			font-weight: bold;
-			margin-top: 0;
-			cursor: default;
-		}
-
-		&:after {
-			content: "";
-			display: block;
-			clear: both;
-		}
-
-		label {
-			text-align: start;
-			font-weight: normal;
-			clear: right;
-			margin: 0;
-			cursor: pointer;
-			min-height: 0;
-			-webkit-touch-callout: none;
-			-webkit-user-select: none;
-			-khtml-user-select: none;
-			-moz-user-select: none;
-			user-select: none;
-
-			span {
-				width: auto;
-			}
-
-			&:last-child {
-				margin-bottom: 0;
-			}
-
-			input[type="checkbox"],
-			input[type="radio"] {
-				margin: -0.25em 0.2em 0 0;
-			}
-		}
-	}
-
-	.n-form--check-icon {
-		width: 1em;
-		height: 1em;
-		display: inline-block;
-		background-color: #eee;
-		background-color: var(--control-bg, #eee);
-		color: #333;
-		color: var(--control-color, #333);
-		line-height: ($line-height + 1) * (2/3);
-		font-size: ($line-height - 2) * (2em/3);
-		text-align: center;
-		border: none;
-		margin: 0;
-		position: absolute;
-		left: 0;
-		z-index: 1;
-		top: 0.05em;
-		vertical-align: middle;
-	}
-
-	&.n-form__mast .n-form--check-icon {
-		top: 0.25em;
-	}
-
-	&.n-form__wide .n-form--check-icon {
-		top: 0.08em;
-	}
-
-	input[type="checkbox"] + .n-form--check-icon:before {
-		content: "✓";
-		opacity: 0;
-		display: block;
-		height: 1em;
-		line-height: 1;
-	}
-
-	input[type="checkbox"]:checked + .n-form--check-icon:before {
-		opacity: 1;
-	}
-
-	input[type="checkbox"],
-	input[type="radio"] {
-		-webkit-appearance: none;
-		-moz-appearance: window;
-		-ms-appearance: none;
-		background: transparent;
-		cursor: pointer;
-		padding: 0;
-		min-height: 0;
-		height: 1em;
-		width: 1em;
-		display: inline-block;
-		margin: 0;
-		border: none;
-	}
-
-	input[type="radio"] + .n-form--check-icon {
-		border-radius: 50%;
-	}
-
-	input[type="radio"]:checked + .n-form--check-icon:before {
-		content: "";
-		position: absolute;
-		background-color: #333;
-		background-color: var(--control-color, #333);
-		top: 25%;
-		right: 25%;
-		bottom: 25%;
-		left: 25%;
-		border-radius: 50%;
-	}
-
-	.n-form__mandatory span.n-form--check:before,
-	.n-form__mandatory span.tip:after,
-	select::-ms-expand {
-		display: none;
-	}
-
-	.n-form__mandatory {
-		position: relative;
-
-		&:before {
-			content: "*";
-			color: #a00;
-			position: absolute;
-			top: 0;
-			font-weight: bold;
-			left: auto;
-			right: 0;
-		}
-	}
-
-	.n-form--alert {
-		span,
-		p {
-			background: #666;
-			color: #eee;
-			padding: 0 0.25em;
-		}
-
-		span.n-form--check {
-			background: none;
-			color: #555;
-		}
-
-		span.tip {
-			background: #222;
-		}
-
-		/*
-		input {
-			
-			background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 21 26' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg%3E%3Ctext%3E%3Ctspan x='0' y='20'%3E⚠️%3C/tspan%3E%3C/text%3E%3C/g%3E%3C/svg%3E");
-			background-position: calc(100% - .5em) calc(50% - .1em);
-			background-size: 1.25em;
-			background-repeat: no-repeat;
-			padding-inline-end: 2.5em;
-			
-		}
-
-		input[type=checkbox] {
-
-		    padding-inline-end: 3em;
-
-		}
-*/
-	}
-
-	.n-form--file {
-		font-weight: normal;
-		margin: 0 0 $line-height-em 0;
-		cursor: pointer;
-		font-style: italic;
-		padding: 0;
-		position: relative;
-		z-index: 0;
-
-		span {
-			text-align: start;
-			border: none;
-			white-space: nowrap;
-			overflow: hidden;
-			background-color: #ddd;
-			background-color: var(--control-bg, #ddd);
-			color: inherit;
-			color: var(--control-color, inherit);
-			padding: 0 $line-height-em/2 0 0.75em;
-			display: block;
-			line-height: $line-height-em;
-			padding-top: $line-height-em/2;
-			letter-spacing: 0;
-
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			z-index: -1;
-
-			.n-form--file-tag {
-				display: none;
-			}
-
-			.n-form--file-name:empty ~ .n-form--file-tag {
-				display: block;
-			}
-		}
-
-		input[type="file"] {
-			width: 100%;
-			cursor: pointer;
-			border: none;
-			margin: 0;
-			background: transparent;
-			color: transparent;
-			text-indent: -100%;
-			padding: 0;
-
-			&:focus + span {
-				outline: auto;
-			}
-		}
-	}
-
-	input[type="range"] {
-		-webkit-appearance: none;
-		-moz-appearance: none;
-		appearance: none;
-		width: 100%;
-		background: none;
-		margin: 0;
-		padding: 0;
-
-		&::-webkit-slider-runnable-track {
-			width: 100%;
-			height: 0.7125em;
-			cursor: pointer;
-			background: var(--control-bg, rgba(0, 0, 0, 0.1));
-		}
-
-		&::-webkit-slider-thumb {
-			height: 1.625em;
-			width: 1.625em;
-			border-radius: 50%;
-			background: var(--control-highlight, #000);
-			cursor: pointer;
-			-webkit-appearance: none;
-			margin-top: -0.45625em;
-		}
-
-		&:focus::-webkit-slider-runnable-track {
-			background: var(--control-bg, rgba(0, 0, 0, 0.1));
-		}
-
-		&::-moz-range-track {
-			width: 100%;
-			height: 0.7125em;
-			cursor: pointer;
-			background: var(--control-bg, rgba(0, 0, 0, 0.1));
-		}
-
-		&::-moz-range-thumb {
-			border: 0px solid rgba(0, 0, 0, 0);
-			height: 1.625em;
-			width: 1.625em;
-			border-radius: 50%;
-			background: var(--control-bg, rgba(0, 0, 0, 0.1));
-			cursor: pointer;
-		}
-
-		/*
-		&::-ms-track {
-		
-			width: 100%;
-			height: .7125em;
-			cursor: pointer;
-			background: transparent;
-			border-color: transparent;
-			color: transparent;
-		
-		}
-		
-		&::-ms-fill-lower {
-		
-			background: rgba(0, 0, 0, 0.1);
-		
-		}
-		
-		&::-ms-fill-upper {
-		
-			background: rgba(0, 0, 0, 0.1);
-		
-		}
-		
-		&::-ms-thumb {
-		
-			border: 0px solid rgba(0, 0, 0, 0);
-			height: 1.625em;
-			width: 1.625em;
-			border-radius: .9375em;
-			background: var(--thumb-color);
-			cursor: pointer;
-			height: .7125em;
-		
-		}
-		
-		&:focus::-ms-fill-lower {
-		
-			background: rgba(0, 0, 0, 0.1);
-		
-		}
-		
-		&:focus::-ms-fill-upper {
-		
-			background: rgba(5, 5, 5, 0.1);
-		
-		}
-*/
-	}
-
-	legend {
-		padding: 0 0.5em;
-	}
-
-	fieldset {
-		border: 1px solid;
-		display: block;
-		margin: $line-height-em/2 0;
-
-		input:last-of-type {
-			margin-bottom: $line-height-em/3;
-		}
-
-		&[disabled] {
-			display: none;
-		}
-	}
-
-	input[type="submit"],
-	button {
-		width: auto;
-		min-width: 0;
-		padding: 0 1em;
-		min-height: $line-height-em * 1.6667;
-		text-align: start;
-		font-size: 1.2em;
-	}
-
-	&.n-form__wide textarea,
-	&.n-form__mast textarea {
-		margin: -$line-height-em/2 0 $line-height-em/2 0;
-	}
-
-	&.n-form__wide {
-		input[type="submit"],
-		button,
-		button[type="submit"] {
-			margin-bottom: calc(#{$line-height-em} - 5px); /* fix for the failed box-sizing: border-box */
-			// 		margin-bottom: calc(var(--line-height-em) - 2px); /* fix for the failed box-sizing: border-box */
-			//		min-height: calc(#{$line-height-em}*2 - 2px);
-			// 		min-height: calc(var(--line-height-em)*2 + 2px);
-			line-height: 2 * $line-height-em/3;
-			font-size: 1.2em;
-			min-height: 2.50005em;
-			width: 100%;
-		}
-
-		select {
-			width: 100%;
-			height: $line-height-em * 2;
-			// 		height: calc(var(--line-height-em) * 2);
-			margin: -$line-height-em/2 0 $line-height-em/2 0;
-			// 		margin: calc(-1*var(--line-height-em)/2) 0 calc(var(--line-height-em)/2) 0;
-		}
-
-		label,
-		label span,
-		.n-form--check span,
-		label,
-		.n-form--file {
-			display: block;
-			width: 100%;
-			clear: both;
-		}
-
-		&:not(.sticky-submit) input:not([type="checkbox"]):not([type="radio"]),
-		textarea,
-		select {
-			display: block;
-			width: 100%;
-			border: none;
-			margin: 0 0 $line-height-em 0;
-		}
-
-		.n-form--check label {
-			input[type="checkbox"],
-			input[type="radio"] {
-				margin-top: -0.2em;
-			}
-		}
-	}
-
-	&.n-form__mast {
-		input[type="submit"],
-		button,
-		button[type="submit"] {
-			margin-left: 50%;
-			margin-bottom: $line-height-em * 1.5;
-		}
-
-		label {
-			width: 100%;
-
-			> input {
-				margin-top: -$line-height-em/2;
-			}
-		}
-
-		> label > *,
-		> .n-form--check > * {
-			width: 50%;
-			float: right;
-			margin: -$line-height-em/2 0 $line-height-em * 1.5 0;
-		}
-
-		> label > span,
-		> .n-form--check > span {
-			width: 50%;
-			text-align: right;
-			padding-right: 1em;
-			float: left;
-			margin: 0;
-		}
-
-		> .n-form--check > * {
-			margin: 0;
-		}
-
-		.n-form__mandatory:before {
-			left: calc(50% - 1em);
-			z-index: -1;
-		}
-	}
-
-	&.n-form__language {
-		select {
-			height: auto;
-			width: 100%;
-			background-position: calc(100% - 0.5em);
-			margin-left: 0;
-			height: $line-height-em * 2;
-			line-height: $line-height-em * 2;
-			margin: 0;
-		}
-
-		input[type="submit"] {
-			min-height: 1em;
-			padding: 0 0.5em;
-		}
-	}
-}
-
-// IE
-
-_:-ms-input-placeholder,
-:root input[type="radio"] + .n-form--check-icon,
-.n-form.n-form__wide .n-form--check-icon,
-.n-form .n-form--file input[type="file"] {
-	top: 0.33em;
-	text-indent: 0;
-	padding: 0;
-}
-
-// Edge
-
-_:-ms-lang(x),
-input[type="radio"] + .n-form--check-icon,
-.n-form.n-form__wide .n-form--check-icon,
-.n-form .n-form--file input[type="file"] {
-	top: 0.33em;
-	text-indent: 0;
-	padding: 0;
-}
-
-[dir="rtl"] .n-form {
-	.n-form__mandatory:before {
-		left: 0;
-		right: auto;
-	}
-
-	&.n-form__mast .n-form__mandatory:before {
-		right: calc(50% - 1em);
-		left: auto;
-	}
-}
-
-@-moz-document url-prefix() {
-	// FF fixes
-
-	.n-form {
-		select {
-			padding-left: 0;
-			text-indent: 0.3em;
-
-			option {
-				padding: 0;
-			}
-		}
-
-		input::-moz-focus-inner,
-		button::-moz-focus-inner {
-			padding: 0;
-			border: 0;
-		}
-
-		input[type="text"],
-		input[type="email"],
-		input[type="url"] {
-			padding-top: 0;
-		}
-
-		span {
-			margin-top: -1px;
-		}
-
-		input[type="file"] {
-			padding-left: 100%;
-			text-indent: -1em;
-			margin-top: -$line-height-em;
-		}
-	}
-}
-
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-	/* IE10 */
-
-	.n-form input[type="file"] {
-		margin-left: -100%;
-	}
-}
-
-:root .n-form .n-form--check label {
-	/* Not IE9 */
-
-	padding-left: 0;
-	padding-bottom: 0;
-	display: inline;
-}
-
-[dir="rtl"] .n-form select {
-	padding-left: 0;
-	padding-right: 0.8em;
-}
-
-@supports (--a: 1) {
-	// Cut out IE because of drop nav
-
-	.n-form {
-		padding: $line-height-em 0;
-	}
+  padding: var(--line-height-em) 0;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  label,
+  input,
+  textarea {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  --placeholder_color: #aaa;
+
+  ::-webkit-input-placeholder {
+    color: var(--placeholder_color);
+    -webkit-text-fill-color: var(--placeholder_color);
+  }
+
+  input[type="submit"],
+  button[type="submit"],
+  label,
+  &__check span,
+  label > span {
+    line-height: var(--line-height);
+    min-height: var(--line-height-em);
+  }
+
+  label {
+    font-weight: bold;
+    max-width: 100%;
+    position: relative;
+    padding: 0;
+    margin: 0 0 var(--line-height-em) 0;
+    min-height: calc(var(--line-height-em) * 2);
+  }
+
+  input[type="submit"],
+  button,
+  button[type="submit"] {
+    height: auto;
+    line-height: var(--line-height);
+    white-space: normal;
+    word-break: break-all;
+    margin: 0;
+    max-width: 100%;
+    padding: 0 1em;
+    font-weight: bold;
+  }
+
+  input,
+  select,
+  textarea,
+  input[type="search"],
+  button {
+    font-family: inherit;
+    display: inline-block;
+    overflow: hidden;
+    resize: none;
+    vertical-align: top;
+    border-radius: 0;
+    padding: 0 calc(var(--line-height-em) / 2);
+    min-height: calc(var(--line-height-em) * 2);
+    border: 0;
+    font-size: 1em;
+    border: 1px dotted transparent;
+  }
+
+  textarea {
+    border-bottom: 1px dotted transparent;
+    height: 0;
+    min-height: calc(var(--line-height-em) * 3);
+    padding-top: calc(var(--line-height-em) / 2);
+    margin: var(--line-height-em) 0;
+
+    &:not([data-auto]) {
+      overflow: auto;
+    }
+
+    &[data-auto] {
+      transform: translate3d(0, 0, 0); // Fix for disappearing textarea after deleting its overflowed text
+    }
+  }
+
+  input,
+  textarea {
+    background-color: var(--input-bg, #eee);
+    color: var(--input-color, #333);
+  }
+
+  select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    text-indent: 0.01px;
+    text-overflow: "";
+    min-height: 0;
+    text-indent: 0px;
+    padding: 0 1.6em 0 0.8em;
+    height: calc(var(--line-height-em) * 2);
+    white-space: nowrap;
+    text-indent: -1px;
+    text-overflow: "";
+    margin: 0;
+    text-indent: 1px;
+    cursor: pointer;
+    background: linear-gradient(to bottom left, transparent 30%, var(--control-color, #333) 10%, var(--control-color, #333) 50%, transparent 30%),
+      linear-gradient(to bottom right, transparent 30%, var(--control-color, #333) 10%, var(--control-color, #333) 50%, transparent 30%);
+    background-size: 0.4em 0.4em;
+    background-repeat: no-repeat;
+    background-position: calc(100% - 0.85em), calc(100% - 0.5em);
+    color: var(--control-color, #333);
+    background-color: var(--control-bg, #eee);
+
+    option {
+      padding: 0;
+      padding-inline-end: 1.5em;
+    }
+  }
+
+  select,
+  &__file {
+    vertical-align: top;
+    border: none;
+    margin-inline-start: 0;
+  }
+
+  input[type="search"] {
+    -webkit-appearance: none; // Prevent iOS from rounding the input edges
+    border-radius: 0;
+
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button {
+      -webkit-appearance: none;
+    }
+  }
+
+  label,
+  label span,
+  &__check span {
+    margin: 0;
+    text-align: start;
+  }
+
+  input,
+  select {
+    display: inline-block;
+    width: auto;
+    padding-top: 0;
+    margin: var(--line-height-em) 0;
+    vertical-align: middle;
+  }
+
+  &.sticky-submit {
+    position: relative;
+
+    input[type="submit"],
+    button[type="submit"] {
+      position: absolute;
+      top: 50%;
+      inset-inline-end: 0;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__check,
+  & fieldset {
+    display: block;
+    min-height: var(--line-height-em);
+    margin-bottom: var(--line-height-em);
+
+    span {
+      display: inline-block;
+      font-weight: bold;
+      margin-top: 0;
+      cursor: default;
+    }
+
+    label {
+      text-align: start;
+      font-weight: normal;
+      clear: right;
+      margin: 0;
+      cursor: pointer;
+      min-height: 0;
+      user-select: none;
+      padding-inline-start: 0;
+      padding-bottom: 0;
+      display: inline;
+
+      span {
+        width: auto;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      input[type="checkbox"],
+      input[type="radio"] {
+        margin: -0.25em 0.2em 0 0;
+      }
+    }
+  }
+
+  &__check-icon {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    background-color: var(--control-bg, #eee);
+    color: var(--control-color, #333);
+    line-height: calc((var(--line-height) + 1) * (2 / 3));
+    // font-size: calc((var(--line-height) - 2) * (2em/3));
+    text-align: center;
+    border: none;
+    margin: 0;
+    position: absolute;
+    inset-inline-start: 0;
+    z-index: 1;
+    top: 0.05em;
+    vertical-align: middle;
+  }
+
+  &--mast,
+  &--wide {
+    .n-form__check-icon {
+      top: 0.25em;
+    }
+  }
+
+  input[type="checkbox"] + .n-form__check-icon:before {
+    content: "✓";
+    display: block;
+    height: 1em;
+    line-height: 1;
+  }
+
+  input[type="checkbox"]:not(:checked) + .n-form__check-icon:before {
+    opacity: 0;
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: window;
+    -ms-appearance: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    min-height: 0;
+    height: 1em;
+    width: 1em;
+    display: inline-block;
+    margin: 0;
+    border: none;
+  }
+
+  input[type="radio"] + .n-form__check-icon {
+    border-radius: 50%;
+  }
+
+  input[type="radio"]:checked + .n-form__check-icon:before {
+    content: "";
+    position: absolute;
+    background-color: var(--control-color, #333);
+    top: 25%;
+    right: 25%;
+    bottom: 25%;
+    left: 25%;
+    border-radius: 50%;
+  }
+
+  &--mandatory {
+    position: relative;
+
+    fieldset:before,
+    span.n-form__check:before,
+    span.tip:after {
+      display: none;
+    }
+
+    &:before {
+      content: "*";
+      color: #a00;
+      position: absolute;
+      top: 0;
+      font-weight: bold;
+      inset-inline-start: auto;
+      inset-inline-end: 0;
+    }
+  }
+
+  &--alert {
+    span,
+    p {
+      background: #666;
+      color: #eee;
+      padding: 0 0.25em;
+    }
+
+    span.n-form__check,
+    fieldset {
+      background: none;
+      color: #555;
+    }
+
+    span.tip {
+      background: #222;
+    }
+  }
+
+  &__file {
+    font-weight: normal;
+    margin: 0 0 var(--line-height) 0;
+    cursor: pointer;
+    font-style: italic;
+    padding: 0;
+    position: relative;
+    z-index: 0;
+
+    span {
+      text-align: start;
+      border: none;
+      white-space: nowrap;
+      overflow: hidden;
+      background-color: var(--control-bg, #ddd);
+      color: var(--control-color, inherit);
+      padding: 0 calc(var(--line-height-em) / 2) 0 0.75em;
+      display: block;
+      line-height: var(--line-height-em);
+      padding-top: calc(var(--line-height-em) / 2);
+      letter-spacing: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+
+      .n-form__file-tag {
+        display: none;
+      }
+
+      .n-form__file-name:empty ~ .n-form__file-tag {
+        display: block;
+      }
+    }
+
+    input[type="file"] {
+      width: 100%;
+      cursor: pointer;
+      border: none;
+      margin: 0;
+      background: transparent;
+      color: transparent;
+      text-indent: -100%;
+      padding: 0;
+
+      &:focus + span {
+        outline: auto;
+      }
+    }
+  }
+
+  input[type="range"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    background: none;
+    margin: 0;
+    padding: 0;
+
+    &::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 0.7125em;
+      cursor: pointer;
+      background: var(--control-bg, rgba(0, 0, 0, 0.1));
+    }
+
+    &::-webkit-slider-thumb {
+      height: 1.625em;
+      width: 1.625em;
+      border-radius: 50%;
+      background: var(--control-highlight, #000);
+      cursor: pointer;
+      -webkit-appearance: none;
+      margin-top: -0.45625em;
+    }
+
+    &:focus::-webkit-slider-runnable-track {
+      background: var(--control-bg, rgba(0, 0, 0, 0.1));
+    }
+
+    &::-moz-range-track {
+      width: 100%;
+      height: 0.7125em;
+      cursor: pointer;
+      background: var(--control-bg, rgba(0, 0, 0, 0.1));
+    }
+
+    &::-moz-range-thumb {
+      border: 0px solid rgba(0, 0, 0, 0);
+      height: 1.625em;
+      width: 1.625em;
+      border-radius: 50%;
+      background: var(--control-bg, rgba(0, 0, 0, 0.1));
+      cursor: pointer;
+    }
+  }
+
+  legend {
+    font-weight: bold;
+  }
+
+  fieldset {
+    border: 1px solid;
+    display: block;
+    margin: var(--line-height-em) 0;
+    padding: calc(var(--line-height-em) / 2 - 0.5px);
+
+    input:last-of-type {
+      // margin-bottom: calc(var(--line-height-em)/3);
+    }
+
+    &[disabled] {
+      display: none;
+    }
+  }
+
+  input[type="submit"],
+  button {
+    width: auto;
+    min-width: 0;
+    padding: 0 1em;
+    min-height: calc(var(--line-height-em) * 1.6667);
+    text-align: start;
+    font-size: 1.2em;
+  }
+
+  &--wide textarea,
+  &--mast textarea {
+    margin: calc(var(--line-height-em) / -2) 0 calc(var(--line-height-em) / 2) 0;
+  }
+
+  &--wide {
+    input[type="submit"],
+    button,
+    button[type="submit"] {
+      margin-bottom: calc(var(--line-height-em) - 5px);
+      line-height: calc((var(--line-height-em) / 3) * 2);
+      font-size: 1.2em;
+      min-height: 2.50005em;
+      width: 100%;
+    }
+
+    select {
+      width: 100%;
+      height: calc(var(--line-height-em) * 2);
+      margin: calc(var(--line-height-em) / -2) 0 calc(var(--line-height-em) / 2) 0;
+    }
+
+    label,
+    label span,
+    .n-form__check span,
+    fieldset label,
+    label,
+    .n-form__file {
+      display: block;
+      width: 100%;
+      clear: both;
+    }
+
+    &:not(.sticky-submit) input:not([type="checkbox"]):not([type="radio"]),
+    textarea,
+    select {
+      display: block;
+      width: 100%;
+      border: none;
+      margin: 0 0 var(--line-height-em) 0;
+    }
+
+    .n-form__check,
+    fieldset {
+      label {
+        input[type="checkbox"],
+        input[type="radio"] {
+          margin-top: -0.2em;
+        }
+      }
+    }
+  }
+
+  &.n-form--mast {
+    input[type="submit"],
+    button,
+    button[type="submit"] {
+      margin-inline-start: calc(50% + 0.5em);
+      margin-bottom: calc(var(--line-height-em) * 1.5);
+    }
+
+    label,
+    fieldset {
+      width: 100%;
+      display: grid;
+      grid-template: auto/1fr 1fr;
+      column-gap: 1em;
+      margin-bottom: 1.5em;
+    }
+
+    fieldset {
+      border-color: transparent;
+      border: none;
+      padding: calc(var(--line-height-em) / 2);
+      padding-top: 0;
+      padding-bottom: var(--line-height-em);
+
+      legend {
+        width: 50%;
+        margin-bottom: calc(-1 * var(--line-height-em));
+        text-align: end;
+      }
+
+      label {
+        display: block;
+        margin: 0;
+      }
+    }
+
+    > label > *,
+    > .n-form__check > *,
+    > .n-form__check fieldset > *,
+    fieldset > * {
+      // width: 50%;
+      width: 100%;
+      // float: right;
+      // clear: right;
+      margin: calc(var(--line-height-em) / -2) 0 calc(var(--line-height-em) * 1.5) 0;
+      grid-column: -2/-1;
+    }
+
+    > label > span,
+    > .n-form__check > span,
+    > .n-form__check fieldset > span {
+      text-align: end;
+      grid-column: 1;
+      margin: 0;
+    }
+
+    > .n-form__check {
+      display: grid;
+      grid-template: auto/1fr 1fr;
+      column-gap: 1em;
+
+      > * {
+        margin: 0;
+      }
+
+      label {
+        display: block;
+        // margin-inline-start: .5em;
+      }
+
+      fieldset {
+        display: contents;
+
+        // 				label {
+        //
+        // 					input[type="checkbox"],
+        // 					input[type="radio"] {
+        // 						margin-bottom: -0.125em;
+        // 					}
+        // 				}
+
+        legend,
+        label {
+          margin: 0;
+        }
+
+        legend {
+          grid-column: 1;
+        }
+      }
+    }
+
+    // 		fieldset {
+    // 			label {
+    //
+    // 				input[type="checkbox"],
+    // 				input[type="radio"] {
+    // 					margin-bottom: -0.125em;
+    // 				}
+    // 			}
+    // 		}
+
+    .n-form--mandatory:before {
+      inset-inline-start: calc(50% - 0.5em);
+      z-index: -1;
+    }
+  }
+
+  //   &--language {
+  //     select {
+  //       height: auto;
+  //       width: 100%;
+  //       margin-inline-start: 0;
+  //       height: calc(var(--line-height-em) * 2);
+  //       line-height: calc(var(--line-height-em) * 2);
+  //       margin: 0;
+  //     }
+  //
+  //     input[type="submit"] {
+  //       min-height: 1em;
+  //       padding: 0 0.5em;
+  //     }
+  //   }
 }

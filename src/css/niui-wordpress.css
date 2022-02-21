@@ -1,5 +1,9 @@
 @charset "UTF-8";
 /* niui WordPress – rado.bg */
+:root {
+  --color-teal: #488e89;
+}
+
 .n-slider--wrap {
   background: #eee;
 }
@@ -250,7 +254,7 @@ article h2 a[href] {
   vertical-align: bottom;
   padding: 0.5em;
   font-size: 1.5rem;
-  background: #488e89;
+  background: var(--color-teal);
   color: #fff;
   text-decoration: none;
 }
@@ -371,7 +375,7 @@ nav.n-nav.n-nav__drop li.current_page_item {
 .n-type article h4,
 .n-type article h5 {
   font-weight: 500;
-  color: #488e89;
+  color: var(--color-teal);
 }
 .n-type article .headline > h2 {
   padding: 0;
@@ -456,7 +460,7 @@ nav.n-nav.n-nav__drop li.current_page_item {
   padding: 0;
 }
 
-a.backtotop[href] {
+a.n-backtotop[href] {
   background: none;
   bottom: -1em;
 }

@@ -1,8 +1,0 @@
-.n-parallax {
-	overflow: hidden;
-}
-
-.n-parallax--content {
-	will-change: transform;
-	transform: translateY(calc(var(--scrollparallax, 0) * 1px));
-}

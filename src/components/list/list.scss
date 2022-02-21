@@ -1,149 +1,147 @@
 /* niui – List */
-
 @import "../../css/niui-setup";
 
 ul.n-list {
-	padding: 0;
-	line-height: $line-height;
-	min-height: $line-height-em;
-	margin: $line-height-em/2 0 $line-height-em/2 0;
+  padding: 0;
+  line-height: var(--line-height);
+  min-height: var(--line-height);
+  margin: calc(var(--line-height) / 2) 0;
 
-	&.n-list--indent {
-		margin-inline-start: 1.5em;
-	}
+  &.n-list--indent {
+    margin-inline-start: 1.5em;
+  }
 
-	li {
-		display: block;
-		position: relative;
-		width: 100%;
-		list-style: none;
-		word-break: break-word; // Overflow protection for long words
-		word-wrap: break-word;
-	}
+  li {
+    display: block;
+    position: relative;
+    width: 100%;
+    list-style: none;
+    word-break: break-word; // Overflow protection for long words
+    word-wrap: break-word;
+  }
 
-	&:not(.n-list__no-bullet):not(.n-list__inline) li {
-		margin-inline-start: 1em;
-		max-width: calc(100% - 1em);
+  &:not(.n-list--no-bullet):not(.n-list--inline) li {
+    margin-inline-start: 1em;
+    max-width: calc(100% - 1em);
 
-		&:before {
-			content: "•";
-			position: absolute;
-			margin-inline-start: -0.67em;
-			color: var(--list-bg);
-			font-size: 1.5em;
-			line-height: 0.9;
-		}
-	}
+    &:before {
+      content: "•";
+      position: absolute;
+      margin-inline-start: -0.67em;
+      color: var(--list-bg);
+      font-size: 1.5em;
+      line-height: 0.9;
+    }
+  }
 
-	&.n-list__inline > li:first-child {
-		margin-inline-start: 0;
-	}
+  &.n-list--inline > li:first-child {
+    margin-inline-start: 0;
+  }
 }
 
 ol.n-list {
-	list-style-type: none;
-	counter-reset: level1;
-	padding: 0;
-	margin: 0 0 $line-height-em 0;
+  list-style-type: none;
+  counter-reset: level1;
+  padding: 0;
+  margin: 0 0 var(--line-height-em) 0;
 
-	> li {
-		text-indent: -2.3em;
-		margin: $line-height-em 0 $line-height-em/2 2.3em;
+  > li {
+    text-indent: -2.3em;
+    margin: var(--line-height-em) 0 calc(var(--line-height-em) / 2) 2.3em;
 
-		&:before {
-			content: counter(level1);
-			counter-increment: level1;
-			font-weight: bold;
-			background: #999;
-			background: var(--list-bg, #999);
-			color: #fff;
-			color: var(--list-color, #fff);
-			padding: 0 0.5em;
-			border-radius: 50%;
-			margin-inline-end: 0.333em;
-			min-height: 1em;
-			display: inline-block;
-			text-indent: 0;
-			text-align: center;
-		}
-	}
+    &:before {
+      width: auto;
+      content: counter(level1);
+      counter-increment: level1;
+      font-weight: bold;
+      background: var(--list-bg, #999);
+      color: var(--list-color, #fff);
+      padding: 0 0.5em;
+      border-radius: 50%;
+      margin-inline-end: 0.333em;
+      min-height: 1em;
+      display: inline-block;
+      text-indent: 0;
+      text-align: center;
+    }
+  }
 
-	li > * {
-		text-indent: 0;
-		display: inline-block;
-		vertical-align: top;
-		padding-top: 0;
-		margin-top: 0;
-	}
+  li > * {
+    text-indent: 0;
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 0;
+    margin-top: 0;
+  }
 
-	li > ul {
-		display: block;
-	}
+  li > ul {
+    display: block;
+  }
 
-	> li ol {
-		list-style-type: none;
-		counter-reset: level2;
-		display: block;
-	}
+  > li ol {
+    list-style-type: none;
+    counter-reset: level2;
+    display: block;
+  }
 
-	> li ol > li:before {
-		content: counter(level1) "." counter(level2) " ";
-		counter-increment: level2;
-		border-radius: 1em;
-	}
+  > li ol > li:before {
+    content: counter(level1) "." counter(level2) " ";
+    counter-increment: level2;
+    border-radius: 1em;
+  }
 
-	ol > li ol {
-		list-style-type: none;
-		counter-reset: level3;
-		margin-inline-start: 1em;
+  ol > li ol {
+    list-style-type: none;
+    counter-reset: level3;
+    margin-inline-start: 1em;
 
-		li:before {
-			content: counter(level1) "." counter(level2) "." counter(level3) " ";
-			counter-increment: level3;
-		}
-	}
+    li:before {
+      content: counter(level1) "." counter(level2) "." counter(level3) " ";
+      counter-increment: level3;
+    }
+  }
 
-	ol > li {
-		text-indent: -3.3em;
-		// 		overflow-x: hidden;
-	}
+  ol > li {
+    text-indent: -3.3em;
+    // 		overflow-x: hidden;
+  }
 
-	ol ol > li {
-		text-indent: -3.95em;
-	}
+  ol ol > li {
+    text-indent: -3.95em;
+  }
 
-	ul {
-		text-indent: 0.1em;
-	}
+  ul {
+    text-indent: 0.1em;
+  }
 
-	p {
-		text-indent: 0;
-	}
+  p {
+    text-indent: 0;
+  }
 }
 
-ul.n-list.n-list__inline,
-ul.n-list.n-list__inline li,
-.n-nav.n-nav__scroll ul li {
-	vertical-align: top;
-	display: inline-block;
-	width: auto;
+ul.n-list.n-list--inline,
+ul.n-list.n-list--inline li,
+.n-nav.n-nav--scroll ul li {
+  vertical-align: top;
+  display: inline-flex;
+  width: auto;
 }
 
 .n-nav ul.n-list {
-	&:not(.n-list__no-bullet):not(.n-list__inline) li {
-		margin-inline-start: 0;
-		max-width: 100%;
-	}
+  &:not(.n-list--no-bullet):not(.n-list--inline) li {
+    margin-inline-start: 0;
+    max-width: 100%;
+  }
 
-	li:before {
-		display: none;
-	}
+  li:before {
+    display: none;
+  }
 }
 
 [dir="rtl"] ol.n-list > li {
-	margin: $line-height-em 2.3em $line-height-em/2 0;
+  margin: var(--line-height-em) 2.3em calc(var(--line-height-em) / 2) 0;
 
-	&:before {
-		margin: 0 0 0 0.5em;
-	}
+  &:before {
+    margin: 0 0 0 0.5em;
+  }
 }

@@ -1,10 +1,18 @@
 @charset "UTF-8";
 /* niui – List */
+:root {
+  --font-size: 16px;
+  --line-height: 1.5;
+  --line-height-em: calc(1rem * var(--line-height));
+  --color: #333;
+  --bg: #fff;
+}
+
 ul.n-list {
   padding: 0;
-  line-height: 1.5;
-  min-height: 1.5em;
-  margin: 0.75em 0 0.75em 0;
+  line-height: var(--line-height);
+  min-height: var(--line-height);
+  margin: calc(var(--line-height) / 2) 0;
 }
 ul.n-list.n-list--indent {
   margin-inline-start: 1.5em;
@@ -17,11 +25,11 @@ ul.n-list li {
   word-break: break-word;
   word-wrap: break-word;
 }
-ul.n-list:not(.n-list__no-bullet):not(.n-list__inline) li {
+ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li {
   margin-inline-start: 1em;
   max-width: calc(100% - 1em);
 }
-ul.n-list:not(.n-list__no-bullet):not(.n-list__inline) li:before {
+ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li:before {
   content: "•";
   position: absolute;
   margin-inline-start: -0.67em;
@@ -29,7 +37,7 @@ ul.n-list:not(.n-list__no-bullet):not(.n-list__inline) li:before {
   font-size: 1.5em;
   line-height: 0.9;
 }
-ul.n-list.n-list__inline > li:first-child {
+ul.n-list.n-list--inline > li:first-child {
   margin-inline-start: 0;
 }
 
@@ -37,19 +45,18 @@ ol.n-list {
   list-style-type: none;
   counter-reset: level1;
   padding: 0;
-  margin: 0 0 1.5em 0;
+  margin: 0 0 var(--line-height-em) 0;
 }
 ol.n-list > li {
   text-indent: -2.3em;
-  margin: 1.5em 0 0.75em 2.3em;
+  margin: var(--line-height-em) 0 calc(var(--line-height-em) / 2) 2.3em;
 }
 ol.n-list > li:before {
+  width: auto;
   content: counter(level1);
   counter-increment: level1;
   font-weight: bold;
-  background: #999;
   background: var(--list-bg, #999);
-  color: #fff;
   color: var(--list-color, #fff);
   padding: 0 0.5em;
   border-radius: 50%;
@@ -101,15 +108,15 @@ ol.n-list p {
   text-indent: 0;
 }
 
-ul.n-list.n-list__inline,
-ul.n-list.n-list__inline li,
-.n-nav.n-nav__scroll ul li {
+ul.n-list.n-list--inline,
+ul.n-list.n-list--inline li,
+.n-nav.n-nav--scroll ul li {
   vertical-align: top;
-  display: inline-block;
+  display: inline-flex;
   width: auto;
 }
 
-.n-nav ul.n-list:not(.n-list__no-bullet):not(.n-list__inline) li {
+.n-nav ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li {
   margin-inline-start: 0;
   max-width: 100%;
 }
@@ -118,7 +125,7 @@ ul.n-list.n-list__inline li,
 }
 
 [dir=rtl] ol.n-list > li {
-  margin: 1.5em 2.3em 0.75em 0;
+  margin: var(--line-height-em) 2.3em calc(var(--line-height-em) / 2) 0;
 }
 [dir=rtl] ol.n-list > li:before {
   margin: 0 0 0 0.5em;

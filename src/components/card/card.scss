@@ -1,18 +1,16 @@
 /* niui  – Card */
-
 @import "../../css/niui-setup";
 
 .n-card {
 	margin: 1em 0;
 	--card-bg: #{rgba(0, 0, 0, 0.1)};
-	background: rgba(0, 0, 0, 0.1);
-	background: var(--card-bg);
+	background: var(--card-bg, rgba(0, 0, 0, 0.1));
 
 	> * {
 		padding: 1em;
 	}
 
-	.n-card--content {
+	&__content {
 		background: var(--card-bg);
 
 		p {
@@ -31,11 +29,11 @@
 		padding: 0;
 	}
 
-	.n-card--head > * {
+	&__head > * {
 		margin: 0;
 	}
 
-	.n-card--head.n-card__image {
+	&__head.n-card--image {
 		background-position: center center;
 		background-size: cover;
 		background-repeat: no-repeat;

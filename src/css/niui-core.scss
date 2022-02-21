@@ -1,216 +1,187 @@
 /* niui – rado.bg */
-
 @charset 'utf-8';
-
 @import "niui-setup";
-@import "theme-variables"; /* Rewrite base variables here; add theme CSS below this one in <head> */
+@import "theme-variables";
 
 .n-contain {
-	max-width: 82 * $font-size;
-	margin: 0 auto;
-	width: 100%;
+  max-width: 82ch;
+  margin: 0 auto;
+  width: 100%;
 }
 
 /* Basic elements */
-
 html {
-	height: 100%;
-	// 	scroll-behavior: smooth;
+  height: 100%;
+  // 	scroll-behavior: smooth;
 }
 
 body {
-	margin: 0;
-	position: relative; // For the tooltips
+  margin: 0;
+  position: relative; // For the tooltips
 }
 
 html.n-vertical-page {
-	&,
-	body {
-		height: 100%;
-		margin: 0 auto;
-		overflow-x: hidden;
-	}
+  &,
+  body {
+    height: 100%;
+    margin: 0 auto;
+    overflow-x: hidden;
+  }
 
-	body {
-		overflow: hidden;
-		height: auto;
-	}
+  body {
+    overflow: hidden;
+    height: auto;
+  }
 }
 
 .n-sticky-footer {
-	min-height: 100vh; // % has problems with Chrome 67
-	display: flex; /* Sticky footer */
-	flex-direction: column;
+  min-height: 100vh; // % has problems with Chrome 67
+  display: flex;
+  /* Sticky footer */
+  flex-direction: column;
 
-	main {
-		flex-grow: 1;
-	}
-}
-
-.n-viewport.n-header-banner {
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-}
-
-.n-viewport.n-header-banner .n-banner {
-	flex-grow: 1;
-	justify-content: center;
-	flex-direction: column;
-	display: flex;
-}
-
-.n-viewport.n-header-banner.n-push-up:after {
-	// Move centered content up, because the middle seems low
-
-	content: "";
-	flex-grow: 1;
-}
-
-.n-header a.n-logo {
-	display: inline-block;
-}
-
-.n-wide-screen {
-	display: block;
-}
-
-.n-narrow-screen {
-	display: none;
-}
-
-/* Footer */
-
-.n-footer {
-	position: relative; // Because of the backtotop button
-}
-
-.n-footer > * {
-	position: static;
-}
-
-/* Element as a window to an image spanning viewpoert dimensions. iOS doesn't support it natively and requires div.fixed-bg-image */
-
-.n-fixed-bg {
-	background-size: cover;
-	background-position: center center;
-}
-
-@supports (clip: rect(auto, auto, auto, auto)) {
-	.n-fixed-bg {
-		will-change: scroll;
-		background-size: 0;
-		position: relative;
-		z-index: 1;
-
-		.n-fixed-bg__image {
-			position: absolute;
-			background-size: 0;
-			z-index: -1;
-			clip: rect(auto, auto, auto, auto);
-
-			&,
-			&:before {
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%; // Chrome bug, addressed below
-				background-image: inherit;
-			}
-
-			&:before {
-				content: "";
-				position: fixed;
-				background-size: cover;
-				background-position: center center;
-				height: 100vh; // Mobile browser resize when hiding/showing toolbars
-
-				transform: translate3d(0, 0, 0); // Force refresh while scrolling (iPad), fix missing image parts on (macOS Safari)
-			}
-		}
-	}
-}
-
-@supports (-ms-ime-align: auto) {
-	// Disable jumpy Edge
-
-	.n-fixed-bg {
-		background-size: cover;
-
-		.n-fixed-bg__image {
-			display: none;
-		}
-	}
-}
-
-.n-fixed {
-	position: fixed;
-
-	&.n-header {
-		position: static;
-	}
-}
-
-a[href].span-relative-parent {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-}
-
-[data-nui-animation] {
-	// Speed up animated elements
-
-	pointer-events: none;
-}
-
-// Fallback before loading the full parallax CSS
-
-.n-parallax--back {
-	position: absolute;
+  main {
+    flex-grow: 1;
+  }
 }
 
 .n-viewport {
-	-webkit-overflow-scrolling: touch;
-	min-height: 100vh;
-	box-sizing: border-box;
-	overflow: auto;
-	position: relative;
+  height: 100vh;
+  height: -webkit-fill-available;
+  &.n-header-banner {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    .n-banner {
+      flex-grow: 1;
+      justify-content: center;
+      flex-direction: column;
+      display: flex;
+    }
+  }
+
+  &.n-header-banner.n-push-up:after {
+    // Move centered content up, because the middle seems low
+    content: "";
+    flex-grow: 1;
+  }
+}
+
+.n-header a.n-logo {
+  display: inline-block;
+}
+
+.n-wide-screen {
+  display: block;
+}
+
+.n-narrow-screen {
+  display: none;
+}
+
+/* Footer */
+.n-footer {
+  position: relative; // Because of the n-backtotop button
+}
+
+.n-footer > * {
+  position: static;
+}
+
+/* Element as a window to an image spanning viewpoert dimensions. iOS doesn't support it natively and requires div.fixed-bg__image */
+.n-fixed-bg {
+  background-size: cover;
+  background-position: center center;
+}
+
+@supports (clip: rect(auto, auto, auto, auto)) {
+  .n-fixed-bg {
+    will-change: scroll;
+    background-size: 0;
+    position: relative;
+    z-index: 1;
+
+    .n-fixed-bg__image {
+      position: absolute;
+      background-size: 0;
+      z-index: -1;
+      clip: rect(auto, auto, auto, auto);
+
+      &,
+      &:before {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%; // Chrome bug, addressed below
+        background-image: inherit;
+      }
+
+      &:before {
+        content: "";
+        position: fixed;
+        background-size: cover;
+        background-position: center center;
+        height: 100vh; // Mobile browser resize when hiding/showing toolbars
+        transform: translate3d(0, 0, 0); // Force refresh while scrolling (iPad), fix missing image parts on (macOS Safari)
+      }
+    }
+  }
+}
+
+.n-fixed {
+  position: fixed;
+
+  &.n-header {
+    position: static;
+  }
+}
+
+a[href].span-relative-parent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.n-viewport {
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow: auto;
+  position: relative;
 }
 
 /* Narrow Screens */
-
 @media screen and (max-width: $screen-narrow-max) {
-	.n-wide-screen {
-		display: none;
-	}
+  .n-wide-screen {
+    display: none;
+  }
 
-	.n-narrow-screen {
-		display: block;
-	}
+  .n-narrow-screen {
+    display: block;
+  }
 
-	.n-viewport.n-header-banner {
-		height: auto;
-		overflow: hidden;
-	}
+  .n-viewport.n-header-banner {
+    height: auto;
+    overflow: hidden;
+  }
 
-	.n-header {
-		.head-right {
-			text-align: start;
-		}
+  .n-header {
+    .head-right {
+      text-align: start;
+    }
 
-		&.n-fixed {
-			position: fixed;
-			top: 0;
-			left: 0;
-			right: 0;
-			background: #fff;
-			z-index: 7;
-		}
+    &.n-fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #fff;
+      z-index: 7;
+    }
 
-		a.n-logo {
-			float: right;
-		}
-	}
+    a.n-logo {
+      float: right;
+    }
+  }
 }
