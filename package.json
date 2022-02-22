@@ -17,15 +17,29 @@
 	"homepage": "https://github.com/radogado/niui#readme",
 	"devDependencies": {
 		"clean-css-cli": "^5.3.3",
-		"gzip-size": "^6.0.0",
+		"core-js": "^3.21.1",
+		"gulp-better-rollup": "^4.0.1",
+		"gulp-clean-css": "^4.3.0",
+		"gulp-cli": "^2.3.0",
+		"gulp-concat": "^2.6.1",
+		"gulp-file-include": "^2.3.0",
+		"gulp-headerfooter": "^1.0.3",
+		"gulp-rename": "^2.0.0",
+		"gulp-sass-glob": "^1.1.0",
+		"gulp-size": "^4.0.1",
+		"gulp-sourcemaps": "^3.0.0",
+		"gulp-terser": "^2.1.0",
 		"n-carousel": "^1.1.2",
 		"n-select": "^1.0.5",
-		"rollup": "^2.67.3",
 		"sass": "^1.38.1",
 		"terser": "^5.7.2"
 	},
 	"main": "index.js",
 	"publishConfig": {
 		"registry": "https://npm.pkg.github.com/"
+	},
+	"dependencies": {
+		"gulp": "^4.0.2",
+		"merge-stream": "^2.0.0"
 	}
 }

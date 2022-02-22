@@ -1,5 +1,6 @@
 /* niui by rado.bg */
 /* DOM functions via http://youmightnotneedjquery.com */
+
 document.body.dataset.nuiJs = true;
 if (!!window["chrome"]) {
   document.body.dataset.nuiChrome = true;
@@ -19,6 +20,8 @@ function q(selector) {
 function qa(selector) {
   return document.querySelectorAll(selector);
 }
+
+window.nuiQa = qa;
 
 function addClass(el, className) {
   el.classList.add(className);
@@ -117,6 +120,8 @@ function wrap(toWrap, wrapper) {
   //     observerOn();
   return wrapper;
 }
+
+window.nuiWrap = wrap;
 
 function removeHash() {
   history.pushState("", document.title, window.location.pathname + window.location.search);
@@ -277,6 +282,9 @@ function copyButton(el, target, echo) {
     } catch (err) {}
   });
 }
+
+window.nuiCopyButton = copyButton;
+
 // Real time touch detection to support devices with both touch and mouse. http://www.javascriptkit.com/dhtmltutors/sticky-hover-issue-solutions.shtml
 // To do: use an attribute instead of class
 (function () {
@@ -306,6 +314,8 @@ function makeReady(el) {
   el.dataset.ready = true;
 }
 
+window.nuiMakeReady = makeReady;
+
 function focusWithin(selector) {
   var result = null;
   qa(selector).forEach((el) => {
@@ -321,6 +331,8 @@ function addComponent(host, el) {
   // 	initComponents(host); // No need, observer does it automatically
 }
 
+window.nuiAddComponent = addComponent;
+
 var current_slider = q(".n-carousel__content");
 
 var components = new Array();
@@ -329,6 +341,8 @@ function registerComponent(name, init) {
   components[name] = new Array();
   components[name].push({ init: init });
 }
+
+window.nuiRegisterComponent = registerComponent;
 
 function initComponents(host) {
   observerOff();
