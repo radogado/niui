@@ -12,6 +12,5 @@ rm components/components.css
 ./node_modules/rollup/dist/bin/rollup  --no-treeshake --format=cjs --banner "window.nui = (() => {" --footer "initComponents(); return { initComponents, copyButton, componentModal, addComponent, componentNotify } })();" -- dist/niui-temp.js > dist/niui.js
 rm dist/niui-temp.js
 ./node_modules/terser/bin/terser -o dist/niui.min.js --compress --mangle -- dist/niui.js
-#gzip-size --raw n-carousel.min.css > n-carousel.min.css.size
 gzip-size --raw dist/niui.min.js > dist/niui.min.js.size
 gzip-size --raw dist/niui.min.css > dist/niui.min.css.size

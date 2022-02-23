@@ -2,7 +2,7 @@
   "actions" : {
     "build" : {
       "enabled" : true,
-      "script" : ".\/build.sh"
+      "script" : "gulp build:styles\ngulp build:scripts\n"
     }
   },
   "identifier" : "89640C0A-885D-4749-870C-E1DBFE2F735C"

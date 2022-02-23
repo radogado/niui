@@ -16,6 +16,7 @@
 	},
 	"homepage": "https://github.com/radogado/niui#readme",
 	"devDependencies": {
+		"@mr-hope/gulp-sass": "^3.0.2",
 		"clean-css-cli": "^5.3.3",
 		"core-js": "^3.21.1",
 		"gulp-better-rollup": "^4.0.1",
