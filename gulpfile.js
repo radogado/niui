@@ -9,11 +9,11 @@ var concat = require('gulp-concat'),
 	headerfooter = require('gulp-headerfooter');
 
 gulp.task('build:scripts', function() {
-	return gulp.src(['js/niui-core.js', 'components/**/*.js'])
+	return gulp.src(['components/**/*.js'])
 		.pipe(sourcemaps.init())
 		.pipe(rollup({}, { format: 'cjs', strict: false, treeshake: false }))
 		.pipe(concat('niui.js'))
-		.pipe(headerfooter.header('js/niui-head.js'))
+		.pipe(headerfooter.header('js/niui-core.js'))
 		.pipe(headerfooter.footer('js/niui-tail.js'))
 		.pipe(terser())
 		.pipe(rename(function(path) {

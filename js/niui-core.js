@@ -1,3 +1,5 @@
+window.nui = (() => {
+  
 /* niui by rado.bg */
 /* DOM functions via http://youmightnotneedjquery.com */
 
@@ -68,6 +70,8 @@ function parseHTML(str) {
   // To do: destroy the HTMLDocument before returning
   return tmp.body;
 }
+
+window.nuiParseHTML = parseHTML;
 
 function stopEvent(e) {
   if (!e) {
