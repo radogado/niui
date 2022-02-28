@@ -10,6 +10,39 @@
 	<link rel=styleSheet href=dist/niui.min.css type=text/css media=screen>
 	<link rel=styleSheet href=css/guide.css type=text/css media=screen>
 	<script src="dist/niui-preload.min.js"></script> <!-- Load and execute immediately. Should be on the same host as the above CSS file, not waiting for another request -->
+<!-- 	<script>
+		(() => {
+			if (!!location.hash) {
+				// Height adjustment during DOM population
+				let observer = new MutationObserver((mutations) => {
+					for (let mutation of mutations) {
+						for (let el of mutation.addedNodes) {
+							// We're iterating through _all_ the elements as the parser parses them,
+							// deciding if they're the one we're looking for.
+							if (!!el.matches && el.matches('.n-carousel__content > *') && !el.parentNode.parentNode.closest('.n-carousel__content') && el.matches(location.hash)) {
+								el.scrollIntoView();
+							}
+						}
+					}
+				});
+				observer.observe(document.documentElement, {
+					childList: true,
+					subtree: true,
+				});
+
+				const unobserve = () => {
+					observer.disconnect();
+				}
+
+				if (document.readyState !== "loading") {
+					unobserve();
+				} else {
+					document.addEventListener("DOMContentLoaded", unobserve);
+				}
+
+			}
+		})();
+	</script> -->
 	<script>
 		function setupCopy() {
 			if (typeof nui === "object") {
@@ -67,11 +100,11 @@
 			<button><span>Masonry</span></button>
 			<button><span>Cards</span></button>
 			<button><span>Fixed background</span></button>
-<!-- 			<button><span>Language selector</span></button> -->
+			<!-- 			<button><span>Language selector</span></button> -->
 			<button><span>Parallax scrolling</span></button>
 			<button><span>Notification bar</span></button>
 			<button><span>Copy to clipboard</span></button>
-<!-- 			<button><span>"Back to top" button</span></button> -->
+			<!-- 			<button><span>"Back to top" button</span></button> -->
 			<button><span>Dynamic components</span></button>
 			<button><span>WordPress theme</span></button>
 			<button><span>Color scheme</span></button>
@@ -91,7 +124,7 @@
 						<p><a href="dist/niui.min.css">niui.min.css</a>, <a href="dist/niui.min.js">niui.min.js</a></p>
 					</div>
 					<div>
-<h1>Native Internet User Interface</h1>
+						<h1>Native Internet User Interface</h1>
 						<ul class="n-masonry n-left">
 							<li>Lightweight, ~10+~10 K</li>
 							<li>Accessible</li>
@@ -264,7 +297,7 @@
 					</div>
 				</div>
 			</div>
-			<div  id=grid>
+			<div id=grid>
 				<div>
 					<div class="n-row">
 						<div class="_1/1">
@@ -698,22 +731,22 @@
 					</div>
 				</div>
 			</div>
-			<div  id=nav>
+			<div id=nav>
 				<div class="n-row">
 					<div class=_1/1>
 						<h2>Navigation</h2>
 					</div>
 					<div class="_1/3">
 						<h3>Standard navigation</h3>
-<nav class="n-nav">
-		<ul class="n-list n-list--inline">
-			<li> <a href=#buttons>Buttons</a> </li>
-			<li> <a href=#nav>Drop-down nav</a> </li>
-			<li class="n-nav-current"> <a href=#lightbox>Lightbox</a> </li>
-		</ul>
-	</nav>
-	<br><br>
-							<nav class="n-nav">
+						<nav class="n-nav">
+							<ul class="n-list n-list--inline">
+								<li> <a href=#buttons>Buttons</a> </li>
+								<li> <a href=#nav>Drop-down nav</a> </li>
+								<li class="n-nav-current"> <a href=#lightbox>Lightbox</a> </li>
+							</ul>
+						</nav>
+						<br><br>
+						<nav class="n-nav">
 							<ul class="n-list n-list--inline">
 								<li> <a href=#buttons>Buttons</a> </li>
 								<li> <a href=#nav>Drop-down nav</a> </li>
@@ -1055,13 +1088,13 @@
 					<div class="_1/3">
 						<h2>Rich select navigation</h2>
 						<label>A rich select with links instead of buttons
-						<div class="n-select">
-							<div class="n-select__options">
-								<button>Go to page...</button>
-								<a href="#home">Home</a>
-								<a href="#form">Forms</a>
+							<div class="n-select">
+								<div class="n-select__options">
+									<button>Go to page...</button>
+									<a href="#home">Home</a>
+									<a href="#form">Forms</a>
+								</div>
 							</div>
-						</div>
 						</label>
 						<br>
 						<div class="code">
@@ -1086,7 +1119,7 @@
 					</div>
 				</div>
 			</div>
-			<div  id=typography>
+			<div id=typography>
 				<div class="n-row">
 					<div class="_1/1">
 						<h2>For niui typography features like baseline alignment, wrap the below elements inside an <b>.n-type</b> container</h2>
@@ -1160,7 +1193,7 @@
 					</div>
 				</div>
 			</div>
-			<div  id=slider>
+			<div id=slider>
 				<div class="n-row">
 					<div class="_1/1">
 						<h2>Carousel</h2>
@@ -1449,7 +1482,7 @@
 					</div>
 				</div>
 			</div>
-			<div  id=tabs>
+			<div id=tabs>
 				<div class="n-row">
 					<div class="_1/1">
 						<h2>Tabs</h2>
@@ -1636,7 +1669,7 @@
 					</div>
 				</div>
 			</div>
-			<div  id=lightbox>
+			<div id=lightbox>
 				<div class="n-row">
 					<div class="_1/1">
 						<h2>Lightbox</h2>
@@ -2267,7 +2300,7 @@
 					</div>
 				</div>
 			</div>
-			<div  id=video>
+			<div id=video>
 				<div class="n-row">
 					<div>
 						<h2>Video</h2>
@@ -2286,7 +2319,7 @@
 					</div>
 				</div>
 			</div>
-			<div id=tables >
+			<div id=tables>
 				<div class="n-row">
 					<div class="_1/1">
 						<h2>Tables</h2>
@@ -2609,7 +2642,7 @@
 					</div>
 				</div>
 			</div>
-			<div  id=tooltip>
+			<div id=tooltip>
 				<div class="n-row">
 					<div>
 						<div>
@@ -2697,7 +2730,7 @@
 					</div>
 				</div>
 			</div>
-			<div  id=buttons>
+			<div id=buttons>
 				<div class="n-row">
 					<div class="_1/1">
 						<h2>Buttons</h2>
@@ -3137,7 +3170,7 @@
 								<span>Telephone</span>
 								<input name=phone type=tel placeholder="Your phone number.">
 							</label>
-<!-- 							<div class="n-form__check n-form--mandatory">
+							<!-- 							<div class="n-form__check n-form--mandatory">
 								<span>Check this</span>
 								<label>
 									<input name="checkbox" id="checkbox2" type="checkbox"> <b class="n-form__check-icon"></b> I accept the <a href=#>Terms and Conditions</a>. </label>
@@ -3227,7 +3260,7 @@
 								<span>Telephone</span>
 								<input name=phone type=tel placeholder="Your phone number.">
 							</label>
-<!-- 							<div class="n-form__check n-form--mandatory">
+							<!-- 							<div class="n-form__check n-form--mandatory">
 								<div class="n-form__check">
 									<span>Check this</span>
 									<label>
@@ -3464,7 +3497,7 @@
 					</div>
 				</div>
 			</div>
-			<div  id=cards>
+			<div id=cards>
 				<div class="n-row">
 					<div class="_1/1">
 						<h2>Cards</h2>
@@ -3572,7 +3605,7 @@
 					</div>
 				</div>
 			</div>
-<!-- 			<div id=language-selector>
+			<!-- 			<div id=language-selector>
 				<div class="n-row">
 					<div>
 						<h2>Language selector</h2>
@@ -3690,7 +3723,7 @@
 					</div>
 				</div>
 			</div>
-<!-- 			<div id=back-to-top>
+			<!-- 			<div id=back-to-top>
 				<div class="n-row">
 					<div>
 						<h2>"Back to top" button</h2>
@@ -3701,7 +3734,8 @@
 					</div>
 				</div>
 			</div>
- -->			<div id=dynamic-components>
+ -->
+			<div id=dynamic-components>
 				<div class="n-row">
 					<div>
 						<div>
