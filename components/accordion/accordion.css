@@ -101,5 +101,9 @@
   grid-row: var(--n-popin-open-row, 0);
   grid-column: 1/-1;
 }
+.n-accordion__popin .n-accordion__label {
+  grid-column: initial;
+  grid-row: initial;
+}
 
 /*# sourceMappingURL=accordion.css.map */
