@@ -31,6 +31,7 @@
 		"gulp-sourcemaps": "^3.0.0",
 		"gulp-terser": "^2.1.0",
 		"gzip-size-cli": "^5.1.0",
+		"n-accordion": "^1.1.0",
 		"n-carousel": "^1.1.2",
 		"n-select": "^1.0.5",
 		"sass": "^1.38.1",

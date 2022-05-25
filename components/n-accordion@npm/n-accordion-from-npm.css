@@ -1,13 +1,5 @@
 @charset "UTF-8";
 /* niui – Fold */
-:root {
-  --font-size: 16px;
-  --line-height: 1.5;
-  --line-height-em: calc(1rem * var(--line-height));
-  --color: #333;
-  --bg: #fff;
-}
-
 .n-accordion {
   display: grid;
 }
@@ -87,7 +79,7 @@
   display: grid;
   --n-popin-columns: 1;
   grid-template: auto/repeat(var(--n-popin-columns), auto);
-  gap: 0.5rem;
+  column-gap: 0.5rem;
 }
 @media (min-width: 600px) {
   .n-accordion__popin {
@@ -97,7 +89,7 @@
 .n-accordion__popin > * {
   display: contents;
 }
-.n-accordion__popin > [aria-expanded] > .n-accordion__content {
+.n-accordion__popin .n-accordion__content {
   grid-row: var(--n-popin-open-row, 0);
   grid-column: 1/-1;
 }
@@ -106,4 +98,4 @@
   grid-row: initial;
 }
 
-/*# sourceMappingURL=accordion.css.map */
+/*# sourceMappingURL=n-accordion-from-npm.css.map */
