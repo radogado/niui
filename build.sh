@@ -16,7 +16,9 @@
 #gzip-size --raw dist/niui.min.css > dist/niui.min.css.size
 
 gulp build:styles
+gulp build:styles_wp
 gulp build:scripts
+cp dist/* niui-wp/
 ./node_modules/terser/bin/terser -o dist/niui-preload.min.js --compress --mangle -- js/niui-preload.js
 ./node_modules/gzip-size-cli/cli.js --raw dist/niui.min.js > dist/niui.min.js.size
 ./node_modules/gzip-size-cli/cli.js --raw dist/niui.min.css > dist/niui.min.css.size

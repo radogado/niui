@@ -31,6 +31,24 @@ gulp.task('build:styles', function () {
 		.pipe(gulp.dest('dist'));
 });
 
+gulp.task('build:styles_wp', function () {
+	return gulp.src(['css/niui-wp.scss'])
+		.pipe(sassGlob())
+		.pipe(sourcemaps.init())
+		.pipe(sass().on('error', sass.logError))
+		.pipe(concat('niui-wp.css'))
+		.pipe(cleanCSS())
+		.pipe(rename(function (path) {
+			path.extname = ".min.css"
+		}))
+		.pipe(sourcemaps.write('.', {
+			mapFile: function (mapFilePath) {
+				return mapFilePath.replace('.css.map', '.css.map');
+			}
+		}))
+		.pipe(gulp.dest('niui-wp'));
+});
+
 gulp.task('build:scripts', function() {
 	return gulp.src(['components/**/*.js'])
 		.pipe(sourcemaps.init())

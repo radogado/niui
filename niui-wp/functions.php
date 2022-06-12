@@ -152,11 +152,13 @@ function html5blank_styles()
 //     wp_register_style('html5blank', get_template_directory_uri() . '/niui.min.css', array(), '1.0', 'all');
 //     wp_register_style('html5blank3', get_template_directory_uri() . '/niui-wordpress.min.css', array(), '1.0', 'all');
 //     wp_register_style('html5blank3', get_template_directory_uri() . '/theme.css', array(), '1.0', 'all');
-    wp_register_style('html5blank4', str_replace( 'http://', '//', get_template_directory_uri() ) . '/niui-wordpress.min.css', array(), filemtime( get_stylesheet_directory() . '/niui-wordpress.min.css' ), 'all');
+    wp_register_style('html5blank4_css', str_replace( 'http://', '//', get_template_directory_uri() ) . '/niui.min.css', array(), filemtime( get_stylesheet_directory() . '/niui.min.css' ), 'all');
+    wp_register_style('html5blank4_css_wp', str_replace( 'http://', '//', get_template_directory_uri() ) . '/niui-wp.min.css', array(), filemtime( get_stylesheet_directory() . '/niui-wp.min.css' ), 'all');
 //     wp_enqueue_style('html5blank'); // Enqueue it!
 //     wp_enqueue_style('html5blank2'); // Enqueue it!
 //     wp_enqueue_style('html5blank3'); // Enqueue it!
-    wp_enqueue_style('html5blank4'); // Enqueue it!
+    wp_enqueue_style('html5blank4_css'); // Enqueue it!
+    wp_enqueue_style('html5blank4_css_wp'); // Enqueue it!
 
 	wp_dequeue_style('wp-block-library'); // Gutenberg CSS file removal
 
