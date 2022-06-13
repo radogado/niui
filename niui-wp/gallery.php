@@ -199,7 +199,7 @@ final class Cleaner_Gallery {
 
 		/* Gallery attributes. */
 		$gallery_attr  = sprintf( "id='%s'", 'gallery' . esc_attr( $this->args['id'] ) . '-' . esc_attr( $this->gallery_instance ) );
-		$gallery_attr .= sprintf( " class='n-lightbox n-lightbox__thumbnails n-full-screen gallery gallery-%s gallery-columns-%s gallery-size-%s'", esc_attr( $this->args['id'] ), esc_attr( $this->args['columns'] ), sanitize_html_class( $this->args['size'] ) );
+		$gallery_attr .= sprintf( " class='n-carousel__index n-carousel__index--thumbnails gallery gallery-%s gallery-columns-%s gallery-size-%s'", esc_attr( $this->args['id'] ), esc_attr( $this->args['columns'] ), sanitize_html_class( $this->args['size'] ) );
 		$gallery_attr .= sprintf( " itemscope itemtype='%s'", esc_attr( $this->get_gallery_itemtype() ) );
 
 $script = "
@@ -240,7 +240,9 @@ $script = "
 </script>";
 
 		/* Return out very nice, valid HTML gallery. */
-		return "\n\t\t\t" . sprintf( '<div %s>', $gallery_attr ) . str_replace( 'http://', '//', $output ) . "\n\t\t\t</div><!-- .gallery -->\n" . $script;
+		return "\n\t\t\t" . sprintf( '<div class="n-carousel n-carousel--lightbox n-carousel--inline"><div %s>', $gallery_attr ) . str_replace( 'http://', '//', $output ) . "\n\t\t\t</div><div class='n-carousel__full-screen'><button><span>Toggle full screen</span></button>
+		  </div>		  <div class='n-carousel__close'>			<button><span>Close modal window</span></button>
+		  </div></div><!-- .gallery -->\n" . $script;
 	}
 
 	/**

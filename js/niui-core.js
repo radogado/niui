@@ -332,6 +332,7 @@ var components = new Array();
 function registerComponent(name, init) {
   components[name] = new Array();
   components[name].push({ init: init });
+  init(document);
 }
 
 function initComponents(host) {

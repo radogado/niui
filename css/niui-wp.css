@@ -221,6 +221,9 @@ article ul {
 .comments .comment-body {
   padding-right: 1em;
 }
+.comments textarea {
+  width: 100%;
+}
 
 .img-crop {
   width: 100%;

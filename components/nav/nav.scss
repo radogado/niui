@@ -222,9 +222,15 @@ main .n-nav ul {
     height: 100%;
   }
 
-  ul.n-list:not(.n-list__no-bullet):not(.n-list__inline) li:before {
-    content: "";
-    margin: 0;
+  ul.n-list:not(.n-list__no-bullet):not(.n-list__inline) {
+    li:before {
+      content: "";
+      margin: 0;
+    }
+
+    li:not([aria-haspopup="true"]):before {
+      display: none;
+    }
   }
 
   ul.n-list:not(.n-list__no-bullet):not(.n-list__inline).n-left-side li:before {
@@ -243,8 +249,7 @@ main .n-nav ul {
 
   li[aria-haspopup]:before,
   li > input {
-    --mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(180) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A")
-      center center no-repeat;
+    --mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(180) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A") center center no-repeat;
     -webkit-mask: var(--mask);
     -webkit-mask-size: 0.4em;
     -webkit-mask-repeat: no-repeat;
@@ -293,6 +298,7 @@ main .n-nav ul {
     }
 
     li li {
+
       &[aria-haspopup]:before,
       > input {
         --mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(90) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A");
@@ -304,6 +310,7 @@ main .n-nav ul {
     }
 
     &:not([data-ready]) {
+
       // CSS only version
       li {
         display: flex;
@@ -334,6 +341,7 @@ main .n-nav ul {
   }
 
   html:not(.can-touch) {
+
     // Hover rules here
     .n-nav--drop {
       ul li:not([aria-expanded]) ul ul {
@@ -422,6 +430,7 @@ main .n-nav ul {
 }
 
 [dir="rtl"] .n-nav--drop {
+
   ul.n-left-side li[aria-haspopup],
   li[aria-haspopup] {
     padding-inline-end: 0;
@@ -515,6 +524,7 @@ main .n-nav ul {
 }
 
 @supports (-webkit-overflow-scrolling: touch) {
+
   // Not working on iOS 13?
   /* CSS specific to iOS devices */
   .n-nav--drop :focus {

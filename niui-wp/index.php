@@ -11,7 +11,7 @@
 	    );
 	    $my_query = new WP_Query($args);
 	    if( $my_query->have_posts() ) {
-			echo '<div class="n-carousel"><div class="n-carousel__content featured" data-autoslide="4">';
+			echo '<div class="n-carousel n-carousel--auto-slide" data-interval="4"><div class="n-carousel__content featured">';
 	      	while ($my_query->have_posts()) : $my_query->the_post(); ?>
 	        	<div><h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"></a><?php the_title(); ?> </h2><br> <?php the_post_thumbnail(); //the_content(); ?></div>
 	       	<?php
