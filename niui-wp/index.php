@@ -11,12 +11,12 @@
 	    );
 	    $my_query = new WP_Query($args);
 	    if( $my_query->have_posts() ) {
-			echo '<div class="n-slider featured" data-autoslide=4>';
-	      while ($my_query->have_posts()) : $my_query->the_post(); ?>
-	        <div><h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"></a><?php the_title(); ?> </h2><br> <?php the_post_thumbnail(); //the_content(); ?></div>
-	       <?php
-	      endwhile;
-		echo '</div>';
+			echo '<div class="n-carousel"><div class="n-carousel__content featured" data-autoslide="4">';
+	      	while ($my_query->have_posts()) : $my_query->the_post(); ?>
+	        	<div><h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"></a><?php the_title(); ?> </h2><br> <?php the_post_thumbnail(); //the_content(); ?></div>
+	       	<?php
+	      	endwhile;
+			echo '</div></div>';
 
 	    } //if ($my_query)
 		wp_reset_query();  // Restore global post data stomped by the_post().

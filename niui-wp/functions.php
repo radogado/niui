@@ -567,15 +567,17 @@ function new_nav_menu($items) {
 	$DOM->formatOutput = true;
 	$items = $DOM->saveHTML();
 
-    return '<div class="n-fold n-fold__mobile"> 
-    			<button class="n-fold--label"> 
-    				<span class="n-burger"></span> 
-    			</button> 
-    			<input type=checkbox class=n-trigger>
+    return '<div class="n-accordion n-accordion--mobile"> 
+          <input type="checkbox">
+          <div class="n-accordion__label" role="heading" aria-level="1">
+    			  <button> 
+    				  <span class="n-burger"></span> 
+    			  </button> 
+          </div>
 
-				<div class=n-fold--content> 
-    				<nav class="n-nav n-nav__drop"> 
-    					<ul class="n-list n-list__no-bullet">' . str_replace('</body></html>', '', str_replace('<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+				<div class="n-accordion__content">
+    				<nav class="n-nav n-nav--drop"> 
+    					<ul class="n-list n-list--no-bullet">' . str_replace('</body></html>', '', str_replace('<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <?xml encoding="utf-8" ?><html><body>', '', $items)) . '</ul>
     				</nav>
     			</div>
