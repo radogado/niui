@@ -1,12 +1,26 @@
 /* niui WordPress – rado.bg */
 @charset 'utf-8';
 
+@media (prefers-reduced-motion: no-preference) {
+	html {
+		scroll-behavior: smooth;
+	}
+}
+
+body .n-contain {
+	max-width: 1312px;
+}
+
 :root {
 	--color-teal: #488e89;
 }
 
 .n-carousel {
 	background: #eee;
+}
+
+#content .n-carousel > .n-carousel__index.n-carousel__index--thumbnails > * span {
+	padding: 0;
 }
 
 .n-carousel.n-carousel--overlay {
@@ -104,46 +118,55 @@ button.search-submit {
 	display: none;
 }
 
-#content .n-carousel--lightbox .gallery {
-	margin: 0.5em -0.7em;
-	display: flex;
-	flex-wrap: wrap;
-	max-width: 100%;
-	margin: 1rem 0;
-	justify-content: flex-start;
-	max-height: 20em;
-	overflow: hidden;
-	position: relative;
-	max-width: 100%;
+#content .n-carousel--lightbox {
 
-	&:before {
-		content: "";
-		position: absolute;
-		width: 100%;
-		border-bottom: 1px dotted;
-		top: calc(20em - 1px);
-
+	.n-aspect {
+		max-height: 100%;
 	}
 
-	a {
-		width: 20%;
-		margin: 0;
-		border: 1px solid transparent;
-		text-align: center;
-		box-sizing: border-box;
-		--control-bg: transparent;
+	.gallery {
+		margin: 0.5em -0.7em;
+		display: flex;
+		flex-wrap: wrap;
+		max-width: 100%;
+		margin: 1rem 0;
+		justify-content: flex-start;
+		max-height: 20em;
+		overflow: hidden;
+		position: relative;
+		max-width: 100%;
 
-		// &:before {
-		// 	content: "";
-		// 	display: inline-block;
-		// 	padding-top: 100%;
-		// 	vertical-align: middle;
-		// }
-		img {
-			display: inline-block;
-			vertical-align: middle;
-			height: auto;
+		&:before {
+			content: "";
+			position: absolute;
+			width: 100%;
+			border-bottom: 1px dotted;
+			top: calc(20em - 1px);
+
 		}
+
+		a {
+			display: block;
+			width: 20%;
+			margin: 0;
+			border: 1px solid transparent;
+			text-align: center;
+			box-sizing: border-box;
+			--control-bg: transparent;
+
+			// &:before {
+			// 	content: "";
+			// 	display: inline-block;
+			// 	padding-top: 100%;
+			// 	vertical-align: middle;
+			// }
+			img {
+				display: inline-block;
+				vertical-align: middle;
+				height: auto;
+			}
+		}
+
 	}
 }
 
@@ -571,13 +594,9 @@ a.n-backtotop[href] {
 		}
 	}
 
-	.single,
-	.search-results,
-	.archive {
-		.n-carousel--lightbox .gallery a {
-			// Retina thumbnails
-			width: 10%;
-		}
+	#content .n-carousel--lightbox .gallery a {
+		// Retina thumbnails
+		width: 10%;
 	}
 
 	.comments {

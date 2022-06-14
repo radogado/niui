@@ -1,4 +1,11 @@
 <?php
+error_reporting(E_ERROR | E_PARSE);
+
+add_action( 'wp_enqueue_scripts', 'remove_global_styles' );
+function remove_global_styles(){
+  wp_dequeue_style( 'global-styles' );
+}
+
 /*
  *  Author: Todd Motto | @toddmotto
  *  URL: html5blank.com | @html5blank
@@ -664,11 +671,11 @@ add_action('the_content', function ($content) {
 
 			$attachment = wp_get_attachment_metadata($id);
 
-			if ($size && $size != 'full') {
+			if ($size && $size !== 'full') {
 
 				$width = $attachment['sizes'][$size]['width'];
 				$height = $attachment['sizes'][$size]['height'];
-
+// echo(gettype($attachment['sizes']));
 			} else {
 				
 				$width = preg_replace('/[^0-9]/', '', $attachment['width']);
@@ -689,7 +696,7 @@ add_action('the_content', function ($content) {
 		
 		$wrapper = $dom->createElement('span');
 		$wrapper->setAttribute('class', 'n-aspect ' . $img->getAttribute('class'));
-		$wrapper->setAttribute('style', '--width: ' . $width . '; --height: ' . $height);
+		$wrapper->setAttribute('style', '--width: ' . $img->getAttribute('width') . '; --height: ' . $img->getAttribute('height'));
 		
 		$img->parentNode->replaceChild($wrapper, $img);
 
