@@ -149,6 +149,7 @@ button.search-submit {
 #content .n-carousel--lightbox .gallery a img {
   display: inline-block;
   vertical-align: middle;
+  width: auto;
   height: auto;
 }
 
