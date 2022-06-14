@@ -164,6 +164,8 @@ final class Cleaner_Gallery {
 		$width = 0;
 		$height = 0;
 
+		$content = '<ul class="n-carousel__content">';
+
 		/* Loop through each attachment. */
 		foreach ( $attachments as $attachment ) {
 
@@ -179,6 +181,9 @@ final class Cleaner_Gallery {
 				$width = wp_get_attachment_image_src($attachment->ID)[1];
 				$height = wp_get_attachment_image_src($attachment->ID)[2];
 			}
+			
+			// print_r($attachment->guid);
+			$content .= '<li><figure><picture><img src="' . $attachment->guid . '" width-="' . $width . '"  height-="' . $height . '"></picture><figcaption></figcaption></figure></li>';
 			/* Close gallery row. */
 /*
 			if ( $this->args['columns'] > 0 && ++$i % $this->args['columns'] == 0 )
@@ -186,6 +191,9 @@ final class Cleaner_Gallery {
 */
 
 		}
+
+		$content .= '</ul>';
+			// print_r($content);
 
 		/* Close gallery row. */
 /*
@@ -223,12 +231,12 @@ $script = "
 
 	if (thumbnail) {
 
-		var target_lightbox_image = document.querySelector('.single-post .n-lightbox [href*=\"' + thumbnail.src.split('/').pop() + '\"]');
+		var target_lightbox_image = document.querySelector('.single-post .n-carousel__index [href*=\"' + thumbnail.src.split('/').pop() + '\"]');
 		if (target_lightbox_image) {
 	
 			thumbnail.onclick = function () { 
 				
-				document.querySelector('[href*=\"' + this.src.split('/').pop() + '\"]').click(); 
+				document.querySelector('.n-carousel__index [href*=\"' + this.src.split('/').pop() + '\"]').click(); 
 		
 			};
 			thumbnail.style.cursor = 'pointer';
@@ -240,9 +248,9 @@ $script = "
 </script>";
 
 		/* Return out very nice, valid HTML gallery. */
-		return "\n\t\t\t" . sprintf( '<div class="n-carousel n-carousel--lightbox n-carousel--inline"><div %s>', $gallery_attr ) . str_replace( 'http://', '//', $output ) . "\n\t\t\t</div><div class='n-carousel__full-screen'><button><span>Toggle full screen</span></button>
+		return "\n\t\t\t" . sprintf( '<div class="n-carousel n-carousel--lightbox n-carousel--inline n-carousel--endless">' . $content . '<div %s>', $gallery_attr ) . str_replace( 'http://', '//', $output ) . "\n\t\t\t</div><div class='n-carousel__full-screen'><button><span>Toggle full screen</span></button>
 		  </div>		  <div class='n-carousel__close'>			<button><span>Close modal window</span></button>
-		  </div></div><!-- .gallery -->\n" . $script;
+		  </div><div class=n-carousel__previous>			  <button><span>Previous</span></button>			</div>			<div class=n-carousel__next>			  <button><span>Next</span></button>			</div></div><!-- .gallery -->\n" . $script;
 	}
 
 	/**
