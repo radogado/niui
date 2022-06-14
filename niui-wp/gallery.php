@@ -182,8 +182,8 @@ final class Cleaner_Gallery {
 				$height = wp_get_attachment_image_src($attachment->ID)[2];
 			}
 			
-			// print_r($attachment->guid);
-			$content .= '<li><figure><picture><img src="' . $attachment->guid . '" width-="' . $width . '"  height-="' . $height . '"></picture><figcaption></figcaption></figure></li>';
+			// print_r(wp_get_attachment_image( $attachment->ID, ['thumbnail', 'large', 'original']));
+			$content .= '<li><figure><picture>' . wp_get_attachment_image( $attachment->ID, ['thumbnail', 'large', 'original']) . '</picture><figcaption>' . wp_get_attachment_caption( $attachment->ID) . '</figcaption></figure></li>';
 			/* Close gallery row. */
 /*
 			if ( $this->args['columns'] > 0 && ++$i % $this->args['columns'] == 0 )
