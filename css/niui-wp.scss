@@ -25,6 +25,9 @@ body .n-contain {
 
 .n-carousel.n-carousel--overlay {
 	margin-bottom: 0;
+	.n-aspect {
+		display: contents;
+	}
 }
 
 .n-carousel__content.featured {
