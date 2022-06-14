@@ -25,6 +25,7 @@ body .n-contain {
 
 .n-carousel.n-carousel--overlay {
 	margin-bottom: 0;
+
 	.n-aspect {
 		display: contents;
 	}
@@ -169,6 +170,14 @@ button.search-submit {
 				width: auto;
 				height: auto;
 			}
+		}
+
+	}
+
+	&.n-carousel--overlay {
+
+		.gallery {
+			justify-content: center;
 		}
 
 	}

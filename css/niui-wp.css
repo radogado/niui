@@ -155,6 +155,9 @@ button.search-submit {
   width: auto;
   height: auto;
 }
+#content .n-carousel--lightbox.n-carousel--overlay .gallery {
+  justify-content: center;
+}
 
 body {
   min-height: 100%;

@@ -248,7 +248,7 @@ $script = "
 </script>";
 
 		/* Return out very nice, valid HTML gallery. */
-		return "\n\t\t\t" . sprintf( '<div class="n-carousel n-carousel--lightbox n-carousel--inline n-carousel--endless">' . $content . '<div %s>', $gallery_attr ) . str_replace( 'http://', '//', $output ) . "\n\t\t\t</div><div class='n-carousel__full-screen'><button><span>Toggle full screen</span></button>
+		return "\n\t\t\t" . sprintf( '<div class="n-carousel n-carousel--lightbox n-carousel--inline n-carousel--endless-">' . $content . '<div %s>', $gallery_attr ) . str_replace( 'http://', '//', $output ) . "\n\t\t\t</div><div class='n-carousel__full-screen'><button><span>Toggle full screen</span></button>
 		  </div>		  <div class='n-carousel__close'>			<button><span>Close modal window</span></button>
 		  </div><div class=n-carousel__previous>			  <button><span>Previous</span></button>			</div>			<div class=n-carousel__next>			  <button><span>Next</span></button>			</div></div><!-- .gallery -->\n" . $script;
 	}
