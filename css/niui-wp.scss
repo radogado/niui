@@ -31,6 +31,10 @@ body .n-contain {
 	}
 }
 
+.n-carousel:-webkit-full-screen .n-aspect {
+	display: contents;
+}
+
 .n-carousel__content.featured {
 	margin-bottom: 22px;
 }

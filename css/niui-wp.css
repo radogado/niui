@@ -28,6 +28,10 @@ body .n-contain {
   display: contents;
 }
 
+.n-carousel:-webkit-full-screen .n-aspect {
+  display: contents;
+}
+
 .n-carousel__content.featured {
   margin-bottom: 22px;
 }
