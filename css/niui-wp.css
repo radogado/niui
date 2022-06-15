@@ -124,6 +124,7 @@ button.search-submit {
 
 #content .n-carousel--lightbox .n-aspect {
   max-height: 100%;
+  display: flex;
 }
 #content .n-carousel--lightbox .gallery {
   margin: 0.5em -0.7em;
