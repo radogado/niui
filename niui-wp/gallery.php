@@ -205,9 +205,9 @@ final class Cleaner_Gallery {
 		remove_filter( 'wp_get_attachment_image_attributes', array( $this, 'attachment_image_attributes' ) );
 		remove_filter( 'wp_get_attachment_link',             array( $this, 'get_attachment_link'         ) );
 
-print "<pre>";
-		print_r($this);
-		print "</pre>";
+// print "<pre>";
+// 		print_r($this);
+// 		print "</pre>";
 		
 		/* Gallery attributes. */
 		$gallery_attr  = sprintf( "id='%s'", 'gallery' . esc_attr( $this->args['id'] ) . '-' . esc_attr( $this->gallery_instance ) );
