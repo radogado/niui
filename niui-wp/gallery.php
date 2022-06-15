@@ -205,6 +205,10 @@ final class Cleaner_Gallery {
 		remove_filter( 'wp_get_attachment_image_attributes', array( $this, 'attachment_image_attributes' ) );
 		remove_filter( 'wp_get_attachment_link',             array( $this, 'get_attachment_link'         ) );
 
+print "<pre>";
+		print_r($this);
+		print "</pre>";
+		
 		/* Gallery attributes. */
 		$gallery_attr  = sprintf( "id='%s'", 'gallery' . esc_attr( $this->args['id'] ) . '-' . esc_attr( $this->gallery_instance ) );
 		$gallery_attr .= sprintf( " class='n-carousel__index n-carousel__index--thumbnails gallery gallery-%s gallery-columns-%s gallery-size-%s'", esc_attr( $this->args['id'] ), esc_attr( $this->args['columns'] ), sanitize_html_class( $this->args['size'] ) );
@@ -248,7 +252,7 @@ $script = "
 </script>";
 
 		/* Return out very nice, valid HTML gallery. */
-		return "\n\t\t\t" . sprintf( '<div class="n-carousel n-carousel--lightbox n-carousel--inline n-carousel--endless-">' . $content . '<div %s>', $gallery_attr ) . str_replace( 'http://', '//', $output ) . "\n\t\t\t</div><div class='n-carousel__full-screen'><button><span>Toggle full screen</span></button>
+		return "\n\t\t\t" . sprintf( '<div class="n-carousel n-carousel--lightbox ' . ($this->args['columns'] == '9' ? '' : 'n-carousel--inline') . '">' . $content . '<div %s>', $gallery_attr ) . str_replace( 'http://', '//', $output ) . "\n\t\t\t</div><div class='n-carousel__full-screen'><button><span>Toggle full screen</span></button>
 		  </div>		  <div class='n-carousel__close'>			<button><span>Close modal window</span></button>
 		  </div><div class=n-carousel__previous>			  <button><span>Previous</span></button>			</div>			<div class=n-carousel__next>			  <button><span>Next</span></button>			</div></div><!-- .gallery -->\n" . $script;
 	}
