@@ -183,7 +183,7 @@ final class Cleaner_Gallery {
 			}
 			
 			// print_r(wp_get_attachment_image( $attachment->ID, ['thumbnail', 'large', 'original']));
-			$content .= '<li id="slide-' . $attachment->ID . '"><figure><picture>' . wp_get_attachment_image( $attachment->ID, ['thumbnail', 'large', 'original']) . '</picture><figcaption>' . wp_get_attachment_caption( $attachment->ID) . '</figcaption></figure></li>';
+			$content .= '<li id="slide-' . $attachment->ID . '"><figure><picture>' . wp_get_attachment_image( $attachment->ID, 'original') . '</picture><figcaption>' . wp_get_attachment_caption( $attachment->ID) . '</figcaption></figure></li>';
 			/* Close gallery row. */
 /*
 			if ( $this->args['columns'] > 0 && ++$i % $this->args['columns'] == 0 )

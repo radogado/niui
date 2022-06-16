@@ -23,16 +23,45 @@ body .n-contain {
 	padding: 0;
 }
 
-.n-carousel.n-carousel--overlay {
-	margin-bottom: 0;
+#content .n-carousel.n-carousel--lightbox {
 
-	.n-aspect {
-		display: contents;
+	grid-template-areas:
+		"f c a3 a3 a3 a3"
+		"prev a2 a2 a2 a2 next"
+		"v v v v v v"
+		"i i i i i i";
+
+	> .n-carousel__content {
+		grid-row: 1/-2;
 	}
-}
 
-.n-carousel:-webkit-full-screen .n-aspect {
-	display: contents;
+	&.n-carousel--overlay,
+	&:-webkit-full-screen,
+	&:fullscreen {
+		margin-bottom: 0;
+		grid-template-areas:
+			"f c a3 a3 a3 a3"
+			"prev a2 a2 a2 a2 next"
+			"i i i i i i";
+
+		> .n-carousel__content {
+			grid-row: 1/-1;
+		}
+
+		.n-aspect {
+			display: contents;
+		}
+
+		.gallery {
+			flex-wrap: nowrap;
+			margin: 0;
+
+			a {
+				width: 2em;
+			}
+		}
+	}
+
 }
 
 .n-carousel__content.featured {
