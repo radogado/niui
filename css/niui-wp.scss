@@ -35,8 +35,57 @@ body .n-contain {
 		grid-row: 1/-2;
 	}
 
-	&.n-carousel--overlay,
-	&:-webkit-full-screen,
+	&.n-carousel--overlay {
+		margin-bottom: 0;
+		grid-template-areas:
+			"f c a3 a3 a3 a3"
+			"prev a2 a2 a2 a2 next"
+			"i i i i i i";
+
+		> .n-carousel__content {
+			grid-row: 1/-1;
+		}
+
+		.n-aspect {
+			display: contents;
+		}
+
+		.gallery {
+			flex-wrap: nowrap;
+			margin: 0;
+			overflow: auto;
+
+			a {
+				width: 2em;
+			}
+		}
+	}
+
+	&:-webkit-full-screen {
+		margin-bottom: 0;
+		grid-template-areas:
+			"f c a3 a3 a3 a3"
+			"prev a2 a2 a2 a2 next"
+			"i i i i i i";
+
+		> .n-carousel__content {
+			grid-row: 1/-1;
+		}
+
+		.n-aspect {
+			display: contents;
+		}
+
+		.gallery {
+			flex-wrap: nowrap;
+			margin: 0;
+
+			a {
+				width: 2em;
+			}
+		}
+	}
+
 	&:fullscreen {
 		margin-bottom: 0;
 		grid-template-areas:
