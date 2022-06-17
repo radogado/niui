@@ -36,7 +36,7 @@ body .n-contain {
 	}
 
 	&.n-carousel--overlay {
-		margin-bottom: 0;
+		margin: 0;
 		grid-template-areas:
 			"f c a3 a3 a3 a3"
 			"prev a2 a2 a2 a2 next"
@@ -63,7 +63,7 @@ body .n-contain {
 	}
 
 	&:-webkit-full-screen {
-		margin-bottom: 0;
+		margin: 0;
 		grid-template-areas:
 			"f c a3 a3 a3 a3"
 			"prev a2 a2 a2 a2 next"
@@ -88,7 +88,7 @@ body .n-contain {
 	}
 
 	&:fullscreen {
-		margin-bottom: 0;
+		margin: 0;
 		grid-template-areas:
 			"f c a3 a3 a3 a3"
 			"prev a2 a2 a2 a2 next"
@@ -206,7 +206,9 @@ button.search-submit {
 }
 
 #content .n-carousel--lightbox {
-
+	
+	margin-top: 1.5em;
+	
 	.n-aspect {
 		max-height: 100%;
 		display: flex;
