@@ -41,6 +41,7 @@ body .n-contain {
   flex-wrap: nowrap;
   margin: 0;
   overflow: auto;
+  overflow-y: hidden;
 }
 #content .n-carousel.n-carousel--lightbox.n-carousel--overlay .gallery a {
   width: 2em;
@@ -185,6 +186,7 @@ button.search-submit {
   overflow: hidden;
   position: relative;
   max-width: 100%;
+  width: 100%;
 }
 #content .n-carousel--lightbox .gallery:before {
   content: "";
