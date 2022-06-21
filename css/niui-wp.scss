@@ -46,9 +46,9 @@ body .n-contain {
 			grid-row: 1/-1;
 		}
 
-		.n-aspect {
-			display: contents;
-		}
+		// .n-aspect {
+		// 	display: contents;
+		// }
 
 		.gallery {
 			flex-wrap: nowrap;
@@ -73,9 +73,9 @@ body .n-contain {
 			grid-row: 1/-1;
 		}
 
-		.n-aspect {
-			display: contents;
-		}
+		// .n-aspect {
+		// 	display: contents;
+		// }
 
 		.gallery {
 			flex-wrap: nowrap;
@@ -98,9 +98,9 @@ body .n-contain {
 			grid-row: 1/-1;
 		}
 
-		.n-aspect {
-			display: contents;
-		}
+		// .n-aspect {
+		// 	display: contents;
+		// }
 
 		.gallery {
 			flex-wrap: nowrap;
@@ -820,4 +820,8 @@ figcaption:empty {
 		background-size: contain;
 		background-position: center;
 	}
+}
+
+.n-carousel--lightbox > .n-carousel__content picture > * {
+	background-image: inherit !important;
 }

@@ -34,9 +34,6 @@ body .n-contain {
 #content .n-carousel.n-carousel--lightbox.n-carousel--overlay > .n-carousel__content {
   grid-row: 1/-1;
 }
-#content .n-carousel.n-carousel--lightbox.n-carousel--overlay .n-aspect {
-  display: contents;
-}
 #content .n-carousel.n-carousel--lightbox.n-carousel--overlay .gallery {
   flex-wrap: nowrap;
   margin: 0;
@@ -53,9 +50,6 @@ body .n-contain {
 #content .n-carousel.n-carousel--lightbox:-webkit-full-screen > .n-carousel__content {
   grid-row: 1/-1;
 }
-#content .n-carousel.n-carousel--lightbox:-webkit-full-screen .n-aspect {
-  display: contents;
-}
 #content .n-carousel.n-carousel--lightbox:-webkit-full-screen .gallery {
   flex-wrap: nowrap;
   margin: 0;
@@ -69,9 +63,6 @@ body .n-contain {
 }
 #content .n-carousel.n-carousel--lightbox:fullscreen > .n-carousel__content {
   grid-row: 1/-1;
-}
-#content .n-carousel.n-carousel--lightbox:fullscreen .n-aspect {
-  display: contents;
 }
 #content .n-carousel.n-carousel--lightbox:fullscreen .gallery {
   flex-wrap: nowrap;
@@ -691,6 +682,10 @@ figcaption:empty {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
+}
+
+.n-carousel--lightbox > .n-carousel__content picture > * {
+  background-image: inherit !important;
 }
 
 /*# sourceMappingURL=niui-wp.css.map */
