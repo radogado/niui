@@ -271,6 +271,10 @@ article h2 a {
 article ul {
   padding-left: 2px;
 }
+article .n-aspect {
+  background-size: contain;
+  background-repeat: no-repeat;
+}
 
 .comments li {
   margin-bottom: 2em;
@@ -308,9 +312,9 @@ article ul {
   background-color: #eee;
   overflow: hidden;
   position: relative;
-  background-position: center center;
+  background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   white-space: nowrap;
 }
 .img-crop:before {
@@ -579,6 +583,11 @@ a.n-backtotop[href] {
 .home section .pagination .n-carousel--lightbox .gallery a {
     width: 10%;
   }
+  .home:not(.paged) section article:nth-child(1) .img-crop,
+.home:not(.paged) section article:nth-child(2) .img-crop,
+.home section .pagination .img-crop {
+    background-size: cover;
+  }
 
   #content .n-carousel--lightbox .gallery a {
     width: 10%;
@@ -654,7 +663,7 @@ a.n-btn[href],
   }
 
   .img-crop {
-    background: #222;
+    background-color: #222;
   }
 
   .n-form input,
@@ -673,6 +682,15 @@ a.n-btn[href],
 }
 figcaption:empty {
   display: none;
+}
+
+.featured-image {
+  text-align: center;
+}
+.featured-image .n-aspect {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 /*# sourceMappingURL=niui-wp.css.map */
