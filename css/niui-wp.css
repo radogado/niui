@@ -196,6 +196,8 @@ button.search-submit {
   border: 1px solid transparent;
   text-align: center;
   box-sizing: border-box;
+}
+#content .n-carousel--lightbox .gallery a:not([aria-current]) {
   --control-bg: transparent;
 }
 #content .n-carousel--lightbox .gallery a img {
