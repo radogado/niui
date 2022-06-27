@@ -209,6 +209,9 @@ button.search-submit {
 #content .n-carousel--lightbox.n-carousel--overlay .gallery {
   justify-content: center;
 }
+#content .n-carousel--lightbox.n-carousel--inline:not(.n-carousel--overlay) .gallery [aria-current] {
+  --control-bg: transparent;
+}
 
 body {
   min-height: 100%;

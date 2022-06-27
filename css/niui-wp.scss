@@ -271,6 +271,12 @@ button.search-submit {
 		}
 
 	}
+
+	&.n-carousel--inline:not(.n-carousel--overlay) {
+		.gallery [aria-current] {
+			--control-bg: transparent;
+		}
+	}
 }
 
 body {
