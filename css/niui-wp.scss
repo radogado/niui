@@ -646,15 +646,11 @@ nav.n-nav {
 	*/
 // Image captions
 .wp-caption {
-	margin: 0.5em auto 0 auto;
+	margin: 0.5em auto;
 
 	a[href] {
 		display: inline-block;
 		max-width: 100%;
-	}
-
-	&.aligncenter {
-		margin: 0.5em auto 0 auto;
 	}
 
 	&.alignright {

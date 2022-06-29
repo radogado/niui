@@ -520,14 +520,11 @@ nav.n-nav.n-nav--drop li.current_page_item {
 	}
 	*/
 .wp-caption {
-  margin: 0.5em auto 0 auto;
+  margin: 0.5em auto;
 }
 .wp-caption a[href] {
   display: inline-block;
   max-width: 100%;
-}
-.wp-caption.aligncenter {
-  margin: 0.5em auto 0 auto;
 }
 .wp-caption.alignright {
   margin: 0 0 0 auto;
