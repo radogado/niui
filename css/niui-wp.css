@@ -268,10 +268,19 @@ article ul {
   padding-left: 2px;
 }
 article .n-aspect {
+  z-index: 0;
+  position: relative;
+  overflow: hidden;
+}
+article .n-aspect:before {
+  content: "";
   background-size: contain;
   background-repeat: no-repeat;
   background-image: var(--placeholder, none);
-  z-index: 0;
+  position: absolute;
+  inset: 0;
+  filter: blur(4px);
+  z-index: -1;
 }
 
 .comments li {
@@ -310,10 +319,6 @@ article .n-aspect {
   background-color: #eee;
   overflow: hidden;
   position: relative;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-image: var(--placeholder, none);
   white-space: nowrap;
 }
 .img-crop:before {
@@ -322,12 +327,22 @@ article .n-aspect {
   content: "";
   padding-top: 25vmin;
 }
+.img-crop:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--placeholder, none) center no-repeat;
+  background-size: cover;
+  filter: blur(4px);
+  overflow: hidden;
+}
 .img-crop img {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
   max-width: 100%;
+  z-index: 1;
 }
 
 .img-crop h2,
@@ -471,6 +486,7 @@ nav.n-nav.n-nav--drop li.current_page_item {
   background: rgba(72, 142, 137, 0.88);
   transition: background-color 0.2s ease-in-out;
   margin-bottom: 0;
+  z-index: 1;
 }
 .n-type article .img-crop:hover h2 {
   background: #488e89;
@@ -682,12 +698,6 @@ figcaption:empty {
 
 .featured-image {
   text-align: center;
-}
-.featured-image .n-aspect {
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  background-image: var(--placeholder, none);
 }
 
 .n-carousel--lightbox > .n-carousel__content picture > * {

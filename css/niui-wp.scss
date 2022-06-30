@@ -344,10 +344,23 @@ article {
 	}
 
 	.n-aspect {
-		background-size: contain;
-		background-repeat: no-repeat;
-		background-image: var(--placeholder, none);
+		// background-size: contain;
+		// background-repeat: no-repeat;
+		// background-image: var(--placeholder, none);
 		z-index: 0;
+		position: relative;
+		overflow: hidden;
+
+		&:before {
+			content: "";
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-image: var(--placeholder, none);
+			position: absolute;
+			inset: 0;
+			filter: blur(4px);
+			z-index: -1;
+		}
 	}
 }
 
@@ -397,10 +410,6 @@ article {
 	background-color: #eee;
 	overflow: hidden;
 	position: relative;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-image: var(--placeholder, none);
 	white-space: nowrap;
 
 	&:before {
@@ -410,12 +419,23 @@ article {
 		padding-top: 25vmin;
 	}
 
+	&:after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: var(--placeholder, none) center no-repeat;
+		background-size: cover;
+		filter: blur(4px);
+		overflow: hidden;
+	}
+
 	img {
 		position: absolute;
 		top: 50%;
 		left: 50%;
 		transform: translate3d(-50%, -50%, 0);
 		max-width: 100%;
+		z-index: 1;
 	}
 }
 
@@ -582,6 +602,7 @@ nav.n-nav {
 				background: rgba(72, 142, 137, 0.88);
 				transition: background-color 0.2s ease-in-out;
 				margin-bottom: 0;
+				z-index: 1;
 			}
 
 			&:hover h2 {
@@ -823,12 +844,12 @@ figcaption:empty {
 .featured-image {
 	text-align: center;
 
-	.n-aspect {
-		background-repeat: no-repeat;
-		background-size: contain;
-		background-position: center;
-		background-image: var(--placeholder, none);
-	}
+	// .n-aspect {
+	// 	background-repeat: no-repeat;
+	// 	background-size: contain;
+	// 	background-position: center;
+	// 	background-image: var(--placeholder, none);
+	// }
 }
 
 .n-carousel--lightbox > .n-carousel__content picture > * {
