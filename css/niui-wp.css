@@ -389,13 +389,12 @@ article {
 }
 */
 .n-header .logo {
-  display: flex;
+  max-width: 480px;
 }
 .n-header .logo ~ .n-fold {
   margin-top: 1em;
 }
 .n-header .logo div {
-  padding: 0 1em;
   flex-grow: 1;
 }
 .n-header .logo div h2,

@@ -483,14 +483,15 @@ article {
 }
 */
 .n-header .logo {
-	display: flex;
+	// display: flex;
+	max-width: 480px;
 
 	~ .n-fold {
 		margin-top: 1em;
 	}
 
 	div {
-		padding: 0 1em;
+		// padding: 0 1em;
 		flex-grow: 1;
 
 		h2,
