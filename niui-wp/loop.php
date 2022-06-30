@@ -10,7 +10,7 @@
 				
 				<?php $thumbnail_placeholder = wp_get_attachment_image_src( get_post_thumbnail_id( the_ID() ), "medium" )[0]; ?>
 
-				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="img-crop" style="background-image: url(<?php $thumbnail_placeholder ?>);">
+				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="img-crop" style="--placeholder: url(<?php $thumbnail_placeholder ?>);">
 					
 					<!-- <?php echo get_the_post_thumbnail(); ?> -->
 

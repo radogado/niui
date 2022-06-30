@@ -346,6 +346,8 @@ article {
 	.n-aspect {
 		background-size: contain;
 		background-repeat: no-repeat;
+		background-image: var(--placeholder, none);
+		z-index: 0;
 	}
 }
 
@@ -398,6 +400,7 @@ article {
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
+	background-image: var(--placeholder, none);
 	white-space: nowrap;
 
 	&:before {
@@ -824,6 +827,7 @@ figcaption:empty {
 		background-repeat: no-repeat;
 		background-size: contain;
 		background-position: center;
+		background-image: var(--placeholder, none);
 	}
 }
 

@@ -270,6 +270,8 @@ article ul {
 article .n-aspect {
   background-size: contain;
   background-repeat: no-repeat;
+  background-image: var(--placeholder, none);
+  z-index: 0;
 }
 
 .comments li {
@@ -311,6 +313,7 @@ article .n-aspect {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  background-image: var(--placeholder, none);
   white-space: nowrap;
 }
 .img-crop:before {
@@ -684,6 +687,7 @@ figcaption:empty {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
+  background-image: var(--placeholder, none);
 }
 
 .n-carousel--lightbox > .n-carousel__content picture > * {

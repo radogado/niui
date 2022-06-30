@@ -703,7 +703,7 @@ add_action('the_content', function ($content) {
 		$wrapper = $dom->createElement('span');
     $image_id = preg_replace('/[^0-9]/', '', $img->getAttribute('class'));
 		$wrapper->setAttribute('class', 'n-aspect ' . $img->getAttribute('class'));
-    $wrapper->setAttribute('style', '--width: ' . $img->getAttribute('width') . '; --height: ' . $img->getAttribute('height') . '; background-image: url(' . wp_get_attachment_image_url($image_id, 'medium') . ');');
+    $wrapper->setAttribute('style', '--width: ' . $img->getAttribute('width') . '; --height: ' . $img->getAttribute('height') . '; --placeholder: url(' . wp_get_attachment_image_url($image_id, 'medium') . ');');
 		
 		$img->parentNode->replaceChild($wrapper, $img);
 
