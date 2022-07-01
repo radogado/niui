@@ -312,7 +312,7 @@ article .n-aspect:before {
   width: 100%;
 }
 
-.img-crop {
+#content .img-crop {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -321,13 +321,13 @@ article .n-aspect:before {
   position: relative;
   white-space: nowrap;
 }
-.img-crop:before {
+#content .img-crop:before {
   display: inline-block;
   vertical-align: middle;
   content: "";
   padding-top: 25vmin;
 }
-.img-crop:after {
+#content .img-crop:after {
   content: "";
   position: absolute;
   inset: 0;
@@ -336,13 +336,15 @@ article .n-aspect:before {
   filter: blur(4px);
   overflow: hidden;
 }
-.img-crop img {
+#content .img-crop img {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate3d(-50%, -50%, 0);
-  max-width: 100%;
   z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .img-crop h2,
