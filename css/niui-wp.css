@@ -181,13 +181,12 @@ button.search-submit {
   position: relative;
   max-width: 100%;
   width: 100%;
-}
-#content .n-carousel--lightbox .gallery:before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  border-bottom: 1px dotted;
-  top: calc(20em - 1px);
+  -webkit-mask-image: -webkit-linear-gradient(270deg, black, black 95%, transparent);
+  -webkit-mask-size: 100% 20em;
+  -webkit-mask-repeat: no-repeat;
+  mask-image: linear-gradient(270deg, black, black 95%, transparent);
+  mask-size: 100% 20em;
+  mask-repeat: no-repeat;
 }
 #content .n-carousel--lightbox .gallery a {
   display: block;
@@ -213,7 +212,14 @@ button.search-submit {
   --control-bg: transparent;
 }
 
-body {
+_::-webkit-full-page-media,
+_:future,
+:root #content .n-carousel--lightbox .gallery {
+  -webkit-mask-image: linear-gradient(180deg, #000, #000 95%, transparent);
+  mask-image: linear-gradient(180deg, #000, #000 95%, transparent);
+}
+
+#content .n-carousel--lightbox .gallery body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
@@ -316,7 +322,7 @@ article .n-aspect:before {
   width: 100%;
   display: flex;
   flex-direction: column;
-  background-color: #eee;
+  background-color: transparent;
   overflow: hidden;
   position: relative;
   white-space: nowrap;
@@ -703,6 +709,11 @@ figcaption:empty {
 
 .n-carousel--lightbox > .n-carousel__content picture > * {
   background-image: inherit !important;
+}
+
+#content picture[style*="--placeholder"]:not([data-loaded=true]) img {
+  -webkit-mask: -webkit-linear-gradient(0deg, red, red) no-repeat center/calc(100% - 3px) calc(100% - 3px);
+  mask: linear-gradient(0deg, red, red) no-repeat center/calc(100% - 3px) calc(100% - 3px);
 }
 
 /*# sourceMappingURL=niui-wp.css.map */
