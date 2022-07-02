@@ -275,13 +275,11 @@ button.search-submit {
 _::-webkit-full-page-media,
 _:future,
 :root #content .n-carousel--lightbox .gallery {
-	-webkit-mask-image: linear-gradient(180deg,#000,#000 95%,transparent);
-	mask-image: linear-gradient(180deg,#000,#000 95%,transparent);
+	-webkit-mask-image: linear-gradient(180deg, #000, #000 95%, transparent);
+	mask-image: linear-gradient(180deg, #000, #000 95%, transparent);
 }
 
-#content .n-carousel--lightbox .gallery
-
-body {
+#content .n-carousel--lightbox .gallery body {
 	min-height: 100%;
 	display: flex;
 	flex-direction: column;
@@ -857,12 +855,19 @@ figcaption:empty {
 	// }
 }
 
-.n-carousel--lightbox > .n-carousel__content picture > * {
-	background-image: inherit !important;
+.n-carousel--lightbox > .n-carousel__content picture:not([data-loaded]) > * {
+	// background-image: inherit !important;
+	background-image: var(--placeholder);
+	--placeholder: inherit !important;
 }
 
 // Clip images border while loading
 #content picture[style*="--placeholder"]:not([data-loaded="true"]) img {
-	-webkit-mask: -webkit-linear-gradient(0deg,red,red) no-repeat center / calc(100% - 3px) calc(100% - 3px);
-	mask: linear-gradient(0deg,red,red) no-repeat center / calc(100% - 3px) calc(100% - 3px);
+	-webkit-mask: -webkit-linear-gradient(0deg, red, red) no-repeat center / calc(100% - 3px) calc(100% - 3px);
+	mask: linear-gradient(0deg, red, red) no-repeat center / calc(100% - 3px) calc(100% - 3px);
+}
+
+// Use the .n-aspect child instead
+.n-carousel--lightbox > .n-carousel__content picture:not([data-loaded]):before, article .n-carousel--lightbox > .n-carousel__content [data-loaded] > .n-aspect:before {
+	display: none;
 }

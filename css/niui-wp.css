@@ -707,13 +707,18 @@ figcaption:empty {
   text-align: center;
 }
 
-.n-carousel--lightbox > .n-carousel__content picture > * {
-  background-image: inherit !important;
+.n-carousel--lightbox > .n-carousel__content picture:not([data-loaded]) > * {
+  background-image: var(--placeholder);
+  --placeholder: inherit !important;
 }
 
 #content picture[style*="--placeholder"]:not([data-loaded=true]) img {
   -webkit-mask: -webkit-linear-gradient(0deg, red, red) no-repeat center/calc(100% - 3px) calc(100% - 3px);
   mask: linear-gradient(0deg, red, red) no-repeat center/calc(100% - 3px) calc(100% - 3px);
+}
+
+.n-carousel--lightbox > .n-carousel__content picture:not([data-loaded]):before, article .n-carousel--lightbox > .n-carousel__content [data-loaded] > .n-aspect:before {
+  display: none;
 }
 
 /*# sourceMappingURL=niui-wp.css.map */
