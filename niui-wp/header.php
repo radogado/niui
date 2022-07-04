@@ -1,5 +1,5 @@
 <!doctype html>
-<html <?php language_attributes(); ?> class="n-type">
+<html <?php language_attributes(); ?> class="n-type n-wp">
 	<head>
 		<meta charset="<?php bloginfo('charset'); ?>">
 		<title><?php wp_title(''); ?><?php if(wp_title('', false)) { echo ':'; } ?> <?php bloginfo('name'); ?></title>

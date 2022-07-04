@@ -19,11 +19,11 @@ body .n-contain {
 	background: #eee;
 }
 
-#content .n-carousel > .n-carousel__index.n-carousel__index--thumbnails > * span {
+.n-wp .n-carousel > .n-carousel__index.n-carousel__index--thumbnails > * span {
 	padding: 0;
 }
 
-#content .n-carousel.n-carousel--lightbox {
+.n-wp .n-carousel.n-carousel--lightbox {
 
 	grid-template-areas:
 		"f c a3 a3 a3 a3"
@@ -150,11 +150,11 @@ body .n-contain {
 	color: #fff;
 }
 
-#content .n-carousel__content.featured img {
+.n-wp .n-carousel__content.featured img {
 	display: none;
 }
 
-#content .n-carousel__content.featured picture img[class*="thumbnail"] {
+.n-wp .n-carousel__content.featured picture img[class*="thumbnail"] {
 	position: absolute;
 	z-index: -1;
 	margin: auto;
@@ -167,12 +167,12 @@ body .n-contain {
 	display: block;
 }
 
-#content .sidebar form {
+.n-wp .sidebar form {
 	margin: 0;
 	padding: 0;
 }
 
-#content img {
+.n-wp img {
 	display: block;
 	max-width: 100%;
 	height: auto;
@@ -182,22 +182,22 @@ body .n-contain {
 	}
 }
 
-#content .n-aspect img,
-#content .wp-caption > img {
+.n-wp .n-aspect img,
+.n-wp .wp-caption > img {
 	display: inline-block;
 }
 
-#content .sidebar ul,
-#content .sidebar li,
-#content .comments ul,
-#content .sidebar li a[href] {
+.n-wp .sidebar ul,
+.n-wp .sidebar li,
+.n-wp .comments ul,
+.n-wp .sidebar li a[href] {
 	list-style: none;
 	padding-left: 0;
 	margin: 0;
 	display: block;
 }
 
-#content .sidebar li {
+.n-wp .sidebar li {
 	margin-bottom: 0.5em;
 }
 
@@ -205,7 +205,7 @@ button.search-submit {
 	display: none;
 }
 
-#content .n-carousel--lightbox {
+.n-wp .n-carousel--lightbox {
 
 	margin-top: 1.5em;
 
@@ -274,18 +274,18 @@ button.search-submit {
 // Safari linear gradient coordinate system
 _::-webkit-full-page-media,
 _:future,
-:root #content .n-carousel--lightbox .gallery {
+:root .n-wp .n-carousel--lightbox .gallery {
 	-webkit-mask-image: linear-gradient(180deg, #000, #000 95%, transparent);
 	mask-image: linear-gradient(180deg, #000, #000 95%, transparent);
 }
 
-#content .n-carousel--lightbox .gallery body {
+.n-wp .n-carousel--lightbox .gallery body {
 	min-height: 100%;
 	display: flex;
 	flex-direction: column;
 }
 
-#content.n-type h2 a[href] {
+.n-wp.n-type h2 a[href] {
 	color: #fff;
 }
 
@@ -313,7 +313,7 @@ article h2 a {
 	//	overflow: hidden;
 }
 
-.n-type #content section > article > {
+.n-type.n-wp section > article > {
 
 	p:not(.has-image):not(.has-iframe),
 	ol,
@@ -403,7 +403,7 @@ article {
 	}
 }
 
-#content .img-crop {
+.n-wp .img-crop {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -473,7 +473,7 @@ article h2 a[href]:after {
 .img-crop:hover h2,
 .n-form button.search-submit:hover,
 .n-type article .img-crop:hover h2,
-#content.n-type article .headline:hover h2 a[href] {
+.n-wp.n-type article .headline:hover h2 a[href] {
 	color: #e82;
 }
 
@@ -738,7 +738,7 @@ a.n-backtotop[href] {
 
 	}
 
-	#content .n-carousel--lightbox .gallery a {
+	.n-wp .n-carousel--lightbox .gallery a {
 		// Retina thumbnails
 		width: 10%;
 	}
@@ -862,7 +862,7 @@ figcaption:empty {
 }
 
 // Clip images border while loading
-#content picture[style*="--placeholder"]:not([data-loaded="true"]) img {
+.n-wp picture[style*="--placeholder"]:not([data-loaded="true"]) img {
 	-webkit-mask: -webkit-linear-gradient(0deg, red, red) no-repeat center / calc(100% - 3px) calc(100% - 3px);
 	mask: linear-gradient(0deg, red, red) no-repeat center / calc(100% - 3px) calc(100% - 3px);
 }
