@@ -350,6 +350,7 @@ article {
 		z-index: 0;
 		position: relative;
 		overflow: hidden;
+		display: inline-flex;
 
 		&:before {
 			content: "";
