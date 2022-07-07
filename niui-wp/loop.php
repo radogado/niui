@@ -12,7 +12,7 @@
 
 				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="img-crop" style="--placeholder: url(<?php $thumbnail_placeholder ?>);">
 					
-					<?php echo str_replace("<img", "<img loading=\"lazy\"", get_the_post_thumbnail()); ?>
+					<picture><?php echo str_replace("<img", "<img loading=\"lazy\"", get_the_post_thumbnail()); ?></picture>
 	
 					<h2><?php the_title(); ?> &rarr;</h2>
 					
