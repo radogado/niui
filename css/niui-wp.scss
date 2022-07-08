@@ -858,7 +858,7 @@ figcaption:empty {
 
 .n-carousel--lightbox > .n-carousel__content picture:not([data-loaded]) > * {
 	// background-image: inherit !important;
-	background-image: var(--placeholder);
+	// background-image: var(--placeholder);
 	--placeholder: inherit !important;
 }
 
