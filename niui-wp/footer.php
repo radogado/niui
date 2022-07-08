@@ -20,5 +20,11 @@
 
 		<?php wp_footer(); ?>
 
+		<script>
+
+			document.querySelectorAll('iframe[data-src]:not([src])').forEach(el => { el.loading = "lazy"; el.src = el.dataset.src; })
+
+		</script>
+
 	</body>
 </html>
