@@ -277,7 +277,6 @@ article .n-aspect {
   z-index: 0;
   position: relative;
   overflow: hidden;
-  display: inline-flex;
 }
 article .n-aspect:before {
   content: "";
