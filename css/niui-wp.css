@@ -184,7 +184,7 @@ button.search-submit {
   -webkit-mask-image: -webkit-linear-gradient(270deg, black, black 95%, transparent);
   -webkit-mask-size: 100% 20em;
   -webkit-mask-repeat: no-repeat;
-  mask-image: linear-gradient(270deg, black, black 95%, transparent);
+  mask-image: linear-gradient(180deg, black, black 95%, transparent);
   mask-size: 100% 20em;
   mask-repeat: no-repeat;
 }
@@ -210,13 +210,6 @@ button.search-submit {
 }
 .n-wp .n-carousel--lightbox.n-carousel--inline:not(.n-carousel--overlay) .gallery [aria-current] {
   --control-bg: transparent;
-}
-
-_::-webkit-full-page-media,
-_:future,
-:root .n-wp .n-carousel--lightbox .gallery {
-  -webkit-mask-image: linear-gradient(180deg, #000, #000 95%, transparent);
-  mask-image: linear-gradient(180deg, #000, #000 95%, transparent);
 }
 
 .n-wp .n-carousel--lightbox .gallery body {
@@ -711,12 +704,14 @@ figcaption:empty {
   --placeholder: inherit !important;
 }
 
-.n-wp picture[style*="--placeholder"]:not([data-loaded=true]) img {
+.n-wp picture[style*="--placeholder"]:not([data-loaded=true]) img,
+.headline picture:not([data-loaded=true]) img {
   -webkit-mask: -webkit-linear-gradient(0deg, red, red) no-repeat center/calc(100% - 3px) calc(100% - 3px);
   mask: linear-gradient(0deg, red, red) no-repeat center/calc(100% - 3px) calc(100% - 3px);
 }
 
-.n-carousel--lightbox > .n-carousel__content picture:not([data-loaded]):before, article .n-carousel--lightbox > .n-carousel__content [data-loaded] > .n-aspect:before {
+.n-carousel--lightbox > .n-carousel__content picture:not([data-loaded]):before,
+article .n-carousel--lightbox > .n-carousel__content [data-loaded] > .n-aspect:before {
   display: none;
 }
 

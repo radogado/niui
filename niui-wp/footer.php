@@ -24,6 +24,19 @@
 
 			document.querySelectorAll('iframe[data-src]:not([src])').forEach(el => { el.loading = "lazy"; el.src = el.dataset.src; })
 
+			let loaded = img => {
+			  	img.closest('picture').dataset.loaded = true;
+				};
+			content.querySelectorAll(".headline picture img").forEach(el => {
+			  if (el.complete) {
+				loaded(el);
+			  } else {
+				el.addEventListener("load", e => {
+				  loaded(e.target);
+				});
+			  }
+			});
+
 		</script>
 
 	</body>
