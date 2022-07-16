@@ -34,6 +34,7 @@
 		"n-accordion": "^1.1.0",
 		"n-carousel": "^1.1.2",
 		"n-select": "^1.0.5",
+		"n-tooltip": "^1.0.1",
 		"sass": "^1.38.1",
 		"terser": "^5.7.2"
 	},
