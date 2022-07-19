@@ -2,6 +2,10 @@ body {
   min-height: 100vh;
   min-height: -webkit-fill-available;
 }
+body.n-type a.n-btn[href],
+body a.n-btn[href], body button.n-btn, body video {
+  border-radius: 0.5rem;
+}
 
 html {
   height: 100vh;
@@ -157,13 +161,19 @@ code[class*=language-] {
   cursor: pointer;
   color: white;
   font-weight: bold;
-  padding: 0.5em;
-  border-radius: 0;
+  padding: 0.5em 1em;
+  border-radius: 0.5rem;
 }
 .code code[class*=language-],
 .code pre[class*=language-] {
   text-shadow: none;
   background: white;
+}
+
+#home .demo-pages img {
+  border-radius: 0.5rem;
+  box-shadow: 0 0 2px 1px #0000800d;
+  aspect-ratio: 1;
 }
 
 [href*=".min.css"],
@@ -233,6 +243,7 @@ html:not(.can-touch) nav li li[aria-haspopup]:hover {
 .n-row.grid-demo > * {
   background: lightseagreen;
   color: #fff;
+  border-radius: 0.5rem;
 }
 
 /*# sourceMappingURL=guide.css.map */
