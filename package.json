@@ -33,7 +33,7 @@
 		"gzip-size-cli": "^5.1.0",
 		"n-accordion": "^1.1.0",
 		"n-carousel": "^1.1.2",
-		"n-modal": "^1.0.1",
+		"n-modal": "^1.0.3",
 		"n-select": "^1.0.5",
 		"n-tooltip": "^1.0.1",
 		"sass": "^1.38.1",
