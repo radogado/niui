@@ -1078,8 +1078,8 @@
 							<h3>Options</h3>
 							<ul class="n-list">
 								<li>Drop nav uses CSS variables
-									<pre>--control-bg</pre> and
-									<pre>--control-color</pre> for background/text color.
+									<pre>--nui-control-bg</pre> and
+									<pre>--nui-control-color</pre> for background/text color.
 								</li>
 							</ul>
 						</div>
@@ -2821,7 +2821,7 @@
 								<li><b>ul.n-list--inline</b> orders items on one line</li>
 								<li><b>ul.n-list--indent</b> for margin on the left</li>
 								<li><b>ul.n-list--no-bullet</b> for a clean list</li>
-								<li>Set colors by CSS variables <b>--list-bg</b> and <b>--list-color</b>.</li>
+								<li>Set colors by CSS variables <b>--nui-list-bg</b> and <b>--nui-list-color</b>.</li>
 							</ul>
 						</div>
 					</div>
@@ -3437,13 +3437,13 @@
 								</li>
 								<li>The rich select can be used outside of a form without label. It can also contain links instead of option buttons.</li>
 								<li>Rich select with shadow via <b>.n-select__options.n-select--shadow</b>.</li>
-								<li>Rich select theme CSS variables: <b>--control-color</b>, <b>--control-bg</b>, <b>--control-selected-color</b>, <b>--control-selected-bg</b>, <b>--control-active-color</b>, <b>--control-active-bg</b>, <b>--control-highlight</b>.</li>
+								<li>Rich select theme CSS variables: <b>--nui-control-color</b>, <b>--nui-control-bg</b>, <b>--control-selected-color</b>, <b>--control-selected-bg</b>, <b>--nui-control-active-color</b>, <b>--nui-control-active-bg</b>, <b>--nui-control-highlight</b>.</li>
 							</ul>
 							<h3>Colors for input and textarea</h3>
 							<pre><code class="language-css">.n-form input, .n-form textarea {
 	
-	--input-color: darkslateblue;
-	--input-bg: aliceblue;	
+	--nui-input-color: darkslateblue;
+	--nui-input-bg: aliceblue;	
 	
 }</code>
 </pre>
@@ -3769,38 +3769,38 @@
 								<h2>Color scheme</h2>
 								<pre><code class="language-css">.n-carousel__content--arrow, .n-carousel__content--nav *, .n-tool:after, .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href], .n-fold > .n-fold__label, .n-nav--drop, .n-form, .n-accordion, .n-select__options {
 	
-	--control-bg: lightcoral;
-	--control-color: #fff;		
-	--control-active-bg: #cc7c7e;
-	--control-active-color: #eee;
-	--control-highlight: #bf2a2a;
+	--nui-control-bg: lightcoral;
+	--nui-control-color: #fff;		
+	--nui-control-active-bg: #cc7c7e;
+	--nui-control-active-color: #eee;
+	--nui-control-highlight: #bf2a2a;
 
 }
 
 nav li[aria-haspopup][aria-expanded="true"], nav li[aria-haspopup]:hover {
 	
     transition: background-color .2s ease-in-out;
-    --control-bg: #d47171;
+    --nui-control-bg: #d47171;
 
 }
 
 nav li li[aria-haspopup][aria-expanded="true"], nav li li[aria-haspopup]:hover {
 	
-    --control-bg: #b76262;
+    --nui-control-bg: #b76262;
 
 }
 
 .n-form input, .n-form textarea {
 	
-	--input-color: darkslateblue;
-	--input-bg: aliceblue;	
+	--nui-input-color: darkslateblue;
+	--nui-input-bg: aliceblue;	
 	
 }
 
 .n-list {
 	
-    --list-bg: aquamarine;
-    --list-color: darkmagenta;
+    --nui-list-bg: aquamarine;
+    --nui-list-color: darkmagenta;
 	
 }</code>
 </pre>

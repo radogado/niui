@@ -44,8 +44,8 @@ nav.n-nav.n-nav__drop ul.n-list {
 	
 	nav.n-nav.n-nav__drop {
 		
-		--control-bg: #333;
-		--control-color: #fff;
+		--nui-control-bg: #333;
+		--nui-control-color: #fff;
 		font-size: .85em;
 	    display: block;
 	
@@ -292,7 +292,7 @@ b.circle {
 
 .n-row.n-row__border {
 	
-	--color: #e2e2e2;
+	--nui-color: #e2e2e2;
 	background: #fff;
 
 	> div {

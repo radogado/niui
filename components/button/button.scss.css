@@ -4,7 +4,7 @@
   --font-size: 16px;
   --line-height: 1.5;
   --line-height-em: calc(1rem * var(--line-height));
-  --color: #333;
+  --nui-color: #333;
   --bg: #fff;
 }
 
@@ -26,9 +26,9 @@ a.n-btn[href],
   padding: 0 0.7em;
   -webkit-appearance: none;
   background-color: #333;
-  background-color: var(--control-bg, #333);
+  background-color: var(--nui-control-bg, #333);
   color: #eee;
-  color: var(--control-color, #eee);
+  color: var(--nui-control-color, #eee);
   /*
   	-webkit-transition: all .1s linear;
   	transition: all .1s linear;

@@ -73,7 +73,7 @@ footer li {
     font-size: .8em; }
   .n-header nav.n-nav {
     text-align: right;
-    --control-bg: transparent; }
+    --nui-control-bg: transparent; }
   .n-header nav.n-nav:first-of-type {
     text-transform: uppercase;
     text-align: left;

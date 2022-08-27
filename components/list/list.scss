@@ -28,7 +28,7 @@ ul.n-list {
       content: "•";
       position: absolute;
       margin-inline-start: -0.67em;
-      color: var(--list-bg);
+      color: var(--nui-list-bg);
       font-size: 1.5em;
       line-height: 0.9;
     }
@@ -54,8 +54,8 @@ ol.n-list {
       content: counter(level1);
       counter-increment: level1;
       font-weight: bold;
-      background: var(--list-bg, #999);
-      color: var(--list-color, #fff);
+      background: var(--nui-list-bg, #999);
+      color: var(--nui-list-color, #fff);
       padding: 0 0.5em;
       border-radius: 50%;
       margin-inline-end: 0.333em;

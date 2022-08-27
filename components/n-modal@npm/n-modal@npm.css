@@ -53,12 +53,12 @@ html.n-full-screen body {
   padding: 1.5rem 1rem;
 }
 .n-modal > .n-modal__close {
-  color: var(--control-color, #fff);
+  color: var(--nui-control-color, #fff);
   cursor: pointer;
   padding: 0.75em;
   font: inherit;
   font-weight: bold;
-  background-color: var(--control-bg, rgba(0, 0, 0, 0.7));
+  background-color: var(--nui-control-bg, rgba(0, 0, 0, 0.7));
   width: 100%;
   z-index: 99999;
   top: 0;
@@ -81,7 +81,7 @@ html.n-full-screen body {
   position: fixed;
   width: 70ch;
   max-width: calc(100% - 2ch);
-  box-shadow: 0 0 0.15em 0.1em var(--control-bg, grey);
+  box-shadow: 0 0 0.15em 0.1em var(--nui-control-bg, grey);
   top: 3ch;
   bottom: 3ch;
 }

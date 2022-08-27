@@ -89,8 +89,8 @@
 
   input,
   textarea {
-    background-color: var(--input-bg, #eee);
-    color: var(--input-color, #333);
+    background-color: var(--nui-input-bg, #eee);
+    color: var(--nui-input-color, #333);
   }
 
   select {
@@ -109,13 +109,13 @@
     margin: 0;
     text-indent: 1px;
     cursor: pointer;
-    background: linear-gradient(to bottom left, transparent 30%, var(--control-color, #333) 10%, var(--control-color, #333) 50%, transparent 30%),
-      linear-gradient(to bottom right, transparent 30%, var(--control-color, #333) 10%, var(--control-color, #333) 50%, transparent 30%);
+    background: linear-gradient(to bottom left, transparent 30%, var(--nui-control-color, #333) 10%, var(--nui-control-color, #333) 50%, transparent 30%),
+      linear-gradient(to bottom right, transparent 30%, var(--nui-control-color, #333) 10%, var(--nui-control-color, #333) 50%, transparent 30%);
     background-size: 0.4em 0.4em;
     background-repeat: no-repeat;
     background-position: calc(100% - 0.85em), calc(100% - 0.5em);
-    color: var(--control-color, #333);
-    background-color: var(--control-bg, #eee);
+    color: var(--nui-control-color, #333);
+    background-color: var(--nui-control-bg, #eee);
 
     option {
       padding: 0;
@@ -212,8 +212,8 @@
     width: 1em;
     height: 1em;
     display: inline-block;
-    background-color: var(--control-bg, #eee);
-    color: var(--control-color, #333);
+    background-color: var(--nui-control-bg, #eee);
+    color: var(--nui-control-color, #333);
     line-height: calc((var(--line-height) + 1) * (2 / 3));
     // font-size: calc((var(--line-height) - 2) * (2em/3));
     text-align: center;
@@ -267,7 +267,7 @@
   input[type="radio"]:checked + .n-form__check-icon:before {
     content: "";
     position: absolute;
-    background-color: var(--control-color, #333);
+    background-color: var(--nui-control-color, #333);
     top: 25%;
     right: 25%;
     bottom: 25%;
@@ -328,8 +328,8 @@
       border: none;
       white-space: nowrap;
       overflow: hidden;
-      background-color: var(--control-bg, #ddd);
-      color: var(--control-color, inherit);
+      background-color: var(--nui-control-bg, #ddd);
+      color: var(--nui-control-color, inherit);
       padding: 0 calc(var(--line-height-em) / 2) 0 0.75em;
       display: block;
       line-height: var(--line-height-em);
@@ -380,28 +380,28 @@
       width: 100%;
       height: 0.7125em;
       cursor: pointer;
-      background: var(--control-bg, rgba(0, 0, 0, 0.1));
+      background: var(--nui-control-bg, rgba(0, 0, 0, 0.1));
     }
 
     &::-webkit-slider-thumb {
       height: 1.625em;
       width: 1.625em;
       border-radius: 50%;
-      background: var(--control-highlight, #000);
+      background: var(--nui-control-highlight, #000);
       cursor: pointer;
       -webkit-appearance: none;
       margin-top: -0.45625em;
     }
 
     &:focus::-webkit-slider-runnable-track {
-      background: var(--control-bg, rgba(0, 0, 0, 0.1));
+      background: var(--nui-control-bg, rgba(0, 0, 0, 0.1));
     }
 
     &::-moz-range-track {
       width: 100%;
       height: 0.7125em;
       cursor: pointer;
-      background: var(--control-bg, rgba(0, 0, 0, 0.1));
+      background: var(--nui-control-bg, rgba(0, 0, 0, 0.1));
     }
 
     &::-moz-range-thumb {
@@ -409,7 +409,7 @@
       height: 1.625em;
       width: 1.625em;
       border-radius: 50%;
-      background: var(--control-bg, rgba(0, 0, 0, 0.1));
+      background: var(--nui-control-bg, rgba(0, 0, 0, 0.1));
       cursor: pointer;
     }
   }

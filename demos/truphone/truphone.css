@@ -55,7 +55,7 @@ body {
   vertical-align: middle; }
 
 .n-form {
-  --control-bg: #eee; }
+  --nui-control-bg: #eee; }
 
 select {
   background: none; }

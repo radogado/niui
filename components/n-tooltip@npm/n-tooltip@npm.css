@@ -16,8 +16,8 @@
 
 .n-tool:after,
 .n-tool__tip {
-  background-color: var(--control-bg, #444);
-  color: var(--control-color, #ddd);
+  background-color: var(--nui-control-bg, #444);
+  color: var(--nui-control-color, #ddd);
 }
 
 .n-tool__tip[aria-expanded],
@@ -55,7 +55,7 @@ html:not(.can-touch) .n-tool:hover .n-tool__tip {
 .n-tool__tip:after {
   content: "";
   position: absolute;
-  background-color: var(--control-bg, #444);
+  background-color: var(--nui-control-bg, #444);
   transform: rotate(45deg);
   width: 1em;
   height: 1em;

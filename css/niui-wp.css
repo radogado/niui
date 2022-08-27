@@ -197,7 +197,7 @@ button.search-submit {
   box-sizing: border-box;
 }
 .n-wp .n-carousel--lightbox .gallery a:not([aria-current]) {
-  --control-bg: transparent;
+  --nui-control-bg: transparent;
 }
 .n-wp .n-carousel--lightbox .gallery a img {
   display: inline-block;
@@ -209,7 +209,7 @@ button.search-submit {
   justify-content: center;
 }
 .n-wp .n-carousel--lightbox.n-carousel--inline:not(.n-carousel--overlay) .gallery [aria-current] {
-  --control-bg: transparent;
+  --nui-control-bg: transparent;
 }
 
 .n-wp .n-carousel--lightbox .gallery body {
@@ -427,18 +427,18 @@ footer {
 }
 
 nav.n-nav a {
-  color: var(--control-color, #666);
+  color: var(--nui-control-color, #666);
   text-transform: uppercase;
   text-decoration: none;
 }
 nav.n-nav a.active[href], nav.n-nav a[href]:hover {
-  color: var(--control-highlight, #ee8822);
+  color: var(--nui-control-highlight, #ee8822);
 }
 nav.n-nav.n-nav--drop {
-  --control-bg: #eee;
+  --nui-control-bg: #eee;
 }
 nav.n-nav.n-nav--drop li.current_page_item {
-  --control-bg: #ddd;
+  --nui-control-bg: #ddd;
 }
 
 .single h1 {
@@ -456,7 +456,7 @@ nav.n-nav.n-nav--drop li.current_page_item {
 .n-type input[type=submit]:hover,
 .n-type a.n-btn[href]:hover,
 .n-type button.n-btn:hover {
-  color: var(--control-highlight, #ee8822);
+  color: var(--nui-control-highlight, #ee8822);
 }
 .n-type .page_item a[href] {
   color: unset;
@@ -534,7 +534,7 @@ nav.n-nav.n-nav--drop li.current_page_item {
 /*
 	.n-fold span.n-burger:before { // Workaround for the weirdest bug where the fallback value of the CSS variable disappears
 
-	    --control-color: #333;
+	    --nui-control-color: #333;
 
 	}
 	*/
@@ -650,17 +650,17 @@ a.n-btn[href],
 .n-ovrl > .n-ovrl--close,
 .n-nav--drop ul li,
 .n-type nav.n-nav a[href] {
-  --control-bg: lightcoral;
-  --control-color: #fff;
-  --control-active-bg: #cc7c7e;
-  --control-active-color: #eee;
-  --control-highlight: #bf2a2a;
+  --nui-control-bg: lightcoral;
+  --nui-control-color: #fff;
+  --nui-control-active-bg: #cc7c7e;
+  --nui-control-active-color: #eee;
+  --nui-control-highlight: #bf2a2a;
 }
 
 .n-form input,
 .n-form textarea {
-  --input-color: darkslateblue;
-  --input-bg: aliceblue;
+  --nui-input-color: darkslateblue;
+  --nui-input-bg: aliceblue;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -680,8 +680,8 @@ a.n-btn[href],
 
   .n-form input,
 .n-form textarea {
-    --input-color: #ddd;
-    --input-bg: #222;
+    --nui-input-color: #ddd;
+    --nui-input-bg: #222;
   }
 
   .logo .default-logo {

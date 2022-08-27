@@ -136,7 +136,7 @@ html {
     overflow: auto;
     flex-wrap: nowrap;
     // padding: 1ch 0;
-    background: var(--control-bg);
+    background: var(--nui-control-bg);
 
     button {
       // max-width: 25vw;
@@ -270,22 +270,22 @@ _:future,
 
 // Guide theme
 :root {
-  --control-bg: #017e7e;
-  --control-color: white;
-  --control-active-bg: #cc7c7e;
-  --control-active-color: #fdff00;
-  --control-highlight: #2abfb0;
+  --nui-control-bg: #017e7e;
+  --nui-control-color: white;
+  --nui-control-active-bg: #cc7c7e;
+  --nui-control-active-color: #fdff00;
+  --nui-control-highlight: #2abfb0;
 }
 
 .n-form input,
 .n-form textarea {
-  --input-color: darkslateblue;
-  --input-bg: aliceblue;
+  --nui-input-color: darkslateblue;
+  --nui-input-bg: aliceblue;
 }
 
 .n-list {
-  --list-bg: aquamarine;
-  --list-color: darkmagenta;
+  --nui-list-bg: aquamarine;
+  --nui-list-color: darkmagenta;
 }
 
 .n-lightbox__thumbnails {
@@ -295,12 +295,12 @@ _:future,
 nav li[aria-haspopup][aria-expanded="true"],
 html:not(.can-touch) nav li[aria-haspopup]:hover {
   transition: background-color 0.2s ease-in-out;
-  --control-bg: #d47171;
+  --nui-control-bg: #d47171;
 }
 
 nav li li[aria-haspopup][aria-expanded="true"],
 html:not(.can-touch) nav li li[aria-haspopup]:hover {
-  --control-bg: #b76262;
+  --nui-control-bg: #b76262;
 }
 
 .n-row.grid-demo > * {

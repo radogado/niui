@@ -4,14 +4,14 @@
   --font-size: 16px;
   --line-height: 1.5;
   --line-height-em: calc(1rem * var(--line-height));
-  --color: #333;
+  --nui-color: #333;
   --bg: #fff;
 }
 
 .n-nav {
   vertical-align: baseline;
   display: inline-block;
-  color: var(--control-color, inherit);
+  color: var(--nui-control-color, inherit);
 }
 .n-nav ul {
   margin: 0 0 0 -0.5em;
@@ -24,7 +24,7 @@
   flex-wrap: wrap;
 }
 .n-nav ul li {
-  background-color: var(--control-bg, transparent);
+  background-color: var(--nui-control-bg, transparent);
   margin: 0;
 }
 .n-nav ul li:last-child {
@@ -76,7 +76,7 @@ main .n-nav ul {
 }
 
 .n-nav--drop {
-  color: var(--control-color, #333);
+  color: var(--nui-control-color, #333);
   background-color: transparent;
   max-width: 100%;
 }
@@ -112,7 +112,7 @@ main .n-nav ul {
   box-sizing: border-box;
   position: relative;
   width: auto;
-  background-color: var(--control-bg, #fff);
+  background-color: var(--nui-control-bg, #fff);
 }
 .n-nav--drop li > a {
   padding: 0.75em;
@@ -161,7 +161,7 @@ main .n-nav ul {
   overflow: visible;
   opacity: 1;
   z-index: 2;
-  background-color: var(--control-bg, #fff);
+  background-color: var(--nui-control-bg, #fff);
 }
 .n-nav--drop ul li[aria-expanded] > ul,
 .n-nav--drop li li[aria-expanded] > ul,
@@ -219,7 +219,7 @@ main .n-nav ul {
   -webkit-mask-repeat: no-repeat;
   mask: var(--mask);
   mask-size: 0.4em;
-  background-color: var(--control-color, #000);
+  background-color: var(--nui-control-color, #000);
   mask-repeat: no-repeat;
 }
 .n-nav--drop li > input {
@@ -299,7 +299,7 @@ main .n-nav ul {
     transform-origin: right;
   }
   html:not(.can-touch) .n-nav--drop > ul > li > ul li {
-    background-color: var(--control-bg, #fff);
+    background-color: var(--nui-control-bg, #fff);
   }
   html:not(.can-touch) .n-nav--drop > ul > li:hover > input:not(:checked) ~ ul,
 html:not(.can-touch) .n-nav--drop > ul li ul > li:hover > input:not(:checked) ~ ul,
@@ -320,7 +320,7 @@ html:not(.can-touch) .n-nav--drop > ul li:not([aria-haspopup]) ul li:hover ~ ul 
     overflow: visible;
     opacity: 1;
     z-index: 2;
-    background-color: var(--control-bg, #fff);
+    background-color: var(--nui-control-bg, #fff);
     transform: scaleY(1);
   }
   html:not(.can-touch) .n-nav--drop > ul li ul li:hover ul {
