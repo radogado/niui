@@ -177,7 +177,6 @@ button.search-submit {
   margin: 1rem 0;
   justify-content: flex-start;
   max-height: 20em;
-  overflow: hidden;
   position: relative;
   max-width: 100%;
   width: 100%;
