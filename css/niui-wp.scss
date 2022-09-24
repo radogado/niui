@@ -720,7 +720,7 @@ a.n-backtotop[href] {
 	.home section .pagination {
 		width: 100%;
 
-		.n-carousel--lightbox .gallery a {
+		.n-carousel--lightbox:not(.n-carousel--overlay) .gallery a {
 			// Retina thumbnails
 			width: 10%;
 		}

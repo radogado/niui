@@ -589,9 +589,9 @@ a.n-backtotop[href] {
 .home section .pagination {
     width: 100%;
   }
-  .home:not(.paged) section article:nth-child(1) .n-carousel--lightbox .gallery a,
-.home:not(.paged) section article:nth-child(2) .n-carousel--lightbox .gallery a,
-.home section .pagination .n-carousel--lightbox .gallery a {
+  .home:not(.paged) section article:nth-child(1) .n-carousel--lightbox:not(.n-carousel--overlay) .gallery a,
+.home:not(.paged) section article:nth-child(2) .n-carousel--lightbox:not(.n-carousel--overlay) .gallery a,
+.home section .pagination .n-carousel--lightbox:not(.n-carousel--overlay) .gallery a {
     width: 10%;
   }
   .home:not(.paged) section article:nth-child(1) .img-crop,
