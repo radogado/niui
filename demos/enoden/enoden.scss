@@ -22,13 +22,7 @@ img {
 
 }
 
-.n-slider--arrow {
-	
-	display: none;
-
-}
-
-nav.n-nav.n-nav__drop ul.n-list {
+nav.n-nav.n-nav--drop ul.n-list {
 
 	justify-content: flex-end;	
 
@@ -42,7 +36,7 @@ nav.n-nav.n-nav__drop ul.n-list {
 	
 	}
 	
-	nav.n-nav.n-nav__drop {
+	nav.n-nav.n-nav--drop {
 		
 		--nui-control-bg: #333;
 		--nui-control-color: #fff;
@@ -59,7 +53,7 @@ nav.n-nav.n-nav__drop ul.n-list {
 
 }
 
-nav.n-nav.n-nav__drop ul[role=menubar] li > a {
+nav.n-nav.n-nav--drop ul[role=menubar] li > a {
 	
 	padding: .5em;
     color: #fff;
@@ -290,7 +284,7 @@ b.circle {
 
 }
 
-.n-row.n-row__border {
+.n-row.n-row--border {
 	
 	--nui-color: #e2e2e2;
 	background: #fff;
