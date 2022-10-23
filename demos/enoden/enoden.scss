@@ -143,7 +143,7 @@ nav.n-nav {
 	
 }
 
-.n-banner .n-slider--nav * {
+.n-banner .n-carousel__index > * {
 	
 	font-size: 0;
 	--nav-size: 12px;
@@ -152,13 +152,13 @@ nav.n-nav {
 	
 }
 
-.n-slider--wrap>.n-slider--nav {
+.n-carousel > .n-carousel__index {
 	
 	padding-bottom: 1em;
 
 }
 
-.n-banner .n-slider--nav [data-active] {
+.n-banner .n-carousel__index [aria-current] {
 	
 	background: $green;
 
@@ -339,7 +339,7 @@ b.circle {
 
 }
 
-.n-slider[data-peek] > * > img {
+.n-carousel.n-carousel--peeking .n-carousel__content > * > img {
 	
 	padding: 0 5%;
 
@@ -372,7 +372,7 @@ footer .n-contain {
 	border: 1px solid #e2e2e2;
 	border-top: none;
 	
-	.tabs > .n-slider--nav.n-row {
+	.tabs > .n-carousel__index.n-row {
 		
 		display: block;
 		
@@ -442,19 +442,19 @@ footer .n-contain {
 
 	}
 	
-	.n-slider--nav {
+	.n-carousel__index {
 		
 		padding-bottom: 1em;
 
 	}
 	
-	.n-slider--nav * {
+	.n-carousel__index > * {
 		
 		color: #33322f;
 		background: none;
 		border-bottom: 2px solid transparent;
 		
-		&[data-active] {
+		&[aria-current] {
 			
 			border-color: $green;
 			
@@ -462,13 +462,13 @@ footer .n-contain {
 
 	}
 
-	.n-slider--nav [data-active] {
+	.n-carousel__index [aria-current] {
 
 		border-bottom: 2px solid green;
 
 	}
 		
-	.n-slider--wrap {
+	.n-carousel {
 		
 		margin: 0 1em;
 		
@@ -476,14 +476,14 @@ footer .n-contain {
 	
 }
 
-.news .n-slider--wrap.tabs > .n-slider--nav * {
+.news .n-carousel.n-carousel--tabs > .n-carousel__index * {
 	
 		padding: .5em 1em;
 		display: inline-block;
 	
 }
 
-.news .n-tabs > .n-slider--nav.n-row {
+.news .n-carousel--tabs > .n-carousel__index.n-row {
 	
 	margin-bottom: 1em;
 	border-bottom: 1px solid #e2e2e2;
