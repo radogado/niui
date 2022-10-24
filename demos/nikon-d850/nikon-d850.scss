@@ -467,13 +467,13 @@ footer ul.n-list.n-row > li > span {
 	
 }
 
-.n-fold {
+.n-accordion {
 	
 	border-bottom: 1px solid #ddd;
 	
 }
 
-.n-fold .n-fold--label {
+.n-accordion .n-accordion__label {
 	
 	font-size: 30px;
 	font-weight: 300;
@@ -650,7 +650,7 @@ ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li {
 
 	}
 
-	.n-fold .n-fold--label {
+	.n-accordion .n-accordion__label {
 		
 		font-size: 1rem;
 		

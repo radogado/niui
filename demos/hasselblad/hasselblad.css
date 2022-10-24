@@ -40,13 +40,13 @@ body {
     height: 14px;
     width: 150px; }
 
-.n-fold {
+.n-accordion {
   display: inline-block; }
 
 main .aspect.n-left > * {
   vertical-align: top; }
 
-.n-header .n-fold .n-fold--label {
+.n-header .n-accordion .n-accordion__label {
   background: transparent url("data:image/svg+xml;charset=utf8,%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 20 20' style='enable-background:new 0 0 20 20;' xml:space='preserve'%3E %3Cstyle%3E .st0%7B fill:none; stroke:%23fff; stroke-width: 2; stroke-miterlimit: 10; %7D .st1%7B fill:none; stroke:%23fff; stroke-miterlimit:10; %7D %3C/style%3E %3Cpath class='st0' d='M19,10c0,5-4,9-9,9c-5,0-9-4.2-9-9.2C1,4.9,4.8,1.2,9.6,1C9.7,1,9.9,1,10,1C15,1,19,5,19,10z'/%3E %3Cpath class='st0' d='M9.6,1c-4.7,5.1-4.7,11.7,0,18'/%3E %3Cpath class='st0' d='M10.4,1c4.7,5.1,4.7,11.7,0,18'/%3E %3Cline class='st1' x1='2.5' y1='4.9' x2='17.5' y2='4.9'/%3E %3Cline class='st1' x1='1' y1='9.6' x2='19' y2='9.6'/%3E %3Cline class='st1' x1='2.2' y1='14.3' x2='17.9' y2='14.3'/%3E %3C/svg%3E") no-repeat 50% 50%;
   width: 14px;
   height: 14px;
@@ -54,13 +54,13 @@ main .aspect.n-left > * {
   display: block;
   margin: 0 0.5em; }
 
-.n-header .n-fold .n-fold .n-fold--label.n-burger- {
+.n-header .n-accordion .n-accordion .n-accordion__label.n-burger- {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 20 20' style='enable-background:new 0 0 20 20;' xml:space='preserve'%3E %3Cstyle%3E.st0%7Bfill:none;stroke:%23fff;stroke-width:2;stroke-miterlimit:10;%7D%3C/style%3E %3Cg%3E %3Cline class='st0' x1='2' y1='10' x2='18' y2='10'/%3E %3C/g%3E %3Cg%3E %3Cline class='st0' x1='2' y1='16' x2='18' y2='16'/%3E %3C/g%3E %3Cg%3E %3Cline class='st0' x1='2' y1='4' x2='18' y2='4'/%3E %3C/g%3E %3C/svg%3E"); }
 
-.n-header .n-fold .n-fold .n-fold--label:after {
+.n-header .n-accordion .n-accordion .n-accordion__label:after {
   display: none; }
 
-.n-header .n-fold .n-fold .n-fold--content {
+.n-header .n-accordion .n-accordion .n-accordion__content {
   position: absolute;
   background: #000; }
 

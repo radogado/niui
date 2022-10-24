@@ -114,7 +114,7 @@ select {
 
 }
 
-nav.n-nav.n-nav__drop ul.n-list li b.sub {
+nav.n-nav.n-nav--drop ul.n-list li b.sub {
 	
 	margin-left: -1.25em;
 
@@ -155,7 +155,7 @@ footer ul.n-list li:before {
 
 @media (max-width: 599.9px) {
 
-	.n-fold.n-fold__mobile.n-middle {
+	.n-accordion.n-accordion__mobile.n-middle {
 		
 		display: block;
 	

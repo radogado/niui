@@ -22,12 +22,12 @@ main div {
   background-repeat: no-repeat;
   background-size: cover; }
 
-main .n-slider > div {
+main .n-carousel__content > div {
   background-repeat: no-repeat;
   background-position: center right;
   background-size: auto; }
 
-.n-slider .n-row {
+.n-carousel__content .n-row {
   height: 100%;
   min-height: 60em; }
 
@@ -85,9 +85,9 @@ span.n-burger:before {
   box-shadow: 0 0.25em 0 1px #fff, 0 0.625em 0 1px #fff, 0 1em 0 1px #fff; }
 
 @media screen and (max-width: 600px) {
-  .n-header.n-header__fixed-mobile .n-fold.n-fold__mobile.open .n-fold--content {
+  .n-header.n-header__fixed-mobile .n-accordion.n-accordion__mobile.open .n-accordion__content {
     background: #000; }
-  .n-slider--wrap > .n-pad {
+  .n-carousel > .n-pad {
     margin: 0; }
   .n-header a.n-logo {
     line-height: inherit; }
@@ -96,9 +96,9 @@ span.n-burger:before {
   .n-type h1, .n-type h2 {
     font-size: 30px;
     line-height: 1.25; }
-  main .n-row > ._1\/1, .n-slider .n-row {
+  main .n-row > ._1\/1, .n-carousel__content .n-row {
     min-height: 0; }
-  main .n-slider > div {
+  main .n-carousel__content > div {
     background-position: top center; }
-  .n-header.n-header__fixed-mobile .n-fold.n-fold__mobile .n-fold--content {
+  .n-header.n-header__fixed-mobile .n-accordion.n-accordion__mobile .n-accordion__content {
     background: #000; } }

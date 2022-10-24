@@ -100,7 +100,7 @@ form.n-form.news {
 
 }
 
-footer, form.n-form.news, .n-banner .n-slider--wrap {
+footer, form.n-form.news, .n-banner .n-carousel {
 	
 	background: #e3e3e3;
 	    
@@ -231,24 +231,24 @@ form.n-form select:hover {
 
 form.n-form select {
 	
-	background: url(icon-nav__dropdown-arrow.svg) right center no-repeat;
+	background: url(icon-nav--dropdown-arrow.svg) right center no-repeat;
 	background-position: calc(100% - 1em) 1em;
 
 }
 
-.n-slider, .n-slider--wrap.n-tabs>.n-slider--nav [data-active] {
+.n-slider, .n-carousel.n-tabs>.n-carousel__index [data-active] {
 	
 	background-color: #e3e3e3;
 
 }
 
-.n-slider--wrap.n-tabs>.n-slider--nav [data-active] {
+.n-carousel.n-tabs>.n-carousel__index [data-active] {
 	
 	color: #003d50;
 
 }
 
-.n-slider--wrap.n-tabs>.n-slider--nav * {
+.n-carousel.n-tabs>.n-carousel__index > * {
 	
 	color: #fff;
 	background-color: #002a37;
@@ -257,7 +257,7 @@ form.n-form select {
 	
 }
 
-.n-slider > * {
+.n-carousel__content > * {
 	
 	padding: 1.25em;
 	
@@ -265,7 +265,7 @@ form.n-form select {
 
 @media (min-width: 900px) {
 
-	.n-banner .n-slider--wrap {
+	.n-banner .n-carousel {
 		
 		max-width: 75%;
 		margin: 0 auto;
@@ -282,13 +282,13 @@ form.n-form select {
 	
 }
 
-form.n-form.n-form__wide input[type=submit] {
+form.n-form.n-form--wide input[type=submit] {
 	
 	margin: 0;
 
 }
 
-form.n-form.n-form__wide > ._1\/1 {
+form.n-form.n-form--wide > ._1\/1 {
 	
 	margin-top: -1.5em;
 	
@@ -384,7 +384,7 @@ form.n-form.n-form__wide > ._1\/1 {
 		
 	}
 	
-	.n-row.n-row__no-spacing {
+	.n-row.n-row--no-spacing {
 		
 		padding: 1em;
 		width: 100%;

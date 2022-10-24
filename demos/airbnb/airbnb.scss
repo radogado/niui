@@ -36,7 +36,7 @@ footer ul.n-list li + li {
 
 }
 
-.n-banner h1, .n-slider h2 {
+.n-banner h1, .n-carousel__content h2 {
 	
 	text-transform: uppercase;
 	font-size: 3.3em;
@@ -113,7 +113,7 @@ main .n-row h3 {
 
 }
 
-main .n-row.n-row__no-spacing > * {
+main .n-row.n-row--no-spacing > * {
 	
 	color: #565a5c;
 	
@@ -127,32 +127,32 @@ main .n-row a[href] {
 
 }
 
-main .n-row, main .n-row.n-row__no-spacing {
+main .n-row, main .n-row.n-row--no-spacing {
 	
 	margin: 0;
 	
 }
 
-main .n-slider {
+main .n-carousel__content {
 	
 	color: #fff;
 
 }
 
-main .n-slider--wrap .n-slider--nav {
+main .n-carousel .n-carousel__index {
 	
 	display: none;
 
 }
 
-main .n-slider--wrap .n-slider--arrow {
+main .n-carousel .n-slider--arrow {
 	
 	background: none;
 	font-size: 2em;
 
 }
 
-main .n-slider > * {
+main .n-carousel__content > * {
 	
 	min-height: 37em;
 	background-size: cover;

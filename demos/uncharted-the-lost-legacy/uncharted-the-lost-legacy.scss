@@ -50,7 +50,7 @@ main div {
 
 }
 
-main .n-slider > div {
+main .n-carousel__content > div {
 	
     background-repeat: no-repeat;
     background-position: center right;
@@ -58,7 +58,7 @@ main .n-slider > div {
 	
 }
 
-.n-slider .n-row {
+.n-carousel__content .n-row {
 	
 	height: 100%;
 	min-height: 60em;
@@ -166,13 +166,13 @@ span.n-burger:before {
 @media screen and (max-width: 600px) {
 	
 	
-	.n-header.n-header__fixed-mobile .n-fold.n-fold__mobile.open .n-fold--content {
+	.n-header.n-header__fixed-mobile .n-accordion.n-accordion__mobile.open .n-accordion__content {
 		
 		background: #000;
 		
 	}
 	
-	.n-slider--wrap > .n-pad {
+	.n-carousel > .n-pad {
 		
 		margin: 0;
 
@@ -201,19 +201,19 @@ span.n-burger:before {
 	
 	}
 
-	main .n-row > ._1\/1, .n-slider .n-row {
+	main .n-row > ._1\/1, .n-carousel__content .n-row {
 		
 		min-height: 0;
 		
 	}
 
-	main .n-slider > div {
+	main .n-carousel__content > div {
 
 	    background-position: top center;
 
 	}
 
-	.n-header.n-header__fixed-mobile .n-fold.n-fold__mobile .n-fold--content {
+	.n-header.n-header__fixed-mobile .n-accordion.n-accordion__mobile .n-accordion__content {
 		
 		background: #000;
 		

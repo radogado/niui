@@ -68,7 +68,7 @@ body.n-type {
 
 }
 
-.n-slider--nav * {
+.n-carousel__index > * {
 	
 	color: unset;
 	font-size: .4em;
@@ -80,7 +80,7 @@ body.n-type {
 
 }
 
-.n-slider--nav [data-active] {
+.n-carousel__index [data-active] {
 	
 	background: none;
 	border: 1px solid #0070c9;
@@ -152,7 +152,7 @@ select {
 	
 }
 
-.n-header-banner .n-slider h2 { 
+.n-header-banner .n-carousel__content h2 { 
 	
 	margin-top: 2em;
 	font-size: 7em;
@@ -167,7 +167,7 @@ ul.n-list li {
 
 @media screen and (max-width: 599.9px) {
 	
-	.n-header-banner .n-slider h2 { 
+	.n-header-banner .n-carousel__content h2 { 
 		
 		margin-top: .5em;
 		
@@ -179,7 +179,7 @@ ul.n-list li {
 		
 	}
 	
-	.n-row:not(.n-row__half) {
+	.n-row:not(.n-row--half) {
 	
 	    display: flex;
 	
@@ -187,13 +187,13 @@ ul.n-list li {
 
 }
 
-.n-header-banner .n-slider h3 { 
+.n-header-banner .n-carousel__content h3 { 
 	
 	font-size: 3.6em;
 	
 }
 
-.n-header-banner .n-slider > * {
+.n-header-banner .n-carousel__content > * {
 	
 	position: relative;
 	

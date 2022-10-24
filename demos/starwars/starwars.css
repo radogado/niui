@@ -83,33 +83,33 @@ main > .n-row > * {
 
 }
 */
-main .n-row:not(.n-row__vertical) > *, main .n-row.n-row__vertical > * > * {
+main .n-row:not(.n-row--vertical) > *, main .n-row.n-row--vertical > * > * {
   background-color: #282727;
   border-radius: .5em;
   margin-left: .75em;
   margin-right: .5em;
   padding: 0; }
 
-main .n-row .n-row:not(.n-row__vertical) > * {
+main .n-row .n-row:not(.n-row--vertical) > * {
   margin: 0; }
 
-.n-row.n-row__vertical > * > * {
+.n-row.n-row--vertical > * > * {
   margin: 1em 0; }
 
-.n-row.n-row__vertical > * > *, .n-row > * {
+.n-row.n-row--vertical > * > *, .n-row > * {
   overflow: hidden; }
 
-.n-row.n-row__vertical > * {
+.n-row.n-row--vertical > * {
   border-radius: .5em;
   margin: 0; }
 
-.n-row.n-row__vertical > * > :first-child {
+.n-row.n-row--vertical > * > :first-child {
   margin-top: 0; }
 
-main .n-row.n-row__vertical > * > * {
+main .n-row.n-row--vertical > * > * {
   margin-left: 0; }
 
-.n-row.n-row__vertical > * > :last-child {
+.n-row.n-row--vertical > * > :last-child {
   margin-bottom: 0; }
 
 .tag {
@@ -150,7 +150,7 @@ main p {
 main h2 {
   color: #ddd; }
 
-.n-row.n-row__vertical * h2 {
+.n-row.n-row--vertical * h2 {
   padding-top: 0; }
 
 main .n-row img[class*=col] {
@@ -227,7 +227,7 @@ main .n-row img[class*=col] {
 .n-header nav.n-nav .social li:nth-child(6) a[href] {
   background-position: 83.33333% 0%; }
 
-nav.n-nav.n-nav__scroll ul.n-list {
+nav.n-nav.n-nav--scroll ul.n-list {
   padding-bottom: 0; }
 
 @media screen and (max-width: 600px) {

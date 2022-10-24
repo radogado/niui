@@ -192,13 +192,13 @@ nav.n-nav a {
 
 }
 
-nav.n-nav.n-nav__drop li[aria-haspopup] {
+nav.n-nav.n-nav--drop li[aria-haspopup] {
 	
 	background-position: calc(100% - .75em) 1.75em;
 	
 }
 
-.n-header nav.n-nav.n-nav__drop ul li b.sub {
+.n-header nav.n-nav.n-nav--drop ul li b.sub {
 	
 	margin: 0;
 	mix-blend-mode: normal;
@@ -206,14 +206,14 @@ nav.n-nav.n-nav__drop li[aria-haspopup] {
 	
 }
 
-nav.n-nav.n-nav__drop ul ul {
+nav.n-nav.n-nav--drop ul ul {
 
 	flex-direction: column;	
 	padding: 0;
 	
 }
 
-.no-touch nav.n-nav.n-nav__drop ul li:hover {
+.no-touch nav.n-nav.n-nav--drop ul li:hover {
 	
 	background: $orange;
 
@@ -419,7 +419,7 @@ a.arrow:after {
 
 }
 
-.n-slider--nav {
+.n-carousel__index {
 	
 	background: #fff;
 	border-radius: 3px 3px 0 0;
@@ -428,7 +428,7 @@ a.arrow:after {
 
 }
 
-.n-slider--nav * {
+.n-carousel__index > * {
 	
 	background: $lighter-blue;
 	text-indent: -167%;
@@ -437,7 +437,7 @@ a.arrow:after {
 
 }
 
-.n-slider--nav [data-active] {
+.n-carousel__index [data-active] {
 	
 	background: $orange;
 
@@ -491,7 +491,7 @@ input[type=radio]:checked + .n-form--check-icon:before {
 	
 }
 
-nav.n-nav.n-nav__drop {
+nav.n-nav.n-nav--drop {
 	
 	width: 100%;
 	--nui-control-color: #fff;
@@ -499,13 +499,13 @@ nav.n-nav.n-nav__drop {
 
 }
 
-nav.n-nav.n-nav__drop ul {
+nav.n-nav.n-nav--drop ul {
 	
 	display: flex;
 
 }
 
-nav.n-nav.n-nav__drop ul li {
+nav.n-nav.n-nav--drop ul li {
 	
 	border-radius: 3px;
 	flex-grow: 1;
@@ -513,32 +513,32 @@ nav.n-nav.n-nav__drop ul li {
 
 }
 
-nav.n-nav.n-nav__drop ul li:first-child {
+nav.n-nav.n-nav--drop ul li:first-child {
 	
 	margin-left: 0;
 	
 }
 
-nav.n-nav.n-nav__drop ul li:last-child {
+nav.n-nav.n-nav--drop ul li:last-child {
 	
 	margin-right: 0;
 	background: $dark-blue;
 	
 }
 
-nav.n-nav.n-nav__drop ul ul li {
+nav.n-nav.n-nav--drop ul ul li {
 
 	margin-left: 0;
 
 }
 
-nav.n-nav.n-nav__drop ul li, nav.n-nav.n-nav__drop ul li b.sub, nav.n-nav.n-nav__drop ul li .n-trigger:checked ~ b.sub, nav.n-nav.n-nav__drop ul ul li, nav.n-nav.n-nav__drop ul li li a, .no-touch nav.n-nav.n-nav__drop ul li li:hover a {
+nav.n-nav.n-nav--drop ul li, nav.n-nav.n-nav--drop ul li b.sub, nav.n-nav.n-nav--drop ul li .n-trigger:checked ~ b.sub, nav.n-nav.n-nav--drop ul ul li, nav.n-nav.n-nav--drop ul li li a, .no-touch nav.n-nav.n-nav--drop ul li li:hover a {
 	
 	background: $orange;
 
 }
 
-nav.n-nav.n-nav__drop ul li a[href] {
+nav.n-nav.n-nav--drop ul li a[href] {
 	
 	color: #fff;
 	display: block;
@@ -548,20 +548,20 @@ nav.n-nav.n-nav__drop ul li a[href] {
 
 }
 
-nav.n-nav.n-nav__drop input.n-trigger, nav.n-nav.n-nav__drop input:checked ~ input[type=reset] {
+nav.n-nav.n-nav--drop input.n-trigger, nav.n-nav.n-nav--drop input:checked ~ input[type=reset] {
 	
 	top: 50%;
 	height: 50%;
 
 }
 
-nav.n-nav.n-nav__drop ul ul li {
+nav.n-nav.n-nav--drop ul ul li {
 	
 	margin: 0;
 
 }
 
-nav.n-nav.n-nav__drop ul li b.sub:after {
+nav.n-nav.n-nav--drop ul li b.sub:after {
 	
 	background: url(arrow-down-white.png) no-repeat center center;
 	width: 10px;
@@ -570,25 +570,25 @@ nav.n-nav.n-nav__drop ul li b.sub:after {
 
 }
 
-.n-slider--wrap {
+.n-carousel {
 	
 	margin-right: 1em;
 
 }
 
-.n-slider a {
+.n-carousel__content a {
 	
 	display: block;
 	
 }
 
-.n-slider img {
+.n-carousel__content img {
 	
 	width: 100%;
 	
 }
 
-.n-slider > * {
+.n-carousel__content > * {
 	
 	text-align: center;
 
@@ -676,7 +676,7 @@ input[type=text].search {
 
 	}
 	
-	nav.n-nav.n-nav__drop ul li {
+	nav.n-nav.n-nav--drop ul li {
 		
 		margin: 0;
 		
@@ -688,20 +688,20 @@ input[type=text].search {
 
 	}
 	
-	nav.n-nav.n-nav__drop input:checked ~ input[type=reset] {
+	nav.n-nav.n-nav--drop input:checked ~ input[type=reset] {
 		
 		top: 0;
 		height: 100%;
 
 	}
 	
-	.no-touch nav.n-nav.n-nav__drop ul li li:hover {
+	.no-touch nav.n-nav.n-nav--drop ul li li:hover {
 		
 		background: transparent;
 		
 	}
 	
-	nav.n-nav.n-nav__drop input.n-trigger.n-burger {
+	nav.n-nav.n-nav--drop input.n-trigger.n-burger {
 		
 		top: 0;
 		height: 3em;
@@ -731,7 +731,7 @@ input[type=text].search {
 	
 	}
 
-	nav.n-nav.n-nav__drop ul {
+	nav.n-nav.n-nav--drop ul {
 		
 		display: block;
 	

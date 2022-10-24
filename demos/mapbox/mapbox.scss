@@ -85,7 +85,7 @@ main > .n-row > * {
 
 }
 
-.n-slider .n-tab-title {
+.n-carousel__content .n-tab-title {
 	
 	display: none;
 	
@@ -245,7 +245,7 @@ main a[href] {
 
 }
 
-.n-row.n-row__no-spacing>*> h3 {
+.n-row.n-row--no-spacing>*> h3 {
 	
 	font-size: 1.5rem;
 
@@ -257,13 +257,13 @@ main a[href] {
 	
 }
 
-.n-slider--wrap {
+.n-carousel {
 	
 	margin: 1em 0;
 	
 }
 
-.n-slider--wrap.n-tabs>.n-slider--nav * {
+.n-carousel.n-tabs>.n-carousel__index > * {
 	
 	margin: .3em;
 	border-radius: .3em;
@@ -274,7 +274,7 @@ main a[href] {
 	
 }
 
-.n-slider--wrap.n-tabs>.n-slider--nav [data-active] {
+.n-carousel.n-tabs>.n-carousel__index [data-active] {
 	
 	background-color: #39adcc;
 	color: white;
@@ -319,7 +319,7 @@ input[type=email] {
 
 	}
 	
-	.n-slider--wrap.n-tabs > .n-slider--nav a {
+	.n-carousel.n-tabs > .n-carousel__index a {
 		
 		margin: .3em 0;
 		box-sizing: border-box;

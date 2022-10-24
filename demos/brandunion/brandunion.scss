@@ -18,7 +18,7 @@ time {
 
 }
 
-.n-banner .n-slider--nav * {
+.n-banner .n-carousel__index > * {
 	
 	display: none;
 
@@ -30,13 +30,13 @@ time {
 
 }
 
-.n-slider__vertical > .n-slider--nav {
+.n-carousel--vertical > .n-carousel__index {
 	
 	display: none;
 	
 }
 
-.n-slider__vertical > .n-slider--arrow, .n-slider__vertical > .n-slider--arrow.right {
+.n-carousel--vertical > .n-slider--arrow, .n-carousel--vertical > .n-slider--arrow.right {
 	
 	top: auto;
 	right: 1em;
@@ -48,14 +48,14 @@ time {
 
 }
 
-.n-slider__vertical>.n-slider--arrow.n-slider__right {
+.n-carousel--vertical>.n-slider--arrow.n-slider__right {
 	
 	left: auto;
 	right: 1em;
 	
 }
 
-.n-slider__vertical > .n-slider--arrow {
+.n-carousel--vertical > .n-slider--arrow {
 	
 	bottom: 6em;
 
@@ -116,7 +116,7 @@ main .n-slider--arrow {
 	
 }
 
-main .n-slider h4 {
+main .n-carousel__content h4 {
 	
 	background: #fff;
 	margin: 0;
@@ -124,7 +124,7 @@ main .n-slider h4 {
 
 }
 
-main .n-slider--nav {
+main .n-carousel__index {
 	
 	bottom: 5em;
 

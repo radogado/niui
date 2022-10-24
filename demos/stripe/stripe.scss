@@ -101,7 +101,7 @@ main {
 	
 }
 
-.n-slider > * {
+.n-carousel__content > * {
 	
 	padding: 0 1em 0 4px;
 
@@ -199,7 +199,7 @@ main a[href]:not(.span-relative-parent):after, .sign-in:after {
     background: #a1ffc8
 }
 
-nav.n-nav.n-nav__drop {
+nav.n-nav.n-nav--drop {
 
     --nui-control-color: #fff;
     
@@ -471,7 +471,7 @@ nav.n-nav.n-nav__drop {
 	
 }
 
-.n-slider--wrap.n-slider__vertical.n-tabs>.n-slider--nav * {
+.n-carousel.n-carousel--vertical.n-tabs>.n-carousel__index > * {
 	
 	background: none;
     color: #6772e5;
@@ -480,7 +480,7 @@ nav.n-nav.n-nav__drop {
     	
 }
 
-.n-slider--wrap.n-slider__vertical.n-tabs>.n-slider--nav [data-active] {
+.n-carousel.n-carousel--vertical.n-tabs>.n-carousel__index [data-active] {
 	
 	background: #fff;
     color: #24b47e;
@@ -488,7 +488,7 @@ nav.n-nav.n-nav__drop {
 	
 }
 
-.n-slider > * > div {
+.n-carousel__content > * > div {
 	
     box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
     padding: .5em 1em;
@@ -497,7 +497,7 @@ nav.n-nav.n-nav__drop {
 	    
 }
 
-.n-slider--wrap.n-slider__vertical.n-tabs.n-slider__right>.n-slider--nav.n-row {
+.n-carousel.n-carousel--vertical.n-tabs.n-slider__right>.n-carousel__index.n-row {
 	
 	padding: 1em 0;
 	
@@ -570,13 +570,13 @@ main ul {
 	
 }
 
-.no-touch nav.n-nav.n-nav__drop ul ul li, .no-touch nav.n-nav.n-nav__drop ul ul li:first-child, nav.n-nav.n-nav__drop ul li a {
+.no-touch nav.n-nav.n-nav--drop ul ul li, .no-touch nav.n-nav.n-nav--drop ul ul li:first-child, nav.n-nav.n-nav--drop ul li a {
 	
 	text-align: left;
 		
 }
 
-nav.n-nav.n-nav__drop ul li li a {
+nav.n-nav.n-nav--drop ul li li a {
 
 	color: #000;	
 
@@ -584,13 +584,13 @@ nav.n-nav.n-nav__drop ul li li a {
 
 @media (min-width: 600px) {
 
-	.n-slider--wrap.n-slider__vertical.n-tabs>.n-slider {
+	.n-carousel.n-carousel--vertical.n-tabs>.n-carousel__content {
 		
 		width: 80%;
 		
 	}
 
-	.n-slider--wrap.n-slider__vertical.n-tabs>.n-slider--nav.n-row {
+	.n-carousel.n-carousel--vertical.n-tabs>.n-carousel__index.n-row {
 		
 		width: 20%;
 		
@@ -606,7 +606,7 @@ nav.n-nav.n-nav__drop ul li li a {
 
 @media screen and (max-width: 599.9px) {
 	
-	.n-header.n-fixed, .n-header.n-fixed .n-fold.n-fold__mobile .content {
+	.n-header.n-fixed, .n-header.n-fixed .n-accordion.n-accordion__mobile .content {
 		
 		background: #000;
 		
@@ -660,13 +660,13 @@ nav.n-nav.n-nav__drop ul li li a {
 		
 	}
 
-	.n-slider.n-slider__vertical[data-ready]>* {
+	.n-slider.n-carousel--vertical[data-ready]>* {
 		
 		padding: 0;
 		
 	}
 	
-	header .n-fold--content {
+	header .n-accordion__content {
 		
 		width: 100vw;
 

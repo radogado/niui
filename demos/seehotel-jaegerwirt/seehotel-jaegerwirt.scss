@@ -51,7 +51,7 @@ body {
 	
 }
 
-.n-banner .n-slider > div, .n-banner .n-slider--wrap {
+.n-banner .n-carousel__content > div, .n-banner .n-carousel {
 	
 	background-repeat: no-repeat;
 	background-position: center;
@@ -60,7 +60,7 @@ body {
 
 }
 
-.n-banner .n-slider .n-row > div {
+.n-banner .n-carousel__content .n-row > div {
 	
 	min-height: 100vh;
 	padding: 0;
@@ -160,7 +160,7 @@ main .promo h3 {
 
 }
 
-main .n-slider ._1\/3 {
+main .n-carousel__content ._1\/3 {
 	
 	box-shadow: 0 0 0 1px #aca59e;
 	min-height: 20em;
@@ -168,7 +168,7 @@ main .n-slider ._1\/3 {
 	
 }
 
-main .n-slider ._1\/3 .image {
+main .n-carousel__content ._1\/3 .image {
 
 	min-height: 10em;
 	background-size: cover;
@@ -177,7 +177,7 @@ main .n-slider ._1\/3 .image {
 
 }
 
-.n-slider--nav * {
+.n-carousel__index > * {
 	
 	--nav-size: 1rem;
 	font-size: 0;
@@ -185,13 +185,13 @@ main .n-slider ._1\/3 .image {
 	
 }
 
-.n-slider--nav [data-active], .n-banner .n-slider--nav [data-active] {
+.n-carousel__index [data-active], .n-banner .n-carousel__index [data-active] {
 	
 	background: #eecf3f;
 
 }
 
-.n-banner .n-slider--nav * {
+.n-banner .n-carousel__index > * {
 	
 	background: #fff;
 
@@ -247,13 +247,13 @@ footer .about {
 
 @media screen and (max-width: 599.9px) {
 	
-	header nav.n-nav.n-nav__drop {
+	header nav.n-nav.n-nav--drop {
 		
 		display: none;
 		
 	}
 
-	header.n-header__fixed-mobile .n-fold.mobile.open .n-fold--content {
+	header.n-header__fixed-mobile .n-accordion.mobile.open .n-accordion__content {
 		
 		right: 0;
 		left: 0;
@@ -280,7 +280,7 @@ footer .about {
 		
 	}
 
-	.n-banner .n-slider > div {
+	.n-banner .n-carousel__content > div {
 		
 		margin-top: 5.6em;		
 		

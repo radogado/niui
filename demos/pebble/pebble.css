@@ -232,7 +232,7 @@ footer nav.n-nav ul.social li:not(.header) {
   font-size: .8em;
   margin: 0; }
 
-footer nav.n-nav form.n-form__wide label input {
+footer nav.n-nav form.n-form--wide label input {
   background: #000;
   border: 1px solid #666665;
   border-radius: 2em;
@@ -242,7 +242,7 @@ footer nav.n-nav form.n-form__wide label input {
   font-weight: normal;
   font-size: .8em; }
 
-footer nav.n-nav form.n-form__wide label input[type=submit] {
+footer nav.n-nav form.n-form--wide label input[type=submit] {
   position: absolute;
   text-transform: uppercase;
   background: transparent;
@@ -254,7 +254,7 @@ footer nav.n-nav form.n-form__wide label input[type=submit] {
   font-weight: 900;
   padding: 0 1em 0 0; }
 
-footer a[href]:hover, footer nav.n-nav form.n-form__wide label input[type=submit]:hover, footer nav.n-nav label input:hover {
+footer a[href]:hover, footer nav.n-nav form.n-form--wide label input[type=submit]:hover, footer nav.n-nav label input:hover {
   color: #00b5f3;
   border-color: #00b5f3; }
 
@@ -262,7 +262,7 @@ footer form .mandatory:before {
   display: none; }
 
 @media screen and (max-width: 599.9px) {
-  form.n-form__wide input[type=submit] {
+  form.n-form--wide input[type=submit] {
     width: auto; }
   .n-banner {
     padding-top: 10em; } }

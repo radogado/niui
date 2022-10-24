@@ -303,7 +303,7 @@ footer .n-contain {
   margin: 0 1em;
 }
 
-.news .n-carousel.n-carousel--tabs > .n-carousel__index * {
+.news .n-carousel.n-carousel--tabs > .n-carousel__index > * {
   padding: 0.5em 1em;
   display: inline-block;
 }

@@ -149,13 +149,13 @@ footer a[href]:first-child {
 	
 }
 
-.n-slider--wrap {
+.n-carousel {
 	
 	text-align: center;
 	
 }
 
-.n-slider--wrap.n-tabs > .n-slider--nav.n-row {
+.n-carousel.n-tabs > .n-carousel__index.n-row {
 	
     margin: 2em 0;
     justify-content: center;
@@ -163,7 +163,7 @@ footer a[href]:first-child {
 
 }
 
-.n-slider--wrap.n-tabs > .n-slider--nav.n-row button {
+.n-carousel.n-tabs > .n-carousel__index.n-row button {
 	
 	flex-grow: 1;
     white-space: nowrap;
@@ -176,20 +176,20 @@ footer a[href]:first-child {
 
 }
 
-.n-slider--wrap.n-tabs > .n-slider--nav.n-row button[data-active] {
+.n-carousel.n-tabs > .n-carousel__index.n-row button[data-active] {
 	
 	background: #eee;
 
 }
 
-.n-slider--wrap.n-tabs > .n-slider--nav.n-row button:first-child {
+.n-carousel.n-tabs > .n-carousel__index.n-row button:first-child {
 	
 	border-radius: 2em 0 0 2em;
 	border-right: none;
 
 }
 
-.n-slider--wrap.n-tabs > .n-slider--nav.n-row button:last-child {
+.n-carousel.n-tabs > .n-carousel__index.n-row button:last-child {
 	
 	border-radius: 0 2em 2em 0;
 	border-left: none;
@@ -216,7 +216,7 @@ footer a[href]:first-child {
 		
 	}
 
-	.n-slider--wrap.n-tabs > .n-slider--nav.n-row {
+	.n-carousel.n-tabs > .n-carousel__index.n-row {
 		
 		padding: 0 .5em;
 		box-sizing: border-box;
