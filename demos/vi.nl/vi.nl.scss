@@ -151,7 +151,7 @@ a.c-articles-list-link[href], .c-match-overview-matches-link a[href] {
 	
 }
 
-.n-row.n-row__no-spacing h2 {
+.n-row.n-row--no-spacing h2 {
 	
 	padding: .5em;
 	color: #fff;
@@ -162,7 +162,7 @@ a.c-articles-list-link[href], .c-match-overview-matches-link a[href] {
 
 }
 
-.n-row.n-row__no-spacing.n-row__vertical h2 {
+.n-row.n-row--no-spacing.n-row--vertical h2 {
 	
 	font-size: 1.5em;
 	
@@ -180,7 +180,7 @@ header .c-site-nav__link {
 
 }
 
-header ul.n-list__inline {
+header ul.n-list--inline {
 	
 	vertical-align: middle;
 
@@ -200,13 +200,13 @@ main .n-aspect {
 	
 }
 
-a[href].blue-link, .n-row__no-spacing > ._1\/1 h2 {
+a[href].blue-link, .n-row--no-spacing > ._1\/1 h2 {
 	
 	color: $blue;
 
 }
 
-.n-row__no-spacing > ._1\/1 h2 {
+.n-row--no-spacing > ._1\/1 h2 {
 	
 	margin-left: -.5em;
 

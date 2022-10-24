@@ -145,9 +145,9 @@
 .n-form.sticky-submit input[type=submit],
 .n-form.sticky-submit button[type=submit] {
   position: absolute;
-  top: 50%;
+  top: 0;
+  bottom: 0;
   inset-inline-end: 0;
-  transform: translateY(-50%);
 }
 .n-form__check, .n-form fieldset {
   display: block;

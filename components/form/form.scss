@@ -162,9 +162,9 @@
     input[type="submit"],
     button[type="submit"] {
       position: absolute;
-      top: 50%;
+      top: 0;
+      bottom: 0;
       inset-inline-end: 0;
-      transform: translateY(-50%);
     }
   }
 
