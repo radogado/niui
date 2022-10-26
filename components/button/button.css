@@ -49,7 +49,7 @@ a.n-btn[href],
 button.n-btn:hover,
 a.n-btn[href]:hover,
 .n-type a.n-btn[href]:hover {
-  background: #eee;
+  background-color: #eee;
   color: #333;
 }
 
@@ -88,6 +88,15 @@ a[href].n-btn.n-btn--big,
     display: block;
     text-align: center;
   }
+}
+.n-btn--ripple {
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.05) 70%, rgba(0, 0, 0, 0) 0) no-repeat var(--ripple-x) var(--ripple-y)/0 0;
+  transition: 0.15s ease-out;
+  transition-property: background-size, background-position;
+}
+.n-btn--ripple:active {
+  background-position: calc(var(--ripple-x) - var(--ripple-radius)) calc(var(--ripple-y) - var(--ripple-radius));
+  background-size: calc(2 * var(--ripple-radius)) calc(2 * var(--ripple-radius));
 }
 
 /*# sourceMappingURL=button.css.map */
