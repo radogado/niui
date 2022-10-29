@@ -355,6 +355,11 @@ article {
 			z-index: -1;
 		}
 	}
+
+	p.has-image .n-aspect {
+		max-width: calc(1px * var(--width));
+		margin: auto;
+	}
 }
 
 .comments {

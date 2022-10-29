@@ -280,6 +280,10 @@ article .n-aspect:before {
   filter: blur(4px);
   z-index: -1;
 }
+article p.has-image .n-aspect {
+  max-width: calc(1px * var(--width));
+  margin: auto;
+}
 
 .comments li {
   margin-bottom: 2em;
