@@ -699,8 +699,13 @@ figcaption:empty {
   display: none;
 }
 
-.featured-image {
+article .featured-image {
   text-align: center;
+}
+article .featured-image .n-aspect:before {
+  max-width: calc(1px * var(--width));
+  max-height: calc(1px * var(--height));
+  margin: 0 auto;
 }
 
 .n-carousel--lightbox > .n-carousel__content picture:not([data-loaded]) > * {
