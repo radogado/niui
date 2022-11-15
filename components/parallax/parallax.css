@@ -2,7 +2,7 @@
   overflow: hidden;
 }
 
-.n-parallax--content {
+.n-parallax__content {
   will-change: transform;
   transform: translateY(calc(var(--scrollparallax, 0) * 1px));
 }
