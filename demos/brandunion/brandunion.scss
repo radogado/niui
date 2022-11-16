@@ -39,8 +39,8 @@ time {
 .n-carousel--vertical > .n-slider--arrow, .n-carousel--vertical > .n-slider--arrow.right {
 	
 	top: auto;
-	right: 1em;
-	left: auto;
+	inset-inline-end: 1em;
+	inset-inline-start: auto;
 	transform: none;
 	bottom: 2em;
 	color: #000;
@@ -50,8 +50,8 @@ time {
 
 .n-carousel--vertical>.n-slider--arrow.n-slider__right {
 	
-	left: auto;
-	right: 1em;
+	inset-inline-start: auto;
+	inset-inline-end: 1em;
 	
 }
 

@@ -68,7 +68,7 @@ body.n-type {
 
 }
 
-.n-carousel__index > * {
+.n-carousel__index > * > * {
 	
 	color: unset;
 	font-size: .4em;
@@ -80,7 +80,7 @@ body.n-type {
 
 }
 
-.n-carousel__index [data-active] {
+.n-carousel__index [aria-current] {
 	
 	background: none;
 	border: 1px solid #0070c9;
