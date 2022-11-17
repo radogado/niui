@@ -90,7 +90,7 @@ html {
   margin: 0;
 }
 
-.n-carousel__content > [data-active] {
+.n-carousel__content > [aria-current] {
   z-index: 1;
 }
 

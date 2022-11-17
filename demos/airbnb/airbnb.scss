@@ -159,7 +159,7 @@ main .n-carousel__content > * {
 
 }
 
-main .n-slider[data-ready] > [data-active] {
+main .n-slider[data-ready] > [aria-current] {
 	
 	display: inline-flex;
 	

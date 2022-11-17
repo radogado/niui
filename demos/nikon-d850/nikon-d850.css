@@ -329,7 +329,7 @@ footer ul.n-list.n-row > li > span {
   padding-top: 3em;
 }
 
-.n-carousel.n-carousel--tabs > .n-carousel__index > *, .n-carousel.n-carousel--tabs > .n-carousel__index [data-active] {
+.n-carousel.n-carousel--tabs > .n-carousel__index > *, .n-carousel.n-carousel--tabs > .n-carousel__index [aria-current] {
   background: none;
   color: #000;
   border-bottom: 9px solid #ddd;
@@ -340,7 +340,7 @@ footer ul.n-list.n-row > li > span {
   font-weight: bold;
 }
 
-.n-carousel.n-carousel--tabs > .n-carousel__index [data-active] {
+.n-carousel.n-carousel--tabs > .n-carousel__index [aria-current] {
   border-bottom-color: #fd0;
 }
 
@@ -353,7 +353,7 @@ footer ul.n-list.n-row > li > span {
   background: #d8d8d8;
 }
 
-.n-carousel__index [data-active] {
+.n-carousel__index [aria-current] {
   background: #fd0;
 }
 
@@ -414,7 +414,7 @@ ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li {
     width: 100%;
   }
 
-  .n-carousel.n-carousel--tabs > .n-carousel__index > *, .n-carousel.n-carousel--tabs > .n-carousel__index [data-active], .n-carousel:not(.n-carousel__content--vertical) .n-carousel__index > *:first-child {
+  .n-carousel.n-carousel--tabs > .n-carousel__index > *, .n-carousel.n-carousel--tabs > .n-carousel__index [aria-current], .n-carousel:not(.n-carousel__content--vertical) .n-carousel__index > *:first-child {
     margin: 0;
   }
 

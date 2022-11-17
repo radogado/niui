@@ -263,7 +263,7 @@ main a[href] {
 	
 }
 
-.n-carousel.n-tabs>.n-carousel__index > * {
+.n-carousel.n-carousel--tabs>.n-carousel__index > * > * {
 	
 	margin: .3em;
 	border-radius: .3em;
@@ -274,7 +274,7 @@ main a[href] {
 	
 }
 
-.n-carousel.n-tabs>.n-carousel__index [data-active] {
+.n-carousel.n-carousel--tabs>.n-carousel__index [aria-current] {
 	
 	background-color: #39adcc;
 	color: white;
@@ -319,7 +319,7 @@ input[type=email] {
 
 	}
 	
-	.n-carousel.n-tabs > .n-carousel__index a {
+	.n-carousel.n-carousel--tabs > .n-carousel__index a {
 		
 		margin: .3em 0;
 		box-sizing: border-box;

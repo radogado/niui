@@ -126,7 +126,7 @@ footer .n-row {
     padding: 0 !important;
   }
 
-  .n-accordion.n-accordion__mobile > .n-accordion__label {
+  .n-accordion.n-accordion--mobile > .n-accordion__label {
     margin: 0 auto 0 0;
   }
 }

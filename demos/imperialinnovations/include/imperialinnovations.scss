@@ -147,7 +147,7 @@ footer .n-row .n-pad {
 
 }
 
-a.n-btn__big.n-btn[href] {
+a.n-btn--big.n-btn[href] {
 	
 	font-size: 1em;
 	padding: 0 1.5em;
@@ -338,7 +338,7 @@ main .n-carousel__index {
 	
 }
 
-.n-carousel__index [data-active] {
+.n-carousel__index [aria-current] {
 	
 	background: #1c3f93;
 	border-color: #1c3f93;

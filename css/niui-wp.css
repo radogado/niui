@@ -295,7 +295,7 @@ article p.has-image .n-aspect {
 .comments .n-form {
   padding: 0;
 }
-.comments .n-form.n-form__wide label span {
+.comments .n-form.n-form--wide label span {
   display: inline;
 }
 .comments .comments form input {

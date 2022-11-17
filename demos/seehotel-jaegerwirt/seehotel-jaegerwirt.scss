@@ -185,7 +185,7 @@ main .n-carousel__content ._1\/3 .image {
 	
 }
 
-.n-carousel__index [data-active], .n-banner .n-carousel__index [data-active] {
+.n-carousel__index [aria-current], .n-banner .n-carousel__index [aria-current] {
 	
 	background: #eecf3f;
 

@@ -551,7 +551,7 @@ ul.n-list li:before {
   background: #000;
   margin: 0.33rem;
 }
-.n-banner .n-carousel__index > *[data-active] {
+.n-banner .n-carousel__index > *[aria-current] {
   background-color: #d41f00;
 }
 

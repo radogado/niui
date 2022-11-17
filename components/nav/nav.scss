@@ -222,7 +222,7 @@ main .n-nav ul {
     height: 100%;
   }
 
-  ul.n-list:not(.n-list__no-bullet):not(.n-list__inline) {
+  ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) {
     li:before {
       content: "";
       margin: 0;
@@ -233,7 +233,7 @@ main .n-nav ul {
     }
   }
 
-  ul.n-list:not(.n-list__no-bullet):not(.n-list__inline).n-left-side li:before {
+  ul.n-list:not(.n-list--no-bullet):not(.n-list--inline).n-left-side li:before {
     inset-inline-end: auto;
     transform: rotate(180deg);
     inset-inline-start: 0;

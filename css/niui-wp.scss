@@ -376,7 +376,7 @@ article {
 		padding: 0;
 	}
 
-	.n-form.n-form__wide label span {
+	.n-form.n-form--wide label span {
 		display: inline;
 	}
 
@@ -658,7 +658,7 @@ nav.n-nav {
 	margin: 0 0 0 auto;
 }
 
-.n-header .n-fold.n-fold__mobile {
+.n-header .n-fold.n-fold--mobile {
 	//	display: inline-block; // Enable closing the n-burger by tapping on its right
 }
 

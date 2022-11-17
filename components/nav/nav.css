@@ -192,14 +192,14 @@ main .n-nav ul {
   width: 1.25em;
   height: 100%;
 }
-.n-nav--drop ul.n-list:not(.n-list__no-bullet):not(.n-list__inline) li:before {
+.n-nav--drop ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li:before {
   content: "";
   margin: 0;
 }
-.n-nav--drop ul.n-list:not(.n-list__no-bullet):not(.n-list__inline) li:not([aria-haspopup=true]):before {
+.n-nav--drop ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li:not([aria-haspopup=true]):before {
   display: none;
 }
-.n-nav--drop ul.n-list:not(.n-list__no-bullet):not(.n-list__inline).n-left-side li:before {
+.n-nav--drop ul.n-list:not(.n-list--no-bullet):not(.n-list--inline).n-left-side li:before {
   inset-inline-end: auto;
   transform: rotate(180deg);
   inset-inline-start: 0;

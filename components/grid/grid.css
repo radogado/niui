@@ -359,7 +359,7 @@ ol.n-masonry > * {
     padding: 0;
   }
 
-  .n-row__no-mobile-gutter.n-row > * {
+  .n-row--no-mobile-gutter.n-row > * {
     padding: 0;
   }
 

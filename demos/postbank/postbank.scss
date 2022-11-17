@@ -793,7 +793,7 @@ ul.n-list li:before {
 	background: #000;
 	margin: .33rem;
 
-	&[data-active] {
+	&[aria-current] {
 
 		background-color: #d41f00;
 

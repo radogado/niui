@@ -437,7 +437,7 @@ a.arrow:after {
 
 }
 
-.n-carousel__index [data-active] {
+.n-carousel__index [aria-current] {
 	
 	background: $orange;
 
@@ -682,7 +682,7 @@ input[type=text].search {
 		
 	}
 	
-	.n-header nav.n-nav ul.n-list__inline li {
+	.n-header nav.n-nav ul.n-list--inline li {
 		
 		background: #fff;
 

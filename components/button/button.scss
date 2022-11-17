@@ -90,14 +90,14 @@ a[href].n-btn.n-btn--big,
 
   > *,
   .n-btn.n-btn--big,
-  > a[href].n-btn.n-btn__big {
+  > a[href].n-btn.n-btn--big {
     margin-inline-end: 0.25em;
     margin-inline-start: 0.25em;
   }
 }
 
 @media screen and (max-width: $screen-narrow-max) {
-  .n-btn.n-btn__big {
+  .n-btn.n-btn--big {
     display: block;
     text-align: center;
   }

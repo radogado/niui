@@ -87,7 +87,7 @@ main .n-carousel__content > * {
   min-height: 37em;
   background-size: cover; }
 
-main .n-slider[data-ready] > [data-active] {
+main .n-slider[data-ready] > [aria-current] {
   display: inline-flex; }
 
 footer {
