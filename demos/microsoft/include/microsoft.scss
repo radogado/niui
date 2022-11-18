@@ -55,9 +55,9 @@ body {
 
 }
 
-.n-contain.wide {
+.n-contain.wide, .n-contain {
 	
-	max-width: 100rem;
+	max-width: 128rem;
 
 }
 
@@ -422,7 +422,7 @@ a.span-relative-parent ~ a:after {
 	
 }
 
-.n-carousel__index > * {
+.n-carousel__index > * > *{
 	
 	margin: .7rem .5rem;
 	--nav-size: .5rem;

@@ -274,19 +274,19 @@ footer {
 		
 	}
 	
-	.n-header.n-header__fixed-mobile .n-accordion.n-accordion--mobile.open .n-accordion__content {
+	.n-header.n-header--fixed-mobile .n-accordion.n-accordion--mobile.open .n-accordion__content {
 		
 		width: 100%;
 	
 	}
 
-	.n-accordion.n-accordion--mobile > .n-accordion__label, header.n-header__fixed-mobile .n-accordion.n-accordion--mobile.open .n-accordion__content {
+	.n-accordion.n-accordion--mobile > .n-accordion__label, header.n-header--fixed-mobile .n-accordion.n-accordion--mobile.open .n-accordion__content {
 	
 		margin-left: -.3em;
 		
 	}
 	
-	.n-header.n-header__fixed-mobile .n-accordion.n-accordion--mobile[aria-expanded] .n-accordion__content {
+	.n-header.n-header--fixed-mobile .n-accordion.n-accordion--mobile[aria-expanded] .n-accordion__content {
 		
 	    width: 100%;
 	    left: 0;		
