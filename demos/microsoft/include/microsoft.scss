@@ -57,7 +57,7 @@ body {
 
 .n-contain.wide, .n-contain {
 	
-	max-width: 128rem;
+	max-width: 80rem;
 
 }
 
@@ -69,9 +69,10 @@ body {
 
 }
 
-.n-type main a[href] {
+.n-type main .mini-features a[href] {
 	
 	color: #fff;
+	padding: 0.25rem;
 
 }
 
@@ -269,7 +270,7 @@ body {
 
 .n-carousel .n-carousel__content {
 	
-    position: absolute;
+    // position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
@@ -483,6 +484,10 @@ main .n-carousel__content span.copy, main .n-carousel__content span.copy h2, mai
 	width: 100%;
 	padding-bottom: 0;
 	margin: 0;
+	
+	> * {
+		aspect-ratio: 1;
+	}
 	
 }
 
