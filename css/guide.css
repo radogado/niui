@@ -20,7 +20,6 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background: darkcyan;
   height: 100%;
   line-height: 1.333;
   color: white;
@@ -53,11 +52,8 @@ html {
 }
 
 .demo .n-carousel .n-carousel__content > * {
-  background: var(--carousel-bg, aliceblue);
-  color: var(--carousel-color, #027b7b);
-}
-.demo .n-carousel .n-carousel__content a[href] {
-  color: #4d64bd;
+  background: var(--nui-control-bg);
+  color: var(--nui-control-color);
 }
 
 @media (min-width: 900px) {
@@ -93,13 +89,13 @@ html {
   }
 }
 .demo {
-  color: darkslateblue;
+  color: var(--nui-control-color);
   max-width: 1366.666px;
   margin: auto;
 }
 .demo,
 .demo .n-carousel__content > * {
-  background: #fffff5;
+  background: var(--nui-control-bg);
 }
 .demo.n-carousel.n-carousel--vertical:not(.n-carousel--auto-height), .demo.n-carousel.n-carousel--vertical:not(.n-carousel--auto-height) > .n-carousel__content {
   --max-height: 100%;
@@ -112,7 +108,12 @@ html {
   max-height: 100%;
   overflow: auto;
   flex-wrap: nowrap;
-  background: var(--nui-control-bg);
+}
+.demo.n-carousel.n-carousel--tabs > .n-carousel__index button {
+  background: var(--nui-control-color);
+}
+.demo.n-carousel.n-carousel--tabs > .n-carousel__index button span {
+  color: var(--nui-control-bg);
 }
 .demo .source {
   display: flex;
@@ -156,10 +157,10 @@ code[class*=language-] {
   margin: 0;
   -webkit-appearance: none;
   appearance: none;
-  background: #017e7e;
+  background: var(--nui-control-bg);
   border: none;
   cursor: pointer;
-  color: white;
+  color: var(--nui-control-color);
   font-weight: bold;
   padding: 0.5em 1em;
   border-radius: var(--nui-border, 0);
@@ -207,10 +208,11 @@ _:future,
 }
 
 :root {
-  --nui-control-bg: #017e7e;
-  --nui-control-color: white;
+  --nui-control-bg: #fbfdca;
+  --nui-control-bg: #fdf9e2;
+  --nui-control-color: teal;
   --nui-control-active-bg: #cc7c7e;
-  --nui-control-active-color: #fdff00;
+  --nui-control-active-color: rgb(0, 57, 57);
   --nui-control-highlight: #2abfb0;
 }
 
@@ -241,7 +243,7 @@ html:not(.can-touch) nav li li[aria-haspopup]:hover {
 }
 
 .n-row.grid-demo > * {
-  background: lightseagreen;
+  background: var(--nui-control-color);
   color: #fff;
   border-radius: var(--nui-border, 0);
 }

@@ -22,7 +22,7 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background: darkcyan;
+  // background: darkcyan;
   height: 100%;
   line-height: 1.333;
   color: white;
@@ -57,16 +57,16 @@ html {
 
 .demo .n-carousel .n-carousel__content {
   > * {
-    background: var(--carousel-bg, aliceblue);
-    color: var(--carousel-color, #027b7b);
+    background: var(--nui-control-bg);
+    color: var(--nui-control-color);
     // min-height: 100%;
     // box-sizing: border-box;
     // display: flex; // Very slow in Safari
   }
 
-  a[href] {
-    color: #4d64bd;
-  }
+  // a[href] {
+  //   color: #4d64bd;
+  // }
 }
 
 .demo .n-carousel.n-carousel--overlay .n-carousel__content {
@@ -110,10 +110,10 @@ html {
 
   &,
   .n-carousel__content > * {
-    background: #fffff5;
+    background: var(--nui-control-bg);
   }
 
-  color: darkslateblue;
+  color: var(--nui-control-color);
 
   &.n-carousel.n-carousel--vertical:not(.n-carousel--auto-height),
   &.n-carousel.n-carousel--vertical:not(.n-carousel--auto-height) > .n-carousel__content {
@@ -137,11 +137,14 @@ html {
     overflow: auto;
     flex-wrap: nowrap;
     // padding: 1ch 0;
-    background: var(--nui-control-bg);
 
     button {
+    background: var(--nui-control-color);
+      span {
+      color: var(--nui-control-bg);
       // max-width: 25vw;
     }
+  }
   }
 
   .source {
@@ -193,10 +196,10 @@ code[class*="language-"] {
     margin: 0;
     -webkit-appearance: none;
     appearance: none;
-    background: #017e7e;
+    background: var(--nui-control-bg);
     border: none;
     cursor: pointer;
-    color: white;
+    color: var(--nui-control-color);
     font-weight: bold;
     padding: 0.5em 1em;
     border-radius: var(--nui-border, 0);
@@ -271,11 +274,19 @@ _:future,
 
 // Guide theme
 :root {
-  --nui-control-bg: #017e7e;
-  --nui-control-color: white;
+  // --nui-control-bg: #017e7e;
+  // --nui-control-color: white;
+  // --nui-control-active-bg: #cc7c7e;
+  // --nui-control-active-color: #fdff00;
+  // --nui-control-highlight: #2abfb0;
+
+  --nui-control-bg: #fbfdca;
+  --nui-control-bg: #fdf9e2;
+  --nui-control-color: teal;
   --nui-control-active-bg: #cc7c7e;
-  --nui-control-active-color: #fdff00;
+  --nui-control-active-color: rgb(0, 57, 57);
   --nui-control-highlight: #2abfb0;
+
 }
 
 .n-form input,
@@ -305,7 +316,7 @@ html:not(.can-touch) nav li li[aria-haspopup]:hover {
 }
 
 .n-row.grid-demo > * {
-  background: lightseagreen;
+  background: var(--nui-control-color);
   color: #fff;
   border-radius: var(--nui-border, 0);
 }
