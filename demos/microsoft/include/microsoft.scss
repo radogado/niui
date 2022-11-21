@@ -442,6 +442,11 @@ a.n-btn[href] {
 .n-carousel > .n-carousel__index > * {
 	min-width: 1.25em;
 	min-height: 1.25em;
+
+	&[aria-current] {
+		box-shadow: 0 0 0 2px lightgrey inset;
+		background: transparent;
+	}
 }
 
 .n-carousel__index > * > * {

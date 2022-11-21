@@ -290,6 +290,10 @@ a.n-btn[href] {
   min-width: 1.25em;
   min-height: 1.25em;
 }
+.n-carousel > .n-carousel__index > *[aria-current] {
+  box-shadow: 0 0 0 2px lightgrey inset;
+  background: transparent;
+}
 
 .n-carousel__index > * > * {
   box-shadow: 0 0 0.12rem #666;
