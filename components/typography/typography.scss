@@ -124,3 +124,24 @@
   border-bottom: calc(1px * var(--adjust-height)) solid transparent;
   box-sizing: content-box;
 }
+
+.n-burger {
+  width: 1.5em;
+  height: 1.5em;
+  line-height: 1.5em;
+  font-size: 2em;
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  background: var(--nui-control-bg, #fff);
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: .25em;
+    width: 1em;
+    top: .15em;
+    box-shadow: 0 .25em 0 1px var(--nui-control-color, #333), 0 .625em 0 1px var(--nui-control-color, #333), 0 1em 0 1px var(--nui-control-color, #333);
+    height: .1px
+  }
+}

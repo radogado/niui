@@ -52,8 +52,8 @@ html {
 }
 
 .demo .n-carousel .n-carousel__content > * {
-  background: var(--nui-control-bg);
-  color: var(--nui-control-color);
+  background: var(--nui-bg);
+  color: var(--nui-color);
 }
 
 @media (min-width: 900px) {
@@ -89,13 +89,13 @@ html {
   }
 }
 .demo {
-  color: var(--nui-control-color);
+  color: var(--nui-color);
   max-width: 1366.666px;
   margin: auto;
 }
 .demo,
 .demo .n-carousel__content > * {
-  background: var(--nui-control-bg);
+  background: var(--nui-bg);
 }
 .demo.n-carousel.n-carousel--vertical:not(.n-carousel--auto-height), .demo.n-carousel.n-carousel--vertical:not(.n-carousel--auto-height) > .n-carousel__content {
   --max-height: 100%;
@@ -208,9 +208,10 @@ _:future,
 }
 
 :root {
-  --nui-control-bg: #fbfdca;
-  --nui-control-bg: #fdf9e2;
-  --nui-control-color: teal;
+  --nui-bg: #fbfdca;
+  --nui-bg: #fdf9e2;
+  --nui-control-color: white;
+  --nui-control-bg: #017e7e;
   --nui-control-active-bg: #cc7c7e;
   --nui-control-active-color: rgb(0, 57, 57);
   --nui-control-highlight: #2abfb0;
@@ -243,7 +244,7 @@ html:not(.can-touch) nav li li[aria-haspopup]:hover {
 }
 
 .n-row.grid-demo > * {
-  background: var(--nui-control-color);
+  background: var(--nui-color);
   color: #fff;
   border-radius: var(--nui-border, 0);
 }
