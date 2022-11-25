@@ -264,6 +264,7 @@ main .n-carousel__index {
   background: #1c3f93;
   border-color: #1c3f93;
   color: transparent;
+  --nui-control-active-color: white;
 }
 
 .banner .n-carousel__next {
@@ -281,11 +282,11 @@ main .n-carousel__index {
 
 @media screen and (max-width: 67em) {
   .banner .n-carousel__next {
-    right: 1em;
+    right: calc(1em);
   }
 
   .banner .n-carousel__previous {
-    right: 4em;
+    right: calc(4em);
   }
 }
 @media screen and (max-width: 599.9px) {

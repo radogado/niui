@@ -1,10 +1,22 @@
+:root {
+  --viewport-height: 100vh;
+}
+
+@supports (height: -webkit-fill-available) {
+  :root {
+    --viewport-height: -webkit-fill-available;
+  }
+}
+
 body {
-  
+
   min-height: 100vh;
   min-height: -webkit-fill-available;
 
   &.n-type a.n-btn[href],
-  a.n-btn[href], button.n-btn, video {
+  a.n-btn[href],
+  button.n-btn,
+  video {
     border-radius: var(--nui-border, 0);
   }
 }
@@ -139,12 +151,13 @@ html {
     // padding: 1ch 0;
 
     button {
-    background: var(--nui-control-color);
+      background: var(--nui-control-color);
+
       span {
-      color: var(--nui-control-bg);
-      // max-width: 25vw;
+        color: var(--nui-control-bg);
+        // max-width: 25vw;
+      }
     }
-  }
   }
 
   .source {

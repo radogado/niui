@@ -1,9 +1,20 @@
+:root {
+  --viewport-height: 100vh;
+}
+
+@supports (height: -webkit-fill-available) {
+  :root {
+    --viewport-height: -webkit-fill-available;
+  }
+}
 body {
   min-height: 100vh;
   min-height: -webkit-fill-available;
 }
 body.n-type a.n-btn[href],
-body a.n-btn[href], body button.n-btn, body video {
+body a.n-btn[href],
+body button.n-btn,
+body video {
   border-radius: var(--nui-border, 0);
 }
 
