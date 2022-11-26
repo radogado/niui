@@ -83,11 +83,11 @@ form label > span {
 
 }
 
-.n-banner .n-contain {
-
-	max-width: 72rem;
-
-}
+// .n-banner .n-contain {
+// 
+// 	max-width: 72rem;
+// 
+// }
 
 .n-header .n-row {
 
@@ -534,5 +534,14 @@ main .n-carousel__index {
 .n-contain > .n-row--border-all {
 
 	background: #fff;
+
+	.n-pad {
+		padding: calc(var(--line-height-em) / 1.25);
+		
+		&.n-row--border-off > * {
+			padding: 0;
+			margin: 0;
+		}
+	}
 
 }
