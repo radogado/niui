@@ -81,10 +81,18 @@ footer li, footer form input, footer form input[type=submit], footer p, a.n-btn[
 	
 }
 
-footer li {
+footer ul.n-list li {
 	
 	font-weight: normal;
+	padding-inline-end: 0.25rem;
+	word-break: initial;
 
+}
+
+footer {
+	.n-form input {
+		min-height: calc(var(--line-height-em) * 1.666);
+	}
 }
 
 .n-header-banner {
