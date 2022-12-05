@@ -25,6 +25,10 @@ body.n-type {
   border-bottom: 1px solid #aaa;
   background: rgba(0, 0, 0, 0.5);
 }
+.n-header a {
+  vertical-align: middle;
+  display: inline-flex;
+}
 
 .n-banner {
   padding-top: 5em;
@@ -68,6 +72,7 @@ body.n-type {
 .n-type a.related[href] {
   font-weight: normal;
   width: 100%;
+  aspect-ratio: 16/9;
 }
 
 main .n-masonry {
@@ -77,6 +82,7 @@ main .n-masonry {
   */
   max-width: none;
   margin: 0;
+  gap: 1rem;
 }
 
 .review > div {

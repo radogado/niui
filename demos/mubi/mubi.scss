@@ -29,6 +29,11 @@ body.n-type {
 	margin: 0;
 	border-bottom: 1px solid #aaa;
 	background: rgba(0, 0, 0, .5);
+	
+	a {
+		vertical-align: middle;
+		display: inline-flex;
+	}
 
 }
 
@@ -93,6 +98,7 @@ body.n-type {
 
 		font-weight: normal;
 		width: 100%;
+		aspect-ratio: 16/9;
 
 	}
 
@@ -106,6 +112,7 @@ main .n-masonry {
 */
 	max-width: none;
 	margin: 0;
+	gap: 1rem;
 
 }
 
