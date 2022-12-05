@@ -51,13 +51,15 @@ body {
 .n-unpad {
 
 	margin: 0 -.375em;
-	width: calc(100% + .75em);
-
+	width: calc(100% + 0.333rem);
+	max-width: none;
 }
 
 .n-type {
 
 	a.n-btn.icon {
+		display: inline-flex;
+		align-items: center;
 
 		margin: .25rem 0;
 
@@ -71,7 +73,7 @@ body {
 
 	p {
 
-		margin: $line-height/2 0;
+		margin: calc(#{$line-height}/2) 0;
 
 	}
 
@@ -294,20 +296,21 @@ nav.n-nav.n-nav--drop ul ul {
 .n-form .n-form__check {
 
 	line-height: $line-height*2;
-	padding: 0 $line-height/2;
+	padding: 0 calc(#{$line-height}/2);
 
 }
 
 .n-form .n-form__check label:first-of-type {
 
 	margin-top: 0;
-	padding-right: $line-height/2;
+	padding-right: calc(#{$line-height}/2);
 
 }
 
 .box.buy {
 
 	padding: 1em;
+	margin-inline-end: 0;
 
 	form {
 		img {
@@ -341,6 +344,7 @@ nav.n-nav.n-nav--drop ul ul {
 
 	color: $orange;
 	text-transform: uppercase;
+	vertical-align: middle;
 
 }
 
@@ -348,7 +352,7 @@ nav.n-nav.n-nav--drop ul ul {
 
 	content: '!';
 	display: inline-block;
-	margin-right: $line-height/2;
+	margin-right: calc(#{$line-height}/2);
 	background: $orange;
 	color: #fff;
 	border-radius: 50%;
@@ -364,12 +368,24 @@ nav.n-nav.n-nav--drop ul ul {
 
 }
 
-a.arrow:after {
+a.arrow {
 
-	content: '▶︎';
+	position: relative;
+	padding-inline-end: 1rem;
 	display: inline-block;
-	font-size: .8em;
-	margin-left: .5em;
+	margin-inline-end: 1rem;
+	vertical-align: middle;
+
+	&:after {
+
+		content: '▶︎';
+		display: inline-block;
+		font-size: .8em;
+		margin-left: .5em;
+		position: absolute;
+		inset-inline-end: 0;
+
+	}
 
 }
 
@@ -397,7 +413,7 @@ a.arrow:after {
 
 .hi p {
 
-	margin: $line-height/2 0;
+	margin: calc(#{$line-height}/2) 0;
 
 }
 
@@ -427,7 +443,7 @@ a.arrow:after {
 	.box h2,
 	.hi h2 {
 
-		padding: $line-height/2 0;
+		padding: calc(#{$line-height}/2) 0;
 		font-size: 4em;
 		margin: 0;
 
@@ -533,7 +549,8 @@ a.n-btn.icon {
 	font-weight: bold;
 	height: auto;
 	margin: 0;
-	padding-left: .6em
+	padding-left: .6em;
+	letter-spacing: .2px;
 }
 
 nav.n-nav.n-nav--drop {
@@ -655,7 +672,7 @@ a p {
 footer nav.n-nav a,
 footer nav.n-nav a[href] + a[href] {
 
-	padding: 0 .5em;
+	padding: 0;
 	margin: 0;
 
 }
@@ -678,7 +695,7 @@ footer nav.n-nav a[href] + a[href] {
 	text-transform: uppercase;
 	font-size: 1.7em;
 	color: $dark-blue;
-	margin-bottom: -$line-height/2;
+	margin-bottom: -calc(#{$line-height}/2);
 	margin-top: 0;
 
 }
@@ -718,7 +735,7 @@ input[type=text].search {
 
 	margin-right: 1em;
 	width: calc(50% - 1em);
-	margin-bottom: 0;
+	margin: 0;
 
 }
 
