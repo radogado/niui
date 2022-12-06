@@ -279,8 +279,8 @@ select {
 
 .n-header .n-row.logo nav.n-nav ul.n-list li:last-child {
 
-	margin-top: .5em;
-	float: right;
+	// margin-top: .5em;
+	// float: right;
 
 }
 
@@ -452,15 +452,21 @@ footer .about nav.n-nav a {
 
 }
 
-.n-carousel.n-carousel--tabs > .n-carousel__index > * {
+.n-carousel.n-carousel--tabs > .n-carousel__index {
 
-	background: $grey;
-	padding: .75em 4em .75em .75em;
-	color: $darker-grey;
-	border-top: 1px solid #e1dfda;
-	border-right: 1px solid #e1dfda;
-	min-height: 0;
+	width: 100%;
 
+	> * {
+
+		background: $grey;
+		padding: calc(.75em - 1px) 4em calc(.75em - 1px) .75em;
+		color: $darker-grey;
+		border-top: 1px solid #e1dfda;
+		border-right: 1px solid #e1dfda;
+		min-height: 0;
+		flex-grow: 1;
+
+	}
 }
 
 .n-carousel.n-carousel--tabs > .n-carousel__index > *:first-child {
@@ -475,6 +481,10 @@ footer .about nav.n-nav a {
 	border-top: 1px solid $darker-grey;
 	color: #fff;
 
+	span {
+		color: inherit;
+	}
+
 }
 
 .n-carousel.n-carousel--tabs > .n-carousel__index [aria-current]:first-child {
@@ -486,8 +496,11 @@ footer .about nav.n-nav a {
 .n-carousel__content > * {
 
 	background: $darker-grey;
-	padding: 1em;
+	padding-top: 1rem;
 
+	> * {
+		padding: 1em;
+	}
 }
 
 .n-carousel__content a[href],
@@ -641,7 +654,7 @@ form span.checkbox {
 .n-form .n-form__check label:first-of-type {
 
 	margin: 0;
-
+	display: inline-block;
 }
 
 .n-tool__tip b {
@@ -681,6 +694,7 @@ form span.checkbox {
 ul.n-list.n-list--inline li {
 
 	vertical-align: middle;
+	align-self: center;
 
 }
 

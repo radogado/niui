@@ -201,11 +201,6 @@ select {
   padding-right: 1.5em;
 }
 
-.n-header .n-row.logo nav.n-nav ul.n-list li:last-child {
-  margin-top: 0.5em;
-  float: right;
-}
-
 nav.n-nav.n-nav--drop ul.n-list li b.sub:after {
   content: "[]";
   background: transparent url(arrow-down.svg) no-repeat scroll center center;
@@ -322,13 +317,17 @@ footer .about nav.n-nav a {
   min-height: 22px;
 }
 
+.n-carousel.n-carousel--tabs > .n-carousel__index {
+  width: 100%;
+}
 .n-carousel.n-carousel--tabs > .n-carousel__index > * {
   background: #f5f4f1;
-  padding: 0.75em 4em 0.75em 0.75em;
+  padding: calc(0.75em - 1px) 4em calc(0.75em - 1px) 0.75em;
   color: #6f6660;
   border-top: 1px solid #e1dfda;
   border-right: 1px solid #e1dfda;
   min-height: 0;
+  flex-grow: 1;
 }
 
 .n-carousel.n-carousel--tabs > .n-carousel__index > *:first-child {
@@ -340,6 +339,9 @@ footer .about nav.n-nav a {
   border-top: 1px solid #6f6660;
   color: #fff;
 }
+.n-carousel.n-carousel--tabs > .n-carousel__index [aria-current] span {
+  color: inherit;
+}
 
 .n-carousel.n-carousel--tabs > .n-carousel__index [aria-current]:first-child {
   border-left: 1px solid #6f6660;
@@ -347,6 +349,9 @@ footer .about nav.n-nav a {
 
 .n-carousel__content > * {
   background: #6f6660;
+  padding-top: 1rem;
+}
+.n-carousel__content > * > * {
   padding: 1em;
 }
 
@@ -457,6 +462,7 @@ form span.checkbox {
 .n-form .n-form__check,
 .n-form .n-form__check label:first-of-type {
   margin: 0;
+  display: inline-block;
 }
 
 .n-tool__tip b {
@@ -487,6 +493,7 @@ form span.checkbox {
 
 ul.n-list.n-list--inline li {
   vertical-align: middle;
+  align-self: center;
 }
 
 @media screen and (max-width: 599.9px) {
