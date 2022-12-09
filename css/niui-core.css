@@ -13,7 +13,7 @@ $font-size: 26px;
 $line-height: 34px;
 */
 .n-contain {
-  max-width: 82ch;
+  max-width: 100rem;
   margin: 0 auto;
   width: 100%;
 }

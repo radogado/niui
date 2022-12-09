@@ -159,7 +159,7 @@ nav.n-nav a {
 }
 
 nav.n-nav.n-nav--drop li[aria-haspopup] {
-  background-position: calc(100% - 0.75em) 1.75em;
+  background-position: calc(100% - .75em) 1.75em;
 }
 
 .n-header nav.n-nav.n-nav--drop ul li b.sub {
@@ -391,7 +391,7 @@ a.n-btn.icon {
 .n-form select {
   line-height: 2em;
   background: url(up-dwn-arrows.png) no-repeat center center;
-  background-position: calc(100% - 0.5em) center;
+  background-position: calc(100% - .5em) center;
   padding-right: 2em;
   color: #306FAA;
   font-weight: bold;

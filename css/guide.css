@@ -70,7 +70,7 @@ html {
 @media (min-width: 900px) {
   .demo .n-carousel.n-carousel--overlay .n-carousel__content p {
     columns: 1;
-    max-width: 60ch;
+    max-width: 100rem;
     margin: auto;
   }
 }
