@@ -21,7 +21,9 @@ body.n-type {
   color: #fff;
   font-size: 1.3em;
 }
-.n-header a[href], .n-header .n-nav li:first-child a[href], .n-header .n-nav li:last-child a[href] {
+.n-header a[href],
+.n-header .n-nav li:first-child a[href],
+.n-header .n-nav li:last-child a[href] {
   padding: 0.8em 2em;
   display: inline-block;
 }
@@ -38,6 +40,9 @@ body.n-type {
   padding: 0;
   margin: 0;
   --nui-control-color: #fff;
+}
+.n-header.n-center .n-nav .n-list {
+  justify-content: center;
 }
 
 .n-slider--arrow {
@@ -83,7 +88,9 @@ footer .bottom a[href] {
   margin: 0 0.5em;
 }
 
-footer ul, footer ul.n-list li, footer ul.n-list li a[href] {
+footer ul,
+footer ul.n-list li,
+footer ul.n-list li a[href] {
   margin: 0.3em 0;
 }
 
@@ -104,6 +111,9 @@ select {
   height: 2em;
 }
 
+.n-header-banner .n-carousel__content img {
+  max-width: 100%;
+}
 .n-header-banner .n-carousel__content h2 {
   margin-top: 2em;
   font-size: 7em;

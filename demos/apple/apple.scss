@@ -1,200 +1,215 @@
 @font-face {
-    font-family: 'Myriad Set Pro';
-    font-style: normal;
-    font-weight: 100;
-    src: local('☺︎'), url("myriad-set-pro_thin.woff") format("woff");
-    /* Copyright (c) 1992 Adobe Systems Incorporated. All Rights Reserved. Myriad is a trademark of Adobe Systems Incorporated. */
+	font-family: 'Myriad Set Pro';
+	font-style: normal;
+	font-weight: 100;
+	src: local('☺︎'), url("myriad-set-pro_thin.woff") format("woff");
+	/* Copyright (c) 1992 Adobe Systems Incorporated. All Rights Reserved. Myriad is a trademark of Adobe Systems Incorporated. */
 }
 
 body.n-type {
-	
+
 	font-size: 12px;
 	font-family: 'Myriad Set Pro';
 
 }
 
 @media (min-width: 600px) {
-	
-	.n-header {
-		
-	    padding-top: .1em;
 
-	}	
-	
+	.n-header {
+
+		padding-top: .1em;
+
+	}
+
 }
 
 .n-header {
-	
+
 	background: rgba(0, 0, 0, 0.8);
 	color: #fff;
 	font-size: 1.3em;
-	
-	a[href], .n-nav li:first-child a[href], .n-nav li:last-child a[href] {
-		
+
+	a[href],
+	.n-nav li:first-child a[href],
+	.n-nav li:last-child a[href] {
+
 		padding: .8em 2em;
 		display: inline-block;
 
 	}
-	
+
 	a img {
-		
+
 		position: absolute;
-	    top: 50%;
-	    transform: translateY(-50%);
+		top: 50%;
+		transform: translateY(-50%);
 
 	}
-	
+
 	a span {
-		
+
 		opacity: 0;
-		
+
 	}
-	
+
 	&.n-center .n-nav {
+
+		text-align: center;
+		padding: 0;
+		margin: 0;
+		--nui-control-color: #fff;
 		
-	    text-align: center;
-	    padding: 0;
-	    margin: 0;
-	    --nui-control-color: #fff;
-    
+		.n-list {
+			justify-content: center;
+		}
+
 	}
-	
+
 }
 
 .n-slider--arrow {
-	
+
 	background: none;
 	color: unset;
 
 }
 
 .n-carousel__index > * > * {
-	
+
 	color: unset;
 	font-size: .4em;
 	text-indent: -11em;
 	overflow: hidden;
-    background: rgba(0,0,0,.4);
+	background: rgba(0, 0, 0, .4);
 	border: 1px solid transparent;
 	margin: 0 2em;
 
 }
 
 .n-carousel__index [aria-current] {
-	
+
 	background: none;
 	border: 1px solid #0070c9;
 
 }
 
 .n-slider--arrow:before {
-	
+
 	content: '⟨';
 	font-size: 9em;
-	color: rgba(0,0,0,.4);
-	    
+	color: rgba(0, 0, 0, .4);
+
 }
 
 .n-slider--arrow.n-slider__right:before {
-	
+
 	content: '⟩';
 	margin-left: -.25em;
 
 }
 
 footer {
-	
+
 	background-color: #f2f2f2;
 	padding-bottom: 3em;
 
 	a[href] {
-		
+
 		text-decoration: none;
-		
+
 	}
 
 }
 
 footer .bottom a[href] {
-	
+
 	margin: 0 .5em;
-	
+
 }
 
-footer ul, footer ul.n-list li, footer ul.n-list li a[href] {
-	
+footer ul,
+footer ul.n-list li,
+footer ul.n-list li a[href] {
+
 	margin: .3em 0;
-	
+
 }
 
 footer h4 {
-	
+
 	font-weight: bold;
 
 }
 
 .n-contain {
-	
+
 	max-width: 1000px;
 
 }
 
 .boxes a {
-	
+
 	background: center center no-repeat;
 	min-height: 17em;
 
 }
 
 select {
-	
+
 	height: 2em;
-	
+
 }
 
-.n-header-banner .n-carousel__content h2 { 
+.n-header-banner .n-carousel__content {
+
+	img {
+		max-width: 100%;
+	}
 	
+	h2 {
+
 	margin-top: 2em;
 	font-size: 7em;
-	
+
+}
 }
 
 ul.n-list li {
-	
+
 	margin: 0;
 
 }
 
 @media screen and (max-width: 599.9px) {
-	
-	.n-header-banner .n-carousel__content h2 { 
-		
+
+	.n-header-banner .n-carousel__content h2 {
+
 		margin-top: .5em;
-		
+
 	}
-	
+
 	footer {
-		
+
 		padding: 1em;
-		
+
 	}
-	
+
 	.n-row:not(.n-row--half) {
-	
-	    display: flex;
-	
+
+		display: flex;
+
 	}
 
 }
 
-.n-header-banner .n-carousel__content h3 { 
-	
+.n-header-banner .n-carousel__content h3 {
+
 	font-size: 3.6em;
-	
+
 }
 
 .n-header-banner .n-carousel__content > * {
-	
+
 	position: relative;
-	
+
 }

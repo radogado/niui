@@ -3725,9 +3725,15 @@
 									<form class="n-form">
 										<textarea id=component-playground rows="10" style="width: 100%" aria-label="Component playground">
 <div class="n-carousel">
+	<div class="n-carousel__next">
+		<button><span>Next</span></button>
+	</div>
 	<div class=n-carousel__content>
 		<div>New</div>
 		<div>Carousel</div>
+	</div>
+	<div class="n-carousel__previous">
+		<button><span>Previous</span></button>
 	</div>
 </div>
 </textarea>
@@ -3736,9 +3742,9 @@
 									</form>
 									<form class="n-form">
 										<textarea id=component-playground2 rows="10" style="width: 100%" aria-label="Component playground 2">
-<details class=n-accordion>
-	<button> Label </button>
-	<div><p> Content. </p><p> Content. </p><p> Content. </p></div>
+<div class=n-accordion>
+	<div class=n-accordion__label><button> Label </button></div>
+	<div class=n-accordion__content><p> Content. </p><p> Content. </p><p> Content. </p></div>
 </div>
 </textarea>
 										<br>
