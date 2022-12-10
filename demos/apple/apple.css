@@ -83,6 +83,11 @@ footer {
 footer a[href] {
   text-decoration: none;
 }
+footer .bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-self: center;
+}
 
 footer .bottom a[href] {
   margin: 0 0.5em;
@@ -117,6 +122,7 @@ select {
 .n-header-banner .n-carousel__content h2 {
   margin-top: 2em;
   font-size: 7em;
+  line-height: 1;
 }
 
 ul.n-list li {

@@ -58,7 +58,7 @@ body.n-type {
 		padding: 0;
 		margin: 0;
 		--nui-control-color: #fff;
-		
+
 		.n-list {
 			justify-content: center;
 		}
@@ -118,6 +118,12 @@ footer {
 		text-decoration: none;
 
 	}
+	
+	.bottom {
+		display: flex;
+		flex-wrap: wrap;
+		align-self: center;
+	}
 
 }
 
@@ -165,13 +171,14 @@ select {
 	img {
 		max-width: 100%;
 	}
-	
+
 	h2 {
 
-	margin-top: 2em;
-	font-size: 7em;
+		margin-top: 2em;
+		font-size: 7em;
+		line-height: 1;
 
-}
+	}
 }
 
 ul.n-list li {
