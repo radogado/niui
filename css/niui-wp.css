@@ -17,7 +17,7 @@ body .n-contain {
   background: #eee;
 }
 
-.n-wp .n-carousel > .n-carousel__index.n-carousel__index--thumbnails > * span {
+.n-wp .n-carousel.n-carousel--thumbnails > .n-carousel__index > * span {
   padding: 0;
 }
 
