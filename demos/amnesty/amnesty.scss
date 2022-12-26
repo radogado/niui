@@ -2,6 +2,10 @@ body {
 	
 	font-family: 'Helvetica Neue', sans-serif;
 	color: #000;
+	
+	&.n-type h3 {
+		font-size: 1.5rem;
+	}
 
 }
 
@@ -47,6 +51,10 @@ footer, .n-banner h2 {
 footer {
 	
 	display: block;
+	
+	.n-right > div {
+		display: flex;
+	}
 
 }
 

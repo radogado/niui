@@ -2,6 +2,9 @@ body {
   font-family: "Helvetica Neue", sans-serif;
   color: #000;
 }
+body.n-type h3 {
+  font-size: 1.5rem;
+}
 
 * {
   box-sizing: border-box;
@@ -30,6 +33,9 @@ footer, .n-banner h2 {
 
 footer {
   display: block;
+}
+footer .n-right > div {
+  display: flex;
 }
 
 .n-row img {
