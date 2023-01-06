@@ -179,10 +179,22 @@ form.n-form select {
   background-color: #002a37;
   padding: 0.75em 1.5em;
   min-height: 0;
+  flex-grow: 1;
+  --nui-control-color: white;
+  --nui-control-active-color: #003d50;
 }
 
 .n-carousel__content > * > * {
-  padding: 1.25em;
+  padding: 1.5rem;
+}
+.n-carousel__content > * > *.n-row {
+  padding: 0.75rem;
+}
+.n-carousel__content > * > *.n-row > [class^=_] {
+  flex-grow: 1;
+}
+.n-carousel__content > * > *.n-form--wide:not(.sticky-submit) input:not([type=checkbox]):not([type=radio]) {
+  margin: 0;
 }
 
 @media (min-width: 900px) {
@@ -276,6 +288,13 @@ form.n-form.n-form--wide > ._1\/1 {
     padding: 0.5em;
     display: block;
   }
+}
+.n-header-banner .n-carousel--tabs.n-carousel > .n-carousel__index {
+  width: 100%;
+}
+
+.page-footer__social li {
+  padding: 0 0.5rem;
 }
 
 /*# sourceMappingURL=norwegian.css.map */

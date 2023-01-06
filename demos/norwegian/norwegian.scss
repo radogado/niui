@@ -263,12 +263,27 @@ form.n-form select {
 	background-color: #002a37;
 	padding: .75em 1.5em;
 	min-height: 0;
+	flex-grow: 1;
+	--nui-control-color: white;
+	--nui-control-active-color: #003d50;
 
 }
 
-.n-carousel__content > * > *{
+.n-carousel__content > * > * {
 
-	padding: 1.25em;
+	padding: 1.5rem;
+
+	&.n-row {
+		padding: 0.75rem;
+	}
+
+	&.n-row > [class^=_] {
+		flex-grow: 1;
+	}
+
+	&.n-form--wide:not(.sticky-submit) input:not([type=checkbox]):not([type=radio]) {
+		margin: 0;
+	}
 
 }
 
@@ -416,4 +431,12 @@ form.n-form.n-form--wide > ._1\/1 {
 
 	}
 
+}
+
+.n-header-banner .n-carousel--tabs.n-carousel > .n-carousel__index {
+	width: 100%;
+}
+
+.page-footer__social li {
+	padding: 0 .5rem;
 }
