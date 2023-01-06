@@ -2,7 +2,8 @@ body.n-type {
   color: #fff;
   font-size: 18px;
 }
-body.n-type footer, body.n-type .n-header {
+body.n-type footer,
+body.n-type .n-header {
   background: #181818;
 }
 
@@ -17,8 +18,12 @@ body.n-type footer, body.n-type .n-header {
 .n-header a.n-logo {
   line-height: 3;
 }
-.n-header nav.n-nav a img, .n-header nav.n-nav a[href] {
+.n-header nav.n-nav a img,
+.n-header nav.n-nav a[href] {
   display: inline-block;
+}
+.n-header img {
+  vertical-align: middle;
 }
 
 .n-header nav.n-nav a img {
@@ -73,7 +78,8 @@ footer .disclaimer {
   max-width: 100%;
 }
 
-.n-type a[href], .n-type ul.n-list--inline li {
+.n-type a[href],
+.n-type ul.n-list--inline li {
   text-decoration: none;
   vertical-align: middle;
 }
@@ -83,7 +89,8 @@ footer .disclaimer {
   font-weight: bold;
   padding: 0.5em 1em;
 }
-.n-type h1, .n-type h2 {
+.n-type h1,
+.n-type h2 {
   font-weight: 300;
   font-size: 60px;
   line-height: 65px;
@@ -91,7 +98,8 @@ footer .disclaimer {
   text-transform: uppercase;
 }
 
-main a[href].n-btn, .n-banner a[href].n-btn {
+main a[href].n-btn,
+.n-banner a[href].n-btn {
   width: 14em;
   max-width: 100%;
   padding: 0.75em 1em;
@@ -122,12 +130,14 @@ span.n-burger:before {
     height: 100%;
   }
 
-  .n-type h1, .n-type h2 {
+  .n-type h1,
+.n-type h2 {
     font-size: 30px;
     line-height: 1.25;
   }
 
-  main .n-row > ._1\/1, .n-carousel__content .n-row {
+  main .n-row > ._1\/1,
+.n-carousel__content .n-row {
     min-height: 0;
   }
 
