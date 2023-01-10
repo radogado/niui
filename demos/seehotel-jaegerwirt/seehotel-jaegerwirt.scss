@@ -10,29 +10,32 @@ body {
 }
 
 .n-type {
-	
-	h2, h3 {
-		
+
+	h2,
+	h3 {
+
 		font-family: "Abril Fatface", cursive;
-		
-	}
-	
-	h2 {
-		
-		font-size: 350%;
-	
+
 	}
 
-	a[href].n-btn:hover, .n-banner a[href].n-btn:hover, .promo a[href].n-btn:hover {
-		
+	h2 {
+
+		font-size: 350%;
+
+	}
+
+	a[href].n-btn:hover,
+	.n-banner a[href].n-btn:hover,
+	.promo a[href].n-btn:hover {
+
 		color: #fff;
 		background-color: #aca59e;
 		border-color: #aca59e;
-		   
+
 	}
 
 	a[href].n-btn {
-		
+
 		color: #fff;
 		font-weight: bold;
 		padding: .5em 1em;
@@ -40,19 +43,20 @@ body {
 		border-radius: .25em;
 		background-color: #eecf3f;
 		margin: 0;
-	
+
 	}
-	
+
 }
 
 .n-nav a {
-	
+
 	padding: 0 .5em;
-	
+
 }
 
-.n-banner .n-carousel__content > div, .n-banner .n-carousel {
-	
+.n-banner .n-carousel__content > div,
+.n-banner .n-carousel {
+
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -61,92 +65,94 @@ body {
 }
 
 .n-banner .n-carousel__content .n-row > div {
-	
+
 	min-height: 100vh;
 	padding: 0;
 	margin: 0;
 	
+	background-position: center;
+
 }
 
 .n-banner .n-slider--arrow {
-	
+
 	display: none;
-	
+
 }
 
 .n-header-banner {
-	
+
 	color: #fff;
 
 }
 
 .n-header {
-	
+
 	z-index: 2;
 	position: absolute;
 	width: 100%;
 
 	.n-contain > .n-row {
-		
+
 		margin: 0 0 2em 0;
-	
+
 	}
-	
+
 	a[href] {
-		
+
 		text-decoration: none;
-	
+
 	}
-	
+
 	.n-row > * {
-		
+
 		position: relative;
-		
+
 	}
-	
+
 	img[src*=logo] {
-		
+
 		position: absolute;
 		bottom: -2em;
 		left: 1.2em;
 		max-width: calc(100% - 2.4em);
-	
+
 	}
-	
+
 	nav.n-nav {
-		
+
 		font-size: .9em;
 	}
-	
+
 	._2\/5 {
-		
+
 		border-bottom: 1px solid;
-	
+
 	}
-	
+
 	._1\/5 {
-		
-		    margin-top: 3em;
-		
+
+		margin-top: 3em;
+
 	}
 
 }
 
 main a[href] {
-	
+
 	text-decoration: none;
-	
+
 }
 
 main a[href]:not(.n-btn):after {
-	
+
 	content: '⟩';
 	padding: 0 .5em;
-	
+
 }
 
 main .promo {
-	
+
 	min-height: 28em;
 	color: #fff;
 	background-position: center;
@@ -155,17 +161,17 @@ main .promo {
 }
 
 main .promo h3 {
-	
+
 	font-size: 200%;
 
 }
 
 main .n-carousel__content ._1\/3 {
-	
+
 	box-shadow: 0 0 0 1px #aca59e;
 	min-height: 20em;
 	padding: 0;
-	
+
 }
 
 main .n-carousel__content ._1\/3 .image {
@@ -178,112 +184,114 @@ main .n-carousel__content ._1\/3 .image {
 }
 
 .n-carousel__index > * {
-	
+
 	--nav-size: 1rem;
 	font-size: 0;
 	margin: 1rem .5rem;
-	
+
 }
 
-.n-carousel__index [aria-current], .n-banner .n-carousel__index [aria-current] {
-	
+.n-carousel__index [aria-current],
+.n-banner .n-carousel__index [aria-current] {
+
 	background: #eecf3f;
 
 }
 
 .n-banner .n-carousel__index > * {
-	
+
 	background: #fff;
 
 }
 
 header a[href].n-btn {
-	
+
 	padding: .25em .5em;
 	border-color: transparent;
 	margin-left: 1em;
 
 }
 
-.n-banner a[href].n-btn, .promo a[href].n-btn {
+.n-banner a[href].n-btn,
+.promo a[href].n-btn {
 
 	background-color: rgba(255, 255, 255, 0.2);
 
 }
 
 .breadcrumbs {
-	
+
 	font-size: .75em;
 	color: #fff;
 
 }
 
 img[src*=logo] {
-	
+
 	width: 220px;
 	margin: 1em 0;
 
 }
 
 footer {
-	
+
 	background-color: #aca59e;
 	padding-bottom: 1em;
-	    
+
 }
 
 footer nav.n-nav {
-	
+
 	color: #fff;
 	font-size: .75em;
-		
+
 }
 
 footer .about {
-	
+
 	background: #fff;
 
 }
 
 @media screen and (max-width: 599.9px) {
-	
+
 	header nav.n-nav.n-nav--drop {
-		
+
 		display: none;
-		
+
 	}
 
 	header.n-header__fixed-mobile .n-accordion.mobile.open .n-accordion__content {
-		
+
 		right: 0;
 		left: 0;
 		background: #000;
-		
+
 	}
-	
+
 	header .n-row > ._1\/5 {
-		
+
 		display: none;
-		
+
 	}
-	
+
 	header nav.n-nav ul.n-list {
-		
+
 		color: #000;
 
 	}
 
 	header .n-row > * {
-		
+
 		text-align: right;
 		padding: 0 .5em !important;
-		
+
 	}
 
 	.n-banner .n-carousel__content > div {
-		
-		margin-top: 5.6em;		
-		
+
+		margin-top: 5.6em;
+
 	}
 
 }
