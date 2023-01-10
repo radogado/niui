@@ -49,10 +49,11 @@ body,
 
 }
 
-.n-aspect {
+main .n-aspect {
 
 	align-items: center;
 	background-size: cover;
+	display: flex;
 
 }
 
@@ -65,6 +66,10 @@ body,
 main {
 
 	color: #fff;
+	
+	a > div {
+		display: grid;
+	}
 
 }
 

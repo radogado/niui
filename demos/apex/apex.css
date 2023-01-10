@@ -31,9 +31,10 @@ body,
   text-decoration: none;
 }
 
-.n-aspect {
+main .n-aspect {
   align-items: center;
   background-size: cover;
+  display: flex;
 }
 
 .n-aspect > div {
@@ -42,6 +43,9 @@ body,
 
 main {
   color: #fff;
+}
+main a > div {
+  display: grid;
 }
 
 main.n-row > * {
