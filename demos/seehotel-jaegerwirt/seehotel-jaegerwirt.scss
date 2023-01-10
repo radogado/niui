@@ -66,11 +66,15 @@ body {
 
 .n-banner .n-carousel__content .n-row > div {
 
-	min-height: 100vh;
+	min-height: calc(100vh - 5.6em);
 	padding: 0;
 	margin: 0;
-	
+
 	background-position: center;
+
+	@media (min-width: 600px) {
+		min-height: 100vh;
+	}
 
 }
 
@@ -261,11 +265,24 @@ footer .about {
 
 	}
 
-	header.n-header__fixed-mobile .n-accordion.mobile.open .n-accordion__content {
+	header.n-header--fixed-mobile .n-accordion--mobile [aria-expanded="true"] ~ .n-accordion__content {
 
 		right: 0;
 		left: 0;
 		background: #000;
+
+	}
+
+	header .n-accordion {
+
+		position: fixed;
+		top: 0;
+		--accordion-margin: 0;
+		--nui-control-bg: transparent;
+		--nui-control-color: white;
+		.n-accordion__label {
+			background: var(--nui-control-bg, #fff);
+		}
 
 	}
 
@@ -277,14 +294,15 @@ footer .about {
 
 	header nav.n-nav ul.n-list {
 
-		color: #000;
+		color: white;
+		padding: .5rem;
 
 	}
 
 	header .n-row > * {
 
 		text-align: right;
-		padding: 0 .5em !important;
+		// padding: 0 .5em !important;
 
 	}
 

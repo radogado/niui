@@ -367,7 +367,7 @@ ol.n-masonry > * {
   .n-row:not(.n-row--no-margin):not(.n-row--border-all):not(.n-tabs) > *,
   .n-row:not(.n-row--no-margin):not(.n-row--border-all) > [class^="_"] {
     margin: calc(var(--line-height-em) / 6) 0;
-    display: block;
+    // display: block; // disables vertical alignment
   }
 
   @supports (--a: 1) {
