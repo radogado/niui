@@ -11,15 +11,26 @@
 }
 .n-header ul.n-list {
   margin: 0;
+  align-self: flex-end;
 }
 .n-header.top {
   color: #ddd;
   background: #000;
   font-size: 14px;
 }
-.n-header img, .n-header svg {
+.n-header img,
+.n-header svg {
   height: 2em;
   vertical-align: middle;
+}
+.n-header .n-btn.c-btn.c-btn--small.c-btn--secondary.flex-menu-part--btn {
+  margin: 0;
+  display: inline-grid;
+  place-items: center;
+  --nui-control-color: #009ee0;
+  --nui-control-bg: transparent;
+  border: 1px solid #009ee0;
+  border-radius: 0.5ch;
 }
 
 body.n-type {
@@ -28,10 +39,12 @@ body.n-type {
 body.n-type a[href]:not(:hover) {
   text-decoration: none;
 }
-body.n-type h2, body.n-type h2 a[href] {
+body.n-type h2,
+body.n-type h2 a[href] {
   color: #009ee0;
   text-transform: uppercase;
   text-decoration: none;
+  margin-top: 0;
 }
 
 img {
@@ -46,7 +59,8 @@ header .n-btn[href] {
   margin: 0 1em;
 }
 
-ul.n-list, ul.n-list li {
+ul.n-list,
+ul.n-list li {
   list-style: none;
   margin: 0;
 }
@@ -67,7 +81,8 @@ ul.n-list li:before {
   color: #979797;
 }
 
-a.c-articles-list-link[href], .c-match-overview-matches-link a[href] {
+a.c-articles-list-link[href],
+.c-match-overview-matches-link a[href] {
   color: #009ee0;
 }
 
@@ -103,6 +118,7 @@ a.c-articles-list-link[href], .c-match-overview-matches-link a[href] {
   font-family: Yrsa;
   font-size: 2em;
   margin: 0;
+  line-height: 1;
 }
 
 .n-row.n-row--no-spacing.n-row--vertical h2 {
@@ -110,11 +126,13 @@ a.c-articles-list-link[href], .c-match-overview-matches-link a[href] {
 }
 
 header .c-site-nav--link + ul.c-site-nav--list {
-  margin-left: 1em;
+  margin-inline-start: 1em;
+  margin-inline-end: 1rem;
+  align-self: center;
 }
 
 header .c-site-nav--link {
-  padding: 0.5em 0;
+  padding: 0.25em 0;
 }
 
 header ul.n-list--inline {
@@ -131,7 +149,8 @@ main .n-aspect {
   --height: 1000;
 }
 
-a[href].blue-link, .n-row--no-spacing > ._1\/1 h2 {
+a[href].blue-link,
+.n-row--no-spacing > ._1\/1 h2 {
   color: #009ee0;
 }
 
@@ -171,7 +190,8 @@ time {
 }
 
 @media (max-width: 599.9px) {
-  .n-row > * > .n-unpad, .n-unpad {
+  .n-row > * > .n-unpad,
+.n-unpad {
     margin: 0;
     width: 100%;
   }
@@ -187,6 +207,14 @@ time {
   .c-articles-list__body {
     text-align: center;
   }
+}
+.n-accordion .n-accordion__label {
+  background: none;
+}
+
+.n-accordion__content .top {
+  background: black;
+  color: #ddd;
 }
 
 /*# sourceMappingURL=vi.nl.css.map */

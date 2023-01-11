@@ -31,6 +31,9 @@ form input[type=submit] {
 .n-banner .n-form {
   padding: 0 0 7.5em 0;
 }
+.n-banner .n-form input[type=submit] {
+  line-height: 2.5;
+}
 
 .n-header em {
   font-style: normal;
@@ -98,13 +101,16 @@ footer p {
 }
 
 footer ul.n-list {
-  margin-left: -1em;
+  gap: 0.5rem;
 }
 
-.staff {
-  padding: 3em 0;
+.staff h2 {
+  margin-top: 0.25rem;
 }
 
+ul.staff.n-list--inline {
+  padding-top: 0.5rem;
+}
 ul.staff.n-list--inline li {
   width: 24%;
   text-align: center;
@@ -141,6 +147,10 @@ ul.staff.n-list--inline li {
 .trustpilot > * {
   display: inline-block;
   margin: 0;
+  color: #333;
+}
+.trustpilot p {
+  margin-bottom: 0;
 }
 
 .n-banner a[href],
@@ -201,6 +211,10 @@ main a[href] {
   border-radius: 50%;
   border: 2px solid teal;
   margin-right: 0.5em;
+}
+
+.discover input[type=submit] {
+  line-height: 2.5;
 }
 
 .coverage a.n-btn {
