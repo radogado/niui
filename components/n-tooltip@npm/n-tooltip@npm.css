@@ -30,7 +30,7 @@ html:not(.can-touch) .n-tool:hover .n-tool__tip {
 .n-tool__tip {
   overflow: visible;
   max-height: calc(100vh - 40px);
-  padding: calc(var(--line-height-em)/2);
+  padding: calc(var(--nui-line-height-em)/2);
   font-size: 0.8em;
   font-weight: normal;
   position: absolute;
@@ -43,7 +43,7 @@ html:not(.can-touch) .n-tool:hover .n-tool__tip {
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
   width: 20em;
-  line-height: calc(var(--line-height-em)/1.25);
+  line-height: calc(var(--nui-line-height-em)/1.25);
   display: none;
 }
 .n-tool__tip[aria-expanded] {

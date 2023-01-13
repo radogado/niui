@@ -536,7 +536,7 @@ main .n-carousel__index {
 	background: #fff;
 
 	.n-pad {
-		padding: calc(var(--line-height-em) / 1.25);
+		padding: calc(var(--nui-line-height-em) / 1.25);
 		
 		&.n-row--border-off > * {
 			padding: 0;

@@ -358,7 +358,7 @@ main > .n-row.n-contain > * {
   background: #fff;
 }
 .n-contain > .n-row--border-all .n-pad {
-  padding: calc(var(--line-height-em) / 1.25);
+  padding: calc(var(--nui-line-height-em) / 1.25);
 }
 .n-contain > .n-row--border-all .n-pad.n-row--border-off > * {
   padding: 0;

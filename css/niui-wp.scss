@@ -19,8 +19,14 @@ body .n-contain {
 	background: #eee;
 }
 
-.n-wp .n-carousel.n-carousel--thumbnails > .n-carousel__index > * span {
-	padding: 0;
+.n-wp {
+	.n-carousel.n-carousel--thumbnails > .n-carousel__index > * span {
+		padding: 0;
+	}
+
+	body {
+		margin: 0;
+	}
 }
 
 .n-wp .n-carousel.n-carousel--lightbox {

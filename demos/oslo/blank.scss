@@ -3,6 +3,7 @@
 body.n-type {
 
 	font-size: 1.125rem;
+	margin: 0;
 
 }
 
@@ -567,9 +568,10 @@ main .n-form button {
 		justify-content: center;
 
 	}
-	
+
 	.n-accordion__label button {
-		padding-inline-end: calc(var(--line-height-em,1.5rem)/ 2);
+		padding-inline-end: calc(var(--nui-line-height-em, 1.5rem)/ 2);
+
 		&:after {
 			display: none;
 		}

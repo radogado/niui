@@ -20,6 +20,9 @@ body .n-contain {
 .n-wp .n-carousel.n-carousel--thumbnails > .n-carousel__index > * span {
   padding: 0;
 }
+.n-wp body {
+  margin: 0;
+}
 
 .n-wp .n-carousel.n-carousel--lightbox {
   grid-template-areas: "f c a3 a3 a3 a3" "prev a2 a2 a2 a2 next" "v v v v v v" "i i i i i i";

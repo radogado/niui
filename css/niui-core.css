@@ -1,11 +1,10 @@
 @charset "UTF-8";
 /* niui – rado.bg */
 :root {
-  --font-size: 16px;
-  --line-height: 1.5;
-  --line-height-em: calc(1rem * var(--line-height));
+  --nui-font-size: 16px;
+  --nui-line-height: 1.5;
+  --nui-line-height-em: calc(1rem * var(--nui-line-height));
   --nui-color: #333;
-  --bg: #fff;
 }
 
 /*
@@ -16,16 +15,6 @@ $line-height: 34px;
   max-width: 100rem;
   margin: 0 auto;
   width: 100%;
-}
-
-/* Basic elements */
-html {
-  height: 100%;
-}
-
-body {
-  margin: 0;
-  position: relative;
 }
 
 html.n-vertical-page,

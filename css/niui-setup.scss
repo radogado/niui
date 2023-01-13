@@ -5,9 +5,8 @@ $screen-limited: 900px;
 $screen-limited-max: 899.9px;
 
 :root {
-	--font-size: 16px;
-	--line-height: 1.5;
-	--line-height-em: calc(1rem * var(--line-height));
+	--nui-font-size: 16px;
+	--nui-line-height: 1.5;
+	--nui-line-height-em: calc(1rem * var(--nui-line-height));
 	--nui-color: #333;
-	--bg: #fff;
 }

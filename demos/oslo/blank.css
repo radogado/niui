@@ -1,5 +1,6 @@
 body.n-type {
   font-size: 1.125rem;
+  margin: 0;
 }
 
 section,
@@ -427,7 +428,7 @@ main .n-form button {
   }
 
   .n-accordion__label button {
-    padding-inline-end: calc(var(--line-height-em, 1.5rem) / 2);
+    padding-inline-end: calc(var(--nui-line-height-em, 1.5rem) / 2);
   }
   .n-accordion__label button:after {
     display: none;

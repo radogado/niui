@@ -10,8 +10,7 @@
 
 body {
 
-  min-height: 100vh;
-  min-height: -webkit-fill-available;
+  min-height: var(--viewport-height);
 
   &.n-type a.n-btn[href],
   a.n-btn[href],
@@ -22,8 +21,7 @@ body {
 }
 
 html {
-  height: 100vh;
-  height: -webkit-fill-available;
+  height: var(--viewport-height);
   margin: 0;
   padding: 0;
   overflow: hidden; // Safari bug when zoomed in

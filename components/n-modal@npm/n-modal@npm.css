@@ -67,7 +67,7 @@ html.n-full-screen body {
   height: 3em;
   overflow-x: auto;
   white-space: nowrap;
-  line-height: var(--line-height-em, 1.5rem);
+  line-height: var(--nui-line-height-em, 1.5rem);
   text-align: start;
   border: 0;
   outline-offset: -5px;

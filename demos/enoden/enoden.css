@@ -5,6 +5,7 @@
 body {
   background: url(bg.gif) repeat 0 0;
   font-size: 14px;
+  margin: 0;
 }
 
 img {
@@ -82,8 +83,14 @@ nav.n-nav a[href] {
   --nav-size: 12px;
   margin: 0 6px;
   background: #ddd;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
 }
 
+.n-carousel {
+  margin: 3rem 0;
+}
 .n-carousel > .n-carousel__index {
   padding-bottom: 1em;
 }
@@ -93,10 +100,13 @@ nav.n-nav a[href] {
 }
 
 main {
-  padding-top: 3em;
   position: relative;
 }
 
+.n-type main h2 {
+  font-size: 1.5rem;
+  margin: 0.5rem;
+}
 .n-type a[href].box-shadow {
   background: #f57f31;
   display: block;
@@ -179,7 +189,8 @@ b.circle {
   transition: bottom 0.2s ease-in-out;
 }
 
-.totop:hover, .totop:focus {
+.totop:hover,
+.totop:focus {
   bottom: -1.5em;
 }
 
@@ -248,16 +259,19 @@ footer .n-contain {
 .news .tabs > .n-carousel__index.n-row {
   display: block;
 }
-.news ul, .news li {
+.news ul,
+.news li {
   margin: 0;
 }
 .news li {
   padding: 0.75em 0.5em;
   border-bottom: 1px dashed #e2e2e2;
   display: flex;
+  box-sizing: border-box;
 }
 .news li:last-child {
   border: none;
+  box-sizing: border-box;
 }
 .news b {
   min-width: 66px;
@@ -273,7 +287,8 @@ footer .n-contain {
   margin: 0 0.5em;
   border-radius: 2px;
 }
-.news .tag, .news b {
+.news .tag,
+.news b {
   color: #fff;
   font-size: 0.75em;
   padding: 0.1em 0.25em;
@@ -295,6 +310,7 @@ footer .n-contain {
 }
 .news .n-carousel__index > *[aria-current] {
   border-color: #09872b;
+  --nui-control-active-color: $green;
 }
 .news .n-carousel__index [aria-current] {
   border-bottom: 2px solid green;

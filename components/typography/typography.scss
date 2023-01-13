@@ -4,8 +4,8 @@
 .n-type {
   color: #333;
   -webkit-text-size-adjust: none;
-  font-size: var(--font-size, 16px);
-  line-height: var(--line-height);
+  font-size: var(--nui-font-size, 16px);
+  line-height: var(--nui-line-height);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   letter-spacing: 0.5px; // For proof: because sometimes there are aberrations with non-default spacing. Safari bug: value flashing from 0 https://bugs.webkit.org/show_bug.cgi?id=193008
 
@@ -16,7 +16,7 @@
   h4,
   h5,
   h6 {
-    line-height: var(--line-height);
+    line-height: var(--nui-line-height);
     word-break: break-word; // Overflow protection for long words
     word-wrap: break-word;
     font-size: 1em;
@@ -70,8 +70,8 @@
 
   p {
     font-size: 1em;
-    margin: var(--line-height-em) 0;
-    line-height: var(--line-height);
+    margin: var(--nui-line-height-em) 0;
+    line-height: var(--nui-line-height);
   }
 
   .n-drop-cap:first-letter {
@@ -107,13 +107,13 @@
     border-inline-start: 1px solid #bbb;
     padding-inline-start: 1em;
     display: block;
-    margin: var(--line-height-em) 0;
+    margin: var(--nui-line-height-em) 0;
     margin-inline-start: 1em;
   }
 
   .n-big-text {
     font-size: 1.125em;
-    line-height: calc(2 * var(--line-height-em));
+    line-height: calc(2 * var(--nui-line-height-em));
     min-height: 1.3334em;
   }
 }

@@ -1,9 +1,9 @@
 @charset "UTF-8";
 /* niui – Typography */
 :root {
-  --font-size: 16px;
-  --line-height: 1.5;
-  --line-height-em: calc(1rem * var(--line-height));
+  --nui-font-size: 16px;
+  --nui-line-height: 1.5;
+  --nui-line-height-em: calc(1rem * var(--nui-line-height));
   --nui-color: #333;
   --bg: #fff;
 }
@@ -11,8 +11,8 @@
 .n-type {
   color: #333;
   -webkit-text-size-adjust: none;
-  font-size: var(--font-size, 16px);
-  line-height: var(--line-height);
+  font-size: var(--nui-font-size, 16px);
+  line-height: var(--nui-line-height);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   letter-spacing: 0.5px;
   /* Elements with double line-height */
@@ -23,7 +23,7 @@
 .n-type h4,
 .n-type h5,
 .n-type h6 {
-  line-height: var(--line-height);
+  line-height: var(--nui-line-height);
   word-break: break-word;
   word-wrap: break-word;
   font-size: 1em;
@@ -78,8 +78,8 @@
 }
 .n-type p {
   font-size: 1em;
-  margin: var(--line-height-em) 0;
-  line-height: var(--line-height);
+  margin: var(--nui-line-height-em) 0;
+  line-height: var(--nui-line-height);
 }
 .n-type .n-drop-cap:first-letter {
   float: left;
@@ -109,12 +109,12 @@
   border-inline-start: 1px solid #bbb;
   padding-inline-start: 1em;
   display: block;
-  margin: var(--line-height-em) 0;
+  margin: var(--nui-line-height-em) 0;
   margin-inline-start: 1em;
 }
 .n-type .n-big-text {
   font-size: 1.125em;
-  line-height: calc(2 * var(--line-height-em));
+  line-height: calc(2 * var(--nui-line-height-em));
   min-height: 1.3334em;
 }
 
