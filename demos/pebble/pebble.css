@@ -26,6 +26,7 @@
 body {
   background: url(Unknown.jpg) top center no-repeat;
   background-size: contain;
+  margin: 0;
 }
 
 .n-type h1, .n-type h2 {

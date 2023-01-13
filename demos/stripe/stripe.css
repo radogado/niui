@@ -24,6 +24,7 @@
 }
 
 body.n-type {
+  margin: 0;
   font-size: 17px;
   font-family: Camphor, Open Sans, Segoe UI, sans-serif;
 }

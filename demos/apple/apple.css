@@ -7,6 +7,7 @@
   /* Copyright (c) 1992 Adobe Systems Incorporated. All Rights Reserved. Myriad is a trademark of Adobe Systems Incorporated. */
 }
 body.n-type {
+  margin: 0;
   font-size: 12px;
   font-family: "Myriad Set Pro";
 }

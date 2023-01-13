@@ -32,6 +32,7 @@ form label > span {
 }
 
 body.n-type {
+  margin: 0;
   background: #FAF6EF;
   color: #622a21;
   font-family: "Josefin Sans", sans-serif;

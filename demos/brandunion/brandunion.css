@@ -1,4 +1,8 @@
 @charset "UTF-8";
+body {
+  margin: 0;
+}
+
 .n-masonry > * {
   margin: 1.5em 0 0 0;
   padding: 0.5em 0;
