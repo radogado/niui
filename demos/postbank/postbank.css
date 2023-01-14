@@ -285,7 +285,6 @@ ul.n-list li:before {
   border-bottom-left-radius: 10px;
   padding: 7px;
   min-height: 140px;
-  min-width: 2.25em;
   text-align: center;
   margin-right: 1em;
 }
@@ -348,7 +347,10 @@ ul.n-list li:before {
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
   font-size: 18px;
-  padding-bottom: 0.667em;
+  padding-bottom: 0.5em;
+  margin-bottom: 17px;
+  --nui-control-color: lightgrey;
+  --nui-control-active-color: white;
 }
 .credit .n-carousel.n-carousel--tabs.n-carousel--index-start > .n-carousel__index > *[aria-current] {
   background-color: #d41f00;
@@ -523,6 +525,7 @@ ul.n-list li:before {
 .current-currency-tab + .n-carousel__index > *[aria-current] {
   color: #fff;
   background-color: #d41f00;
+  --nui-control-active-color: white;
 }
 .current-currency-tab + .n-carousel__index > *[aria-current]:before {
   content: "";
@@ -546,11 +549,19 @@ ul.n-list li:before {
   line-height: 1;
 }
 
+.n-tool__tip span {
+  padding: 1em;
+}
+
 .n-banner .n-carousel__index > * {
   font-size: 0;
   --nav-size: 1rem;
   background: #000;
-  margin: 0.33rem;
+  margin: 0.5rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: 1px solid #073e88;
 }
 .n-banner .n-carousel__index > *[aria-current] {
   background-color: #d41f00;
