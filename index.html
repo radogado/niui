@@ -3,12 +3,12 @@
 
 	<head>
 		<title>niui</title>
-		<meta name="Description" content="niui front end framework">
+		<meta name="Description" content="niui front end library">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=yes, viewport-fit=cover" />
 		<link rel=icon href=images/favicon.ico>
-		<link rel=styleSheet href=dist/niui.min.css type=text/css media=screen>
-		<link rel=styleSheet href=css/guide.css type=text/css media=screen>
+		<link rel="styleSheet" href="./dist/niui.min.css" type="text/css">
+		<link rel=styleSheet href=css/guide.css type=text/css>
 		<script src="dist/niui-preload.min.js"></script> <!-- Load and execute immediately. Should be on the same host as the above CSS file, not waiting for another request -->
 		<script>
 			function setupCopy() {
@@ -21,7 +21,7 @@
 				}
 			}
 		</script>
-		<script src="dist/niui.min.js" type="module" defer onload="setupCopy();"> </script>
+		<script src="index.js" type="module" defer onload="setupCopy();"> </script>
 		<link rel=styleSheet href="css/prism.css" type="text/css" media="screen">
 		<script src="js/prism.js" type="text/javascript" defer></script>
 		<script type="text/javascript">
@@ -36,7 +36,6 @@
 			<div class="n-carousel__index">
 				<button><span>niui</span></button>
 				<button><span>Get started</span></button>
-				<button><span>Page structure</span></button>
 				<button><span>Grid</span></button>
 				<button><span>Navigation</span></button>
 				<button><span>Typography</span></button>
@@ -81,7 +80,7 @@
 						<div>
 							<h1>Native Internet User Interface</h1>
 							<ul class="n-masonry n-left">
-								<li>Lightweight, ~10+~10 K</li>
+								<li>Lightweight</li>
 								<li>Accessible</li>
 								<li>Feature-packed</li>
 								<li>Dozens of demo pages</li>
@@ -90,7 +89,7 @@
 								<li>No dependencies</li>
 								<li>Style agnostic</li>
 								<li>Encapsulated JS and CSS</li>
-								<li>Embeddable components</li>
+								<li>Nestable components</li>
 								<li>Auto component initialization</li>
 								<li>Built for edge cases</li>
 							</ul>
@@ -152,14 +151,16 @@
 						<div class="n-row">
 							<div>
 								<h2>Get <a href=dist/niui.min.css download>niui.min.css</a>, <a href=dist/niui.min.js download>niui.min.js</a> and <a href=dist/index.html download>index.html</a> and edit the latter.</h2>
-								<h2>Or install with NPM and include the niui files in your app</h2>
+								<h2>Or install with NPM and include the niui files</h2>
 								<div class=code>
 									<pre><code class="language-js">npm install --save-dev niui-npm</code></pre>
 								</div>
 								<br>
-								<p>To do: fix index.js</p>
 								<div class=code>
-									<pre><code class="language-js">require("./node_modules/niui-npm/index.js");</code></pre>
+									<pre><code class="language-js">&lt;link rel=&quot;styleSheet&quot; href=&quot;./node_modules/niui-npm/dist/niui.min.css&quot; type=&quot;text/css&quot;&gt;</code></pre>
+								</div>
+								<div class=code>
+									<pre><code class="language-js">import './node_modules/niui-npm/dist/niui.min.js';</code></pre>
 								</div>
 								<!-- <h3>Lite version available at <a href=dist/niui-lite.min.css download>niui-lite.min.css</a>, <a href=dist/niui-lite.min.js download>niui-lite.min.js</a> without the following components:</h3>
 							<ul>
@@ -172,31 +173,26 @@
 								<li>Tooltip</li>
 								<li>Parallax</li>
 							</ul> -->
-							</div>
-						</div>
-					</div>
-				</div>
-				<div id=page-structure>
-					<div class="n-row">
-						<div>
-							<h2>Page structure</h2>
-							<h3>Minimal</h3>
-							<div class="code">
-								<pre><code class="language-markup">&lt;!DOCTYPE html&gt;
+								<h2>Page structure</h2>
+								<h3>Minimal</h3>
+								<div class="code">
+									<pre><code class="language-markup">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
-&lt;head&gt;
-	&lt;link rel="styleSheet" href="niui.min.css" type="text/css" media="screen"&gt;
-	&lt;script src="niui.min.js" type="module" defer&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
+	&lt;head&gt;
+		&lt;link rel="styleSheet" href="niui.min.css" type="text/css"&gt;
+		&lt;script src="niui.min.js" type="module" defer&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;main&gt;
 
-&lt;/body&gt;
+		&lt;/main&gt;
+	&lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-							</div>
-							<h3>Recommended</h3>
-							<div class="code">
-								<pre><code class="language-markup">&lt;!DOCTYPE html&gt;
+								</div>
+								<h3>Recommended</h3>
+								<div class="code">
+									<pre><code class="language-markup">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
 	&lt;meta charset="utf-8"&gt;
@@ -223,32 +219,33 @@
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
+								</div>
+								<h3>Options</h3>
+								<ul class="n-list">
+									<li>
+										<pre>.n-header-banner.n-viewport</pre> – full-height centered header and banner area <ul class="n-list">
+											<li>add
+												<pre>.n-push-up</pre> to balance at 1/3 height, instead of 1/2
+											</li>
+										</ul>
+									</li>
+									<li>Use
+										<pre>.n-section</pre> containers in
+										<pre>main</pre> to clear inner vertical margins
+									</li>
+									<li>
+										<pre>.n-header.n-fixed</pre> for fixed header on top on narrow screens (below 600px threshold)
+									</li>
+									<li>
+										<pre>body.n-sticky-footer</pre> for a sticky footer and vertical space taken by <b>main</b>.
+									</li>
+									<li>Check the <b>Navigation</b> section for mobile burger nav.</li>
+									<li>
+										<pre>html.n-vertical-page</pre> blocks horizontal overflow.
+									</li>
+								</ul>
+
 							</div>
-							<h3>Options</h3>
-							<ul class="n-list">
-								<li>
-									<pre>.n-header-banner.n-viewport</pre> – full-height centered header and banner area <ul class="n-list">
-										<li>add
-											<pre>.n-push-up</pre> to balance at 1/3 height, instead of 1/2
-										</li>
-									</ul>
-								</li>
-								<li>Use
-									<pre>.n-section</pre> containers in
-									<pre>main</pre> to clear inner vertical margins
-								</li>
-								<li>
-									<pre>.n-header.n-fixed</pre> for fixed header on top on narrow screens (below 600px threshold)
-								</li>
-								<li>
-									<pre>body.n-sticky-footer</pre> for a sticky footer and vertical space taken by <b>main</b>.
-								</li>
-								<li>Check the <b>Navigation</b> section for mobile burger nav.</li>
-								<li>
-									<pre>html.n-vertical-page</pre> blocks horizontal overflow.
-								</li>
-								<li>Lite version available at <a href=dist/niui-lite.min.css download>niui-lite.min.css</a> and <a href=dist/niui-lite.min.js download>niui-lite.min.js</a> without Carousel, Tabs, Lightbox, Cards, Popin, Modal, Notify, Parallax, Tooltip.</li>
-							</ul>
 						</div>
 					</div>
 				</div>

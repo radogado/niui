@@ -16,7 +16,7 @@ body {
   a.n-btn[href],
   button.n-btn,
   video {
-    border-radius: var(--nui-border, 0);
+    border-radius: var(--nui-border-radius, 0);
   }
 }
 
@@ -63,20 +63,6 @@ pre {
 html {
   -webkit-text-size-adjust: 100%;
   /* Prevent font scaling in landscape while allowing user zoom */
-}
-
-.demo .n-carousel .n-carousel__content {
-  > * {
-    background: var(--nui-bg);
-    color: var(--nui-color);
-    // min-height: 100%;
-    // box-sizing: border-box;
-    // display: flex; // Very slow in Safari
-  }
-
-  // a[href] {
-  //   color: #4d64bd;
-  // }
 }
 
 .demo .n-carousel.n-carousel--overlay .n-carousel__content {
@@ -148,14 +134,6 @@ html {
     flex-wrap: nowrap;
     // padding: 1ch 0;
 
-    button {
-      background: var(--nui-control-color);
-
-      span {
-        color: var(--nui-control-bg);
-        // max-width: 25vw;
-      }
-    }
   }
 
   .source {
@@ -207,13 +185,11 @@ code[class*="language-"] {
     margin: 0;
     -webkit-appearance: none;
     appearance: none;
-    background: var(--nui-control-bg);
     border: none;
     cursor: pointer;
-    color: var(--nui-control-color);
     font-weight: bold;
     padding: 0.5em 1em;
-    border-radius: var(--nui-border, 0);
+    border-radius: var(--nui-border-radius, 0);
   }
 
   code[class*="language-"],
@@ -245,7 +221,7 @@ code[class*="language-"] {
   }
 
   .demo-pages img {
-    border-radius: var(--nui-border, 0);
+    border-radius: var(--nui-border-radius, 0);
     box-shadow: 0 0 2px 1px #0000800d;
     aspect-ratio: 1;
   }
@@ -330,5 +306,5 @@ html:not(.can-touch) nav li li[aria-haspopup]:hover {
 .n-row.grid-demo > * {
   background: var(--nui-color);
   color: #fff;
-  border-radius: var(--nui-border, 0);
+  border-radius: var(--nui-border-radius, 0);
 }

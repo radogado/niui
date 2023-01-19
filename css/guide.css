@@ -14,7 +14,7 @@ body.n-type a.n-btn[href],
 body a.n-btn[href],
 body button.n-btn,
 body video {
-  border-radius: var(--nui-border, 0);
+  border-radius: var(--nui-border-radius, 0);
 }
 
 html {
@@ -58,11 +58,6 @@ pre {
 html {
   -webkit-text-size-adjust: 100%;
   /* Prevent font scaling in landscape while allowing user zoom */
-}
-
-.demo .n-carousel .n-carousel__content > * {
-  background: var(--nui-bg);
-  color: var(--nui-color);
 }
 
 @media (min-width: 900px) {
@@ -118,12 +113,6 @@ html {
   overflow: auto;
   flex-wrap: nowrap;
 }
-.demo.n-carousel.n-carousel--tabs > .n-carousel__index button {
-  background: var(--nui-control-color);
-}
-.demo.n-carousel.n-carousel--tabs > .n-carousel__index button span {
-  color: var(--nui-control-bg);
-}
 .demo .source {
   display: flex;
 }
@@ -166,13 +155,11 @@ code[class*=language-] {
   margin: 0;
   -webkit-appearance: none;
   appearance: none;
-  background: var(--nui-control-bg);
   border: none;
   cursor: pointer;
-  color: var(--nui-control-color);
   font-weight: bold;
   padding: 0.5em 1em;
-  border-radius: var(--nui-border, 0);
+  border-radius: var(--nui-border-radius, 0);
 }
 .code code[class*=language-],
 .code pre[class*=language-] {
@@ -181,7 +168,7 @@ code[class*=language-] {
 }
 
 #home .demo-pages img {
-  border-radius: var(--nui-border, 0);
+  border-radius: var(--nui-border-radius, 0);
   box-shadow: 0 0 2px 1px #0000800d;
   aspect-ratio: 1;
 }
@@ -255,7 +242,7 @@ html:not(.can-touch) nav li li[aria-haspopup]:hover {
 .n-row.grid-demo > * {
   background: var(--nui-color);
   color: #fff;
-  border-radius: var(--nui-border, 0);
+  border-radius: var(--nui-border-radius, 0);
 }
 
 /*# sourceMappingURL=guide.css.map */
