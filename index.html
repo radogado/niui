@@ -194,52 +194,42 @@
 								<div class="code">
 									<pre><code class="language-markup">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
-&lt;head&gt;
-	&lt;meta charset="utf-8"&gt;
-	&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=yes, viewport-fit=cover"&gt;
-	&lt;link rel="styleSheet" href="niui.min.css" type="text/css" media="screen"&gt;
-&lt;/head&gt;
-&lt;body class="n-type"&gt;
-	&lt;div class="n-header-banner"&gt;
+	&lt;head&gt;
+		&lt;meta charset="utf-8"&gt;
+		&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=yes, viewport-fit=cover"&gt;
+		&lt;link rel="styleSheet" href="niui.min.css" type="text/css" media="screen"&gt;
+		&lt;script src="niui.min.js" type="module" defer&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body class="n-type"&gt;
 		&lt;header class="n-header"&gt;
 			Header
 		&lt;/header&gt;
-		&lt;div class="n-banner"&gt;
-			Banner
-		&lt;/div&gt;
-	&lt;/div&gt;
-	&lt;main&gt;
-		Main content
-	&lt;/main&gt;
-	&lt;footer class="n-footer"&gt;
-		Footer
-	&lt;/footer&gt;
-	&lt;script src="niui.min.js" type="module" defer&gt;&lt;/script&gt;
-
-&lt;/body&gt;
+		&lt;main&gt;
+			Main content
+		&lt;/main&gt;
+		&lt;footer class="n-footer"&gt;
+			Footer
+		&lt;/footer&gt;
+	&lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
 								</div>
 								<h3>Options</h3>
 								<ul class="n-list">
 									<li>
-										<pre>.n-header-banner.n-viewport</pre> – full-height centered header and banner area <ul class="n-list">
-											<li>add
-												<pre>.n-push-up</pre> to balance at 1/3 height, instead of 1/2
-											</li>
-										</ul>
+										<pre>.n-viewport</pre> – full-height section
 									</li>
 									<li>Use
 										<pre>.n-section</pre> containers in
-										<pre>main</pre> to clear inner vertical margins
+										<pre>&lt;main&gt;</pre> to clear inner vertical margins
 									</li>
 									<li>
-										<pre>.n-header.n-fixed</pre> for fixed header on top on narrow screens (below 600px threshold)
+										<pre>header.n-fixed</pre> for fixed header on top on narrow screens (below 600px threshold)
 									</li>
 									<li>
-										<pre>body.n-sticky-footer</pre> for a sticky footer and vertical space taken by <b>main</b>.
+										<pre>body.n-sticky-footer</pre> for a sticky footer and vertical space taken by
+										<pre>&lt;main&gt;</pre>.
 									</li>
-									<li>Check the <b>Navigation</b> section for mobile burger nav.</li>
 									<li>
 										<pre>html.n-vertical-page</pre> blocks horizontal overflow.
 									</li>
@@ -561,7 +551,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="n-row">
+						<!-- <div class="n-row">
 							<div class="_1/1">
 								<h3>Grid with borders</h3>
 							</div>
@@ -623,7 +613,7 @@
 </pre>
 								</div>
 							</div>
-						</div>
+						</div> -->
 						<div class="n-row">
 							<div class="_1/1">
 								<h3>Right to left layout</h3>
@@ -1015,7 +1005,7 @@
 </pre>
 							</div>
 						</div>
-						<div class="_1/3">
+						<!-- <div class="_1/3">
 							<h2>Mobile navigation behind a burger</h2>
 							<div class="code">
 								<pre><code class="language-markup">&lt;header class="n-header--fixed-mobile n-header"&gt;
@@ -1036,7 +1026,7 @@
 </pre>
 							</div>
 							<p>The <b>header</b> fixed-positioning is optional</p>
-						</div>
+						</div> -->
 						<div class="_1/3">
 							<h2>Rich select navigation</h2>
 							<label>A rich select with links instead of buttons
@@ -1105,7 +1095,7 @@
 							<h2>Links</h2>
 							<p>Here is a <a href=#>first link</a>.</p>
 							<h2>Paragraph</h2>
-							<p>All elements except images are baseline-aligned with height divisible by the default line height. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							<p>All elements except images are baseline-aligned with height divisible by the default line height. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 						</div>
 						<div class="_1/3">
 							<h2>Height compensation according to line height</h2>
@@ -1169,11 +1159,12 @@
 								</div>
 							</div>
 							<div class="code">
-								<pre><code class="language-markup">&lt;div class="n-carousel__content"&gt;
-	&lt;div&gt;Slide 1&lt;/div&gt;
-	&lt;div&gt;Slide 2&lt;/div&gt;
-&lt;/div&gt;</code>
-</pre>
+								<pre><code class="language-markup">&lt;div class="n-carousel"&gt;
+	&lt;div class="n-carousel__content"&gt;
+		&lt;div&gt;Slide 1&lt;/div&gt;
+		&lt;div&gt;Slide 2&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
 							</div>
 						</div>
 						<div class="_1/2">
@@ -1201,11 +1192,12 @@
 							</div>
 
 							<div class="code">
-								<pre><code class="language-markup">&lt;div class="n-carousel__content n-carousel__content__top"&gt;
-	&lt;div&gt;Slide 1&lt;/div&gt;
-	&lt;div&gt;Slide 2&lt;/div&gt;
-&lt;/div&gt;</code>
-</pre>
+								<pre><code class="language-markup">&lt;div class="n-carousel n-carousel--index-start"&gt;
+	&lt;div class="n-carousel__content"&gt;
+		&lt;div&gt;Slide 1&lt;/div&gt;
+		&lt;div&gt;Slide 2&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
 							</div>
 						</div>
 						<div class="_1/2">

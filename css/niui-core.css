@@ -28,33 +28,13 @@ html.n-vertical-page body {
   height: auto;
 }
 
-.n-sticky-footer {
+body.n-sticky-footer {
   min-height: 100vh;
-  display: flex;
-  /* Sticky footer */
-  flex-direction: column;
-}
-.n-sticky-footer main {
-  flex-grow: 1;
-}
-
-.n-viewport {
-  height: 100vh;
-  height: -webkit-fill-available;
-}
-.n-viewport.n-header-banner {
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
 }
-.n-viewport.n-header-banner .n-banner {
-  flex-grow: 1;
-  justify-content: center;
-  flex-direction: column;
-  display: flex;
-}
-.n-viewport.n-header-banner.n-push-up:after {
-  content: "";
+body.n-sticky-footer main {
   flex-grow: 1;
 }
 
@@ -79,7 +59,7 @@ html.n-vertical-page body {
   position: static;
 }
 
-/* Element as a window to an image spanning viewpoert dimensions. iOS doesn't support it natively and requires div.fixed-bg__image */
+/* Element as a window to an image spanning viewport dimensions. iOS doesn't support it natively and requires div.fixed-bg__image */
 .n-fixed-bg {
   background-size: cover;
   background-position: center center;
@@ -111,6 +91,7 @@ html.n-vertical-page body {
     background-size: cover;
     background-position: center center;
     height: 100vh;
+    height: 100dvh;
     transform: translate3d(0, 0, 0);
   }
 }
@@ -131,9 +112,7 @@ a[href].span-relative-parent {
 
 .n-viewport {
   min-height: 100vh;
-  box-sizing: border-box;
-  overflow: auto;
-  position: relative;
+  min-height: 100dvh;
 }
 
 /* Narrow Screens */

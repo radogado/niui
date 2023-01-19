@@ -38,6 +38,10 @@ pre {
   overflow: auto;
 }
 
+li pre {
+  display: inline;
+}
+
 .n-carousel:not(.n-carousel--lightbox) > .n-carousel__content > * > :not(.n-carousel--overlay) {
   padding: 0 1rem;
   box-sizing: border-box;
@@ -220,7 +224,7 @@ _:future,
 }
 
 .n-list {
-  --nui-list-bg: aquamarine;
+  --nui-list-bg: #4888cb;
   --nui-list-color: darkmagenta;
 }
 
