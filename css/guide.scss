@@ -79,12 +79,6 @@ html {
   }
 }
 
-.demo .n-carousel.n-carousel--lightbox .n-carousel__content {
-  > * {
-    background: none;
-  }
-}
-
 .n-carousel--lightbox > .n-carousel__content > * {
   padding: 0;
   margin: 0;
@@ -111,6 +105,10 @@ html {
   &,
   .n-carousel__content > * {
     background: var(--nui-bg);
+
+    .n-carousel {
+      --nui-bg: white;
+    }
   }
 
   color: var(--nui-color);
@@ -171,7 +169,7 @@ code[class*="language-"] {
 
 .code {
   position: relative;
-  margin-bottom: 1.5em;
+  margin: 1.5em 0;
   display: inline-block;
   width: 100%;
 

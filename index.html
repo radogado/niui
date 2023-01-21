@@ -712,7 +712,7 @@
 							<nav class="n-nav">
 								<ul class="n-list n-list--inline n-big-text">
 									<li class="n-nav-current"> <a href=#grid>Grid</a> </li>
-									<li> <a href=#slider>Carousel</a> </li>
+									<li> <a href=#carousel>Carousel</a> </li>
 									<li> <a href=#form>Form</a> </li>
 								</ul>
 							</nav>
@@ -721,7 +721,7 @@
 								<pre><code class="language-markup">&lt;nav class="n-nav"&gt;
 	&lt;ul class="n-list--inline n-big-text"&gt;
 		&lt;li class="n-nav-current"&gt; &lt;a href="#grid"&gt;Grid&lt;/a&gt; &lt;/li&gt;
-		&lt;li&gt; &lt;a href="#slider"&gt;Carousel&lt;/a&gt; &lt;/li&gt;
+		&lt;li&gt; &lt;a href="#carousel"&gt;Carousel&lt;/a&gt; &lt;/li&gt;
 		&lt;li&gt; &lt;a href="#form"&gt;Form&lt;/a&gt; &lt;/li&gt;
 	&lt;/ul&gt;
 &lt;/nav&gt;</code>
@@ -1016,7 +1016,7 @@
 			&lt;nav class="n-nav"&gt;
 				&lt;ul class="n-list--inline"&gt;
 					&lt;li class="n-nav-current"&gt; &lt;a href="#grid" tabindex="0"&gt;Grid&lt;/a&gt; &lt;/li&gt;
-					&lt;li&gt; &lt;a href="#slider" tabindex="0"&gt;Carousel&lt;/a&gt; &lt;/li&gt;
+					&lt;li&gt; &lt;a href="#carousel" tabindex="0"&gt;Carousel&lt;/a&gt; &lt;/li&gt;
 					&lt;li&gt; &lt;a href="#form" tabindex="0"&gt;Form&lt;/a&gt; &lt;/li&gt;
 				&lt;/ul&gt;
 			&lt;/nav&gt;
@@ -1135,10 +1135,11 @@
 						</div>
 					</div>
 				</div>
-				<div id=slider>
+				<div id=carousel>
 					<div class="n-row">
 						<div class="_1/1">
 							<h2>Carousel</h2>
+							<p><a href="//nativecarousel.com">Full info on standalone component home page</a>.</p>
 						</div>
 						<div class="_1/2">
 							<h3>Standard</h3>
@@ -1223,11 +1224,12 @@
 								</div>
 							</div>
 							<div class="code">
-								<pre><code class="language-markup">&lt;div class="n-carousel__content n-carousel__content__vertical"&gt;
-	&lt;div&gt;Slide 1&lt;/div&gt;
-	&lt;div&gt;Slide 2&lt;/div&gt;
-&lt;/div&gt;</code>
-</pre>
+								<pre><code class="language-markup">&lt;div class="n-carousel n-carousel--vertical"&gt;
+	&lt;div class="n-carousel__content"&gt;
+		&lt;div&gt;Slide 1&lt;/div&gt;
+		&lt;div&gt;Slide 2&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
 							</div>
 						</div>
 						<div class="_1/2">
@@ -1253,11 +1255,12 @@
 								</div>
 							</div>
 							<div class="code">
-								<pre><code class="language-markup">&lt;div class="n-carousel__content n-carousel__content__vertical n-carousel__content__right"&gt;
-	&lt;div&gt;Slide 1&lt;/div&gt;
-	&lt;div&gt;Slide 2&lt;/div&gt;
-&lt;/div&gt;</code>
-</pre>
+								<pre><code class="language-markup">&lt;div class="n-carousel n-carousel--vertical n-carousel--index-end"&gt;
+	&lt;div class="n-carousel__content"&gt;
+		&lt;div&gt;Slide 1&lt;/div&gt;
+		&lt;div&gt;Slide 2&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
 							</div>
 						</div>
 						<div class="_1/2">
@@ -1283,13 +1286,12 @@
 								</div>
 							</div>
 							<div class="code">
-								<pre><code class="language-markup">&lt;div class="n-carousel n-pad"&gt;
+								<pre><code class="language-markup">&lt;div class="n-carousel n-carousel--controls-outside"&gt;
 	&lt;div class="n-carousel__content"&gt;
 		&lt;div&gt;Slide 1&lt;/div&gt;
 		&lt;div&gt;Slide 2&lt;/div&gt;
-	&lt;/div&gt;</code>
-&lt;/div&gt;</code>
-</pre>
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
 							</div>
 						</div>
 						<div class="_1/2">
@@ -1315,11 +1317,12 @@
 								</div>
 							</div>
 							<div class="code">
-								<pre><code class="language-markup">&lt;div class="n-carousel__content" data-peek="20%"&gt;
-	&lt;div&gt;Slide 1&lt;/div&gt;
-	&lt;div&gt;Slide 2&lt;/div&gt;
-&lt;/div&gt;</code>
-</pre>
+								<pre><code class="language-markup">&lt;div class="n-carousel n-carousel--peek"&gt;
+	&lt;div class="n-carousel__content"&gt;
+		&lt;div&gt;Slide 1&lt;/div&gt;
+		&lt;div&gt;Slide 2&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
 							</div>
 						</div>
 						<!-- <div class="_1/2">
@@ -1366,13 +1369,12 @@
 								</div>
 							</div>
 							<div class="code">
-								<pre><code class="language-markup">&lt;div class="n-carousel n-pad"&gt;
-	&lt;div class="n-carousel__content n-carousel__content__auto-height n-pad"&gt;
+								<pre><code class="language-markup">&lt;div class="n-carousel n-carousel--auto-height"&gt;
+	&lt;div class="n-carousel__content"&gt;
 		&lt;div&gt;Slide 1&lt;/div&gt;
 		&lt;div&gt;Slide 2&lt;/div&gt;
-	&lt;/div&gt;</code>
-&lt;/div&gt;</code>
-</pre>
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
 							</div>
 						</div>
 						<div class="_1/1">
@@ -1413,15 +1415,15 @@
 									<pre>&lt;div class="n-carousel__content" data-duration="1"&gt;</pre> in seconds. Default is <b>.2</b>.
 								</li>
 								<li>Detach the nav by adding an <b>id</b> to the Carousel and creating
-									<pre>&lt;div class="n-carousel__content--nav" data-for="slider-id"&gt;</pre> elsewhere
+									<pre>&lt;div class="n-carousel__content--nav" data-for="carousel-id"&gt;</pre> elsewhere
 								</li>
 								<li>URI with hash matching a slide id in a Carousel, auto slides to it.</li>
 								<li>
 									<pre>data-peek="20%"</pre> to peek at neighboring slides, where 20% becomes 20% horizontal padding
 								</li>
-								<li>
+								<!-- <li>
 									<pre>&lt;div class="n-carousel__content n-carousel__content__fade-overlap"&gt;</pre> to overlap the two slides while fading out/in
-								</li>
+								</li> -->
 							</ul>
 						</div>
 					</div>

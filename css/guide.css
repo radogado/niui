@@ -72,10 +72,6 @@ html {
   }
 }
 
-.demo .n-carousel.n-carousel--lightbox .n-carousel__content > * {
-  background: none;
-}
-
 .n-carousel--lightbox > .n-carousel__content > * {
   padding: 0;
   margin: 0;
@@ -104,6 +100,10 @@ html {
 .demo,
 .demo .n-carousel__content > * {
   background: var(--nui-bg);
+}
+.demo .n-carousel,
+.demo .n-carousel__content > * .n-carousel {
+  --nui-bg: white;
 }
 .demo.n-carousel.n-carousel--vertical:not(.n-carousel--auto-height), .demo.n-carousel.n-carousel--vertical:not(.n-carousel--auto-height) > .n-carousel__content {
   --max-height: 100%;
@@ -143,7 +143,7 @@ code[class*=language-] {
 
 .code {
   position: relative;
-  margin-bottom: 1.5em;
+  margin: 1.5em 0;
   display: inline-block;
   width: 100%;
 }
