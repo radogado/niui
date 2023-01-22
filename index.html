@@ -1392,6 +1392,25 @@
 									</div>
 								</div>
 							</div>
+							<div class="code">
+								<pre><code class="language-markup">&lt;div class="n-carousel" id="detached-carousel"&gt;
+	&lt;div class="n-carousel__content"&gt;
+		&lt;div&gt;Slide 1&lt;/div&gt;
+		&lt;div&gt;Slide 2&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;n-carousel__previous&quot; data-for=&quot;detached-carousel&quot;&gt;
+	&lt;button&gt;&lt;span&gt;Previous&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class=&quot;n-carousel__next&quot; data-for=&quot;detached-carousel&quot;&gt;
+	&lt;button&gt;&lt;span&gt;Next&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class=&quot;n-carousel__index&quot; data-for=&quot;detached-carousel&quot;&gt;
+	&lt;button&gt;&lt;span&gt;1&lt;/span&gt;&lt;/button&gt;
+	&lt;button&gt;&lt;span&gt;2&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+							</div>
 						</div>
 						<div class="n-center">
 							<div>
@@ -1412,14 +1431,14 @@
 							<h3>Options</h3>
 							<ul class="n-list">
 								<li>Slide duration
-									<pre>&lt;div class="n-carousel__content" data-duration="1"&gt;</pre> in seconds. Default is <b>.2</b>.
+									<pre>&lt;div class="n-carousel" data-duration="1"&gt;</pre> in seconds. Default is <pre>0.2</pre>.
 								</li>
-								<li>Detach the nav by adding an <b>id</b> to the Carousel and creating
-									<pre>&lt;div class="n-carousel__content--nav" data-for="carousel-id"&gt;</pre> elsewhere
-								</li>
-								<li>URI with hash matching a slide id in a Carousel, auto slides to it.</li>
+								<li>URI with hash matching a slide id in a carousel, auto slides to it.</li>
 								<li>
-									<pre>data-peek="20%"</pre> to peek at neighboring slides, where 20% becomes 20% horizontal padding
+									<pre>--peek: 20%</pre> to peek at neighboring slides, where 20% becomes 20% horizontal padding
+								</li>
+								<li>
+									<pre>.n-carousel.n-carousel--auto-slide</pre> auto slides the carousel. Use <pre>data-interval="4"</pre> to specify the interval between slides, in seconds.
 								</li>
 								<!-- <li>
 									<pre>&lt;div class="n-carousel__content n-carousel__content__fade-overlap"&gt;</pre> to overlap the two slides while fading out/in
