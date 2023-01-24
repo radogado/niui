@@ -288,7 +288,10 @@ _:future,
 
 .n-list {
   --nui-list-bg: #4888cb;
-  --nui-list-color: darkmagenta;
+
+  pre {
+    --nui-list-color: darkmagenta;
+  }
 }
 
 .n-lightbox__thumbnails {

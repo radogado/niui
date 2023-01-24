@@ -226,6 +226,8 @@ _:future,
 
 .n-list {
   --nui-list-bg: #4888cb;
+}
+.n-list pre {
   --nui-list-color: darkmagenta;
 }
 
