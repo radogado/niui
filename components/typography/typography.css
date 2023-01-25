@@ -5,7 +5,6 @@
   --nui-line-height: 1.5;
   --nui-line-height-em: calc(1rem * var(--nui-line-height));
   --nui-color: #333;
-  --bg: #fff;
 }
 
 .n-type {
@@ -14,7 +13,7 @@
   font-size: var(--nui-font-size, 16px);
   line-height: var(--nui-line-height);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.25px;
   /* Elements with double line-height */
 }
 .n-type h1,
