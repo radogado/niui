@@ -1477,13 +1477,16 @@
 								</div>
 							</div>
 							<div class="code">
-								<pre><code class="language-markup">&lt;div class="n-carousel__content n-tabs"&gt;
-	&lt;div&gt; ... &lt;/div&gt;
-	&lt;div data-tab-title="Tab 1"&gt; ... &lt;/div&gt;
-	&lt;div&gt; &lt;h2 class="n-tab-title"&gt;Tab title and content&lt;/h2&gt; ... &lt;/div&gt;
-	...
-&lt;/div&gt;</code>
-</pre>
+								<pre><code class="language-markup">&lt;div class="n-carousel n-carousel--tabs n-carousel--controls-outside"&gt;
+	&lt;div class="n-carousel__content"&gt;
+		&lt;div&gt; Tab 1 &lt;/div&gt;
+		&lt;div&gt; Tab 2 &lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;n-carousel__index&quot;&gt;
+		&lt;button&gt;&lt;span&gt;Tab 1&lt;/span&gt;&lt;/button&gt;
+		&lt;button&gt;&lt;span&gt;Tab 2&lt;/span&gt;&lt;/button&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
 							</div>
 						</div>
 						<div class="_1/2">
@@ -1511,11 +1514,16 @@
 								</div>
 							</div>
 							<div class="code">
-								<pre><code class="language-markup">&lt;div class="n-carousel__content n-carousel__content__top n-tabs n-carousel__content__auto-height"&gt;
-	&lt;div data-tab-title="Tab 1"&gt; ... &lt;/div&gt;
-	...
-&lt;/div&gt;</code>
-</pre>
+								<pre><code class="language-markup">&lt;div class="n-carousel n-carousel--tabs n-carousel--auto-height n-carousel--index-start n-carousel--controls-outside"&gt;
+	&lt;div class="n-carousel__content"&gt;
+		&lt;div&gt; Tab 1 &lt;/div&gt;
+		&lt;div&gt; Tab 2 &lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;n-carousel__index&quot;&gt;
+		&lt;button&gt;&lt;span&gt;Tab 1&lt;/span&gt;&lt;/button&gt;
+		&lt;button&gt;&lt;span&gt;Tab 2&lt;/span&gt;&lt;/button&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
 							</div>
 						</div>
 						<div class="_1/2">
@@ -1543,11 +1551,16 @@
 								</div>
 							</div>
 							<div class="code">
-								<pre><code class="language-markup">&lt;div class="n-carousel__content n-carousel__content__vertical n-tabs"&gt;
-	&lt;div data-tab-title="Tab 1"&gt; ... &lt;/div&gt;
-	...
-&lt;/div&gt;</code>
-</pre>
+								<pre><code class="language-markup">&lt;div class="n-carousel n-carousel--tabs n-carousel--vertical n-carousel--controls-outside"&gt;
+	&lt;div class="n-carousel__content"&gt;
+		&lt;div&gt; Tab 1 &lt;/div&gt;
+		&lt;div&gt; Tab 2 &lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;n-carousel__index&quot;&gt;
+		&lt;button&gt;&lt;span&gt;Tab 1&lt;/span&gt;&lt;/button&gt;
+		&lt;button&gt;&lt;span&gt;Tab 2&lt;/span&gt;&lt;/button&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
 							</div>
 						</div>
 						<div class="_1/2">
@@ -1575,11 +1588,16 @@
 								</div>
 							</div>
 							<div class="code">
-								<pre><code class="language-markup">&lt;div class="n-carousel__content n-carousel__content__vertical n-tabs n-carousel__content__right"&gt;
-	&lt;div data-tab-title="Tab 1"&gt; ... &lt;/div&gt;
-	...
-&lt;/div&gt;</code>
-</pre>
+								<pre><code class="language-markup">&lt;div class="n-carousel n-carousel--tabs n-carousel--vertical n-carousel--index-end n-carousel--controls-outside"&gt;
+	&lt;div class="n-carousel__content"&gt;
+		&lt;div&gt; Tab 1 &lt;/div&gt;
+		&lt;div&gt; Tab 2 &lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;n-carousel__index&quot;&gt;
+		&lt;button&gt;&lt;span&gt;Tab 1&lt;/span&gt;&lt;/button&gt;
+		&lt;button&gt;&lt;span&gt;Tab 2&lt;/span&gt;&lt;/button&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
 							</div>
 						</div>
 						<div class="_1/2">
@@ -1602,18 +1620,18 @@
 								</ul>
 							</div>
 							<div class="code">
-								<pre><code class="language-markup">&lt;div class="n-carousel__content n-tabs" id="detached-tabs"&gt;
-	&lt;div&gt; ... &lt;/div&gt;
-	&lt;div data-tab-title="Tab 1"&gt; ... &lt;/div&gt;
-	&lt;div&gt; &lt;h2 class="n-tab-title"&gt;Tab title and content&lt;/h2&gt; ... &lt;/div&gt;
-	...
+								<pre><code class="language-markup">&lt;div class=&quot;n-carousel n-carousel--tabs&quot; id=&quot;detached-tabs&quot;&gt;
+	&lt;div class="n-carousel__content"&gt;
+		&lt;div&gt; Tab 1 &lt;/div&gt;
+		&lt;div&gt; Tab 2 &lt;/div&gt;
+	&lt;/div&gt;
 &lt;/div&gt;
-
-&lt;div class="n-carousel__content--nav" data-for="detached-tabs"&gt;&lt;/div&gt;
-</code>
-</pre>
+&lt;div class=&quot;n-carousel__index n-carousel--tabs&quot; data-for=&quot;detached-tabs&quot;&gt;
+	&lt;button&gt;&lt;span&gt;Tab 1&lt;/span&gt;&lt;/button&gt;
+	&lt;button&gt;&lt;span&gt;Tab 2&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;</code></pre>
 							</div>
-							<div class="n-carousel__index" data-for="detached-tabs">
+							<div class="n-carousel__index n-carousel--tabs" data-for="detached-tabs">
 								<button><span>Tab 1</span></button>
 								<button><span>Tab 2</span></button>
 								<button><span>Tab 3</span></button>
@@ -1622,14 +1640,7 @@
 						<div class="_1/1">
 							<h3>Options</h3>
 							<ul class="n-list">
-								<li>Tab titles are taken from
-									<pre>data-tab-title</pre>,
-									<pre>.n-tab-title</pre> on a child or index by default
-								</li>
-								<li>
-									<pre>data-duration="2"</pre> for 2 seconds slide duration
-								</li>
-								<li>Pre-fill the nav and put it together with the <b>.n-carousel__content</b> inside <b>.n-carousel</b> for seamless loading.</li>
+								<li>This component inherits the carousel</li>
 							</ul>
 						</div>
 					</div>
