@@ -520,7 +520,7 @@ main .n-nav ul {
     }
   }
 
-  html:not([data-nui-js]) .n-fold.n-fold--mobile:not([aria-expanded]) .n-fold__content {
+  html:not([data-nui-js]) .n-accordion.n-accordion--mobile:not([aria-expanded]) .n-accordion__content {
     max-width: 100%;
   }
 }

@@ -1008,10 +1008,10 @@
 							<h2>Mobile navigation behind a burger</h2>
 							<div class="code">
 								<pre><code class="language-markup">&lt;header class="n-header--fixed-mobile n-header"&gt;
-	&lt;div class="n-fold n-fold--mobile"&gt;
-		&lt;button class="n-fold__label"&gt; &lt;span class="n-burger"&gt;&lt;/span&gt; &lt;/button&gt;
+	&lt;div class="n-accordion n-accordion--mobile"&gt;
+		&lt;button class="n-accordion__label"&gt; &lt;span class="n-burger"&gt;&lt;/span&gt; &lt;/button&gt;
 		&lt;input type="checkbox" class="n-trigger"&gt;
-		&lt;div class="n-fold__content"&gt;
+		&lt;div class="n-accordion__content"&gt;
 			&lt;nav class="n-nav"&gt;
 				&lt;ul class="n-list--inline"&gt;
 					&lt;li class="n-nav-current"&gt; &lt;a href="#grid" tabindex="0"&gt;Grid&lt;/a&gt; &lt;/li&gt;
@@ -1430,14 +1430,16 @@
 							<h3>Options</h3>
 							<ul class="n-list">
 								<li>Slide duration
-									<pre>&lt;div class="n-carousel" data-duration="1"&gt;</pre> in seconds. Default is <pre>0.2</pre>.
+									<pre>&lt;div class="n-carousel" data-duration="1"&gt;</pre> in seconds. Default is
+									<pre>0.2</pre>.
 								</li>
 								<li>URI with hash matching a slide id in a carousel, auto slides to it.</li>
 								<li>
 									<pre>--peek: 20%</pre> to peek at neighboring slides, where 20% becomes 20% horizontal padding
 								</li>
 								<li>
-									<pre>.n-carousel.n-carousel--auto-slide</pre> auto slides the carousel. Use <pre>data-interval="4"</pre> to specify the interval between slides, in seconds.
+									<pre>.n-carousel.n-carousel--auto-slide</pre> auto slides the carousel. Use
+									<pre>data-interval="4"</pre> to specify the interval between slides, in seconds.
 								</li>
 								<!-- <li>
 									<pre>&lt;div class="n-carousel__content n-carousel__content__fade-overlap"&gt;</pre> to overlap the two slides while fading out/in
@@ -2420,9 +2422,9 @@
 							<table class="n-table">
 								<thead>
 									<tr>
-										<td><button class="n-table-sort">First</button></td>
-										<td> <a><button class="n-table-sort">Second</button></a> </td>
-										<td> <a><button class="n-table-sort">Third</button></a> </td>
+										<td><button class="n-table__sort">First</button></td>
+										<td> <a><button class="n-table__sort">Second</button></a> </td>
+										<td> <a><button class="n-table__sort">Third</button></a> </td>
 									</tr>
 								</thead>
 								<tr>
@@ -2455,7 +2457,7 @@
 								<pre><code class="language-markup">&lt;table class="n-table"&gt;
 	&lt;thead&gt;
 		&lt;tr&gt;
-			&lt;td&gt;&lt;button class="n-table-sort"&gt;Head&lt;/button&gt&lt;/td&gt;
+			&lt;td&gt;&lt;button class="n-table__sort"&gt;Head&lt;/button&gt&lt;/td&gt;
 			...
 		&lt;/tr&gt;
 	&lt;/thead&gt;
@@ -2474,13 +2476,14 @@
 					<div class="n-row">
 						<div class="_1/1">
 							<h2>Accordion</h2>
+							<p><a href="//radogado.github.io/n-accordion/">Full info on standalone component home page</a>.</p>
 						</div>
 						<div>
 
 							<div class="n-accordion">
 
 								<input type="checkbox">
-								<div class="n-accordion__label"> <button> Accordion </button></div>
+								<h2 class="n-accordion__label"> <button> Accordion </button></h2>
 
 								<div class="n-accordion__content">
 
@@ -2493,38 +2496,37 @@
 							</div>
 
 							<div class="code">
-								<pre><code class="language-markup">&lt;div class="n-fold"&gt;
-	&lt;button class="n-fold__label"&gt; Label &lt;/button&gt;
-	&lt;input type="checkbox" class="n-trigger"&gt;
-	&lt;div class="n-fold__content"&gt;
-		&lt;p&gt; Content. &lt;/p&gt;
+								<pre><code class="language-markup">&lt;div class=&quot;n-accordion&quot;&gt;
+	&lt;input type=&quot;checkbox&quot;&gt;
+	&lt;h2 class=&quot;n-accordion__label&quot;&gt; &lt;button&gt; Accordion &lt;/button&gt;&lt;/h2&gt;
+	&lt;div class=&quot;n-accordion__content&quot;&gt;
+		...
 	&lt;/div&gt;
-&lt;/div&gt;</code>
-</pre>
+&lt;/div&gt;</code></pre>
 							</div>
 						</div>
 						<div>
-							<div class="n-accordion" aria-expanded="true">
+							<div class="n-accordion">
 								<input type="checkbox">
-								<div class="n-accordion__label"><button>Open by default</button></div>
+								<h2 class="n-accordion__label" aria-expanded="true">
+									<button> Open by default </button>
+								</h2>
 								<div class="n-accordion__content">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-									<p><a href="#">Link third</a>.</p>
+									<p> Content. </p>
 								</div>
 							</div>
 							<div class="code">
-								<pre><code class="language-markup">&lt;div class="n-fold" aria-expanded="true"&gt;
-	&lt;button class="n-fold__label"&gt; Label &lt;/button&gt;
-	&lt;input type="checkbox" class="n-trigger"&gt;
-	&lt;div class="n-fold__content"&gt;
-		&lt;p&gt; Content. &lt;/p&gt;
+								<pre><code class="language-markup">&lt;div class=&quot;n-accordion&quot;&gt;
+	&lt;input type=&quot;checkbox&quot;&gt;
+	&lt;h2 class=&quot;n-accordion__label&quot; aria-expanded=&quot;true&quot;&gt; &lt;button&gt; Accordion &lt;/button&gt;&lt;/h2&gt;
+	&lt;div class=&quot;n-accordion__content&quot;&gt;
+		...
 	&lt;/div&gt;
-&lt;/div&gt;</code>
-</pre>
+&lt;/div&gt;</code></pre>
 							</div>
 						</div>
 						<div>
-							<div class="n-accordion__group">
+							<div role="group">
 								<div class="n-accordion">
 									<input type="checkbox">
 									<div class="n-accordion__label"><button>Accordion 1</button></div>
@@ -2551,28 +2553,20 @@
 								</div>
 							</div>
 							<div class="code">
-								<pre><code class="language-markup">&lt;div class="n-accordion__group"&gt;
-
-	&lt;div class="n-fold"&gt;
-	
+								<pre><code class="language-markup">&lt;div role=&quot;group&quot;&gt;
+	&lt;div class="n-accordion"&gt;
 		...
-	
 	&lt;/div&gt;
-	
-	&lt;div class="n-fold"&gt;
-	
+	&lt;div class="n-accordion"&gt;
 		...
-	
 	&lt;/div&gt;
-	
 	...
-
-&lt;/div&gt;</code>
-</pre>
+&lt;/div&gt;</code></pre>
 							</div>
 						</div>
 						<div class="_1/1">
 							<div class="n-accordion">
+								<input type="checkbox">
 								<div class="n-accordion__label"><button>Nested Accordions</button></div>
 								<div class="n-accordion__content">
 									<div class="n-accordion">
@@ -2593,10 +2587,23 @@
 									</div>
 								</div>
 							</div>
+							<div class="code">
+								<pre><code class="language-markup">&lt;div class=&quot;n-accordion&quot;&gt;
+	&lt;input type=&quot;checkbox&quot;&gt;
+	&lt;h2 class=&quot;n-accordion__label&quot;&gt;
+		&lt;button&gt;Title&lt;/button&gt;
+	&lt;/h2&gt;
+	&lt;div class=&quot;n-accordion__content&quot;&gt;
+		&lt;div class=&quot;n-accordion&quot;&gt;
+			...
+		&lt;/div&gt;	
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+							</div>
 						</div>
 						<div class="_1/1">
 							<h2>Popin</h2>
-							<div class="n-accordion__popin" style="--duration: 1">
+							<div class="n-accordion__popin" style="--duration: .33">
 								<div class="n-accordion">
 									<div class="n-accordion__label"><button>1</button></div>
 									<div class="n-accordion__content">Content for 1</div>
@@ -2640,11 +2647,10 @@
 							</div>
 							<br>
 							<div class="code">
-								<pre><code class="language-markup">&lt;div class="n-accordion__popin"&gt;
-	&lt;div class="n-accordion"&gt;
-		&lt;summary&gt;1&lt;/summary&gt;
-		&lt;div&gt;Content for 1&lt;/div&gt;
-	&lt;/details&gt;
+								<pre><code class="language-markup">&lt;div class=&quot;n-accordion__popin&quot; role=&quot;group&quot;&gt;
+	&lt;div class=&quot;n-accordion&quot;&gt;
+		...
+	&lt;/div&gt;
 	...
 &lt;/div&gt;</code></pre>
 							</div>
@@ -2653,7 +2659,7 @@
 							<h3>Options</h3>
 							<ul class="n-list">
 								<li>Folded on mobile, always visible on desktop width
-									<pre>.n-fold.n-fold--mobile</pre>.
+									<pre>.n-accordion.n-accordion--mobile</pre>.
 								</li>
 							</ul>
 						</div>
@@ -2673,11 +2679,11 @@
 								</p>
 								<p>The tip will appear on the side of the tool with the most space available and won"t be affected by overflow: hidden around the tool.</p>
 								<div class="code">
-									<pre><code class="language-markup">&lt;span class="n-tool"&gt;
-	Tool label.
-	&lt;span class="n-tool__tip"&gt;Tip content.&lt;/span&gt;
-&lt;/span&gt;				</code>
-</pre>
+									<pre><code class="language-markup">&lt;span class=&quot;n-tool&quot;&gt;
+	&lt;span class=&quot;n-tool__label&quot;&gt;This text has a tooltip.&lt;/span&gt;
+	&lt;span class=&quot;n-tool__tip&quot;&gt;
+		...
+&lt;/span&gt;</code></pre>
 								</div>
 							</div>
 						</div>
@@ -3830,7 +3836,7 @@
 						<div>
 							<div>
 								<h2>Color scheme</h2>
-								<pre><code class="language-css">.n-carousel__content--arrow, .n-carousel__content--nav *, .n-tool:after, .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href], .n-fold > .n-fold__label, .n-nav--drop, .n-form, .n-accordion, .n-select__options {
+								<pre><code class="language-css">.n-carousel__content--arrow, .n-carousel__content--nav *, .n-tool:after, .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href], .n-accordion > .n-accordion__label, .n-nav--drop, .n-form, .n-accordion, .n-select__options {
 	
 	--nui-control-bg: lightcoral;
 	--nui-control-color: #fff;		

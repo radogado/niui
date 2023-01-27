@@ -5,7 +5,6 @@
   --nui-line-height: 1.5;
   --nui-line-height-em: calc(1rem * var(--nui-line-height));
   --nui-color: #333;
-  --bg: #fff;
 }
 
 .n-table {
@@ -25,11 +24,11 @@
   font-weight: bold;
   padding-bottom: var(--nui-line-height-em);
   font-size: 1.1em;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.3);
   text-align: start;
 }
-.n-table th button.n-table-sort,
-.n-table thead td button.n-table-sort {
+.n-table th button.n-table__sort,
+.n-table thead td button.n-table__sort {
   width: 100%;
   cursor: pointer;
   -webkit-appearance: none;
@@ -42,13 +41,13 @@
   color: inherit;
   user-select: none;
 }
-.n-table th button.n-table-sort:after,
-.n-table thead td button.n-table-sort:after {
+.n-table th button.n-table__sort:after,
+.n-table thead td button.n-table__sort:after {
   content: "⇳";
   margin-left: 0.5em;
 }
 .n-table tr:nth-child(2n+1) {
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.025);
 }
 .n-table tr,
 .n-table td,

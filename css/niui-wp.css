@@ -398,7 +398,7 @@ article {
 .n-header .logo {
   max-width: 480px;
 }
-.n-header .logo ~ .n-fold {
+.n-header .logo ~ .n-accordion {
   margin-top: 1em;
 }
 .n-header .logo div {
@@ -538,7 +538,7 @@ nav.n-nav.n-nav--drop li.current_page_item {
 }
 
 /*
-	.n-fold span.n-burger:before { // Workaround for the weirdest bug where the fallback value of the CSS variable disappears
+	.n-accordion span.n-burger:before { // Workaround for the weirdest bug where the fallback value of the CSS variable disappears
 
 	    --nui-control-color: #333;
 

@@ -5,7 +5,7 @@
 	width: 100%;
 	overflow: auto;
 	border-collapse: collapse;
-	
+
 	display: block;
 
 	td,
@@ -20,10 +20,10 @@
 		font-weight: bold;
 		padding-bottom: var(--nui-line-height-em);
 		font-size: 1.1em;
-		background: rgba(0, 0, 0, 0.1);
+		background: rgba(0, 0, 0, 0.3);
 		text-align: start; // RTL support
 
-		button.n-table-sort {
+		button.n-table__sort {
 			width: 100%;
 			cursor: pointer;
 			-webkit-appearance: none;
@@ -44,7 +44,7 @@
 	}
 
 	tr:nth-child(2n + 1) {
-		background: rgba(0, 0, 0, 0.1);
+		background: rgba(0, 0, 0, 0.025);
 	}
 
 	tr,
@@ -70,7 +70,7 @@
     scrollbar-highlight-color: transparent;
     scrollbar-shadow-color: transparent;
 */
-	
+
 
 	.n-table {
 		display: table;

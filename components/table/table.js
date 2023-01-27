@@ -12,7 +12,7 @@
 	const comparer = (idx, asc) => (a, b) => ((v1, v2) => (v1 !== "" && v2 !== "" && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)))(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
 	let init = (host) => {
 		host.querySelectorAll(".n-table:not([data-ready])").forEach((el) => {
-			el.querySelectorAll("thead td button.n-table-sort, th button.n-table-sort").forEach((button) => button.addEventListener("click", (e) => {
+			el.querySelectorAll("thead td button.n-table__sort, th button.n-table__sort").forEach((button) => button.addEventListener("click", (e) => {
 				let th = e.target.closest("th") || e.target.closest("td");
 				const tbody = th.closest("table").querySelector("tbody");
 				Array.from(tbody.querySelectorAll("tr")).sort(comparer(Array.from(th.parentNode.children).indexOf(th), toggleSort(th))).forEach((tr) => tbody.appendChild(tr));
