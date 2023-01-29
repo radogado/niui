@@ -2693,6 +2693,7 @@
 					<div class="n-row">
 						<div class="_1/1">
 							<h2> Modal Window </h2>
+							<a href="//radogado.github.io/n-modal/">Full info on standalone component home page</a>
 						</div>
 						<div>
 							<p><a href="external.html#content" class="n-modal-link">Open a modal window inside this <span>tab</span></a>.</p>
@@ -2715,7 +2716,7 @@
 						</div>
 -->
 						<div>
-							<p><a href="external.html#content" class="n-modal-link n-modal--rounded n-modal--shadow" data-anim='[{ "opacity": 0 }, { "opacity": 1 }]'>Open a modal window with custom animation</a>.</p>
+							<p><a href="external.html#content" class="n-modal-link" data-anim='[{ "opacity": 0 }, { "opacity": 1 }]'>Open a modal window with custom animation</a>.</p>
 							<div class="code">
 								<pre><code class="language-markup">&lt;a href="external.html#content" class="n-modal-link" data-anim="0% { opacity: 0; } 100% { opacity: 1; }"&gt;Open a modal window with custom animation.&lt;/a&gt;</code>
 </pre>
@@ -2724,32 +2725,9 @@
 						<div>
 							<p><a href="external.html#content" class="n-modal-link n-modal--full">Full modal window</a>.</p>
 							<div class="code">
-								<pre><code class="language-markup">&lt;a href="external.html#content" class="n-modal-link limited"&gt;Open a modal window here.&lt;/a&gt;</code>
+								<pre><code class="language-markup">&lt;a href="external.html#content" class="n-modal-link n-modal--full"&gt;Open a modal window here.&lt;/a&gt;</code>
 </pre>
 							</div>
-						</div>
-						<div class="_1/1">
-							<h3>Options</h3>
-							<ul class="n-list">
-								<li>Open a modal window with any content using
-									<pre>nui.componentModal.openModal("Any content");</pre>
-								</li>
-								<li>Modals with
-									<pre>id</pre> matching the URI hash are opened automatically
-								</li>
-								<li>
-									<pre>#content</pre> is recommended to avoid HTML head parts
-								</li>
-								<li>
-									<pre>nui.componentModal.openModal(HTML, "0% { … } 100% { … }")</pre> for custom animation, automatically reversed on close
-								</li>
-								<li>
-									<pre>a.n-modal-link[data-anim]</pre> parameter specifies custom animation
-								</li>
-								<li>
-									<pre>a.n-modal-link.n-modal--full</pre> for full width/height modal window
-								</li>
-							</ul>
 						</div>
 					</div>
 				</div>
@@ -2766,8 +2744,7 @@
 								<br>
 								<div class="code">
 									<pre><code class="language-markup">&lt;a href="#" class="n-btn"&gt;Small button&lt;/a&gt;
-&lt;button class="n-btn" disabled&gt;Disabled button&lt;/button&gt;</code>
-</pre>
+&lt;button class="n-btn" disabled&gt;Disabled button&lt;/button&gt;</code></pre>
 								</div>
 								<br>
 							</div>
@@ -2778,8 +2755,7 @@
 								<a href=# class="n-btn n-btn--big">Big button</a>
 								<br>
 								<div class="code">
-									<pre><code class="language-markup">&lt;a href="#" class="n-btn n-btn--big"&gt;Big button&lt;/a&gt;</code>
-</pre>
+									<pre><code class="language-markup">&lt;a href="#" class="n-btn n-btn--big"&gt;Big button&lt;/a&gt;</code></pre>
 								</div>
 								<br>
 							</div>
@@ -2794,14 +2770,14 @@
 							<div>
 								<h3>Groups of buttons</h3>
 								<p>Needed for proper spacing when wrapped</p>
-								<div class="n-btn__group">
+								<div class="n-btn__group" role="group">
 									<a href="#home" class="n-btn">Features</a>
 									<a href="#" class="n-btn">Showcase</a>
 									<a href="guide/" class="n-btn">Guide</a>
 									<a href="//github.com/radogado/niui" class="n-btn">Get it from GitHub</a>
 								</div>
 								<br>
-								<div class="n-btn__group">
+								<div class="n-btn__group" role="group">
 									<a href="#home" class="n-btn--big n-btn">Features</a>
 									<a href="#" class="n-btn--big n-btn">Showcase</a>
 									<a href="guide/" class="n-btn--big n-btn">Guide</a>
@@ -2809,8 +2785,7 @@
 								</div>
 								<br>
 								<div class="code">
-									<pre><code class="language-markup">&lt;div class="n-btn__group"&gt; ... &lt;/div&gt;</code>
-</pre>
+									<pre><code class="language-markup">&lt;div class="n-btn__group" role="group"&gt; ... &lt;/div&gt;</code></pre>
 								</div>
 								<br>
 							</div>
@@ -2822,8 +2797,7 @@
 								<a href="#" class="n-btn n-btn--ripple n-btn--big">Ripple</a>
 								<br>
 								<div class="code">
-									<pre><code class="language-markup">&lt;div class="n-btn__group"&gt; ... &lt;/div&gt;</code>
-						</pre>
+									<pre><code class="language-markup">&lt;a href="#" class="n-btn n-btn--ripple"&gt;Ripple button&lt;/a&gt;</code></pre>
 								</div>
 								<br>
 							</div>
@@ -2832,8 +2806,7 @@
 							<h3>Options</h3>
 							<ul class="n-list">
 								<li>Both
-									<pre>&lt;a href=# class="n-btn"&gt;</pre> and
-									<pre>&lt;button class=n-btn&gt;</pre> supported.
+									<pre>&lt;a href="#" class="n-btn"&gt;</pre> and <pre>&lt;button class="n-btn"&gt;</pre> supported.
 								</li>
 							</ul>
 						</div>

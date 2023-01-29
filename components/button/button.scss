@@ -35,7 +35,7 @@ a.n-btn[href],
   user-select: none;
   border-radius: 0;
 
-  &:hover {
+  &:not([disabled]):hover {
     background-color: #eee;
     color: #333;
   }
