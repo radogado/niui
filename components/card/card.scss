@@ -3,15 +3,15 @@
 
 .n-card {
 	margin: 1em 0;
-	--card-bg: #{rgba(0, 0, 0, 0.1)};
-	background: var(--card-bg, rgba(0, 0, 0, 0.1));
+	--nui-card-bg: #{rgba(0, 0, 0, 0.1)};
+	background: var(--nui-card-bg, rgba(0, 0, 0, 0.1));
 
 	> * {
 		padding: 1em;
 	}
 
 	&__content {
-		background: var(--card-bg);
+		background: var(--nui-card-bg);
 
 		p {
 			margin: 0.75em 0;
@@ -33,7 +33,7 @@
 		margin: 0;
 	}
 
-	&__head.n-card--image {
+	&__head.n-card__head--image {
 		background-position: center center;
 		background-size: cover;
 		background-repeat: no-repeat;

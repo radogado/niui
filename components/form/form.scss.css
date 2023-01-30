@@ -10,7 +10,7 @@
 
 .n-form {
   padding: var(--nui-line-height-em) 0;
-  --placeholder_color: #aaa;
+  --nui-placeholder-color: #aaa;
 }
 .n-form * {
   box-sizing: border-box;
@@ -22,8 +22,8 @@
   vertical-align: middle;
 }
 .n-form ::-webkit-input-placeholder {
-  color: var(--placeholder_color);
-  -webkit-text-fill-color: var(--placeholder_color);
+  color: var(--nui-placeholder-color);
+  -webkit-text-fill-color: var(--nui-placeholder-color);
 }
 .n-form input[type=submit],
 .n-form button[type=submit],

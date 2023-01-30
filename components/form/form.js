@@ -43,7 +43,7 @@
 
   function toggleConditionalFieldset(e) {
     var el = e.target;
-    var fieldset = el.closest(".n-form__condition").nextElementSibling;
+    var fieldset = document.querySelector(`fieldset#${el.closest(".n-form__condition").dataset.for}`) || el.closest(".n-form__condition").nextElementSibling;
     var attribute = "disabled";
     if (el.checked) {
       fieldset.removeAttribute(attribute);

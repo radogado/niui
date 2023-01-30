@@ -2779,7 +2779,8 @@
 							<h3>Options</h3>
 							<ul class="n-list">
 								<li>Both
-									<pre>&lt;a href="#" class="n-btn"&gt;</pre> and <pre>&lt;button class="n-btn"&gt;</pre> supported.
+									<pre>&lt;a href="#" class="n-btn"&gt;</pre> and
+									<pre>&lt;button class="n-btn"&gt;</pre> supported.
 								</li>
 							</ul>
 						</div>
@@ -2845,7 +2846,7 @@
 							<form class="n-form" action=https://docs.google.com/forms/d/1K55MbIgqFWkYzBOOe2-UfSpKPchOUNxhSxgCXz4YG8k/formResponse target=_blank method=post>
 								<label>
 									<span>Submit this to Google Forms</span>
-									<input type=text name=entry.1773453675 id=entry_1773453675>
+									<input type="text" name=entry.1773453675 id=entry_1773453675>
 								</label>
 								<input type=submit value="Submit">
 							</form>
@@ -2854,7 +2855,7 @@
 							<form action=# method=post target=_blank class="n-form--mast n-form">
 								<label class=n-form--mandatory>
 									<span>Excepteur sint occaecat cupidatat non proident</span>
-									<input name=last_name type=text placeholder="What is your name?">
+									<input name=last_name type="text" placeholder="What is your name?">
 								</label>
 								<label>
 									<span>Country of residence (rich select)</span>
@@ -3181,7 +3182,7 @@
 							<form action=# method=post target=_blank novalidate class="n-form n-form--wide">
 								<label class=n-form--mandatory>
 									<span>Excepteur sint occaecat cupidatat non proident</span>
-									<input name=last_name id=last_name type=text placeholder="What is your name?">
+									<input name=last_name id=last_name type="text" placeholder="What is your name?">
 								</label>
 								<label class=n-form--mandatory>
 									<span>Number input (5 digits)</span>
@@ -3259,12 +3260,12 @@
 									<span>Telephone</span>
 									<input name=phone type=tel placeholder="Your phone number.">
 								</label>
-								<div class="n-form__check n-form__condition">
+								<div class="n-form__check n-form__condition" data-for="conditional_fieldset">
 									<span>Open disabled fieldset below</span>
 									<label>
 										<input name="checkbox" id="checkbox" type="checkbox"> <b class="n-form__check-icon"></b> Text to check alignment with checkbox. </label>
 								</div>
-								<fieldset disabled="disabled">
+								<fieldset disabled="disabled" id="conditional_fieldset">
 									<legend>Datalist examples</legend>
 									<input type="text" list="countries" placeholder="Datalist text" aria-label="Datalist">
 									<datalist id="countries">
@@ -3383,9 +3384,9 @@
 								</div>
 								<div class="_1/3">
 									<h4>Rich select</h4>
-									
+
 									<p><a href="//radogado.github.io/n-select/">Full info on standalone component home page</a>.</p>
-									
+
 									<div class="code">
 										<pre><code class="language-markup">&lt;label&gt;
 	&lt;span&gt;Label&lt;/span&gt;
@@ -3405,7 +3406,7 @@
 									</div>
 								</div>
 								<div class="_1/3">
-									<h4>Optional sections</h4>
+									<h4>Optional section</h4>
 									<div class="code">
 										<pre><code class="language-markup">&lt;div class="n-form__check n-form__condition"&gt;
 	&lt;span&gt;Enable fieldset below&lt;/span&gt;
@@ -3416,16 +3417,22 @@
 &lt;fieldset disabled&gt;
 	...
 &lt;/fieldset&gt;</code></pre>
+
 									</div>
+									<p>Optional fieldsets are ignored by validation when disabled.</p>
 								</div>
 							</div>
 							<h3>Options</h3>
 							<ul class="n-list">
+								<li>
+									<pre>.n-form__condition</pre>'s optional
+									<pre>fieldset</pre> is selected either by a
+									<pre>data-for/id</pre> match or as a following sibling.
+								</li>
 								<li>Validation enabled by
 									<pre>&lt;label class="n-form--mandatory"&gt;</pre>
 								</li>
-								<li>Optional fieldsets are ignored by validation when disabled.</li>
-								<li>Set the placeholder colour with CSS variable <b>--placeholder_color</b>.</li>
+								<li>Set the placeholder colour with CSS variable <b>--nui-placeholder-color</b>.</li>
 								<li>
 									<pre>&lt;form class="sticky-submit"&gt;</pre> to position the submit button absolutely on the right/center.
 								</li>
@@ -3435,16 +3442,12 @@
 								<li>
 									<pre>data-digits=x</pre> – required digits in a number input
 								</li>
-								<li>The rich select can be used outside of a form without label. It can also contain links instead of option buttons.</li>
-								<li>Rich select with shadow via <b>.n-select__options.n-select--shadow</b>.</li>
-								<li>Rich select theme CSS variables: <b>--nui-control-color</b>, <b>--nui-control-bg</b>, <b>--control-selected-color</b>, <b>--control-selected-bg</b>, <b>--nui-control-active-color</b>, <b>--nui-control-active-bg</b>, <b>--nui-control-highlight</b>.</li>
+								<li>The rich select can be used outside of a form without label. It can also contain links instead of option buttons. <a href="//radogado.github.io/n-select/">More info</a>. </li>
 							</ul>
 							<h3>Colors for input and textarea</h3>
 							<pre><code class="language-css">.n-form input, .n-form textarea {
-	
 	--nui-input-color: darkslateblue;
 	--nui-input-bg: aliceblue;	
-	
 }</code></pre>
 						</div>
 					</div>
@@ -3524,7 +3527,7 @@
 						<div>
 							<h3>Card with headline and image</h3>
 							<div class="n-card">
-								<div class="n-card__head n-card--image" style="background-image: url(images/DSC_4225.jpg)">
+								<div class="n-card__head n-card__head--image" style="background-image: url(images/DSC_4225.jpg)">
 									<h3>Title</h3>
 								</div>
 								<div class="n-card__content">
@@ -3534,7 +3537,7 @@
 							</div>
 							<div class="code">
 								<pre><code class="language-markup">&lt;div class="n-card"&gt;
-	&lt;div class="n-card__head n-card--image" style="background-image: url(image.jpg)"&gt; Headline &lt;/div&gt;
+	&lt;div class="n-card__head n-card__head--image" style="background-image: url(image.jpg)"&gt; Headline &lt;/div&gt;
 	&lt;div class="n-card__content"&gt; Content &lt;/div&gt;
 &lt;/div&gt;</code></pre>
 							</div>
@@ -3543,7 +3546,7 @@
 							<h3>Options</h3>
 							<ul class="n-list">
 								<li>CSS variable
-									<pre>--card-bg</pre> specifies the background colour.
+									<pre>--nui-card-bg</pre> specifies the background colour.
 								</li>
 							</ul>
 						</div>
@@ -3564,7 +3567,7 @@
 &lt;/div&gt;</code></pre>
 									</div>
 									<div style="min-height: 100vh"></div>
-									<p>takes up the full window and is visible only through the current section. Not fixed on IE/Edge.</p>
+									<p>takes up the full window and is visible only through the current section.</p>
 									<br><br><br>
 								</div>
 							</div>

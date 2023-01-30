@@ -15,11 +15,11 @@
     vertical-align: middle;
   }
 
-  --placeholder_color: #aaa;
+  --nui-placeholder-color: #aaa;
 
   ::-webkit-input-placeholder {
-    color: var(--placeholder_color);
-    -webkit-text-fill-color: var(--placeholder_color);
+    color: var(--nui-placeholder-color);
+    -webkit-text-fill-color: var(--nui-placeholder-color);
   }
 
   input[type="submit"],
@@ -291,6 +291,10 @@
       inset-inline-start: auto;
       inset-inline-end: 0;
     }
+
+    &:has(fieldset):before {
+      top: -0.25rem;
+    }
   }
 
   &--alert {
@@ -483,6 +487,17 @@
       width: 100%;
       border: none;
       margin: 0 0 var(--nui-line-height-em) 0;
+    }
+
+    &:not(.sticky-submit) fieldset > {
+
+      input:not([type="checkbox"]):not([type="radio"]),
+      textarea,
+      select {
+        &:last-of-type {
+          margin: 0;
+        }
+      }
     }
 
     .n-form__check,

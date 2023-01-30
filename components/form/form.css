@@ -9,7 +9,7 @@
 
 .n-form {
   padding: var(--nui-line-height-em) 0;
-  --placeholder_color: #aaa;
+  --nui-placeholder-color: #aaa;
 }
 .n-form * {
   box-sizing: border-box;
@@ -21,8 +21,8 @@
   vertical-align: middle;
 }
 .n-form ::-webkit-input-placeholder {
-  color: var(--placeholder_color);
-  -webkit-text-fill-color: var(--placeholder_color);
+  color: var(--nui-placeholder-color);
+  -webkit-text-fill-color: var(--nui-placeholder-color);
 }
 .n-form input[type=submit],
 .n-form button[type=submit],
@@ -253,6 +253,9 @@
   inset-inline-start: auto;
   inset-inline-end: 0;
 }
+.n-form--mandatory:has(fieldset):before {
+  top: -0.25rem;
+}
 .n-form--alert span,
 .n-form--alert p {
   background: #666;
@@ -407,6 +410,11 @@
   width: 100%;
   border: none;
   margin: 0 0 var(--nui-line-height-em) 0;
+}
+.n-form--wide:not(.sticky-submit) fieldset > input:not([type=checkbox]):not([type=radio]):last-of-type,
+.n-form--wide:not(.sticky-submit) fieldset > textarea:last-of-type,
+.n-form--wide:not(.sticky-submit) fieldset > select:last-of-type {
+  margin: 0;
 }
 .n-form--wide .n-form__check label input[type=checkbox],
 .n-form--wide .n-form__check label input[type=radio],
