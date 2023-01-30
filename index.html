@@ -3706,22 +3706,29 @@
 								<h2>Dynamically add a component</h2>
 								<br>
 								<div class="code">
-									<pre><code class="language-markup">nui.addComponent(host, "&lt;div class=n-carousel__content&gt;&lt;div&gt;New&lt;/div&gt;&lt;div&gt;Carousel&lt;/div&gt;&lt;/div&gt;");</code></pre>
+									<pre><code class="language-markup">nui.addComponent(host, `&lt;div class=&quot;n-carousel&quot;&gt;
+	&lt;div class=&quot;n-carousel__next&quot;&gt;
+		&lt;button&gt;&lt;span&gt;Next&lt;/span&gt;&lt;/button&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;n-carousel__previous&quot;&gt;
+		&lt;button&gt;&lt;span&gt;Previous&lt;/span&gt;&lt;/button&gt;
+	&lt;/div&gt;&lt;div class="n-carousel__content"&gt;&lt;div&gt;New&lt;/div&gt;&lt;div&gt;Carousel&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;`);</code></pre>
 								</div>
 								<br>
 								<div class="n-row">
 									<form class="n-form">
-										<textarea id=component-playground rows="10" style="width: 100%" aria-label="Component playground">
-<div class="n-carousel">
+										<textarea id=component-playground style="width: 100%; min-height: calc(var(--nui-line-height-em, 1em) * 10);" aria-label="Component playground">
+<div class="n-carousel n-carousel--controls-outside">
 	<div class="n-carousel__next">
 		<button><span>Next</span></button>
 	</div>
-	<div class=n-carousel__content>
-		<div>New</div>
-		<div>Carousel</div>
-	</div>
 	<div class="n-carousel__previous">
 		<button><span>Previous</span></button>
+	</div>
+	<div class="n-carousel__content">
+		<div>New</div>
+		<div>Carousel</div>
 	</div>
 </div>
 </textarea>
@@ -3729,10 +3736,14 @@
 										<button class="n-btn" onclick="nui.addComponent(document.getElementById('sandbox'), this.parentNode.querySelector('textarea').value); return false;">Add the above component</button>
 									</form>
 									<form class="n-form">
-										<textarea id=component-playground2 rows="10" style="width: 100%" aria-label="Component playground 2">
-<div class=n-accordion>
-	<div class=n-accordion__label><button> Label </button></div>
-	<div class=n-accordion__content><p> Content. </p><p> Content. </p><p> Content. </p></div>
+										<textarea id=component-playground2 style="width: 100%;  min-height: calc(var(--nui-line-height-em, 1em) * 10);" aria-label="Component playground 2">
+<div class="n-accordion">
+	<div class="n-accordion__label">
+		<button> Label </button>
+	</div>
+	<div class="n-accordion__content">
+		<p> Content. </p>
+	</div>
 </div>
 </textarea>
 										<br>
@@ -3763,41 +3774,22 @@
 						<div>
 							<div>
 								<h2>Color scheme</h2>
-								<pre><code class="language-css">.n-carousel__content--arrow, .n-carousel__content--nav *, .n-tool:after, .n-btn, .n-form input[type=submit], .n-form button[type=submit], .n-form button[type=reset], button.n-btn, a.n-btn[href], .n-type a.n-btn[href], .n-accordion > .n-accordion__label, .n-nav--drop, .n-form, .n-accordion, .n-select__options {
-	
+								<pre><code class="language-css">#my-component {
 	--nui-control-bg: lightcoral;
 	--nui-control-color: #fff;		
 	--nui-control-active-bg: #cc7c7e;
 	--nui-control-active-color: #eee;
 	--nui-control-highlight: #bf2a2a;
-
-}
-
-nav li[aria-haspopup][aria-expanded="true"], nav li[aria-haspopup]:hover {
-	
-    transition: background-color .2s ease-in-out;
-    --nui-control-bg: #d47171;
-
-}
-
-nav li li[aria-haspopup][aria-expanded="true"], nav li li[aria-haspopup]:hover {
-	
-    --nui-control-bg: #b76262;
-
 }
 
 .n-form input, .n-form textarea {
-	
 	--nui-input-color: darkslateblue;
 	--nui-input-bg: aliceblue;	
-	
 }
 
 .n-list {
-	
     --nui-list-bg: aquamarine;
     --nui-list-color: darkmagenta;
-	
 }</code></pre>
 							</div>
 						</div>
