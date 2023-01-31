@@ -363,6 +363,7 @@
       color: transparent;
       text-indent: -100%;
       padding: 0;
+      opacity: 0; // Hide iPad thumbnail, because it appears in a random position
 
       &:focus + span {
         outline: auto;

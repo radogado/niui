@@ -310,6 +310,7 @@
   color: transparent;
   text-indent: -100%;
   padding: 0;
+  opacity: 0;
 }
 .n-form__file input[type=file]:focus + span {
   outline: auto;
