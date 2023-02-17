@@ -50,7 +50,7 @@
     }
   }
 
-  .n-nav-current a[href] {
+  a[aria-current] {
     text-decoration: none;
     opacity: 0.7;
   }
@@ -64,26 +64,20 @@
   }
 }
 
-@supports (--a: 1) {
-  .n-nav--scroll {
-    a {
-      padding: 0;
-    }
-
-    > ul {
-      overflow: auto;
-      max-width: 100%;
-      transform: translate3d(0, 0, 0); // Safari macOS bug fix when using scrollbars: Not working initially.
-    }
-
-    ul li {
-      padding: calc(var(--nui-line-height-em) / 2);
-    }
+.n-nav--scroll {
+  a {
+    padding: 0;
   }
-}
 
-main .n-nav ul {
-  padding-inline-start: 0;
+  > ul {
+    overflow: auto;
+    max-width: 100%;
+    transform: translate3d(0, 0, 0); // Safari macOS bug fix when using scrollbars: Not working initially.
+  }
+
+  ul li {
+    padding: calc(var(--nui-line-height-em) / 2);
+  }
 }
 
 .n-nav--drop {

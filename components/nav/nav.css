@@ -5,7 +5,6 @@
   --nui-line-height: 1.5;
   --nui-line-height-em: calc(1rem * var(--nui-line-height));
   --nui-color: #333;
-  --bg: #fff;
 }
 
 .n-nav {
@@ -47,7 +46,7 @@
 .n-nav .n-big-text a {
   padding: 0 0.5em;
 }
-.n-nav .n-nav-current a[href] {
+.n-nav a[aria-current] {
   text-decoration: none;
   opacity: 0.7;
 }
@@ -58,21 +57,16 @@
   display: inline-flex;
 }
 
-@supports (--a: 1) {
-  .n-nav--scroll a {
-    padding: 0;
-  }
-  .n-nav--scroll > ul {
-    overflow: auto;
-    max-width: 100%;
-    transform: translate3d(0, 0, 0);
-  }
-  .n-nav--scroll ul li {
-    padding: calc(var(--nui-line-height-em) / 2);
-  }
+.n-nav--scroll a {
+  padding: 0;
 }
-main .n-nav ul {
-  padding-inline-start: 0;
+.n-nav--scroll > ul {
+  overflow: auto;
+  max-width: 100%;
+  transform: translate3d(0, 0, 0);
+}
+.n-nav--scroll ul li {
+  padding: calc(var(--nui-line-height-em) / 2);
 }
 
 .n-nav--drop {
