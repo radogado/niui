@@ -63,7 +63,7 @@
 				<button><span>Color scheme</span></button>
 			</div>
 			<div class="n-carousel__content">
-				<div id=home>
+				<div id="home">
 					<div class="n-row">
 						<div class="_1/3 n-middle- n-center-">
 							<div>
@@ -145,18 +145,21 @@
 						</div>
 					</div>
 				</div>
-				<div id=npm>
+				<div id="usage">
 					<div>
 						<div class="n-row">
 							<div>
-								<h2>Get <a href=dist/niui.min.css download>niui.min.css</a>, <a href=dist/niui.min.js download>niui.min.js</a> and <a href=dist/index.html download>index.html</a> and edit the latter.</h2>
+								<h2>Get <a href=dist/niui.min.css download>niui.min.css</a><br> <a href=dist/niui.min.js download>niui.min.js</a><br> and <a href=dist/index.html download>index.html</a><br> and edit the latter.</h2>
 								<h2>Or install with NPM and include the niui files</h2>
 								<div class=code>
-									<pre><code class="language-js">npm install --save-dev niui-npm</code></pre>
+									<pre><code class="language-js">npm i niui-npm</code></pre>
 								</div>
 								<br>
 								<div class=code>
-									<pre><code class="language-js">&lt;link rel=&quot;styleSheet&quot; href=&quot;./node_modules/niui-npm/dist/niui.min.css&quot; type=&quot;text/css&quot;&gt;</code></pre>
+									<pre><code class="language-markup">&lt;link rel=&quot;styleSheet&quot; href=&quot;./node_modules/niui-npm/dist/niui.min.css&quot; type=&quot;text/css&quot;&gt;</code></pre>
+								</div>
+								<div class=code>
+									<pre><code class="language-markup">&lt;script src=&quot;./node_modules/niui-npm/dist/niui.min.css&quot; type=&quot;module&quot;&gt;&lt;/script&gt;</code></pre>
 								</div>
 								<div class=code>
 									<pre><code class="language-js">import './node_modules/niui-npm/dist/niui.min.js';</code></pre>
@@ -183,7 +186,7 @@
 	&lt;/head&gt;
 	&lt;body&gt;
 		&lt;main&gt;
-
+			Content
 		&lt;/main&gt;
 	&lt;/body&gt;
 &lt;/html&gt;
@@ -204,7 +207,7 @@
 			Header
 		&lt;/header&gt;
 		&lt;main&gt;
-			Main content
+			Content
 		&lt;/main&gt;
 		&lt;footer class="n-footer"&gt;
 			Footer
@@ -216,14 +219,11 @@
 								<h3>Options</h3>
 								<ul class="n-list">
 									<li>
-										<pre>.n-viewport</pre> – full-height section
+										<pre>.n-viewport</pre> – full viewport height section
 									</li>
 									<li>Use
 										<pre>.n-section</pre> containers in
 										<pre>&lt;main&gt;</pre> to clear inner vertical margins
-									</li>
-									<li>
-										<pre>header.n-fixed</pre> for fixed header on top on narrow screens (below 600px threshold)
 									</li>
 									<li>
 										<pre>body.n-sticky-footer</pre> for a sticky footer and vertical space taken by
@@ -238,7 +238,7 @@
 						</div>
 					</div>
 				</div>
-				<div id=grid>
+				<div id="grid">
 					<div>
 						<div class="n-row">
 							<div class="_1/1">
@@ -544,7 +544,7 @@
 								</div>
 							</div>
 						</div>
-						<!-- <div class="n-row">
+						<div class="n-row">
 							<div class="_1/1">
 								<h3>Grid with borders</h3>
 							</div>
@@ -604,7 +604,7 @@
 &lt;/div&gt;</code></pre>
 								</div>
 							</div>
-						</div> -->
+						</div>
 						<div class="n-row">
 							<div class="_1/1">
 								<h3>Right to left layout</h3>
@@ -663,7 +663,7 @@
 						</div>
 					</div>
 				</div>
-				<div id=nav>
+				<div id="nav">
 					<div class="n-row">
 						<div class=_1/1>
 							<h2>Navigation</h2>
@@ -1045,7 +1045,7 @@
 						</div>
 					</div>
 				</div>
-				<div id=typography>
+				<div id="typography">
 					<div class="n-row">
 						<div class="_1/1">
 							<h2>For niui typography features like baseline alignment, wrap the below elements inside an <b>.n-type</b> container</h2>
@@ -1093,7 +1093,7 @@
 						</div>
 					</div>
 				</div>
-				<div id=aspect-ratio id=aspect-ratio>
+				<div id=aspect-ratio>
 					<div class="n-row">
 						<div>
 							<h2>Aspect ratio container</h2>
@@ -1116,7 +1116,7 @@
 						</div>
 					</div>
 				</div>
-				<div id=carousel>
+				<div id="carousel">
 					<div class="n-row">
 						<div class="_1/1">
 							<h2>Carousel</h2>
@@ -1429,7 +1429,7 @@
 						</div>
 					</div>
 				</div>
-				<div id=tabs>
+				<div id="tabs">
 					<div class="n-row">
 						<div class="_1/1">
 							<h2>Tabs</h2>
@@ -1628,7 +1628,7 @@
 						</div>
 					</div>
 				</div>
-				<div id=lightbox>
+				<div id="lightbox">
 					<div class="n-row">
 						<div class="_1/1">
 							<h2>Lightbox</h2>
@@ -2311,7 +2311,7 @@
 						</div>
 					</div>
 				</div>
-				<div id=tables>
+				<div id="tables">
 					<div class="n-row">
 						<div class="_1/1">
 							<h2>Tables</h2>
@@ -2449,7 +2449,7 @@
 						</div>
 					</div>
 				</div>
-				<div id=accordion>
+				<div id="accordion">
 					<div class="n-row">
 						<div class="_1/1">
 							<h2>Accordion</h2>
@@ -2642,7 +2642,7 @@
 						</div>
 					</div>
 				</div>
-				<div id=tooltip>
+				<div id="tooltip">
 					<div class="n-row">
 						<div>
 							<div>
@@ -2704,7 +2704,7 @@
 						</div>
 					</div>
 				</div>
-				<div id=buttons>
+				<div id="buttons">
 					<div class="n-row">
 						<div class="_1/1">
 							<h2>Buttons</h2>
@@ -2786,7 +2786,7 @@
 						</div>
 					</div>
 				</div>
-				<div id=lists>
+				<div id="lists">
 					<div class="n-row">
 						<div class="_1/1">
 							<h2>Lists</h2>
@@ -2836,7 +2836,7 @@
 						</div>
 					</div>
 				</div>
-				<div id=forms>
+				<div id="forms">
 					<div class="n-row">
 						<div class="_1/1">
 							<h2>Forms</h2>
@@ -2846,7 +2846,7 @@
 							<form class="n-form" action=https://docs.google.com/forms/d/1K55MbIgqFWkYzBOOe2-UfSpKPchOUNxhSxgCXz4YG8k/formResponse target=_blank method=post>
 								<label>
 									<span>Submit this to Google Forms</span>
-									<input type="text" name=entry.1773453675 id=entry_1773453675>
+									<input type="text" name=entry.1773453675 id="entry_1773453675">
 								</label>
 								<input type=submit value="Submit">
 							</form>
@@ -3452,7 +3452,7 @@
 						</div>
 					</div>
 				</div>
-				<div id=masonry>
+				<div id="masonry">
 					<div class="n-row">
 						<div>
 							<h2>Masonry (vertical track only)</h2>
@@ -3471,7 +3471,7 @@
 						</div>
 					</div>
 				</div>
-				<div id=cards>
+				<div id="cards">
 					<div class="n-row">
 						<div class="_1/1">
 							<h2>Cards</h2>
@@ -3611,7 +3611,7 @@
 					</div>
 				</div>
 			</div> -->
-				<div id=parallax>
+				<div id="parallax">
 					<div class="n-row">
 						<div style="height: calc(100vh - 1.5em);">
 							<h2>Parallax scrolling</h2>
@@ -3634,7 +3634,7 @@
 						</div>
 					</div>
 				</div>
-				<div id=notifications>
+				<div id="notifications">
 					<div class="n-row">
 						<div>
 							<h2>Notification bar</h2>
@@ -3669,14 +3669,14 @@
 						</div>
 					</div>
 				</div>
-				<div id=copy>
+				<div id="copy">
 					<div class="n-row">
 						<div>
 							<h2>Copy to clipboard</h2>
 							<div>
-								<p id=copycontent>Text to be copied to clipboard.</p>
+								<p id="copycontent">Text to be copied to clipboard.</p>
 							</div>
-							<button class="n-btn" id=copybutton>Copy the above text</button>
+							<button class="n-btn" id="copybutton">Copy the above text</button>
 							<br>
 							<div class="code">
 								<pre><code class="language-js">nui.copyButton(document.getElementById("copybutton"), document.getElementById("copycontent"));</code></pre>
@@ -3750,12 +3750,12 @@
 										<button class="n-btn" onclick="nui.addComponent(document.getElementById('sandbox'), this.parentNode.querySelector('textarea').value); return false;">Add the above component</button>
 									</form>
 								</div>
-								<div id=sandbox></div>
+								<div id="sandbox"></div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div id=wordpress>
+				<div id="wordpress">
 					<div class="n-row">
 						<div>
 							<div>
@@ -3769,7 +3769,7 @@
 						</div>
 					</div>
 				</div>
-				<div id=colors>
+				<div id="colors">
 					<div class="n-row">
 						<div>
 							<div>
