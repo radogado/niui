@@ -186,7 +186,7 @@
   display: block;
   inset-inline-end: 0;
   top: 0;
-  width: 1.25em;
+  width: 1.875em;
   height: 100%;
 }
 .n-nav--drop ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li:before {
@@ -351,6 +351,7 @@ nav.n-nav--drop li li li a {
   [dir=rtl] .n-nav--drop li ul:not(.n-left-side) > li[aria-haspopup]:before {
     inset-inline-end: 0;
     inset-inline-start: auto;
+    transform: rotate(180deg);
   }
   [dir=rtl] .n-nav--drop li ul.n-left-side > li > a {
     text-align: start;
