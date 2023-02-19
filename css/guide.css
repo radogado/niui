@@ -237,7 +237,6 @@ _:future,
 
 nav li[aria-haspopup][aria-expanded=true],
 html:not(.can-touch) nav li[aria-haspopup]:hover {
-  transition: background-color 0.2s ease-in-out;
   --nui-control-bg: #d47171;
 }
 

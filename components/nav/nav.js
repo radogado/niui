@@ -1,5 +1,5 @@
 // Component Nav – start
-(function () {
+(function() {
   /* Nav – start */
   function closeDropNavClickedOutside(e) {
     // Close the nav when clicking outside
@@ -52,11 +52,9 @@
       });
     }
     el = e.target.parentNode;
-    if (
-      !el.nextElementSibling && // last item
+    if (!el.nextElementSibling && // last item
       el.parentNode.parentNode.nodeName === "LI" && // of third-level nav
-      !el.parentNode.parentNode.nextElementSibling
-    ) {
+      !el.parentNode.parentNode.nextElementSibling) {
       el.parentNode.parentNode.removeAttribute("aria-expanded");
     }
   }
@@ -96,11 +94,14 @@
     }
   }
   var closeDropNavClickedOutsideEnabled = false;
+  
+  const getDuration = () => window.matchMedia("(prefers-reduced-motion: no-preference)").matches ? 200 : 0;
+  
   let closeItem = (item) => {
     navAnimating = true;
     item.style.overflow = "hidden";
     item.parentElement.setAttribute("aria-expanded", true);
-    item.animate([{ height: `${item.scrollHeight}px` }, { height: 0 }], 200).onfinish = () => {
+    item.animate([{ height: `${item.scrollHeight}px` }, { height: 0 }], getDuration()).onfinish = () => {
       item.removeAttribute("style");
       item.parentElement.removeAttribute("aria-expanded");
       navAnimating = false;
@@ -113,7 +114,7 @@
     navAnimating = true;
     item.style.overflow = "hidden";
     item.parentElement.setAttribute("aria-expanded", true);
-    item.animate([{ height: 0 }, { height: `${item.scrollHeight}px` }], 200).onfinish = () => {
+    item.animate([{ height: 0 }, { height: `${item.scrollHeight}px` }], getDuration()).onfinish = () => {
       item.removeAttribute("style");
       navAnimating = false;
     };
@@ -171,17 +172,19 @@
   };
 
   function checkSides(ul, menubar) {
-    removeClass(ul, "n-right-overflow");
-    ul.style.removeProperty("--n-right-overflow");
-    //		var rect = ul.getBoundingClientRect(); // Firefox doesn't preserve this var
-    if (ul.getBoundingClientRect().left > document.body.offsetWidth - (ul.getBoundingClientRect().left + ul.getBoundingClientRect().width)) {
-      if (ul.getBoundingClientRect().right > window.innerWidth) {
-        ul.style.setProperty("--n-right-overflow", window.innerWidth - ul.getBoundingClientRect().right + "px");
-        addClass(ul, "n-right-overflow");
+    if (getComputedStyle(ul).direction !== 'rtl') {
+      removeClass(ul, "n-right-overflow");
+      ul.style.removeProperty("--n-right-overflow");
+      //		var rect = ul.getBoundingClientRect(); // Firefox doesn't preserve this var
+      if (ul.getBoundingClientRect().left > document.body.offsetWidth - (ul.getBoundingClientRect().left + ul.getBoundingClientRect().width)) {
+        if (ul.getBoundingClientRect().right > window.innerWidth) {
+          ul.style.setProperty("--n-right-overflow", window.innerWidth - ul.getBoundingClientRect().right + "px");
+          addClass(ul, "n-right-overflow");
+        }
+        addClass(ul, "n-left-side");
+      } else {
+        removeClass(ul, "n-left-side");
       }
-      addClass(ul, "n-left-side");
-    } else {
-      removeClass(ul, "n-left-side");
     }
   }
 
@@ -205,12 +208,9 @@
     el.addEventListener("keyup", (e) => {
       // Check for sibling or children to expand on control keys Left/Right/etc
       if (e.key === "Escape") {
-        e.target
-          .closest(".n-nav")
-          .querySelectorAll("li")
-          .forEach((el) => {
-            el.removeAttribute("aria-expanded");
-          });
+        e.target.closest(".n-nav").querySelectorAll("li").forEach((el) => {
+          el.removeAttribute("aria-expanded");
+        });
         document.activeElement.blur();
       }
     });
@@ -234,7 +234,7 @@
       });
     });
   }
-  window.addEventListener("resize", function (e) {
+  window.addEventListener("resize", function(e) {
     document.querySelectorAll(".n-nav.n-nav--drop ul").forEach((menubar) => {
       menubar.querySelectorAll("ul").forEach((ul) => {
         checkSides(ul, menubar);
