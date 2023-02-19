@@ -30,7 +30,7 @@
   margin: 24px 0;
   line-height: 3rem;
 }
-@media (max-width: 599.9px) {
+@media not screen and (min-width: 600px) {
   .n-type h1,
 .n-type h2,
 .n-type h3,

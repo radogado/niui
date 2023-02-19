@@ -444,7 +444,7 @@
   }
 }
 
-@media (max-width: $screen-narrow-max) {
+@media not screen and (min-width: $screen-narrow) {
   .n-nav--drop ul {
     li:not([aria-expanded]) > ul {
       position: static;

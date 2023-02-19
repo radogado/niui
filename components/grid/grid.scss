@@ -133,7 +133,7 @@
     }
   }
 
-  @media screen and (max-width: $screen-limited-max) {
+  @media not screen and (min-width: $screen-limited) {
     .n-row > * {
       --col-width: 1/3;
     }
@@ -337,7 +337,7 @@ ol.n-masonry > * {
   box-shadow: none;
 }
 
-@media screen and (max-width: $screen-narrow-max) {
+@media not screen and (min-width: $screen-narrow) {
   .n-row {
     box-sizing: border-box;
   }

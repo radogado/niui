@@ -82,7 +82,7 @@ a[href].n-btn.n-btn--big,
   margin-inline-start: 0.25em;
 }
 
-@media screen and (max-width: 599.9px) {
+@media not screen and (min-width: 600px) {
   .n-btn.n-btn--big {
     display: block;
     text-align: center;

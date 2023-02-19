@@ -1,7 +1,6 @@
 /* niui – rado.bg */
 @charset "utf-8";
 @import "niui-setup";
-@import "theme-variables";
 
 .n-contain {
   max-width: 100rem;
@@ -119,7 +118,7 @@ a[href].span-relative-parent {
 }
 
 /* Narrow Screens */
-@media screen and (max-width: $screen-narrow-max) {
+@media not screen and (min-width: $screen-narrow) {
   .n-wide-screen {
     display: none;
   }

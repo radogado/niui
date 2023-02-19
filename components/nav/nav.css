@@ -369,7 +369,7 @@ nav.n-nav--drop li li li a {
   inset-inline-start: 0;
 }
 
-@media (max-width: 599.9px) {
+@media not screen and (min-width: 600px) {
   .n-nav--drop ul li:not([aria-expanded]) > ul {
     position: static;
     width: calc(100% + 3em);

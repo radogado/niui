@@ -671,7 +671,7 @@
 						<div class="_1/3">
 							<h3>Standard navigation</h3>
 							<nav class="n-nav">
-								<ul class="n-list n-list--inline">
+								<ul>
 									<li> <a href=#buttons>Buttons</a> </li>
 									<li> <a href=#nav>Drop-down nav</a> </li>
 									<li> <a aria-current="page" href=#lightbox>Lightbox</a> </li>
@@ -679,7 +679,7 @@
 							</nav>
 							<br><br>
 							<nav class="n-nav">
-								<ul class="n-list n-list--inline">
+								<ul>
 									<li> <a href=#buttons>Buttons</a> </li>
 									<li> <a href=#nav>Drop-down nav</a> </li>
 									<li> <a aria-current="page" href=#lightbox>Lightbox</a> </li>
@@ -690,7 +690,7 @@
 							<br><br>
 							<div class="code">
 								<pre><code class="language-markup">&lt;nav class="n-nav"&gt;
-	&lt;ul class="n-list n-list--inline"&gt;
+	&lt;ul&gt;
 		&lt;li&gt; &lt;a href="#buttons"&gt;Buttons&lt;/a&gt; &lt;/li&gt;
 	&lt;/ul&gt;							
 &lt;/nav&gt;</code></pre>
@@ -698,8 +698,8 @@
 						</div>
 						<div class="_1/3">
 							<h3>Big navigation</h3>
-							<nav class="n-nav">
-								<ul class="n-list n-list--inline n-big-text">
+							<nav class="n-nav n-big-text">
+								<ul>
 									<li> <a aria-current="page" href=#grid>Grid</a> </li>
 									<li> <a href=#carousel>Carousel</a> </li>
 									<li> <a href=#form>Form</a> </li>
@@ -707,8 +707,8 @@
 							</nav>
 							<br><br>
 							<div class="code">
-								<pre><code class="language-markup">&lt;nav class="n-nav"&gt;
-	&lt;ul class="n-list--inline n-big-text"&gt;
+								<pre><code class="language-markup">&lt;nav class="n-nav n-big-text"&gt;
+	&lt;ul&gt;
 		&lt;li&gt; &lt;a aria-current="page" href="#grid"&gt;Grid&lt;/a&gt; &lt;/li&gt;
 		&lt;li&gt; &lt;a href="#carousel"&gt;Carousel&lt;/a&gt; &lt;/li&gt;
 		&lt;li&gt; &lt;a href="#form"&gt;Form&lt;/a&gt; &lt;/li&gt;
@@ -719,7 +719,7 @@
 						<div class="_1/3">
 							<h2>Scroll navigation</h2>
 							<nav class="n-nav n-nav--scroll">
-								<ul class="n-list">
+								<ul>
 									<li> <a href=#buttons>Buttons</a> </li>
 									<li> <a href=#nav>Drop-down nav</a> </li>
 									<li> <a href=#lightbox aria-current="page">Lightbox</a> </li>
@@ -748,13 +748,13 @@
 						<div class="_1/1">
 							<h2>Drop navigation</h2>
 							<nav class="n-nav n-nav--drop">
-								<ul class="n-list">
+								<ul>
 									<li>
 										<input type="checkbox" name="level-0">
-										<ul class="n-list">
+										<ul>
 											<li>
 												<input type="checkbox" name="level-0-1">
-												<ul class="n-list">
+												<ul>
 													<li>
 														<a href="asd">First item's second level item 1 third level item 1</a>
 													</li>
@@ -766,7 +766,7 @@
 											</li>
 											<li>
 												<input type="checkbox" name="level-0-1">
-												<ul class="n-list">
+												<ul>
 													<li>
 														<a href="#">First item's second level item 2 third level item 1</a>
 													</li>
@@ -781,10 +781,10 @@
 									</li>
 									<li>
 										<input type="checkbox" name="level-0">
-										<ul class="n-list">
+										<ul>
 											<li>
 												<input type="checkbox" name="level-0-2">
-												<ul class="n-list">
+												<ul>
 													<li>
 														<a href="#">Second item level two item 1 third level item 1</a>
 													</li>
@@ -799,7 +799,7 @@
 									</li>
 									<li>
 										<input type="checkbox" name="level-0">
-										<ul class="n-list">
+										<ul>
 											<li>
 												<a href=#>Third item second level item 1</a>
 											</li>
@@ -811,7 +811,7 @@
 									</li>
 									<li>
 										<input type="checkbox" name="level-0">
-										<ul class="n-list">
+										<ul>
 											<li>
 												<a href=#>Fourth item second level item 1</a>
 											</li>
@@ -826,10 +826,10 @@
 									</li>
 									<li>
 										<input type="checkbox" name="level-0">
-										<ul class="n-list">
+										<ul>
 											<li>
 												<input type="checkbox" name="level-0-1">
-												<ul class="n-list">
+												<ul>
 													<li>
 														<a href="asd">First item's second level item 1 third level item 1</a>
 													</li>
@@ -841,7 +841,7 @@
 											</li>
 											<li>
 												<input type="checkbox" name="level-0-1">
-												<ul class="n-list">
+												<ul>
 													<li>
 														<a href="#">First item's second level item 2 third level item 1</a>
 													</li>
@@ -859,13 +859,13 @@
 							<h3>Drop navigation right-to-left</h3>
 							<div dir="rtl">
 								<nav class="n-nav n-nav--drop">
-									<ul class="n-list">
+									<ul>
 										<li>
 											<input type="checkbox" name="level-0">
-											<ul class="n-list">
+											<ul>
 												<li>
 													<input type="checkbox" name="level-0-1">
-													<ul class="n-list">
+													<ul>
 														<li>
 															<a href="asd">مورد اول سطح دوم 1 مورد سطح سوم 1</a>
 														</li>
@@ -877,7 +877,7 @@
 												</li>
 												<li>
 													<input type="checkbox" name="level-0-1">
-													<ul class="n-list">
+													<ul>
 														<li>
 															<a href="#">مورد اول سطح دوم 2 مورد سطح سوم 1</a>
 														</li>
@@ -892,10 +892,10 @@
 										</li>
 										<li>
 											<input type="checkbox" name="level-0">
-											<ul class="n-list">
+											<ul>
 												<li>
 													<input type="checkbox" name="level-0-2">
-													<ul class="n-list">
+													<ul>
 														<li>
 															<a href="#">مورد دوم سطح دو مورد 1 مورد سطح سوم 1</a>
 														</li>
@@ -910,7 +910,7 @@
 										</li>
 										<li>
 											<input type="checkbox" name="level-0">
-											<ul class="n-list">
+											<ul>
 												<li>
 													<a href=#>مورد سوم سطح دوم 1</a>
 												</li>
@@ -922,7 +922,7 @@
 										</li>
 										<li>
 											<input type="checkbox" name="level-0">
-											<ul class="n-list">
+											<ul>
 												<li>
 													<a href=#>مورد چهارم مورد سطح دوم 1</a>
 												</li>
@@ -937,10 +937,10 @@
 										</li>
 										<li>
 											<input type="checkbox" name="level-0">
-											<ul class="n-list">
+											<ul>
 												<li>
 													<input type="checkbox" name="level-0-1">
-													<ul class="n-list">
+													<ul>
 														<li>
 															<a href="asd">مورد اول سطح دوم 1 مورد سطح سوم 1</a>
 														</li>
@@ -952,7 +952,7 @@
 												</li>
 												<li>
 													<input type="checkbox" name="level-0-1">
-													<ul class="n-list">
+													<ul>
 														<li>
 															<a href="#">مورد اول سطح دوم 2 مورد سطح سوم 1</a>
 														</li>

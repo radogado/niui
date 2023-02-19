@@ -24,7 +24,7 @@
     margin: 24px 0;
     line-height: 3rem;
 
-    @media (max-width: $screen-narrow-max) {
+    @media not screen and (min-width: $screen-narrow) {
       -webkit-hyphens: auto;
       hyphens: auto;
     }
