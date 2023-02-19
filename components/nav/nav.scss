@@ -5,9 +5,9 @@
   vertical-align: baseline;
   display: inline-block;
   color: var(--nui-control-color, inherit);
+  --nui-nav-gap: 0.75em;
 
   ul {
-    margin: 0 0 0 -0.5em;
     margin: 0;
     padding: 0;
     display: inline-block;
@@ -15,6 +15,7 @@
     list-style: none;
     display: flex;
     flex-wrap: wrap;
+    border-inline-start: var(--nui-nav-gap) solid var(--nui-control-bg);
 
     li {
       background-color: var(--nui-control-bg, transparent);
@@ -40,14 +41,12 @@
 
   a {
     position: relative;
-    padding: 0 0.25em;
+    padding-inline-end: var(--nui-nav-gap);
     display: inline-block;
   }
 
-  .n-big-text {
-    a {
-      padding: 0 0.5em;
-    }
+  &.n-big-text {
+    --nui-nav-gap: 1em;
   }
 
   a[aria-current] {
@@ -65,22 +64,27 @@
 }
 
 .n-nav--scroll {
-  a {
-    padding: 0;
-  }
 
   > ul {
     overflow: auto;
     max-width: 100%;
     transform: translate3d(0, 0, 0); // Safari macOS bug fix when using scrollbars: Not working initially.
+    border: none;
   }
 
   ul li {
-    padding: calc(var(--nui-line-height-em) / 2);
+    padding: calc(var(--nui-line-height-em) / 2) 0;
+
+    &:first-of-type {
+      a {
+        padding-inline-start: var(--nui-nav-gap);
+      }
+    }
   }
 }
 
 .n-nav--drop {
+  --nui-nav-gap: 0;
   color: var(--nui-control-color, #333);
   background-color: transparent;
   max-width: 100%;
