@@ -67,6 +67,20 @@
   &.n-row {
     display: inline-flex;
   }
+
+  &.n-nav--vertical {
+    ul {
+      display: grid;
+
+      a {
+        display: block;
+      }
+    }
+
+    &.n-nav--vertical-wide {
+      display: block;
+    }
+  }
 }
 
 .n-nav--scroll {
@@ -255,18 +269,18 @@
   li > input {
     --mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(180) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A") center center no-repeat;
     -webkit-mask: var(--mask);
-    -webkit-mask-size: 0.4em;
+    -webkit-mask-size: 0.5em;
     -webkit-mask-repeat: no-repeat;
     mask: var(--mask);
-    mask-size: 0.4em;
+    mask-size: 0.5em;
     background-color: var(--nui-control-color, #000);
     mask-repeat: no-repeat;
   }
 
-  li > input {
-    -webkit-mask-size: 0.6em;
-    mask-size: 0.6em;
-  }
+  // li > input {
+  //   -webkit-mask-size: 0.6em;
+  //   mask-size: 0.6em;
+  // }
 
   &[data-ready] li > ul ~ a {
     background: none;
@@ -503,6 +517,7 @@
   .n-nav--drop li > input {
     -webkit-mask-position-y: 1.15em;
     mask-position-y: 1.15em;
+    z-index: 1;
   }
 
   html:not([data-nui-js]) .n-nav--drop {

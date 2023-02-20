@@ -717,6 +717,46 @@
 							</div>
 						</div>
 						<div class="_1/3">
+							<h3>Vertical navigation</h3>
+							<nav class="n-nav n-big-text n-nav--vertical">
+								<ul>
+									<li> <a aria-current="page" href=#grid>Grid</a> </li>
+									<li> <a href=#carousel>Carousel</a> </li>
+									<li> <a href=#form>Form</a> </li>
+								</ul>
+							</nav>
+							<br><br>
+							<div class="code">
+								<pre><code class="language-markup">&lt;nav class="n-nav n-nav--vertical"&gt;
+	&lt;ul&gt;
+		&lt;li&gt; &lt;a aria-current="page" href="#grid"&gt;Grid&lt;/a&gt; &lt;/li&gt;
+		&lt;li&gt; &lt;a href="#carousel"&gt;Carousel&lt;/a&gt; &lt;/li&gt;
+		&lt;li&gt; &lt;a href="#form"&gt;Form&lt;/a&gt; &lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+							</div>
+						</div>
+						<div class="_1/3">
+							<h3>Vertical wide navigation</h3>
+							<nav class="n-nav n-big-text n-nav--vertical n-nav--vertical-wide">
+								<ul>
+									<li> <a aria-current="page" href=#grid>Grid</a> </li>
+									<li> <a href=#carousel>Carousel</a> </li>
+									<li> <a href=#form>Form</a> </li>
+								</ul>
+							</nav>
+							<br><br>
+							<div class="code">
+								<pre><code class="language-markup">&lt;nav class="n-nav n-nav--vertical n-nav--vertical"&gt;
+	&lt;ul&gt;
+		&lt;li&gt; &lt;a aria-current="page" href="#grid"&gt;Grid&lt;/a&gt; &lt;/li&gt;
+		&lt;li&gt; &lt;a href="#carousel"&gt;Carousel&lt;/a&gt; &lt;/li&gt;
+		&lt;li&gt; &lt;a href="#form"&gt;Form&lt;/a&gt; &lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+							</div>
+						</div>
+						<div class="_1/3">
 							<h2>Scroll navigation</h2>
 							<nav class="n-nav n-nav--scroll">
 								<ul>
@@ -3458,8 +3498,9 @@
 							<h2>Masonry (vertical track only)</h2>
 							<div class="n-masonry">
 								<a class=n-center>A very long cell which demonstrates how Masonry arranges cells in optimised space.</a>
-								<div class=n-center><a>Cell</a></div>
-								<a class=n-center>Cell</a>
+								<div class=n-center><a>A very long cell which demonstrates</a></div>
+								<a class=n-center>Masonry arranges cells</a>
+								<a class=n-center>A very long cell which demonstrates how Masonry arranges cells</a>
 								<a class=n-center>Cell</a>
 							</div>
 							<div class="code">
@@ -3555,14 +3596,15 @@
 				<div id=fixed-background>
 					<div class="n-row">
 						<div class="n-middle" style="min-height: 100vh;">
-							<div class="n-fixed-bg" style="background-image: url(images/DSC00470.jpg); color: #fff;">
-								<div class="n-fixed-bg__image"></div>
+							<div class="n-fixed-bg" style=" color: #fff;">
+								<!-- <div class="n-fixed-bg__image"></div> -->
+								<picture><img src="images/DSC00470.jpg"></picture>
 								<div class="n-pad">
 									<br><br>
 									<h2>Fixed background</h2>
 									<div class="code">
-										<pre><code class="language-markup">&lt;div class="n-fixed-bg" style="background-image: url(image.jpg);"&gt;
-	&lt;div class="n-fixed-bg__image"&gt;&lt;/div&gt;
+										<pre><code class="language-markup">&lt;div class="n-fixed-bg"&gt;
+	&lt;picture&gt;&lt;img&gt;&lt;/picture&gt;
 	...
 &lt;/div&gt;</code></pre>
 									</div>
@@ -3727,8 +3769,8 @@
 		<button><span>Previous</span></button>
 	</div>
 	<div class="n-carousel__content">
-		<div>New</div>
-		<div>Carousel</div>
+		<div><p>New</p></div>
+		<div><p>Carousel</p></div>
 	</div>
 </div>
 </textarea>

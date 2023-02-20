@@ -55,42 +55,24 @@ body.n-sticky-footer main {
   position: static;
 }
 
-/* Element as a window to an image spanning viewport dimensions. iOS doesn't support it natively and requires div.fixed-bg__image */
+/* Element as a window to an image spanning viewport dimensions */
 .n-fixed-bg {
-  background-size: cover;
-  background-position: center center;
+  -webkit-mask: linear-gradient(red, red);
+  mask: linear-gradient(red, red);
+}
+.n-fixed-bg > picture img {
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  position: fixed;
+  object-fit: cover;
+  object-position: center;
+  height: 100vh;
+  height: 100dvh;
 }
 
-@supports (clip: rect(auto, auto, auto, auto)) {
-  .n-fixed-bg {
-    will-change: scroll;
-    background-size: 0;
-    position: relative;
-    z-index: 1;
-  }
-  .n-fixed-bg .n-fixed-bg__image {
-    position: absolute;
-    background-size: 0;
-    z-index: -1;
-    clip: rect(auto, auto, auto, auto);
-  }
-  .n-fixed-bg .n-fixed-bg__image, .n-fixed-bg .n-fixed-bg__image:before {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: inherit;
-  }
-  .n-fixed-bg .n-fixed-bg__image:before {
-    content: "";
-    position: fixed;
-    background-size: cover;
-    background-position: center center;
-    height: 100vh;
-    height: 100dvh;
-    transform: translate3d(0, 0, 0);
-  }
-}
 .n-fixed {
   position: fixed;
 }
