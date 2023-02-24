@@ -82,7 +82,6 @@
 }
 .n-type .n-drop-cap:first-letter {
   float: left;
-  float: inline-start;
   font-size: 5em;
   padding: 0.1em 0.1em 0.1em 0;
   margin-top: -0.2em;
@@ -141,6 +140,10 @@
   top: 0.15em;
   box-shadow: 0 0.25em 0 1px var(--nui-control-color, #333), 0 0.625em 0 1px var(--nui-control-color, #333), 0 1em 0 1px var(--nui-control-color, #333);
   height: 0.1px;
+}
+
+[dir=rtl] .n-type .n-drop-cap:first-letter, [dir=rtl].n-type .n-drop-cap:first-letter {
+  float: right;
 }
 
 /*# sourceMappingURL=typography.css.map */

@@ -3843,7 +3843,7 @@
 			["css", "js"].forEach((el) => {
 				fetch(`dist/niui.min.${el}.size`).then((response) => response.text()).then((text) => {
 					document.querySelectorAll(`[href*=".min.${el}"]`).forEach(link => {
-						link.dataset.size = `${Math.round(text / 1024)} K`
+						link.dataset.size = `${Math.round(text / 1024)}K`
 					})
 				})
 			});

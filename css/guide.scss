@@ -183,7 +183,7 @@ code[class*="language-"] {
   button.n-btn {
     position: absolute;
     bottom: 0;
-    right: 0;
+    inset-inline-end: 0;
     font-size: 0.75em;
     margin: 0;
     -webkit-appearance: none;
