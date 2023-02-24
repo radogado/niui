@@ -2688,20 +2688,23 @@
 							<div>
 								<h2>Tooltip</h2>
 								<p>
-									<span class="n-tool">
-										<span class=n-tool__label>This text has a tooltip.</span>
-										<span class="n-tool__tip">
-											<b>Here is the tooltip</b> <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </span>
+									<span class="n-tooltip" aria-describedby="tooltip1">This text has a tooltip.<span class="n-tooltip__icon"></span></span>
+									<span class="n-tooltip__content" id="tooltip1" role="tooltip">
+										<b>Here is the tooltip</b> <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 									</span>
 								</p>
-								<p>The tip will appear on the side of the tool with the most space available and won"t be affected by overflow: hidden around the tool.</p>
+								<p>The tip will appear on the side of the tool with the most space available and won't be affected by <b>overflow: hidden</b> around the tool.</p>
 								<div class="code">
-									<pre><code class="language-markup">&lt;span class=&quot;n-tool&quot;&gt;
-	&lt;span class=&quot;n-tool__label&quot;&gt;This text has a tooltip.&lt;/span&gt;
-	&lt;span class=&quot;n-tool__tip&quot;&gt;
-		...
-&lt;/span&gt;</code></pre>
+									<pre><code class="language-markup">&lt;span class=&quot;n-tooltip&quot; aria-describedby=&quot;tooltip1&quot;&gt;This text has a tooltip.&lt;span class=&quot;n-tooltip__icon&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;n-tooltip__content&quot; id=&quot;tooltip1&quot; role=&quot;tooltip&quot;&gt;Explanation&lt;/span&gt;</code></pre>
+
 								</div>
+								<h3>Options</h3>
+								<ul class="n-list">
+									<li>Use
+										<pre>.n-tooltip__content { --nui-border-radius: .5em; }</pre> for rounded edges.
+									</li>
+								</ul>
 							</div>
 						</div>
 					</div>
