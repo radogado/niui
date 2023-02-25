@@ -209,7 +209,7 @@ _:future,
 }
 
 :root {
-  --nui-bg: #fbfdca;
+  --nui-color: #333;
   --nui-bg: #fdf9e2;
   --nui-control-color: white;
   --nui-control-bg: #018383;
@@ -218,6 +218,15 @@ _:future,
   --nui-control-highlight: #2abfb0;
 }
 
+.n-scheme-dark {
+  --nui-bg: #222;
+}
+
+@media (prefers-color-scheme: dark) {
+  .n-scheme-auto {
+    --nui-bg: #222;
+  }
+}
 .n-form input,
 .n-form textarea {
   --nui-input-color: darkslateblue;

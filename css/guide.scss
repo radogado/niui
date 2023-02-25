@@ -270,7 +270,7 @@ _:future,
   // --nui-control-active-color: #fdff00;
   // --nui-control-highlight: #2abfb0;
 
-  --nui-bg: #fbfdca;
+  --nui-color: #333;
   --nui-bg: #fdf9e2;
   --nui-control-color: white;
   --nui-control-bg: #018383;
@@ -278,6 +278,18 @@ _:future,
   --nui-control-active-color: black;
   --nui-control-highlight: #2abfb0;
 
+  // --nui-bg-dark: #222;
+
+}
+
+.n-scheme-dark {
+  --nui-bg: #222;
+}
+
+@media (prefers-color-scheme: dark) {
+  .n-scheme-auto {
+    --nui-bg: #222;
+  }
 }
 
 .n-form input,

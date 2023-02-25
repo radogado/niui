@@ -3837,6 +3837,26 @@
     --nui-list-color: darkmagenta;
 }</code></pre>
 								</div>
+								<div class="code">
+																	<pre><code class="language-css">.n-scheme-dark {
+  --nui-bg: #222;
+}
+
+@media (prefers-color-scheme: dark) {
+  .n-scheme-auto {
+	--nui-bg: #222;
+  }
+}</code></pre>
+																</div>
+								<ul>
+									<li>The default scheme is Light</li>
+									<li>
+										<pre>.n-scheme-dark</pre> uses Dark scheme
+									</li>
+									<li>
+										<pre>.n-scheme-auto</pre> uses Auto scheme
+									</li>
+								</ul>
 							</div>
 						</div>
 					</div>
