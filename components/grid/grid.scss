@@ -249,6 +249,8 @@
   column-count: 3;
   column-gap: 0;
   margin: var(--nui-line-height-em) 0;
+  margin-inline-end: calc(calc(var(--nui-line-height-em)/ -2));
+  max-width: none;
 
   > * {
     display: table; // Unwanted wrapping in Chrome – 2 instead of 3 columns
@@ -259,6 +261,7 @@
     break-inside: avoid-column;
     margin: 0;
     padding: calc(var(--nui-line-height-em) / 2) 0;
+    padding-inline-end: calc(var(--nui-line-height-em)/ 2);
     box-sizing: border-box;
     word-break: break-word; // Overflow protection for long words
     word-wrap: break-word;
