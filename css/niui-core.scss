@@ -140,9 +140,9 @@ a[href].span-relative-parent {
   --nui-control-active-color: var(--nui-control-active-color-dark);
   --nui-control-highlight: var(--nui-control-highlight-dark);
   --nui-input-color: var(--nui-input-color-dark);
-  --nui-input-bg: var(--nui-input-color-dark);
-  --nui-list-color: var(--nui-input-color-dark);
-  --nui-list-bg: var(--nui-input-color-dark);
+  --nui-input-bg: var(--nui-input-bg-dark);
+  --nui-list-color: var(--nui-list-color-dark);
+  --nui-list-bg: var(--nui-input-bg-dark);
 }
 
 .n-scheme-auto {
@@ -155,8 +155,8 @@ a[href].span-relative-parent {
     --nui-control-active-color: var(--nui-control-active-color-dark);
     --nui-control-highlight: var(--nui-control-highlight-dark);
     --nui-input-color: var(--nui-input-color-dark);
-    --nui-input-bg: var(--nui-input-color-dark);
-    --nui-list-color: var(--nui-input-color-dark);
-    --nui-list-bg: var(--nui-input-color-dark);
+    --nui-input-bg: var(--nui-input-bg-dark);
+    --nui-list-color: var(--nui-list-color-dark);
+    --nui-list-bg: var(--nui-list-bg-dark);
   }
 }
