@@ -121,5 +121,16 @@ a[href].span-relative-parent {
     float: right;
   }
 }
+.n-scheme-dark {
+  --nui-color: var(--nui-color-dark);
+  --nui-bg: var(--nui-bg-dark);
+}
+
+@media (prefers-color-scheme: dark) {
+  .n-scheme-auto {
+    --nui-color: var(--nui-color-dark);
+    --nui-bg: var(--nui-bg-dark);
+  }
+}
 
 /*# sourceMappingURL=niui-core.css.map */

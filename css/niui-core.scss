@@ -130,3 +130,15 @@ a[href].span-relative-parent {
     }
   }
 }
+
+.n-scheme-dark {
+  --nui-color: var(--nui-color-dark);
+  --nui-bg: var(--nui-bg-dark);
+}
+
+.n-scheme-auto {
+  @media (prefers-color-scheme: dark) {
+    --nui-color: var(--nui-color-dark);
+    --nui-bg: var(--nui-bg-dark);
+  }
+}
