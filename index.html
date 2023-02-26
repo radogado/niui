@@ -3850,6 +3850,18 @@
 										<pre>.n-scheme-auto</pre> uses Auto scheme
 									</li>
 								</ul>
+								<form class="n-form" onchange="document.body.classList.remove('n-scheme-dark');document.body.classList.remove('n-scheme-light');document.body.classList.remove('n-scheme-auto');document.body.classList.add(this.elements.scheme.value)">
+									<fieldset>
+										<legend>Color scheme</legend>
+										<label>
+											<input type="radio" name="scheme" value="n-scheme-light"> <b class="n-form__check-icon"></b> Light (default) </label>
+										<label>
+											<input type="radio" name="scheme" value="n-scheme-dark"> <b class="n-form__check-icon"></b> Dark </label>
+										<label>
+											<input type="radio" name="scheme" value="n-scheme-auto" checked="checked"> <b class="n-form__check-icon"></b> Auto </label>
+									</fieldset>
+								</form>
+
 							</div>
 						</div>
 					</div>

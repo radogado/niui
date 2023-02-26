@@ -95,12 +95,14 @@ html {
 }
 .demo {
   color: var(--nui-color);
+  transition: color 0.2s ease-in-out;
   max-width: 1366.666px;
   margin: auto;
 }
 .demo,
 .demo .n-carousel__content > * {
   background: var(--nui-bg);
+  transition: background-color 0.2s ease-in-out;
 }
 .demo .n-carousel,
 .demo .n-carousel__content > * .n-carousel {
@@ -216,19 +218,23 @@ _:future,
   --nui-control-active-bg: #cc7c7e;
   --nui-control-active-color: black;
   --nui-control-highlight: #2abfb0;
-  --nui-color-dark: lightgrey;
-  --nui-bg-dark: #222;
-}
-
-.n-form input,
-.n-form textarea {
   --nui-input-color: darkslateblue;
   --nui-input-bg: aliceblue;
+  --nui-list-color: darkmagenta;
+  --nui-list-bg: #4888cb;
+  --nui-color-dark: lightgrey;
+  --nui-bg-dark: #222;
+  --nui-control-color-dark: white;
+  --nui-control-bg-dark: #018383;
+  --nui-control-active-bg-dark: #cc7c7e;
+  --nui-control-active-color-dark: black;
+  --nui-control-highlight-dark: #2abfb0;
+  --nui-input-color-dark: darkslateblue;
+  --nui-input-bg-dark: aliceblue;
+  --nui-list-color-color: darkmagenta;
+  --nui-list-bg-dark: #4888cb;
 }
 
-.n-list {
-  --nui-list-bg: #4888cb;
-}
 .n-list pre {
   --nui-list-color: darkmagenta;
 }

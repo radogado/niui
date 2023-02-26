@@ -106,6 +106,7 @@ html {
   &,
   .n-carousel__content > * {
     background: var(--nui-bg);
+    transition: background-color .2s ease-in-out;
 
     .n-carousel {
       --nui-bg: white;
@@ -113,6 +114,7 @@ html {
   }
 
   color: var(--nui-color);
+  transition: color .2s ease-in-out;
 
   &.n-carousel.n-carousel--vertical:not(.n-carousel--auto-height),
   &.n-carousel.n-carousel--vertical:not(.n-carousel--auto-height) > .n-carousel__content {
@@ -271,19 +273,25 @@ _:future,
   --nui-control-active-bg: #cc7c7e;
   --nui-control-active-color: black;
   --nui-control-highlight: #2abfb0;
+  --nui-input-color: darkslateblue;
+  --nui-input-bg: aliceblue;
+  --nui-list-color: darkmagenta;
+  --nui-list-bg: #4888cb;
 
   --nui-color-dark: lightgrey;
   --nui-bg-dark: #222;
-}
-
-.n-form input,
-.n-form textarea {
-  --nui-input-color: darkslateblue;
-  --nui-input-bg: aliceblue;
+  --nui-control-color-dark: white;
+  --nui-control-bg-dark: #018383;
+  --nui-control-active-bg-dark: #cc7c7e;
+  --nui-control-active-color-dark: black;
+  --nui-control-highlight-dark: #2abfb0;
+  --nui-input-color-dark: darkslateblue;
+  --nui-input-bg-dark: aliceblue;
+  --nui-list-color-color: darkmagenta;
+  --nui-list-bg-dark: #4888cb;
 }
 
 .n-list {
-  --nui-list-bg: #4888cb;
 
   pre {
     --nui-list-color: darkmagenta;
