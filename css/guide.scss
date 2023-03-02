@@ -40,7 +40,6 @@ body {
 
 pre {
   overflow: auto;
-  color: var(--nui-list-color);
 }
 
 li pre {
@@ -109,7 +108,7 @@ html {
     transition: background-color .2s ease-in-out;
 
     .n-carousel {
-      --nui-bg: white;
+      // --nui-bg: white;
     }
   }
 
@@ -200,7 +199,6 @@ code[class*="language-"] {
   code[class*="language-"],
   pre[class*="language-"] {
     text-shadow: none;
-    background: white;
   }
 }
 
@@ -283,7 +281,7 @@ _:future,
   --nui-control-highlight: #2abfb0;
   --nui-input-color: darkslateblue;
   --nui-input-bg: aliceblue;
-  --nui-list-color: darkmagenta;
+  --nui-list-color: rgb(247, 199, 247);
   --nui-list-bg: #4888cb;
 
   --nui-color-dark: lightgrey;
@@ -295,7 +293,7 @@ _:future,
   --nui-control-highlight-dark: #2abfb0;
   --nui-input-color-dark: darkslateblue;
   --nui-input-bg-dark: aliceblue;
-  --nui-list-color-dark: #a99cf6;
+  --nui-list-color-dark: #e1dcf9;
   --nui-list-bg-dark: #4888cb;
 }
 
@@ -322,6 +320,6 @@ html:not(.can-touch) nav li li[aria-haspopup]:hover {
 
 .n-row.grid-demo > * {
   background: var(--nui-color);
-  color: #fff;
+  color: var(--nui-bg);
   border-radius: var(--nui-border-radius, 0);
 }
