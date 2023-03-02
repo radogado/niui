@@ -179,6 +179,13 @@ code[class*=language-] {
   box-shadow: 0 0 2px 1px #0000800d;
   aspect-ratio: 1;
 }
+#home sup {
+  line-height: 0;
+  margin-inline-start: 1em;
+  display: inline-block;
+  color: var(--nui-control-bg);
+  font-weight: bold;
+}
 
 [href*=".min.css"],
 [href*=".min.js"] {
@@ -223,7 +230,7 @@ _:future,
   --nui-list-color: darkmagenta;
   --nui-list-bg: #4888cb;
   --nui-color-dark: lightgrey;
-  --nui-bg-dark: #222;
+  --nui-bg-dark: #222928;
   --nui-control-color-dark: white;
   --nui-control-bg-dark: #018383;
   --nui-control-active-bg-dark: #cc7c7e;
