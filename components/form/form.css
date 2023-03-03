@@ -67,6 +67,7 @@
   border: 0;
   font-size: 1em;
   border: 1px dotted transparent;
+  border-radius: var(--nui-border-radius);
 }
 .n-form textarea {
   border-bottom: 1px dotted transparent;
@@ -150,6 +151,7 @@
   display: block;
   min-height: var(--nui-line-height-em);
   margin-bottom: var(--nui-line-height-em);
+  border-radius: var(--nui-border-radius);
 }
 .n-form__check span, .n-form fieldset span {
   display: inline-block;
@@ -297,6 +299,7 @@
   right: 0;
   bottom: 0;
   z-index: -1;
+  border-radius: var(--nui-border-radius);
 }
 .n-form__file span .n-form__file-name:empty, .n-form__file span .n-form__file-name:not(:empty) ~ .n-form__file-tag {
   display: none;
@@ -376,6 +379,7 @@
   min-height: calc(var(--nui-line-height-em) * 1.6667);
   text-align: start;
   font-size: 1.2em;
+  border-radius: var(--nui-border-radius);
 }
 .n-form--wide textarea, .n-form--mast textarea {
   margin: calc(var(--nui-line-height-em) / -2) 0 calc(var(--nui-line-height-em) / 2) 0;

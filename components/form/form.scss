@@ -69,6 +69,7 @@
     border: 0;
     font-size: 1em;
     border: 1px dotted transparent;
+    border-radius: var(--nui-border-radius);
   }
 
   textarea {
@@ -171,6 +172,7 @@
     display: block;
     min-height: var(--nui-line-height-em);
     margin-bottom: var(--nui-line-height-em);
+    border-radius: var(--nui-border-radius);
 
     span {
       display: inline-block;
@@ -344,6 +346,7 @@
       right: 0;
       bottom: 0;
       z-index: -1;
+      border-radius: var(--nui-border-radius);
 
       .n-form__file-name {
 
@@ -445,6 +448,7 @@
     min-height: calc(var(--nui-line-height-em) * 1.6667);
     text-align: start;
     font-size: 1.2em;
+    border-radius: var(--nui-border-radius);
   }
 
   &--wide textarea,
