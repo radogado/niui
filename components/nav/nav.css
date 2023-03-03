@@ -46,6 +46,8 @@
 .n-nav.n-nav--scroll {
   overflow: auto;
   max-width: 100%;
+  background-color: var(--nui-control-bg, transparent);
+  border-radius: var(--nui-border-radius);
 }
 .n-nav.n-nav--scroll > ul {
   display: flex;
