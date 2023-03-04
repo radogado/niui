@@ -69,6 +69,10 @@ html {
   /* Prevent font scaling in landscape while allowing user zoom */
 }
 
+.demo .n-carousel__content, .n-tooltip__content, .n-modal {
+  --nui-border-radius: .5em;
+}
+
 .demo .n-carousel.n-carousel--overlay .n-carousel__content {
   @media (min-width: 900px) {
     p {
@@ -104,6 +108,7 @@ html {
 
   &,
   .n-carousel__content > * {
+    
     background: var(--nui-bg);
     transition: background-color .2s ease-in-out;
 
@@ -183,7 +188,6 @@ code[class*="language-"] {
 
   button.n-btn {
     position: absolute;
-    bottom: 0;
     inset-inline-end: 0;
     font-size: 0.75em;
     margin: 0;

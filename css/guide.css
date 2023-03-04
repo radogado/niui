@@ -64,6 +64,10 @@ html {
   /* Prevent font scaling in landscape while allowing user zoom */
 }
 
+.demo .n-carousel__content, .n-tooltip__content, .n-modal {
+  --nui-border-radius: .5em;
+}
+
 @media (min-width: 900px) {
   .demo .n-carousel.n-carousel--overlay .n-carousel__content p {
     columns: 1;
@@ -151,7 +155,6 @@ code[class*=language-] {
 }
 .code button.n-btn {
   position: absolute;
-  bottom: 0;
   inset-inline-end: 0;
   font-size: 0.75em;
   margin: 0;
