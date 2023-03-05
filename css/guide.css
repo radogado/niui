@@ -64,7 +64,9 @@ html {
   /* Prevent font scaling in landscape while allowing user zoom */
 }
 
-.demo .n-carousel__content, .n-tooltip__content, .n-modal {
+.demo .n-carousel__content,
+.n-tooltip__content,
+.n-modal {
   --nui-border-radius: .5em;
 }
 
@@ -136,11 +138,12 @@ html {
   text-decoration: none;
 }
 
-code[class*=language-] {
+.code code[class*=language-] {
   font-family: Monaco, monospace !important;
   line-height: 1.9 !important;
   display: block;
   font-size: 0.812em;
+  text-align: start;
 }
 
 .code {
