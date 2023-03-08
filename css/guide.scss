@@ -11,6 +11,7 @@
 body {
 
   min-height: var(--viewport-height);
+  background: var(--nui-bg);
 
   &.n-type a.n-btn[href],
   a.n-btn[href],
@@ -140,11 +141,11 @@ html {
   margin: auto;
 
   &.n-carousel.n-carousel--tabs > .n-carousel__index {
-    max-height: 100%;
+    height: 100%;
     overflow: auto;
     flex-wrap: nowrap;
     // padding: 1ch 0;
-
+    background: var(--nui-control-bg);
   }
 
   .source {
