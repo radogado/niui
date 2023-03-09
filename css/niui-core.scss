@@ -57,10 +57,14 @@ body.n-sticky-footer {
 
 /* Element as a window to an image spanning viewport dimensions */
 .n-fixed-bg {
-  -webkit-mask: linear-gradient(red, red);
-  mask: linear-gradient(red, red);
 
   > picture {
+
+    position: absolute;
+    clip: rect(auto, auto, auto, auto);
+    width: 100%;
+    height: 100%;
+    inset: 0;
 
     img {
       inset: 0;
