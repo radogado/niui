@@ -170,10 +170,13 @@ html {
   font-weight: bold;
   padding: 0.5em 1em;
   border-radius: var(--nui-border-radius, 0);
+  margin-top: var(--nui-border-radius);
 }
 .code code[class*=language-],
 .code pre[class*=language-] {
   text-shadow: none;
+  border-radius: var(--nui-border-radius);
+  background: var(--nui-control-active-color);
 }
 
 #home .demo-pages img {
@@ -225,7 +228,7 @@ _:future,
   --nui-control-color: white;
   --nui-control-bg: #018383;
   --nui-control-active-bg: #cc7c7e;
-  --nui-control-active-color: black;
+  --nui-control-active-color: #272822;
   --nui-control-highlight: #2abfb0;
   --nui-input-color: darkslateblue;
   --nui-input-bg: aliceblue;
