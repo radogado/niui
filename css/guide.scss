@@ -144,8 +144,10 @@ html {
     height: 100%;
     overflow: auto;
     flex-wrap: nowrap;
-    // padding: 1ch 0;
-    background: var(--nui-control-bg);
+    --nui-control-bg: transparent;
+    --nui-control-bg-dark: transparent;
+    --nui-control-color: #007878;
+    --nui-control-color-dark: #333;
   }
 
   .source {
@@ -286,7 +288,7 @@ _:future,
   --nui-color: #333;
   --nui-bg: #fdf9e2;
   --nui-control-color: white;
-  --nui-control-bg: #018383;
+  --nui-control-bg: #007878;
   --nui-control-active-bg: #cc7c7e;
   --nui-control-active-color: #272822;
   --nui-control-highlight: #2abfb0;
@@ -298,7 +300,7 @@ _:future,
   --nui-color-dark: lightgrey;
   --nui-bg-dark: #222928;
   --nui-control-color-dark: white;
-  --nui-control-bg-dark: #018383;
+  --nui-control-bg-dark: #007878;
   --nui-control-active-bg-dark: #cc7c7e;
   --nui-control-active-color-dark: black;
   --nui-control-highlight-dark: #2abfb0;
@@ -333,4 +335,21 @@ html:not(.can-touch) nav li li[aria-haspopup]:hover {
   background: var(--nui-color);
   color: var(--nui-bg);
   border-radius: var(--nui-border-radius, 0);
+}
+
+.n-scheme-dark {
+  .demo.n-carousel.n-carousel--tabs > .n-carousel__index {
+    --nui-control-color: lightgrey;
+    --nui-control-active-color: #a7a7a7;
+  }
+
+}
+
+.n-scheme-auto {
+  @media (prefers-color-scheme: dark) {
+    .demo.n-carousel.n-carousel--tabs > .n-carousel__index {
+      --nui-control-color: lightgrey;
+    --nui-control-active-color: #a7a7a7;
+    }
+  }
 }
