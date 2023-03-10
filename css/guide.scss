@@ -1,11 +1,31 @@
 :root {
   --viewport-height: 100vh;
-}
+  --viewport-height: 100dvh;
 
-@supports (height: -webkit-fill-available) {
-  :root {
-    --viewport-height: -webkit-fill-available;
-  }
+  --nui-color: #333;
+  --nui-bg: #fdf9e2;
+  --nui-control-color: white;
+  --nui-control-bg: #007878;
+  --nui-control-active-bg: #cc7c7e;
+  --nui-control-active-color: #272822;
+  --nui-control-highlight: #2abfb0;
+  --nui-input-color: darkslateblue;
+  --nui-input-bg: aliceblue;
+  --nui-list-color: rgb(247, 199, 247);
+  --nui-list-bg: #4888cb;
+
+  --nui-color-dark: lightgrey;
+  --nui-bg-dark: #222928;
+  --nui-control-color-dark: white;
+  --nui-control-bg-dark: #007878;
+  --nui-control-active-bg-dark: #cc7c7e;
+  --nui-control-active-color-dark: black;
+  --nui-control-highlight-dark: #2abfb0;
+  --nui-input-color-dark: darkslateblue;
+  --nui-input-bg-dark: aliceblue;
+  --nui-list-color-dark: #e1dcf9;
+  --nui-list-bg-dark: #4888cb;
+
 }
 
 body {
@@ -58,6 +78,7 @@ li pre {
 }
 
 .demo {
+
   h1,
   .n-masonry {
     margin-top: 0;
@@ -143,6 +164,10 @@ html {
       justify-content: center;
       align-items: center;
     }
+  }
+  
+  &.n-carousel:not[data-ready] > .n-carousel__content {
+    visibility: hidden;
   }
 
   margin: auto;
@@ -283,40 +308,6 @@ html {
   }
 }
 
-// Safari only
-_::-webkit-full-page-media,
-_:future,
-:root .demo {
-  height: -webkit-fill-available;
-}
-
-// Guide theme
-:root {
-  --nui-color: #333;
-  --nui-bg: #fdf9e2;
-  --nui-control-color: white;
-  --nui-control-bg: #007878;
-  --nui-control-active-bg: #cc7c7e;
-  --nui-control-active-color: #272822;
-  --nui-control-highlight: #2abfb0;
-  --nui-input-color: darkslateblue;
-  --nui-input-bg: aliceblue;
-  --nui-list-color: rgb(247, 199, 247);
-  --nui-list-bg: #4888cb;
-
-  --nui-color-dark: lightgrey;
-  --nui-bg-dark: #222928;
-  --nui-control-color-dark: white;
-  --nui-control-bg-dark: #007878;
-  --nui-control-active-bg-dark: #cc7c7e;
-  --nui-control-active-color-dark: black;
-  --nui-control-highlight-dark: #2abfb0;
-  --nui-input-color-dark: darkslateblue;
-  --nui-input-bg-dark: aliceblue;
-  --nui-list-color-dark: #e1dcf9;
-  --nui-list-bg-dark: #4888cb;
-}
-
 .n-list {
 
   pre {
@@ -347,7 +338,7 @@ html:not(.can-touch) nav li li[aria-haspopup]:hover {
 .n-scheme-dark {
   .demo.n-carousel.n-carousel--tabs > .n-carousel__index {
     --nui-control-color: lightgrey;
-    --nui-control-active-color: #a7a7a7;
+    --nui-control-active-color: #bc8453;
   }
 
 }
@@ -356,7 +347,7 @@ html:not(.can-touch) nav li li[aria-haspopup]:hover {
   @media (prefers-color-scheme: dark) {
     .demo.n-carousel.n-carousel--tabs > .n-carousel__index {
       --nui-control-color: lightgrey;
-      --nui-control-active-color: #a7a7a7;
+      --nui-control-active-color: #bc8453;
     }
   }
 }
