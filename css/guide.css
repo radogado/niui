@@ -53,6 +53,11 @@ li pre {
   padding: 1rem;
 }
 
+.demo h1,
+.demo .n-masonry {
+  margin-top: 0;
+}
+
 .demo .n-carousel:not(.n-carousel--auto-height):not(.n-carousel--lightbox) > .n-carousel__content > *,
 .demo .n-carousel.n-carousel--vertical:not(.n-carousel--lightbox):not(.n-carousel--auto-height) > .n-carousel__content > * {
   display: flex;

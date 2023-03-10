@@ -34,7 +34,10 @@
 		<!-- Head - Start -->
 		<main class="n-carousel demo n-carousel--tabs n-carousel--vertical n-carousel--index-align-start n-carousel--controls-outside">
 			<div class="n-carousel__index">
-				<button aria-current="true"><span><img src="images/niui.svg" alt="niui Logo" style="width: 100%;"><sup>3.0</sup></span></button>
+				<button aria-current="true"><span class="n-adjust-height-"><img src="images/niui.svg" alt="niui Logo" style="	width: auto;
+				margin-top: 1.5em;
+				height: 1.5em;
+				max-width: 100%;"></span></button>
 				<button><span>Get started</span></button>
 				<button><span>Grid</span></button>
 				<button><span>Navigation</span></button>
@@ -64,20 +67,15 @@
 			</div>
 			<div class="n-carousel__content">
 				<div id="home">
-					<div class="n-row">
-						<div class="_1/3 n-middle- n-center-">
+					<div class="n-row n-unpad">
+						<div class="_2/5 n-middle- n-center-">
 							<div>
-								<!-- 										<img src=images/niui.svg alt=Logo style="display: inline-block; vertical-align: top; width: calc(100% - 3em);"> -->
-								<span class="n-aspect n-adjust-height" style="--ratio: 3.06; width: calc(100% - 3em); display: inline-block; vertical-align: top;">
-									<img src="images/niui.svg" alt="niui Logo" style="width: 100%;">
-								</span>
-								<sup>3.0</sup>
-								<h2>lightweight, feature-heavy web front-end</h2>
+								<h1>Native Internet User Interface</h1>
+								<h2>Lightweight, feature-heavy web front-end</h2>
 							</div>
 							<p><a href="dist/niui.min.css">niui.min.css</a> <a href="dist/niui.min.js">niui.min.js</a><a href="//github.com/radogado/niui">GitHub</a></p>
 						</div>
 						<div>
-							<h1>Native Internet User Interface</h1>
 							<ul class="n-masonry n-left">
 								<li>Lightweight</li>
 								<li>Accessible</li>
@@ -99,7 +97,7 @@
 							<h2>Reimplemented real world examples</h2>
 						</div>
 					</div>
-					<div class="n-row demo-pages">
+					<div class="n-row demo-pages n-unpad">
 						<a class="_1/5" href="demos/oslo/" title="Oslo"> <img src="images/oslo.jpg" alt="Oslo"> </a>
 						<a class="_1/5" href="demos/tomakeafilm/" title="To Make a Film"> <img src="images/tomakeafilm.jpg" alt="To Make a Film"> </a>
 						<a class="_1/5" href="demos/postbank/" title="Postbank"> <img src="images/postbank.jpg" alt="Postbank"> </a>
@@ -3362,20 +3360,17 @@
 								<div class="_1/3">
 									<h4>Checkbox</h4>
 									<div class="code">
-										<pre><code class="language-markup">&lt;div class="n-form__check"&gt;
-	&lt;span&gt;Global label&lt;/span&gt;
-	&lt;label&gt; 
-		&lt;input type="checkbox"&gt; &lt;b class="n-form__check-icon"&gt;&lt;/b&gt;
-		Checkbox-specific label
-	&lt;/label&gt;
-&lt;/div&gt;</code></pre>
+										<pre><code class="language-markup">&lt;label&gt; 
+	&lt;input type="checkbox"&gt; &lt;b class="n-form__check-icon"&gt;&lt;/b&gt;
+	Checkbox-specific label
+&lt;/label&gt;</code></pre>
 									</div>
 								</div>
 								<div class="_1/3">
 									<h4>Radio buttons</h4>
 									<div class="code">
-										<pre><code class="language-markup">&lt;div class="n-form__check"&gt;
-	&lt;span&gt;Label for all buttons&lt;/span&gt;
+										<pre><code class="language-markup">&lt;fieldset&gt;
+	&lt;legend&gt;Label for all buttons&lt;/legend&gt;
 	&lt;label&gt; 
 		&lt;input type="radio" name="radiodemo"&gt; &lt;b class="n-form__check-icon"&gt;&lt;/b&gt;
 		Label for this button
@@ -3385,7 +3380,7 @@
 		Label for this button
 	&lt;/label&gt;
 	...
-&lt;/div&gt;</code></pre>
+&lt;/fieldset&gt;</code></pre>
 									</div>
 								</div>
 								<div class="_1/3">
@@ -3410,12 +3405,12 @@
 									<h4>File input</h4>
 									<div class="code">
 										<pre><code class="language-markup">&lt;label&gt;
-	&lt;span&gt;Label&lt;/span&gt;
+	&lt;span&gt;Select a file&lt;/span&gt;
 	&lt;div class="n-form__file"&gt;
-		&lt;input type="file"&gt;
-		&lt;span&gt;&lt;span class="n-form__file-tag"&gt;Placeholder&lt;/span&gt;&lt;/span&gt;
+		&lt;input name="file" type="file"&gt;
+		&lt;span&gt;&lt;span class="n-form__file-tag"&gt;Drop or browse&lt;/span&gt;&lt;/span&gt;
 	&lt;/div&gt;
-&lt;/label&gt; </code></pre>
+&lt;/label&gt;</code></pre>
 									</div>
 								</div>
 								<div class="_1/3">
@@ -3457,13 +3452,13 @@
 								<div class="_1/3">
 									<h4>Optional section</h4>
 									<div class="code">
-										<pre><code class="language-markup">&lt;div class="n-form__check n-form__condition"&gt;
+										<pre><code class="language-markup">&lt;div class="n-form__check n-form__condition" data-for="conditional_fieldset"&gt;
 	&lt;span&gt;Enable fieldset below&lt;/span&gt;
 	&lt;label&gt;
 		&lt;input type="checkbox"&gt; &lt;b class="n-form__check-icon"&gt;&lt;/b&gt;
 	&lt;/label&gt;
 &lt;/div&gt;
-&lt;fieldset disabled&gt;
+&lt;fieldset id="conditional_fieldset" disabled&gt;
 	...
 &lt;/fieldset&gt;</code></pre>
 
@@ -3494,10 +3489,12 @@
 								<li>The rich select can be used outside of a form without label. It can also contain links instead of option buttons. <a href="//radogado.github.io/n-select/">More info</a>. </li>
 							</ul>
 							<h3>Colors for input and textarea</h3>
-							<pre><code class="language-css">.n-form input, .n-form textarea {
+							<div class="code">
+								<pre><code class="language-css">.n-form input, .n-form textarea {
 	--nui-input-color: darkslateblue;
 	--nui-input-bg: aliceblue;	
 }</code></pre>
+							</div>
 						</div>
 					</div>
 				</div>
