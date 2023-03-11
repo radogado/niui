@@ -135,7 +135,7 @@ a[href].span-relative-parent {
   }
 }
 
-.n-scheme-dark {
+@mixin dark-theme {
   --nui-color: var(--nui-color-dark);
   --nui-bg: var(--nui-bg-dark);
   --nui-control-color: var(--nui-control-color-dark);
@@ -149,18 +149,12 @@ a[href].span-relative-parent {
   --nui-list-bg: var(--nui-input-bg-dark);
 }
 
+.n-scheme-dark {
+  @include dark-theme;
+}
+
 .n-scheme-auto {
   @media (prefers-color-scheme: dark) {
-    --nui-color: var(--nui-color-dark);
-    --nui-bg: var(--nui-bg-dark);
-    --nui-control-color: var(--nui-control-color-dark);
-    --nui-control-bg: var(--nui-control-bg-dark);
-    --nui-control-active-bg: var(--nui-control-active-bg-dark);
-    --nui-control-active-color: var(--nui-control-active-color-dark);
-    --nui-control-highlight: var(--nui-control-highlight-dark);
-    --nui-input-color: var(--nui-input-color-dark);
-    --nui-input-bg: var(--nui-input-bg-dark);
-    --nui-list-color: var(--nui-list-color-dark);
-    --nui-list-bg: var(--nui-list-bg-dark);
+    @include dark-theme;
   }
 }

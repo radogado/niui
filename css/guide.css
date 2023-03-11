@@ -83,6 +83,11 @@ li pre {
   flex-direction: column;
 }
 
+.demo .n-carousel__content .n-carousel:not(.n-carousel--lightbox) > .n-carousel__content > * {
+  color: var(--nui-input-color);
+  background: var(--nui-input-bg);
+}
+
 html {
   -webkit-text-size-adjust: 100%;
   /* Prevent font scaling in landscape while allowing user zoom */
