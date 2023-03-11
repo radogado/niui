@@ -123,6 +123,7 @@ html {
   }
 }
 .demo {
+  --nui-logo: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xml:space='preserve' id='Layer_1' x='0' y='0' style='enable-background:new 0 0 288 94.35' version='1.1' viewBox='0 0 288 94.35'%3E%3Cstyle%3E.st0%7Bfill:teal%7D%3C/style%3E%3Cpath d='M114.76 0h18.86v93.95h-18.86V0zM172.79 0l.23 32.52c0 16.7 0 28.02 7.81 35.84 4.58 4.58 11.59 7.81 20.48 7.81s15.9-3.23 20.48-7.81c7.81-7.82 7.81-19.13 7.81-35.84L229.56 0h18.9v32.52c0 18.86 0 34.49-12.66 47.69-6.47 6.73-18.05 13.74-34.49 13.74s-28.02-7.01-34.49-13.74c-12.66-13.2-12.66-28.83-12.66-47.69V0h18.63zM268.99 0h18.86v93.95h-18.86V0zM75.5 93.95l-.13-31.92c0-16.7 0-28.02-7.81-35.84-4.58-4.58-11.59-7.81-20.48-7.81s-15.9 3.23-20.48 7.81c-7.81 7.82-7.81 19.13-7.81 35.84v31.92H-.07V62.04c0-18.86 0-34.49 12.66-47.69C19.06 7.61 30.64.6 47.08.6S75.1 7.61 81.57 14.34c12.66 13.2 12.66 28.83 12.66 47.69v31.92H75.5z' class='st0'/%3E%3C/svg%3E");
   color: var(--nui-color);
   transition: color 0.2s ease-in-out;
   max-width: 1366.666px;
@@ -151,6 +152,15 @@ html {
   --nui-control-bg-dark: transparent;
   --nui-control-color: #007878;
   --nui-control-color-dark: #333;
+}
+.demo.n-carousel.n-carousel--tabs > .n-carousel__index > :first-child span {
+  margin-top: 1.5em;
+  background: var(--nui-control-color);
+  -webkit-mask: var(--nui-logo);
+  height: 1.5em;
+  width: 100%;
+  -webkit-mask-repeat: no-repeat;
+  color: transparent;
 }
 .demo .source {
   display: flex;
