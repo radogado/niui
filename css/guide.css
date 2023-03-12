@@ -112,10 +112,6 @@ html {
   margin: 0;
 }
 
-.n-carousel__content > [aria-current] {
-  z-index: 1;
-}
-
 @media (min-width: 600px) {
   .demo-grid {
     display: grid;

@@ -126,7 +126,7 @@ html {
 }
 
 .n-carousel__content > [aria-current] {
-  z-index: 1;
+  // z-index: 1; // Safari overlay bug
 }
 
 @media (min-width: 600px) {
