@@ -168,6 +168,7 @@
   min-height: 0;
   user-select: none;
   padding-inline-start: 0;
+  padding-inline-end: 0.75em;
   padding-bottom: 0;
   display: inline;
 }
