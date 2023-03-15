@@ -657,7 +657,7 @@ a.n-btn[href],
 .n-nav--drop ul li,
 .n-type nav.n-nav a[href] {
   --nui-control-bg: lightcoral;
-  --nui-control-color: #fff;
+  --nui-control-color: #222;
   --nui-control-active-bg: #cc7c7e;
   --nui-control-active-color: #eee;
   --nui-control-highlight: #bf2a2a;

@@ -177,6 +177,13 @@ function html5blank_styles()
 
 }
 
+remove_action( 'wp_enqueue_scripts', 'wp_enqueue_classic_theme_styles' );
+
+// function hints() {  
+//   header("link: </wp-content/themes/phpied2/style.css>; rel=preload, </wp-includes/css/dist/block-library/style.min.css?ver=5.4.1>; rel=preload");
+// }
+// add_action('send_headers', 'hints');
+
 // Register HTML5 Blank Navigation
 function register_html5_menu()
 {
@@ -583,7 +590,7 @@ function new_nav_menu($items) {
     return '<div class="n-accordion n-accordion--mobile"> 
           <input type="checkbox">
           <div class="n-accordion__label" role="heading" aria-level="1">
-    			  <button> 
+    			  <button aria-label="Menu"> 
     				  <span class="n-burger"></span> 
     			  </button> 
           </div>
