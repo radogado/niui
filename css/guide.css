@@ -155,7 +155,7 @@ html {
   --nui-control-color-dark: #333;
 }
 .demo.n-carousel.n-carousel--tabs > .n-carousel__index > :first-child span {
-  margin-top: 1.5em;
+  margin-top: 0.75em;
   background: var(--nui-control-color);
   -webkit-mask: var(--nui-logo);
   height: 1.5em;
@@ -258,6 +258,7 @@ html {
 
 .n-list pre {
   --nui-list-color: darkmagenta;
+  white-space: break-spaces;
 }
 
 .n-lightbox__thumbnails {
@@ -290,6 +291,10 @@ html:not(.can-touch) nav li li[aria-haspopup]:hover {
     --nui-control-color: lightgrey;
     --nui-control-active-color: #bc8453;
   }
+}
+
+#fixed-background {
+  z-index: 1;
 }
 
 /*# sourceMappingURL=guide.css.map */

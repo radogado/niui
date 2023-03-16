@@ -150,9 +150,6 @@ html {
     background: var(--nui-bg);
     transition: background-color .2s ease-in-out;
 
-    .n-carousel {
-      // --nui-bg: white;
-    }
   }
 
   color: var(--nui-color);
@@ -189,7 +186,7 @@ html {
     --nui-control-color-dark: #333;
 
     > :first-child span {
-      margin-top: 1.5em;
+      margin-top: .75em;
       background: var(--nui-control-color);
       -webkit-mask: var(--nui-logo);
       height: 1.5em;
@@ -329,6 +326,7 @@ html {
 
   pre {
     --nui-list-color: darkmagenta;
+    white-space: break-spaces;
   }
 }
 
@@ -367,4 +365,8 @@ html:not(.can-touch) nav li li[aria-haspopup]:hover {
       --nui-control-active-color: #bc8453;
     }
   }
+}
+
+#fixed-background { // Safari fixed background/main tabs z-index conflict
+  z-index: 1;
 }
