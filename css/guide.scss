@@ -74,14 +74,14 @@ li pre {
 
 .n-carousel:not(.n-carousel--lightbox) > .n-carousel__content > * > :first-child,
 .n-carousel:not(.n-carousel--lightbox) > .n-carousel__content > * > :last-child {
-  padding: 1rem;
+  // padding: 1rem;
 }
 
 .demo {
 
   h1,
   .n-masonry {
-    margin-top: 0;
+    margin-top: .25rem;
   }
 }
 
@@ -367,6 +367,21 @@ html:not(.can-touch) nav li li[aria-haspopup]:hover {
   }
 }
 
-#fixed-background { // Safari fixed background/main tabs z-index conflict
+#fixed-background {
+  // Safari fixed background/main tabs z-index conflict
   z-index: 1;
+}
+
+.n-type .demo {
+  h2 {
+    margin-top: -0.4rem;
+  }
+}
+
+// iPad exit full screen bug
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .demo > .n-carousel__content {
+    width: 80vw;
+  }
 }
