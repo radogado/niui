@@ -301,5 +301,15 @@ html:not(.can-touch) nav li li[aria-haspopup]:hover {
     width: 80vw;
   }
 }
+@media screen and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
+  .demo > .n-carousel__content > * {
+    z-index: 1;
+  }
+}
+_::-webkit-full-page-media,
+_:future,
+:root .demo > .n-carousel__content > * {
+  z-index: unset;
+}
 
 /*# sourceMappingURL=guide.css.map */

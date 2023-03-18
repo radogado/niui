@@ -164,7 +164,6 @@ html {
 
   > .n-carousel__content {
     > * {
-      // display: flex;
       justify-content: center;
       align-items: center;
     }
@@ -384,4 +383,17 @@ html:not(.can-touch) nav li li[aria-haspopup]:hover {
   .demo > .n-carousel__content {
     width: 80vw;
   }
+}
+
+// Chrome fixed background fix 
+@media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) {
+  .demo > .n-carousel__content > * {
+    z-index: 1;
+  }
+}
+
+_::-webkit-full-page-media,
+_:future,
+:root .demo > .n-carousel__content > * {
+  z-index: unset;
 }

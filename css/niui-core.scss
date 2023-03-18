@@ -57,6 +57,7 @@ body.n-sticky-footer {
 
 /* Element as a window to an image spanning viewport dimensions */
 .n-fixed-bg {
+  position: relative;
 
   > picture {
 
