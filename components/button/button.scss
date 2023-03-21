@@ -22,10 +22,6 @@ a.n-btn[href],
   background-color: var(--nui-control-bg, #333);
   color: #eee;
   color: var(--nui-control-color, #eee);
-  /*
-	-webkit-transition: all .1s linear;
-	transition: all .1s linear;
-*/
   border: none;
   font-family: inherit;
   -webkit-touch-callout: none;
@@ -34,6 +30,7 @@ a.n-btn[href],
   -moz-user-select: none;
   user-select: none;
   border-radius: 0;
+  box-shadow: 0 0 0 var(--nui-border-thickness) var(--nui-border-color), 0 0 var(--nui-shadow-blur) calc(var(--nui-border-thickness) + var(--nui-shadow-thickness)) var(--nui-shadow-color);
 
   &:not([disabled]):hover {
     background-color: #eee;

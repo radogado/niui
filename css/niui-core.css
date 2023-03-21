@@ -127,6 +127,14 @@ a[href].span-relative-parent {
     float: right;
   }
 }
+:root {
+  --nui-border-thickness: 0px;
+  --nui-border-color: var(--nui-control-color);
+  --nui-shadow-thickness: 0px;
+  --nui-shadow-blur: 0;
+  --nui-shadow-color: var(--nui-control-color);
+}
+
 .n-scheme-dark {
   --nui-color: var(--nui-color-dark);
   --nui-bg: var(--nui-bg-dark);
