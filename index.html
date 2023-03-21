@@ -682,7 +682,7 @@
 									<li> <a href=#nav>Drop-down nav</a> </li>
 									<li> <a aria-current="page" href=#lightbox>Lightbox</a> </li>
 									<li> <a href=#accordion>Accordion</a> </li>
-									<li> <a href=#modal-window>Modal</a> </li>
+									<li> <a href=#modal>Modal</a> </li>
 								</ul>
 							</nav>
 							<br><br>
@@ -700,7 +700,7 @@
 								<ul>
 									<li> <a aria-current="page" href=#grid>Grid</a> </li>
 									<li> <a href=#carousel>Carousel</a> </li>
-									<li> <a href=#form>Form</a> </li>
+									<li> <a href=#forms>Form</a> </li>
 								</ul>
 							</nav>
 							<br><br>
@@ -709,7 +709,7 @@
 	&lt;ul&gt;
 		&lt;li&gt; &lt;a aria-current="page" href="#grid"&gt;Grid&lt;/a&gt; &lt;/li&gt;
 		&lt;li&gt; &lt;a href="#carousel"&gt;Carousel&lt;/a&gt; &lt;/li&gt;
-		&lt;li&gt; &lt;a href="#form"&gt;Form&lt;/a&gt; &lt;/li&gt;
+		&lt;li&gt; &lt;a href="#forms"&gt;Form&lt;/a&gt; &lt;/li&gt;
 	&lt;/ul&gt;
 &lt;/nav&gt;</code></pre>
 							</div>
@@ -720,7 +720,7 @@
 								<ul>
 									<li> <a aria-current="page" href=#grid>Grid</a> </li>
 									<li> <a href=#carousel>Carousel</a> </li>
-									<li> <a href=#form>Form</a> </li>
+									<li> <a href=#forms>Form</a> </li>
 								</ul>
 							</nav>
 							<br><br>
@@ -729,7 +729,7 @@
 	&lt;ul&gt;
 		&lt;li&gt; &lt;a aria-current="page" href="#grid"&gt;Grid&lt;/a&gt; &lt;/li&gt;
 		&lt;li&gt; &lt;a href="#carousel"&gt;Carousel&lt;/a&gt; &lt;/li&gt;
-		&lt;li&gt; &lt;a href="#form"&gt;Form&lt;/a&gt; &lt;/li&gt;
+		&lt;li&gt; &lt;a href="#forms"&gt;Form&lt;/a&gt; &lt;/li&gt;
 	&lt;/ul&gt;
 &lt;/nav&gt;</code></pre>
 							</div>
@@ -740,7 +740,7 @@
 								<ul>
 									<li> <a aria-current="page" href=#grid>Grid</a> </li>
 									<li> <a href=#carousel>Carousel</a> </li>
-									<li> <a href=#form>Form</a> </li>
+									<li> <a href=#forms>Form</a> </li>
 								</ul>
 							</nav>
 							<br><br>
@@ -749,7 +749,7 @@
 	&lt;ul&gt;
 		&lt;li&gt; &lt;a aria-current="page" href="#grid"&gt;Grid&lt;/a&gt; &lt;/li&gt;
 		&lt;li&gt; &lt;a href="#carousel"&gt;Carousel&lt;/a&gt; &lt;/li&gt;
-		&lt;li&gt; &lt;a href="#form"&gt;Form&lt;/a&gt; &lt;/li&gt;
+		&lt;li&gt; &lt;a href="#forms"&gt;Form&lt;/a&gt; &lt;/li&gt;
 	&lt;/ul&gt;
 &lt;/nav&gt;</code></pre>
 							</div>
@@ -762,8 +762,8 @@
 									<li> <a href=#nav>Drop-down nav</a> </li>
 									<li> <a href=#lightbox aria-current="page">Lightbox</a> </li>
 									<li> <a href=#accordion>Accordion</a> </li>
-									<li> <a href=#modal-window>Modal</a> </li>
-									<li> <a href=#video>Video</a> </li>
+									<li> <a href=#modal>Modal</a> </li>
+									<li> <a href=#forms>Video</a> </li>
 									<li> <a href=#aspect-ratio>Aspect ratio</a> </li>
 									<li> <a href=#masonry>Masonry</a> </li>
 									<li> <a href=#tables>Tables</a> </li>
@@ -1057,7 +1057,7 @@
 									<div class="n-select__options">
 										<button>Go to page...</button>
 										<a href="#home">Home</a>
-										<a href="#form">Forms</a>
+										<a href="#forms">Forms</a>
 									</div>
 								</div>
 							</label>
@@ -2527,8 +2527,6 @@
 
 									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
 
-									<p><a href="#">Link</a>.</p>
-
 								</div>
 
 							</div>
@@ -2761,13 +2759,13 @@
 						</div>
 -->
 						<div>
-							<p><a href="external.html#content" class="n-modal-link" data-anim='[{ "opacity": 0 }, { "opacity": 1 }]'>Open a modal with custom animation</a>.</p>
+							<p><a href="external.html#content?1" class="n-modal-link" data-anim='[{ "opacity": 0 }, { "opacity": 1 }]'>Open a modal with custom animation</a>.</p>
 							<div class="code">
 								<pre><code class="language-markup">&lt;a href="external.html#content" class="n-modal-link" data-anim="0% { opacity: 0; } 100% { opacity: 1; }"&gt;Open a modal with custom animation.&lt;/a&gt;</code></pre>
 							</div>
 						</div>
 						<div>
-							<p><a href="external.html#content" class="n-modal-link n-modal--full">Full Modal</a>.</p>
+							<p><a href="external.html#content?3" class="n-modal-link n-modal--full">Full Modal</a>.</p>
 							<div class="code">
 								<pre><code class="language-markup">&lt;a href="external.html#content" class="n-modal-link n-modal--full"&gt;Open a modal here.&lt;/a&gt;</code></pre>
 							</div>
