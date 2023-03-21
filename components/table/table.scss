@@ -2,11 +2,16 @@
 @import "../../css/niui-setup";
 
 .n-table {
-	width: 100%;
 	overflow: auto;
 	border-collapse: collapse;
-
-	display: block;
+	border-radius: var(--nui-border-radius);
+	display: inline-block;
+	
+	&--wide {
+		display: table;
+		width: 100%;
+		overflow: hidden;
+	}
 
 	td,
 	th {
@@ -55,33 +60,31 @@
 	}
 }
 
-.n-table::-webkit-scrollbar {
-	display: none;
-}
+// .n-table::-webkit-scrollbar {
+// 	display: none;
+// }
 
-.n-table__wrap {
-	overflow-x: auto;
-	border-radius: var(--nui-border-radius);
-	/*
-    scrollbar-3dlight-color: grey;
-    scrollbar-arrow-color: grey;
-    scrollbar-base-color: transparent;
-    scrollbar-darkshadow-color: grey;
-    scrollbar-face-color: transparent;
-    scrollbar-highlight-color: transparent;
-    scrollbar-shadow-color: transparent;
-*/
-
-
-	.n-table {
-		display: table;
-	}
-}
+// .n-table__wrap {
+// 	overflow-x: auto;
+// 	border-radius: var(--nui-border-radius);
+// 	/*
+//     scrollbar-3dlight-color: grey;
+//     scrollbar-arrow-color: grey;
+//     scrollbar-base-color: transparent;
+//     scrollbar-darkshadow-color: grey;
+//     scrollbar-face-color: transparent;
+//     scrollbar-highlight-color: transparent;
+//     scrollbar-shadow-color: transparent;
+// */
+// 
+// 
+// 	.n-table {
+// 		display: table;
+// 	}
+// }
 
 @media not screen and (min-width: $screen-narrow) {
 	.n-table {
-		display: block;
-		overflow: scroll;
 		table-layout: auto;
 
 		td {
