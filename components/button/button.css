@@ -36,7 +36,7 @@ a.n-btn[href],
   -moz-user-select: none;
   user-select: none;
   border-radius: 0;
-  box-shadow: 0 0 0 var(--nui-border-thickness) var(--nui-border-color), 0 0 var(--nui-shadow-blur) calc(var(--nui-border-thickness) + var(--nui-shadow-thickness)) var(--nui-shadow-color);
+  box-shadow: 0 0 0 var(--nui-border-size) var(--nui-border-color), 0 0 var(--nui-shadow-blur) calc(var(--nui-border-size) + var(--nui-shadow-size)) var(--nui-shadow-color);
 }
 .n-btn:not([disabled]):hover,
 .n-form input[type=submit]:not([disabled]):hover,

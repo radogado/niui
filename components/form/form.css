@@ -55,7 +55,8 @@
 .n-form select,
 .n-form textarea,
 .n-form input[type=search],
-.n-form button {
+.n-form button,
+.n-form .n-form__file span {
   font-family: inherit;
   display: inline-block;
   overflow: hidden;
@@ -68,6 +69,11 @@
   font-size: 1em;
   border: 1px dotted transparent;
   border-radius: var(--nui-border-radius);
+  box-shadow: 0 0 0 var(--nui-border-size) var(--nui-border-color), 0 0 var(--nui-shadow-blur) calc(var(--nui-border-size) + var(--nui-shadow-size)) var(--nui-shadow-color);
+}
+.n-form .n-form__file span span {
+  display: flex;
+  align-items: center;
 }
 .n-form textarea {
   border-bottom: 1px dotted transparent;
@@ -189,7 +195,7 @@
   display: inline-block;
   background-color: var(--nui-control-bg, #eee);
   color: var(--nui-control-color, #333);
-  line-height: calc((var(--nui-line-height) + 1) * 0.6666666667);
+  line-height: calc((var(--nui-line-height) + 1) * (2 / 3));
   text-align: center;
   border: none;
   margin: 0;
@@ -198,6 +204,7 @@
   z-index: 1;
   top: 0.05em;
   vertical-align: middle;
+  border-radius: var(--nui-border-radius);
 }
 .n-form--mast .n-form__check-icon, .n-form--wide .n-form__check-icon {
   top: 0.25em;
@@ -286,7 +293,6 @@
   text-align: start;
   border: none;
   white-space: nowrap;
-  overflow: hidden;
   background-color: var(--nui-control-bg, #ddd);
   color: var(--nui-control-color, inherit);
   padding: 0 calc(var(--nui-line-height-em) / 2) 0 0.75em;
@@ -295,12 +301,8 @@
   padding-top: calc(var(--nui-line-height-em) / 2);
   letter-spacing: 0;
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   z-index: -1;
-  border-radius: var(--nui-border-radius);
 }
 .n-form__file span .n-form__file-name:empty, .n-form__file span .n-form__file-name:not(:empty) ~ .n-form__file-tag {
   display: none;
@@ -327,6 +329,7 @@
   background: none;
   margin: 0;
   padding: 0;
+  box-shadow: none;
 }
 .n-form input[type=range]::-webkit-slider-runnable-track {
   width: 100%;
@@ -389,7 +392,7 @@
 .n-form--wide button,
 .n-form--wide button[type=submit] {
   margin-bottom: calc(var(--nui-line-height-em) - 5px);
-  line-height: calc(var(--nui-line-height-em) / 3 * 2);
+  line-height: calc((var(--nui-line-height-em) / 3) * 2);
   font-size: 1.2em;
   min-height: 2.50005em;
   width: 100%;

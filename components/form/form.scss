@@ -57,7 +57,8 @@
   select,
   textarea,
   input[type="search"],
-  button {
+  button,
+  .n-form__file span {
     font-family: inherit;
     display: inline-block;
     overflow: hidden;
@@ -70,6 +71,12 @@
     font-size: 1em;
     border: 1px dotted transparent;
     border-radius: var(--nui-border-radius);
+    box-shadow: 0 0 0 var(--nui-border-size) var(--nui-border-color), 0 0 var(--nui-shadow-blur) calc(var(--nui-border-size) + var(--nui-shadow-size)) var(--nui-shadow-color);
+  }
+
+  .n-form__file span span {
+    display: flex;
+    align-items: center;
   }
 
   textarea {
@@ -225,6 +232,7 @@
     z-index: 1;
     top: 0.05em;
     vertical-align: middle;
+    border-radius: var(--nui-border-radius);
   }
 
   &--mast,
@@ -333,7 +341,6 @@
       text-align: start;
       border: none;
       white-space: nowrap;
-      overflow: hidden;
       background-color: var(--nui-control-bg, #ddd);
       color: var(--nui-control-color, inherit);
       padding: 0 calc(var(--nui-line-height-em) / 2) 0 0.75em;
@@ -342,12 +349,8 @@
       padding-top: calc(var(--nui-line-height-em) / 2);
       letter-spacing: 0;
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      inset: 0;
       z-index: -1;
-      border-radius: var(--nui-border-radius);
 
       .n-form__file-name {
 
@@ -356,6 +359,7 @@
           display: none;
         }
       }
+
     }
 
     input[type="file"] {
@@ -383,6 +387,7 @@
     background: none;
     margin: 0;
     padding: 0;
+    box-shadow: none;
 
     &::-webkit-slider-runnable-track {
       width: 100%;

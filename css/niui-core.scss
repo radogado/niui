@@ -137,9 +137,9 @@ a[href].span-relative-parent {
 }
 
 :root {
-  --nui-border-thickness: 0px;
+  --nui-border-size: 0px;
   --nui-border-color: var(--nui-control-color);
-  --nui-shadow-thickness: 0px;
+  --nui-shadow-size: 0px;
   --nui-shadow-blur: 0;
   --nui-shadow-color: var(--nui-control-color);
 }
@@ -156,6 +156,8 @@ a[href].span-relative-parent {
   --nui-input-bg: var(--nui-input-bg-dark);
   --nui-list-color: var(--nui-list-color-dark);
   --nui-list-bg: var(--nui-list-bg-dark);
+  --nui-border-color: var(--nui-border-color-dark);
+  --nui-shadow-color: var(--nui-shadow-color-dark);
 }
 
 .n-scheme-dark {

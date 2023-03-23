@@ -582,3 +582,8 @@
     outline-width: 1px;
   }
 }
+
+.n-nav:not(.n-nav--drop) ul,
+.n-nav--scroll {
+  box-shadow: 0 0 0 var(--nui-border-size) var(--nui-border-color), 0 0 var(--nui-shadow-blur) calc(var(--nui-border-size) + var(--nui-shadow-size)) var(--nui-shadow-color);
+}
