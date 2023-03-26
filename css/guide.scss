@@ -369,6 +369,7 @@ html:not(.can-touch) nav li li[aria-haspopup]:hover {
 #fixed-background {
   // Safari fixed background/main tabs z-index conflict
   z-index: 1;
+  mask: linear-gradient(red,red);
 }
 
 .n-type .demo {

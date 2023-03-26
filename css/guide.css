@@ -290,6 +290,7 @@ html:not(.can-touch) nav li li[aria-haspopup]:hover {
 
 #fixed-background {
   z-index: 1;
+  mask: linear-gradient(red, red);
 }
 
 .n-type .demo h2 {
