@@ -235,6 +235,8 @@ html {
     padding: 1em;
     margin: 0 !important;
     // background: #f1f3f8 !important;
+    background: var(--nui-control-active-color);
+    border-radius: var(--nui-border-radius);
   }
 
   button.n-btn {

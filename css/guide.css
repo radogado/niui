@@ -192,6 +192,8 @@ html {
 .code pre {
   padding: 1em;
   margin: 0 !important;
+  background: var(--nui-control-active-color);
+  border-radius: var(--nui-border-radius);
 }
 .code button.n-btn {
   position: absolute;
