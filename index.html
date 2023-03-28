@@ -1073,15 +1073,6 @@
 &lt;/div&gt;</code></pre>
 							</div>
 						</div>
-						<div class="_1/1">
-							<h3>Options</h3>
-							<ul class="n-list">
-								<li>Drop nav uses CSS variables
-									<pre>--nui-control-bg</pre> and
-									<pre>--nui-control-color</pre> for background/text color.
-								</li>
-							</ul>
-						</div>
 					</div>
 				</div>
 				<div id="typography">
@@ -1117,7 +1108,7 @@
 							<h3>Links</h3>
 							<p>Here is a <a href=#>first link</a>.</p>
 							<h3>Paragraph</h3>
-							<p>All elements except images are baseline-aligned with height divisible by the default line height. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+							<p>Text elements are baseline-aligned with height divisible by the default line height. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 						</div>
 						<div class="_1/3">
 							<h3>Height compensation according to line height</h3>
@@ -1139,12 +1130,12 @@
 							<h2>Aspect ratio container</h2>
 							<p>As the image is loading, the layout is already solid and the page doesn't jump after the download.</p>
 							<picture class=n-aspect style="--width: 1600; --height: 681;">
-								<img src=images/lido.jpg alt="Lido">
+								<img src=images/lido.jpg alt="Lido" width="1600" height="681">
 							</picture>
 							<br>
 							<div class="code">
 								<pre><code class="language-markup">&lt;picture class="n-aspect" style="--width: 1600; --height: 681;"&gt;
-	&lt;img src="images/lido.jpg" alt="Lido"&gt;
+	&lt;img src="images/lido.jpg" alt="Lido" width="1600" height="681"&gt;
 &lt;/picture&gt;</code></pre>
 							</div>
 							<h3>Options</h3>
@@ -1398,7 +1389,7 @@
 										<p><br>One<br></p>
 									</div>
 									<div class="n-center">
-										<p><br><br>Two<br><br></p>
+										<p><br><br><br><br>Two<br><br><br><br></p>
 									</div>
 								</div>
 								<div class="n-carousel__previous">
@@ -1470,11 +1461,10 @@
 						<div class="_1/1">
 							<h3>Options</h3>
 							<ul class="n-list">
-								<li>Slide duration
-									<pre>&lt;div class="n-carousel" data-duration="1"&gt;</pre> in seconds. Default is
-									<pre>0.2</pre>.
+								<li>Custom slide duration
+									<pre>&lt;div class="n-carousel" data-duration="1"&gt;</pre> in seconds..
 								</li>
-								<li>URI with hash matching a slide id in a carousel, auto slides to it.</li>
+								<li>URI with hash matching a slide ID in a carousel, auto slides to it.</li>
 								<li>
 									<pre>--peek: 20%</pre> to peek at neighboring slides, where 20% becomes 20% horizontal padding
 								</li>
