@@ -59,7 +59,7 @@ body.n-sticky-footer {
 .n-fixed-bg {
   position: relative;
 
-  > picture {
+  &__backdrop {
 
     position: absolute;
     clip: rect(auto, auto, auto, auto);

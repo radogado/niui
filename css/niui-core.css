@@ -59,7 +59,7 @@ body.n-sticky-footer main {
 .n-fixed-bg {
   position: relative;
 }
-.n-fixed-bg > picture {
+.n-fixed-bg__backdrop {
   position: absolute;
   clip: rect(auto, auto, auto, auto);
   width: 100%;
@@ -67,7 +67,7 @@ body.n-sticky-footer main {
   inset: 0;
   z-index: -1;
 }
-.n-fixed-bg > picture img {
+.n-fixed-bg__backdrop img {
   inset: 0;
   width: 100%;
   height: 100vh;

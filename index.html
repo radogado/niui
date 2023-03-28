@@ -151,7 +151,7 @@
 								<h3>Get <a href=dist/niui.min.css download>niui.min.css</a><br> <a href=dist/niui.min.js download>niui.min.js</a><br> and <a href=dist/index.html download>index.html</a><br> and edit the latter.</h3>
 								<h4>Or install with NPM and include the niui files</h4>
 								<div class=code>
-									<pre><code class="language-js">npm i niui-npm</code></pre>
+									<pre><code class="language-js">npm i --save-dev niui-npm</code></pre>
 								</div>
 								<br>
 								<div class=code>
@@ -3639,13 +3639,13 @@
 						<div class="n-middle" style="min-height: 100vh;">
 							<div class="n-fixed-bg" style=" color: #fff;">
 								<!-- <div class="n-fixed-bg__image"></div> -->
-								<picture><img src="images/DSC00470.jpg" alt="Lido beach"></picture>
+								<picture class="n-fixed-bg__backdrop"><img src="images/DSC00470.jpg" alt="Lido beach"></picture>
 								<div class="n-pad">
 									<br><br>
 									<h2>Fixed background</h2>
 									<div class="code">
 										<pre><code class="language-markup">&lt;div class="n-fixed-bg"&gt;
-	&lt;picture&gt;&lt;img&gt;&lt;/picture&gt;
+	&lt;picture class="n-fixed-bg__backdrop"&gt;&lt;img&gt;&lt;/picture&gt;
 	...
 &lt;/div&gt;</code></pre>
 									</div>
