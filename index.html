@@ -2534,7 +2534,7 @@
 						</div>
 						<div>
 							<div class="n-accordion">
-								<input type="checkbox">
+								<input type="checkbox" checked="true">
 								<h2 class="n-accordion__label" aria-expanded="true">
 									<button> Open by default </button>
 								</h2>
@@ -2544,7 +2544,7 @@
 							</div>
 							<div class="code">
 								<pre><code class="language-markup">&lt;div class=&quot;n-accordion&quot;&gt;
-	&lt;input type=&quot;checkbox&quot;&gt;
+	&lt;input type=&quot;checkbox&quot; checked="true"&gt;
 	&lt;h2 class=&quot;n-accordion__label&quot; aria-expanded=&quot;true&quot;&gt; &lt;button&gt; Accordion &lt;/button&gt;&lt;/h2&gt;
 	&lt;div class=&quot;n-accordion__content&quot;&gt;
 		...
@@ -2731,7 +2731,13 @@
 							<h2> Modal </h2>
 							<a href="//radogado.github.io/n-modal/">Full info on standalone component home page</a>
 						</div>
-						<div>
+						<div class="_1/2">
+							<button onclick="nui.componentModal.openModal('Content from a <b>text</b>/<b>HTML</b> string')" class="n-btn n-btn--big">Open a modal with content from a text/HTML string</button>
+							<div class="code">
+								<pre><code class="language-markup">&lt;button onclick=&quot;nui.componentModal.openModal(&apos;Content&apos;)&quot; class=&quot;n-btn n-btn--big&quot;&gt;Open a modal&lt;/button&gt;</code></pre>
+							</div>
+						</div>
+						<div class="_1/2">
 							<p><a href="external.html#content" class="n-modal-link">Open a modal inside this <span>tab</span></a>.</p>
 							<div class="code">
 								<pre><code class="language-markup">&lt;a href="external.html#content" class="n-modal-link"&gt;Open a modal here.&lt;/a&gt;</code></pre>
@@ -2749,13 +2755,13 @@
 </div>						
 						</div>
 -->
-						<div>
+						<div class="_1/2">
 							<p><a href="external.html#content?1" class="n-modal-link" data-anim='[{ "opacity": 0 }, { "opacity": 1 }]'>Open a modal with custom animation</a>.</p>
 							<div class="code">
 								<pre><code class="language-markup">&lt;a href="external.html#content" class="n-modal-link" data-anim="0% { opacity: 0; } 100% { opacity: 1; }"&gt;Open a modal with custom animation.&lt;/a&gt;</code></pre>
 							</div>
 						</div>
-						<div>
+						<div class="_1/2">
 							<p><a href="external.html#content?3" class="n-modal-link n-modal--full">Full Modal</a>.</p>
 							<div class="code">
 								<pre><code class="language-markup">&lt;a href="external.html#content" class="n-modal-link n-modal--full"&gt;Open a modal here.&lt;/a&gt;</code></pre>
