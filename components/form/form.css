@@ -195,7 +195,7 @@
   display: inline-block;
   background-color: var(--nui-control-bg, #eee);
   color: var(--nui-control-color, #333);
-  line-height: calc((var(--nui-line-height) + 1) * (2 / 3));
+  line-height: calc((var(--nui-line-height) + 1) * 0.6666666667);
   text-align: center;
   border: none;
   margin: 0;
@@ -204,7 +204,6 @@
   z-index: 1;
   top: 0.05em;
   vertical-align: middle;
-  border-radius: var(--nui-border-radius);
 }
 .n-form--mast .n-form__check-icon, .n-form--wide .n-form__check-icon {
   top: 0.25em;
@@ -392,7 +391,7 @@
 .n-form--wide button,
 .n-form--wide button[type=submit] {
   margin-bottom: calc(var(--nui-line-height-em) - 5px);
-  line-height: calc((var(--nui-line-height-em) / 3) * 2);
+  line-height: calc(var(--nui-line-height-em) / 3 * 2);
   font-size: 1.2em;
   min-height: 2.50005em;
   width: 100%;
