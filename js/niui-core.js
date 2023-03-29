@@ -324,11 +324,10 @@ window.nui = (() => {
         init(document);
       }
 
-      function initComponents(host) {
+      function initComponents(host = document.body) {
         observerOff();
-        var _host = !host ? document.body : host;
         for (let key in components) {
-          components[key][0].init(_host);
+          components[key][0].init(host);
         }
         observerOn();
       }
