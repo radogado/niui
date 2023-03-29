@@ -295,7 +295,7 @@ html:not(.can-touch) nav li li[aria-haspopup]:hover {
   mask: linear-gradient(red, red);
 }
 
-.n-type .demo h2 {
+.n-type .demo .section-title {
   margin-top: -0.4rem;
 }
 
