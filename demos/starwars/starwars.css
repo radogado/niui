@@ -198,6 +198,7 @@ main h2 {
 
 .n-row.n-row--vertical * h2 {
   padding-top: 0;
+  margin-top: 0;
 }
 
 main .n-row img[class*=col] {
@@ -215,7 +216,7 @@ main .n-row img[class*=col] {
 
 .head-promo {
   overflow: hidden;
-  max-height: calc(var(--height) * (1 - var(--threshold)) * 1px);
+  max-height: calc((var(--height) * (1 - var(--threshold)))*1px);
   opacity: calc(1 - var(--threshold));
   transition: all 0.1s linear;
   padding: 0.2em 0 5em 0;
@@ -282,6 +283,7 @@ nav.n-nav.main ul.n-list {
 
 nav.n-nav.n-nav--scroll ul.n-list {
   padding-bottom: 0;
+  justify-content: center;
 }
 
 @media screen and (max-width: 600px) {

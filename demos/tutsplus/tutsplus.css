@@ -86,7 +86,8 @@ input[type=search] {
   box-sizing: border-box;
   padding: 0;
 }
-.n-row.card-grid .n-card, .n-row.card-grid .n-card .n-card--content {
+.n-row.card-grid .n-card,
+.n-row.card-grid .n-card .n-card--content {
   background: none;
   margin: 0;
 }
@@ -156,6 +157,9 @@ footer a[href] {
 
 .n-accordion {
   --nui-control-color: #fff;
+}
+.n-accordion > .n-accordion__label[aria-expanded=true] button:after {
+  --nui-control-color: black;
 }
 
 @media (max-width: 599.9px) {

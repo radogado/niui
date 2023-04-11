@@ -151,6 +151,9 @@
   padding: 0.75em;
   display: block;
 }
+.n-nav--drop.n-nav li > a {
+  background: none;
+}
 .n-nav--drop a:focus,
 .n-nav--drop li > :focus {
   outline-offset: -7px;

@@ -449,4 +449,8 @@ nav.n-nav.n-nav--drop ul.n-list li input ~ a[href] {
   flex-direction: column;
 }
 
+.n-nav--drop.n-nav li > a {
+  padding-inline-end: 1.5em;
+}
+
 /*# sourceMappingURL=nikon-d850.css.map */

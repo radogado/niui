@@ -669,3 +669,7 @@ ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li {
 	flex-direction: column;
 
 }
+
+.n-nav--drop.n-nav li > a {
+	padding-inline-end: 1.5em;
+}
