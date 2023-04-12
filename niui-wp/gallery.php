@@ -183,7 +183,7 @@ final class Cleaner_Gallery {
 			}
 			
 			// print_r(wp_get_attachment_image( $attachment->ID, ['thumbnail', 'large', 'original']));
-			$content .= '<li id="slide-' . $attachment->ID . '"><figure><picture style="--placeholder: url(' . wp_get_attachment_image_url($attachment->ID, 'medium') . ')">' . wp_get_attachment_image( $attachment->ID, 'original') . '</picture><figcaption>' . wp_get_attachment_caption( $attachment->ID) . '</figcaption></figure></li>';
+			$content .= '<li data-id="slide-' . $attachment->ID . '"><figure><picture style="--placeholder: url(' . wp_get_attachment_image_url($attachment->ID, 'medium') . ')">' . wp_get_attachment_image( $attachment->ID, 'original') . '</picture><figcaption>' . wp_get_attachment_caption( $attachment->ID) . '</figcaption></figure></li>';
 			/* Close gallery row. */
 /*
 			if ( $this->args['columns'] > 0 && ++$i % $this->args['columns'] == 0 )
@@ -215,19 +215,6 @@ final class Cleaner_Gallery {
 		$gallery_attr .= sprintf( " itemscope itemtype='%s'", esc_attr( $this->get_gallery_itemtype() ) );
 
 $script = "
-
-<!--
-<style>
-
-.n-lightbox#gallery" . esc_attr( $this->args['id'] ) . '-' . esc_attr( $this->gallery_instance ) . " a {
-	
-	width: " . $width . "px;	
-	height: " . $height . "px;	
-
-}
-
-</style>
--->
 
 <script> // If the featured image is also in a lightbox, open it on click
 	

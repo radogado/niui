@@ -32,7 +32,7 @@ gulp.task('build:styles', function () {
 });
 
 gulp.task('build:styles_wp', function () {
-	return gulp.src(['css/niui-wp.scss'])
+	return gulp.src(['components/**/*.scss', 'css/niui-core.scss', 'css/niui-wp.scss'])
 		.pipe(sassGlob())
 		.pipe(sourcemaps.init())
 		.pipe(sass().on('error', sass.logError))
