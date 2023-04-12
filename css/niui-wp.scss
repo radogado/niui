@@ -640,6 +640,7 @@ nav.n-nav {
 	& {
 		display: flex;
 		flex-direction: row;
+		flex-wrap: wrap;
 		&:has(> .aligncenter) {
 			justify-content: center;
 		}

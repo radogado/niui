@@ -517,6 +517,7 @@ nav.n-nav.n-nav--drop li.current_page_item {
 .wp-block-image {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 .wp-block-image:has(> .aligncenter) {
   justify-content: center;
