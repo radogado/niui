@@ -510,18 +510,22 @@ nav.n-nav.n-nav--drop li.current_page_item {
 .wp-block-image,
 .wp-block-image figure,
 .wp-block-image figure[class*=align] {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   max-width: 100%;
 }
-.wp-block-image .aligncenter {
-  text-align: center;
+.wp-block-image {
+  display: flex;
+  flex-direction: row;
+}
+.wp-block-image:has(> .aligncenter) {
+  justify-content: center;
+}
+.wp-block-image:has(> .alignright) {
+  justify-content: flex-end;
 }
 .wp-block-image .aligncenter .n-aspect {
   margin: 0 auto;
-}
-.wp-block-image .alignright {
-  text-align: right;
 }
 .wp-block-image .alignright .n-aspect {
   margin: 0 0 0 auto;

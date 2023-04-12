@@ -632,13 +632,24 @@ nav.n-nav {
 	&,
 	figure,
 	figure[class*="align"] {
-		display: flex;
+		display: inline-flex;
 		flex-direction: column;
 		max-width: 100%;
 	}
 
+	& {
+		display: flex;
+		flex-direction: row;
+		&:has(> .aligncenter) {
+			justify-content: center;
+		}
+		&:has(> .alignright) {
+			justify-content: flex-end;
+		}
+	}
+
 	.aligncenter {
-		text-align: center;
+		// text-align: center;
 
 		.n-aspect {
 			margin: 0 auto;
@@ -646,7 +657,7 @@ nav.n-nav {
 	}
 
 	.alignright {
-		text-align: right;
+		// text-align: right;
 
 		.n-aspect {
 			margin: 0 0 0 auto;
