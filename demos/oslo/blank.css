@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body.n-type {
   font-size: 1.125rem;
   margin: 0;
@@ -66,163 +67,163 @@ img[alt=Cycle] {
 }
 
 .io-icon--h24:before {
-  content: "\e900";
+  content: "";
 }
 
 .io-icon--backpack:before {
-  content: "\e901";
+  content: "";
 }
 
 .io-icon--bike:before {
-  content: "\e902";
+  content: "";
 }
 
 .io-icon--bus:before {
-  content: "\e903";
+  content: "";
 }
 
 .io-icon--cafe:before {
-  content: "\e904";
+  content: "";
 }
 
 .io-icon--calendar:before {
-  content: "\e905";
+  content: "";
 }
 
 .io-icon--chevron-down:before {
-  content: "\e906";
+  content: "";
 }
 
 .io-icon--chevron-left:before {
-  content: "\e907";
+  content: "";
 }
 
 .io-icon--chevron-right:before {
-  content: "\e908";
+  content: "";
 }
 
 .io-icon--chevron-up:before {
-  content: "\e909";
+  content: "";
 }
 
 .io-icon--coin-stacks:before {
-  content: "\e90a";
+  content: "";
 }
 
 .io-icon--crane:before {
-  content: "\e90b";
+  content: "";
 }
 
 .io-icon--dog:before {
-  content: "\e90c";
+  content: "";
 }
 
 .io-icon--drone:before {
-  content: "\e90d";
+  content: "";
 }
 
 .io-icon--exclamation-mark-circle:before {
-  content: "\e90e";
+  content: "";
 }
 
 .io-icon--filter:before {
-  content: "\e910";
+  content: "";
 }
 
 .io-icon--fire-emblem:before {
-  content: "\e911";
+  content: "";
 }
 
 .io-icon--handicap:before {
-  content: "\e912";
+  content: "";
 }
 
 .io-icon--house-heart:before {
-  content: "\e913";
+  content: "";
 }
 
 .io-icon--location-pin:before {
-  content: "\e914";
+  content: "";
 }
 
 .io-icon--magnifying-glass-big:before {
-  content: "\e915";
+  content: "";
 }
 
 .io-icon--magnifying-glass-small:before {
-  content: "\e916";
+  content: "";
 }
 
 .io-icon--menu:before {
-  content: "\e917";
+  content: "";
 }
 
 .io-icon--minus-sign:before {
-  content: "\e918";
+  content: "";
 }
 
 .io-icon--museum:before {
-  content: "\e919";
+  content: "";
 }
 
 .io-icon--park:before {
-  content: "\e91a";
+  content: "";
 }
 
 .io-icon--plus-sign:before {
-  content: "\e91b";
+  content: "";
 }
 
 .io-icon--recycling:before {
-  content: "\e91c";
+  content: "";
 }
 
 .io-icon--resturant:before {
-  content: "\e91d";
+  content: "";
 }
 
 .io-icon--swingset:before {
-  content: "\e91e";
+  content: "";
 }
 
 .io-icon--toilet:before {
-  content: "\e91f";
+  content: "";
 }
 
 .io-icon--tram:before {
-  content: "\e920";
+  content: "";
 }
 
 .io-icon--user:before {
-  content: "\e921";
+  content: "";
 }
 
 .io-icon--water-faucet:before {
-  content: "\e922";
+  content: "";
 }
 
 .io-icon--x:before {
-  content: "\e923";
+  content: "";
 }
 
 .io-icon--facebook:before {
-  content: "\e924";
+  content: "";
 }
 
 .io-icon--instagram:before {
-  content: "\e925";
+  content: "";
 }
 
 .io-icon--linked-in:before {
-  content: "\e926";
+  content: "";
 }
 
 .io-icon--twitter:before {
-  content: "\e927";
+  content: "";
 }
 
 .io-icon--heart-plus:before {
-  content: "\e928";
+  content: "";
 }
 
 ul {
@@ -363,8 +364,9 @@ main .n-form button {
   left: 0px;
   right: 0px;
   top: 5.5rem;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
+  transition: background-color 0.2s linear, box-shadow 0.2s linear;
+  background: rgba(0, 0, 0, 0);
+  box-shadow: 0 100vw 0 100vw rgba(0, 0, 0, 0);
 }
 .menu > div {
   background: white;
@@ -373,6 +375,11 @@ main .n-form button {
 .menu .n-masonry > * {
   padding-inline-start: 0;
   padding-inline-end: 0.25rem;
+}
+
+[aria-expanded=true] ~ .menu {
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 100vw 0 100vw rgba(0, 0, 0, 0.6);
 }
 
 .n-type .menu p.osg-icon-link__description {
@@ -428,7 +435,7 @@ main .n-form button {
   }
 
   .n-accordion__label button {
-    padding-inline-end: calc(var(--nui-line-height-em, 1.5rem) / 2);
+    padding-inline-end: calc(var(--nui-line-height-em, 1.5rem)/ 2);
   }
   .n-accordion__label button:after {
     display: none;

@@ -455,9 +455,9 @@ main .n-form button {
 	left: 0px;
 	right: 0px;
 	top: 5.5rem;
-	bottom: 0;
-
-	background: rgba(0, 0, 0, .6);
+	transition: background-color .2s linear, box-shadow .2s linear;
+	background: rgba(0, 0, 0, 0);
+	box-shadow: 0 100vw 0 100vw rgba(0, 0, 0, 0);
 
 	> div {
 
@@ -473,6 +473,11 @@ main .n-form button {
 
 	}
 
+}
+
+[aria-expanded="true"] ~ .menu {
+	background: rgba(0, 0, 0, 0.6);
+	box-shadow: 0 100vw 0 100vw rgba(0, 0, 0, 0.6);
 }
 
 .n-type .menu p.osg-icon-link__description {
