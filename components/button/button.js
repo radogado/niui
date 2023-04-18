@@ -23,6 +23,6 @@
 			el.dataset.ready = true;
 		});
 	};
-	registerComponent("button", init);
+	nui.registerComponent("button", init);
 })();
 // Component Button – end

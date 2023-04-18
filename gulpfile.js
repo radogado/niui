@@ -49,13 +49,27 @@ gulp.task('build:styles_wp', function () {
 		.pipe(gulp.dest('niui-wp'));
 });
 
-gulp.task('build:scripts', function() {
+gulp.task('build:script_module', function() {
 	return gulp.src(['components/**/*.js'])
 		.pipe(sourcemaps.init())
-		.pipe(rollup({}, { format: 'cjs', strict: false, treeshake: false }))
+		.pipe(rollup({}, { format: 'es', strict: false}))
 		.pipe(concat('niui.js'))
 		.pipe(headerfooter.header('js/niui-core.js'))
 		.pipe(headerfooter.footer('js/niui-tail.js'))
+		.pipe(sourcemaps.write('.', {
+			mapFile: function(mapFilePath) {
+				return mapFilePath.replace('.js.map', '.js.map');
+			}
+		}))
+		.pipe(gulp.dest('js'));
+});
+
+gulp.task('build:script_min', function() {
+		
+		return gulp.src(['js/niui.js'])
+		.pipe(sourcemaps.init())
+		.pipe(rollup({}, { format: 'es', strict: false}))
+		.pipe(headerfooter.footer(';window.nui = nui;'))
 		.pipe(terser())
 		.pipe(rename(function(path) {
 			path.extname = ".min.js"

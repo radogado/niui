@@ -17,7 +17,7 @@
       ) {
         ready_to_submit = false;
         el.querySelector("input").focus();
-        addClass(el, "n-form--alert");
+        el.classList.add("n-form--alert");
         // Margin animation, because transform animation hides neighbouring content on iPad
         let form = el.closest("form");
         form.animate([{ width: `${form.scrollWidth}px` }, { marginLeft: `-9px` }, { marginLeft: `18px` }, { width: `${form.scrollWidth}px`, marginLeft: 0 }], 250);
@@ -33,13 +33,6 @@
     var el = e.target;
     el.parentNode.querySelector("span.n-form__file-name").innerHTML = el.value.substring(el.value.lastIndexOf("\\") + 1);
   }
-  // if (q(".n-form--language")) {
-  // 	// To do: make it universal .submitonchange and for more than 1 form
-  // 	q(".n-form--language select").onchange = (e) => {
-  // 		q(".n-form--language").submit();
-  // 	};
-  // 	q(".n-form--language noscript").remove();
-  // }
 
   function toggleConditionalFieldset(e) {
     var el = e.target;
@@ -79,9 +72,9 @@
           el.rows++;
         };
       });
-      makeReady(el);
+      el.dataset.ready = true;
     });
   };
-  registerComponent("form", init);
+  nui.registerComponent("form", init);
 })();
 // Component Form – end

@@ -17,11 +17,10 @@
 				const tbody = th.closest("table").querySelector("tbody");
 				Array.from(tbody.querySelectorAll("tr")).sort(comparer(Array.from(th.parentNode.children).indexOf(th), toggleSort(th))).forEach((tr) => tbody.appendChild(tr));
 			}));
-			// addClass(wrap(el), "n-table__wrap");
-			makeReady(el);
+			el.dataset.ready = true;
 			el.setAttribute("tabindex", 0); // To scroll with arrow keys
 		});
 	};
-	registerComponent("table", init);
+	nui.registerComponent("table", init);
 })();
 // Component Table – end

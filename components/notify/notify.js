@@ -1,5 +1,5 @@
 // Component Notification bar – start
-var componentNotify = (function () {
+(function() {
 	function notifyClose(el) {
 		if (!!el) {
 			el.parentNode.removeChild(el);
@@ -7,8 +7,8 @@ var componentNotify = (function () {
 	}
 
 	function notifyCloseEvent() {
-		if (q(".n-notify")) {
-			q(".n-notify").onclick = (e) => {
+		if (document.querySelector(".n-notify")) {
+			document.querySelector(".n-notify").onclick = (e) => {
 				notifyClose(e.target);
 			};
 		}
@@ -16,11 +16,11 @@ var componentNotify = (function () {
 
 	function notify(content, option) {
 		document.body.insertAdjacentHTML("afterbegin", `<button class="n-notify${option && option.indexOf("fixed") !== -1 ? " n-notify--fixed" : ""}">${content}</button>`);
-		q(".n-notify").focus();
+		document.querySelector(".n-notify").focus();
 		notifyCloseEvent();
 		if (option && option.indexOf("timeout") !== -1) {
 			setTimeout(() => {
-				notifyClose(q(".n-notify"));
+				notifyClose(document.querySelector(".n-notify"));
 			}, 2000);
 		}
 	}
@@ -28,10 +28,12 @@ var componentNotify = (function () {
 		/* Tooltip */
 		host.querySelectorAll(".n-notify:not([data-ready])").forEach((el, i) => {
 			notifyCloseEvent();
-			makeReady(el);
+			el.dataset.ready = true;
 		});
 	};
-	registerComponent("notify", init);
-	return { notify: notify };
+	nui.registerComponent("notify", init, {
+		'name': 'notify',
+		'code': notify
+	});
 })();
 // Component Notification bar – end

@@ -22,7 +22,7 @@
 				}
 			}
 		</script>
-		<script src="index.js" type="module" defer onload="setupCopy();"> </script>
+		<script src="dist/niui.min.js" type="module" defer onload="setupCopy();"> </script>
 		<link rel=styleSheet href="css/prism.css" type="text/css" media="screen">
 		<script src="js/prism.js" type="text/javascript" defer></script>
 		<script type="text/javascript">
@@ -71,11 +71,13 @@
 								<h1>Native Internet User Interface <small>3.0</small></h1>
 								<h2>Lightweight, featureful front end for the web</h2>
 							</div>
-							<p><a href="dist/niui.min.css">niui.min.css</a> <a href="dist/niui.min.js">niui.min.js</a><a href="//github.com/radogado/niui">GitHub</a></p>
+							<p><a href="//github.com/radogado/niui">GitHub repo</a></p>
 						</div>
 						<div>
 							<ul class="n-masonry n-left">
-								<li>Lightweight</li>
+								<li><a href="dist/niui.min.css">niui.min.css</a></li>
+								<li><a href="dist/niui.min.js">niui.min.js</a></li>
+								<li>ES module</li>
 								<li>Performant</li>
 								<li>Accessible</li>
 								<li>Feature-packed</li>
@@ -160,8 +162,9 @@
 								<div class=code>
 									<pre><code class="language-markup">&lt;script src=&quot;./node_modules/niui-npm/dist/niui.min.css&quot; type=&quot;module&quot;&gt;&lt;/script&gt;</code></pre>
 								</div>
+								or
 								<div class=code>
-									<pre><code class="language-js">import './node_modules/niui-npm/dist/niui.min.js';</code></pre>
+									<pre><code class="language-js">import nui from './node_modules/niui-npm/js/niui.js';</code></pre>
 								</div>
 								<!-- <h3>Lite version available at <a href=dist/niui-lite.min.css download>niui-lite.min.css</a>, <a href=dist/niui-lite.min.js download>niui-lite.min.js</a> without the following components:</h3>
 							<ul>
@@ -3730,19 +3733,19 @@
 							<br>
 							<p>or</p>
 							<div class="code">
-								<pre><code class="language-js">nui.componentNotify.notify("Message");</code></pre>
+								<pre><code class="language-js">nui.notify("Message");</code></pre>
 							</div>
 							<br>
-							<button class="n-btn" onclick="nui.componentNotify.notify('Notified.');">Notify me now</button>
-							<button class="n-btn" onclick="nui.componentNotify.notify('Fixed.', 'fixed');">Fixed notification bar</button>
+							<button class="n-btn" onclick="nui.notify('Notified.');">Notify me now</button>
+							<button class="n-btn" onclick="nui.notify('Fixed.', 'fixed');">Fixed notification bar</button>
 							<h3>Options</h3>
 							<ul class="n-list">
 								<li>Fixed on top:
 									<pre>&lt;div class="n-notify n-notify--fixed"&gt;</pre> or
-									<pre>nui.componentNotify.notify("Message", "fixed");</pre>
+									<pre>nui.notify("Message", "fixed");</pre>
 								</li>
 								<li>
-									<pre>nui.componentNotify.notify("Text", "timeout")</pre> to hide it automatically after 2 seconds
+									<pre>nui.notify("Text", "timeout")</pre> to hide it automatically after 2 seconds
 								</li>
 							</ul>
 						</div>

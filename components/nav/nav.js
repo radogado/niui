@@ -4,11 +4,11 @@
   function closeDropNavClickedOutside(e) {
     // Close the nav when clicking outside
     if (!e.target.closest(".n-nav li")) {
-      qa(".n-nav li").forEach((el) => {
+      document.querySelectorAll(".n-nav li").forEach((el) => {
         el.removeAttribute("aria-expanded");
       });
-      if (q(".n-nav :focus")) {
-        q(".n-nav :focus").blur();
+      if (document.querySelector(".n-nav :focus")) {
+        document.querySelector(".n-nav :focus").blur();
       }
     }
   }
@@ -173,17 +173,17 @@
 
   function checkSides(ul, menubar) {
     if (getComputedStyle(ul).direction !== 'rtl') {
-      removeClass(ul, "n-right-overflow");
+      ul.classList.remove("n-right-overflow");
       ul.style.removeProperty("--n-right-overflow");
       //		var rect = ul.getBoundingClientRect(); // Firefox doesn't preserve this var
       if (ul.getBoundingClientRect().left > document.body.offsetWidth - (ul.getBoundingClientRect().left + ul.getBoundingClientRect().width)) {
         if (ul.getBoundingClientRect().right > window.innerWidth) {
           ul.style.setProperty("--n-right-overflow", window.innerWidth - ul.getBoundingClientRect().right + "px");
-          addClass(ul, "n-right-overflow");
+          ul.classList.add("n-right-overflow");
         }
-        addClass(ul, "n-left-side");
+        ul.classList.add("n-left-side");
       } else {
-        removeClass(ul, "n-left-side");
+        ul.classList.remove("n-left-side");
       }
     }
   }
@@ -245,9 +245,9 @@
   let init = (host) => {
     host.querySelectorAll(".n-nav:not([data-ready]) > ul:not([role])").forEach((el) => {
       initNav(el);
-      makeReady(el.closest(".n-nav"));
+      el.closest(".n-nav").dataset.ready = true;
     });
   };
-  registerComponent("nav", init);
+  nui.registerComponent("nav", init);
 })();
 // Component Nav – end

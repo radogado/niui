@@ -1,1 +1,1 @@
-import './dist/niui.min.js';
+import nui from './js/niui.js';

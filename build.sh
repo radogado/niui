@@ -17,7 +17,8 @@
 
 gulp build:styles
 gulp build:styles_wp
-gulp build:scripts
+gulp build:script_module
+gulp build:script_min
 cp dist/niui.min.js niui-wp/
 cp dist/niui.min.js.map niui-wp/
 ./node_modules/terser/bin/terser -o dist/niui-preload.min.js --compress --mangle -- js/niui-preload.js

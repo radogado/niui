@@ -22,6 +22,6 @@
 			});
 		}
 	};
-	registerComponent("typography", init);
+	nui.registerComponent("typography", init);
 })();
 // Component Typography – end
