@@ -368,7 +368,7 @@ let nui = (() => {
       // qa('a[href^="#"]').forEach((el) => {
       //   el.onclick = el.onclick || animateAnchors; // Don't add to previous onclick event handler
       // });
-      // initComponents();
+      initComponents();
       return { registerComponent, initComponents, copyButton, addComponent }
 })();
 nui.dynamicInit = true;
