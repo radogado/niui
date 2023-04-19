@@ -296,11 +296,9 @@ let nui = (() => {
             document.addEventListener("touchstart", addtouchclass, false); //this event only gets called when input type is touch
             addtouchclass();
       })();
-
       // function makeReady(el) {
       //       el.dataset.ready = true;
       // }
-
       function focusWithin(selector) {
             var result = null;
             qa(selector).forEach((el) => {
@@ -313,7 +311,7 @@ let nui = (() => {
 
       function addComponent(host, el) {
             host.insertAdjacentHTML("afterbegin", el);
-            // 	initComponents(host); // No need, observer does it automatically
+            initComponents(host);
       }
       var current_slider = q(".n-carousel__content");
       var components = new Array();
