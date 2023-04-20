@@ -82,6 +82,7 @@ li pre {
   h1,
   .n-masonry {
     margin-top: .25rem;
+
     small {
       font-size: 50%;
     }
@@ -348,10 +349,15 @@ html:not(.can-touch) nav li li[aria-haspopup]:hover {
   --nui-control-bg: #b76262;
 }
 
-.n-row.grid-demo > * {
-  background: var(--nui-color);
-  color: var(--nui-bg);
-  border-radius: var(--nui-border-radius, 0);
+.n-row.grid-demo {
+  padding: 0.5em;
+  box-sizing: border-box;
+
+  > * {
+    background: var(--nui-color);
+    color: var(--nui-bg);
+    // border-radius: var(--nui-border-radius, 0);
+  }
 }
 
 .n-scheme-dark {
@@ -374,7 +380,7 @@ html:not(.can-touch) nav li li[aria-haspopup]:hover {
 #fixed-background {
   // Safari fixed background/main tabs z-index conflict
   z-index: 1;
-  mask: linear-gradient(red,red);
+  mask: linear-gradient(red, red);
 }
 
 .n-type .demo {
@@ -402,4 +408,11 @@ _::-webkit-full-page-media,
 _:future,
 :root .demo > .n-carousel__content > * {
   z-index: unset;
+}
+
+@media (min-width: 600px) {
+  #dynamic-components .n-row .n-row {
+    margin-inline-start: calc(-1 * var(--nui-line-height-em)/2);
+    width: calc(100% + var(--nui-line-height-em));
+  }
 }
