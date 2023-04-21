@@ -1,5 +1,5 @@
 // Component Form – start
-(function () {
+(function() {
   /* Form – start */
   function submitForm(e) {
     var el = e.target;
@@ -23,7 +23,7 @@
         form.animate([{ width: `${form.scrollWidth}px` }, { marginLeft: `-9px` }, { marginLeft: `18px` }, { width: `${form.scrollWidth}px`, marginLeft: 0 }], 250);
         return;
       } else {
-        removeClass(el, "n-form--alert");
+        el.classList.remove("n-form--alert");
       }
     });
     return ready_to_submit;

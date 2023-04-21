@@ -70,6 +70,9 @@
   border-radius: var(--nui-border-radius);
   box-shadow: 0 0 0 var(--nui-border-size) var(--nui-border-color), 0 0 var(--nui-shadow-blur) calc(var(--nui-border-size) + var(--nui-shadow-size)) var(--nui-shadow-color);
 }
+.n-form input[type=checkbox] {
+  border-radius: 0;
+}
 .n-form .n-form__file span span {
   display: flex;
   align-items: center;

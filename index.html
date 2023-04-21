@@ -160,7 +160,7 @@
 									<pre><code class="language-markup">&lt;link rel=&quot;styleSheet&quot; href=&quot;./node_modules/niui-npm/dist/niui.min.css&quot; type=&quot;text/css&quot;&gt;</code></pre>
 								</div>
 								<div class=code>
-									<pre><code class="language-markup">&lt;script src=&quot;./node_modules/niui-npm/dist/niui.min.css&quot; type=&quot;module&quot;&gt;&lt;/script&gt;</code></pre>
+									<pre><code class="language-markup">&lt;script src=&quot;./node_modules/niui-npm/dist/niui.min.js&quot; type=&quot;module&quot;&gt;&lt;/script&gt;</code></pre>
 								</div>
 								or
 								<div class=code>
@@ -1291,7 +1291,7 @@
 							</div>
 						</div>
 						<div class="_1/2">
-							<h3>Padded (controls outside of content)</h3>
+							<h3>Controls outside of content</h3>
 							<div class="n-carousel n-carousel--controls-outside">
 								<div class="n-carousel__content">
 									<div class="n-center">
@@ -3341,9 +3341,9 @@
 									<input name=phone type=tel placeholder="Your phone number.">
 								</label>
 								<div class="n-form__check n-form__condition" data-for="conditional_fieldset">
-									<span>Open disabled fieldset below</span>
+									<span>Disabled fieldset</span>
 									<label>
-										<input name="checkbox" id="checkbox" type="checkbox"> <b class="n-form__check-icon"></b> Text to check alignment with checkbox. </label>
+										<input name="checkbox" id="checkbox" type="checkbox"> <b class="n-form__check-icon"></b> Open disabled fieldset below. </label>
 								</div>
 								<fieldset disabled="disabled" id="conditional_fieldset">
 									<legend>Datalist examples</legend>
@@ -3728,7 +3728,7 @@
 							</div>
 							<p>or</p>
 							<div class="code">
-								<pre><code class="language-js">document.body.insertAdjacentHTML("afterbegin", "&lt;div class=n-notify&gt; Message &lt;/div&gt;");</code></pre>
+								<pre><code class="language-js">document.body.insertAdjacentHTML("afterbegin", "&lt;div class='n-notify'&gt; Message &lt;/div&gt;");</code></pre>
 							</div>
 							<br>
 							<p>or</p>
@@ -3796,7 +3796,7 @@
 	&lt;/div&gt;&lt;div class="n-carousel__content"&gt;&lt;div&gt;New&lt;/div&gt;&lt;div&gt;Carousel&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;`);</code></pre>
 								</div>
-								<p>Dynamically added component HTML will be automatically initialised by a mutation observer. Disable it with</p>
+								<p>Dynamically added component HTML will be automatically initialised by a mutation observer, which can be disabled by</p>
 								<div class="code">
 									<pre><code class="language-js">nui.dynamicInit = false;
 </code></pre>
@@ -3846,11 +3846,10 @@
 						<div>
 							<div>
 								<h2 class="section-title">WordPress theme</h2>
-								<p><a href=//rado.bg>Demo 1</a></p>
-								<p><a href=//bulgaro.asia>Demo 2</a></p>
+								<p><a href=//rado.bg>Demo site</a></p>
 								<p><a href=niui-wp.zip download>Download</a></p>
 								<p>Note: Image gallery currently not supported in the Block Editor. Please use the Classic Editor for galleries.</p>
-								<p>Gallery Settings: 9 columns means a default lightbox, the rest means inline with thumbnails only visible.</p>
+								<p>Gallery Settings: 9 columns means a default lightbox, other values mean inline with thumbnails only.</p>
 							</div>
 						</div>
 					</div>
