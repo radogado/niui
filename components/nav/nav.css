@@ -32,16 +32,10 @@
   flex-wrap: wrap;
   border-inline-start: var(--nui-nav-gap) solid var(--nui-control-bg);
   border-radius: var(--nui-border-radius);
-}
-.n-nav ul li a {
   background-color: var(--nui-control-bg, transparent);
 }
 .n-nav ul li:last-child {
   margin-inline-end: 0;
-}
-.n-nav ul li:last-child a {
-  border-start-end-radius: var(--nui-border-radius);
-  border-end-end-radius: var(--nui-border-radius);
 }
 .n-nav.n-nav--scroll {
   overflow: auto;
@@ -322,7 +316,7 @@
   }
 
   html:not(.can-touch) .n-nav--drop ul li:not([aria-expanded]) ul ul {
-    transition: calc(var(--n-nav-duration)/2) var(--n-nav-duration);
+    transition: calc(var(--n-nav-duration) / 2) var(--n-nav-duration);
     opacity: 0;
     position: absolute;
     transform: scaleX(0);

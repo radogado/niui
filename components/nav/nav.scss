@@ -27,18 +27,21 @@
     flex-wrap: wrap;
     border-inline-start: var(--nui-nav-gap) solid var(--nui-control-bg);
     border-radius: var(--nui-border-radius);
+    background-color: var(--nui-control-bg,transparent);
 
     li {
+      // flex-grow: 1;
       a {
-        background-color: var(--nui-control-bg, transparent);
+        // background-color: var(--nui-control-bg, transparent);
+        // display: block;
       }
 
       &:last-child {
         margin-inline-end: 0;
 
         a {
-          border-start-end-radius: var(--nui-border-radius);
-          border-end-end-radius: var(--nui-border-radius);
+          // border-start-end-radius: var(--nui-border-radius);
+          // border-end-end-radius: var(--nui-border-radius);
         }
       }
     }
