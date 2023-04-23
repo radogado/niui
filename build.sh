@@ -19,6 +19,9 @@ gulp build:styles
 gulp build:styles_wp
 gulp build:script_module
 gulp build:script_min
+sed 's/export{nui as default};//' dist/niui.min.js > dist/temp.js
+rm dist/niui.min.js
+mv dist/temp.js dist/niui.min.js
 cp dist/niui.min.js niui-wp/
 cp dist/niui.min.js.map niui-wp/
 ./node_modules/terser/bin/terser -o dist/niui-preload.min.js --compress --mangle -- js/niui-preload.js

@@ -8,12 +8,10 @@
 		
 			<div class="headline">
 				
-				<?php $thumbnail_placeholder = wp_get_attachment_image_src( get_post_thumbnail_id( the_ID() ), "medium" )[0]; ?>
-
-				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="img-crop" style="--placeholder: url(<?php $thumbnail_placeholder ?>);">
+				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="img-crop" style="--placeholder: url(<?php echo get_the_post_thumbnail_url($post, 'medium'); ?>);">
 					
 					<picture><?php echo str_replace("<img", "<img loading=\"lazy\"", get_the_post_thumbnail()); ?></picture>
-	
+			
 					<h2><?php the_title(); ?> &rarr;</h2>
 					
 				</a>
