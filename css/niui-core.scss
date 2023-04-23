@@ -143,7 +143,7 @@ a[href].span-relative-parent {
   --nui-shadow-size: 0px;
   --nui-shadow-blur: 0;
   --nui-shadow-color: var(--nui-control-color);
-}
+  --nui-border-color: transparent;}
 
 @mixin dark-theme {
   --nui-color: var(--nui-color-dark);
@@ -159,6 +159,8 @@ a[href].span-relative-parent {
   --nui-list-bg: var(--nui-list-bg-dark);
   --nui-border-color: var(--nui-border-color-dark);
   --nui-shadow-color: var(--nui-shadow-color-dark);
+  --nui-border-color-dark: transparent;
+  --nui-shadow-color-dark: transparent;
 }
 
 .n-scheme-dark {

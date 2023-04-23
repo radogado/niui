@@ -369,7 +369,37 @@ let nui = (() => {
       initComponents();
       return { registerComponent, initComponents, copyButton, addComponent }
 })();
-nui.dynamicInit = true;// Component Form – start
+nui.dynamicInit = true;// Component Button – start
+(function() {
+	let init = (host) => {
+		const ripple = e => {
+			let el = e.target.closest('.n-btn--ripple');
+			let x = e.offsetX || el.clientWidth / 2;
+			let y = e.offsetY || el.clientHeight / 2;
+			let max_x = Math.max(x, el.clientWidth - x);
+			let max_y = Math.max(y, el.clientHeight - y);
+			let radius = Math.sqrt(max_x * max_x + max_y * max_y);
+			el.style.transitionProperty = 'none';
+			el.style.setProperty('--ripple-x', `${x}px`);
+			el.style.setProperty('--ripple-y', `${y}px`);
+			el.style.setProperty('--ripple-radius', `0px`);
+			window.requestAnimationFrame(() => {
+				el.style.transitionProperty = '';
+				el.style.setProperty('--ripple-radius', `${radius}px`);
+			});
+		};
+		document.querySelectorAll('.n-btn--ripple:not([data-ready])').forEach(el => {
+			el.addEventListener('pointerdown', ripple);
+			el.addEventListener('keydown', ripple);
+			el.dataset.ready = true;
+		});
+	};
+	nui.registerComponent("button", init);
+})();
+// Component Button – end
+//# sourceMappingURL=button.js.map
+
+// Component Form – start
 (function() {
   /* Form – start */
   function submitForm(e) {
@@ -450,36 +480,6 @@ nui.dynamicInit = true;// Component Form – start
 })();
 // Component Form – end
 //# sourceMappingURL=form.js.map
-
-// Component Button – start
-(function() {
-	let init = (host) => {
-		const ripple = e => {
-			let el = e.target.closest('.n-btn--ripple');
-			let x = e.offsetX || el.clientWidth / 2;
-			let y = e.offsetY || el.clientHeight / 2;
-			let max_x = Math.max(x, el.clientWidth - x);
-			let max_y = Math.max(y, el.clientHeight - y);
-			let radius = Math.sqrt(max_x * max_x + max_y * max_y);
-			el.style.transitionProperty = 'none';
-			el.style.setProperty('--ripple-x', `${x}px`);
-			el.style.setProperty('--ripple-y', `${y}px`);
-			el.style.setProperty('--ripple-radius', `0px`);
-			window.requestAnimationFrame(() => {
-				el.style.transitionProperty = '';
-				el.style.setProperty('--ripple-radius', `${radius}px`);
-			});
-		};
-		document.querySelectorAll('.n-btn--ripple:not([data-ready])').forEach(el => {
-			el.addEventListener('pointerdown', ripple);
-			el.addEventListener('keydown', ripple);
-			el.dataset.ready = true;
-		});
-	};
-	nui.registerComponent("button", init);
-})();
-// Component Button – end
-//# sourceMappingURL=button.js.map
 
 // Component Accordion
 (function() {
@@ -2574,47 +2574,6 @@ nui.dynamicInit = true;// Component Form – start
 // Component Nav – end
 //# sourceMappingURL=nav.js.map
 
-// Component Notification bar – start
-(function() {
-	function notifyClose(el) {
-		if (!!el) {
-			el.parentNode.removeChild(el);
-		}
-	}
-
-	function notifyCloseEvent() {
-		if (document.querySelector(".n-notify")) {
-			document.querySelector(".n-notify").onclick = (e) => {
-				notifyClose(e.target);
-			};
-		}
-	}
-
-	function notify(content, option) {
-		document.body.insertAdjacentHTML("afterbegin", `<button class="n-notify${option && option.indexOf("fixed") !== -1 ? " n-notify--fixed" : ""}">${content}</button>`);
-		document.querySelector(".n-notify").focus();
-		notifyCloseEvent();
-		if (option && option.indexOf("timeout") !== -1) {
-			setTimeout(() => {
-				notifyClose(document.querySelector(".n-notify"));
-			}, 2000);
-		}
-	}
-	let init = (host) => {
-		/* Tooltip */
-		host.querySelectorAll(".n-notify:not([data-ready])").forEach((el, i) => {
-			notifyCloseEvent();
-			el.dataset.ready = true;
-		});
-	};
-	nui.registerComponent("notify", init, {
-		'name': 'notify',
-		'code': notify
-	});
-})();
-// Component Notification bar – end
-//# sourceMappingURL=notify.js.map
-
 // Component Parallax – start
 (function() {
 	// Thanks Dave Rupert
@@ -2662,6 +2621,47 @@ nui.dynamicInit = true;// Component Form – start
 })();
 // Component Table – end
 //# sourceMappingURL=table.js.map
+
+// Component Notification bar – start
+(function() {
+	function notifyClose(el) {
+		if (!!el) {
+			el.parentNode.removeChild(el);
+		}
+	}
+
+	function notifyCloseEvent() {
+		if (document.querySelector(".n-notify")) {
+			document.querySelector(".n-notify").onclick = (e) => {
+				notifyClose(e.target);
+			};
+		}
+	}
+
+	function notify(content, option) {
+		document.body.insertAdjacentHTML("afterbegin", `<button class="n-notify${option && option.indexOf("fixed") !== -1 ? " n-notify--fixed" : ""}">${content}</button>`);
+		document.querySelector(".n-notify").focus();
+		notifyCloseEvent();
+		if (option && option.indexOf("timeout") !== -1) {
+			setTimeout(() => {
+				notifyClose(document.querySelector(".n-notify"));
+			}, 2000);
+		}
+	}
+	let init = (host) => {
+		/* Tooltip */
+		host.querySelectorAll(".n-notify:not([data-ready])").forEach((el, i) => {
+			notifyCloseEvent();
+			el.dataset.ready = true;
+		});
+	};
+	nui.registerComponent("notify", init, {
+		'name': 'notify',
+		'code': notify
+	});
+})();
+// Component Notification bar – end
+//# sourceMappingURL=notify.js.map
 
 // Component Typography – start
 (function () {
