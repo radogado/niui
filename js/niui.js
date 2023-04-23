@@ -369,37 +369,7 @@ let nui = (() => {
       initComponents();
       return { registerComponent, initComponents, copyButton, addComponent }
 })();
-nui.dynamicInit = true;// Component Button – start
-(function() {
-	let init = (host) => {
-		const ripple = e => {
-			let el = e.target.closest('.n-btn--ripple');
-			let x = e.offsetX || el.clientWidth / 2;
-			let y = e.offsetY || el.clientHeight / 2;
-			let max_x = Math.max(x, el.clientWidth - x);
-			let max_y = Math.max(y, el.clientHeight - y);
-			let radius = Math.sqrt(max_x * max_x + max_y * max_y);
-			el.style.transitionProperty = 'none';
-			el.style.setProperty('--ripple-x', `${x}px`);
-			el.style.setProperty('--ripple-y', `${y}px`);
-			el.style.setProperty('--ripple-radius', `0px`);
-			window.requestAnimationFrame(() => {
-				el.style.transitionProperty = '';
-				el.style.setProperty('--ripple-radius', `${radius}px`);
-			});
-		};
-		document.querySelectorAll('.n-btn--ripple:not([data-ready])').forEach(el => {
-			el.addEventListener('pointerdown', ripple);
-			el.addEventListener('keydown', ripple);
-			el.dataset.ready = true;
-		});
-	};
-	nui.registerComponent("button", init);
-})();
-// Component Button – end
-//# sourceMappingURL=button.js.map
-
-// Component Form – start
+nui.dynamicInit = true;// Component Form – start
 (function() {
   /* Form – start */
   function submitForm(e) {
@@ -480,6 +450,36 @@ nui.dynamicInit = true;// Component Button – start
 })();
 // Component Form – end
 //# sourceMappingURL=form.js.map
+
+// Component Button – start
+(function() {
+	let init = (host) => {
+		const ripple = e => {
+			let el = e.target.closest('.n-btn--ripple');
+			let x = e.offsetX || el.clientWidth / 2;
+			let y = e.offsetY || el.clientHeight / 2;
+			let max_x = Math.max(x, el.clientWidth - x);
+			let max_y = Math.max(y, el.clientHeight - y);
+			let radius = Math.sqrt(max_x * max_x + max_y * max_y);
+			el.style.transitionProperty = 'none';
+			el.style.setProperty('--ripple-x', `${x}px`);
+			el.style.setProperty('--ripple-y', `${y}px`);
+			el.style.setProperty('--ripple-radius', `0px`);
+			window.requestAnimationFrame(() => {
+				el.style.transitionProperty = '';
+				el.style.setProperty('--ripple-radius', `${radius}px`);
+			});
+		};
+		document.querySelectorAll('.n-btn--ripple:not([data-ready])').forEach(el => {
+			el.addEventListener('pointerdown', ripple);
+			el.addEventListener('keydown', ripple);
+			el.dataset.ready = true;
+		});
+	};
+	nui.registerComponent("button", init);
+})();
+// Component Button – end
+//# sourceMappingURL=button.js.map
 
 // Component Accordion
 (function() {
@@ -1791,397 +1791,6 @@ nui.dynamicInit = true;// Component Button – start
 /* Modal – end */
 //# sourceMappingURL=n-modal@npm.js.map
 
-// Component Nav – start
-(function() {
-  /* Nav – start */
-  function closeDropNavClickedOutside(e) {
-    // Close the nav when clicking outside
-    if (!e.target.closest(".n-nav li")) {
-      document.querySelectorAll(".n-nav li").forEach((el) => {
-        el.removeAttribute("aria-expanded");
-      });
-      if (document.querySelector(".n-nav :focus")) {
-        document.querySelector(".n-nav :focus").blur();
-      }
-    }
-  }
-
-  function isDesktop(nav) {
-    // Checks the UL sub nav element
-    return !!getComputedStyle(nav).getPropertyValue("--desktop");
-  }
-  let navAnimating = false;
-
-  function dropNavBlur(e) {
-    var this_nav = e.target.closest(".n-nav");
-    if (navAnimating || !e.relatedTarget) {
-      return;
-    }
-    e.stopPropagation();
-    let el = e.target;
-    let item = el.tagName === "LI" ? el.querySelector("ul") : el.parentElement.querySelector("ul");
-    if (!this_nav.contains(e.relatedTarget) || (isDesktop(this_nav) && !!e.relatedTarget && !closestElement(e.relatedTarget, this_nav))) {
-      // if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
-      this_nav.querySelectorAll("li").forEach((el) => {
-        el.removeAttribute("aria-expanded");
-      });
-      return;
-    }
-    if (item) {
-      if (item.parentNode.parentNode.querySelector("ul [aria-expanded]")) {
-        // To do: Unless it's the first/last item and user has back/forward tabbed away from it?
-        return;
-      }
-      item.parentElement.removeAttribute("aria-expanded");
-    }
-    // Close neighboring parent nav's sub navs.
-    el = e.target;
-    var target_parent = el.closest("[aria-haspopup]");
-    if (target_parent) {
-      // Skip if it's a top-level-only item
-      target_parent.querySelectorAll("li[aria-expanded]").forEach((el) => {
-        // Disable active grandchildren
-        el.removeAttribute("aria-expanded");
-      });
-    }
-    el = e.target.parentNode;
-    if (!el.nextElementSibling && // last item
-      el.parentNode.parentNode.nodeName === "LI" && // of third-level nav
-      !el.parentNode.parentNode.nextElementSibling) {
-      el.parentNode.parentNode.removeAttribute("aria-expanded");
-    }
-  }
-
-  function dropNavFocus(e) {
-    // Close focused third level child when focus moves to another top-level item
-    e.stopPropagation();
-    var el = e.target.closest(".n-nav > ul > li");
-    // To do: on LI focus, make it aria-expanded and focus its a
-    if (navAnimating) {
-      return;
-    }
-    [
-      [].slice.call(el.parentElement.children),
-      [].slice.call(e.target.parentElement.parentElement.children),
-      [].slice.call(e.target.parentElement.parentElement.parentElement.parentElement.children),
-    ].forEach((el) => {
-      el.forEach((el) => {
-        el.removeAttribute("aria-expanded");
-      });
-    });
-    el.setAttribute("aria-expanded", true);
-    // 		openItem(el.querySelector('ul'));
-    if (el.parentNode.parentNode.getAttribute("aria-haspopup")) {
-      el.parentNode.parentNode.setAttribute("aria-expanded", true);
-    }
-    el.querySelectorAll("li[aria-expanded]").forEach((el) => {
-      // Hide grandchildren
-      el.removeAttribute("aria-expanded");
-    });
-    // Make current focused item's ancestors visible
-    el = e.target;
-    el.parentNode.setAttribute("aria-expanded", true);
-    var grand_parent = el.parentElement.parentElement.parentElement;
-    if (grand_parent.tagName === "LI") {
-      grand_parent.setAttribute("aria-expanded", true);
-    }
-  }
-  var closeDropNavClickedOutsideEnabled = false;
-  
-  const getDuration = () => window.matchMedia("(prefers-reduced-motion: no-preference)").matches ? 200 : 0;
-  
-  let closeItem = (item) => {
-    navAnimating = true;
-    item.style.overflow = "hidden";
-    item.parentElement.setAttribute("aria-expanded", true);
-    item.animate([{ height: `${item.scrollHeight}px` }, { height: 0 }], getDuration()).onfinish = () => {
-      item.removeAttribute("style");
-      item.parentElement.removeAttribute("aria-expanded");
-      navAnimating = false;
-      item.querySelectorAll("[aria-expanded]").forEach((el) => {
-        el.removeAttribute("aria-expanded");
-      });
-    };
-  };
-  let openItem = (item) => {
-    navAnimating = true;
-    item.style.overflow = "hidden";
-    item.parentElement.setAttribute("aria-expanded", true);
-    item.animate([{ height: 0 }, { height: `${item.scrollHeight}px` }], getDuration()).onfinish = () => {
-      item.removeAttribute("style");
-      navAnimating = false;
-    };
-  };
-  let clickEvent = (e) => {
-    e.stopPropagation();
-    // To do: also ancestors, also close when open
-    let el = e.target;
-    var this_nav = el.closest(".n-nav");
-    this_nav.removeEventListener("focusout", dropNavBlur);
-    if (this_nav.contains(document.activeElement)) {
-      document.activeElement.blur();
-    }
-    let item = el.tagName === "LI" ? el.querySelector("ul") : el.parentElement.querySelector("ul");
-    if (isDesktop(this_nav)) {
-      if (el.getAttribute("aria-expanded")) {
-        if (el.querySelector("a:focus")) ; else {
-          if (isDesktop(this_nav)) {
-            el.removeAttribute("aria-expanded");
-          } else {
-            closeItem(item);
-          }
-        }
-      } else {
-        [].slice.call(el.parentElement.children).forEach((item) => {
-          item.removeAttribute("aria-expanded");
-          let old_item_open_child = item.querySelector("[aria-expanded]");
-          if (old_item_open_child) {
-            old_item_open_child.removeAttribute("aria-expanded");
-          }
-        });
-        el.setAttribute("aria-expanded", true);
-        if (!isDesktop(this_nav)) {
-          openItem(item);
-        }
-      }
-    } else {
-      if (item.parentNode.hasAttribute("aria-expanded")) {
-        closeItem(item);
-      } else {
-        // If new item is top level, close another top level item, if any is open
-        if (item.parentElement.parentElement.matches("ul")) {
-          // It's top level, To do: also on secondary level, close open sibling
-          let old_item = item.parentElement.closest("ul").querySelector('[aria-expanded="true"] > ul');
-          if (old_item) {
-            closeItem(old_item);
-          }
-        }
-        openItem(item);
-      }
-    }
-    this_nav.addEventListener("focusout", dropNavBlur);
-  };
-
-  function checkSides(ul, menubar) {
-    if (getComputedStyle(ul).direction !== 'rtl') {
-      ul.classList.remove("n-right-overflow");
-      ul.style.removeProperty("--n-right-overflow");
-      //		var rect = ul.getBoundingClientRect(); // Firefox doesn't preserve this var
-      if (ul.getBoundingClientRect().left > document.body.offsetWidth - (ul.getBoundingClientRect().left + ul.getBoundingClientRect().width)) {
-        if (ul.getBoundingClientRect().right > window.innerWidth) {
-          ul.style.setProperty("--n-right-overflow", window.innerWidth - ul.getBoundingClientRect().right + "px");
-          ul.classList.add("n-right-overflow");
-        }
-        ul.classList.add("n-left-side");
-      } else {
-        ul.classList.remove("n-left-side");
-      }
-    }
-  }
-
-  function initNav(el) {
-    // Delete all trigger inputs, add tabindex=0 to each li
-    el.querySelectorAll("input").forEach((el) => {
-      el.outerHTML = "";
-    });
-    el.querySelectorAll("li > a").forEach((el) => {
-      el.setAttribute("tabindex", 0);
-    });
-    if (!el.closest(".n-nav.n-nav--drop")) {
-      // The rest is for drop nav only
-      return;
-    }
-    if (!closeDropNavClickedOutsideEnabled) {
-      window.addEventListener("touchend", closeDropNavClickedOutside);
-      window.addEventListener("mouseup", closeDropNavClickedOutside);
-      closeDropNavClickedOutsideEnabled = true;
-    }
-    el.addEventListener("keyup", (e) => {
-      // Check for sibling or children to expand on control keys Left/Right/etc
-      if (e.key === "Escape") {
-        e.target.closest(".n-nav").querySelectorAll("li").forEach((el) => {
-          el.removeAttribute("aria-expanded");
-        });
-        document.activeElement.blur();
-      }
-    });
-    el.querySelectorAll("li").forEach((el) => {
-      let ul = el.querySelector("ul");
-      if (ul) {
-        el.setAttribute("aria-haspopup", true);
-        if (el.children[0].nodeName === "UL") {
-          el.insertBefore(el.children[1], el.children[0]); // Swap 'a' with 'ul'
-        }
-      }
-    });
-    el.addEventListener("mousedown", clickEvent);
-    el.addEventListener("focusin", dropNavFocus);
-    el.addEventListener("focusout", dropNavBlur);
-    window.requestAnimationFrame(() => {
-      // Give the browser time to update
-      el.querySelectorAll("ul").forEach((ul) => {
-        checkSides(ul);
-      });
-    });
-  }
-  window.addEventListener("resize", function(e) {
-    document.querySelectorAll(".n-nav.n-nav--drop ul").forEach((menubar) => {
-      menubar.querySelectorAll("ul").forEach((ul) => {
-        checkSides(ul);
-      });
-    });
-  });
-  /* Nav – end */
-  let init = (host) => {
-    host.querySelectorAll(".n-nav:not([data-ready]) > ul:not([role])").forEach((el) => {
-      initNav(el);
-      el.closest(".n-nav").dataset.ready = true;
-    });
-  };
-  nui.registerComponent("nav", init);
-})();
-// Component Nav – end
-//# sourceMappingURL=nav.js.map
-
-// Component Tooltip – start
-(function() {
-	let setTipPosition = (tool, tip) => {
-		// Take up the most area available on top/right/bottom/left of the tool. Relative to body.
-		let rect = tool.getBoundingClientRect();
-		let top = rect.top;
-		let left = rect.left;
-		let right = window.innerWidth - left - rect.width;
-		let bottom = window.innerHeight - top - rect.height; // To do: check when body is shorter than viewport
-		let area_top = top * window.innerWidth;
-		let area_right = right * window.innerHeight;
-		let area_bottom = bottom * window.innerWidth;
-		let area_left = left * window.innerHeight;
-		let body_rect = document.body.getBoundingClientRect();
-		tip.removeAttribute("style");
-		delete tip.dataset.position;
-		tip.classList.add('n-tooltip__content-visible');
-
-		let positionTop = () => {
-			tip.style.bottom = 20 + body_rect.height + body_rect.y - top + "px";
-			tip.style.maxHeight = top - 40 + "px";
-			tip.style.left = `${rect.x + rect.width / 2 - tip.scrollWidth / 2}px`;
-			tip.dataset.nPosition = "top";
-		};
-		let positionBottom = () => {
-			tip.style.top = 20 - body_rect.y + top + rect.height + "px";
-			tip.style.maxHeight = bottom - 40 + "px";
-			tip.style.left = `${rect.x + rect.width / 2 - tip.scrollWidth / 2}px`;
-			tip.dataset.nPosition = "bottom";
-		};
-		let positionLeft = () => {
-			tip.style.left = "auto";
-			tip.style.right = 20 + body_rect.width + body_rect.x - window.innerWidth + right + rect.width + "px";
-			tip.style.maxWidth = left - 40 + "px";
-			tip.style.top = `${-1 * body_rect.y + rect.top + rect.height / 2 - tip.scrollHeight / 2}px`;
-			tip.dataset.nPosition = "left";
-		};
-		let positionRight = () => {
-			tip.style.left = rect.x - body_rect.x + rect.width + 20 + "px";
-			tip.style.maxWidth = right - 40 + "px";
-			tip.style.top = `${-1 * body_rect.y + rect.top + rect.height / 2 - tip.scrollHeight / 2}px`;
-			tip.dataset.nPosition = "right";
-		};
-		if (area_left > area_right) {
-			if (area_top > area_bottom) {
-				if (area_top > area_left) {
-					// Top
-					positionTop();
-				} else {
-					// Left
-					positionLeft();
-				}
-			} else {
-				if (area_bottom > area_left) {
-					// Bottom
-					positionBottom();
-				} else {
-					// Left
-					positionLeft();
-				}
-			}
-		} else {
-			if (area_top > area_bottom) {
-				if (area_top > area_right) {
-					// Top
-					positionTop();
-				} else {
-					// Right
-					positionRight();
-				}
-			} else {
-				if (area_bottom > area_right) {
-					// Bottom
-					positionBottom();
-				} else {
-					// Right
-					positionRight();
-				}
-			}
-		}
-		let rect_tip = tip.getBoundingClientRect();
-		let offset_y = 0;
-		if (rect_tip.y < 0) {
-			offset_y = Math.abs(rect_tip.y) + 10;
-		} else {
-			if (rect_tip.bottom > window.innerHeight) {
-				offset_y = window.innerHeight - rect_tip.bottom - 10;
-			}
-		}
-		tip.style.setProperty("--offset_y", offset_y + "px");
-		let offset_x = 0;
-		if (rect_tip.x < 0) {
-			offset_x = Math.abs(rect_tip.x) + 10;
-		} else {
-			if (rect_tip.right > window.innerWidth) {
-				offset_x = window.innerWidth - rect_tip.right - 10;
-			}
-		}
-		tip.style.setProperty("--offset_x", offset_x + "px");
-	};
-
-	function getToolTip(tool) {
-		return document.getElementById(tool.getAttribute('aria-describedby')) || tool.nextElementSibling;
-	}
-	let hideTip = (e) => {
-		// return;
-		let tool = e.target.closest(".n-tooltip");
-		let tip = getToolTip(tool);
-		tool.removeAttribute("aria-expanded");
-		tool.after(tip);
-		tip.removeAttribute("style");
-		delete tip.dataset.position;
-		tip.classList.remove('n-tooltip__content-visible');
-	};
-	let showTip = (e) => {
-		let tool = e.target.closest(".n-tooltip");
-		let tip = getToolTip(tool);
-		tool.setAttribute("aria-expanded", true);
-		document.body.appendChild(tip);
-		setTipPosition(tool, tip);
-	};
-	const init = (host = document) => {
-		/* Tooltip */
-		host.querySelectorAll(".n-tooltip")?.length;
-		host.querySelectorAll(".n-tooltip:not([data-ready])").forEach((el) => {
-			el.setAttribute("tabindex", 0);
-			el.addEventListener('touchend', showTip);
-			el.addEventListener('mouseover', showTip);
-			el.addEventListener('focus', showTip);
-			el.addEventListener('mouseout', hideTip);
-			el.addEventListener('blur', hideTip);
-			el.dataset.ready = true;
-		});
-	};
-	(typeof nui !== 'undefined' && typeof nui.registerComponent === "function") ? nui.registerComponent("n-tooltip", init) : init();
-})();
-// Component Tooltip – end
-//# sourceMappingURL=n-tooltip@npm.js.map
-
 (function() {
 	const isChrome = !!navigator.userAgent.match("Chrome");
 	navigator.userAgent.match(/Safari/) && !isChrome;
@@ -2573,6 +2182,397 @@ nui.dynamicInit = true;// Component Button – start
 	(typeof nui !== 'undefined' && typeof nui.registerComponent === "function") ? nui.registerComponent("n-select", init) : init(document.body);
 })();
 //# sourceMappingURL=n-select@npm.js.map
+
+// Component Tooltip – start
+(function() {
+	let setTipPosition = (tool, tip) => {
+		// Take up the most area available on top/right/bottom/left of the tool. Relative to body.
+		let rect = tool.getBoundingClientRect();
+		let top = rect.top;
+		let left = rect.left;
+		let right = window.innerWidth - left - rect.width;
+		let bottom = window.innerHeight - top - rect.height; // To do: check when body is shorter than viewport
+		let area_top = top * window.innerWidth;
+		let area_right = right * window.innerHeight;
+		let area_bottom = bottom * window.innerWidth;
+		let area_left = left * window.innerHeight;
+		let body_rect = document.body.getBoundingClientRect();
+		tip.removeAttribute("style");
+		delete tip.dataset.position;
+		tip.classList.add('n-tooltip__content-visible');
+
+		let positionTop = () => {
+			tip.style.bottom = 20 + body_rect.height + body_rect.y - top + "px";
+			tip.style.maxHeight = top - 40 + "px";
+			tip.style.left = `${rect.x + rect.width / 2 - tip.scrollWidth / 2}px`;
+			tip.dataset.nPosition = "top";
+		};
+		let positionBottom = () => {
+			tip.style.top = 20 - body_rect.y + top + rect.height + "px";
+			tip.style.maxHeight = bottom - 40 + "px";
+			tip.style.left = `${rect.x + rect.width / 2 - tip.scrollWidth / 2}px`;
+			tip.dataset.nPosition = "bottom";
+		};
+		let positionLeft = () => {
+			tip.style.left = "auto";
+			tip.style.right = 20 + body_rect.width + body_rect.x - window.innerWidth + right + rect.width + "px";
+			tip.style.maxWidth = left - 40 + "px";
+			tip.style.top = `${-1 * body_rect.y + rect.top + rect.height / 2 - tip.scrollHeight / 2}px`;
+			tip.dataset.nPosition = "left";
+		};
+		let positionRight = () => {
+			tip.style.left = rect.x - body_rect.x + rect.width + 20 + "px";
+			tip.style.maxWidth = right - 40 + "px";
+			tip.style.top = `${-1 * body_rect.y + rect.top + rect.height / 2 - tip.scrollHeight / 2}px`;
+			tip.dataset.nPosition = "right";
+		};
+		if (area_left > area_right) {
+			if (area_top > area_bottom) {
+				if (area_top > area_left) {
+					// Top
+					positionTop();
+				} else {
+					// Left
+					positionLeft();
+				}
+			} else {
+				if (area_bottom > area_left) {
+					// Bottom
+					positionBottom();
+				} else {
+					// Left
+					positionLeft();
+				}
+			}
+		} else {
+			if (area_top > area_bottom) {
+				if (area_top > area_right) {
+					// Top
+					positionTop();
+				} else {
+					// Right
+					positionRight();
+				}
+			} else {
+				if (area_bottom > area_right) {
+					// Bottom
+					positionBottom();
+				} else {
+					// Right
+					positionRight();
+				}
+			}
+		}
+		let rect_tip = tip.getBoundingClientRect();
+		let offset_y = 0;
+		if (rect_tip.y < 0) {
+			offset_y = Math.abs(rect_tip.y) + 10;
+		} else {
+			if (rect_tip.bottom > window.innerHeight) {
+				offset_y = window.innerHeight - rect_tip.bottom - 10;
+			}
+		}
+		tip.style.setProperty("--offset_y", offset_y + "px");
+		let offset_x = 0;
+		if (rect_tip.x < 0) {
+			offset_x = Math.abs(rect_tip.x) + 10;
+		} else {
+			if (rect_tip.right > window.innerWidth) {
+				offset_x = window.innerWidth - rect_tip.right - 10;
+			}
+		}
+		tip.style.setProperty("--offset_x", offset_x + "px");
+	};
+
+	function getToolTip(tool) {
+		return document.getElementById(tool.getAttribute('aria-describedby')) || tool.nextElementSibling;
+	}
+	let hideTip = (e) => {
+		// return;
+		let tool = e.target.closest(".n-tooltip");
+		let tip = getToolTip(tool);
+		tool.removeAttribute("aria-expanded");
+		tool.after(tip);
+		tip.removeAttribute("style");
+		delete tip.dataset.position;
+		tip.classList.remove('n-tooltip__content-visible');
+	};
+	let showTip = (e) => {
+		let tool = e.target.closest(".n-tooltip");
+		let tip = getToolTip(tool);
+		tool.setAttribute("aria-expanded", true);
+		document.body.appendChild(tip);
+		setTipPosition(tool, tip);
+	};
+	const init = (host = document) => {
+		/* Tooltip */
+		host.querySelectorAll(".n-tooltip")?.length;
+		host.querySelectorAll(".n-tooltip:not([data-ready])").forEach((el) => {
+			el.setAttribute("tabindex", 0);
+			el.addEventListener('touchend', showTip);
+			el.addEventListener('mouseover', showTip);
+			el.addEventListener('focus', showTip);
+			el.addEventListener('mouseout', hideTip);
+			el.addEventListener('blur', hideTip);
+			el.dataset.ready = true;
+		});
+	};
+	(typeof nui !== 'undefined' && typeof nui.registerComponent === "function") ? nui.registerComponent("n-tooltip", init) : init();
+})();
+// Component Tooltip – end
+//# sourceMappingURL=n-tooltip@npm.js.map
+
+// Component Nav – start
+(function() {
+  /* Nav – start */
+  function closeDropNavClickedOutside(e) {
+    // Close the nav when clicking outside
+    if (!e.target.closest(".n-nav li")) {
+      document.querySelectorAll(".n-nav li").forEach((el) => {
+        el.removeAttribute("aria-expanded");
+      });
+      if (document.querySelector(".n-nav :focus")) {
+        document.querySelector(".n-nav :focus").blur();
+      }
+    }
+  }
+
+  function isDesktop(nav) {
+    // Checks the UL sub nav element
+    return !!getComputedStyle(nav).getPropertyValue("--desktop");
+  }
+  let navAnimating = false;
+
+  function dropNavBlur(e) {
+    var this_nav = e.target.closest(".n-nav");
+    if (navAnimating || !e.relatedTarget) {
+      return;
+    }
+    e.stopPropagation();
+    let el = e.target;
+    let item = el.tagName === "LI" ? el.querySelector("ul") : el.parentElement.querySelector("ul");
+    if (!this_nav.contains(e.relatedTarget) || (isDesktop(this_nav) && !!e.relatedTarget && !closestElement(e.relatedTarget, this_nav))) {
+      // if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
+      this_nav.querySelectorAll("li").forEach((el) => {
+        el.removeAttribute("aria-expanded");
+      });
+      return;
+    }
+    if (item) {
+      if (item.parentNode.parentNode.querySelector("ul [aria-expanded]")) {
+        // To do: Unless it's the first/last item and user has back/forward tabbed away from it?
+        return;
+      }
+      item.parentElement.removeAttribute("aria-expanded");
+    }
+    // Close neighboring parent nav's sub navs.
+    el = e.target;
+    var target_parent = el.closest("[aria-haspopup]");
+    if (target_parent) {
+      // Skip if it's a top-level-only item
+      target_parent.querySelectorAll("li[aria-expanded]").forEach((el) => {
+        // Disable active grandchildren
+        el.removeAttribute("aria-expanded");
+      });
+    }
+    el = e.target.parentNode;
+    if (!el.nextElementSibling && // last item
+      el.parentNode.parentNode.nodeName === "LI" && // of third-level nav
+      !el.parentNode.parentNode.nextElementSibling) {
+      el.parentNode.parentNode.removeAttribute("aria-expanded");
+    }
+  }
+
+  function dropNavFocus(e) {
+    // Close focused third level child when focus moves to another top-level item
+    e.stopPropagation();
+    var el = e.target.closest(".n-nav > ul > li");
+    // To do: on LI focus, make it aria-expanded and focus its a
+    if (navAnimating) {
+      return;
+    }
+    [
+      [].slice.call(el.parentElement.children),
+      [].slice.call(e.target.parentElement.parentElement.children),
+      [].slice.call(e.target.parentElement.parentElement.parentElement.parentElement.children),
+    ].forEach((el) => {
+      el.forEach((el) => {
+        el.removeAttribute("aria-expanded");
+      });
+    });
+    el.setAttribute("aria-expanded", true);
+    // 		openItem(el.querySelector('ul'));
+    if (el.parentNode.parentNode.getAttribute("aria-haspopup")) {
+      el.parentNode.parentNode.setAttribute("aria-expanded", true);
+    }
+    el.querySelectorAll("li[aria-expanded]").forEach((el) => {
+      // Hide grandchildren
+      el.removeAttribute("aria-expanded");
+    });
+    // Make current focused item's ancestors visible
+    el = e.target;
+    el.parentNode.setAttribute("aria-expanded", true);
+    var grand_parent = el.parentElement.parentElement.parentElement;
+    if (grand_parent.tagName === "LI") {
+      grand_parent.setAttribute("aria-expanded", true);
+    }
+  }
+  var closeDropNavClickedOutsideEnabled = false;
+  
+  const getDuration = () => window.matchMedia("(prefers-reduced-motion: no-preference)").matches ? 200 : 0;
+  
+  let closeItem = (item) => {
+    navAnimating = true;
+    item.style.overflow = "hidden";
+    item.parentElement.setAttribute("aria-expanded", true);
+    item.animate([{ height: `${item.scrollHeight}px` }, { height: 0 }], getDuration()).onfinish = () => {
+      item.removeAttribute("style");
+      item.parentElement.removeAttribute("aria-expanded");
+      navAnimating = false;
+      item.querySelectorAll("[aria-expanded]").forEach((el) => {
+        el.removeAttribute("aria-expanded");
+      });
+    };
+  };
+  let openItem = (item) => {
+    navAnimating = true;
+    item.style.overflow = "hidden";
+    item.parentElement.setAttribute("aria-expanded", true);
+    item.animate([{ height: 0 }, { height: `${item.scrollHeight}px` }], getDuration()).onfinish = () => {
+      item.removeAttribute("style");
+      navAnimating = false;
+    };
+  };
+  let clickEvent = (e) => {
+    e.stopPropagation();
+    // To do: also ancestors, also close when open
+    let el = e.target;
+    var this_nav = el.closest(".n-nav");
+    this_nav.removeEventListener("focusout", dropNavBlur);
+    if (this_nav.contains(document.activeElement)) {
+      document.activeElement.blur();
+    }
+    let item = el.tagName === "LI" ? el.querySelector("ul") : el.parentElement.querySelector("ul");
+    if (isDesktop(this_nav)) {
+      if (el.getAttribute("aria-expanded")) {
+        if (el.querySelector("a:focus")) ; else {
+          if (isDesktop(this_nav)) {
+            el.removeAttribute("aria-expanded");
+          } else {
+            closeItem(item);
+          }
+        }
+      } else {
+        [].slice.call(el.parentElement.children).forEach((item) => {
+          item.removeAttribute("aria-expanded");
+          let old_item_open_child = item.querySelector("[aria-expanded]");
+          if (old_item_open_child) {
+            old_item_open_child.removeAttribute("aria-expanded");
+          }
+        });
+        el.setAttribute("aria-expanded", true);
+        if (!isDesktop(this_nav)) {
+          openItem(item);
+        }
+      }
+    } else {
+      if (item.parentNode.hasAttribute("aria-expanded")) {
+        closeItem(item);
+      } else {
+        // If new item is top level, close another top level item, if any is open
+        if (item.parentElement.parentElement.matches("ul")) {
+          // It's top level, To do: also on secondary level, close open sibling
+          let old_item = item.parentElement.closest("ul").querySelector('[aria-expanded="true"] > ul');
+          if (old_item) {
+            closeItem(old_item);
+          }
+        }
+        openItem(item);
+      }
+    }
+    this_nav.addEventListener("focusout", dropNavBlur);
+  };
+
+  function checkSides(ul, menubar) {
+    if (getComputedStyle(ul).direction !== 'rtl') {
+      ul.classList.remove("n-right-overflow");
+      ul.style.removeProperty("--n-right-overflow");
+      //		var rect = ul.getBoundingClientRect(); // Firefox doesn't preserve this var
+      if (ul.getBoundingClientRect().left > document.body.offsetWidth - (ul.getBoundingClientRect().left + ul.getBoundingClientRect().width)) {
+        if (ul.getBoundingClientRect().right > window.innerWidth) {
+          ul.style.setProperty("--n-right-overflow", window.innerWidth - ul.getBoundingClientRect().right + "px");
+          ul.classList.add("n-right-overflow");
+        }
+        ul.classList.add("n-left-side");
+      } else {
+        ul.classList.remove("n-left-side");
+      }
+    }
+  }
+
+  function initNav(el) {
+    // Delete all trigger inputs, add tabindex=0 to each li
+    el.querySelectorAll("input").forEach((el) => {
+      el.outerHTML = "";
+    });
+    el.querySelectorAll("li > a").forEach((el) => {
+      el.setAttribute("tabindex", 0);
+    });
+    if (!el.closest(".n-nav.n-nav--drop")) {
+      // The rest is for drop nav only
+      return;
+    }
+    if (!closeDropNavClickedOutsideEnabled) {
+      window.addEventListener("touchend", closeDropNavClickedOutside);
+      window.addEventListener("mouseup", closeDropNavClickedOutside);
+      closeDropNavClickedOutsideEnabled = true;
+    }
+    el.addEventListener("keyup", (e) => {
+      // Check for sibling or children to expand on control keys Left/Right/etc
+      if (e.key === "Escape") {
+        e.target.closest(".n-nav").querySelectorAll("li").forEach((el) => {
+          el.removeAttribute("aria-expanded");
+        });
+        document.activeElement.blur();
+      }
+    });
+    el.querySelectorAll("li").forEach((el) => {
+      let ul = el.querySelector("ul");
+      if (ul) {
+        el.setAttribute("aria-haspopup", true);
+        if (el.children[0].nodeName === "UL") {
+          el.insertBefore(el.children[1], el.children[0]); // Swap 'a' with 'ul'
+        }
+      }
+    });
+    el.addEventListener("mousedown", clickEvent);
+    el.addEventListener("focusin", dropNavFocus);
+    el.addEventListener("focusout", dropNavBlur);
+    window.requestAnimationFrame(() => {
+      // Give the browser time to update
+      el.querySelectorAll("ul").forEach((ul) => {
+        checkSides(ul);
+      });
+    });
+  }
+  window.addEventListener("resize", function(e) {
+    document.querySelectorAll(".n-nav.n-nav--drop ul").forEach((menubar) => {
+      menubar.querySelectorAll("ul").forEach((ul) => {
+        checkSides(ul);
+      });
+    });
+  });
+  /* Nav – end */
+  let init = (host) => {
+    host.querySelectorAll(".n-nav:not([data-ready]) > ul:not([role])").forEach((el) => {
+      initNav(el);
+      el.closest(".n-nav").dataset.ready = true;
+    });
+  };
+  nui.registerComponent("nav", init);
+})();
+// Component Nav – end
+//# sourceMappingURL=nav.js.map
 
 // Component Notification bar – start
 (function() {
