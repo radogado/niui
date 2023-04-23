@@ -481,6 +481,85 @@ nui.dynamicInit = true;// Component Button – start
 // Component Form – end
 //# sourceMappingURL=form.js.map
 
+// Component Accordion
+(function() {
+	const animate_options = el => { return { easing: "ease-in-out", duration: window.matchMedia("(prefers-reduced-motion: no-preference)").matches ? (el.dataset.duration * 1000 || getComputedStyle(el).getPropertyValue('--duration') * 1000 || 200) : 0 } };
+	const accordionContent = el => el.querySelector(":scope > .n-accordion__content");
+	const openAccordion = (el) => {
+		el = accordionContent(el);
+		window.requestAnimationFrame(() => {
+			el.style.height = 0;
+			el.style.overflow = "hidden";
+			let wrapper = el.parentNode;
+			wrapper.querySelector(":scope > .n-accordion__label").setAttribute("aria-expanded", true);
+			el.animate([{ height: 0 }, { height: `${el.scrollHeight}px` }], animate_options(wrapper)).onfinish = () => {
+				el.style.height = el.style.overflow = "";
+			};
+		});
+	};
+	const closeAccordion = (el, callback) => {
+		el = accordionContent(el);
+		window.requestAnimationFrame(() => {
+			el.style.overflow = "hidden";
+			let wrapper = el.parentNode;
+			el.animate([{ height: `${el.scrollHeight}px` }, { height: 0 }], animate_options(wrapper)).onfinish = () => {
+				el.style.height = el.style.overflow = "";
+				wrapper.querySelector(":scope > .n-accordion__label").setAttribute("aria-expanded", false);
+				typeof callback !== 'function' || callback();
+				if (wrapper.classList.contains('n-accordion--close-nested')) {
+					el.querySelectorAll(".n-accordion__label[aria-expanded='true']").forEach(el => el.setAttribute("aria-expanded", false));
+				}
+			};
+		});
+	};
+	const toggleAccordion = (e) => {
+		let el = e.target.closest('.n-accordion'); // el = .n-accordion
+		if (!el.querySelector(":scope > [aria-expanded='true']")) {
+			let popin = el.closest(".n-accordion__popin");
+			const updateRow = () => {
+				if (popin) {
+					let row = Math.floor(([...popin.children].indexOf(el) / getComputedStyle(popin).getPropertyValue("--n-popin-columns")) * 1) + 2;
+					popin.style.setProperty("--n-popin-open-row", row);
+				}
+			};
+			if (el.parentNode.matches('[role="group"]') || popin) {
+				let other_accordion = el.parentNode.querySelector(":scope > .n-accordion > [aria-expanded='true']");
+				if (other_accordion) {
+					closeAccordion(other_accordion.parentNode, () => { // el = .n-accordion
+						updateRow();
+						openAccordion(el);
+					});
+				} else {
+					updateRow();
+					openAccordion(el);
+				}
+			} else {
+				openAccordion(el);
+			}
+		} else {
+			closeAccordion(el);
+		}
+	};
+
+	function init(host = document) {
+		host.querySelectorAll(".n-accordion:not([data-ready]) > .n-accordion__label").forEach((el) => {
+			el.addEventListener("click", toggleAccordion);
+			el.parentElement.querySelector(":scope > input")?.remove(); // Remove CSS-only solution
+			el.parentNode.dataset.ready = true;
+			el.setAttribute('aria-expanded', el.getAttribute('aria-expanded') === 'true');
+		});
+	}
+	const doInit = () => {
+		(typeof nui !== 'undefined' && typeof nui.registerComponent === "function") ? nui.registerComponent("n-accordion", init) : init();
+	};
+	if (document.readyState !== "loading") {
+		doInit();
+	} else {
+		document.addEventListener("DOMContentLoaded", doInit);
+	}
+})();
+//# sourceMappingURL=n-accordion@npm.js.map
+
 // import './node_modules/n-modal/n-modal.js';
 (function() {
   const ceilingWidth = (el) => Math.ceil(parseFloat(getComputedStyle(el).width));
@@ -1439,85 +1518,6 @@ nui.dynamicInit = true;// Component Button – start
 })();
 //# sourceMappingURL=n-carousel@npm.js.map
 
-// Component Accordion
-(function() {
-	const animate_options = el => { return { easing: "ease-in-out", duration: window.matchMedia("(prefers-reduced-motion: no-preference)").matches ? (el.dataset.duration * 1000 || getComputedStyle(el).getPropertyValue('--duration') * 1000 || 200) : 0 } };
-	const accordionContent = el => el.querySelector(":scope > .n-accordion__content");
-	const openAccordion = (el) => {
-		el = accordionContent(el);
-		window.requestAnimationFrame(() => {
-			el.style.height = 0;
-			el.style.overflow = "hidden";
-			let wrapper = el.parentNode;
-			wrapper.querySelector(":scope > .n-accordion__label").setAttribute("aria-expanded", true);
-			el.animate([{ height: 0 }, { height: `${el.scrollHeight}px` }], animate_options(wrapper)).onfinish = () => {
-				el.style.height = el.style.overflow = "";
-			};
-		});
-	};
-	const closeAccordion = (el, callback) => {
-		el = accordionContent(el);
-		window.requestAnimationFrame(() => {
-			el.style.overflow = "hidden";
-			let wrapper = el.parentNode;
-			el.animate([{ height: `${el.scrollHeight}px` }, { height: 0 }], animate_options(wrapper)).onfinish = () => {
-				el.style.height = el.style.overflow = "";
-				wrapper.querySelector(":scope > .n-accordion__label").setAttribute("aria-expanded", false);
-				typeof callback !== 'function' || callback();
-				if (wrapper.classList.contains('n-accordion--close-nested')) {
-					el.querySelectorAll(".n-accordion__label[aria-expanded='true']").forEach(el => el.setAttribute("aria-expanded", false));
-				}
-			};
-		});
-	};
-	const toggleAccordion = (e) => {
-		let el = e.target.closest('.n-accordion'); // el = .n-accordion
-		if (!el.querySelector(":scope > [aria-expanded='true']")) {
-			let popin = el.closest(".n-accordion__popin");
-			const updateRow = () => {
-				if (popin) {
-					let row = Math.floor(([...popin.children].indexOf(el) / getComputedStyle(popin).getPropertyValue("--n-popin-columns")) * 1) + 2;
-					popin.style.setProperty("--n-popin-open-row", row);
-				}
-			};
-			if (el.parentNode.matches('[role="group"]') || popin) {
-				let other_accordion = el.parentNode.querySelector(":scope > .n-accordion > [aria-expanded='true']");
-				if (other_accordion) {
-					closeAccordion(other_accordion.parentNode, () => { // el = .n-accordion
-						updateRow();
-						openAccordion(el);
-					});
-				} else {
-					updateRow();
-					openAccordion(el);
-				}
-			} else {
-				openAccordion(el);
-			}
-		} else {
-			closeAccordion(el);
-		}
-	};
-
-	function init(host = document) {
-		host.querySelectorAll(".n-accordion:not([data-ready]) > .n-accordion__label").forEach((el) => {
-			el.addEventListener("click", toggleAccordion);
-			el.parentElement.querySelector(":scope > input")?.remove(); // Remove CSS-only solution
-			el.parentNode.dataset.ready = true;
-			el.setAttribute('aria-expanded', el.getAttribute('aria-expanded') === 'true');
-		});
-	}
-	const doInit = () => {
-		(typeof nui !== 'undefined' && typeof nui.registerComponent === "function") ? nui.registerComponent("n-accordion", init) : init();
-	};
-	if (document.readyState !== "loading") {
-		doInit();
-	} else {
-		document.addEventListener("DOMContentLoaded", doInit);
-	}
-})();
-//# sourceMappingURL=n-accordion@npm.js.map
-
 /* Modal – start */
 (function() {
   var scroll_timeout;
@@ -2043,6 +2043,145 @@ nui.dynamicInit = true;// Component Button – start
 // Component Nav – end
 //# sourceMappingURL=nav.js.map
 
+// Component Tooltip – start
+(function() {
+	let setTipPosition = (tool, tip) => {
+		// Take up the most area available on top/right/bottom/left of the tool. Relative to body.
+		let rect = tool.getBoundingClientRect();
+		let top = rect.top;
+		let left = rect.left;
+		let right = window.innerWidth - left - rect.width;
+		let bottom = window.innerHeight - top - rect.height; // To do: check when body is shorter than viewport
+		let area_top = top * window.innerWidth;
+		let area_right = right * window.innerHeight;
+		let area_bottom = bottom * window.innerWidth;
+		let area_left = left * window.innerHeight;
+		let body_rect = document.body.getBoundingClientRect();
+		tip.removeAttribute("style");
+		delete tip.dataset.position;
+		tip.classList.add('n-tooltip__content-visible');
+
+		let positionTop = () => {
+			tip.style.bottom = 20 + body_rect.height + body_rect.y - top + "px";
+			tip.style.maxHeight = top - 40 + "px";
+			tip.style.left = `${rect.x + rect.width / 2 - tip.scrollWidth / 2}px`;
+			tip.dataset.nPosition = "top";
+		};
+		let positionBottom = () => {
+			tip.style.top = 20 - body_rect.y + top + rect.height + "px";
+			tip.style.maxHeight = bottom - 40 + "px";
+			tip.style.left = `${rect.x + rect.width / 2 - tip.scrollWidth / 2}px`;
+			tip.dataset.nPosition = "bottom";
+		};
+		let positionLeft = () => {
+			tip.style.left = "auto";
+			tip.style.right = 20 + body_rect.width + body_rect.x - window.innerWidth + right + rect.width + "px";
+			tip.style.maxWidth = left - 40 + "px";
+			tip.style.top = `${-1 * body_rect.y + rect.top + rect.height / 2 - tip.scrollHeight / 2}px`;
+			tip.dataset.nPosition = "left";
+		};
+		let positionRight = () => {
+			tip.style.left = rect.x - body_rect.x + rect.width + 20 + "px";
+			tip.style.maxWidth = right - 40 + "px";
+			tip.style.top = `${-1 * body_rect.y + rect.top + rect.height / 2 - tip.scrollHeight / 2}px`;
+			tip.dataset.nPosition = "right";
+		};
+		if (area_left > area_right) {
+			if (area_top > area_bottom) {
+				if (area_top > area_left) {
+					// Top
+					positionTop();
+				} else {
+					// Left
+					positionLeft();
+				}
+			} else {
+				if (area_bottom > area_left) {
+					// Bottom
+					positionBottom();
+				} else {
+					// Left
+					positionLeft();
+				}
+			}
+		} else {
+			if (area_top > area_bottom) {
+				if (area_top > area_right) {
+					// Top
+					positionTop();
+				} else {
+					// Right
+					positionRight();
+				}
+			} else {
+				if (area_bottom > area_right) {
+					// Bottom
+					positionBottom();
+				} else {
+					// Right
+					positionRight();
+				}
+			}
+		}
+		let rect_tip = tip.getBoundingClientRect();
+		let offset_y = 0;
+		if (rect_tip.y < 0) {
+			offset_y = Math.abs(rect_tip.y) + 10;
+		} else {
+			if (rect_tip.bottom > window.innerHeight) {
+				offset_y = window.innerHeight - rect_tip.bottom - 10;
+			}
+		}
+		tip.style.setProperty("--offset_y", offset_y + "px");
+		let offset_x = 0;
+		if (rect_tip.x < 0) {
+			offset_x = Math.abs(rect_tip.x) + 10;
+		} else {
+			if (rect_tip.right > window.innerWidth) {
+				offset_x = window.innerWidth - rect_tip.right - 10;
+			}
+		}
+		tip.style.setProperty("--offset_x", offset_x + "px");
+	};
+
+	function getToolTip(tool) {
+		return document.getElementById(tool.getAttribute('aria-describedby')) || tool.nextElementSibling;
+	}
+	let hideTip = (e) => {
+		// return;
+		let tool = e.target.closest(".n-tooltip");
+		let tip = getToolTip(tool);
+		tool.removeAttribute("aria-expanded");
+		tool.after(tip);
+		tip.removeAttribute("style");
+		delete tip.dataset.position;
+		tip.classList.remove('n-tooltip__content-visible');
+	};
+	let showTip = (e) => {
+		let tool = e.target.closest(".n-tooltip");
+		let tip = getToolTip(tool);
+		tool.setAttribute("aria-expanded", true);
+		document.body.appendChild(tip);
+		setTipPosition(tool, tip);
+	};
+	const init = (host = document) => {
+		/* Tooltip */
+		host.querySelectorAll(".n-tooltip")?.length;
+		host.querySelectorAll(".n-tooltip:not([data-ready])").forEach((el) => {
+			el.setAttribute("tabindex", 0);
+			el.addEventListener('touchend', showTip);
+			el.addEventListener('mouseover', showTip);
+			el.addEventListener('focus', showTip);
+			el.addEventListener('mouseout', hideTip);
+			el.addEventListener('blur', hideTip);
+			el.dataset.ready = true;
+		});
+	};
+	(typeof nui !== 'undefined' && typeof nui.registerComponent === "function") ? nui.registerComponent("n-tooltip", init) : init();
+})();
+// Component Tooltip – end
+//# sourceMappingURL=n-tooltip@npm.js.map
+
 (function() {
 	const isChrome = !!navigator.userAgent.match("Chrome");
 	navigator.userAgent.match(/Safari/) && !isChrome;
@@ -2435,145 +2574,6 @@ nui.dynamicInit = true;// Component Button – start
 })();
 //# sourceMappingURL=n-select@npm.js.map
 
-// Component Tooltip – start
-(function() {
-	let setTipPosition = (tool, tip) => {
-		// Take up the most area available on top/right/bottom/left of the tool. Relative to body.
-		let rect = tool.getBoundingClientRect();
-		let top = rect.top;
-		let left = rect.left;
-		let right = window.innerWidth - left - rect.width;
-		let bottom = window.innerHeight - top - rect.height; // To do: check when body is shorter than viewport
-		let area_top = top * window.innerWidth;
-		let area_right = right * window.innerHeight;
-		let area_bottom = bottom * window.innerWidth;
-		let area_left = left * window.innerHeight;
-		let body_rect = document.body.getBoundingClientRect();
-		tip.removeAttribute("style");
-		delete tip.dataset.position;
-		tip.classList.add('n-tooltip__content-visible');
-
-		let positionTop = () => {
-			tip.style.bottom = 20 + body_rect.height + body_rect.y - top + "px";
-			tip.style.maxHeight = top - 40 + "px";
-			tip.style.left = `${rect.x + rect.width / 2 - tip.scrollWidth / 2}px`;
-			tip.dataset.nPosition = "top";
-		};
-		let positionBottom = () => {
-			tip.style.top = 20 - body_rect.y + top + rect.height + "px";
-			tip.style.maxHeight = bottom - 40 + "px";
-			tip.style.left = `${rect.x + rect.width / 2 - tip.scrollWidth / 2}px`;
-			tip.dataset.nPosition = "bottom";
-		};
-		let positionLeft = () => {
-			tip.style.left = "auto";
-			tip.style.right = 20 + body_rect.width + body_rect.x - window.innerWidth + right + rect.width + "px";
-			tip.style.maxWidth = left - 40 + "px";
-			tip.style.top = `${-1 * body_rect.y + rect.top + rect.height / 2 - tip.scrollHeight / 2}px`;
-			tip.dataset.nPosition = "left";
-		};
-		let positionRight = () => {
-			tip.style.left = rect.x - body_rect.x + rect.width + 20 + "px";
-			tip.style.maxWidth = right - 40 + "px";
-			tip.style.top = `${-1 * body_rect.y + rect.top + rect.height / 2 - tip.scrollHeight / 2}px`;
-			tip.dataset.nPosition = "right";
-		};
-		if (area_left > area_right) {
-			if (area_top > area_bottom) {
-				if (area_top > area_left) {
-					// Top
-					positionTop();
-				} else {
-					// Left
-					positionLeft();
-				}
-			} else {
-				if (area_bottom > area_left) {
-					// Bottom
-					positionBottom();
-				} else {
-					// Left
-					positionLeft();
-				}
-			}
-		} else {
-			if (area_top > area_bottom) {
-				if (area_top > area_right) {
-					// Top
-					positionTop();
-				} else {
-					// Right
-					positionRight();
-				}
-			} else {
-				if (area_bottom > area_right) {
-					// Bottom
-					positionBottom();
-				} else {
-					// Right
-					positionRight();
-				}
-			}
-		}
-		let rect_tip = tip.getBoundingClientRect();
-		let offset_y = 0;
-		if (rect_tip.y < 0) {
-			offset_y = Math.abs(rect_tip.y) + 10;
-		} else {
-			if (rect_tip.bottom > window.innerHeight) {
-				offset_y = window.innerHeight - rect_tip.bottom - 10;
-			}
-		}
-		tip.style.setProperty("--offset_y", offset_y + "px");
-		let offset_x = 0;
-		if (rect_tip.x < 0) {
-			offset_x = Math.abs(rect_tip.x) + 10;
-		} else {
-			if (rect_tip.right > window.innerWidth) {
-				offset_x = window.innerWidth - rect_tip.right - 10;
-			}
-		}
-		tip.style.setProperty("--offset_x", offset_x + "px");
-	};
-
-	function getToolTip(tool) {
-		return document.getElementById(tool.getAttribute('aria-describedby')) || tool.nextElementSibling;
-	}
-	let hideTip = (e) => {
-		// return;
-		let tool = e.target.closest(".n-tooltip");
-		let tip = getToolTip(tool);
-		tool.removeAttribute("aria-expanded");
-		tool.after(tip);
-		tip.removeAttribute("style");
-		delete tip.dataset.position;
-		tip.classList.remove('n-tooltip__content-visible');
-	};
-	let showTip = (e) => {
-		let tool = e.target.closest(".n-tooltip");
-		let tip = getToolTip(tool);
-		tool.setAttribute("aria-expanded", true);
-		document.body.appendChild(tip);
-		setTipPosition(tool, tip);
-	};
-	const init = (host = document) => {
-		/* Tooltip */
-		host.querySelectorAll(".n-tooltip")?.length;
-		host.querySelectorAll(".n-tooltip:not([data-ready])").forEach((el) => {
-			el.setAttribute("tabindex", 0);
-			el.addEventListener('touchend', showTip);
-			el.addEventListener('mouseover', showTip);
-			el.addEventListener('focus', showTip);
-			el.addEventListener('mouseout', hideTip);
-			el.addEventListener('blur', hideTip);
-			el.dataset.ready = true;
-		});
-	};
-	(typeof nui !== 'undefined' && typeof nui.registerComponent === "function") ? nui.registerComponent("n-tooltip", init) : init();
-})();
-// Component Tooltip – end
-//# sourceMappingURL=n-tooltip@npm.js.map
-
 // Component Notification bar – start
 (function() {
 	function notifyClose(el) {
@@ -2614,6 +2614,26 @@ nui.dynamicInit = true;// Component Button – start
 })();
 // Component Notification bar – end
 //# sourceMappingURL=notify.js.map
+
+// Component Parallax – start
+(function() {
+	// Thanks Dave Rupert
+	let parallaxSpeed = 0.2;
+	let updateParallax = () => {
+		document.querySelectorAll(".n-parallax").forEach((el) => {
+			let parent = el.parentElement;
+			let scroll_offset = parent.scrollHeight > parent.offsetHeight ? Math.abs(parent.getBoundingClientRect().y) : document.body.scrollTop || document.documentElement.scrollTop;
+			el.style.setProperty("--scrollparallax", scroll_offset * parallaxSpeed);
+		});
+	};
+	if (document.querySelector(".n-parallax")) {
+		window.addEventListener("scroll", updateParallax, true);
+	}
+	let init = (host) => {};
+	nui.registerComponent("parallax", init);
+})();
+// Component Parallax – end
+//# sourceMappingURL=parallax.js.map
 
 // Component Table – start
 (function () {
@@ -2671,25 +2691,5 @@ nui.dynamicInit = true;// Component Button – start
 })();
 // Component Typography – end
 //# sourceMappingURL=typography.js.map
-
-// Component Parallax – start
-(function() {
-	// Thanks Dave Rupert
-	let parallaxSpeed = 0.2;
-	let updateParallax = () => {
-		document.querySelectorAll(".n-parallax").forEach((el) => {
-			let parent = el.parentElement;
-			let scroll_offset = parent.scrollHeight > parent.offsetHeight ? Math.abs(parent.getBoundingClientRect().y) : document.body.scrollTop || document.documentElement.scrollTop;
-			el.style.setProperty("--scrollparallax", scroll_offset * parallaxSpeed);
-		});
-	};
-	if (document.querySelector(".n-parallax")) {
-		window.addEventListener("scroll", updateParallax, true);
-	}
-	let init = (host) => {};
-	nui.registerComponent("parallax", init);
-})();
-// Component Parallax – end
-//# sourceMappingURL=parallax.js.map
 export default nui;
 //# sourceMappingURL=niui.js.map
