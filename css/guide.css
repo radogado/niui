@@ -23,6 +23,7 @@
   --nui-input-bg-dark: aliceblue;
   --nui-list-color-dark: #e1dcf9;
   --nui-list-bg-dark: #4888cb;
+  --nui-border-radius: .5em;
 }
 
 body {
@@ -90,12 +91,6 @@ li pre {
 html {
   -webkit-text-size-adjust: 100%;
   /* Prevent font scaling in landscape while allowing user zoom */
-}
-
-.demo .n-carousel__content,
-.n-tooltip__content,
-.n-modal {
-  --nui-border-radius: .5em;
 }
 
 @media (min-width: 900px) {

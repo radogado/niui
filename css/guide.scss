@@ -26,6 +26,8 @@
   --nui-list-color-dark: #e1dcf9;
   --nui-list-bg-dark: #4888cb;
 
+  --nui-border-radius: .5em;
+
 }
 
 body {
@@ -108,11 +110,11 @@ html {
   /* Prevent font scaling in landscape while allowing user zoom */
 }
 
-.demo .n-carousel__content,
-.n-tooltip__content,
-.n-modal {
-  --nui-border-radius: .5em;
-}
+// .demo .n-carousel__content,
+// .n-tooltip__content,
+// .n-modal {
+//   --nui-border-radius: .5em;
+// }
 
 .demo .n-carousel.n-carousel--overlay .n-carousel__content {
   @media (min-width: 900px) {
