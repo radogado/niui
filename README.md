@@ -12,44 +12,40 @@ To use niui, get [niui.min.css](https://radogado.github.io/niui/dist/niui.min.cs
 
 ---
 
-- Unbreakable, flexible, responsive [grid](https://radogado.github.io/niui/#grid). Supports Bootstrap-style wrapping columns, but with ._1/3 (1/3) etc., instead of .col...4 (4/12). Auto equal width columns with equal height and vertical alignment.
-- Baseline-aligned [typography](https://radogado.github.io/niui/#typography), quote block, drop caps.
 - BEM class names
+- Unbreakable, flexible, responsive [grid](https://radogado.github.io/niui/#grid) with alignment, embedding, borders option.
+- Baseline-aligned [typography](https://radogado.github.io/niui/#typography), quote block, drop caps.
 - Embeddable grid and elements. Support for multiple modals, nested carousels, nested accordions etc
 - Built around edge cases (overflowing headlines, images etc)
 - Flat default style without rounded edges, shadows etc
 - Optinal rounded edges, border, shadow via Sass variables
+- Dark theme
 - Semantic structure
 - [Dynamic components](https://radogado.github.io/niui/#dynamic-components), dynamically initialised by MutationObserver
 - (Mobile) [navigation](https://radogado.github.io/niui/#nav). Drop-down nav: Touch-first, CSS-only, JS enhanced, 1-3 levels, responsive, label/link items support
 - [Buttons](https://radogado.github.io/niui/#buttons) with group container for proper line wrap
 - [Modal windows](https://radogado.github.io/niui/#modal) with multiple instances, supporting iPhone Safari toolbars
+- Native [carousel](https://radogado.github.io/niui/#carousel), swipeable on mobile and desktop, vertical and full window options, carousel inside carousel, auto height option
 - [Lightbox gallery](https://radogado.github.io/niui/#lightbox) supporting huge galleries and click to zoom. Can be opened automatically by URI page#lightbox_id. Video in lightbox. Inline lightboxes switchable to full screen.
+- [Tabs](https://radogado.github.io/niui/#tabs)
 - [Tooltips](https://radogado.github.io/niui/#tooltip) with full HTML content
 - Nested ordered [lists](https://radogado.github.io/niui/#lists)
 - [Forms](https://radogado.github.io/niui/#forms) with validation, customisation and accessibility. Rich select available.
-- Native [carousel](https://radogado.github.io/niui/#carousel), swipeable on mobile and desktop, with numbered or thumbnail (tabs) navigation, vertical and full window options, carousel inside carousel, fade in/out option, auto height option
 - [Accordions](https://radogado.github.io/niui/#accordion) + Grid with inline popups
-- [Tabs](https://radogado.github.io/niui/#tabs)
 - [Cards](https://radogado.github.io/niui/#cards)
 - [Tables](https://radogado.github.io/niui/#tables) accessible on narrow screens by scrolling; sortable.
-- Footer sticking to the very bottom on short pages
-- Language selector
 - [Aspect ratio](https://radogado.github.io/niui/#aspect-ratio) image container
-- Arabic (RTL) layout ready
 - [Masonry](https://radogado.github.io/niui/#masonry) CSS-only (vertical track only)
 - [Parallax scrolling](https://radogado.github.io/niui/#parallax)
 - [Fixed background](https://radogado.github.io/niui/#fixed-background)
 - [WordPress theme](https://radogado.github.io/niui/niui-wp.zip) with lightbox gallery
 - [Notification bar](https://radogado.github.io/niui/#notifications)
 - Click to [copy to clipboard](https://radogado.github.io/niui/#copy)
-- [NPM install](https://radogado.github.io/niui/#usage)
-- [Documentation](https://radogado.github.io/niui/#)
+- RTL layout ready
 - 14 KB first view CSS + optional 12 KB JS (combined, minified, macOS gzip)
 - Functional without JS and accessible without CSS
 - Seamless transition from CSS-only to JS-enhanced layout
 - No dependencies
-- Supporting evergreen browsers and Internet Explorer (CSS-only)
 - All components accessible by keyboard
 
 © 2014-2023 [rado.bg](http://rado.bg)
