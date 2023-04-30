@@ -361,9 +361,5 @@ main > .n-row.n-contain > * {
 .n-contain > .n-row--border-all .n-pad {
   padding: calc(var(--nui-line-height-em) / 1.25);
 }
-.n-contain > .n-row--border-all .n-pad.n-row--border-off > * {
-  padding: 0;
-  margin: 0;
-}
 
 /*# sourceMappingURL=imperialinnovations.css.map */

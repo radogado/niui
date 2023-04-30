@@ -112,6 +112,7 @@
   margin: 0;
   min-height: 0;
   z-index: 1;
+  border-radius: 0;
 }
 .n-nav--drop ul ul {
   padding: 0;

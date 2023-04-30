@@ -539,10 +539,10 @@ main .n-carousel__index {
 	.n-pad {
 		padding: calc(var(--nui-line-height-em) / 1.25);
 		
-		&.n-row--border-off > * {
-			padding: 0;
-			margin: 0;
-		}
+		// &.n-row--border-off > * {
+		// 	padding: 0;
+		// 	margin: 0;
+		// }
 	}
 
 }

@@ -124,6 +124,7 @@ select {
   margin-top: 2em;
   font-size: 7em;
   line-height: 1;
+  overflow: hidden;
 }
 
 ul.n-list li {
