@@ -362,4 +362,8 @@ main > .n-row.n-contain > * {
   padding: calc(var(--nui-line-height-em) / 1.25);
 }
 
+.n-accordion .n-accordion__label {
+  background: none;
+}
+
 /*# sourceMappingURL=imperialinnovations.css.map */
