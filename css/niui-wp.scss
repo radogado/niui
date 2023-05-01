@@ -31,11 +31,11 @@ body .n-contain {
 
 .n-wp .n-carousel.n-carousel--lightbox {
 
-	grid-template-areas:
-		"f c a3 a3 a3 a3"
-		"prev a2 a2 a2 a2 next"
-		"v v v v v v"
-		"i i i i i i";
+	// grid-template-areas:
+	// 	"f c a3 a3 a3 a3"
+	// 	"prev a2 a2 a2 a2 next"
+	// 	"v v v v v v"
+	// 	"i i i i i i";
 
 	> .n-carousel__content {
 		grid-row: 1/-2;
@@ -43,10 +43,10 @@ body .n-contain {
 
 	&.n-carousel--overlay {
 		margin: 0;
-		grid-template-areas:
-			"f c a3 a3 a3 a3"
-			"prev a2 a2 a2 a2 next"
-			"i i i i i i";
+		// grid-template-areas:
+		// 	"f c a3 a3 a3 a3"
+		// 	"prev a2 a2 a2 a2 next"
+		// 	"i i i i i i";
 
 		> .n-carousel__content {
 			grid-row: 1/-1;
@@ -70,10 +70,10 @@ body .n-contain {
 
 	&:-webkit-full-screen {
 		margin: 0;
-		grid-template-areas:
-			"f c a3 a3 a3 a3"
-			"prev a2 a2 a2 a2 next"
-			"i i i i i i";
+		// grid-template-areas:
+		// 	"f c a3 a3 a3 a3"
+		// 	"prev a2 a2 a2 a2 next"
+		// 	"i i i i i i";
 
 		> .n-carousel__content {
 			grid-row: 1/-1;
@@ -95,10 +95,10 @@ body .n-contain {
 
 	&:fullscreen {
 		margin: 0;
-		grid-template-areas:
-			"f c a3 a3 a3 a3"
-			"prev a2 a2 a2 a2 next"
-			"i i i i i i";
+		// grid-template-areas:
+		// 	"f c a3 a3 a3 a3"
+		// 	"prev a2 a2 a2 a2 next"
+		// 	"i i i i i i";
 
 		> .n-carousel__content {
 			grid-row: 1/-1;
