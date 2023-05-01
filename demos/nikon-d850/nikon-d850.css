@@ -319,6 +319,10 @@ footer ul.n-list.n-row > li > span {
   font-size: 30px;
   font-weight: 300;
   padding: 0.25em 0.5em;
+  margin: 0;
+}
+.n-accordion .n-accordion__label button {
+  padding: 0;
 }
 
 .n-carousel.n-carousel--tabs > .n-carousel__index.n-row {

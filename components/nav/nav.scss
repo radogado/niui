@@ -283,6 +283,7 @@
     li:before {
       content: "";
       margin: 0;
+      font-size: 1em;
     }
 
     li:not([aria-haspopup="true"]):before {

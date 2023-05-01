@@ -226,6 +226,7 @@
 .n-nav--drop ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li:before {
   content: "";
   margin: 0;
+  font-size: 1em;
 }
 .n-nav--drop ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) li:not([aria-haspopup=true]):before {
   display: none;
