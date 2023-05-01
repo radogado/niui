@@ -228,10 +228,6 @@ html {
   font-weight: bold;
 }
 
-[href*=".min.css"],
-[href*=".min.js"] {
-  white-space: nowrap;
-}
 [href*=".min.css"]:after,
 [href*=".min.js"]:after {
   content: attr(data-size);
