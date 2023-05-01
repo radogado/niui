@@ -275,7 +275,7 @@ ul {
 
 .n-banner {
 
-	padding-top: 9rem;
+	padding-top: 5rem;
 	padding-bottom: 1rem;
 
 	.n-form input[type=text] {
@@ -391,6 +391,7 @@ body.n-type,
 	background: none;
 	border: 2px solid #f9c66b;
 	padding: .6em 1em;
+	padding-bottom: 0.75em;
 
 }
 
@@ -401,6 +402,8 @@ header .n-accordion__label {
 	padding-bottom: .75em;
 	padding: 0;
 	--accordion-margin: 0;
+	display: grid;
+	place-items: center;
 
 }
 
@@ -411,13 +414,15 @@ header h3 {
 header .n-accordion--inline .n-accordion__content > * {
 
 	vertical-align: middle;
+	display: flex;
 
 }
 
 header .n-accordion__content .account {
 
 	line-height: 2;
-
+	align-items: center;
+	margin-inline-start: 0.5em;
 	display: inline-flex;
 
 	i {
@@ -558,6 +563,7 @@ main .n-form button {
 	.n-accordion.n-accordion--mobile {
 
 		justify-items: flex-end;
+		margin-top: 0.4em;
 
 	}
 
@@ -569,13 +575,16 @@ main .n-form button {
 
 	.n-accordion.n-accordion--mobile > .n-accordion__label {
 
-		line-height: 3;
+		// line-height: 3;
+		margin: 0;
 		justify-content: center;
 
 	}
 
 	.n-accordion__label button {
 		padding-inline-end: calc(var(--nui-line-height-em, 1.5rem)/ 2);
+		height: 1.25em;
+		line-height: 0;
 
 		&:after {
 			display: none;
