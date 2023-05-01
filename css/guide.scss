@@ -307,7 +307,7 @@ html {
 [href*=".min.css"],
 [href*=".min.js"] {
   // text-decoration: none;
-  white-space: nowrap;
+  // white-space: nowrap;
 
   &:after {
     content: attr(data-size);
