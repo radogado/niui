@@ -1,0 +1,114 @@
+/* niui – Button */
+@import "../../css/niui-setup";
+
+.n-btn,
+.n-form input[type="submit"],
+.n-form button[type="submit"],
+.n-form button[type="reset"],
+button.n-btn,
+a.n-btn[href],
+.n-type a.n-btn[href] {
+  font-size: inherit;
+  line-height: var(--nui-line-height);
+  min-height: var(--nui-line-height-em);
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  width: auto;
+  word-break: break-word;
+  padding: 0 0.6em;
+  -webkit-appearance: none;
+  background-color: #333;
+  background-color: var(--nui-control-bg, #333);
+  color: #eee;
+  color: var(--nui-control-color, #eee);
+  border: none;
+  font-family: inherit;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  border-radius: 0;
+  box-shadow: 0 0 0 var(--nui-border-size) var(--nui-border-color), 0 0 var(--nui-shadow-blur) calc(var(--nui-border-size) + var(--nui-shadow-size)) var(--nui-shadow-color);
+
+  &:not([disabled]):hover {
+    background-color: #eee;
+    color: #333;
+  }
+}
+
+button.n-btn[disabled] {
+  cursor: default;
+  opacity: 0.2;
+  margin: 0;
+  font-size: inherit;
+}
+
+.n-btn.n-btn--big,
+a[href].n-btn.n-btn--big,
+.n-form input[type="submit"],
+.n-form button {
+  margin: calc(var(--nui-line-height-em) / 3) 0; // Re-calculate margin, because font-size has changed. To do: fix baseline.
+  font-size: 1.2em;
+  padding: 0.75em 1em;
+  line-height: 1.05em;
+  min-height: 0;
+  font-weight: 500;
+}
+
+/* Back to top button */
+// a.n-backtotop[href] {
+// 	line-height: 1;
+// 	margin: 0.7333em auto;
+// 	font-weight: bold;
+// 	background: transparent;
+// 	background: rgba(0, 0, 0, 0.2);
+// 	color: #fff;
+// 	border-radius: 2em;
+// 	font-family: "Hiragino Mincho ProN";
+// 	/* fix for iOS */
+// 	cursor: pointer;
+// 	position: absolute;
+// 	bottom: -1em;
+// 	left: 50%;
+// 	transform: translateX(-50%);
+// 	text-decoration: none;
+// 	z-index: 999;
+// 	padding: 0.5em;
+// 	width: 2em;
+// 	text-align: center;
+// 	box-sizing: border-box;
+// }
+
+// A group of buttons etc with proper horizontal margins also when wrapped
+.n-btn__group {
+  margin: 0 -0.25em;
+
+  > *,
+  .n-btn.n-btn--big,
+  > a[href].n-btn.n-btn--big {
+    margin-inline-end: 0.25em;
+    margin-inline-start: 0.25em;
+  }
+}
+
+@media not screen and (min-width: $screen-narrow) {
+  .n-btn.n-btn--big {
+    display: block;
+    text-align: center;
+  }
+}
+
+.n-btn--ripple {
+
+  background: radial-gradient(circle, rgb(0 0 0 / 5%) 70%, rgba(0, 0, 0, 0) 0) no-repeat var(--ripple-x) var(--ripple-y) / 0 0;
+  transition: .15s ease-out;
+  transition-property: background-size, background-position;
+
+  &:active {
+    background-position: calc(var(--ripple-x) - var(--ripple-radius)) calc(var(--ripple-y) - var(--ripple-radius));
+    background-size: calc(2 * var(--ripple-radius)) calc(2 * var(--ripple-radius));
+  }
+
+}

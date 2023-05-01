@@ -1,17 +1,15 @@
 <!doctype html>
-<html <?php language_attributes(); ?> class="no-js n-type">
+<html <?php language_attributes(); ?> class="n-type n-wp">
 	<head>
 		<meta charset="<?php bloginfo('charset'); ?>">
 		<title><?php wp_title(''); ?><?php if(wp_title('', false)) { echo ':'; } ?> <?php bloginfo('name'); ?></title>
 
-		<link href="//www.google-analytics.com" rel="dns-prefetch">
 <!--
         <link href="<?php echo get_template_directory_uri(); ?>/img/icons/favicon.ico" rel="shortcut icon">
         <link href="<?php echo get_template_directory_uri(); ?>/img/icons/touch.png" rel="apple-touch-icon-precomposed">
 -->
 
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=yes, viewport-fit=cover"/>
 		<meta name="description" content="<?php bloginfo('description'); ?>">
 
 		<?php wp_head(); ?>
@@ -57,7 +55,7 @@
 					<?php else : ?>
 					<div class="logo">
 
-					        <a class="n-aspect default-logo" style='--width: 441px; --height: 56;' href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'>
+					        <a class="n-aspect default-logo" style='display: none; --width: 441px; --height: 56;' href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'>
 						        
 								<img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="niui WordPress" class="logo-img">
 						        

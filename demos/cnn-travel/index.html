@@ -1,518 +1,541 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-	
-	<title>niui</title><link rel=icon href=../../images/favicon.ico>
-	<meta charset=utf-8>
-	<meta name=viewport content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no'>
-	<link rel=styleSheet href=../../dist/niui.min.css type=text/css media=screen>
-	<link rel=styleSheet href=cnn-travel.css type=text/css media=screen>
-	
-</head>
-	
-<body class="n-type">
+	<head>
 
-	<!-- Header and Banner - Start -->
-	
-	<div class="n-header-banner">
-		
-		<header class="contain n-row n-header n-row__no-spacing n-row__half">
-			
-			<div class="_1/4">
-				
-				<div>
-					
-					<a href=# style="display: inline-flex;">
-						
-						<span class="Header__logoCNN"></span>
-						<span class="Header__logoTravel"></span>
-						
-					</a>
-				
+		<title>niui</title>
+		<link rel=icon href=../../images/favicon.ico>
+		<meta charset=utf-8>
+		<meta name=viewport content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no'>
+		<link rel=styleSheet href=../../dist/niui.min.css type=text/css media=screen>
+		<link rel=styleSheet href="cnn-travel.css" type=text/css media=screen>
+
+	</head>
+
+	<body class="n-type">
+
+		<!-- Header and Banner - Start -->
+
+		<div class="n-header-banner">
+
+			<header class="contain n-row n-header n-row--no-spacing n-row--half">
+
+				<div class="_1/4">
+
+					<div>
+
+						<a href=# style="display: inline-flex;">
+
+							<span class="Header__logoCNN"></span>
+							<span class="Header__logoTravel"></span>
+
+						</a>
+
+					</div>
+
 				</div>
-			
+
+				<div class="n-right n-middle">
+
+					<nav class="n-nav">
+
+						<ul class="n-list n-list--inline">
+
+							<li> <a href=#>Destinations</a> </li>
+							<li> <a href=#>Food & drink</a> </li>
+							<li> <a href=#>Play</a> </li>
+							<li> <a href=#>Stay</a> </li>
+							<li> <a href=#>Video</a> </li>
+							<li> <a href=# style="color: transparent; text-shadow: 0 0 #000;">🔍</a> </li>
+
+						</ul>
+
+					</nav>
+
+				</div>
+
+			</header>
+
+			<div class="n-banner">
+
+				<!-- <div class="n-carousel n-slider__peek" style="padding: 0px calc(50vw - 544px);">
+
+					<div class="n-slider" data-peek="calc(50vw - 544px)">
+
+						<div> <a href=#> <span class=n-aspect style="--width: 1088; --height: 612"> <img src=01-desktop.jpg alt=Changi> </span> </a> </div>
+						<div> <a href=#> <img src=02-desktop.jpg alt=Bangkok> </a> </div>
+						<div> <a href=#> <img src=04-desktop.jpg alt=Bali> </a> </div>
+						<div> <a href=#> <img src=05-desktop.jpg alt=Budapest> </a> </div>
+
+					</div>
+
+				</div> -->
+
+				<div class="n-carousel n-carousel--peek n-carousel--endless">
+
+					<div class="n-carousel__content">
+						<div> <a href=#> <span class=n-aspect style="--ratio: 1.778"> <img src=01-desktop.jpg alt=Changi> </span> </a> </div>
+						<div> <a href=#> <img src=02-desktop.jpg alt=Bangkok> </a> </div>
+						<div> <a href=#> <img src=04-desktop.jpg alt=Bali> </a> </div>
+						<div> <a href=#> <img src=05-desktop.jpg alt=Budapest> </a> </div>
+
+					</div>
+
+					<div class="n-carousel__previous">
+						<button><span>Previous</span></button>
+					</div>
+					<div class="n-carousel__next">
+						<button><span>Next</span></button>
+					</div>
+				</div>
+
 			</div>
-			
-			<div class="n-right n-middle">
-				
-				<nav class="n-nav">
-					
-					<ul class="n-list n-list__inline">
-						
-						<li> <a href=#>Destinations</a> </li>
-						<li> <a href=#>Food & drink</a> </li>
-						<li> <a href=#>Play</a> </li>
-						<li> <a href=#>Stay</a> </li>
-						<li> <a href=#>Video</a> </li>
-						<li> <a href=# style="color: transparent; text-shadow: 0 0 #000;">🔍</a> </li>
-					
-					</ul>
-				
-				</nav>						
-				
-			</div>
-		
-		</header>
-	
-		<div class="n-banner">
-		
-			<div class="n-slider--wrap n-slider__peek" style="padding: 0px calc(50vw - 544px);">
-		
-				<div class="n-slider" data-peek="calc(50vw - 544px)">
-				
-				<div> <a href=#> <span class=n-aspect style="--width: 1088; --height: 612"> <img src=01-desktop.jpg alt=Changi> </span> </a> </div>
-				<div> <a href=#> <img src=02-desktop.jpg alt=Bangkok> </a> </div>
-				<div> <a href=#> <img src=04-desktop.jpg alt=Bali> </a> </div>
-				<div> <a href=#> <img src=05-desktop.jpg alt=Budapest> </a> </div>
-			
-			</div>
-			
-			</div>
-			
+
 		</div>
-	
-	</div>
 
-	<main class="n-contain">
-		
-		<div class="n-row n-unpad">
-			
-			<div class="_3/4">
-				
-				<div class="n-pad">
-								
-					<div class="n-row" style="border: 12px solid #55c2bf;">
-						
-						<div style="display: flex;">
-							
-							<span class="vertical">FOOD & DRINK</span>
-							
-							<a href=#>
-								
-								<img src=portland-maine-lobster.jpg alt=Lobster>
-								<br>
-								This small town has a big appetite
-								
-							</a>
-							
-						</div>
-						
-						<div>
-							
-							<div class="n-row n-unpad">
-								
-								<div class="_1/2">
-									
-									<img src="dominique-crenn.jpg" alt=Chef>
-								
-								</div>
-								
-								<div class="_1/2">
-									
-									<a href=#>Not a great female chef. A great chef, period.</a>
-									
-								</div>
-								
-								<div class="_1/2">
-									
-									<img src="nationalcakes-pavlova.jpg" alt=Dessert>
-								
-								</div>
-								
-								<div class="_1/2">
-									
-									<a href=#>Is this the world's most controversial dessert?</a>
-									
-								</div>
-							
-								<div>
-									
-									<div> <a href=# class="n-btn">See all food & drink</a> </div>
-								
-								</div>
-									
+		<main class="n-contain">
+
+			<div class="n-row n-unpad">
+
+				<div class="_3/4">
+
+					<div class="n-pad">
+
+						<div class="n-row" style="border: 12px solid #55c2bf;">
+
+							<div style="display: flex;">
+
+								<span class="vertical">FOOD & DRINK</span>
+
+								<a href=#>
+
+									<img src=portland-maine-lobster.jpg alt=Lobster>
+									<br>
+									This small town has a big appetite
+
+								</a>
+
 							</div>
-							
-						</div>
-						
-					</div>					<br>
-				
-					<div class="n-row" style="border: 12px solid #fdbe34;">
-						
-						<div style="display: flex;">
-							
-							<span class="vertical" style="    color: #fdbe34;">PLAY</span>
-							
-							<a href=#>
-								
-								<img src=abandoned-nicosia-international-airport---00000100-6-sdr-by-dimitrissideridisphotography--0002-3738.jpg alt=Lobster>
-								<br>
-								A ghost airport in the Mediterranean
-								
-							</a>
-							
-						</div>
-						
-						<div>
-							
-							<div class="n-row n-unpad">
-								
-								<div class="_1/2">
-									
-									<img src="moscow-attractions---st-basils-cathedral.jpg" alt=Chef>
-								
+
+							<div>
+
+								<div class="n-row n-unpad">
+
+									<div class="_1/2">
+
+										<img src="dominique-crenn.jpg" alt=Chef>
+
+									</div>
+
+									<div class="_1/2">
+
+										<a href=#>Not a great female chef. A great chef, period.</a>
+
+									</div>
+
+									<div class="_1/2">
+
+										<img src="nationalcakes-pavlova.jpg" alt=Dessert>
+
+									</div>
+
+									<div class="_1/2">
+
+										<a href=#>Is this the world's most controversial dessert?</a>
+
+									</div>
+
+									<div>
+
+										<div> <a href=# class="n-btn">See all food & drink</a> </div>
+
+									</div>
+
 								</div>
-								
-								<div class="_1/2">
-									
-									<a href=#>12 reasons to visit Moscow right now</a>
-									
-								</div>
-								
-								<div class="_1/2">
-									
-									<img src="academy-award-museum.jpg" alt=Dessert>
-								
-								</div>
-								
-								<div class="_1/2">
-									
+
+							</div>
+
+						</div> <br>
+
+						<div class="n-row" style="border: 12px solid #fdbe34;">
+
+							<div style="display: flex;">
+
+								<span class="vertical" style="    color: #fdbe34;">PLAY</span>
+
+								<a href=#>
+
+									<img src=abandoned-nicosia-international-airport---00000100-6-sdr-by-dimitrissideridisphotography--0002-3738.jpg alt=Lobster>
+									<br>
+									A ghost airport in the Mediterranean
+
+								</a>
+
+							</div>
+
+							<div>
+
+								<div class="n-row n-unpad">
+
+									<div class="_1/2">
+
+										<img src="moscow-attractions---st-basils-cathedral.jpg" alt=Chef>
+
+									</div>
+
+									<div class="_1/2">
+
+										<a href=#>12 reasons to visit Moscow right now</a>
+
+									</div>
+
+									<div class="_1/2">
+
+										<img src="academy-award-museum.jpg" alt=Dessert>
+
+									</div>
+
+									<div class="_1/2">
+
 										<a href=#>L.A.'s newest museum celebrates movie magic</a>
-									
+
+									</div>
+
+									<div>
+										<div> <a href=# class="n-btn">See all play</a> </div>
+									</div>
+
 								</div>
-								
-								<div> <div> <a href=# class="n-btn">See all play</a> </div> </div>
-	
+
 							</div>
-							
-						</div>
-						
-					</div>					<br>
-				
-					<div class="n-row" style="border: 12px solid #3e74c1;">
-						
-						<div style="display: flex;">
-							
-							<span class="vertical" style="color: #3e74c1;">STAY</span>
-							
-							<a href=#>
-								
-								<img src=vermont-1.jpg alt=Lobster>
-								<br>
-								This small town has a big appetite
-								
-							</a>
-							
-						</div>
-						
-						<div>
-							
-							<div class="n-row n-unpad">
-								
-								<div class="_1/2">
-									
-									<img src="hutton-hotel.jpg" alt=Chef>
-								
-								</div>
-								
-								<div class="_1/2">
-									
-									<a href=#>Nashville's coolest hotel is also Nashville's coolest...</a>
-									
-								</div>
-								
-								<div class="_1/2">
-									
-									<img src="most-exclusive-hotels---the-brando-resort3.jpg" alt=Dessert>
-								
-								</div>
-								
-								<div class="_1/2">
-									
-									<a href=#>The world's most exclusive hotels</a>
-									
-								</div>
-								
-								<div> <div> <a href=# class="n-btn">See all stay</a> </div> </div>
-							
+
+						</div> <br>
+
+						<div class="n-row" style="border: 12px solid #3e74c1;">
+
+							<div style="display: flex;">
+
+								<span class="vertical" style="color: #3e74c1;">STAY</span>
+
+								<a href=#>
+
+									<img src=vermont-1.jpg alt=Lobster>
+									<br>
+									This small town has a big appetite
+
+								</a>
+
 							</div>
-							
-						</div>
-						
-					</div>					<br>
-				
-				</div>
-				
-			</div>
-			
-			<div class="_1/4 n-center">
-				
-				<a href=# style="display: block;" class="n-pad"> <img src=montre.png alt=Montre style="background: url(fond.jpg);"> </a>
-			
-			</div>
-		
-			<div class="_1/1 n-center n-middle">
-				
-				<div  class="n-pad">
-							
-					<div style="background: url(best-beaches-promo.jpg) center center; background-size: cover; color: #fff;">
-					
-					<br><br>
-				
-				A year of the world's<br><br>
-				<h2><img src=ed91e68296cc0c8391e8fc429759704e.png alt="Best beaches" style="margin: 0 auto; width: auto;"></h2><br>
-				<p>There's a perfect beach for every week of the year. <br>Join us on a 12-month journey to see them all!
-					
-					</p>
-					
-				<a href=# class="n-btn" style="color: #fff;"> Go to the best beaches </a>
-				
-					<br><br><br>
+
+							<div>
+
+								<div class="n-row n-unpad">
+
+									<div class="_1/2">
+
+										<img src="hutton-hotel.jpg" alt=Chef>
+
+									</div>
+
+									<div class="_1/2">
+
+										<a href=#>Nashville's coolest hotel is also Nashville's coolest...</a>
+
+									</div>
+
+									<div class="_1/2">
+
+										<img src="most-exclusive-hotels---the-brando-resort3.jpg" alt=Dessert>
+
+									</div>
+
+									<div class="_1/2">
+
+										<a href=#>The world's most exclusive hotels</a>
+
+									</div>
+
+									<div>
+										<div> <a href=# class="n-btn">See all stay</a> </div>
+									</div>
+
+								</div>
+
+							</div>
+
+						</div> <br>
+
+					</div>
 
 				</div>
-				
+
+				<div class="_1/4 n-center">
+
+					<a href=# style="display: block;" class="n-pad"> <img src=montre.png alt=Montre style="background: url(fond.jpg);"> </a>
+
 				</div>
-			
-			</div>
-			
-			<div class="_3/4">
-				
-				<div>
-				
-					<div class="n-row">
-						
-						<div class="_1/1">
+
+				<div class="_1/1 n-center n-middle">
+
+					<div class="n-pad">
+
+						<div style="background: url(best-beaches-promo.jpg) center center; background-size: cover; color: #fff;">
+
+							<br><br>
+
+							A year of the world's<br><br>
+							<h2><img src=ed91e68296cc0c8391e8fc429759704e.png alt="Best beaches" style="margin: 0 auto; width: auto;"></h2><br>
+							<p>There's a perfect beach for every week of the year. <br>Join us on a 12-month journey to see them all!
+
+							</p>
+
+							<a href=# class="n-btn" style="color: #fff;"> Go to the best beaches </a>
+
+							<br><br><br>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="_3/4">
+
+					<div>
+
+						<div class="n-row">
+
+							<div class="_1/1">
 
 								<h2>Highlight destinations</h2>
-							
-						</div>	
-						
-						<div class="_1/4">
-							
-							<h3>
-								
-								<img src=4f0884dedf497845e52ae616515f07ba.jpg alt=Sydney>
-								
-								<h3>Sydney</h3>
-								
-								<p> 
-	
-	A spectacular natural harbor, THAT Opera House, beaches galore and a thriving sports and foodie scene make Sydney one of the world’s great all-round cities, an outdoor-lovers’ paradise with a flair for culture.
-	 </p>
-								
-								<a href=#>Explore Sydney</a>
-								
-							</h3>
-							
+
+							</div>
+
+							<div class="_1/4">
+
+								<h3>
+
+									<img src=4f0884dedf497845e52ae616515f07ba.jpg alt=Sydney>
+
+									<h3>Sydney</h3>
+
+									<p>
+
+										A spectacular natural harbor, THAT Opera House, beaches galore and a thriving sports and foodie scene make Sydney one of the world’s great all-round cities, an outdoor-lovers’ paradise with a flair for culture.
+									</p>
+
+									<a href=#>Explore Sydney</a>
+
+								</h3>
+
+							</div>
+
+							<div class="_1/4">
+
+								<h3>
+
+									<img src=6498ee59acfd4fb67e0a1899eae50814.jpg alt=London>
+
+									<h3>London</h3>
+
+									<p>
+
+										History and hedonism co-exist like tea and milk in England’s powerhouse capital. From Romans to Royals, Buckingham Palace to Big Ben, London is both quintessentially British, and a true global melting pot.
+									</p>
+
+									<a href=#>Explore London</a>
+
+								</h3>
+
+							</div>
+
+							<div class="_1/4">
+
+								<h3>
+
+									<img src=e06fa68290b511cd1a0b44d160162500.jpg alt=Dubai>
+
+									<h3>Dubai</h3>
+
+									<p>
+
+										Futuristic skyscrapers push ever higher in this modern megalopolis on the edge of the desert. It’s a slick world of business, commerce and entertainment, with nods to the old orient, and a gateway to Arabian adventures.
+									</p>
+
+									<a href=#>Explore Dubai</a>
+
+								</h3>
+
+							</div>
+
+							<div class="_1/4">
+
+								<h3>
+
+									<img src=221cb0a37f9eb4490915344ef3e8480a.jpg alt=Tokyo>
+
+									<h3>Tokyo</h3>
+
+									<p>
+
+										Japan’s capital is a dizzying mix of flashing neon, slick skyscrapers, traditional temples and historic gardens. Frenetic but efficient, all-encompassing Tokyo is a shrine to shopping, entertainment and dining, all overlooked by Mt. Fuji.
+									</p>
+
+									<a href=#>Explore Tokyo</a>
+
+								</h3>
+
+							</div>
+
+							<div class="n-center"> <a href="#" class="n-btn"> See all destinations </a> </div>
+
 						</div>
-						
-						<div class="_1/4">
-							
-							<h3>
-								
-								<img src=6498ee59acfd4fb67e0a1899eae50814.jpg alt=London>
-								
-								<h3>London</h3>
-								
-								<p> 
-	
-	History and hedonism co-exist like tea and milk in England’s powerhouse capital. From Romans to Royals, Buckingham Palace to Big Ben, London is both quintessentially British, and a true global melting pot.
-	 </p>
-								
-								<a href=#>Explore London</a>
-								
-							</h3>
-							
-						</div>
-						
-						<div class="_1/4">
-							
-							<h3>
-								
-								<img src=e06fa68290b511cd1a0b44d160162500.jpg alt=Dubai>
-								
-								<h3>Dubai</h3>
-								
-								<p> 
-	
-	Futuristic skyscrapers push ever higher in this modern megalopolis on the edge of the desert. It’s a slick world of business, commerce and entertainment, with nods to the old orient, and a gateway to Arabian adventures.
-	 </p>
-								
-								<a href=#>Explore Dubai</a>
-								
-							</h3>
-							
-						</div>
-						
-						<div class="_1/4">
-							
-							<h3>
-								
-								<img src=221cb0a37f9eb4490915344ef3e8480a.jpg alt=Tokyo>
-								
-								<h3>Tokyo</h3>
-								
-								<p> 
-	
-	Japan’s capital is a dizzying mix of flashing neon, slick skyscrapers, traditional temples and historic gardens. Frenetic but efficient, all-encompassing Tokyo is a shrine to shopping, entertainment and dining, all overlooked by Mt. Fuji.
-	 </p>
-								
-								<a href=#>Explore Tokyo</a>
-								
-							</h3>
-							
-						</div>
-						
-						<div class="n-center"> <a href="#" class="n-btn"> See all destinations </a> </div>
-						
+
 					</div>
-				
+
 				</div>
-			
+
+				<div class="_1/4 n-center">
+
+					<a href=# style="display: block;" class="n-pad"> <img src=Screenshot.png alt=Montre> </a>
+
+				</div>
+
+				<div style="padding: 0 20%">
+
+					<div class="n-row n-row--no-margin" style="border: 1px solid #ddd;">
+
+						<div>
+
+							<div class="n-pad">
+
+								<img src=f00798375deea9daef1e82703d37351f.png alt=Partner style="width: auto;">
+
+								<h2>Find your perfect hotel</h2>
+
+
+								<a href=# class="n-btn"> Search here </a>
+
+							</div>
+
+						</div>
+
+						<div style="background: url(3e60f829b56c64d3bedea11ac0237488.jpg) center center; background-size: cover;">
+
+
+
+						</div>
+
+					</div>
+
+				</div>
+
 			</div>
-			
-			<div class="_1/4 n-center">
-				
-				<a href=# style="display: block;" class="n-pad"> <img src=Screenshot.png alt=Montre> </a>
-			
-			</div>
-			
-			<div style="padding: 0 20%">
-				
-				<div class="n-row n-row__no-margin" style="border: 1px solid #ddd;">
-					
+
+			<div class="n-row">
+
+				<div class="_1/1">
+
 					<div>
-						
-						<div class="n-pad">
-							
-						<img src=f00798375deea9daef1e82703d37351f.png alt=Partner style="width: auto;"> 
-						
-						<h2>Find your perfect hotel</h2>
-						
-						
-						<a href=# class="n-btn"> Search here </a>
-						
-						</div>
-						
+						<hr>
+
+						<h3>Travel Deals</h3>
+
 					</div>
-					
-					<div style="background: url(3e60f829b56c64d3bedea11ac0237488.jpg) center center; background-size: cover;">
-						
-						
-						
+
+				</div>
+
+				<div>
+
+					<div>
+
+						<a href=#> <img src=tzoo.dp.media.25872.605537.dotwmodmyrlebeachgirlsiStock_000009308322.jpg alt=Deals> <br> Save up to 45% -- Myrtle Beach Girlfriend Getaway Deals </a>
+
 					</div>
-					
-				</div>
-				
-			</div>
-		
-		</div>
-			
-		<div class="n-row">
 
-			<div class="_1/1">
-				
-				<div>
-				<hr>
-				
-				<h3>Travel Deals</h3>
-				
 				</div>
-				
-			</div>
-			
-			<div>
-				
-				<div>
-				
-				<a href=#> <img src=tzoo.dp.media.25872.605537.dotwmodmyrlebeachgirlsiStock_000009308322.jpg alt=Deals> <br> Save up to 45% -- Myrtle Beach Girlfriend Getaway Deals </a>
-				
-				</div>
-				
-			</div>
-			
-			<div>
-				
+
 				<div>
 
-				<a href=#> <img src=tzoo.14261.0.668353.Barcelona_shutterstock_160964822.jpg alt=Deals> <br> $819 & up -- 6-Night Barcelona & Marrakech Vacation w/Air* </a>
-				
+					<div>
+
+						<a href=#> <img src=tzoo.14261.0.668353.Barcelona_shutterstock_160964822.jpg alt=Deals> <br> $819 & up -- 6-Night Barcelona & Marrakech Vacation w/Air* </a>
+
+					</div>
+
 				</div>
-				
-			</div>
-			
-			<div>
-				
+
 				<div>
 
-				<a href=#> <img src=tzoo.92074.0.725939.ExperienceOrlando.jpg alt=Deals> <br> $109 & up -- Orlando Area Hilton Hotels With Over $200 in Extras </a>
-				
+					<div>
+
+						<a href=#> <img src=tzoo.92074.0.725939.ExperienceOrlando.jpg alt=Deals> <br> $109 & up -- Orlando Area Hilton Hotels With Over $200 in Extras </a>
+
+					</div>
+
 				</div>
-				
-			</div>
-			
-			
-		
-		</div>			
-		
-	</main>
-	
-	<!-- Content - End -->
 
-	<!-- Footer - Start -->
-	
-	<footer class="n-footer">
-		<br>
-		
-		<div style="background-color: #e2e2e2;">
-		
-			<div class="n-row n-contain">
-			
-				<nav class="n-nav Footer__navigation"><a class="Footer__section" aria-current="false" href="/travel/destinations">Destinations</a><a class="Footer__section" aria-current="false" href="/travel/food-and-drink">Food &amp; Drink</a><a class="Footer__section" aria-current="false" href="/travel/play">Play</a><a class="Footer__section" aria-current="false" href="/travel/stay">Stay</a><a class="Footer__section" aria-current="false" href="/travel/videos">Video</a></nav>
-				
-				<div class="n-right">
-			
-					<span class="SocialBar__component SocialBar__horizontal"><a class="SocialBar__icon SocialBar__instagram" href="//www.instagram.com/cnntravel" target="_blank">Instagram</a> <a class="SocialBar__icon SocialBar__facebook" href="//www.facebook.com/cnntravel" target="_blank">Facebook</a> <a class="SocialBar__icon SocialBar__twitter" href="//www.twitter.com/CNNTravel" target="_blank">Twitter</a></span>
-				
-					<a href="#">🔝</a>
-			
+
+
+			</div>
+
+		</main>
+
+		<!-- Content - End -->
+
+		<!-- Footer - Start -->
+
+		<footer class="n-footer">
+			<br>
+
+			<div style="background-color: #e2e2e2;">
+
+				<div class="n-row n-contain">
+
+					<nav class="n-nav Footer__navigation"><a class="Footer__section" aria-current="false" href="/travel/destinations">Destinations</a><a class="Footer__section" aria-current="false" href="/travel/food-and-drink">Food &amp; Drink</a><a class="Footer__section" aria-current="false" href="/travel/play">Play</a><a class="Footer__section" aria-current="false" href="/travel/stay">Stay</a><a class="Footer__section" aria-current="false" href="/travel/videos">Video</a></nav>
+
+					<div class="n-right">
+
+						<span class="SocialBar__component SocialBar__horizontal"><a class="SocialBar__icon SocialBar__instagram" href="//www.instagram.com/cnntravel" target="_blank">Instagram</a> <a class="SocialBar__icon SocialBar__facebook" href="//www.facebook.com/cnntravel" target="_blank">Facebook</a> <a class="SocialBar__icon SocialBar__twitter" href="//www.twitter.com/CNNTravel" target="_blank">Twitter</a></span>
+
+						<a href="#">🔝</a>
+
+					</div>
+
 				</div>
-	
+
 			</div>
-		
-		</div>
-		
-		<div class="n-contain n-pad">
-		
-			<p>© 2018 Cable News Network. Turner Broadcasting System, Inc. All Rights Reserved. CNN Sans ™ & © 2016 Cable News Network.</p>
-			
-			<div class="Footer__links">
-				<a class="Footer__link" href="//cnn.com/terms" target="_self">Terms of Use</a> 
-				<a class="Footer__link" href="//cnn.com/privacy" target="_self">Privacy Policy</a>
-				<a class="Footer__link Footer__adchoices" href="//preferences-mgr.truste.com/?pid=turnermedia01&amp;aid=turnermedia01&amp;type=turner_pop&amp;site=turner.com&amp;action=notice&amp;country=us&amp;locale=en&amp;behavior=implied&amp;from=//consent.truste.com/" target="_blank">AdChoices</a>
-				<a class="Footer__link" href="//commercial.cnn.com" target="_self">Advertise with us</a>
-				<a class="Footer__link" href="//cnn.com/about" target="_self">About us</a>
-				<a class="Footer__link" href="//cnn.com/newsletters" target="_self">Newsletters</a>
-				<a class="Footer__link" href="//www.wearecnn.com" target="_self">Work for us</a>
-				<a class="Footer__link" href="//cnn.com/help" target="_self">Help</a>
-				<a class="Footer__link" href="//transcripts.cnn.com/TRANSCRIPTS" target="_self">Transcripts</a>
-				<a class="Footer__link" href="//collection.cnn.com/content/home.do" target="_self">License Footage</a>
-				<a class="Footer__link" href="//www.cnnnewsource.com" target="_self">CNN Newsource</a>
+
+			<div class="n-contain n-pad">
+
+				<p>© 2018 Cable News Network. Turner Broadcasting System, Inc. All Rights Reserved. CNN Sans ™ & © 2016 Cable News Network.</p>
+
+				<div class="Footer__links">
+					<a class="Footer__link" href="//cnn.com/terms" target="_self">Terms of Use</a>
+					<a class="Footer__link" href="//cnn.com/privacy" target="_self">Privacy Policy</a>
+					<a class="Footer__link Footer__adchoices" href="//preferences-mgr.truste.com/?pid=turnermedia01&amp;aid=turnermedia01&amp;type=turner_pop&amp;site=turner.com&amp;action=notice&amp;country=us&amp;locale=en&amp;behavior=implied&amp;from=//consent.truste.com/" target="_blank">AdChoices</a>
+					<a class="Footer__link" href="//commercial.cnn.com" target="_self">Advertise with us</a>
+					<a class="Footer__link" href="//cnn.com/about" target="_self">About us</a>
+					<a class="Footer__link" href="//cnn.com/newsletters" target="_self">Newsletters</a>
+					<a class="Footer__link" href="//www.wearecnn.com" target="_self">Work for us</a>
+					<a class="Footer__link" href="//cnn.com/help" target="_self">Help</a>
+					<a class="Footer__link" href="//transcripts.cnn.com/TRANSCRIPTS" target="_self">Transcripts</a>
+					<a class="Footer__link" href="//collection.cnn.com/content/home.do" target="_self">License Footage</a>
+					<a class="Footer__link" href="//www.cnnnewsource.com" target="_self">CNN Newsource</a>
+				</div>
+
 			</div>
-		
-		</div>
-		
-		<br>
-		
-		</div>
-		
-	</footer>
 
-	<!-- Footer - End -->
+			<br>
 
-	<script src=../../dist/niui.min.js type=text/javascript></script>
+			</div>
 
-</body>
+		</footer>
+
+		<!-- Footer - End -->
+
+		<script src=../../dist/niui.min.js type=text/javascript></script>
+
+	</body>
 
 </html>

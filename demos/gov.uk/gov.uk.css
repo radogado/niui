@@ -1,91 +1,132 @@
 @font-face {
-  font-family: 'font';
+  font-family: "font";
   src: url("gov.uk.regular.woff") format("woff");
   font-weight: normal;
-  font-style: normal; }
-
+  font-style: normal;
+}
 @font-face {
-  font-family: 'font';
+  font-family: "font";
   src: url("gov.uk.bold.woff") format("woff");
   font-weight: bold;
-  font-style: normal; }
-
+  font-style: normal;
+}
 body.n-type {
-  font-family: 'font'; }
+  margin: 0;
+  font-family: "font";
+}
 
 .n-contain {
-  max-width: 63rem; }
+  max-width: 63rem;
+}
 
 .n-header {
-  background: #000; }
-  .n-header .n-pad {
-    padding: 0.8em 0.5em 0.5em 0.5em;
-    box-sizing: border-box; }
-  .n-header img {
-    width: 10em; }
+  background: #000;
+}
+.n-header .n-pad {
+  padding: 0.8em 0.5em 0.5em 0.5em;
+  box-sizing: border-box;
+}
+.n-header img {
+  width: 10em;
+}
 
 .n-banner {
-  background: #005ea5; }
-  .n-banner h1 {
-    font-size: 3em; }
-  .n-banner .n-row > .popular, .n-banner .n-row > .popular > * {
-    margin-bottom: 0;
-    padding-bottom: 0; }
-  .n-banner .popular .n-pad {
-    background: #000; }
-  .n-banner, .n-banner a[href] {
-    color: #fff; }
+  background: #005ea5;
+}
+.n-banner h1 {
+  font-size: 3em;
+}
+.n-banner .n-row > .popular,
+.n-banner .n-row > .popular > * {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.n-banner .popular .n-pad {
+  background: #000;
+  padding: 1.5rem;
+}
+.n-banner,
+.n-banner a[href] {
+  color: #fff;
+}
+.n-banner form {
+  padding: 0;
+  margin-bottom: 2rem;
+}
 
-main a[href] {
-  color: #005ea5; }
+.n-type main div p a[href] {
+  color: #005ea5;
+}
 
 main h2 {
   font-size: 1.5em;
-  margin: .75em 0;
-  line-height: 1em; }
+  margin: 0.75em 0;
+  line-height: 1em;
+}
 
 .n-banner ul.n-list {
-  margin-bottom: 0; }
+  margin-bottom: 0;
+}
 
-.n-banner ul.n-list li, main ul.n-list li {
-  margin: 0; }
+.n-banner ul.n-list li,
+main ul.n-list li {
+  margin: 0;
+}
 
-main ul.n-list li a[href], .n-banner ul.n-list li a[href] {
-  font-weight: bold; }
+main ul.n-list li a[href],
+.n-banner ul.n-list li a[href] {
+  font-weight: bold;
+}
 
 footer ul.n-list {
-  margin: 0; }
+  margin: 0;
+}
 
 footer ul.n-list:not(.block-items) li {
-  display: inline-block; }
+  display: inline-block;
+}
 
 footer ul.n-list:not(.block-items) li + li {
-  margin-left: 1em; }
+  margin-left: 1em;
+}
 
 ul.n-list {
-  list-style: none; }
+  list-style: none;
+}
 
 input[type=text] {
-  background: #fff; }
+  background: #fff;
+}
 
-.n-masonry p {
-  margin: 0; }
+main .n-masonry p {
+  margin: 0;
+}
+main .n-masonry > * {
+  padding: 1rem;
+}
+main .n-masonry > * h3 {
+  color: #005ea5;
+}
 
 .n-banner input[type=submit] {
   background: #000 url(loupe.svg) center center no-repeat;
   background-size: 50%;
   width: 3em;
-  min-width: 0; }
+  min-width: 0;
+}
 
 footer {
-  border-top: .7em solid #005ea5;
-  background: #dee0e2; }
+  border-top: 0.7em solid #005ea5;
+  background: #dee0e2;
+}
 
 footer img[alt=ogl] {
-  height: 1.1em; }
+  height: 1.1em;
+}
 
 footer img[alt=crown] {
-  opacity: .5; }
+  opacity: 0.5;
+}
 
 a[href].n-btn.huge {
   display: block;
@@ -96,36 +137,49 @@ a[href].n-btn.huge {
   font-weight: bold;
   text-align: center;
   padding: 1em;
-  margin: 1.5rem 0; }
+  margin: 1.5rem 0;
+}
 
 a[href].huge-b {
   text-decoration: none;
   margin-bottom: 1.5em;
-  display: block; }
+  display: block;
+  color: #005ea5;
+}
 
 a.huge-b b {
   display: block;
   font-size: 5em;
   font-weight: bold;
-  line-height: 1em; }
+  line-height: 1em;
+}
 
 .departments-intro p {
   font-size: 1.5em;
-  line-height: 1.2em; }
+  line-height: 1.2em;
+}
 
-main p, .n-banner p {
-  margin-top: 0; }
+main p,
+.n-banner p {
+  margin-top: 0;
+}
 
 main hr {
   margin: 0;
-  border-top: 5px solid #000; }
+  border-top: 5px solid #000;
+}
 
 ul.n-list li:before {
-  content: ''; }
+  content: "";
+}
 
-.n-banner .n-form.n-form__wide input {
+.n-banner .n-form.n-form--wide input {
   margin: 0;
-  width: auto; }
+  width: auto;
+}
 
-.n-banner .n-form.n-form__wide input[type=text] {
-  width: 100%; }
+.n-banner .n-form.n-form--wide input[type=text] {
+  width: 100%;
+}
+
+/*# sourceMappingURL=gov.uk.css.map */

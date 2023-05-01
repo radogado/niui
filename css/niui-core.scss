@@ -1,0 +1,174 @@
+/* niui – rado.bg */
+@charset "utf-8";
+@import "niui-setup";
+
+.n-contain {
+  max-width: 100rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+html.n-vertical-page {
+
+  &,
+  body {
+    height: 100%;
+    margin: 0 auto;
+    overflow-x: hidden;
+  }
+
+  body {
+    overflow: hidden;
+    height: auto;
+  }
+}
+
+body.n-sticky-footer {
+  min-height: 100vh; // % has problems with Chrome 67
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+
+  main {
+    flex-grow: 1;
+  }
+}
+
+.n-header a.n-logo {
+  display: inline-block;
+}
+
+.n-wide-screen {
+  display: block;
+}
+
+.n-narrow-screen {
+  display: none;
+}
+
+/* Footer */
+.n-footer {
+  position: relative; // Because of the n-backtotop button
+}
+
+.n-footer > * {
+  position: static;
+}
+
+/* Element as a window to an image spanning viewport dimensions */
+.n-fixed-bg {
+  position: relative;
+  z-index: 0;
+
+  &__backdrop {
+
+    position: absolute;
+    clip: rect(auto, auto, auto, auto);
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    z-index: -1;
+
+    img {
+      inset: 0;
+      width: 100%;
+      height: 100vh; // Mobile browser resize when hiding/showing toolbars
+      height: 100dvh;
+      position: fixed;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}
+
+.n-fixed {
+  position: fixed;
+
+  &.n-header {
+    position: static;
+  }
+}
+
+a[href].span-relative-parent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.n-viewport {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* Narrow Screens */
+@media not screen and (min-width: $screen-narrow) {
+  .n-wide-screen {
+    display: none;
+  }
+
+  .n-narrow-screen {
+    display: block;
+  }
+
+  .n-viewport.n-header-banner {
+    height: auto;
+    overflow: hidden;
+  }
+
+  .n-header {
+    .head-right {
+      text-align: start;
+    }
+
+    &.n-fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #fff;
+      z-index: 7;
+    }
+
+    a.n-logo {
+      float: right;
+    }
+  }
+}
+
+:root {
+  --nui-border-size: 0px;
+  --nui-border-color: var(--nui-control-color);
+  --nui-shadow-size: 0px;
+  --nui-shadow-blur: 0;
+  --nui-shadow-color: var(--nui-control-color);
+  --nui-border-color: transparent;}
+
+@mixin dark-theme {
+  --nui-color: var(--nui-color-dark);
+  --nui-bg: var(--nui-bg-dark);
+  --nui-control-color: var(--nui-control-color-dark);
+  --nui-control-bg: var(--nui-control-bg-dark);
+  --nui-control-active-bg: var(--nui-control-active-bg-dark);
+  --nui-control-active-color: var(--nui-control-active-color-dark);
+  --nui-control-highlight: var(--nui-control-highlight-dark);
+  --nui-input-color: var(--nui-input-color-dark);
+  --nui-input-bg: var(--nui-input-bg-dark);
+  --nui-list-color: var(--nui-list-color-dark);
+  --nui-list-bg: var(--nui-list-bg-dark);
+  --nui-border-color: var(--nui-border-color-dark);
+  --nui-shadow-color: var(--nui-shadow-color-dark);
+  --nui-border-color-dark: transparent;
+  --nui-shadow-color-dark: transparent;
+}
+
+.n-scheme-dark {
+  @include dark-theme;
+}
+
+.n-scheme-auto {
+  @media (prefers-color-scheme: dark) {
+    @include dark-theme;
+  }
+}

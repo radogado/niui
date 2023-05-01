@@ -1,0 +1,127 @@
+@charset "UTF-8";
+/* niui – Typography */
+:root {
+  --nui-font-size: 16px;
+  --nui-line-height: 1.5;
+  --nui-line-height-em: calc(1rem * var(--nui-line-height));
+  --nui-color: #333;
+  --bg: #fff;
+}
+
+.n-type {
+  color: #333;
+  -webkit-text-size-adjust: none;
+  font-size: var(--nui-font-size, 16px);
+  line-height: var(--nui-line-height);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  letter-spacing: 0.5px;
+  /* Elements with double line-height */
+}
+.n-type h1,
+.n-type h2,
+.n-type h3,
+.n-type h4,
+.n-type h5,
+.n-type h6 {
+  line-height: var(--nui-line-height);
+  word-break: break-word;
+  word-wrap: break-word;
+  font-size: 1em;
+  font-weight: 500;
+  margin: 24px 0;
+  line-height: 3rem;
+}
+@media (max-width: 599.9px) {
+  .n-type h1,
+.n-type h2,
+.n-type h3,
+.n-type h4,
+.n-type h5,
+.n-type h6 {
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+}
+.n-type h1 + p:not(.n-drop-cap),
+.n-type h2 + p:not(.n-drop-cap),
+.n-type h3 + p:not(.n-drop-cap),
+.n-type h4 + p:not(.n-drop-cap),
+.n-type h5 + p:not(.n-drop-cap),
+.n-type h6 + p:not(.n-drop-cap) {
+  margin-top: 0;
+}
+.n-type h4,
+.n-type h5,
+.n-type h6 {
+  line-height: 1.5rem;
+}
+.n-type h1 {
+  font-size: 2.75rem;
+}
+.n-type h2 {
+  font-size: 2.25rem;
+}
+.n-type h3 {
+  font-size: 2rem;
+}
+.n-type h4 {
+  font-size: 1.75rem;
+}
+.n-type h5 {
+  font-size: 1.5rem;
+}
+.n-type h6 {
+  font-size: 1.25rem;
+}
+.n-type pre {
+  overflow: auto;
+}
+.n-type p {
+  font-size: 1em;
+  margin: var(--nui-line-height-em) 0;
+  line-height: var(--nui-line-height);
+}
+.n-type .n-drop-cap:first-letter {
+  float: left;
+  float: inline-start;
+  font-size: 5em;
+  padding: 0.1em 0.1em 0.1em 0;
+  margin-top: -0.2em;
+  line-height: 1em;
+}
+.n-type a[href] {
+  color: inherit;
+}
+.n-type p a[href] {
+  display: inline;
+}
+.n-type hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0;
+}
+.n-type .n-quote,
+.n-type blockquote,
+.n-type q {
+  border-inline-start: 1px solid #bbb;
+  padding-inline-start: 1em;
+  display: block;
+  margin: var(--nui-line-height-em) 0;
+  margin-inline-start: 1em;
+}
+.n-type .n-big-text {
+  font-size: 1.125em;
+  line-height: calc(2 * var(--nui-line-height-em));
+  min-height: 1.3334em;
+}
+
+.n-adjust-height,
+.n-row picture.n-adjust-height {
+  border-bottom: calc(1px * var(--adjust-height)) solid transparent;
+  box-sizing: content-box;
+}
+
+/*# sourceMappingURL=typography.scss.css.map */

@@ -1,7 +1,12 @@
 body {
 	
+	margin: 0;
 	font-family: 'Helvetica Neue', sans-serif;
 	color: #000;
+	
+	&.n-type h3 {
+		font-size: 1.5rem;
+	}
 
 }
 
@@ -47,6 +52,10 @@ footer, .n-banner h2 {
 footer {
 	
 	display: block;
+	
+	.n-right > div {
+		display: flex;
+	}
 
 }
 
@@ -181,7 +190,7 @@ footer .n-row {
 		
 	}
 
-	.n-fold.n-fold__mobile > .n-fold--label {
+	.n-accordion.n-accordion--mobile > .n-accordion__label {
 		
 		margin: 0 auto 0 0;
 	}

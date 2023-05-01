@@ -3,15 +3,19 @@
 
 }
 
-	body.n-type {
-	
+body.n-type {
+
 	font-family: 'Helvetica Neue', sans-serif;
 	background-color: #eaeaea;
+	margin: 0;
 
 }
 
-.n-header-banner, .n-header a[href], .n-banner a[href], .related {
-	
+.n-header-banner,
+.n-header a[href],
+.n-banner a[href],
+.related {
+
 	background-size: cover;
 	background-position: center center;
 	color: #fff;
@@ -19,24 +23,34 @@
 }
 
 .n-header {
-	
+
 	position: fixed;
 	width: 100%;
 	z-index: 1;
 	margin: 0;
 	border-bottom: 1px solid #aaa;
-	background: rgba(0,0,0,.5);
+	background: rgba(0, 0, 0, .5);
+	
+	a {
+		vertical-align: middle;
+		display: inline-flex;
+	}
 
 }
 
 .n-banner {
-	
+
 	padding-top: 5em;
 
 }
 
+.n-contain {
+
+	max-width: 100rem;
+}
+
 .n-header .n-form {
-	
+
 	white-space: nowrap;
 	padding: 0;
 	display: inline-block;
@@ -44,7 +58,7 @@
 }
 
 .n-header .n-form > * {
-	
+
 	display: inline-block;
 	float: none;
 	width: auto;
@@ -54,87 +68,95 @@
 }
 
 .n-type {
-	
-	h1, h2, h3, h4, button.n-btn, a.n-btn {
-		
+
+	h1,
+	h2,
+	h3,
+	h4,
+	button.n-btn,
+	a.n-btn {
+
 		text-transform: uppercase;
-	
+
 	}
-	
-	a.n-btn[href], button.n-btn {
-		
+
+	a.n-btn[href],
+	button.n-btn {
+
 		background: #009c7c;
 		font-weight: bold;
-		
+
 	}
 
 	a[href] {
-		
+
 		text-decoration: none;
 		font-weight: bold;
-		
+
 	}
-	
+
 	a.related[href] {
-		
+
 		font-weight: normal;
 		width: 100%;
-		
+		aspect-ratio: 16/9;
+
 	}
 
 }
 
 main .n-masonry {
-	
-/*
+
+	/*
 	margin: 0 -1.5em;
     width: calc(100% + 3em);
 */
-    max-width: none;
-    margin: 0;
-	    
+	max-width: none;
+	margin: 0;
+	gap: 1rem;
+
 }
 
 .review > div {
-	
+
 	background: #fff;
 	padding: 1em;
-	
+
 }
 
 .review img {
-	
+
 	width: 40px;
 	margin-right: .3em;
 
 }
 
 hr {
-	
+
 	border-top-color: #666;
-	
+
 }
 
 .list {
-	
+
 	background: #fff;
 
 }
 
 .list img {
-	
+
 	border: 1px solid transparent;
-	
+
 }
 
 .list b {
-	
+
 	color: #009c7c;
-	
+
 }
 
 .related.n-aspect > div {
-	
+
 	padding: 1em;
 	color: #fff;
 	text-transform: uppercase;
@@ -143,7 +165,7 @@ hr {
 }
 
 .rating {
-	
+
 	white-space: nowrap;
 	color: #878787;
 	position: relative;
@@ -160,8 +182,8 @@ hr {
 }
 
 .rating b {
-	
-	display: block;	
+
+	display: block;
 	color: #fff;
 	position: absolute;
 	top: 0;
@@ -173,56 +195,56 @@ hr {
 }
 
 .rating b:before {
-	
+
 	content: '★★★★★';
 
 }
 
 main .rating b {
-	
+
 	color: #fee134;
-		
+
 }
 
 time {
-	
+
 	color: #999;
 
 }
 
 time:before {
-	
+
 	content: '🕒 ';
-	
+
 }
 
 .n-form input[type=submit] {
-	
+
 	margin-top: 0;
 	background: transparent;
-	
+
 }
 
 .n-form input[type=text] {
-	
+
 	background: transparent;
 	color: #fff;
 
 }
 
 @media (max-width: 599.9px) {
-	
+
 	.review > div:after {
-		
+
 		content: '';
 		display: table;
 		clear: both;
-	
+
 	}
 
 }
 
 .clear {
-	
+
 	clear: both;
 }

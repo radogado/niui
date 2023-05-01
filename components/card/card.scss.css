@@ -1,0 +1,55 @@
+@charset "UTF-8";
+/* niui  – Card */
+:root {
+  --nui-font-size: 16px;
+  --nui-line-height: 1.5;
+  --nui-line-height-em: calc(1rem * var(--nui-line-height));
+  --nui-color: #333;
+  --bg: #fff;
+}
+
+.n-card {
+  margin: 1em 0;
+  --nui-card-bg: rgba(0, 0, 0, 0.1);
+  background: var(--nui-card-bg, rgba(0, 0, 0, 0.1));
+}
+.n-card > * {
+  padding: 1em;
+}
+.n-card__content {
+  background: var(--nui-card-bg);
+}
+.n-card__content p {
+  margin: 0.75em 0;
+}
+.n-card__content p:first-child {
+  margin-top: 0;
+}
+.n-card > img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  padding: 0;
+}
+.n-card__head > * {
+  margin: 0;
+}
+.n-card__head.n-card__head--image {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+}
+.n-card__head.n-card__head--image:after {
+  content: "";
+  padding-bottom: 56.25%;
+  width: 0;
+  display: inline-block;
+  vertical-align: bottom;
+}
+.n-card__head.n-card__head--image > * {
+  display: inline-block;
+  margin: 0;
+}
+
+/*# sourceMappingURL=card.scss.css.map */

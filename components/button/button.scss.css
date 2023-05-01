@@ -1,0 +1,93 @@
+@charset "UTF-8";
+/* niui – Button */
+:root {
+  --nui-font-size: 16px;
+  --nui-line-height: 1.5;
+  --nui-line-height-em: calc(1rem * var(--nui-line-height));
+  --nui-color: #333;
+  --bg: #fff;
+}
+
+.n-btn,
+.n-form input[type=submit],
+.n-form button[type=submit],
+.n-form button[type=reset],
+button.n-btn,
+a.n-btn[href],
+.n-type a.n-btn[href] {
+  font-size: inherit;
+  line-height: var(--nui-line-height);
+  min-height: var(--nui-line-height-em);
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  width: auto;
+  word-break: break-word;
+  padding: 0 0.7em;
+  -webkit-appearance: none;
+  background-color: #333;
+  background-color: var(--nui-control-bg, #333);
+  color: #eee;
+  color: var(--nui-control-color, #eee);
+  /*
+  	-webkit-transition: all .1s linear;
+  	transition: all .1s linear;
+  */
+  border: none;
+  font-family: inherit;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  border-radius: 0;
+}
+.n-btn:hover,
+.n-form input[type=submit]:hover,
+.n-form button[type=submit]:hover,
+.n-form button[type=reset]:hover,
+button.n-btn:hover,
+a.n-btn[href]:hover,
+.n-type a.n-btn[href]:hover {
+  background: #eee;
+  color: #333;
+}
+
+button.n-btn[disabled] {
+  cursor: default;
+  opacity: 0.2;
+  margin: 0;
+  font-size: inherit;
+}
+
+.n-btn.n-btn--big,
+a[href].n-btn.n-btn--big,
+.n-form input[type=submit],
+.n-form button {
+  margin: calc(var(--nui-line-height-em) / 3) 0;
+  font-size: 1.2em;
+  padding: 0.75em 1em;
+  line-height: 1.05em;
+  min-height: 0;
+  font-weight: 500;
+}
+
+/* Back to top button */
+.n-btn__group {
+  margin: 0 -0.25em;
+}
+.n-btn__group > *,
+.n-btn__group .n-btn.n-btn--big,
+.n-btn__group > a[href].n-btn.n-btn--big {
+  margin-inline-end: 0.25em;
+  margin-inline-start: 0.25em;
+}
+
+@media screen and (max-width: 599.9px) {
+  .n-btn.n-btn--big {
+    display: block;
+    text-align: center;
+  }
+}
+
+/*# sourceMappingURL=button.scss.css.map */

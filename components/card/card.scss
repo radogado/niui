@@ -1,0 +1,58 @@
+/* niui  – Card */
+@import "../../css/niui-setup";
+
+.n-card {
+	margin: 1em 0;
+	--nui-card-bg: #{rgba(0, 0, 0, 0.1)};
+	background: var(--nui-card-bg, rgba(0, 0, 0, 0.1));
+	border-radius: var(--nui-border-radius);
+	box-shadow: 0 0 0 var(--nui-border-size) var(--nui-border-color), 0 0 var(--nui-shadow-blur) calc(var(--nui-border-size) + var(--nui-shadow-size)) var(--nui-shadow-color);
+	overflow: hidden; // Apply border radius
+
+	> * {
+		padding: 1em;
+	}
+
+	&__content {
+		background: var(--nui-card-bg);
+
+		p {
+			margin: 0.75em 0;
+
+			&:first-child {
+				margin-top: 0;
+			}
+		}
+	}
+
+	> img {
+		display: block;
+		margin: 0 auto;
+		max-width: 100%;
+		padding: 0;
+	}
+
+	&__head > * {
+		margin: 0;
+	}
+
+	&__head.n-card__head--image {
+		background-position: center center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		color: #fff;
+
+		&:after {
+			content: "";
+			padding-bottom: 56.25%; // 16:9
+			width: 0;
+			display: inline-block;
+			vertical-align: bottom;
+		}
+
+		> * {
+			display: inline-block;
+			margin: 0;
+		}
+	}
+}

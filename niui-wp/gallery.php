@@ -164,6 +164,8 @@ final class Cleaner_Gallery {
 		$width = 0;
 		$height = 0;
 
+		$content = '<ul class="n-carousel__content">';
+
 		/* Loop through each attachment. */
 		foreach ( $attachments as $attachment ) {
 
@@ -179,6 +181,9 @@ final class Cleaner_Gallery {
 				$width = wp_get_attachment_image_src($attachment->ID)[1];
 				$height = wp_get_attachment_image_src($attachment->ID)[2];
 			}
+			
+			// print_r(wp_get_attachment_image( $attachment->ID, ['thumbnail', 'large', 'original']));
+			$content .= '<li data-id="slide-' . $attachment->ID . '"><figure><picture style="--placeholder: url(' . wp_get_attachment_image_url($attachment->ID, 'medium') . ')">' . wp_get_attachment_image( $attachment->ID, 'original') . '</picture><figcaption>' . wp_get_attachment_caption( $attachment->ID) . '</figcaption></figure></li>';
 			/* Close gallery row. */
 /*
 			if ( $this->args['columns'] > 0 && ++$i % $this->args['columns'] == 0 )
@@ -186,6 +191,9 @@ final class Cleaner_Gallery {
 */
 
 		}
+
+		$content .= '</ul>';
+			// print_r($content);
 
 		/* Close gallery row. */
 /*
@@ -197,25 +205,16 @@ final class Cleaner_Gallery {
 		remove_filter( 'wp_get_attachment_image_attributes', array( $this, 'attachment_image_attributes' ) );
 		remove_filter( 'wp_get_attachment_link',             array( $this, 'get_attachment_link'         ) );
 
+// print "<pre>";
+// 		print_r($this);
+// 		print "</pre>";
+		
 		/* Gallery attributes. */
 		$gallery_attr  = sprintf( "id='%s'", 'gallery' . esc_attr( $this->args['id'] ) . '-' . esc_attr( $this->gallery_instance ) );
-		$gallery_attr .= sprintf( " class='n-lightbox n-lightbox__thumbnails n-full-screen gallery gallery-%s gallery-columns-%s gallery-size-%s'", esc_attr( $this->args['id'] ), esc_attr( $this->args['columns'] ), sanitize_html_class( $this->args['size'] ) );
+		$gallery_attr .= sprintf( " class='n-carousel__index gallery gallery-%s gallery-columns-%s gallery-size-%s'", esc_attr( $this->args['id'] ), esc_attr( $this->args['columns'] ), sanitize_html_class( $this->args['size'] ) );
 		$gallery_attr .= sprintf( " itemscope itemtype='%s'", esc_attr( $this->get_gallery_itemtype() ) );
 
 $script = "
-
-<!--
-<style>
-
-.n-lightbox#gallery" . esc_attr( $this->args['id'] ) . '-' . esc_attr( $this->gallery_instance ) . " a {
-	
-	width: " . $width . "px;	
-	height: " . $height . "px;	
-
-}
-
-</style>
--->
 
 <script> // If the featured image is also in a lightbox, open it on click
 	
@@ -223,12 +222,12 @@ $script = "
 
 	if (thumbnail) {
 
-		var target_lightbox_image = document.querySelector('.single-post .n-lightbox [href*=\"' + thumbnail.src.split('/').pop() + '\"]');
+		var target_lightbox_image = document.querySelector('.single-post .n-carousel__index [href*=\"' + thumbnail.src.split('/').pop() + '\"]');
 		if (target_lightbox_image) {
 	
 			thumbnail.onclick = function () { 
 				
-				document.querySelector('[href*=\"' + this.src.split('/').pop() + '\"]').click(); 
+				document.querySelector('.n-carousel__index [href*=\"' + this.src.split('/').pop() + '\"]').click(); 
 		
 			};
 			thumbnail.style.cursor = 'pointer';
@@ -240,7 +239,9 @@ $script = "
 </script>";
 
 		/* Return out very nice, valid HTML gallery. */
-		return "\n\t\t\t" . sprintf( '<div %s>', $gallery_attr ) . str_replace( 'http://', '//', $output ) . "\n\t\t\t</div><!-- .gallery -->\n" . $script;
+		return "\n\t\t\t" . sprintf( '<div class="n-carousel n-carousel--lightbox  n-carousel--thumbnails ' . ($this->args['columns'] == '9' ? '' : 'n-carousel--inline') . '">' . $content . '<div %s>', $gallery_attr ) . str_replace( 'http://', '//', $output ) . "\n\t\t\t</div><div class='n-carousel__controls'><div class='n-carousel__full-screen'><button><span>Toggle full screen</span></button>
+		  </div>		  <div class='n-carousel__close'>			<button><span>Close modal window</span></button>
+		  </div></div><div class=n-carousel__previous>			  <button><span>Previous</span></button>			</div>			<div class=n-carousel__next>			  <button><span>Next</span></button>			</div></div><!-- .gallery -->\n" . $script;
 	}
 
 	/**

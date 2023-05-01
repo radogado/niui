@@ -32,6 +32,7 @@ body {
 	
 	background: url(Unknown.jpg) top center no-repeat;
 	background-size: contain;
+	margin: 0;
 
 }
 
@@ -81,10 +82,18 @@ footer li, footer form input, footer form input[type=submit], footer p, a.n-btn[
 	
 }
 
-footer li {
+footer ul.n-list li {
 	
 	font-weight: normal;
+	padding-inline-end: 0.25rem;
+	word-break: initial;
 
+}
+
+footer {
+	.n-form input {
+		min-height: calc(var(--nui-line-height-em) * 1.666);
+	}
 }
 
 .n-header-banner {
@@ -116,7 +125,7 @@ footer li {
 	nav.n-nav {
 		
 		text-align: right;
-		    --control-bg: transparent;
+		    --nui-control-bg: transparent;
 		
 	}
 	
@@ -370,7 +379,7 @@ footer nav.n-nav ul.social li:not(.header) {
 	
 }
 
-footer nav.n-nav form.n-form__wide label input {
+footer nav.n-nav form.n-form--wide label input {
 	
 	background: #000;
 	border: 1px solid #666665;
@@ -383,7 +392,7 @@ footer nav.n-nav form.n-form__wide label input {
 
 }
 
-footer nav.n-nav form.n-form__wide label input[type=submit] {
+footer nav.n-nav form.n-form--wide label input[type=submit] {
 	
 	position: absolute;
 	text-transform: uppercase;
@@ -398,7 +407,7 @@ footer nav.n-nav form.n-form__wide label input[type=submit] {
 
 }
 
-footer a[href]:hover, footer nav.n-nav form.n-form__wide label input[type=submit]:hover, footer nav.n-nav label input:hover {
+footer a[href]:hover, footer nav.n-nav form.n-form--wide label input[type=submit]:hover, footer nav.n-nav label input:hover {
 	
 	color: #00b5f3;
 	border-color: #00b5f3;
@@ -413,7 +422,7 @@ footer form .mandatory:before {
 
 @media screen and (max-width: 599.9px) {
 	
-	form.n-form__wide input[type=submit] {
+	form.n-form--wide input[type=submit] {
 		
 		width: auto;
 		

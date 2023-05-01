@@ -1,0 +1,494 @@
+@charset "UTF-8";
+/* niui  – Form */
+:root {
+  --nui-font-size: 16px;
+  --nui-line-height: 1.5;
+  --nui-line-height-em: calc(1rem * var(--nui-line-height));
+  --nui-color: #333;
+  --bg: #fff;
+}
+
+.n-form {
+  padding: var(--nui-line-height-em) 0;
+  --nui-placeholder-color: #aaa;
+}
+.n-form * {
+  box-sizing: border-box;
+}
+.n-form label,
+.n-form input,
+.n-form textarea {
+  display: inline-block;
+  vertical-align: middle;
+}
+.n-form ::-webkit-input-placeholder {
+  color: var(--nui-placeholder-color);
+  -webkit-text-fill-color: var(--nui-placeholder-color);
+}
+.n-form input[type=submit],
+.n-form button[type=submit],
+.n-form label, .n-form__check span,
+.n-form label > span {
+  line-height: var(--nui-line-height);
+  min-height: var(--nui-line-height-em);
+}
+.n-form label {
+  font-weight: bold;
+  max-width: 100%;
+  position: relative;
+  padding: 0;
+  margin: 0 0 var(--nui-line-height-em) 0;
+  min-height: calc(var(--nui-line-height-em) * 2);
+}
+.n-form input[type=submit],
+.n-form button,
+.n-form button[type=submit] {
+  height: auto;
+  line-height: var(--nui-line-height);
+  white-space: normal;
+  word-break: break-all;
+  margin: 0;
+  max-width: 100%;
+  padding: 0 1em;
+  font-weight: bold;
+}
+.n-form input,
+.n-form select,
+.n-form textarea,
+.n-form input[type=search],
+.n-form button {
+  font-family: inherit;
+  display: inline-block;
+  overflow: hidden;
+  resize: none;
+  vertical-align: top;
+  border-radius: 0;
+  padding: 0 calc(var(--nui-line-height-em) / 2);
+  min-height: calc(var(--nui-line-height-em) * 2);
+  border: 0;
+  font-size: 1em;
+  border: 1px dotted transparent;
+}
+.n-form textarea {
+  border-bottom: 1px dotted transparent;
+  height: 0;
+  min-height: calc(var(--nui-line-height-em) * 3);
+  padding-top: calc(var(--nui-line-height-em) / 2);
+  margin: var(--nui-line-height-em) 0;
+}
+.n-form textarea:not([data-auto]) {
+  overflow: auto;
+}
+.n-form textarea[data-auto] {
+  transform: translate3d(0, 0, 0);
+}
+.n-form input,
+.n-form textarea {
+  background-color: var(--nui-input-bg, #eee);
+  color: var(--nui-input-color, #333);
+}
+.n-form select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  text-indent: 0.01px;
+  text-overflow: "";
+  min-height: 0;
+  text-indent: 0px;
+  padding: 0 1.6em 0 0.8em;
+  height: calc(var(--nui-line-height-em) * 2);
+  white-space: nowrap;
+  text-indent: -1px;
+  text-overflow: "";
+  margin: 0;
+  text-indent: 1px;
+  cursor: pointer;
+  background: linear-gradient(to bottom left, transparent 30%, var(--nui-control-color, #333) 10%, var(--nui-control-color, #333) 50%, transparent 30%), linear-gradient(to bottom right, transparent 30%, var(--nui-control-color, #333) 10%, var(--nui-control-color, #333) 50%, transparent 30%);
+  background-size: 0.4em 0.4em;
+  background-repeat: no-repeat;
+  background-position: calc(100% - 0.85em), calc(100% - 0.5em);
+  color: var(--nui-control-color, #333);
+  background-color: var(--nui-control-bg, #eee);
+}
+.n-form select option {
+  padding: 0;
+  padding-inline-end: 1.5em;
+}
+.n-form select, .n-form__file {
+  vertical-align: top;
+  border: none;
+  margin-inline-start: 0;
+}
+.n-form input[type=search] {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+.n-form input[type=search]::-webkit-search-decoration, .n-form input[type=search]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+.n-form label,
+.n-form label span, .n-form__check span {
+  margin: 0;
+  text-align: start;
+}
+.n-form input,
+.n-form select {
+  display: inline-block;
+  width: auto;
+  padding-top: 0;
+  margin: var(--nui-line-height-em) 0;
+  vertical-align: middle;
+}
+.n-form.sticky-submit {
+  position: relative;
+}
+.n-form.sticky-submit input[type=submit],
+.n-form.sticky-submit button[type=submit] {
+  position: absolute;
+  top: 50%;
+  inset-inline-end: 0;
+  transform: translateY(-50%);
+}
+.n-form__check, .n-form fieldset {
+  display: block;
+  min-height: var(--nui-line-height-em);
+  margin-bottom: var(--nui-line-height-em);
+}
+.n-form__check span, .n-form fieldset span {
+  display: inline-block;
+  font-weight: bold;
+  margin-top: 0;
+  cursor: default;
+}
+.n-form__check label, .n-form fieldset label {
+  text-align: start;
+  font-weight: normal;
+  clear: right;
+  margin: 0;
+  cursor: pointer;
+  min-height: 0;
+  user-select: none;
+  padding-inline-start: 0;
+  padding-bottom: 0;
+  display: inline;
+}
+.n-form__check label span, .n-form fieldset label span {
+  width: auto;
+}
+.n-form__check label:last-child, .n-form fieldset label:last-child {
+  margin-bottom: 0;
+}
+.n-form__check label input[type=checkbox],
+.n-form__check label input[type=radio], .n-form fieldset label input[type=checkbox],
+.n-form fieldset label input[type=radio] {
+  margin: -0.25em 0.2em 0 0;
+}
+.n-form__check-icon {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  background-color: var(--nui-control-bg, #eee);
+  color: var(--nui-control-color, #333);
+  line-height: calc((var(--nui-line-height) + 1) * 0.6666666667);
+  text-align: center;
+  border: none;
+  margin: 0;
+  position: absolute;
+  inset-inline-start: 0;
+  z-index: 1;
+  top: 0.05em;
+  vertical-align: middle;
+}
+.n-form--mast .n-form__check-icon, .n-form--wide .n-form__check-icon {
+  top: 0.25em;
+}
+.n-form input[type=checkbox] + .n-form__check-icon:before {
+  content: "✓";
+  display: block;
+  height: 1em;
+  line-height: 1;
+}
+.n-form input[type=checkbox]:not(:checked) + .n-form__check-icon:before {
+  opacity: 0;
+}
+.n-form input[type=checkbox],
+.n-form input[type=radio] {
+  -webkit-appearance: none;
+  -moz-appearance: window;
+  -ms-appearance: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  min-height: 0;
+  height: 1em;
+  width: 1em;
+  display: inline-block;
+  margin: 0;
+  border: none;
+}
+.n-form input[type=radio] + .n-form__check-icon {
+  border-radius: 50%;
+}
+.n-form input[type=radio]:checked + .n-form__check-icon:before {
+  content: "";
+  position: absolute;
+  background-color: var(--nui-control-color, #333);
+  top: 25%;
+  right: 25%;
+  bottom: 25%;
+  left: 25%;
+  border-radius: 50%;
+}
+.n-form--mandatory {
+  position: relative;
+}
+.n-form--mandatory fieldset:before,
+.n-form--mandatory span.n-form__check:before,
+.n-form--mandatory span.tip:after {
+  display: none;
+}
+.n-form--mandatory:before {
+  content: "*";
+  color: #a00;
+  position: absolute;
+  top: 0;
+  font-weight: bold;
+  inset-inline-start: auto;
+  inset-inline-end: 0;
+}
+.n-form--alert span,
+.n-form--alert p {
+  background: #666;
+  color: #eee;
+  padding: 0 0.25em;
+}
+.n-form--alert span.n-form__check,
+.n-form--alert fieldset {
+  background: none;
+  color: #555;
+}
+.n-form--alert span.tip {
+  background: #222;
+}
+.n-form__file {
+  font-weight: normal;
+  margin: 0 0 var(--nui-line-height) 0;
+  cursor: pointer;
+  font-style: italic;
+  padding: 0;
+  position: relative;
+  z-index: 0;
+}
+.n-form__file span {
+  text-align: start;
+  border: none;
+  white-space: nowrap;
+  overflow: hidden;
+  background-color: var(--nui-control-bg, #ddd);
+  color: var(--nui-control-color, inherit);
+  padding: 0 calc(var(--nui-line-height-em) / 2) 0 0.75em;
+  display: block;
+  line-height: var(--nui-line-height-em);
+  padding-top: calc(var(--nui-line-height-em) / 2);
+  letter-spacing: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+.n-form__file span .n-form__file-tag {
+  display: none;
+}
+.n-form__file span .n-form__file-name:empty ~ .n-form__file-tag {
+  display: block;
+}
+.n-form__file input[type=file] {
+  width: 100%;
+  cursor: pointer;
+  border: none;
+  margin: 0;
+  background: transparent;
+  color: transparent;
+  text-indent: -100%;
+  padding: 0;
+}
+.n-form__file input[type=file]:focus + span {
+  outline: auto;
+}
+.n-form input[type=range] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  background: none;
+  margin: 0;
+  padding: 0;
+}
+.n-form input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 0.7125em;
+  cursor: pointer;
+  background: var(--nui-control-bg, rgba(0, 0, 0, 0.1));
+}
+.n-form input[type=range]::-webkit-slider-thumb {
+  height: 1.625em;
+  width: 1.625em;
+  border-radius: 50%;
+  background: var(--nui-control-highlight, #000);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -0.45625em;
+}
+.n-form input[type=range]:focus::-webkit-slider-runnable-track {
+  background: var(--nui-control-bg, rgba(0, 0, 0, 0.1));
+}
+.n-form input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 0.7125em;
+  cursor: pointer;
+  background: var(--nui-control-bg, rgba(0, 0, 0, 0.1));
+}
+.n-form input[type=range]::-moz-range-thumb {
+  border: 0px solid rgba(0, 0, 0, 0);
+  height: 1.625em;
+  width: 1.625em;
+  border-radius: 50%;
+  background: var(--nui-control-bg, rgba(0, 0, 0, 0.1));
+  cursor: pointer;
+}
+.n-form legend {
+  font-weight: bold;
+}
+.n-form fieldset {
+  border: 1px solid;
+  display: block;
+  margin: var(--nui-line-height-em) 0;
+  padding: calc(var(--nui-line-height-em) / 2 - 0.5px);
+}
+.n-form fieldset[disabled] {
+  display: none;
+}
+.n-form input[type=submit],
+.n-form button {
+  width: auto;
+  min-width: 0;
+  padding: 0 1em;
+  min-height: calc(var(--nui-line-height-em) * 1.6667);
+  text-align: start;
+  font-size: 1.2em;
+}
+.n-form--wide textarea, .n-form--mast textarea {
+  margin: calc(var(--nui-line-height-em) / -2) 0 calc(var(--nui-line-height-em) / 2) 0;
+}
+.n-form--wide input[type=submit],
+.n-form--wide button,
+.n-form--wide button[type=submit] {
+  margin-bottom: calc(var(--nui-line-height-em) - 5px);
+  line-height: calc(var(--nui-line-height-em) / 3 * 2);
+  font-size: 1.2em;
+  min-height: 2.50005em;
+  width: 100%;
+}
+.n-form--wide select {
+  width: 100%;
+  height: calc(var(--nui-line-height-em) * 2);
+  margin: calc(var(--nui-line-height-em) / -2) 0 calc(var(--nui-line-height-em) / 2) 0;
+}
+.n-form--wide label,
+.n-form--wide label span,
+.n-form--wide .n-form__check span,
+.n-form--wide fieldset label,
+.n-form--wide label,
+.n-form--wide .n-form__file {
+  display: block;
+  width: 100%;
+  clear: both;
+}
+.n-form--wide:not(.sticky-submit) input:not([type=checkbox]):not([type=radio]),
+.n-form--wide textarea,
+.n-form--wide select {
+  display: block;
+  width: 100%;
+  border: none;
+  margin: 0 0 var(--nui-line-height-em) 0;
+}
+.n-form--wide .n-form__check label input[type=checkbox],
+.n-form--wide .n-form__check label input[type=radio],
+.n-form--wide fieldset label input[type=checkbox],
+.n-form--wide fieldset label input[type=radio] {
+  margin-top: -0.2em;
+}
+.n-form.n-form--mast input[type=submit],
+.n-form.n-form--mast button,
+.n-form.n-form--mast button[type=submit] {
+  margin-inline-start: calc(50% + 0.5em);
+  margin-bottom: calc(var(--nui-line-height-em) * 1.5);
+}
+.n-form.n-form--mast label,
+.n-form.n-form--mast fieldset {
+  width: 100%;
+  display: grid;
+  grid-template: auto/1fr 1fr;
+  column-gap: 1em;
+  margin-bottom: 1.5em;
+}
+.n-form.n-form--mast fieldset {
+  border-color: transparent;
+  border: none;
+  padding: calc(var(--nui-line-height-em) / 2);
+  padding-top: 0;
+  padding-bottom: var(--nui-line-height-em);
+}
+.n-form.n-form--mast fieldset legend {
+  width: 50%;
+  margin-bottom: calc(-1 * var(--nui-line-height-em));
+  text-align: end;
+}
+.n-form.n-form--mast fieldset label {
+  display: block;
+  margin: 0;
+}
+.n-form.n-form--mast > label > *,
+.n-form.n-form--mast > .n-form__check > *,
+.n-form.n-form--mast > .n-form__check fieldset > *,
+.n-form.n-form--mast fieldset > * {
+  width: 100%;
+  margin: calc(var(--nui-line-height-em) / -2) 0 calc(var(--nui-line-height-em) * 1.5) 0;
+  grid-column: -2/-1;
+}
+.n-form.n-form--mast > label > span,
+.n-form.n-form--mast > .n-form__check > span,
+.n-form.n-form--mast > .n-form__check fieldset > span {
+  text-align: end;
+  grid-column: 1;
+  margin: 0;
+}
+.n-form.n-form--mast > .n-form__check {
+  display: grid;
+  grid-template: auto/1fr 1fr;
+  column-gap: 1em;
+}
+.n-form.n-form--mast > .n-form__check > * {
+  margin: 0;
+}
+.n-form.n-form--mast > .n-form__check label {
+  display: block;
+}
+.n-form.n-form--mast > .n-form__check fieldset {
+  display: contents;
+}
+.n-form.n-form--mast > .n-form__check fieldset legend,
+.n-form.n-form--mast > .n-form__check fieldset label {
+  margin: 0;
+}
+.n-form.n-form--mast > .n-form__check fieldset legend {
+  grid-column: 1;
+}
+.n-form.n-form--mast .n-form--mandatory:before {
+  inset-inline-start: calc(50% - 0.5em);
+  z-index: -1;
+}
+
+/*# sourceMappingURL=form.scss.css.map */

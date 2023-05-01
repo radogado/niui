@@ -6,6 +6,7 @@
 
 body.n-type {
 	
+	margin: 0;
 	font-family: Roboto Mono;
 	color: #565a5c;
 	background: #fafafa;
@@ -55,7 +56,7 @@ main .n-row > * {
 
 }
 
-.n-row.n-row__vertical > * > * {
+.n-row.n-row--vertical > * > * {
 	
 	padding-bottom: 3em;
 	
@@ -147,7 +148,7 @@ a.link-overlay svg {
 	
 }
 
-.n-row.n-row__vertical > * > * {
+.n-row.n-row--vertical > * > * {
 	
 	position: relative;
 	

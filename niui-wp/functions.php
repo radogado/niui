@@ -1,4 +1,15 @@
 <?php
+error_reporting(E_ERROR | E_PARSE);
+
+add_action( 'wp_enqueue_scripts', 'remove_global_styles' );
+function remove_global_styles(){
+  wp_dequeue_style( 'global-styles' );
+}
+
+add_filter('max_srcset_image_width', function($max_srcset_image_width, $size_array){
+    return 7680;
+}, 10, 2);
+
 /*
  *  Author: Todd Motto | @toddmotto
  *  URL: html5blank.com | @html5blank
@@ -31,6 +42,8 @@ if (function_exists('add_theme_support'))
     add_image_size('medium', 250, '', true); // Medium Thumbnail
     add_image_size('small', 120, '', true); // Small Thumbnail
     add_image_size('custom-size', 700, 200, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
+    add_image_size('2560px', 2560, 2560); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
+    add_image_size('3840px', 3840, 3840); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
 
     // Add Support for Custom Backgrounds - Uncomment below if you're going to use
     /*add_theme_support('custom-background', array(
@@ -152,15 +165,24 @@ function html5blank_styles()
 //     wp_register_style('html5blank', get_template_directory_uri() . '/niui.min.css', array(), '1.0', 'all');
 //     wp_register_style('html5blank3', get_template_directory_uri() . '/niui-wordpress.min.css', array(), '1.0', 'all');
 //     wp_register_style('html5blank3', get_template_directory_uri() . '/theme.css', array(), '1.0', 'all');
-    wp_register_style('html5blank4', str_replace( 'http://', '//', get_template_directory_uri() ) . '/niui-wordpress.min.css', array(), filemtime( get_stylesheet_directory() . '/niui-wordpress.min.css' ), 'all');
+    // wp_register_style('html5blank4_css', str_replace( 'http://', '//', get_template_directory_uri() ) . '/niui.min.css', array(), filemtime( get_stylesheet_directory() . '/niui.min.css' ), 'all');
+    wp_register_style('html5blank4_css_wp', str_replace( 'http://', '//', get_template_directory_uri() ) . '/niui-wp.min.css', array(), filemtime( get_stylesheet_directory() . '/niui-wp.min.css' ), 'all');
 //     wp_enqueue_style('html5blank'); // Enqueue it!
 //     wp_enqueue_style('html5blank2'); // Enqueue it!
 //     wp_enqueue_style('html5blank3'); // Enqueue it!
-    wp_enqueue_style('html5blank4'); // Enqueue it!
+    wp_enqueue_style('html5blank4_css'); // Enqueue it!
+    wp_enqueue_style('html5blank4_css_wp'); // Enqueue it!
 
 	wp_dequeue_style('wp-block-library'); // Gutenberg CSS file removal
 
 }
+
+remove_action( 'wp_enqueue_scripts', 'wp_enqueue_classic_theme_styles' );
+
+// function hints() {  
+//   header("link: </wp-content/themes/phpied2/style.css>; rel=preload, </wp-includes/css/dist/block-library/style.min.css?ver=5.4.1>; rel=preload");
+// }
+// add_action('send_headers', 'hints');
 
 // Register HTML5 Blank Navigation
 function register_html5_menu()
@@ -565,15 +587,17 @@ function new_nav_menu($items) {
 	$DOM->formatOutput = true;
 	$items = $DOM->saveHTML();
 
-    return '<div class="n-fold n-fold__mobile"> 
-    			<button class="n-fold--label"> 
-    				<span class="n-burger"></span> 
-    			</button> 
-    			<input type=checkbox class=n-trigger>
+    return '<div class="n-accordion n-accordion--mobile"> 
+          <input type="checkbox">
+          <div class="n-accordion__label" role="heading" aria-level="1">
+    			  <button aria-label="Menu"> 
+    				  <span class="n-burger"></span> 
+    			  </button> 
+          </div>
 
-				<div class=n-fold--content> 
-    				<nav class="n-nav n-nav__drop"> 
-    					<ul class="n-list n-list__no-bullet">' . str_replace('</body></html>', '', str_replace('<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+				<div class="n-accordion__content">
+    				<nav class="n-nav n-nav--drop"> 
+    					<ul class="n-list n-list--no-bullet">' . str_replace('</body></html>', '', str_replace('<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <?xml encoding="utf-8" ?><html><body>', '', $items)) . '</ul>
     				</nav>
     			</div>
@@ -660,11 +684,11 @@ add_action('the_content', function ($content) {
 
 			$attachment = wp_get_attachment_metadata($id);
 
-			if ($size && $size != 'full') {
+			if ($size && $size !== 'full') {
 
 				$width = $attachment['sizes'][$size]['width'];
 				$height = $attachment['sizes'][$size]['height'];
-
+// echo(gettype($attachment['sizes']));
 			} else {
 				
 				$width = preg_replace('/[^0-9]/', '', $attachment['width']);
@@ -684,8 +708,9 @@ add_action('the_content', function ($content) {
 		}
 		
 		$wrapper = $dom->createElement('span');
+    $image_id = preg_replace('/[^0-9]/', '', $img->getAttribute('class'));
 		$wrapper->setAttribute('class', 'n-aspect ' . $img->getAttribute('class'));
-		$wrapper->setAttribute('style', '--width: ' . $width . '; --height: ' . $height);
+    $wrapper->setAttribute('style', '--width: ' . $img->getAttribute('width') . '; --height: ' . $img->getAttribute('height') . '; --placeholder: url(' . wp_get_attachment_image_url($image_id, 'medium') . ');');
 		
 		$img->parentNode->replaceChild($wrapper, $img);
 

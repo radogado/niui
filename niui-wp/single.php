@@ -17,8 +17,9 @@
 				</a>
 -->
 			<?php $image_data = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "original" ); ?>
-			<div style="text-align: center;">
-				<span class="n-aspect n-middle" style="--height: <?php echo ($image_data[2]); ?>; --width: <?php echo ($image_data[1]) ?>;">
+			<?php $thumbnail_placeholder = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "medium" )[0]; ?>
+			<div class="featured-image">
+				<span class="n-aspect n-middle" style="--height: <?php echo ($image_data[2]); ?>; --width: <?php echo ($image_data[1]) ?>; --placeholder: url(<?php echo $thumbnail_placeholder ?>)">
 					<?php the_post_thumbnail(); // Fullsize image for the single post ?>
 				</span>
 			</div>

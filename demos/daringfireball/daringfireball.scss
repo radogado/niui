@@ -1,4 +1,5 @@
 body.n-type {
+	margin: 0;
 	
 	font-family: Verdana, sans-serif;
 	color: #eee;
@@ -8,6 +9,7 @@ body.n-type {
 	h2 {
 		
 		line-height: 1.5;
+		font-size: 1.5rem;
 			
 		a[href] {
 		
@@ -69,7 +71,7 @@ ul.n-list {
 
 nav.n-nav {
 	
-	    --control-color: #fff;
+	    --nui-control-color: #fff;
 	    
 	    li {
 	

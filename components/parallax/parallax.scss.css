@@ -1,0 +1,10 @@
+.n-parallax {
+  overflow: hidden;
+}
+
+.n-parallax__content {
+  will-change: transform;
+  transform: translateY(calc(var(--scrollparallax, 0) * 1px));
+}
+
+/*# sourceMappingURL=parallax.scss.css.map */

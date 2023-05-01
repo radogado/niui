@@ -1,0 +1,154 @@
+/* niui – Typography */
+@import "../../css/niui-setup";
+
+.n-type {
+  -webkit-text-size-adjust: none;
+  font-size: var(--nui-font-size, 16px);
+  line-height: var(--nui-line-height);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  letter-spacing: 0.25px; // For proof: because sometimes there are aberrations with non-default spacing. Safari bug: value flashing from 0 https://bugs.webkit.org/show_bug.cgi?id=193008
+
+  /* Elements with double line-height */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: var(--nui-line-height);
+    word-break: break-word; // Overflow protection for long words
+    word-wrap: break-word;
+    font-size: 1em;
+    font-weight: 500;
+    margin: 24px 0;
+    line-height: 3rem;
+
+    @media not screen and (min-width: $screen-narrow) {
+      -webkit-hyphens: auto;
+      hyphens: auto;
+    }
+
+    + p:not(.n-drop-cap) {
+      margin-top: 0;
+    }
+  }
+
+  h4,
+  h5,
+  h6 {
+    line-height: 1.5rem;
+  }
+
+  h1 {
+    font-size: 2.75rem;
+  }
+
+  h2 {
+    font-size: 2.25rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+
+  h4 {
+    font-size: 1.75rem;
+  }
+
+  h5 {
+    font-size: 1.5rem;
+  }
+
+  h6 {
+    font-size: 1.25rem;
+  }
+
+  pre {
+    overflow: auto;
+  }
+
+  p {
+    font-size: 1em;
+    margin: var(--nui-line-height-em) 0;
+    line-height: var(--nui-line-height);
+  }
+
+  .n-drop-cap:first-letter {
+    float: left;
+    font-size: 5em;
+    padding: 0.1em 0.1em 0.1em 0;
+    margin-top: -0.2em;
+    line-height: 1em;
+  }
+
+  a[href] {
+    color: inherit;
+  }
+
+  p a[href] {
+    display: inline;
+  }
+
+  hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #cccccc;
+    margin: 1em 0;
+    padding: 0;
+  }
+
+  .n-quote,
+  blockquote,
+  q {
+    border-inline-start: 1px solid #bbb;
+    padding-inline-start: 1em;
+    display: block;
+    margin: var(--nui-line-height-em) 0;
+    margin-inline-start: 1em;
+  }
+
+  .n-big-text {
+    font-size: 1.125em;
+    line-height: calc(2 * var(--nui-line-height-em));
+    min-height: 1.3334em;
+  }
+}
+
+.n-adjust-height,
+.n-row picture.n-adjust-height {
+  // 	transition: padding-bottom .1s ease-in-out;
+  border-bottom: calc(1px * var(--adjust-height)) solid transparent;
+  box-sizing: content-box;
+}
+
+.n-burger {
+  width: 1.5em;
+  height: 1.5em;
+  line-height: 1.5em;
+  font-size: 2em;
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  background: var(--nui-control-bg, #fff);
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: .25em;
+    width: 1em;
+    top: .15em;
+    box-shadow: 0 .25em 0 1px var(--nui-control-color, #333), 0 .625em 0 1px var(--nui-control-color, #333), 0 1em 0 1px var(--nui-control-color, #333);
+    height: .1px
+  }
+}
+
+[dir="rtl"] {
+
+  & .n-type,
+  &.n-type {
+    .n-drop-cap:first-letter {
+      float: right;
+    }
+  }
+}

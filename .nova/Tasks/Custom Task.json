@@ -2,7 +2,7 @@
   "actions" : {
     "build" : {
       "enabled" : true,
-      "script" : "for file in src.dev\/components\/**\/*.scss\ndo\n\tsass $file $file.css\ndone\ncat src.dev\/components\/*\/*.scss.css > src.dev\/components\/components.css\nsass src.dev\/css\/niui-core.scss src.dev\/css\/niui-core.css\ncat src.dev\/css\/niui-core.css src.dev\/components\/components.css > dist.dev\/niui.css\n.\/node_modules\/clean-css-cli\/bin\/cleancss -o dist.dev\/niui.min.css dist.dev\/niui.css\nrm src.dev\/components\/components.css\n\n.\/node_modules\/rollup\/dist\/bin\/rollup --no-treeshake --format=cjs -- src.dev\/script\/niui-core.js src.dev\/components\/**\/*.js > dist.dev\/niui-temp.js\n.\/node_modules\/rollup\/dist\/bin\/rollup  --no-treeshake --format=cjs --banner \"window.nui = (() => {\" --footer \"initComponents(); return { initComponents, copyButton, componentModal, addComponent, componentNotify } })();\" -- dist.dev\/niui-temp.js > dist.dev\/niui.js\nrm dist.dev\/niui-temp.js\n.\/node_modules\/terser\/bin\/terser -o dist.dev\/niui.min.js --compress --mangle -- dist.dev\/niui.js\n#gzip-size --raw n-carousel.min.css > n-carousel.min.css.size\ngzip-size --raw dist.dev\/niui.min.js > dist.dev\/niui.min.js.size\ngzip-size --raw dist.dev\/niui.min.css > dist.dev\/niui.min.css.size"
+      "script" : ".\/build.sh"
     }
   },
   "identifier" : "89640C0A-885D-4749-870C-E1DBFE2F735C"

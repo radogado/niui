@@ -1,120 +1,136 @@
-body, .n-type h1 {
-	
+body {
+	margin: 0;
+
+}
+
+body,
+.n-type h1 {
+
 	font-size: 15px;
 	font-family: 'Karla';
 
 }
 
 * {
-	
+
 	box-sizing: border-box;
-	
+
 }
 
 .n-header {
-	
+
 	padding: 2em;
-	
+
 	.n-nav ul.n-list {
-		
+
 		justify-content: flex-end;
-		
+
 	}
 
 	img {
-		
+
 		padding: 0 1em 1em 1em;
-		
+
 	}
-	
+
 	h1 * {
-		
+
 		display: inline-block;
 		vertical-align: middle;
-	
+
 	}
 
 }
 
 .meta {
-	
+
 	color: #909090;
 
 }
 
 .n-type a[href] {
-	
+
 	text-decoration: none;
 
 }
 
-.n-aspect {
-	
+main .n-aspect {
+
 	align-items: center;
 	background-size: cover;
-	
+	display: flex;
+
 }
 
 .n-aspect > div {
 
 	width: 100%;
-	
+
 }
 
 main {
-	
+
 	color: #fff;
+	
+	a > div {
+		display: grid;
+	}
 
 }
 
 main.n-row > * {
-	
+
 	--width: 1/5;
 
 }
 
 @media (max-width: 2400px) {
-	
+
 	main.n-row > * {
-		
+
 		--width: 1/4;
-	
+
 	}
-	
+
 }
 
 @media (max-width: 1800px) {
-	
+
 	main.n-row > * {
-		
+
 		--width: 1/3;
-	
+
 	}
-	
+
 }
 
 @media (max-width: 1200px) {
-	
+
 	main.n-row > * {
-		
+
 		--width: 1/2;
-	
+
 	}
-	
+
 }
 
 .n-modal {
-	
+
 	overflow: hidden;
 
 }
 
 .n-modal .bg {
-	
-	z-index: 1; position: absolute; top: 0; right: 0; bottom: 0; left: 0;
+
+	z-index: 1;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
 	background-size: cover;
 	transition: all .3s ease-in-out;
-	
+
 }
 
 .n-modal:hover .bg {
@@ -128,7 +144,7 @@ main.n-row > * {
 }
 
 .n-modal .n-aspect > div {
-	
+
 	transform: scale(2);
 	opacity: 0;
 	transition: all .2s ease-in-out;
@@ -136,14 +152,14 @@ main.n-row > * {
 }
 
 .n-modal:hover .n-aspect > div {
-	
+
 	transform: scale(1);
 	opacity: 1;
 
 }
 
 footer {
-	
+
 	position: absolute;
 	bottom: 1em;
 	z-index: 1;
@@ -152,14 +168,14 @@ footer {
 }
 
 .n-ovrl {
-	
+
 	background: rgba(0, 0, 0, .1);
 	text-align: right;
 	font-size: 0;
-	
+
 	.n-ovrl--content {
-		
-	// 	margin-left: 50%;
+
+		// 	margin-left: 50%;
 		background: #fff;
 		padding: 2em 5em 5em 5em;
 		width: 950px;
@@ -167,11 +183,11 @@ footer {
 		display: inline-block;
 		font-size: 1rem;
 		left: auto;
-	
+
 	}
-	
+
 	.n-ovrl--close {
-		
+
 		width: 2rem;
 		right: 1rem;
 		height: 2rem;
@@ -181,25 +197,52 @@ footer {
 		text-align: center;
 		top: 1rem;
 		left: auto;
-		
+
 		&:after {
-			
+
 			font-size: 1rem;
 			content: '╳';
 			line-height: 2;
-			
+
 		}
-	
+
 	}
-	
-	.n-slider--wrap {
-		
+
+	.n-carousel {
+
 		margin: 0;
 		position: fixed;
 		background: #fff;
 		bottom: 0;
 		height: 100% !important;
-	
+
 	}
 
+}
+
+.n-demo-apex {
+	.n-modal.n-modal--full {
+		margin-inline-start: 32%;
+		width: calc(66% - 2 * env(safe-area-inset-left));
+	}
+
+	.n-carousel > .n-carousel__index {
+		white-space: normal;
+	}
+
+	.n-carousel.n-carousel--overlay > .n-carousel__index > :not(button) {
+		display: none;
+	}
+
+	.n-carousel:not(.n-carousel--overlay) > .n-carousel__index img {
+		width: 100%;
+		height: auto;
+	}
+
+	.n-carousel__content img {
+		height: 100%;
+		width: 100%;
+		object-fit: contain;
+		display: block;
+	}
 }

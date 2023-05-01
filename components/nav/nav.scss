@@ -1,0 +1,598 @@
+/* niui – Navigation */
+@import "../../css/niui-setup";
+
+.n-nav {
+  vertical-align: baseline;
+  display: inline-block;
+  color: var(--nui-control-color, inherit);
+  --nui-nav-gap: 0.75em;
+
+  --n-nav-duration: 0;
+
+  @media (prefers-reduced-motion: no-preference) {
+    --n-nav-duration: .2s;
+  }
+
+  a:focus {
+    z-index: 1;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    width: auto;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    border-inline-start: var(--nui-nav-gap) solid var(--nui-control-bg);
+    border-radius: var(--nui-border-radius);
+    background-color: var(--nui-control-bg,transparent);
+
+    li {
+      // flex-grow: 1;
+      a {
+        // background-color: var(--nui-control-bg, transparent);
+        // display: block;
+      }
+
+      &:last-child {
+        margin-inline-end: 0;
+
+        a {
+          // border-start-end-radius: var(--nui-border-radius);
+          // border-end-end-radius: var(--nui-border-radius);
+        }
+      }
+    }
+  }
+
+  &.n-nav--scroll {
+    overflow: auto;
+    max-width: 100%;
+    background-color: var(--nui-control-bg, transparent);
+    border-radius: var(--nui-border-radius);
+
+    > ul {
+      display: flex;
+      // padding: 0.25em 0;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+    }
+  }
+
+  a {
+    position: relative;
+    padding-inline-end: var(--nui-nav-gap);
+    display: inline-block;
+  }
+
+  &.n-big-text {
+    --nui-nav-gap: 1em;
+  }
+
+  a[aria-current],
+  a[aria-current][href] {
+    text-decoration: none;
+    color: var(--nui-control-active-color);
+    cursor: initial;
+  }
+
+  &:not(.n-nav--drop) a[href^="#"] {
+    text-decoration: none;
+  }
+
+  &.n-row {
+    display: inline-flex;
+  }
+
+  &.n-nav--vertical {
+    ul {
+      display: grid;
+      border: none;
+
+      a {
+        display: block;
+        padding-inline-start: var(--nui-nav-gap);
+      }
+
+      li:first-child {
+        a {
+          border-start-end-radius: var(--nui-border-radius);
+          border-start-start-radius: var(--nui-border-radius);
+        }
+      }
+
+      li:last-child {
+        a {
+          border-start-end-radius: 0;
+          border-end-start-radius: var(--nui-border-radius);
+        }
+      }
+    }
+
+    &.n-nav--vertical-wide {
+      display: block;
+    }
+  }
+}
+
+.n-nav--scroll {
+
+  > ul {
+    overflow: auto;
+    max-width: 100%;
+    transform: translate3d(0, 0, 0); // Safari macOS bug fix when using scrollbars: Not working initially.
+    border: none;
+  }
+
+  ul li {
+    padding: calc(var(--nui-line-height-em) / 2) 0;
+
+    &:first-of-type {
+      a {
+        padding-inline-start: var(--nui-nav-gap);
+      }
+    }
+  }
+}
+
+.n-nav--drop {
+  --nui-nav-gap: 0;
+  color: var(--nui-control-color, #333);
+  background-color: transparent;
+  max-width: 100%;
+
+  ul {
+    padding: 0;
+    margin: 0;
+    min-height: 0;
+    z-index: 1;
+    border-radius: 0;
+  }
+
+  ul ul {
+    padding: 0;
+    position: absolute;
+    inset-inline-start: 0;
+    top: 100%;
+  }
+
+  ul ul ul {
+    margin-inline-start: 100%;
+    top: 0;
+  }
+
+  ul ul.n-left-side.n-right-overflow {
+    margin-inline-start: var(--n-right-overflow, 0);
+  }
+
+  ul ul.n-left-side ul {
+    margin-inline-start: 0;
+    inset-inline-start: auto;
+    inset-inline-end: 100%;
+  }
+
+  ul li {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+    width: auto;
+    background-color: var(--nui-control-bg, #fff);
+  }
+
+  li > a {
+    padding: 0.75em;
+    display: block;
+  }
+  
+  &.n-nav li > a {
+    background: none;
+  }
+
+  a:focus,
+  li > :focus {
+    outline-offset: -7px;
+  }
+
+  a[href] {
+    position: relative;
+  }
+
+  li:not([aria-haspopup]) > a {
+    z-index: 0;
+  }
+
+  ul[role="menubar"] li > a {
+    margin-inline-end: 0;
+    padding-inline-end: 0.75em;
+  }
+
+  ul[role="menubar"] li[aria-haspopup] > a {
+    margin-inline-end: 1.75em;
+    padding-inline-end: 0.75em;
+  }
+
+  &[data-ready] ul[role="menubar"] li[aria-haspopup] > a {
+    margin-inline-end: 0;
+    padding-inline-end: 0.75em;
+  }
+
+  li li {
+    display: block;
+    width: 100%;
+  }
+
+  ul li:not([aria-expanded]) > ul {
+    min-height: 0;
+    max-height: 0;
+    overflow: hidden;
+    position: absolute;
+    /* 		visibility: hidden; // Disables hover */
+  }
+
+  ul li > :checked ~ ul,
+  :focus ~ ul,
+  a:focus ~ ul,
+  ul li[aria-expanded] > ul,
+  li li[aria-expanded] > ul,
+  li li:not(:focus) :checked ~ ul {
+    max-height: none;
+    overflow: visible;
+    opacity: 1;
+    z-index: 2;
+    background-color: var(--nui-control-bg, #fff);
+  }
+
+  ul li[aria-expanded] > ul,
+  li li[aria-expanded] > ul,
+  li li:not(:focus) :checked ~ ul {
+    z-index: 2; // Problem with CSS-only input method
+  }
+
+  li > input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    display: block;
+    position: absolute;
+    width: 100%; // iOS doesn't work with left/right
+    height: 100%;
+    border: none;
+    border-radius: 0;
+    inset-inline-end: 0;
+    width: 1.875em;
+    margin: 0;
+    font-size: inherit;
+    cursor: pointer;
+  }
+
+  li[aria-haspopup]:before {
+    content: "";
+    position: absolute;
+    display: block;
+    inset-inline-end: 0;
+    top: 0;
+    width: 1.875em;
+    height: 100%;
+  }
+
+  ul.n-list:not(.n-list--no-bullet):not(.n-list--inline) {
+    li:before {
+      content: "";
+      margin: 0;
+      font-size: 1em;
+    }
+
+    li:not([aria-haspopup="true"]):before {
+      display: none;
+    }
+  }
+
+  ul.n-list:not(.n-list--no-bullet):not(.n-list--inline).n-left-side li:before {
+    inset-inline-end: auto;
+    transform: rotate(180deg);
+    inset-inline-start: 0;
+    margin: 0;
+    top: 0;
+    height: 2em;
+  }
+
+  &.n-nav ul.n-list li:before {
+    display: block;
+    height: 100%;
+  }
+
+  li[aria-haspopup]:before,
+  li > input {
+    --mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(180) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A") center center no-repeat;
+    -webkit-mask: var(--mask);
+    -webkit-mask-size: 0.5em;
+    -webkit-mask-repeat: no-repeat;
+    mask: var(--mask);
+    mask-size: 0.5em;
+    background-color: var(--nui-control-color, #000);
+    mask-repeat: no-repeat;
+  }
+
+  // li > input {
+  //   -webkit-mask-size: 0.6em;
+  //   mask-size: 0.6em;
+  // }
+
+  &[data-ready] li > ul ~ a {
+    background: none;
+  }
+
+  li[aria-haspopup] {
+    padding-inline-end: 1.875em;
+  }
+}
+
+@media (min-width: $screen-narrow) {
+  .n-nav--drop {
+    --desktop: true;
+
+    ul ul {
+      transition: transform var(--n-nav-duration) ease-in-out;
+      transform-origin: top;
+      transform: scaleY(0);
+    }
+
+    ul li > :checked ~ ul,
+    :focus ~ ul,
+    a:focus ~ ul,
+    ul li[aria-expanded] > ul,
+    li li[aria-expanded] > ul,
+    li li:not(:focus) :checked ~ ul {
+      transform: scaleY(1);
+
+      ul {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+    }
+
+    li li {
+
+      &[aria-haspopup]:before,
+      > input {
+        --mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(90) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A");
+        -webkit-mask-image: var(--mask);
+        -webkit-mask-position: center;
+        mask-image: var(--mask);
+        mask-position: center;
+      }
+    }
+
+    &:not([data-ready]) {
+
+      // CSS only version
+      li {
+        display: flex;
+
+        > input {
+          position: static;
+          order: 1;
+        }
+
+        &:not([tabindex]) > ul ~ a {
+          padding-inline-end: 0.75em;
+        }
+      }
+    }
+
+    li:not([tabindex]) > ul ~ a {
+      padding-inline-end: 2.75em;
+    }
+
+    ul.n-left-side li[aria-haspopup] {
+      padding-inline-end: 0;
+      padding-inline-start: 1.875em;
+
+      &:before {
+        transform: rotate(180deg);
+        inset-inline-start: 0;
+      }
+    }
+  }
+
+  html:not(.can-touch) {
+
+    // Hover rules here
+    .n-nav--drop {
+      ul li:not([aria-expanded]) ul ul {
+        transition: calc(var(--n-nav-duration)/2) var(--n-nav-duration);
+        opacity: 0;
+        position: absolute;
+        transform: scaleX(0);
+        transform-origin: left;
+      }
+
+      ul li:not([aria-expanded]) ul.n-left-side ul {
+        transform-origin: right;
+      }
+
+      > ul > li > ul li {
+        background-color: var(--nui-control-bg, #fff);
+      }
+
+      > ul > li:hover > input:not(:checked) ~ ul,
+      > ul li ul > li:hover > input:not(:checked) ~ ul,
+      > ul > li:not([aria-haspopup]):hover > input:not(:checked) ~ ul,
+      > ul li:not([aria-haspopup]) ul li:hover > input:not(:checked) ~ ul {
+        min-height: 0;
+        max-height: 0;
+        overflow: hidden;
+        z-index: 1;
+        position: absolute;
+      }
+
+      > ul > li:not([aria-haspopup]):hover > ul,
+      > ul > li:hover > ul,
+      > ul li ul > li:hover > ul,
+      ul ul li:not([aria-expanded]) :checked ~ ul,
+      > ul li:not([aria-haspopup]) ul li:hover ~ ul {
+        max-height: none;
+        overflow: visible;
+        opacity: 1;
+        z-index: 2;
+        background-color: var(--nui-control-bg, #fff);
+        transform: scaleY(1);
+      }
+
+      > ul li ul li:hover ul {
+        transition-delay: var(--n-nav-duration);
+        transform: scaleX(1);
+      }
+    }
+  }
+
+  nav.n-nav--drop ul[role="menubar"] > li > a {
+    max-width: 100vw;
+    white-space: normal;
+  }
+
+  nav.n-nav--drop li {
+    white-space: nowrap;
+
+    li[haspopup] > a,
+    li li a {
+      // To do: top level width 100em, max-width: 100vw
+      white-space: normal;
+      max-width: calc(33.33vw - 2em);
+      width: 100em;
+    }
+  }
+
+  html.can-touch .n-nav--drop li .n-left-side > li:not([aria-expanded]) {
+    overflow: hidden;
+  }
+
+  [dir="rtl"] .n-nav--drop {
+    li ul:not(.n-left-side) > li[aria-haspopup] {
+      // padding-inline-start: 0;
+      // padding-inline-end: 1.875em;
+
+      &:before {
+        // inset-inline-end: 0;
+        // inset-inline-start: auto;
+        transform: rotate(180deg);
+      }
+    }
+
+    li ul.n-left-side > li > a {
+      // text-align: start;
+    }
+
+  }
+
+  html:not(.can-touch) {
+
+    &[dir="rtl"],
+    [dir="rtl"] {
+
+      // Hover rules here
+      .n-nav--drop ul li:not([aria-expanded]) ul ul {
+        transform-origin: right;
+      }
+
+    }
+  }
+
+}
+
+@media not screen and (min-width: $screen-narrow) {
+  .n-nav--drop ul {
+    li:not([aria-expanded]) > ul {
+      position: static;
+      width: calc(100% + 3em);
+      transition: max-height var(--n-nav-duration) ease-in-out;
+    }
+
+    ul {
+      position: static;
+      width: calc(100% + 3em);
+      padding-inline-start: 0.5em;
+      overflow: hidden;
+      box-sizing: border-box;
+
+      ul {
+        margin: 0;
+      }
+    }
+
+    li {
+      width: 100%;
+
+      &[aria-haspopup] {
+        padding-inline-end: 3em;
+      }
+    }
+
+    li[aria-haspopup][aria-expanded]:before {
+      --mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(0) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A");
+      -webkit-mask-image: var(--mask);
+      mask-image: var(--mask);
+      -webkit-mask-position-x: center;
+      mask-position-x: center;
+      -webkit-mask-position-y: 1.15em;
+      mask-position-y: 1.15em;
+    }
+
+    &.n-list:not(.n-list--no-bullet):not(.n-list--inline).n-left-side li:before {
+      inset-inline-end: 0;
+      inset-inline-start: auto;
+      transform: none;
+    }
+  }
+
+  // .n-nav--drop li[aria-haspopup]:before {
+  //   -webkit-mask-position-y: 0.75em;
+  //   mask-position-y: 0.75em;
+  // }
+
+  .n-nav--drop li > input {
+    -webkit-mask-position-y: 1.15em;
+    mask-position-y: 1.15em;
+    z-index: 1;
+  }
+
+  html:not([data-nui-js]) .n-nav--drop {
+    width: 100%;
+
+    ul li {
+      display: flex;
+      flex-direction: column;
+
+      a {
+        order: -1;
+      }
+    }
+
+    ul li:not([aria-expanded]) > ul {
+      width: 100%;
+    }
+  }
+
+  html:not([data-nui-js]) .n-accordion.n-accordion--mobile:not([aria-expanded]) .n-accordion__content {
+    max-width: 100%;
+  }
+}
+
+@supports (-webkit-overflow-scrolling: touch) {
+
+  // Not working on iOS 13?
+  /* CSS specific to iOS devices */
+  .n-nav--drop :focus {
+    outline-style: dotted;
+    outline-width: 1px;
+  }
+}
+
+.n-nav:not(.n-nav--drop) ul,
+.n-nav--scroll {
+  box-shadow: 0 0 0 var(--nui-border-size) var(--nui-border-color), 0 0 var(--nui-shadow-blur) calc(var(--nui-border-size) + var(--nui-shadow-size)) var(--nui-shadow-color);
+}

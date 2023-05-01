@@ -8,12 +8,10 @@
 		
 			<div class="headline">
 				
-				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="img-crop">
+				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="img-crop" style="--placeholder: url(<?php echo get_the_post_thumbnail_url($post, 'medium'); ?>);">
 					
-					<!-- <?php echo get_the_post_thumbnail(); ?> -->
-
-					<?php echo str_replace("<img", "<img loading=\"lazy\"", get_the_post_thumbnail()); ?>
-	
+					<picture><?php echo str_replace("<img", "<img loading=\"lazy\"", get_the_post_thumbnail()); ?></picture>
+			
 					<h2><?php the_title(); ?> &rarr;</h2>
 					
 				</a>

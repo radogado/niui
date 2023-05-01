@@ -1,103 +1,141 @@
 body {
-  font-family: 'Helvetica Neue', sans-serif;
-  color: #000; }
+  margin: 0;
+  font-family: "Helvetica Neue", sans-serif;
+  color: #000;
+}
+body.n-type h3 {
+  font-size: 1.5rem;
+}
 
 * {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 .n-contain {
-  max-width: 1488px; }
+  max-width: 1488px;
+}
 
 .n-header {
-  border-bottom: 1px solid #ddd; }
-  .n-header li a {
-    padding: 0 1em; }
-  .n-header .n-form {
-    display: inline-block;
-    padding: 0; }
+  border-bottom: 1px solid #ddd;
+}
+.n-header li a {
+  padding: 0 1em;
+}
+.n-header .n-form {
+  display: inline-block;
+  padding: 0;
+}
 
 footer, .n-banner h2 {
   color: #fff;
   background: #000;
-  display: inline-block; }
+  display: inline-block;
+}
 
 footer {
-  display: block; }
+  display: block;
+}
+footer .n-right > div {
+  display: flex;
+}
 
 .n-row img {
   display: block;
   margin: 0 auto;
-  max-width: 100%; }
+  max-width: 100%;
+}
 
 .n-row > * {
   background: center center;
-  background-size: cover; }
+  background-size: cover;
+}
 
 footer .n-row img, footer .n-row a[href] {
   margin: 0;
-  display: inline-block; }
+  display: inline-block;
+}
 
 footer .n-row img {
-  padding: 0 1em; }
+  padding: 0 1em;
+}
 
 .n-type h1 {
-  padding: .5em;
+  padding: 0.5em;
   font-size: 3em;
   display: inline-block;
   background: #fff;
   color: #000;
-  margin-bottom: .5em; }
+  margin-bottom: 0.5em;
+}
 
 .n-banner a[href].n-btn {
   background: yellow;
-  color: #000; }
+  color: #000;
+}
 
 .n-banner h2 {
   font-size: 1em;
-  padding: 1.5em 1.2em; }
+  padding: 1.5em 1.2em;
+}
 
 .n-banner .n-pad {
-  padding: 0 9em; }
+  padding: 0 9em;
+}
 
 main a[href].n-btn {
   background: none;
   border: 1px solid;
-  color: #000; }
+  color: #000;
+}
 
 footer a[href].n-btn {
   background: none;
   border: 1px solid;
-  color: #fff; }
+  color: #fff;
+}
 
 .n-form#language-selector select {
   background: none;
   font-weight: bold;
   width: 5em;
-  margin: 0; }
+  margin: 0;
+}
 
 @-moz-document url-prefix() {
   .n-form#language-selector select {
-    text-indent: -1em; } }
-
+    text-indent: -1em;
+  }
+}
 main h3 {
   display: inline-block;
   background: #fff;
   padding: 1em;
-  color: #000; }
+  color: #000;
+}
 
 main b {
   display: inline-block;
   background: #000;
   padding: 1em;
-  color: #fff; }
+  color: #fff;
+}
 
 footer .n-row {
-  position: relative; }
+  position: relative;
+}
 
 @media screen and (max-width: 599.9px) {
   .n-banner .n-pad {
-    padding: 0; }
+    padding: 0;
+  }
+
   main .n-row {
-    padding: 0 !important; }
-  .n-fold.n-fold__mobile > .n-fold--label {
-    margin: 0 auto 0 0; } }
+    padding: 0 !important;
+  }
+
+  .n-accordion.n-accordion--mobile > .n-accordion__label {
+    margin: 0 auto 0 0;
+  }
+}
+
+/*# sourceMappingURL=amnesty.css.map */
