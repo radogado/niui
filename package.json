@@ -42,8 +42,5 @@
 		"sass": "^1.38.1",
 		"terser": "^5.7.2"
 	},
-	"main": "index.js",
-	"publishConfig": {
-		"registry": "https://npm.pkg.github.com/"
-	}
+	"main": "index.js"
 }
