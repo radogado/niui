@@ -552,14 +552,16 @@
       padding-bottom: var(--nui-line-height-em);
 
       legend {
-        width: 50%;
         margin-bottom: calc(-1 * var(--nui-line-height-em));
         text-align: end;
+        grid-column: 1/2;
+        grid-row: 1/2;
+        width: 50%;
       }
 
       label {
-        display: block;
         margin: 0;
+        display: block;
       }
     }
 
@@ -650,4 +652,24 @@
   //       padding: 0 0.5em;
   //     }
   //   }
+}
+
+// Safari 16.4 fieldset/legend/grid bug
+_::-webkit-full-page-media,
+_:future,
+:root .n-form.n-form--mast fieldset {
+  display: block;
+}
+
+_::-webkit-full-page-media,
+_:future,
+:root .n-form.n-form--mast fieldset legend {
+  width: calc(50% - .5em);
+}
+
+_::-webkit-full-page-media,
+_:future,
+:root .n-form.n-form--mast fieldset label {
+  width: calc(50% - .5em);
+  float: inline-end;
 }
