@@ -197,7 +197,7 @@
   display: inline-block;
   background-color: var(--nui-control-bg, #eee);
   color: var(--nui-control-color, #333);
-  line-height: calc((var(--nui-line-height) + 1) * (2 / 3));
+  line-height: calc((var(--nui-line-height) + 1) * 0.6666666667);
   text-align: center;
   border: none;
   margin: 0;
@@ -393,7 +393,7 @@
 .n-form--wide button,
 .n-form--wide button[type=submit] {
   margin-bottom: calc(var(--nui-line-height-em) - 5px);
-  line-height: calc((var(--nui-line-height-em) / 3) * 2);
+  line-height: calc(var(--nui-line-height-em) / 3 * 2);
   font-size: 1.2em;
   min-height: 2.50005em;
   width: 100%;
@@ -454,13 +454,15 @@
   padding-bottom: var(--nui-line-height-em);
 }
 .n-form.n-form--mast fieldset legend {
-  width: 50%;
   margin-bottom: calc(-1 * var(--nui-line-height-em));
   text-align: end;
+  grid-column: 1/2;
+  grid-row: 1/2;
+  width: 50%;
 }
 .n-form.n-form--mast fieldset label {
-  display: block;
   margin: 0;
+  display: block;
 }
 .n-form.n-form--mast > label > *,
 .n-form.n-form--mast > .n-form__check > *,
@@ -501,6 +503,25 @@
 .n-form.n-form--mast .n-form--mandatory:before {
   inset-inline-start: calc(50% - 0.5em);
   z-index: -1;
+}
+
+_::-webkit-full-page-media,
+_:future,
+:root .n-form.n-form--mast fieldset {
+  display: block;
+}
+
+_::-webkit-full-page-media,
+_:future,
+:root .n-form.n-form--mast fieldset legend {
+  width: calc(50% - 0.5em);
+}
+
+_::-webkit-full-page-media,
+_:future,
+:root .n-form.n-form--mast fieldset label {
+  width: calc(50% - 0.5em);
+  float: inline-end;
 }
 
 /*# sourceMappingURL=form.css.map */
