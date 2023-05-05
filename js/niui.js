@@ -369,7 +369,37 @@ let nui = (() => {
       initComponents();
       return { registerComponent, initComponents, copyButton, addComponent }
 })();
-nui.dynamicInit = true;// Component Form – start
+nui.dynamicInit = true;// Component Button – start
+(function() {
+	let init = (host) => {
+		const ripple = e => {
+			let el = e.target.closest('.n-btn--ripple');
+			let x = e.offsetX || el.clientWidth / 2;
+			let y = e.offsetY || el.clientHeight / 2;
+			let max_x = Math.max(x, el.clientWidth - x);
+			let max_y = Math.max(y, el.clientHeight - y);
+			let radius = Math.sqrt(max_x * max_x + max_y * max_y);
+			el.style.transitionProperty = 'none';
+			el.style.setProperty('--ripple-x', `${x}px`);
+			el.style.setProperty('--ripple-y', `${y}px`);
+			el.style.setProperty('--ripple-radius', `0px`);
+			window.requestAnimationFrame(() => {
+				el.style.transitionProperty = '';
+				el.style.setProperty('--ripple-radius', `${radius}px`);
+			});
+		};
+		document.querySelectorAll('.n-btn--ripple:not([data-ready])').forEach(el => {
+			el.addEventListener('pointerdown', ripple);
+			el.addEventListener('keydown', ripple);
+			el.dataset.ready = true;
+		});
+	};
+	nui.registerComponent("button", init);
+})();
+// Component Button – end
+//# sourceMappingURL=button.js.map
+
+// Component Form – start
 (function() {
   /* Form – start */
   function submitForm(e) {
@@ -451,35 +481,84 @@ nui.dynamicInit = true;// Component Form – start
 // Component Form – end
 //# sourceMappingURL=form.js.map
 
-// Component Button – start
+// Component Accordion
 (function() {
-	let init = (host) => {
-		const ripple = e => {
-			let el = e.target.closest('.n-btn--ripple');
-			let x = e.offsetX || el.clientWidth / 2;
-			let y = e.offsetY || el.clientHeight / 2;
-			let max_x = Math.max(x, el.clientWidth - x);
-			let max_y = Math.max(y, el.clientHeight - y);
-			let radius = Math.sqrt(max_x * max_x + max_y * max_y);
-			el.style.transitionProperty = 'none';
-			el.style.setProperty('--ripple-x', `${x}px`);
-			el.style.setProperty('--ripple-y', `${y}px`);
-			el.style.setProperty('--ripple-radius', `0px`);
-			window.requestAnimationFrame(() => {
-				el.style.transitionProperty = '';
-				el.style.setProperty('--ripple-radius', `${radius}px`);
-			});
-		};
-		document.querySelectorAll('.n-btn--ripple:not([data-ready])').forEach(el => {
-			el.addEventListener('pointerdown', ripple);
-			el.addEventListener('keydown', ripple);
-			el.dataset.ready = true;
+	const animate_options = el => { return { easing: "ease-in-out", duration: window.matchMedia("(prefers-reduced-motion: no-preference)").matches ? (el.dataset.duration * 1000 || getComputedStyle(el).getPropertyValue('--duration') * 1000 || 200) : 0 } };
+	const accordionContent = el => el.querySelector(":scope > .n-accordion__content");
+	const openAccordion = (el) => {
+		el = accordionContent(el);
+		window.requestAnimationFrame(() => {
+			el.style.height = 0;
+			el.style.overflow = "hidden";
+			let wrapper = el.parentNode;
+			wrapper.querySelector(":scope > .n-accordion__label").setAttribute("aria-expanded", true);
+			el.animate([{ height: 0 }, { height: `${el.scrollHeight}px` }], animate_options(wrapper)).onfinish = () => {
+				el.style.height = el.style.overflow = "";
+			};
 		});
 	};
-	nui.registerComponent("button", init);
+	const closeAccordion = (el, callback) => {
+		el = accordionContent(el);
+		window.requestAnimationFrame(() => {
+			el.style.overflow = "hidden";
+			let wrapper = el.parentNode;
+			el.animate([{ height: `${el.scrollHeight}px` }, { height: 0 }], animate_options(wrapper)).onfinish = () => {
+				el.style.height = el.style.overflow = "";
+				wrapper.querySelector(":scope > .n-accordion__label").setAttribute("aria-expanded", false);
+				typeof callback !== 'function' || callback();
+				if (wrapper.classList.contains('n-accordion--close-nested')) {
+					el.querySelectorAll(".n-accordion__label[aria-expanded='true']").forEach(el => el.setAttribute("aria-expanded", false));
+				}
+			};
+		});
+	};
+	const toggleAccordion = (e) => {
+		let el = e.target.closest('.n-accordion'); // el = .n-accordion
+		if (!el.querySelector(":scope > [aria-expanded='true']")) {
+			let popin = el.closest(".n-accordion__popin");
+			const updateRow = () => {
+				if (popin) {
+					let row = Math.floor(([...popin.children].indexOf(el) / getComputedStyle(popin).getPropertyValue("--n-popin-columns")) * 1) + 2;
+					popin.style.setProperty("--n-popin-open-row", row);
+				}
+			};
+			if (el.parentNode.matches('[role="group"]') || popin) {
+				let other_accordion = el.parentNode.querySelector(":scope > .n-accordion > [aria-expanded='true']");
+				if (other_accordion) {
+					closeAccordion(other_accordion.parentNode, () => { // el = .n-accordion
+						updateRow();
+						openAccordion(el);
+					});
+				} else {
+					updateRow();
+					openAccordion(el);
+				}
+			} else {
+				openAccordion(el);
+			}
+		} else {
+			closeAccordion(el);
+		}
+	};
+
+	function init(host = document) {
+		host.querySelectorAll(".n-accordion:not([data-ready]) > .n-accordion__label").forEach((el) => {
+			el.addEventListener("click", toggleAccordion);
+			el.parentElement.querySelector(":scope > input")?.remove(); // Remove CSS-only solution
+			el.parentNode.dataset.ready = true;
+			el.setAttribute('aria-expanded', el.getAttribute('aria-expanded') === 'true');
+		});
+	}
+	const doInit = () => {
+		(typeof nui !== 'undefined' && typeof nui.registerComponent === "function") ? nui.registerComponent("n-accordion", init) : init();
+	};
+	if (document.readyState !== "loading") {
+		doInit();
+	} else {
+		document.addEventListener("DOMContentLoaded", doInit);
+	}
 })();
-// Component Button – end
-//# sourceMappingURL=button.js.map
+//# sourceMappingURL=n-accordion@npm.js.map
 
 // import './node_modules/n-modal/n-modal.js';
 (function() {
@@ -1461,84 +1540,278 @@ nui.dynamicInit = true;// Component Form – start
 })();
 //# sourceMappingURL=n-carousel@npm.js.map
 
-// Component Accordion
+/* Modal – start */
 (function() {
-	const animate_options = el => { return { easing: "ease-in-out", duration: window.matchMedia("(prefers-reduced-motion: no-preference)").matches ? (el.dataset.duration * 1000 || getComputedStyle(el).getPropertyValue('--duration') * 1000 || 200) : 0 } };
-	const accordionContent = el => el.querySelector(":scope > .n-accordion__content");
-	const openAccordion = (el) => {
-		el = accordionContent(el);
-		window.requestAnimationFrame(() => {
-			el.style.height = 0;
-			el.style.overflow = "hidden";
-			let wrapper = el.parentNode;
-			wrapper.querySelector(":scope > .n-accordion__label").setAttribute("aria-expanded", true);
-			el.animate([{ height: 0 }, { height: `${el.scrollHeight}px` }], animate_options(wrapper)).onfinish = () => {
-				el.style.height = el.style.overflow = "";
-			};
-		});
-	};
-	const closeAccordion = (el, callback) => {
-		el = accordionContent(el);
-		window.requestAnimationFrame(() => {
-			el.style.overflow = "hidden";
-			let wrapper = el.parentNode;
-			el.animate([{ height: `${el.scrollHeight}px` }, { height: 0 }], animate_options(wrapper)).onfinish = () => {
-				el.style.height = el.style.overflow = "";
-				wrapper.querySelector(":scope > .n-accordion__label").setAttribute("aria-expanded", false);
-				typeof callback !== 'function' || callback();
-				if (wrapper.classList.contains('n-accordion--close-nested')) {
-					el.querySelectorAll(".n-accordion__label[aria-expanded='true']").forEach(el => el.setAttribute("aria-expanded", false));
-				}
-			};
-		});
-	};
-	const toggleAccordion = (e) => {
-		let el = e.target.closest('.n-accordion'); // el = .n-accordion
-		if (!el.querySelector(":scope > [aria-expanded='true']")) {
-			let popin = el.closest(".n-accordion__popin");
-			const updateRow = () => {
-				if (popin) {
-					let row = Math.floor(([...popin.children].indexOf(el) / getComputedStyle(popin).getPropertyValue("--n-popin-columns")) * 1) + 2;
-					popin.style.setProperty("--n-popin-open-row", row);
-				}
-			};
-			if (el.parentNode.matches('[role="group"]') || popin) {
-				let other_accordion = el.parentNode.querySelector(":scope > .n-accordion > [aria-expanded='true']");
-				if (other_accordion) {
-					closeAccordion(other_accordion.parentNode, () => { // el = .n-accordion
-						updateRow();
-						openAccordion(el);
-					});
-				} else {
-					updateRow();
-					openAccordion(el);
-				}
-			} else {
-				openAccordion(el);
-			}
-		} else {
-			closeAccordion(el);
-		}
-	};
+  var scroll_timeout;
+  const blockScroll = e => {
+    // console.log(e);
+    // if (isSafari) {
+    document.querySelectorAll('dialog.n-modal[open]').forEach(el => {
+      el.classList.add('n-modal--transparent');
+    });
+    clearTimeout(scroll_timeout);
+    scroll_timeout = setTimeout(() => {
+      document.querySelectorAll('dialog.n-modal[open]').forEach(el => {
+        el.classList.remove('n-modal--transparent');
+      });
+    }, 67);
+    // } else {
+    //   window.scrollTo(x, y);
+    // }
+  };
 
-	function init(host = document) {
-		host.querySelectorAll(".n-accordion:not([data-ready]) > .n-accordion__label").forEach((el) => {
-			el.addEventListener("click", toggleAccordion);
-			el.parentElement.querySelector(":scope > input")?.remove(); // Remove CSS-only solution
-			el.parentNode.dataset.ready = true;
-			el.setAttribute('aria-expanded', el.getAttribute('aria-expanded') === 'true');
-		});
-	}
-	const doInit = () => {
-		(typeof nui !== 'undefined' && typeof nui.registerComponent === "function") ? nui.registerComponent("n-accordion", init) : init();
-	};
-	if (document.readyState !== "loading") {
-		doInit();
-	} else {
-		document.addEventListener("DOMContentLoaded", doInit);
-	}
+  function disableScrolling() {
+    // window.onscroll = function() { window.scrollTo(x, y); };
+    window.addEventListener('scroll', blockScroll, { 'passive': 'true' });
+  }
+
+  function enableScrolling() {
+    // window.onscroll = function() {};
+    window.removeEventListener('scroll', blockScroll);
+  }
+  // var previouslyFocused = previouslyFocused || false;
+  function transferClass(origin, target, className) {
+    let classes = typeof className === "string" ? new Array(className) : className;
+    classes.forEach(el => {
+      if (origin.classList.contains(el)) {
+        target.classList.add(el);
+      }
+    });
+  }
+  const animationDuration = () => window.matchMedia("(prefers-reduced-motion: no-preference)").matches ? (getComputedStyle(document.querySelector('.n-modal')).getPropertyValue('--duration') * 1000) : 0;
+  let removeModal = e => {
+    document.documentElement.classList.remove('transparent-scrollbar');
+    let modal = e.target;
+    modal.removeEventListener('close', removeModal);
+    if (modal.existingDetachedElement) {
+      // console.log(modal);
+      if (!modal.existingModal) {
+        let content = modal.querySelector('.n-modal__content');
+        content.removeChild(content.firstElementChild);
+      }
+      delete modal.existingDetachedElement;
+      modal.remove();
+    }
+    if (modal.attachedHiddenContent) {
+      modal.replaceWith(modal.lastChild);
+    } else {
+      if (modal.dataset.existingAttachedContent) {
+        modal.replaceWith(modal.lastChild.firstElementChild);
+      } else {
+        if (modal.existingModal) {
+          delete modal.existingModal;
+          delete modal.dataset.anim;
+        } else {
+          modal.remove();
+        }
+      }
+    }
+  };
+
+  function closeModal(modal) {
+    let direction_option = "normal";
+    var animation = modal.dataset.anim; // Custom animation?
+    if (!animation || animation.length < 11) {
+      // '', 'null' or 'undefined'?
+      animation = '[{ "transform": "translate3d(0,0,0)" }, { "transform": "translate3d(0,-100vh,0)" }]';
+    } else {
+      direction_option = "reverse";
+    }
+    modal.classList.add('n-modal--closing');
+    setTimeout(() => { modal.classList.remove('n-modal--closing'); }, animationDuration());
+    modal.animate(JSON.parse(animation), { duration: animationDuration(), direction: direction_option, easing: "ease-in-out" }).onfinish = () => {
+      enableScrolling();
+      // nuiDisableBodyScroll(false, modal); // Turn off and restore page scroll
+      if (modal.existingModal) {
+        if (!modal.existingDetachedElement) {
+          modal.removeEventListener('close', removeModal);
+        }
+        // delete modal.existingModal;
+        delete modal.dataset.anim;
+      }
+      modal.close();
+      // document.querySelector("html").classList.remove("no-scroll");
+      // window.scrollTo(modal.previousScrollX, modal.previousScrollY);
+    };
+  }
+
+  function openModal(options) {
+    // options: {content: ""/element, animation: "", trigger: element, closeSymbol: "", closeLabel: ""}
+    // content is either an HTML string or an element
+    // options can be solely content if it's a string or element
+    // Fix Chrome flashing disappearing scrollbars on open
+    document.documentElement.style.overflow = 'scroll';
+    const scrollbar_width = window.innerWidth - document.documentElement.offsetWidth;
+    document.documentElement.style.overflow = '';
+    if (!scrollbar_width) { // Because Chrome flashes disappearing scrollbars on open (Mac)
+      document.documentElement.classList.add('transparent-scrollbar');
+    }
+    if (typeof options === 'string' || !!options.tagName) {
+      options = { content: options };
+    }
+    let animation = options.animation;
+    let content = options.content;
+    let trigger = options.trigger;
+    var wrapper = {};
+    var existingDetachedElement = false;
+    if (content.parentNode) {
+      // console.log(content.parentNode);
+      if (content.parentNode.tagName === 'DIALOG' || content.parentNode.classList.contains('n-modal__content')) {
+        return;
+      }
+    } else {
+      if (content.tagName) {
+        existingDetachedElement = true;
+      }
+    }
+    const close_label = 'Close';
+    const close_symbol = '╳';
+    if (typeof content === 'object' && content.tagName === 'DIALOG') {
+      if (!content.parentNode) { // Detached modal
+        document.body.appendChild(content);
+      }
+      wrapper = content;
+      wrapper.existingModal = true;
+      let close_button = wrapper.querySelector('.n-modal__close');
+      if (close_button) {
+        close_button.dataset.closeSymbol = close_button.dataset.closeSymbol || close_symbol;
+        close_button.ariaLabel = close_button.ariaLabel || close_label;
+      }
+    } else {
+      wrapper = document.createElement("dialog");
+      wrapper.insertAdjacentHTML("afterbegin", `<button class="n-modal__close" aria-label="${options.closeLabel || trigger?.dataset.closeLabel || close_label}" data-close-symbol="${options.closeSymbol || trigger?.dataset.closeSymbol || close_symbol}"></button><div class="n-modal__content"></div>`);
+      document.createElement("div");
+      if (typeof content === "string") {
+        wrapper.lastChild.innerHTML = content;
+        document.body.appendChild(wrapper);
+      } else {
+        let parent = content.parentElement;
+        if (parent) {
+          let marker = document.createElement('div');
+          content.replaceWith(marker);
+          wrapper.lastChild.appendChild(content);
+          marker.replaceWith(wrapper);
+          if (content.classList.contains('n-modal__content')) {
+            wrapper.lastChild.replaceWith(content);
+            wrapper.attachedHiddenContent = true;
+          } else {
+            wrapper.dataset.existingAttachedContent = true;
+          }
+        } else {
+          wrapper.lastChild.appendChild(content);
+          document.body.appendChild(wrapper);
+        }
+      }
+    }
+    if (options.blur) {
+      wrapper.classList.add('n-modal--blur');
+    }
+    if (options.shadow) {
+      wrapper.classList.add('n-modal--shadow');
+    }
+    if (options.rounded) {
+      wrapper.classList.add('n-modal--rounded');
+    }
+    if (options.full) {
+      wrapper.classList.add('n-modal--full');
+    }
+    wrapper.dataset.anim = animation;
+    wrapper.classList.add("n-modal");
+    wrapper.onclick = (e) => {
+      let el = e.target.closest('.n-modal');
+      let button = e.target.closest('.n-modal__close');
+      if (button || (e.target.matches('.n-modal') && (e.offsetX < 0 || e.offsetY < 0 || (e.offsetX - 2) > el.getBoundingClientRect().width || (e.offsetY - 2) > el.getBoundingClientRect().height))) {
+        closeModal(el);
+      }
+    };
+    wrapper.addEventListener("cancel", e => {
+      e.preventDefault();
+      closeModal(e.target.closest('.n-modal'));
+    });
+    if (existingDetachedElement) {
+      wrapper.existingDetachedElement = true;
+    }
+    wrapper.showModal();
+    // nuiDisableBodyScroll(true, wrapper); // Turn on and block page scroll
+    // if (document.querySelectorAll(".n-modal").length === 1) {
+    //   // Sole (first) modal
+    //   wrapper.previousScrollX = window.scrollX;
+    //   wrapper.previousScrollY = window.scrollY;
+    // }
+    // document.querySelector("html").classList.add("no-scroll");
+    wrapper.animate(typeof animation === "string" ? JSON.parse(animation) : [{ transform: "translate3d(0,-100vh,0)" }, { transform: "translate3d(0,0,0)" }], {
+      duration: animationDuration(),
+      easing: "ease-in-out",
+    }).onfinish = () => {
+      wrapper.addEventListener('close', removeModal);
+      disableScrolling();
+    };
+    return wrapper;
+  }
+
+  function parseHTML(str) {
+    var tmp = document.implementation.createHTMLDocument("Parsed");
+    tmp.body.innerHTML = str;
+    // To do: destroy the HTMLDocument before returning
+    return tmp.body;
+  }
+
+  function modalWindowLink(e) {
+    // Modal window of external file content
+    var el = e.target;
+    let trigger = el.closest(".n-modal-link");
+    var link = trigger.dataset.href || trigger.href; // data-href for <button>, href for <a>
+    var animation = trigger.dataset.anim;
+    const openTheModal = content => transferClass(trigger, openModal({ content: content, animation: animation, trigger: trigger }), ["n-modal--full", "n-modal--rounded", "n-modal--shadow", "n-modal--blur"]);
+    if (trigger.dataset.for) {
+      openTheModal(document.getElementById(trigger.dataset.for));
+    } else {
+      fetch(link.split("#")[0]).then(response => response.text()).then(response => {
+        var parsed = parseHTML(response);
+        var container = !!link.split("#")[1] ? "#" + link.split("#")[1].split('?')[0] : 0;
+        if (container && parsed.querySelector(container)) {
+          parsed = parsed.querySelector(container).innerHTML;
+        } else {
+          parsed = parsed.innerHTML;
+        }
+        openTheModal(parsed);
+      }).catch(error => {
+        openTheModal(error);
+      });
+    }
+    return false;
+  }
+  let init = (host = document) => {
+    // Modal window: open a link's target inside it
+    host.querySelectorAll(".n-modal-link:not([data-ready])").forEach((el) => {
+      if (el.href !== location.href.split("#")[0] + "#") {
+        // Is it an empty anchor?
+        el.onclick = modalWindowLink;
+      }
+      if (el.href && !el.getAttribute("rel")) {
+        el.setAttribute("rel", "prefetch");
+      }
+      el.dataset.ready = true;
+    });
+  };
+  let hash_modal = document.querySelector(`.n-modal${location.hash}.n-modal--uri`);
+  if (location.hash && hash_modal) {
+    openModal(hash_modal);
+  }
+  // API
+  let modal = openModal;
+  modal.close = closeModal;
+  modal.init = init;
+  if (typeof nui !== 'undefined' && typeof nui.registerComponent === "function") {
+    nui.registerComponent("n-modal", init, { 'name': 'modal', 'code': modal });
+  } else {
+    init();
+    window.nui = {};
+    window.nui.modal = modal;
+  } // Is it a part of niui, or standalone?
 })();
-//# sourceMappingURL=n-accordion@npm.js.map
+/* Modal – end */
+//# sourceMappingURL=n-modal@npm.js.map
 
 (function() {
 	const isChrome = !!navigator.userAgent.match("Chrome");
@@ -1932,278 +2205,149 @@ nui.dynamicInit = true;// Component Form – start
 })();
 //# sourceMappingURL=n-select@npm.js.map
 
-/* Modal – start */
+// Component Tooltip – start
 (function() {
-  var scroll_timeout;
-  const blockScroll = e => {
-    // console.log(e);
-    // if (isSafari) {
-    document.querySelectorAll('dialog.n-modal[open]').forEach(el => {
-      el.classList.add('n-modal--transparent');
-    });
-    clearTimeout(scroll_timeout);
-    scroll_timeout = setTimeout(() => {
-      document.querySelectorAll('dialog.n-modal[open]').forEach(el => {
-        el.classList.remove('n-modal--transparent');
-      });
-    }, 67);
-    // } else {
-    //   window.scrollTo(x, y);
-    // }
-  };
+	let setTipPosition = (tool, tip) => {
+		// Take up the most area available on top/right/bottom/left of the tool. Relative to body.
+		let rect = tool.getBoundingClientRect();
+		let top = rect.top;
+		let left = rect.left;
+		let right = window.innerWidth - left - rect.width;
+		let bottom = window.innerHeight - top - rect.height; // To do: check when body is shorter than viewport
+		let area_top = top * window.innerWidth;
+		let area_right = right * window.innerHeight;
+		let area_bottom = bottom * window.innerWidth;
+		let area_left = left * window.innerHeight;
+		let body_rect = document.body.getBoundingClientRect();
+		tip.removeAttribute("style");
+		delete tip.dataset.position;
+		tip.classList.add('n-tooltip__content-visible');
+		let positionTop = () => {
+			tip.style.bottom = 20 + body_rect.height + body_rect.y - top + "px";
+			tip.style.maxHeight = top - 40 + "px";
+			tip.style.left = `${rect.x + rect.width / 2 - tip.scrollWidth / 2}px`;
+			tip.dataset.nPosition = "top";
+		};
+		let positionBottom = () => {
+			tip.style.top = 20 - body_rect.y + top + rect.height + "px";
+			tip.style.maxHeight = bottom - 40 + "px";
+			tip.style.left = `${rect.x + rect.width / 2 - tip.scrollWidth / 2}px`;
+			tip.dataset.nPosition = "bottom";
+		};
+		let positionLeft = () => {
+			tip.style.left = "auto";
+			tip.style.right = 20 + body_rect.width + body_rect.x - window.innerWidth + right + rect.width + "px";
+			tip.style.maxWidth = left - 40 + "px";
+			tip.style.top = `${-1 * body_rect.y + rect.top + rect.height / 2 - tip.scrollHeight / 2}px`;
+			tip.dataset.nPosition = "left";
+		};
+		let positionRight = () => {
+			tip.style.left = rect.x - body_rect.x + rect.width + 20 + "px";
+			tip.style.maxWidth = right - 40 + "px";
+			tip.style.top = `${-1 * body_rect.y + rect.top + rect.height / 2 - tip.scrollHeight / 2}px`;
+			tip.dataset.nPosition = "right";
+		};
+		if (area_left > area_right) {
+			if (area_top > area_bottom) {
+				if (area_top > area_left) {
+					// Top
+					positionTop();
+				} else {
+					// Left
+					positionLeft();
+				}
+			} else {
+				if (area_bottom > area_left) {
+					// Bottom
+					positionBottom();
+				} else {
+					// Left
+					positionLeft();
+				}
+			}
+		} else {
+			if (area_top > area_bottom) {
+				if (area_top > area_right) {
+					// Top
+					positionTop();
+				} else {
+					// Right
+					positionRight();
+				}
+			} else {
+				if (area_bottom > area_right) {
+					// Bottom
+					positionBottom();
+				} else {
+					// Right
+					positionRight();
+				}
+			}
+		}
+		let rect_tip = tip.getBoundingClientRect();
+		let offset_y = 0;
+		if (rect_tip.y < 0) {
+			offset_y = Math.abs(rect_tip.y) + 10;
+		} else {
+			if (rect_tip.bottom > window.innerHeight) {
+				offset_y = window.innerHeight - rect_tip.bottom - 10;
+			}
+		}
+		tip.style.setProperty("--offset_y", offset_y + "px");
+		let offset_x = 0;
+		if (rect_tip.x < 0) {
+			offset_x = Math.abs(rect_tip.x) + 10;
+		} else {
+			if (rect_tip.right > window.innerWidth) {
+				offset_x = window.innerWidth - rect_tip.right - 10;
+			}
+		}
+		tip.style.setProperty("--offset_x", offset_x + "px");
+	};
 
-  function disableScrolling() {
-    // window.onscroll = function() { window.scrollTo(x, y); };
-    window.addEventListener('scroll', blockScroll, { 'passive': 'true' });
-  }
-
-  function enableScrolling() {
-    // window.onscroll = function() {};
-    window.removeEventListener('scroll', blockScroll);
-  }
-  // var previouslyFocused = previouslyFocused || false;
-  function transferClass(origin, target, className) {
-    let classes = typeof className === "string" ? new Array(className) : className;
-    classes.forEach(el => {
-      if (origin.classList.contains(el)) {
-        target.classList.add(el);
-      }
-    });
-  }
-  const animationDuration = () => window.matchMedia("(prefers-reduced-motion: no-preference)").matches ? (getComputedStyle(document.querySelector('.n-modal')).getPropertyValue('--duration') * 1000) : 0;
-  let removeModal = e => {
-    document.documentElement.classList.remove('transparent-scrollbar');
-    let modal = e.target;
-    modal.removeEventListener('close', removeModal);
-    if (modal.existingDetachedElement) {
-      // console.log(modal);
-      if (!modal.existingModal) {
-        let content = modal.querySelector('.n-modal__content');
-        content.removeChild(content.firstElementChild);
-      }
-      delete modal.existingDetachedElement;
-      modal.remove();
-    }
-    if (modal.attachedHiddenContent) {
-      modal.replaceWith(modal.lastChild);
-    } else {
-      if (modal.dataset.existingAttachedContent) {
-        modal.replaceWith(modal.lastChild.firstElementChild);
-      } else {
-        if (modal.existingModal) {
-          delete modal.existingModal;
-          delete modal.dataset.anim;
-        } else {
-          modal.remove();
-        }
-      }
-    }
-  };
-
-  function closeModal(modal) {
-    let direction_option = "normal";
-    var animation = modal.dataset.anim; // Custom animation?
-    if (!animation || animation.length < 11) {
-      // '', 'null' or 'undefined'?
-      animation = '[{ "transform": "translate3d(0,0,0)" }, { "transform": "translate3d(0,-100vh,0)" }]';
-    } else {
-      direction_option = "reverse";
-    }
-    modal.classList.add('n-modal--closing');
-    setTimeout(() => { modal.classList.remove('n-modal--closing'); }, animationDuration());
-    modal.animate(JSON.parse(animation), { duration: animationDuration(), direction: direction_option, easing: "ease-in-out" }).onfinish = () => {
-      enableScrolling();
-      // nuiDisableBodyScroll(false, modal); // Turn off and restore page scroll
-      if (modal.existingModal) {
-        if (!modal.existingDetachedElement) {
-          modal.removeEventListener('close', removeModal);
-        }
-        // delete modal.existingModal;
-        delete modal.dataset.anim;
-      }
-      modal.close();
-      // document.querySelector("html").classList.remove("no-scroll");
-      // window.scrollTo(modal.previousScrollX, modal.previousScrollY);
-    };
-  }
-
-  function openModal(options) {
-    // options: {content: ""/element, animation: "", trigger: element, closeSymbol: "", closeLabel: ""}
-    // content is either an HTML string or an element
-    // options can be solely content if it's a string or element
-    // Fix Chrome flashing disappearing scrollbars on open
-    document.documentElement.style.overflow = 'scroll';
-    const scrollbar_width = window.innerWidth - document.documentElement.offsetWidth;
-    document.documentElement.style.overflow = '';
-    if (!scrollbar_width) { // Because Chrome flashes disappearing scrollbars on open (Mac)
-      document.documentElement.classList.add('transparent-scrollbar');
-    }
-    if (typeof options === 'string' || !!options.tagName) {
-      options = { content: options };
-    }
-    let animation = options.animation;
-    let content = options.content;
-    let trigger = options.trigger;
-    var wrapper = {};
-    var existingDetachedElement = false;
-    if (content.parentNode) {
-      // console.log(content.parentNode);
-      if (content.parentNode.tagName === 'DIALOG' || content.parentNode.classList.contains('n-modal__content')) {
-        return;
-      }
-    } else {
-      if (content.tagName) {
-        existingDetachedElement = true;
-      }
-    }
-    const close_label = 'Close';
-    const close_symbol = '╳';
-    if (typeof content === 'object' && content.tagName === 'DIALOG') {
-      if (!content.parentNode) { // Detached modal
-        document.body.appendChild(content);
-      }
-      wrapper = content;
-      wrapper.existingModal = true;
-      let close_button = wrapper.querySelector('.n-modal__close');
-      if (close_button) {
-        close_button.dataset.closeSymbol = close_button.dataset.closeSymbol || close_symbol;
-        close_button.ariaLabel = close_button.ariaLabel || close_label;
-      }
-    } else {
-      wrapper = document.createElement("dialog");
-      wrapper.insertAdjacentHTML("afterbegin", `<button class="n-modal__close" aria-label="${options.closeLabel || trigger?.dataset.closeLabel || close_label}" data-close-symbol="${options.closeSymbol || trigger?.dataset.closeSymbol || close_symbol}"></button><div class="n-modal__content"></div>`);
-      document.createElement("div");
-      if (typeof content === "string") {
-        wrapper.lastChild.innerHTML = content;
-        document.body.appendChild(wrapper);
-      } else {
-        let parent = content.parentElement;
-        if (parent) {
-          let marker = document.createElement('div');
-          content.replaceWith(marker);
-          wrapper.lastChild.appendChild(content);
-          marker.replaceWith(wrapper);
-          if (content.classList.contains('n-modal__content')) {
-            wrapper.lastChild.replaceWith(content);
-            wrapper.attachedHiddenContent = true;
-          } else {
-            wrapper.dataset.existingAttachedContent = true;
-          }
-        } else {
-          wrapper.lastChild.appendChild(content);
-          document.body.appendChild(wrapper);
-        }
-      }
-    }
-    if (options.blur) {
-      wrapper.classList.add('n-modal--blur');
-    }
-    if (options.shadow) {
-      wrapper.classList.add('n-modal--shadow');
-    }
-    if (options.rounded) {
-      wrapper.classList.add('n-modal--rounded');
-    }
-    if (options.full) {
-      wrapper.classList.add('n-modal--full');
-    }
-    wrapper.dataset.anim = animation;
-    wrapper.classList.add("n-modal");
-    wrapper.onclick = (e) => {
-      let el = e.target.closest('.n-modal');
-      let button = e.target.closest('.n-modal__close');
-      if (button || (e.target.matches('.n-modal') && (e.offsetX < 0 || e.offsetY < 0 || (e.offsetX - 2) > el.getBoundingClientRect().width || (e.offsetY - 2) > el.getBoundingClientRect().height))) {
-        closeModal(el);
-      }
-    };
-    wrapper.addEventListener("cancel", e => {
-      e.preventDefault();
-      closeModal(e.target.closest('.n-modal'));
-    });
-    if (existingDetachedElement) {
-      wrapper.existingDetachedElement = true;
-    }
-    wrapper.showModal();
-    // nuiDisableBodyScroll(true, wrapper); // Turn on and block page scroll
-    // if (document.querySelectorAll(".n-modal").length === 1) {
-    //   // Sole (first) modal
-    //   wrapper.previousScrollX = window.scrollX;
-    //   wrapper.previousScrollY = window.scrollY;
-    // }
-    // document.querySelector("html").classList.add("no-scroll");
-    wrapper.animate(typeof animation === "string" ? JSON.parse(animation) : [{ transform: "translate3d(0,-100vh,0)" }, { transform: "translate3d(0,0,0)" }], {
-      duration: animationDuration(),
-      easing: "ease-in-out",
-    }).onfinish = () => {
-      wrapper.addEventListener('close', removeModal);
-      disableScrolling();
-    };
-    return wrapper;
-  }
-
-  function parseHTML(str) {
-    var tmp = document.implementation.createHTMLDocument("Parsed");
-    tmp.body.innerHTML = str;
-    // To do: destroy the HTMLDocument before returning
-    return tmp.body;
-  }
-
-  function modalWindowLink(e) {
-    // Modal window of external file content
-    var el = e.target;
-    let trigger = el.closest(".n-modal-link");
-    var link = trigger.dataset.href || trigger.href; // data-href for <button>, href for <a>
-    var animation = trigger.dataset.anim;
-    const openTheModal = content => transferClass(trigger, openModal({ content: content, animation: animation, trigger: trigger }), ["n-modal--full", "n-modal--rounded", "n-modal--shadow", "n-modal--blur"]);
-    if (trigger.dataset.for) {
-      openTheModal(document.getElementById(trigger.dataset.for));
-    } else {
-      fetch(link.split("#")[0]).then(response => response.text()).then(response => {
-        var parsed = parseHTML(response);
-        var container = !!link.split("#")[1] ? "#" + link.split("#")[1].split('?')[0] : 0;
-        if (container && parsed.querySelector(container)) {
-          parsed = parsed.querySelector(container).innerHTML;
-        } else {
-          parsed = parsed.innerHTML;
-        }
-        openTheModal(parsed);
-      }).catch(error => {
-        openTheModal(error);
-      });
-    }
-    return false;
-  }
-  let init = (host = document) => {
-    // Modal window: open a link's target inside it
-    host.querySelectorAll(".n-modal-link:not([data-ready])").forEach((el) => {
-      if (el.href !== location.href.split("#")[0] + "#") {
-        // Is it an empty anchor?
-        el.onclick = modalWindowLink;
-      }
-      if (el.href && !el.getAttribute("rel")) {
-        el.setAttribute("rel", "prefetch");
-      }
-      el.dataset.ready = true;
-    });
-  };
-  let hash_modal = document.querySelector(`.n-modal${location.hash}.n-modal--uri`);
-  if (location.hash && hash_modal) {
-    openModal(hash_modal);
-  }
-  // API
-  let modal = openModal;
-  modal.close = closeModal;
-  modal.init = init;
-  if (typeof nui !== 'undefined' && typeof nui.registerComponent === "function") {
-    nui.registerComponent("n-modal", init, { 'name': 'modal', 'code': modal });
-  } else {
-    init();
-    window.nui = {};
-    window.nui.modal = modal;
-  } // Is it a part of niui, or standalone?
+	function getToolTip(tool) {
+		return document.getElementById(tool.getAttribute('aria-describedby')) || tool.nextElementSibling;
+	}
+	const hideTipFunction = tool => {
+		let tip = getToolTip(tool);
+		tool.removeAttribute("aria-expanded");
+		tool.after(tip);
+		tip.removeAttribute("style");
+		delete tip.dataset.position;
+		tip.classList.remove('n-tooltip__content-visible');
+	};
+	let hideTip = (e) => {
+		hideTipFunction(e.target.closest(".n-tooltip"));
+	};
+	const hideTipOnScroll = e => {
+		document.querySelectorAll('.n-tooltip').forEach(el => hideTipFunction(el));
+		window.removeEventListener('scroll', hideTipOnScroll);
+	};
+	let showTip = (e) => {
+		let tool = e.target.closest(".n-tooltip");
+		let tip = getToolTip(tool);
+		tool.setAttribute("aria-expanded", true);
+		document.body.appendChild(tip);
+		setTipPosition(tool, tip);
+		window.addEventListener('scroll', hideTipOnScroll, { 'passive': 'true' });
+	};
+	const init = (host = document) => {
+		/* Tooltip */
+		host.querySelectorAll(".n-tooltip")?.length;
+		host.querySelectorAll(".n-tooltip:not([data-ready])").forEach((el) => {
+			el.setAttribute("tabindex", 0);
+			el.addEventListener('touchend', showTip);
+			el.addEventListener('mouseover', showTip);
+			el.addEventListener('focus', showTip);
+			el.addEventListener('mouseout', hideTip);
+			el.addEventListener('blur', hideTip);
+			el.dataset.ready = true;
+		});
+	};
+	(typeof nui !== 'undefined' && typeof nui.registerComponent === "function") ? nui.registerComponent("n-tooltip", init): init();
 })();
-/* Modal – end */
-//# sourceMappingURL=n-modal@npm.js.map
+// Component Tooltip – end
+//# sourceMappingURL=n-tooltip@npm.js.map
 
 // Component Nav – start
 (function() {
@@ -2457,186 +2601,6 @@ nui.dynamicInit = true;// Component Form – start
 // Component Nav – end
 //# sourceMappingURL=nav.js.map
 
-// Component Tooltip – start
-(function() {
-	let setTipPosition = (tool, tip) => {
-		// Take up the most area available on top/right/bottom/left of the tool. Relative to body.
-		let rect = tool.getBoundingClientRect();
-		let top = rect.top;
-		let left = rect.left;
-		let right = window.innerWidth - left - rect.width;
-		let bottom = window.innerHeight - top - rect.height; // To do: check when body is shorter than viewport
-		let area_top = top * window.innerWidth;
-		let area_right = right * window.innerHeight;
-		let area_bottom = bottom * window.innerWidth;
-		let area_left = left * window.innerHeight;
-		let body_rect = document.body.getBoundingClientRect();
-		tip.removeAttribute("style");
-		delete tip.dataset.position;
-		tip.classList.add('n-tooltip__content-visible');
-
-		let positionTop = () => {
-			tip.style.bottom = 20 + body_rect.height + body_rect.y - top + "px";
-			tip.style.maxHeight = top - 40 + "px";
-			tip.style.left = `${rect.x + rect.width / 2 - tip.scrollWidth / 2}px`;
-			tip.dataset.nPosition = "top";
-		};
-		let positionBottom = () => {
-			tip.style.top = 20 - body_rect.y + top + rect.height + "px";
-			tip.style.maxHeight = bottom - 40 + "px";
-			tip.style.left = `${rect.x + rect.width / 2 - tip.scrollWidth / 2}px`;
-			tip.dataset.nPosition = "bottom";
-		};
-		let positionLeft = () => {
-			tip.style.left = "auto";
-			tip.style.right = 20 + body_rect.width + body_rect.x - window.innerWidth + right + rect.width + "px";
-			tip.style.maxWidth = left - 40 + "px";
-			tip.style.top = `${-1 * body_rect.y + rect.top + rect.height / 2 - tip.scrollHeight / 2}px`;
-			tip.dataset.nPosition = "left";
-		};
-		let positionRight = () => {
-			tip.style.left = rect.x - body_rect.x + rect.width + 20 + "px";
-			tip.style.maxWidth = right - 40 + "px";
-			tip.style.top = `${-1 * body_rect.y + rect.top + rect.height / 2 - tip.scrollHeight / 2}px`;
-			tip.dataset.nPosition = "right";
-		};
-		if (area_left > area_right) {
-			if (area_top > area_bottom) {
-				if (area_top > area_left) {
-					// Top
-					positionTop();
-				} else {
-					// Left
-					positionLeft();
-				}
-			} else {
-				if (area_bottom > area_left) {
-					// Bottom
-					positionBottom();
-				} else {
-					// Left
-					positionLeft();
-				}
-			}
-		} else {
-			if (area_top > area_bottom) {
-				if (area_top > area_right) {
-					// Top
-					positionTop();
-				} else {
-					// Right
-					positionRight();
-				}
-			} else {
-				if (area_bottom > area_right) {
-					// Bottom
-					positionBottom();
-				} else {
-					// Right
-					positionRight();
-				}
-			}
-		}
-		let rect_tip = tip.getBoundingClientRect();
-		let offset_y = 0;
-		if (rect_tip.y < 0) {
-			offset_y = Math.abs(rect_tip.y) + 10;
-		} else {
-			if (rect_tip.bottom > window.innerHeight) {
-				offset_y = window.innerHeight - rect_tip.bottom - 10;
-			}
-		}
-		tip.style.setProperty("--offset_y", offset_y + "px");
-		let offset_x = 0;
-		if (rect_tip.x < 0) {
-			offset_x = Math.abs(rect_tip.x) + 10;
-		} else {
-			if (rect_tip.right > window.innerWidth) {
-				offset_x = window.innerWidth - rect_tip.right - 10;
-			}
-		}
-		tip.style.setProperty("--offset_x", offset_x + "px");
-	};
-
-	function getToolTip(tool) {
-		return document.getElementById(tool.getAttribute('aria-describedby')) || tool.nextElementSibling;
-	}
-	let hideTip = (e) => {
-		// return;
-		let tool = e.target.closest(".n-tooltip");
-		let tip = getToolTip(tool);
-		tool.removeAttribute("aria-expanded");
-		tool.after(tip);
-		tip.removeAttribute("style");
-		delete tip.dataset.position;
-		tip.classList.remove('n-tooltip__content-visible');
-	};
-	let showTip = (e) => {
-		let tool = e.target.closest(".n-tooltip");
-		let tip = getToolTip(tool);
-		tool.setAttribute("aria-expanded", true);
-		document.body.appendChild(tip);
-		setTipPosition(tool, tip);
-	};
-	const init = (host = document) => {
-		/* Tooltip */
-		host.querySelectorAll(".n-tooltip")?.length;
-		host.querySelectorAll(".n-tooltip:not([data-ready])").forEach((el) => {
-			el.setAttribute("tabindex", 0);
-			el.addEventListener('touchend', showTip);
-			el.addEventListener('mouseover', showTip);
-			el.addEventListener('focus', showTip);
-			el.addEventListener('mouseout', hideTip);
-			el.addEventListener('blur', hideTip);
-			el.dataset.ready = true;
-		});
-	};
-	(typeof nui !== 'undefined' && typeof nui.registerComponent === "function") ? nui.registerComponent("n-tooltip", init) : init();
-})();
-// Component Tooltip – end
-//# sourceMappingURL=n-tooltip@npm.js.map
-
-// Component Notification bar – start
-(function() {
-	function notifyClose(el) {
-		if (!!el) {
-			el.parentNode.removeChild(el);
-		}
-	}
-
-	function notifyCloseEvent() {
-		if (document.querySelector(".n-notify")) {
-			document.querySelector(".n-notify").onclick = (e) => {
-				notifyClose(e.target);
-			};
-		}
-	}
-
-	function notify(content, option) {
-		document.body.insertAdjacentHTML("afterbegin", `<button class="n-notify${option && option.indexOf("fixed") !== -1 ? " n-notify--fixed" : ""}">${content}</button>`);
-		document.querySelector(".n-notify").focus();
-		notifyCloseEvent();
-		if (option && option.indexOf("timeout") !== -1) {
-			setTimeout(() => {
-				notifyClose(document.querySelector(".n-notify"));
-			}, 2000);
-		}
-	}
-	let init = (host) => {
-		/* Tooltip */
-		host.querySelectorAll(".n-notify:not([data-ready])").forEach((el, i) => {
-			notifyCloseEvent();
-			el.dataset.ready = true;
-		});
-	};
-	nui.registerComponent("notify", init, {
-		'name': 'notify',
-		'code': notify
-	});
-})();
-// Component Notification bar – end
-//# sourceMappingURL=notify.js.map
-
 // Component Parallax – start
 (function() {
 	// Thanks Dave Rupert
@@ -2684,6 +2648,47 @@ nui.dynamicInit = true;// Component Form – start
 })();
 // Component Table – end
 //# sourceMappingURL=table.js.map
+
+// Component Notification bar – start
+(function() {
+	function notifyClose(el) {
+		if (!!el) {
+			el.parentNode.removeChild(el);
+		}
+	}
+
+	function notifyCloseEvent() {
+		if (document.querySelector(".n-notify")) {
+			document.querySelector(".n-notify").onclick = (e) => {
+				notifyClose(e.target);
+			};
+		}
+	}
+
+	function notify(content, option) {
+		document.body.insertAdjacentHTML("afterbegin", `<button class="n-notify${option && option.indexOf("fixed") !== -1 ? " n-notify--fixed" : ""}">${content}</button>`);
+		document.querySelector(".n-notify").focus();
+		notifyCloseEvent();
+		if (option && option.indexOf("timeout") !== -1) {
+			setTimeout(() => {
+				notifyClose(document.querySelector(".n-notify"));
+			}, 2000);
+		}
+	}
+	let init = (host) => {
+		/* Tooltip */
+		host.querySelectorAll(".n-notify:not([data-ready])").forEach((el, i) => {
+			notifyCloseEvent();
+			el.dataset.ready = true;
+		});
+	};
+	nui.registerComponent("notify", init, {
+		'name': 'notify',
+		'code': notify
+	});
+})();
+// Component Notification bar – end
+//# sourceMappingURL=notify.js.map
 
 // Component Typography – start
 (function () {
