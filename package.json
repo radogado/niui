@@ -1,6 +1,6 @@
 {
 	"name": "niui-npm",
-	"version": "3.0.0",
+	"version": "3.0.1",
 	"description": "niui: mostly native front-end framework",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
@@ -42,8 +42,5 @@
 		"sass": "^1.38.1",
 		"terser": "^5.7.2"
 	},
-	"main": "index.js",
-	"publishConfig": {
-		"registry": "https://npm.pkg.github.com/"
-	}
+	"main": "index.js"
 }

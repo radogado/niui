@@ -44,19 +44,21 @@ body {
 }
 
 html {
-  height: var(--viewport-height);
-  margin: 0;
-  padding: 0;
-  overflow: hidden; // Safari bug when zoomed in
+  // height: var(--viewport-height);
+  // margin: 0;
+  // padding: 0;
+  // overflow: hidden; // Safari bug when zoomed in
+  // scroll-behavior: smooth;
+  // height: 100%;
 }
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  // overflow: hidden;
   // background: darkcyan;
-  height: 100%;
+  // height: 100%;
   line-height: 1.333;
   color: white;
 }
@@ -99,7 +101,7 @@ li pre {
   // aspect-ratio: 2;
 }
 
-.demo .n-carousel__content .n-carousel:not(.n-carousel--lightbox) > .n-carousel__content > * {
+.demo .n-carousel:not(.n-carousel--lightbox) > .n-carousel__content > * {
   color: var(--nui-input-color);
   background: var(--nui-input-bg);
 }
@@ -148,7 +150,6 @@ html {
 }
 
 .demo {
-  --nui-logo: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xml:space='preserve' id='Layer_1' x='0' y='0' style='enable-background:new 0 0 288 94.35' version='1.1' viewBox='0 0 288 94.35'%3E%3Cstyle%3E.st0%7Bfill:teal%7D%3C/style%3E%3Cpath d='M114.76 0h18.86v93.95h-18.86V0zM172.79 0l.23 32.52c0 16.7 0 28.02 7.81 35.84 4.58 4.58 11.59 7.81 20.48 7.81s15.9-3.23 20.48-7.81c7.81-7.82 7.81-19.13 7.81-35.84L229.56 0h18.9v32.52c0 18.86 0 34.49-12.66 47.69-6.47 6.73-18.05 13.74-34.49 13.74s-28.02-7.01-34.49-13.74c-12.66-13.2-12.66-28.83-12.66-47.69V0h18.63zM268.99 0h18.86v93.95h-18.86V0zM75.5 93.95l-.13-31.92c0-16.7 0-28.02-7.81-35.84-4.58-4.58-11.59-7.81-20.48-7.81s-15.9 3.23-20.48 7.81c-7.81 7.82-7.81 19.13-7.81 35.84v31.92H-.07V62.04c0-18.86 0-34.49 12.66-47.69C19.06 7.61 30.64.6 47.08.6S75.1 7.61 81.57 14.34c12.66 13.2 12.66 28.83 12.66 47.69v31.92H75.5z' class='st0'/%3E%3C/svg%3E");
 
   &,
   .n-carousel__content > * {
@@ -166,7 +167,7 @@ html {
     --max-height: 100%;
   }
 
-  max-width: 1366.666px;
+  // max-width: 1366.666px;
 
   > .n-carousel__content {
     > * {
@@ -368,11 +369,15 @@ html:not(.can-touch) nav li li[aria-haspopup]:hover {
     --nui-control-active-color: #bc8453;
   }
 
+  aside nav {
+    --nui-control-color: lightgrey;
+    --nui-control-active-color: #bc8453;
+  }
 }
 
 .n-scheme-auto {
   @media (prefers-color-scheme: dark) {
-    .demo.n-carousel.n-carousel--tabs > .n-carousel__index {
+    aside nav {
       --nui-control-color: lightgrey;
       --nui-control-active-color: #bc8453;
     }
@@ -385,10 +390,9 @@ html:not(.can-touch) nav li li[aria-haspopup]:hover {
   mask: linear-gradient(red, red);
 }
 
-.n-type .demo {
-  .section-title {
-    margin-top: -0.4rem;
-  }
+
+.n-type .demo .section-title {
+  margin-top: 0.5rem;
 }
 
 // iPad exit full screen bug
@@ -416,5 +420,105 @@ _:future,
   #dynamic-components .n-row .n-row {
     margin-inline-start: calc(-1 * var(--nui-line-height-em)/2);
     width: calc(100% + var(--nui-line-height-em));
+  }
+
+  .n-type .demo {
+    .section-title {
+      margin-top: -0.4rem;
+    }
+  }
+
+}
+
+aside {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: var(--nui-bg);
+  --nui-logo: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xml:space='preserve' id='Layer_1' x='0' y='0' style='enable-background:new 0 0 288 94.35' version='1.1' viewBox='0 0 288 94.35'%3E%3Cstyle%3E.st0%7Bfill:teal%7D%3C/style%3E%3Cpath d='M114.76 0h18.86v93.95h-18.86V0zM172.79 0l.23 32.52c0 16.7 0 28.02 7.81 35.84 4.58 4.58 11.59 7.81 20.48 7.81s15.9-3.23 20.48-7.81c7.81-7.82 7.81-19.13 7.81-35.84L229.56 0h18.9v32.52c0 18.86 0 34.49-12.66 47.69-6.47 6.73-18.05 13.74-34.49 13.74s-28.02-7.01-34.49-13.74c-12.66-13.2-12.66-28.83-12.66-47.69V0h18.63zM268.99 0h18.86v93.95h-18.86V0zM75.5 93.95l-.13-31.92c0-16.7 0-28.02-7.81-35.84-4.58-4.58-11.59-7.81-20.48-7.81s-15.9 3.23-20.48 7.81c-7.81 7.82-7.81 19.13-7.81 35.84v31.92H-.07V62.04c0-18.86 0-34.49 12.66-47.69C19.06 7.61 30.64.6 47.08.6S75.1 7.61 81.57 14.34c12.66 13.2 12.66 28.83 12.66 47.69v31.92H75.5z' class='st0'/%3E%3C/svg%3E");
+
+  nav {
+    white-space: nowrap;
+    overflow: auto;
+    padding: .667em;
+    display: flex;
+    gap: 1em;
+    box-shadow: 0 0 0.333em 0px #00000066;
+
+    a {
+      font-weight: 500;
+      text-decoration: none;
+      transition: color .2s ease-in-out, background .2s ease-in-out;
+
+      span {
+        color: var(--nui-color);
+      }
+    }
+
+    a:first-of-type {
+      background: var(--nui-color);
+      -webkit-mask: var(--nui-logo);
+      -webkit-mask-repeat: no-repeat;
+      webkit-mask: var(--nui-logo);
+      webkit-mask-repeat: no-repeat;
+      flex-shrink: 0;
+      width: 5em;
+
+    }
+
+    [href="#home"] span {
+      opacity: 0;
+    }
+
+    a[href][aria-current] {
+      &,
+      span {
+        color: var(--nui-control-active-color, #00f);
+      }
+
+      &:first-of-type {
+        background: var(--nui-control-active-color);
+      }
+    }
+
+  }
+}
+
+section {
+  padding-top: 3em;
+  min-height: calc(100vh - 3em);
+  min-height: calc(100dvh - 3em);
+
+  &:not(:last-of-type) {
+    padding-bottom: 2em;
+    border-bottom: 2px solid;
+    margin-bottom: 2em;
+  }
+}
+
+main {
+  min-width: 0;
+  // height: 100%;
+  // overflow: auto;
+}
+
+@media (min-width: 600px) {
+  section {
+    padding-top: 0;
+  }
+
+  body {
+    display: flex;
+    max-width: 1366.666px;
+  }
+
+  aside nav {
+    position: sticky;
+    top: 0;
+    flex-direction: column;
+    max-height: calc(100vh - 2em);
+    max-height: calc(100dvh - 2em);
+    box-shadow: none;
+    padding: 1em;
   }
 }

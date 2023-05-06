@@ -18,10 +18,11 @@
   display: table;
   width: 100%;
   overflow: hidden;
+  table-layout: fixed;
 }
 .n-table td,
 .n-table th {
-  padding: var(--nui-line-height-em) calc(var(--nui-line-height-em)/2);
+  padding: var(--nui-line-height-em) calc(var(--nui-line-height-em) / 2);
   vertical-align: middle;
 }
 .n-table th,

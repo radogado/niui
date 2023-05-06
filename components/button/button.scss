@@ -9,6 +9,7 @@ button.n-btn,
 a.n-btn[href],
 .n-type a.n-btn[href] {
   font-size: inherit;
+  text-align: initial;
   line-height: var(--nui-line-height);
   min-height: var(--nui-line-height-em);
   text-decoration: none;
