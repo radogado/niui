@@ -37,15 +37,10 @@ body video {
   border-radius: var(--nui-border-radius, 0);
 }
 
-html {
-  height: 100%;
-}
-
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   margin: 0;
   padding: 0;
-  height: 100%;
   line-height: 1.333;
   color: white;
 }
@@ -339,12 +334,13 @@ aside nav {
 aside nav a {
   font-weight: 500;
   text-decoration: none;
+  transition: color 0.2s ease-in-out, background 0.2s ease-in-out;
 }
 aside nav a span {
   color: var(--nui-color);
 }
 aside nav a:first-of-type {
-  background: var(--nui-control-color);
+  background: var(--nui-color);
   -webkit-mask: var(--nui-logo);
   -webkit-mask-repeat: no-repeat;
   webkit-mask: var(--nui-logo);
@@ -355,7 +351,8 @@ aside nav a:first-of-type {
 aside nav [href="#home"] span {
   opacity: 0;
 }
-aside nav a[href][aria-current] {
+aside nav a[href][aria-current],
+aside nav a[href][aria-current] span {
   color: var(--nui-control-active-color, #00f);
 }
 aside nav a[href][aria-current]:first-of-type {
@@ -375,8 +372,6 @@ section:not(:last-of-type) {
 
 main {
   min-width: 0;
-  height: 100%;
-  overflow: auto;
 }
 
 @media (min-width: 600px) {
