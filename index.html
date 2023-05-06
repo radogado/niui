@@ -3957,9 +3957,26 @@
 					})
 				})
 			});
-			window.addEventListener('load', e => {
-				document.querySelector('html').style.scrollBehavior = 'smooth';
-			});
+			document.querySelector(location.hash)?.scrollIntoView();
+			// window.addEventListener('load', e => {
+				document.querySelector('main').style.scrollBehavior = 'smooth';
+				document.querySelector('main').click();
+			// });
+
+			const inView = target => {
+				const interSecObs = new IntersectionObserver(entries => {
+					entries.forEach(entry => {
+						let slide = entry.target;
+					});
+				}, {
+					threshold: .75,
+					root: target.parentElement
+				});
+				interSecObs.observe(target);
+				console.log('intersection observing ', target)
+			};
+
+			document.querySelectorAll('main > section').forEach(inView);
 		</script>
 	</body>
 

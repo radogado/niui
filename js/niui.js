@@ -2321,7 +2321,7 @@ nui.dynamicInit = true;// Component Button – start
 	};
 	const hideTipOnScroll = e => {
 		document.querySelectorAll('.n-tooltip').forEach(el => hideTipFunction(el));
-		window.removeEventListener('scroll', hideTipOnScroll);
+		document.removeEventListener('scroll', hideTipOnScroll);
 	};
 	let showTip = (e) => {
 		let tool = e.target.closest(".n-tooltip");
@@ -2329,7 +2329,7 @@ nui.dynamicInit = true;// Component Button – start
 		tool.setAttribute("aria-expanded", true);
 		document.body.appendChild(tip);
 		setTipPosition(tool, tip);
-		window.addEventListener('scroll', hideTipOnScroll, { 'passive': 'true' });
+		document.addEventListener('scroll', hideTipOnScroll, true);
 	};
 	const init = (host = document) => {
 		/* Tooltip */
@@ -2601,54 +2601,6 @@ nui.dynamicInit = true;// Component Button – start
 // Component Nav – end
 //# sourceMappingURL=nav.js.map
 
-// Component Parallax – start
-(function() {
-	// Thanks Dave Rupert
-	let parallaxSpeed = 0.2;
-	let updateParallax = () => {
-		document.querySelectorAll(".n-parallax").forEach((el) => {
-			let parent = el.parentElement;
-			let scroll_offset = parent.scrollHeight > parent.offsetHeight ? Math.abs(parent.getBoundingClientRect().y) : document.body.scrollTop || document.documentElement.scrollTop;
-			el.style.setProperty("--scrollparallax", scroll_offset * parallaxSpeed);
-		});
-	};
-	if (document.querySelector(".n-parallax")) {
-		window.addEventListener("scroll", updateParallax, true);
-	}
-	let init = (host) => {};
-	nui.registerComponent("parallax", init);
-})();
-// Component Parallax – end
-//# sourceMappingURL=parallax.js.map
-
-// Component Table – start
-(function () {
-	/* Sort parent table's rows by matching column number alternatively desc/asc on click */
-	const toggleSort = (th) => {
-		let previous = th.closest("tr").querySelector("td[data-ascending]");
-		if (previous && previous !== th) {
-			delete previous.dataset.ascending;
-		}
-		return th.toggleAttribute("data-ascending");
-	};
-	const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
-	const comparer = (idx, asc) => (a, b) => ((v1, v2) => (v1 !== "" && v2 !== "" && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)))(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
-	let init = (host) => {
-		host.querySelectorAll(".n-table:not([data-ready])").forEach((el) => {
-			el.querySelectorAll("thead td button.n-table__sort, th button.n-table__sort").forEach((button) => button.addEventListener("click", (e) => {
-				let th = e.target.closest("th") || e.target.closest("td");
-				const tbody = th.closest("table").querySelector("tbody");
-				Array.from(tbody.querySelectorAll("tr")).sort(comparer(Array.from(th.parentNode.children).indexOf(th), toggleSort(th))).forEach((tr) => tbody.appendChild(tr));
-			}));
-			el.dataset.ready = true;
-			el.setAttribute("tabindex", 0); // To scroll with arrow keys
-		});
-	};
-	nui.registerComponent("table", init);
-})();
-// Component Table – end
-//# sourceMappingURL=table.js.map
-
 // Component Notification bar – start
 (function() {
 	function notifyClose(el) {
@@ -2689,6 +2641,54 @@ nui.dynamicInit = true;// Component Button – start
 })();
 // Component Notification bar – end
 //# sourceMappingURL=notify.js.map
+
+// Component Parallax – start
+(function() {
+	// Thanks Dave Rupert
+	let parallaxSpeed = 0.2;
+	let updateParallax = () => {
+		document.querySelectorAll(".n-parallax").forEach((el) => {
+			let parent = el.parentElement;
+			let scroll_offset = parent.scrollHeight > parent.offsetHeight ? parent.getBoundingClientRect().y : document.body.scrollTop || document.documentElement.scrollTop;
+			el.style.setProperty("--scrollparallax", scroll_offset * parallaxSpeed);
+		});
+	};
+	if (document.querySelector(".n-parallax")) {
+		window.addEventListener("scroll", updateParallax, true);
+	}
+	let init = (host) => {};
+	nui.registerComponent("parallax", init);
+})();
+// Component Parallax – end
+//# sourceMappingURL=parallax.js.map
+
+// Component Table – start
+(function () {
+	/* Sort parent table's rows by matching column number alternatively desc/asc on click */
+	const toggleSort = (th) => {
+		let previous = th.closest("tr").querySelector("td[data-ascending]");
+		if (previous && previous !== th) {
+			delete previous.dataset.ascending;
+		}
+		return th.toggleAttribute("data-ascending");
+	};
+	const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
+	const comparer = (idx, asc) => (a, b) => ((v1, v2) => (v1 !== "" && v2 !== "" && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)))(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
+	let init = (host) => {
+		host.querySelectorAll(".n-table:not([data-ready])").forEach((el) => {
+			el.querySelectorAll("thead td button.n-table__sort, th button.n-table__sort").forEach((button) => button.addEventListener("click", (e) => {
+				let th = e.target.closest("th") || e.target.closest("td");
+				const tbody = th.closest("table").querySelector("tbody");
+				Array.from(tbody.querySelectorAll("tr")).sort(comparer(Array.from(th.parentNode.children).indexOf(th), toggleSort(th))).forEach((tr) => tbody.appendChild(tr));
+			}));
+			el.dataset.ready = true;
+			el.setAttribute("tabindex", 0); // To scroll with arrow keys
+		});
+	};
+	nui.registerComponent("table", init);
+})();
+// Component Table – end
+//# sourceMappingURL=table.js.map
 
 // Component Typography – start
 (function () {

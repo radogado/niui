@@ -37,10 +37,15 @@ body video {
   border-radius: var(--nui-border-radius, 0);
 }
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   margin: 0;
   padding: 0;
+  height: 100%;
   line-height: 1.333;
   color: white;
 }
@@ -74,7 +79,7 @@ li pre {
   flex-direction: column;
 }
 
-.demo .n-carousel__content .n-carousel:not(.n-carousel--lightbox) > .n-carousel__content > * {
+.demo .n-carousel:not(.n-carousel--lightbox) > .n-carousel__content > * {
   color: var(--nui-input-color);
   background: var(--nui-input-bg);
 }
@@ -111,7 +116,6 @@ html {
 .demo {
   color: var(--nui-color);
   transition: color 0.2s ease-in-out;
-  max-width: 1366.666px;
   margin: auto;
 }
 .demo,
@@ -270,9 +274,13 @@ html:not(.can-touch) nav li li[aria-haspopup]:hover {
   --nui-control-color: lightgrey;
   --nui-control-active-color: #bc8453;
 }
+.n-scheme-dark aside nav {
+  --nui-control-color: lightgrey;
+  --nui-control-active-color: #bc8453;
+}
 
 @media (prefers-color-scheme: dark) {
-  .n-scheme-auto .demo.n-carousel.n-carousel--tabs > .n-carousel__index {
+  .n-scheme-auto aside nav {
     --nui-control-color: lightgrey;
     --nui-control-active-color: #bc8453;
   }
@@ -284,7 +292,7 @@ html:not(.can-touch) nav li li[aria-haspopup]:hover {
 }
 
 .n-type .demo .section-title {
-  margin-top: -0.4rem;
+  margin-top: 0.5rem;
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
@@ -308,6 +316,10 @@ _:future,
     margin-inline-start: calc(-1 * var(--nui-line-height-em) / 2);
     width: calc(100% + var(--nui-line-height-em));
   }
+
+  .n-type .demo .section-title {
+    margin-top: -0.4rem;
+  }
 }
 aside {
   position: sticky;
@@ -319,14 +331,17 @@ aside {
 aside nav {
   white-space: nowrap;
   overflow: auto;
-  padding: 1em;
+  padding: 0.667em;
   display: flex;
   gap: 1em;
   box-shadow: 0 0 0.333em 0px #00000066;
 }
 aside nav a {
-  font-weight: 600;
+  font-weight: 500;
   text-decoration: none;
+}
+aside nav a span {
+  color: var(--nui-color);
 }
 aside nav a:first-of-type {
   background: var(--nui-control-color);
@@ -337,14 +352,52 @@ aside nav a:first-of-type {
   flex-shrink: 0;
   width: 5em;
 }
+aside nav [href="#home"] span {
+  opacity: 0;
+}
+aside nav a[href][aria-current] {
+  color: var(--nui-control-active-color, #00f);
+}
+aside nav a[href][aria-current]:first-of-type {
+  background: var(--nui-control-active-color);
+}
 
 section {
   padding-top: 3em;
+  min-height: calc(100vh - 3em);
   min-height: calc(100dvh - 3em);
 }
 section:not(:last-of-type) {
   padding-bottom: 2em;
   border-bottom: 2px solid;
+  margin-bottom: 2em;
+}
+
+main {
+  min-width: 0;
+  height: 100%;
+  overflow: auto;
+}
+
+@media (min-width: 600px) {
+  section {
+    padding-top: 0;
+  }
+
+  body {
+    display: flex;
+    max-width: 1366.666px;
+  }
+
+  aside nav {
+    position: sticky;
+    top: 0;
+    flex-direction: column;
+    max-height: calc(100vh - 2em);
+    max-height: calc(100dvh - 2em);
+    box-shadow: none;
+    padding: 1em;
+  }
 }
 
 /*# sourceMappingURL=guide.css.map */
