@@ -369,7 +369,37 @@ let nui = (() => {
       initComponents();
       return { registerComponent, initComponents, copyButton, addComponent }
 })();
-nui.dynamicInit = true;// Component Form – start
+nui.dynamicInit = true;// Component Button – start
+(function() {
+	let init = (host) => {
+		const ripple = e => {
+			let el = e.target.closest('.n-btn--ripple');
+			let x = e.offsetX || el.clientWidth / 2;
+			let y = e.offsetY || el.clientHeight / 2;
+			let max_x = Math.max(x, el.clientWidth - x);
+			let max_y = Math.max(y, el.clientHeight - y);
+			let radius = Math.sqrt(max_x * max_x + max_y * max_y);
+			el.style.transitionProperty = 'none';
+			el.style.setProperty('--ripple-x', `${x}px`);
+			el.style.setProperty('--ripple-y', `${y}px`);
+			el.style.setProperty('--ripple-radius', `0px`);
+			window.requestAnimationFrame(() => {
+				el.style.transitionProperty = '';
+				el.style.setProperty('--ripple-radius', `${radius}px`);
+			});
+		};
+		document.querySelectorAll('.n-btn--ripple:not([data-ready])').forEach(el => {
+			el.addEventListener('pointerdown', ripple);
+			el.addEventListener('keydown', ripple);
+			el.dataset.ready = true;
+		});
+	};
+	nui.registerComponent("button", init);
+})();
+// Component Button – end
+//# sourceMappingURL=button.js.map
+
+// Component Form – start
 (function() {
   /* Form – start */
   function submitForm(e) {
@@ -451,35 +481,84 @@ nui.dynamicInit = true;// Component Form – start
 // Component Form – end
 //# sourceMappingURL=form.js.map
 
-// Component Button – start
+// Component Accordion
 (function() {
-	let init = (host) => {
-		const ripple = e => {
-			let el = e.target.closest('.n-btn--ripple');
-			let x = e.offsetX || el.clientWidth / 2;
-			let y = e.offsetY || el.clientHeight / 2;
-			let max_x = Math.max(x, el.clientWidth - x);
-			let max_y = Math.max(y, el.clientHeight - y);
-			let radius = Math.sqrt(max_x * max_x + max_y * max_y);
-			el.style.transitionProperty = 'none';
-			el.style.setProperty('--ripple-x', `${x}px`);
-			el.style.setProperty('--ripple-y', `${y}px`);
-			el.style.setProperty('--ripple-radius', `0px`);
-			window.requestAnimationFrame(() => {
-				el.style.transitionProperty = '';
-				el.style.setProperty('--ripple-radius', `${radius}px`);
-			});
-		};
-		document.querySelectorAll('.n-btn--ripple:not([data-ready])').forEach(el => {
-			el.addEventListener('pointerdown', ripple);
-			el.addEventListener('keydown', ripple);
-			el.dataset.ready = true;
+	const animate_options = el => { return { easing: "ease-in-out", duration: window.matchMedia("(prefers-reduced-motion: no-preference)").matches ? (el.dataset.duration * 1000 || getComputedStyle(el).getPropertyValue('--duration') * 1000 || 200) : 0 } };
+	const accordionContent = el => el.querySelector(":scope > .n-accordion__content");
+	const openAccordion = (el) => {
+		el = accordionContent(el);
+		window.requestAnimationFrame(() => {
+			el.style.height = 0;
+			el.style.overflow = "hidden";
+			let wrapper = el.parentNode;
+			wrapper.querySelector(":scope > .n-accordion__label").setAttribute("aria-expanded", true);
+			el.animate([{ height: 0 }, { height: `${el.scrollHeight}px` }], animate_options(wrapper)).onfinish = () => {
+				el.style.height = el.style.overflow = "";
+			};
 		});
 	};
-	nui.registerComponent("button", init);
+	const closeAccordion = (el, callback) => {
+		el = accordionContent(el);
+		window.requestAnimationFrame(() => {
+			el.style.overflow = "hidden";
+			let wrapper = el.parentNode;
+			el.animate([{ height: `${el.scrollHeight}px` }, { height: 0 }], animate_options(wrapper)).onfinish = () => {
+				el.style.height = el.style.overflow = "";
+				wrapper.querySelector(":scope > .n-accordion__label").setAttribute("aria-expanded", false);
+				typeof callback !== 'function' || callback();
+				if (wrapper.classList.contains('n-accordion--close-nested')) {
+					el.querySelectorAll(".n-accordion__label[aria-expanded='true']").forEach(el => el.setAttribute("aria-expanded", false));
+				}
+			};
+		});
+	};
+	const toggleAccordion = (e) => {
+		let el = e.target.closest('.n-accordion'); // el = .n-accordion
+		if (!el.querySelector(":scope > [aria-expanded='true']")) {
+			let popin = el.closest(".n-accordion__popin");
+			const updateRow = () => {
+				if (popin) {
+					let row = Math.floor(([...popin.children].indexOf(el) / getComputedStyle(popin).getPropertyValue("--n-popin-columns")) * 1) + 2;
+					popin.style.setProperty("--n-popin-open-row", row);
+				}
+			};
+			if (el.parentNode.matches('[role="group"]') || popin) {
+				let other_accordion = el.parentNode.querySelector(":scope > .n-accordion > [aria-expanded='true']");
+				if (other_accordion) {
+					closeAccordion(other_accordion.parentNode, () => { // el = .n-accordion
+						updateRow();
+						openAccordion(el);
+					});
+				} else {
+					updateRow();
+					openAccordion(el);
+				}
+			} else {
+				openAccordion(el);
+			}
+		} else {
+			closeAccordion(el);
+		}
+	};
+
+	function init(host = document) {
+		host.querySelectorAll(".n-accordion:not([data-ready]) > .n-accordion__label").forEach((el) => {
+			el.addEventListener("click", toggleAccordion);
+			el.parentElement.querySelector(":scope > input")?.remove(); // Remove CSS-only solution
+			el.parentNode.dataset.ready = true;
+			el.setAttribute('aria-expanded', el.getAttribute('aria-expanded') === 'true');
+		});
+	}
+	const doInit = () => {
+		(typeof nui !== 'undefined' && typeof nui.registerComponent === "function") ? nui.registerComponent("n-accordion", init) : init();
+	};
+	if (document.readyState !== "loading") {
+		doInit();
+	} else {
+		document.addEventListener("DOMContentLoaded", doInit);
+	}
 })();
-// Component Button – end
-//# sourceMappingURL=button.js.map
+//# sourceMappingURL=n-accordion@npm.js.map
 
 // import './node_modules/n-modal/n-modal.js';
 (function() {
@@ -497,9 +576,9 @@ nui.dynamicInit = true;// Component Form – start
   const isSafari = navigator.userAgent.match(/Safari/) && !isChrome;
   const isEndless = el => el.children.length > 2 && el.parentElement.classList.contains("n-carousel--endless");
   const isFullScreen = () => { return !!(document.webkitFullscreenElement || document.fullscreenElement) };
-  const isModal = el => { return el.closest(".n-carousel").classList.contains('n-carousel--overlay') };
+  const isModal = el => { return el.parentElement.classList.contains('n-carousel--overlay') };
   const isVertical = (el) => el.closest(".n-carousel").matches(".n-carousel--vertical");
-  const isAuto = (el) => el.closest(".n-carousel").matches(".n-carousel--auto-height");
+  const isAuto = (el) => el.parentNode.matches(".n-carousel--auto-height");
   const indexControls = index => {
     let controls_by_class = index.querySelectorAll('.n-carousel__control');
     return (controls_by_class.length > 0) ? controls_by_class : index.querySelectorAll('a, button');
@@ -583,19 +662,6 @@ nui.dynamicInit = true;// Component Form – start
             el.style.display = "";
           });
         }, 0);
-      }
-      if (isVertical(el) && isAuto(el)) {
-        let updateExitFullScreen = e => {
-          setTimeout(() => {
-            let carousel = el.querySelector(":scope > .n-carousel__content");
-            // console.log(carousel);
-            // el.style.removeProperty('--height');
-            // carousel.style.height = '';
-            slideTo(carousel, parseInt(carousel.dataset.y));
-          }, 100);
-          el.removeEventListener('fullscreenchange', updateExitFullScreen);
-        };
-        el.addEventListener('fullscreenchange', updateExitFullScreen);
       }
     } else {
       // Enter full screen
@@ -1082,24 +1148,15 @@ nui.dynamicInit = true;// Component Form – start
       trapFocus(carousel.closest(".n-carousel"));
     }
   };
-  const autoHeightObserver = new ResizeObserver((entries) => {
+  const verticalAutoObserver = new ResizeObserver((entries) => {
     window.requestAnimationFrame(() => {
       entries.forEach((e) => {
-        let slide = e.target.querySelector(":scope > [aria-current]");
+        let slide = e.target.closest(".n-carousel__content > *");
         let el = slide.closest(".n-carousel__content");
-        if (!el.parentElement.dataset.sliding) {
-          // console.log(e.target);
-          el.parentNode.style.removeProperty('--height');
-          if (isVertical(el)) {
-            slide.style.height = 'auto';
-            el.style.height = `${slide.scrollHeight}px`;
-            slide.style.height = '';
-            updateCarousel(el);
-          } else {
-            el.style.height = '';
-            el.style.height = `${slide.scrollHeight}px`;
-            updateCarousel(el, true);
-          }
+        if (!!slide.parentNode.ariaCurrent && !el.parentNode.dataset.sliding) {
+          slide.style.height = 'auto';
+          el.style.height = `${slide.scrollHeight}px`;
+          slide.style.height = '';
         }
       });
     });
@@ -1300,9 +1357,9 @@ nui.dynamicInit = true;// Component Form – start
         el.dataset.ready = true;
         content.scrollTop = 0; // Should be a different value if the initial active slide is other than the first one (unless updateCarousel() takes care of it)
       }
-      if (el.matches(".n-carousel--auto-height")) {
-        // Auto has a specified height which needs update on resize
-        autoHeightObserver.observe(content);
+      if (el.matches(".n-carousel--vertical.n-carousel--auto-height")) {
+        // Vertical auto has a specified height which needs update on resize
+        content.querySelectorAll(":scope > * > *").forEach((el) => verticalAutoObserver.observe(el));
       }
       window.requestAnimationFrame(() => {
         observersOn(content);
@@ -1451,7 +1508,7 @@ nui.dynamicInit = true;// Component Form – start
     }
   });
   const doInit = () => {
-    (typeof nui !== 'undefined' && typeof nui.registerComponent === "function") ? nui.registerComponent("n-carousel", init): init();
+    (typeof nui !== 'undefined' && typeof nui.registerComponent === "function") ? nui.registerComponent("n-carousel", init) : init();
   };
   if (document.readyState !== "loading") {
     doInit();
@@ -1460,85 +1517,6 @@ nui.dynamicInit = true;// Component Form – start
   }
 })();
 //# sourceMappingURL=n-carousel@npm.js.map
-
-// Component Accordion
-(function() {
-	const animate_options = el => { return { easing: "ease-in-out", duration: window.matchMedia("(prefers-reduced-motion: no-preference)").matches ? (el.dataset.duration * 1000 || getComputedStyle(el).getPropertyValue('--duration') * 1000 || 200) : 0 } };
-	const accordionContent = el => el.querySelector(":scope > .n-accordion__content");
-	const openAccordion = (el) => {
-		el = accordionContent(el);
-		window.requestAnimationFrame(() => {
-			el.style.height = 0;
-			el.style.overflow = "hidden";
-			let wrapper = el.parentNode;
-			wrapper.querySelector(":scope > .n-accordion__label").setAttribute("aria-expanded", true);
-			el.animate([{ height: 0 }, { height: `${el.scrollHeight}px` }], animate_options(wrapper)).onfinish = () => {
-				el.style.height = el.style.overflow = "";
-			};
-		});
-	};
-	const closeAccordion = (el, callback) => {
-		el = accordionContent(el);
-		window.requestAnimationFrame(() => {
-			el.style.overflow = "hidden";
-			let wrapper = el.parentNode;
-			el.animate([{ height: `${el.scrollHeight}px` }, { height: 0 }], animate_options(wrapper)).onfinish = () => {
-				el.style.height = el.style.overflow = "";
-				wrapper.querySelector(":scope > .n-accordion__label").setAttribute("aria-expanded", false);
-				typeof callback !== 'function' || callback();
-				if (wrapper.classList.contains('n-accordion--close-nested')) {
-					el.querySelectorAll(".n-accordion__label[aria-expanded='true']").forEach(el => el.setAttribute("aria-expanded", false));
-				}
-			};
-		});
-	};
-	const toggleAccordion = (e) => {
-		let el = e.target.closest('.n-accordion'); // el = .n-accordion
-		if (!el.querySelector(":scope > [aria-expanded='true']")) {
-			let popin = el.closest(".n-accordion__popin");
-			const updateRow = () => {
-				if (popin) {
-					let row = Math.floor(([...popin.children].indexOf(el) / getComputedStyle(popin).getPropertyValue("--n-popin-columns")) * 1) + 2;
-					popin.style.setProperty("--n-popin-open-row", row);
-				}
-			};
-			if (el.parentNode.matches('[role="group"]') || popin) {
-				let other_accordion = el.parentNode.querySelector(":scope > .n-accordion > [aria-expanded='true']");
-				if (other_accordion) {
-					closeAccordion(other_accordion.parentNode, () => { // el = .n-accordion
-						updateRow();
-						openAccordion(el);
-					});
-				} else {
-					updateRow();
-					openAccordion(el);
-				}
-			} else {
-				openAccordion(el);
-			}
-		} else {
-			closeAccordion(el);
-		}
-	};
-
-	function init(host = document) {
-		host.querySelectorAll(".n-accordion:not([data-ready]) > .n-accordion__label").forEach((el) => {
-			el.addEventListener("click", toggleAccordion);
-			el.parentElement.querySelector(":scope > input")?.remove(); // Remove CSS-only solution
-			el.parentNode.dataset.ready = true;
-			el.setAttribute('aria-expanded', el.getAttribute('aria-expanded') === 'true');
-		});
-	}
-	const doInit = () => {
-		(typeof nui !== 'undefined' && typeof nui.registerComponent === "function") ? nui.registerComponent("n-accordion", init) : init();
-	};
-	if (document.readyState !== "loading") {
-		doInit();
-	} else {
-		document.addEventListener("DOMContentLoaded", doInit);
-	}
-})();
-//# sourceMappingURL=n-accordion@npm.js.map
 
 /* Modal – start */
 (function() {
@@ -2222,6 +2200,7 @@ nui.dynamicInit = true;// Component Form – start
 		tip.removeAttribute("style");
 		delete tip.dataset.position;
 		tip.classList.add('n-tooltip__content-visible');
+
 		let positionTop = () => {
 			tip.style.bottom = 20 + body_rect.height + body_rect.y - top + "px";
 			tip.style.maxHeight = top - 40 + "px";
@@ -2308,7 +2287,9 @@ nui.dynamicInit = true;// Component Form – start
 	function getToolTip(tool) {
 		return document.getElementById(tool.getAttribute('aria-describedby')) || tool.nextElementSibling;
 	}
-	const hideTipFunction = tool => {
+	let hideTip = (e) => {
+		// return;
+		let tool = e.target.closest(".n-tooltip");
 		let tip = getToolTip(tool);
 		tool.removeAttribute("aria-expanded");
 		tool.after(tip);
@@ -2316,20 +2297,12 @@ nui.dynamicInit = true;// Component Form – start
 		delete tip.dataset.position;
 		tip.classList.remove('n-tooltip__content-visible');
 	};
-	let hideTip = (e) => {
-		hideTipFunction(e.target.closest(".n-tooltip"));
-	};
-	const hideTipOnScroll = e => {
-		document.querySelectorAll('.n-tooltip').forEach(el => hideTipFunction(el));
-		document.removeEventListener('scroll', hideTipOnScroll);
-	};
 	let showTip = (e) => {
 		let tool = e.target.closest(".n-tooltip");
 		let tip = getToolTip(tool);
 		tool.setAttribute("aria-expanded", true);
 		document.body.appendChild(tip);
 		setTipPosition(tool, tip);
-		document.addEventListener('scroll', hideTipOnScroll, true);
 	};
 	const init = (host = document) => {
 		/* Tooltip */
@@ -2344,51 +2317,10 @@ nui.dynamicInit = true;// Component Form – start
 			el.dataset.ready = true;
 		});
 	};
-	(typeof nui !== 'undefined' && typeof nui.registerComponent === "function") ? nui.registerComponent("n-tooltip", init): init();
+	(typeof nui !== 'undefined' && typeof nui.registerComponent === "function") ? nui.registerComponent("n-tooltip", init) : init();
 })();
 // Component Tooltip – end
 //# sourceMappingURL=n-tooltip@npm.js.map
-
-// Component Notification bar – start
-(function() {
-	function notifyClose(el) {
-		if (!!el) {
-			el.parentNode.removeChild(el);
-		}
-	}
-
-	function notifyCloseEvent() {
-		if (document.querySelector(".n-notify")) {
-			document.querySelector(".n-notify").onclick = (e) => {
-				notifyClose(e.target);
-			};
-		}
-	}
-
-	function notify(content, option) {
-		document.body.insertAdjacentHTML("afterbegin", `<button class="n-notify${option && option.indexOf("fixed") !== -1 ? " n-notify--fixed" : ""}">${content}</button>`);
-		document.querySelector(".n-notify").focus();
-		notifyCloseEvent();
-		if (option && option.indexOf("timeout") !== -1) {
-			setTimeout(() => {
-				notifyClose(document.querySelector(".n-notify"));
-			}, 2000);
-		}
-	}
-	let init = (host) => {
-		/* Tooltip */
-		host.querySelectorAll(".n-notify:not([data-ready])").forEach((el, i) => {
-			notifyCloseEvent();
-			el.dataset.ready = true;
-		});
-	};
-	nui.registerComponent("notify", init, {
-		'name': 'notify',
-		'code': notify
-	});
-})();
-// Component Notification bar – end
-//# sourceMappingURL=notify.js.map
 
 // Component Nav – start
 (function() {
@@ -2641,6 +2573,47 @@ nui.dynamicInit = true;// Component Form – start
 })();
 // Component Nav – end
 //# sourceMappingURL=nav.js.map
+
+// Component Notification bar – start
+(function() {
+	function notifyClose(el) {
+		if (!!el) {
+			el.parentNode.removeChild(el);
+		}
+	}
+
+	function notifyCloseEvent() {
+		if (document.querySelector(".n-notify")) {
+			document.querySelector(".n-notify").onclick = (e) => {
+				notifyClose(e.target);
+			};
+		}
+	}
+
+	function notify(content, option) {
+		document.body.insertAdjacentHTML("afterbegin", `<button class="n-notify${option && option.indexOf("fixed") !== -1 ? " n-notify--fixed" : ""}">${content}</button>`);
+		document.querySelector(".n-notify").focus();
+		notifyCloseEvent();
+		if (option && option.indexOf("timeout") !== -1) {
+			setTimeout(() => {
+				notifyClose(document.querySelector(".n-notify"));
+			}, 2000);
+		}
+	}
+	let init = (host) => {
+		/* Tooltip */
+		host.querySelectorAll(".n-notify:not([data-ready])").forEach((el, i) => {
+			notifyCloseEvent();
+			el.dataset.ready = true;
+		});
+	};
+	nui.registerComponent("notify", init, {
+		'name': 'notify',
+		'code': notify
+	});
+})();
+// Component Notification bar – end
+//# sourceMappingURL=notify.js.map
 
 // Component Parallax – start
 (function() {

@@ -7,7 +7,7 @@
   --nui-color: #333;
 }
 
-.n-table {
+.n-table, .n-table--wide {
   overflow: auto;
   border-collapse: collapse;
   border-radius: var(--nui-border-radius);
@@ -15,14 +15,16 @@
   display: inline-block;
 }
 .n-table--wide {
-  display: table;
   width: 100%;
-  overflow: hidden;
-  table-layout: fixed;
+  overflow: auto;
+}
+.n-table--wide .n-table {
+  width: 100%;
+  display: table;
 }
 .n-table td,
 .n-table th {
-  padding: var(--nui-line-height-em) calc(var(--nui-line-height-em) / 2);
+  padding: var(--nui-line-height-em) calc(var(--nui-line-height-em)/2);
   vertical-align: middle;
 }
 .n-table th,
