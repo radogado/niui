@@ -576,9 +576,9 @@ nui.dynamicInit = true;// Component Button – start
   const isSafari = navigator.userAgent.match(/Safari/) && !isChrome;
   const isEndless = el => el.children.length > 2 && el.parentElement.classList.contains("n-carousel--endless");
   const isFullScreen = () => { return !!(document.webkitFullscreenElement || document.fullscreenElement) };
-  const isModal = el => { return el.parentElement.classList.contains('n-carousel--overlay') };
+  const isModal = el => { return el.closest(".n-carousel").classList.contains('n-carousel--overlay') };
   const isVertical = (el) => el.closest(".n-carousel").matches(".n-carousel--vertical");
-  const isAuto = (el) => el.parentNode.matches(".n-carousel--auto-height");
+  const isAuto = (el) => el.closest(".n-carousel").matches(".n-carousel--auto-height");
   const indexControls = index => {
     let controls_by_class = index.querySelectorAll('.n-carousel__control');
     return (controls_by_class.length > 0) ? controls_by_class : index.querySelectorAll('a, button');
@@ -662,6 +662,19 @@ nui.dynamicInit = true;// Component Button – start
             el.style.display = "";
           });
         }, 0);
+      }
+      if (isVertical(el) && isAuto(el)) {
+        let updateExitFullScreen = e => {
+          setTimeout(() => {
+            let carousel = el.querySelector(":scope > .n-carousel__content");
+            // console.log(carousel);
+            // el.style.removeProperty('--height');
+            // carousel.style.height = '';
+            slideTo(carousel, parseInt(carousel.dataset.y));
+          }, 100);
+          el.removeEventListener('fullscreenchange', updateExitFullScreen);
+        };
+        el.addEventListener('fullscreenchange', updateExitFullScreen);
       }
     } else {
       // Enter full screen
@@ -1148,15 +1161,24 @@ nui.dynamicInit = true;// Component Button – start
       trapFocus(carousel.closest(".n-carousel"));
     }
   };
-  const verticalAutoObserver = new ResizeObserver((entries) => {
+  const autoHeightObserver = new ResizeObserver((entries) => {
     window.requestAnimationFrame(() => {
       entries.forEach((e) => {
-        let slide = e.target.closest(".n-carousel__content > *");
+        let slide = e.target.querySelector(":scope > [aria-current]");
         let el = slide.closest(".n-carousel__content");
-        if (!!slide.parentNode.ariaCurrent && !el.parentNode.dataset.sliding) {
-          slide.style.height = 'auto';
-          el.style.height = `${slide.scrollHeight}px`;
-          slide.style.height = '';
+        if (!el.parentElement.dataset.sliding) {
+          // console.log(e.target);
+          el.parentNode.style.removeProperty('--height');
+          if (isVertical(el)) {
+            slide.style.height = 'auto';
+            el.style.height = `${slide.scrollHeight}px`;
+            slide.style.height = '';
+            updateCarousel(el);
+          } else {
+            el.style.height = '';
+            el.style.height = `${slide.scrollHeight}px`;
+            updateCarousel(el, true);
+          }
         }
       });
     });
@@ -1357,9 +1379,9 @@ nui.dynamicInit = true;// Component Button – start
         el.dataset.ready = true;
         content.scrollTop = 0; // Should be a different value if the initial active slide is other than the first one (unless updateCarousel() takes care of it)
       }
-      if (el.matches(".n-carousel--vertical.n-carousel--auto-height")) {
-        // Vertical auto has a specified height which needs update on resize
-        content.querySelectorAll(":scope > * > *").forEach((el) => verticalAutoObserver.observe(el));
+      if (el.matches(".n-carousel--auto-height")) {
+        // Auto has a specified height which needs update on resize
+        autoHeightObserver.observe(content);
       }
       window.requestAnimationFrame(() => {
         observersOn(content);
@@ -1508,7 +1530,7 @@ nui.dynamicInit = true;// Component Button – start
     }
   });
   const doInit = () => {
-    (typeof nui !== 'undefined' && typeof nui.registerComponent === "function") ? nui.registerComponent("n-carousel", init) : init();
+    (typeof nui !== 'undefined' && typeof nui.registerComponent === "function") ? nui.registerComponent("n-carousel", init): init();
   };
   if (document.readyState !== "loading") {
     doInit();
@@ -2200,7 +2222,6 @@ nui.dynamicInit = true;// Component Button – start
 		tip.removeAttribute("style");
 		delete tip.dataset.position;
 		tip.classList.add('n-tooltip__content-visible');
-
 		let positionTop = () => {
 			tip.style.bottom = 20 + body_rect.height + body_rect.y - top + "px";
 			tip.style.maxHeight = top - 40 + "px";
@@ -2287,9 +2308,7 @@ nui.dynamicInit = true;// Component Button – start
 	function getToolTip(tool) {
 		return document.getElementById(tool.getAttribute('aria-describedby')) || tool.nextElementSibling;
 	}
-	let hideTip = (e) => {
-		// return;
-		let tool = e.target.closest(".n-tooltip");
+	const hideTipFunction = tool => {
 		let tip = getToolTip(tool);
 		tool.removeAttribute("aria-expanded");
 		tool.after(tip);
@@ -2297,12 +2316,20 @@ nui.dynamicInit = true;// Component Button – start
 		delete tip.dataset.position;
 		tip.classList.remove('n-tooltip__content-visible');
 	};
+	let hideTip = (e) => {
+		hideTipFunction(e.target.closest(".n-tooltip"));
+	};
+	const hideTipOnScroll = e => {
+		document.querySelectorAll('.n-tooltip').forEach(el => hideTipFunction(el));
+		document.removeEventListener('scroll', hideTipOnScroll);
+	};
 	let showTip = (e) => {
 		let tool = e.target.closest(".n-tooltip");
 		let tip = getToolTip(tool);
 		tool.setAttribute("aria-expanded", true);
 		document.body.appendChild(tip);
 		setTipPosition(tool, tip);
+		document.addEventListener('scroll', hideTipOnScroll, true);
 	};
 	const init = (host = document) => {
 		/* Tooltip */
@@ -2317,7 +2344,7 @@ nui.dynamicInit = true;// Component Button – start
 			el.dataset.ready = true;
 		});
 	};
-	(typeof nui !== 'undefined' && typeof nui.registerComponent === "function") ? nui.registerComponent("n-tooltip", init) : init();
+	(typeof nui !== 'undefined' && typeof nui.registerComponent === "function") ? nui.registerComponent("n-tooltip", init): init();
 })();
 // Component Tooltip – end
 //# sourceMappingURL=n-tooltip@npm.js.map

@@ -3962,28 +3962,35 @@
 			})
 		});
 		document.querySelector(location.hash)?.scrollIntoView();
-		window.addEventListener('load', e => {
-			document.querySelector('html').style.scrollBehavior = 'smooth';
-		});
+		document.querySelector(`[href="${location.hash}"]`)?.click();
+		document.querySelectorAll('aside nav [aria-current]').forEach(el => el.removeAttribute('aria-current'));
+		document.querySelector(`[href="${location.hash}"]`).setAttribute('aria-current', 'true');
+
+
 		var set_active_timeout = 0;
 		const interSecObs = new IntersectionObserver(entries => {
 			entries.forEach(entry => {
-				let slide = entry.target;
-				clearTimeout(set_active_timeout);
-				set_active_timeout = setTimeout(() => {
-					document.querySelectorAll('aside nav [aria-current]').forEach(el => el.removeAttribute('aria-current'));
-					let id = `#${slide.closest('section').id}`;
-					document.querySelector(`aside nav a[href="${id}"`).setAttribute('aria-current', 'true');
-					// history.replaceState(null, null, '#carousel');
-					console.log('intersection observing ', slide);
-				}, 300);
+				if (entry.isIntersecting) {
+					let slide = entry.target;
+					clearTimeout(set_active_timeout);
+					set_active_timeout = setTimeout(() => {
+						document.querySelectorAll('aside nav [aria-current]').forEach(el => el.removeAttribute('aria-current'));
+						let id = `#${slide.closest('section').id}`;
+						document.querySelector(`aside nav a[href="${id}"`).setAttribute('aria-current', 'true');
+						// history.replaceState(null, null, '#carousel');
+						console.log('intersection observing ', slide);
+					}, 300);
+				}
 			});
 		}, {
 			threshold: .5,
 			rootMargin: "0px 0px -75% 0px"
 		});
 
-		// document.querySelectorAll('main > section .section-title').forEach(el => interSecObs.observe(el));
+		window.addEventListener('load', e => {
+			document.querySelectorAll('main > section .section-title').forEach(el => interSecObs.observe(el));
+			document.querySelector('html').style.scrollBehavior = 'smooth';
+		});
 
 		window.onpopstate = (event) => {
 			console.log(

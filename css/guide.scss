@@ -444,6 +444,7 @@ aside {
     display: flex;
     gap: 1em;
     box-shadow: 0 0 0.333em 0px #00000066;
+    --nui-control-active-color: #bc8453;
 
     a {
       font-weight: 500;
@@ -498,6 +499,7 @@ section {
 
 main {
   min-width: 0;
+  overflow-x: hidden;
   // height: 100%;
   // overflow: auto;
 }
