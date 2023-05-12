@@ -81,6 +81,13 @@ body.n-sticky-footer {
   }
 }
 
+// iPad disappearing fixed background
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .n-fixed-bg__backdrop img {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 .n-fixed {
   position: fixed;
 
@@ -143,7 +150,8 @@ a[href].span-relative-parent {
   --nui-shadow-size: 0px;
   --nui-shadow-blur: 0;
   --nui-shadow-color: var(--nui-control-color);
-  --nui-border-color: transparent;}
+  --nui-border-color: transparent;
+}
 
 @mixin dark-theme {
   --nui-color: var(--nui-color-dark);

@@ -308,7 +308,7 @@ _:future,
 
 @media (min-width: 600px) {
   #dynamic-components .n-row .n-row {
-    margin-inline-start: calc(-1 * var(--nui-line-height-em)/2);
+    margin-inline-start: calc(-1 * var(--nui-line-height-em) / 2);
     width: calc(100% + var(--nui-line-height-em));
   }
 
