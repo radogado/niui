@@ -78,6 +78,11 @@ body.n-sticky-footer main {
   object-position: center;
 }
 
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .n-fixed-bg__backdrop img {
+    transform: translate3d(0, 0, 0);
+  }
+}
 .n-fixed {
   position: fixed;
 }
