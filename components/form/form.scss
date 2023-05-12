@@ -659,12 +659,15 @@ _::-webkit-full-page-media,
 _:future,
 :root .n-form.n-form--mast fieldset {
   display: block;
+  grid-column: 1/3;
 }
 
 _::-webkit-full-page-media,
 _:future,
 :root .n-form.n-form--mast fieldset legend {
   width: calc(50% - .5em);
+  float: inline-start;
+  margin: 0;
 }
 
 _::-webkit-full-page-media,
