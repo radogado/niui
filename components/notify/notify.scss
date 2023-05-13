@@ -18,13 +18,13 @@
 		content: " ✕";
 	}
 
-	&--fixed {
+	// &--fixed {
 		font-weight: 500;
 		position: fixed;
 		left: 0;
 		right: 0;
-		z-index: 2;
-	}
+		z-index: 3;
+	// }
 
 	&:focus:focus-visible {
 		outline-offset: -3px;

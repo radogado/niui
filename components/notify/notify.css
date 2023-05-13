@@ -5,7 +5,6 @@
   --nui-line-height: 1.5;
   --nui-line-height-em: calc(1rem * var(--nui-line-height));
   --nui-color: #333;
-  --bg: #fff;
 }
 
 .n-notify {
@@ -20,16 +19,14 @@
   border: none;
   width: 100%;
   font: inherit;
-}
-.n-notify:after {
-  content: " ✕";
-}
-.n-notify--fixed {
   font-weight: 500;
   position: fixed;
   left: 0;
   right: 0;
-  z-index: 2;
+  z-index: 3;
+}
+.n-notify:after {
+  content: " ✕";
 }
 .n-notify:focus:focus-visible {
   outline-offset: -3px;
