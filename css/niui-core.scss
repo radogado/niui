@@ -70,22 +70,34 @@ body.n-sticky-footer {
     z-index: -1;
 
     img {
-      inset: 0;
+      height: 100vh;
       width: 100%;
-      height: 100vh; // Mobile browser resize when hiding/showing toolbars
-      height: 100dvh;
       position: fixed;
       object-fit: cover;
       object-position: center;
+      inset-block-start: 0; // Safari iPhone toolbars stability
+      inset-inline: 0;
+
+      @media (min-width: 600px) {
+        inset-block-start: auto;
+        inset-block-end: 0; // Safari iPad toolbars stability
+      }
     }
   }
 }
 
 // iPad disappearing fixed background
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-  .n-fixed-bg__backdrop img {
-    transform: translate3d(0, 0, 0);
-  }
+// @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+.n-fixed-bg__backdrop img {
+  transform: translate3d(0, 0, 0);
+}
+
+// }
+
+// Chrome stuck at bottom
+[data-nui-chrome] .n-fixed-bg__backdrop img {
+  inset-block-start: auto;
+  inset-block-end: 0;
 }
 
 .n-fixed {

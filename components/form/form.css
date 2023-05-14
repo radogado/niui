@@ -197,7 +197,7 @@
   display: inline-block;
   background-color: var(--nui-control-bg, #eee);
   color: var(--nui-control-color, #333);
-  line-height: calc((var(--nui-line-height) + 1) * (2 / 3));
+  line-height: calc((var(--nui-line-height) + 1) * 0.6666666667);
   text-align: center;
   border: none;
   margin: 0;
@@ -393,7 +393,7 @@
 .n-form--wide button,
 .n-form--wide button[type=submit] {
   margin-bottom: calc(var(--nui-line-height-em) - 5px);
-  line-height: calc((var(--nui-line-height-em) / 3) * 2);
+  line-height: calc(var(--nui-line-height-em) / 3 * 2);
   font-size: 1.2em;
   min-height: 2.50005em;
   width: 100%;
@@ -437,6 +437,9 @@
 .n-form.n-form--mast button[type=submit] {
   margin-inline-start: calc(50% + 0.5em);
   margin-bottom: calc(var(--nui-line-height-em) * 1.5);
+}
+.n-form.n-form--mast input[type=text] {
+  height: 0;
 }
 .n-form.n-form--mast label,
 .n-form.n-form--mast fieldset {
@@ -515,7 +518,7 @@ _:future,
 _::-webkit-full-page-media,
 _:future,
 :root .n-form.n-form--mast fieldset legend {
-  width: calc(50% - .5em);
+  width: calc(50% - 0.5em);
   float: inline-start;
   margin: 0;
 }
@@ -523,7 +526,7 @@ _:future,
 _::-webkit-full-page-media,
 _:future,
 :root .n-form.n-form--mast fieldset label {
-  width: calc(50% - .5em);
+  width: calc(50% - 0.5em);
   float: inline-end;
 }
 

@@ -69,20 +69,30 @@ body.n-sticky-footer main {
   z-index: -1;
 }
 .n-fixed-bg__backdrop img {
-  inset: 0;
-  width: 100%;
   height: 100vh;
-  height: 100dvh;
+  width: 100%;
   position: fixed;
   object-fit: cover;
   object-position: center;
+  inset-block-start: 0;
+  inset-inline: 0;
 }
-
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+@media (min-width: 600px) {
   .n-fixed-bg__backdrop img {
-    transform: translate3d(0, 0, 0);
+    inset-block-start: auto;
+    inset-block-end: 0;
   }
 }
+
+.n-fixed-bg__backdrop img {
+  transform: translate3d(0, 0, 0);
+}
+
+[data-nui-chrome] .n-fixed-bg__backdrop img {
+  inset-block-start: auto;
+  inset-block-end: 0;
+}
+
 .n-fixed {
   position: fixed;
 }
