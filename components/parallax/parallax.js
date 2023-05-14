@@ -5,7 +5,7 @@
 	let updateParallax = () => {
 		document.querySelectorAll(".n-parallax").forEach((el) => {
 			let parent = el.parentElement;
-			let scroll_offset = parent.scrollHeight > parent.offsetHeight ? parent.getBoundingClientRect().y : document.body.scrollTop || document.documentElement.scrollTop;
+			let scroll_offset = parent.getBoundingClientRect().y;
 			el.style.setProperty("--scrollparallax", scroll_offset * parallaxSpeed);
 		});
 	};
