@@ -88,6 +88,11 @@ body.n-sticky-footer main {
   transform: translate3d(0, 0, 0);
 }
 
+[data-nui-chrome] .n-fixed-bg__backdrop img {
+  inset-block-start: auto;
+  inset-block-end: 0;
+}
+
 .n-fixed {
   position: fixed;
 }
