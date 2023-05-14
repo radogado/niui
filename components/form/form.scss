@@ -534,6 +534,10 @@
       margin-inline-start: calc(50% + 0.5em);
       margin-bottom: calc(var(--nui-line-height-em) * 1.5);
     }
+    
+    input[type="text"] {
+      height: 0; // Overheight on narrow screens
+    }
 
     label,
     fieldset {
