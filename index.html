@@ -3962,11 +3962,12 @@
 					})
 				})
 			});
-			document.querySelector(location.hash)?.scrollIntoView();
-			document.querySelector(`[href="${location.hash}"]`)?.click();
-			document.querySelectorAll('aside nav [aria-current]').forEach(el => el.removeAttribute('aria-current'));
-			document.querySelector(`[href="${location.hash}"]`).setAttribute('aria-current', 'true');
-
+			if (!!location.hash) {
+				document.querySelector(location.hash)?.scrollIntoView();
+				document.querySelector(`[href="${location.hash}"]`)?.click();
+				document.querySelectorAll('aside nav [aria-current]').forEach(el => el.removeAttribute('aria-current'));
+				document.querySelector(`[href="${location.hash}"]`).setAttribute('aria-current', 'true');
+			}
 
 			var set_active_timeout = 0;
 			const interSecObs = new IntersectionObserver(entries => {
@@ -3979,7 +3980,7 @@
 							let id = `#${slide.closest('section').id}`;
 							document.querySelector(`aside nav a[href="${id}"`).setAttribute('aria-current', 'true');
 							// history.replaceState(null, null, '#carousel');
-							console.log('intersection observing ', slide);
+							// console.log('intersection observing ', slide);
 						}, 300);
 					}
 				});
@@ -3994,9 +3995,9 @@
 			});
 
 			window.onpopstate = (event) => {
-				console.log(
-					`location: ${document.location}, state: ${JSON.stringify(event.state)}`
-				);
+				// console.log(
+				// 	`location: ${document.location}, state: ${JSON.stringify(event.state)}`
+				// );
 				clearTimeout(set_active_timeout);
 				document.querySelectorAll('aside nav [aria-current]').forEach(el => el.removeAttribute('aria-current'));
 				document.querySelector(`aside nav a[href="${location.hash}"`).setAttribute('aria-current', 'true');
