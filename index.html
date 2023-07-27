@@ -1045,7 +1045,7 @@
 	&lt;div class="n-accordion n-accordion--mobile"&gt;
 		&lt;button class="n-accordion__label"&gt; &lt;span class="n-burger"&gt;&lt;/span&gt; &lt;/button&gt;
 		&lt;input type="checkbox" class="n-trigger"&gt;
-		&lt;div class="n-accordion__content"&gt;
+		&lt;div class="n-accordion__content" role="region"&gt;
 			&lt;nav class="n-nav"&gt;
 				&lt;ul class="n-list--inline"&gt;
 					&lt;li aria-current="page"&gt; &lt;a href="#grid" tabindex="0"&gt;Grid&lt;/a&gt; &lt;/li&gt;
@@ -2571,10 +2571,10 @@
 
 							<input type="checkbox" aria-label="Toggle accordion">
 							<div class="n-accordion__label" role="heading" aria-level="2"> 
-								<button> Accordion </button>
+								<button id="accordion-1-button" aria-controls="accordion-1-content"> Accordion </button>
 							</div>
 
-							<div class="n-accordion__content">
+							<div class="n-accordion__content" role="region" id="accordion-1-content" aria-labelledby="accordion-1-button">
 
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
 
@@ -2585,8 +2585,8 @@
 						<div class="code">
 							<pre><code class="language-markup">&lt;div class=&quot;n-accordion&quot;&gt;
 	&lt;input type=&quot;checkbox&quot; aria-label="Toggle accordion"&gt;
-	&lt;h2 class=&quot;n-accordion__label&quot;&gt; &lt;button&gt; Accordion &lt;/button&gt;&lt;/h2&gt;
-	&lt;div class=&quot;n-accordion__content&quot;&gt;
+	&lt;h2 class=&quot;n-accordion__label&quot;&gt; &lt;button id="accordion-1-button" aria-controls="accordion-1-content"&gt; Accordion &lt;/button&gt;&lt;/h2&gt;
+	&lt;div class=&quot;n-accordion__content&quot; role="region" id="accordion-1-content" aria-labelledby="accordion-1-button"&gt;
 		...
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
@@ -2596,17 +2596,17 @@
 						<div class="n-accordion">
 							<input type="checkbox" checked="true" aria-label="Toggle accordion">
 							<div class="n-accordion__label" role="heading" aria-level="2">
-								<button aria-expanded="true"> Open by default </button>
+								<button id="accordion-2-button" aria-controls="accordion-2-content" aria-expanded="true"> Open by default </button>
 							</div>
-							<div class="n-accordion__content">
+							<div class="n-accordion__content" role="region" id="accordion-2-content" aria-labelledby="accordion-2-button">
 								<p> Content. </p>
 							</div>
 						</div>
 						<div class="code">
 							<pre><code class="language-markup">&lt;div class=&quot;n-accordion&quot;&gt;
 	&lt;input type=&quot;checkbox&quot; checked="true"&gt;
-	&lt;h2 class=&quot;n-accordion__label&quot;&gt; &lt;button aria-expanded=&quot;true&quot;&gt; Accordion &lt;/button&gt;&lt;/h2&gt;
-	&lt;div class=&quot;n-accordion__content&quot;&gt;
+	&lt;h2 class=&quot;n-accordion__label&quot;&gt; &lt;button id="accordion-1-button" aria-controls="accordion-1-content" aria-expanded=&quot;true&quot;&gt; Accordion &lt;/button&gt;&lt;/h2&gt;
+	&lt;div class=&quot;n-accordion__content&quot; role="region" id="accordion-1-content" aria-labelledby="accordion-1-button"&gt;
 		...
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
@@ -2616,24 +2616,24 @@
 						<div role="group">
 							<div class="n-accordion">
 								<input type="checkbox" aria-label="Toggle accordion">
-								<div class="n-accordion__label"><button>Accordion 1</button></div>
-								<div class="n-accordion__content">
+								<div class="n-accordion__label"><button id="accordion-3-button" aria-controls="accordion-3-content">Accordion 1</button></div>
+								<div class="n-accordion__content" role="region" id="accordion-3-content" aria-labelledby="accordion-3-button">
 									<p>Content 1</p>
 									<p><a href="#">Link fourth</a>.</p>
 								</div>
 							</div>
 							<div class="n-accordion">
 								<input type="checkbox" aria-label="Toggle accordion">
-								<div class="n-accordion__label"><button>Accordion 2</button></div>
-								<div class="n-accordion__content">
+								<div class="n-accordion__label"><button id="accordion-4-button" aria-controls="accordion-4-content">Accordion 2</button></div>
+								<div class="n-accordion__content" role="region" id="accordion-4-content" aria-labelledby="accordion-4-button">
 									<p>Content 2</p>
 									<p><a href="#">Link fifth</a>.</p>
 								</div>
 							</div>
 							<div class="n-accordion">
 								<input type="checkbox" aria-label="Toggle accordion">
-								<div class="n-accordion__label"><button>Accordion 3</button></div>
-								<div class="n-accordion__content">
+								<div class="n-accordion__label"><button id="accordion-5-button" aria-controls="accordion-5-content">Accordion 3</button></div>
+								<div class="n-accordion__content" role="region" id="accordion-5-content" aria-labelledby="accordion-5-button">
 									<p>Content 3</p>
 									<p><a href="#">Link sixth</a>.</p>
 								</div>
@@ -2654,20 +2654,20 @@
 					<div class="_1/1">
 						<div class="n-accordion">
 							<input type="checkbox" aria-label="Toggle accordion">
-							<div class="n-accordion__label"><button>Nested Accordions</button></div>
-							<div class="n-accordion__content">
+							<div class="n-accordion__label"><button id="accordion-6-button" aria-controls="accordion-6-content">Nested Accordions</button></div>
+							<div class="n-accordion__content" role="region" id="accordion-6-content" aria-labelledby="accordion-6-button">
 								<div class="n-accordion">
 									<input type="checkbox">
-									<div class="n-accordion__label"><button>Nested Accordions</button></div>
-									<div class="n-accordion__content">
+									<div class="n-accordion__label"><button id="accordion-61-button" aria-controls="accordion-61-content">Nested Accordions</button></div>
+									<div class="n-accordion__content" role="region" id="accordion-61-content" aria-labelledby="accordion-61-button">
 										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
 										<p><a href="#">Link seventh</a>.</p>
 									</div>
 								</div>
 								<div class="n-accordion">
 									<input type="checkbox" aria-label="Toggle accordion">
-									<div class="n-accordion__label"><button>Nested Accordions</button></div>
-									<div class="n-accordion__content">
+									<div class="n-accordion__label"><button id="accordion-7-button" aria-controls="accordion-7-content">Nested Accordions</button></div>
+									<div class="n-accordion__content" role="region" id="accordion-7-content" aria-labelledby="accordion-7-button">
 										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
 										<p><a href="#">Link eighth</a>.</p>
 									</div>
@@ -2678,9 +2678,9 @@
 							<pre><code class="language-markup">&lt;div class=&quot;n-accordion&quot;&gt;
 	&lt;input type=&quot;checkbox&quot; aria-label="Toggle accordion"&gt;
 	&lt;h2 class=&quot;n-accordion__label&quot;&gt;
-		&lt;button&gt;Title&lt;/button&gt;
+		&lt;button id="accordion-1-button" aria-controls="accordion-1-content"&gt;Title&lt;/button&gt;
 	&lt;/h2&gt;
-	&lt;div class=&quot;n-accordion__content&quot;&gt;
+	&lt;div class=&quot;n-accordion__content&quot; role="region" id="accordion-1-content" aria-labelledby="accordion-1-button"&gt;
 		&lt;div class=&quot;n-accordion&quot;&gt;
 			...
 		&lt;/div&gt;	
@@ -2692,44 +2692,44 @@
 						<h2>Popin</h2>
 						<div class="n-accordion__popin">
 							<div class="n-accordion">
-								<div class="n-accordion__label"><button>1</button></div>
-								<div class="n-accordion__content">Content for 1</div>
+								<div class="n-accordion__label"><button id="accordion-1-1-button" aria-controls="accordion-1-1-content">1</button></div>
+								<div class="n-accordion__content" role="region" id="accordion-1-1-content" aria-labelledby="accordion-1-1-button">Content for 1</div>
 							</div>
 							<div class="n-accordion">
-								<div class="n-accordion__label"><button>2</button></div>
-								<div class="n-accordion__content">Content for 2</div>
+								<div class="n-accordion__label"><button id="accordion-1-2-button" aria-controls="accordion-1-2-content">2</button></div>
+								<div class="n-accordion__content" role="region" id="accordion-1-2-content" aria-labelledby="accordion-1-2-button">Content for 2</div>
 							</div>
 							<div class="n-accordion">
-								<div class="n-accordion__label"><button>3</button></div>
-								<div class="n-accordion__content">Content for 3</div>
+								<div class="n-accordion__label"><button id="accordion-1-3-button" aria-controls="accordion-1-3-content">3</button></div>
+								<div class="n-accordion__content" role="region" id="accordion-1-3-content" aria-labelledby="accordion-1-3-button">Content for 3</div>
 							</div>
 							<div class="n-accordion">
-								<div class="n-accordion__label"><button>4</button></div>
-								<div class="n-accordion__content">Content for 4</div>
+								<div class="n-accordion__label"><button id="accordion-1-4-button" aria-controls="accordion-1-4-content">4</button></div>
+								<div class="n-accordion__content" role="region" id="accordion-1-4-content" aria-labelledby="accordion-1-4-button">Content for 4</div>
 							</div>
 							<div class="n-accordion">
-								<div class="n-accordion__label"><button>5</button></div>
-								<div class="n-accordion__content">Content for 5</div>
+								<div class="n-accordion__label"><button id="accordion-1-5-button" aria-controls="accordion-1-5-content">5</button></div>
+								<div class="n-accordion__content" role="region" id="accordion-1-5-content" aria-labelledby="accordion-1-5-button">Content for 5</div>
 							</div>
 							<div class="n-accordion">
-								<div class="n-accordion__label"><button>6</button></div>
-								<div class="n-accordion__content">Content for 6</div>
+								<div class="n-accordion__label"><button id="accordion-1-6-button" aria-controls="accordion-1-6-content">6</button></div>
+								<div class="n-accordion__content" role="region" id="accordion-1-6-content" aria-labelledby="accordion-1-6-button">Content for 6</div>
 							</div>
 							<div class="n-accordion">
-								<div class="n-accordion__label"><button>7</button></div>
-								<div class="n-accordion__content">Content for 7</div>
+								<div class="n-accordion__label"><button id="accordion-1-7-button" aria-controls="accordion-1-7-content">7</button></div>
+								<div class="n-accordion__content" role="region" id="accordion-1-7-content" aria-labelledby="accordion-1-7-button">Content for 7</div>
 							</div>
 							<div class="n-accordion">
-								<div class="n-accordion__label"><button>8</button></div>
-								<div class="n-accordion__content">Content for 8</div>
+								<div class="n-accordion__label"><button id="accordion-1-8-button" aria-controls="accordion-1-8-content">8</button></div>
+								<div class="n-accordion__content" role="region" id="accordion-1-8-content" aria-labelledby="accordion-1-8-button">Content for 8</div>
 							</div>
 							<div class="n-accordion">
-								<div class="n-accordion__label"><button>9</button></div>
-								<div class="n-accordion__content">Content for 9</div>
+								<div class="n-accordion__label"><button id="accordion-1-9-button" aria-controls="accordion-1-9-content">9</button></div>
+								<div class="n-accordion__content" role="region" id="accordion-1-9-content" aria-labelledby="accordion-1-9-button">Content for 9</div>
 							</div>
 							<div class="n-accordion">
-								<div class="n-accordion__label"><button>10</button></div>
-								<div class="n-accordion__content">Content for 10</div>
+								<div class="n-accordion__label"><button id="accordion-1-10-button" aria-controls="accordion-1-10-content">10</button></div>
+								<div class="n-accordion__content" role="region" id="accordion-1-10-content" aria-labelledby="accordion-1-10-button">Content for 10</div>
 							</div>
 						</div>
 						<br>
@@ -2747,9 +2747,9 @@
 						<div class="n-accordion n-accordion--mobile">
 
 							<input type="checkbox" aria-label="Toggle accordion">
-							<div class="n-accordion__label" role="heading" aria-level="2"> <button>㆔</button></div>
+							<div class="n-accordion__label" role="heading" aria-level="2"> <button id="accordion-8-button" aria-controls="accordion-8-content">㆔</button></div>
 
-							<div class="n-accordion__content">
+							<div class="n-accordion__content" role="region" id="accordion-8-content" aria-labelledby="accordion-8-button">
 
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
 
@@ -2760,8 +2760,8 @@
 						<div class="code">
 							<pre><code class="language-markup">&lt;div class=&quot;n-accordion&quot;&gt;
 	&lt;input type=&quot;checkbox&quot; aria-label="Toggle accordion"&gt;
-	&lt;h2 class=&quot;n-accordion__label&quot;&gt; &lt;button&gt; Accordion &lt;/button&gt;&lt;/h2&gt;
-	&lt;div class=&quot;n-accordion__content&quot;&gt;
+	&lt;h2 class=&quot;n-accordion__label&quot;&gt; &lt;button id="accordion-1-button" aria-controls="accordion-1-content"&gt; Accordion &lt;/button&gt;&lt;/h2&gt;
+	&lt;div class=&quot;n-accordion__content&quot; role="region" id="accordion-1-content" aria-labelledby="accordion-1-button"&gt;
 		...
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
@@ -3849,9 +3849,9 @@
 									<textarea id=component-playground2 style="width: 100%;  min-height: calc(var(--nui-line-height-em, 1em) * 10);" aria-label="Component playground 2">
 <div class="n-accordion">
 	<div class="n-accordion__label">
-		<button> Label </button>
+		<button id="accordion-9-button" aria-controls="accordion-9-content"> Label </button>
 	</div>
-	<div class="n-accordion__content">
+	<div class="n-accordion__content" role="region" id="accordion-9-content" aria-labelledby="accordion-9-button">
 		<p> Content. </p>
 	</div>
 </div>
