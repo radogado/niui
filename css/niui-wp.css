@@ -262,6 +262,11 @@ article h2 a {
 article ul {
   padding-left: 2px;
 }
+article ul ul {
+  margin-inline-start: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
 article .n-aspect {
   z-index: 0;
   position: relative;

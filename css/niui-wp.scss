@@ -339,6 +339,12 @@ article h2 a {
 article {
 	ul {
 		padding-left: 2px;
+
+		ul {
+			margin-inline-start: 2rem;
+			margin-top: 1rem;
+			margin-bottom: 1rem;
+		}
 	}
 
 	.n-aspect {
@@ -641,9 +647,11 @@ nav.n-nav {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
+
 		&:has(> .aligncenter) {
 			justify-content: center;
 		}
+
 		&:has(> .alignright) {
 			justify-content: flex-end;
 		}
