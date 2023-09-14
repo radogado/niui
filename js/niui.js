@@ -595,14 +595,14 @@ nui.dynamicInit = true;// Component Button – start
     carousel = carousel.target || carousel;
     // console.log('scroll end', carousel);
     let index = Math.abs(Math.round(
-      (isVertical(carousel) ? 
-      carousel.scrollTop / (carousel.offsetHeight - parseFloat(getComputedStyle(carousel).paddingBlockStart)  - parseFloat(getComputedStyle(carousel).paddingBlockEnd)) : 
-      carousel.scrollLeft / (carousel.offsetWidth - parseFloat(getComputedStyle(carousel).paddingInlineStart)  - parseFloat(getComputedStyle(carousel).paddingInlineEnd))
-    ), 2));
+      (isVertical(carousel) ? carousel.scrollTop / (carousel.offsetHeight - parseFloat(getComputedStyle(carousel).paddingBlockStart) - parseFloat(getComputedStyle(carousel).paddingBlockEnd)) : carousel.scrollLeft / (carousel.offsetWidth - parseFloat(getComputedStyle(carousel).paddingInlineStart) - parseFloat(getComputedStyle(carousel).paddingInlineEnd))), 2));
+    // console.log('scroll end', index);
     let slide = carousel.children[index];
     if (!!carousel.parentNode.sliding || (carousel.dataset.next && parseInt(carousel.dataset.next) !== [...carousel.children].indexOf(slide))) {
       return;
     }
+    // console.log(index);
+    carousel.parentNode.dataset.sliding = true;
     delete carousel.dataset.next;
     observersOff(carousel);
     carousel.scrollLeft;
@@ -648,7 +648,6 @@ nui.dynamicInit = true;// Component Button – start
         if (old_height === new_height) {
           new_height = false;
         }
-        carousel.parentNode.dataset.sliding = true;
         // interSecObs.unobserve(slide);
         window.requestAnimationFrame(() => {
           scrollAnimate(carousel, 0, offset_y, new_height, old_height).then(() => {});
@@ -1018,15 +1017,15 @@ nui.dynamicInit = true;// Component Button – start
         }
       }
       // window.requestAnimationFrame(() => { // Cause blinking
-        el.dataset.x = el.dataset.y = active_index_logical;
-        let scroll_x = ceilingWidth(el.firstElementChild) * active_index;
-        let scroll_y = ceilingHeight(el.firstElementChild) * active_index;
-        // console.log('updateCarousel() scrolling at', scroll_x);
-        el.scroll_x = scroll_x;
-        el.scroll_y = scroll_y;
-        scrollTo(el, scroll_x, scroll_y); // First element size, because when Peeking, it differs from carousel size
-        delete el.scroll_x;
-        delete el.scroll_y;
+      el.dataset.x = el.dataset.y = active_index_logical;
+      let scroll_x = ceilingWidth(el.firstElementChild) * active_index;
+      let scroll_y = ceilingHeight(el.firstElementChild) * active_index;
+      // console.log('updateCarousel() scrolling at', scroll_x);
+      el.scroll_x = scroll_x;
+      el.scroll_y = scroll_y;
+      scrollTo(el, scroll_x, scroll_y); // First element size, because when Peeking, it differs from carousel size
+      delete el.scroll_x;
+      delete el.scroll_y;
       // });
     } else { // Check and restore dynamically disabled endless option
       restoreDisplacedSlides(el);
@@ -1333,12 +1332,9 @@ nui.dynamicInit = true;// Component Button – start
   };
   const observersOn = el => {
     window.requestAnimationFrame(() => {
-      // setTimeout(() => {
       if (el.scroll_x && el.scroll_y) {
         scrollTo(el, el.scroll_x, el.scroll_y);
       }
-      delete el.parentNode.dataset.sliding;
-      // }, 0);
       if (el.parentNode.matches(".n-carousel--vertical.n-carousel--controls-outside.n-carousel--auto-height")) {
         height_minus_index.observe(el.parentNode);
       } else {
@@ -1350,6 +1346,12 @@ nui.dynamicInit = true;// Component Button – start
         attributeFilter: ["class"],
       });
       el.addEventListener('scrollend', scrollEndAction);
+      // setTimeout(() => {
+      delete el.parentNode.dataset.sliding;
+      // }, 50); // Because intersection observer fires again
+      if (!("onscrollend" in window) && isEndless(el)) { // Fix for browsers without scrollend event (Safari) losing parts of the edge slide
+        scrollTo(el, el.offsetWidth * getIndexReal(el), el.offsetHeight * getIndexReal(el));
+      }
     });
   };
   const observersOff = el => {
@@ -1530,24 +1532,14 @@ nui.dynamicInit = true;// Component Button – start
         el.dataset.platform = navigator.platform; // iPhone doesn't support full screen, Windows scroll works differently
       });
       content.nCarouselUpdate = updateCarousel;
-      if ("onscrollend" in window) {
-        content.addEventListener('scrollend', scrollEndAction);
-      } else {
-        const targets = content.querySelectorAll(':scope > *');
-        const inView = target => {
-          const interSecObs = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-              let slide = entry.target;
-              let carousel = slide.parentNode;
-              if (entry.isIntersecting && !carousel.parentNode.dataset.sliding && getComputedStyle(carousel).visibility !== 'hidden') {
-                scrollEndAction(carousel);
-              }
-            });
-          }, { threshold: .996, root: target.parentElement }); // .99 works for all, including vertical auto height
-          interSecObs.observe(target);
-          // console.log('intersection observing ', target)
-        };
-        targets.forEach(inView);
+      if (!("onscrollend" in window)) { // scrollend event fallback to intersection observer (for Safari as of 2023)
+        const scrollEndObserver = new IntersectionObserver(entries => {
+          let carousel = entries[0].target.parentNode;
+          if (entries[0].isIntersecting && !carousel.parentNode.dataset.sliding && getComputedStyle(carousel).visibility !== 'hidden') {
+            scrollEndAction(carousel);
+          }
+        }, { threshold: .996, root: el.parentElement }); // .99 works for all, including vertical auto height?
+        [...content.children].forEach(el => scrollEndObserver.observe(el));
       }
       if (el.matches('.n-carousel--lightbox')) {
         let loaded = img => {
@@ -2731,6 +2723,34 @@ nui.dynamicInit = true;// Component Button – start
 // Component Parallax – end
 //# sourceMappingURL=parallax.js.map
 
+// Component Table – start
+(function () {
+	/* Sort parent table's rows by matching column number alternatively desc/asc on click */
+	const toggleSort = (th) => {
+		let previous = th.closest("tr").querySelector("td[data-ascending]");
+		if (previous && previous !== th) {
+			delete previous.dataset.ascending;
+		}
+		return th.toggleAttribute("data-ascending");
+	};
+	const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
+	const comparer = (idx, asc) => (a, b) => ((v1, v2) => (v1 !== "" && v2 !== "" && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)))(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
+	let init = (host) => {
+		host.querySelectorAll(".n-table:not([data-ready])").forEach((el) => {
+			el.querySelectorAll("thead td button.n-table__sort, th button.n-table__sort").forEach((button) => button.addEventListener("click", (e) => {
+				let th = e.target.closest("th") || e.target.closest("td");
+				const tbody = th.closest("table").querySelector("tbody");
+				Array.from(tbody.querySelectorAll("tr")).sort(comparer(Array.from(th.parentNode.children).indexOf(th), toggleSort(th))).forEach((tr) => tbody.appendChild(tr));
+			}));
+			el.dataset.ready = true;
+			el.setAttribute("tabindex", 0); // To scroll with arrow keys
+		});
+	};
+	nui.registerComponent("table", init);
+})();
+// Component Table – end
+//# sourceMappingURL=table.js.map
+
 // Component Typography – start
 (function () {
 	let init = (host) => {
@@ -2759,33 +2779,5 @@ nui.dynamicInit = true;// Component Button – start
 })();
 // Component Typography – end
 //# sourceMappingURL=typography.js.map
-
-// Component Table – start
-(function () {
-	/* Sort parent table's rows by matching column number alternatively desc/asc on click */
-	const toggleSort = (th) => {
-		let previous = th.closest("tr").querySelector("td[data-ascending]");
-		if (previous && previous !== th) {
-			delete previous.dataset.ascending;
-		}
-		return th.toggleAttribute("data-ascending");
-	};
-	const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
-	const comparer = (idx, asc) => (a, b) => ((v1, v2) => (v1 !== "" && v2 !== "" && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)))(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
-	let init = (host) => {
-		host.querySelectorAll(".n-table:not([data-ready])").forEach((el) => {
-			el.querySelectorAll("thead td button.n-table__sort, th button.n-table__sort").forEach((button) => button.addEventListener("click", (e) => {
-				let th = e.target.closest("th") || e.target.closest("td");
-				const tbody = th.closest("table").querySelector("tbody");
-				Array.from(tbody.querySelectorAll("tr")).sort(comparer(Array.from(th.parentNode.children).indexOf(th), toggleSort(th))).forEach((tr) => tbody.appendChild(tr));
-			}));
-			el.dataset.ready = true;
-			el.setAttribute("tabindex", 0); // To scroll with arrow keys
-		});
-	};
-	nui.registerComponent("table", init);
-})();
-// Component Table – end
-//# sourceMappingURL=table.js.map
 export default nui;
 //# sourceMappingURL=niui.js.map
