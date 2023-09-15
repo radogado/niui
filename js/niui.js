@@ -481,94 +481,103 @@ nui.dynamicInit = true;// Component Button – start
 // Component Form – end
 //# sourceMappingURL=form.js.map
 
-// Component Accordion
-(function() {
-	const animate_options = el => { return { easing: "ease-in-out", duration: window.matchMedia("(prefers-reduced-motion: no-preference)").matches ? (el.dataset.duration * 1000 || getComputedStyle(el).getPropertyValue('--duration') * 1000 || 200) : 0 } };
-	const accordionContent = el => el.querySelector(":scope > .n-accordion__content");
-	const openAccordion = (el) => {
-		el = accordionContent(el);
-		window.requestAnimationFrame(() => {
-			el.style.height = 0;
-			el.style.overflow = "hidden";
-			let wrapper = el.parentNode;
-			wrapper.querySelector(":scope > .n-accordion__label button").setAttribute("aria-expanded", true);
-			wrapper.dataset.expanded = true;
-			el.animate([{ height: 0 }, { height: `${el.scrollHeight}px` }], animate_options(wrapper)).onfinish = () => {
-				el.style.height = el.style.overflow = "";
-			};
-		});
-	};
-	const closeAccordion = (el, callback) => {
-		el = accordionContent(el);
-		window.requestAnimationFrame(() => {
-			el.style.overflow = "hidden";
-			let wrapper = el.parentNode;
-			el.animate([{ height: `${el.scrollHeight}px` }, { height: 0 }], animate_options(wrapper)).onfinish = () => {
-				el.style.height = el.style.overflow = "";
-				wrapper.querySelector(":scope > .n-accordion__label button").setAttribute("aria-expanded", false);
-				delete wrapper.dataset.expanded;
-				typeof callback !== 'function' || callback();
-				if (wrapper.classList.contains('n-accordion--close-nested')) {
-					el.querySelectorAll(".n-accordion__label button[aria-expanded='true']").forEach(el => el.setAttribute("aria-expanded", false));
-					el.querySelectorAll(".n-accordion").forEach(el => delete el.dataset.expanded);
-				}
-			};
-		});
-	};
-	const toggleAccordion = (e) => {
-		let el = e.target.closest('.n-accordion');
-		if (!el.dataset.expanded) {
-			let popin = el.closest(".n-accordion__popin");
-			const updateRow = () => {
-				if (popin) {
-					let row = Math.floor(([...popin.children].indexOf(el) / getComputedStyle(popin).getPropertyValue("--n-popin-columns")) * 1) + 2;
-					popin.style.setProperty("--n-popin-open-row", row);
-				}
-			};
-			if (el.parentNode.matches('[role="group"]') || popin) {
-				let other_accordion = el.parentNode.querySelector(":scope > .n-accordion[data-expanded]");
-				if (other_accordion) {
-					closeAccordion(other_accordion, () => {
-						updateRow();
-						openAccordion(el);
-					});
-				} else {
-					updateRow();
-					openAccordion(el);
-				}
-			} else {
-				openAccordion(el);
-			}
-		} else {
-			closeAccordion(el);
-		}
-	};
+const supported = "onscrollend" in window;
 
-	function init(host = document) {
-		host.querySelectorAll(".n-accordion:not([data-ready])").forEach((el) => {
-			el.querySelector(":scope > input")?.remove(); // Remove CSS-only solution
-			el.dataset.ready = true;
-			let button = el.querySelector(':scope > .n-accordion__label button');
-			button.addEventListener("click", toggleAccordion);
-			if (button.getAttribute('aria-expanded') === 'true') {
-				el.dataset.expanded = true;
-			} else {
-				button.setAttribute('aria-expanded', false);	
-			}
-		});
-	}
-	const doInit = () => {
-		(typeof nui !== 'undefined' && typeof nui.registerComponent === "function") ? nui.registerComponent("n-accordion", init): init();
-	};
-	if (document.readyState !== "loading") {
-		doInit();
-	} else {
-		document.addEventListener("DOMContentLoaded", doInit);
-	}
-})();
-//# sourceMappingURL=n-accordion@npm.js.map
+if (!supported) {
+  const scrollendEvent = new Event('scrollend');
+  const pointers = new Set();
+
+  // Track if any pointer is active
+  document.addEventListener('touchstart', e => {
+    for (let touch of e.changedTouches) 
+      pointers.add(touch.identifier);
+  }, {passive: true});
+
+  document.addEventListener('touchend', e => {
+    for (let touch of e.changedTouches)
+      pointers.delete(touch.identifier);
+  }, {passive: true});
+
+  // Map of scroll-observed elements.
+  let observed = new WeakMap();
+
+  // Forward and observe calls to a native method.
+  function observe(proto, method, handler) {
+    let native = proto[method];
+    proto[method] = function() {
+      let args = Array.prototype.slice.apply(arguments, [0]);
+      native.apply(this, args);
+      args.unshift(native);
+      handler.apply(this, args);
+    };
+  }
+  
+  function onAddListener(originalFn, type, handler, options) {
+    // Polyfill scrollend event on any element for which the developer listens
+    // to 'scrollend' explicitly or 'scroll' (so that adding a scrollend listener
+    // from within a scroll listener works).
+    if (type != 'scroll' && type != 'scrollend')
+      return;
+
+    let scrollport = this;
+    let data = observed.get(scrollport);
+    if (data === undefined) {
+      let timeout = 0;
+      data = {
+        scrollListener: (evt) => {
+          clearTimeout(timeout);
+          timeout = setTimeout(() => {
+            if (pointers.size) {
+              // if pointer(s) are down, wait longer
+              setTimeout(data.scrollListener, 100);
+            }
+            else {
+              // dispatch
+              scrollport.dispatchEvent(scrollendEvent);
+              timeout = 0;
+            }
+          }, 100);
+        },
+        listeners: 0, // Count of number of listeners.
+      };
+      originalFn.apply(scrollport, ['scroll', data.scrollListener]);
+      observed.set(scrollport, data);
+    }
+    data.listeners++;
+  }
+
+  function onRemoveListener(originalFn, type, handler) {
+    if (type != 'scroll' && type != 'scrollend')
+      return;
+    let scrollport = this;
+    let data = observed.get(scrollport);
+
+    // Mismatched addEventListener / removeEventListener
+    // TODO: Should we explicitly track added listeners to prevent this?
+    if (data === undefined)
+      return;
+
+    data[type]--;
+    // If there are still listeners, nothing more to do.
+    if (--data.listeners > 0)
+      return;
+
+    // Otherwise, remove the added listeners.
+    originalFn.apply(scrollport, ['scroll', data.scrollListener]);
+    observed.delete(scrollport);
+  }
+
+  observe(Element.prototype, 'addEventListener', onAddListener);
+  observe(window, 'addEventListener', onAddListener);
+  observe(document, 'addEventListener', onAddListener);
+  observe(Element.prototype, 'removeEventListener', onRemoveListener);
+  observe(window, 'removeEventListener', onRemoveListener);
+  observe(document, 'removeEventListener', onRemoveListener);
+  // TODO: Polyfill onscroll, onscrollend as well?
+}
 
 // import './node_modules/n-modal/n-modal.js';
+
 (function() {
   const ceilingWidth = el => Math.ceil(parseFloat(getComputedStyle(el).width));
   const ceilingHeight = el => Math.ceil(parseFloat(getComputedStyle(el).height));
@@ -660,6 +669,38 @@ nui.dynamicInit = true;// Component Button – start
       }
     };
     setTimeout(timeout_function, interval);
+  };
+  const hashNavigation = e => { // Hash navigation support
+    // console.log(e);
+    if (!!location.hash) {
+      let el = document.querySelector(location.hash);
+      let carousel = el?.parentNode;
+      if (!!carousel && carousel.classList.contains('n-carousel__content') && !carousel.parentNode.closest('.n-carousel__content')) {
+        let modal_carousel = document.querySelector('.n-carousel--overlay > .n-carousel__content');
+        if (modal_carousel && modal_carousel !== carousel) {
+          closeModal(modal_carousel);
+          // modal_carousel.parentNode.classList.remove('n-carousel--overlay');
+        }
+        if (carousel.parentNode.classList.contains('n-carousel--inline')) {
+          closeModal(carousel);
+          // carousel.parentNode.classList.add('n-carousel--overlay');
+        }
+        if (isSafari) { // Safari has already scrolled and needs to rewind it scroll position in order to animate it
+          scrollTo(carousel, carousel.offsetWidth * carousel.dataset.x, carousel.offsetHeight * carousel.dataset.y);
+        }
+        slideTo(carousel, [...carousel.children].indexOf(el));
+        window.nCarouselNav = [carousel, location.hash];
+      }
+    } else {
+      if (window.nCarouselNav) { // Previously navigated to a slide
+        let carousel = window.nCarouselNav[0];
+        delete window.nCarouselNav;
+        if (isSafari) { // Safari has already scrolled and needs to rewind it scroll position in order to animate it
+          scrollTo(carousel, carousel.offsetWidth * carousel.dataset.x, carousel.offsetHeight * carousel.dataset.y);
+        }
+        slideTo(carousel, [...carousel.children].indexOf(carousel.querySelector(':scope > :not([id])')));
+      }
+    }
   };
   const nextSlideHeight = el => {
     el.style.height = 0;
@@ -1532,15 +1573,17 @@ nui.dynamicInit = true;// Component Button – start
         el.dataset.platform = navigator.platform; // iPhone doesn't support full screen, Windows scroll works differently
       });
       content.nCarouselUpdate = updateCarousel;
-      if (!("onscrollend" in window)) { // scrollend event fallback to intersection observer (for Safari as of 2023)
-        const scrollEndObserver = new IntersectionObserver(entries => {
-          let carousel = entries[0].target.parentNode;
-          if (entries[0].isIntersecting && !carousel.parentNode.dataset.sliding && getComputedStyle(carousel).visibility !== 'hidden') {
-            scrollEndAction(carousel);
-          }
-        }, { threshold: .996, root: el.parentElement }); // .99 works for all, including vertical auto height?
-        [...content.children].forEach(el => scrollEndObserver.observe(el));
-      }
+      
+      // below replaced by scrollend polyfill
+      // if (!("onscrollend" in window)) { // scrollend event fallback to intersection observer (for Safari as of 2023)
+      //   const scrollEndObserver = new IntersectionObserver(entries => {
+      //     let carousel = entries[0].target.parentNode;
+      //     if (entries[0].isIntersecting && !carousel.parentNode.dataset.sliding && getComputedStyle(carousel).visibility !== 'hidden') {
+      //       scrollEndAction(carousel);
+      //     }
+      //   }, { threshold: .996, root: el.parentElement }); // .99 works for all, including vertical auto height?
+      //   [...content.children].forEach(el => scrollEndObserver.observe(el));
+      // }
       if (el.matches('.n-carousel--lightbox')) {
         let loaded = img => {
           img.closest('picture').dataset.loaded = true;
@@ -1558,38 +1601,7 @@ nui.dynamicInit = true;// Component Button – start
     });
   };
   window.nCarouselInit = init;
-  window.addEventListener('popstate', e => { // Hash navigation support
-    // console.log(e);
-    if (!!location.hash) {
-      let el = document.querySelector(location.hash);
-      let carousel = el?.parentNode;
-      if (!!carousel && carousel.classList.contains('n-carousel__content') && !carousel.parentNode.closest('.n-carousel__content')) {
-        let modal_carousel = document.querySelector('.n-carousel--overlay > .n-carousel__content');
-        if (modal_carousel && modal_carousel !== carousel) {
-          closeModal(modal_carousel);
-          // modal_carousel.parentNode.classList.remove('n-carousel--overlay');
-        }
-        if (carousel.parentNode.classList.contains('n-carousel--inline')) {
-          closeModal(carousel);
-          // carousel.parentNode.classList.add('n-carousel--overlay');
-        }
-        if (isSafari) { // Safari has already scrolled and needs to rewind it scroll position in order to animate it
-          scrollTo(carousel, carousel.offsetWidth * carousel.dataset.x, carousel.offsetHeight * carousel.dataset.y);
-        }
-        slideTo(carousel, [...carousel.children].indexOf(el));
-        window.nCarouselNav = [carousel, location.hash];
-      }
-    } else {
-      if (window.nCarouselNav) { // Previously navigated to a slide
-        let carousel = window.nCarouselNav[0];
-        delete window.nCarouselNav;
-        if (isSafari) { // Safari has already scrolled and needs to rewind it scroll position in order to animate it
-          scrollTo(carousel, carousel.offsetWidth * carousel.dataset.x, carousel.offsetHeight * carousel.dataset.y);
-        }
-        slideTo(carousel, [...carousel.children].indexOf(carousel.querySelector(':scope > :not([id])')));
-      }
-    }
-  });
+  window.addEventListener('popstate', hashNavigation);
   const doInit = () => {
     (typeof nui !== 'undefined' && typeof nui.registerComponent === "function") ? nui.registerComponent("n-carousel", init): init();
   };
@@ -1873,6 +1885,93 @@ nui.dynamicInit = true;// Component Button – start
 })();
 /* Modal – end */
 //# sourceMappingURL=n-modal@npm.js.map
+
+// Component Accordion
+(function() {
+	const animate_options = el => { return { easing: "ease-in-out", duration: window.matchMedia("(prefers-reduced-motion: no-preference)").matches ? (el.dataset.duration * 1000 || getComputedStyle(el).getPropertyValue('--duration') * 1000 || 200) : 0 } };
+	const accordionContent = el => el.querySelector(":scope > .n-accordion__content");
+	const openAccordion = (el) => {
+		el = accordionContent(el);
+		window.requestAnimationFrame(() => {
+			el.style.height = 0;
+			el.style.overflow = "hidden";
+			let wrapper = el.parentNode;
+			wrapper.querySelector(":scope > .n-accordion__label button").setAttribute("aria-expanded", true);
+			wrapper.dataset.expanded = true;
+			el.animate([{ height: 0 }, { height: `${el.scrollHeight}px` }], animate_options(wrapper)).onfinish = () => {
+				el.style.height = el.style.overflow = "";
+			};
+		});
+	};
+	const closeAccordion = (el, callback) => {
+		el = accordionContent(el);
+		window.requestAnimationFrame(() => {
+			el.style.overflow = "hidden";
+			let wrapper = el.parentNode;
+			el.animate([{ height: `${el.scrollHeight}px` }, { height: 0 }], animate_options(wrapper)).onfinish = () => {
+				el.style.height = el.style.overflow = "";
+				wrapper.querySelector(":scope > .n-accordion__label button").setAttribute("aria-expanded", false);
+				delete wrapper.dataset.expanded;
+				typeof callback !== 'function' || callback();
+				if (wrapper.classList.contains('n-accordion--close-nested')) {
+					el.querySelectorAll(".n-accordion__label button[aria-expanded='true']").forEach(el => el.setAttribute("aria-expanded", false));
+					el.querySelectorAll(".n-accordion").forEach(el => delete el.dataset.expanded);
+				}
+			};
+		});
+	};
+	const toggleAccordion = (e) => {
+		let el = e.target.closest('.n-accordion');
+		if (!el.dataset.expanded) {
+			let popin = el.closest(".n-accordion__popin");
+			const updateRow = () => {
+				if (popin) {
+					let row = Math.floor(([...popin.children].indexOf(el) / getComputedStyle(popin).getPropertyValue("--n-popin-columns")) * 1) + 2;
+					popin.style.setProperty("--n-popin-open-row", row);
+				}
+			};
+			if (el.parentNode.matches('[role="group"]') || popin) {
+				let other_accordion = el.parentNode.querySelector(":scope > .n-accordion[data-expanded]");
+				if (other_accordion) {
+					closeAccordion(other_accordion, () => {
+						updateRow();
+						openAccordion(el);
+					});
+				} else {
+					updateRow();
+					openAccordion(el);
+				}
+			} else {
+				openAccordion(el);
+			}
+		} else {
+			closeAccordion(el);
+		}
+	};
+
+	function init(host = document) {
+		host.querySelectorAll(".n-accordion:not([data-ready])").forEach((el) => {
+			el.querySelector(":scope > input")?.remove(); // Remove CSS-only solution
+			el.dataset.ready = true;
+			let button = el.querySelector(':scope > .n-accordion__label button');
+			button.addEventListener("click", toggleAccordion);
+			if (button.getAttribute('aria-expanded') === 'true') {
+				el.dataset.expanded = true;
+			} else {
+				button.setAttribute('aria-expanded', false);	
+			}
+		});
+	}
+	const doInit = () => {
+		(typeof nui !== 'undefined' && typeof nui.registerComponent === "function") ? nui.registerComponent("n-accordion", init): init();
+	};
+	if (document.readyState !== "loading") {
+		doInit();
+	} else {
+		document.addEventListener("DOMContentLoaded", doInit);
+	}
+})();
+//# sourceMappingURL=n-accordion@npm.js.map
 
 (function() {
 	const isChrome = !!navigator.userAgent.match("Chrome");
@@ -2703,26 +2802,6 @@ nui.dynamicInit = true;// Component Button – start
 // Component Notification bar – end
 //# sourceMappingURL=notify.js.map
 
-// Component Parallax – start
-(function() {
-	// Thanks Dave Rupert
-	let parallaxSpeed = 0.2;
-	let updateParallax = () => {
-		document.querySelectorAll(".n-parallax").forEach((el) => {
-			let parent = el.parentElement;
-			let scroll_offset = parent.getBoundingClientRect().y;
-			el.style.setProperty("--scrollparallax", scroll_offset * parallaxSpeed);
-		});
-	};
-	if (document.querySelector(".n-parallax")) {
-		window.addEventListener("scroll", updateParallax, true);
-	}
-	let init = (host) => {};
-	nui.registerComponent("parallax", init);
-})();
-// Component Parallax – end
-//# sourceMappingURL=parallax.js.map
-
 // Component Table – start
 (function () {
 	/* Sort parent table's rows by matching column number alternatively desc/asc on click */
@@ -2750,6 +2829,26 @@ nui.dynamicInit = true;// Component Button – start
 })();
 // Component Table – end
 //# sourceMappingURL=table.js.map
+
+// Component Parallax – start
+(function() {
+	// Thanks Dave Rupert
+	let parallaxSpeed = 0.2;
+	let updateParallax = () => {
+		document.querySelectorAll(".n-parallax").forEach((el) => {
+			let parent = el.parentElement;
+			let scroll_offset = parent.getBoundingClientRect().y;
+			el.style.setProperty("--scrollparallax", scroll_offset * parallaxSpeed);
+		});
+	};
+	if (document.querySelector(".n-parallax")) {
+		window.addEventListener("scroll", updateParallax, true);
+	}
+	let init = (host) => {};
+	nui.registerComponent("parallax", init);
+})();
+// Component Parallax – end
+//# sourceMappingURL=parallax.js.map
 
 // Component Typography – start
 (function () {
