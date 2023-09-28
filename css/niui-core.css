@@ -29,6 +29,7 @@ body.n-sticky-footer {
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
+  margin: 0;
 }
 body.n-sticky-footer main {
   flex-grow: 1;
