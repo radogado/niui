@@ -494,7 +494,7 @@ nav.n-nav.n-nav--drop li.current_page_item {
   z-index: 1;
 }
 .n-type article .img-crop:hover h2 {
-  background: #488e89;
+  background: rgb(72, 142, 137);
 }
 
 .wp-block-image {
@@ -580,37 +580,32 @@ a.n-backtotop[href] {
     display: flex;
     flex-wrap: wrap;
   }
-
   .home section article {
     width: calc(50% - 0.75em);
     margin: 0 0 3em 0;
   }
-
   .home section article:nth-child(2) ~ :nth-child(2n+1),
-.home.paged section article:first-child {
+  .home.paged section article:first-child {
     margin-right: 1.5em;
   }
-
   .home:not(.paged) section article:nth-child(1),
-.home:not(.paged) section article:nth-child(2),
-.home section .pagination {
+  .home:not(.paged) section article:nth-child(2),
+  .home section .pagination {
     width: 100%;
   }
   .home:not(.paged) section article:nth-child(1) .n-carousel--lightbox:not(.n-carousel--overlay) .gallery a,
-.home:not(.paged) section article:nth-child(2) .n-carousel--lightbox:not(.n-carousel--overlay) .gallery a,
-.home section .pagination .n-carousel--lightbox:not(.n-carousel--overlay) .gallery a {
+  .home:not(.paged) section article:nth-child(2) .n-carousel--lightbox:not(.n-carousel--overlay) .gallery a,
+  .home section .pagination .n-carousel--lightbox:not(.n-carousel--overlay) .gallery a {
     width: 10%;
   }
   .home:not(.paged) section article:nth-child(1) .img-crop,
-.home:not(.paged) section article:nth-child(2) .img-crop,
-.home section .pagination .img-crop {
+  .home:not(.paged) section article:nth-child(2) .img-crop,
+  .home section .pagination .img-crop {
     background-size: cover;
   }
-
   .n-wp .n-carousel--lightbox .gallery a {
     width: 10%;
   }
-
   .comments {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -671,25 +666,21 @@ a.n-btn[href],
 
 @media (prefers-color-scheme: dark) {
   body,
-.n-ovrl > *,
-.n-carousel {
+  .n-ovrl > *,
+  .n-carousel {
     background: #000;
   }
-
   .n-type {
     color: #ddd;
   }
-
   .img-crop {
     background-color: #222;
   }
-
   .n-form input,
-.n-form textarea {
+  .n-form textarea {
     --nui-input-color: #ddd;
     --nui-input-bg: #222;
   }
-
   .logo .default-logo {
     background: url(img/logo-white.svg) top left no-repeat;
     background-size: contain;

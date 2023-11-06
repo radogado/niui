@@ -28,7 +28,7 @@
       hyphens: auto;
     }
 
-    + p:not(.n-drop-cap) {
+    +p:not(.n-drop-cap) {
       margin-top: 0;
     }
   }
@@ -113,6 +113,9 @@
     line-height: calc(2 * var(--nui-line-height-em));
     min-height: 1.3334em;
   }
+
+  color: var(--nui-color, #333);
+
 }
 
 .n-adjust-height,

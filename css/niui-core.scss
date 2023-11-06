@@ -14,12 +14,8 @@ html.n-vertical-page {
   body {
     height: 100%;
     margin: 0 auto;
+    overflow: auto;
     overflow-x: hidden;
-  }
-
-  body {
-    overflow: hidden;
-    height: auto;
   }
 }
 

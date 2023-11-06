@@ -103,7 +103,6 @@ html {
     grid-gap: 1em;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   }
-
   .demo-grid > * {
     text-align: center;
   }
@@ -206,7 +205,7 @@ html {
 
 #home .demo-pages img {
   border-radius: var(--nui-border-radius, 0);
-  box-shadow: 0 0 2px 1px #0000800d;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 128, 0.0509803922);
   aspect-ratio: 1;
 }
 #home sup {
@@ -311,7 +310,6 @@ _:future,
     margin-inline-start: calc(-1 * var(--nui-line-height-em) / 2);
     width: calc(100% + var(--nui-line-height-em));
   }
-
   .n-type .demo .section-title {
     margin-top: -0.4rem;
   }
@@ -329,7 +327,7 @@ aside nav {
   padding: 0.667em;
   display: flex;
   gap: 1em;
-  box-shadow: 0 0 0.333em 0px #00000066;
+  box-shadow: 0 0 0.333em 0px rgba(0, 0, 0, 0.4);
   --nui-control-active-color: #bc8453;
 }
 aside nav a {
@@ -380,12 +378,10 @@ main {
   section {
     padding-top: 0;
   }
-
   body {
     display: flex;
     max-width: 1366.666px;
   }
-
   aside nav {
     position: sticky;
     top: 0;

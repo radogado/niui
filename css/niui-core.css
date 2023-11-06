@@ -17,11 +17,8 @@ html.n-vertical-page,
 html.n-vertical-page body {
   height: 100%;
   margin: 0 auto;
+  overflow: auto;
   overflow-x: hidden;
-}
-html.n-vertical-page body {
-  overflow: hidden;
-  height: auto;
 }
 
 body.n-sticky-footer {
@@ -119,16 +116,13 @@ a[href].span-relative-parent {
   .n-wide-screen {
     display: none;
   }
-
   .n-narrow-screen {
     display: block;
   }
-
   .n-viewport.n-header-banner {
     height: auto;
     overflow: hidden;
   }
-
   .n-header .head-right {
     text-align: start;
   }

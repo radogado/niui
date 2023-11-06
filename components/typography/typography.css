@@ -14,6 +14,7 @@
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   letter-spacing: 0.25px;
   /* Elements with double line-height */
+  color: var(--nui-color, #333);
 }
 .n-type h1,
 .n-type h2,
@@ -31,11 +32,11 @@
 }
 @media not screen and (min-width: 600px) {
   .n-type h1,
-.n-type h2,
-.n-type h3,
-.n-type h4,
-.n-type h5,
-.n-type h6 {
+  .n-type h2,
+  .n-type h3,
+  .n-type h4,
+  .n-type h5,
+  .n-type h6 {
     -webkit-hyphens: auto;
     hyphens: auto;
   }
