@@ -258,6 +258,10 @@ button.search-submit {
 				width: auto;
 				height: auto;
 			}
+			
+			&:last-of-type {
+				margin-bottom: 3%;
+			}
 		}
 
 	}

@@ -201,6 +201,9 @@ button.search-submit {
   width: auto;
   height: auto;
 }
+.n-wp .n-carousel--lightbox .gallery a:last-of-type {
+  margin-bottom: 3%;
+}
 .n-wp .n-carousel--lightbox.n-carousel--overlay .gallery {
   justify-content: center;
 }
