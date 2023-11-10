@@ -38,6 +38,8 @@ body .n-contain {
   margin: 0;
   overflow: auto;
   overflow-y: hidden;
+  height: 2em;
+  justify-content: flex-start;
 }
 .n-wp .n-carousel.n-carousel--lightbox.n-carousel--overlay .gallery a {
   width: 2em;

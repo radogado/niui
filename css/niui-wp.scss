@@ -61,6 +61,8 @@ body .n-contain {
 			margin: 0;
 			overflow: auto;
 			overflow-y: hidden;
+			height: 2em;
+			justify-content: flex-start;
 
 			a {
 				width: 2em;
