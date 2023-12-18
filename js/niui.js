@@ -568,283 +568,9 @@ nui.dynamicInit = true;// Component Button – start
 })();
 //# sourceMappingURL=n-accordion@npm.js.map
 
-/* Modal – start */
-(function() {
-  var scroll_timeout;
-  const blockScroll = e => {
-    // console.log(e);
-    // if (isSafari) {
-    document.querySelectorAll('dialog.n-modal[open]').forEach(el => {
-      el.classList.add('n-modal--transparent');
-    });
-    clearTimeout(scroll_timeout);
-    scroll_timeout = setTimeout(() => {
-      document.querySelectorAll('dialog.n-modal[open]').forEach(el => {
-        el.classList.remove('n-modal--transparent');
-      });
-    }, 67);
-    // } else {
-    //   window.scrollTo(x, y);
-    // }
-  };
-
-  function disableScrolling() {
-    // window.onscroll = function() { window.scrollTo(x, y); };
-    window.addEventListener('scroll', blockScroll, { 'passive': 'true' });
-  }
-
-  function enableScrolling() {
-    // window.onscroll = function() {};
-    window.removeEventListener('scroll', blockScroll);
-  }
-  // var previouslyFocused = previouslyFocused || false;
-  function transferClass(origin, target, className) {
-    let classes = typeof className === "string" ? new Array(className) : className;
-    classes.forEach(el => {
-      if (origin.classList.contains(el)) {
-        target.classList.add(el);
-      }
-    });
-  }
-  const animationDuration = () => window.matchMedia("(prefers-reduced-motion: no-preference)").matches ? (getComputedStyle(document.querySelector('.n-modal')).getPropertyValue('--duration') * 1000) : 0;
-  let removeModal = e => {
-    document.documentElement.classList.remove('transparent-scrollbar');
-    let modal = e.target;
-    modal.removeEventListener('close', removeModal);
-    if (modal.existingDetachedElement) {
-      // console.log(modal);
-      if (!modal.existingModal) {
-        let content = modal.querySelector('.n-modal__content');
-        content.removeChild(content.firstElementChild);
-      }
-      delete modal.existingDetachedElement;
-      modal.remove();
-    }
-    if (modal.attachedHiddenContent) {
-      modal.replaceWith(modal.lastChild);
-    } else {
-      if (modal.dataset.existingAttachedContent) {
-        modal.replaceWith(modal.lastChild.firstElementChild);
-      } else {
-        if (modal.existingModal) {
-          delete modal.existingModal;
-          delete modal.dataset.anim;
-        } else {
-          modal.remove();
-        }
-      }
-    }
-  };
-
-  function closeModal(modal) {
-    let direction_option = "normal";
-    var animation = modal.dataset.anim; // Custom animation?
-    if (!animation || animation.length < 11) {
-      // '', 'null' or 'undefined'?
-      animation = '[{ "transform": "translate3d(0,0,0)" }, { "transform": "translate3d(0,-100vh,0)" }]';
-    } else {
-      direction_option = "reverse";
-    }
-    modal.classList.add('n-modal--closing');
-    setTimeout(() => { modal.classList.remove('n-modal--closing'); }, animationDuration());
-    modal.animate(JSON.parse(animation), { duration: animationDuration(), direction: direction_option, easing: "ease-in-out" }).onfinish = () => {
-      enableScrolling();
-      // nuiDisableBodyScroll(false, modal); // Turn off and restore page scroll
-      if (modal.existingModal) {
-        if (!modal.existingDetachedElement) {
-          modal.removeEventListener('close', removeModal);
-        }
-        // delete modal.existingModal;
-        delete modal.dataset.anim;
-      }
-      modal.close();
-      // document.querySelector("html").classList.remove("no-scroll");
-      // window.scrollTo(modal.previousScrollX, modal.previousScrollY);
-    };
-  }
-
-  function openModal(options) {
-    // options: {content: ""/element, animation: "", trigger: element, closeSymbol: "", closeLabel: ""}
-    // content is either an HTML string or an element
-    // options can be solely content if it's a string or element
-    // Fix Chrome flashing disappearing scrollbars on open
-    document.documentElement.style.overflow = 'scroll';
-    const scrollbar_width = window.innerWidth - document.documentElement.offsetWidth;
-    document.documentElement.style.overflow = '';
-    if (!scrollbar_width) { // Because Chrome flashes disappearing scrollbars on open (Mac)
-      document.documentElement.classList.add('transparent-scrollbar');
-    }
-    if (typeof options === 'string' || !!options.tagName) {
-      options = { content: options };
-    }
-    let animation = options.animation;
-    let content = options.content;
-    let trigger = options.trigger;
-    var wrapper = {};
-    var existingDetachedElement = false;
-    if (content.parentNode) {
-      // console.log(content.parentNode);
-      if (content.parentNode.tagName === 'DIALOG' || content.parentNode.classList.contains('n-modal__content')) {
-        return;
-      }
-    } else {
-      if (content.tagName) {
-        existingDetachedElement = true;
-      }
-    }
-    const close_label = 'Close';
-    const close_symbol = '╳';
-    if (typeof content === 'object' && content.tagName === 'DIALOG') {
-      if (!content.parentNode) { // Detached modal
-        document.body.appendChild(content);
-      }
-      wrapper = content;
-      wrapper.existingModal = true;
-      let close_button = wrapper.querySelector('.n-modal__close');
-      if (close_button) {
-        close_button.dataset.closeSymbol = close_button.dataset.closeSymbol || close_symbol;
-        close_button.ariaLabel = close_button.ariaLabel || close_label;
-      }
-    } else {
-      wrapper = document.createElement("dialog");
-      wrapper.insertAdjacentHTML("afterbegin", `<button class="n-modal__close" aria-label="${options.closeLabel || trigger?.dataset.closeLabel || close_label}" data-close-symbol="${options.closeSymbol || trigger?.dataset.closeSymbol || close_symbol}"></button><div class="n-modal__content"></div>`);
-      document.createElement("div");
-      if (typeof content === "string") {
-        wrapper.lastChild.innerHTML = content;
-        document.body.appendChild(wrapper);
-      } else {
-        let parent = content.parentElement;
-        if (parent) {
-          let marker = document.createElement('div');
-          content.replaceWith(marker);
-          wrapper.lastChild.appendChild(content);
-          marker.replaceWith(wrapper);
-          if (content.classList.contains('n-modal__content')) {
-            wrapper.lastChild.replaceWith(content);
-            wrapper.attachedHiddenContent = true;
-          } else {
-            wrapper.dataset.existingAttachedContent = true;
-          }
-        } else {
-          wrapper.lastChild.appendChild(content);
-          document.body.appendChild(wrapper);
-        }
-      }
-    }
-    if (options.blur) {
-      wrapper.classList.add('n-modal--blur');
-    }
-    if (options.shadow) {
-      wrapper.classList.add('n-modal--shadow');
-    }
-    if (options.rounded) {
-      wrapper.classList.add('n-modal--rounded');
-    }
-    if (options.full) {
-      wrapper.classList.add('n-modal--full');
-    }
-    wrapper.dataset.anim = animation;
-    wrapper.classList.add("n-modal");
-    wrapper.onclick = (e) => {
-      let el = e.target.closest('.n-modal');
-      let button = e.target.closest('.n-modal__close');
-      if (button || (e.target.matches('.n-modal') && (e.offsetX < 0 || e.offsetY < 0 || (e.offsetX - 2) > el.getBoundingClientRect().width || (e.offsetY - 2) > el.getBoundingClientRect().height))) {
-        closeModal(el);
-      }
-    };
-    wrapper.addEventListener("cancel", e => {
-      e.preventDefault();
-      closeModal(e.target.closest('.n-modal'));
-    });
-    if (existingDetachedElement) {
-      wrapper.existingDetachedElement = true;
-    }
-    wrapper.showModal();
-    // nuiDisableBodyScroll(true, wrapper); // Turn on and block page scroll
-    // if (document.querySelectorAll(".n-modal").length === 1) {
-    //   // Sole (first) modal
-    //   wrapper.previousScrollX = window.scrollX;
-    //   wrapper.previousScrollY = window.scrollY;
-    // }
-    // document.querySelector("html").classList.add("no-scroll");
-    wrapper.animate(typeof animation === "string" ? JSON.parse(animation) : [{ transform: "translate3d(0,-100vh,0)" }, { transform: "translate3d(0,0,0)" }], {
-      duration: animationDuration(),
-      easing: "ease-in-out",
-    }).onfinish = () => {
-      wrapper.addEventListener('close', removeModal);
-      disableScrolling();
-    };
-    return wrapper;
-  }
-
-  function parseHTML(str) {
-    var tmp = document.implementation.createHTMLDocument("Parsed");
-    tmp.body.innerHTML = str;
-    // To do: destroy the HTMLDocument before returning
-    return tmp.body;
-  }
-
-  function modalWindowLink(e) {
-    // Modal window of external file content
-    var el = e.target;
-    let trigger = el.closest(".n-modal-link");
-    var link = trigger.dataset.href || trigger.href; // data-href for <button>, href for <a>
-    var animation = trigger.dataset.anim;
-    const openTheModal = content => transferClass(trigger, openModal({ content: content, animation: animation, trigger: trigger }), ["n-modal--full", "n-modal--rounded", "n-modal--shadow", "n-modal--blur"]);
-    if (trigger.dataset.for) {
-      openTheModal(document.getElementById(trigger.dataset.for));
-    } else {
-      fetch(link.split("#")[0]).then(response => response.text()).then(response => {
-        var parsed = parseHTML(response);
-        var container = !!link.split("#")[1] ? "#" + link.split("#")[1].split('?')[0] : 0;
-        if (container && parsed.querySelector(container)) {
-          parsed = parsed.querySelector(container).innerHTML;
-        } else {
-          parsed = parsed.innerHTML;
-        }
-        openTheModal(parsed);
-      }).catch(error => {
-        openTheModal(error);
-      });
-    }
-    return false;
-  }
-  let init = (host = document) => {
-    // Modal window: open a link's target inside it
-    host.querySelectorAll(".n-modal-link:not([data-ready])").forEach((el) => {
-      if (el.href !== location.href.split("#")[0] + "#") {
-        // Is it an empty anchor?
-        el.onclick = modalWindowLink;
-      }
-      if (el.href && !el.getAttribute("rel")) {
-        el.setAttribute("rel", "prefetch");
-      }
-      el.dataset.ready = true;
-    });
-  };
-  let hash_modal = document.querySelector(`.n-modal${location.hash}.n-modal--uri`);
-  if (location.hash && hash_modal) {
-    openModal(hash_modal);
-  }
-  // API
-  let modal = openModal;
-  modal.close = closeModal;
-  modal.init = init;
-  if (typeof nui !== 'undefined' && typeof nui.registerComponent === "function") {
-    nui.registerComponent("n-modal", init, { 'name': 'modal', 'code': modal });
-  } else {
-    init();
-    window.nui = {};
-    window.nui.modal = modal;
-  } // Is it a part of niui, or standalone?
-})();
-/* Modal – end */
-//# sourceMappingURL=n-modal@npm.js.map
-
 function e(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=new Array(t);n<t;n++)r[n]=e[n];return r}function t(t,n){var r="undefined"!=typeof Symbol&&t[Symbol.iterator]||t["@@iterator"];if(r)return (r=r.call(t)).next.bind(r);if(Array.isArray(t)||(r=function(t,n){if(t){if("string"==typeof t)return e(t,n);var r=Object.prototype.toString.call(t).slice(8,-1);return "Object"===r&&t.constructor&&(r=t.constructor.name),"Map"===r||"Set"===r?Array.from(t):"Arguments"===r||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)?e(t,n):void 0}}(t))||n&&t&&"number"==typeof t.length){r&&(t=r);var o=0;return function(){return o>=t.length?{done:!0}:{done:!1,value:t[o++]}}}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}if(!("onscrollend"in window)){var n=function(e,t,n){var r=e[t];e[t]=function(){var e=Array.prototype.slice.apply(arguments,[0]);r.apply(this,e),e.unshift(r),n.apply(this,e);};},r=function(e,t,n,r){if("scroll"==t||"scrollend"==t){var o=this,s=l.get(o);if(void 0===s){var c=0;s={scrollListener:function(e){clearTimeout(c),c=setTimeout(function(){a.size?setTimeout(s.scrollListener,100):(o.dispatchEvent(i),c=0);},100);},listeners:0},e.apply(o,["scroll",s.scrollListener]),l.set(o,s);}s.listeners++;}},o=function(e,t,n){if("scroll"==t||"scrollend"==t){var r=this,o=l.get(r);void 0!==o&&(o[t]--,--o.listeners>0||(e.apply(r,["scroll",o.scrollListener]),l.delete(r)));}},i=new Event("scrollend"),a=new Set;document.addEventListener("touchstart",function(e){for(var n,r=t(e.changedTouches);!(n=r()).done;)a.add(n.value.identifier);},{passive:!0}),document.addEventListener("touchend",function(e){for(var n,r=t(e.changedTouches);!(n=r()).done;)a.delete(n.value.identifier);},{passive:!0});var l=new WeakMap;n(Element.prototype,"addEventListener",r),n(window,"addEventListener",r),n(document,"addEventListener",r),n(Element.prototype,"removeEventListener",o),n(window,"removeEventListener",o),n(document,"removeEventListener",o);}
 
 // import './node_modules/n-modal/n-modal.js';
-
 (function() {
   const ceilingWidth = el => Math.ceil(parseFloat(getComputedStyle(el).width));
   const ceilingHeight = el => Math.ceil(parseFloat(getComputedStyle(el).height));
@@ -1212,20 +938,16 @@ function e(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=new Array(t);n
   });
   const updateCarousel = (el, forced = false) => { // Forced means never skip unnecessary update
     // Called on init and scroll end
+    // console.log(el, el.matches(':fullscreen'));
+    if (el.togglingFullScreen) {
+      // console.log('updateCarousel: toggling Full Screen')
+      return;
+    }
     observersOff(el);
     let saved_x = el.dataset.x; // On displaced slides and no change
     let saved_y = el.dataset.y;
-    if (!el.togglingFullScreen) {
-      if (el.openingModal) {
-        delete el.openingModal;
-        scrollTo(el, el.offsetWidth * el.dataset.x, el.offsetHeight * el.dataset.y);
-      } else {
-        el.dataset.x = Math.abs(Math.round(scrollStartX(el) / ceilingWidth(el.firstElementChild)));
-        el.dataset.y = Math.abs(Math.round(el.scrollTop / ceilingHeight(el.firstElementChild)));
-      }
-    } else {
-      delete el.togglingFullScreen;
-    }
+    el.dataset.x = Math.abs(Math.round(scrollStartX(el) / ceilingWidth(el.firstElementChild)));
+    el.dataset.y = Math.abs(Math.round(el.scrollTop / ceilingHeight(el.firstElementChild)));
     // When inline
     if (el.dataset.x === "NaN") {
       el.dataset.x = 0;
@@ -1261,7 +983,7 @@ function e(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=new Array(t);n
     }
     // active_slide.ariaCurrent = true; // Unsupported by FF
     active_slide.setAttribute('aria-current', true);
-    var active_index_logical = el.dataset.x = el.dataset.y = getIndexReal(el);
+    var active_index_real = el.dataset.x = el.dataset.y = getIndexReal(el);
     // Endless carousel
     const restoreDisplacedSlides = el => {
       el.querySelectorAll(":scope > [data-first]").forEach(el2 => {
@@ -1276,13 +998,13 @@ function e(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=new Array(t);n
       });
     };
     wrapper.dataset.sliding = true;
-    if (isEndless(el)) {
+    if (isEndless(el) && !forced) {
       if (active_index === 0) {
         if (!active_slide.dataset.first) {
           // Move the last one to the front as [data-first]
           if (el.lastElementChild.dataset.last) {
             delete el.lastElementChild.dataset.last;
-            active_index_logical = 1;
+            active_index_real = 1;
           } else {
             el.lastElementChild.dataset.first = true;
           }
@@ -1294,7 +1016,7 @@ function e(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=new Array(t);n
           el.append(el.firstElementChild);
           el.firstElementChild.dataset.last = true;
           el.append(el.firstElementChild);
-          active_index_logical = el.children.length - 1;
+          active_index_real = el.children.length - 1;
           active_index = el.children.length - 2;
         }
       } else {
@@ -1303,7 +1025,7 @@ function e(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=new Array(t);n
             // Move the first one to the back as [data-last]
             if (el.firstElementChild.dataset.first) {
               delete el.firstElementChild.dataset.first;
-              active_index_logical = el.children.length - 2;
+              active_index_real = el.children.length - 2;
             } else {
               el.firstElementChild.dataset.last = true;
             }
@@ -1315,29 +1037,36 @@ function e(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=new Array(t);n
             el.prepend(el.lastElementChild);
             el.lastElementChild.dataset.first = true;
             el.prepend(el.lastElementChild);
-            active_index_logical = 0;
+            active_index_real = 0;
             active_index = 1;
           }
         } else {
           // Middle slide
           restoreDisplacedSlides(el);
-          active_index_logical = Math.max(0, [...el.children].indexOf(el.querySelector(":scope > [aria-current]"))); // Fixes position when sliding to/from first slide; max because of FF returning -1
+          active_index_real = Math.max(0, [...el.children].indexOf(el.querySelector(":scope > [aria-current]"))); // Fixes position when sliding to/from first slide; max because of FF returning -1
         }
       }
-      // window.requestAnimationFrame(() => { // Cause blinking
-      el.dataset.x = el.dataset.y = active_index_logical;
-      let scroll_x = ceilingWidth(el.firstElementChild) * active_index;
-      let scroll_y = ceilingHeight(el.firstElementChild) * active_index;
-      // console.log('updateCarousel() scrolling at', scroll_x);
-      el.scroll_x = scroll_x;
-      el.scroll_y = scroll_y;
-      scrollTo(el, scroll_x, scroll_y); // First element size, because when Peeking, it differs from carousel size
-      delete el.scroll_x;
-      delete el.scroll_y;
-      // });
+      const updateScroll = () => {
+        el.dataset.x = el.dataset.y = active_index_real;
+        let scroll_x = ceilingWidth(el.firstElementChild) * active_index;
+        let scroll_y = ceilingHeight(el.firstElementChild) * active_index;
+        // console.log('updateCarousel() scrolling at', scroll_x);
+        el.scroll_x = scroll_x;
+        el.scroll_y = scroll_y;
+        scrollTo(el, scroll_x, scroll_y); // First element size, because when Peeking, it differs from carousel size
+        delete el.scroll_x;
+        delete el.scroll_y;
+      };
+      if (isVertical(el) && isAutoHeight(el)) {
+        window.requestAnimationFrame(() => { // Causes blinking, but needed for vertical auto height endless
+          updateScroll();
+        });
+      } else {
+        updateScroll();
+      }
     } else { // Check and restore dynamically disabled endless option
       restoreDisplacedSlides(el);
-      active_index_logical = Math.max(0, [...el.children].indexOf(el.querySelector(":scope > [aria-current]"))); // Fixes position when sliding to/from first slide; max because of FF returning -1
+      active_index_real = Math.max(0, [...el.children].indexOf(el.querySelector(":scope > [aria-current]"))); // Fixes position when sliding to/from first slide; max because of FF returning -1
     }
     active_slide.style.height = "";
     wrapper.style.setProperty("--height", `${isAutoHeight(el) ? nextSlideHeight(active_slide) : active_slide.scrollHeight}px`);
@@ -1362,8 +1091,8 @@ function e(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=new Array(t);n
     let index = getControl(el.closest(".n-carousel"), ".n-carousel__index");
     if (!!index) {
       index.querySelector("[aria-current]")?.removeAttribute('aria-current');
-      // index.children[active_index_logical].ariaCurrent = true; // Unsupported by FF
-      indexControls(index)[active_index_logical].setAttribute('aria-current', true);
+      // index.children[active_index_real].ariaCurrent = true; // Unsupported by FF
+      indexControls(index)[active_index_real].setAttribute('aria-current', true);
     }
     // Disable focus on children of non-active slides
     // Active slides of nested carousels should also have disabled focus
@@ -1406,7 +1135,7 @@ function e(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=new Array(t);n
     // });
     // Obsoleted by inert – end
     if (/--vertical.*--auto-height/.test(wrapper.classList)) { // Undo jump to wrong slide when sliding to the last one
-      el.scrollTop = el.offsetHeight * active_index_logical;
+      el.scrollTop = el.offsetHeight * active_index_real;
     }
     window.requestAnimationFrame(() => {
       observersOn(el);
@@ -1577,6 +1306,7 @@ function e(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=new Array(t);n
     }
     let carousel = closestCarousel(el);
     if (carousel) {
+      carousel.parentNode.toggleModal = true; // skip mutation observer
       carousel.closest(".n-carousel").classList.remove("n-carousel--overlay");
       trapFocus(carousel.closest(".n-carousel"), true); // Disable focus trap
       delete document.body.dataset.frozen;
@@ -1586,7 +1316,7 @@ function e(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=new Array(t);n
   const openModal = el => {
     let carousel = closestCarousel(el);
     if (carousel) {
-      carousel.openingModal = true;
+      carousel.parentNode.toggleModal = true; // skip mutation observer
       carousel.closest(".n-carousel").classList.add("n-carousel--overlay");
       trapFocus(carousel.closest(".n-carousel"));
       setTimeout(() => { document.body.addEventListener('keyup', closeModalOnBodyClick); }, 100);
@@ -1698,10 +1428,11 @@ function e(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=new Array(t);n
   });
   const mutation_observer = new MutationObserver((mutations) => {
     for (let mutation of mutations) {
-      if (mutation.target && !mutation.target.nextSlideInstant) {
+      if (mutation.target && !mutation.target.nextSlideInstant && !mutation.target.toggleModal) {
         let carousel = mutation.target.querySelector(":scope > .n-carousel__content");
         updateObserver(carousel);
         updateCarousel(carousel, true);
+        delete mutation.target.toggleModal;
       }
     }
   });
@@ -1762,16 +1493,20 @@ function e(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=new Array(t);n
           toggleFullScreen(e.target);
         };
         const fullScreenEvent = e => {
+          // console.log(e, 'full screen');
           let carousel = e.target.querySelector(":scope > .n-carousel__content");
           window.requestAnimationFrame(() => {
-            updateCarousel(carousel);
             carousel.dataset.x = carousel.dataset.xx;
             carousel.dataset.y = carousel.dataset.yy;
             delete carousel.dataset.xx;
             delete carousel.dataset.yy;
             if (carousel.dataset.x !== "undefined" && carousel.dataset.y !== "undefined") {
-              scrollTo(carousel, carousel.dataset.x * ceilingWidth(carousel.children[carousel.dataset.x]), carousel.dataset.y * ceilingHeight(carousel.children[carousel.dataset.y]));
+              scrollTo(carousel, getIndexReal(carousel) * ceilingWidth(carousel.children[getIndexReal(carousel)]), getIndexReal(carousel) * ceilingHeight(carousel.children[getIndexReal(carousel)]));
             }
+            // setTimeout(() => {
+              delete carousel.togglingFullScreen;
+              updateCarousel(carousel);
+            // }, 100);
           });
         };
         if (isSafari) {
@@ -1840,7 +1575,6 @@ function e(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=new Array(t);n
         el.dataset.platform = navigator.platform; // iPhone doesn't support full screen, Windows scroll works differently
       });
       content.nCarouselUpdate = updateCarousel;
-      
       // below replaced by scrollend polyfill
       // if (!("onscrollend" in window)) { // scrollend event fallback to intersection observer (for Safari as of 2023)
       //   const scrollEndObserver = new IntersectionObserver(entries => {
@@ -1880,298 +1614,278 @@ function e(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=new Array(t);n
 })();
 //# sourceMappingURL=n-carousel@npm.js.map
 
-// Component Nav – start
+/* Modal – start */
 (function() {
-  /* Nav – start */
-  function closeDropNavClickedOutside(e) {
-    // Close the nav when clicking outside
-    if (!e.target.closest(".n-nav li")) {
-      document.querySelectorAll(".n-nav li").forEach((el) => {
-        el.removeAttribute("aria-expanded");
+  var scroll_timeout;
+  const blockScroll = e => {
+    // console.log(e);
+    // if (isSafari) {
+    document.querySelectorAll('dialog.n-modal[open]').forEach(el => {
+      el.classList.add('n-modal--transparent');
+    });
+    clearTimeout(scroll_timeout);
+    scroll_timeout = setTimeout(() => {
+      document.querySelectorAll('dialog.n-modal[open]').forEach(el => {
+        el.classList.remove('n-modal--transparent');
       });
-      if (document.querySelector(".n-nav :focus")) {
-        document.querySelector(".n-nav :focus").blur();
+    }, 67);
+    // } else {
+    //   window.scrollTo(x, y);
+    // }
+  };
+
+  function disableScrolling() {
+    // window.onscroll = function() { window.scrollTo(x, y); };
+    window.addEventListener('scroll', blockScroll, { 'passive': 'true' });
+  }
+
+  function enableScrolling() {
+    // window.onscroll = function() {};
+    window.removeEventListener('scroll', blockScroll);
+  }
+  // var previouslyFocused = previouslyFocused || false;
+  function transferClass(origin, target, className) {
+    let classes = typeof className === "string" ? new Array(className) : className;
+    classes.forEach(el => {
+      if (origin.classList.contains(el)) {
+        target.classList.add(el);
+      }
+    });
+  }
+  const animationDuration = () => window.matchMedia("(prefers-reduced-motion: no-preference)").matches ? (getComputedStyle(document.querySelector('.n-modal')).getPropertyValue('--duration') * 1000) : 0;
+  let removeModal = e => {
+    document.documentElement.classList.remove('transparent-scrollbar');
+    let modal = e.target;
+    modal.removeEventListener('close', removeModal);
+    if (modal.existingDetachedElement) {
+      // console.log(modal);
+      if (!modal.existingModal) {
+        let content = modal.querySelector('.n-modal__content');
+        content.removeChild(content.firstElementChild);
+      }
+      delete modal.existingDetachedElement;
+      modal.remove();
+    }
+    if (modal.attachedHiddenContent) {
+      modal.replaceWith(modal.lastChild);
+    } else {
+      if (modal.dataset.existingAttachedContent) {
+        modal.replaceWith(modal.lastChild.firstElementChild);
+      } else {
+        if (modal.existingModal) {
+          delete modal.existingModal;
+          delete modal.dataset.anim;
+        } else {
+          modal.remove();
+        }
       }
     }
+  };
+
+  function closeModal(modal) {
+    let direction_option = "normal";
+    var animation = modal.dataset.anim; // Custom animation?
+    if (!animation || animation.length < 11) {
+      // '', 'null' or 'undefined'?
+      animation = '[{ "transform": "translate3d(0,0,0)" }, { "transform": "translate3d(0,-100vh,0)" }]';
+    } else {
+      direction_option = "reverse";
+    }
+    modal.classList.add('n-modal--closing');
+    setTimeout(() => { modal.classList.remove('n-modal--closing'); }, animationDuration());
+    modal.animate(JSON.parse(animation), { duration: animationDuration(), direction: direction_option, easing: "ease-in-out" }).onfinish = () => {
+      enableScrolling();
+      // nuiDisableBodyScroll(false, modal); // Turn off and restore page scroll
+      if (modal.existingModal) {
+        if (!modal.existingDetachedElement) {
+          modal.removeEventListener('close', removeModal);
+        }
+        // delete modal.existingModal;
+        delete modal.dataset.anim;
+      }
+      modal.close();
+      // document.querySelector("html").classList.remove("no-scroll");
+      // window.scrollTo(modal.previousScrollX, modal.previousScrollY);
+    };
   }
 
-  function isDesktop(nav) {
-    // Checks the UL sub nav element
-    return !!getComputedStyle(nav).getPropertyValue("--desktop");
-  }
-  let navAnimating = false;
-
-  function dropNavBlur(e) {
-    var this_nav = e.target.closest(".n-nav");
-    if (navAnimating || !e.relatedTarget) {
-      return;
+  function openModal(options) {
+    // options: {content: ""/element, animation: "", trigger: element, closeSymbol: "", closeLabel: ""}
+    // content is either an HTML string or an element
+    // options can be solely content if it's a string or element
+    // Fix Chrome flashing disappearing scrollbars on open
+    document.documentElement.style.overflow = 'scroll';
+    const scrollbar_width = window.innerWidth - document.documentElement.offsetWidth;
+    document.documentElement.style.overflow = '';
+    if (!scrollbar_width) { // Because Chrome flashes disappearing scrollbars on open (Mac)
+      document.documentElement.classList.add('transparent-scrollbar');
     }
-    e.stopPropagation();
-    let el = e.target;
-    let item = el.tagName === "LI" ? el.querySelector("ul") : el.parentElement.querySelector("ul");
-    if (!this_nav.contains(e.relatedTarget) || (isDesktop(this_nav) && !!e.relatedTarget && !closestElement(e.relatedTarget, this_nav))) {
-      // if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
-      this_nav.querySelectorAll("li").forEach((el) => {
-        el.removeAttribute("aria-expanded");
-      });
-      return;
+    if (typeof options === 'string' || !!options.tagName) {
+      options = { content: options };
     }
-    if (item) {
-      if (item.parentNode.parentNode.querySelector("ul [aria-expanded]")) {
-        // To do: Unless it's the first/last item and user has back/forward tabbed away from it?
+    let animation = options.animation;
+    let content = options.content;
+    let trigger = options.trigger;
+    var wrapper = {};
+    var existingDetachedElement = false;
+    if (content.parentNode) {
+      // console.log(content.parentNode);
+      if (content.parentNode.tagName === 'DIALOG' || content.parentNode.classList.contains('n-modal__content')) {
         return;
       }
-      item.parentElement.removeAttribute("aria-expanded");
+    } else {
+      if (content.tagName) {
+        existingDetachedElement = true;
+      }
     }
-    // Close neighboring parent nav's sub navs.
-    el = e.target;
-    var target_parent = el.closest("[aria-haspopup]");
-    if (target_parent) {
-      // Skip if it's a top-level-only item
-      target_parent.querySelectorAll("li[aria-expanded]").forEach((el) => {
-        // Disable active grandchildren
-        el.removeAttribute("aria-expanded");
-      });
-    }
-    el = e.target.parentNode;
-    if (!el.nextElementSibling && // last item
-      el.parentNode.parentNode.nodeName === "LI" && // of third-level nav
-      !el.parentNode.parentNode.nextElementSibling) {
-      el.parentNode.parentNode.removeAttribute("aria-expanded");
-    }
-  }
-
-  function dropNavFocus(e) {
-    // Close focused third level child when focus moves to another top-level item
-    e.stopPropagation();
-    var el = e.target.closest(".n-nav > ul > li");
-    // To do: on LI focus, make it aria-expanded and focus its a
-    if (navAnimating) {
-      return;
-    }
-    [
-      [].slice.call(el.parentElement.children),
-      [].slice.call(e.target.parentElement.parentElement.children),
-      [].slice.call(e.target.parentElement.parentElement.parentElement.parentElement.children),
-    ].forEach((el) => {
-      el.forEach((el) => {
-        el.removeAttribute("aria-expanded");
-      });
-    });
-    el.setAttribute("aria-expanded", true);
-    // 		openItem(el.querySelector('ul'));
-    if (el.parentNode.parentNode.getAttribute("aria-haspopup")) {
-      el.parentNode.parentNode.setAttribute("aria-expanded", true);
-    }
-    el.querySelectorAll("li[aria-expanded]").forEach((el) => {
-      // Hide grandchildren
-      el.removeAttribute("aria-expanded");
-    });
-    // Make current focused item's ancestors visible
-    el = e.target;
-    el.parentNode.setAttribute("aria-expanded", true);
-    var grand_parent = el.parentElement.parentElement.parentElement;
-    if (grand_parent.tagName === "LI") {
-      grand_parent.setAttribute("aria-expanded", true);
-    }
-  }
-  var closeDropNavClickedOutsideEnabled = false;
-  
-  const getDuration = () => window.matchMedia("(prefers-reduced-motion: no-preference)").matches ? 200 : 0;
-  
-  let closeItem = (item) => {
-    navAnimating = true;
-    item.style.overflow = "hidden";
-    item.parentElement.setAttribute("aria-expanded", true);
-    item.animate([{ height: `${item.scrollHeight}px` }, { height: 0 }], getDuration()).onfinish = () => {
-      item.removeAttribute("style");
-      item.parentElement.removeAttribute("aria-expanded");
-      navAnimating = false;
-      item.querySelectorAll("[aria-expanded]").forEach((el) => {
-        el.removeAttribute("aria-expanded");
-      });
-    };
-  };
-  let openItem = (item) => {
-    navAnimating = true;
-    item.style.overflow = "hidden";
-    item.parentElement.setAttribute("aria-expanded", true);
-    item.animate([{ height: 0 }, { height: `${item.scrollHeight}px` }], getDuration()).onfinish = () => {
-      item.removeAttribute("style");
-      navAnimating = false;
-    };
-  };
-  let clickEvent = (e) => {
-    e.stopPropagation();
-    // To do: also ancestors, also close when open
-    let el = e.target;
-    var this_nav = el.closest(".n-nav");
-    this_nav.removeEventListener("focusout", dropNavBlur);
-    if (this_nav.contains(document.activeElement)) {
-      document.activeElement.blur();
-    }
-    let item = el.tagName === "LI" ? el.querySelector("ul") : el.parentElement.querySelector("ul");
-    if (isDesktop(this_nav)) {
-      if (el.getAttribute("aria-expanded")) {
-        if (el.querySelector("a:focus")) ; else {
-          if (isDesktop(this_nav)) {
-            el.removeAttribute("aria-expanded");
-          } else {
-            closeItem(item);
-          }
-        }
-      } else {
-        [].slice.call(el.parentElement.children).forEach((item) => {
-          item.removeAttribute("aria-expanded");
-          let old_item_open_child = item.querySelector("[aria-expanded]");
-          if (old_item_open_child) {
-            old_item_open_child.removeAttribute("aria-expanded");
-          }
-        });
-        el.setAttribute("aria-expanded", true);
-        if (!isDesktop(this_nav)) {
-          openItem(item);
-        }
+    const close_label = 'Close';
+    const close_symbol = '╳';
+    if (typeof content === 'object' && content.tagName === 'DIALOG') {
+      if (!content.parentNode) { // Detached modal
+        document.body.appendChild(content);
+      }
+      wrapper = content;
+      wrapper.existingModal = true;
+      let close_button = wrapper.querySelector('.n-modal__close');
+      if (close_button) {
+        close_button.dataset.closeSymbol = close_button.dataset.closeSymbol || close_symbol;
+        close_button.ariaLabel = close_button.ariaLabel || close_label;
       }
     } else {
-      if (item.parentNode.hasAttribute("aria-expanded")) {
-        closeItem(item);
+      wrapper = document.createElement("dialog");
+      wrapper.insertAdjacentHTML("afterbegin", `<button class="n-modal__close" aria-label="${options.closeLabel || trigger?.dataset.closeLabel || close_label}" data-close-symbol="${options.closeSymbol || trigger?.dataset.closeSymbol || close_symbol}"></button><div class="n-modal__content"></div>`);
+      document.createElement("div");
+      if (typeof content === "string") {
+        wrapper.lastChild.innerHTML = content;
+        document.body.appendChild(wrapper);
       } else {
-        // If new item is top level, close another top level item, if any is open
-        if (item.parentElement.parentElement.matches("ul")) {
-          // It's top level, To do: also on secondary level, close open sibling
-          let old_item = item.parentElement.closest("ul").querySelector('[aria-expanded="true"] > ul');
-          if (old_item) {
-            closeItem(old_item);
+        let parent = content.parentElement;
+        if (parent) {
+          let marker = document.createElement('div');
+          content.replaceWith(marker);
+          wrapper.lastChild.appendChild(content);
+          marker.replaceWith(wrapper);
+          if (content.classList.contains('n-modal__content')) {
+            wrapper.lastChild.replaceWith(content);
+            wrapper.attachedHiddenContent = true;
+          } else {
+            wrapper.dataset.existingAttachedContent = true;
           }
+        } else {
+          wrapper.lastChild.appendChild(content);
+          document.body.appendChild(wrapper);
         }
-        openItem(item);
       }
     }
-    this_nav.addEventListener("focusout", dropNavBlur);
-  };
-
-  function checkSides(ul, menubar) {
-    if (getComputedStyle(ul).direction !== 'rtl') {
-      ul.classList.remove("n-right-overflow");
-      ul.style.removeProperty("--n-right-overflow");
-      //		var rect = ul.getBoundingClientRect(); // Firefox doesn't preserve this var
-      if (ul.getBoundingClientRect().left > document.body.offsetWidth - (ul.getBoundingClientRect().left + ul.getBoundingClientRect().width)) {
-        if (ul.getBoundingClientRect().right > window.innerWidth) {
-          ul.style.setProperty("--n-right-overflow", window.innerWidth - ul.getBoundingClientRect().right + "px");
-          ul.classList.add("n-right-overflow");
-        }
-        ul.classList.add("n-left-side");
-      } else {
-        ul.classList.remove("n-left-side");
-      }
+    if (options.blur) {
+      wrapper.classList.add('n-modal--blur');
     }
+    if (options.shadow) {
+      wrapper.classList.add('n-modal--shadow');
+    }
+    if (options.rounded) {
+      wrapper.classList.add('n-modal--rounded');
+    }
+    if (options.full) {
+      wrapper.classList.add('n-modal--full');
+    }
+    wrapper.dataset.anim = animation;
+    wrapper.classList.add("n-modal");
+    wrapper.onclick = (e) => {
+      let el = e.target.closest('.n-modal');
+      let button = e.target.closest('.n-modal__close');
+      if (button || (e.target.matches('.n-modal') && (e.offsetX < 0 || e.offsetY < 0 || (e.offsetX - 2) > el.getBoundingClientRect().width || (e.offsetY - 2) > el.getBoundingClientRect().height))) {
+        closeModal(el);
+      }
+    };
+    wrapper.addEventListener("cancel", e => {
+      e.preventDefault();
+      closeModal(e.target.closest('.n-modal'));
+    });
+    if (existingDetachedElement) {
+      wrapper.existingDetachedElement = true;
+    }
+    wrapper.showModal();
+    // nuiDisableBodyScroll(true, wrapper); // Turn on and block page scroll
+    // if (document.querySelectorAll(".n-modal").length === 1) {
+    //   // Sole (first) modal
+    //   wrapper.previousScrollX = window.scrollX;
+    //   wrapper.previousScrollY = window.scrollY;
+    // }
+    // document.querySelector("html").classList.add("no-scroll");
+    wrapper.animate(typeof animation === "string" ? JSON.parse(animation) : [{ transform: "translate3d(0,-100vh,0)" }, { transform: "translate3d(0,0,0)" }], {
+      duration: animationDuration(),
+      easing: "ease-in-out",
+    }).onfinish = () => {
+      wrapper.addEventListener('close', removeModal);
+      disableScrolling();
+    };
+    return wrapper;
   }
 
-  function initNav(el) {
-    // Delete all trigger inputs, add tabindex=0 to each li
-    el.querySelectorAll("input").forEach((el) => {
-      el.outerHTML = "";
-    });
-    el.querySelectorAll("li > a").forEach((el) => {
-      el.setAttribute("tabindex", 0);
-    });
-    if (!el.closest(".n-nav.n-nav--drop")) {
-      // The rest is for drop nav only
-      return;
-    }
-    if (!closeDropNavClickedOutsideEnabled) {
-      window.addEventListener("touchend", closeDropNavClickedOutside);
-      window.addEventListener("mouseup", closeDropNavClickedOutside);
-      closeDropNavClickedOutsideEnabled = true;
-    }
-    el.addEventListener("keyup", (e) => {
-      // Check for sibling or children to expand on control keys Left/Right/etc
-      if (e.key === "Escape") {
-        e.target.closest(".n-nav").querySelectorAll("li").forEach((el) => {
-          el.removeAttribute("aria-expanded");
-        });
-        document.activeElement.blur();
-      }
-    });
-    el.querySelectorAll("li").forEach((el) => {
-      let ul = el.querySelector("ul");
-      if (ul) {
-        el.setAttribute("aria-haspopup", true);
-        if (el.children[0].nodeName === "UL") {
-          el.insertBefore(el.children[1], el.children[0]); // Swap 'a' with 'ul'
-        }
-      }
-    });
-    el.addEventListener("mousedown", clickEvent);
-    el.addEventListener("focusin", dropNavFocus);
-    el.addEventListener("focusout", dropNavBlur);
-    window.requestAnimationFrame(() => {
-      // Give the browser time to update
-      el.querySelectorAll("ul").forEach((ul) => {
-        checkSides(ul);
-      });
-    });
+  function parseHTML(str) {
+    var tmp = document.implementation.createHTMLDocument("Parsed");
+    tmp.body.innerHTML = str;
+    // To do: destroy the HTMLDocument before returning
+    return tmp.body;
   }
-  window.addEventListener("resize", function(e) {
-    document.querySelectorAll(".n-nav.n-nav--drop ul").forEach((menubar) => {
-      menubar.querySelectorAll("ul").forEach((ul) => {
-        checkSides(ul);
+
+  function modalWindowLink(e) {
+    // Modal window of external file content
+    var el = e.target;
+    let trigger = el.closest(".n-modal-link");
+    var link = trigger.dataset.href || trigger.href; // data-href for <button>, href for <a>
+    var animation = trigger.dataset.anim;
+    const openTheModal = content => transferClass(trigger, openModal({ content: content, animation: animation, trigger: trigger }), ["n-modal--full", "n-modal--rounded", "n-modal--shadow", "n-modal--blur"]);
+    if (trigger.dataset.for) {
+      openTheModal(document.getElementById(trigger.dataset.for));
+    } else {
+      fetch(link.split("#")[0]).then(response => response.text()).then(response => {
+        var parsed = parseHTML(response);
+        var container = !!link.split("#")[1] ? "#" + link.split("#")[1].split('?')[0] : 0;
+        if (container && parsed.querySelector(container)) {
+          parsed = parsed.querySelector(container).innerHTML;
+        } else {
+          parsed = parsed.innerHTML;
+        }
+        openTheModal(parsed);
+      }).catch(error => {
+        openTheModal(error);
       });
-    });
-  });
-  /* Nav – end */
-  let init = (host) => {
-    host.querySelectorAll(".n-nav:not([data-ready]) > ul:not([role])").forEach((el) => {
-      initNav(el);
-      el.closest(".n-nav").dataset.ready = true;
+    }
+    return false;
+  }
+  let init = (host = document) => {
+    // Modal window: open a link's target inside it
+    host.querySelectorAll(".n-modal-link:not([data-ready])").forEach((el) => {
+      if (el.href !== location.href.split("#")[0] + "#") {
+        // Is it an empty anchor?
+        el.onclick = modalWindowLink;
+      }
+      if (el.href && !el.getAttribute("rel")) {
+        el.setAttribute("rel", "prefetch");
+      }
+      el.dataset.ready = true;
     });
   };
-  nui.registerComponent("nav", init);
+  let hash_modal = document.querySelector(`.n-modal${location.hash}.n-modal--uri`);
+  if (location.hash && hash_modal) {
+    openModal(hash_modal);
+  }
+  // API
+  let modal = openModal;
+  modal.close = closeModal;
+  modal.init = init;
+  if (typeof nui !== 'undefined' && typeof nui.registerComponent === "function") {
+    nui.registerComponent("n-modal", init, { 'name': 'modal', 'code': modal });
+  } else {
+    init();
+    window.nui = {};
+    window.nui.modal = modal;
+  } // Is it a part of niui, or standalone?
 })();
-// Component Nav – end
-//# sourceMappingURL=nav.js.map
-
-// Component Notification bar – start
-(function() {
-	function notifyClose(el) {
-		if (!!el) {
-			el.parentNode.removeChild(el);
-		}
-	}
-
-	function notifyCloseEvent() {
-		if (document.querySelector(".n-notify")) {
-			document.querySelector(".n-notify").onclick = (e) => {
-				notifyClose(e.target);
-			};
-		}
-	}
-
-	function notify(content, option) {
-		document.body.insertAdjacentHTML("afterbegin", `<button class="n-notify${option && option.indexOf("fixed") !== -1 ? " n-notify--fixed" : ""}">${content}</button>`);
-		document.querySelector(".n-notify").focus();
-		notifyCloseEvent();
-		if (option && option.indexOf("timeout") !== -1) {
-			setTimeout(() => {
-				notifyClose(document.querySelector(".n-notify"));
-			}, 2000);
-		}
-	}
-	let init = (host) => {
-		/* Tooltip */
-		host.querySelectorAll(".n-notify:not([data-ready])").forEach((el, i) => {
-			notifyCloseEvent();
-			el.dataset.ready = true;
-		});
-	};
-	nui.registerComponent("notify", init, {
-		'name': 'notify',
-		'code': notify
-	});
-})();
-// Component Notification bar – end
-//# sourceMappingURL=notify.js.map
+/* Modal – end */
+//# sourceMappingURL=n-modal@npm.js.map
 
 (function() {
 	const isChrome = !!navigator.userAgent.match("Chrome");
@@ -2565,6 +2279,299 @@ function e(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=new Array(t);n
 })();
 //# sourceMappingURL=n-select@npm.js.map
 
+// Component Nav – start
+(function() {
+  /* Nav – start */
+  function closeDropNavClickedOutside(e) {
+    // Close the nav when clicking outside
+    if (!e.target.closest(".n-nav li")) {
+      document.querySelectorAll(".n-nav li").forEach((el) => {
+        el.removeAttribute("aria-expanded");
+      });
+      if (document.querySelector(".n-nav :focus")) {
+        document.querySelector(".n-nav :focus").blur();
+      }
+    }
+  }
+
+  function isDesktop(nav) {
+    // Checks the UL sub nav element
+    return !!getComputedStyle(nav).getPropertyValue("--desktop");
+  }
+  let navAnimating = false;
+
+  function dropNavBlur(e) {
+    var this_nav = e.target.closest(".n-nav");
+    if (navAnimating || !e.relatedTarget) {
+      return;
+    }
+    e.stopPropagation();
+    let el = e.target;
+    let item = el.tagName === "LI" ? el.querySelector("ul") : el.parentElement.querySelector("ul");
+    if (!this_nav.contains(e.relatedTarget) || (isDesktop(this_nav) && !!e.relatedTarget && !closestElement(e.relatedTarget, this_nav))) {
+      // if e.relatedTarget is not a child of this_nav, then the next focused item is elsewhere
+      this_nav.querySelectorAll("li").forEach((el) => {
+        el.removeAttribute("aria-expanded");
+      });
+      return;
+    }
+    if (item) {
+      if (item.parentNode.parentNode.querySelector("ul [aria-expanded]")) {
+        // To do: Unless it's the first/last item and user has back/forward tabbed away from it?
+        return;
+      }
+      item.parentElement.removeAttribute("aria-expanded");
+    }
+    // Close neighboring parent nav's sub navs.
+    el = e.target;
+    var target_parent = el.closest("[aria-haspopup]");
+    if (target_parent) {
+      // Skip if it's a top-level-only item
+      target_parent.querySelectorAll("li[aria-expanded]").forEach((el) => {
+        // Disable active grandchildren
+        el.removeAttribute("aria-expanded");
+      });
+    }
+    el = e.target.parentNode;
+    if (!el.nextElementSibling && // last item
+      el.parentNode.parentNode.nodeName === "LI" && // of third-level nav
+      !el.parentNode.parentNode.nextElementSibling) {
+      el.parentNode.parentNode.removeAttribute("aria-expanded");
+    }
+  }
+
+  function dropNavFocus(e) {
+    // Close focused third level child when focus moves to another top-level item
+    e.stopPropagation();
+    var el = e.target.closest(".n-nav > ul > li");
+    // To do: on LI focus, make it aria-expanded and focus its a
+    if (navAnimating) {
+      return;
+    }
+    [
+      [].slice.call(el.parentElement.children),
+      [].slice.call(e.target.parentElement.parentElement.children),
+      [].slice.call(e.target.parentElement.parentElement.parentElement.parentElement.children),
+    ].forEach((el) => {
+      el.forEach((el) => {
+        el.removeAttribute("aria-expanded");
+      });
+    });
+    el.setAttribute("aria-expanded", true);
+    // 		openItem(el.querySelector('ul'));
+    if (el.parentNode.parentNode.getAttribute("aria-haspopup")) {
+      el.parentNode.parentNode.setAttribute("aria-expanded", true);
+    }
+    el.querySelectorAll("li[aria-expanded]").forEach((el) => {
+      // Hide grandchildren
+      el.removeAttribute("aria-expanded");
+    });
+    // Make current focused item's ancestors visible
+    el = e.target;
+    el.parentNode.setAttribute("aria-expanded", true);
+    var grand_parent = el.parentElement.parentElement.parentElement;
+    if (grand_parent.tagName === "LI") {
+      grand_parent.setAttribute("aria-expanded", true);
+    }
+  }
+  var closeDropNavClickedOutsideEnabled = false;
+  
+  const getDuration = () => window.matchMedia("(prefers-reduced-motion: no-preference)").matches ? 200 : 0;
+  
+  let closeItem = (item) => {
+    navAnimating = true;
+    item.style.overflow = "hidden";
+    item.parentElement.setAttribute("aria-expanded", true);
+    item.animate([{ height: `${item.scrollHeight}px` }, { height: 0 }], getDuration()).onfinish = () => {
+      item.removeAttribute("style");
+      item.parentElement.removeAttribute("aria-expanded");
+      navAnimating = false;
+      item.querySelectorAll("[aria-expanded]").forEach((el) => {
+        el.removeAttribute("aria-expanded");
+      });
+    };
+  };
+  let openItem = (item) => {
+    navAnimating = true;
+    item.style.overflow = "hidden";
+    item.parentElement.setAttribute("aria-expanded", true);
+    item.animate([{ height: 0 }, { height: `${item.scrollHeight}px` }], getDuration()).onfinish = () => {
+      item.removeAttribute("style");
+      navAnimating = false;
+    };
+  };
+  let clickEvent = (e) => {
+    e.stopPropagation();
+    // To do: also ancestors, also close when open
+    let el = e.target;
+    var this_nav = el.closest(".n-nav");
+    this_nav.removeEventListener("focusout", dropNavBlur);
+    if (this_nav.contains(document.activeElement)) {
+      document.activeElement.blur();
+    }
+    let item = el.tagName === "LI" ? el.querySelector("ul") : el.parentElement.querySelector("ul");
+    if (isDesktop(this_nav)) {
+      if (el.getAttribute("aria-expanded")) {
+        if (el.querySelector("a:focus")) ; else {
+          if (isDesktop(this_nav)) {
+            el.removeAttribute("aria-expanded");
+          } else {
+            closeItem(item);
+          }
+        }
+      } else {
+        [].slice.call(el.parentElement.children).forEach((item) => {
+          item.removeAttribute("aria-expanded");
+          let old_item_open_child = item.querySelector("[aria-expanded]");
+          if (old_item_open_child) {
+            old_item_open_child.removeAttribute("aria-expanded");
+          }
+        });
+        el.setAttribute("aria-expanded", true);
+        if (!isDesktop(this_nav)) {
+          openItem(item);
+        }
+      }
+    } else {
+      if (item.parentNode.hasAttribute("aria-expanded")) {
+        closeItem(item);
+      } else {
+        // If new item is top level, close another top level item, if any is open
+        if (item.parentElement.parentElement.matches("ul")) {
+          // It's top level, To do: also on secondary level, close open sibling
+          let old_item = item.parentElement.closest("ul").querySelector('[aria-expanded="true"] > ul');
+          if (old_item) {
+            closeItem(old_item);
+          }
+        }
+        openItem(item);
+      }
+    }
+    this_nav.addEventListener("focusout", dropNavBlur);
+  };
+
+  function checkSides(ul, menubar) {
+    if (getComputedStyle(ul).direction !== 'rtl') {
+      ul.classList.remove("n-right-overflow");
+      ul.style.removeProperty("--n-right-overflow");
+      //		var rect = ul.getBoundingClientRect(); // Firefox doesn't preserve this var
+      if (ul.getBoundingClientRect().left > document.body.offsetWidth - (ul.getBoundingClientRect().left + ul.getBoundingClientRect().width)) {
+        if (ul.getBoundingClientRect().right > window.innerWidth) {
+          ul.style.setProperty("--n-right-overflow", window.innerWidth - ul.getBoundingClientRect().right + "px");
+          ul.classList.add("n-right-overflow");
+        }
+        ul.classList.add("n-left-side");
+      } else {
+        ul.classList.remove("n-left-side");
+      }
+    }
+  }
+
+  function initNav(el) {
+    // Delete all trigger inputs, add tabindex=0 to each li
+    el.querySelectorAll("input").forEach((el) => {
+      el.outerHTML = "";
+    });
+    el.querySelectorAll("li > a").forEach((el) => {
+      el.setAttribute("tabindex", 0);
+    });
+    if (!el.closest(".n-nav.n-nav--drop")) {
+      // The rest is for drop nav only
+      return;
+    }
+    if (!closeDropNavClickedOutsideEnabled) {
+      window.addEventListener("touchend", closeDropNavClickedOutside);
+      window.addEventListener("mouseup", closeDropNavClickedOutside);
+      closeDropNavClickedOutsideEnabled = true;
+    }
+    el.addEventListener("keyup", (e) => {
+      // Check for sibling or children to expand on control keys Left/Right/etc
+      if (e.key === "Escape") {
+        e.target.closest(".n-nav").querySelectorAll("li").forEach((el) => {
+          el.removeAttribute("aria-expanded");
+        });
+        document.activeElement.blur();
+      }
+    });
+    el.querySelectorAll("li").forEach((el) => {
+      let ul = el.querySelector("ul");
+      if (ul) {
+        el.setAttribute("aria-haspopup", true);
+        if (el.children[0].nodeName === "UL") {
+          el.insertBefore(el.children[1], el.children[0]); // Swap 'a' with 'ul'
+        }
+      }
+    });
+    el.addEventListener("mousedown", clickEvent);
+    el.addEventListener("focusin", dropNavFocus);
+    el.addEventListener("focusout", dropNavBlur);
+    window.requestAnimationFrame(() => {
+      // Give the browser time to update
+      el.querySelectorAll("ul").forEach((ul) => {
+        checkSides(ul);
+      });
+    });
+  }
+  window.addEventListener("resize", function(e) {
+    document.querySelectorAll(".n-nav.n-nav--drop ul").forEach((menubar) => {
+      menubar.querySelectorAll("ul").forEach((ul) => {
+        checkSides(ul);
+      });
+    });
+  });
+  /* Nav – end */
+  let init = (host) => {
+    host.querySelectorAll(".n-nav:not([data-ready]) > ul:not([role])").forEach((el) => {
+      initNav(el);
+      el.closest(".n-nav").dataset.ready = true;
+    });
+  };
+  nui.registerComponent("nav", init);
+})();
+// Component Nav – end
+//# sourceMappingURL=nav.js.map
+
+// Component Notification bar – start
+(function() {
+	function notifyClose(el) {
+		if (!!el) {
+			el.parentNode.removeChild(el);
+		}
+	}
+
+	function notifyCloseEvent() {
+		if (document.querySelector(".n-notify")) {
+			document.querySelector(".n-notify").onclick = (e) => {
+				notifyClose(e.target);
+			};
+		}
+	}
+
+	function notify(content, option) {
+		document.body.insertAdjacentHTML("afterbegin", `<button class="n-notify${option && option.indexOf("fixed") !== -1 ? " n-notify--fixed" : ""}">${content}</button>`);
+		document.querySelector(".n-notify").focus();
+		notifyCloseEvent();
+		if (option && option.indexOf("timeout") !== -1) {
+			setTimeout(() => {
+				notifyClose(document.querySelector(".n-notify"));
+			}, 2000);
+		}
+	}
+	let init = (host) => {
+		/* Tooltip */
+		host.querySelectorAll(".n-notify:not([data-ready])").forEach((el, i) => {
+			notifyCloseEvent();
+			el.dataset.ready = true;
+		});
+	};
+	nui.registerComponent("notify", init, {
+		'name': 'notify',
+		'code': notify
+	});
+})();
+// Component Notification bar – end
+//# sourceMappingURL=notify.js.map
+
 // Component Tooltip – start
 (function() {
 	let setTipPosition = (tool, tip) => {
@@ -2709,6 +2716,26 @@ function e(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=new Array(t);n
 // Component Tooltip – end
 //# sourceMappingURL=n-tooltip@npm.js.map
 
+// Component Parallax – start
+(function() {
+	// Thanks Dave Rupert
+	let parallaxSpeed = 0.2;
+	let updateParallax = () => {
+		document.querySelectorAll(".n-parallax").forEach((el) => {
+			let parent = el.parentElement;
+			let scroll_offset = parent.getBoundingClientRect().y;
+			el.style.setProperty("--scrollparallax", scroll_offset * parallaxSpeed);
+		});
+	};
+	if (document.querySelector(".n-parallax")) {
+		window.addEventListener("scroll", updateParallax, true);
+	}
+	let init = (host) => {};
+	nui.registerComponent("parallax", init);
+})();
+// Component Parallax – end
+//# sourceMappingURL=parallax.js.map
+
 // Component Table – start
 (function () {
 	/* Sort parent table's rows by matching column number alternatively desc/asc on click */
@@ -2736,26 +2763,6 @@ function e(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=new Array(t);n
 })();
 // Component Table – end
 //# sourceMappingURL=table.js.map
-
-// Component Parallax – start
-(function() {
-	// Thanks Dave Rupert
-	let parallaxSpeed = 0.2;
-	let updateParallax = () => {
-		document.querySelectorAll(".n-parallax").forEach((el) => {
-			let parent = el.parentElement;
-			let scroll_offset = parent.getBoundingClientRect().y;
-			el.style.setProperty("--scrollparallax", scroll_offset * parallaxSpeed);
-		});
-	};
-	if (document.querySelector(".n-parallax")) {
-		window.addEventListener("scroll", updateParallax, true);
-	}
-	let init = (host) => {};
-	nui.registerComponent("parallax", init);
-})();
-// Component Parallax – end
-//# sourceMappingURL=parallax.js.map
 
 // Component Typography – start
 (function () {
